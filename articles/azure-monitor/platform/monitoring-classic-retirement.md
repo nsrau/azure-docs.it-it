@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1f29a12090ca37f25ea6f5f11e870df924b334f5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: d7c8c8e6931c3e677273fab17755031527aff978
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497130"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069365"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Funzionalità unificata di avviso e monitoraggio in Monitoraggio di Azure in sostituzione delle funzionalità classiche di avviso e monitoraggio
 
 Monitoraggio di Azure è ora diventato un servizio di monitoraggio unificato dell'intero stack che supporta metriche unificate e avvisi unificati per tutte le risorse. Per altre informazioni, vedere il [post di blog sul nuovo servizio Monitoraggio di Azure](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). Le nuove piattaforme di monitoraggio e avviso di Azure sono state create per essere più veloci, intelligenti ed estendibili, per tenere il passo con la continua crescita del cloud computing e in linea con la filosofia Microsoft di cloud intelligente. 
 
-Con il nuovo Azure di monitoraggio e avviso piattaforma posto, verrà ritirato il "classico" monitoraggio e avviso piattaforma - ospitata all'interno *consente di visualizzare gli avvisi classici* sezione degli avvisi di Azure, **verrà deprecata entro 2019 agosto in Azure pubblico cloud**. Il [cloud di Azure per enti pubblici](../../azure-government/documentation-government-welcome.md) non sarà interessato.
+Con il nuovo Azure di monitoraggio e avviso piattaforma posto, verrà ritirato il "classico" monitoraggio e avviso piattaforma - ospitata all'interno *consente di visualizzare gli avvisi classici* sezione degli avvisi di Azure, **verrà deprecata entro 2019 agosto in Azure pubblico cloud**. [Cloud di Azure per enti pubblici](../../azure-government/documentation-government-welcome.md) e [Azure Cina](https://docs.azure.cn/) non saranno interessate.
 
 > [!NOTE]
 > A causa di un ritardo nell'implementazione dello strumento di migrazione, è stata la data di ritiro per la migrazione di avvisi classici [esteso al 31 agosto 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) dalla data di originariamente annunciata del 30 giugno 2019.

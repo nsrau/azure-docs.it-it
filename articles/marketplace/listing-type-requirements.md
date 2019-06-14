@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
 ms.openlocfilehash: e45346ce8bd23ea8431faf8a123d57ecdee71606
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937884"
 ---
 # <a name="requirements-by-listing-type"></a>Requisiti in base al tipo di inserzione  
@@ -28,15 +28,15 @@ Nella tabella seguente vengono descritti i prerequisiti per la pubblicazione in 
 
 | Requisito | Dettagli | Obbligatori o consigliati |  
 |:--- |:--- |:--- |  
-| ***Azure Active Directory (Azure AD)*** | L'app deve consentire l'accesso Single Sign-On federato di Azure Active Directory (SSO federato di Azure AD) con il consenso abilitato.<ul> <li>Per altre informazioni sull'abilitazione dell'SSO federato di Azure AD, visitare pagina Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory all'indirizzo [docs.microsoft.com/azure/active-directory/ Attiva-directory--custom-App saas](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).</li> </ul> | Obbligatoria |   
+| ***Azure Active Directory (Azure AD)*** | L'app deve consentire l'accesso Single Sign-On federato di Azure Active Directory (SSO federato di Azure AD) con il consenso abilitato.<ul> <li>Per altre informazioni sull'abilitazione dell'SSO federato di Azure AD, visitare pagina Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory all'indirizzo [docs.microsoft.com/azure/active-directory/ Attiva-directory--custom-App saas](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).</li> </ul> | Obbligatorio |   
 | ***Integrazione con servizi Microsoft Cloud*** | L'app deve essere integrabile con altri servizi Microsoft Cloud come Microsoft Power BI, Cortana Intelligence o i servizi di Microsoft Azure.<ul> <li>Un esempio di un servizio cloud di Microsoft è Internet delle cose.</li> </ul> | Consigliato |  
-| ***Destinatari*** | L'applicazione deve essere destinata a utenti line-of-business e a titolari di aziende. | Obbligatoria | 
-| ***App SaaS (Software as a Service) per aziende*** | L'applicazione deve soddisfare i seguenti requisiti.<ul> <li>SaaS line-of-business</li> <li>Focalizzata sui processi aziendali</li> <li>Destinata a clienti aziendali</li> <li>Consentire agli utenti di usare le proprie credenziali di lavoro (nome utente e password) per accedere</li> </ul> | Obbligatoria |  
-| ***Periodo di valutazione gratuita ed esperienza di valutazione*** | L'app deve includere una delle seguenti opzioni affinché un cliente possa usare l'app gratuitamente per un periodo di tempo limitato.<ul> <li>Fornire un metodo `try` in modo che i clienti possano avviare una versione di valutazione dell'app in AppSource</li> <li>Fornire un'opzione `request trial` in AppSource, in modo che i clienti possano richiedere una versione di valutazione dell'app</li> </ul>La versione di valutazione gratuita fornita deve offrire al cliente un periodo di tempo preimpostato per provare l'app senza costi aggiuntivi. | Obbligatoria |  
-| ***Soluzione pronta all'uso e facilmente configurabile*** | L'app deve essere semplice e rapida da configurare e installare senza richiedere personalizzazioni. | Obbligatoria |  
-| ***Gestione dei clienti potenziali*** | Abilitare il sistema CRM per accettare i dati dei clienti potenziali prima di riceverli dalla vetrina.<ul> <li>Esempi di CRM sono Marketo, Microsoft Dynamics o Salesforce</li> </ul> | Obbligatoria |  
-| ***Informativa sulla privacy e condizioni per l'utilizzo*** | L'app deve fornire un collegamento alla pagina dell'informativa sulla privacy con un URL pubblico e le condizioni per l'utilizzo devono essere fornite in formato testo al momento della pubblicazione. | Obbligatoria |  
-| ***Supporto*** | L'app deve fornire un collegamento alla pagina dell'assistenza clienti con un URL pubblico. Se l'app è una versione di valutazione, è necessario fornire il supporto senza alcun costo aggiuntivo durante il periodo di valutazione. | Obbligatoria |  
+| ***Destinatari*** | L'applicazione deve essere destinata a utenti line-of-business e a titolari di aziende. | Obbligatorio | 
+| ***App SaaS (Software as a Service) per aziende*** | L'applicazione deve soddisfare i seguenti requisiti.<ul> <li>SaaS line-of-business</li> <li>Focalizzata sui processi aziendali</li> <li>Destinata a clienti aziendali</li> <li>Consentire agli utenti di usare le proprie credenziali di lavoro (nome utente e password) per accedere</li> </ul> | Obbligatorio |  
+| ***Periodo di valutazione gratuita ed esperienza di valutazione*** | L'app deve includere una delle seguenti opzioni affinché un cliente possa usare l'app gratuitamente per un periodo di tempo limitato.<ul> <li>Fornire un metodo `try` in modo che i clienti possano avviare una versione di valutazione dell'app in AppSource</li> <li>Fornire un'opzione `request trial` in AppSource, in modo che i clienti possano richiedere una versione di valutazione dell'app</li> </ul>La versione di valutazione gratuita fornita deve offrire al cliente un periodo di tempo preimpostato per provare l'app senza costi aggiuntivi. | Obbligatorio |  
+| ***Soluzione pronta all'uso e facilmente configurabile*** | L'app deve essere semplice e rapida da configurare e installare senza richiedere personalizzazioni. | Obbligatorio |  
+| ***Gestione dei clienti potenziali*** | Abilitare il sistema CRM per accettare i dati dei clienti potenziali prima di riceverli dalla vetrina.<ul> <li>Esempi di CRM sono Marketo, Microsoft Dynamics o Salesforce</li> </ul> | Obbligatorio |  
+| ***Informativa sulla privacy e condizioni per l'utilizzo*** | L'app deve fornire un collegamento alla pagina dell'informativa sulla privacy con un URL pubblico e le condizioni per l'utilizzo devono essere fornite in formato testo al momento della pubblicazione. | Obbligatorio |  
+| ***Supporto*** | L'app deve fornire un collegamento alla pagina dell'assistenza clienti con un URL pubblico. Se l'app è una versione di valutazione, è necessario fornire il supporto senza alcun costo aggiuntivo durante il periodo di valutazione. | Obbligatorio |  
 
 ## <a name="storefront-requirements-azure-marketplace"></a>Requisiti della vetrina: Azure Marketplace  
 Di seguito sono elencati i prerequisiti per i tipi di inserzione in Azure Marketplace.  

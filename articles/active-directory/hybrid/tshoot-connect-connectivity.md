@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64572790"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Risolvere i problemi di connettività di Azure Active Directory
@@ -43,7 +43,7 @@ Per il server proxy devono essere aperti anche gli URL necessari. L'elenco uffic
 
 Nella tabella seguente sono riportate le impostazioni minime relative agli URL assolutamente indispensabili per potersi connettere ad Azure AD. L'elenco non include le funzionalità facoltative, ad esempio il writeback delle password o Azure AD Connect Health. Le impostazioni documentate di seguito sono finalizzate alla risoluzione dei problemi relativi alla configurazione iniziale.
 
-| URL | Porta | DESCRIZIONE |
+| URL | Port | Descrizione |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Usate per scaricare gli elenchi di CRL. |
 | \*.verisign.com |HTTP/80 |Usate per scaricare gli elenchi di CRL. |
@@ -93,7 +93,7 @@ Se viene visualizzato il messaggio **Impossibile effettuare la connessione al se
 Se il proxy non è configurato correttamente, verrà visualizzato un errore: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
 
-| Tipi di errore | Testo dell'errore | Comment |
+| Tipi di errore | Testo dell'errore | Commento |
 | --- | --- | --- |
 | 403 |Accesso negato |Il proxy non è stato aperto per l'URL richiesto. Rivedere la configurazione del proxy e assicurarsi che gli [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) siano stati aperti. |
 | 407 |Autenticazione proxy obbligatoria |Il server proxy ha richiesto l'accesso, che non è stato eseguito. Se il server proxy richiede l'autenticazione, assicurarsi che tale impostazione sia configurata in machine.config. Verificare anche di usare account di dominio sia per l'utente che esegue la procedura guidata sia per l'account del servizio. |
@@ -113,7 +113,7 @@ Ecco il dump del log di un proxy effettivo e la pagina dell'Installazione guidat
 
 **Connessione ad Azure AD**
 
-| Tempo | URL |
+| Time | URL |
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -124,7 +124,7 @@ Ecco il dump del log di un proxy effettivo e la pagina dell'Installazione guidat
 
 **Configura**
 
-| Tempo | URL |
+| Time | URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
@@ -140,7 +140,7 @@ Ecco il dump del log di un proxy effettivo e la pagina dell'Installazione guidat
 
 **Sincronizzazione iniziale**
 
-| Tempo | URL |
+| Time | URL |
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |

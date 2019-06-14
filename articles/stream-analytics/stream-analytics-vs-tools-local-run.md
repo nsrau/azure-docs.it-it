@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.openlocfilehash: 1b86085a76f5ff87147db9dbd0a584784f5e4a2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308493"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64686496"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Eseguire test locali delle query di Analisi di flusso con Visual Studio
 
@@ -75,6 +75,6 @@ Nella finestra **Output** viene visualizzato lo stato dell'operazione.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Usare Visual Studio per visualizzare i processi di Analisi di flusso di Azure](stream-analytics-vs-tools.md)
-* [Guida introduttiva: Creare un processo di Stream Analitica con Visual Studio](stream-analytics-quick-create-vs.md)
+* [Avvio rapido: Creare un processo di Stream Analitica con Visual Studio](stream-analytics-quick-create-vs.md)
 * [Esercitazione: Distribuire un processo Azure Stream Analitica con integrazione continua/distribuzione continua con Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Eseguire integrazione e sviluppo in modo continuo con gli strumenti di Analisi di flusso](stream-analytics-tools-for-visual-studio-cicd.md)

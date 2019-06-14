@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
 ms.openlocfilehash: 89f9ef37ed7c53817854442b3a32b32b7d11ae27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706012"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
@@ -168,7 +168,7 @@ I valori di data e ora sono nel formato UTC.
 
 Poiché è possibile usare lo stesso account di archiviazione per raccogliere i log per più risorse, è utile per accedere o scaricare solo i blob che è necessario l'ID risorsa completo nel nome del blob. Prima di procedere, si vedrà però come scaricare tutti i BLOB.
 
-Creare una cartella per scaricare i BLOB. Ad esempio: 
+Creare una cartella per scaricare i BLOB. Ad esempio:
 
 ```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -188,7 +188,7 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 
 Quando si esegue questo secondo comando, il delimitatore **/** nei nomi dei BLOB crea una struttura di cartelle completa nella cartella di destinazione. Si userà questa struttura per scaricare e archiviare i BLOB come file.
 
-Per scaricare BLOB in modo selettivo, usare caratteri jolly. Ad esempio: 
+Per scaricare BLOB in modo selettivo, usare caratteri jolly. Ad esempio:
 
 * Se sono disponibili più insiemi di credenziali delle chiavi e si vogliono scaricare i log per un solo insieme di credenziali delle chiavi denominato CONTOSOKEYVAULT3, usare:
 
@@ -248,7 +248,7 @@ Restituisce una voce di log simile alla seguente:
 
 La tabella seguente elenca i nomi di campo e descrizioni:
 
-| Nome campo | DESCRIZIONE |
+| Nome campo | Descrizione |
 | --- | --- |
 | **time** |Data e ora in formato UTC. |
 | **resourceId** |ID della risorsa di Azure Resource Manager. Per i log dell'insieme di credenziali delle chiavi questo è sempre l'ID della risorsa insieme di credenziali delle chiavi. |
@@ -264,7 +264,7 @@ La tabella seguente elenca i nomi di campo e descrizioni:
 | **identity** |Identità del token presentato nella richiesta di API REST. Si tratta in genere un "utente", una "entità servizio" o la combinazione "utente + appId," come nel caso di una richiesta risultante da un cmdlet di PowerShell di Azure. |
 | **properties** |Informazioni che variano a seconda dell'operazione (**operationName**). Nella maggior parte dei casi, questo campo contiene informazioni sul client (la stringa agente utente passata dal client), l'URI della richiesta API REST esatte e il codice di stato HTTP. Inoltre, quando un oggetto viene restituito come risultato di una richiesta (ad esempio, **KeyCreate** oppure **VaultGet**), include anche la chiave URI (come "id"), l'insieme di credenziali, URI o URI del segreto. |
 
-Il **operationName** i valori dei campi presenti *Oggettoverbo* formato. Ad esempio: 
+Il **operationName** i valori dei campi presenti *Oggettoverbo* formato. Ad esempio:
 
 * Tutte le operazioni di insieme di credenziali delle chiavi hanno il `Vault<action>` formato, ad esempio `VaultGet` e `VaultCreate`.
 * Tutte le operazioni sulle chiavi hanno il `Key<action>` formato, ad esempio `KeySign` e `KeyList`.

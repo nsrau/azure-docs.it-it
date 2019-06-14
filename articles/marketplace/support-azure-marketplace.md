@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: 496fef7cfd93004e77a710942cffabbf23d6b29a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937690"
 ---
 # <a name="support-for-the-marketplace"></a>Supporto per Marketplace  
@@ -26,13 +26,13 @@ Aprire un ticket con Microsoft [supporto di server di pubblicazione di marketpla
 
 ## <a name="cloud-partner-portal"></a>Portale per Cloud Partner  
 
-| Canale di supporto | DESCRIZIONE | Disponibilità |  
+| Canale di supporto | Descrizione | Disponibilità |  
 |:--- |:--- |:--- |  
 | Per assistenza, visitare la pagina Create an incident (Creare un evento imprevisto) disponibile nel [supporto per il Marketplace](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Supporto per il Portale per Cloud Partner. | I servizi di supporto vengono erogati tra le 6.00 e le 18.00 PST. |  
 
 ## <a name="technical"></a>Tecnici  
 
-| Canale di supporto | DESCRIZIONE |  
+| Canale di supporto | Descrizione |  
 |:--- |:--- |  
 | Forum MSDN: Marketplace disponibile all'indirizzo [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Forum di Microsoft Developer Network. |  
 | Stack Overflow: Azure disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Ambiente di Stack Overflow per ottenere soluzioni e porre domande su qualsiasi argomento relativo ad Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: macchine virtuali in Azure disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: contenitori in Azure disponibile all'indirizzo [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
@@ -40,7 +40,7 @@ Aprire un ticket con Microsoft [supporto di server di pubblicazione di marketpla
 
 ## <a name="marketing-resources"></a>Risorse di marketing  
 
-| Canale di supporto | DESCRIZIONE | Disponibilità |  
+| Canale di supporto | Descrizione | Disponibilità |  
 |:--- |:--- |:--- |  
 | E-mail: [cosell@microsoft.com](mailto:cosell@microsoft.com) | Supporto per i processi di onboarding e per le domande sul programma di co-selling. | Basato sul fuso orario del Pacifico. |  
 | E-mail: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Supporto per informazioni sui vantaggi e sul programma Go-To-Market. | Basato sull'orario di ufficio nel fuso orario del Pacifico. |  

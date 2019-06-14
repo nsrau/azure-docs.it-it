@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 593f07b27fec16c3df90a073479effb130bc5721
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545286"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocollo SAML per Single Sign-On
@@ -156,7 +156,7 @@ L'elemento `Response` include il risultato della richiesta di autorizzazione. Az
 * `Destination`: quando l'accesso viene completato correttamente, questo attributo viene impostato sul `RedirectUri` del provider di servizi (servizio cloud).
 * `InResponseTo`: viene impostato sull'attributo `ID` dell'elemento `AuthnRequest` che ha avviato la risposta.
 
-### <a name="issuer"></a>Rilasciato da
+### <a name="issuer"></a>Issuer
 
 Azure AD imposta il `Issuer` elemento `https://login.microsoftonline.com/<TenantIDGUID>/` dove \<TenantIDGUID > è l'ID tenant del tenant di Azure AD.
 
@@ -191,7 +191,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 Oltre a `ID`, `IssueInstant` e `Version`, Azure AD imposta gli elementi seguenti nell'elemento `Assertion` della risposta.
 
-#### <a name="issuer"></a>Rilasciato da
+#### <a name="issuer"></a>Issuer
 
 È impostato su `https://sts.windows.net/<TenantIDGUID>/`in cui \<TenantIDGUID > è l'ID Tenant del tenant di Azure AD.
 
@@ -243,7 +243,7 @@ Gli attributi `NotBefore` e `NotOnOrAfter` specificano l'intervallo durante il q
 * Il valore dell'attributo `NotBefore` è uguale o leggermente successivo (meno di un secondo) al valore dell'attributo `IssueInstant` dell'elemento `Assertion`. Azure AD non tiene conto dell'eventuale differenza di orario con il servizio cloud (provider di servizi) e non aggiunge alcun buffer a questo orario.
 * Il valore dell'attributo `NotOnOrAfter` è successivo di 70 minuti al valore dell'attributo `NotBefore`.
 
-#### <a name="audience"></a>Destinatari
+#### <a name="audience"></a>Audience
 
 Contiene un URI che identifica un gruppo di destinatari. Azure AD imposta il valore di questo elemento sul valore dell'elemento `Issuer` della `AuthnRequest` che ha avviato l'accesso. Per valutare il valore di `Audience`, usare il valore di `App ID URI` specificato durante la registrazione dell'applicazione.
 

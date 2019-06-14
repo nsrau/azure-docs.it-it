@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: 22490599b6f7a8d87c546cd84ca2fc6fbb2bfa3c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806162"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aggiornare un'offerta esistente nel Marketplace commerciale
@@ -42,7 +42,7 @@ Quando si è pronti per pubblicare l'offerta aggiornata, selezionare **pubblica*
 Per apportare modifiche a un piano all'interno di un'offerta esistente a cui è già stata pubblicata:
 
 - Con il **panoramica dell'offerta** pagina aperta per l'offerta esistente, scegliere il piano che si desidera modificare. Se il piano non è accessibile dal **Panoramica del piano** elenco, selezionare **vedere tutti i piani**.
-- È possibile scegliere di selezionare il piano **Name**, **modello di determinazione prezzi**, o **disponibilità**. *Attualmente i piani sono disponibili solo in lingua inglese (Stati Uniti)*.
+- È possibile scegliere di selezionare il piano **Name**, **modello di determinazione prezzi**, o **disponibilità**. *Attualmente i piani sono disponibili solo in lingua inglese (Stati Uniti)* .
 - Selezionare **salvare** dopo aver apportato le modifiche necessarie per il nome del piano, descrizione, prezzi o disponibilità gruppo di destinatari. 
 - Selezionare **pubblica** quando è pronti per pubblicare gli aggiornamenti. Il **[revisione e pubblicare](#review-and-publish-an-updated-offer)** pagina verrà aperto e fornire uno stato di completamento per gli aggiornamenti. 
 

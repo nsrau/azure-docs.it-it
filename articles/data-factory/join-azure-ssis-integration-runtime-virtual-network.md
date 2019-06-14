@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152620"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
@@ -83,7 +83,7 @@ L'utente che crea il runtime di integrazione Azure-SSIS deve avere le autorizzaz
 
 - Se si sta aggiungendo il runtime di integrazione SSIS a una rete virtuale di Azure Resource Manager, sono disponibili due opzioni:
 
-  - Usare il ruolo predefinito *Collaboratore di rete*. Questo ruolo richiede l'autorizzazione _Microsoft.Network/\*_, la quale ha un ambito molto maggiore del necessario.
+  - Usare il ruolo predefinito *Collaboratore di rete*. Questo ruolo richiede l'autorizzazione _Microsoft.Network/\*_ , la quale ha un ambito molto maggiore del necessario.
 
   - Creare un ruolo personalizzato che include solo l'autorizzazione _Microsoft.Network/virtualNetworks/\*/join/action_ necessaria. 
 
@@ -185,7 +185,7 @@ Prima di aggiungere un runtime di integrazione Azure-SSIS alla rete virtuale, è
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 
-1. Selezionare **Altri servizi**. Filtrare e selezionare **Reti virtuali (classiche)**. 
+1. Selezionare **Altri servizi**. Filtrare e selezionare **Reti virtuali (classiche)** . 
 
 1. Filtrare e selezionare la propria rete virtuale dall'elenco. 
 

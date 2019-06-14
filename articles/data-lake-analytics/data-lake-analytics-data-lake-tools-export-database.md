@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60628583"
 ---
 # <a name="export-a-u-sql-database"></a>Esportare un database U-SQL
@@ -51,7 +51,7 @@ In questo passaggio, è possibile verificare gli oggetti selezionati nella casel
 
 È anche possibile configurare altre impostazioni per il database di destinazione dell'esportazione. Le descrizioni di configurazione sono elencate nella tabella seguente:
 
-|Configurazione|DESCRIZIONE|
+|Configurazione|Descrizione|
 |-------------|-----------|
 |Nome destinazione|Questo nome indica dove si vuole salvare le risorse di database esportate. Alcuni esempi sono gli assembly, i file aggiuntivi e i dati di esempio. Verrà creata una cartella con questo nome nella cartella radice dei dati locale.|
 |Directory del progetto|Questo percorso definisce dove si vuole salvare lo script U-SQL esportato. Tutte le definizioni di oggetto di database vengono salvate in questa posizione.|

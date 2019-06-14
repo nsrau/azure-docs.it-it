@@ -2,7 +2,7 @@
 title: Richiedono criteri di protezione delle app per accedere all'app cloud con accesso condizionale in Azure Active Directory | Microsoft Docs
 description: Informazioni su come richiedere i criteri di protezione delle app per accedere all'app cloud con accesso condizionale in Azure Active Directory.
 services: active-directory
-keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
+keywords: Accesso condizionale alle App, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, i criteri di accesso condizionale
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 4/4/2019
 ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2250449c0ef342332945b80cb10cb9a02885b259
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51d209eceec2c7172cf34dc689079e669760149e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355988"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112733"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Richiedono criteri di protezione delle app per accedere all'app cloud con l'accesso condizionale (anteprima)
 
@@ -33,11 +33,11 @@ Questo articolo illustra come configurare i criteri di accesso condizionale che 
 
 ## <a name="overview"></a>Panoramica
 
-Con l'[accesso condizionale di Azure AD](overview.md) è possibile regolare la modalità di accesso alle risorse da parte degli utenti autorizzati. Si può, ad esempio, fare in modo che solo i dispositivi attendibili accedano alle app cloud.
+Con [accesso condizionale di Azure AD](overview.md), è possibile ottimizzare la modalità di utenti autorizzati possono accedere alle risorse. Si può, ad esempio, fare in modo che solo i dispositivi attendibili accedano alle app cloud.
 
 È possibile usare i [criteri di protezione app di Intune](https://docs.microsoft.com/intune/app-protection-policy) per proteggere i dati aziendali. I criteri di protezione app di Intune non richiedono una soluzione di mobile device management (MDM). È possibile proteggere i dati aziendali con o senza registrazione dei dispositivi in una soluzione di gestione di dispositivi.
 
-Accesso condizionale di Azure Active Directory limita l'accesso alle App cloud alle applicazioni client che Intune ha segnalato ad Azure AD come la ricezione di un criterio di protezione delle app. Ad esempio, è possibile limitare l'accesso a Exchange Online per l'app Outlook con criteri di protezione app di Intune.
+Active Directory accesso condizionale di Azure limita l'accesso alle App cloud alle applicazioni client che Intune ha segnalato ad Azure AD come la ricezione di un criterio di protezione delle app. Ad esempio, è possibile limitare l'accesso a Exchange Online per l'app Outlook con criteri di protezione app di Intune.
 
 Nella terminologia di accesso condizionale, queste App client sono noti come criteri protetto con un *criteri di protezione delle app*.  
 
@@ -47,7 +47,7 @@ Per un elenco di App protette da criteri client, vedere [requisito dei criteri d
 
 È possibile combinare criteri di accesso condizionale basato su app-protezione ad altri criteri, ad esempio [criteri di accesso condizionale basato su dispositivo](require-managed-devices.md). In questo modo, è possibile fornire flessibilità nella protezione dei dati per i dispositivi personali e aziendali.
 
-## <a name="benefits-of-app-protection-based-conditional-access-requirement"></a>Vantaggi del requisito di accesso condizionale basato su protezione delle app
+## <a name="benefits-of-app-protection-based-conditional-access-requirement"></a>Vantaggi del requisito di accesso condizionale basato su protezione app
 
 Simile alla conformità che viene segnalata da Intune per iOS e Android per i dispositivi gestiti, a questo punto viene applicata report in Azure AD, se un criterio di protezione delle app di Intune. Accesso condizionale è possibile usare questo criterio come un controllo di accesso. Il nuovo criterio di accesso condizionale, i criteri di protezione delle app, aumenta la protezione. Protegge da errori di amministrazione, ad esempio:
 
@@ -62,13 +62,13 @@ Questo articolo presuppone che l'utente abbia familiarità con gli argomento seg
 
 - Il [requisito dei criteri di protezione app](technical-reference.md#app-protection-policy-requirement) tecnica.
 - La guida tecnica per il [requisito delle app client approvate](technical-reference.md#approved-client-app-requirement).
-- I concetti di base relativi all'[accesso condizionale in Azure Active Directory](overview.md).
-- La procedura per [configurare i criteri di accesso condizionale](app-based-mfa.md).
+- Concetti di base della [accesso condizionale in Azure Active Directory](overview.md).
+- Saper [configurare un criterio di accesso condizionale](app-based-mfa.md).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per creare un criterio di accesso condizionale basato su protezione delle app, è necessario:
+Per creare un criterio di accesso condizionale basato su protezione app, è necessario:
 
 - Disporre di Enterprise Mobility + Security o una sottoscrizione di Azure Active Directory premium e Intune.
 - Assicurarsi che gli utenti vengono concessi in licenza per Enterprise Mobility + Security o Azure AD e Intune.
@@ -77,7 +77,7 @@ Per creare un criterio di accesso condizionale basato su protezione delle app, �
 
 ## <a name="app-protection-based-policy-for-exchange-online"></a>Criteri basati su protezione di App per Exchange Online
 
-Questo scenario è costituito da un criterio di accesso condizionale basato su protezione app per l'accesso a Exchange Online.
+Questo scenario è costituito da un'app basata su protezione Criteri di accesso condizionale per l'accesso a Exchange Online.
 
 ### <a name="scenario-playbook"></a>Istruzioni dello scenario
 
@@ -111,17 +111,17 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
 
-4. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)**:
+4. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)** :
 
     a. Nelle **piattaforme del dispositivo**, selezionare **Android** e **iOS**.
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/03.png)
 
-    b. Nelle **App Client (anteprima)**, selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
+    b. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/91.png)
 
-5. Sotto **controlli di accesso**, selezionare **richiedono criteri di protezione delle app (anteprima)**.
+5. Sotto **controlli di accesso**, selezionare **richiedono criteri di protezione delle app (anteprima)** .
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/05.png)
  
@@ -141,13 +141,13 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
 
-4. Nelle **condizioni**, configurare **App Client (anteprima)**. 
+4. Nelle **condizioni**, configurare **App Client (anteprima)** . 
 
-    a. Nelle **App Client (anteprima)**, selezionare **App per dispositivi mobili e client desktop** e **client Exchange ActiveSync**.
+    a. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client Exchange ActiveSync**.
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/92.png)
 
-    b. Sotto **controlli di accesso**, selezionare **richiedono criteri di protezione delle app (anteprima)**.
+    b. Sotto **controlli di accesso**, selezionare **richiedono criteri di protezione delle app (anteprima)** .
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/05.png)
 
@@ -163,7 +163,7 @@ Per altre informazioni, vedere [proteggere App e dati con Microsoft Intune](http
 
 ## <a name="app-protection-based-or-compliant-device-policy-for-exchange-online"></a>Criteri di dispositivi conformi o basato su protezione delle App per Exchange Online
 
-Questo scenario è costituito da un criterio di accesso condizionale di dispositivi conformi o basato su protezione app per l'accesso a Exchange Online.
+Questo scenario è costituito da un'app basata su protezione dispositivi conformi o criteri di accesso condizionale per l'accesso a Exchange Online.
 
 
 ### <a name="scenario-playbook"></a>Istruzioni dello scenario
@@ -194,13 +194,13 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 
      ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
 
-4. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)**. 
+4. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)** . 
  
     a. Nelle **piattaforme del dispositivo**, selezionare **Android** e **iOS**.
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/03.png)
 
-    b. Nelle **App Client (anteprima)**, selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
+    b. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/91.png)
 
@@ -230,9 +230,9 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
 
-4. Nelle **condizioni**, configurare **App Client (anteprima)**. 
+4. Nelle **condizioni**, configurare **App Client (anteprima)** . 
 
-    Nelle **App Client (anteprima)**, selezionare **App per dispositivi mobili e client desktop** e **client Exchange ActiveSync**.
+    Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client Exchange ActiveSync**.
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/92.png)
 
@@ -261,7 +261,7 @@ Per altre informazioni, vedere [proteggere App e dati con Microsoft Intune](http
 
 ## <a name="app-protection-based-and-compliant-device-policy-for-exchange-online"></a>Criteri di dispositivi conformi e basato su protezione delle App per Exchange Online
 
-Questo scenario è costituito da un criterio di accesso condizionale di dispositivi conformi e basato su app-protezione per l'accesso a Exchange Online.
+Questo scenario è costituito da un dispositivo di protezione dal basato su app e conforme a criteri di accesso condizionale per l'accesso a Exchange Online.
 
 
 ### <a name="scenario-playbook"></a>Istruzioni dello scenario
@@ -296,13 +296,13 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 
      ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
 
-4. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)**. 
+4. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)** . 
  
     a. Nelle **piattaforme del dispositivo**, selezionare **Android** e **iOS**.
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/03.png)
 
-    b. Nelle **App Client (anteprima)**, selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
+    b. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/91.png)
 
@@ -332,9 +332,9 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
 
-4. Nelle **condizioni**, configurare **App Client (anteprima)**. 
+4. Nelle **condizioni**, configurare **App Client (anteprima)** . 
 
-    Nelle **App Client (anteprima)**, selezionare **App per dispositivi mobili e client desktop** e **client Exchange ActiveSync**.
+    Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client Exchange ActiveSync**.
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/92.png)
 
@@ -384,7 +384,7 @@ Eventuali criteri di protezione app di Intune sono necessari prima di concessa l
 
 **Osservazioni:**
 
-- Se si desidera supportano entrambi i criteri di accesso condizionale basato su protezione e basato su app, è possibile utilizzare questo scenario.
+- Se si desidera supportare sia criteri di accesso condizionale basato su protezione e basato su app di app, è possibile utilizzare questo scenario.
 - In questo *o* criteri, le app con un requisito dei criteri di protezione app vengono valutati per l'accesso prima di usare il requisito per le app client approvate.
 
 ### <a name="configuration"></a>Configurazione
@@ -403,13 +403,13 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 
      ![Accesso condizionale](./media/app-protection-based-conditional-access/02.png)
 
-4. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)**. 
+4. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)** . 
  
     a. Nelle **piattaforme del dispositivo**, selezionare **Android** e **iOS**.
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/03.png)
 
-    b. Nelle **App Client (anteprima)**, selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
+    b. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
 
     ![Accesso condizionale](./media/app-protection-based-conditional-access/91.png)
 
@@ -436,5 +436,5 @@ Per altre informazioni, vedere [proteggere App e dati con Microsoft Intune](http
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come configurare criteri di accesso condizionale, vedere [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](app-based-mfa.md).
+- Se si desidera sapere come configurare un criterio di accesso condizionale, vedere [Richiedi autenticazione a più fattori per App specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md).
 - Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente, vedere [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md). 

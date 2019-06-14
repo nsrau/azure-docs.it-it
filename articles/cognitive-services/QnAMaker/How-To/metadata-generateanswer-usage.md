@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: tulasim
 ms.openlocfilehash: b18d47b4b09c6fa9c4d5f0ef87d7ebe73f151c60
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66693236"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta con l'API di GenerateAnswer e metadati
@@ -67,7 +67,7 @@ Il **URL della richiesta** ha il formato seguente:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|Proprietà della richiesta HTTP|NOME|Type|Scopo|
+|Proprietà della richiesta HTTP|Name|Type|Scopo|
 |--|--|--|--|
 |Parametro di route di URL|ID Knowledge base|string|L'identificatore univoco globale della Knowledge Base.|
 |Parametro di route di URL|Host endpoint QnAMaker|string|nome host dell'endpoint distribuito nella sottoscrizione di Azure. Questa funzionalità è disponibile nel **impostazioni** pagina dopo la pubblicazione della knowledge base. |
@@ -81,9 +81,9 @@ Il corpo JSON presenta diverse impostazioni:
 |Proprietà del corpo JSON|Obbligatorio|Type|Scopo|
 |--|--|--|--|
 |`question`|Obbligatoria|string|Una domanda utente da inviare alla knowledge base.|
-|`top`|facoltativo|integer|numero di risultati classificati da includere nell'output. Il valore predefinito è 1.|
+|`top`|facoltativo|numero intero|numero di risultati classificati da includere nell'output. Il valore predefinito è 1.|
 |`userId`|facoltativo|string|ID univoco per l'identificazione dell'utente. Questo ID verrà registrato nei log di chat.|
-|`scoreThreshold`|facoltativo|integer|Verranno restituite solo le risposte con punteggio di confidenza di sopra di questa soglia. Il valore predefinito è 0.|
+|`scoreThreshold`|facoltativo|numero intero|Verranno restituite solo le risposte con punteggio di confidenza di sopra di questa soglia. Il valore predefinito è 0.|
 |`isTest`|facoltativo|Boolean|Se impostato su true, restituisce risultati da `testkb` indice di ricerca anziché indice pubblicato.|
 |`strictFilters`|facoltativo|string|se specificato, indica a QnA Maker di restituire solo le risposte contenenti i metadati specificati. Usare `none` per indicare risposta non dovrebbe avere alcun filtro di metadati. |
 |`RankerType`|facoltativo|string|Se specificato come `QuestionOnly`, indica a QnA Maker di eseguire la ricerca solo domande. Se non specificato, QnA Maker Cerca domande e risposte.

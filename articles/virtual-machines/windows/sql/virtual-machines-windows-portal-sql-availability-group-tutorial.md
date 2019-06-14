@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593608"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Esercitazione: Configurare manualmente un gruppo di disponibilità AlwaysOn in VM di Azure
@@ -39,7 +39,7 @@ Nell'esercitazione si presuppone una conoscenza di base dei gruppi di disponibil
 
 La tabella seguente elenca i prerequisiti da completare prima di iniziare l'esercitazione:
 
-|  |Requisito |DESCRIZIONE |
+|  |Requisito |Descrizione |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Due istanze di SQL Server | - In un set di disponibilità di Azure <br/> - In un dominio singolo <br/> - Con la funzionalità Clustering di failover installata |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Controllo di condivisione file per il cluster |  
@@ -186,7 +186,7 @@ Le risorse principali del cluster vengono configurate con un controllo di condiv
 Abilitare ora la funzionalità **Gruppi di disponibilità AlwaysOn**. Eseguire questi passaggi in entrambe le istanze di SQL Server.
 
 1. Dalla schermata **Start** avviare **Gestione configurazione SQL Server**.
-2. Nella struttura del browser fare clic su **Servizi di SQL Server**, fare clic con il pulsante destro del mouse sul servizio **SQL Server (MSSQLSERVER)**, quindi scegliere **Proprietà**.
+2. Nella struttura del browser fare clic su **Servizi di SQL Server**, fare clic con il pulsante destro del mouse sul servizio **SQL Server (MSSQLSERVER)** , quindi scegliere **Proprietà**.
 3. Fare clic sulla scheda **Disponibilità elevata AlwaysOn**, selezionare **Abilita gruppi di disponibilità AlwaysOn**, come segue:
 
     ![Abilitare Gruppi di disponibilità AlwaysOn in Azure](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
@@ -299,7 +299,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
     ![Creazione guidata nuovo gruppo di disponibilità: selezionare la sincronizzazione dati iniziale](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Nella pagina **Seleziona sincronizzazione dei dati iniziale** selezionare **Completa** e specificare un percorso di rete condiviso. Per il percorso, usare la [condivisione di backup creata](#backupshare). Nell'esempio era **\\\\\<Prima istanza di SQL Server\>\Backup\\**. Fare clic su **Avanti**.
+8. Nella pagina **Seleziona sincronizzazione dei dati iniziale** selezionare **Completa** e specificare un percorso di rete condiviso. Per il percorso, usare la [condivisione di backup creata](#backupshare). Nell'esempio era **\\\\\<Prima istanza di SQL Server\>\Backup\\** . Fare clic su **Avanti**.
 
    >[!NOTE]
    >La sincronizzazione completa acquisisce un backup completo del database nella prima istanza di SQL Server e lo ripristina nella seconda istanza. Per i database di grandi dimensioni, la sincronizzazione completa non è consigliabile perché può richiedere diverso tempo. È possibile ridurre manualmente il tempo necessario acquisendo un backup del database e ripristinandolo con `NO RECOVERY`. Se il database è già stato ripristinato con `NO RECOVERY` nella seconda istanza di SQL Server prima di configurare il gruppo di disponibilità, scegliere **Solo join**. Per acquisire il backup dopo la configurazione del gruppo di disponibilità, scegliere **Ignora sincronizzazione dei dati iniziale**.
@@ -400,7 +400,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Impostare il probe di integrità del listener nel modo seguente:
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
    | **Nome** | Text | SQLAlwaysOnEndPointProbe |
    | **Protocollo** | Scegliere TCP | TCP |
@@ -416,7 +416,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Impostare le regole di bilanciamento del carico del listener come segue.
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
    | **Nome** | Text | SQLAlwaysOnEndPointListener |
    | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando si è creato il servizio di bilanciamento del carico. |
@@ -424,7 +424,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
    | **Porta** | Usare la porta per il listener del gruppo di disponibilità | 1433 |
    | **Porta back-end** | Questo campo non viene usato quando l'indirizzo IP mobile è impostato per Direct Server Return | 1433 |
    | **Probe** |Il nome specificato per il probe | SQLAlwaysOnEndPointProbe |
-   | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
+   | **Persistenza della sessione** | Elenco a discesa | **None** |
    | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |
    | **IP mobile (Direct Server Return)** | |Enabled |
 
@@ -443,7 +443,7 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
 
 1. Impostare il probe di integrità dell'indirizzo IP principale del cluster WSFC come segue:
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
    | **Nome** | Text | WSFCEndPointProbe |
    | **Protocollo** | Scegliere TCP | TCP |
@@ -457,7 +457,7 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
 
 1. Impostare le regole di bilanciamento del carico dell'indirizzo IP principale del cluster come indicato di seguito.
 
-   | Impostazione | DESCRIZIONE | Esempio
+   | Impostazione | Descrizione | Esempio
    | --- | --- |---
    | **Nome** | Text | WSFCEndPoint |
    | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando è stato configurato l'indirizzo IP del servizio WSFC. Questo comportamento è diverso dall'indirizzo IP del listener |
@@ -465,7 +465,7 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
    | **Porta** | Usare la porta per l'indirizzo IP del cluster. Si tratta di una porta disponibile che non viene usata per la porta probe del listener. | 58888 |
    | **Porta back-end** | Questo campo non viene usato quando l'indirizzo IP mobile è impostato per Direct Server Return | 58888 |
    | **Probe** |Il nome specificato per il probe | WSFCEndPointProbe |
-   | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
+   | **Persistenza della sessione** | Elenco a discesa | **None** |
    | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |
    | **IP mobile (Direct Server Return)** | |Enabled |
 

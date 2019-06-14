@@ -16,10 +16,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60653366"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
@@ -78,7 +78,7 @@ Se si passa al sito Web, ora verranno restituiti messaggi di errore più esplici
 * Descrizione: Si è verificata un'eccezione non gestita durante l'esecuzione della richiesta web corrente. Per altre informazioni sull'errore e sul suo punto di origine nel codice, vedere l'analisi dello stack.
 * Dettagli eccezione: System.IO.FIleNotFoundException: Impossibile caricare il file o l'assembly ' Microsoft.WindowsAzure.StorageClient, versione Version=1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35' o una delle relative dipendenze. Non è possibile trovare il file specificato.
 
-Ad esempio: 
+Ad esempio:
 
 ![Errore esplicito del server nell'applicazione '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 

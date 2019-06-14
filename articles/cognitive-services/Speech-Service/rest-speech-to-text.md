@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: baaa7b1068e13863293e0968cb0bf1ffb198882b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d5bceff004d1cc6ddac4046a2ddcd0b5f0b5e73
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60487232"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072522"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST di riconoscimento vocale
 
@@ -40,7 +40,7 @@ Queste aree sono supportate per la trascrizione vocale usando l'API REST. Assicu
 
 Questi parametri possono essere inclusi nella stringa di query della richiesta REST.
 
-| Parametro | DESCRIZIONE | Obbligatoria / Facoltativa |
+| Parametro | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Obbligatorio |
 | `format` | Specifica il formato del risultato. I valori accettati sono `simple` e `detailed`. I risultati semplici includono `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. Le risposte dettagliate includono più risultati con valori di attendibilità e quattro diverse rappresentazioni. L'impostazione predefinita è `simple`. | Facoltativo |
@@ -50,7 +50,7 @@ Questi parametri possono essere inclusi nella stringa di query della richiesta R
 
 Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di riconoscimento vocale.
 
-|Intestazione| DESCRIZIONE | Obbligatoria / Facoltativa |
+|Intestazione| Descrizione | Obbligatoria / Facoltativa |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | La chiave di sottoscrizione di servizi di riconoscimento vocale. | È necessaria questa intestazione o `Authorization`. |
 | `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | È necessaria questa intestazione o `Ocp-Apim-Subscription-Key`. |
@@ -89,7 +89,7 @@ Expect: 100-continue
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
-| Stato codice HTTP | DESCRIZIONE | Possibile motivo |
+| Stato codice HTTP | Descrizione | Possibile motivo |
 |------------------|-------------|-----------------|
 | 100 | Continue | La richiesta iniziale è stata accettata. Procedere con l'invio del resto dei dati. (Usato con il trasferimento in blocchi.) |
 | 200 | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un oggetto JSON. |
@@ -144,7 +144,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 I risultati vengono forniti in formato JSON. Il formato `simple` include i campi di primo livello seguenti.
 
-| Parametro | DESCRIZIONE  |
+| Parametro | Descrizione  |
 |-----------|--------------|
 |`RecognitionStatus`|Lo stato, ad esempio `Success` per il riconoscimento con esito positivo. Vedere la tabella successiva.|
 |`DisplayText`|Il testo riconosciuto dopo maiuscole/minuscole, punteggiatura, normalizzazione del testo inversa (conversione del testo parlato in forme più brevi, ad esempio 200 per "duecento" o "Dr. Rossi" per "Dottor Rossi") e la maschera per le espressioni volgari. Presente solo con esito positivo.|
@@ -153,7 +153,7 @@ I risultati vengono forniti in formato JSON. Il formato `simple` include i campi
 
 Il campo `RecognitionStatus` può contenere questi valori:
 
-| Stato | DESCRIZIONE |
+| Stato | Descrizione |
 |--------|-------------|
 | `Success` | Il riconoscimento ha avuto esito positivo e il campo `DisplayText` è presente. |
 | `NoMatch` | La parte parlata è stata rilevata nel flusso audio, ma non sono state trovate corrispondenze per alcuna parola nella lingua di destinazione. In genere significa che la lingua di riconoscimento è una lingua diversa da quella parlata dall'utente. |
@@ -164,11 +164,11 @@ Il campo `RecognitionStatus` può contenere questi valori:
 > [!NOTE]
 > Se l'audio è costituito solo da contenuto volgare e il parametro di query `profanity` è impostato su `remove`, il servizio non restituisce un risultato di riconoscimento vocale.
 
-Il `detailed` formato include gli stessi dati come i `simple` formattare, insieme con `NBest`, un elenco di alternative interpretazioni sullo stesso risultato di riconoscimento. Questi risultati vengono classificati dal più probabile al meno probabile La prima voce è la stessa del risultato principale del riconoscimento.  Quando si usa il formato `detailed`, `DisplayText` viene fornito come `Display` per ogni risultato nell'elenco `NBest`.
+Il `detailed` formato include gli stessi dati come i `simple` formattare, insieme con `NBest`, un elenco di alternative interpretazioni sullo stesso risultato di riconoscimento. Questi risultati vengono classificati dal probabilmente al meno probabile. La prima voce corrisponde al risultato del riconoscimento principale.  Quando si usa il formato `detailed`, `DisplayText` viene fornito come `Display` per ogni risultato nell'elenco `NBest`.
 
 Ogni oggetto nell'elenco `NBest` include:
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |-----------|-------------|
 | `Confidence` | Il punteggio di attendibilità della voce da 0.0 (nessuna attendibilità) a 1.0 (attendibilità completa) |
 | `Lexical` | Il formato lessicale del testo riconosciuto: le parole effettive riconosciute. |

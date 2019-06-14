@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
 ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938266"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Disponibilità a livello geografico e supporto per la valuta
 
 Le offerte di Azure Marketplace possono essere acquistate in aree 141 geografiche come definito dall'indirizzo di fatturazione del cliente e le transazioni possono essere completate in 17 valute. Posizione geografica, è supportata la tabella seguente vengono elencati tutti relativi [il codice ISO 3166 a due cifre alfa](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)e la valuta assegnata.
 
-|   Nome di paese/area geografica               |   ISO-2   |   Valuta   |
+|   Nome di paese/area geografica               |   ISO-2   |   Currency   |
 |-------------------------------------|-----------|--------------|
 | Afghanistan                         | AF        | USD          |
 | Albania                             | AL        | USD          |
@@ -102,11 +102,11 @@ Le offerte di Azure Marketplace possono essere acquistate in aree 141 geografich
 | Mauritius                           | MU        | USD          |
 | Messico                              | MX        | USD          |
 | Moldova                             | MD        | USD          |
-| Principato di Monaco                              | MC        | EUR          |
+| Monaco                              | MC        | EUR          |
 | Mongolia                            | MN        | USD          |
 | Montenegro                          | ME        | USD          |
 | Marocco                             | MA        | USD          |
-| Namibia                             | ND        | USD          |
+| Namibia                             | NA        | USD          |
 | Nepal                               | NP        | USD          |
 | Paesi Bassi                         | NL        | EUR          |
 | Nicaragua                           | NI        | USD          |

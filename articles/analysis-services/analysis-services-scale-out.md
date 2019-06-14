@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192295"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
@@ -83,7 +83,7 @@ Per altre informazioni, vedere [Monitorare le metriche dei server](analysis-serv
 
 Durante la configurazione di scalabilità orizzontale per un server la prima volta, i modelli nel server primario vengono sincronizzati automaticamente con le repliche nel pool di query. Sincronizzazione automatica si verifica solo una volta, quando si configura prima scalabilità orizzontale fino a una o più repliche. Le successive modifiche al numero di repliche nello stesso server *non attiva un'altra sincronizzazione automatica*. Sincronizzazione automatica non verrà eseguita nuovamente, anche se si imposta il server a zero le repliche e quindi nuovamente scalabilità orizzontale a qualsiasi numero di repliche. 
 
-## <a name="synchronize"></a>Sincronizza 
+## <a name="synchronize"></a>la sincronizzazione 
 
 Operazioni di sincronizzazione devono essere eseguite manualmente o tramite l'API REST.
 
@@ -108,10 +108,10 @@ Usare l'operazione **sync**.
 Codici di stato:
 
 
-|Codice  |DESCRIZIONE  |
+|Codice  |Descrizione  |
 |---------|---------|
 |-1     |  Non valido       |
-|0     | Replica in corso        |
+|0     | La replica        |
 |1     |  La riattivazione       |
 |2     |   Completi       |
 |3     |   Failed      |

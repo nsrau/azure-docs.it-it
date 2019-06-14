@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129019"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Distribuire il modello da Cloud Shell
@@ -19,7 +19,7 @@ ms.locfileid: "66129019"
 
 1. Selezionare il gruppo di risorse di Cloud Shell. Il modello del nome è `cloud-shell-storage-<region>`.
 
-   ![Seleziona gruppo di risorse](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
+   ![Selezionare il gruppo di risorse](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
 
 1. Selezionare l'account di archiviazione per Cloud Shell.
 
@@ -47,7 +47,7 @@ ms.locfileid: "66129019"
 
 1. Trovare e caricare il modello.
 
-   ![Carica file](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+   ![Caricare il file](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
 
 1. Al termine del caricamento, selezionare il modello.
 
@@ -55,7 +55,7 @@ ms.locfileid: "66129019"
 
 1. Copiare l'URL.
 
-   ![Copia URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
+   ![Copia l'URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
 
 1. Aprire il prompt.
 

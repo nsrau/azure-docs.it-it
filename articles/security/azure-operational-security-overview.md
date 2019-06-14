@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
 ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586850"
 ---
 # <a name="azure-operational-security-overview"></a>Panoramica sulla sicurezza operativa di Azure
@@ -72,7 +72,7 @@ Azure AD include inoltre una suite completa di [funzionalità di gestione delle 
 - [Controllo completo](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Monitoraggio della sicurezza e invio di avvisi](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
 
-Con Azure Active Directory tutte le applicazioni che si pubblicano per i partner e i clienti (aziende o utenti privati) hanno le stesse funzionalità di gestione delle identità e degli accessi.  Ciò consente una riduzione notevole dei costi operativi.
+Con Azure Active Directory tutte le applicazioni che si pubblicano per i partner e i clienti (aziende o utenti privati) hanno le stesse funzionalità di gestione delle identità e degli accessi. Ciò consente una riduzione notevole dei costi operativi.
 
 ## <a name="azure-security-center"></a>Centro sicurezza di Azure
 
@@ -117,7 +117,7 @@ I registri di sistema degli eventi di Windows sono una categoria di log di diagn
 
 I log di diagnostica differiscono dal [log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Il log attività fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. I log di diagnostica forniscono informazioni approfondite sulle operazioni che la risorsa esegue automaticamente.
 
-### <a name="metrics"></a>Metriche
+### <a name="metrics"></a>metrics
 
 Monitoraggio di Azure consente di usare i dati di telemetria per ottenere visibilità sulle prestazioni e sull'integrità dei carichi di lavoro in Azure. Il tipo di dati di telemetria di Azure più importante è rappresentato dalle [metriche](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (altrimenti dette contatori delle prestazioni) generate dalla maggior parte delle risorse di Azure. Il monitoraggio di Azure offre alcuni modi per configurare e usare queste metriche per il monitoraggio e la risoluzione dei problemi.
 

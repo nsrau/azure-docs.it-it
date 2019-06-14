@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08bf7950ada5db90d2b8bfea751b39ffc21f3ee9
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 52b5e37c29e4b3df3f171f683266b5d0a3e0c95d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950842"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109283"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di risposta agli eventi imprevisti per una soluzione di identità ibrida
 La maggior parte delle aziende di medie o grandi dimensioni dovrà definire una [risposta ad eventi imprevisti](https://technet.microsoft.com/library/cc700825.aspx) in materia di sicurezza per consentire al personale IT di prendere le azioni appropriate in base al livello di gravità. Il sistema di gestione delle identità è una componente importante del processo di risposta agli eventi imprevisti, poiché consente di identificare l'utente che ha eseguito una determinata azione nel perseguimento dell'obiettivo. La soluzione di identità ibrida, inoltre, deve essere in grado di fornire funzionalità di monitoraggio e reporting di cui può avvalersi il personale IT per intraprendere le azioni necessarie per identificare e contrastare una potenziale minaccia. In un piano di risposta agli eventi imprevisti, sono generalmente contenute le fasi seguenti:
@@ -52,12 +52,12 @@ Il sistema di gestione delle identità deve aiutare gli amministratori IT a iden
 * L'azienda desidera poter controllare gli accessi e le azioni degli utenti?
 * L'azienda desidera sapere quando un utente Reimposta la password?
 
-## <a name="policy-enforcement"></a>Applicazione dei criteri
+## <a name="policy-enforcement"></a>Imposizione dei criteri
 Durante le fasi di controllo dei danni e riduzione dei rischi, è importante limitare rapidamente gli effetti, potenziali ed effettivi, dell'attacco. Le azioni che vengono intraprese in questa fase possono fare una grande differenza a questo proposito. La risposta esatta dipende dal tipo di azienda e dalla natura dell'attacco che si sta affrontando. Se dalla valutazione iniziale è emerso che è stato compromesso un account, è necessario applicare il criterio che impone il blocco dell'account. Questo, ovviamente, è solo uno dei tanti modi in cui è possibile avvalersi del sistema di gestione delle identità. Usare le domande seguenti per definire una soluzione di identità ibrida tenendo conto delle modalità di applicazione dei criteri per rispondere a eventi imprevisti:
 
 * L'azienda ha già definito dei criteri che, se necessario, impediscono agli utenti di accedere alla rete?
   * In caso affermativo, sarà possibile integrarli con la soluzione di gestione dell'identità ibrida che si intende adottare?
-* L'azienda desidera poter attivare l'accesso condizionale per gli utenti in quarantena? 
+* L'azienda desidera applicare l'accesso condizionale per gli utenti in quarantena? 
 
 > [!NOTE]
 > Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta alla base. [definizione della strategia di protezione dei dati](plan-hybrid-identity-design-considerations-data-protection-strategy.md) esamina le opzioni disponibili con i relativi vantaggi e svantaggi.  Una volta fornite le risposte a queste domande, sarà possibile selezionare l'opzione più adatta in base alle esigenze aziendali.

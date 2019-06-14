@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb89b1ef4dbbef234fba3152d7f85bbadfbdc64a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873886"
 ---
 # <a name="known-issues-on-safari-browser-with-msaljs"></a>Problemi noti nel browser Safari con msal. js 
@@ -32,7 +32,7 @@ Apple iOS 12 e sistemi operativi MacOS 10.14 incluse una versione del [browser S
 
 ### <a name="impact-on-msaljs"></a>Impatto sul msal. js
 
-Msal. js Usa un Iframe nascosto per eseguire come parte dell'acquisizione di token invisibile all'utente e il rinnovo di `acquireTokenSilent` chiamate. Le richieste di token invisibile all'utente si basano sull'Iframe che possono accedere alla sessione utente autenticato rappresentata dal cookie impostati da Azure AD. 2.0 ITP impedendo l'accesso a questi cookie, msal. js ha esito negativo acquisire e rinnovare i token invisibile all'utente e di conseguenza `acquireTokenSilent` errori.
+Msal. js Usa un Iframe nascosto per eseguire come parte dell'acquisizione di token invisibile all'utente e il rinnovo di `acquireTokenSilent` chiamate. Le richieste di token invisibile all'utente si basano sull'Iframe che possono accedere alla sessione utente autenticato rappresentata dal cookie impostati da Azure AD. 2\.0 ITP impedendo l'accesso a questi cookie, msal. js ha esito negativo acquisire e rinnovare i token invisibile all'utente e di conseguenza `acquireTokenSilent` errori.
 
 A questo punto non vi è alcuna soluzione per risolvere questo problema e si sta valutando opzioni con la community degli standard.
 

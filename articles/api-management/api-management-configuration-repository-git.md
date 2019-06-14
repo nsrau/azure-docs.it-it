@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: c371333dcc7db0b60ffa5f94d6e2d55ae500a4f6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241175"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
@@ -204,10 +204,10 @@ Le prime quattro impostazioni (`RegistrationEnabled`, `UserRegistrationTerms`, `
 | Impostazione | Mapping a |
 | --- | --- |
 | RegistrationEnabled |Presenza del provider di identità per **nome utente e password** |
-| UserRegistrationTerms |**Terms of use on user signup**  |
+| UserRegistrationTerms |**Terms of use on user signup** |
 | UserRegistrationTermsEnabled |**Show terms of use on signup page** |
-| UserRegistrationTermsConsentRequired |**Richiedi consenso**  |
-| RequireUserSigninEnabled |**Redirect anonymous users to**  |
+| UserRegistrationTermsConsentRequired |**Richiedi consenso** |
+| RequireUserSigninEnabled |**Redirect anonymous users to** |
 
 Le quattro impostazioni successive (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled` e `DelegationValidationKey`) sono mappate alle impostazioni seguenti della scheda **Delegation** (Delega) della sezione **Security** (Sicurezza).
 

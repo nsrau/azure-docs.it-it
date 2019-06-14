@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 manager: craigg
-ms.date: 04/17/2019
-ms.openlocfilehash: ec9f5aa8163ea9bb838b1a95ab8ad49233a72643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: a88842802759a5c3ae7af7334bbe125344c978ea
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392658"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066906"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Disponibilità elevata e database SQL di Azure
 
@@ -62,7 +62,7 @@ Per impostazione predefinita, viene creato il cluster di nodi per il modello di 
 Poiché i database con ridondanza della zona hanno repliche in diversi Data Center distanti tra loro, la maggiore latenza di rete può aumentare il tempo di commit e pertanto compromettere le prestazioni di alcuni carichi di lavoro OLTP. È sempre possibile tornare alla configurazione a singola zona disabilitando l'impostazione di ridondanza della zona. Questo processo è un'operazione online simile per l'aggiornamento del livello servizio regolari. Al termine del processo, viene eseguita la migrazione del database o del pool da un anello con ridondanza della zona a un anello a singola zona o viceversa.
 
 > [!IMPORTANT]
-> Database con ridondanza della zona e i pool elastici sono attualmente supportati solo nei livelli di servizio Premium e Business Critical. Per impostazione predefinita, i backup e i record di controllo vengono archiviati nell'archiviazione con ridondanza geografica e accesso in lettura. È quindi possibile che non siano disponibili automaticamente in caso di un'interruzione a livello di zona. 
+> Database con ridondanza della zona e i pool elastici sono attualmente supportati solo nei livelli di servizio Premium e Business Critical in aree selezionate. Quando si usa il livello Business Critical, configurazione con ridondanza della zona è disponibile solo quando è selezionata l'hardware di calcolo Gen5. Per informazioni aggiornate sulle aree che supportano i database con ridondanza della zona, vedere [i servizi supportano area](../availability-zones/az-overview.md#services-support-by-region).  
 
 La versione con ridondanza della zona dell'architettura a disponibilità elevata è illustrata nel diagramma seguente:
 

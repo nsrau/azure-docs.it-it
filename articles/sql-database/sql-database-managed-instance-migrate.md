@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione di un'istanza di SQL Server a un'istanza gestita di database SQL di Azure | Microsoft Docs
-description: Informazioni su come eseguire la migrazione di un'istanza di SQL Server a un'istanza gestita di database SQL di Azure.
+title: Eseguire la migrazione di database dall'istanza di SQL Server al Database SQL di Azure - istanza gestita | Microsoft Docs
+description: Informazioni su come eseguire la migrazione di un database dall'istanza di SQL Server al Database SQL di Azure - istanza gestita.
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: 1460b595e8887fc932d5be335ae51b07a000b9fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9fe6ab797eaa325ad802702e95f5a0e5b8e4fef4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61315559"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070418"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a un'istanza gestita di database SQL di Azure
 
@@ -42,18 +42,41 @@ Per prima cosa, determinare se l'istanza gestita è compatibile con i requisiti 
 
 Per rilevare i potenziali problemi di compatibilità che influirebbero sulle funzionalità dei database nel database SQL di Azure, usare [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview). DMA non supporta ancora un'istanza gestita come destinazione della migrazione, ma è consigliabile eseguire una valutazione rispetto al database SQL di Azure e confrontare attentamente l'elenco dei problemi di compatibilità e parità di funzionalità segnalati con la documentazione del prodotto. Vedere [Funzionalità di database SQL di Azure](sql-database-features.md) per controllare se sono stati segnalati problemi di blocco non presenti nell'istanza gestita poiché la maggior parte dei problemi che impediscono la migrazione al database SQL di Azure è stata risolta con l'istanza gestita. Nelle istanze gestite, ad esempio, sono disponibili funzionalità come le query tra database, le transazioni tra database nella stessa istanza, il server collegato per altre origini SQL, CLR, le tabelle temporanee globali, le viste a livello di istanza, Service Broker e così via.
 
-Se sono presenti problemi che causano un blocco che non sono stati risolti con l'opzione di distribuzione dell'istanza gestita, può essere necessario prendere in considerazione un'opzione alternativa, ad esempio [SQL Server in macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Di seguito sono riportati alcuni esempi:
+Se sono presenti problemi che causano un blocco che non sono stati risolti con l'opzione di distribuzione dell'istanza gestita, può essere necessario prendere in considerazione un'opzione alternativa, ad esempio [SQL Server in macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Ecco alcuni esempi:
 
 - Se è necessario l'accesso diretto al sistema operativo o al file system, ad esempio per installare agenti personalizzati o di terze parti nella stessa macchina virtuale con SQL Server.
 - Se è presente una stretta dipendenza da funzionalità non ancora supportate, come FileStream/FileTable, PolyBase e le transazioni tra istanze.
-- Se è assolutamente necessario mantenere una versione specifica di SQL Server (ad esempio, 2012).
+- Se assolutamente necessario mantenere una versione specifica di SQL Server (2012, ad esempio).
 - Se i requisiti di calcolo sono nettamente inferiori rispetto a quanto offerto dall'istanza gestita, ad esempio, un vCore, e il consolidamento di database non è un'opzione accettabile.
+
+Se è stata risolta tutti identificati blocchi migrazione e continuare la migrazione a istanza gestita, si noti che alcune modifiche potrebbero influire sulle prestazioni del carico di lavoro:
+- Modello di recupero con registrazione completa obbligatorio e pianificazione del backup automatico regolare potrebbe compromettere le prestazioni del carico di lavoro o operazioni di manutenzione/ETL periodicamente usato modello semplice/bulk-logged o arrestato i backup su richiesta.
+- Configurazioni a livello server o database diverse, ad esempio i flag di traccia o livelli di compatibilità
+- Nuove funzionalità che si sta utilizzando, ad esempio gruppi di failover automatico o Transparent Database Encryption (TDE) potrebbe compromettere l'utilizzo della CPU e i/o.
+
+Gestita garanzia del 99,99% disponibilità dell'istanza anche negli scenari critici, quindi non può essere disabilitata l'overhead causato da queste funzionalità. Per altre informazioni, vedere [cause principali che potrebbero causare diversi di prestazioni in SQL Server e istanza gestita](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/).
+
+### <a name="create-performance-baseline"></a>Creare una baseline delle prestazioni
+
+Se si desidera confrontare le prestazioni del carico di lavoro sull'istanza gestita con il carico di lavoro originale in esecuzione in SQL Server, è necessario creare una baseline delle prestazioni che verrà utilizzata per il confronto. Alcuni dei parametri che è necessario misurare nell'istanza di SQL Server sono: 
+- [Monitorare l'utilizzo della CPU nell'istanza di SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e la media di record e i picchi di utilizzo della CPU.
+- [Monitoraggio dell'utilizzo di memoria nell'istanza di SQL Server](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) e determinare la quantità di memoria utilizzata da componenti diversi, ad esempio pool di buffer, cache, il pool di ColumnStore, dei piani [OLTP In memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)e così via. Inoltre, si devono trovare i valori di picco e medi del contatore delle prestazioni memoria permanenza presunta della pagina.
+- Monitoraggio dell'utilizzo dei / o disco in istanza SQL Server di origine mediante [DM io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) visualizzazione oppure [i contatori delle prestazioni](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
+- Monitorare le prestazioni del carico di lavoro e query o l'istanza di SQL Server tramite l'esame delle viste a gestione dinamica o Query Store se si esegue la migrazione dalla versione di SQL Server 2016 e versioni successive. Identificare durata media e utilizzo della CPU delle query più importanti nel carico di lavoro per eseguire un confronto con le query in esecuzione in istanza gestita.
+
+> [!Note]
+> Se si nota un problema con il carico di lavoro in SQL Server, ad esempio utilizzo elevato della CPU, utilizzo della memoria costante, tempdb o parametrizzazione problemi, è consigliabile provare a risolverli nell'istanza di SQL Server di origine prima di portare la linea di base e la migrazione. La migrazione di problemi noti per qualsiasi nuova migh sistema provocare risultati imprevisti e invalidano qualsiasi confronto delle prestazioni.
+
+Nell'ambito di questa attività deve aver documentato Media e valori di picco per CPU, memoria e utilizzo dei / o nel proprio sistema di origine, nonché la durata media e massima e utilizzo della CPU del dominante e le query più importanti nel carico di lavoro. È necessario usare questi valori in un secondo momento per confrontare le prestazioni del carico di lavoro sull'istanza gestita con le prestazioni di base del carico di lavoro in SQL Server di origine.
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Eseguire la distribuzione in un'istanza gestita di dimensioni ottimali
 
-L'istanza gestita è progettata appositamente per carichi di lavoro locali che si intende spostare nel cloud. Introduce un [nuovo modello di acquisto](sql-database-service-tiers-vcore.md) che offre maggiore flessibilità nella selezione del livello appropriato di risorse per i carichi di lavoro. Nell'ambiente locale, si è probabilmente soliti dimensionare i carichi di lavoro usando core fisici o larghezza di banda di I/O. Il modello di acquisto dell'istanza gestita è basato sui core virtuali, o "vCore", con I/O e spazio di archiviazione aggiuntivi disponibili separatamente. Il modello basato su vCore semplifica la comprensione dei requisiti di calcolo nel cloud rispetto alle risorse usate attualmente in locale. Questo nuovo modello consente di dimensionare correttamente l'ambiente di destinazione nel cloud.
+L'istanza gestita è progettata appositamente per carichi di lavoro locali che si intende spostare nel cloud. Introduce un [nuovo modello di acquisto](sql-database-service-tiers-vcore.md) che offre maggiore flessibilità nella selezione del livello appropriato di risorse per i carichi di lavoro. Nell'ambiente locale, si è probabilmente soliti dimensionare i carichi di lavoro usando core fisici o larghezza di banda di I/O. Il modello di acquisto dell'istanza gestita è basato sui core virtuali, o "vCore", con I/O e spazio di archiviazione aggiuntivi disponibili separatamente. Il modello basato su vCore semplifica la comprensione dei requisiti di calcolo nel cloud rispetto alle risorse usate attualmente in locale. Questo nuovo modello consente di dimensionare correttamente l'ambiente di destinazione nel cloud. Linee guida generali che possono aiutarti a scegliere il livello di servizio corretto e le caratteristiche sono descritti di seguito:
+- [Monitorare l'utilizzo della CPU nell'istanza di SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e controllare quanto potenza usi attualmente (utilizzando viste a gestione dinamica, SQL Server Management Studio o altri strumenti di monitoraggio) di calcolo. È possibile eseguire il provisioning di un'istanza gestita che corrisponde al numero di core che si usa in SQL Server, disponendo di ricordare che le caratteristiche della CPU potrebbe essere necessario aumentare in modo da corrispondere [caratteristiche della macchina virtuale in cui è installata l'istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics).
+- Controllare la quantità di memoria disponibile nell'istanza di SQL Server e scegliere [il livello di servizio che disponga di memoria corrisponda](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics). Sarebbe utile misurare la permanenza presunta della pagina nell'istanza di SQL Server per determinare [è necessario aggiungere memoria](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
+- Misurare la latenza dei / o del sottosistema di file scegliere tra i livelli di servizio utilizzo generico e Business Critical.
 
-È possibile selezionare le risorse di calcolo e di archiviazione in fase di distribuzione e quindi modificarle in seguito senza causare tempi di inattività per l'applicazione usando il [portale di Azure](sql-database-scale-resources.md):
+È possibile scegliere di calcolo e le risorse di archiviazione in fase di distribuzione di tempo e quindi modificarle in seguito senza causare tempi di inattività per l'applicazione utilizzando il [portale di Azure](sql-database-scale-resources.md):
 
 ![Dimensionamento dell'istanza gestita](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
@@ -111,18 +134,52 @@ Per una guida di avvio rapido che descrive come eseguire il ripristino del backu
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
+
 ## <a name="monitor-applications"></a>Monitorare le applicazioni
 
-Dopo la migrazione tenere traccia del comportamento e delle prestazioni dell'applicazione. Nell'istanza gestita alcune modifiche sono abilitate solo dopo la [modifica del livello di compatibilità del database](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database). Nella maggior parte dei casi, nella migrazione di database al database SQL di Azure viene mantenuto il livello di compatibilità originale. Se il livello di compatibilità di un database utente prima della migrazione è 100 o un valore superiore, il livello rimane invariato dopo la migrazione. Se il livello di compatibilità di un database utente prima della migrazione è 90, nel database aggiornato viene impostato su 100, che è il livello di compatibilità minimo supportato in un'istanza gestita. Il livello di compatibilità dei database di sistema è 140.
+Dopo aver completato la migrazione a istanza gestita, è necessario rilevare il comportamento dell'applicazione e le prestazioni del carico di lavoro. Questo processo include le attività seguenti:
+- [Confrontare le prestazioni del carico di lavoro in esecuzione in istanza gestita](#compare-performance-with-the-baseline) con il [baseline delle prestazioni che è stato creato in SQL Server di origine](#create-performance-baseline).
+- In modo continuativo [monitorare le prestazioni del carico di lavoro](#monitor-performance) per identificare potenziali problemi e analisi utilizzo software.
 
-Per ridurre i rischi della migrazione, modificare il livello di compatibilità del database solo dopo il monitoraggio delle prestazioni. Come strumento ottimale per ottenere informazioni sulle prestazioni dei carichi di lavoro prima e dopo la modifica del livello di compatibilità del database, usare Query Store come illustrato in [Mantenere la stabilità delle prestazioni durante l'aggiornamento alla nuova versione di SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
+### <a name="compare-performance-with-the-baseline"></a>Confrontare le prestazioni con la linea di base
 
-Dopo essere passati a una piattaforma completamente gestita, usufruire dei vantaggi offerti automaticamente come parte del servizio Database SQL. In un'istanza gestita, ad esempio, non è necessario creare backup, perché vengono creati automaticamente dal servizio, né preoccuparsi della pianificazione, dell'esecuzione e della gestione dei backup. Un'istanza gestita offre la possibilità di eseguire il ripristino a qualsiasi momento specifico all'interno del periodo di conservazione con il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore). Non è inoltre necessario preoccuparsi della configurazione della disponibilità elevata, perché la [disponibilità elevata](sql-database-high-availability.md) è predefinita.
+La prima attività che è necessario effettuare immediatamente dopo il successo della migrazione consiste nel confrontare le prestazioni del carico di lavoro con le prestazioni del carico di lavoro di base. L'obiettivo di questa attività consiste nel confermare che le prestazioni del carico di lavoro per istanza gestita soddisfano le proprie esigenze. 
 
-Per potenziare la sicurezza, valutare la possibilità di usare alcune delle funzionalità disponibili:
+Migrazione del database a istanza gestita mantiene le impostazioni del database e del relativo livello di compatibilità originale nella maggior parte dei casi. Le impostazioni originali vengono mantenute dove possibile per ridurre il rischio di alcune riduzioni delle prestazioni rispetto all'origine SQL Server. Se il livello di compatibilità di un database utente prima della migrazione è 100 o un valore superiore, il livello rimane invariato dopo la migrazione. Se il livello di compatibilità di un database utente prima della migrazione è 90, nel database aggiornato viene impostato su 100, che è il livello di compatibilità minimo supportato in un'istanza gestita. Il livello di compatibilità dei database di sistema è 140. Poiché la migrazione a istanza gestita è effettivamente la migrazione alla versione più recente del motore di Database di SQL Server, è necessario tenere presente che è necessario ripetere il test delle prestazioni del carico di lavoro per evitare problemi di prestazioni insoliti.
 
-- Autenticazione di Azure Active Directory a livello di database
-- Per proteggere l'istanza, usare le [funzionalità di sicurezza avanzate](sql-database-security-overview.md), ad esempio [controllo](sql-database-managed-instance-auditing.md), [rilevamento delle minacce](sql-database-advanced-data-security.md), [sicurezza a livello di riga](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) e [maschera dati dinamica](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
+Come prerequisito, assicurarsi di aver completato le attività seguenti:
+- Allineare le impostazioni sull'istanza gestita con le impostazioni dall'istanza di SQL Server di origine con l'analisi dei vari istanza, database, le impostazioni tempdb e le configurazioni. Assicurarsi che non è stato modificato le impostazioni come i livelli di compatibilità o la crittografia prima di eseguire il confronto delle prestazioni prima oppure accettare il rischio che alcune delle nuove funzionalità che è stato abilitato potrebbe influenzare alcune query. Per ridurre i rischi della migrazione, modificare il livello di compatibilità del database solo dopo il monitoraggio delle prestazioni.
+- Implementare [migliore pratica linee guida di archiviazione per utilizzo generico](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525) come pre-allocazione di dimensioni dei file per ottenere prestazioni migliori.
+- Scopri le [differenze di ambiente che potrebbero causare le differenze di prestazioni tra istanza gestita e SQL Server principali]( https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/) e identificare i rischi che potrebbero influire sulle prestazioni.
+- Accertarsi di mantenere abilitato Query Store e l'ottimizzazione automatica per l'istanza gestita. Queste funzionalità consentono di misurare le prestazioni del carico di lavoro e risolvere automaticamente i potenziali problemi di prestazioni. Informazioni su come usare Query Store come strumento ottima per ottenere informazioni sulle prestazioni del carico di lavoro prima e dopo la modifica del livello di compatibilità del database, come spiegato in [mantenere la stabilità delle prestazioni durante l'aggiornamento alla versione più recente di SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
+Dopo aver preparato l'ambiente che può essere paragonata quanto più possibile con l'ambiente locale, è possibile avviare l'esecuzione del carico di lavoro e misurare le prestazioni. Processo di misurazione deve includere gli stessi parametri che è stata misurata [durante la creazione di prestazioni di base di misure del carico di lavoro in SQL Server di origine](#create-performance-baseline).
+Di conseguenza, si deve confrontare i parametri delle prestazioni con la linea di base e identificare le differenze critiche.
+
+> [!NOTE]
+> In molti casi, non sarà in grado di ottenere prestazioni esattamente corrispondenti in istanza gestita e SQL Server. Istanza gestita di Azure è un motore di database di SQL Server, ma dell'infrastruttura e configurazione a disponibilità elevata in istanza gestita può introdurre alcune differenze. È possibile prevedere che alcune query sarebbe più veloci mentre un altro può risultare più lento. L'obiettivo di confronto è verificare che le prestazioni del carico di lavoro nell'istanza gestita di soddisfino le prestazioni in SQL Server (in Media) e identificare sono presenti tutte le query critiche con le prestazioni che non soddisfano le prestazioni originale.
+
+Potrebbe essere il risultato del confronto delle prestazioni:
+- Le prestazioni del carico di lavoro sull'istanza gestita è allineato o meglio che le prestazioni del carico di lavoro in SQL Server. In questo caso è confermato che la migrazione ha esito positivo.
+- Maggioranza dei nodi dei parametri delle prestazioni e le query nel carico di lavoro lavoro tutto bene, con alcune eccezioni con influire negativamente sulle prestazioni. In questo caso, è necessario identificare le differenze e la loro importanza. Se sono presenti alcune query importanti con riduzione delle prestazioni, è necessario esaminare vengono modificati i piani SQL sottostanti o le query raggiungono alcuni limiti di risorse. Mitigazione in questo caso potrebbe consistere nell'applicare alcuni suggerimenti su query critiche (ad esempio Modifica livello di compatibilità, stima di cardinalità legacy) sia direttamente oppure usando le guide di piano rebuild o create le statistiche e indici che potrebbero interessare i piani. 
+- La maggior parte delle query sono lenta in istanza gestita rispetto a SQL Server di origine. In questo caso provare a identificare le cause della differenza, ad esempio [raggiunge il limite di alcune risorse]( sql-database-managed-instance-resource-limits.md#instance-level-resource-limits) i limiti dei / o, limite di memoria, limite di velocità di log di istanza e così via. Se non sono previsti limiti di risorse che possono causare la differenza, provare a modificare il livello di compatibilità del database oppure modificare le impostazioni di database, ad esempio la stima di cardinalità legacy e avviare nuovamente il test. Esaminare i consigli forniti dalle visualizzazioni di Query Store o istanza gestita per identificare le query regredite delle prestazioni.
+
+> [!IMPORTANT]
+> Istanza gestita dispone di funzionalità di correzione automatica del piano predefiniti che è abilitato per impostazione predefinita. Questa funzionalità garantisce che le query che hanno avuto esito positivo in Incolla non comprometta in futuro. Assicurarsi che questa funzionalità è abilitata e che è stato eseguito il carico di lavoro abbastanza tempo con le impostazioni precedenti prima di impostare le nuove impostazioni per abilitare l'istanza gestita conoscere i piani e le prestazioni di riferimento.
+
+Apportare la modifica dei parametri o aggiornare i livelli di servizio per la convergenza per la configurazione ottimale, fino a quando non si ottengono le prestazioni del carico di lavoro adatta alle proprie esigenze.
+
+### <a name="monitor-performance"></a>Monitorare le prestazioni
+
+Una volta che trovano in una piattaforma completamente gestita e aver verificato che le prestazioni del carico di lavoro delle corrispondenti si delle prestazioni del carico di lavoro di SQL Server, usufruire dei vantaggi offerti automaticamente come parte del servizio del Database SQL. 
+
+Anche se non si apportano alcune modifiche in istanza gestita durante la migrazione, vi sono elevate probabilità che ci si affida in alcune delle nuove funzionalità quando si opera l'istanza per un usufruire dei miglioramenti apportati al motore di database più recente. Alcune modifiche sono abilitate solo dopo il [livello di compatibilità del database è stato modificato](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
+
+
+In un'istanza gestita, ad esempio, non è necessario creare backup, perché vengono creati automaticamente dal servizio, né preoccuparsi della pianificazione, dell'esecuzione e della gestione dei backup. Un'istanza gestita offre la possibilità di eseguire il ripristino a qualsiasi momento specifico all'interno del periodo di conservazione con il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore). Non è inoltre necessario preoccuparsi della configurazione della disponibilità elevata, perché la [disponibilità elevata](sql-database-high-availability.md) è predefinita.
+
+Per potenziare la sicurezza, è consigliabile usare [Azure Active Directory Authentication](sql-database-security-overview.md), [controllo](sql-database-managed-instance-auditing.md), [rilevamento delle minacce](sql-database-advanced-data-security.md), [sicurezzaalivellodiriga](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), e [maschera dati dinamica](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ).
+
+Oltre a Gestione avanzata e funzionalità di sicurezza, istanza gestita offre un set di strumenti avanzati che possono aiutare a [monitorare e ottimizzare il carico di lavoro](sql-database-monitor-tune-overview.md). [Azure analitica SQL](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) consente di monitorare un ampio set di istanze gestite e centralizzare il monitoraggio di un numero elevato di istanze e database. [L'ottimizzazione automatica](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) nell'istanza gestita di monitoraggio continuo delle prestazioni Statistiche esecuzione piano SQL e risolvere automaticamente i problemi di prestazioni identificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

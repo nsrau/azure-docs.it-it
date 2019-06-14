@@ -11,10 +11,10 @@ manager: yuvalm
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
 ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60687311"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usare CI/CD con Azure Dev Spaces
@@ -43,7 +43,7 @@ Creare un nuovo spazio denominato _dev_ usando il comando `azds space select`. L
 azds space select -n dev
 ```
 
-Quando viene chiesto di selezionare uno spazio dev padre, selezionare _\<none\>_.
+Quando viene chiesto di selezionare uno spazio dev padre, selezionare _\<none\>_ .
 
 Dopo aver creato lo spazio di sviluppo, è necessario determinare il suffisso dell'host. Usare il `azds show-context` comando per visualizzare il suffisso dell'host del Controller di ingresso di spazi di sviluppo Azure.
 

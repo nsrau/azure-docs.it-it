@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76e12dc6bf9bcb50dc58e7730f3a08dd6a9d4440
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ceae908b37c825721a42c49db4503382eb35c71c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66512204"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055091"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Esercitazione: Aggiungere provider di identità alle applicazioni in Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Per consentire agli utenti di accedere da Azure AD, è necessario registrare un'
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Assicurarsi di usare la directory contenente il tenant di Azure AD facendo clic sul **filtro per directory e sottoscrizione** nel menu in alto e scegliendo tale directory.
-3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
+3. Scegli **tutti i servizi** nell'angolo superiore sinistro del portale di Azure e quindi cercare e selezionare **registrazioni per l'App (Legacy)** .
 4. Selezionare **Registrazione nuova applicazione**.
 5. Immettere un nome per l'applicazione. Ad esempio: `Azure AD B2C App`.
 6. In **Tipo di applicazione** selezionare `Web app / API`.
@@ -106,7 +106,7 @@ Dopo aver creato l'applicazione per il provider di identità che si vuole aggiun
     Ad esempio: `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
 8. In **ID client** e **Segreto client** immettere rispettivamente l'ID applicazione e il valore della chiave registrati in precedenza.
-9. Facoltativamente immettere un valore per **Domain_hint**. Ad esempio: `ContosoAD`. 
+9. Facoltativamente immettere un valore per **Domain_hint**. Ad esempio: `ContosoAD`. Gli hint di dominio (https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) sono direttive incluse nella richiesta di autenticazione da un'applicazione. Possono essere usate per accelerare l'indirizzamento dell'utente alla rispettiva pagina di accesso dell'IdP federato. Oppure possono essere usati da un'applicazione multi-tenant per accelerare l'utente direttamente verso la pagina di accesso di Azure AD personalizzata per il suo tenant.
 10. Fare clic su **OK**.
 11. Selezionare **Esegui mapping delle attestazioni di questo provider di identità** e impostare le attestazioni seguenti:
     

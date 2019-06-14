@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 479f77791a0b035f2d1de6085dfb12f5196288ee
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979334"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Criteri di autore per le proprietà di matrice sulle risorse di Azure
@@ -212,4 +212,4 @@ Per altre informazioni, vedere la [append esempi](../concepts/effects.md#append-
 - Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).
 - Comprendere come [a livello di codice, creare criteri](programmatically-create.md).
 - Informazioni su come [monitora e aggiorna le risorse non conformi](remediate-resources.md).
-- Esaminare un gruppo di gestione riguarda [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).
+- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: c5cc39c2f2a7f2a79b8d6bc2bd95506ee5532a84
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431308"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073970"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica configurazione del Gateway applicazione
 
@@ -74,6 +74,9 @@ Per lo SKU v1, route definite dall'utente (Udr) sono supportate nella subnet del
 Per lo SKU v2, route definite dall'utente non sono supportati nella subnet del Gateway applicazione. Per altre informazioni, vedere [SKU di Gateway applicazione di Azure v2](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
+> Route definite dall'utente non sono supportati per lo SKU v2.  Se sono necessarie route definite dall'utente è necessario continuare a distribuire SKU v1.
+
+> [!NOTE]
 > L'utilizzo di route definite dall'utente nella subnet del Gateway applicazione determina lo stato di integrità nel [visualizzazione dell'integrità back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) venga visualizzato come "Sconosciuto". Determina anche la generazione di log del Gateway applicazione e le metriche di esito negativo. È consigliabile non usare route definite dall'utente nella subnet del Gateway applicazione in modo che sia possibile visualizzare l'integrità back-end, log e metriche.
 
 ## <a name="front-end-ip"></a>IP front-end
@@ -84,7 +87,7 @@ Un indirizzo IP pubblico non è necessario per un endpoint interno non esposto a
 
 È supportato solo 1 indirizzo IP pubblico o 1 indirizzo IP privato. Quando si crea il gateway applicazione scegliere l'indirizzo IP front-end.
 
-- Per un indirizzo IP pubblico, è possibile creare un nuovo indirizzo IP pubblico o usare un indirizzo IP pubblico esistente nella stessa posizione del gateway applicazione. Se si crea un nuovo indirizzo IP pubblico, il tipo di indirizzo IP selezionato (dinamico o statico) non può essere modificato in un secondo momento. Per altre informazioni, vedere [statico e indirizzo IP pubblico dinamico](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- Per un indirizzo IP pubblico, è possibile creare un nuovo indirizzo IP pubblico o usare un indirizzo IP pubblico esistente nella stessa posizione del gateway applicazione. Se si crea un nuovo indirizzo IP pubblico, il tipo di indirizzo IP selezionato (dinamico o statico) non può essere modificato in un secondo momento. Per altre informazioni, vedere [statico e indirizzo IP pubblico dinamico](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
 
 - Per un indirizzo IP privato, è possibile specificare un indirizzo IP privato dalla subnet in cui viene creato il gateway applicazione. Se non si specifica uno, un indirizzo IP arbitrario viene selezionato automaticamente dalla subnet. Per altre informazioni, vedere [creare un gateway applicazione con un servizio di bilanciamento del carico interno](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
@@ -124,7 +127,7 @@ Scegliere HTTP o HTTPS:
 
 - Se si sceglie HTTP, il traffico tra client e il gateway applicazione non crittografato.
 
-- Se si vuole scegliere HTTPS [terminazione SSL](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) oppure [crittografia SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Il traffico tra il client e il gateway applicazione è crittografato. E consente di terminare la connessione SSL nel gateway applicazione. Se si desidera che la crittografia SSL end-to-end, è necessario selezionare HTTPS e configurare il **back-end HTTP** impostazione. Ciò garantisce che il traffico viene nuovamente crittografato quando viene trasmesso dal back-end del gateway applicazione.
+- Se si vuole scegliere HTTPS [terminazione SSL](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) oppure [crittografia SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Il traffico tra il client e il gateway applicazione è crittografato. E consente di terminare la connessione SSL nel gateway applicazione. Se si desidera che la crittografia SSL end-to-end, è necessario selezionare HTTPS e configurare il **back-end HTTP** impostazione. Ciò garantisce che il traffico viene nuovamente crittografato quando viene trasmesso dal back-end del gateway applicazione.
 
 Per configurare la terminazione SSL e la crittografia SSL end-to-end, è necessario aggiungere un certificato per il listener per consentire al gateway applicazione derivare una chiave simmetrica. Ciò dipende dalla specifica del protocollo SSL. La chiave simmetrica viene usata per crittografare e decrittografare il traffico che viene inviato al gateway. Il certificato del gateway deve essere nel formato di scambio di informazioni personali (PFX). Questo formato consente di esportare la chiave privata che il gateway Usa per crittografare e decrittografare il traffico.
 
@@ -172,7 +175,7 @@ Quando si crea un gateway applicazione usando il portale di Azure, si crea una r
 
 ### <a name="rule-type"></a>Tipo di regola
 
-Quando si crea una regola, si sceglie tra [ *base* e *basata sul percorso*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rule).
+Quando si crea una regola, si sceglie tra [ *base* e *basata sul percorso*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 
 - Scegli il tipo basic se si desidera inoltrare tutte le richieste sul listener associati (ad esempio, *blog<i></i>.contoso.com/\*)* a un singolo pool di back-end.
 - Scegliere basata sul percorso se si vuole indirizzare le richieste dai percorsi URL specifici ai pool back-end specifico. Il modello di percorso viene applicato solo al percorso dell'URL, non ai relativi parametri di query.
@@ -245,7 +248,7 @@ Per altre informazioni sul reindirizzamento, vedere:
 Questa impostazione aggiunge, rimuove o aggiorna le intestazioni di richiesta e risposta HTTP durante la richiesta e spostano pacchetti di risposta tra il client e il pool back-end. È possibile configurare solo questa operazione tramite PowerShell. Portale di Azure e il supporto dell'interfaccia della riga non sono ancora disponibili. Per altre informazioni, vedere:
 
  - [Riscrivere Cenni preliminari sulle intestazioni HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [Configurare riscrittura dell'intestazione HTTP](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-your-http-header-rewrite-rule-configuration)
+ - [Configurare riscrittura dell'intestazione HTTP](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
 
 ## <a name="http-settings"></a>Impostazioni HTTP
 

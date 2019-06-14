@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: f2d735662fcd177f64d1ebc71a25b7d7629db3ce
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942646"
 ---
 # <a name="container-marketplace-tab"></a>Scheda Marketplace del contenitore
@@ -26,7 +26,7 @@ In questa sezione immettere le informazioni generali sull'offerta di Azure Marke
 
 La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi obbligatori sono indicati da un asterisco (*).
 
-|    Campo                  |       DESCRIZIONE                                                            |
+|    Campo                  |       Descrizione                                                            |
 |  ---------                |     ---------------                                                          |
 | **Titolo\***                 | Titolo dell'offerta. Verrà visualizzato in posizione prominente nel marketplace.  La lunghezza massima consentita è di 50 caratteri. |
 | **Riepilogo\***               | Breve riepilogo dell'offerta. La lunghezza massima consentita è di 100 caratteri. |

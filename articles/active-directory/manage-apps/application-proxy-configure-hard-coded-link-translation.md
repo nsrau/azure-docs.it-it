@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0899a127566c4d06de7d42443a956c2660a7a6d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956896"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzare i collegamenti hardcoded per le app pubblicate con il proxy di app di Azure AD
@@ -84,7 +84,7 @@ Esistono due tipi comuni di collegamenti interni nelle applicazioni locali:
 - I **collegamenti interni hardcoded** ad altre applicazioni locali come `http://expenses` o i file pubblicati come `http://expenses/logo.jpg`. La funzionalità di conversione dei collegamenti opera sui collegamenti interni hardcoded e li converte, in modo che puntino agli URL esterni che gli utenti remoti devono usare.
 
 L'elenco completo dei tag di codice HTML che il Proxy di applicazione supporta la conversione dei collegamenti per includono:
-* uno
+* a
 * audio
 * base
 * button
@@ -97,12 +97,12 @@ L'elenco completo dei tag di codice HTML che il Proxy di applicazione supporta l
 * IFRAME
 * Immagine
 * input
-* collegamento
+* link
 * MenuItem
 * meta
-* oggetto
+* object
 * script
-* una sezione source
+* source
 * Track
 * video
 

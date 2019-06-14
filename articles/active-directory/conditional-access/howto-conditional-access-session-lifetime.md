@@ -1,5 +1,5 @@
 ---
-title: Configurare la gestione della sessione di autenticazione con l'accesso condizionale di Azure Active Directory
+title: Configurare la gestione della sessione di autenticazione con Azure Active Directory l'accesso condizionale
 description: Personalizzare la configurazione di sessione di autenticazione AD Azure tra cui accesso utente nel browser e frequenza di salvataggio permanente sessione.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: e15cf9b2e10a581c72a5035b52be47c3e2c9dfda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988567"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112333"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurare la gestione della sessione di autenticazione con l'accesso condizionale
 
@@ -27,7 +27,7 @@ In distribuzioni complesse, le organizzazioni potrebbero essere necessario limit
 * Utenti a impatto elevato
 * Applicazioni aziendali critiche
 
-Controlli di accesso condizionale consentono di creare i criteri destinati a casi d'uso specifici all'interno dell'organizzazione senza influire su tutti gli utenti.
+I controlli di accesso condizionali consentono di creare i criteri destinati a casi d'uso specifici all'interno dell'organizzazione senza influire su tutti gli utenti.
 
 Prima di approfondire i dettagli su come configurare i criteri, è possibile esaminare la configurazione predefinita.
 
@@ -50,14 +50,14 @@ L'impostazione predefinita Azure AD per la persistenza della sessione del browse
 
 ## <a name="configuring-authentication-session-controls"></a>Configurazione dei controlli di sessione di autenticazione
 
-Accesso condizionale è una funzionalità di Azure AD Premium e richiede una licenza premium. Per altre informazioni sull'argomento, vedere [Cos'è l'accesso condizionale in Azure Active Directory](overview.md#license-requirements).
+Accesso condizionale è una funzionalità di Azure AD Premium e richiede una licenza premium. Se vuoi altre informazioni sull'accesso condizionale, vedere [qual è l'accesso condizionale in Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Se si usa la [durata dei token configurabili](../develop/active-directory-configurable-token-lifetimes.md) funzionalità attualmente in anteprima pubblica, si noti che non è supportata la creazione di due criteri diversi per la stessa combinazione di utente o un'app: uno con questa funzionalità e un'altra con funzionalità di durata dei token configurabili. Microsoft prevede di ritirare la funzionalità di durata dei token configurabili in 15 ottobre e sostituirla con la funzionalità di gestione sessione di autenticazione di accesso condizionale.  
+> Se si usa la [durata dei token configurabili](../develop/active-directory-configurable-token-lifetimes.md) funzionalità attualmente in anteprima pubblica, si noti che non è supportata la creazione di due criteri diversi per la stessa combinazione di utente o un'app: uno con questa funzionalità e un'altra con funzionalità di durata dei token configurabili. Microsoft prevede di disattivare la funzionalità di durata dei token configurabili dell'1 novembre e sostituirla con la funzionalità di gestione sessione di autenticazione di accesso condizionale.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Criterio 1: Controllo della frequenza di accesso
 
-1. Crea nuovo criterio
+1. Creare nuovi criteri
 1. Scegliere le condizioni di tutte le necessarie per l'ambiente del cliente, tra cui le app cloud di destinazione.
 
    > [!NOTE]
@@ -76,7 +76,7 @@ Se è stata configurata la frequenza di accesso diversi per le app web diversi i
 
 ### <a name="policy-2-persistent-browser-session"></a>Criterio 2: Sessione del browser permanente
 
-1. Crea nuovo criterio
+1. Creare nuovi criteri
 1. Scegliere tutte le condizioni necessarie.
 
    > [!NOTE]
@@ -95,7 +95,7 @@ Se è stata configurata la frequenza di accesso diversi per le app web diversi i
 
 Utilizzare lo strumento di simulazione per simulare un account di accesso da parte dell'utente per l'applicazione di destinazione e altre condizioni di base di come è stato configurato il criterio. I controlli di gestione della sessione di autenticazione visualizzano nel risultato dello strumento.
 
-![Cosa accade se lo strumento comporta l'accesso condizionale](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![Risultati dell'utilità di simulazione di accesso condizionale](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
 ## <a name="policy-deployment"></a>Distribuzione dei criteri
 
@@ -103,5 +103,5 @@ La procedura consigliata è testare i criteri prima di distribuirli nell'ambient
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Se si desidera sapere come configurare un criterio di accesso condizionale, vedere l'articolo [richiedere il MFA per App specifiche l'accesso condizionale di Azure Active Directory](app-based-mfa.md).
+* Se si desidera sapere come configurare un criterio di accesso condizionale, vedere l'articolo [Richiedi autenticazione a più fattori per App specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md).
 * Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente, vedere l'articolo [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md).

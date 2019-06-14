@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414954"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113482"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
 
@@ -37,8 +37,8 @@ Questo documento fornisce materiale sussidiario sulle strategie che un'organizza
 Da questo documento si traggono quattro punti chiave:
 
 * Evitare il blocco dell'amministratore usando account di accesso di emergenza.
-* Implementare l'autenticazione a più fattori usando l'accesso condizionale (CA) invece dell'autenticazione a più fattori per l'utente.
-* Ridurre il blocco dell'utente tramite più controlli di accesso condizionale (CA).
+* Implementare l'autenticazione a più fattori tramite l'accesso Condizionale anziché MFA per utente.
+* I rischi blocco dell'utente, uso di più controlli di accesso Condizionale.
 * Ridurre i blocchi dell'utente effettuando il provisioning di più metodi o equivalenti di autenticazione per ciascun utente.
 
 ## <a name="before-a-disruption"></a>Prima di un'interruzione
@@ -58,11 +58,11 @@ Per sbloccare l'accesso dell'amministratore al tenant, è consigliabile creare a
 
 ### <a name="mitigating-user-lockout"></a>Riduzione del blocco dell'utente
 
- Per attenuare il rischio di blocco dell'utente, usare i criteri di accesso condizionale con più controlli per concedere agli utenti la scelta del modo in cui accederanno ad app e risorse. Se si permette a un utente di scegliere tra, ad esempio, accedere con autenticazione a più fattori **o** da un dispositivo gestito **o** dalla rete aziendale, se uno dei controlli di accesso non è disponibile l'utente ha altre opzioni per continuare a lavorare.
+ Per attenuare il rischio di blocco dell'utente, usare i criteri di accesso condizionale con più controlli per concedere agli utenti una scelta del modo in cui accederanno le App e risorse. Se si permette a un utente di scegliere tra, ad esempio, accedere con autenticazione a più fattori **o** da un dispositivo gestito **o** dalla rete aziendale, se uno dei controlli di accesso non è disponibile l'utente ha altre opzioni per continuare a lavorare.
 
 #### <a name="microsoft-recommendations"></a>Elementi consigliati di Microsoft
 
-Incorporare i seguenti controlli di accesso nei criteri di accesso condizionale esistenti per l'organizzazione:
+Incorporare i seguenti controlli di accesso in Criteri di accesso condizionale esistenti per l'organizzazione:
 
 1. Effettuare il provisioning di più metodi di autenticazione per ogni utente che si basano su canali di comunicazione diversi, ad esempio l'app Microsoft Authenticator (basata su internet), il token OATH (generato sul dispositivo) e l'autenticazione via SMS (telefonica).
 2. Distribuire Windows Hello for Business nei dispositivi Windows 10 per soddisfare i requisiti di autenticazione a più fattori direttamente dall'accesso del dispositivo.
@@ -109,7 +109,7 @@ Comprendere l'esposizione durante un'interruzione aiuta a ridurre i rischi ed è
 
 #### <a name="microsoft-recommendations"></a>Elementi consigliati di Microsoft
 
-Un criterio di accesso condizionale di emergenza è un **criterio disabilitato** che omette l'autenticazione a più fattori di Azure, l'autenticazione a più fattori di terze parti e i controlli basati sui rischi o sui dispositivi. Quindi, quando l'organizzazione decide di attivare il piano di emergenza, gli amministratori possono abilitare il criterio e disabilitare i normali criteri basati sui controlli.
+Criteri di accesso condizionale di emergenza sono un **disabilitato criterio** che omette i controlli basati sul rischio o basato su dispositivo di Azure MFA, MFA di terze parti,. Quindi, quando l'organizzazione decide di attivare il piano di emergenza, gli amministratori possono abilitare il criterio e disabilitare i normali criteri basati sui controlli.
 
 >[!IMPORTANT]
 > La disabilitazione dei criteri che applicano la sicurezza sugli utenti, anche solo temporaneamente, ridurrà il livello di sicurezza mentre il piano di emergenza è in funzione.
@@ -117,13 +117,13 @@ Un criterio di accesso condizionale di emergenza è un **criterio disabilitato**
 * Configurare un set di criteri di fallback se un'interruzione in un tipo di credenziali o in un meccanismo di controllo di accesso ha effetti sull'accesso alle app. Configurare un criterio disattivato che richiede il controllo di aggiunta a un dominio come backup per un criterio attivo che richiede un provider di autenticazione a più fattori di terze parti.
 * Ridurre il rischio di password indovinate da malintenzionati, quando l'autenticazione a più fattori non è necessaria, seguendo le procedure consigliate nel white paper relativo alle [indicazioni sulle password](https://aka.ms/passwordguidance).
 * Distribuire [Reimpostazione self-service delle password di Azure AD (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) e [Protezione della password di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) per assicurarsi che gli utenti non usino password comuni e termini esclusi.
-* Usare criteri che limitano l'accesso all'interno delle app se non si raggiunge un determinato livello di autenticazione, anziché eseguire semplicemente il fallback all'accesso completo. Ad esempio: 
+* Usare criteri che limitano l'accesso all'interno delle app se non si raggiunge un determinato livello di autenticazione, anziché eseguire semplicemente il fallback all'accesso completo. Ad esempio:
   * Configurare un criterio di backup che invia l'attestazione di sessione con restrizioni a Exchange e SharePoint.
   * Se l'organizzazione usa Microsoft Cloud App Security, è consigliabile eseguire il fallback a un criterio che coinvolga MCAS, quindi che MCAS consenta l'accesso di sola lettura, ma non il caricamento.
 * Assegnare un nome ai criteri per esseri sicuri di trovarli facilmente durante un'interruzione. Includere gli elementi seguenti nel nome dei criteri:
   * Un *numero di etichetta* per i criteri.
   * Il testo da visualizzare. Questo criterio è destinato solo ai casi di emergenza. Ad esempio:  **ENABLE IN EMERGENCY**
-  * L'*interruzione* a cui si applica il criterio. Ad esempio:  **Durante interruzione MFA**
+  * L'*interruzione* a cui si applica il criterio. Ad esempio: **Durante interruzione MFA**
   * Un *numero di sequenza* per mostrare l'ordine in cui è necessario attivare i criteri.
   * Le *app* a cui si applica il criterio.
   * I *controlli* a cui si applicherà il criterio.
@@ -247,7 +247,7 @@ Annullare le modifiche apportate nell'ambito del piano di emergenza attivato una
 
 ## <a name="emergency-options"></a>Opzioni di emergenza
 
- Se si verifica una situazione di emergenza, ma l'organizzazione non ha implementato un piano di emergenza o mitigazione, seguire le indicazioni contenute nella sezione [Emergenze per il blocco dell'utente](#contingencies-for-user-lockout) se si usano già criteri di accesso condizionale per imporre l'autenticazione a più fattori.
+ In caso di emergenza e la tua organizzazione è stata precedentemente non implementare un piano di emergenza o mitigazione, quindi seguire le indicazioni contenute nella [contingenze per blocco utente](#contingencies-for-user-lockout) sezione se si usa già l'accesso condizionale criteri per imporre l'autenticazione MFA.
 Se l'organizzazione usa criteri di autenticazione a più fattori obsoleti per l'utente, è possibile prendere in considerazione l'alternativa seguente:
 
 1. Se si dispone dell'indirizzo IP in uscita della rete aziendale, è possibile aggiungerli come indirizzi IP attendibili per abilitare l'autenticazione esclusivamente sulla rete aziendale.
@@ -268,5 +268,5 @@ Se l'organizzazione usa criteri di autenticazione a più fattori obsoleti per l'
 * [Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Windows Hello for Business Deployment Guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide) (Guida alla distribuzione di Windows Hello fo Business)
   * [Materiale sussidiario sulle password - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [Quali sono le condizioni dell'accesso condizionale di Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [Quali sono i controlli di accesso nell'accesso condizionale di Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [Quali sono le condizioni in Active Directory accesso condizionale di Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
+* [Quali sono i controlli di accesso in Active Directory accesso condizionale di Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: bb296db0d97382deac984369704777de5d5cb362
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147681"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Supporto di condivisione delle risorse multiorigine (CORS) per i servizi di archiviazione di Azure
@@ -131,8 +131,8 @@ Successivamente, considerare le seguenti richieste CORS:
 | Richiesta |  |  | Risposta |  |
 | --- | --- | --- | --- | --- |
 | **Metodo** |**Origine** |**Intestazioni della richiesta** |**Corrispondenza regola** |**Risultato** |
-| **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |Prima regola |Success |
-| **GET** |http:\//www.contoso.com |x-ms-blob-content-type |Seconda regola |Success |
+| **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |Prima regola |Riuscito |
+| **GET** |http:\//www.contoso.com |x-ms-blob-content-type |Seconda regola |Riuscito |
 | **GET** |http:\//www.contoso.com |x-ms-client-request-id |Seconda regola |Esito negativo |
 
 La prima richiesta corrisponde alla prima regola (il dominio di origine corrisponde alle origini consentite, il metodo corrisponde ai metodi consentiti e l'intestazione corrisponde alle intestazioni consentite), pertanto ha esito positivo.
@@ -165,13 +165,13 @@ Nella tabella seguente viene indicata la risposta del servizio di archiviazione 
 | Richiesta | Impostazione account e risultato della valutazione della regola |  |  | Risposta |  |  |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Intestazione di origine presente sulla richiesta** |**Regole CORS specificate per questo servizio** |**Presenza di una regola di corrispondenza che consente tutte le origini(*)** |**Presenza di una regola per l'esatta corrispondenza dell'origine** |**Risposta che include l'intestazione Vary impostata su Origin** |**Risposta che include Access-Control-Allowed-Origin: "*"** |**Risposta che include Access-Control-Exposed-Headers** |
-| No  |No  |No  |No  |No  |No  |No  |
-| No  |Sì |No  |No  |Sì |No  |No  |
-| No  |Sì |Sì |No  |No  |Sì |Sì |
-| Sì |No  |No  |No  |No  |No  |No  |
-| Sì |Sì |No  |Sì |Sì |No  |Sì |
-| Sì |Sì |No  |No  |Sì |No  |No  |
-| Sì |Sì |Sì |No  |No  |Sì |Sì |
+| No |No |No |No |No |No |No |
+| No |Sì |No |No |Sì |No |No |
+| No |Yes |Sì |No |No |Yes |Sì |
+| Sì |No |No |No |No |No |No |
+| Yes |Sì |No |Yes |Sì |No |Yes |
+| Sì |Sì |No |No |Sì |No |No |
+| Yes |Sì |Sì |No |No |Yes |Yes |
 
 ## <a name="billing-for-cors-requests"></a>Fatturazione per le richieste CORS
 Le richieste preliminari con esito positivo vengono fatturate qualora la condivisione CORS sia stata abilitata per i servizi di archiviazione dell'account, chiamando [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) o [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Per ridurre al minimo le spese, impostare l'elemento **MaxAgeInSeconds** nelle regole CORS su un valore elevato, in modo che la richiesta venga memorizzata nella cache dall'agente utente.

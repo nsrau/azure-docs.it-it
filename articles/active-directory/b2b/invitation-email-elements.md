@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65768358"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory
@@ -31,10 +31,10 @@ Per sfruttare al meglio le potenzialità del messaggio di posta elettronica, di 
 ### <a name="subject"></a>Subject
 L'oggetto del messaggio di posta elettronica segue il modello seguente: Ti invitiamo all'organizzazione &lt;nometenant&gt;
 
-### <a name="from-address"></a>Indirizzo mittente
+### <a name="from-address"></a>Indirizzo del mittente.
 Per l'indirizzo del mittente si userà un modello simile a quello LinkedIn.  È consigliabile chiarire chi è il mittente dell'invito e a quale azienda appartiene, oltre a mettere in evidenza che il messaggio proviene da un indirizzo di posta elettronica Microsoft. Il formato è: Microsoft Invitations <invites@microsoft.com> oppure &lt;il nome visualizzato del mittente dell'invito&gt; dalla &lt;nometenant&gt; (tramite Microsoft) <invites@microsoft.com>.
 
-### <a name="reply-to"></a>Risposta
+### <a name="reply-to"></a>Rispondi a
 Se disponibile, viene impostato l'indirizzo di posta elettronica del mittente dell'invito. Un'eventuale risposta all'invito viene quindi inviata al mittente.
 
 ### <a name="branding"></a>Personalizzazione
@@ -53,7 +53,7 @@ Se non è ancora stata impostata un'immagine del profilo, al posto dell'immagine
 
   ![Screenshot che mostra l'invito con il mittente dell'invito iniziali visualizzate](media/invitation-email-elements/inviters-initials.png)
 
-### <a name="body"></a>Corpo
+### <a name="body"></a>Body
 Il corpo contiene il messaggio digitato dal mittente dell'invito quando [viene invitato un utente guest alla directory, al gruppo o all'app](add-users-administrator.md) oppure [usando l'API di invito](customize-invitation-api.md). Si tratta di un'area di testo, che quindi non supporta l'elaborazione dei tag HTML per motivi di sicurezza.
 
   ![Screenshot che illustra il corpo del messaggio di posta elettronica di invito](media/invitation-email-elements/invitation-email-body.png)

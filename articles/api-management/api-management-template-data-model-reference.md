@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
 ms.openlocfilehash: 3c2384b536235554fed7c1cf1a08b7c665f513a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61094523"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Informazioni di riferimento sui modelli di dati per i modelli di Gestione API di Azure
@@ -60,7 +60,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="API"></a>API  
  L'entità `API` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`id`|string|Identificatore di risorsa. Identifica in modo univoco l'API all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `apis/{id}` dove `{id}` è un identificatore API. Questa proprietà è di sola lettura.|  
 |`name`|string|Nome dell'API. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
@@ -74,7 +74,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="APISummary"></a>Riepilogo delle API  
  L'entità `API summary` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`id`|string|Identificatore di risorsa. Identifica in modo univoco l'API all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `apis/{id}` dove `{id}` è un identificatore API. Questa proprietà è di sola lettura.|  
 |`name`|string|Nome dell'API. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
@@ -83,7 +83,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Application"></a> Applicazione  
  L'entità `application` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificatore univoco dell'applicazione.|  
 |`Title`|string|Titolo dell'applicazione.|  
@@ -101,7 +101,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Attachment"></a>Allegato  
  L'entità `attachment` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`UniqueId`|string|Identificatore univoco per l'allegato.|  
 |`Url`|string|URL della risorsa.|  
@@ -110,7 +110,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
   
 ##  <a name="Sample"></a>Codice di esempio  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`title`|string|Nome dell'operazione.|  
 |`snippet`|string|Questa proprietà è deprecata e non deve essere usata.|  
@@ -128,7 +128,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Comment"></a>Commento  
  L'entità `API` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Id`|number|ID del commento.|  
 |`CommentText`|string|Corpo del commento. Può includere HTML.|  
@@ -138,7 +138,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Issue"></a>Problema  
  L'entità `issue` ha le proprietà seguenti.  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificatore univoco per il problema.|  
 |`ApiID`|string|ID per l'API per cui è stato segnalato il problema.|  
@@ -154,7 +154,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Filtering"></a>Filtri  
  L'entità `filtering` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Pattern`|string|Termine di ricerca corrente; o `null` se non è presente alcun termine di ricerca.|  
 |`Placeholder`|string|Il testo da visualizzare nella casella di ricerca quando non è presente alcun termine di ricerca specificato.|  
@@ -162,7 +162,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Header"></a>Intestazione  
  Questa sezione descrive la rappresentazione di `parameter`.  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|-----------------|----------|  
 |`name`|string|Nome del parametro.|  
 |`description`|string|Descrizione del parametro.|  
@@ -175,7 +175,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="HTTPRequest"></a>Richiesta HTTP  
  Questa sezione descrive la rappresentazione di `request`.  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`description`|string|Descrizione della richiesta dell'operazione.|  
 |`headers`|matrice di entità [Intestazione](#Header).|Intestazioni della richiesta.|  
@@ -185,7 +185,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="HTTPResponse"></a>Risposta HTTP  
  Questa sezione descrive la rappresentazione di `response`.  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`statusCode`|intero positivo|Codice di stato della risposta dell'operazione.|  
 |`description`|string|Descrizione della risposta dell'operazione.|  
@@ -194,7 +194,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Operation"></a>Operazione  
  L'entità `operation` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`id`|string|Identificatore di risorsa. Identifica in modo univoco l'operazione all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `apis/{aid}/operations/{id}` dove `{aid}` è un identificatore API e `{id}` è un identificatore di operazione. Questa proprietà è di sola lettura.|  
 |`name`|string|Nome dell'operazione. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
@@ -209,7 +209,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Menu"></a>Menu operazione  
  L'entità `operation menu` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`ApiId`|string|ID dell'API corrente.|  
 |`CurrentOperationId`|string|ID dell'operazione corrente.|  
@@ -219,7 +219,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="MenuItem"></a>Voce di menu operazione  
  L'entità `operation menu item` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Id`|string|ID dell'operazione.|  
 |`Title`|string|Descrizione dell'operazione.|  
@@ -228,7 +228,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Paging"></a>Paging  
  L'entità `paging` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Page`|number|Numero di pagina corrente.|  
 |`PageSize`|number|Numero massimo di risultati da visualizzare in una singola pagina.|  
@@ -239,7 +239,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Parameter"></a>Parametro  
  Questa sezione descrive la rappresentazione di `parameter`.  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|-----------------|----------|  
 |`name`|string|Nome del parametro.|  
 |`description`|string|Descrizione del parametro.|  
@@ -252,7 +252,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Product"></a>Prodotto  
  L'entità `product` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificatore di risorsa. Identifica in modo univoco il prodotto all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `products/{pid}` dove `{pid}` è un identificatore di prodotto. Questa proprietà è di sola lettura.|  
 |`Title`|string|Nome del prodotto. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
@@ -265,7 +265,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Provider"></a>Provider  
  L'entità `provider` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Properties`|dizionario di stringhe|Proprietà per questo provider di autenticazione.|  
 |`AuthenticationType`|string|Tipo di provider. (Azure Active Directory, account di accesso di Facebook, account Google, account Microsoft, Twitter).|  
@@ -274,7 +274,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Representation"></a>Rappresentazione  
  Questa sezione descrive una `representation`.  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`contentType`|string|Specifica un tipo di contenuto registrato o personalizzato per questa rappresentazione, ad esempio `application/xml`.|  
 |`sample`|string|Un esempio della rappresentazione.|  
@@ -282,7 +282,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="Subscription"></a>Sottoscrizione  
  L'entità `subscription` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificatore di risorsa. Identifica in modo univoco la sottoscrizione all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `subscriptions/{sid}` dove `{sid}` è un identificatore di sottoscrizione. Questa proprietà è di sola lettura.|  
 |`ProductId`|string|Identificatore di risorsa per il prodotto relativo al prodotto sottoscritto. Il valore è un URL relativo valido nel formato `products/{pid}` dove `{pid}` è un identificatore di prodotto.|  
@@ -308,7 +308,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="SubscriptionSummary"></a>Riepilogo delle sottoscrizioni  
  L'entità `subscription summary` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificatore di risorsa. Identifica in modo univoco la sottoscrizione all'interno dell'istanza del servizio Gestione API corrente. Il valore è un URL relativo valido nel formato `subscriptions/{sid}` dove `{sid}` è un identificatore di sottoscrizione. Questa proprietà è di sola lettura.|  
 |`DisplayName`|string|Nome visualizzato della sottoscrizione|  
@@ -316,7 +316,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="UserAccountInfo"></a>Informazioni sull'account utente  
  L'entità `user account info` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`FirstName`|string|Nome. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
 |`LastName`|string|Cognome. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
@@ -329,7 +329,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="UseSignIn"></a>Accesso utente  
  L'entità `user sign in` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`Email`|string|Indirizzo di posta elettronica. Non deve essere vuoto e deve essere univoco all'interno dell'istanza del servizio. La lunghezza massima consentita è di 254 caratteri.|  
 |`Password`|string|Password dell'account utente.|  
@@ -347,7 +347,7 @@ Il portale per sviluppatori non è disponibile al livello A consumo.
 ##  <a name="UserSignUp"></a>Iscrizione utente  
  L'entità `user sign up` ha le proprietà seguenti:  
   
-|Proprietà|Type|DESCRIZIONE|  
+|Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`PasswordConfirm`|boolean|Valore usato per il controllo dell'iscrizione [sign-up](api-management-page-controls.md#sign-up).|  
 |`Password`|string|Password dell'account utente.|  

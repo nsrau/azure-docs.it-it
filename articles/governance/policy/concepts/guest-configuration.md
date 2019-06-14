@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979519"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
@@ -69,9 +69,9 @@ Il client della configurazione guest verifica la presenza di nuovi contenuti ogn
 
 La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 
-|Pubblicato da|NOME|Versioni|
+|Editore|Name|Versioni|
 |-|-|-|
-|Canonico|Ubuntu Server|14.04, 16.04, 18.04|
+|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|Data Center 2012, 2012 R2 Datacenter, 2016 Datacenter, Datacenter 2019|
 |Microsoft|Client Windows|Windows 10|
@@ -143,4 +143,4 @@ Esempi di configurazione dei criteri Guest sono disponibili nei percorsi seguent
 - Comprendere come [a livello di codice, creare criteri](../how-to/programmatically-create.md).
 - Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
 - Informazioni su come [monitora e aggiorna le risorse non conformi](../how-to/remediate-resources.md).
-- Esaminare un gruppo di gestione riguarda [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/index.md).
+- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/index.md).

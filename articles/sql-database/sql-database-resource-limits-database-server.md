@@ -13,10 +13,10 @@ ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 04/18/2019
 ms.openlocfilehash: 06e61d30f0d4e598c48f190572b8b4343f351043
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762794"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limiti delle risorse del database SQL per il server di database SQL di Azure
@@ -33,7 +33,7 @@ Questo articolo offre una panoramica dei limiti delle risorse del database SQL p
 | Database per server | 5000 |
 | Numero predefinito di server per sottoscrizione in ogni area | 20 |
 | Numero massimo di server per sottoscrizione in ogni area | 200 |  
-| Quota DTU/eDTU per server | 54.000 |  
+| Quota DTU/eDTU per server | 54\.000 |  
 | Quota vCore per server/istanza | 540 |
 | N. max pool per server | Limitato dal numero di DTU o vCore. Se ad esempio ogni pool è da 1000 DTU, un server può supportare 54 pool.|
 |||

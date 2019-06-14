@@ -9,10 +9,10 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254675"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Migliorare la disponibilità dell'applicazione con Azure Advisor
@@ -72,7 +72,7 @@ Azure Advisor controlla tutti i gateway VPN sono uno SKU Basic e consigliabile u
 
 ## <a name="repair-invalid-log-alert-rules"></a>Correggere le regole di avviso di log non è valido
 
-Azure Advisor rileverà le regole di avviso con query non valida specificata nella sezione condizione. Le regole di avviso di log vengono create in Monitoraggio di Azure e vengono usate per eseguire le query analitica a intervalli specificati. I risultati della query di determinare se deve essere attivato un avviso. Query Analitica potrebbe diventare non valido nel tempo a causa di modifiche in cui si fa riferimento alle risorse, tabelle o i comandi. Advisor consiglia di correggere la query nella regola di avviso per impedire che il recupero automatico-disabilitato e garantire una copertura monitoraggio delle risorse in Azure. [Altre informazioni sulla risoluzione dei problemi delle regole di avviso](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor rileverà le regole di avviso con query non valida specificata nella sezione condizione. Le regole di avviso del log vengono create in Monitoraggio di Azure e vengono usate per eseguire le query di analisi a intervalli specificati. I risultati della query determinano se è necessario attivare un avviso. Le query di analisi doverebbero diventare non valide nel corso del tempo a causa di modifiche nelle risorse, nelle tabelle o nei comandi di riferimento. Advisor consiglia di correggere la query nella regola di avviso per impedire che il recupero automatico-disabilitato e garantire una copertura monitoraggio delle risorse in Azure. [Altre informazioni sulla risoluzione dei problemi delle regole di avviso](https://aka.ms/aa_logalerts_queryrepair)
 
 ## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Configurare la modalità di indicizzazione coerente per la raccolta di Cosmos DB
 
@@ -90,7 +90,7 @@ Azure Advisor identifica gli account Azure Cosmos DB che usano le versioni prece
 
 Azure Advisor identifica gli account Azure Cosmos DB che usano le versioni precedenti di Java SDK e consigliabile eseguire l'aggiornamento alla versione più recente da Maven per le correzioni più recenti miglioramenti delle prestazioni e nuove funzionalità. [Altre informazioni su Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
-## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Eseguire l'aggiornamento del connettore Spark per Azure Cosmos DB per la versione più recente da Maven
+## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Eseguire l'aggiornamento del connettore Spark di Azure Cosmos DB alla versione più recente da Maven
 
 Azure Advisor identifica gli account Azure Cosmos DB che usano le versioni precedenti del connettore Spark per Cosmos DB e consigliabile eseguire l'aggiornamento alla versione più recente da Maven per le correzioni più recenti miglioramenti delle prestazioni e nuove funzionalità. [Altre informazioni sul connettore Spark per Cosmos DB](https://aka.ms/cosmosdb/spark-connector)
 

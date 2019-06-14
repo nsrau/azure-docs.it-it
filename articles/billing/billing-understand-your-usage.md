@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
 ms.openlocfilehash: 9ff9b6b5313026d2102b98659183fa97c6a5ef84
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683994"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprendere i termini nel file di utilizzo e costi di Azure
@@ -26,9 +26,9 @@ La tabella seguenti viene illustrano quali gli addebiti sono inclusi per ogni ti
 
 Tipo di account | Utilizzo di Azure | Utilizzo di Marketplace | Acquisti | Rimborsi
 --- | --- | --- | --- | ---
-Contratto Enterprise Agreement (EA) | Sì | Sì | Sì | No 
-Contratto del cliente Microsoft | Sì | Sì | Sì | Sì
-Pagamento in base al consumo | Sì | No  | No  | No 
+Contratto Enterprise Agreement (EA) | Yes | Sì | Sì | No
+Contratto del cliente Microsoft | Yes | Sì | Sì | Yes
+Pagamento in base al consumo | Yes | No | No | No
 
 Per altre informazioni sugli ordini Marketplace (noto anche come servizi esterni), vedere [informazioni sugli addebiti di esterni Azure servizio](billing-understand-your-azure-marketplace-charges.md).
 
@@ -40,11 +40,11 @@ Il file di utilizzo e costi è disponibile in un formato di file con valori deli
 La tabella seguente descrive i termini importanti usati nella versione più recente del file di utilizzo e costi di Azure.
 L'elenco copre pagamento a consumo (PAYG), Enterprise Agreement (EA) e account di Microsoft dal cliente contratto MCA ().
 
-Termine | Tipo di account | DESCRIZIONE
+Nome | Tipo di account | Descrizione
 --- | --- | ---
 AccountName | Contratto Enterprise | Nome visualizzato dell'account di registrazione.
-ID del proprietario dell'account | Contratto Enterprise | Identificatore univoco per l'account di registrazione.
-Informazioni aggiuntive | Tutti | Metadati specifici del servizio. Ad esempio un tipo di immagine per una macchina virtuale.
+AccountOwnerId | Contratto Enterprise | Identificatore univoco per l'account di registrazione.
+AdditionalInfo | Tutti | Metadati specifici del servizio. Ad esempio un tipo di immagine per una macchina virtuale.
 BillingAccountId | EA, MCA | Identificatore univoco per la radice di account di fatturazione.
 BillingAccountName | EA, MCA | Nome dell'account di fatturazione.
 BillingCurrency | EA, MCA | Valuta associata con l'account di fatturazione.
@@ -55,13 +55,13 @@ BillingProfileId | EA, MCA | Identificatore univoco della registrazione EA o MCA
 BillingProfileName | EA, MCA | Nome della registrazione EA o MCA profilo di fatturazione.
 ChargeType | EA, MCA | Indica se il costo rappresenta utilizzo (**utilizzo**), un acquisto (**acquistare**), o un rimborso (**rimborso**).
 ConsumedQuantity | IN BASE AL CONSUMO | Vedere Quantity.
-Servizio utilizzato | Tutti | Nome del servizio l'addebito è associato.
+ConsumedService | Tutti | Nome del servizio l'addebito è associato.
 Costi | Contratto Enterprise | Vedere CostInBillingCurrency.
 CostCenter | EA, MCA | Il centro di costo definito per la sottoscrizione per tenere traccia dei costi (disponibili solo nei periodi di fatturazione aperti per gli account MCA).
 CostInBillingCurrency | MCA | Costo degli addebiti nella fatturazione valuta prima crediti o imposte.
 CostInPricingCurrency | MCA | Costo dell'addebito nella valuta del prezzo prima crediti o imposte.
-Valuta | IN BASE AL CONSUMO | Vedere BillingCurrency.
-Data | EA, MCA | La data di utilizzo o l'acquisto di addebito.
+Currency | IN BASE AL CONSUMO | Vedere BillingCurrency.
+Date | EA, MCA | La data di utilizzo o l'acquisto di addebito.
 ExchangeRateDate | MCA | È stato stabilito il tasso di cambio Data.
 ExchangeRatePricingToBilling | MCA | Tasso di cambio utilizzato per convertire i costi nella valuta del prezzo per la valuta di fatturazione.
 Frequenza | EA, MCA | Indica se è previsto un addebito per ripetere. Gli addebiti per può essere completato una volta (**OneTime**), ripetere l'operazione su base mensile o annua (**ricorrente**), o essere basata sull'utilizzo (**UsageBased**).
@@ -73,13 +73,13 @@ InvoiceSectionId | EA, MCA | Identificatore univoco per il reparto con contratto
 InvoiceSectionName | EA, MCA | Nome della sezione della fattura MCA o reparto con contratto Enterprise.
 IsAzureCreditEligible | EA, MCA | Indica se l'addebito è idoneo a essere a pagamento per l'utilizzo di crediti di Azure (i valori: True, False).
 Località | EA, MCA | Posizione del Data Center in cui la risorsa è in esecuzione.
-Categoria del contatore | Tutti | Nome della categoria di classificazione per il contatore. Ad esempio, *servizi Cloud* e *Networking*.
+meterCategory | Tutti | Nome della categoria di classificazione per il contatore. Ad esempio, *servizi Cloud* e *Networking*.
 ID contatore | Tutti | Identificatore univoco per il contatore.
-Nome del contatore | Tutti | Il nome del contatore.
-Area del contatore | Tutti | Nome della posizione dei Data Center per i servizi di prezzo basato sul percorso. Vedere posizione.
-Sottocategoria del contatore | Tutti | Nome della categoria sottoclassificazione del misuratore.
+nome del contatore | Tutti | Il nome del contatore.
+meterRegion | Tutti | Nome della posizione dei Data Center per i servizi di prezzo basato sul percorso. Vedere posizione.
+MeterSubCategory | Tutti | Nome della categoria sottoclassificazione del misuratore.
 OfferId | EA, MCA | Nome dell'offerta acquistata.
-PartNumber | Contratto Enterprise | Identificatore utilizzato per ottenere prezzi contatore specifico.
+Operativo{0 | Contratto Enterprise | Identificatore utilizzato per ottenere prezzi contatore specifico.
 PlanName | Contratto Enterprise | Nome del piano di Marketplace.
 PreviousInvoiceId | MCA | Riferimento a una fattura originale se questa voce è un rimborso.
 pricingCurrency | MCA | Valuta usata per classificazione in base al prezzo negoziato.
@@ -97,19 +97,19 @@ ReservationName | EA, MCA | Nome dell'istanza di prenotazione acquistata.
 ResourceGroupId | EA, MCA | Identificatore univoco per il [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) la risorsa si trova.
 ResourceGroupName | EA, MCA | Nome del [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) la risorsa si trova.
 ResourceId | EA, MCA | Identificatore univoco del [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) risorsa.
-Posizione della risorsa | EA, MCA | Posizione del Data Center in cui la risorsa è in esecuzione. Vedere posizione.
+ResourceLocation | EA, MCA | Posizione del Data Center in cui la risorsa è in esecuzione. Vedere posizione.
 ResourceName | Contratto Enterprise | Nome della risorsa.
 ResourceType | MCA | Tipo di istanza di risorsa.
 ServiceFamily | EA, MCA | Famiglia di servizio a cui appartiene il servizio.
-Informazioni sul servizio 1 | Tutti | Metadati specifici del servizio.
-Informazioni sul servizio 2 | Tutti | Campo legacy con i metadati specifici del servizio facoltativo.
+ServiceInfo1 | Tutti | Metadati specifici del servizio.
+ServiceInfo2 | Tutti | Campo legacy con i metadati specifici del servizio facoltativo.
 ServicePeriodEndDate | MCA | La data di fine del periodo di valutazione che definito e bloccato prezzi del servizio utilizzato o acquistato.
 ServicePeriodStartDate | MCA | La data di inizio del periodo di valutazione che definito e bloccato prezzi del servizio utilizzato o acquistato.
 SubscriptionId | Tutti | Identificatore univoco per la sottoscrizione.
 SubscriptionName | Tutti | Nome della sottoscrizione.
-Tag | Tutti | Tag assegnato alla risorsa. Non includere tag dei gruppi di risorse. Può essere utilizzato per raggruppare o distribuire i costi per il chargeback interno. Per altre informazioni, vedere [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organizzare le risorse di Azure con i tag).
+`Tags` | Tutti | Tag assegnato alla risorsa. Non includere tag dei gruppi di risorse. Può essere utilizzato per raggruppare o distribuire i costi per il chargeback interno. Per altre informazioni, vedere [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organizzare le risorse di Azure con i tag).
 Unità | IN BASE AL CONSUMO | Vedere UnitOfMeasure.
-Unità di misura | Tutti | L'unità di misura per la fatturazione per il servizio. Ad esempio, i servizi di calcolo vengono fatturati per ora.
+UnitOfMeasure | Tutti | L'unità di misura per la fatturazione per il servizio. Ad esempio, i servizi di calcolo vengono fatturati per ora.
 prezzo unitario | Contratto Enterprise | Il prezzo unitario per le spese.
 UsageDate | IN BASE AL CONSUMO | Visualizzare data.
 

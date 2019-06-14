@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 988e8982b6f06fb1210330c5cafdb696892794fe
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a9cf0b848e551d3c0e7d7275af9eb2c8e970dbd9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235523"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113393"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication
 
@@ -59,7 +59,7 @@ Questi dati sono disponibili tramite il [portale di Azure](https://portal.azure.
 
 I report delle attività di accesso per l'autenticazione a più fattori permettono di accedere alle informazioni seguenti:
 
-**Autenticazione MFA obbligatoria:** specifica se l'autenticazione a più fattori è obbligatoria o meno per l'accesso. L'autenticazione a più fattori può essere obbligatoria per motivi di autenticazione a più fattori per singoli utenti, accesso condizionale o altri motivi. I valori possibili sono **Sì** o **No**.
+**Autenticazione MFA obbligatoria:** specifica se l'autenticazione a più fattori è obbligatoria o meno per l'accesso. Autenticazione a più fattori può essere necessaria a causa dell'autenticazione a più fattori per utente, l'accesso condizionale o altri motivi. I valori possibili sono **Sì** o **No**.
 
 **Risultato autenticazione MFA:** altre informazioni che specificano se l'autenticazione a più fattori è riuscita o è stata negata.
 
@@ -115,7 +115,7 @@ I report delle attività di accesso per l'autenticazione a più fattori permetto
 
 **Dettagli autenticazione a più fattori:** versione parzialmente nascosta del numero di telefono, ad esempio +XX XXXXXXXX64.
 
-**Accesso condizionale:** informazioni sui criteri di accesso condizionale che interessato il tentativo di accesso, tra cui:
+**Accesso condizionale** trovare informazioni sui criteri di accesso condizionale che interessato il tentativo di accesso tra cui:
 
 - Nome criterio
 - Controlli di concessione

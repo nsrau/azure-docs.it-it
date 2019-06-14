@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 2c54f7192827376bb157915738ee781f45433267
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753107"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059229"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
@@ -108,6 +108,16 @@ Lo script contiene due funzioni che caricano ed eseguono il modello:
 * `init()`: questa funzione carica in genere il modello in un oggetto globale. Questa funzione viene eseguita solo una volta quando viene avviato il contenitore Docker per il servizio web.
 
 * `run(input_data)`: questa funzione usa il modello per stimare un valore in base ai dati di input. Per la serializzazione e la deserializzazione, gli input e gli output dell'esecuzione usano in genere JSON. È anche possibile usare dati binari non elaborati. È possibile trasformare i dati prima dell'invio al modello o prima della restituzione al client.
+
+#### <a name="what-is-getmodelpath"></a>Che cos'è get_model_path?
+Quando si registra un modello, è fornire un nome di modello usato per gestire il modello nel Registro di sistema. Questo nome viene usato in get_model_path API che restituisce il percorso dei file modello nel file system locale. Se si registra una cartella o una raccolta di file, questa API restituisce il percorso alla directory che contiene tali file.
+
+Quando si registra un modello, occorre assegnargli un nome che corrisponde per il modello di posizione, in locale o durante la distribuzione del servizio.
+
+L'esempio seguente restituisce un percorso a un singolo file denominato 'sklearn_mnist_model.pkl' (che è stato registrato con il nome 'sklearn_mnist')
+```
+model_path = Model.get_model_path('sklearn_mnist')
+``` 
 
 #### <a name="optional-automatic-swagger-schema-generation"></a>(Facoltativo) Generazione automatica dello schema di Swagger
 
@@ -248,7 +258,9 @@ In questo esempio, la configurazione contiene gli elementi seguenti:
 * Il [script di ingresso](#script), che consente di gestire le richieste web inviate al servizio distribuito
 * Il file conda che descrive i pacchetti Python necessari per l'inferenza
 
-Per informazioni sulla funzionalità InferenceConfig, vedere la [configurazione avanzata](#advanced-config) sezione.
+Per informazioni sulla funzionalità InferenceConfig, vedere la [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) di riferimento sulla classe.
+
+Per informazioni sull'uso di un'immagine Docker personalizzata con la configurazione di inferenza dei tipi, vedere [come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md).
 
 ### <a name="3-define-your-deployment-configuration"></a>3. Definire la configurazione della distribuzione
 
@@ -265,6 +277,15 @@ Nella tabella seguente fornisce un esempio di creazione di una configurazione di
 | Servizio Azure Kubernetes | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 Le sezioni seguenti illustrano come creare la configurazione della distribuzione e quindi usarlo per distribuire il servizio web.
+
+### <a name="optional-profile-your-model"></a>Facoltativo: Il modello di profilo
+Prima di distribuire il modello come un servizio, è possibile profilare in modo da determinare i requisiti di memoria e CPU ottima.
+È possibile farlo tramite il SDK o della riga di comando.
+
+Per altre informazioni, è possibile estrarre la documentazione di SDK di seguito: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
+
+I risultati della profilatura modelli vengono generati come un oggetto Run.
+Informazioni specifiche sullo schema del modello profilo sono disponibili qui: https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
 
 ## <a name="deploy-to-target"></a>Distribuzione di destinazione
 
@@ -492,54 +513,6 @@ print(service.state)
 print(service.get_logs())
 ```
 
-<a id="advanced-config"></a>
-
-## <a name="advanced-settings"></a>Impostazioni avanzate 
-
-**<a id="customimage"></a> Usare un'immagine di base personalizzata**
-
-Internamente, InferenceConfig crea un'immagine Docker contenente il modello e altre risorse necessarie per il servizio. Se non specificato, viene usata un'immagine di base predefinito.
-
-Quando si crea un'immagine da utilizzare con la configurazione di inferenza dei tipi, l'immagine deve soddisfare i requisiti seguenti:
-
-* Ubuntu 16.04 o versione successiva.
-* 4.5 conda. & o versione successiva.
-* Python 3.5. & o 3.6. #.
-
-Per usare un'immagine personalizzata, impostare il `base_image` proprietà della configurazione di inferenza per l'indirizzo dell'immagine. L'esempio seguente illustra come usare un'immagine da entrambi una pubblica e privata registro contenitori di Azure:
-
-```python
-# use an image available in public Container Registry without authentication
-inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
-
-# or, use an image available in a private Container Registry
-inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
-inference_config.base_image_registry.address = "myregistry.azurecr.io"
-inference_config.base_image_registry.username = "username"
-inference_config.base_image_registry.password = "password"
-```
-
-L'immagine seguente gli URI sono per le immagini fornite da Microsoft e può essere usato senza fornire un valore di password o nome utente:
-
-* `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03`
-
-Per usare queste immagini, impostare il `base_image` all'URI nell'elenco precedente. Impostare `base_image_registry.address` su `mcr.microsoft.com`.
-
-> [!IMPORTANT]
-> Le immagini di Microsoft che usano CUDA o TensorRT devono essere utilizzate solo nei servizi di Microsoft Azure.
-
-Per altre informazioni sul caricamento di immagini personalizzate in un registro contenitori di Azure, vedere [Push la prima immagine in un registro contenitori Docker privati](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
-
-Se il modello viene eseguito il training nel calcolo di Azure Machine Learning, usando __1.0.22 versione o versioni successive__ di Azure Machine Learning SDK, viene creata un'immagine durante il training. Nell'esempio seguente viene illustrato come utilizzare questa immagine:
-
-```python
-# Use an image built during training with SDK 1.0.22 or greater
-image_config.base_image = run.properties["AzureML.DerivedImageName"]
-```
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Per eliminare un servizio Web distribuito, usare `service.delete()`.
 Per eliminare un modello registrato, usare `model.delete()`.
@@ -547,6 +520,7 @@ Per eliminare un modello registrato, usare `model.delete()`.
 Per altre informazioni, vedere la documentazione di riferimento [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), e [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## <a name="next-steps"></a>Passaggi successivi
+* [Come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md)
 * [Risoluzione dei problemi di distribuzione](how-to-troubleshoot-deployment.md)
 * [Proteggere i servizi Web di Azure Machine Learning con SSL](how-to-secure-web-service.md)
 * [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)

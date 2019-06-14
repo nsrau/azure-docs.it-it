@@ -17,10 +17,10 @@ ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: bcc970375120f76e4ec8a90f487d251296f92dba
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957911"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurare un'app di servizio App nel portale di Azure
@@ -31,7 +31,7 @@ Questo argomento illustra come configurare le impostazioni comuni per le app web
 
 Nel servizio App, si usano le impostazioni dell'app, ad esempio le variabili di ambiente. Nel [portale di Azure], passare alla pagina di gestione dell'app. Nel menu a sinistra dell'app, fare clic su **Configuration** > **le impostazioni dell'applicazione**.
 
-![Impostazioni applicazione](./media/configure-common/open-ui.png)
+![Impostazioni dell'applicazione](./media/configure-common/open-ui.png)
 
 Per gli sviluppatori ASP.NET e ASP.NET Core, le impostazioni dell'impostazione app nel servizio App sono come impostarli `<appSettings>` nelle *Web. config*, ma i valori nel servizio App di eseguire l'override di quelli *Web. config*. È possibile mantenere le impostazioni di sviluppo (ad esempio password MySQL locale) nella *Web. config*, ma i segreti di produzione (ad esempio, la password del database MySQL di Azure)-safe nel servizio App. Lo stesso codice Usa le impostazioni di sviluppo quando si esegue il debug in locale e Usa i segreti di produzione quando distribuito in Azure.
 
@@ -92,7 +92,7 @@ Le impostazioni dell'App sono la formattazione JSON seguente:
 
 Nel [portale di Azure], passare alla pagina di gestione dell'app. Nel menu a sinistra dell'app, fare clic su **Configuration** > **le impostazioni dell'applicazione**.
 
-![Impostazioni applicazione](./media/configure-common/open-ui.png)
+![Impostazioni dell'applicazione](./media/configure-common/open-ui.png)
 
 Per gli sviluppatori ASP.NET e ASP.NET Core, le stringhe di connessione impostazione nel servizio App sono come impostarli `<connectionStrings>` nelle *Web. config*, ma i valori impostati nel servizio App di eseguire l'override di quelli *Web. config*. È possibile mantenere le impostazioni di sviluppo (ad esempio, un file di database) in *Web. config* e i segreti di produzione (ad esempio, le credenziali del Database SQL)-safe nel servizio App. Lo stesso codice Usa le impostazioni di sviluppo quando si esegue il debug in locale e Usa i segreti di produzione quando distribuito in Azure.
 

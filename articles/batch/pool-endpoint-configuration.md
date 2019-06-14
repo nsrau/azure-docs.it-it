@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
-ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b6b28b9f55623fbdff6ab80c889141c8815600f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616858"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071522"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurare o disabilitare l'accesso remoto ai nodi di calcolo in un pool di Azure Batch
 
@@ -27,7 +27,7 @@ La configurazione dell'endpoint è costituita da uno o più [pool Network Addres
 Ogni configurazione del pool NAT include una o più [regole del gruppo di sicurezza di rete](/rest/api/batchservice/pool/add#networksecuritygrouprule). Ogni regola del gruppo di sicurezza di rete consente o rifiuta un determinato traffico di rete all'endpoint. È possibile scegliere di consentire o rifiutare tutto il traffico, il traffico identificato da un [tag del servizio](../virtual-network/security-overview.md#service-tags), ad esempio "Internet", o il traffico proveniente da specifici indirizzi IP o subnet.
 
 ### <a name="considerations"></a>Considerazioni
-* La configurazione dell'endpoint del pool fa parte della [configurazione di rete](/rest/api/batchservice/pool/add#NetworkConfiguration) del pool. La configurazione di rete può includere facoltativamente impostazioni per aggiungere il pool a una [rete virtuale di Azure](batch-virtual-network.md). Se si configura il pool in una rete virtuale, è possibile creare le regole del gruppo di sicurezza di rete che usano le impostazioni dell'indirizzo nella rete virtuale.
+* La configurazione dell'endpoint del pool fa parte della [configurazione di rete](/rest/api/batchservice/pool/add#networkconfiguration) del pool. La configurazione di rete può includere facoltativamente impostazioni per aggiungere il pool a una [rete virtuale di Azure](batch-virtual-network.md). Se si configura il pool in una rete virtuale, è possibile creare le regole del gruppo di sicurezza di rete che usano le impostazioni dell'indirizzo nella rete virtuale.
 * Quando si configura un pool NAT, è possibile configurare più regole del gruppo di sicurezza di rete. Le regole vengono controllate in ordine di priorità. Dopo che è stata applicata una regola, non viene verificata la corrispondenza di altre regole.
 
 

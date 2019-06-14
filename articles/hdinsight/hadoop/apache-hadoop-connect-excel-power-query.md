@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.openlocfilehash: e35e86bee4dfee21d0a98867c3e0d1d7850ed0ec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762000"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Connettere Excel ad Apache Hadoop mediante Power Query
@@ -54,10 +54,10 @@ Il componente aggiuntivo Power Query per Excel consente di importare facilmente 
        **Nota:** Se non viene visualizzato il **Power Query** menu, passa alla **File** > **opzioni** > **Add-ins**e selezionare  **Componenti aggiuntivi COM** dall'elenco a discesa **Gestisci** nella parte inferiore della pagina. Fare clic sul pulsante **Vai** e verificare che la casella per il componente aggiuntivo Power Query per Excel sia selezionata.
        
        **Nota:** Power Query consente inoltre di importare dati da HDFS facendo clic su **Da altre origini**.
-4. Per **Nome account** immettere il nome dell'account di archiviazione BLOB di Azure associato al cluster, quindi fare clic su **OK**. Questo account può essere l'account di archiviazione predefinito o un account di archiviazione collegato.  Il formato è *https://&lt;StorageAccountName>.blob.core.windows.net/*.
+4. Per **Nome account** immettere il nome dell'account di archiviazione BLOB di Azure associato al cluster, quindi fare clic su **OK**. Questo account può essere l'account di archiviazione predefinito o un account di archiviazione collegato.  Il formato è *https://&lt;StorageAccountName>.blob.core.windows.net/* .
 5. Per **Chiave account** immettere la chiave dell'account di archiviazione BLOB, quindi fare clic su **Salva**. È necessario immettere le informazioni sull'account solo la prima volta che si accede a questo archivio.
 6. Nel riquadro **Strumento di navigazione** a sinistra dell'editor di query fare doppio clic sul nome del contenitore di archiviazione BLOB. Per impostazione predefinita, il nome del contenitore è uguale al nome del cluster.
-7. Individuare **HiveSampleData.txt** nella colonna **Name**. Il percorso della cartella è **../hive/warehouse/hivesampletable/**. Fare quindi clic su **Binary** a sinistra di HiveSampleData.txt. HiveSampleData.txt include tutto il cluster. Facoltativamente, è possibile usare un proprio file.
+7. Individuare **HiveSampleData.txt** nella colonna **Name**. Il percorso della cartella è **../hive/warehouse/hivesampletable/** . Fare quindi clic su **Binary** a sinistra di HiveSampleData.txt. HiveSampleData.txt include tutto il cluster. Facoltativamente, è possibile usare un proprio file.
    
     ![HDI.PowerQuery.ImportData][image-hdi-powerquery-importdata]
 8. Se necessario, è possibile ridenominare le colonne. Quando si è pronti, fare clic sul pulsante **Chiudi e carica**.  I dati vengono caricati nella cartella di lavoro:

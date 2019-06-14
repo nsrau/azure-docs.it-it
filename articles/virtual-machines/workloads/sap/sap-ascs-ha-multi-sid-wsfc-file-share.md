@@ -18,10 +18,10 @@ ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60651718"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -268,8 +268,8 @@ Questa procedura è descritta in [Preparazione dell'infrastruttura per lo scenar
 _**Figura 3:** Il file server di scalabilità orizzontale multi-SID è lo stesso del nome host globale SAP_
 
 > [!IMPORTANT]
->Per il secondo sistema **SAP \<SID2>**, vengono usati lo stesso Volume1 e lo stesso nome di rete **\<SAPGlobalHost>**.
->Dal momento che è già stato impostato **SAPMNT** come nome di condivisione per i vari sistemi SAP, per usare di nuovo il nome di rete **\<SAPGlobalHost>**, è necessario usare lo stesso **Volume1**.
+>Per il secondo sistema **SAP \<SID2>** , vengono usati lo stesso Volume1 e lo stesso nome di rete **\<SAPGlobalHost>** .
+>Dal momento che è già stato impostato **SAPMNT** come nome di condivisione per i vari sistemi SAP, per usare di nuovo il nome di rete **\<SAPGlobalHost>** , è necessario usare lo stesso **Volume1**.
 >
 >Il percorso del file per il \<SID2 > host globale è C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
 >
@@ -327,7 +327,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>Preparare l'infrastruttura nel cluster di file server di scalabilità orizzontale usando un host globale SAP diverso
 
-È possibile configurare il secondo file server di scalabilità orizzontale (ad esempio il secondo ruolo cluster file server di scalabilità orizzontale con **\<SAPGlobalHost2>** e un diverso **Volume2** per il secondo **\<SID2>**).
+È possibile configurare il secondo file server di scalabilità orizzontale (ad esempio il secondo ruolo cluster file server di scalabilità orizzontale con **\<SAPGlobalHost2>** e un diverso **Volume2** per il secondo **\<SID2>** ).
 
 ![Figura 4: Il file server di scalabilità orizzontale multi-SID è lo stesso del nome host SAP GLOBAL 2][sap-ha-guide-figure-8015]
 

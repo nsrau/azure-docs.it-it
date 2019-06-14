@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217190"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
@@ -72,7 +72,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | Avvio in corso |Avvio in corso |No (stato temporaneo) |
 | In esecuzione |Pronto (nessun programma in esecuzione)<br/>Oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
 | Stopping |Stopping |No (stato temporaneo) |
-| Arrestato |Arrestato |No  |
+| Arrestato |Arrestato |No |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Spegnimento automatico per i canali non usati
 A partire dal 25 gennaio 2016, Servizi multimediali ha distribuito un aggiornamento che interrompe automaticamente un canale (con la codifica live abilitata) dopo che è rimasto in esecuzione in stato di mancato utilizzo per un lungo periodo. Questa condizione si applica ai canali che non hanno programmi attivi e che non hanno ricevuto un feed di contributo di input per un lungo periodo di tempo.
@@ -315,7 +315,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | Avvio in corso |Avvio in corso |No (stato temporaneo) |
 | In esecuzione |Pronto (nessun programma in esecuzione)<br/>Oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
 | Stopping |Stopping |No (stato temporaneo) |
-| Arrestato |Arrestato |No  |
+| Arrestato |Arrestato |No |
 
 > [!NOTE]
 > Attualmente, l'avvio del canale richiede in media 2 minuti ma può richiedere anche più di 20 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.

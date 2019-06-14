@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60607116"
 ---
 # <a name="learn-text-moderation-concepts"></a>Informazioni sui concetti di moderazione del testo
@@ -29,7 +29,7 @@ La risposta del servizio include le informazioni seguenti:
 - Dati personali
 - Testo corretto automaticamente
 - Testo originale
-- Lingua
+- Linguaggio
 
 ## <a name="profanity"></a>Contenuto volgare
 
@@ -79,7 +79,7 @@ L'estratto seguente nell'estratto JSON mostra un esempio dell'output:
 
 La funzionalità Informazioni personali rileva la possibile presenza di queste informazioni:
 
-- Indirizzo e-mail
+- Indirizzo di posta elettronica
 - Indirizzo postale degli Stati Uniti
 - Indirizzo IP
 - Numero di telefono degli Stati Uniti

@@ -15,10 +15,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66137075"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creare un ambiente del servizio app usando un modello di Azure Resource Manager
@@ -69,12 +69,12 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 La creazione dell'ambiente del servizio app richiede circa un'ora. L'ambiente del servizio app viene quindi visualizzato nel portale nell'elenco di ambienti del servizio app per la sottoscrizione che ha attivato la distribuzione.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>Caricare e configurare il certificato SSL "predefinito"
-È necessario associare un certificato SSL all'ambiente del servizio app come certificato SSL "predefinito" usato per stabilire le connessioni SSL alle app. Se il suffisso DNS predefinito dell'ambiente del servizio app è *internal-contoso.com*, una connessione a https://some-random-app.internal-contoso.com richiede un certificato SSL valido per **.internal-contoso.com*. 
+È necessario associare un certificato SSL all'ambiente del servizio app come certificato SSL "predefinito" usato per stabilire le connessioni SSL alle app. Se il suffisso DNS predefinito dell'ambiente del servizio app è *internal-contoso.com*, una connessione a https://some-random-app.internal-contoso.com richiede un certificato SSL valido per * *.internal-contoso.com*. 
 
 Ottenere un certificato SSL valido usando le autorità di certificazione interne, acquistando un certificato da un'autorità di certificazione esterna o usando un certificato autofirmato. Indipendentemente dall'origine del certificato SSL è necessario configurare correttamente gli attributi del certificato seguenti:
 
-* **Soggetto**: questo attributo deve essere impostato su **.nome-dominio-radice.com*
-* **Nome alternativo del soggetto**: questo attributo deve includere sia **.nome-dominio-radice.com* sia **.scm.nome-dominio-radice.com*. Le connessioni SSL al sito SCM/Kudu associato a ogni app usano un indirizzo nel formato *your-app-name.scm.your-root-domain-here.com*.
+* **Soggetto**: questo attributo deve essere impostato su * *.nome-dominio-radice.com*
+* **Nome alternativo del soggetto**: questo attributo deve includere sia * *.nome-dominio-radice.com* sia * *.scm.nome-dominio-radice.com*. Le connessioni SSL al sito SCM/Kudu associato a ogni app usano un indirizzo nel formato *your-app-name.scm.your-root-domain-here.com*.
 
 Dopo aver ottenuto un certificato SSL valido sono necessari altri due passaggi preliminari. Convertire/Salvare il certificato SSL come file con estensione pfx. Tenere presente che il file con estensione pfx deve includere tutti i certificati intermedi e quelli radice. Proteggerlo con una password.
 
@@ -154,7 +154,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 L'applicazione della modifica richiede circa 40 minuti per ogni front-end dell'ambiente del servizio app. Per un ambiente del servizio app di dimensioni predefinite che usa due front-end, ad esempio, l'operazione richiede all'incirca un'ora e 20 minuti. Durante l'esecuzione del modello, l'ambiente del servizio app non può essere ridimensionato.  
 
-Quando il modello è completato, le app nell'ambiente del servizio app con bilanciamento del carico interno sono accessibili tramite HTTPS. Le connessioni vengono protette usando il certificato SSL predefinito. Il certificato SSL predefinito viene usato quando le app nell'ambiente del servizio app con servizio di bilanciamento del carico interno vengono indirizzate usando una combinazione di nome applicazione e nome host predefinito. Ad esempio, https://mycustomapp.internal-contoso.com usa il certificato SSL predefinito per **.internal-contoso.com*.
+Quando il modello è completato, le app nell'ambiente del servizio app con bilanciamento del carico interno sono accessibili tramite HTTPS. Le connessioni vengono protette usando il certificato SSL predefinito. Il certificato SSL predefinito viene usato quando le app nell'ambiente del servizio app con servizio di bilanciamento del carico interno vengono indirizzate usando una combinazione di nome applicazione e nome host predefinito. Ad esempio, https://mycustomapp.internal-contoso.com usa il certificato SSL predefinito per * *.internal-contoso.com*.
 
 Tuttavia, come per le app eseguite nel servizio multi-tenant pubblico, gli sviluppatori possono configurare nomi host personalizzati per le singole app. Possono anche configurare associazioni di certificati SSL basati su SNI univoche per le singole app.
 

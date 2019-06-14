@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: zchia
 ms.openlocfilehash: e8414b9737e0ee7f847827a432dd9887931a2532
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470429"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Esercitazione: Configurare Comeet Recruiting Software per il provisioning utenti automatico
@@ -45,7 +45,7 @@ Prima di configurare Comeet Recruiting Software per il provisioning utenti autom
 
 **Per aggiungere Comeet Recruiting Software dalla raccolta di applicazioni di Azure AD, seguire i passaggi seguenti:**
 
-1. Nel  **[portale di Azure](https://portal.azure.com)**, nel riquadro di spostamento sinistro, selezionare **Azure Active Directory**.
+1. Nel  **[portale di Azure](https://portal.azure.com)** , nel riquadro di spostamento sinistro, selezionare **Azure Active Directory**.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
@@ -108,11 +108,11 @@ Questa sezione illustra i passaggi per configurare il provisioning di Azure AD d
 
 7. Dopo aver completato i campi indicati nel passaggio 5, fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Comeet Recruiting Software. Se la connessione non riesce, verificare che l'account Comeet Recruiting Software abbia autorizzazioni di amministratore e riprovare.
 
-    ![Token](common/provisioning-testconnection-token.png)
+    ![token](common/provisioning-testconnection-token.png)
 
 8. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
-    ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
+    ![Notifica tramite posta elettronica](common/provisioning-notification-email.png)
 
 9. Fare clic su **Save**.
 

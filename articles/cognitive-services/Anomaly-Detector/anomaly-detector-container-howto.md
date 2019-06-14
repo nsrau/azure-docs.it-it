@@ -3,18 +3,18 @@ title: Installare ed eseguire i contenitori - rilevatore di anomalie
 titleSuffix: Azure Cognitive Services
 description: Usare algoritmi avanzati dell'API di rilevamento delle anomalie per identificare le anomalie nei dati delle serie temporali.
 services: cognitive-services
-author: aahill
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: aahi
-ms.openlocfilehash: ec32d5de9e3af14abbf14f79f37ab00f3346b1c1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: 0369e27e7a260c50fc4de690dd3261421356799a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306989"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073336"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Installare ed eseguire i contenitori di rilevatore di anomalie
 
@@ -97,7 +97,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire uno qualsiasi dei tre contenitori. Il comando usa i parametri seguenti:
 
-| Segnaposto | Value |
+| Placeholder | Value |
 |-------------|-------|
 |{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore e è disponibile nella pagina chiavi di rilevamento delle anomalie del portale di Azure.  |
 |{BILLING_ENDPOINT_URI} | Il valore URI dell'endpoint di fatturazione è disponibile nella pagina di panoramica di rilevatore di anomalie del portale di Azure.|

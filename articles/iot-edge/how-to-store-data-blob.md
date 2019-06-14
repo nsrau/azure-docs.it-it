@@ -11,10 +11,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 396af2dfd9fc53c080163a27e376328c1369d5e1
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991476"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Archiviare i dati sui dispositivi perimetrali con l'archiviazione BLOB di Azure in IoT Edge (anteprima)
@@ -179,7 +179,7 @@ Supportate:
 
 - Creare ed eliminare un contenitore
 - Ottenere i metadati ele proprietà del contenitore
-- Elenca BLOB
+- Elencare i BLOB
 - Ottenere e impostare il contenitore ACL
 - Impostare i metadati del contenitore
 
@@ -187,7 +187,7 @@ Non supportate:
 
 - Lease del contenitore
 
-### <a name="blobs"></a>BLOB
+### <a name="blobs"></a>Blobs
 
 Supportate:
 

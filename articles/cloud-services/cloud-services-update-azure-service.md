@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60653888"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Come aggiornare un servizio cloud
@@ -54,18 +54,18 @@ La tabella seguente mostra le modifiche consentite a un servizio durante un aggi
 
 | Modifiche consentite a hosting, servizi e ruoli | Aggiornamento sul posto | Gestione temporanea (scambio indirizzi VIP) | Eliminazione e ridistribuzione |
 | --- | --- | --- | --- |
-| Versione del sistema operativo |Sì |Sì |Sì |
-| Livello di attendibilità .NET |Sì |Sì |Sì |
-| Dimensioni macchina virtuale<sup>1</sup> |Sì<sup>2</sup> |Sì |Sì |
-| Impostazioni di archiviazione locali |Solo aumento<sup>2</sup> |Sì |Sì |
-| Aggiungere o rimuovere ruoli in un servizio |Sì |Sì |Sì |
-| Numero di istanze di un particolare ruolo |Sì |Sì |Sì |
-| Numero o tipo di endpoint per un servizio |Sì<sup>2</sup> |No  |Sì |
-| Nomi e i valori delle impostazioni di configurazione |Sì |Sì |Sì |
-| Valori (ma non nomi) delle impostazioni di configurazione |Sì |Sì |Sì |
-| Aggiungere nuovi certificati |Sì |Sì |Sì |
-| Modificare i certificati esistenti |Sì |Sì |Sì |
-| Distribuire nuovo codice |Sì |Sì |Sì |
+| Versione del sistema operativo |Yes |Sì |Yes |
+| Livello di attendibilità .NET |Yes |Sì |Yes |
+| Dimensioni macchina virtuale<sup>1</sup> |Sì<sup>2</sup> |Yes |Yes |
+| Impostazioni di archiviazione locali |Solo aumento<sup>2</sup> |Yes |Yes |
+| Aggiungere o rimuovere ruoli in un servizio |Yes |Sì |Yes |
+| Numero di istanze di un particolare ruolo |Yes |Sì |Yes |
+| Numero o tipo di endpoint per un servizio |Sì<sup>2</sup> |No |Yes |
+| Nomi e i valori delle impostazioni di configurazione |Yes |Sì |Yes |
+| Valori (ma non nomi) delle impostazioni di configurazione |Yes |Sì |Yes |
+| Aggiungere nuovi certificati |Yes |Sì |Yes |
+| Modificare i certificati esistenti |Yes |Sì |Yes |
+| Distribuire nuovo codice |Yes |Sì |Yes |
 
 <sup>1</sup> Modifica delle dimensioni limitata al sottoinsieme di dimensioni disponibili per il servizio cloud.
 
@@ -114,7 +114,7 @@ Quando si aggiorna un servizio da una sola istanza a più istanze, il servizio s
 |Aggiornamento sul posto|Mantenuta|Mantenuta|Eliminata|
 |Migrazione di un nodo|Eliminata|Eliminata|Eliminata|
 
-Si noti che nell'elenco precedente l'unità E: rappresenta l'unità radice del ruolo e non dovrebbe essere hardcoded. Per rappresentare l'unità, usare invece la variabile di ambiente **%RoleRoot%**.
+Si noti che nell'elenco precedente l'unità E: rappresenta l'unità radice del ruolo e non dovrebbe essere hardcoded. Per rappresentare l'unità, usare invece la variabile di ambiente **%RoleRoot%** .
 
 Per ridurre al minimo il tempo di inattività durante l'aggiornamento di un servizio a istanza singola, distribuire un nuovo servizio a più istanze nel server di staging ed eseguire uno scambio di indirizzi VIP.
 

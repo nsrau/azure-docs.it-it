@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114983"
 ---
 ## <a name="deleting-personal-information"></a>Eliminazione delle informazioni personali
@@ -21,10 +21,10 @@ ms.locfileid: "66114983"
 
 Le informazioni personali sono rilevanti per il servizio di importazione/esportazione (tramite il portale e l'API) durante le operazioni di importazione ed esportazione. I dati usati durante queste procedure includono:
 
-- Nome di contatto
+- Nome del contatto
 - Numero di telefono
 - Email
-- Via e numero civico
+- Indirizzo
 - city
 - CAP
 - Stato

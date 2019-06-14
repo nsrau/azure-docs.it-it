@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7e9ca9fa26e9744eb0a9bfafe692a096825b0b5
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 05d21910d1b3601346fbd038cbc25f8f2be61f99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357057"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110708"
 ---
 # <a name="building-secure-workstations"></a>Compilazione di workstation sicure
 
 Workstation isolata protetta sono estremamente importanti per la sicurezza dei ruoli sensibili, ad esempio amministratori, sviluppatori e operatori di servizi critici. Molti altri controlli di sicurezza e garanzie di esiti negativi o non hanno alcun effetto se la protezione delle workstation client sottostante è stata compromessa.
 
 Questo documento illustra gli elementi necessari per compilare una workstation client protette con istruzioni passo passo dettagliate, incluse le procedure impostare l'avvio dei controlli di protezione. Questo tipo di workstation a volte viene chiamato una workstation amministrative con privilegi (PAW), che in questo riferimento viene usato e compilato in base. Tuttavia, il materiale sussidiario è simile alla tecnologia basata sul cloud per gestire il servizio e introduce funzionalità di sicurezza introdotte a partire da 10RS5 Windows Defender ATP di Microsoft, Azure Active Directory e Intune.
+
+> [!NOTE]
+> Questo articolo illustra il concetto di workstation sicura e la sua importanza. Se si ha già familiarità con il concetto e si vuole ignorare alla distribuzione, leggere [come distribuire una Workstation sicura](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation).
 
 ## <a name="why-securing-workstation-access-is-important"></a>Il motivo per cui è importante proteggere l'accesso di workstation
 

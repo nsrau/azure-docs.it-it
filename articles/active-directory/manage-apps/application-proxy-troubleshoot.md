@@ -16,17 +16,17 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbdccf3b7a3ba1b8e55befa0fdc24eeff3e403da
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 315aba8ac8617f8bf2db71784ec0f9a8dec66cf7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782926"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108354"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Risolvere i problemi e i messaggi di errore del proxy dell'applicazione
-Se si verificano errori durante l'accesso a un'applicazione pubblicata o durante la pubblicazione di applicazioni, controllare le opzioni seguenti per verificare se il Proxy applicazione di Microsoft Azure AD funziona correttamente: 
+Se si verificano errori durante l'accesso a un'applicazione pubblicata o durante la pubblicazione di applicazioni, controllare le opzioni seguenti per verificare se il Proxy applicazione di Microsoft Azure AD funziona correttamente:
 
-* Aprire la console dei servizi Windows e verificare che il servizio **Microsoft AAD Application Proxy Connector** sia abilitato e in esecuzione. È anche possibile osservare la pagina delle proprietà del servizio Proxy applicazione, come mostrato nell'immagine seguente:   
+* Aprire la console dei servizi Windows e verificare che il servizio **Microsoft AAD Application Proxy Connector** sia abilitato e in esecuzione. È anche possibile osservare la pagina delle proprietà del servizio Proxy applicazione, come mostrato nell'immagine seguente:  
   ![Schermata della finestra delle proprietà del connettore Proxy applicazione di Microsoft AAD](./media/application-proxy-troubleshoot/connectorproperties.png)
 * Aprire il Visualizzatore eventi e cercare gli eventi correlati al connettore del proxy di applicazione in **Registri applicazioni e servizi** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
 * Se necessario, [attivando i log di sessione dei connettore proxy di applicazione](application-proxy-connectors.md#under-the-hood) sono disponibili log più dettagliati.
@@ -77,7 +77,7 @@ Questo elenco contiene gli errori che potrebbero verificarsi quando gli utenti f
 | Tipi di errore | Procedure consigliate |
 | ----- | ----------------- |
 | Il sito Web non riesce a visualizzare la pagina. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata, se l'applicazione è un'applicazione con autenticazione integrata di Windows. Il nome dell'entità servizio dell'applicazione definito potrebbe non essere corretto. Per le app con autenticazione integrata di Windows, assicurarsi che il nome dell'entità servizio configurato per l'applicazione sia corretto. |
-| Il sito Web non riesce a visualizzare la pagina. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata, se si tratta di un'applicazione OWA. Il problema può dipendere da uno dei motivi seguenti: <br><li>Il nome dell'entità servizio dell'applicazione definito non è corretto. Assicurarsi che il nome dell'entità servizio configurato per l'applicazione sia corretto.</li><li>L'utente che ha provato ad accedere all'applicazione sta usando un account Microsoft invece dell'account aziendale appropriato oppure si tratta di un utente guest. Assicurarsi che l'utente acceda con il proprio account aziendale corrispondente al dominio dell'applicazione pubblicata. Gli utenti con account Microsoft o guest non possono accedere alle applicazioni con autenticazione integrata di Windows.</li><li>L'utente che ha provato ad accedere all'applicazione non è definito correttamente per questa applicazione sul lato on premises. Assicurarsi che l'utente abbia le autorizzazioni appropriate definite per questa applicazione back-end nel computer locale su. |
+| Il sito Web non riesce a visualizzare la pagina. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata, se si tratta di un'applicazione OWA. Il problema può dipendere da uno dei motivi seguenti:<br><li>Il nome dell'entità servizio dell'applicazione definito non è corretto. Assicurarsi che il nome dell'entità servizio configurato per l'applicazione sia corretto.</li><li>L'utente che ha provato ad accedere all'applicazione sta usando un account Microsoft invece dell'account aziendale appropriato oppure si tratta di un utente guest. Assicurarsi che l'utente acceda con il proprio account aziendale corrispondente al dominio dell'applicazione pubblicata. Gli utenti con account Microsoft o guest non possono accedere alle applicazioni con autenticazione integrata di Windows.</li><li>L'utente che ha provato ad accedere all'applicazione non è definito correttamente per questa applicazione sul lato on premises. Assicurarsi che l'utente abbia le autorizzazioni appropriate definite per questa applicazione back-end nel computer locale su. |
 | Non è possibile accedere a questa app aziendale. L'utente non è autorizzato ad accedere a questa applicazione. Autorizzazione non riuscita. Assicurarsi di assegnare all'utente l'accesso a questa applicazione. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata se usando un account Microsoft anziché il proprio account aziendale per l'accesso. Anche gli utenti guest possono visualizzare questo errore. Gli utenti con account Microsoft o guest non possono accedere alle applicazioni con autenticazione integrata di Windows. Assicurarsi che l'utente acceda con il proprio account aziendale corrispondente al dominio dell'applicazione pubblicata.<br><br>L'utente potrebbe non essere stato assegnato per l'applicazione. Passare alla scheda **Applicazione**, quindi in **Utenti e gruppi** assegnare l'utente o il gruppo di utenti all'applicazione. |
 | Non è possibile accedere a questa app aziendale in questo momento. Riprovare più tardi. Timeout del connettore. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata se non sono definiti correttamente per questa applicazione sul lato locale. Assicurarsi che gli utenti abbiano le autorizzazioni appropriate definite per questa applicazione back-end nel computer locale su. |
 | Non è possibile accedere a questa app aziendale. L'utente non è autorizzato ad accedere a questa applicazione. Autorizzazione non riuscita. Accertarsi che l'utente abbia una licenza per Azure Active Directory Premium o Basic. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata se non sono stati assegnati in modo esplicito con una licenza Premium/Basis dall'amministratore del sottoscrittore. Accedere alla scheda **Licenze** di Active Directory del sottoscrittore e verificare che all'utente o al gruppo di utenti sia stata assegnata una licenza Premium o Basic. |
@@ -87,7 +87,7 @@ Questo elenco contiene gli errori che potrebbero verificarsi quando gli utenti f
 
 Se si verifica un errore o un problema con il Proxy dell'applicazione Azure AD che non è elencato in questa guida alla risoluzione dei problemi, è necessario segnalarlo. Invia un'email al [team che si occupa del feedback](mailto:aadapfeedback@microsoft.com) specificando i dettagli dell'errore che si è verificato.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Abilitare il proxy di applicazione per Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-add-on-premises-application.md)
 * [Abilita Single Sign-On](application-proxy-configure-single-sign-on-with-kcd.md)

@@ -4,14 +4,14 @@ description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 046b8e75be0247f335bcf1d29117f5900b70aeb6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bb7715a7eaa2cb499ed80b78130571f315ef0c95
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477262"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083530"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -88,7 +88,6 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * App per la logica
 * Machine Learning: i servizi Web di Machine Learning Studio possono essere spostati in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non in un'altra sottoscrizione. Altre risorse di Machine Learning possono essere spostate da una sottoscrizione all'altra.
 * Managed Disks - Managed Disks in zone di disponibilità non è possibile spostare una sottoscrizione diversa
-* Identità gestita assegnata dall'utente
 * Servizi multimediali
 * Monitoraggio: verificare che lo spostamento nella nuova sottoscrizione non comporti il superamento delle [quote di sottoscrizione](../azure-subscription-service-limits.md#monitor-limits).
 * Hub di notifica
@@ -141,6 +140,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non po
 * ExpressRoute
 * Lab Services - lab per le classi non possono essere spostati in un nuovo gruppo di risorse o sottoscrizione. DevTest Labs può essere spostato in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non per tutte le sottoscrizioni.
 * Applicazioni gestite
+* Identità gestita assegnata dall'utente
 * Genomica di Microsoft
 * Security
 * Site Recovery

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787694"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Strumento Copia dati di Azure Data Factory
@@ -78,7 +78,7 @@ Lo screenshot seguente mostra una query SQL usata per filtrare i dati.
 ![Filtrare i dati in un database](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrare i dati in una cartella BLOB di Azure
-Per copiare i dati da una cartella, è possibile usare variabili nel percorso della cartella. Le variabili supportate sono **{year}**, **{month}**, **{day}**, **{hour}** e **{minute}**. Ad esempio: inputfolder/{year}/{month}/{day}. 
+Per copiare i dati da una cartella, è possibile usare variabili nel percorso della cartella. Le variabili supportate sono **{year}** , **{month}** , **{day}** , **{hour}** e **{minute}** . Ad esempio: inputfolder/{year}/{month}/{day}. 
 
 Si supponga di avere cartelle di input nel formato seguente: 
 
@@ -91,7 +91,7 @@ Si supponga di avere cartelle di input nel formato seguente:
 
 Fare clic sul pulsante **Esplora** per **File o cartella**, passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli**. Nella casella di testo dovrebbe essere visualizzato 2016/03/01/02. 
 
-Sostituire quindi **2016** con **{year}**, **03** con **{month}**, **01** con **{day}** e **02** con **{hour}** e premere **TAB**. Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il formato per queste quattro variabili:
+Sostituire quindi **2016** con **{year}** , **03** con **{month}** , **01** con **{day}** e **02** con **{hour}** e premere **TAB**. Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il formato per queste quattro variabili:
 
 ![Filtrare un file o una cartella](./media/copy-data-tool/filter-file-or-folder.png)
 

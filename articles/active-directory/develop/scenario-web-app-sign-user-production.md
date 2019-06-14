@@ -16,10 +16,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d41ad2518f885bbaa02dda3b01f0c02e9fc1d217
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074711"
 ---
 # <a name="web-app-that-signs-in-users---move-to-production"></a>App Web che consente l'accesso degli utenti, passare alla produzione
@@ -35,7 +35,7 @@ Ora che sai come acquisire un token per chiamare le API web, informazioni su com
 Una volta l'app esegue l'accesso gli utenti web, può chiamare API web per conto di utenti connessi. Le API web chiamata dall'app web è l'oggetto dello scenario seguente:
 
 > [!div class="nextstepaction"]
-> [App Web che chiama l'API web](scenario-web-app-call-api-overview.md)
+> [App Web che chiama le API Web](scenario-web-app-call-api-overview.md)
 
 ### <a name="deep-dive---web-app-tutorial"></a>Approfondimento - esercitazione sulle app web
 

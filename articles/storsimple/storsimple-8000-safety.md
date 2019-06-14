@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
 ms.openlocfilehash: 66b881ab13e27ee457af4fa1bafb82ad14e9674d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631678"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Installazione sicura e funzionamento del dispositivo StorSimple
@@ -30,7 +30,7 @@ Leggere tutte le informazioni di sicurezza e integrità in questo articolo che s
 ## <a name="safety-icon-conventions"></a>Convenzioni di sicurezza
 Ecco le icone dove sono visualizzate le precauzioni di sicurezza da osservare durante l'installazione e l'esecuzione del dispositivo Microsoft Azure StorSimple.
 
-| Icona | DESCRIZIONE |
+| Icona | Descrizione |
 |:--- |:--- |
 | ![Icona di pericolo](./media/storsimple-safety/IC740879.png) **PERICOLO!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
 | ![Icona di avviso](./media/storsimple-safety/IC740879.png)**AVVISO!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |

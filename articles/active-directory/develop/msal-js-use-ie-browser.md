@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8cf8c84120f4c90d3943cfc31ffbf9aafcec0ba3
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873916"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Problemi noti nei browser Microsoft Edge e Internet Explorer con msal. js
@@ -43,7 +43,7 @@ Questo avviene perché Internet Explorer non supporta la promessa JavaScript in 
 Distribuzione dell'applicazione nell'ambiente di produzione (ad esempio nelle App Web di Azure) in genere funziona bene, purché che l'utente finale ha accettato i popup. Abbiamo testato con Internet Explorer 11.
 
 ### <a name="running-locally"></a>In esecuzione in locale
-Se si desidera eseguire ed eseguire il debug in locale l'applicazione in esecuzione in Internet Explorer, è necessario tenere presente le considerazioni seguenti (si supponga di voler eseguire l'applicazione come *http://localhost:1234*):
+Se si desidera eseguire ed eseguire il debug in locale l'applicazione in esecuzione in Internet Explorer, è necessario tenere presente le considerazioni seguenti (si supponga di voler eseguire l'applicazione come *http://localhost:1234* ):
 
 - Internet Explorer ha un meccanismo di sicurezza denominato "modalità protetta", che impedisce di msal. js di funzioni correttamente. Tra i sintomi, dopo l'accesso, la pagina può essere reindirizzata a http://localhost:1234/null.
 
@@ -51,7 +51,7 @@ Se si desidera eseguire ed eseguire il debug in locale l'applicazione in esecuzi
 
     1. Fare clic su Internet Explorer **strumenti** (l'icona a forma di ingranaggio).
     1. Selezionare **Opzioni Internet** e quindi la **sicurezza** scheda.
-    1. Fare clic sui **Internet** zona e deselezionare **abilita la modalità protetta (richiede il riavvio di Internet Explorer)**. Internet Explorer avvisa che il computer non è più protetta. Fare clic su **OK**.
+    1. Fare clic sui **Internet** zona e deselezionare **abilita la modalità protetta (richiede il riavvio di Internet Explorer)** . Internet Explorer avvisa che il computer non è più protetta. Fare clic su **OK**.
     1. Riavviare Internet Explorer.
     1. Eseguire e il debug dell'applicazione.
 

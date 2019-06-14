@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66397871"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
@@ -96,7 +96,7 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 | postalCode |Qualsiasi valore di stringa o *null* |(user.postalCode -eq "valore") |
 | preferredLanguage |Codice ISO 639-1 |(user.preferredLanguage -eq "en-US") |
 | sipProxyAddress |Qualsiasi valore di stringa o *null* |(user.sipProxyAddress -eq "valore") |
-| state |Qualsiasi valore di stringa o *null* |(user.state -eq "valore") |
+| stato |Qualsiasi valore di stringa o *null* |(user.state -eq "valore") |
 | streetAddress |Qualsiasi valore di stringa o *null* |(user.streetAddress -eq "valore") |
 | surname |Qualsiasi valore di stringa o *null* |(user.surname -eq "valore") |
 | telephoneNumber |Qualsiasi valore di stringa o *null* |(user.telephoneNumber -eq "valore") |

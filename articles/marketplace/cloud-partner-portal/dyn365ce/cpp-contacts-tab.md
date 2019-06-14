@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: cdd3d01c9295ef5ae8e7bc1936b5926fb38cfe77
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942504"
 ---
 # <a name="azure-application-contacts-tab"></a>Scheda contatti dell'applicazione Azure
@@ -25,7 +25,7 @@ Usare la scheda **Contacts** (Contatti) per fornire informazioni sul supporto te
 
 Inserire i valori seguenti per definire il **contatto tecnico** principale per l'offerta. I campi obbligatori sono indicati da un asterisco (*).
 
-|    Campo        |  DESCRIZIONE                    |
+|    Campo        |  Descrizione                    |
 |    ---------    |  ---------------                |
 |  **Nome\***       |  Nome del contatto tecnico per l'app. Questo contatto riceverà le comunicazioni tecniche da Microsoft.   |
 |  **Posta elettronica\***      |  Indirizzo e-mail del contatto tecnico  |
@@ -34,7 +34,7 @@ Inserire i valori seguenti per definire il **contatto tecnico** principale per l
 
 Inserire i valori seguenti per definire il **contatto dell'assistenza clienti** principale per l'offerta.
 
-|    Campo        |   DESCRIZIONE                   |
+|    Campo        |   Descrizione                   |
 |    ---------    |  ---------------                |
 |  **Nome\***       |  Nome del contatto dell'assistenza clienti per l'app. Questo contatto riceverà le comunicazioni relative al supporto da Microsoft.   |
 |  **Posta elettronica\***      |  Indirizzo di posta elettronica del contatto dell'assistenza clienti  |

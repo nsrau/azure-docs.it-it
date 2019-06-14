@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 18e1bb486c47baf7648a74e31451e2db73f72250
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 23ba45804632163cc5de41ac2353091b7cf850c1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063186"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparare i dati per creare una voce personalizzata
 
@@ -31,7 +31,7 @@ In alcuni casi, non si abbia il giusto set di dati pronti e sarà necessario tes
 
 Questa tabella elenca i tipi di dati e come ognuno viene utilizzato per creare un modello personalizzato di sintesi vocale.
 
-| Tipo di dati | DESCRIZIONE | Quando usare le autorizzazioni | Servizio aggiuntiva necessaria | Quantità per il training di un modello | Locale(s) |
+| Tipo di dati | Descrizione | Quando usare le autorizzazioni | Servizio aggiuntiva necessaria | Quantità per il training di un modello | Locale(s) |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
 | **Singole espressioni + trascrizioni corrispondenti** | Una raccolta (con estensione zip) di file audio (wav) come singole espressioni. Ciascun file audio deve essere 15 secondi o una lunghezza, associato a una trascrizione formattata (con estensione txt). | Registrazioni professionale con i corrispondenti trascrizioni | Pronto per il training. | Nessun requisito disco rigido per en-US e zh-CN. Più di 2.000 + utterances distinti per le altre impostazioni locali. | Tutte le impostazioni locali vocale personalizzato |
 | **Long audio + trascrizioni (beta)** | Una raccolta (con estensione zip) di lunghe, non segmentati file audio (più di 20 secondi), associata a una trascrizione (con estensione txt) contenente tutti i dialoghi. | Si dispone di file audio e trascrizioni corrispondente, ma non sono segmentati in espressioni. | Segmentazione (usando la trascrizione di batch).<br>Trasformazione di formato audio richiesto. | Nessun requisito disco rigido per en-US e zh-CN. | `en-US` e `zh-CN` |
@@ -49,7 +49,7 @@ I file devono essere raggruppati per tipo in un set di dati e caricati come file
 Per produrre un carattere voce valida, creare le registrazioni in una chat room non interattiva con un microfono di alta qualità. Volume coerente, velocità, parlando passo ed espressivi è utile di riconoscimento vocale di lettura sono essenziali.
 
 > [!TIP]
-> Per creare una voce per l'uso in produzione, è consigliabile avvalersi di uno studio di registrazione e uno speaker professionali. Per altre informazioni, vedere [Come registrare esempi vocali per una voce personalizzata](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/record-custom-voice-samples).
+> Per creare una voce per l'uso in produzione, è consigliabile avvalersi di uno studio di registrazione e uno speaker professionali. Per altre informazioni, vedere [Come registrare esempi vocali per una voce personalizzata](record-custom-voice-samples.md).
 
 ### <a name="audio-files"></a>File audio
 

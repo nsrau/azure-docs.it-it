@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5f37873b51d6257ffec3ada10be886995f7f5d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b38918dc6b80539ef8852aa408cda501958c9b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358878"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057438"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurare il server Azure Multi-Factor Authentication per l'uso con AD FS in Windows Server
 
 Se l'organizzazione usa Active Directory Federation Services (ADFS), per proteggere le risorse del cloud o locali è possibile configurare il server Azure Multi-Factor Authentication per l'uso con ADFS. Questa configurazione attiva la verifica in due passaggi per gli endpoint di alto valore.
 
 Questo articolo illustra l'uso del server Azure Multi-Factor Authentication con AD FS in Windows Server 2012 R2 o Windows Server 2016. Per altre informazioni, vedere [Proteggere le risorse del cloud e locali mediante il server Azure Multi-Factor Authentication con AD FS 2.0](howto-mfaserver-adfs-2.md).
+
+> [!IMPORTANT]
+> A partire dal 1 ° luglio 2019, Microsoft non offrirà non è più Server MFA per le nuove distribuzioni. Nuovi clienti che si vuole richiedere l'autenticazione mfa agli utenti devono usare Azure multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il Server MFA prima del 1 ° luglio sarà in grado di scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Proteggere AD FS per Windows Server con il server Azure Multi-Factor Authentication
 
@@ -105,7 +108,7 @@ Se si preferisce non usare un nome utente e una password, seguire questa procedu
 8. Impostare enabled su **true**.  
 9. Impostare oneToOneCertificateMappingsEnabled su **true**.  
 10. Fare clic sul pulsante **...** accanto a oneToOneMappings e sul collegamento **Aggiungi**.  
-11. Aprire il file CER con codifica Base64 esportato in precedenza. Rimuovere *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* e tutte le interruzioni di riga. Copiare la stringa risultante.  
+11. Aprire il file CER con codifica Base64 esportato in precedenza. Rimuovere *-----BEGIN CERTIFICATE-----* , *-----END CERTIFICATE-----* e tutte le interruzioni di riga. Copiare la stringa risultante.  
 12. Impostare certificate sulla stringa copiata nel passaggio precedente.  
 13. Impostare enabled su **true**.  
 14. Impostare userName su un account membro del gruppo di sicurezza PhoneFactor Admins. Usare il formato &lt;dominio&gt;&#92;&lt;nome utente&gt;.  
@@ -147,7 +150,7 @@ Per proteggere le risorse cloud, configurare una regola attestazioni in modo che
 
     ![Aggiunta guidata regole attestazione di trasformazione](./media/howto-mfaserver-adfs-2012/configurewizard.png)
 
-9. Fare clic su **Fine**. Chiudere la console di gestione di ADFS.
+9. Fare clic su **Finish**. Chiudere la console di gestione di ADFS.
 
 ## <a name="troubleshooting-logs"></a>Log di risoluzione dei problemi
 

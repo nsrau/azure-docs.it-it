@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 8883c1e7f2874e1e2e61b8eca122f2ec294c7849
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808943"
 ---
 # <a name="azure-monitor-data-platform"></a>Piattaforma dati di monitoraggio Azure
@@ -33,7 +33,7 @@ Le metriche, log e tracce distribuite sono comunemente detto a tre i pilastri de
 Le risorse di Azure generano una quantità significativa di dati di monitoraggio. Monitoraggio di Azure consente di consolidare i dati insieme ai dati da altre origini di monitoraggio in uno una piattaforma di metriche o log. Ognuno è ottimizzato per scenari di monitoraggio specifici, e ognuno supporta diverse funzionalità in Monitoraggio di Azure. Funzionalità quali l'analisi dei dati, visualizzazioni o gli avvisi è necessario comprendere le differenze in modo che è possibile implementare lo scenario richiesto in modo più efficiente e conveniente. Insights in Monitoraggio di Azure, ad esempio [Application Insights](../app/app-insights-overview.md) oppure [monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md) dispone di strumenti di analisi che consentono di concentrarsi sullo scenario di monitoraggio specifico senza dover conoscere il differenze tra i due tipi di dati. 
 
 
-### <a name="metrics"></a>Metriche
+### <a name="metrics"></a>metrics
 Le [metriche](data-platform-metrics.md) sono valori numerici che descrivono alcuni aspetti di un sistema in un particolare momento. Vengono raccolti a intervalli regolari e vengono identificati con un timestamp, un nome, un valore e una o più etichette definizione. Le metriche possono essere aggregate usando un'ampia gamma di algoritmi, rispetto alle altre metriche e analizzare le tendenze nel tempo. 
 
 Le metriche in Monitoraggio di Azure vengono archiviate in un database di serie temporali che è ottimizzato per l'analisi dei dati con data / ora. In questo modo le metriche particolarmente adatto per gli avvisi e veloce rilevamento dei problemi. Essi possono indicano le prestazioni di sistema ma in genere devono essere combinati con i log per identificare la causa radice dei problemi.
@@ -67,7 +67,7 @@ Altre informazioni su analisi in distribuita [che cos'è analisi distribuita?](.
 
 La tabella seguente confronta le metriche e log in Monitoraggio di Azure.
 
-| Attributo  | Metriche | Log |
+| Attributo  | metrics | Log |
 |:---|:---|:---|
 | Vantaggi | Caricamento leggero e in grado di supportare scenari di quasi in tempo reale, ad esempio gli avvisi. Ideale per il rilevamento rapido dei problemi. | Analizzati con avanzato linguaggio di query. Ideale per un'analisi approfondita e identificazione di causa principale. |
 | Dati | Solo i valori numerici | Dati numerici o di testo |

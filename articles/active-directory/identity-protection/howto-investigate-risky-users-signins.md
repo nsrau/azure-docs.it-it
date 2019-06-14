@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a90195a2d0899b0a157cc67badd2f9873164987
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60295950"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108958"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Procedura: Analizzare utenti e accessi a rischio 
 
@@ -185,7 +185,7 @@ Il primo punto di approccio a questo report è la sezione **Analisis dei problem
 
 Il report accessi a rischio presenta una vista predefinita che include:
 
-- Data
+- Date
 
 - Utente
 
@@ -258,7 +258,7 @@ Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dat
 - Livello di rischio (aggregato)
 - Livello di rischio (in tempo reale)
 - Accesso condizionale
-- Data
+- Date
 - Tipo di livello di rischio
 
 ![Report sugli accessi a rischio](./media/howto-investigate-risky-users-signins/14.png)
@@ -272,7 +272,7 @@ Il filtro **Applicazione** consente di specificare l'app cloud a cui l’utente 
 Il filtro **Stato accesso** permette di selezionare:
 
 - Tutti
-- Success
+- Riuscito
 - Esito negativo
 
 
@@ -298,11 +298,11 @@ Il filtro **Livello di rischio (in tempo reale)** consente di selezionare:
 - Basso
 
 
-Il filtro **Accesso condizionale** consente di selezionare:
+Il **accesso condizionale** filtro consente di selezionare:
 
 - Tutti
 - Non applicato
-- Success
+- Riuscito
 - Esito negativo
 
 

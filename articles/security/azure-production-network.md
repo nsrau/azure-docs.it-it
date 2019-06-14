@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611353"
 ---
 # <a name="the-azure-production-network"></a>La rete di produzione di Azure
@@ -54,7 +54,7 @@ Azure implementa avanzate funzionalità di sicurezza e firewall software a vari 
 ### <a name="azure-security-features"></a>Funzionalità di sicurezza di Azure
 Azure implementa firewall software basati su host all'interno della rete di produzione. Alcune funzionalità di sicurezza e firewall di base si trovano all'interno dell'ambiente Azure. Queste funzionalità di sicurezza riflettono una strategia di difesa approfondita nell'ambiente Azure. I dati dei clienti in Azure sono protetti dai firewall seguenti:
 
-**Firewall hypervisor (filtro di pacchetti)**: implementato nell'hypervisor e configurato dall'agente controller di infrastruttura. Questo firewall protegge il tenant in esecuzione all'interno della VM da accessi non autorizzati. Per impostazione predefinita, quando viene creata una VM, tutto il traffico viene bloccato e l'agente controller di infrastruttura aggiunge regole ed eccezioni nel filtro per consentire il traffico autorizzato.
+**Firewall hypervisor (filtro di pacchetti)** : implementato nell'hypervisor e configurato dall'agente controller di infrastruttura. Questo firewall protegge il tenant in esecuzione all'interno della VM da accessi non autorizzati. Per impostazione predefinita, quando viene creata una VM, tutto il traffico viene bloccato e l'agente controller di infrastruttura aggiunge regole ed eccezioni nel filtro per consentire il traffico autorizzato.
 
 In questo caso sono previste due categorie di regole:
 

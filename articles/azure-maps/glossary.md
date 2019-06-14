@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575347"
 ---
 # <a name="glossary"></a>Glossario
 
 Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
-## <a name="a"></a>Una 
+## <a name="a"></a>Una
 
 <a name="address-validation"></a> **Convalida di indirizzo**: processo di verifica dell'esistenza di un indirizzo.
 
@@ -37,7 +37,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="antimeridian"></a> **Antimeridiano**: noto anche come 180<sup>o</sup> meridiano, rappresenta il punto di incontro tra -180 gradi e 180 gradi di longitudine. È opposto al meridiano zero sul globo.
 
-<a name="application-programming-interface-api"></a> **API (Application Programming Interface)**: specifica che consente agli sviluppatori di creare applicazioni.
+<a name="application-programming-interface-api"></a> **API (Application Programming Interface)** : specifica che consente agli sviluppatori di creare applicazioni.
 
 <a name="api-key"></a> **Chiave API**: vedere Chiave di Mappe di Azure.
 
@@ -109,7 +109,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="dbf-file"></a> **DBF**: formato di file di database che viene usato in combinazione con i file di forma (SHP).
 
-<a name="degree-minutes-seconds-dms"></a> **DMS (Degree Minutes Seconds)**: unità di misura, espressa in grado minuti secondi, per la descrizione di latitudine e longitudine. Un grado è 1/360<sup>o</sup> di un cerchio. Il grado viene ulteriormente suddiviso in 60 minuti e un minuto in 60 secondi.
+<a name="degree-minutes-seconds-dms"></a> **DMS (Degree Minutes Seconds)** : unità di misura, espressa in grado minuti secondi, per la descrizione di latitudine e longitudine. Un grado è 1/360<sup>o</sup> di un cerchio. Il grado viene ulteriormente suddiviso in 60 minuti e un minuto in 60 secondi.
 
 <a name="delaunay-triangulation"></a> **Triangolazione di Delaunay**: tecnica per la creazione di una mesh di triangoli contigui non sovrapposti da un set di dati di punti. Nessun punto appartenente al set di dati è presente all'interno del circumcerchio di ogni triangolo.
 
@@ -117,7 +117,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="destination"></a> **Destinazione**: punto o località finale del percorso di un utente.
 
-<a name="digital-elevation-model-dem"></a> **DEM (Digital Elevation Model)**: set di dati dei valori di quota correlati a una superficie, acquisiti su un'area a intervalli regolari in base a un datum comune. I DEM vengono in genere usati per rappresentare il rilievo del terreno.
+<a name="digital-elevation-model-dem"></a> **DEM (Digital Elevation Model)** : set di dati dei valori di quota correlati a una superficie, acquisiti su un'area a intervalli regolari in base a un datum comune. I DEM vengono in genere usati per rappresentare il rilievo del terreno.
 
 <a name="dijkstra's-algorithm"></a> **Algoritmo di Dijkstra**: algoritmo che esamina la connettività di una rete per trovare il percorso più breve tra due punti.
 
@@ -185,7 +185,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="great-circle-distance"></a> **Distanza ortodromica**: distanza più breve tra due punti sulla superficie di una sfera.
 
-<a name="greenwich-mean-time-gmt"></a> **Ora di Greenwich (GMT)**: ora del meridiano zero che passa attraverso il Royal Observatory di Greenwich, in Inghilterra.
+<a name="greenwich-mean-time-gmt"></a> **Ora di Greenwich (GMT)** : ora del meridiano zero che passa attraverso il Royal Observatory di Greenwich, in Inghilterra.
 
 <a name="guid"></a> **GUID**: identificatore univoco globale. Stringa usata per identificare in modo univoco un'interfaccia, una classe, una libreria di tipi, una categoria di componenti o un record.
 
@@ -297,7 +297,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="quadtree"></a> **Quadtree**: struttura di dati in cui ogni nodo è suddiviso esattamente in quattro elementi figlio. Il sistema di partizionamento adottato in Mappe di Azure è basato su una struttura di tipo quadtree. In questo modo, quando un utente esegue lo zoom avanti di un livello, ogni tessera della mappa viene suddivisa in quattro tessere secondarie.  Per altre informazioni, vedere l'articolo [Livelli di zoom e griglia riquadri](zoom-levels-and-tile-grid.md).
 
-<a name="queries-per-second-qps"></a> **Query al secondo (QPS)**: numero di query o richieste che possono essere inviate a un servizio o a una piattaforma nell'arco di un secondo. 
+<a name="queries-per-second-qps"></a> **Query al secondo (QPS)** : numero di query o richieste che possono essere inviate a un servizio o a una piattaforma nell'arco di un secondo. 
 
 ## <a name="r"></a>R
 
@@ -321,7 +321,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="route"></a> **Percorso**: itinerario tra due o più posizioni, che può includere anche altre informazioni, ad esempio le istruzioni relative a determinati punti di tragitto.
 
-<a name="requests-per-second-rps"></a> **Richieste al secondo (RPS)**: vedere [Query al secondo (QPS)](#queries-per-second-qps). 
+<a name="requests-per-second-rps"></a> **Richieste al secondo (RPS)** : vedere [Query al secondo (QPS)](#queries-per-second-qps). 
 
 <a name="rss"></a> **RSS**: acronimo di Really Simple Syndication, Resource Description Framework (RDF) Site Summary o Rich Site Summary, a seconda dell'origine. RSS è un formato XML semplice e strutturato per la condivisione di contenuto tra diversi siti Web. I documenti RSS includono elementi di metadati significativi, ad esempio l'autore, la data, il titolo, una breve descrizione e un collegamento ipertestuale. Queste informazioni consentono a un utente (o a un servizio di pubblicazione RSS) di identificare quali contenuti valga la pena di approfondire.
 
@@ -329,9 +329,9 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="satellite-imagery"></a> **Immagini satellitari**: immagini acquisite da satelliti o aerei con l'obiettivo in direzione perpendicolare rispetto alla superficie terrestre.
 
-<a name="software-development-kit-sdk"></a> **SDK (Software Development Kit)**: raccolta di documentazione, codice di esempio e app di esempio progettata per aiutare gli sviluppatori a usare un'API per la creazione di app.
+<a name="software-development-kit-sdk"></a> **SDK (Software Development Kit)** : raccolta di documentazione, codice di esempio e app di esempio progettata per aiutare gli sviluppatori a usare un'API per la creazione di app.
 
-<a name="shapefile-shp"></a> **File di forma (SHP)**: noto anche come file di forma ESRI, è un formato di archiviazione di dati vettoriali che consente di archiviare la posizione, la forma e gli attributi di feature geografiche. Un file di forma viene archiviato in un set di file correlati.
+<a name="shapefile-shp"></a> **File di forma (SHP)** : noto anche come file di forma ESRI, è un formato di archiviazione di dati vettoriali che consente di archiviare la posizione, la forma e gli attributi di feature geografiche. Un file di forma viene archiviato in un set di file correlati.
 
 <a name="spherical-mercator-projection"></a> **Proiezione sferica di Mercatore**: vedere [Web Mercator](#web-mercator). 
 
@@ -364,7 +364,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="transformation"></a> **Trasformazione**: processo di conversione dei dati tra diversi sistemi di coordinate geografiche. È ad esempio possibile che alcuni dati siano stati acquisiti nel Regno Unito in base al sistema di coordinate geografiche OSGB 1936. Mappe di Azure usa il sistema di coordinate di riferimento [EPSG:3857](https://epsg.io/3857), una variante di WGS84. Di conseguenza, per la visualizzazione corretta dei dati, il sistema di coordinate deve essere trasformato da un sistema all'altro.
 
-<a name="traveling-salesmen-problem-tsp"></a> **TSP (Traveling Salesmen Problem)**:  problema del ciclo hamiltoniano in cui un commesso viaggiatore deve trovare la soluzione più efficiente per raggiungere una serie di tappe e quindi tornare alla posizione iniziale.  
+<a name="traveling-salesmen-problem-tsp"></a> **TSP (Traveling Salesmen Problem)** :  problema del ciclo hamiltoniano in cui un commesso viaggiatore deve trovare la soluzione più efficiente per raggiungere una serie di tappe e quindi tornare alla posizione iniziale.  
 
 <a name="trilateration"></a> **Trilaterazione**: processo volto a determinare la posizione di un punto sulla superficie terrestre rispetto alla altri due punti, misurando le distanze fra tutti e tre i punti.
 
@@ -376,7 +376,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="vector-tile"></a> **Tessera vettoriale**: specifica di dati aperta per l'archiviazione dei dati geospaziali di tipo vettoriale che uso lo stesso sistema di partizionamento adottato dal controllo mappa. Vedere anche [Layer a tessere](#tile-layer).
 
-<a name="vehicle-routing-problem-vrp"></a> **Problema di Routing del veicolo (VRP)**: classe di problemi in cui viene calcolato un set di percorsi ordinati per una flotta di veicoli tenendo in considerazione una serie di vincoli, ad esempio intervalli di recapito, capacità di effettuare più percorsi e durata del viaggio.
+<a name="vehicle-routing-problem-vrp"></a> **Problema di Routing del veicolo (VRP)** : classe di problemi in cui viene calcolato un set di percorsi ordinati per una flotta di veicoli tenendo in considerazione una serie di vincoli, ad esempio intervalli di recapito, capacità di effettuare più percorsi e durata del viaggio.
 
 <a name="voronoi-diagram"></a> **Diagramma di Voronoi**: diagramma di partizionamento dello spazio in aree, o celle, che racchiudono un set di oggetti geometrici (in genere, feature di tipo punto). Queste celle, o poligoni, devono soddisfare i criteri definiti per i triangoli di Delaunay. Tutte le posizioni all'interno di un'area sono più vicine all'oggetto che circonda rispetto a qualsiasi altro oggetto nel set. I diagrammi di Voronoi vengono spesso usati per delineare le aree di influenza attorno alle feature geografiche. 
 
@@ -386,7 +386,7 @@ Di seguito è riportato un elenco dei termini comuni usati con Mappe di Azure.
 
 <a name="waypoint-optimization"></a> **Ottimizzazione dei punti di tragitto**: processo di riordinamento di un set di punti di tragitto per ridurre al minimo la distanza o il tempo di percorrenza necessario per attraversare tutti i punti di tragitto specificati. Questo processo è spesso definito [TSP (Traveling Salesmen Problem)](#traveling-salesmen-problem-tsp) o [VRP (Vehicle Routing Problem)](#vehicle-routing-problem-vrp), a seconda della complessità dell'ottimizzazione.
 
-<a name="web-map-service-wms"></a> **WMS (Web Map Service)**: standard dell'OGC (Open Geographic Consortium) che definisce i servizi di generazione di mappe basate su immagini. I servizi WMS forniscono su richiesta le immagini relative ad aree specifiche all'interno di una mappa. Le immagini includono simbologia precedentemente sottoposta a rendering e possono essere generate in base a uno dei diversi stili eventualmente definiti dal servizio.
+<a name="web-map-service-wms"></a> **WMS (Web Map Service)** : standard dell'OGC (Open Geographic Consortium) che definisce i servizi di generazione di mappe basate su immagini. I servizi WMS forniscono su richiesta le immagini relative ad aree specifiche all'interno di una mappa. Le immagini includono simbologia precedentemente sottoposta a rendering e possono essere generate in base a uno dei diversi stili eventualmente definiti dal servizio.
 
 <a name="web-mercator"></a> **Web Mercator**: nota anche come proiezione sferica di Mercatore, è una variante della proiezione di Mercatore che viene usata principalmente nei programmi Web per la generazione di mappe. Usa le stesse formule della proiezione standard di Mercatore adottate per le mappe con fattore di scala ridotto. La proiezione Web Mercator, tuttavia, usa il modello sferico per qualsiasi fattore di scala, mentre le mappe di Mercatore con fattore di scala elevato usano in genere il modello ellissoidale della proiezione. La differenza è impercettibile su scala globale, ma causa una leggera deviazione delle mappe delle aree locali rispetto alle vere mappe di Mercatore ellissoidali con lo stesso fattore di scala.
 

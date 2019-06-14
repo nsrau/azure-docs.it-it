@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: d28f6ed1957f8f6ae7ff7eb49f8ce4cbdec62266
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 230fe94820a00c276238a7f5ff189ecc817f3f96
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147413"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074035"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiare dati da e in SQL Server usando Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-sqlserver-connector.md)
 > * [Versione corrente](connector-sql-server.md)
 
@@ -57,9 +57,9 @@ Per il servizio collegato di SQL Server sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **SqlServer** | Sì |
 | connectionString |Specificare le informazioni di connectionString necessarie per connettersi al database SQL Server usando l'autenticazione di SQL o Windows. Vedere gli esempi seguenti.<br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password in Azure Key Vault e, se si tratta dell'autenticazione SQL, eseguire il pull della configurazione `password` dalla stringa di connessione. Vedere l'esempio JSON sotto la tabella e l'articolo [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) (Archiviare le credenziali in Azure Key Vault) per altri dettagli. |Sì |
-| userName |Specificare il nome utente se si usa l'autenticazione Windows. Esempio: **nomedominio\\nomeutente**. |No  |
-| password |Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |No  |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
+| userName |Specificare il nome utente se si usa l'autenticazione Windows. Esempio: **nomedominio\\nomeutente**. |No |
+| password |Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 >[!TIP]
 >Se viene restituito l'errore con codice "UserErrorFailedToConnectToSqlServer" e un messaggio quale "Il limite di sessioni per il database è XXX ed è stato raggiunto.", aggiungere `Pooling=false` alla stringa di connessione e riprovare.
@@ -182,9 +182,9 @@ Per copiare dati da un database SQL Server, impostare il tipo di origine nell'at
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine di attività di copia deve essere impostata su: **SqlSource** | Sì |
-| sqlReaderQuery |Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. |No  |
-| sqlReaderStoredProcedureName |Nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No  |
-| storedProcedureParameters |Parametri per la stored procedure.<br/>I valori consentiti sono: coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No  |
+| sqlReaderQuery |Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. |No |
+| sqlReaderStoredProcedureName |Nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. |No |
+| storedProcedureParameters |Parametri per la stored procedure.<br/>I valori consentiti sono: coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No |
 
 **Punti da notare:**
 
@@ -280,22 +280,22 @@ GO
 
 ### <a name="sql-server-as-sink"></a>SQL Server come sink
 
+> [!TIP]
+> Altre informazioni sui comportamenti di scrittura supportati, configurazioni e consigliata da [procedure consigliate per il caricamento dei dati in SQL Server](#best-practice-for-loading-data-into-sql-server).
+
 Per copiare dati da SQL Server, impostare il tipo di sink nell'attività di copia su **SqlSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del sink dell'attività di copia deve essere impostata su: **SqlSink** | Sì |
-| writeBatchSize |Numero di righe nella tabella SQL inserimenti **per ogni batch**.<br/>I valori consentiti sono integer, ovvero il numero di righe. Per impostazione predefinita, Data Factory di determinare in modo dinamico le dimensioni del batch appropriato in base alla dimensione di riga. |No  |
-| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono: intervallo di tempo. Esempio: "00:30:00" (30 minuti). |No  |
-| preCopyScript |Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in SQL Server. Può essere richiamata solo una volta per esecuzione della copia. È possibile usare questa proprietà per pulire i dati precaricati. |No  |
-| sqlWriterStoredProcedureName |Nome della stored procedure che definisce come applicare i dati di origine nella tabella di destinazione, ad esempio per eseguire upsert o trasformazioni usando logica di business personalizzata. <br/><br/>Si noti che questa stored procedure verrà **richiamata per batch**. Se si vuole eseguire una sola volta un'operazione che non ha nulla a che fare con i dati di origine, ad esempio un'eliminazione o un troncamento, usare la proprietà `preCopyScript`. |No  |
-| storedProcedureParameters |Parametri per la stored procedure.<br/>I valori consentiti sono: coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No  |
-| sqlWriterTableType |Specificare il nome di un tipo di tabella da usare nella stored procedure. L'attività di copia rende i dati spostati disponibili in una tabella temporanea con questo tipo di tabella. Il codice della stored procedure può quindi unire i dati copiati con i dati esistenti. |No  |
+| writeBatchSize |Numero di righe nella tabella SQL inserimenti **per ogni batch**.<br/>I valori consentiti sono integer, ovvero il numero di righe. Per impostazione predefinita, Data Factory di determinare in modo dinamico le dimensioni del batch appropriato in base alla dimensione di riga. |No |
+| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono: intervallo di tempo. Esempio: "00:30:00" (30 minuti). |No |
+| preCopyScript |Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in SQL Server. Può essere richiamata solo una volta per esecuzione della copia. È possibile usare questa proprietà per pulire i dati precaricati. |No |
+| sqlWriterStoredProcedureName |Nome della stored procedure che definisce come applicare i dati di origine nella tabella di destinazione.<br/>Si noti che questa stored procedure verrà **richiamata per batch**. Se si vuole eseguire una sola volta un'operazione che non ha nulla a che fare con i dati di origine, ad esempio un'eliminazione o un troncamento, usare la proprietà `preCopyScript`. |No |
+| storedProcedureParameters |Parametri per la stored procedure.<br/>I valori consentiti sono: coppie nome/valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. |No |
+| sqlWriterTableType |Specificare il nome di un tipo di tabella da usare nella stored procedure. L'attività di copia rende i dati spostati disponibili in una tabella temporanea con questo tipo di tabella. Il codice della stored procedure può quindi unire i dati copiati con i dati esistenti. |No |
 
-> [!TIP]
-> Quando si copiano dati in SQL Server, per impostazione predefinita l'attività di copia aggiunge i dati alla tabella di sink. Per eseguire un UPSERT o una logica di business aggiuntiva, usare la stored procedure in SqlSink. Altre informazioni sono contenute in [Richiamo delle stored procedure per SQL Sink](#invoking-stored-procedure-for-sql-sink).
-
-**Esempio 1: aggiunta di dati**
+**Esempio 1: aggiungere dati**
 
 ```json
 "activities":[
@@ -327,7 +327,7 @@ Per copiare dati da SQL Server, impostare il tipo di sink nell'attività di copi
 ]
 ```
 
-**Esempio 2: richiamare una stored procedure durante la copia per l'operazione upsert**
+**Esempio 2: richiamare una stored procedure durante la copia**
 
 Altre informazioni sono contenute in [Richiamo delle stored procedure per SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
@@ -366,80 +366,69 @@ Altre informazioni sono contenute in [Richiamo delle stored procedure per SQL Si
 ]
 ```
 
-## <a name="identity-columns-in-the-target-database"></a>Colonne Identity nel database di destinazione
+## <a name="best-practice-for-loading-data-into-sql-server"></a>Procedure consigliate per il caricamento dei dati in SQL Server
 
-Questa sezione fornisce un esempio per la copia di dati da una tabella di origine senza una colonna identity in una tabella di destinazione con una colonna identity.
+Quando si copiano dati in SQL Server, potrebbe essere necessario il comportamento di scrittura diverse:
 
-**Tabella di origine:**
+- **[Accodare](#append-data)** : i dati di origine contengono solo nuovi record;
+- **[Upsert](#upsert-data)** : i dati di origine contengono sia istruzioni inserts e updates;
+- **[Sovrascrivere](#overwrite-entire-table)** : Desidera ricaricare tabella intera dimensione ogni volta che;
+- **[Scrivere con logica personalizzata](#write-data-with-custom-logic)** : Ho bisogno di ulteriore elaborazione prima dell'inserimento finale nella tabella di destinazione.
+
+Vedere la sezioni rispettivamente su come configurare in Azure Data factory e le procedure consigliate.
+
+### <a name="append-data"></a>Aggiungere i dati
+
+Si tratta del comportamento predefinito di questo connettore di sink di SQL Server e si di ADF **bulk insert** per scrivere in modo efficiente alla tabella. È possibile semplicemente configurare l'origine e di conseguenza di sink nell'attività di copia.
+
+### <a name="upsert-data"></a>Eseguire l'upsert dei dati
+
+**Opzione ho** (consigliato soprattutto quando ci sono dati di grandi dimensioni da copiare): il **approccio ad alte prestazioni la maggior parte delle** eseguire upsert è il seguente: 
+
+- In primo luogo, utilizzare un [tabella temporanea](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) per eseguire il caricamento bulk tutti i record usando l'attività di copia. Come operazioni su tabelle temporanee non sono connessi, è possibile caricare milioni di record in pochi secondi.
+- Eseguire un'attività Stored Procedure in Azure Data factory per applicare una [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (o inserimento/aggiornamento) istruzione e utilizzare temporanea di tabella come origine per eseguire tutte le aggiorna o inserisce come una singola transazione, riducendo la quantità di round trip e operazioni di log. Al termine dell'attività Stored Procedure, tabelle temporanee possono essere troncate per la preparazione per il successivo ciclo di upsert. 
+
+Ad esempio, in Azure Data Factory, è possibile creare una pipeline con un' **attività di copia** concatenato con un **attività Stored Procedure** esito è positivo. La prima copia i dati dall'archivio di origine in una tabella temporanea di database, ad esempio " **##UpsertTempTable**" come nome della tabella nel set di dati, quindi quest'ultimo richiama una Stored Procedure per unire i dati di origine dalla stessa tabella in tabella di destinazione, e pulire la tabella temporanea.
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+Nel database, definire una Stored Procedure con logica di unione, simile alla seguente, che viene fatto riferimento dall'attività di Stored Procedure precedente. Supponendo che di destinazione **Marketing** tabella con tre colonne: **ProfileID**, **stato**, e **categoria**, e di eseguire l'operazione upsert in base il **ProfileID** colonna.
 
 ```sql
-create table dbo.SourceTbl
-(
-    name varchar(100),
-    age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+    MERGE TargetTable AS target
+    USING ##UpsertTempTable AS source
+    ON (target.[ProfileID] = source.[ProfileID])
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT matched THEN
+        INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-**Tabella di destinazione:**
+**Opzione II:** in alternativa, è possibile effettuare [chiamare una stored procedure all'interno di attività di copia](#invoking-stored-procedure-for-sql-sink), durante la nota di questo approccio viene eseguito per ogni riga nella tabella di origine invece di uso di bulk insert come l'approccio predefinito Nell'attività di copia, pertanto non può essere inclusa per l'operazione upsert su larga scala.
 
-```sql
-create table dbo.TargetTbl
-(
-    identifier int identity(1,1),
-    name varchar(100),
-    age int
-)
-```
+### <a name="overwrite-entire-table"></a>Sovrascrivere l'intera tabella
 
-Si noti che la tabella di destinazione contiene una colonna identity.
+È possibile configurare **preCopyScript** sink proprietà nell'attività di copia, nel qual caso per ogni esecuzione attività di copia, Azure Data Factory esegue lo script prima di tutto, quindi eseguire la copia per inserire i dati. Ad esempio, per sovrascrivere l'intera tabella con i dati più recenti, è possibile specificare uno script per eliminare tutti i record prima del caricamento bulk dei nuovi dati dall'origine.
 
-**Definizione JSON del set di dati di origine**
+### <a name="write-data-with-custom-logic"></a>Scrivere i dati con logica personalizzata
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
-
-**Definizione JSON del set di dati di destinazione**
-
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
-
-Si noti che la tabella di origine e la tabella di destinazione hanno schemi diversi (la destinazione include una colonna aggiuntiva identity). In questo scenario è necessario specificare la proprietà **structure** nella definizione del set di dati di destinazione che non include la colonna identity.
+Analogamente a come descritto in [Upsert dati](#upsert-data) sezione quando è necessario applicare ulteriori operazioni di elaborazione prima dell'inserimento finale dei dati di origine nella tabella di destinazione, è possibile un) su larga scala, caricare in una tabella temporanea e richiamare una stored procedure, o b) richiamare una stored procedure durante la copia.
 
 ## <a name="invoking-stored-procedure-for-sql-sink"></a> Chiamare una stored procedure da un sink SQL
 
-Quando si copiano dati in un database SQL Server, è possibile configurare e richiamare una stored procedure specificata da un utente con parametri aggiuntivi.
+Quando si copiano dati in database di SQL Server, è anche possibile configurare e richiamare una specificato dall'utente stored procedure con parametri aggiuntivi.
 
-È possibile usare una stored procedure quando non è possibile usufruire dei meccanismi di copia predefiniti. Viene usata, in genere, quando un'operazione upsert (inserimento e aggiornamento) o un'operazione di elaborazione supplementare (unione colonne, ricerca di valori aggiuntivi, inserimento in più tabelle e così via) deve essere eseguita prima dell'inserimento finale dei dati di origine nella tabella di destinazione.
+> [!TIP]
+> Richiamo delle stored procedure elabora i dati row-by-row anziché operazione bulk, che non è consigliata per la copia su larga scala. Altre informazioni, vedere [procedure consigliate per il caricamento dei dati in SQL Server](#best-practice-for-loading-data-into-sql-server).
+
+È possibile usare una stored procedure quando meccanismi di copia predefiniti non svolgono la funzione, ad esempio, applicare ulteriori operazioni di elaborazione prima dell'inserimento finale dei dati di origine nella tabella di destinazione. Alcuni esempi di elaborazione extra sono l'unione di colonne, la ricerca di altri valori e l'inserimento in più di una tabella.
 
 Nell'esempio seguente viene illustrato come usare una stored procedure per eseguire un'operazione upsert in una tabella del database SQL Server. Si presuppone che i dati di input e la tabella **Marketing** del sink abbiano tre colonne: **ProfileID**, **State** e **Category**. Eseguire l'operazione di upsert nella colonna **ProfileID** e applicarla solo a una categoria specifica.
 
@@ -517,7 +506,7 @@ Quando si copiano dati da/in SQL Server, vengono usati i mapping seguenti tra i 
 | bit |Boolean |
 | char |String, Char[] |
 | date |DateTime |
-| DateTime |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
@@ -538,7 +527,7 @@ Quando si copiano dati da/in SQL Server, vengono usati i mapping seguenti tra i 
 | sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
-|  timestamp |Byte[] |
+| timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |

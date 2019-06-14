@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: cf9356c2792781558c4403608ff5de0e3aaddb6a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 9339d891e8fe895f598e1a2615fcfa66b053b3e0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254473"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063860"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Linux Java per servizio App di Azure
 
@@ -480,9 +480,7 @@ Il servizio app per Linux supporta due runtime per l'hosting gestito delle appli
 
 ### <a name="jdk-versions-and-maintenance"></a>Versioni di JDK e manutenzione
 
-Il pacchetto Java Development Kit (JDK) supportato di Azure è [Zulu](https://www.azul.com/downloads/azure-only/zulu/) fornito da [Azul Systems](https://www.azul.com/).
-
-Gli aggiornamenti delle versioni principali verranno forniti tramite nuove opzioni di runtime nel Servizio app di Azure per Linux. I clienti eseguono l'aggiornamento a queste versioni più recenti di Java configurando la distribuzione del servizio app e sono responsabili dei test, oltre che di assicurare che l'aggiornamento principale risponda alle esigenze.
+Le build Azul Zulu Enterprise di OpenJDK sono distribuzioni di OpenJDK gratuite, multipiattaforma e pronte per la produzione per Azure e Azure Stack, supportate da Microsoft e Azul Systems. Contengono tutti i componenti necessari per compilare ed eseguire applicazioni Java SE. È possibile installare il pacchetto JDK da [installazione di JDK di Java](https://aka.ms/azure-jdks).
 
 Ai pacchetti JDK supportati vengono automaticamente applicate patch con cadenza trimestrale, a gennaio, aprile, luglio e ottobre di ogni anno.
 
@@ -493,18 +491,6 @@ Le patch e le correzioni per le principali vulnerabilità della sicurezza verran
 ### <a name="deprecation-and-retirement"></a>Deprecazione e ritiro
 
 Se un runtime Java supportato sarà ritirato, gli sviluppatori di Azure che usano il runtime interessato riceveranno un avviso di funzionalità deprecata almeno sei mesi prima che il runtime venga ritirato.
-
-### <a name="local-development"></a>Sviluppo locale
-
-Gli sviluppatori possono scaricare l'edizione Production di Azul Zulu Enterprise JDK per lo sviluppo locale dal [sito di download di Azul](https://www.azul.com/downloads/azure-only/zulu/).
-
-### <a name="development-support"></a>Supporto per lo sviluppo
-
-Il supporto per il prodotto [Azul Zulu Enterprise JDK](https://www.azul.com/downloads/azure-only/zulu/) è disponibile quando si sviluppa per Azure o [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) con un [piano di supporto per Azure qualificato](https://azure.microsoft.com/support/plans/).
-
-### <a name="runtime-support"></a>Supporto di runtime
-
-Gli sviluppatori possono [aprire un problema](/azure/azure-supportability/how-to-create-azure-support-request) relativo ai pacchetti JDK Azul Zulu tramite il supporto di Azure se hanno un [piano di supporto qualificato](https://azure.microsoft.com/support/plans/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.openlocfilehash: 1f468cac29579d8748f61a47b548a67d36ff8279
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64695959"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
@@ -71,7 +71,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 Ecco alcune proprietà di interesse:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | -- | -- |
 | AutoCommit | Valore booleano che indica se l'opzione `autoCommit` è abilitata per le transazioni Phoenix. |
 | ReadOnly | Valore booleano che indica se la connessione è di sola lettura. |
@@ -82,7 +82,7 @@ Ecco alcune proprietà di interesse:
 
 Ecco i valori di `TransactionIsolation`:
 
-| Valore di isolamento | DESCRIZIONE |
+| Valore di isolamento | Descrizione |
 | -- | -- |
 | 0 | Le transazioni non sono supportate. |
 | 1 | Possono verificarsi letture dirty, letture non ripetibili e letture fantasma. |

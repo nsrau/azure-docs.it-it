@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4df40febefa872fa52afdfaaf31b94dba7000af5
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: b28d590390cd1a1ef1c6651e6943ac2a7fa0af29
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729493"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075509"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -45,7 +45,7 @@ Al termine di un'analisi conformità degli aggiornamenti, un computer l'agente i
 
 Oltre all'analisi pianificata, l'analisi della conformità degli aggiornamenti viene avviata entro 15 minuti dal momento del riavvio di MMA e prima e dopo l'installazione degli aggiornamenti.
 
-Per un computer Linux, l'analisi della conformità viene eseguita ogni 3 ore per impostazione predefinita. Se l'agente MMA viene riavviato, viene avviata un'analisi della conformità entro 15 minuti.
+Per un computer Linux, l'analisi di conformità viene eseguita ogni ora per impostazione predefinita. Se l'agente MMA viene riavviato, viene avviata un'analisi della conformità entro 15 minuti.
 
 La soluzione genera report sullo stato di aggiornamento del computer in base all'origine configurata per la sincronizzazione. Se il computer Windows è configurato per l'invio di report a WSUS, in base a quando WSUS ha eseguito l'ultima sincronizzazione con Microsoft Update i risultati possono differire da quanto visualizzato da Microsoft Update. Questo comportamento è lo stesso per i computer Linux configurati per l'invio di report a un repository locale anziché a un repository pubblico.
 
@@ -303,7 +303,7 @@ Gestione aggiornamenti si basa su Windows Update per scaricare e installare gli 
 
 ### <a name="pre-download-updates"></a>Eseguire il pre-download degli aggiornamenti
 
-Per configurare automaticamente il download degli aggiornamenti in Criteri di gruppo, impostare [Configura Aggiornamenti automatici](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) su **3**. In questo modo gli aggiornamenti necessari vengono scaricati in background senza essere installati. Gestione aggiornamenti mantiene il controllo delle pianificazioni, ma consente di scaricare gli aggiornamenti al di fuori della finestra di manutenzione. Ciò contribuisce a evitare errori di **superamento della finestra di manutenzione** di Gestione aggiornamenti.
+Per configurare automaticamente il download degli aggiornamenti in Criteri di gruppo, impostare [Configura Aggiornamenti automatici](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) su **3**. In questo modo gli aggiornamenti necessari vengono scaricati in background senza essere installati. Gestione aggiornamenti mantiene il controllo delle pianificazioni, ma consente di scaricare gli aggiornamenti al di fuori della finestra di manutenzione. Ciò contribuisce a evitare errori di **superamento della finestra di manutenzione** di Gestione aggiornamenti.
 
 Questa configurazione è possibile anche con PowerShell. A tal fine, eseguire il comando PowerShell seguente nel sistema in cui si intende scaricare automaticamente gli aggiornamenti.
 

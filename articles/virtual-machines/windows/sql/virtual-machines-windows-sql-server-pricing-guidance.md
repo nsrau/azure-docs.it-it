@@ -17,10 +17,10 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393863"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Guida ai prezzi per le VM di SQL Server in Azure
@@ -143,8 +143,8 @@ Sono disponibili nuove dimensioni per i computer che funzionano bene con determi
 
 | Dimensioni macchina virtuale | vCPU | Memoria | Numero massimo di dischi | Massima velocità effettiva di I/O | Costi di licenza di SQL | Costi totali (calcolo + licenze) |
 |---|---|---|---|---|---|---|
-| **Standard_DS14v2** | 16 | 112 GB | 32 | 51.200 operazioni di I/O al secondo o 768 MB/s | | |
-| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51.200 operazioni di I/O al secondo o 768 MB/s | 75% in meno | 57% in meno |
+| **Standard_DS14v2** | 16 | 112 GB | 32 | 51\.200 operazioni di I/O al secondo o 768 MB/s | | |
+| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51\.200 operazioni di I/O al secondo o 768 MB/s | 75% in meno | 57% in meno |
 
 > [!IMPORTANT]
 > Questo è un esempio temporizzato. Per le specifiche tecniche più recenti, vedere gli articoli sulle dimensioni per i computer e la pagina dei prezzi di Azure per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).

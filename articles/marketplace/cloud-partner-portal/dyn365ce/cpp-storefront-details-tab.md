@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: ad6a84679df09964b1bed047f3fbd236a29172b5
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942313"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Scheda Storefront Details (Dettagli vetrina) di Dynamics 365 for Customer Engagement
@@ -66,7 +66,7 @@ In questa sezione si fornisce il materiale di marketing: immagini del logo, vide
 
 La tabella seguente descrive i campi della scheda: 
 
-|      Campo            |    DESCRIZIONE                 |
+|      Campo            |    Descrizione                 |
 |  ---------------      |  ---------------               |
 | Logo offerta (formato png, 48 x 48)\* | Caricare un'immagine da visualizzare nella pagina di ricerca dell'app. Il formato è PNG e le dimensioni devono essere 48x48 pixel. |
 | Logo offerta (formato png, 216x216)\* | Caricare un'immagine da visualizzare nella pagina dei dettagli dell'app. Il formato è PNG e le dimensioni devono essere 216x216 pixel. |
@@ -84,7 +84,7 @@ In questa sezione si forniscono l'*informativa sulla privacy* e le *condizioni p
 
 La tabella seguente descrive i campi della scheda: 
 
-|      Campo            |    DESCRIZIONE                 |
+|      Campo            |    Descrizione                 |
 |  ---------------      |  ---------------               |
 | Privacy Policy URL\*    | URL dell'informativa sulla privacy online per l'app.  |
 | Condizioni d'uso\*          | Condizioni per l'utilizzo dell'app in testo normale.  Per ottenere la versione di valutazione dell'app, i clienti di AppSource devono accettare tali condizioni. |

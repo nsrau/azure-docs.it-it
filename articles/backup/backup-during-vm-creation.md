@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: d96b898c8f72abd7e4eb3522ae046e9fc926f387
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54449d9ea14fef6b2373aa8e0ea3341417c2d3fe
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809346"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057995"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Abilitare il backup quando si crea una macchina virtuale di Azure
 
@@ -27,7 +27,7 @@ Questo articolo illustra come abilitare il backup quando si crea una macchina vi
 ## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Se si non sono già connessi al proprio account, accedere al [portale di Azure](https://portal.azure.com).
- 
+
 ## <a name="create-a-vm-with-backup-configured"></a>Creare una macchina virtuale con Backup configurato
 
 1. Nel portale di Azure, fare clic su **crea una risorsa**.
@@ -41,28 +41,32 @@ Se si non sono già connessi al proprio account, accedere al [portale di Azure](
 6. Accettare il nome dell'insieme di credenziali suggerita oppure specificarne uno personale.
 7. Specificare o creare un gruppo di risorse in cui sarà disponibile l'insieme di credenziali. L'insieme di credenziali di gruppo di risorse può essere diverso dal gruppo di risorse della macchina virtuale.
 
-    ![Abilitare il backup per una macchina virtuale](./media/backup-during-vm-creation/enable-backup.png) 
+    ![Abilitare il backup per una macchina virtuale](./media/backup-during-vm-creation/enable-backup.png)
 
 8. Accettare i criteri di backup predefinito oppure modificare le impostazioni.
-    - Un criterio di backup specifica la frequenza con cui eseguire snapshot del backup della macchina virtuale e tempo di conservazione delle copie di backup. 
+    - Un criterio di backup specifica la frequenza con cui eseguire snapshot del backup della macchina virtuale e tempo di conservazione delle copie di backup.
     - Il criterio predefinito esegue il backup della macchina virtuale una volta al giorno.
     - È possibile personalizzare il proprio criterio di backup per una macchina virtuale di Azure eseguire i backup giornalieri o settimanali.
     - [Altre informazioni](backup-azure-vms-introduction.md#backup-and-restore-considerations) sulle considerazioni sul backup per macchine virtuali di Azure.
     - [Altre informazioni](backup-instant-restore-capability.md) nel momento in cui ripristinare la funzionalità.
 
-      ![Criterio di backup predefinito](./media/backup-during-vm-creation/daily-policy.png) 
+      ![Criterio di backup predefinito](./media/backup-during-vm-creation/daily-policy.png)
 
 
-## <a name="start-a-backup-after-creating-the-vm"></a>Avviare un backup dopo aver creato la macchina virtuale 
+> [!NOTE]
+> Servizio Backup di Azure consente di creare un gruppo di risorse separato (diverso dal gruppo di risorse della macchina virtuale) per archiviare lo snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (esempio: AzureBackupRG_northeurope_1). Verranno conservati i dati nel gruppo di risorse per la durata in giorni come specificato nella *snapshot di ripristino istantaneo Mantieni* sezione del criterio di Backup di macchine virtuali di Azure.  Applicare un blocco a questo gruppo di risorse può causare errori di backup.
 
-In conformità con i criteri di backup verrà eseguito il backup delle macchine Virtuali. Tuttavia, è consigliabile eseguire un backup iniziale. 
+
+## <a name="start-a-backup-after-creating-the-vm"></a>Avviare un backup dopo aver creato la macchina virtuale
+
+In conformità con i criteri di backup verrà eseguito il backup delle macchine Virtuali. Tuttavia, è consigliabile eseguire un backup iniziale.
 
 Dopo aver creata la macchina virtuale, eseguire le operazioni seguenti:
 
 1. Nelle proprietà della VM, fare clic su **Backup**. Lo stato della macchina virtuale è in sospeso Backup iniziale fino a quando non viene eseguito il backup iniziale
 2. Fare clic su **Esegui backup ora** per eseguire un backup su richiesta.
 
-    ![Eseguire un backup su richiesta](./media/backup-during-vm-creation/run-backup.png) 
+    ![Eseguire un backup su richiesta](./media/backup-during-vm-creation/run-backup.png)
 
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Usare un modello di Resource Manager per distribuire una macchina virtuale protetta
 
@@ -70,11 +74,11 @@ I passaggi precedenti illustrano come usare il portale di Azure per creare una m
 
 
 
-## <a name="next-steps"></a>Passaggi successivi 
+## <a name="next-steps"></a>Passaggi successivi
 
 Ora che è stato protetto la macchina virtuale, informazioni su come gestire e ripristinarli.
 
-- [Gestire e monitorare le macchine virtuali](backup-azure-manage-vms.md) 
-- [Ripristinare la macchina virtuale](backup-azure-arm-restore-vms.md) 
+- [Gestire e monitorare le macchine virtuali](backup-azure-manage-vms.md)
+- [Ripristinare la macchina virtuale](backup-azure-arm-restore-vms.md)
 
 Se si verificano problemi, [esaminare](backup-azure-vms-troubleshoot.md) Guida alla risoluzione dei problemi.

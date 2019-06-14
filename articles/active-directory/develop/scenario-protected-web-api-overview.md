@@ -16,13 +16,13 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5bc0075e6604bd1f94531040f2e4a0628e70667
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074891"
 ---
-# <a name="scenario-protected-web-api"></a>Scenario: API web protetta
+# <a name="scenario-protected-web-api"></a>Scenario: API Web protetta
 
 In questo scenario verrà illustrato come esporre un'API web e come è possibile proteggerli in modo che solo gli utenti autenticati possono accedere all'API. È opportuno consentire agli utenti autenticati con lavoro e dell'istituto di istruzione o account personali Microsoft a usare l'API web.
 

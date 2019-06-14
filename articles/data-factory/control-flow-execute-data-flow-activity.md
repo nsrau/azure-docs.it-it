@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: c33219eacb1d3bada5630a7792f98ba33dba824e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e75c6290474d876ca22b5888d06b1fc0e4c8cd05
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235854"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077316"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Eseguire attività del flusso di dati in Azure Data Factory
 Usare l'attività del flusso di dati execute per eseguire il flusso di dati di Azure Data factory in esecuzioni di pipeline debug (sandbox) e nelle esecuzioni di pipeline attivata.
@@ -72,7 +72,7 @@ Scegliere l'ambiente di calcolo per l'esecuzione del flusso di dati. Il valore p
 
 ### <a name="staging-area"></a>Area di gestione temporanea
 
-Se si elaborano i dati in Azure Data Warehouse, è necessario scegliere un percorso di gestione temporanea per il caricamento in batch Polybase.
+Se si elaborano i dati in Azure Data Warehouse, è necessario scegliere un percorso di gestione temporanea per il caricamento in batch Polybase. Sono applicabili ai carichi di lavoro di Azure Data Warehouse solo le impostazioni di gestione temporanea.
 
 ## <a name="parameterized-datasets"></a>Set di dati con parametri
 

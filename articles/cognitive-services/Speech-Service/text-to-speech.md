@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: cbabdde2dd5df2ca40ee45fe0f7b0437f095673b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 84e8eedfb206e28f245128a4e30aba44e96277ab
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020372"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072426"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è sintesi vocale?
 
@@ -48,12 +48,12 @@ Questa tabella elenca le funzionalità di base per la sintesi vocale:
 
 | Caso d'uso | SDK | REST |
 |----------|-----|------|
-| Convertire sintesi vocale. | Sì | Sì |
-| Caricare i set di dati per l'adattamento del vocali. | No  | Sì\* |
-| Creare e gestire i modelli del tipo di carattere vocali. | No  | Sì\* |
-| Creare e gestire le distribuzioni di tipo di carattere vocali. | No  | Sì\* |
-| Creare e gestire i test del tipo di carattere vocali. | No  | Sì\* |
-| Gestire le sottoscrizioni. | No  | Sì\* |
+| Convertire sintesi vocale. | Yes | Yes |
+| Caricare i set di dati per l'adattamento del vocali. | No | Sì\* |
+| Creare e gestire i modelli del tipo di carattere vocali. | No | Sì\* |
+| Creare e gestire le distribuzioni di tipo di carattere vocali. | No | Sì\* |
+| Creare e gestire i test del tipo di carattere vocali. | No | Sì\* |
+| Gestire le sottoscrizioni. | No | Sì\* |
 
 \* *Questi servizi sono disponibili tramite l'endpoint cris.ai. Visualizzare [Swagger riferimento](https://westus.cris.ai/swagger/ui/index). Questi corsi di formazione vocali personalizzati e API di gestione di implementare la limitazione delle richieste che limiti le richieste a 25 per ogni 5 secondi, mentre la sintesi vocale, API stessa implementa la limitazione delle richieste che consente a 200 richieste al secondo come la più alta. Quando si verifica una limitazione, verrà segnalato tramite le intestazioni del messaggio.*
 

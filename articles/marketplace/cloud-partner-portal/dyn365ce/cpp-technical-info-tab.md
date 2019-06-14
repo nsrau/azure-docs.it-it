@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: df7f3be5a92a183176da7851ce1943793b8b57d0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942368"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Scheda Technical Info (Informazioni tecniche) di Dynamics 365 for Customer Engagement
@@ -27,7 +27,7 @@ In questa sezione si forniscono i dettagli sull'applicazione Dynamics 365.
 
 La tabella seguente descrive i campi. I campi obbligatori sono indicati da un asterisco (*).
 
-|      Campo                    |    DESCRIZIONE                  |
+|      Campo                    |    Descrizione                  |
 |    ---------                  |  ---------------                |
 |   Modello di licenza di base\*          |  Il modello di licenza determina in che modo l'applicazione viene assegnata ai clienti nell'interfaccia di amministrazione di Dynamics 365. Le licenze per **risorsa** sono basate su istanza, mentre le licenze **utente** vengono assegnate una per ogni tenant.  |
 |  Accesso a CRM Secure Store & S2S in uscita\* |  Abilita la configurazione dell'accesso all'archiviazione sicura di CRM e dell'accesso in uscita S2S (Server-to-Server). *Questa funzionalità richiede una considerazione speciale da parte del Team di Dynamics 365 durante la fase di certificazione.* Microsoft contatterà l'utente per completare alcuni passaggi aggiuntivi per supportare questa funzionalità.  |
@@ -46,7 +46,7 @@ In questa sezione si forniscono i dettagli sul file del pacchetto AppSource.  Qu
 
 La tabella seguente descrive i campi.  I campi obbligatori sono indicati da un asterisco (*).
 
-|      Campo                    |    DESCRIZIONE                  |
+|      Campo                    |    Descrizione                  |
 |    ---------                  |  ---------------                |
 |  Nome file del pacchetto\*     |  Nome file del pacchetto (ZIP).  Questo nome *non* è pubblico e verrà usato internamente dal team di certificazione di Dynamics 365.  |
 |  URL del percorso del pacchetto\*      |  URL di un account di archiviazione di Azure che contiene il file del pacchetto caricato. Questo URL deve includere una chiave di firma di accesso condiviso di sola lettura per consentire al team di prelevare il pacchetto per la verifica.  |

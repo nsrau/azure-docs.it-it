@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8d377db827a6548c380128624c21f4ae7896aff
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: fd2da6baecdce3ab85a45347f27f573bf814445d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075326"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055760"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App daemon che chiama l'API - configurazione del codice web
 
@@ -31,7 +31,7 @@ Informazioni su come configurare il codice per l'applicazione daemon che chiama 
 
 Le librerie di Microsoft che supportano le app daemon sono:
 
-  Libreria MSAL | DESCRIZIONE
+  Libreria MSAL | Descrizione
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Piattaforme supportate per compilare un'applicazione daemon sono le piattaforme .NET Framework e .NET Core (non UWP, xamarin. IOS e xamarin. Android come tali piattaforme vengono utilizzati per compilare applicazioni client pubblico)
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Sviluppo in corso - disponibile in anteprima pubblica
@@ -39,9 +39,11 @@ Le librerie di Microsoft che supportano le app daemon sono:
 
 ## <a name="configuration-of-the-authority"></a>Configurazione dell'autorità
 
-Dato che le applicazioni daemon non utilizzare autorizzazioni delegate, ma le autorizzazioni dell'applicazione, loro *tipo di account supportato* non può essere *personale Microsoft e account in qualsiasi directory dell'organizzazione account ( ad esempio, Skype, Xbox, Outlook.com)*. In effetti, non vi è alcun amministratore del tenant di concedere il consenso all'applicazione daemon per gli account personali Microsoft. È necessario scegliere *gli account dell'organizzazione* oppure *gli account in qualsiasi organizzazione*.
+Dato che le applicazioni daemon non utilizzare autorizzazioni delegate, ma le autorizzazioni dell'applicazione, loro *tipo di account supportato* non può essere *personale Microsoft e account in qualsiasi directory dell'organizzazione account ( ad esempio, Skype, Xbox, Outlook.com)* . In effetti, non vi è alcun amministratore del tenant di concedere il consenso all'applicazione daemon per gli account personali Microsoft. È necessario scegliere *gli account dell'organizzazione* oppure *gli account in qualsiasi organizzazione*.
 
-Pertanto l'autorità specificata nella configurazione dell'applicazione deve essere tenant-ed (specificando un ID Tenant o un nome di dominio associato all'organizzazione). Se sei un fornitore di software indipendente e si desidera fornire uno strumento di multi-tenant, è possibile usare `organizations`. Tuttavia, tenere presente che è necessario anche per spiegare ai clienti di concedere il consenso dell'amministratore. Visualizzare [richiesta di consenso per un intero tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) per informazioni dettagliate
+Pertanto l'autorità specificata nella configurazione dell'applicazione deve essere tenant-ed (specificando un ID Tenant o un nome di dominio associato all'organizzazione).
+
+Se sei un fornitore di software indipendente e si desidera fornire uno strumento di multi-tenant, è possibile usare `organizations`. Tuttavia, tenere presente che è necessario anche per spiegare ai clienti di concedere il consenso dell'amministratore. Visualizzare [richiesta di consenso per un intero tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) per informazioni dettagliate. Inoltre non vi è attualmente una limitazione in MSAL che `organizations` è consentita solo quando le credenziali client sono un segreto dell'applicazione (non un certificato). Vedere [MSAL.NET bug #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
 
 ## <a name="application-configuration-and-instantiation"></a>Creazione di un'istanza e configurazione dell'applicazione
 

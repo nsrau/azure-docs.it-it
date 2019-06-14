@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956942"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108896"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Cos'è Azure Active Directory Identity Protection (aggiornato)?
 
@@ -56,7 +56,7 @@ Per rispondere a queste minacce, Azure AD Identity Protection consente di:
 
  
 
-Azure AD Identity Protection è una funzionalità di Azure Active Directory Premium P2 che consente di configurare i criteri per rispondere automaticamente quando viene compromessa l'identità di un utente o quando un utente diverso dal proprietario dell'account sta tentando di accedere usando l’identità di quest’ultimo. Questi criteri, con altri controlli di accesso condizionale forniti da Azure AD, possono eseguire il blocco automatico dell’accesso o avviare azioni di mitigazione, come la reimpostazione della password o l'applicazione dell'autenticazione a più fattori. Inoltre, Identity Protection offre funzionalità di monitoraggio e creazione di report per ottenere informazioni più approfondite sui rischi e sulle potenziali compromissioni all'interno dell'organizzazione. 
+Azure AD Identity Protection è una funzionalità di Azure Active Directory Premium P2 che consente di configurare i criteri per rispondere automaticamente quando viene compromessa l'identità di un utente o quando un utente diverso dal proprietario dell'account sta tentando di accedere usando l’identità di quest’ultimo. Questi criteri, insieme ad altri controlli di accesso condizionale forniti da Azure AD, se possono bloccare automaticamente l'accesso o azioni di mitigazione di avvio, ad esempio la reimpostazione della password o l'applicazione dell'autenticazione a più fattori. Inoltre, Identity Protection offre funzionalità di monitoraggio e creazione di report per ottenere informazioni più approfondite sui rischi e sulle potenziali compromissioni all'interno dell'organizzazione. 
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
@@ -153,7 +153,7 @@ Esaminiamo l'esempio di un dipendente di Contoso.
 
 2. Azure AD rileva che il dipendente esegue l'accesso da un indirizzo IP anonimo, attivazione di un livello di rischio di accesso medio. 
 
-3. Viene visualizzata una richiesta dipendente da un prompt di autenticazione a più fattori, perché i criteri di accesso condizionale di rischio di accesso di Identity Protection configurate dall'amministratore di Contoso. I criteri richiedono l'autenticazione a più fattori per un rischio di accesso di livello medio o superiore. 
+3. Viene visualizzata una richiesta dipendente da un prompt di autenticazione a più fattori, poiché configurate dall'amministratore di Contoso di Identity Protection rischio di accesso criteri di accesso condizionale. I criteri richiedono l'autenticazione a più fattori per un rischio di accesso di livello medio o superiore. 
 
 4. Il dipendente passa la richiesta di autenticazione a più fattori e accede a Exchange Online e non viene modificato il livello di rischio utente. 
 
@@ -210,13 +210,13 @@ Per altri dettagli, vedere [Assegnazione dei ruoli di amministratore in Azure Ac
 
 
 
-| Capacità | Azure AD P2 Premium | Azure AD P1 Premium | Azure AD Basic/Gratuito |
+| Funzionalità | Azure AD P2 Premium | Azure AD Premium P1 | Azure AD Basic/Gratuito |
 | --- | --- | --- | --- |
-| Criteri di rischio utente | Sì | N. | N. |
-| Criteri di rischio di accesso | Sì | N. | N. |
+| Criteri di rischio utente | Yes | No | No |
+| Criteri di rischio di accesso | Yes | No | No |
 | Report utenti a rischio | Accesso completo | Informazioni limitate | Informazioni limitate |
 | Report sugli accessi a rischio | Accesso completo | Informazioni limitate | Informazioni limitate |
-| Criteri di registrazione MFA | Sì | N. | N. |
+| Criteri di registrazione MFA | Yes | No | No |
 
 
 

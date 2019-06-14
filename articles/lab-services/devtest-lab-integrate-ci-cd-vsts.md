@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 7806599c1a2f1396ff4b07d6f0538057654029d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157137"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Integrare Azure DevTest Labs nella pipeline di integrazione e distribuzione continue di Azure DevOps
@@ -179,7 +179,7 @@ La fase successiva consiste nel creare un'immagine della nuova macchina virtuale
 
    d. Facoltativo: per **Descrizione** immettere una descrizione per semplificare la selezione dell'immagine corretta nei passaggi successivi.
 
-   e. Per **Source Lab VM - Source Lab VM ID** (Macchina virtuale lab di origine - ID macchina virtuale lab di origine), se è stato modificato il nome predefinito della variabile di ambiente automaticamente popolata con l'ID della macchina virtuale lab in un'attività precedente, modificarlo qui. Il valore predefinito è **$(labVMId)**.
+   e. Per **Source Lab VM - Source Lab VM ID** (Macchina virtuale lab di origine - ID macchina virtuale lab di origine), se è stato modificato il nome predefinito della variabile di ambiente automaticamente popolata con l'ID della macchina virtuale lab in un'attività precedente, modificarlo qui. Il valore predefinito è **$(labVMId)** .
 
    f. Per **Variabili di output - ID immagine personalizzata** è necessario l'ID della nuova immagine creata se si vuole gestirla o eliminarla. Il nome predefinito della variabile di ambiente automaticamente popolata con questo ID viene impostato nella sezione **Variabili di output**. Se necessario, è possibile modificare la variabile.
 
@@ -194,7 +194,7 @@ La fase finale consiste nell'eliminare la macchina virtuale distribuita nell'ist
 
    a. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Endpoint di servizio di Azure Resource Manager).
  
-   b. Per **Lab VM ID** (ID macchina virtuale lab), se è stato modificato il nome predefinito della variabile di ambiente automaticamente popolata con l'ID della macchina virtuale lab in un'attività precedente, è possibile modificarlo qui. Il valore predefinito è **$(labVMId)**.
+   b. Per **Lab VM ID** (ID macchina virtuale lab), se è stato modificato il nome predefinito della variabile di ambiente automaticamente popolata con l'ID della macchina virtuale lab in un'attività precedente, è possibile modificarlo qui. Il valore predefinito è **$(labVMId)** .
 
 1. Immettere un nome per la pipeline di versione e quindi salvarlo.
 1. Creare una nuova versione, selezionare la build più recente e distribuirla nel singolo ambiente nella pipeline.

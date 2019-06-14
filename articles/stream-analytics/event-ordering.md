@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: 970eeb871775e24abb87c8b977e214645e514d3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789485"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurazione evento criteri di ordinamento per Azure Stream Analitica
@@ -73,7 +73,9 @@ Quando più partizioni dello stesso flusso di input vengono combinate, la toller
 <br><code>
 {"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"2328d411-52c7-4100-ba01-1e860c757fc2"} 
 </code><br><br>
-Questo messaggio per informare l'utente che per almeno una partizione di input è vuota e verrà ritardare l'output per la soglia di arrivo in ritardo. Per ovviare al problema, è consigliabile entrambi: 1. Assicurarsi che tutte le partizioni dell'Hub eventi dell'Hub IoT/ricevano l'input. 2. Usa Partition by PartitionID clausola della query. 
+Questo messaggio per informare l'utente che per almeno una partizione di input è vuota e verrà ritardare l'output per la soglia di arrivo in ritardo. Per ovviare al problema, è consigliabile entrambi: 
+1. Assicurarsi che tutte le partizioni dell'Hub eventi dell'Hub IoT/ricevano l'input. 
+2. Usa Partition by PartitionID clausola della query. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Considerazioni sulla gestione di tempo](stream-analytics-time-handling.md)
