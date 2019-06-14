@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296460"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opzioni di accesso utente di Azure AD Connect
@@ -126,7 +126,7 @@ L'esperienza di accesso ad Azure AD dipende dalla possibilità per Azure AD di a
 Azure AD Connect elenca i suffissi UPN definiti per i domini e tenta di associarli a un dominio personalizzato in Azure AD. A quel punto, offre assistenza per eseguire gli interventi appropriati.
 Nella pagina di accesso di Azure AD sono riportati i suffissi UPN definiti per l'istanza locale di Active Directory ed è visualizzato lo stato corrispondente per ogni suffisso. I valori dello stato possono essere i seguenti:
 
-| Stato | DESCRIZIONE | Azione necessaria |
+| Stato | Descrizione | Azione necessaria |
 |:--- |:--- |:--- |
 | Verified |Azure AD Connect ha rilevato un dominio verificato in Azure AD. Tutti gli utenti di questo dominio possono accedere usando le credenziali locali. |Non è richiesto alcun intervento. |
 | Non verificato |Azure AD Connect ha rilevato un dominio corrispondente in Azure AD ma tale dominio non è verificato. Se il dominio non è verificato, dopo la sincronizzazione il suffisso UPN degli utenti di questo dominio verrà modificato nel prefisso predefinito .onmicrosoft.com. | [Verificare il dominio personalizzato in Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |

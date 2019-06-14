@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 99e69691d9904285ecff356523813b426c98fca2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515027"
 ---
 # <a name="bing-speech-recognition-modes"></a>Modalità di riconoscimento di Riconoscimento vocale Bing
@@ -24,7 +24,7 @@ ms.locfileid: "60515027"
 
 Le API Riconoscimento vocale Bing supportano varie modalità di riconoscimento vocale. Scegliere la modalità che offre i risultati di riconoscimento più adatti per l'applicazione.
 
-| Mode | DESCRIZIONE |
+| Modalità | Descrizione |
 |---|---|
 | *interactive* | Riconoscimento "Comando e controllo" per gli scenari di applicazione utente interattiva. Gli utenti pronunciano frasi brevi che fungono da comandi per un'applicazione. |
 | *dictation* | Scenari di riconoscimento continuo per la dettatura. Gli utenti pronunciano frasi più lunghe che vengono visualizzate come testo. Gli utenti adottano un modo di parlare più formale. |

@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254070"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Metriche personalizzate in Monitoraggio di Azure
@@ -60,7 +60,7 @@ Ogni punto dati inviato a Monitoraggio di Azure deve essere contrassegnato con u
 ### <a name="namespace"></a>Spazio dei nomi
 Gli spazi dei nomi consentono di classificare o raggruppare metriche simili. Usando gli spazi dei nomi, è possibile isolare i gruppi di metriche per cui possono essere raccolte informazioni dettagliate o indicatori di prestazioni diversi. Ad esempio, si potrebbe disporre di uno spazio dei nomi denominato **ContosoMemoryMetrics** che tiene traccia delle metriche di utilizzo della memoria che profilano l'applicazione. Un altro spazio dei nomi denominato **ContosoAppTransaction** può tenere traccia di tutte le metriche relative alle transazioni utente nell'applicazione.
 
-### <a name="name"></a>Name
+### <a name="name"></a>NOME
 **Nome** è il nome della metrica che viene segnalata. In genere, il nome è sufficientemente descrittivo per aiutare a identificare l'elemento misurato. Un esempio è una metrica che misura il numero di byte di memoria utilizzati su una determinata macchina virtuale. Potrebbe avere un nome di metrica come ad esempio **Byte di memoria In uso**.
 
 ### <a name="dimension-keys"></a>Chiavi di dimensione
@@ -183,7 +183,7 @@ Monitoraggio di Azure impone le seguenti limitazioni d'uso in relazione alle met
 
 |Category|Limite|
 |---|---|
-|Serie temporale attiva/sottoscrizioni/area|50.000|
+|Serie temporale attiva/sottoscrizioni/area|50,000|
 |Chiavi di dimensione per metrica|10|
 |Lunghezza della stringa per gli spazi dei nomi delle metriche, i nomi delle metriche e le chiavi e i valori di dimensione|256 caratteri|
 

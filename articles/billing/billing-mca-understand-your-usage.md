@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371309"
 ---
 # <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Informazioni sull'utilizzo di Azure e gli addebiti CSV condizioni per un contratto di Microsoft dal cliente
@@ -38,30 +38,30 @@ Se si eseguisse un cliente con contratto Enterprise, si noterà che i termini ne
 
 | CSV di utilizzo di Azure con contratto Enterprise | Utilizzo di Microsoft Azure per i contratti dei clienti e negli addebiti CSV |
 | --- | --- |
-| Data | date |
+| Date | date |
 | Mese| date |
 | Giorno | date |
 | Year | date |
 | Prodotto | product |
-| ID contatore | meterID |
-| Categoria del contatore | meterCategory |
-| Sottocategoria del contatore | meterSubCategory |
-| Area del contatore | meterRegion |
-| Nome del contatore | meterName |
+| ID contatore | ID contatore |
+| meterCategory | meterCategory |
+| MeterSubCategory | meterSubCategory |
+| meterRegion | meterRegion |
+| nome del contatore | meterName |
 | ConsumedQuantity | quantity |
-| Tariffa per la risorsa | effectivePrice | <!-- this was highlighted -->
-| Costo esteso | cost |
-| Posizione della risorsa | resourceLocation |
-| Servizio utilizzato | consumedService |
+| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ExtendedCost | cost |
+| ResourceLocation | resourceLocation |
+| ConsumedService | consumedService |
 | InstanceId | instanceId |
-| Informazioni sul servizio 1 | serviceInfo1 |
-| Informazioni sul servizio 2 | serviceInfo2 |
-| Informazioni aggiuntive | additionalInfo |
-| Tag | tags |
-| Identificatore del servizio Store | N/D |
+| ServiceInfo1 | serviceInfo1 |
+| ServiceInfo2 | serviceInfo2 |
+| AdditionalInfo | additionalInfo |
+| `Tags` | tags |
+| StoreServiceIdentifier | N/D |
 | DepartmentName | invoiceSection | <!-- this was highlighted -->
 | CostCenter | costCenter |
-| Unità di misura | unitofMeasure |
+| UnitOfMeasure | unitofMeasure |
 | ResourceGroup | resourceGroup |
 | ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
 
@@ -71,7 +71,7 @@ Se si eseguisse un cliente con contratto Enterprise, si noterà che i termini ne
 
 La sezione seguente descrive i termini più importanti presenti nel file di utilizzo e costi di Azure.
 
-Termine | DESCRIZIONE
+Nome | Descrizione
 --- | ---
 invoiceId | L'ID univoco del documento indicato sulla fattura PDF
 previousInvoiceId | Riferimento a una fattura originale se questa voce è un rimborso

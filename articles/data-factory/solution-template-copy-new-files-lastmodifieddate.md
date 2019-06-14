@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
 ms.openlocfilehash: cae75f4d64c8b3f74cc40e94a675c0f10a6bd9ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312814"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copiare i file nuovi e modificati dal LastModifiedDate & lt; con Azure Data Factory
@@ -39,7 +39,7 @@ Il modello definisce quattro parametri:
 
 ## <a name="how-to-use-this-solution-template"></a>Come usare questo modello di soluzione
 
-1. Passare al modello **copia i nuovi file solo da LastModifiedDate & lt;**. Creare un **New** connessione all'archivio di archiviazione di origine. L'archivio di archiviazione di origine è in cui si desidera copiare i file.
+1. Passare al modello **copia i nuovi file solo da LastModifiedDate & lt;** . Creare un **New** connessione all'archivio di archiviazione di origine. L'archivio di archiviazione di origine è in cui si desidera copiare i file.
 
     ![Creare una nuova connessione all'origine](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate1.png)
     
@@ -60,12 +60,12 @@ Il modello definisce quattro parametri:
     ![Mostra la pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
 
 6. Selezionare **Debug**, scrivere il valore per il **parametri** e selezionare **fine**.  Nell'immagine seguente, vengono impostati i parametri come riportato di seguito.
-   - **FolderPath_Source** = **/source/**
-   - **FolderPath_Destination** = **/destination/**
+   - **FolderPath_Source** =  **/source/**
+   - **FolderPath_Destination** =  **/destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
     
-     L'esempio è che indica i file che sono stati modificati ultimo entro l'intervallo di tempo tra *2019-02-01T00:00:00Z* e *2019-03-01T00:00:00Z* verranno copiati da una cartella */source/*  in una cartella */destination/*.  È possibile sostituire questi valori con i propri parametri.
+     L'esempio è che indica i file che sono stati modificati ultimo entro l'intervallo di tempo tra *2019-02-01T00:00:00Z* e *2019-03-01T00:00:00Z* verranno copiati da una cartella */source/*  in una cartella */destination/* .  È possibile sostituire questi valori con i propri parametri.
     
      ![Eseguire la pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
 
@@ -86,10 +86,10 @@ Il modello definisce quattro parametri:
     ![Creare trigger](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 11. Scrivere il valore per il **parametri esecuzione Trigger** come segue, quindi selezionare **fine**.
-    - **FolderPath_Source** = **/source/**.  È possibile sostituire con la cartella nell'archivio dati di origine.
-    - **FolderPath_Destination** = **/destination/**.  È possibile sostituire con la cartella nell'archivio dati di destinazione.
-    - **LastModified_From** =  **@trigger().outputs.windowStartTime**.  È una variabile di sistema dal trigger di determinare il tempo quando la pipeline è stata attivata l'ultima volta.
-    - **LastModified_To** = **@trigger().outputs.windowEndTime**.  È una variabile di sistema dal trigger di determinare il tempo quando la pipeline viene attivata questo momento.
+    - **FolderPath_Source** =  **/source/** .  È possibile sostituire con la cartella nell'archivio dati di origine.
+    - **FolderPath_Destination** =  **/destination/** .  È possibile sostituire con la cartella nell'archivio dati di destinazione.
+    - **LastModified_From** =   **@trigger().outputs.windowStartTime**.  È una variabile di sistema dal trigger di determinare il tempo quando la pipeline è stata attivata l'ultima volta.
+    - **LastModified_To** =  **@trigger().outputs.windowEndTime**.  È una variabile di sistema dal trigger di determinare il tempo quando la pipeline viene attivata questo momento.
     
     ![Parametri di input](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

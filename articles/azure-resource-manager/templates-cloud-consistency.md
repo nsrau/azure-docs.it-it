@@ -13,10 +13,10 @@ ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
 ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60388133"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>I modelli di Azure Resource Manager possono essere sviluppati per la coerenza cloud
@@ -493,7 +493,7 @@ Per recuperare un elenco delle immagini per macchina virtuale disponibili in un 
 az vm image list -all
 ```
 
-È possibile recuperare l'elenco stesso con il cmdlet di Azure PowerShell [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) e specificare il percorso desiderato con il parametro `-Location`. Ad esempio: 
+È possibile recuperare l'elenco stesso con il cmdlet di Azure PowerShell [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) e specificare il percorso desiderato con il parametro `-Location`. Ad esempio:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -596,7 +596,7 @@ Per recuperare un elenco di estensioni di macchina virtuale disponibili per una 
 az vm extension image list --location myLocation
 ```
 
-È anche possibile eseguire il cmdlet Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) e utilizzare `-Location` per specificare la posizione dell'immagine della macchina virtuale. Ad esempio: 
+È anche possibile eseguire il cmdlet Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) e utilizzare `-Location` per specificare la posizione dell'immagine della macchina virtuale. Ad esempio:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version

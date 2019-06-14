@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567086"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Eseguire backup e ripristino di un database Oracle Database 12c in una macchina virtuale Linux di Azure
@@ -170,7 +170,7 @@ I backup coerenti con l'applicazione sono una nuova funzionalità di Backup di A
 
 4. Modificare il file JSON.
 
-    Modificare il file VMSnapshotScriptPluginConfig.json per includere i parametri `PreScriptLocation` e `PostScriptlocation`. Ad esempio: 
+    Modificare il file VMSnapshotScriptPluginConfig.json per includere i parametri `PreScriptLocation` e `PostScriptlocation`. Ad esempio:
 
     ```azurecli
     {
@@ -303,7 +303,7 @@ Per altre informazioni, vedere [Backup coerente delle applicazioni per le macchi
 
     ![Pagina di dettaglio degli insiemi di credenziali myVault dei servizi di ripristino](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  Nel pannello **Backup Items (Azure Virtual Machine)** (Elementi di backup: macchina virtuale di Azure), sul lato destro della pagina, fare clic sui puntini di sospensione (**...**) e su **Backup now** (Esegui il backup ora).
+9.  Nel pannello **Backup Items (Azure Virtual Machine)** (Elementi di backup: macchina virtuale di Azure), sul lato destro della pagina, fare clic sui puntini di sospensione ( **...** ) e su **Backup now** (Esegui il backup ora).
 
     ![Comando Backup now (Esegui il backup ora) degli insiemi di credenziali dei servizi di ripristino](./media/oracle-backup-recovery/recovery_service_09.png)
 
@@ -351,7 +351,7 @@ Per ripristinare i file eliminati, completare la procedura seguente:
 
     ![Numero di elementi di backup di macchine virtuali di Azure in insiemi di credenziali di servizi di ripristino](./media/oracle-backup-recovery/recovery_service_13.png)
 
-3. Nel pannello **myvm1** fare clic su **Ripristino di file (anteprima)**.
+3. Nel pannello **myvm1** fare clic su **Ripristino di file (anteprima)** .
 
     ![Schermata della pagina di ripristino dei file degli insiemi di credenziali dei servizi di ripristino](./media/oracle-backup-recovery/recovery_service_14.png)
 
@@ -472,7 +472,7 @@ Anziché ripristinare i file eliminati dagli insiemi di credenziali dei servizi 
 
     ![Pagina di ripristino della macchina virtuale](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  Nel pannello **myvm1** fare clic sui puntini di sospensione (**...**) e su **Ripristina macchina virtuale**.
+4.  Nel pannello **myvm1** fare clic sui puntini di sospensione ( **...** ) e su **Ripristina macchina virtuale**.
 
     ![Comando Ripristina macchina virtuale](./media/oracle-backup-recovery/recover_vm_05.png)
 

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/04/2019
 ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331920"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Libreria client dei database elastici con Entity Framework
@@ -45,8 +45,8 @@ Dopo aver creato questi database, riempire i segnaposto nel file **Program.cs** 
 
 Gli sviluppatori Entity Framework si basano su uno dei quattro seguenti flussi di lavoro per compilare le applicazioni e garantire la persistenza degli oggetti applicazione:
 
-* **Code First (nuovo database)**: lo sviluppatore Entity Framework crea il modello nel codice dell'applicazione ed Entity Framework genera il database a partire dal codice. 
-* **Code First (database esistente)**: lo sviluppatore consente a Entity Framework di generare il codice dell'applicazione per il modello da un database esistente.
+* **Code First (nuovo database)** : lo sviluppatore Entity Framework crea il modello nel codice dell'applicazione ed Entity Framework genera il database a partire dal codice. 
+* **Code First (database esistente)** : lo sviluppatore consente a Entity Framework di generare il codice dell'applicazione per il modello da un database esistente.
 * **Model First**: lo sviluppatore crea il modello in Entity Framework Designer e quindi Entity Framework crea il database a partire dal modello.
 * **Database First**: lo sviluppatore usa gli strumenti di Entity Framework per dedurre il modello da un database esistente. 
 
@@ -134,7 +134,7 @@ public DbSet<Blog> Blogs { get; set; }
   * La mappa partizioni crea la connessione aperta alla partizione che contiene lo shardlet per la chiave di partizionamento orizzontale specificata.
   * Tale connessione aperta viene nuovamente passata al costruttore di classe base di DbContext per indicare che Entity Framework deve usare quella anziché crearne automaticamente una nuova. In questo modo, la connessione è stata contrassegnata dall’API client dei database elastici al fine di garantire coerenza durante le operazioni di gestione della mappa partizioni.
 
-Nel proprio codice usare il nuovo costruttore per la sottoclasse DbContext anziché il costruttore predefinito. Di seguito è fornito un esempio:  
+Nel proprio codice usare il nuovo costruttore per la sottoclasse DbContext anziché il costruttore predefinito. Di seguito è fornito un esempio: 
 
 ```csharp
 // Create and save a new blog.

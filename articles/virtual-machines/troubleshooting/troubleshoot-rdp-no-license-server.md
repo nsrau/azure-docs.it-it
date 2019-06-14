@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318953"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Il server licenze Desktop remoto non è disponibile durante la connessione a una macchina virtuale di Azure
@@ -63,7 +63,7 @@ Per risolvere il problema, [eseguire il backup del disco del sistema operativo](
 
     Se non è possibile connettersi alla macchina virtuale tramite una sessione amministrativa, usare la [console seriale della macchina virtuale](serial-console-windows.md) per accedere alla macchina virtuale come indicato di seguito:
 
-    1. Accedere alla console seriale selezionando **Supporto e risoluzione dei problemi** > **Console seriale (anteprima)**. Se la funzionalità è abilitata nella macchina virtuale, è possibile connettere correttamente la macchina virtuale.
+    1. Accedere alla console seriale selezionando **Supporto e risoluzione dei problemi** > **Console seriale (anteprima)** . Se la funzionalità è abilitata nella macchina virtuale, è possibile connettere correttamente la macchina virtuale.
 
     2. Creare un nuovo canale per un'istanza CMD. Immettere **CMD** per avviare il canale e ottenere il relativo nome.
 

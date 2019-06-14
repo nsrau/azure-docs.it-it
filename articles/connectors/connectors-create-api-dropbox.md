@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/01/2019
 tags: connectors
 ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312559"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Caricare e gestire i file in Dropbox usando le App per la logica di Azure
@@ -57,7 +57,7 @@ Nell'elenco di azioni selezionare questa azione: **Ottieni contenuto file in bas
 
 1. Se già non sono autorizzate le App per la logica di Azure per accedere a Dropbox, autorizzare l'accesso a questo punto.
 
-1. Per passare al percorso del file da usare, accanto al **percorso File** scegliere i puntini di sospensione (**...** ) pulsante. 
+1. Per passare al percorso del file da usare, accanto al **percorso File** scegliere i puntini di sospensione ( **...** ) pulsante. 
 
    È anche possibile fare clic all'interno di **percorso File** e dall'elenco del contenuto dinamico, selezionare **percorso File**, il cui valore è disponibile come output del trigger è stato aggiunto nella sezione precedente.
 

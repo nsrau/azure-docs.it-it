@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 11/19/2016
 ms.author: mbullwin
 ms.openlocfilehash: 8a7b19dd6e5bc08c0c7e278b514ecaa9dc13a00e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254488"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>Script di PowerShell per creare una risorsa di Application Insights
@@ -110,7 +110,7 @@ Per identificare le singole risorse, viene usata una chiave di strumentazione (i
   * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Creare risorse Application Insights e test web da modelli](powershell.md)
 * [Impostare il monitoraggio di diagnostica Azure con PowerShell](powershell-azure-diagnostics.md) 
 * [Impostare avvisi tramite PowerShell](powershell-alerts.md)

@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307907"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows
@@ -113,7 +113,7 @@ Per installare l'estensione in macchine virtuali Windows, seguire queste istruzi
 Per rimuovere l'estensione da una macchina virtuale, eseguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com), selezionare la macchina virtuale da cui si vuole rimuovere l'estensione e quindi selezionare il pannello **Estensioni**. 
-2. Selezionare (**…**) in corrispondenza della voce Performance Diagnostics Extension dell'elenco e scegliere **Disinstalla**.
+2. Selezionare ( **…** ) in corrispondenza della voce Performance Diagnostics Extension dell'elenco e scegliere **Disinstalla**.
 
     ![Screenshot del pannello Estensioni con Disinstalla evidenziato](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
@@ -234,7 +234,7 @@ Lo strumento PerfInsights raccoglie vari dati di log, configurazione e diagnosti
 
 ## <a name="view-and-share-the-results"></a>Visualizzare e condividere i risultati
 
-L'output dell'estensione è disponibile in un file ZIP caricato nell'account di archiviazione specificato durante l'installazione e viene condiviso per 30 giorni tramite [firme di accesso condiviso (SAS, Shared Access Signature)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Questo file ZIP contiene log di diagnostica e un report con risultati e raccomandazioni. Un collegamento SAS al file ZIP di output è disponibile in un file di testo denominato *zipfilename*_saslink.txt presente nella cartella **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<versione>**. Con questo collegamento qualsiasi utente è in grado di scaricare il file con estensione zip.
+L'output dell'estensione è disponibile in un file ZIP caricato nell'account di archiviazione specificato durante l'installazione e viene condiviso per 30 giorni tramite [firme di accesso condiviso (SAS, Shared Access Signature)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Questo file ZIP contiene log di diagnostica e un report con risultati e raccomandazioni. Un collegamento SAS al file ZIP di output è disponibile in un file di testo denominato *zipfilename*_saslink.txt presente nella cartella **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<versione>** . Con questo collegamento qualsiasi utente è in grado di scaricare il file con estensione zip.
 
 Per facilitare il lavoro del tecnico del supporto responsabile del ticket, Microsoft può usare il collegamento SAS per scaricare i dati di diagnostica.
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60397278"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Trasferimento dei dati per set di dati di piccole dimensioni con larghezza di banda di rete da bassa a moderata
@@ -52,13 +52,13 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 | Funzionalità | Esplora archivi Azure | Portale di Azure | AzCopy<br>Azure PowerShell<br>Interfaccia della riga di comando di Azure | API REST o SDK di Archiviazione di Azure |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Disponibilità | Download e installazione <br>Strumento autonomo | Strumenti di esplorazione basati sul Web nel portale di Azure | Strumento da riga di comando |Interfacce programmabili in .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
-| Interfaccia grafica | Sì | Sì | No  | No  |
+| Interfaccia grafica | Yes | Sì | No | No |
 | Piattaforme supportate | Windows, Mac, Linux | Basate sul Web |Windows, Mac, Linux |Tutte le piattaforme |
 | Operazioni di archiviazione BLOB consentite<br>per BLOB e cartelle | Caricamento<br>Download<br>Gestisci | Caricamento<br>Download<br>Gestisci |Caricamento<br>Download<br>Gestisci | Sì, personalizzabili |
-| Operazioni di archiviazione di Data Lake Gen1<br>consentite per file e cartelle | Caricamento<br>Download<br>Gestisci | No  |Caricamento<br>Download<br>Gestisci                   | No  |
+| Operazioni di archiviazione di Data Lake Gen1<br>consentite per file e cartelle | Caricamento<br>Download<br>Gestisci | No |Caricamento<br>Download<br>Gestisci                   | No |
 | Operazioni di archiviazione file consentite<br>per file e directory | Caricamento<br>Download<br>Gestisci | Caricamento<br>Download<br>Gestisci   |Caricamento<br>Download<br>Gestisci | Sì, personalizzabili |
-| Operazioni di archiviazione tabelle consentite<br>per le tabelle |Gestisci | No  |Supporto delle tabelle in AzCopy v7 |Sì, personalizzabili|
-| Archiviazione code consentita | Gestisci | No   |No  | Sì, personalizzabile|
+| Operazioni di archiviazione tabelle consentite<br>per le tabelle |Gestisci | No |Supporto delle tabelle in AzCopy v7 |Sì, personalizzabili|
+| Archiviazione code consentita | Gestisci | No  |No | Sì, personalizzabile|
 
 
 ## <a name="next-steps"></a>Passaggi successivi

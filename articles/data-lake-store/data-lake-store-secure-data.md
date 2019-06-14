@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60198263"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protezione dei dati archiviati in Azure Data Lake Storage Gen1
@@ -55,7 +55,7 @@ Quando si assegnano utenti o gruppi di sicurezza agli account Data Lake Storage 
 
 1. Aprire un account Data Lake Storage Gen1. Nel riquadro sinistro fare clic su **Tutte le risorse** e nel pannello Tutte le risorse fare clic sul nome dell'account al quale si vuole assegnare un utente o un gruppo di sicurezza.
 
-2. Nel pannello dell'account Data Lake Storage Gen1, fare clic su **Controllo di accesso (IAM)**. Per impostazione predefinita, il pannello elenca i proprietari della sottoscrizione come proprietario.
+2. Nel pannello dell'account Data Lake Storage Gen1, fare clic su **Controllo di accesso (IAM)** . Per impostazione predefinita, il pannello elenca i proprietari della sottoscrizione come proprietario.
    
     ![Assegnare un gruppo di sicurezza all'account Azure Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.select.user.icon1.png "Assegnare un gruppo di sicurezza all'account Azure Data Lake Storage Gen1")
 
@@ -127,7 +127,7 @@ Quando si rimuovono i gruppi di sicurezza dagli account Data Lake Storage Gen1 s
 
 L'accesso ai dati è invariato e continua a essere gestito tramite gli ACL di accesso.  L'eccezione a questo comportamento sono gli utenti o i gruppi inclusi nel ruolo Proprietari.  Gli utenti o i gruppi rimossi dal ruolo Proprietari non sono più utenti con privilegi avanzati e il loro accesso dipende di nuovo dalle impostazioni degli ACL di accesso. 
 
-1. Nel pannello dell'account Data Lake Storage Gen1, fare clic su **Controllo di accesso (IAM)**. 
+1. Nel pannello dell'account Data Lake Storage Gen1, fare clic su **Controllo di accesso (IAM)** . 
    
     ![Assegnare un gruppo di sicurezza all'account Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.select.user.icon.png "Assegnare un gruppo di sicurezza all'account Data Lake Storage Gen1")
 2. Nel pannello **Controllo di accesso (IAM)** fare clic su uno o più gruppi di sicurezza che si vuole rimuovere. Fare clic su **Rimuovi**.
@@ -147,7 +147,7 @@ Quando si rimuovono gli elenchi di controllo di accesso (ACL) del gruppo di sicu
    
     ![Assegnare autorizzazioni a un gruppo](./media/data-lake-store-secure-data/adl.remove.acl.png "Assegnare autorizzazioni a un gruppo")
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Copiare i dati dai BLOB di Archiviazione di Azure a Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Usare Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

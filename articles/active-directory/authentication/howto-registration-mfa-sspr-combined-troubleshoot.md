@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414623"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Risoluzione dei problemi di combinare la registrazione di informazioni di sicurezza (anteprima)
@@ -35,16 +35,16 @@ Gli eventi registrati per la registrazione combinata appartengono alla categoria
 
 La tabella seguente elenca tutti gli eventi di controllo generati dalla registrazione combinata:
 
-| Attività | Stato | Motivo | DESCRIZIONE |
+| Attività | Stato | `Reason` | Descrizione |
 | --- | --- | --- | --- |
-| L'utente ha registrato tutte le info di sicurezza necessari | Success | Utente ha registrato tutte le info di sicurezza necessarie. | Questo evento si verifica quando un utente ha completato la registrazione.|
+| L'utente ha registrato tutte le info di sicurezza necessari | Riuscito | Utente ha registrato tutte le info di sicurezza necessarie. | Questo evento si verifica quando un utente ha completato la registrazione.|
 | L'utente ha registrato tutte le info di sicurezza necessari | Esito negativo | L'utente ha annullato la registrazione di info di sicurezza. | Questo evento si verifica quando un utente annulla la registrazione dalla modalità di interrupt.|
-| Info di sicurezza registrate dall'utente | Success | Utente registrato *metodo*. | Questo evento si verifica quando un utente si registra un singolo metodo. *Metodo* possono essere Authenticator app, telefono, posta elettronica, protezione domande, App password, telefono alternativo e così via.| 
-| Info di sicurezza utente rivisto | Success | Utente è stata revisionata info di sicurezza. | Questo evento si verifica quando un utente sceglie **sembra corretto** nella pagina di verifica info di sicurezza.|
+| Info di sicurezza registrate dall'utente | Riuscito | Utente registrato *metodo*. | Questo evento si verifica quando un utente si registra un singolo metodo. *Metodo* possono essere Authenticator app, telefono, posta elettronica, protezione domande, App password, telefono alternativo e così via.| 
+| Info di sicurezza utente rivisto | Riuscito | Utente è stata revisionata info di sicurezza. | Questo evento si verifica quando un utente sceglie **sembra corretto** nella pagina di verifica info di sicurezza.|
 | Info di sicurezza utente rivisto | Esito negativo | Utente non è riuscito a verificare le info di sicurezza. | Questo evento si verifica quando un utente sceglie **sembra corretto** sulle info di sicurezza esaminare pagina ma qualcosa non funziona al back-end.|
-| Info di sicurezza utente eliminato | Success | Utente eliminato *metodo*. | Questo evento si verifica quando un utente elimina un singolo metodo. *Metodo* possono essere Authenticator app, telefono, posta elettronica, protezione domande, App password, telefono alternativo e così via.|
+| Info di sicurezza utente eliminato | Riuscito | Utente eliminato *metodo*. | Questo evento si verifica quando un utente elimina un singolo metodo. *Metodo* possono essere Authenticator app, telefono, posta elettronica, protezione domande, App password, telefono alternativo e così via.|
 | Info di sicurezza utente eliminato | Esito negativo | Utente non è riuscito a eliminare *metodo*. | Questo evento si verifica quando un utente tenta di eliminare un metodo, ma il tentativo non riesce per qualche motivo. *Metodo* possono essere Authenticator app, telefono, posta elettronica, protezione domande, App password, telefono alternativo e così via.|
-| Info di sicurezza predefinito utente modificata | Success | L'utente ha modificato le info di sicurezza predefinito per *metodo*. | Questo evento si verifica quando un utente modifica il metodo predefinito. *Metodo* possono essere notifica dell'app Authenticator, un codice dalla mia app authenticator o il token, chiamata + X XXXXXXXXXX, testo, un codice a + X XXXXXXXXX e così via.|
+| Info di sicurezza predefinito utente modificata | Riuscito | L'utente ha modificato le info di sicurezza predefinito per *metodo*. | Questo evento si verifica quando un utente modifica il metodo predefinito. *Metodo* possono essere notifica dell'app Authenticator, un codice dalla mia app authenticator o il token, chiamata + X XXXXXXXXXX, testo, un codice a + X XXXXXXXXX e così via.|
 | Info di sicurezza predefinito utente modificata | Esito negativo | Utente non è stato possibile modificare le info di sicurezza predefinito per *metodo*. | Questo evento si verifica quando un utente tenta di modificare il metodo predefinito, ma il tentativo non riesce per qualche motivo. *Metodo* possono essere notifica dell'app Authenticator, un codice dalla mia app authenticator o il token, chiamata + X XXXXXXXXXX, testo, un codice a + X XXXXXXXXX e così via.|
 
 ## <a name="troubleshooting-interrupt-mode"></a>Risoluzione dei problemi di modalità di interrupt

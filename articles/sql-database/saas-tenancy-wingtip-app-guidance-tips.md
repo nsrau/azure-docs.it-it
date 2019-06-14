@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 758cb47760f4a15e262a4d682089ac7d9fee64e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326280"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Linee guida generali per l'uso delle app SaaS di esempio Wingtip Tickets
@@ -79,7 +79,7 @@ Usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/
 
 La distribuzione dispone inizialmente di tenant e di server di database SQL del catalogo a cui connettersi. La denominazione dei server varia a seconda del modello tenancy di database (vedere di seguito per le specifiche). 
 
-   - **Applicazione autonoma:** server per ogni tenant (ad esempio, server *contosoconcerthall-&lt;Utente&gt;*) e *catalog-sa-&lt;Utente&gt;*
+   - **Applicazione autonoma:** server per ogni tenant (ad esempio, server *contosoconcerthall-&lt;Utente&gt;* ) e *catalog-sa-&lt;Utente&gt;*
    - **Database per tenant:** server *tenants1-dpt-&lt;Utente&gt;* e *catalog-dpt-&lt;Utente&gt;*
    - **Database multi-tenant:** server *tenants1-mt-&lt;Utente&gt;* e *catalog-mt-&lt;Utente&gt;*
 
@@ -90,7 +90,7 @@ Per assicurare una connessione demo corretta, tutti i server hanno una [regola d
     - **Applicazione autonoma:** server di singoli tenant (ad esempio *contosoconcerthall-&lt;Utente&gt;.database.windows.net*) 
     - **Database per tenant:** *tenants1-dpt-&lt;Utente&gt;.database.windows.net*
     - **Database multi-tenant:** *tenants1-mt-&lt;Utente&gt;.database.windows.net* 
-2. Fare clic su **Connetti** > **Motore di database...**:
+2. Fare clic su **Connetti** > **Motore di database...** :
 
    ![server di catalogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 

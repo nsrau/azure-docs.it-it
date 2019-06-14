@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391362"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creare una macchina virtuale Linux che usa l'autenticazione SSH con l'API REST
@@ -52,7 +52,7 @@ Oltre ai parametri `{subscription-id}` e `{resourceGroupName}`, è necessario sp
 
 Gli argomenti seguenti sono obbligatori:
 
-| Intestazione della richiesta   | DESCRIZIONE |
+| Intestazione della richiesta   | Descrizione |
 |------------------|-----------------|
 | *Content-Type:*  | Richiesto. Impostare su `application/json`. |
 | *Authorization:* | Richiesto. Impostare su un [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valido. |
@@ -63,10 +63,10 @@ Per informazioni generali sul lavoro con le operazioni con API REST, vedere [Com
 
 Per compilare un corpo della richiesta vengono usate le definizioni comuni seguenti:
 
-| Name                       | Obbligatorio | Type                                                                                | DESCRIZIONE  |
+| Name                       | Obbligatorio | Type                                                                                | Descrizione  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True      | stringa                                                                              | Percorso della risorsa. |
-| name                       |          | stringa                                                                              | Nome della macchina virtuale. |
+| location                   | True     | string                                                                              | Percorso della risorsa. |
+| name                       |          | string                                                                              | Nome della macchina virtuale. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Specifica le impostazioni hardware per la macchina virtuale. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Specifica le impostazioni di archiviazione per i dischi della macchina virtuale. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Specifica le impostazioni del sistema operativo per la macchina virtuale. |
@@ -133,11 +133,11 @@ Per un elenco completo delle definizioni disponibili nel corpo della richiesta, 
 
 È possibile utilizzare il proprio client preferito per l'invio di questa richiesta HTTP. Si può anche usare uno [strumento integrato nel browser](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) facendo clic sul pulsante **Prova**.
 
-### <a name="responses"></a>Risposte
+### <a name="responses"></a>Responses
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di una macchina virtuale:
 
-| Name        | Type                                                                              | DESCRIZIONE |
+| Name        | Type                                                                              | Descrizione |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 - OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Creato | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Data di creazione     |

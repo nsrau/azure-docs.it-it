@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
 ms.openlocfilehash: 1c554b0eee844a632e6412b6f8a285c7a2573326
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60195854"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Linee guida per l'ottimizzazione delle prestazioni per l'uso di PowerShell con Azure Data Lake Storage Gen1
@@ -26,7 +26,7 @@ Questo articolo elenca le proprietà che è possibile ottimizzare per ottenere p
 
 ## <a name="performance-related-properties"></a>Proprietà correlate alle prestazioni
 
-| Proprietà            | Predefinito | DESCRIZIONE |
+| Proprietà            | Predefinito | Descrizione |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Questo parametro consente di scegliere il numero di thread paralleli per il caricamento o il download di ogni file. Questo valore rappresenta il numero massimo di thread che può essere allocato per ogni file, ma è possibile ottenere meno thread a seconda dello scenario (ad esempio, se si sta caricando un file da 1 KB, si ottiene un thread anche se si chiedono 20 thread).  |
 | ConcurrentFileCount | 10      | Questo parametro viene usato specificamente per il caricamento e il download delle cartelle. Questo parametro determina il numero di file che possono essere caricati o scaricati contemporaneamente. Questo valore rappresenta il numero massimo di file che possono essere caricati o scaricati contemporaneamente in una sola volta, ma è possibile ottenere un valore inferiore di concorrenza a seconda dello scenario (ad esempio, se si caricano due file, si ottiene il caricamento di due file contemporaneamente anche se ne vengono richiesti 15). |

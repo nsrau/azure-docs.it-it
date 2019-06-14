@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285477"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informazioni di riferimento sulle attività di controllo di Azure AD
@@ -103,9 +103,9 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Gestione directory|Rimuovere OAuth2PermissionGrant|
 |Gestione directory|Rimuovere un'assegnazione di ruolo app da un'entità servizio|
 |Gestione directory|Rimuovere il proprietario da un'applicazione|
-|Risorsa|Rimuovere il proprietario da un'entità servizio|
-|Risorsa|Rimuovere i criteri da un'entità servizio|
-|Risorsa|Rimozione di un'entità servizio|
+|Resource|Rimuovere il proprietario da un'entità servizio|
+|Resource|Rimuovere i criteri da un'entità servizio|
+|Resource|Rimozione di un'entità servizio|
 
 
 ## <a name="automated-password-rollover"></a>Rollover automatizzato delle password
@@ -269,79 +269,79 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Chiave|Directory eliminata|
 |Altri|Directory eliminata in modo permanente|
 |Altri|Directory pianificata per l'eliminazione|
-|Risorsa|Innalzare un'azienda a livello di partner|
-|Risorsa|Ripulire le proprietà di Rights Management|
-|Risorsa|Rimuovere un partner dalla società|
-|Risorsa|Rimuovere un dominio non verificato|
-|Risorsa|Rimuovere un dominio verificato|
-|Risorsa|Impostazione informazioni società|
-|Risorsa|Impostare la funzionalità DirSync|
-|Risorsa|Impostare il flag DirSyncEnabled|
-|Risorsa|Configurare una relazione|
-|Risorsa|Configurare una soglia di eliminazione accidentale|
-|Risorsa|Configurare la posizione dei dati consentita per l'azienda|
-|Risorsa|Abilitare la funzionalità multinazionale per l'azienda|
-|Risorsa|Impostare una funzionalità directory nel tenant|
-|Risorsa|Impostazione dell'autenticazione del dominio|
-|Risorsa|Configurazione delle impostazioni di federazione nel dominio|
-|Risorsa|Impostare il criterio password|
-|Risorsa|Impostare le proprietà di Rights Management|
-|Risorsa|Aggiornare l'azienda|
-|Risorsa|Aggiornare le impostazioni aziendali|
-|Risorsa|Aggiornamento dominio|
-|Risorsa|Verifica dominio|
-|Risorsa|Verifica del dominio tramite la verifica di posta elettronica|
-|Risorsa|Onboarding|
-|Risorsa|Aggiornare le impostazioni dell'avviso|
-|Risorsa|Aggiornare le impostazioni del digest settimanale|
-|Risorsa|Disabilitare il writeback delle password per la directory|
-|Risorsa|Abilitare il writeback delle password per la directory|
-|Risorsa|Aggiungere un'assegnazione di ruolo app a un gruppo|
-|Risorsa|Aggiungi gruppo|
-|Risorsa|Aggiungere un membro al gruppo|
-|Risorsa|Aggiungere un proprietario a un gruppo|
-|Risorsa|Creare le impostazioni dei gruppi|
-|Risorsa|Eliminare gruppo|
-|Risorsa|Eliminare le impostazioni dei gruppi|
-|Risorsa|Terminare l'applicazione di licenze basate sui gruppi agli utenti|
-|Risorsa|Eliminare definitivamente un gruppo|
-|Risorsa|Rimuovere un'assegnazione di ruolo app da un gruppo|
-|Risorsa|Rimuovere un membro dal gruppo|
-|Risorsa|Rimuovere il proprietario da un gruppo|
-|Risorsa|Ripristinare un gruppo|
-|Risorsa|Configurare la licenza di un gruppo|
-|Risorsa|È stato configurato il gruppo che deve essere gestito dall'utente.|
-|Risorsa|Avviare l'applicazione di licenze basate sui gruppi agli utenti|
-|Risorsa|Attivare il ricalcolo della licenza del gruppo|
-|Risorsa|Aggiornare un gruppo|
-|Risorsa|Aggiornare le impostazioni dei gruppi|
-|Risorsa|Aggiungere un membro|
-|Risorsa|Creare un gruppo|
-|Risorsa|Eliminare un gruppo|
-|Risorsa|Rimuovere un membro|
-|Risorsa|Aggiornare un gruppo|
-|Risorsa|Approvare una richiesta di partecipazione a un gruppo in sospeso|
-|Risorsa|Annullare una richiesta di partecipazione a un gruppo in sospeso|
-|Risorsa|Creare criteri di gestione del ciclo di vita|
-|Risorsa|Eliminare una richiesta di partecipazione a un gruppo in sospeso|
-|Risorsa|Rifiutare una richiesta di partecipazione a un gruppo in sospeso|
-|Risorsa|Rinnovare un gruppo|
-|Risorsa|Richiedere di partecipare a un gruppo|
-|Risorsa|Impostare proprietà di gruppi dinamici|
-|Risorsa|Aggiornare criteri di gestione del ciclo di vita|
-|Risorsa|Aggiungere una chiave basata sul segreto ASCII a un contenitore di chiavi CPIM|
-|Risorsa|Aggiungere una chiave a un contenitore di chiavi CPIM|
-|Risorsa|Eliminare un contenitore di chiavi CPIM|
-|Risorsa|Eliminare un contenitore di chiavi|
-|Risorsa|Ottenere i metadati di chiave attivi del contenitore di chiavi in JWK|
-|Risorsa|Ottenere i metadati del contenitore di chiavi|
-|Risorsa|Ottiene un contenitore di chiavi CPIM in formato JWK|
-|Risorsa|Ottiene un elenco di contenitori di chiavi nel tenant|
-|Risorsa|Ripristinare un backup del contenitore di chiavi CPIM|
-|Risorsa|Salvare un contenitore di chiavi|
-|Risorsa|Caricare una chiave crittografata CPIM|
-|Risorsa|Emettere un codice di autorizzazione per l'applicazione|
-|Risorsa|Emettere un id_token per l'applicazione|
+|Resource|Innalzare un'azienda a livello di partner|
+|Resource|Ripulire le proprietà di Rights Management|
+|Resource|Rimuovere un partner dalla società|
+|Resource|Rimuovere un dominio non verificato|
+|Resource|Rimuovere un dominio verificato|
+|Resource|Impostazione informazioni società|
+|Resource|Impostare la funzionalità DirSync|
+|Resource|Impostare il flag DirSyncEnabled|
+|Resource|Configurare una relazione|
+|Resource|Configurare una soglia di eliminazione accidentale|
+|Resource|Configurare la posizione dei dati consentita per l'azienda|
+|Resource|Abilitare la funzionalità multinazionale per l'azienda|
+|Resource|Impostare una funzionalità directory nel tenant|
+|Resource|Impostazione dell'autenticazione del dominio|
+|Resource|Configurazione delle impostazioni di federazione nel dominio|
+|Resource|Impostare il criterio password|
+|Resource|Impostare le proprietà di Rights Management|
+|Resource|Aggiornare l'azienda|
+|Resource|Aggiornare le impostazioni aziendali|
+|Resource|Aggiornamento dominio|
+|Resource|Verifica dominio|
+|Resource|Verifica del dominio tramite la verifica di posta elettronica|
+|Resource|Onboarding|
+|Resource|Aggiornare le impostazioni dell'avviso|
+|Resource|Aggiornare le impostazioni del digest settimanale|
+|Resource|Disabilitare il writeback delle password per la directory|
+|Resource|Abilitare il writeback delle password per la directory|
+|Resource|Aggiungere un'assegnazione di ruolo app a un gruppo|
+|Resource|Aggiungi gruppo|
+|Resource|Aggiungere un membro al gruppo|
+|Resource|Aggiungere un proprietario a un gruppo|
+|Resource|Creare le impostazioni dei gruppi|
+|Resource|Eliminare gruppo|
+|Resource|Eliminare le impostazioni dei gruppi|
+|Resource|Terminare l'applicazione di licenze basate sui gruppi agli utenti|
+|Resource|Eliminare definitivamente un gruppo|
+|Resource|Rimuovere un'assegnazione di ruolo app da un gruppo|
+|Resource|Rimuovere un membro dal gruppo|
+|Resource|Rimuovere il proprietario da un gruppo|
+|Resource|Ripristinare un gruppo|
+|Resource|Configurare la licenza di un gruppo|
+|Resource|È stato configurato il gruppo che deve essere gestito dall'utente.|
+|Resource|Avviare l'applicazione di licenze basate sui gruppi agli utenti|
+|Resource|Attivare il ricalcolo della licenza del gruppo|
+|Resource|Aggiornare un gruppo|
+|Resource|Aggiornare le impostazioni dei gruppi|
+|Resource|Aggiungere un membro|
+|Resource|Creare un gruppo|
+|Resource|Eliminare un gruppo|
+|Resource|Rimuovere un membro|
+|Resource|Aggiornare un gruppo|
+|Resource|Approvare una richiesta di partecipazione a un gruppo in sospeso|
+|Resource|Annullare una richiesta di partecipazione a un gruppo in sospeso|
+|Resource|Creare criteri di gestione del ciclo di vita|
+|Resource|Eliminare una richiesta di partecipazione a un gruppo in sospeso|
+|Resource|Rifiutare una richiesta di partecipazione a un gruppo in sospeso|
+|Resource|Rinnovare un gruppo|
+|Resource|Richiedere di partecipare a un gruppo|
+|Resource|Impostare proprietà di gruppi dinamici|
+|Resource|Aggiornare criteri di gestione del ciclo di vita|
+|Resource|Aggiungere una chiave basata sul segreto ASCII a un contenitore di chiavi CPIM|
+|Resource|Aggiungere una chiave a un contenitore di chiavi CPIM|
+|Resource|Eliminare un contenitore di chiavi CPIM|
+|Resource|Eliminare un contenitore di chiavi|
+|Resource|Ottenere i metadati di chiave attivi del contenitore di chiavi in JWK|
+|Resource|Ottenere i metadati del contenitore di chiavi|
+|Resource|Ottiene un contenitore di chiavi CPIM in formato JWK|
+|Resource|Ottiene un elenco di contenitori di chiavi nel tenant|
+|Resource|Ripristinare un backup del contenitore di chiavi CPIM|
+|Resource|Salvare un contenitore di chiavi|
+|Resource|Caricare una chiave crittografata CPIM|
+|Resource|Emettere un codice di autorizzazione per l'applicazione|
+|Resource|Emettere un id_token per l'applicazione|
 
 
 ## <a name="core-directory"></a>Directory principale
@@ -432,18 +432,18 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Gestione dei criteri|GetIEFPolicies|
 |Gestione dei criteri|GetIdentityProviders|
 |Gestione dei criteri|GetTrustFrameworkPolicy|
-|Risorsa|MigrateTenantMetadata|
-|Risorsa|Spostare le risorse|
-|Risorsa|Applicare patch a un provider di identità|
-|Risorsa|PutTrustFrameworkPolicy|
-|Risorsa|PutTrustFrameworkpolicy|
-|Risorsa|Rimuovere un percorso utente|
-|Risorsa|Aggiornare un provider di identità personalizzato|
-|Risorsa|Aggiornare un provider di identità|
-|Risorsa|Aggiornare un provider di identità locale|
-|Risorsa|Aggiornare una risorsa della directory B2C|
-|Risorsa|Aggiorna criteri|
-|Risorsa|Aggiornare lo stato della sottoscrizione|
+|Resource|MigrateTenantMetadata|
+|Resource|Spostare le risorse|
+|Resource|Applicare patch a un provider di identità|
+|Resource|PutTrustFrameworkPolicy|
+|Resource|PutTrustFrameworkpolicy|
+|Resource|Rimuovere un percorso utente|
+|Resource|Aggiornare un provider di identità personalizzato|
+|Resource|Aggiornare un provider di identità|
+|Resource|Aggiornare un provider di identità locale|
+|Resource|Aggiornare una risorsa della directory B2C|
+|Resource|Aggiorna criteri|
+|Resource|Aggiornare lo stato della sottoscrizione|
 |Gestione dei ruoli|Aggiornare l'attributo utente|
 |Gestione dei ruoli|Convalidare lo spostamento di risorse|
 |Gestione dei ruoli|Aggiungere un dispositivo|

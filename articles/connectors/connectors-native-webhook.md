@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
 ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60447207"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Creare azioni o flussi di lavoro basati su eventi usando webhook e App per la logica di Azure
@@ -82,7 +82,7 @@ Di seguito altre informazioni sui trigger e sulle azioni che supporta webhook.
 
 ## <a name="webhook-triggers"></a>Trigger webhook
 
-| Azione | DESCRIZIONE |
+| Azione | Descrizione |
 | --- | --- |
 | HTTP Webhook |Sottoscrivere un URL callback a un servizio in grado di chiamare l'URL per attivare l'app per la logica in base alle esigenze. |
 
@@ -93,7 +93,7 @@ Di seguito altre informazioni sui trigger e sulle azioni che supporta webhook.
 Sottoscrivere un URL callback a un servizio in grado di chiamare l'URL per attivare l'app per la logica in base alle esigenze.
 L'asterisco (*) indica che il campo è obbligatorio.
 
-| Nome visualizzato | Nome proprietà | DESCRIZIONE |
+| Nome visualizzato | Nome proprietà | Descrizione |
 | --- | --- | --- |
 | Subscribe Method* |statico |Metodo HTTP da usare per la richiesta di sottoscrizione |
 | Subscribe URI* |Uri |URI HTTP da usare per la richiesta di sottoscrizione |
@@ -110,15 +110,15 @@ L'asterisco (*) indica che il campo è obbligatorio.
 
 Richiesta Webhook
 
-| Nome proprietà | Tipo di dati | DESCRIZIONE |
+| Nome proprietà | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | headers |object |Intestazioni della richiesta webhook |
-| Corpo |object |Oggetto della richiesta webhook |
+| Body |object |Oggetto della richiesta webhook |
 | Codice di stato |int |Codice di stato della richiesta webhook |
 
 ## <a name="webhook-actions"></a>Azioni webhook
 
-| Azione | DESCRIZIONE |
+| Azione | Descrizione |
 | --- | --- |
 | HTTP Webhook |Sottoscrivere un URL callback a un servizio in grado di chiamare l'URL per riprendere un passaggio del flusso di lavoro in base alle esigenze. |
 
@@ -129,7 +129,7 @@ Richiesta Webhook
 Sottoscrivere un URL callback a un servizio in grado di chiamare l'URL per riprendere un passaggio del flusso di lavoro in base alle esigenze.
 L'asterisco (*) indica che il campo è obbligatorio.
 
-| Nome visualizzato | Nome proprietà | DESCRIZIONE |
+| Nome visualizzato | Nome proprietà | Descrizione |
 | --- | --- | --- |
 | Subscribe Method* |statico |Metodo HTTP da usare per la richiesta di sottoscrizione |
 | Subscribe URI* |Uri |URI HTTP da usare per la richiesta di sottoscrizione |
@@ -146,10 +146,10 @@ L'asterisco (*) indica che il campo è obbligatorio.
 
 Richiesta Webhook
 
-| Nome proprietà | Tipo di dati | DESCRIZIONE |
+| Nome proprietà | Tipo di dati | Descrizione |
 | --- | --- | --- |
 | headers |object |Intestazioni della richiesta webhook |
-| Corpo |object |Oggetto della richiesta webhook |
+| Body |object |Oggetto della richiesta webhook |
 | Codice di stato |int |Codice di stato della richiesta webhook |
 
 ## <a name="next-steps"></a>Passaggi successivi

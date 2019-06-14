@@ -11,10 +11,10 @@ ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60530932"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concetti, terminologia ed entità di Utilità di pianificazione di Azure
@@ -26,7 +26,7 @@ ms.locfileid: "60530932"
 
 L'API REST di Utilità di pianificazione di Microsoft Azure espone e utilizza le entità principali o le risorse:
 
-| Entità | DESCRIZIONE |
+| Entità | Descrizione |
 |--------|-------------|
 | **Processo** | Definisce una singola azione ricorrente, con strategie semplici o complesse per l'esecuzione. Le azioni possono includere HTTP, coda di archiviazione, coda del bus di servizio o richieste di argomento del bus di servizio. | 
 | **Raccolta di processi** | Contiene un gruppo di processi e gestisce le impostazioni, le quote e le limitazioni condivise dai processi della raccolta. In quanto proprietario della sottoscrizione di Azure, è possibile creare raccolte di processi e raggruppare i processi in base ai limiti di utilizzo o dell'applicazione. Una raccolta processi presenta questi attributi: <p>- È vincolata a un'area. <br>- Consente di applicare quote in modo che sia possibile limitare l'utilizzo per tutti i processi in una raccolta. <br>- Le quote includono MaxJobs e MaxRecurrence. | 
@@ -81,15 +81,15 @@ A un livello elevato, un processo di Utilità di pianificazione di Microsoft Azu
 
 Il processo include anche i dati forniti dal sistema, ad esempio l'ora successiva di esecuzione pianificata del processo. La definizione di codice del processo è un oggetto in formato JavaScript Object Notation (JSON), con questi elementi:
 
-| Elemento | Obbligatorio | DESCRIZIONE | 
+| Elemento | Obbligatorio | Descrizione | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | No  | L'ora di inizio per il processo con una differenza di fuso orario in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
-| [**azione**](#action) | Sì | I dettagli per l'azione principale, che può includere un oggetto **errorAction** | 
-| [**errorAction**](#error-action) | No  | I dettagli per l’azione secondaria eseguita se l'azione principale ha esito negativo |
-| [**recurrence**](#recurrence) | No  | I dettagli, ad esempio frequenza e intervallo per un processo ricorrente | 
-| [**retryPolicy**](#retry-policy) | No  | I dettagli per la frequenza con cui ripetere un'azione | 
-| [**state**](#state) | Sì | I dettagli per lo stato del processo corrente |
-| [**status**](#status) | Sì | I dettagli per lo stato del processo corrente, che viene controllato dal servizio |
+| [**startTime**](#start-time) | No | L'ora di inizio per il processo con una differenza di fuso orario in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
+| [**azione**](#action) | Yes | I dettagli per l'azione principale, che può includere un oggetto **errorAction** | 
+| [**errorAction**](#error-action) | No | I dettagli per l’azione secondaria eseguita se l'azione principale ha esito negativo |
+| [**recurrence**](#recurrence) | No | I dettagli, ad esempio frequenza e intervallo per un processo ricorrente | 
+| [**retryPolicy**](#retry-policy) | No | I dettagli per la frequenza con cui ripetere un'azione | 
+| [**state**](#state) | Yes | I dettagli per lo stato del processo corrente |
+| [**status**](#status) | Yes | I dettagli per lo stato del processo corrente, che viene controllato dal servizio |
 ||||
 
 Ecco un esempio che illustra una definizione del processo completo per un'azione HTTP. I dettagli più completi degli elementi sono descritti nelle sezioni successive: 
@@ -245,18 +245,18 @@ Un processo è ricorrente se la definizione JSON del processo include l’oggett
 },
 ```
 
-| Proprietà | Obbligatorio | Value | DESCRIZIONE | 
+| Proprietà | Obbligatorio | Value | Descrizione | 
 |----------|----------|-------|-------------| 
 | **frequency** | Sì, quando viene utilizzata la **ricorrenza** | "Minute", "Hour", "Day", "Week", "Month", "Year" | L'unità di tempo tra le occorrenze | 
-| **interval** | No  | da 1 a 1000 (inclusi) | Un numero intero positivo che determina il numero di unità di tempo tra ogni occorrenza sulla base della **frequenza** | 
-| **schedule** | No  | Variabile | I dettagli per le pianificazioni più complesse e avanzate. Vedere **hours**, **minutes**, **weekDays**, **months**, e **monthDays** | 
-| **hours** | No  | Da 1 a 24 | Una matrice con l'ora segna quando eseguire il processo | 
-| **minutes** | No  | da 0 a 59 | Una matrice con i minuti segna quando eseguire il processo | 
-| **months** | No  | Da 1 a 12 | Una matrice con i mesi segna quando eseguire il processo | 
-| **monthDays** | No  | Variabile | Una matrice con i giorni segna quando eseguire il processo | 
-| **weekDays** | No  | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Una matrice con i giorni della settimana segna quando eseguire il processo | 
-| **count** | No  | <*none*> | Il numero di ricorrenze. Il valore predefinito prevede la ricorrenza all'infinito. Non è possibile usare sia **count** che **endTime**, ma viene applicata la regola che termina per prima. | 
-| **endTime** | No  | <*none*> | Data e ora di arresto della ricorrenza. Il valore predefinito prevede la ricorrenza all'infinito. Non è possibile usare sia **count** che **endTime**, ma viene applicata la regola che termina per prima. | 
+| **interval** | No | da 1 a 1000 (inclusi) | Un numero intero positivo che determina il numero di unità di tempo tra ogni occorrenza sulla base della **frequenza** | 
+| **schedule** | No | Variabile | I dettagli per le pianificazioni più complesse e avanzate. Vedere **hours**, **minutes**, **weekDays**, **months**, e **monthDays** | 
+| **hours** | No | Da 1 a 24 | Una matrice con l'ora segna quando eseguire il processo | 
+| **minutes** | No | da 0 a 59 | Una matrice con i minuti segna quando eseguire il processo | 
+| **months** | No | Da 1 a 12 | Una matrice con i mesi segna quando eseguire il processo | 
+| **monthDays** | No | Variabile | Una matrice con i giorni segna quando eseguire il processo | 
+| **weekDays** | No | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Una matrice con i giorni della settimana segna quando eseguire il processo | 
+| **count** | No | <*none*> | Il numero di ricorrenze. Il valore predefinito prevede la ricorrenza all'infinito. Non è possibile usare sia **count** che **endTime**, ma viene applicata la regola che termina per prima. | 
+| **endTime** | No | <*none*> | Data e ora di arresto della ricorrenza. Il valore predefinito prevede la ricorrenza all'infinito. Non è possibile usare sia **count** che **endTime**, ma viene applicata la regola che termina per prima. | 
 ||||
 
 Per altre informazioni su questi elementi, vedere [Creare pianificazioni complesse e ricorrenze avanzate](../scheduler/scheduler-advanced-complexity.md).
@@ -275,18 +275,18 @@ Nel caso in cui un processo di Utilità di pianificazione di Microsoft Azure abb
 },
 ```
 
-| Proprietà | Obbligatorio | Value | DESCRIZIONE | 
+| Proprietà | Obbligatorio | Value | Descrizione | 
 |----------|----------|-------|-------------| 
-| **retryType** | Sì | **Fixed**, **None** | Determina se sono stati specificati criteri di ripetizione (**fixed**) o no (**none**). | 
-| **retryInterval** | No  | PT30S | Specifica l'intervallo e la frequenza tra i tentativi di ripetizione dei tentativi nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Il valore minimo è 15 secondi, mentre il valore massimo è 18 mesi. | 
-| **retryCount** | No  | 4 | Specificare il numero di tentativi. Il valore massimo è 20. | 
+| **retryType** | Yes | **Fixed**, **None** | Determina se sono stati specificati criteri di ripetizione (**fixed**) o no (**none**). | 
+| **retryInterval** | No | PT30S | Specifica l'intervallo e la frequenza tra i tentativi di ripetizione dei tentativi nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Il valore minimo è 15 secondi, mentre il valore massimo è 18 mesi. | 
+| **retryCount** | No | 4 | Specificare il numero di tentativi. Il valore massimo è 20. | 
 ||||
 
 Per altre informazioni, vedere [Disponibilità e affidabilità elevate](../scheduler/scheduler-high-availability-reliability.md).
 
 <a name="status"></a>
 
-## <a name="state"></a>state
+## <a name="state"></a>stato
 
 Lo stato del processo può essere **Attivo**, **Disattivato**, **Completato**, oppure **Con errori**, ad esempio: 
 
@@ -307,7 +307,7 @@ Dopo l'avvio di un processo, Utilità di pianificazione di Microsoft Azure resti
 * Il numero di errori, se presenti
 * Il numero di errori, se presenti
 
-Ad esempio: 
+Ad esempio:
 
 ```json
 "status": {
@@ -319,7 +319,7 @@ Ad esempio:
 }
 ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Utilità di pianificazione di Azure](scheduler-intro.md)
 * [Concetti, terminologia e gerarchia di entità](scheduler-concepts-terms.md)

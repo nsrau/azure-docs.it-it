@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60255122"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connettere Operations Manager a monitoraggio di Azure
@@ -70,12 +70,12 @@ Le informazioni sotto l'elenco delle informazioni di configurazione del proxy e 
 |\*.ods.opinsights.azure.com| 443 |Sì|  
 |\*.oms.opinsights.azure.com| 443|Sì|  
 |\*.blob.core.windows.net| 443|Sì|  
-|\*.azure-automation.net| 443|Sì|  
+|\*.azure-automation.net| 443|Yes|  
 |**Server di gestione**|||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.blob.core.windows.net| 443| Sì|  
 |\*.ods.opinsights.azure.com| 443| Sì|  
-|*.azure-automation.net | 443| Sì|  
+|*.azure-automation.net | 443| Yes|  
 |**Console di Operations Manager a monitoraggio di Azure**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  

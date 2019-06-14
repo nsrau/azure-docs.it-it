@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: aschhab
 ms.openlocfilehash: 0f9365b72da1cec81eed82756097d32b1d72ca71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307479"
 ---
 # <a name="sqlruleaction-syntax"></a>Sintassi di SQLRuleAction
@@ -67,7 +67,7 @@ Questo articolo offre informazioni dettagliate sulla grammatica delle azioni reg
   
 -   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il valore `sys` indica l'ambito del sistema. In questo caso, `<property_name>` sarà il nome di una proprietà pubblica della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica l'ambito dell'utente. In questo caso, `<property_name>` sarà una chiave del dizionario della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Se l'argomento `<scope>` non è specificato, l'ambito predefinito è `user`.  
   
-### <a name="remarks"></a>Osservazioni  
+### <a name="remarks"></a>Note  
 
 Il tentativo di accedere a una proprietà di sistema inesistente costituisce un errore, mentre il tentativo di accedere a una proprietà utente inesistente non è un errore. Una proprietà utente inesistente viene invece valutata internamente come valore sconosciuto. Un valore sconosciuto viene gestito in modo speciale durante la valutazione degli operatori.  
   
@@ -119,7 +119,7 @@ Il tentativo di accedere a una proprietà di sistema inesistente costituisce un 
       <expression>  
 ```  
   
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
   
  `<pattern>` deve essere un'espressione valutata come stringa. Viene usato come modello per l'operatore LIKE      e può contenere i caratteri jolly seguenti.  
   
@@ -134,7 +134,7 @@ Il tentativo di accedere a una proprietà di sistema inesistente costituisce un 
       <expression>  
 ```  
   
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
   
  `<escape_char>` deve essere un'espressione valutata come stringa di lunghezza 1. Viene usato come carattere di escape per l'operatore LIKE.  
   
@@ -183,7 +183,7 @@ Il tentativo di accedere a una proprietà di sistema inesistente costituisce un 
       TRUE | FALSE  
 ```  
   
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
   
 Le costanti booleane sono rappresentate dalle parole chiave `TRUE` e `FALSE`. I valori sono archiviati come `System.Boolean`.  
   
@@ -193,7 +193,7 @@ Le costanti booleane sono rappresentate dalle parole chiave `TRUE` e `FALSE`. I 
 <string_constant>  
 ```  
   
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
   
 Le costanti di tipo stringa sono racchiuse tra virgolette singole e includono qualsiasi carattere Unicode valido. Le virgolette singole incorporate in una costante di tipo stringa sono rappresentate con due virgolette singole.  
   
@@ -205,7 +205,7 @@ Le costanti di tipo stringa sono racchiuse tra virgolette singole e includono qu
       property(name) | p(name)  
 ```  
   
-### <a name="remarks"></a>Osservazioni  
+### <a name="remarks"></a>Note  
 
 La funzione `newid()` restituisce un **System.Guid** generato dal metodo `System.Guid.NewGuid()`.  
   

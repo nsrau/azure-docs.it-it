@@ -12,10 +12,10 @@ ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 1b33b60f674eebb15fdc6112e1d630b93b98494b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60404720"
 ---
 # <a name="analyzers-method"></a>Metodo Analyzers
@@ -33,13 +33,13 @@ Nessuna
 
 ## <a name="response-parameters"></a>Parametri di risposta
 
-Name | Type | DESCRIZIONE
+Name | Type | Descrizione
 -----|------|--------------
 lingue | elenco di stringhe | elenco di codici di lingua ISO di due lettere per cui può essere usato l'analizzatore.
-id   | stringa | ID univoco per l'analizzatore
-kind | stringa | tipo ampio di analizzatore
-specifica | stringa | nome della specifica usata per l'analizzatore
-implementazione | stringa | descrizione del modello e/o dell'algoritmo alla base di questo analizzatore
+id   | string | ID univoco per l'analizzatore
+kind | string | tipo ampio di analizzatore
+specifica | string | nome della specifica usata per l'analizzatore
+implementazione | string | descrizione del modello e/o dell'algoritmo alla base di questo analizzatore
 
 <br>
 

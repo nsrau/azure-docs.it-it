@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: diberry
 ms.openlocfilehash: e1b99396c4739dc6f1b7a4da0164553d4c25ef3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60198926"
 ---
 # <a name="add-prebuilt-domains-for-common-usage-scenarios"></a>Aggiungere domini predefiniti per scenari di utilizzo comuni 

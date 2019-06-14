@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311420"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Aggiungere proprietari e utenti in Azure DevTest Labs
@@ -40,20 +40,20 @@ La tabella seguente illustra le azioni che possono essere eseguite dagli utenti 
 | **Azioni che gli utenti in questo ruolo possono eseguire** | **Utente DevTest Labs** | **Proprietario** | **Collaboratore** |
 | --- | --- | --- | --- |
 | **Attività lab** | | | |
-| Aggiungere utenti a un lab |No  |Sì |No  |
-| Aggiornare le impostazioni dei costi |No  |Sì |Sì |
+| Aggiungere utenti a un lab |No |Sì |No |
+| Aggiornare le impostazioni dei costi |No |Yes |Yes |
 | **Attività di base delle VM** | | | |
-| Aggiungere e rimuovere immagini personalizzate |No  |Sì |Sì |
-| Aggiungere, aggiornare ed eliminare formule |Sì |Sì |Sì |
-| Aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace |No  |Sì |Sì |
+| Aggiungere e rimuovere immagini personalizzate |No |Yes |Yes |
+| Aggiungere, aggiornare ed eliminare formule |Yes |Sì |Yes |
+| Aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace |No |Yes |Yes |
 | **Attività della macchina virtuale** | | | |
-| Creare VM |Sì |Sì |Sì |
-| Avviare, arrestare ed eliminare VM |Solo VM create dall'utente |Sì |Sì |
-| Aggiornare i criteri delle VM |No  |Sì |Sì |
-| Aggiungere/Rimuovere dischi dati nelle VM |Solo VM create dall'utente |Sì |Sì |
+| Creare VM |Yes |Sì |Yes |
+| Avviare, arrestare ed eliminare VM |Solo VM create dall'utente |Yes |Yes |
+| Aggiornare i criteri delle VM |No |Yes |Yes |
+| Aggiungere/Rimuovere dischi dati nelle VM |Solo VM create dall'utente |Yes |Yes |
 | **Attività degli elementi** | | | |
-| Aggiungere e rimuovere repository di elementi |No  |Sì |Sì |
-| Applicare elementi |Sì |Sì |Sì |
+| Aggiungere e rimuovere repository di elementi |No |Yes |Yes |
+| Applicare elementi |Yes |Sì |Yes |
 
 > [!NOTE]
 > Quando un utente crea una VM, tale utente viene automaticamente assegnato al ruolo **Proprietario** della VM creata.

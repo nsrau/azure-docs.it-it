@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60193714"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-end e pool back-end nel servizio Frontdoor di Azure
@@ -71,7 +71,7 @@ Servizio di ingresso principale invia richieste periodiche di probe HTTP/HTTPS a
 
 - **Protocollo**. Definisce se si desidera inviare le richieste di probe di integrità dal servizio di ingresso principale per il back-end con il protocollo HTTP o HTTPS.
 
-- **Intervallo (secondi)**. Definisce la frequenza di probe di integrità back-end o gli intervalli in cui ognuno degli ambienti di ingresso principale invia un probe.
+- **Intervallo (secondi)** . Definisce la frequenza di probe di integrità back-end o gli intervalli in cui ognuno degli ambienti di ingresso principale invia un probe.
 
     >[!NOTE]
     >Per garantire failover più veloci, impostare l'intervallo su un valore inferiore. Più basso è il valore, maggiore sarà il volume di probe di integrità back-end riceve. Ad esempio, se l'intervallo è impostato su 30 secondi con 90 gli ambienti di ingresso principale o server POP a livello globale, ogni back-end verrà inviato in merito dal 3 al 5 richieste di probe al secondo.
@@ -85,7 +85,7 @@ Le impostazioni di bilanciamento del carico per il pool back-end definiscono la 
 
 - **Dimensioni del campione riuscita**. Definisce le dimensioni del campione come indicata in precedenza, il numero di campioni riuscite necessario per chiamare il back-end integro. Si supponga, ad esempio, un intervallo di probe di integrità porta d'ingresso è 30 secondi, dimensioni del campione sono 5 e dimensioni del campione riuscito sono 3. Individua tramite probe ogni volta che valuta l'integrità back-end, prendiamo in esame ultimi cinque campioni più di 150 secondi (5 x 30). Almeno tre probe riusciti necessario dichiarare il back-end integro.
 
-- **Sensibilità di latenza (latenza aggiuntiva)**. Definisce se vuoi l'ingresso principale per inviare la richiesta al back-end all'interno dell'intervallo di sensibilità misurazioni di latenza o inoltrare la richiesta al back-end più vicino.
+- **Sensibilità di latenza (latenza aggiuntiva)** . Definisce se vuoi l'ingresso principale per inviare la richiesta al back-end all'interno dell'intervallo di sensibilità misurazioni di latenza o inoltrare la richiesta al back-end più vicino.
 
 Per altre informazioni, vedere [metodo di routing basato su latenza minima](front-door-routing-methods.md#latency).
 

@@ -9,10 +9,10 @@ ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237998"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Log di diagnostica Azure Stream all'area di lavoro di Log Analitica in Monitoraggio di Azure
@@ -107,7 +107,7 @@ Poiché molte risorse inviare tutti i tipi di dati vengono inviati alla stessa t
  
 La tabella AzureDiagnostics apparirà come segue, con alcuni dati di esempio:  
  
-| ResourceProvider | Categoria | Una  | b | C | D | E | F | G | H | I |
+| ResourceProvider | Categoria | Una | b | C | D | E | F | G | H | I |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Resource1 | Log di controllo | x1 | y1 | z1 |
 | Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |

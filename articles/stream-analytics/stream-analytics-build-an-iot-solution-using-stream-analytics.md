@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60201511"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilare una soluzione IoT con Analisi di flusso
@@ -55,7 +55,7 @@ Il flusso di dati di ingresso contiene informazioni sulle automobili che entrano
 
 Ecco una breve descrizione delle colonne:
 
-| Colonna | DESCRIZIONE |
+| Colonna | Descrizione |
 | --- | --- |
 | ID casello |ID casello che identifica in modo univoco un casello |
 | Tempo ingresso |Data e ora (UTC) di ingresso del veicolo nel casello |
@@ -82,7 +82,7 @@ Il flusso di dati di uscita contiene informazioni sulle automobili che escono da
 
 Ecco una breve descrizione delle colonne:
 
-| Colonna | DESCRIZIONE |
+| Colonna | Descrizione |
 | --- | --- |
 | ID casello |ID casello che identifica in modo univoco un casello |
 | Tempo ingresso |Data e ora (UTC) di uscita del veicolo dal casello |
@@ -102,7 +102,7 @@ Questa soluzione usa uno snapshot statico di un database di registrazione di vei
 
 Ecco una breve descrizione delle colonne:
 
-| Colonna | DESCRIZIONE |
+| Colonna | Descrizione |
 | --- | --- |
 | Targa |Numero di targa del veicolo |
 | ID registrazione |ID registrazione del veicolo |

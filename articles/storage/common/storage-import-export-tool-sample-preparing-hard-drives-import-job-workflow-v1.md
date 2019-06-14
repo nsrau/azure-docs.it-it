@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: b80ba1cbe168270ec591bdd38859408eae387bbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320585"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Flusso di lavoro campione per preparare i dischi rigidi per un processo di importazione
@@ -20,7 +20,7 @@ In questo argomento viene illustrato il processo completo di preparazione delle 
   
 In questo esempio verranno importati i seguenti dati di un account di archiviazione Windows Azure denominato `mystorageaccount`:  
   
-|Location|DESCRIZIONE|  
+|Località|Descrizione|  
 |--------------|-----------------|  
 |H:\Video|Una raccolta di video, 5 TB in totale.|  
 |H:\Photo|Una raccolta di foto, 30 GB in totale.|  
@@ -29,7 +29,7 @@ In questo esempio verranno importati i seguenti dati di un account di archiviazi
   
 Il processo importa questi dati nelle destinazioni seguenti nell'account di archiviazione:  
   
-|Source (Sorgente)|BLOB o directory virtuale di destinazione|  
+|`Source`|BLOB o directory virtuale di destinazione|  
 |------------|-------------------------------------------|  
 |H:\Video|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Photo|https:\//mystorageaccount.blob.core.windows.net/photo|  
@@ -44,7 +44,7 @@ Successivamente, per determinare il numero di dischi rigidi necessari, calcolare
   
 Per questo esempio, dovrebbero essere sufficienti due dischi rigidi da 3 TB. Tuttavia, poiché la directory di origine `H:\Video` include 5 TB di dati e la capacità del singolo disco rigido è di soli 3 TB, è necessario suddividere `H:\Video` in due directory di dimensioni minori, `H:\Video1` e `H:\Video2`, prima di eseguire lo strumento di importazione/esportazione di Microsoft Azure. Questo passaggio genera le seguenti directory di origine:  
   
-|Location|Dimensione|BLOB o directory virtuale di destinazione|  
+|Località|Dimensione|BLOB o directory virtuale di destinazione|  
 |--------------|----------|-------------------------------------------|  
 |H:\Video1|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Video2|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  

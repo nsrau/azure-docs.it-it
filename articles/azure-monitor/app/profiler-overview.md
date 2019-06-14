@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306326"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilare le applicazioni di produzione in Azure con Application Insights
@@ -75,7 +75,7 @@ Se l'esecuzione di **clr!ThePreStub** per una richiesta richiede molto tempo, la
 
 ### <a id="ngencold"></a>Caricamento di codice ([COLD])
 
-Se il nome del metodo contiene **[COLD]**, ad esempio **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, il runtime di .NET Framework esegue per la prima volta codice non ottimizzato dall'[ottimizzazione PGO](/cpp/build/profile-guided-optimizations). Per ogni metodo deve essere visualizzato al massimo una volta nel corso del processo.
+Se il nome del metodo contiene **[COLD]** , ad esempio **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, il runtime di .NET Framework esegue per la prima volta codice non ottimizzato dall'[ottimizzazione PGO](/cpp/build/profile-guided-optimizations). Per ogni metodo deve essere visualizzato al massimo una volta nel corso del processo.
 
 Se il caricamento del codice per una richiesta richiede una quantità di tempo sostanziale, si tratta della prima richiesta che esegue la parte non ottimizzata del metodo. Considerare un processo di riscaldamento che esegua tale parte del codice prima che gli utenti accedano a esso.
 
@@ -95,7 +95,7 @@ Metodi come **SqlCommand.Execute** indicano che il codice è in attesa del compl
 
 **BLOCKED_TIME** indica che il codice è in attesa di un'altra risorsa disponibile. Ad esempio, potrebbe essere in attesa di un oggetto di sincronizzazione, di un thread o del completamento di una richiesta.
 
-### <a name="unmanaged-async"></a>Asincrono non gestito
+### <a name="unmanaged-async"></a>Async non gestito
 
 .NET framework emette eventi ETW e passa gli ID attività tra i thread in modo che sia possibile rilevare le chiamate asincrone nei thread. Codice non gestito (codice nativo) e alcuni precedenti gli stili di codice asincrono mancano questi eventi e gli ID attività, in modo che il profiler non è possibile capire quali thread e le funzioni in esecuzione sul thread. Ciò viene etichettato 'Async non gestito' nello stack di chiamate. Se si scarica il file di ETW, è possibile usare [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) per ottenere informazioni più dettagliate su ciò che accade.
 

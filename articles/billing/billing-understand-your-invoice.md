@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369969"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Comprendere i termini sulla fattura di Microsoft Azure
@@ -44,7 +44,7 @@ La sezione della fattura relativa alle informazioni sull'account, nella parte su
 
 ![Sezione della fattura relativa alle informazioni sull'account](./media/billing-understand-your-invoice/1.png)
 
-| Termine | DESCRIZIONE |
+| Nome | Descrizione |
 | --- | --- |
 | Numero d'ordine d'acquisto |Numero d'ordine d'acquisto, facoltativo, assegnato dall'utente per il monitoraggio |
 | N. fattura |Numero di fattura univoco, generato automaticamente da Microsoft, usato a scopo di monitoraggio |
@@ -65,7 +65,7 @@ Il nome della sottoscrizione ("Production Storage") è il nome della sottoscrizi
 #### <a name="understand-the-previous-charges"></a>Comprendere gli addebiti precedenti
 La sezione della fattura relativa a saldo precedente, pagamenti e saldo inevaso riepiloga le transazioni avvenute dall'ultimo periodo di fatturazione.
 
-| Termine | DESCRIZIONE |
+| Nome | Descrizione |
 | --- | --- |
 | Saldo precedente |Importo totale dovuto dall'ultimo periodo di fatturazione |
 | Pagamenti |Pagamenti e crediti totali applicati all'ultimo periodo di fatturazione |
@@ -74,7 +74,7 @@ La sezione della fattura relativa a saldo precedente, pagamenti e saldo inevaso 
 #### <a name="understand-the-current-charges"></a>Comprendere gli addebiti attuali
 La sezione Addebiti correnti della fattura riporta informazioni dettagliate sugli addebiti mensili per il periodo di fatturazione corrente.
 
-| Termine | DESCRIZIONE |
+| Nome | Descrizione |
 | --- | --- |
 | Addebiti per utilizzo |Gli addebiti per utilizzo sono gli addebiti mensili totali per una sottoscrizione per il periodo di fatturazione corrente|
 | Sconti |Sconti sui servizi applicati al periodo di fatturazione corrente|
@@ -84,7 +84,7 @@ La sezione Addebiti correnti della fattura riporta informazioni dettagliate sugl
 
 La tabella seguente descrive le istruzioni "venduto a" e di pagamento riportate nella seconda pagina della fattura.
 
-| Termine |DESCRIZIONE |
+| Nome |Descrizione |
 | --- | --- |
 | Venduto a |Indirizzo del profilo nell'account. <br/><br/>Se è necessario cambiare l'indirizzo, vedere [Modificare le informazioni sul profilo dell'account di Azure, ad esempio indirizzo di posta elettronica, indirizzo e numero di telefono di contatto](billing-how-to-change-azure-account-profile.md).|
 | Istruzioni per il pagamento |Istruzioni per l'esecuzione del pagamento in base al metodo di pagamento, ad esempio carta di credito o contro fattura. |
@@ -97,11 +97,11 @@ La sezione della fattura relativa agli addebiti per utilizzo riporta le informaz
 
 La tabella seguente descrive le intestazioni delle colonne relative agli addebiti per utilizzo presenti nella fattura.
 
-| Termine |DESCRIZIONE |
+| Nome |Descrizione |
 | --- | --- |
 | Name |Identifica il servizio di primo livello per l'utilizzo |
 | Type |Definisce il tipo di servizio di Azure e può influire sulla tariffa |
-| Risorsa |Identifica l'unità di misura del contatore utilizzato |
+| Resource |Identifica l'unità di misura del contatore utilizzato |
 | Region |Identifica la posizione del centro dati per i servizi il cui prezzo dipende dalla posizione del centro dati stesso |
 | Consumato |La quantità riportata dal contatore utilizzata durante il periodo di fatturazione |
 | Incluso |Contiene la quantità riportata dal contatore inclusa gratuitamente nel periodo di fatturazione corrente |
