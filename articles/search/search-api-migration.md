@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.openlocfilehash: 85a8ddf4ce87d7ac8ce460c0aff56311a2ea4578
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540685"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Aggiornare all'ultima versione dell'API REST di Ricerca di Azure
@@ -39,7 +39,7 @@ Versione 2019-05-06 è la versione disponibile a livello generale più recente d
 
 Diverse versioni di funzionalità di anteprima coincidono con questo aggiornamento disponibile a livello generale. Per esaminare l'elenco delle nuove funzionalità di anteprima, vedere [-versione dell'api REST di ricerca 2019-05-06-Preview](search-api-preview.md).
 
-## <a name="breaking-changes"></a>Modifiche che causano un'interruzione
+## <a name="breaking-changes"></a>Modifiche di rilievo
 
 Si interrompe il codice esistente che contiene le seguenti funzionalità di versione api-version = 2019-05-06.
 

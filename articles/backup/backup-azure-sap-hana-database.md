@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
 ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65237808"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Eseguire il backup di un database SAP HANA
@@ -40,7 +40,7 @@ ms.locfileid: "65237808"
 - È possibile eseguire il backup dei log di database ogni 15 minuti. I backup del log solo iniziano il flusso dopo un backup completo per il database è stata completata.
 - È possibile eseguire backup completi e differenziali. Backup incrementale non è attualmente supportato.
 - Dopo averlo applicato per i backup di SAP HANA non è possibile modificare i criteri di backup. Se si desidera eseguire il backup con impostazioni diverse, creare un nuovo criterio o assegnare un criterio diverso. 
-    - Per creare un nuovo criterio, nell'insieme di credenziali fare clic su **politiche** > **criteri di Backup** > **+ Aggiungi** > **SAP HANA in Macchina virtuale di Azure**e specificare le impostazioni dei criteri.
+    - Per creare un nuovo criterio, nell'insieme di credenziali fare clic su **politiche** > **criteri di Backup** >  **+ Aggiungi** > **SAP HANA in Macchina virtuale di Azure**e specificare le impostazioni dei criteri.
     - Per assegnare un criterio diverso, nelle proprietà della macchina virtuale che esegue il database, fare clic sul nome del criterio corrente. Scegliere il **criterio di Backup** pagina è possibile selezionare un criterio diverso da utilizzare per il backup.
 
 
@@ -91,7 +91,7 @@ Eseguire l'onboarding per l'anteprima pubblica come indicato di seguito:
 ## <a name="discover-the-databases"></a>Individuazione di database
 
 
-1. Nell'insieme di credenziali, in **Guida introduttiva**, fare clic su **Backup**. Nelle **in cui viene eseguito il carico di lavoro?**, selezionare **SAP HANA in macchine Virtuali di Azure**.
+1. Nell'insieme di credenziali, in **Guida introduttiva**, fare clic su **Backup**. Nelle **in cui viene eseguito il carico di lavoro?** , selezionare **SAP HANA in macchine Virtuali di Azure**.
 2. Fare clic su **avvia individuazione**. Verrà avviata l'individuazione delle VM di Linux non protetto nell'area dell'insieme di credenziali.
 
    - Dopo l'individuazione, le macchine virtuali non protette vengono visualizzate nel portale, elencati in base al nome e gruppo di risorse.

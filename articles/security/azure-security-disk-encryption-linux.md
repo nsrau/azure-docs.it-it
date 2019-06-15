@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: db289e5b5be23176e8589f408a86734181129ebe
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978499"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Abilitare Crittografia dischi di Azure per le macchine virtuali IaaS Linux 
@@ -139,7 +139,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 | volumeType | Tipo del volume in cui viene eseguita l'operazione di crittografia. I valori validi sono _OS_, _Data_ e _All_. 
 | forceUpdateTag | Ogni volta che è necessario forzare l'esecuzione dell'operazione, passare un valore univoco, ad esempio un GUID. |
 | resizeOSDisk | La partizione del sistema operativo deve essere ridimensionata in modo da occupare il disco rigido virtuale completo del sistema operativo prima della divisione del volume di sistema. |
-| percorso | Posizione per tutte le risorse. |
+| location | Posizione per tutte le risorse. |
 
 
 

@@ -11,10 +11,10 @@ ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 467c323a0b669e70e12f801fd8fdd6df119e793d
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595906"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Esempi di query usando la sintassi di ricerca Lucene "completa" (query avanzate in ricerca di Azure)
@@ -39,7 +39,7 @@ Negli esempi seguenti viene usato l'indice di ricerca NYC Jobs contenente le opp
 
 2. Aggiungere una **chiave API** e impostarla su questa stringa: `252044BE3886FE4A8E3BAA4F595114BB`. Si tratta di una chiave di query per il servizio di ricerca sandbox che ospita l'indice NYC Jobs.
 
-Dopo aver specificato l'intestazione della richiesta, è possibile riusarla per tutte le query in questo articolo, scambiando solo la stringa **search=**. 
+Dopo aver specificato l'intestazione della richiesta, è possibile riusarla per tutte le query in questo articolo, scambiando solo la stringa **search=** . 
 
   ![Intestazione della richiesta Postman](media/search-query-lucene-examples/postman-header.png)
 
@@ -67,7 +67,7 @@ Incollare questo URL in un client REST come passaggio di convalida e per visuali
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-La stringa di query, **`search=*`**, è una ricerca non specificata equivalente a una ricerca null o vuota. È la ricerca più semplice che è possibile eseguire.
+La stringa di query, **`search=*`** , è una ricerca non specificata equivalente a una ricerca null o vuota. È la ricerca più semplice che è possibile eseguire.
 
 Se lo si desidera, è possibile aggiungere **`$count=true`** all'URL per restituire un conteggio dei documenti corrispondenti ai criteri di ricerca. In una stringa di ricerca vuota, sono tutti i documenti nell'indice (circa 2800 nel caso di NYC Jobs).
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: pabutler
 ms.openlocfilehash: aae23feaf1cc5887de061414af985ef16070546b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943187"
 ---
 # <a name="publish-a-power-bi-app-offer"></a>Pubblicare un'offerta di App di Power BI
@@ -27,7 +27,7 @@ Questi sono i passaggi principali nel processo di pubblicazione:
 
 Questa tabella descrive i diversi passaggi e fornisce il tempo di completamento stimato:
 
-|   Passaggio di pubblicazione            |   Tempo     |   DESCRIZIONE                                                                  |
+|   Passaggio di pubblicazione            |   Time     |   Descrizione                                                                  |
 | --------------------         |------------| ----------------                                                               |
 | Convalida dei prerequisiti       | 15 minuti     | Vengono convalidate le informazioni e le impostazioni dell'offerta.                            |
 | Certificazione                | 1-7 giorni   | Il Team di certificazione di Power BI analizza l'offerta. Il team esegue l'app Power BI tramite un test di verifica manuali installando l'app tramite l'URL di installazione fornito. Come parte del processo di certificazione app (descritto più avanti in questo documento) vengono eseguite convalide primarie.         |

@@ -10,10 +10,10 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922813"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Trasmettere i dati di Diagnostica di Azure nel percorso critico tramite Hub eventi
@@ -45,7 +45,7 @@ La ricezione di dati di Diagnostica di Azure in Hub eventi è supportata in Serv
 * Provisioning dello spazio dei nomi dell'Hub eventi eseguito in base all'articolo [Introduzione all'Hub eventi](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Collegare Diagnostica di Azure al sink dell'Hub eventi
-Per impostazione predefinita, Diagnostica di Azure invia sempre log e metriche a un account di archiviazione di Azure. Un'applicazione può anche inviare dati agli Hub eventi aggiungendo una nuova sezione **Sinks** nell'elemento **PublicConfig** / **WadCfg** del file *.wadcfgx*. In Visual Studio, il FILE *wadcfgx* file viene archiviato nel percorso seguente: **Progetto servizio cloud** > **Ruoli** > **(NomeRuolo)** > **file diagnostics.wadcfgx**.
+Per impostazione predefinita, Diagnostica di Azure invia sempre log e metriche a un account di archiviazione di Azure. Un'applicazione può anche inviare dati agli Hub eventi aggiungendo una nuova sezione **Sinks** nell'elemento **PublicConfig** / **WadCfg** del file *.wadcfgx*. In Visual Studio, il FILE *wadcfgx* file viene archiviato nel percorso seguente: **Progetto servizio cloud** > **Ruoli** >  **(NomeRuolo)**  > **file diagnostics.wadcfgx**.
 
 ```xml
 <SinksConfig>
@@ -202,7 +202,7 @@ Nell'esempio seguente viene illustrato come uno sviluppatore può limitare la qu
 In questo esempio, il sink viene applicato ai log e filtrato solo per l'analisi a livello di errore.
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Distribuire e aggiornare un'applicazione dei servizi cloud e della configurazione della diagnostica
-Visual Studio offre il modo più semplice per distribuire l'applicazione e la configurazione sink dell'Hub eventi. Per visualizzare e modificare il file, aprire il file *.wadcfgx* in Visual Studio, modificarlo e salvarlo. Il percorso è **Progetto servizio cloud** > **Ruoli** > **(NomeRuolo)** > **diagnostics.wadcfgx**.  
+Visual Studio offre il modo più semplice per distribuire l'applicazione e la configurazione sink dell'Hub eventi. Per visualizzare e modificare il file, aprire il file *.wadcfgx* in Visual Studio, modificarlo e salvarlo. Il percorso è **Progetto servizio cloud** > **Ruoli** >  **(NomeRuolo)**  > **diagnostics.wadcfgx**.  
 
 A questo punto, tutte le operazioni di distribuzione e di aggiornamento delle distribuzioni in Visual Studio, Visual Studio Team System e tutti i comandi o script che si basano su MSBuild e usano la destinazione **/t:publish** includeranno il file *.wadcfgx* nel processo di creazione dei pacchetti. Le distribuzioni e gli aggiornamenti distribuiscono anche il file in Azure tramite l'appropriata estensione agente di Diagnostica di Azure nelle macchine virtuali.
 

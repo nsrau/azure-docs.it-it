@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
 ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60829991"
 ---
 # <a name="logdownloader"></a>LogDownloader
@@ -41,11 +41,11 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 
 ### <a name="parameters"></a>Parametri
 
-| Input | DESCRIZIONE | Predefinito |
+| Input | Descrizione | Predefinito |
 | --- | --- | --- |
 | `-h`, `--help` | Mostrare il messaggio della Guida e uscire. | |
-| `-a APP_ID`, `--app_id APP_ID` | L'ID app, vale a dire il nome del contenitore BLOB di Archiviazione di Azure. | Obbligatoria |
-| `-l LOG_DIR`, `--log_dir LOG_DIR` | La directory di base per il download dei dati: viene creata una sottocartella.  | Obbligatoria |
+| `-a APP_ID`, `--app_id APP_ID` | L'ID app, vale a dire il nome del contenitore BLOB di Archiviazione di Azure. | Obbligatorio |
+| `-l LOG_DIR`, `--log_dir LOG_DIR` | La directory di base per il download dei dati: viene creata una sottocartella.  | Obbligatorio |
 | `-s START_DATE`, `--start_date START_DATE` | La data di inizio del download, inclusa, nel formato *AAAA-MM-GG*. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | La data di fine del download, inclusa, nel formato *AAAA-MM-GG*. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | La modalità di sovrascrittura da usare. | |

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: robinsh
 ms.openlocfilehash: f21f1eed6babee52f30c6eccc79f88dc7bee5d58
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864487"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Pianificare e trasmettere processi (.NET/.NET)
@@ -72,7 +72,7 @@ In questa sezione viene creata un'app console .NET che risponde a un metodo dire
    
     ![Nuova app per il dispositivo di Windows classico in Visual C#](./media/iot-hub-csharp-csharp-schedule-jobs/create-device-app.png)
     
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SimulateDeviceMethods**, quindi scegliere **Gestisci pacchetti NuGet...**.
+2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SimulateDeviceMethods**, quindi scegliere **Gestisci pacchetti NuGet...** .
 
 3. Nella finestra **Gestione pacchetti NuGet** selezionare **Sfoglia** e cercare **Microsoft.Azure.Devices.Client**. Selezionare **Installa** per installare il pacchetto **microsoft.azure.devices.client** e accettare le condizioni d'uso. Questa procedura scarica, installa e aggiunge un riferimento al pacchetto [NuGet Azure IoT SDK per dispositivi](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e alle relative dipendenze.
    

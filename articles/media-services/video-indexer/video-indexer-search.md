@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 93376059dac2a8336e581269d8289d893779b291
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799101"
 ---
 # <a name="find-exact-moments-within-videos"></a>Trovare momenti esatti nei video
@@ -54,6 +54,6 @@ Dopo aver individuato il video che si vuole usare, è possibile continuare a ela
 - [Elaborare contenuti con l'API REST Video Indexer](video-indexer-use-apis.md)
 - [Embed visual widgets in your application](video-indexer-embed-widgets.md) (Incorporare i widget visivi nell'applicazione)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Panoramica di Video Indexer](video-indexer-overview.md)

@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
 ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66126852"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Ottenere informazioni sull'utilizzo e costi di prenotazione contratto Enterprise Agreement
@@ -94,7 +94,7 @@ Nel portale di Azure, passare a [gestione costi + fatturazione](https://portal.a
 2. Fare clic su **utilizzo e costi**.
 3. Fare clic su **Download**.  
 ![Esempio che illustra come scaricare il file di dati CSV sull'utilizzo nel portale di Azure](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
-4. Nelle **Scarica utilizzo e costi** , in **versione 2 per i dettagli dell'utilizzo** , selezionare **tutti gli addebiti (utilizzo e gli acquisti)** e quindi fare clic su Scarica. Ripetere la procedura per **ammortizzato addebiti (utilizzo e gli acquisti)**.
+4. Nelle **Scarica utilizzo e costi** , in **versione 2 per i dettagli dell'utilizzo** , selezionare **tutti gli addebiti (utilizzo e gli acquisti)** e quindi fare clic su Scarica. Ripetere la procedura per **ammortizzato addebiti (utilizzo e gli acquisti)** .
 
 I file CSV scaricato contengono i costi effettivi e i costi ammortizzati.
 

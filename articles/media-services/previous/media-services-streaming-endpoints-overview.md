@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: a45e2af6f2cb9c105c084585a03a6de615fa1397
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573035"
 ---
 # <a name="streaming-endpoints-overview"></a>Panoramica degli endpoint di streaming  
@@ -50,7 +50,7 @@ Per qualsiasi altro endpoint: `{EndpointName}-{AccountName}.streaming.mediaservi
 A partire dalla versione dei Servizi multimediali rilasciata a gennaio 2017, ci sono due tipologie di streaming: **Standard** (anteprima) e **Premium**. Queste tipologie fanno parte della versione dell'endpoint di streaming "2.0".
 
 
-|Type|DESCRIZIONE|
+|Type|Descrizione|
 |--------|--------|  
 |**Standard**|L'impostazione predefinita l'Endpoint di Streaming è un' **Standard** digitare, può essere modificato nel tipo Premium modificando le unità di streaming.|
 |**Premium** |Questa opzione è adatta ai professionisti che hanno bisogno di una maggiore scalabilità o di maggior controllo. Si sposta in una **Premium** tipo modificando le unità di streaming.<br/>Dedicato gli endpoint di Streaming live in ambiente isolato e non contendono le risorse.|
@@ -77,24 +77,24 @@ Se l'endpoint di streaming **versione "1.0"** ha una o più unità di streaming 
 
 |Type|StreamingEndpointVersion|ScaleUnits|RETE CDN|Fatturazione|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Classico|1.0|0|ND|Gratuito|
-|Endpoint di Streaming standard (anteprima)|2.0|0|Sì|A pagamento|
-|Unità di streaming Premium|1.0|>0|Sì|A pagamento|
-|Unità di streaming Premium|2.0|>0|Sì|A pagamento|
+|Classico|1.0|0|NA|Gratuito|
+|Endpoint di Streaming standard (anteprima)|2.0|0|Yes|A pagamento|
+|Unità di streaming Premium|1.0|>0|Yes|A pagamento|
+|Unità di streaming Premium|2.0|>0|Yes|A pagamento|
 
 ### <a name="features"></a>Funzionalità
 
 Funzionalità|Standard|Premium
 ---|---|---
-Liberare i primi 15 giorni <sup>1</sup>| Sì |No 
+Liberare i primi 15 giorni <sup>1</sup>| Yes |No
 Velocità effettiva |Fino a 600 Mbps e possono fornire un'efficace velocità effettiva notevolmente superiore quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire un'efficace velocità effettiva notevolmente superiore quando si usa una rete CDN.
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
-Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
-Crittografia dinamica|Sì|Sì
-creazione dinamica dei pacchetti|Sì|Sì
+Fatturazione con ripartizione proporzionale| Ogni giorno|Ogni giorno
+Crittografia dinamica|Yes|Yes
+creazione dinamica dei pacchetti|Yes|Yes
 Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|Unità di streaming aggiuntive.
-Host applicazione di filtri/G20/personalizzato IP <sup>2</sup>|Sì|Sì
-Download progressivo|Sì|Sì
+Host applicazione di filtri/G20/personalizzato IP <sup>2</sup>|Yes|Yes
+Download progressivo|Yes|Yes
 Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale. 
 
 <sup>1</sup> la versione di valutazione gratuita si applica solo agli account di servizi multimediali appena creato e il valore predefinito dell'Endpoint di Streaming.<br/>

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
 ms.openlocfilehash: 7c75793a696137a1d4cc24fa94877a7fb4e4247a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66243911"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copiare dati da SAP ECC usando Azure Data Factory
@@ -58,9 +58,9 @@ Per il servizio collegato di SAP ECC sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **SapEcc** | Sì |
 | url | URL del servizio SAP ECC OData. | Sì |
-| username | Nome utente usato per la connessione a SAP ECC. | No  |
-| password | Password di testo non crittografato usata per la connessione a SAP ECC. | No  |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
+| username | Nome utente usato per la connessione a SAP ECC. | No |
+| password | Password di testo non crittografato usata per la connessione a SAP ECC. | No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
 
@@ -124,7 +124,7 @@ Per copiare dati da SAP ECC, impostare il tipo di origine nell'attività di copi
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine di attività di copia deve essere impostata su: **SapEccSource** | Sì |
-| query | Opzioni di query OData per filtrare i dati. Esempio: "$select=Name,Description&$top=10".<br/><br/>Il connettore SAP ECC copia i dati dall'URL combinato: (URL specificato nel servizio collegato)/(percorso specificato nel set di dati)?(query specificata nell'origine dell'attività di copia). Fare riferimento all'articolo sui [componenti URL di OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No  |
+| query | Opzioni di query OData per filtrare i dati. Esempio: "$select=Name,Description&$top=10".<br/><br/>Il connettore SAP ECC copia i dati dall'URL combinato: (URL specificato nel servizio collegato)/(percorso specificato nel set di dati)?(query specificata nell'origine dell'attività di copia). Fare riferimento all'articolo sui [componenti URL di OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
 
 **Esempio:**
 

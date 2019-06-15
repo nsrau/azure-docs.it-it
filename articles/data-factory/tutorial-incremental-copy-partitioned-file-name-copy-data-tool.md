@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
 ms.openlocfilehash: c89764d746f07e6100b1f250d4c107bb700fe014
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61098720"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>La copia incrementale di nuovi file basati sul nome di file partizionati tempo usando lo strumento Copia dati
@@ -48,7 +48,7 @@ Preparare l'archivio Blob per l'esercitazione eseguendo questi passaggi.
     ![caricamento dei file](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
     
     > [!NOTE]
-    > Modificare il nome della cartella con l'ora UTC.  Ad esempio, se l'ora UTC corrente è 2 dalle 22.03 del 26 febbraio 2019, è possibile creare il percorso della cartella come **origine/2019/02/26/14/** dalla regola di **origine / {Year} / {Month} / {Day} / {Hour} /**.
+    > Modificare il nome della cartella con l'ora UTC.  Ad esempio, se l'ora UTC corrente è 2 dalle 22.03 del 26 febbraio 2019, è possibile creare il percorso della cartella come **origine/2019/02/26/14/** dalla regola di **origine / {Year} / {Month} / {Day} / {Hour} /** .
 
 2. Creare un contenitore denominato **destinazione**. Per eseguire queste attività è possibile usare vari strumenti, ad esempio [Azure Storage Explorer](https://storageexplorer.com/).
 
@@ -66,7 +66,7 @@ Preparare l'archivio Blob per l'esercitazione eseguendo questi passaggi.
    
    ![Messaggio di errore per nuova data factory](./media/tutorial-copy-data-tool/name-not-available-error.png)
    
-   Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_**ADFTutorialDataFactory**. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
+   Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_ **ADFTutorialDataFactory**. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
 3. Selezionare la **sottoscrizione** di Azure in cui creare la nuova data factory. 
 4. In **Gruppo di risorse** eseguire una di queste operazioni:
      
@@ -184,7 +184,7 @@ Preparare l'archivio Blob per l'esercitazione eseguendo questi passaggi.
     ![Monitorare le esecuzioni di pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
     
     > [!NOTE]
-    > È possibile sapere che un nuovo percorso della cartella è necessario la creazione. Modificare il nome della cartella con l'ora UTC.  Ad esempio, se l'ora UTC corrente è 3 20 PM 26 febbraio 2019, è possibile creare il percorso della cartella come **origine/2019/02/26 o 15/** dalla regola di **{Year} / {Month} / {Day} / {Hour} /**.
+    > È possibile sapere che un nuovo percorso della cartella è necessario la creazione. Modificare il nome della cartella con l'ora UTC.  Ad esempio, se l'ora UTC corrente è 3 20 PM 26 febbraio 2019, è possibile creare il percorso della cartella come **origine/2019/02/26 o 15/** dalla regola di **{Year} / {Month} / {Day} / {Hour} /** .
     
 13. Per tornare al **esecuzioni di Pipeline** visualizzazione, selezionare **tutte le esecuzioni di pipeline**e attendere che la stessa pipeline nuovamente attivata automaticamente dopo un'ora un'altra.  
 

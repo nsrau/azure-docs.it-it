@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 2cbe3b790197c3f71305e4cb21d0f37fe0404511
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943494"
 ---
 # <a name="insights-page"></a>Pagina Informazioni dettagliate
@@ -21,7 +21,7 @@ La pagina [**Informazioni dettagliate**](https://cloudpartner.azure.com/#insight
 
 |  **Dashboard**    |  **Contenuto visualizzato**               |
 |  -------------    |  ---------------------               |
-| **Summary**       | Grafici, tendenze e valori dei dati aggregati che riepilogano l'attività del marketplace per le offerte dell'autore |
+| **Riepilogo**       | Grafici, tendenze e valori dei dati aggregati che riepilogano l'attività del marketplace per le offerte dell'autore |
 | **Payout** (Proventi)        | Proventi e transazioni correlate in formati grafici e scaricabili |
 | **Orders & usage** (Ordini e utilizzo) | Ordini e informazioni sull'utilizzo in formati grafici e scaricabili |
 | **Cliente**      | Informazioni sul cliente, incluso il profilo di acquisto |

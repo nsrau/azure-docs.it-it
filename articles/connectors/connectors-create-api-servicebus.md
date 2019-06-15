@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105581"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Scambiare messaggi nel cloud con il bus di servizio di Azure e App per la logica di Azure
@@ -79,7 +79,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
    ![Selezionare un trigger del bus di servizio](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
    > [!NOTE]
-   > Alcuni trigger possono restituire uno o più messaggi, ad esempio il trigger **Quando uno o più messaggi sono ricevuti nella coda (completamento automatico)**. Quando questi trigger vengono attivati, restituiscono tra uno e il numero di messaggi specificati dalla proprietà **Numero massimo di messaggi** del trigger.
+   > Alcuni trigger possono restituire uno o più messaggi, ad esempio il trigger **Quando uno o più messaggi sono ricevuti nella coda (completamento automatico)** . Quando questi trigger vengono attivati, restituiscono tra uno e il numero di messaggi specificati dalla proprietà **Numero massimo di messaggi** del trigger.
 
    *Tutti i trigger del bus di servizio sono trigger con polling prolungato*. Questo significa che, quando un trigger viene attivato, elabora tutti i messaggi e attende 30 secondi che vengano visualizzati altri messaggi nella coda o nella sottoscrizione dell'argomento. 
    Se non vengono visualizzati messaggi per 30 secondi, l'esecuzione del trigger viene ignorata. 
@@ -90,7 +90,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
    1. Nell'ultimo passaggio in cui si vuole aggiungere un'azione, scegliere **Nuovo passaggio**. 
 
       Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-      Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+      Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
    1. Nella casella di ricerca immettere "Bus di servizio di Azure" come filtro. 
    Nell'elenco delle azioni selezionare l'azione desiderata. 
