@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/23/2019
+ms.date: 6/6/2019
 ms.author: b-juche
-ms.openlocfilehash: 53b2742cf92f3a3df346ba3557c718b8d7a11a4e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 657bacc153b5721d5a9f34792eaf4796cb477755
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719432"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808872"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Creare un volume per Azure NetApp Files
 
@@ -65,11 +65,11 @@ Ogni pool di capacità può avere fino a 500 volumi. L'utilizzo della capacità 
         
         Se non è stata delegata una subnet, fare clic su **Crea nuovo** nella pagina di creazione di un volume. Nella pagina di creazione della subnet, specificare le informazioni relative alla stessa e selezionare **Microsoft.NetApp/volumi** per delegarla ad Azure NetApp Files. In ogni rete virtuale, solo una subnet può essere delegata NetApp in file di Azure.   
  
-        ![Crea un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![Creare un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Creare una subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-4. Fare clic su **Protocol**, quindi selezionare **NFS** come tipo di protocollo per il volume.   
+4. Fare clic su **Protocollo** e quindi selezionare **NFS** come tipo di protocollo per il volume.   
     * Specificare il **percorso file** che verrà utilizzato per creare il percorso di esportazione per il nuovo volume. Il percorso di esportazione viene usato per montare il volume e accedervi.
 
         Il nome di percorso di file può contenere solo lettere, numeri e trattini ("-"). Il nome deve avere una lunghezza compresa tra 16 e 40 caratteri. 
@@ -90,34 +90,36 @@ Ogni pool di capacità può avere fino a 500 volumi. L'utilizzo della capacità 
 
 File di NetApp Azure supporta i volumi a SMBv3. È necessario creare connessioni di Active Directory prima di aggiungere un volume SMB. 
 
+### <a name="requirements-for-active-directory-connections"></a>Requisiti per le connessioni di Active Directory
+
+ I requisiti per le connessioni di Active Directory sono come segue: 
+
+* L'account amministratore usato deve essere in grado di creare gli account computer nel percorso di unità organizzativa (OU) che verranno specificati.  
+
+* Porte appropriate devono essere aperte nel server di Windows Active Directory (AD) applicabili.  
+    Le porte richieste sono i seguenti: 
+
+    |     Service           |     Port     |     Protocol     |
+    |-----------------------|--------------|------------------|
+    |    Servizi Web Active Directory    |    9389      |    TCP           |
+    |    DNS                |    53        |    TCP           |
+    |    DNS                |    53        |    UDP           |
+    |    ICMPv4             |    N/D       |    Echo Reply    |
+    |    Kerberos           |    464       |    TCP           |
+    |    Kerberos           |    464       |    UDP           |
+    |    Kerberos           |    88        |    TCP           |
+    |    Kerberos           |    88        |    UDP           |
+    |    LDAP               |    389       |    TCP           |
+    |    LDAP               |    389       |    UDP           |
+    |    LDAP               |    3268      |    TCP           |
+    |    Nome NetBIOS       |    138       |    UDP           |
+    |    SAM/LSA            |    445       |    TCP           |
+    |    SAM/LSA            |    445       |    UDP           |
+    |    LDAP sicuro        |    636       |    TCP           |
+    |    LDAP sicuro        |    3269      |    TCP           |
+    |    w32time            |    123       |    UDP           |
+
 ### <a name="create-an-active-directory-connection"></a>Creare una connessione di Active Directory
-
-1. Verificare che siano soddisfatti i requiements seguenti: 
-
-    * L'account amministratore usato deve essere in grado di creare gli account computer nel percorso di unità organizzativa (OU) che verranno specificati.
-    * Porte appropriate devono essere aperte nel server di Windows Active Directory (AD) applicabili.  
-        Le porte richieste sono i seguenti: 
-
-        |     Service           |     Porta     |     Protocol     |
-        |-----------------------|--------------|------------------|
-        |    Servizi Web Active Directory    |    9389      |    TCP           |
-        |    DNS                |    53        |    TCP           |
-        |    DNS                |    53        |    UDP           |
-        |    ICMPv4             |    N/D       |    Echo Reply    |
-        |    Kerberos           |    464       |    TCP           |
-        |    Kerberos           |    464       |    UDP           |
-        |    Kerberos           |    88        |    TCP           |
-        |    Kerberos           |    88        |    UDP           |
-        |    LDAP               |    389       |    TCP           |
-        |    LDAP               |    389       |    UDP           |
-        |    LDAP               |    3268      |    TCP           |
-        |    Nome NetBIOS       |    138       |    UDP           |
-        |    SAM/LSA            |    445       |    TCP           |
-        |    SAM/LSA            |    445       |    UDP           |
-        |    LDAP sicuro        |    636       |    TCP           |
-        |    LDAP sicuro        |    3269      |    TCP           |
-        |    w32time            |    123       |    UDP           |
-
 
 1. Dall'account di NetApp, fare clic su **connessioni Active Directory**, quindi fare clic su **Join**.  
 
@@ -125,10 +127,10 @@ File di NetApp Azure supporta i volumi a SMBv3. È necessario creare connessioni
 
 2. Nella finestra di partecipare a Active Directory, fornire le informazioni seguenti:
 
-    * **DNS primario**   
-        Questo è l'indirizzo IP di controller di dominio per il preferito Active Directory Domain Services per l'utilizzo con file di Azure NetApp. 
-    * **DNS secondario**  
-        Questo è l'indirizzo IP di controller di dominio per il secondario Active Directory Domain Services per l'utilizzo con file di Azure NetApp. 
+    * **DNS primario**  
+        Si tratta del DNS che è necessario per l'aggiunta a un dominio Active Directory e le operazioni di autenticazione di SMB. 
+    * **DNS secondario**   
+        Questo è il server DNS secondario per garantire la ridondanza servizi dei nomi. 
     * **Dominio**  
         Si tratta del nome di dominio di Active Directory Domain Services che si desidera aggiungere.
     * **Prefisso SMB server (account del computer)**  
@@ -142,7 +144,7 @@ File di NetApp Azure supporta i volumi a SMBv3. È necessario creare connessioni
         Questo è il percorso LDAP per l'unità organizzativa (OU) in cui verranno creati gli account di computer server SMB. Vale a dire, OU = secondo livello, OU = di primo livello. 
     * Le credenziali, inclusi i **nomeutente** e **password**
 
-    ![Aggiungi Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+    ![Aggiunto ad Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
 3. Fare clic su **Accedi**.  
 
@@ -184,7 +186,7 @@ File di NetApp Azure supporta i volumi a SMBv3. È necessario creare connessioni
         
         Se non è stata delegata una subnet, fare clic su **Crea nuovo** nella pagina di creazione di un volume. Nella pagina di creazione della subnet, specificare le informazioni relative alla stessa e selezionare **Microsoft.NetApp/volumi** per delegarla ad Azure NetApp Files. In ogni rete virtuale, solo una subnet può essere delegata NetApp in file di Azure.   
  
-        ![Crea un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![Creare un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Creare una subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 

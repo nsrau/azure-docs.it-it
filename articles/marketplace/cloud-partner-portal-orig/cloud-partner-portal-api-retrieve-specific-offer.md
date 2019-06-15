@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935430"
 ---
 <a name="retrieve-a-specific-offer"></a>Recuperare un'offerta specifica
@@ -40,11 +40,11 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 
 | **Nome**    | **Descrizione**                                                                          | **Tipo di dati** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherid. Ad esempio, Contoso                                                        | string        |
-| offerId     | Guid che identifica in modo univoco l'offerta.                                                 | string        |
+| publisherId | publisherid. Ad esempio, Contoso                                                        | String        |
+| offerId     | Guid che identifica in modo univoco l'offerta.                                                 | String        |
 | version     | Versione dell'offerta in corso di recupero. Per impostazione predefinita, viene recuperata la versione più recente dell'offerta. | Integer       |
 | slotId      | Lo slot da cui deve essere recuperata l'offerta, può essere uno dei seguenti:      <br/>  - `Draft` (impostazione predefinita) recupera la versione dell'offerta attualmente in bozza.  <br/>  -  `Preview` recupera la versione dell'offerta attualmente in anteprima.     <br/>  -  `Production` recupera la versione dell'offerta attualmente in produzione.          |      enum |
-| api-version | Ultima versione dell'API                                                                    | Data          |
+| api-version | Ultima versione dell'API                                                                    | Date          |
 |  |  |  |
 
 

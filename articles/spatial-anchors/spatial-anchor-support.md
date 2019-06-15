@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 1930d5fc9dafe7d480302ded9b4e5a86f55a7669
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964523"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Opzioni di supporto di Azure gli ancoraggi spaziali
@@ -31,7 +31,7 @@ Per aprire un ticket di supporto tecnico all'interno del portale di Azure per gl
 
 1. Quando i campi ticket di supporto per il completamento: 
 
-- Tipo di problema: Tecnico
+- Tipo di problema: Tecnici
 - Servizio: Ancoraggi nello spazio
 
 ![Campi ticket di supporto del portale di Azure](./media/spatial-anchor-support3.png)

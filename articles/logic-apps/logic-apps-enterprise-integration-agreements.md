@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
 ms.date: 04/05/2019
 ms.openlocfilehash: 26d653b873e959f0804e0456ed87ee68c39413e5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720680"
 ---
 # <a name="create-and-manage-trading-partner-agreements-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Creare e gestire gli accordi tra partner commerciali tramite App per la logica di Azure ed Enterprise Integration Pack
@@ -59,12 +59,12 @@ Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di r
 
    | Proprietà | Obbligatorio | Value | DESCRIZIONE |
    |----------|----------|-------|-------------|
-   | **Nome** | Sì | <*agreement-name*> | Il nome del contratto |
-   | **Tipo di contratto** | Sì | **AS2**, **X12**, o **EDIFACT** | Il tipo di protocollo per il contratto. Quando si crea il file del contratto, il contenuto in tale file deve corrispondere al tipo di contratto. | |  
-   | **Partner host** | Sì | <*host-partner-name*> | Il partner host rappresenta l'organizzazione che specifica il contratto |
-   | **Identità host** | Sì | <*host-partner-identifier*> | Identificatore del partner host |
-   | **Partner guest** | Sì | <*guest-partner-name*> | Il partner guest rappresenta l'organizzazione che intrattiene attività commerciali con il partner host |
-   | **Identità guest** | Sì | <*guest-partner-identifier*> | Identificatore del partner guest |
+   | **Nome** | Yes | <*agreement-name*> | Il nome del contratto |
+   | **Tipo di contratto** | Yes | **AS2**, **X12**, o **EDIFACT** | Il tipo di protocollo per il contratto. Quando si crea il file del contratto, il contenuto in tale file deve corrispondere al tipo di contratto. | |  
+   | **Partner host** | Yes | <*host-partner-name*> | Il partner host rappresenta l'organizzazione che specifica il contratto |
+   | **Identità host** | Yes | <*host-partner-identifier*> | Identificatore del partner host |
+   | **Partner guest** | Yes | <*guest-partner-name*> | Il partner guest rappresenta l'organizzazione che intrattiene attività commerciali con il partner host |
+   | **Identità guest** | Yes | <*guest-partner-identifier*> | Identificatore del partner guest |
    | **Impostazioni di ricezione** | Variabile | Variabile | Queste proprietà specificano come gestire tutti i messaggi in ingresso ricevuti dal contratto. Per altre informazioni, vedere il tipo di contratto corrispondente: <p>- [Impostazioni dei messaggi AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Impostazioni dei messaggi EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Impostazioni dei messaggi X12](logic-apps-enterprise-integration-x12.md) |
    | **Impostazioni di invio** | Variabile | Variabile | Queste proprietà specificano come gestire tutti i messaggi in uscita inviati dal contratto. Per altre informazioni, vedere il tipo di contratto corrispondente: <p>- [Impostazioni dei messaggi AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Impostazioni dei messaggi EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Impostazioni dei messaggi X12](logic-apps-enterprise-integration-x12.md) |
    |||||

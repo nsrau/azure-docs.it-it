@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 2e3e39ef24d82393d981c0ce276b3338419e0b2d
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521761"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Risoluzione dei problemi di Monitoraggio di Azure per contenitori
@@ -34,7 +34,7 @@ Durante il processo di caricamento o l'aggiornamento, la concessione il **editor
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse, digitare **Kubernetes**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Kubernetes Azure**.
 3. Nell'elenco di cluster Kubernetes, selezionarne uno dall'elenco.
-2. Nel menu a sinistra, fare clic su **controllo di accesso (IAM)**.
+2. Nel menu a sinistra, fare clic su **controllo di accesso (IAM)** .
 3. Selezionare **+ Aggiungi** per aggiungere un'assegnazione di ruolo e selezionare il **editore di metriche di monitoraggio** ruolo e nel **selezionare** nella casella **AKS** a i risultati nel solo cluster di entità definite nella sottoscrizione di servizio di filtro. Selezionare l'uno dall'elenco specifico di tale cluster.
 4. Selezionare **Salva** per completare l'assegnazione del ruolo. 
 

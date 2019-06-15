@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
 ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60816699"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Usare il modello con l'API Prediction
@@ -137,7 +137,7 @@ Quando si esegue l'applicazione, viene chiesto di immettere un percorso a un fil
 In questa Guida, si è appreso come inviare immagini personalizzati/rilevatore di classificazione di immagini e ricevano una risposta a livello di codice con il C# SDK. Successivamente, per informazioni su come completare scenari end-to-end con C#, oppure iniziare a usare un'altra lingua SDK.
 
 * [Guida introduttiva: .NET SDK](csharp-tutorial.md)
-* [Guida introduttiva: Python SDK](python-tutorial.md)
-* [Guida introduttiva: Java SDK](java-tutorial.md)
-* [Guida introduttiva: Node SDK](node-tutorial.md)
-* [Guida introduttiva: Go SDK](go-tutorial.md)
+* [Avvio rapido: Python SDK](python-tutorial.md)
+* [Avvio rapido: Java SDK](java-tutorial.md)
+* [Avvio rapido: Node SDK](node-tutorial.md)
+* [Avvio rapido: Go SDK](go-tutorial.md)

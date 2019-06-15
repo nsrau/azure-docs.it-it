@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
 ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796265"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introdurre implementazione di integrazione dell'integrità a Azure Deployment Manager (anteprima pubblica)
@@ -134,7 +134,7 @@ Il flusso per ottenere il programma di installazione con controlli di integrità
     ]
     ```
 
-Per illustrare un esempio, vedere [esercitazione: Usare controllo di integrità in Azure Deployment Manager](./deployment-manager-health-check.md).
+Per illustrare un esempio, vedere [esercitazione: Usare il controllo integrità in Azure Deployment Manager](./deployment-manager-health-check.md).
 
 ## <a name="phases-of-a-health-check"></a>Fasi di un controllo di integrità
 
@@ -144,7 +144,7 @@ A questo punto, Azure Deployment Manager sa come eseguire una query per l'integr
 
     1. Al termine di un'operazione di distribuzione, potrebbero essere il riavvio di macchine virtuali, la riconfigurazione in base a nuovi dati o anche in corso l'avvio per la prima volta. Può anche tempo per i servizi avviare la creazione di segnali di integrità per l'aggregazione da provider di monitoraggio in qualcosa di utile dell'integrità. Durante questo tumultuoso processo, può non avere senso per controllare l'integrità del servizio poiché l'aggiornamento non ha ancora raggiunto uno stato stabile. In effetti, il servizio potrebbe essere oscilla avanti tra gli stati integri e non integri come pagare le risorse. 
     1. Durante la fase di attesa, dell'integrità del servizio non è monitorato. Viene utilizzato per consentire alle risorse distribuite il tempo necessario per prima di iniziare il processo di controllo di integrità, vengono inseriti. 
-1. Elastico
+1. Elastic
 
     1. Poiché non è possibile sapere sempre quanto tempo le risorse richiederà a, vengono inseriti prima che diventino stabili, la fase elastica consente un periodo di tempo flessibile tra quando le risorse sono potenzialmente instabili e quando sono necessari per mantenere una stabile integro stato.
     1. Quando viene avviata la fase elastica, Azure Deployment Manager inizia periodicamente il polling dell'endpoint REST fornita per l'integrità del servizio. L'intervallo di polling è configurabile. 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736787"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Monitoraggio delle metriche e log nel servizio di ingresso principale di Azure
@@ -25,11 +25,11 @@ Il servizio di ingresso principale di Azure consente di monitorare le risorse ne
 - **Metrics** (Metriche). il gateway applicazione dispone attualmente di sette metriche per visualizzare i contatori delle prestazioni.
 - **I log**. Attività e i log di diagnostica consentono prestazioni, accesso e altri dati per essere salvati o utilizzati da una risorsa a scopo di monitoraggio.
 
-### <a name="metrics"></a>Metriche
+### <a name="metrics"></a>metrics
 
 Le metriche sono una funzionalità per determinate risorse di Azure che consentono di visualizzare i contatori delle prestazioni nel portale. Di seguito sono disponibili metriche di ingresso principale:
 
-| Metrica | Nome visualizzato per la metrica | Unità | Dimensioni | DESCRIZIONE |
+| Metrica | Nome visualizzato per la metrica | Unità | Dimensioni | Descrizione |
 | --- | --- | --- | --- | --- |
 | RequestCount | Conteggio richieste | Conteggio | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Numero di richieste client gestite da Frontdoor.  |
 | RequestSize | Dimensioni della richiesta | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Numero di byte inviati come richieste dai client a Frontdoor. |
@@ -37,7 +37,7 @@ Le metriche sono una funzionalità per determinate risorse di Azure che consento
 | TotalLatency | Latenza totale | Millisecondi | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | L'ora calcolata della richiesta del client ha ricevuta da porta principale fino al client di riconoscimento dell'ultimo byte di risposta dalla porta principale. |
 | BackendRequestCount | Conteggio delle richieste del back-end | Conteggio | HttpStatus</br>HttpStatusGroup</br>Back-end | Numero di richieste inviate da Frontdoor ai back-end. |
 | BackendRequestLatency | Latenza della richiesta del back-end | Millisecondi | Back-end | Tempo calcolato dal momento dell'invio della richiesta al back-end da parte di Frontdoor al momento della ricezione da parte di Frontdoor dell'ultimo byte della risposta inviata dal back-end. |
-| BackendHealthPercentage | Percentuale di integrità del back-end | Percentuale | Back-end</br>BackendPool | Percentuale di probe di integrità con esito positivo da Frontdoor ai back-end. |
+| BackendHealthPercentage | Percentuale di integrità del back-end | Percent | Back-end</br>BackendPool | Percentuale di probe di integrità con esito positivo da Frontdoor ai back-end. |
 | WebApplicationFirewallRequestCount | Conteggio delle richieste web application firewall | Conteggio | PolicyName</br>RuleName</br>Azione | Numero di richieste client elaborate dalla sicurezza del livello dell'applicazione di Frontdoor. |
 
 ## <a name="activity-log"></a>Log attività
@@ -73,7 +73,7 @@ Per configurare i log di diagnostica per il servizio di ingresso principale:
 
 Il servizio di ingresso principale offre attualmente i log di diagnostica (in batch su base oraria). I log di diagnostica forniscono le singole richieste di API con ogni voce con lo schema seguente:
 
-| Proprietà  | DESCRIZIONE |
+| Proprietà  | Descrizione |
 | ------------- | ------------- |
 | ClientIp | Indirizzo IP del client che ha eseguito la richiesta. |
 | ClientPort | La porta IP del client che ha effettuato la richiesta. |

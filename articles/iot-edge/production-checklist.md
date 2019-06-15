@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: cb72949c0bb543885498b1b997fa0b4a644c204a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956976"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
@@ -50,7 +50,7 @@ Prima di rendere disponibili tutti i dispositivi nell'ambiente di produzione è 
 * Le librerie del sistema operativo
 * Motore del contenitore, ad esempio Moby
 * Daemon IoT Edge
-* Certificati CA
+* Certificati di CA
 
 Per i passaggi per aggiornare il daemon di IoT Edge, vedere [Aggiornare il runtime di IoT Edge](how-to-update-iot-edge.md). Gli attuali metodi per aggiornare il daemon di IoT Edge richiedono l'accesso SSH o fisico al dispositivo IoT Edge. Se si devono aggiornare molti dispositivi, è consigliabile aggiungere i passaggi per l'aggiornamento a uno script o usare uno strumento di automazione come Ansible per eseguire aggiornamenti su larga scala.
 

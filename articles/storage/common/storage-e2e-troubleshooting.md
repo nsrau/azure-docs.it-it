@@ -11,10 +11,10 @@ ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 2707081adafa74237e3fb7730837f581e0c8b790
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154231"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
@@ -220,7 +220,7 @@ Oltre a usare i layout di visualizzazione di Archiviazione di Azure, è possibil
 ### <a name="apply-color-rules-to-the-analysis-grid"></a>Applicare le regole colore alla griglia di analisi
 Le risorse di archiviazione includono anche regole colore, che consentono di identificare visivamente i diversi tipi di errore nella griglia di analisi. Le regole colore predefinite sono valide per gli errori HTTP, quindi sono disponibili solo per il log del server e per la traccia di rete.
 
-Per applicare le regole colore, selezionare **Regole colori** sulla barra multifunzione. Nel menu sono presenti le regole colore di Archiviazione di Azure. Per l'esercitazione selezionare **Errori del client (StatusCode tra 400 e 499)**, come mostrato nell'immagine seguente.
+Per applicare le regole colore, selezionare **Regole colori** sulla barra multifunzione. Nel menu sono presenti le regole colore di Archiviazione di Azure. Per l'esercitazione selezionare **Errori del client (StatusCode tra 400 e 499)** , come mostrato nell'immagine seguente.
 
 ![Layout di visualizzazione di Archiviazione di Azure](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
@@ -278,7 +278,7 @@ L'immagine seguente mostra una richiesta specifica in cui un'operazione Get Blob
 
 Successivamente, questo ID richiesta client verrà correlato con i dati del log del client per mostrare le azioni che il client stava effettuando quando si è verificato l'errore. È possibile ottenere una nuova visualizzazione della griglia di analisi per la sessione corrente per visualizzare i dati del log del client, che viene aperto in una seconda scheda:
 
-1. Copiare innanzitutto il valore del campo **ClientRequestId** negli Appunti. A questo scopo, selezionare una delle due righe, trovare il campo **ClientRequestId**, fare clic con il pulsante destro del mouse sul valore dei dati e scegliere **Copia 'ClientRequestId'**.
+1. Copiare innanzitutto il valore del campo **ClientRequestId** negli Appunti. A questo scopo, selezionare una delle due righe, trovare il campo **ClientRequestId**, fare clic con il pulsante destro del mouse sul valore dei dati e scegliere **Copia 'ClientRequestId'** .
 2. Sulla barra multifunzione selezionare **Nuovo visualizzatore** e selezionare **Griglia analisi** per aprire una nuova scheda. Nella nuova scheda sono visualizzati tutti i dati presenti dei file di log, senza raggruppamenti, filtri o regole colore.
 3. Sulla barra multifunzione selezionare **Visualizza layout** e scegliere **Tutte le colonne del client .NET** nella sezione **Archiviazione di Azure**. In questo layout di visualizzazione sono presenti dati tratti dal log del client, nonché dal log del server e dal log della traccia di rete. Per impostazione predefinita, è ordinato in base alla colonna **MessageNumber** .
 4. Cercare quindi l'ID richiesta client nel log del client. Sulla barra multifunzione selezionare **Trova messaggi** e specificare un filtro personalizzato in base all'ID richiesta client nel campo **Trova**. Usare questa sintassi per il filtro, specificando il proprio ID richiesta client:

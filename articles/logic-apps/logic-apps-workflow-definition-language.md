@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 05/13/2019
 ms.openlocfilehash: 3b0ad33ea6348f24079b3c88f972437244c0bc93
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596753"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Schema del linguaggio di definizione del flusso di lavoro in App per la logica di Azure - Informazioni di riferimento
@@ -40,14 +40,14 @@ Di seguito è riportata la struttura generale di una definizione del flusso di l
 
 | Attributo | Obbligatorio | Descrizione |
 |-----------|----------|-------------|
-| `definition` | Sì | Elemento iniziale della definizione del flusso di lavoro |
+| `definition` | Yes | Elemento iniziale della definizione del flusso di lavoro |
 | `$schema` | Solo quando si fa riferimento esternamente a una definizione del flusso di lavoro | Percorso del file di schema JSON che descrive la versione del linguaggio di definizione del flusso di lavoro, disponibile qui: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
-| `actions` | N. | Le definizioni per uno o più azioni da eseguire in fase di esecuzione del flusso di lavoro. Per altre informazioni, vedere [trigger e azioni](#triggers-actions). <p><p>Numero massimo di azioni: 250 |
-| `contentVersion` | N. | Numero di versione della definizione del flusso di lavoro, per impostazione predefinita "1.0.0.0". Specificare un valore da usare per identificare e confermare la definizione corretta durante la distribuzione di un flusso di lavoro. |
-| `outputs` | N. | Le definizioni per gli output che restituiscono un flusso di lavoro. Per altre informazioni, vedere [output](#outputs). <p><p>Numero massimo di output: 10 |
-| `parameters` | N. | Le definizioni per uno o più parametri che passare i dati nel flusso di lavoro. Per altre informazioni, vedere [parametri](#parameters). <p><p>Numero massimo di parametri: 50 |
-| `staticResults` | N. | Le definizioni per uno o più risultati statici restituiti dalle azioni come output fittizio quando risultati statici sono abilitati su tali azioni. Nella definizione di ogni azione, il `runtimeConfiguration.staticResult.name` attributo fa riferimento la definizione corrispondente all'interno di `staticResults`. Per altre informazioni, vedere [risultati statici](#static-results). |
-| `triggers` | N. | Definizioni di uno o più trigger che creano istanze del flusso di lavoro. È possibile definire più di un trigger, ma solo con il linguaggio di definizione del flusso di lavoro, non in modo visivo tramite Progettazione app per la logica. Per altre informazioni, vedere [trigger e azioni](#triggers-actions). <p><p>Numero massimo di trigger: 10 |
+| `actions` | No | Le definizioni per uno o più azioni da eseguire in fase di esecuzione del flusso di lavoro. Per altre informazioni, vedere [trigger e azioni](#triggers-actions). <p><p>Numero massimo di azioni: 250 |
+| `contentVersion` | No | Numero di versione della definizione del flusso di lavoro, per impostazione predefinita "1.0.0.0". Specificare un valore da usare per identificare e confermare la definizione corretta durante la distribuzione di un flusso di lavoro. |
+| `outputs` | No | Le definizioni per gli output che restituiscono un flusso di lavoro. Per altre informazioni, vedere [output](#outputs). <p><p>Numero massimo di output: 10 |
+| `parameters` | No | Le definizioni per uno o più parametri che passare i dati nel flusso di lavoro. Per altre informazioni, vedere [parametri](#parameters). <p><p>Numero massimo di parametri: 50 |
+| `staticResults` | No | Le definizioni per uno o più risultati statici restituiti dalle azioni come output fittizio quando risultati statici sono abilitati su tali azioni. Nella definizione di ogni azione, il `runtimeConfiguration.staticResult.name` attributo fa riferimento la definizione corrispondente all'interno di `staticResults`. Per altre informazioni, vedere [risultati statici](#static-results). |
+| `triggers` | No | Definizioni di uno o più trigger che creano istanze del flusso di lavoro. È possibile definire più di un trigger, ma solo con il linguaggio di definizione del flusso di lavoro, non in modo visivo tramite Progettazione app per la logica. Per altre informazioni, vedere [trigger e azioni](#triggers-actions). <p><p>Numero massimo di trigger: 10 |
 ||||
 
 <a name="triggers-actions"></a>
@@ -78,9 +78,9 @@ Di seguito è riportata la struttura generale della definizione di un output:
 
 | Attributo | Obbligatorio | Type | Descrizione |
 |-----------|----------|------|-------------|
-| <*key-name*> | Sì | String | Valore chiave del valore di output restituito |
-| <*key-type*> | Sì | int, float, string, securestring, bool, array, JSON object | Tipo di valore di output restituito |
-| <*key-value*> | Sì | Uguale a <*-tipo di chiave*> | Valore di output restituito |
+| <*key-name*> | Yes | String | Valore chiave del valore di output restituito |
+| <*key-type*> | Yes | int, float, string, securestring, bool, array, JSON object | Tipo di valore di output restituito |
+| <*key-value*> | Yes | Uguale a < *-tipo di chiave*> | Valore di output restituito |
 |||||
 
 Per ottenere l'output da un flusso di lavoro, esaminare la cronologia di esecuzione dell'app per la logica e i dettagli nel portale di Azure o usare il [API REST del flusso di lavoro](https://docs.microsoft.com/rest/api/logic/workflows). È anche possibile passare l'output a sistemi esterni, ad esempio Power BI, per creare dashboard.
@@ -110,10 +110,10 @@ Di seguito è riportata la struttura generale della definizione di un parametro:
 
 | Attributo | Obbligatorio | Type | Descrizione |
 |-----------|----------|------|-------------|
-| <*tipo di parametro*> | Sì | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Per tutte le password, le chiavi e i segreti, usare i tipi `securestring` e `secureobject` perché l'operazione `GET` non restituisce questi tipi. Per altre informazioni sulla protezione dei parametri, vedere [proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Tipo di parametro |
-| <*default-parameter-values*> | Sì | Uguale a `type` | Valore del parametro predefinito quando non viene specificato alcun valore durante la creazione dell'istanza del flusso di lavoro |
-| <*array-with-permitted-parameter-values*> | N. | Array | Matrice con valori che il parametro può accettare |
-| `metadata` | N. | Oggetto JSON | Qualsiasi altro parametro informazioni dettagliate, ad esempio, il nome o una descrizione leggibile per app per la logica o flusso di dati design-time usati da Visual Studio o altri strumenti |
+| <*tipo di parametro*> | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Per tutte le password, le chiavi e i segreti, usare i tipi `securestring` e `secureobject` perché l'operazione `GET` non restituisce questi tipi. Per altre informazioni sulla protezione dei parametri, vedere [proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Tipo di parametro |
+| <*default-parameter-values*> | Yes | Uguale a `type` | Valore del parametro predefinito quando non viene specificato alcun valore durante la creazione dell'istanza del flusso di lavoro |
+| <*array-with-permitted-parameter-values*> | No | Array | Matrice con valori che il parametro può accettare |
+| `metadata` | No | Oggetto JSON | Qualsiasi altro parametro informazioni dettagliate, ad esempio, il nome o una descrizione leggibile per app per la logica o flusso di dati design-time usati da Visual Studio o altri strumenti |
 ||||
 
 <a name="static-results"></a>
@@ -145,11 +145,11 @@ Nel `staticResults` dell'attributo, definire simulazione di un'azione `outputs` 
 
 | Attributo | Obbligatorio | Type | Descrizione |
 |-----------|----------|------|-------------|
-| <*static-result-definition-name*> | Sì | String | Il nome per una definizione del risultato statico che può fare riferimento a una definizione di azione tramite un `runtimeConfiguration.staticResult` oggetto. Per altre informazioni vedere [Impostazioni di configurazione di runtime](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>È possibile usare qualsiasi nome univoco che si desidera. Per impostazione predefinita, questo nome univoco viene aggiunto con un numero che viene incrementato. |
-| <*output-attributes-and-values-returned*> | Sì | Variabile | I requisiti per questi attributi variano in base a condizioni diverse. Ad esempio, quando la `status` viene `Succeeded`, il `outputs` attributo include gli attributi e valori restituiti gli output di esempio fittizi dall'azione. Se il `status` viene `Failed`, il `outputs` attributo include il `errors` attributo, ovvero una matrice con uno o più errori `message` oggetti con le informazioni sull'errore. |
-| <*header-values*> | N. | JSON | I valori di intestazione restituiti dall'azione |
-| <*status-code-returned*> | Sì | String | Il codice di stato restituito dall'azione |
-| <*action-status*> | Sì | String | Lo stato dell'azione, ad esempio, `Succeeded` o `Failed` |
+| <*static-result-definition-name*> | Yes | String | Il nome per una definizione del risultato statico che può fare riferimento a una definizione di azione tramite un `runtimeConfiguration.staticResult` oggetto. Per altre informazioni vedere [Impostazioni di configurazione di runtime](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>È possibile usare qualsiasi nome univoco che si desidera. Per impostazione predefinita, questo nome univoco viene aggiunto con un numero che viene incrementato. |
+| <*output-attributes-and-values-returned*> | Yes | Variabile | I requisiti per questi attributi variano in base a condizioni diverse. Ad esempio, quando la `status` viene `Succeeded`, il `outputs` attributo include gli attributi e valori restituiti gli output di esempio fittizi dall'azione. Se il `status` viene `Failed`, il `outputs` attributo include il `errors` attributo, ovvero una matrice con uno o più errori `message` oggetti con le informazioni sull'errore. |
+| <*header-values*> | No | JSON | I valori di intestazione restituiti dall'azione |
+| <*status-code-returned*> | Yes | String | Il codice di stato restituito dall'azione |
+| <*action-status*> | Yes | String | Lo stato dell'azione, ad esempio, `Succeeded` o `Failed` |
 |||||
 
 Ad esempio, in questa definizione di azione HTTP, il `runtimeConfiguration.staticResult.name` i riferimenti dell'attributo `HTTP0` all'interno di `staticResults` attributo in cui vengono definiti gli output fittizi per l'azione. Il `runtimeConfiguration.staticResult.staticResultOptions` attributo specifica che l'impostazione del risultato statico è `Enabled` dell'azione HTTP.

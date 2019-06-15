@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
 ms.openlocfilehash: 3e703c999d57cf62064291cf91059a17a959a2c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442632"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569264"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introduzione ai dispositivi gemelli (Python)
 
@@ -55,7 +55,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ## <a name="create-the-service-app"></a>Creare l'app di servizio
 
-In questa sezione si crea un'app console Python che aggiunge i metadati della posizione al dispositivo gemello associato con il **{ID dispositivo}**. Viene quindi eseguita una query sui dispositivi gemelli archiviati nell'hub IoT selezionando i dispositivi situati a Redmond e quindi quelli che segnalano una connessione alla rete cellulare.
+In questa sezione si crea un'app console Python che aggiunge i metadati della posizione al dispositivo gemello associato con il **{ID dispositivo}** . Viene quindi eseguita una query sui dispositivi gemelli archiviati nell'hub IoT selezionando i dispositivi situati a Redmond e quindi quelli che segnalano una connessione alla rete cellulare.
 
 1. Aprire un prompt dei comandi e installare **Azure IoT Hub Service SDK per Python**. Chiudere il prompt dei comandi dopo l'installazione dell'SDK.
 

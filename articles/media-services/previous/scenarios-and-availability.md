@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991439"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenari e disponibilità delle funzionalità di Servizi multimediali nei data center
@@ -177,7 +177,7 @@ I clienti di Servizi multimediali possono scegliere un endpoint di streaming **S
 
 #### <a name="availability"></a>Disponibilità
 
-|NOME|Stato|Data center
+|Name|Stato|Data center
 |---|---|---|
 |Standard|GA|Tutti|
 |Premium|GA|Tutti|
@@ -196,8 +196,8 @@ AMS offre due codificatori su richiesta: **Media Encoder Standard** e **Flusso d
 
 |Nome processore di contenuti multimediali|Stato|Data center
 |---|---|---|
-|Media Encoder Standard|GA|Tutti|
-|Media Encoder Premium Workflow|GA|Tutti tranne Cina|
+|Codificatore multimediale standard|GA|Tutti|
+|Flusso di lavoro Premium del codificatore multimediale|GA|Tutti tranne Cina|
 
 ### <a name="analytics-media-processors"></a>Processori di contenuti multimediali di analisi
 

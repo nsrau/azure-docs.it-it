@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: 3a7155380a51273d376226c6be7a004f386181ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035262"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>Informazioni sugli elenchi di controllo di accesso agli endpoint
@@ -76,7 +76,7 @@ Nell'esempio seguente se si desidera consentire l'accesso all'endpoint RDP solo 
 | 200 |159.0.0.0/8 |3389 |Consenti |
 
 ### <a name="rule-order"></a>Ordine delle regole
-Poiché è possibile specificare più regole per un endpoint, è necessario trovare un modo per organizzare le regole per determinare quale ha la precedenza. L'ordine delle regole specifica la precedenza. L'ordine di precedenza adottato per gli elenchi di controllo di accesso di rete è *la più bassa ha la precedenza* . Nell'esempio seguente all'endpoint sulla porta 80 viene concesso l'accesso in modo selettivo solo a determinati intervalli di indirizzi IP A tale scopo, è necessaria una regola Nega (regola n. 100) per gli indirizzi nello spazio \#175.1.0.1/24. Una seconda regola viene quindi specificata con la precedenza 200 che consente l'accesso a tutti gli altri indirizzi in 175.0.0.0/8.
+Poiché è possibile specificare più regole per un endpoint, è necessario trovare un modo per organizzare le regole per determinare quale ha la precedenza. L'ordine delle regole specifica la precedenza. L'ordine di precedenza adottato per gli elenchi di controllo di accesso di rete è *la più bassa ha la precedenza* . Nell'esempio seguente all'endpoint sulla porta 80 viene concesso l'accesso in modo selettivo solo a determinati intervalli di indirizzi IP A tale scopo, è necessaria una regola Nega (regola n. 100\) per gli indirizzi nello spazio \#175.1.0.1/24. Una seconda regola viene quindi specificata con la precedenza 200 che consente l'accesso a tutti gli altri indirizzi in 175.0.0.0/8.
 
 **Esempio: precedenza delle regole**
 

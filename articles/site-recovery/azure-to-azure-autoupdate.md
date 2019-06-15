@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: rajanaki
 ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65922132"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility nella replica di Azure ad Azure
@@ -49,7 +49,7 @@ La pianificazione di runbook predefinita si ripete ogni giorno alle 12:00 AM nel
 
 Quando si abilita la replica per una macchina virtuale di avvio [dalla visualizzazione macchina virtuale](azure-to-azure-quickstart.md) oppure [dall'insieme di credenziali di servizi di ripristino](azure-to-azure-how-to-enable-replication.md), è possibile consentire il ripristino del sito gestire gli aggiornamenti per l'estensione Site Recovery o gestirlo manualmente.
 
-![Impostazioni estensione](./media/azure-to-azure-autoupdate/enable-rep.png)
+![Impostazioni dell'estensione](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Attivare o disattivare le impostazioni di aggiornamento dell'estensione nell'insieme di credenziali
 
@@ -57,7 +57,7 @@ Quando si abilita la replica per una macchina virtuale di avvio [dalla visualizz
 2. Sotto **per le macchine virtuali di Azure** > **impostazioni di aggiornamento dell'estensione**, attivare il **consentire a Site Recovery per gestire** attiva/disattiva. Per gestire manualmente, disattivare tale funzionalità. 
 3. Selezionare **Salva**.
 
-![Impostazioni aggiornamento estensione](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![Impostazioni di aggiornamento dell'estensione](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important]
 > Quando si sceglie **consentire a Site Recovery per gestire**, l'impostazione viene applicata a tutte le macchine virtuali nell'insieme di credenziali corrispondente.
@@ -520,7 +520,7 @@ Se si verifica un problema con gli aggiornamenti automatici, verrà visualizzata
 
 Se si non è stato possibile abilitare gli aggiornamenti automatici, vedere i seguenti errori comuni e le azioni consigliate:
 
-- **Errore**: Non si è autorizzati a creare un account RunAs (entità servizio) e a concedere il ruolo Collaboratore all'entità servizio.
+- **Errore**: non si è autorizzati a creare un account RunAs di Azure (entità servizio) e a concedere il ruolo Collaboratore all'entità servizio.
 
    **Azione consigliata**: Assicurarsi che sia assegnato l'account di accesso come collaboratore e ripetere l'operazione. Vedere la sezione delle autorizzazioni necessarie nel [usare il portale per creare un'entità applicazione e del servizio che può accedere alle risorse di Azure AD](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) per altre informazioni sull'assegnazione di autorizzazioni.
  

@@ -4,17 +4,17 @@ ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: 4f59f68c1598f737ea7cb3a0e8046fc0779ed9d3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 57ba55ce284030a4103077553b0dcfce01a93678
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113798"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125772"
 ---
 L'agente Sincronizzazione file di Azure viene aggiornato a intervalli regolari per aggiungere nuove funzionalità e risolvere eventuali problemi. È consigliabile configurare Microsoft Update per ricevere gli aggiornamenti dell'agente Sincronizzazione file di Azure non appena vengono rilasciati.
 
 #### <a name="major-vs-minor-agent-versions"></a>Confronto tra versioni principali e secondarie dell'agente
-* Le versioni principali dell'agente contengono spesso nuove funzionalità e hanno un numero crescente come prima parte del numero di versione. Ad esempio: \*2.\*.\*\*
+* Le versioni principali dell'agente contengono spesso nuove funzionalità e hanno un numero crescente come prima parte del numero di versione. Ad esempio:  \*2.\*.\*\*
 * Le versioni secondarie dell'agente sono denominate anche "patch" e vengono rilasciate con maggiore frequenza rispetto alle versioni principali. Spesso contengono correzioni di bug e miglioramenti di entità minore, ma non nuove funzionalità. Ad esempio: \*\*.3.\*\*
 
 #### <a name="upgrade-paths"></a>Percorsi di aggiornamento
@@ -31,7 +31,7 @@ Esistono quattro modi approvati e testati per installare gli aggiornamenti dell'
 #### <a name="automatic-agent-lifecycle-management"></a>Gestione agente automatica del ciclo di vita
 Con la versione dell'agente 6, il team di sincronizzazione file ha introdotto una funzionalità di aggiornamento automatico dell'agente. È possibile selezionare una delle due modalità e specificare una finestra di manutenzione in cui l'aggiornamento deve essere eseguita nel server. Questa funzionalità è progettata per facilitare la gestione del ciclo di vita dell'agente fornendo un guardrail impedendo l'agente dalla scadenza o consentendo un senza problemi, mantenere l'impostazione corrente.
 1. Il **impostazione predefinita** proverà a evitare che l'agente dalla scadenza. Entro 21 giorni dalla data di scadenza registrata di un agente, l'agente tenterà di eseguire l'aggiornamento automatico. Verrà avviato un tentativo di eseguire l'aggiornamento di una volta a settimana entro 21 giorni prima della scadenza e nella finestra di manutenzione selezionato. **Questa opzione non elimina la necessità per l'esecuzione regolarmente patch di Microsoft Update.**
-2. Facoltativamente, è possibile selezionare che l'agente verrà aggiornato automaticamente se stesso, non appena diventa disponibile una nuova versione dell'agente. Verrà inoltre si verificano durante la finestra di manutenzione selezionati e consentire al server di trarre vantaggio dalle nuove funzionalità e miglioramenti, non appena diventano disponibili a livello generale. Questo è l'impostazione consigliata, preoccupazioni che fornisce le versioni principali dell'agente, nonché le patch di aggiornamento regolare per il server.
+2. Facoltativamente, è possibile selezionare che l'agente verrà aggiornato automaticamente se stesso, non appena diventa disponibile una nuova versione dell'agente (attualmente non applicabile per i server del cluster). Questo aggiornamento verrà si verificano durante la finestra di manutenzione selezionati e consentire al server di trarre vantaggio dalle nuove funzionalità e miglioramenti, non appena diventano disponibili a livello generale. Questo è l'impostazione consigliata, preoccupazioni che fornisce le versioni principali dell'agente, nonché le patch di aggiornamento regolare per il server. Ogni agente di rilascio è con qualità a livello generale. Se si seleziona questa opzione, Microsoft sarà distribuito in anteprima la versione più recente dell'agente per l'utente. I server del cluster vengono esclusi. Al termine della distribuzione in anteprima, l'agente verrà anche reso disponibile il [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257) aka.ms/AFS/agent.
 
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>Garanzie relative al ciclo di vita dell'agente e alla gestione del cambiamento
 Sincronizzazione File di Azure è un servizio cloud, che introduce continuamente miglioramenti e nuove funzionalità. Ciò significa che una specifica versione dell'agente Sincronizzazione file di Azure può essere supportata solo per un periodo di tempo limitato. Per facilitare la distribuzione, le regole seguenti assicurarti di che avere sufficiente tempo e la notifica per contenere aggiornamenti dell'agente nel processo di gestione delle modifiche:

@@ -11,17 +11,17 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: f96c78e636b873a0238f6e34d9b80d1036e5ba4f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969107"
 ---
 # <a name="cloudyn-walk-through-training-videos"></a>Video di training: procedure dettagliate di Cloudyn
 
 I video seguenti sono demo dettagliate di introduzione a Cloudyn e alle relative funzionalità. Cloudyn offre funzioni di verifica e ottimizzazione dei costi per scenari di uso di più cloud, ad esempio Microsoft Azure, Amazon Web Services e Google Cloud Platform.
 
-## <a name="overview-video"></a>Panoramica video
+## <a name="overview-video"></a>Video di panoramica
 
 [Introduzione a Cloudyn](https://youtu.be/NWIRny6Wpsk)
 

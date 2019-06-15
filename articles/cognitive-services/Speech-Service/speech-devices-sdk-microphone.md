@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 63dd64e900cf68e708032569ca75ac2e8b221491
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236997"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Consigli di vocale dispositivi SDK microfono array
@@ -31,7 +31,7 @@ Le geometrie di matrice seguenti sono consigliate per l'uso con lo Stack Audio d
 |----------|-------------------|-------------------|----------------|----------------|
 |          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \# Microfoni  | 7                 | 4                 | 4              | 2              |
-| Geometria | 6 1 outer, centro, raggio = mm 42,5, uniformemente distribuite| 3 1 outer, centro, raggio = mm 42,5, uniformemente distribuite | Lunghezza = 120 mm, spaziatura = 40 mm | Spaziatura = 40 mm |
+| Geometry | 6 1 outer, centro, raggio = mm 42,5, uniformemente distribuite| 3 1 outer, centro, raggio = mm 42,5, uniformemente distribuite | Lunghezza = 120 mm, spaziatura = 40 mm | Spaziatura = 40 mm |
 
 I canali di microfono devono essere ordinati in base alla numerazione descritto per ciascuno di sopra di matrice, crescenti da 0.  Lo Stack Audio Microsoft richiederà un flusso di riferimento aggiuntivo di riproduzione audio per eseguire l'annullamento echo.
 
@@ -41,16 +41,16 @@ I canali di microfono devono essere ordinati in base alla numerazione descritto 
 
 Le proprietà consigliate quando si seleziona microfoni sono:
 
-| Parametro                         | Consigliati                       |
+| Parametro                         | Consigliato                       |
 |-----------------------------------|-----------------------------------|
 | SNR                               | \> 65 dB (1 kHz segnale 94 dBSPL, rumore ponderato)   |
-| Corrispondenza di Amplitude                | + 1 dB @ 1 kHz                     |
+| Corrispondenza di Amplitude                | \+ 1 dB @ 1 kHz                     |
 | Fase di corrispondenza                    | ± 2° @ 1 kHz                       |
 | Punto di Overload acustici (programmazione orientata ad aspetti)     | \> 120 dBSPL (THD = 10%)          |
 | Velocità in bit                          | Almeno 24 bit                    |
 | Frequenza di campionamento                     | Minimo kHz 16\*                   |
 | Direzione                       | Omnidirezionale                   |
-| Risposta in frequenza                | + 3 dB, 200 8000 Hz mobile maschera\*|
+| Risposta in frequenza                | \+ 3 dB, 200 8000 Hz mobile maschera\*|
 | Affidabilità                       | Intervallo di temperatura archiviazione-40 ° C a 70 ° C<br />Temperatura operativa compresa tra 20 ° C-55 ° C  |
 
 *\*La velocità di campionamento o intervalli di frequenza "larghi" potrebbero essere necessari per le applicazioni di alta qualità delle comunicazioni (VoIP)*
@@ -61,14 +61,14 @@ Selezione componenti ottimale deve essere abbinato con una buona integrazione el
 
 Le prestazioni delle matrici quando integrate in un dispositivo e dopo qualsiasi miglioramento fisso o EQ devono soddisfare i requisiti seguenti:
 
-|  Parametro        |    Consigliati |
+|  Parametro        |    Consigliato |
 |--------------------|----------------------------------------------------|
 |  SNR                 | \> 65 dB (1 kHz segnale 94 dBSPL, rumore ponderato) |
 |  Sensibilità di output  | -26 dBFS/Pa @ 1 kHz (scelta consigliata) |
 |  Corrispondenza di Amplitude  | ± 2 dB, 200-8000 Hz |
-|  Fase di corrispondenza      | + 5°, 200 8000 Hz |
+|  Fase di corrispondenza      | \+ 5°, 200 8000 Hz |
 | THD%                 | ≤ 1%, 200 8000 Hz, dBSPL 94, 5th ordine |
-|  Risposta in frequenza  | + 6 dB, 200 8000 Hz mobile maschera\* |
+|  Risposta in frequenza  | \+ 6 dB, 200 8000 Hz mobile maschera\* |
 
 *\*Gli intervalli di frequenza "Larghi" potrebbero essere necessari per le applicazioni di alta qualità delle comunicazioni (VoIP)*
 
@@ -76,7 +76,7 @@ Le prestazioni delle matrici quando integrate in un dispositivo e dopo qualsiasi
 
 Eco è necessaria per i dispositivi di riconoscimento vocale che contengono gli altoparlanti, vengono forniti consigli aggiuntivi per l'integrazione e la selezione del relatore.
 
-| Parametro                         | Consigliati                       |
+| Parametro                         | Consigliato                       |
 |-----------------------------------|-----------------------------------|
 | Considerazioni di linearità          | Non lineari dopo il riferimento di relatore, in caso contrario, un flusso di riferimento basati su hardware loopback è richiesto un'elaborazione  |
 | Loopback dell'altoparlante                  | Fornito tramite WASAPI, privata API, personalizzato ALSA plug-in (Linux) o fornita tramite un canale del firmware      |

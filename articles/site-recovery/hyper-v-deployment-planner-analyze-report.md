@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772901"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analizzare il report di Azure Site Recovery Deployment Planner
@@ -33,13 +33,13 @@ Il foglio di lavoro On-premises summary (Riepilogo ambiente locale) offre una pa
 
 **Numero medio di dischi per macchina virtuale compatibile**: il numero medio di dischi calcolato tra tutte le macchine virtuali compatibili.
 
-**Dimensioni medie disco (GB)**: le dimensioni medie dei dischi calcolate tra tutte le macchine virtuali compatibili.
+**Dimensioni medie disco (GB)** : le dimensioni medie dei dischi calcolate tra tutte le macchine virtuali compatibili.
 
-**RPO desiderato (minuti)**: l'obiettivo del punto di recupero predefinito o il valore passato per il parametro "DesiredRPO" al momento della generazione del report per stimare la larghezza di banda necessaria.
+**RPO desiderato (minuti)** : l'obiettivo del punto di recupero predefinito o il valore passato per il parametro "DesiredRPO" al momento della generazione del report per stimare la larghezza di banda necessaria.
 
-**Larghezza di banda desiderata (Mbps)**: Il valore passato per il parametro "Larghezza di banda" al momento della generazione del report per stimare l'obiettivo del punto di recupero (RPO) ottenibile.
+**Larghezza di banda desiderata (Mbps)** : Il valore passato per il parametro "Larghezza di banda" al momento della generazione del report per stimare l'obiettivo del punto di recupero (RPO) ottenibile.
 
-**Varianza tipica dei dati osservata al giorno (GB)**: La varianza media dei dati osservata in tutti i giorni di profilatura.
+**Varianza tipica dei dati osservata al giorno (GB)** : La varianza media dei dati osservata in tutti i giorni di profilatura.
 
 ## <a name="recommendations"></a>Consigli 
 Il foglio Recommendations (Raccomandazioni) del report per lo scenario da Hyper-V ad Azure contiene i dettagli seguenti, in base al valore RPO desiderato selezionato:
@@ -195,19 +195,19 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 
 **Account di archiviazione**: il nome che usa il prefisso dell'account di archiviazione suggerito.
 
-**Picco di operazioni di I/O al secondo in lettura/scrittura (con fattore di crescita)**: il picco di operazioni di I/O al secondo in lettura/scrittura del carico di lavoro nel disco (il valore predefinito è 95° percentile), insieme al fattore di crescita futuro (il valore predefinito è 30%). Il numero totale di operazioni di I/O al secondo in lettura/scrittura di una VM non è sempre la somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della VM. Il picco di operazioni di I/O al secondo in lettura/scrittura della macchina virtuale è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
+**Picco di operazioni di I/O al secondo in lettura/scrittura (con fattore di crescita)** : il picco di operazioni di I/O al secondo in lettura/scrittura del carico di lavoro nel disco (il valore predefinito è 95° percentile), insieme al fattore di crescita futuro (il valore predefinito è 30%). Il numero totale di operazioni di I/O al secondo in lettura/scrittura di una VM non è sempre la somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della VM. Il picco di operazioni di I/O al secondo in lettura/scrittura della macchina virtuale è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
 
-**Picco di varianza dati in MB/s (con fattore di crescita)**: il picco di varianza nel disco (il valore predefinito è 95° percentile), insieme al fattore di crescita futuro (il valore predefinito è 30%). La varianza totale dei dati della VM non è sempre la somma delle varianze dei dati dei singoli dischi della VM. Il picco della varianza dei dati della VM corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
+**Picco di varianza dati in MB/s (con fattore di crescita)** : il picco di varianza nel disco (il valore predefinito è 95° percentile), insieme al fattore di crescita futuro (il valore predefinito è 30%). La varianza totale dei dati della VM non è sempre la somma delle varianze dei dati dei singoli dischi della VM. Il picco della varianza dei dati della VM corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
 
 **Dimensioni macchina virtuale di Azure**: le dimensioni ideali della macchina virtuale mappata dei Servizi cloud di Azure per questa macchina virtuale locale. Il mapping si basa sulla memoria, sul numero di dischi/core/schede di interfaccia di rete e operazioni di I/O al secondo in lettura/scrittura della VM locale. La raccomandazione si riferisce sempre alle dimensioni minime della macchina virtuale di Azure corrispondenti a tutte le caratteristiche della macchina virtuale locale.
 
 **Numero di dischi**: il numero totale dei dischi rigidi virtuali (VHD) nella macchina virtuale.
 
-**Dimensioni disco (GB)**: le dimensioni totali di tutti i dischi della macchina virtuale. Lo strumento indica anche le dimensioni dei singoli dischi della VM.
+**Dimensioni disco (GB)** : le dimensioni totali di tutti i dischi della macchina virtuale. Lo strumento indica anche le dimensioni dei singoli dischi della VM.
 
 **Core**: il numero di core CPU nella macchina virtuale.
 
-**Memoria (MB)**: la RAM della macchina virtuale.
+**Memoria (MB)** : la RAM della macchina virtuale.
 
 **Schede di interfaccia di rete**: il numero di schede di interfaccia di rete della macchina virtuale.
 
@@ -252,17 +252,17 @@ Il report di Excel generato da Site Recovery Deployment Planner fornisce tutti i
 
 * L'archiviazione snapshot calcolata supera il limite supportato di 10 TB.
 
-**Picco di operazioni di I/O al secondo in lettura/scrittura (con fattore di crescita)**: il picco di operazioni di I/O al secondo del carico di lavoro nel disco (il valore predefinito è 95° percentile) insieme al fattore di crescita futuro (il valore predefinito è 30%). Il numero totale di operazioni di I/O al secondo in lettura/scrittura della VM non è sempre la somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della VM. Il picco di operazioni di I/O al secondo in lettura/scrittura della macchina virtuale è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
+**Picco di operazioni di I/O al secondo in lettura/scrittura (con fattore di crescita)** : il picco di operazioni di I/O al secondo del carico di lavoro nel disco (il valore predefinito è 95° percentile) insieme al fattore di crescita futuro (il valore predefinito è 30%). Il numero totale di operazioni di I/O al secondo in lettura/scrittura della VM non è sempre la somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della VM. Il picco di operazioni di I/O al secondo in lettura/scrittura della macchina virtuale è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
 
-**Picco di varianza dati in MB/s (con fattore di crescita)**: il picco di varianza nel disco (il valore predefinito è 95° percentile), insieme al fattore di crescita futuro (il valore predefinito è 30%). Si noti che la varianza totale dei dati della VM non è sempre la somma delle varianze dei dati dei singoli dischi della VM. Il picco della varianza dei dati della VM corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
+**Picco di varianza dati in MB/s (con fattore di crescita)** : il picco di varianza nel disco (il valore predefinito è 95° percentile), insieme al fattore di crescita futuro (il valore predefinito è 30%). Si noti che la varianza totale dei dati della VM non è sempre la somma delle varianze dei dati dei singoli dischi della VM. Il picco della varianza dei dati della VM corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
 
 **Numero di dischi**: il numero totale dei VHD nella macchina virtuale.
 
-**Dimensioni disco (GB)**: le dimensioni di installazione totali di tutti i dischi della macchina virtuale. Lo strumento indica anche le dimensioni dei singoli dischi della VM.
+**Dimensioni disco (GB)** : le dimensioni di installazione totali di tutti i dischi della macchina virtuale. Lo strumento indica anche le dimensioni dei singoli dischi della VM.
 
 **Core**: il numero di core CPU nella macchina virtuale.
 
-**Memoria (MB)**: la quantità di RAM della macchina virtuale.
+**Memoria (MB)** : la quantità di RAM della macchina virtuale.
 
 **Schede di interfaccia di rete**: il numero di schede di interfaccia di rete della macchina virtuale.
 
@@ -298,13 +298,13 @@ Il foglio di lavoro indica i requisiti di spazio di archiviazione totale disponi
 
 **Host Hyper-V**: l'elenco dei server Hyper-V profilati. Se un server fa parte di un cluster Hyper-V, tutti i nodi del cluster vengono raggruppati insieme.
 
-**Volume (percorso VHD)**: ogni volume di un host Hyper-V in cui sono presenti VHD o VHDX. 
+**Volume (percorso VHD)** : ogni volume di un host Hyper-V in cui sono presenti VHD o VHDX. 
 
-**Spazio disponibile (GB)**: lo spazio disponibile nel volume.
+**Spazio disponibile (GB)** : lo spazio disponibile nel volume.
 
-**Spazio di archiviazione totale necessario nel volume (GB)**: lo spazio di archiviazione totale disponibile necessario nel volume per la corretta esecuzione della replica iniziale e della replica differenziale. 
+**Spazio di archiviazione totale necessario nel volume (GB)** : lo spazio di archiviazione totale disponibile necessario nel volume per la corretta esecuzione della replica iniziale e della replica differenziale. 
 
-**Spazio di archiviazione aggiuntivo totale di cui eseguire il provisioning nel volume per la corretta esecuzione della replica (GB)**: indica lo spazio aggiuntivo totale di cui è necessario eseguire il provisioning nel volume per la corretta esecuzione della replica iniziale e della replica differenziale.
+**Spazio di archiviazione aggiuntivo totale di cui eseguire il provisioning nel volume per la corretta esecuzione della replica (GB)** : indica lo spazio aggiuntivo totale di cui è necessario eseguire il provisioning nel volume per la corretta esecuzione della replica iniziale e della replica differenziale.
 
 ## <a name="initial-replication-batching"></a>Suddivisione in batch per la replica iniziale 
 
@@ -327,21 +327,21 @@ Dopo aver seguito le raccomandazioni relative ai requisiti per lo spazio di arch
 
 **Commenti**: se sono necessarie azioni per un volume specifico di una macchina virtuale, i commenti vengono indicati qui. Se, ad esempio, non è disponibile spazio sufficiente in un volume, nel commento viene indicato di aggiungere spazio per proteggere la macchina virtuale.
 
-**Volume (percorso VHD)**: il nome del volume in cui si trovano i VHD della macchina virtuale. 
+**Volume (percorso VHD)** : il nome del volume in cui si trovano i VHD della macchina virtuale. 
 
-**Spazio libero disponibile nel volume (GB)**: lo spazio su disco disponibile nel volume per la macchina virtuale. Per il calcolo dello spazio disponibile nei volumi, viene considerato lo spazio su disco usato per la replica differenziale dalle macchine virtuali dei batch precedenti i cui dischi rigidi virtuali si trovano nello stesso volume. 
+**Spazio libero disponibile nel volume (GB)** : lo spazio su disco disponibile nel volume per la macchina virtuale. Per il calcolo dello spazio disponibile nei volumi, viene considerato lo spazio su disco usato per la replica differenziale dalle macchine virtuali dei batch precedenti i cui dischi rigidi virtuali si trovano nello stesso volume. 
 
 Si presupponga ad esempio che le macchine virtuali VM1, VM2 e VM3 si trovino nel volume E:\VHDpath. Prima della replica, lo spazio disponibile nel volume è di 500 GB. VM1 fa parte del batch 1, VM2 fa parte del batch 2 e VM3 fa parte del batch 3. Per VM1, lo spazio disponibile è 500 GB. Per VM2, lo spazio disponibile è 500 meno lo spazio su disco necessario per la replica differenziale per VM1. Se VM1 richiede 300 GB di spazio per la replica differenziale, lo spazio disponibile per VM2 è 500 GB - 300 GB = 200 GB. Analogamente, VM2 richiede 300 GB per la replica differenziale. Lo spazio disponibile per VM3 è 200 GB - 300 GB = -100 GB.
 
-**Spazio di archiviazione necessario nel volume per la replica iniziale (GB)**: lo spazio di archiviazione disponibile necessario nel volume per la macchina virtuale per la replica iniziale.
+**Spazio di archiviazione necessario nel volume per la replica iniziale (GB)** : lo spazio di archiviazione disponibile necessario nel volume per la macchina virtuale per la replica iniziale.
 
-**Spazio di archiviazione necessario nel volume per la replica differenziale (GB)**: lo spazio di archiviazione disponibile necessario nel volume per la macchina virtuale per la replica differenziale.
+**Spazio di archiviazione necessario nel volume per la replica differenziale (GB)** : lo spazio di archiviazione disponibile necessario nel volume per la macchina virtuale per la replica differenziale.
 
-**Spazio di archiviazione aggiuntivo necessario in base al disavanzo per evitare errori di replica (GB)**: lo spazio di archiviazione aggiuntivo necessario nel volume per la macchina virtuale. Corrisponde al requisito massimo di spazio di archiviazione disponibile per la replica iniziale e la replica differenziale meno lo spazio disponibile nel volume.
+**Spazio di archiviazione aggiuntivo necessario in base al disavanzo per evitare errori di replica (GB)** : lo spazio di archiviazione aggiuntivo necessario nel volume per la macchina virtuale. Corrisponde al requisito massimo di spazio di archiviazione disponibile per la replica iniziale e la replica differenziale meno lo spazio disponibile nel volume.
 
-**Larghezza di banda minima necessaria per la replica iniziale (Mbps)**: La larghezza di banda minima necessaria per la replica iniziale per la macchina virtuale.
+**Larghezza di banda minima necessaria per la replica iniziale (Mbps)** : La larghezza di banda minima necessaria per la replica iniziale per la macchina virtuale.
 
-**Larghezza di banda minima necessaria per la replica differenziale (Mbps)**: La larghezza di banda minima necessaria per la replica differenziale per la macchina virtuale.
+**Larghezza di banda minima necessaria per la replica differenziale (Mbps)** : La larghezza di banda minima necessaria per la replica differenziale per la macchina virtuale.
 
 ### <a name="network-utilization-details-for-each-batch"></a>Dettagli relativi all'utilizzo di rete per ogni batch 
 La tabella di ogni batch fornisce un riepilogo dell'utilizzo di rete del batch.
@@ -352,7 +352,7 @@ La tabella di ogni batch fornisce un riepilogo dell'utilizzo di rete del batch.
 
 **Larghezza di banda approssimativa utilizzata per la replica differenziale del batch**: la larghezza di banda necessaria per la replica differenziale delle macchine virtuali del batch. 
 
-**Tempo stimato per la replica iniziale per batch (hh:mm)**: il tempo stimato per la replica iniziale in ore:minuti.
+**Tempo stimato per la replica iniziale per batch (hh:mm)** : il tempo stimato per la replica iniziale in ore:minuti.
 
 
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: hrasheed
 ms.openlocfilehash: 0a278cd98b0dd6c6d8f0fe9bfee81e5bafd4f543
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597696"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure
@@ -27,13 +27,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Interfaccia della riga di comando di Azure. Se non è stato installato l'interfaccia CLI di Azure, vedere [installare CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) per questa procedura.
+Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è stata installata, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) per la relativa procedura.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-cluster"></a>Creare un cluster
 
-1. Account di accesso alla sottoscrizione di Azure. Se si prevede di usare Azure Cloud Shell, quindi selezionare semplicemente **Provalo** nell'angolo superiore destro del blocco di codice. In caso contrario, immettere il comando seguente:
+1. Account di accesso alla sottoscrizione di Azure. Se si prevede di usare Azure Cloud Shell, è sufficiente fare clic su **Prova** nell'angolo superiore destro del blocco di codice. In caso contrario, immettere il comando seguente:
 
     ```azurecli-interactive
     az login
@@ -42,7 +42,7 @@ Interfaccia della riga di comando di Azure. Se non è stato installato l'interfa
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Impostare le variabili di ambiente. L'uso di variabili in questo articolo si basa su Bash. Saranno necessario leggere variazioni per altri ambienti. Visualizzare [az-hdinsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) per un elenco completo delle possibili parametri per la creazione del cluster.
+2. Impostare le variabili di ambiente. L'uso di variabili in questo articolo si basa su Bash. Per altri ambienti saranno necessarie piccole modifiche. Visualizzare [az-hdinsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) per un elenco completo delle possibili parametri per la creazione del cluster.
 
     |Parametro | Descrizione |
     |---|---|

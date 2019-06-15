@@ -9,10 +9,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7f2abbb355513c175329d01b9d5ed8884f2c27ef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715956"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montare una condivisione file di Azure tramite SMB con macOS
@@ -38,7 +38,7 @@ ms.locfileid: "64715956"
 1. **Aprire Finder**: per impostazione predefinita, il Finder è aperto in macOS, ma per verificare che sia l'applicazione attualmente selezionata fare clic sull'icona con il volto di macOS sul Dock:  
     ![Icona con il volto di macOS](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Selezionare "Connetti a server" dal menu "Vai"**: usando il percorso UNC dei prerequisiti, convertire la doppia barra rovesciata iniziale (`\\`) in `smb://` e tutte le altre barre rovesciate (`\`) in barre (`/`). Il collegamento deve apparire come segue: ![Finestra di dialogo "Connetti al server"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Selezionare "Connetti a server" dal menu "Vai"** : usando il percorso UNC dei prerequisiti, convertire la doppia barra rovesciata iniziale (`\\`) in `smb://` e tutte le altre barre rovesciate (`\`) in barre (`/`). Il collegamento deve apparire come segue: ![Finestra di dialogo "Connetti al server"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Usare il nome dell'account di archiviazione e la chiave dell'account di archiviazione quando vengono richiesti un nome utente e una password**: quando si fa clic su "Connessione" nella finestra di dialogo "Connetti a server", verranno chiesti il nome utente e la password. Verrà automaticamente inserito il nome utente macOS. È possibile inserire il nome o la chiave dell'account di archiviazione nel keychain di macOS.
 

@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: 5490149f199c2d7887716ceae3f035527ad33961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170044"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurare il ripristino di emergenza di VM VMware in Azure con PowerShell
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Impostare il contesto dell'insieme di credenziali usando il cmdlet Set-ASRVaultContext. In questo modo, le successive operazioni di Azure Site Recovery nella sessione di PowerShell verranno eseguite nel contesto dell'insieme di credenziali selezionato.
 
 > [!TIP]
-> Il modulo di PowerShell per Azure Site Recovery (modulo Az.RecoveryServices) viene fornito con alias di facile utilizzo per la maggior parte dei cmdlet. I cmdlet nel modulo assumono la forma  *\<operazione >-**AzRecoveryServicesAsr**\<oggetto >* e hanno alias equivalenti che assumono la forma  *\< Operazione >-**Azure Site Recovery**\<oggetto >*. In questo articolo vengono usati gli alias dei cmdlet per una maggiore semplicità di lettura.
+> Il modulo di PowerShell per Azure Site Recovery (modulo Az.RecoveryServices) viene fornito con alias di facile utilizzo per la maggior parte dei cmdlet. I cmdlet nel modulo assumono la forma  *\<operazione >-**AzRecoveryServicesAsr**\<oggetto >* e hanno alias equivalenti che assumono la forma  *\< Operazione >-**Azure Site Recovery**\<oggetto >* . In questo articolo vengono usati gli alias dei cmdlet per una maggiore semplicità di lettura.
 
 Nell'esempio seguente, vengono usati i dettagli dell'insieme di credenziali ottenuti dalla variabile $vault per specificare il contesto dell'insieme di credenziali per la sessione di PowerShell.
 
@@ -339,7 +339,7 @@ Per proteggere una macchina virtuale individuata sono necessari i dettagli segue
 
 * L'elemento da proteggere che deve essere replicato.
 * L'account di archiviazione in cui replicare la macchina virtuale. È necessario anche un archivio di log per la protezione delle macchine virtuali destinate a un account di archiviazione Premium.
-* Il server di elaborazione usato per la replica. L'elenco dei server di elaborazione disponibili è stato recuperato e salvato nelle variabili ***$ProcessServers[0]*** *(ScaleOut-ProcessServer)* e ***$ProcessServers[1]*** *(ConfigurationServer)*.
+* Il server di elaborazione usato per la replica. L'elenco dei server di elaborazione disponibili è stato recuperato e salvato nelle variabili ***$ProcessServers[0]*** *(ScaleOut-ProcessServer)* e ***$ProcessServers[1]*** *(ConfigurationServer)* .
 * L'account da usare per eseguire nei computer l'installazione push del software del servizio Mobility. L'elenco degli account disponibili è stato recuperato e archiviato nella variabile ***$AccountHandles***.
 * Il mapping del contenitore di protezione per i criteri di replica da usare per la replica.
 * Il gruppo di risorse in cui devono essere create le macchine virtuali in caso di failover.

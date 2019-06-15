@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 5e6548a5a04e32b374a8a9c29d2ca5f89fd65c78
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160186"
 ---
 # <a name="private-cloud-vmware-components"></a>Componenti VMware di cloud privato
@@ -37,7 +37,7 @@ Stack di VMware un cloud privato viene distribuito con la versione del software 
 
 ## <a name="esxi"></a>ESXi
 
-VMware ESXi viene installato nei nodi CloudSimple acquistati quando si crea un cloud privato.  ESXi fornisce l'hypervisor per la distribuzione di macchine virtuali del carico di lavoro (VM).  Nodi forniscono infrastruttura iperconvergente (calcolo e archiviazione) nel cloud privato.  I nodi sono una parte del cluster vSphere nel cloud privato.  Ogni nodo dispone di quattro interfacce di rete fisica connessa a Metti sotto di rete.  Due interfacce di rete fisica utilizzate per creare un **vSphere Distributed Switch (VDS)** in vCenter e due vengono usate per creare un **gestito NSX distribuito il commutatore virtuale (N-VDS)**.  Interfacce di rete sono configurate in modalità attivo-attivo per la disponibilità elevata.
+VMware ESXi viene installato nei nodi CloudSimple acquistati quando si crea un cloud privato.  ESXi fornisce l'hypervisor per la distribuzione di macchine virtuali del carico di lavoro (VM).  Nodi forniscono infrastruttura iperconvergente (calcolo e archiviazione) nel cloud privato.  I nodi sono una parte del cluster vSphere nel cloud privato.  Ogni nodo dispone di quattro interfacce di rete fisica connessa a Metti sotto di rete.  Due interfacce di rete fisica utilizzate per creare un **vSphere Distributed Switch (VDS)** in vCenter e due vengono usate per creare un **gestito NSX distribuito il commutatore virtuale (N-VDS)** .  Interfacce di rete sono configurate in modalità attivo-attivo per la disponibilità elevata.
 
 Altre informazioni su VMware ESXi
 

@@ -8,10 +8,10 @@ ms.date: 1/8/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 2f0bd0a20b866d342802014f1034a7ed9d939d53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831360"
 ---
 # <a name="url-path-based-routing-overview"></a>Panoramica del routing basato su percorso URL
@@ -74,12 +74,12 @@ Le regole di percorso non fanno distinzione tra maiuscole e minuscole.
 
 |Modello di percorso v1  |È supportato?  |
 |---------|---------|
-|`/images/*`     |Sì|
+|`/images/*`     |sì|
 |`/images*`     |no|
 |`/images/*.jpg`     |no|
 |`/*.jpg`     |no|
 |`/Repos/*/Comments/*`     |no|
-|`/CurrentUser/Comments/*`     |Sì|
+|`/CurrentUser/Comments/*`     |sì|
 
 #### <a name="v2"></a>v2
 
@@ -87,12 +87,12 @@ Le regole di percorso fanno distinzione tra maiuscole e minuscole.
 
 |Modello di percorso v2  |È supportato?  |
 |---------|---------|
-|`/images/*`     |Sì|
-|`/images*`     |Sì|
+|`/images/*`     |sì|
+|`/images*`     |sì|
 |`/images/*.jpg`     |no|
 |`/*.jpg`     |no|
 |`/Repos/*/Comments/*`     |no|
-|`/CurrentUser/Comments/*`     |Sì|
+|`/CurrentUser/Comments/*`     |sì|
 
 Per altre informazioni, vedere un [modello di Azure Resource Manager che usa il routing basato su URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) .
 

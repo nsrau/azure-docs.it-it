@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
 ms.openlocfilehash: 592e1973344b231693077f8286a41dfd67a8d188
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66689117"
 ---
 | Resource | Limite predefinito o massimo | Note |
 | --- | --- | --- |
-| Gateway applicazione di Azure |1.000 per ogni sottoscrizione | |
+| Gateway applicazione di Azure |1\.000 per ogni sottoscrizione | |
 | Configurazioni IP front-end |2 |1 pubblica e 1 privata |
 | Porte front-end |100<sup>1</sup> | |
 | Pool di indirizzi back-end |100<sup>1</sup> | |
@@ -33,7 +33,7 @@ ms.locfileid: "66689117"
 | Numero massimo di regole basate sul percorso per mappa di URL|100||
 | Configurazioni di reindirizzamento |100<sup>1</sup>| |
 | Connessioni WebSocket simultanee |Gateway di medie dimensioni 20 KB<br> Gateway di grandi dimensioni 50k| |
-| Lunghezza massima dell'URL|8.000||
+| Lunghezza massima dell'URL|8\.000||
 | Dimensioni massime caricamento file, Standard |2 GB | |
 | Dimensioni massime caricamento file WAF |Gateway WAF medi, 100 MB<br>Gateway di grandi dimensioni WAF, 500 MB| |
 | Limite di dimensioni del corpo di WAF, senza i file|128 KB||

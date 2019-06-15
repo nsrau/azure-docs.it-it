@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: f659ad2f75f9dad390c37f0e1736af5991a32dfc
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943233"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Scheda Contacts (Contatti) per l'app Power BI
@@ -25,7 +25,7 @@ La scheda **Contacts** (Contatti) nella pagina **New Offer** (Nuova offerta) con
 
 Nella tabella seguente descrive lo scopo di ogni campo.  I campi obbligatori sono indicati da un asterisco (*). 
 
-|   Campo               |   DESCRIZIONE                                                            |
+|   Campo               |   Descrizione                                                            |
 |-----------------------|--------------------------------------------------------------------------|
 | *Engineering Contact* (Contatto tecnico) | Svolge la funzione di contatto tecnico tra AppSource e l'organizzazione dell'editore.    |
 | **Nome\***              | Nome della persona o del gruppo che funge da supporto tecnico o di progettazione. |

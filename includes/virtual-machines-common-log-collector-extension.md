@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387962"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67120188"
 ---
 Per diagnosticare i problemi con un servizio cloud di Microsoft Azure è necessario raccogliere i file di log del servizio nelle macchine virtuali non appena si verificano i problemi. È possibile usare l'estensione AzureLogCollector su richiesta per eseguire una raccolta occasionale di log da una o più macchine virtuali del servizio cloud (da ruoli Web e ruoli di lavoro) e trasferire i file raccolti in un account di archiviazione di Azure, senza accedere in modalità remota ad alcuna macchina virtuale.
 
@@ -20,8 +20,8 @@ Per diagnosticare i problemi con un servizio cloud di Microsoft Azure è necessa
 
 Sono disponibili due modalità di raccolta a seconda dei tipi di file da raccogliere.
 
-* **Solo log di agenti guest di Azure (GA)**. Questa modalità di raccolta include tutti i log relativi agli agenti guest di Azure e ad altri componenti di Azure.
-* **Tutti i log (Completa)**. Questa modalità di raccolta raccoglie tutti i file in modalità Agenti guest, oltre a:
+* **Solo log di agenti guest di Azure (GA)** . Questa modalità di raccolta include tutti i log relativi agli agenti guest di Azure e ad altri componenti di Azure.
+* **Tutti i log (Completa)** . Questa modalità di raccolta raccoglie tutti i file in modalità Agenti guest, oltre a:
   
   * log eventi di sistema e dell'applicazione
   * log degli errori HTTP

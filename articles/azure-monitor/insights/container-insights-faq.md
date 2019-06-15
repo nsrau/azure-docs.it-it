@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779999"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure per i contenitori
@@ -71,7 +71,7 @@ Per un'analisi approfondita del problema, vedere il [collegamento a GitHub](http
 
 ## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Come si risolvono gli errori di Azure AD quando Abilita i log in tempo reale? 
 
-Può essere visualizzato l'errore seguente: **Risposta url specificato nella richiesta non corrisponde a URL di risposta configurati per l'applicazione: ' < ID applicazione\>'**. La soluzione per risolvere l'errore sono reperibili nell'articolo [come visualizzare i contenitori i log tempo reale con monitoraggio di Azure per contenitori](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+Può essere visualizzato l'errore seguente: **Risposta url specificato nella richiesta non corrisponde a URL di risposta configurati per l'applicazione: ' < ID applicazione\>'** . La soluzione per risolvere l'errore sono reperibili nell'articolo [come visualizzare i contenitori i log tempo reale con monitoraggio di Azure per contenitori](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
 
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Il motivo per cui non è possibile eseguire l'aggiornamento del cluster dopo l'onboarding?
 

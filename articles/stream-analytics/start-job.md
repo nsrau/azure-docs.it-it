@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: 9bc3e4132919e5fc5baadc78841e66efd3c34bcd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61362266"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>Come avviare un processo Azure Stream Analitica
@@ -60,5 +60,5 @@ Per altre informazioni sul `Start-AzStreamAnalyitcsJob` cmdlet, visualizzare il 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Avvio rapido: Creare un processo di Analisi di flusso tramite il portale di Azure](stream-analytics-quick-create-portal.md)
-* [Guida introduttiva: Creare un processo di Stream Analitica con Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Guida introduttiva: Creare un processo di Analisi di flusso con gli strumenti di Analisi di flusso di Azure per Visual Studio](stream-analytics-quick-create-vs.md)
+* [Avvio rapido: Creare un processo di Stream Analitica con Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Avvio rapido: Creare un processo di Analisi di flusso con gli strumenti di Analisi di flusso di Azure per Visual Studio](stream-analytics-quick-create-vs.md)

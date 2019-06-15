@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
 ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60868247"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Tenere traccia dei costi associati a un lab in Azure DevTest Labs
@@ -39,7 +39,7 @@ Per visualizzare il grafico della tendenza dei costi mensili stimati, seguire qu
 
     Il valore del **Costo stimato** corrisponde al costo attualmente stimato per il mese di calendario corrente. Il **Costo previsto** corrisponde al costo stimato per l'intero mese di calendario corrente, calcolato sulla base del costo del lab dei cinque giorni precedenti.
 
-    Gli importi vengono arrotondati al numero intero successivo. Ad esempio:  
+    Gli importi vengono arrotondati al numero intero successivo. Ad esempio: 
 
    * 5,01 arrotondato a 6 
    * 5,50 arrotondato a 6

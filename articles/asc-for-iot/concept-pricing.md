@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 40963e0d81ccff21cc625b799833b996547a13b6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65198328"
 ---
 # <a name="pricing-and-associated-costs"></a>Prezzi e costi associati
@@ -62,7 +62,7 @@ Per modificare le impostazioni:
 
 Nella tabella seguente fornisce un riepilogo dei costi associati e le implicazioni di ogni opzione.
 
-|     | Uso | Comment |
+|     | Uso | Commento |
 | --- | --- | --- |
 | **Utilizzo di quota dell'IoT Hub** |  |
 | [Esportare dispositivi](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) processo (esportazione dei dispositivi gemelli) | Una volta al giorno | Disabilitare _twin raccolta di metadati_ |
@@ -73,7 +73,7 @@ Nella tabella seguente fornisce un riepilogo dei costi associati e le implicazio
 >[!Important]
 > Rifiuto con gravi implicazioni per le funzionalità di sicurezza disponibili.
   
-| Rifiuta esplicitamente | Implicazioni |
+| Rifiutare esplicitamente | Implicazioni |
 | --- | --- |
 | _Raccolta di metadati dei dispositivi gemelli_ | Disabilitare [avvisi personalizzati](quickstart-create-custom-alerts.md) |
 | | Disabilitare le raccomandazioni del manifesto di IoT Edge |
@@ -82,7 +82,7 @@ Nella tabella seguente fornisce un riepilogo dei costi associati e le implicazio
 | | I dettagli sui [alert](concept-security-alerts.md) e [raccomandazione](concept-recommendations.md) indagini non sono disponibili |
 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - Accesso di [i dati di sicurezza non elaborati](how-to-security-data-access.md)
 - [Provare a utilizzare un dispositivo](how-to-investigate-device.md)

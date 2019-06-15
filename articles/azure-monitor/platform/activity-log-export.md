@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: acf2526e79519e610614dc5217efbfe5e327b90f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66248145"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Esporta log attività di Azure per l'archiviazione o hub eventi di Azure
@@ -113,10 +113,10 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
     | --- | --- | --- |
     | Name |Sì |Nome del profilo di log. |
     | StorageAccountId |No |ID risorsa dell'Account di archiviazione in cui deve essere salvato il Log attività. |
-    | serviceBusRuleId |No  |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Questa è una stringa con il formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+    | serviceBusRuleId |No |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Questa è una stringa con il formato: `{service bus resource ID}/authorizationrules/{key name}`. |
     | Località |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
     | RetentionInDays |Yes |Numero di giorni per cui gli eventi devono essere conservati nell'account di archiviazione, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono conservati all'infinito. |
-    | Category |No  |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono _scrivere_, _eliminare_, e _azione_. |
+    | Category |No |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono _scrivere_, _eliminare_, e _azione_. |
 
 ### <a name="example-script"></a>Script di esempio
 Seguito è riportato uno script di PowerShell di esempio per creare un profilo di log che scrive il Log attività per entrambi un archivio account e un hub eventi.
@@ -235,7 +235,7 @@ Gli elementi in questo codice JSON sono descritti nella tabella seguente.
 | callerIpAddress |Indirizzo IP dell'utente che ha eseguito l'operazione, attestazione UPN o attestazione SPN, a seconda della disponibilità. |
 | correlationId |In genere un GUID in formato stringa. Gli eventi che condividono un elemento correlationId appartengono alla stessa azione. |
 | identity |BLOB JSON che descrive l'autorizzazione e le attestazioni. |
-| autorizzazione |BLOB delle proprietà RBAC dell'evento. In genere include le proprietà "action", "role" e "scope". |
+| authorization |BLOB delle proprietà RBAC dell'evento. In genere include le proprietà "action", "role" e "scope". |
 | level |Livello dell'evento. Uno dei valori seguenti: _Critici_, _errore_, _avviso_, _informativo_, e _dettagliato_ |
 | location |Area in cui si trova la località (o global). |
 | properties |Set di coppie `<Key, Value>` ad esempio Dictionary, che descrivono i dettagli dell'evento. |

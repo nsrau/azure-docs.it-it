@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: d485799547644ccb3c34a8841e8b20d8a45444bf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707368"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurare i criteri per Apache Hive in HDInsight con Enterprise Security Package
@@ -74,11 +74,11 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
 ## <a name="create-hive-odbc-data-source"></a>Creare un'origine dati Hive ODBC
 Le istruzioni sono disponibili in [Creare un'origine dati Hive ODBC](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).  
 
- | Proprietà  |DESCRIZIONE |
+ | Proprietà  |Descrizione |
  | --- | --- |
  | Data Source Name | Assegnare un nome all'origine dati |
  | Host | Immettere &lt;HDInsightClusterName>.azurehdinsight.net. Ad esempio, myHDICluster.azurehdinsight.net |
- | Porta | Utilizzare **443**. Questa porta è passata da 563 a 443. |
+ | Port | Utilizzare **443**. Questa porta è passata da 563 a 443. |
  | Database | Usare l'**impostazione predefinita**. |
  | Hive Server Type | Selezionare **Hive Server 2** |
  | Mechanism | Selezionare **Azure HDInsight Service** |

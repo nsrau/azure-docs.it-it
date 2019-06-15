@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470238"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
@@ -179,8 +179,8 @@ Il runtime di Service Fabric fornito con l'installazione dell'SDK include i pacc
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicito da npm | più recente |
-RHEL | - | OpenJDK 1.8 | Implicito da npm | più recente |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicito da npm | più recenti |
+RHEL | - | OpenJDK 1.8 | Implicito da npm | più recenti |
 
 ## <a name="set-up-a-local-cluster"></a>Configurare un cluster locale
 Dopo aver completato l'installazione, avviare un cluster locale.
@@ -277,7 +277,7 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 
 2. Per installare il plug-in Service Fabric, selezionare **Help** > **Install New Software** (? > Installa nuovo software).
 
-3. Nella casella **Work with** (Lavora con) immettere **https://dl.microsoft.com/eclipse**.
+3. Nella casella **Work with** (Lavora con) immettere **https://dl.microsoft.com/eclipse** .
 
 4. Selezionare **Aggiungi**.
 

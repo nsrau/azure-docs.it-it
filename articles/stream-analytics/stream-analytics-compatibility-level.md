@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/2/2019
 ms.openlocfilehash: c1b2875e6899d2301a4c4b564882214dc7bc4981
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205466"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
@@ -107,7 +107,7 @@ Nel livello di compatibilità 1.1 sono state introdotte le modifiche sostanziali
 
 ### <a name="service-bus-xml-format"></a>Formato XML del Bus di servizio
 
-**livello di 1.0:** Analisi di flusso di Azure usava DataContractSerializer e nel contenuto del messaggio erano quindi inclusi i tag XML. Ad esempio: 
+**livello di 1.0:** Analisi di flusso di Azure usava DataContractSerializer e nel contenuto del messaggio erano quindi inclusi i tag XML. Ad esempio:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 

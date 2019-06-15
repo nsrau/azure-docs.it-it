@@ -9,20 +9,20 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160487"
 ---
 L'archiviazione è vincolata dallo spazio su disco o da un limite rigido al *numero massimo* di indici, documenti o altre risorse di alto livello, a seconda di quale venga raggiunto per primo. Nella tabella seguente vengono documentati i limiti relativi all'archiviazione. Per i limiti massimi per gli indici, documenti e altri oggetti, vedere [limiti per singola risorsa](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
 | Resource | Gratuito | Basic<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contratto di servizio (SLA)<sup>3</sup>  |N. |Sì |Sì |Sì |Sì |Sì |Sì |Sì |
+| Contratto di servizio (SLA)<sup>3</sup>  |No |Yes |Sì |Sì |Sì |Sì |Sì |Yes |
 | Archiviazione per partizione |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
 | Partizioni per servizio |N/D |1 |12 |12 |12 |3 |12 |12 |
-| Dimensioni partizione |N/D |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
+| Dimensioni della partizione |N/D |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
 | Repliche |N/D |3 |12 |12 |12 |12 |12 |12 |
 
 <sup>1</sup> Il livello Basic ha una partizione fissa. Questo livello, unità di ricerca aggiuntive vengono utilizzate per l'allocazione di più repliche per i carichi di lavoro maggiore di query.

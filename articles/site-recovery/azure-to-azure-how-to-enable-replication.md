@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
 ms.openlocfilehash: 86bd41d518006b0601a5c9d18e5429f76d5a4fc5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926651"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Eseguire la replica di macchine virtuali di Azure in un'altra area di Azure
@@ -55,7 +55,7 @@ Abilitare la replica. Questa procedura presuppone che l'area di Azure primaria s
        - Il percorso del gruppo di risorse di destinazione può essere qualsiasi area di Azure, tranne l'area in cui sono ospitate le macchine virtuali di origine.
    - **Rete virtuale di destinazione**: Per impostazione predefinita, Site Recovery crea una nuova rete virtuale nell'area di destinazione con suffisso "asr" nel nome. Questa rete è mappata alla rete di origine ed è usata per protezione futura. [Altre informazioni](site-recovery-network-mapping-azure-to-azure.md) sul mapping di rete.
    - **Account di archiviazione (macchina virtuale di origine non usa dischi gestiti) di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione di destinazione, che rispecchia la configurazione delle risorse di archiviazione della macchina virtuale di origine. Nel caso in cui l'account di archiviazione esista già, verrà riusato.
-   - **I dischi gestiti di replica (macchina virtuale di origine Usa dischi gestiti)**: Site Recovery crea nuovi dischi gestiti di replica nell'area di destinazione per eseguire il mirroring dei dischi gestiti della VM di origine con lo stesso tipo di archiviazione (Standard o premium) disco gestito della macchina virtuale di origine.
+   - **I dischi gestiti di replica (macchina virtuale di origine Usa dischi gestiti)** : Site Recovery crea nuovi dischi gestiti di replica nell'area di destinazione per eseguire il mirroring dei dischi gestiti della VM di origine con lo stesso tipo di archiviazione (Standard o premium) disco gestito della macchina virtuale di origine.
    - **Account di archiviazione della cache**: Site Recovery necessita di un account di archiviazione aggiuntivo, definito account di archiviazione della cache, nell'area di origine. Tutte le modifiche apportate nelle VM di origine vengono registrate e inviate all'account di archiviazione della cache prima della replica nella posizione di destinazione.
    - **Set di disponibilità di destinazione**: Per impostazione predefinita, Site Recovery crea un nuovo set di disponibilità nell'area di destinazione con suffisso "asr" nel nome, per le macchine virtuali che fanno parte di un set di disponibilità nell'area di origine. Se il set di disponibilità creato da Site Recovery già esiste, verrà riusato.
    - **Zone di disponibilità di destinazione**: per impostazione predefinita, Site Recovery assegna nell'area di origine lo stesso numero di zona dell'area di origine se l'area di destinazione supporta le zone di disponibilità.
@@ -100,7 +100,7 @@ Dopo l'esecuzione dei processi di enable replica e il completamento della replic
 
 2. Fare clic su **Personalizza:** per modificare le impostazioni predefinite:
     - In **Gruppo di risorse di destinazione** è possibile selezionare il gruppo di risorse dall'elenco di tutti i gruppi di risorse nel percorso di destinazione all'interno della sottoscrizione.
-    - In **Rete virtuale di destinazione:**, selezionare la rete dall'elenco di tutte le reti virtuali nel percorso di destinazione.
+    - In **Rete virtuale di destinazione:** , selezionare la rete dall'elenco di tutte le reti virtuali nel percorso di destinazione.
     - In **Set di disponibilità** è possibile aggiungere le impostazioni del set di disponibilità per la macchina virtuale, se sono parte di un set di disponibilità nell'area di origine.
     - In **Account di archiviazione di destinazione**, selezionare l'account da usare.
 

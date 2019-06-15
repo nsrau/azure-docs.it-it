@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: ea9499da3dac67635a48704f439f6592c6ed467e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65515385"
 ---
 # <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>Esportazione singola e a più risorse al modello nel portale di Azure
@@ -62,7 +62,7 @@ Per esportare una o più risorse da un gruppo di risorse:
 
 1. Il modello esportato viene visualizzato e sia disponibile per il download.
 
-   ![Mostra modello](./media/export-template-portal/show-template.png)
+   ![Mostrare il modello](./media/export-template-portal/show-template.png)
 
 ## <a name="export-template-from-resource"></a>Esporta modello dalla risorsa
 
@@ -72,7 +72,7 @@ Per esportare una risorsa:
 
 1. Selezionare la risorsa da esportare.
 
-   ![Selezione risorsa](./media/export-template-portal/select-link-resource.png)
+   ![Selezionare una risorsa](./media/export-template-portal/select-link-resource.png)
 
 1. Per la risorsa, selezionare **Esporta modello** nel riquadro sinistro.
 
@@ -88,11 +88,11 @@ Per esportare una risorsa:
 
 1. Dopo il superamento della convalida, ma prima di avviare la distribuzione, selezionare **scaricare un modello per l'automazione**.
 
-   ![Scarica modello](./media/export-template-portal/download-before-deployment.png)
+   ![Scaricare il modello](./media/export-template-portal/download-before-deployment.png)
 
 1. Il modello viene visualizzato e può essere scaricato.
 
-   ![Mostra modello](./media/export-template-portal/show-template-before-deployment.png)
+   ![Mostrare il modello](./media/export-template-portal/show-template-before-deployment.png)
 
 ## <a name="export-template-after-deployment"></a>Esportare il modello dopo la distribuzione
 
@@ -110,7 +110,7 @@ Per esportare una risorsa:
 
 1. Selezionare **modello**. Il modello usato per questa distribuzione viene visualizzato e può essere scaricato.
 
-   ![Seleziona modello](./media/export-template-portal/show-template-from-history.png)
+   ![Selezionare il modello](./media/export-template-portal/show-template-from-history.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

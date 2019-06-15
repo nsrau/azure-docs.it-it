@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: a77cf20be30361abf6590dbd53bdb07c327eb9d8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204983"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registrazione analitica dell'archiviazione Azure
@@ -87,7 +87,7 @@ Per informazioni sull'elenco di BLOB a livello di codice, vedere [enumerazione d
 
  La tabella seguente descrive ogni attributo del nome di log:
 
-|Attributo|DESCRIZIONE|
+|Attributo|Descrizione|
 |---------------|-----------------|
 |`<service-name>`|Nome del servizio di archiviazione. Ad esempio: `blob`, `table`, o `queue`|
 |`YYYY`|L'anno a quattro cifre per il log. Ad esempio: `2011`|
@@ -111,7 +111,7 @@ Per informazioni sull'elenco di BLOB a livello di codice, vedere [enumerazione d
 
  Tutti i BLOB dei log vengono archiviati con i metadati che possono essere utilizzati per identificare i dati di registrazione contenuti nei BLOB. La tabella seguente descrive ciascun attributo dei metadati:
 
-|Attributo|DESCRIZIONE|
+|Attributo|Descrizione|
 |---------------|-----------------|
 |`LogType`|Descrive se il log contiene informazioni relative alle operazioni di lettura, scrittura o eliminazione. Questo valore può includere un solo tipo o una combinazione di tutti e tre, separati da virgola.<br /><br /> Esempio 1: `write`<br /><br /> Esempio 2: `read,write`<br /><br /> Esempio 3: `read,write,delete`|
 |`StartTime`|La prima ora di una voce nel log, sotto forma di `YYYY-MM-DDThh:mm:ssZ`. Ad esempio: `2011-07-31T18:21:46Z`|

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 5197fdfe78b1b091de713754967f58157cc4a1b3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481655"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Condizioni di corrispondenza di rete CDN di Azure fornita da Verizon Premium motore regole di Business
@@ -30,7 +30,7 @@ Ad esempio, è possibile usare una condizione di corrispondenza per:
 
 La condizione di corrispondenza Sempre applica un set predefinito di funzionalità a tutte le richieste.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Sempre](#always) | Applica un set predefinito di funzionalità a tutte le richieste.
 
@@ -38,7 +38,7 @@ NOME | Scopo
 
 La condizione di corrispondenza Dispositivo identifica le richieste effettuate da un dispositivo mobile in base alle relative proprietà.  
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Dispositivo](#device) | Identifica le richieste effettuate da un dispositivo mobile in base alle relative proprietà.
 
@@ -46,7 +46,7 @@ Name | Scopo
 
 Le condizioni di corrispondenza Posizione identificano le richieste in base alla posizione del richiedente.
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Numero AS](#as-number) | Identifica le richieste che hanno origine da una determinata rete.
 [Paese](#country) | Identifica le richieste che provengono da paesi/aree geografiche specificati.
@@ -55,7 +55,7 @@ Name | Scopo
 
 Le condizioni di corrispondenza Origine identificano le richieste che puntano all'archivio della rete CDN o a un server di origine del cliente.
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Origine rete CDN](#cdn-origin) | Identifica le richieste per il contenuto archiviato nell'archivio della rete CDN.
 [Origine cliente](#customer-origin) | Identifica le richieste di contenuto in uno specifico server di origine del cliente.
@@ -64,7 +64,7 @@ Name | Scopo
 
 Le condizioni di corrispondenza Richiesta identificano le richieste in base alle relative proprietà.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Indirizzo IP client](#client-ip-address) | Identifica le richieste che hanno origine da un determinato indirizzo IP.
 [Parametro cookie](#cookie-parameter) | Controlla il valore specificato nei cookie associati a ogni richiesta.
@@ -81,7 +81,7 @@ NOME | Scopo
 
 Le condizioni di corrispondenza URL identificano le richieste in base ai relativi URL.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [URL Path Directory](#url-path-directory) (Directory percorso URL) | Identifica le richieste in base al percorso relativo.
 [URL Path Extension](#url-path-extension) (Estensione percorso URL) | Identifica le richieste in base all'estensione del nome file.
@@ -804,7 +804,7 @@ Informazioni chiave:
 - Un URL CNAME perimetrale viene riscritto in un URL della rete CDN prima del confronto degli URL.
 
     Ad esempio, entrambi gli URL seguenti puntano allo stesso asset e di conseguenza hanno lo stesso percorso URL:
-     - URL della rete CDN: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+     - URL della rete CDN: http://wpc.0001.&lt ;domain&gt; /800001/CustomerOrigin/path/asset.htm
      - URL CNAME perimetrale: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Informazioni aggiuntive:
@@ -953,7 +953,7 @@ Informazioni chiave:
 
 L'esempio seguente mostra il funzionamento di questa opzione in situazioni specifiche:
 
-NOME  | Value |  Risultato
+Name  | Value |  Risultato
 ------|-------|--------
 Utente  | Joe   | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto è "?user=joe".
 Utente  | *     | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto contiene un parametro User.
@@ -1036,7 +1036,7 @@ Informazioni chiave:
 
 - È possibile specificare più valori delimitandoli con uno spazio singolo.
 
-   Ad esempio:  *Parametro1=ValoreA* *ValoreB* *Parametro1=ValoreC&Parametro2=ValoreD*
+   Ad esempio: *Parametro1=ValoreA* *ValoreB* *Parametro1=ValoreC&Parametro2=ValoreD*
 
 - Questa condizione verrà soddisfatta solo da corrispondenze esatte ad almeno uno dei modelli di stringa di query specificati.
     

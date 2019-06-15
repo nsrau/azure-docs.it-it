@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
 ms.openlocfilehash: 4cc2d6355a0147c33048f1c2c27a3648b9223db4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110924"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connessione remota a un'istanza di set di scalabilità di macchine virtuali o a un nodo del cluster
@@ -28,7 +28,7 @@ Per trovare un indirizzo IP e una porta da usare per connettersi in remoto a un'
 
 1. Ottenere le regole NAT in ingresso per Remote Desktop Protocol (RDP).
 
-    In genere, ogni tipo di nodo definito nel cluster ha il proprio indirizzo IP virtuale e un bilanciamento del carico dedicato. Per impostazione predefinita, il servizio di bilanciamento del carico per un tipo di nodo è denominato con il formato seguente: *Bilanciamento del carico-{nome del cluster}-{nodo-type}*, ad esempio *mycluster-LB-FrontEnd*. 
+    In genere, ogni tipo di nodo definito nel cluster ha il proprio indirizzo IP virtuale e un bilanciamento del carico dedicato. Per impostazione predefinita, il servizio di bilanciamento del carico per un tipo di nodo è denominato con il formato seguente: *Bilanciamento del carico-{nome del cluster}-{nodo-type}* , ad esempio *mycluster-LB-FrontEnd*. 
     
     Nella pagina del bilanciamento del carico nel portale di Azure selezionare **Impostazioni** > **Regole NAT in ingresso**: 
 
