@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790393"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118061"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limiti delle risorse per database singoli con il modello di acquisto basato su vCore
 
@@ -146,7 +146,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile 
 |Dimensioni di TempDB (GB)|32|64|128|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
-|Target IOPS (64 KB)|250|500|1000|
+|Target IOPS (64 KB)|500|1000|2000|
 |Registrare i limiti di velocità (MBps)|2.5|5.6|10|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|75|150|300|
 |Numero massimo di sessioni consentite|30000|30000|30000|

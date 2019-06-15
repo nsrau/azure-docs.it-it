@@ -9,10 +9,10 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 84e3aff9c1c8cb3e7fe399c861c2c7d58c278fed
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64730545"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Aggiornare le soluzioni di analisi dei Big Data da Azure Data Lake Storage Gen1 ad Azure Data Lake Storage Gen2
@@ -75,7 +75,7 @@ Questa sezione descrive le funzionalità della piattaforma Data Lake Storage Gen
 | API lato server| [API REST compatibile con WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) | API REST per il servizio BLOB di Azure, [API REST per Data Lake Storage Gen2](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) | API REST per Data Lake Storage Gen2: *ora disponibile* <br><br> API REST per il servizio BLOB di Azure: *non ancora disponibile*       |
 | Client del file system Hadoop | Sì ([Azure Data Lake Storage](https://hadoop.apache.org/docs/current/hadoop-azure-datalake/index.html)) | Sì ([ABFS](https://jira.apache.org/jira/browse/HADOOP-15407))  | *Ora disponibile*  |  
 | Operazioni sui dati: autorizzazione  | Elenchi di controllo di accesso (ACL) POSIX a livello di file e cartella basati sulle identità di Azure Active Directory  | Elenchi di controllo di accesso (ACL) POSIX a livello di file e cartella basati sulle identità di Azure Active Directory, [chiave condivisa](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key) per l'autorizzazione a livello di account, [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) per accedere ai contenitori | *Ora disponibile* |
-| Operazioni sui dati: log  | Sì | Richieste occasionali di log per una durata specifica tramite ticket di supporto, Integrazione di Monitoraggio di Azure | Richieste occasionali di log per una durata specifica tramite ticket di supporto: *ora disponibile*<br><br> Integrazione di Monitoraggio di Azure: *non ancora disponibile* |
+| Operazioni sui dati: log  | Yes | Richieste occasionali di log per una durata specifica tramite ticket di supporto, Integrazione di Monitoraggio di Azure | Richieste occasionali di log per una durata specifica tramite ticket di supporto: *ora disponibile*<br><br> Integrazione di Monitoraggio di Azure: *non ancora disponibile* |
 | Crittografia dei dati inattivi | Trasparente, lato server con chiavi gestite dal servizio e con chiavi gestite dal cliente in Azure KeyVault | Trasparente, lato server con chiavi gestite dal servizio e con chiavi gestite dal cliente in Azure KeyVault | Chiavi gestite dal servizio: *ora disponibili*<br><br> Chiavi gestite dal cliente: *ora disponibili*  |
 | Operazioni di gestione, come la creazione di account | [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) fornito da Azure per la gestione degli account. | [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) fornito da Azure per la gestione degli account. | *Ora disponibile*|
 | SDK per sviluppatori | .NET, Java, Python, Node.js  | .NET, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS| *Non ancora disponibile* |
@@ -162,7 +162,7 @@ Data Lake Storage Gen1 esegue il push di informazioni e dati specifici ad altri 
 | Dati di fatturazione: contatori inviati al team commerciale per la fatturazione e quindi resi disponibili ai clienti  | *Ora disponibile*                                                                                             | *Ora disponibile*                                                                                                                           |
 | Log attività                                                                                          | [Collegamento](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs#audit-logs)   | Richieste occasionali di log per una durata specifica tramite ticket di supporto: *ora disponibile*, Integrazione di Monitoraggio di Azure: *non ancora disponibile* |
 | Log di diagnostica                                                                                        | [Collegamento](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs#request-logs) | Richieste occasionali di log per una durata specifica tramite ticket di supporto: *ora disponibile*, Integrazione di Monitoraggio di Azure: *non ancora disponibile* |
-| Metriche                                                                                                | *Non supportato*                                                                                               | *Ora disponibile -* [Collegamento](https://docs.microsoft.com/azure/storage/common/storage-metrics-in-azure-monitor)                          |
+| metrics                                                                                                | *Non supportato*                                                                                               | *Ora disponibile -* [Collegamento](https://docs.microsoft.com/azure/storage/common/storage-metrics-in-azure-monitor)                          |
 
 ## <a name="planning-for-an-upgrade"></a>Pianificazione di un aggiornamento
 
