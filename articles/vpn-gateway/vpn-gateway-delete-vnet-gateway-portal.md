@@ -3,16 +3,16 @@ title: 'Eliminare un gateway di rete virtuale: Portale di Azure: Azure Resource 
 description: Eliminare un gateway di rete virtuale usando il portale di Azure nel modello di distribuzione Resource Manager.
 services: vpn-gateway
 documentationcenter: na
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
-origin.date: 10/23/2018
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 10/23/2018
+ms.author: cherylmc
+ms.topic: conceptual
 ms.openlocfilehash: 387b4e982772f22453876e1ea8b9e7c4039601c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845691"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminare un gateway di rete virtuale usando il portale
@@ -63,5 +63,3 @@ Se non si è interessati a mantenere risorse del gruppo di risorse e si vuole so
 1. In **Tutte le risorse**, individuare il gruppo di risorse e fare clic per aprire il pannello.
 2. Fare clic su **Elimina**. Nel pannello Elimina visualizzare le risorse interessate. Assicurarsi che si desidera eliminare tutte le risorse. In caso contrario, usare i passaggi in Eliminare un gateway VPN all'inizio di questo articolo.
 3. Per continuare, digitare il nome del gruppo di risorse che si desidera eliminare, quindi fare clic su **Elimina**.
-
-<!--Update_Description: wording update-->

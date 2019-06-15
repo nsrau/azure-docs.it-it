@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
 ms.openlocfilehash: c887c5ea72a64828749bfc62756e59a8a22ea9df
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66729645"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Creare un gateway applicazione con reindirizzamento interno tramite Azure PowerShell
@@ -300,7 +300,7 @@ Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio
 
 ![Testare il sito contoso nel gateway applicazione](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Modificare l'indirizzo per l'altro dominio, ad esempio http://www.contoso.org dovrebbe essere possibile visualizzare che il traffico è stato reindirizzato al listener per www\.contoso.com.
+Modificare l'indirizzo per l'altro dominio, ad esempio http://www.contoso.org dovrebbe essere possibile visualizzare che il traffico è stato reindirizzato al listener per www\. contoso.com.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

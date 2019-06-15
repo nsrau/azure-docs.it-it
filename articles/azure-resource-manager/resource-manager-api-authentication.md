@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 04/05/2019
 ms.author: dugill
 ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61063302"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Usare l'API di autenticazione di Resource Manager per accedere alle sottoscrizioni
@@ -312,7 +312,7 @@ Richiesta di esempio per assegnare il ruolo Controllo degli accessi in base al r
 
 Nella richiesta vengono usati i valori seguenti:
 
-| Guid | DESCRIZIONE |
+| Guid | Descrizione |
 | --- | --- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb |ID della sottoscrizione |
 | c3097b31-7309-4c59-b4e3-770f8406bad2 |ID oggetto dell'entità servizio dell'applicazione |

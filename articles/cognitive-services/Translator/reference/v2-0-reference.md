@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-pawal
 ms.openlocfilehash: d2ff61908d7901fc464b58ee1ef9b5605b3026a3
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389836"
 ---
 # <a name="translator-text-api-v20"></a>API Traduzione testuale v2.0
@@ -209,7 +209,7 @@ Recupera i nomi descrittivi per le lingue passate come parametro `languageCodes`
 
 L'URI della richiesta è `https://api.microsofttranslator.com/V2/Http.svc/GetLanguageNames`.
 
-Il corpo della richiesta include una matrice di stringhe che rappresenta i codici delle lingue ISO 639-1 per cui recuperare i nomi descrittivi. Ad esempio: 
+Il corpo della richiesta include una matrice di stringhe che rappresenta i codici delle lingue ISO 639-1 per cui recuperare i nomi descrittivi. Ad esempio:
 
 ```
 <ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">

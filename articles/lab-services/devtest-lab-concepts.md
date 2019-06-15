@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 08cae51da20b6093b284618de92c61aab4bf5b55
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508376"
 ---
 # <a name="devtest-labs-concepts"></a>Concetti di Lab di sviluppo e test
@@ -38,7 +38,7 @@ Una macchina virtuale di Azure a disposizione degli utenti è una macchina virtu
 
 Una macchina virtuale a disposizione degli utenti non viene inizialmente assegnata ad alcun utente specifico, ma viene visualizzata nell'elenco di ogni utente in "Claimable virtual machines" (Macchine virtuali a disposizione degli utenti). Se una macchina virtuale viene richiesta da un utente, viene spostata nell'area "My virtual machines" (Le mie macchine virtuali) e non è più disponibile per altri utenti.
 
-## <a name="environment"></a>Ambiente
+## <a name="environment"></a>Environment
 In DevTest Labs il termine ambiente indica una raccolta di risorse di Azure in un lab. In [questo post di blog](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) viene discussa la creazione di ambienti con più macchine virtuali a partire da modelli di Azure Resource Manager.
 
 ## <a name="base-images"></a>Immagini di base

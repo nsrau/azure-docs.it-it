@@ -9,10 +9,10 @@ ms.date: 07/08/2018
 ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: 359347e41264711a6ac0fa4d2dd0c3633590e917
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66159882"
 ---
 Questo errore può verificarsi quando il servizio Sincronizzazione file di Azure non è accessibile dal server. È possibile risolvere questo errore eseguendo questa procedura:

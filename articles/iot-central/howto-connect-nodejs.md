@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888942"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connettere un'applicazione client generica all'applicazione Azure IoT Central (Node.js)
@@ -62,7 +62,7 @@ Immettere nel modello di dispositivo i nomi dei campi esattamente come sono visu
 
 Aggiungere il seguente evento nel **misurazioni** pagina:
 
-| Nome visualizzato | Nome campo  | Gravità |
+| Nome visualizzato | Nome campo  | Severity |
 | ------------ | ----------- | -------- |
 | Surriscaldamento  | overheat    | Tipi di errore    |
 

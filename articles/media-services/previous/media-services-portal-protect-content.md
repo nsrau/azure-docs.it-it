@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 65e5b5502b7d63d89845781487443f539a708816
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866957"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurare i criteri di protezione dei contenuti tramite il portale di Azure
 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > Non nuove funzionalità o funzionalità vengono aggiunti a servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > Non nuove funzionalità o funzionalità vengono aggiunti a servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 >
 
  Con Servizi multimediali di Azure, è possibile proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e distribuzione. È possibile usare Servizi multimediali per distribuire contenuti crittografati dinamicamente con Advanced Encryption Standard (AES), tramite chiavi di crittografia a 128 bit. È inoltre possibile usarlo con crittografia comune (CENC) tramite Digital Rights Management (DRM) PlayReady e/o Widevine e Apple FairPlay. 

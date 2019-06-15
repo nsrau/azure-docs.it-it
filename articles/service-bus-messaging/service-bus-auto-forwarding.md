@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686146"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Concatenamento di entità del bus di servizio con l'inoltro automatico
@@ -35,7 +35,7 @@ srcSubscription.ForwardTo = destTopic;
 namespaceManager.CreateSubscription(srcSubscription));
 ```
 
-L'entità di destinazione deve essere presente al momento della creazione dell'entità di origine. In caso contrario, il bus di servizio restituisce un'eccezione quando gli viene chiesto di creare l'entità di origine. 
+L'entità di destinazione deve essere presente al momento della creazione dell'entità di origine. In caso contrario, il bus di servizio restituisce un'eccezione quando gli viene chiesto di creare l'entità di origine.
 
 È possibile usare l'inoltro automatico per aumentare il numero di istanze di un singolo argomento. Il bus di servizio limita il [numero delle sottoscrizioni per un determinato argomento](service-bus-quotas.md) a 2000. Creando argomenti di secondo livello, è possibile aggiungere altre sottoscrizioni. Pur non essendo vincolati dalla limitazione del bus di servizio relativa al numero delle sottoscrizioni, l'aggiunta di un secondo livello di argomenti consente complessivamente di migliorare la velocità effettiva dell'argomento.
 

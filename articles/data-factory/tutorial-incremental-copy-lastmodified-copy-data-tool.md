@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
 ms.openlocfilehash: 3865bb10346c4a55adbf94a7df225eacf2c11252
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65519139"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>La copia incrementale di file nuovi e modificati basati LastModifiedDate & lt; tramite lo strumento Copia dati
@@ -63,7 +63,7 @@ Preparare l'archivio Blob per l'esercitazione eseguendo questi passaggi.
    
    ![Messaggio di errore per nuova data factory](./media/tutorial-copy-data-tool/name-not-available-error.png)
 
-   Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_**ADFTutorialDataFactory**. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
+   Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_ **ADFTutorialDataFactory**. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
 3. Selezionare di Azure **sottoscrizione** in cui si creerà la nuova data factory. 
 4. In **Gruppo di risorse** eseguire una di queste operazioni:
      

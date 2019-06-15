@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
 ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436597"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Usare lo schema CloudEvents con Griglia di eventi
@@ -62,16 +62,16 @@ Di seguito è riportato un esempio di un evento di archiviazione BLOB di Azure n
 
 In CloudEvents v0.1 sono disponibili le proprietà seguenti:
 
-| CloudEvents        | Type     | Valore JSON di esempio             | DESCRIZIONE                                                        | Mapping di Griglia di eventi
+| CloudEvents        | Type     | Valore JSON di esempio             | Descrizione                                                        | Mapping di Griglia di eventi
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| eventType          | string   | "com.example.someevent"          | Tipo di occorrenza che si è verificata                                   | eventType
-| eventTypeVersion   | string   | "1.0"                            | Versione di eventType (facoltativa)                            | dataVersion
-| cloudEventsVersion | string   | "0.1"                            | Versione della specifica CloudEvents usata dall'evento        | *passata*
-| una sezione source             | URI      | "/mycontext"                     | Descrive il producer di eventi                                       | topic#subject
-| eventID            | string   | "1234-1234-1234"                 | ID dell'evento                                                    | id
+| eventType          | String   | "com.example.someevent"          | Tipo di occorrenza che si è verificata                                   | eventType
+| eventTypeVersion   | String   | "1.0"                            | Versione di eventType (facoltativa)                            | dataVersion
+| cloudEventsVersion | String   | "0.1"                            | Versione della specifica CloudEvents usata dall'evento        | *passata*
+| source             | URI      | "/mycontext"                     | Descrive il producer di eventi                                       | topic#subject
+| eventID            | String   | "1234-1234-1234"                 | ID dell'evento                                                    | id
 | eventTime          | Timestamp| "2018-04-05T17:31:00Z"           | Timestamp del momento in cui l'evento si è verificato (facoltativo)                    | eventTime
 | schemaURL          | URI      | "https:\//myschema.com"           | Collegamento allo schema rispettato dall'attributo dati (facoltativo) | *non usato*
-| contentType        | string   | "application/json"               | Descrive il formato di codifica dei dati (facoltativo)                       | *non usato*
+| contentType        | String   | "application/json"               | Descrive il formato di codifica dei dati (facoltativo)                       | *non usato*
 | Estensioni         | Mappa      | { "extA": "vA", "extB", "vB" }  | Metadati aggiuntivi (facoltativi)                                 | *non usato*
 | data               | Object   | { "objA": "vA", "objB", "vB" }  | Payload dell'evento (facoltativo)                                       | data
 

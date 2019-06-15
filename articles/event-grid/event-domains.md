@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304287"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Informazioni sui domini eventi per la gestione di argomenti di Griglia di eventi
@@ -99,11 +99,11 @@ I domini eventi gestiscono automaticamente la pubblicazione negli argomenti. Inv
 ## <a name="limits-and-quotas"></a>Limiti e quote
 Ecco i limiti e quote relative ai domini di eventi:
 
-- 100.000 argomenti per ogni dominio di evento 
+- 100\.000 argomenti per ogni dominio di evento 
 - 100 domini di evento per ogni sottoscrizione di Azure 
 - 500 sottoscrizioni di eventi per argomento in un dominio eventi
 - 50 sottoscrizioni di ambito di dominio 
-- 5.000 eventi al secondo frequenza di inserimento (in un dominio)
+- 5\.000 eventi al secondo frequenza di inserimento (in un dominio)
 
 Se questi limiti non più appropriato, a rivolgersi al team del prodotto aprendo un ticket di supporto o inviando un messaggio di posta elettronica [ askgrid@microsoft.com ](mailto:askgrid.microsoft.com). 
 

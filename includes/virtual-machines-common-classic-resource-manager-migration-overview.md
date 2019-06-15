@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: jeconnoc
 ms.custom: include file
 ms.openlocfilehash: 289912e1519a68ae607ace7766e35731af0016b9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158263"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager
@@ -130,5 +130,5 @@ Le seguenti configurazioni non sono attualmente supportate.
 | Servizio app di Azure |Rete virtuale contenente ambienti del servizio app |Non supportato attualmente. |
 | HDInsight di Azure |Rete virtuale contenente servizi HDInsight |Non supportato attualmente. |
 | Servizi del ciclo di vita Microsoft Dynamics |Rete virtuale contenente macchine virtuali gestite da Dynamics Lifecycle Services |Non supportato attualmente. |
-| Azure AD Domain Services |Reti virtuali che contengono i servizi di dominio Azure AD |Non supportato attualmente. |
+| Servizi di dominio Azure Active Directory |Reti virtuali che contengono i servizi di dominio Azure AD |Non supportato attualmente. |
 | Gestione API di Azure |Reti virtuali che contengono distribuzioni di Gestione API |Non supportato attualmente. Per eseguire la migrazione di VNET IaaS, modificare la rete virtuale della distribuzione di Gestione API che è un'operazione senza tempi di inattività. |

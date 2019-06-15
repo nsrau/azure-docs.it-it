@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523080"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Come indicizzare i BLOB JSON con l'indicizzatore di Blob di ricerca di Azure
@@ -294,7 +294,7 @@ I BLOB JSON possono presupporre che più moduli. Il **parsingMode** parametro ne
 
 | parsingMode | Descrizione |
 |-------------|-------------|
-| `json`  | Indicizzare ogni blob come singolo documento. Questa è la modalità predefinita. |
+| `json`  | Indicizzare ogni blob come singolo documento. Questa è l'impostazione predefinita. |
 | `jsonArray` | Scegliere questa modalità se i BLOB sono costituiti da matrici JSON ed è necessario ogni elemento della matrice diventi un documento separato in ricerca di Azure. |
 |`jsonLines` | Scegliere questa modalità se i BLOB sono costituiti da più entità JSON, che sono separate da una nuova riga, ed è necessario ogni entità diventi un documento separato in ricerca di Azure. |
 
@@ -434,7 +434,7 @@ I nomi dei campi di origine nei mapping vengono specificati mediante la notazion
 >
 >
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Indicizzatori in Ricerca di Azure](search-indexer-overview.md)
 + [Indicizzazione di Archiviazione BLOB di Azure con Ricerca di Azure](search-howto-index-json-blobs.md)

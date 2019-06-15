@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab, bonova, jovanpop
 manager: craigg
 ms.date: 03/13/2019
 ms.openlocfilehash: 9ca9506ad9ca826349b2815e504e9ba8bf976faa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702074"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Avvio rapido: Configurare una connessione da punto a sito a un'istanza gestita di database SQL di Azure da un computer locale

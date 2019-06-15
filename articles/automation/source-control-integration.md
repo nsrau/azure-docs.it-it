@@ -10,10 +10,10 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64574117"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrazione del controllo del codice sorgente in Automazione di Azure
@@ -45,7 +45,7 @@ Scegliere **Tipo di controllo del codice sorgente** e fare clic su **Autentica**
 
 Inserire le informazioni nella pagina **Riepilogo del Controllo del codice sorgente** e fare clic su **Salva**. La tabella seguente fornisce una descrizione dei campi disponibili.
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Descrizione  |
 |---------|---------|
 |Nome del controllo del codice sorgente     | Un nome descrittivo per il controllo del codice sorgente. *Questo nome deve contenere solo lettere e numeri.*        |
 |Tipo di controllo del codice sorgente     | Specifica del tipo di controllo del codice sorgente. Le opzioni disponibili sono:</br> GitHub</br>Repository di Azure (Git)</br> Repository di Azure (TFVC)        |
@@ -54,7 +54,7 @@ Inserire le informazioni nella pagina **Riepilogo del Controllo del codice sorge
 |Percorso della cartella     | Cartella che contiene i runbook da sincronizzare. Esempio: /Runbooks </br>*Vengono sincronizzati solo i runbook nella cartella specificata. Non è supportata la ricorsione.*        |
 |Auto Sync<sup>1</sup>     | Attiva o disattiva la sincronizzazione automatica quando viene eseguito un commit nel repository del controllo del codice sorgente         |
 |Pubblica runbook     | Se impostato su **su**, dopo i runbook vengono sincronizzati dal controllo del codice sorgente verrà vengano pubblicati automaticamente.         |
-|DESCRIZIONE     | Campo di testo in cui fornire altri dettagli        |
+|Descrizione     | Campo di testo in cui fornire altri dettagli        |
 
 <sup>1</sup> per abilitare la sincronizzazione automatica durante la configurazione di integrazione del controllo codice sorgente con i repository di Azure, è necessario essere un amministratore del progetto.
 
@@ -93,7 +93,7 @@ Controllo del codice sorgente richiede alcune autorizzazioni minime per i token 
 
 Per altre informazioni sulla creazione di un token di accesso personale in GitHub, visitare [creazione di un token di accesso personale per la riga di comando](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|`Scope`  |DESCRIZIONE  |
+|`Scope`  |Descrizione  |
 |---------|---------|
 |**repo**     |         |
 |repo:status     | Accedere allo stato del commit         |
