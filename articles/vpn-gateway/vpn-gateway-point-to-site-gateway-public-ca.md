@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: 1d45e1a5e4053ead4330967c5e250c0797c19fe7
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827462"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Passaggio a un certificato del gateway CA pubblico per la connessione da punto a sito
@@ -44,7 +44,7 @@ Questa modifica interessa solo i gateway meno recenti. Se è necessario eseguire
    * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Se il valore di *ServerCertRotCn* e *ServerCertIssuerCn* è "DigiCert Global Root CA", non si è interessati da questo aggiornamento e non è necessario eseguire la procedura illustrata in questo articolo. Se invece il valore è diverso, il certificato del gateway in uso è interessato dall'aggiornamento, quindi ne verrà eseguita la transizione.
 
-### <a name="classic"></a>Classica
+### <a name="classic"></a>Classico
 
 1. In un computer client, passare al percorso `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`. Nella cartella dell'ID del gateway è possibile visualizzare il certificato.
 2. Nella scheda Generale per il certificato, verificare che l'autorità emittente sia "DigiCert Global Root CA". Se il valore dell'autorità emittente è diverso, il certificato del gateway in uso è interessato dall'aggiornamento, quindi ne verrà eseguita la transizione.

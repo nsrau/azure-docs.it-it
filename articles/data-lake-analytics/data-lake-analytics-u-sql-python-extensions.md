@@ -10,10 +10,10 @@ ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
 ms.openlocfilehash: 0a49cbdb4caf474d0628fea3679ce712d37886e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813412"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Estendere gli script U-SQL con il codice Python in Azure Data Lake Analytics
@@ -100,7 +100,7 @@ Attualmente un'eccezione nel codice Python viene visualizzata come errore di ver
 ### <a name="input-and-output-size-limitations"></a>Limitazioni delle dimensioni di input e output
 A ogni vertice è assegnata una quantità di memoria limitata, che attualmente corrisponde a 6 GB per AU. Poiché devono esistere intervalli di dati di input e di output in memoria nel codice Python, le dimensioni totali per l'input e per l'output non possono superare i 6 GB.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Panoramica di Analisi Data Lake di Microsoft Azure](data-lake-analytics-overview.md)
 * [Sviluppare script U-SQL con Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Uso delle funzioni finestra di U-SQL per i processi di Analisi Azure Data Lake](data-lake-analytics-use-window-functions.md)

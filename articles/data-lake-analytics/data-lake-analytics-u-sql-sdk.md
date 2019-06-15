@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813527"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Esecuzione e test di U-SQL con Azure Data Lake U-SQL SDK
@@ -63,7 +63,7 @@ Negli script U-SQL è possibile usare sia un percorso relativo sia un percorso a
 
 Quando si esegue lo script U-SQL localmente, durante la compilazione viene creata una directory di lavoro nella directory di lavoro corrente. Oltre agli output di compilazione, nella directory di lavoro verrà creata una copia shadow dei file di runtime necessari per l'esecuzione locale. La cartella radice della directory di lavoro è denominata "ScopeWorkDir" e i file nella directory di lavoro sono i seguenti:
 
-|Directory/File|Directory/File|Directory/File|Definizione|DESCRIZIONE|
+|Directory/File|Directory/File|Directory/File|Definizione|Descrizione|
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Stringa di hash della versione di runtime|Copia shadow dei file di runtime necessari per l'esecuzione locale|
 | |Script_66AE4909AA0ED06C| |Nome di script + stringa hash del percorso dello script|Output di compilazione e registrazione del passaggio di esecuzione|
@@ -137,7 +137,7 @@ Il comando **run** viene usato per compilare lo script ed eseguire i risultati c
 Di seguito sono indicati gli argomenti facoltativi per **run**:
 
 
-|Argomento|Valore predefinito|DESCRIZIONE|
+|Argomento|Valore predefinito|Descrizione|
 |--------|-------------|-----------|
 |-CodeBehind|False|Lo script ha code-behind con estensione cs|
 |-CppSDK| |Directory CppSDK|
@@ -169,7 +169,7 @@ Il comando **compile** viene usato per compilare uno script di U-SQL in file ese
 Di seguito sono indicati gli argomenti facoltativi per il comando **compile**:
 
 
-|Argomento|DESCRIZIONE|
+|Argomento|Descrizione|
 |--------|-----------|
 | -CodeBehind [valore predefinito 'False']|Lo script ha code-behind con estensione cs|
 | -CppSDK [valore predefinito '']|Directory CppSDK|
@@ -207,7 +207,7 @@ Il comando **execute** viene usato per eseguire i risultati compilati.
 
 Di seguito sono indicati gli argomenti facoltativi per il comando **execute**:
 
-|Argomento|Valore predefinito|DESCRIZIONE|
+|Argomento|Valore predefinito|Descrizione|
 |--------|-------------|-----------|
 |-DataRoot | '' |Radice dei dati per l'esecuzione dei metadati. Il valore predefinito è la variabile di ambiente **LOCALRUN_DATAROOT**.|
 |-MessageOut | '' |Esecuzione del dump dei messaggi della console in un file.|
@@ -332,13 +332,13 @@ LocalRunHelper.exe offre le interfacce di programmazione per la compilazione e l
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parametro|Type|DESCRIZIONE|
+|Parametro|Type|Descrizione|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|per i messaggi di output, impostato su null per usare Console|
 
 **Proprietà**
 
-|Proprietà|Type|DESCRIZIONE|
+|Proprietà|Type|Descrizione|
 |--------|----|-----------|
 |AlgebraPath|string|Il percorso al file algebra (il file algebra è uno dei risultati della compilazione)|
 |CodeBehindReferences|string|Se lo script contiene riferimenti code-behind aggiuntivi, specificare i percorsi separati da ';'|
@@ -364,7 +364,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 **Metodo**
 
-|Metodo|DESCRIZIONE|Return|Parametro|
+|Metodo|Descrizione|Return|Parametro|
 |------|-----------|------|---------|
 |public bool DoCompile()|Consente di compilare lo script U-SQL|Se l'esito è positivo, restituisce il valore true| |
 |public bool DoExec()|Esegue il risultato compilato|Se l'esito è positivo, restituisce il valore true| |

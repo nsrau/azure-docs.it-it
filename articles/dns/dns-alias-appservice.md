@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
 ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790743"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Ospitare app Web di Azure con carico bilanciato nel dominio radice
@@ -43,7 +43,7 @@ Creare un gruppo di risorse per contenere le risorse utilizzate in questo artico
 Creare due piani di servizio app Web nel gruppo di risorse usando la tabella seguente per le informazioni di configurazione. Per altre informazioni sulla creazione di un piano di servizio app, vedere [Gestire un piano di servizio app in Azure](../app-service/app-service-plan-manage.md).
 
 
-|NOME  |Sistema operativo  |Località  |Piano tariffario  |
+|Name  |Sistema operativo  |Località  |Piano tariffario  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|Stati Uniti orientali|Sviluppo/test D1-Shared|
 |ASP-02     |Windows|Stati Uniti centrali|Sviluppo/test D1-Shared|
@@ -58,7 +58,7 @@ Creare due app Web, una in ciascun piano di servizio app.
 4. Fare clic su **Create**(Crea).
 5. Accettare le impostazioni predefinite e usare la tabella seguente per configurare le due app Web:
 
-   |NOME<br>(deve essere univoco all'interno di .azurewebsites.net)|Gruppo di risorse |Piano di servizio app/Località
+   |Name<br>(deve essere univoco all'interno di .azurewebsites.net)|Gruppo di risorse |Piano di servizio app/Località
    |---------|---------|---------|
    |App-01|Usa esistente<br>Selezionare un gruppo di risorse|ASP-01(Stati Uniti orientali)|
    |App-02|Usa esistente<br>Selezionare un gruppo di risorse|ASP-02(Stati Uniti centrali)|
@@ -104,9 +104,9 @@ Quando la zona DNS è pronta, è possibile aggiungere un record di alias per il 
 2. Fare clic su **Set di record**.
 3. Aggiungere il set di record usando la tabella seguente:
 
-   |NOME  |Type  |Set di record di alias  |Tipo di alias  |Risorsa di Azure|
+   |Name  |Type  |Set di record di alias  |Tipo di alias  |Risorsa di Azure|
    |---------|---------|---------|---------|-----|
-   |@     |Una |Sì|Risorsa di Azure|Gestione traffico - Profilo personale|
+   |@     |Una|Yes|Risorsa di Azure|Gestione traffico - Profilo personale|
 
 ## <a name="add-custom-hostnames"></a>Aggiungere nomi host personalizzati
 

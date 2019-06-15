@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: 15f4e2a76724a70c15411dea767cc9bc433e4d4a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943226"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Scheda Technical Info (Informazioni tecniche) delle app Power BI
@@ -25,7 +25,7 @@ Nel **offrono nuove** pagina, utilizzare il **informazioni tecniche** pressione 
 
 Nel **informazioni tecniche** scheda, completare i campi descritti nella tabella seguente. Un asterisco (*) alla fine di un'etichetta di campo indica che il campo è obbligatorio.
 
-|        Campo          |  DESCRIZIONE                                                                 |
+|        Campo          |  Descrizione                                                                 |
 |    ---------------    |  ----------------------------------------------------------------------------|
 | **URL del programma di installazione\***     | Power BI genera questo URL quando si pubblica l'app e promuoverlo alla produzione.  Per altre informazioni, vedere [pubblicare le app con dashboard e report in Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
 |  **Validation instructions** (Istruzioni di convalida)  |  Se si desidera, aggiungere le istruzioni (fino a 3000 caratteri) per consentire al team di convalida di Microsoft di configurare, connettersi e testare l'app. Includono impostazioni di configurazione comuni, gli account, parametri o altre informazioni che possono essere usati per verificare l'opzione di connessione dati. Queste informazioni sono visibili solo al team di convalida, e viene usato solo per scopi di convalida.  |

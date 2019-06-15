@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.openlocfilehash: 0bfb66f54ec09e86b46a41499211e93a0083e8d1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779920"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurare la sicurezza X.509 nell'hub IoT di Azure
@@ -115,7 +115,7 @@ In seguito verrà illustrato come creare un'applicazione C# per simulare il disp
         private static Random rnd = new Random();
     ```
 
-     Usare il nome del dispositivo descrittivo usato nella sezione precedente al posto del segnaposto _<your_device_id>_.
+     Usare il nome del dispositivo descrittivo usato nella sezione precedente al posto del segnaposto _<your_device_id>_ .
 
 5. Aggiungere la funzione seguente per creare numeri casuali per temperatura e umidità e inviare tali valori all'hub:
 

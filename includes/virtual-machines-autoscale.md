@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8d10c3edcf64ccc66b0599d064e91270a4ad8202
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160065"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814825"
 ---
 È possibile [ridimensionare automaticamente](../articles/azure-monitor/platform/autoscale-best-practices.md) le [macchine virtuali (VM)](../articles/virtual-machines/windows/overview.md) con facilità usando [set di scalabilità di macchine virtuali](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e la [funzionalità di ridimensionamento automatico di Monitoraggio di Azure](../articles/azure-monitor/platform/autoscale-overview.md). Per poter essere ridimensionate automaticamente, le VM devono essere membri di un set di scalabilità. Questo articolo contiene informazioni che consentono di comprendere meglio come ridimensionare sia orizzontalmente che verticalmente le VM usando metodi automatici e manuali.
 
@@ -31,9 +31,9 @@ Il ridimensionamento automatico garantisce il numero appropriato di VM per gesti
 
 Il ridimensionamento automatico può essere abilitato quando si crea il set di scalabilità con [Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings), nonché dopo la creazione del set di scalabilità. È possibile creare un set di scalabilità, installare l'estensione e configurare il ridimensionamento automatico usando un [modello di Azure Resource Manager](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Nel portale di Azure abilitare il ridimensionamento automatico da Monitoraggio di Azure oppure dalle impostazioni del set di scalabilità.
 
-![Abilita scalabilità automatica](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
+![Abilitare il ridimensionamento automatico](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  
-### <a name="metrics"></a>Metriche
+### <a name="metrics"></a>metrics
 
 La funzionalità di ridimensionamento automatico di Monitoraggio di Azure consente di aumentare o ridurre le prestazioni delle VM in esecuzione in base a [metriche](../articles/azure-monitor/platform/autoscale-common-metrics.md). Per impostazione predefinita, le VM offrono metriche a livello di host di base per l'utilizzo di CPU, rete e dischi. Quando si configura la raccolta di dati di diagnostica usando l'estensione di diagnostica, diventano disponibili altri contatori delle prestazioni del sistema operativo guest relativi a disco, CPU e memoria.
 
@@ -59,7 +59,7 @@ Le [regole](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by
 
 Usando Azure PowerShell, è necessario ottenere l'oggetto set di scalabilità con [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss). Si imposta quindi la proprietà **sku.capacity** sul numero di macchine virtuali desiderato e si aggiorna il set di scalabilità con [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). Usando l'interfaccia della riga di comando di Azure, si modifica la capacità con il parametro **--new-capacity** del comando [az vmss scale](/cli/azure/vmss?view=azure-cli-latest#az-vmss-scale).
 
-### <a name="vertical"></a>Verticale
+### <a name="vertical"></a>Vertical
 
 È possibile modificare manualmente le dimensioni delle VM nel portale di Azure nella schermata Dimensioni relativa al set di scalabilità. È possibile usare Azure PowerShell con Get-AzVmss, impostando la proprietà dello SKU di riferimento dell'immagine e quindi usando [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) e [Update-AzVmssInstance](https://docs.microsoft.com/powershell/module/az.compute/update-azvmssinstance).
 

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 05/21/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 841027fe8d6b97e661faa038dc9381edbb3d4cd8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 57736a3cd553e83294d5290867e261b626cb035f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66226010"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814769"
 ---
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per completare l'esempio in questo articolo, è necessario disporre di un'immagine gestita esistente di una macchina virtuale generalizzata. Per altre informazioni, vedere [Esercitazione: Creare un'immagine personalizzata di una macchina virtuale di Azure con l'interfaccia della riga di comando di Azure versione 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Se l'immagine gestita contiene un disco dati, le dimensioni del disco dati non possono essere più di 1 TB.
+Per completare l'esempio in questo articolo, è necessario disporre di un'immagine gestita esistente di una macchina virtuale generalizzata. Per altre informazioni, vedere [Esercitazione: Creare un'immagine personalizzata di una VM di Azure con la CLI di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Se l'immagine gestita contiene un disco dati, le dimensioni del disco dati non possono essere più di 1 TB.
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 

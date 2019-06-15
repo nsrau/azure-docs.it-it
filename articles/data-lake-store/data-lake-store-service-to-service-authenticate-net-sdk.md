@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 96c496ef67e26a3079577bf52e9d019d963467b8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65915847"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 tramite .NET SDK
@@ -38,7 +38,7 @@ Questo articolo illustra come usare .NET SDK per eseguire l'autenticazione da se
 
 ## <a name="create-a-net-application"></a>Creare un'applicazione .NET
 1. In Visual Studio, selezionare la **File** dal menu **New**e quindi **progetto**.
-2. Scegli **App Console (.NET Framework)**, quindi selezionare **successivo**.
+2. Scegli **App Console (.NET Framework)** , quindi selezionare **successivo**.
 3. Nelle **nome progetto**, immettere `CreateADLApplication`, quindi selezionare **Create**.
 
 4. Aggiungere i pacchetti NuGet al progetto.

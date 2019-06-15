@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475814"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico
@@ -406,7 +406,7 @@ Le stored procedure seguenti sono disponibili nel [database dei processi](sql-da
 
 
 
-|Stored procedure  |DESCRIZIONE  |
+|Stored procedure  |Descrizione  |
 |---------|---------|
 |[sp_add_job](#sp_add_job)     |     Aggiunge un nuovo processo.    |
 |[sp_update_job](#sp_update_job)    |      Aggiorna un processo esistente.   |
@@ -456,7 +456,7 @@ Descrizione del processo. description è di tipo nvarchar(512) e il valore prede
 [  **\@abilitata =** ] abilitata  
 Specifica se la pianificazione del processo è abilitata. enabled è di tipo bit e il valore predefinito è 0 (disabilitato). Se il valore è 0, il processo non è abilitato e non viene eseguito in base alla relativa pianificazione, tuttavia è possibile eseguirlo manualmente. Se il valore è 1, il processo viene eseguito in base alla relativa pianificazione e può anche essere eseguito manualmente.
 
-[ **\@schedule_interval_type =**] schedule_interval_type  
+[ **\@schedule_interval_type =** ] schedule_interval_type  
 Valore che indica quando deve essere eseguito il processo. schedule_interval_type è di tipo nvarchar(50), con un valore predefinito di Once, e può avere uno dei valori seguenti:
 - "Once",
 - "Minutes",
@@ -481,7 +481,7 @@ Numero di identificazione del processo assegnato al processo se viene creato cor
 
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Note
 sp_add_job deve essere eseguito dal database dell'agente processo specificato al momento della creazione dell'agente processo.
 Dopo l'esecuzione di sp_add_job per aggiungere un processo, è possibile usare sp_add_jobstep per aggiungere i passaggi che eseguono le attività per il processo. Il numero di versione iniziale del processo è 0, che verrà incrementato a 1 quando si aggiunge il primo passaggio.
 
@@ -544,7 +544,7 @@ Data in cui è possibile arrestare l'esecuzione del processo. schedule_end_time 
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Note
 Dopo l'esecuzione di sp_add_job per aggiungere un processo, è possibile usare sp_add_jobstep per aggiungere i passaggi che eseguono le attività per il processo. Il numero di versione iniziale del processo è 0, che verrà incrementato a 1 quando si aggiunge il primo passaggio.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -576,7 +576,7 @@ Specifica se eseguire l'eliminazione e annullare le eventuali esecuzioni del pro
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Note
 La cronologia del processo viene eliminata automaticamente quando si elimina un processo.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -701,7 +701,7 @@ Livello massimo di parallelismo per ogni pool elastico. Se impostato, il passagg
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Note
 Quando sp_add_jobstep ha esito positivo, viene incrementato il numero di versione corrente del processo. Alla successiva esecuzione del processo, verrà usata la nuova versione. Se il processo è in esecuzione, l'esecuzione non conterrà il nuovo passaggio.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -825,7 +825,7 @@ Livello massimo di parallelismo per ogni pool elastico. Se impostato, il passagg
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Note
 Le eventuali esecuzioni in corso del processo non saranno interessate. Quando sp_update_jobstep ha esito positivo, viene incrementato il numero di versione del processo. Alla successiva esecuzione del processo, verrà usata la nuova versione.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -868,7 +868,7 @@ Parametro di output che verrà assegnato al nuovo numero di versione del process
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Note
 Le eventuali esecuzioni in corso del processo non saranno interessate. Quando sp_update_jobstep ha esito positivo, viene incrementato il numero di versione del processo. Alla successiva esecuzione del processo, verrà usata la nuova versione.
 
 Gli altri passaggi del processo verranno rinumerati automaticamente per colmare il vuoto lasciato dal passaggio del processo eliminato.
@@ -906,7 +906,7 @@ Parametro di output che verrà assegnato all'ID dell'esecuzione del processo. jo
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Note
 No.
  
 #### <a name="permissions"></a>Autorizzazioni
@@ -934,7 +934,7 @@ Numero di identificazione dell'esecuzione del processo da arrestare. job_executi
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Note
 No.
  
 #### <a name="permissions"></a>Autorizzazioni
@@ -966,7 +966,7 @@ Nome del gruppo di destinazione da creare. target_group_name è di tipo nvarchar
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Note
 I gruppi di destinazione offrono un modo semplice per specificare una raccolta di database come destinazione di un processo.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -994,7 +994,7 @@ Nome del gruppo di destinazione da eliminare. target_group_name è di tipo nvarc
 #### <a name="return-code-values"></a>Valori del codice restituito
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Note
 No.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -1050,7 +1050,7 @@ Nome del pool della mappa partizioni da aggiungere al gruppo di destinazione spe
 Numero di identificazione della destinazione assegnato al membro del gruppo di destinazione se viene creato e aggiunto correttamente al gruppo di destinazione. target_id è una variabile di output di tipo uniqueidentifier e il valore predefinito è NULL.
 Valori del codice restituito 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Note
 Un processo viene eseguito in tutti i database singoli in un server di database SQL o un pool elastico al momento dell'esecuzione quando un server di database SQL o un pool elastico è incluso nel gruppo di destinazione.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -1112,10 +1112,10 @@ Nome del gruppo di destinazione da cui rimuovere il membro del gruppo di destina
 [ @target_id = ] target_id  
  Numero di identificazione della destinazione assegnato al membro del gruppo di destinazione da rimuovere. target_id è di tipo uniqueidentifier e il valore predefinito è NULL.
 
-#### <a name="return-code-values"></a>Valori del codice restituito
+#### <a name="return-code-values"></a>Valori restituiti
 0 (esito positivo) o 1 (esito negativo)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Note
 I gruppi di destinazione offrono un modo semplice per specificare una raccolta di database come destinazione di un processo.
 
 #### <a name="permissions"></a>Autorizzazioni
@@ -1193,7 +1193,7 @@ GO
 Le viste seguenti sono disponibili nel [database dei processi](sql-database-job-automation-overview.md#job-database).
 
 
-|Visualizza  |DESCRIZIONE  |
+|visualizzazione  |Descrizione  |
 |---------|---------|
 |[jobs_executions](#jobs_executions-view)     |  Mostra la cronologia di esecuzione dei processi.      |
 |[jobs](#jobs-view)     |   Mostra tutti i processi.      |
@@ -1211,7 +1211,7 @@ Le viste seguenti sono disponibili nel [database dei processi](sql-database-job-
 Mostra la cronologia di esecuzione dei processi.
 
 
-|Nome colonna|   Tipo di dati   |DESCRIZIONE|
+|Nome colonna|   Tipo di dati   |Descrizione|
 |---------|---------|---------|
 |**job_execution_id**   |uniqueidentifier|  ID univoco di un'istanza di un'esecuzione di un processo.
 |**job_name**   |nvarchar(128)  |Nome del processo.
@@ -1239,7 +1239,7 @@ Mostra la cronologia di esecuzione dei processi.
 
 Mostra tutti i processi.
 
-|Nome colonna|   Tipo di dati|  DESCRIZIONE|
+|Nome colonna|   Tipo di dati|  Descrizione|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |Nome del processo.|
 |**job_id**|    uniqueidentifier    |ID univoco del processo.|
@@ -1257,7 +1257,7 @@ Mostra tutti i processi.
 
 Mostra tutte le versioni dei processi.
 
-|Nome colonna|   Tipo di dati|  DESCRIZIONE|
+|Nome colonna|   Tipo di dati|  Descrizione|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |Nome del processo.|
 |**job_id**|    uniqueidentifier    |ID univoco del processo.|
@@ -1270,7 +1270,7 @@ Mostra tutte le versioni dei processi.
 
 Mostra tutti i passaggi nella versione corrente di ogni processo.
 
-|Nome colonna    |Tipo di dati| DESCRIZIONE|
+|Nome colonna    |Tipo di dati| Descrizione|
 |------|------|-------|
 |**job_name**   |nvarchar(128)| Nome del processo.|
 |**job_id** |uniqueidentifier   |ID univoco del processo.|
@@ -1311,7 +1311,7 @@ Mostra tutti i passaggi in tutte le versioni di ogni processo. Lo schema è iden
 
 Elenca tutti i gruppi di destinazione.
 
-|Nome colonna|Tipo di dati| DESCRIZIONE|
+|Nome colonna|Tipo di dati| Descrizione|
 |-----|-----|-----|
 |**target_group_name**| nvarchar(128)   |Nome del gruppo di destinazione, una raccolta di database. 
 |**target_group_id**    |uniqueidentifier   |ID univoco del gruppo di destinazione.
@@ -1322,7 +1322,7 @@ Elenca tutti i gruppi di destinazione.
 
 Mostra tutti i membri di tutti i gruppi di destinazione.
 
-|Nome colonna|Tipo di dati| DESCRIZIONE|
+|Nome colonna|Tipo di dati| Descrizione|
 |-----|-----|-----|
 |**target_group_name**  |nvarchar(128|Nome del gruppo di destinazione, una raccolta di database. |
 |**target_group_id**    |uniqueidentifier   |ID univoco del gruppo di destinazione.|
@@ -1340,7 +1340,7 @@ Mostra tutti i membri di tutti i gruppi di destinazione.
 
 ## <a name="resources"></a>Risorse
 
- - ![Icona collegamento argomento](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icona collegamento argomento") [Convenzioni della sintassi Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
+ - ![Icona di collegamento a un argomento](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icona di collegamento a un argomento")[Convenzioni della sintassi Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -7,10 +7,10 @@ ms.date: 4/9/2019
 ms.topic: article
 ms.service: security
 ms.openlocfilehash: 017a26d5672f666d4d8eaf629a0f53fe0cfe517f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963235"
 ---
 # <a name="secure-azure-computing-architecture"></a>Proteggere l'architettura di elaborazione di Azure
@@ -126,7 +126,7 @@ Come accennato in precedenza, è possibile compilare questo riferimento SACA usa
     - [Gruppi di sicurezza di Azure](https://docs.microsoft.com/azure/virtual-network/security-overview)
     - [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)
     - [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/overview)
-- Dimensionamento
+- Ridimensionamento
     - È necessario completare un esercizio di ridimensionamento. Esaminare il numero di connessioni simultanee, che è possibile tramite l'istanza SACA e i requisiti di velocità effettiva di rete. 
     - Questo passaggio è fondamentale. Consente di ridimensionare le macchine virtuali e identificare le licenze necessarie di fornitori diversi che è utilizzare nell'istanza di SACA. 
     - Impossibile eseguire un'analisi dei costi ottimale senza questo esercizio di ridimensionamento. Dimensionamento corretto consente inoltre di ottenere prestazioni ottimali. 
@@ -157,15 +157,15 @@ Questa architettura è consigliabile poiché soddisfi i requisiti di SCCA. È fa
             - Questa subnet è in cui vengono distribuiti le macchine virtuali e i servizi utilizzati per programmi VDM.
         - Subnet e non attendibile
             - Sono queste subnet in cui vengono distribuiti dispositivi di rete.
-        - Subnet del gateway
+        - Subnet gateway
             - Questa subnet è in cui viene distribuito il ExpressRoute Gateway.
 - Macchine virtuali di gestione jump finestra
     - E vengono usati per la gestione fuori banda dell'ambiente.
 - Appliance virtuali di rete
     - Si usa entrambi Citrix o F5 basato sul modello di cui si distribuisce.
-- IP pubblici
+- Indirizzi IP pubblici
     - E vengono usati per il front-end fino a quando non viene portato online ExpressRoute. Questi indirizzi IP vengono convertite in back-end spazio di indirizzi privato di Azure.
-- Tabelle route 
+- Tabelle di route 
     - Applicato durante l'automazione, questi indirizzare tabelle forza tunnel tutto il traffico attraverso l'appliance virtuale.
 - Servizi di bilanciamento del carico di Azure - SKU Standard
     - Vengono utilizzati per bilanciare il carico tra i dispositivi.

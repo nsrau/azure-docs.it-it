@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b6c203583a082228c2ba1f4c5f6fdb04d059be
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 7fc8c21db0f42bbb6804c00e27e82f840d7038c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962378"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111182"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>App per dispositivi mobili che chiama le API - web chiama un'API web
 
@@ -131,7 +131,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 Se è necessario chiamare più volte la stessa API o se è necessario chiamare più API, prendere in considerazione quanto segue quando si compila l'app:
 
 - **Consenso incrementale**: Piattaforma delle identità di Microsoft consente alle App ottenere il consenso dell'utente quando sono necessarie le autorizzazioni, anziché tutti all'inizio. Ogni volta che l'app è pronta chiamare un'API, è necessario richiedere solo gli ambiti che deve essere utilizzato.
-- **Accesso condizionale**: In alcuni scenari, si potrebbero ottenere i requisiti di accesso condizionale aggiuntive quando si apportano molte richieste API. Questa situazione può verificarsi se la prima richiesta non ha applicato alcun criterio di accesso condizionale e l'app tenta di accedere automaticamente a una nuova API che richiede l'accesso condizionale. Per gestire questo scenario, assicurarsi di intercettare gli errori da richieste invisibile all'utente e prepararsi a eseguire una richiesta interattiva.  Per altre informazioni, vedere [linee guida per l'accesso condizionale](conditional-access-dev-guide.md).
+- **Accesso condizionale**: In alcuni scenari, si potrebbero ottenere ulteriori requisiti di accesso condizionale quando si apportano molte richieste API. Questa situazione può verificarsi se la prima richiesta non ha applicato alcun criterio di accesso condizionale e l'app tenta di accedere automaticamente a una nuova API che richiede l'accesso condizionale. Per gestire questo scenario, assicurarsi di intercettare gli errori da richieste invisibile all'utente e prepararsi a eseguire una richiesta interattiva.  Per altre informazioni, vedere [linee guida per l'accesso condizionale](conditional-access-dev-guide.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

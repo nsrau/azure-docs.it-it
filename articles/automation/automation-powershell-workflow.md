@@ -4,17 +4,16 @@ description: Questo articolo è concepito come una lezione rapida per autori che
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: WenJason
-ms.author: v-jay
-origin.date: 12/14/2018
-ms.date: 04/01/2019
+author: georgewallace
+ms.author: gwallace
+ms.date: 12/14/2018
 ms.topic: conceptual
-manager: digimobile
+manager: carmonm
 ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738333"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Informazioni sui concetti chiave del flusso di lavoro di PowerShell per i runbook di Automazione
@@ -44,7 +43,7 @@ Per aggiungere parametri al flusso di lavoro, utilizzare la parola chiave **Para
 
 Il codice del flusso di lavoro di PowerShell è quasi identico al relativo codice di script, fatta eccezione per alcune modifiche significative.  Le sezioni seguenti descrivono le modifiche che è necessario apportare a uno script di PowerShell per l'esecuzione in un flusso di lavoro.
 
-### <a name="activities"></a>attività
+### <a name="activities"></a>Attività
 
 Un'attività è un'operazione specifica in un flusso di lavoro. Così come uno script è costituito da uno o più comandi, un flusso di lavoro è costituito da una o più attività eseguite in sequenza. Il flusso di lavoro di Windows PowerShell converte automaticamente molti dei cmdlet di Windows PowerShell in attività quando esegue un flusso di lavoro. Quando si specifica uno di questi cmdlet in un runbook, l'attività corrispondente viene eseguita da Windows Workflow Foundation. I cmdlet senza un'attività corrispondente vengono eseguiti automaticamente dal flusso di lavoro di Windows PowerShell in un'attività [InlineScript](#inlinescript) . Esiste un set di cmdlet che sono esclusi e non possono essere usati in un flusso di lavoro, a meno che non vengano inclusi in modo esplicito in un blocco InlineScript. Per altri dettagli su questi concetti, vedere l'articolo relativo all' [uso di attività in flussi di lavoro di script](https://technet.microsoft.com/library/jj574194.aspx).
 
@@ -56,7 +55,7 @@ Non è possibile utilizzare i parametri posizionali con attività e cmdlet in un
 
 Si consideri, ad esempio, il codice seguente per rilevare tutti i servizi in esecuzione.
 
-```powershell
+```azurepowershell-interactive
 Get-Service | Where-Object {$_.Status -eq "Running"}
 ```
 
@@ -73,7 +72,7 @@ Workflow Get-RunningServices
 
 Gli oggetti nei flussi di lavoro vengono deserializzati.  Ciò significa che le relative proprietà sono ancora disponibili, ma non i relativi metodi.  Ad esempio, si consideri il codice PowerShell riportato di seguito che consente di arrestare un servizio utilizzando il metodo Stop dell'oggetto Service.
 
-```powershell
+```azurepowershell-interactive
 $Service = Get-Service -Name MyService
 $Service.Stop()
 ```
@@ -172,7 +171,7 @@ Parallel
 
 Ad esempio, considerare i seguenti comandi PowerShell che consentono di copiare più file in una destinazione di rete.  Questi comandi vengono eseguiti in sequenza in modo che finisca la copia di un file prima che venga avviata la successiva.
 
-```powershell
+```azurepowershell-interactive
 Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
 Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
 Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
@@ -276,13 +275,13 @@ workflow CreateTestVms
         # Do work first to create the VM (code not shown)
 
         # Now add the VM
-        New-AzureRmVm -VM $Vm -Location "ChinaNorth" -ResourceGroupName "ResourceGroup01"
+        New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
 
         # Checkpoint so that VM creation is not repeated if workflow suspends
         $Cred = $null
         Checkpoint-Workflow
         $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-        $null = Connect-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
+        $null = Connect-AzureRmAccount -Credential $Cred
         }
 }
 ```

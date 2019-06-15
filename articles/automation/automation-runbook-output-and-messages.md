@@ -10,10 +10,10 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61226964"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Output di runbook e messaggi in automazione di Azure
@@ -147,7 +147,7 @@ Creare un messaggio dettagliato utilizzando il cmdlet [Write-Verbose](https://te
 Write-Verbose –Message "This is a verbose message."
 ```
 
-### <a name="debug-stream"></a>Flusso di Debug 
+### <a name="debug-stream"></a>Flusso di Debug
 Il flusso di Debug deve essere utilizzato con un utente interattivo e non deve essere utilizzato nei runbook.
 
 ## <a name="progress-records"></a>Record di stato

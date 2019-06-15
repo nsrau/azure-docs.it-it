@@ -13,10 +13,10 @@ ms.workload: big-compute
 ms.date: 04/23/2019
 ms.author: lahugh
 ms.openlocfilehash: c46f75c447becc8b15d4a6b8f979330db7ab95c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575571"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variabili di ambiente di Azure Batch runtime
@@ -45,7 +45,7 @@ Le righe di comando eseguite dalle attività sui nodi di calcolo non vengono ese
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 
-| Nome variabile                     | DESCRIZIONE                                                              | Disponibilità | Esempio |
+| Nome variabile                     | Descrizione                                                              | Disponibilità | Esempio |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Nome dell'account Batch a cui appartiene l'attività.                  | Tutte le attività.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | URL dell'account Batch. | Tutte le attività. | `https://myaccount.westus.batch.azure.com` |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61338453"
 ---
 # <a name="interpret-method"></a>Metodo Interpret
@@ -29,20 +29,20 @@ Per fornire un'esperienza interattiva, è possibile chiamare ripetutamente quest
 
 ## <a name="request-parameters"></a>Parametri della richiesta
 
-NOME     | Value | Obbligatorio?  | DESCRIZIONE
+NOME     | Value | Obbligatorio?  | Descrizione
 ---------|---------|---------|---------
-**query**    | Stringa di testo | Sì | Query immessa dall'utente.  Se complete è impostato su 1, la query verrà interpretata come un prefisso per la generazione dei suggerimenti di completamento automatico della query.        
-**model**    | Stringa di testo | No   | Nome del modello su cui si vuole eseguire la query.  Attualmente il valore predefinito è *latest*.        
-**complete** | 0 o 1 | No <br>valore predefinito: 0  | 1 indica che i suggerimenti di completamento automatico vengono generati in base alla grammatica e ai dati di Graph.         
-**count**    | Number | No <br>valore predefinito: 10 | Numero massimo di interpretazioni da restituire.         
-**offset**   | Number | No <br>valore predefinito: 0  | Indice della prima interpretazione da restituire. Ad esempio, *count=2&offset=0* restituisce le interpretazioni 0 e 1. *count=2&offset=2* restituisce le interpretazioni 2 e 3.       
-**timeout**  | Number | No <br>valore predefinito: 1000 | Timeout in millisecondi. Vengono restituite solo le interpretazioni trovate prima del timeout.
+**query**    | Stringa di testo | Yes | Query immessa dall'utente.  Se complete è impostato su 1, la query verrà interpretata come un prefisso per la generazione dei suggerimenti di completamento automatico della query.        
+**model**    | Stringa di testo | No  | Nome del modello su cui si vuole eseguire la query.  Attualmente il valore predefinito è *latest*.        
+**complete** | 0 o 1 | No<br>valore predefinito: 0  | 1 indica che i suggerimenti di completamento automatico vengono generati in base alla grammatica e ai dati di Graph.         
+**count**    | Number | No<br>valore predefinito: 10 | Numero massimo di interpretazioni da restituire.         
+**offset**   | Number | No<br>valore predefinito: 0  | Indice della prima interpretazione da restituire. Ad esempio, *count=2&offset=0* restituisce le interpretazioni 0 e 1. *count=2&offset=2* restituisce le interpretazioni 2 e 3.       
+**timeout**  | Number | No<br>valore predefinito: 1000 | Timeout in millisecondi. Vengono restituite solo le interpretazioni trovate prima del timeout.
 
 <br>
   
 ## <a name="response-json"></a>Risposta (JSON)
 
-NOME     | DESCRIZIONE
+NOME     | Descrizione
 ---------|---------
 **query** |Parametro *query* della richiesta.
 **interpretations** |Matrice di 0 o più metodi diversi di confronto dell'input utente rispetto alla grammatica.

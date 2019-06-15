@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
 ms.openlocfilehash: 0d75b983ad6d3b6256852335dc523b481bbe046f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60819279"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Abilitare la registrazione nel servizio Azure Machine Learning
@@ -27,7 +27,7 @@ Il SDK Python di Azure Machine Learning consente di abilitare la registrazione u
 > * Modelli distribuiti
 > * Impostazioni `logging` di Python
 
-[Creare un'area di lavoro del servizio di Azure Machine Learning](setup-create-workspace.md). Usare la [Guida](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) per altre informazioni, il SDK.
+[Creare un'area di lavoro del servizio Azure Machine Learning](setup-create-workspace.md). Usare la [Guida](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) per altre informazioni, il SDK.
 
 ## <a name="training-models-and-compute-target-logging"></a>Training dei modelli e registrazione delle destinazioni di calcolo
 

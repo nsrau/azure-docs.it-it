@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 04da6b7a904bed8fa0990afe77b7fc81bec5a76e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c3e77a8ec46ae18cb9daa855d842969cc2ba4bb9
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064021"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137248"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per il riconoscimento vocale personalizzato
 
@@ -138,11 +138,11 @@ Se sono presenti condizioni non comuni senza le pronunce standard che gli utenti
 
 Ciò include esempi di un utterance parlato e una pronuncia personalizzata per ogni:
 
-| Forma parlata | Formato riconosciuto/visualizzato |
+| Formato riconosciuto/visualizzato | Forma parlata |
 |--------------|--------------------------|
-| tre c p o | 3CPO |  
-| k c n t | CNTK |
-| i pari al triplo e | IEEE |
+| 3CPO | tre c p o |  
+| CNTK | k c n t |
+| IEEE | i pari al triplo e |
 
 La forma parlata è la sequenza fonetica venga specificata. Si può essere composto lettera, parole, sillabe o una combinazione di tutti e tre.
 

@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: d4a94e75de34bbafd3bc8f1c1a0d1a6817245e5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60846509"
 ---
 # <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>Creare query di rilevamento per i messaggi B2B in log di monitoraggio di Azure per le App per la logica di Azure
@@ -48,7 +48,7 @@ Per trovare i messaggi in base a proprietà o valori specifici, è possibile cre
 1. Nel menu dell'area di lavoro in **Generale** selezionare **Log (versione classica)** oppure **Log**. 
 
    Questo esempio mostra come usare la vista Log nella versione classica. 
-   Se si sceglie **Visualizza log** nella sezione **Ottimizzare l'esperienza di Log Analytics** in **Eseguire ricerche e analisi nei log** viene visualizzato **Log (versione classica)**. 
+   Se si sceglie **Visualizza log** nella sezione **Ottimizzare l'esperienza di Log Analytics** in **Eseguire ricerche e analisi nei log** viene visualizzato **Log (versione classica)** . 
 
    ![Visualizza log classici](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/view-classic-logs.png)
 
@@ -84,9 +84,9 @@ Per trovare i messaggi in base a proprietà o valori specifici, è possibile cre
 
 ## <a name="save-query"></a>Salvare la query
 
-Per salvare la query nella vista **Log (versione classica)**, seguire questa procedura:
+Per salvare la query nella vista **Log (versione classica)** , seguire questa procedura:
 
-1. Dalla query nella pagina **Log (versione classica)**, scegliere **Analisi**. 
+1. Dalla query nella pagina **Log (versione classica)** , scegliere **Analisi**. 
 
    ![Scegliere "Analisi"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-analytics.png)
 
