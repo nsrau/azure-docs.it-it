@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 2fbf29385b9a14cf5d4a9df621f0767a32079587
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61021000"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
@@ -80,23 +80,23 @@ Ad esempio, se un proxy ha un modello di route come `/pets/{petId}`, l'URL di ba
 #### <a name="additional-request-parameters"></a>Parametri aggiuntivi della richiesta
 Oltre ai parametri del modello di route, i valori seguenti possono essere usati nei valori di configurazione:
 
-* **{request.method}**: il metodo HTTP usato nella richiesta originale.
-* **{request. headers. \<HeaderName\>}**: un'intestazione che può essere letta dalla richiesta originale. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera leggere. Se l'intestazione non è inclusa nella richiesta, il valore sarà una stringa vuota.
-* **{request.querystring.\<ParameterName\>}**: un parametro di stringa di query che può essere letto dalla richiesta originale. Sostituire *\<ParameterName\>* con il nome del parametro che si desidera leggere. Se il parametro non è incluso nella richiesta, il valore sarà una stringa vuota.
+* **{request.method}** : il metodo HTTP usato nella richiesta originale.
+* **{request. headers. \<HeaderName\>}** : un'intestazione che può essere letta dalla richiesta originale. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera leggere. Se l'intestazione non è inclusa nella richiesta, il valore sarà una stringa vuota.
+* **{request.querystring.\<ParameterName\>}** : un parametro di stringa di query che può essere letto dalla richiesta originale. Sostituire *\<ParameterName\>* con il nome del parametro che si desidera leggere. Se il parametro non è incluso nella richiesta, il valore sarà una stringa vuota.
 
 ### <a name="response-parameters"></a>Parametri di riferimento della risposta dal back-end
 
 I parametri di risposta possono essere usati come parte della modifica della risposta al client. I valori seguenti possono essere usati nei valori di configurazione:
 
-* **{backend.response.statusCode}**: il codice di stato HTTP restituito nella risposta dal back-end.
-* **{backend.response.statusReason}**: la frase per il motivo HTTP restituita nella risposta dal back-end.
-* **{backend.response.headers.\<HeaderName\>}**: un'intestazione che può essere letta dalla risposta dal back-end. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera leggere. Se l'intestazione non è inclusa nella risposta, il valore sarà una stringa vuota.
+* **{backend.response.statusCode}** : il codice di stato HTTP restituito nella risposta dal back-end.
+* **{backend.response.statusReason}** : la frase per il motivo HTTP restituita nella risposta dal back-end.
+* **{backend.response.headers.\<HeaderName\>}** : un'intestazione che può essere letta dalla risposta dal back-end. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera leggere. Se l'intestazione non è inclusa nella risposta, il valore sarà una stringa vuota.
 
 ### <a name="use-appsettings"></a>Impostazioni di riferimento dell'applicazione
 
 È anche possibile fare riferimento alle [impostazioni dell'applicazione definite per l'app per le funzioni](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) racchiudendo il nome dell'impostazione tra i segni di percentuale (%).
 
-Ad esempio, per un URL di back-end di *https://%ORDER_PROCESSING_HOST%/api/orders*, "%ORDER_PROCESSING_HOST%" verrà sostituito con il valore dell'impostazione ORDER_PROCESSING_HOST.
+Ad esempio, per un URL di back-end di *https://%ORDER_PROCESSING_HOST%/api/orders* , "%ORDER_PROCESSING_HOST%" verrà sostituito con il valore dell'impostazione ORDER_PROCESSING_HOST.
 
 > [!TIP] 
 > Usare le impostazioni dell'applicazione per gli host di back-end quando si dispone di più distribuzioni o ambienti di test. In questo modo, è possibile assicurarsi di comunicare sempre con il back-end corretto per quell'ambiente.
@@ -189,8 +189,8 @@ I proxy leggono tutte le stringhe all'esterno di un file JSON, utilizzando \ com
 L'oggetto requestOverrides definisce le modifiche apportate alla richiesta quando viene chiamata la risorsa back-end. L'oggetto viene definito dalle proprietà seguenti:
 
 * **backend.request.method**: il metodo HTTP usato per chiamare il back-end.
-* **backend.request.querystring.\<ParameterName\>**: un parametro di stringa di query che può essere impostato per la chiamata al back-end. Sostituire *\<ParameterName\>* con il nome del parametro che si desidera impostare. Se viene generata una stringa vuota, il parametro non viene incluso nella richiesta al back-end.
-* **backend.request.headers.\<HeaderName\>**: un'intestazione che può essere impostata per la chiamata al back-end. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera impostare. Se viene fornita una stringa vuota, il parametro non viene incluso nella richiesta al back-end.
+* **backend.request.querystring.\<ParameterName\>** : un parametro di stringa di query che può essere impostato per la chiamata al back-end. Sostituire *\<ParameterName\>* con il nome del parametro che si desidera impostare. Se viene generata una stringa vuota, il parametro non viene incluso nella richiesta al back-end.
+* **backend.request.headers.\<HeaderName\>** : un'intestazione che può essere impostata per la chiamata al back-end. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera impostare. Se viene fornita una stringa vuota, il parametro non viene incluso nella richiesta al back-end.
 
 I valori possono fare riferimento alle impostazioni dell'applicazione e ai parametri della richiesta del client originale.
 
@@ -222,7 +222,7 @@ L'oggetto responseOverrides definisce le modifiche apportate alla risposta passa
 * **response.statusCode**: il codice di stato HTTP da restituire al client.
 * **response.statusReason**: la frase del motivo HTTP da restituire al client.
 * **response.body**: la rappresentazione di stringa del corpo da restituire al client.
-* **response.headers.\<HeaderName\>**: un'intestazione che può essere impostata per la risposta al client. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera impostare. Se viene fornita una stringa vuota, l'intestazione non viene inclusa nella richiesta al back-end.
+* **response.headers.\<HeaderName\>** : un'intestazione che può essere impostata per la risposta al client. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera impostare. Se viene fornita una stringa vuota, l'intestazione non viene inclusa nella richiesta al back-end.
 
 I valori possono fare riferimento alle impostazioni dell'applicazione, ai parametri della richiesta del client originale e ai paramenti della risposta back-end.
 

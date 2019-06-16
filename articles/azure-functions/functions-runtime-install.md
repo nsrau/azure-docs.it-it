@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023126"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installare l'anteprima del runtime di Funzioni di Azure 2
@@ -53,7 +53,7 @@ Il programma di installazione dell'anteprima del runtime di Funzioni di Azure gu
 
 1. Fare clic su **Avanti**.
 1. Dopo aver letto le condizioni dell'**EULA**, **selezionare la casella** per accettare le condizioni e fare clic su **Avanti** per continuare.
-1. Selezionare i ruoli che si intende installare nel computer, **Functions Management Role (ruolo di gestione per le funzioni)** e/o **Functions Worker Role (ruolo di lavoro per le funzioni)**, e fare clic su **Avanti**.
+1. Selezionare i ruoli che si intende installare nel computer, **Functions Management Role (ruolo di gestione per le funzioni)** e/o **Functions Worker Role (ruolo di lavoro per le funzioni)** , e fare clic su **Avanti**.
 
     ![Programma di installazione dell'anteprima del runtime di Funzioni di Azure - Selezione del ruolo][3]
 
@@ -118,7 +118,7 @@ Per creare la prima funzione nell'anteprima del runtime di Funzioni di Azure
 
     ![Anteprima del runtime di Funzioni di Azure - Nome e piano di sottoscrizione del portale][16]
 
-1. Tutte le app per le funzioni sono elencate nel riquadro a sinistra del portale.  Per creare una nuova app per le funzioni selezionare l'intestazione **App per le funzioni** e fare clic sull'opzione **+**.
+1. Tutte le app per le funzioni sono elencate nel riquadro a sinistra del portale.  Per creare una nuova app per le funzioni selezionare l'intestazione **App per le funzioni** e fare clic sull'opzione **+** .
 
 1. Immettere un nome per l'app per le funzioni, selezionare la sottoscrizione corretta, scegliere la versione del runtime di Funzioni di Azure che si desidera programmare e fare clic su **Crea**
 

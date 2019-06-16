@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: ''
 ms.openlocfilehash: 46225e5a332e035e4d1cc256e71c4b5d8686fd47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845274"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Usare l'interfaccia utente di StorSimple Snapshot Manager per gestire i processi di backup e il catalogo di backup
@@ -67,7 +67,7 @@ Per visualizzare il menu **File**, fare clic su **File** nella barra dei menu. V
 #### <a name="menu-description"></a>Descrizione del menu
 Nella tabella seguente vengono descritte le voci del menu **File** .
 
-| Voce di menu | DESCRIZIONE |
+| Voce di menu | Descrizione |
 |:--- |:--- |
 | Nuovo |Fare clic su **Nuova** per creare una nuova console basata su StorSimple Snapshot Manager. |
 | Apri |Fare clic su **Apri** per aprire una console esistente. |
@@ -107,7 +107,7 @@ Nella tabella seguente vengono elencate in ordine alfabetico le azioni di StorSi
 > 
 > 
 
-| Azione | Navigazione | DESCRIZIONE |
+| Azione | Navigazione | Descrizione |
 |:--- |:--- |:--- |
 | Autentica |Fare clic sul nodo **Dispositivi**, quindi fare clic con il pulsante destro del mouse su un dispositivo nel riquadro **Risultati**. |Fare clic su **Autentica** per immettere la password configurata per il dispositivo. |
 | Clone |Espandere **Catalogo backup** e **Snapshot cloud**, fare clic su un backup con data, quindi selezionare un volume nel riquadro **Risultati**. |Fare clic su **Clona** per creare una copia di uno snapshot cloud e archiviarla nella posizione designata. |
@@ -118,7 +118,7 @@ Nella tabella seguente vengono elencate in ordine alfabetico le azioni di StorSi
 | Dettagli |Fare clic sul nodo **Dispositivi**, quindi fare clic con il pulsante destro del mouse su un dispositivo nel riquadro **Risultati**. |Fare clic su **Dettagli** per visualizzare i dettagli di configurazione per un dispositivo. |
 | Modificare |Fare clic su **Criteri di backup**, quindi fare clic con il pulsante destro del mouse su un criterio nel riquadro **Risultati**. |Fare clic su **Modifica** per modificare la pianificazione del backup per un gruppo di volumi. |
 | Esporta elenco |Fare clic su un nodo o su un risultato. Questa voce viene visualizzata in tutti i menu **Azione** e i riquadri **Azioni**. |Fare clic su **Esporta elenco** per salvare un elenco in un file con valori delimitati da virgole (CSV). È quindi possibile importare questo file in un’applicazione foglio di calcolo per l'analisi. |
-| Guida |Fare clic su un nodo o su un risultato. Questa voce viene visualizzata in tutti i menu **Azione** e i riquadri **Azioni**. |Fare clic su **Guida** per aprire la guida in linea in una finestra separata del browser. |
+| Help |Fare clic su un nodo o su un risultato. Questa voce viene visualizzata in tutti i menu **Azione** e i riquadri **Azioni**. |Fare clic su **Guida** per aprire la guida in linea in una finestra separata del browser. |
 | Nuova finestra da qui |Fare clic su un nodo o su un risultato. Questa voce viene visualizzata in tutti i menu **Azione** e i riquadri **Azioni**. |Fare clic su **Nuova finestra da qui** per aprire una nuova finestra di StorSimple Snapshot Manager. |
 | Aggiorna |Fare clic su un nodo o su un risultato. Questa voce viene visualizzata in tutti i menu **Azione** e i riquadri **Azioni**. |Fare clic su **Aggiorna** per aggiornare la finestra di StorSimple Snapshot Manager attualmente visualizzata. |
 | Aggiorna dispositivo |Fare clic sul nodo **Dispositivi**, quindi fare clic con il pulsante destro del mouse su un dispositivo nel riquadro **Risultati**. |Fare clic su **Aggiorna dispositivo** per sincronizzare uno specifico dispositivo connesso con StorSimple Snapshot Manager. |
@@ -139,7 +139,7 @@ Usare il menu **Visualizza** per creare una visualizzazione personalizzata dei c
 #### <a name="menu-description"></a>Descrizione del menu
 Nella tabella seguente vengono descritte le voci del menu **Visualizza** .
 
-| Voce di menu | DESCRIZIONE |
+| Voce di menu | Descrizione |
 |:--- |:--- |
 | Aggiungi/Rimuovi colonne |Fare clic su **Aggiungi/Rimuovi colonne** per aggiungere o rimuovere colonne nel riquadro **Risultati**. |
 | Personalizza |Fare clic su **Personalizza** per mostrare o nascondere le voci nella finestra della console di StorSimple Snapshot Manager. |
@@ -155,7 +155,7 @@ Utilizzare il menu **Preferiti** per aggiungere, rimuovere e organizzare le visu
 #### <a name="menu-description"></a>Descrizione del menu
 Nella tabella seguente vengono descritte le voci del menu **Preferiti** .
 
-| Voce di menu | DESCRIZIONE |
+| Voce di menu | Descrizione |
 |:--- |:--- |
 | Aggiungi a Preferiti |Fare clic su **Aggiungi a Preferiti** per aggiungere la visualizzazione corrente all'elenco dei preferiti. |
 | Organizza Preferiti |Fare clic su **Organizza Preferiti** per organizzare i contenuti della cartella Preferiti. |
@@ -173,7 +173,7 @@ L'elenco numerato nella parte inferiore del menu mostra le finestre attualmente 
 #### <a name="menu-description"></a>Descrizione del menu
 Nella tabella seguente vengono descritte le voci del menu Finestra.
 
-| Voce di menu | DESCRIZIONE |
+| Voce di menu | Descrizione |
 |:--- |:--- |
 | Nuova finestra |Fare clic su **Nuova finestra** per aprire una nuova finestra della console (in aggiunta a quella esistente). |
 | Sovrapponi |Fare clic su **Sovrapponi** per visualizzare le finestre della console aperte in uno stile a cascata. |
@@ -190,7 +190,7 @@ Usare il menu **Guida** per visualizzare la guida in linea disponibile per StorS
 #### <a name="menu-description"></a>Descrizione del menu
 Nella tabella seguente vengono descritte le voci del menu Guida.
 
-| Voce di menu | DESCRIZIONE |
+| Voce di menu | Descrizione |
 |:--- |:--- |
 | Guida di StorSimple Snapshot Manager |Fare clic su **Guida di StorSimple Snapshot Manager** per aprire la guida di StorSimple Snapshot Manager in una finestra separata. |
 | Argomenti della Guida |Fare clic su **Argomenti della Guida** per aprire la guida in linea di MMC in una finestra separata. |
@@ -204,7 +204,7 @@ La barra degli strumenti, posizionata sotto la barra dei menu, contiene le icone
 ### <a name="icon-descriptions"></a>Descrizioni delle icone
 Nella tabella seguente vengono descritte le icone della barra degli strumenti. 
 
-| Icona | DESCRIZIONE |
+| Icona | Descrizione |
 |:--- |:--- |
 | ![Freccia sinistra](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) |Fare clic sull'icona freccia sinistra per tornare alla pagina precedente. |
 | ![Freccia destra](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) |Fare clic sulla freccia destra per passare alla pagina successiva (se la freccia è grigia, l'azione non è disponibile). |
@@ -359,7 +359,7 @@ Nella tabella seguente vengono descritte le combinazioni di tasti di scelta rapi
 | ALT + F |Consente di aprire il menu **File** . |N |Consente di aprire l’istanza di una nuova console. |
 |  |O |Consente di aprire la pagina **Strumenti di amministrazione** . | |
 |  |S |Consente di salvare la console di StorSimple Snapshot Manager. | |
-|  |Una  |Consente di aprire la pagina **Salva con nome** . | |
+|  |Una |Consente di aprire la pagina **Salva con nome** . | |
 |  |M |Consente di aprire la pagina **Aggiungi/Rimuovi snap-in** . | |
 |  |P |Consente di aprire la pagina **Opzioni** . | |
 |  |H |Consente di aprire la guida in linea. | |
@@ -368,9 +368,9 @@ Nella tabella seguente vengono descritte le combinazioni di tasti di scelta rapi
 |  |F |Consente di aggiornare la console di StorSimple Snapshot Manager. | |
 |  |L |Consente di aprire la pagina **Esporta elenco** . | |
 |  |H |Consente di aprire la guida in linea. | |
-| ALT + V |Consente di aprire il menu **Visualizza** . |Una  |Consente di aprire la pagina **Aggiungi/Rimuovi colonne** . |
+| ALT + V |Consente di aprire il menu **Visualizza** . |Una |Consente di aprire la pagina **Aggiungi/Rimuovi colonne** . |
 |  |U |Consente di aprire la pagina **Personalizza visualizzazione** . | |
-| ALT + O |Consente di aprire il menu **Preferiti** . |Una  |Consente di aprire la pagina **Aggiungi a Preferiti** . |
+| ALT + O |Consente di aprire il menu **Preferiti** . |Una |Consente di aprire la pagina **Aggiungi a Preferiti** . |
 |  |O |Consente di aprire la pagina **Organizza Preferiti** . | |
 | ALT + W |Consente di aprire il menu **Finestra** . |N |Consente di aprire un'altra finestra di StorSimple Snapshot Manager. |
 |  |C |Consente di visualizzare tutte le finestre della console aperte in uno stile a cascata. | |
@@ -378,7 +378,7 @@ Nella tabella seguente vengono descritte le combinazioni di tasti di scelta rapi
 |  |I |Consente di disporre le icone su una riga orizzontale nella parte inferiore dello schermo. | |
 | ALT + H |Consente di aprire il menu **Guida** . |H |Consente di aprire la guida in linea. |
 |  |T |Consente di aprire la pagina Web di Microsoft TechNet Tech Center. | |
-|  |Una  |Consente di aprire la pagina **Informazioni su Microsoft Management Console** . | |
+|  |Una |Consente di aprire la pagina **Informazioni su Microsoft Management Console** . | |
 
 ### <a name="scope-pane-shortcut-keys"></a>Tasti di scelta rapida del riquadro Ambito
 Nelle tabelle seguenti vengono illustrate le combinazioni dei tasti di scelta rapida per ciascun nodo nel riquadro **Ambito** . 

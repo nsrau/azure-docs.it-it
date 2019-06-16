@@ -17,10 +17,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
 ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098117"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Creare una rete virtuale (classica) con più subnet
@@ -47,7 +47,7 @@ Si crea una rete virtuale (classica) usando il [portale di Azure](#portal), l'[i
 
     |Impostazione|Valore|
     |---|---|
-    |NOME|myVnet|
+    |Name|myVnet|
     |Spazio degli indirizzi|10.0.0.0/16|
     |Nome della subnet|Pubblico|
     |Intervallo di indirizzi subnet|10.0.0.0/24|

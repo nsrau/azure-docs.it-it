@@ -16,10 +16,10 @@ ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832567"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorare le app in Servizio app di Azure
@@ -39,7 +39,7 @@ Se l'app è ospitata in un piano *Basic*, *Standard* o *Premium*, i limiti relat
 
 Le quote per le app ospitate nel piano Gratuito o Condiviso sono:
 
-| Quota | DESCRIZIONE |
+| Quota | Descrizione |
 | --- | --- |
 | **Tempo CPU (breve)** | Quantità di CPU consentita per l'app in un intervallo di 5 minuti. Questa quota viene reimpostata automaticamente ogni cinque minuti. |
 | **Tempo CPU (giorno)** | Quantità totale di CPU consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
@@ -53,7 +53,7 @@ Per altre informazioni su quote, funzionalità e limiti specifici per i vari SKU
 
 ### <a name="quota-enforcement"></a>Applicazione delle quote
 
-Se l'uso di un'app supera la quota *Tempo CPU (breve)*, *Tempo CPU (giorno)* o *Larghezza di banda*, l'app viene arrestata fino al momento in cui viene reimpostata la quota. Durante questo intervallo di tempo, per tutte le richieste in ingresso viene restituito un errore HTTP 403.
+Se l'uso di un'app supera la quota *Tempo CPU (breve)* , *Tempo CPU (giorno)* o *Larghezza di banda*, l'app viene arrestata fino al momento in cui viene reimpostata la quota. Durante questo intervallo di tempo, per tutte le richieste in ingresso viene restituito un errore HTTP 403.
 
 ![Messaggio di errore 403][http403]
 
@@ -69,7 +69,7 @@ Le metriche forniscono informazioni sull'app o sul comportamento del piano di se
 
 Le metriche disponibili per un'app sono:
 
-| Metrica | DESCRIZIONE |
+| Metrica | Descrizione |
 | --- | --- |
 | **Tempo medio di risposta** | Tempo medio impiegato dall'app per gestire le richieste, espresso in millisecondi. |
 | **Working set della memoria medio** | Quantità media di memoria usata dall'app, espressa in megabyte (MiB). |
@@ -111,7 +111,7 @@ Le metriche disponibili per un piano di servizio app sono:
 > Le metriche del piano di servizio app sono disponibili solo per i piani dei livelli *Basic*, *Standard* e *Premium*.
 > 
 
-| Metrica | DESCRIZIONE |
+| Metrica | Descrizione |
 | --- | --- |
 | **Percentuale di CPU** | CPU media usata tra tutte le istanze del piano. |
 | **Percentuale memoria** | Memoria media usata tra tutte le istanze del piano. |

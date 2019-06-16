@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
 ms.openlocfilehash: 616e342f1d52179c40c225c5dafc9de13ce85e06
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65028216"
 ---
 # <a name="how-to-configure-azure-active-directory-access"></a>Come configurare l'accesso di Azure Active Directory
@@ -90,7 +90,7 @@ Per connettersi al nodo usando un ID applicazione, sostituire **aadauthcode** co
 connector.exe -remote <myBlockchainEndpoint>  -method aadclient -client-id <myClientID> -client-secret "<myClientSecret>" -tenant-id <myAADDirectory>
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |-----------|-------------|
 | tenant-id | Dominio di Azure AD, ad esempio, `yourdomain.onmicrosoft.com`
 | client-id | ID client dell'applicazione registrato in Azure AD

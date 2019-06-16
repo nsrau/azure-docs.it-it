@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/22/2019
 ms.openlocfilehash: ac7a074e78def504a10b4daa07971f919f414a88
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66259453"
 ---
 # <a name="azure-sql-database-feature-restrictions"></a>Restrizioni di funzionalità del Database SQL di Azure
@@ -134,7 +134,7 @@ Si consideri un'applicazione web che dispone di una richiesta sotto forma di:
 http://www.contoso.com/employee.php?id=1
 ```
 
-che esegue la query di database seguenti:
+Che esegue la query di database seguenti:
 
 ```sql
 SELECT Name FROM EMPLOYEES WHERE Id=$EmpId

@@ -13,10 +13,10 @@ ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484745"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Reporting tra tenant tramite query distribuite
@@ -128,7 +128,7 @@ Questo esercizio aggiunge lo schema (definizioni dell'origine dati esterna e del
 
     ![creare l'origine dati esterna](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   Le tabelle esterne che fanno riferimento alle viste globali descritte nella sezione precedente e definite con **DISTRIBUTION = SHARDED(VenueId)**. Dato che ogni *VenueId* corrisponde a un singolo database, ciò migliora le prestazioni per molti scenari, come illustrato nella sezione successiva.
+   Le tabelle esterne che fanno riferimento alle viste globali descritte nella sezione precedente e definite con **DISTRIBUTION = SHARDED(VenueId)** . Dato che ogni *VenueId* corrisponde a un singolo database, ciò migliora le prestazioni per molti scenari, come illustrato nella sezione successiva.
 
     ![creare tabelle esterne](media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 
@@ -148,7 +148,7 @@ Dopo avere configurato il database *adhocreporting*, è possibile procedere ed e
 
 Quando si esamina il piano di esecuzione, passare il mouse sulle icone del piano per visualizzare i dettagli. 
 
-È importante sottolineare che l'impostazione **DISTRIBUTION = SHARDED(VenueId)**, usata per la definizione dell'origine dati esterna, consente di migliorare le prestazioni in molti scenari. Dato che ogni *VenueId* corrisponde a un singolo database, il filtro viene eseguito facilmente in remoto, restituire solo i dati necessiti.
+È importante sottolineare che l'impostazione **DISTRIBUTION = SHARDED(VenueId)** , usata per la definizione dell'origine dati esterna, consente di migliorare le prestazioni in molti scenari. Dato che ogni *VenueId* corrisponde a un singolo database, il filtro viene eseguito facilmente in remoto, restituire solo i dati necessiti.
 
 1. Aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* in SQL Server Management Studio.
 2. Assicurarsi di essere connessi al database **adhocreporting**.

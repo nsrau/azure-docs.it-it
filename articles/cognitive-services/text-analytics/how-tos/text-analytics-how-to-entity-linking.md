@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
 ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231435"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare Named Entity Recognition in testo Analitica
@@ -33,7 +33,7 @@ Il riconoscimento delle entità denominate (NER) è la possibilità di identific
 
 Nel testo Analitica [la versione 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), riconoscimento di entità denominate (NER) sia entità di collegamento sono disponibili.
 
-### <a name="language-support"></a>Supporto per la lingua
+### <a name="language-support"></a>Supporto per le lingue
 
 L'uso del collegamento delle entità in varie lingue richiede l'uso di una corrispondente knowledge base in ciascuna lingua. Il collegamento delle entità in Analisi del testo significa che ogni lingua supportata dall'endpoint `entities` si collegherà al corpus Wikipedia corrispondente in tale lingua. Poiché le dimensioni del corpora variano tra le lingue, è prevista anche una variazione dell'entità collegata al richiamo della funzionalità.
 
@@ -41,27 +41,27 @@ L'uso del collegamento delle entità in varie lingue richiede l'uso di una corri
 
 | Type  | SubType | Esempio |
 |:-----------   |:------------- |:---------|
-| Persona        | N/D\*         | "Jeff", "Bill Gates"     |
+| Person        | N/D\*         | "Jeff", "Bill Gates"     |
 | Località      | N/D\*         | "Redmond, Washington", "Parigi"  |
-| Azienda  | N/D\*         | "Microsoft"   |
-| Quantità      | Number        | "6", "sei"     | 
+| Organizzazione  | N/D\*         | "Microsoft"   |
+| Quantità      | Numero        | "6", "sei"     | 
 | Quantità      | Percentuale    | "50%", "cinquanta percento"| 
 | Quantità      | Ordinale       | "2°", "secondo"     | 
-| Quantità      | NumberRange   | "da 4 a 8"     | 
-| Quantità      | Tempo di risoluzione           | "90 giorni", "30 anni"    | 
-| Quantità      | Valuta      | "$ 10,99"     | 
+| Quantità      | Intervallo numerico   | "da 4 a 8"     | 
+| Quantità      | Age           | "90 giorni", "30 anni"    | 
+| Quantità      | Currency      | "$ 10,99"     | 
 | Quantità      | Dimensione     | "10 miglia", "40 cm"     | 
 | Quantità      | Temperatura   | "32 gradi"    |
 | DateTime      | N/D\*         | "4 febbraio 2012 18:30"      | 
-| DateTime      | Data          | "2 maggio 2017", "02/05/2017"   | 
+| DateTime      | Date          | "2 maggio 2017", "02/05/2017"   | 
 | DateTime      | Time          | "8", "8:00"  | 
-| DateTime      | DateRange     | "Dal 2 maggio al 5 maggio"    | 
-| DateTime      | TimeRange     | "dalle 18 alle 19"     | 
-| DateTime      | Durata      | "1 minuto e 45 secondi"   | 
-| DateTime      | Impostato           | "ogni martedì"     | 
+| DateTime      | Intervallo di date     | "Dal 2 maggio al 5 maggio"    | 
+| DateTime      | Intervallo orario     | "dalle 18 alle 19"     | 
+| DateTime      | Duration      | "1 minuto e 45 secondi"   | 
+| DateTime      | Configurazione           | "ogni martedì"     | 
 | DateTime      | TimeZone      |    | 
 | URL           | N/D\*         | "https:\//www.bing.com"    |
-| Posta         | N/D\*         | "support@contoso.com" |
+| Email         | N/D\*         | "support@contoso.com" |
 
 \*A seconda delle entità immesse ed estratte, alcune entità possono omettere `SubType`.  Tutti i tipi di entità supportati elencati sono disponibili solo per le lingue inglese, cinese semplificato, francese, tedesco e spagnolo.
 
@@ -109,7 +109,7 @@ Al momento della ricezione della richiesta viene eseguita l'analisi. Il servizio
 
 Tenere presente che il servizio è senza stato. Nessun dato viene archiviato nell'account. I risultati vengono restituiti immediatamente nella risposta.
 
-## <a name="step-3-view-results"></a>Passaggio 3: Visualizza risultati
+## <a name="step-3-view-results"></a>Passaggio 3: Visualizzare i risultati
 
 Tutte le richieste POST restituiscono una risposta JSON formattata con gli ID e le proprietà rilevate.
 

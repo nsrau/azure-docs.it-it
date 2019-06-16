@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 42e533cdcedfb47a46934f77714d61a640a8d7d1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942873"
 ---
 # <a name="azure-applications-test-drive-tab"></a>Scheda Test drive per le applicazioni Azure
@@ -53,11 +53,11 @@ La schermata successiva mostra tutti i moduli di Test drive. Un asterisco (*) al
 
 Nella tabella seguente vengono descritti i campi necessari per configurare il test drive per l'applicazione gestita.  I campi aggiunti con un asterisco sono obbligatori.
 
-|      Campo         |  DESCRIZIONE      |
+|      Campo         |  Descrizione      |
 |  ---------------   |  ---------------  |
 | **Descrizione\***  |  Descrivere le operazioni che possono essere eseguite durante il test drive. È possibile usare tag HTML di base per formattare questa descrizione. Ad esempio, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e le intestazioni.                |
 | **Manuale dell'utente\***  |  Caricare un manuale dell'utente che i clienti possono usare per eseguire il test drive. Questo documento deve essere un file con estensione pdf.    |
-| **Video demo del test drive** |  Un facoltativo video della procedura dettagliata di un Test dell'unità. che un cliente può guardare prima di eseguire un test drive. Specificare un URL per il video su YouTube o Vimeo. Se si seleziona **+ Aggiungi video**, verrà chiesto di fornire le informazioni seguenti:<ul><li>NOME</li><li>URL</li><li>Anteprima (in formato PNG, 533 x 324 pixel)</li></ul>  |
+| **Video demo del test drive** |  Un facoltativo video della procedura dettagliata di un Test dell'unità. che un cliente può guardare prima di eseguire un test drive. Specificare un URL per il video su YouTube o Vimeo. Se si seleziona **+ Aggiungi video**, verrà chiesto di fornire le informazioni seguenti:<ul><li>Name</li><li>URL</li><li>Anteprima (in formato PNG, 533 x 324 pixel)</li></ul>  |
 | **Istanze\***      | Configurare il numero di istanze desiderate, in quali aree e la velocità con cui i clienti possono ottenere il test drive. Per altre informazioni, vedere [Come pubblicare un test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
 | **Unità di durata del test (ore)\*** | Immettere un numero intero per il numero di ore. L'intervallo consentito va da 1 a 999. |
 | **Modello ARM di test unità\***     | Caricare un file compresso (con estensione zip) contenente i modelli di Azure Resource Manager per l'app. Per altre informazioni, vedere [Test drive di Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive). |

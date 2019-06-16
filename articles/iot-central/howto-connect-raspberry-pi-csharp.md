@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 3e77494eacaf16ac23a531cb7a16fe8bf6117006
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714424"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Connettere un dispositivo Raspberry Pi all'applicazione Azure IoT Central (C#)
@@ -340,7 +340,7 @@ Un'applicazione creata dal modello di applicazione **Sample Devkits** include un
 
 Impostazioni numeriche
 
-| Nome visualizzato | Nome campo | Unità | Cifre decimali | Minima | Massima | Initial |
+| `Display name` | Nome campo | Unità | Cifre decimali | Minima | Massima | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Tensione      | setVoltage | Volt | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
@@ -348,13 +348,13 @@ Impostazioni numeriche
 
 Impostazioni attivazione/disattivazione
 
-| Nome visualizzato | Nome campo | Testo attivato | Testo disattivato | Initial |
+| `Display name` | Nome campo | Testo attivato | Testo disattivato | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | ATTIVA      | DISATTIVA      | Off     |
 
 ### <a name="properties"></a>Properties
 
-| Type            | Nome visualizzato | Nome campo | Tipo di dati |
+| Type            | `Display name` | Nome campo | Tipo di dati |
 | --------------- | ------------ | ---------- | --------- |
 | Proprietà dispositivo | Numero stampo   | dieNumber  | number    |
 | Text            | Località     | location   | N/D       |

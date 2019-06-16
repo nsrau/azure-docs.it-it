@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: 58d22e3fcae5c30e5d7dcc39b317afeef4a693ee
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65605911"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Visualizza cronologia di distribuzione con Azure Resource Manager
@@ -40,7 +40,7 @@ Per ottenere informazioni dettagliate su una distribuzione dalla cronologia dell
 
 1. Per visualizzare il modello usato per la distribuzione, selezionare **modello**. È possibile scaricare il modello per poterlo riutilizzare.
 
-    ![Mostra modello](./media/resource-manager-deployment-operations/show-template-from-history.png)
+    ![Mostrare il modello](./media/resource-manager-deployment-operations/show-template-from-history.png)
 
 1. Se la distribuzione ha esito negativo, viene visualizzato un messaggio di errore. Selezionare il messaggio di errore per altri dettagli.
 

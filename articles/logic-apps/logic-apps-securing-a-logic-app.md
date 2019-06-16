@@ -11,10 +11,10 @@ ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
 ms.openlocfilehash: 31b18e2dfbad1f572b5c9b0ae59f5e076db7cde2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60995689"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Proteggere l'accesso alle App per la logica di Azure
@@ -108,12 +108,12 @@ Per configurare questa restrizione nel portale di Azure passare alle impostazion
 
 1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Impostazioni del flusso di lavoro**.
 
-1. In **Configurazione del controllo di accesso (Configurazione del controllo di accesso)** > 
-**Allowed inbound IP addresses (Indirizzi IP in ingresso consentiti)**, selezionare **Specific IP ranges (Intervalli IP specifici)**.
+1. In **Configurazione del controllo di accesso (Configurazione del controllo di accesso)**  > 
+**Allowed inbound IP addresses (Indirizzi IP in ingresso consentiti)** , selezionare **Specific IP ranges (Intervalli IP specifici)** .
 
-1. In **IP ranges for triggers (Intervalli di IP per i trigger)**, specificare gli intervalli di indirizzi IP accettati dal trigger. Un intervallo IP valido usa questi formati: *x.x.x.x/x* o *x.x.x.x-x.x.x.x* 
+1. In **IP ranges for triggers (Intervalli di IP per i trigger)** , specificare gli intervalli di indirizzi IP accettati dal trigger. Un intervallo IP valido usa questi formati: *x.x.x.x/x* o *x.x.x.x-x.x.x.x* 
 
-Se si vuole che l'app per la logica venga generata solo come app per la logica annidata, dall'elenco **Allowed inbound IP addresses (Indirizzi IP in ingresso consentiti)**, selezionare **Only other Logic App (Solo altre app per la logica)**. Questa opzione scrive una matrice vuota nella risorsa di app per la logica, in modo che solo le chiamate dal servizio di App per la logica (app per la logica padre) possano attivare l'app per la logica annidata.
+Se si vuole che l'app per la logica venga generata solo come app per la logica annidata, dall'elenco **Allowed inbound IP addresses (Indirizzi IP in ingresso consentiti)** , selezionare **Only other Logic App (Solo altre app per la logica)** . Questa opzione scrive una matrice vuota nella risorsa di app per la logica, in modo che solo le chiamate dal servizio di App per la logica (app per la logica padre) possano attivare l'app per la logica annidata.
 
 > [!NOTE]
 > Indipendentemente dall'indirizzo IP, è comunque possibile eseguire un'app per la logica che includa un trigger basato su richiesta usando `/triggers/{triggerName}/run` tramite l'API REST di Azure o tramite Gestione API. Tuttavia, in questo caso potrebbe essere richiesta l'autenticazione all'API REST di Azure e tutti gli eventi potrebbero essere visualizzati nel log di controllo di Azure. Assicurarsi di impostare i criteri di controllo di accesso di conseguenza.

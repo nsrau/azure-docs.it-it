@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787293"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP in Funzioni permanenti (Funzioni di Azure)
@@ -90,7 +90,7 @@ Questo protocollo consente di coordinare processi a esecuzione prolungata con cl
 
 Tutte le API HTTP implementate dall'estensione richiedono i parametri seguenti. Il tipo di dati di tutti i parametri è `string`.
 
-| Parametro        | Tipo parametro  | Descrizione |
+| Parametro        | Tipo di parametro  | Descrizione |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Stringa di query    | Nome dell'[hub attività](durable-functions-task-hubs.md). Se non specificato, viene usato il nome dell'hub attività dell'app per le funzioni corrente. |
 | **`connection`** | Stringa di query    | **Nome** della stringa di connessione per l'account di archiviazione. Se non specificato, viene usata la stringa di connessione predefinita dell'app per le funzioni. |
@@ -146,11 +146,11 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 
 Possono essere restituiti diversi valori di codice di stato.
 
-* **HTTP 200 (OK)**: l'istanza specificata è in stato completato.
-* **HTTP 202 (Accettata)**: l'istanza specificata è in esecuzione.
-* **HTTP 400 (Richiesta non valida)**: l'istanza specificata ha avuto esito negativo o è stata terminata.
-* **HTTP 404 (Non trovata)**: l'istanza specificata non esiste o l'esecuzione non è iniziata.
-* **HTTP 500 (Errore interno del server)**: si è verificato un errore dell'istanza specificata con un'eccezione non gestita.
+* **HTTP 200 (OK)** : l'istanza specificata è in stato completato.
+* **HTTP 202 (Accettata)** : l'istanza specificata è in esecuzione.
+* **HTTP 400 (Richiesta non valida)** : l'istanza specificata ha avuto esito negativo o è stata terminata.
+* **HTTP 404 (Non trovata)** : l'istanza specificata non esiste o l'esecuzione non è iniziata.
+* **HTTP 500 (Errore interno del server)** : si è verificato un errore dell'istanza specificata con un'eccezione non gestita.
 
 Il payload di risposta per i casi **HTTP 200** e **HTTP 202** è un oggetto JSON con i campi seguenti:
 
@@ -366,14 +366,14 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 
 I valori di codice di stato HTTP seguenti possono essere restituiti.
 
-* **HTTP 200 (OK)**: La cronologia di istanza è stata eliminata correttamente.
-* **HTTP 404 (Non trovata)**: L'istanza specificata non esiste.
+* **HTTP 200 (OK)** : La cronologia di istanza è stata eliminata correttamente.
+* **HTTP 404 (Non trovata)** : L'istanza specificata non esiste.
 
 Il payload di risposta per la **HTTP 200** case è un oggetto JSON con il campo seguente:
 
 | Campo                  | Tipo di dati | Descrizione |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | integer   | Il numero di istanze eliminato. Nel caso di istanza singola, questo valore deve essere sempre `1`. |
+| **`instancesDeleted`** | numero intero   | Il numero di istanze eliminato. Nel caso di istanza singola, questo valore deve essere sempre `1`. |
 
 Di seguito è riportato un payload di risposta di esempio (formattato per migliorare la leggibilità):
 
@@ -428,14 +428,14 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 
 I valori di codice di stato HTTP seguenti possono essere restituiti.
 
-* **HTTP 200 (OK)**: La cronologia di istanza è stata eliminata correttamente.
-* **HTTP 404 (Non trovata)**: Nessuna istanza trovata che corrisponde all'espressione di filtro.
+* **HTTP 200 (OK)** : La cronologia di istanza è stata eliminata correttamente.
+* **HTTP 404 (Non trovata)** : Nessuna istanza trovata che corrisponde all'espressione di filtro.
 
 Il payload di risposta per la **HTTP 200** case è un oggetto JSON con il campo seguente:
 
 | Campo                   | Tipo di dati | Descrizione |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | integer   | Il numero di istanze eliminato. |
+| **`instancesDeleted`**  | numero intero   | Il numero di istanze eliminato. |
 
 Di seguito è riportato un payload di risposta di esempio (formattato per migliorare la leggibilità):
 
@@ -481,10 +481,10 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 
 Possono essere restituiti diversi valori di codice di stato.
 
-* **HTTP 202 (Accettata)**: l'evento generato è stato accettato per l'elaborazione.
-* **HTTP 400 (Richiesta non valida)**: il contenuto della richiesta non è di tipo `application/json` o non è un oggetto JSON valido.
-* **HTTP 404 (Non trovata)**: l'istanza specificata non è stata trovata.
-* **HTTP 410 (Non disponibile)**: l'istanza specificata è stata completata o ha avuto esito negativo e non può elaborare gli eventi generati.
+* **HTTP 202 (Accettata)** : l'evento generato è stato accettato per l'elaborazione.
+* **HTTP 400 (Richiesta non valida)** : il contenuto della richiesta non è di tipo `application/json` o non è un oggetto JSON valido.
+* **HTTP 404 (Non trovata)** : l'istanza specificata non è stata trovata.
+* **HTTP 410 (Non disponibile)** : l'istanza specificata è stata completata o ha avuto esito negativo e non può elaborare gli eventi generati.
 
 Ecco una richiesta di esempio che invia la stringa JSON `"incr"` a un'istanza in attesa di un evento denominato **operation**:
 
@@ -526,7 +526,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti.
 
-| Campo             | Tipo parametro  | Descrizione |
+| Campo             | Tipo di parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID dell'istanza di orchestrazione. |
 | **`reason`**      | Stringa di query    | facoltativo. Motivo dell'interruzione dell'istanza di orchestrazione. |
@@ -535,9 +535,9 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 
 Possono essere restituiti diversi valori di codice di stato.
 
-* **HTTP 202 (Accettata)**: la richiesta di interruzione è stata accettata per l'elaborazione.
-* **HTTP 404 (Non trovata)**: l'istanza specificata non è stata trovata.
-* **HTTP 410 (Non disponibile)**: l'istanza specificata è stata completata o ha avuto esito negativo.
+* **HTTP 202 (Accettata)** : la richiesta di interruzione è stata accettata per l'elaborazione.
+* **HTTP 404 (Non trovata)** : l'istanza specificata non è stata trovata.
+* **HTTP 410 (Non disponibile)** : l'istanza specificata è stata completata o ha avuto esito negativo.
 
 Ecco un esempio di richiesta che termina un'istanza in esecuzione e specifica il motivo **buggy** (con errori):
 
@@ -575,7 +575,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti.
 
-| Campo             | Tipo parametro  | Descrizione |
+| Campo             | Tipo di parametro  | Descrizione |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | ID dell'istanza di orchestrazione. |
 | **`reason`**      | Stringa di query    | facoltativo. Motivo del ripristino dell'istanza di orchestrazione. |
@@ -584,9 +584,9 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 
 Possono essere restituiti diversi valori di codice di stato.
 
-* **HTTP 202 (Accettata)**: la richiesta di ripristino è stata accettata per l'elaborazione.
-* **HTTP 404 (Non trovata)**: l'istanza specificata non è stata trovata.
-* **HTTP 410 (Non disponibile)**: l'istanza specificata è stata completata o terminata.
+* **HTTP 202 (Accettata)** : la richiesta di ripristino è stata accettata per l'elaborazione.
+* **HTTP 404 (Non trovata)** : l'istanza specificata non è stata trovata.
+* **HTTP 410 (Non disponibile)** : l'istanza specificata è stata completata o terminata.
 
 Di seguito è riportato un esempio di richiesta che ripristina un'istanza non riuscita e specifica il motivo **fixed** (corretto):
 

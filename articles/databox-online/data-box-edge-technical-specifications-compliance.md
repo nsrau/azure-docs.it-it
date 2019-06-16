@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60755135"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure specifiche tecniche bordo casella dei dati
@@ -28,7 +28,7 @@ Il dispositivo perimetrale casella dei dati ha due 100-240 V unità di alimentaz
 | Potenza massima in uscita    | 750 W                     |
 | Frequenza               | 50/60 Hz                   |
 | Selezione intervallo di voltaggio | Intervallo automatico: 100-240 V CA |
-| Collegabile "hot"           | Sì                        |
+| Collegabile "hot"           | Yes                        |
 
 <!--## Power consumption statistics
 
@@ -95,7 +95,7 @@ Questa sezione elenca le specifiche relative all'ambiente dello chassis, ad esem
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Flusso d'aria                              |    Il flusso d'aria di sistema va dalla parte anteriore a quella posteriore. Il sistema deve essere utilizzato con un'installazione a bassa pressione e scarico posteriore. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
 |    Massimo altitudine, operativa        |    contatori 3048 (10.000 piedi) con temperatura operativo massimo determinato dal [temperatura di deprovisioning rating specifiche](#operating-temperature-de-rating-specifications).                                                                                |
-|    Massimo altitudine, non operativa    |    12.000 (39,370 metri)                                                                                                                                                                                         |
+|    Massimo altitudine, non operativa    |    12\.000 (39,370 metri)                                                                                                                                                                                         |
 |    Scossa, operativo                   |    6 G 11 millisecondi in 6 orientamenti                                                                                                                                                                         |
 |    Scossa, non operativo               |    71 G per 2 millisecondi in 6 orientamenti                                                                                                                                                                           |
 |    Vibrazione, operativa               |    G 0,26<sub>RMS</sub> 5 Hz per 350 Hz casuali                                                                                                                                                                                     |

@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 2d0c8629e4abf9e27cd204b9a13b79808b177501
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715208"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Sicurezza a livello di riga con le raccolte di aree di lavoro di Power BI
@@ -48,7 +48,7 @@ Ecco alcuni aspetti dello schema da notare:
 
 * Tutte le misure, ad esempio **Vendite totali**, sono archiviate nella tabella dei fatti **Vendite**.
 * Sono presenti altre quattro tabelle relative alle dimensioni correlate, ovvero **Elemento**, **Tempo**, **Negozio** e **Distretto**.
-* Le frecce sulle linee relative alle relazioni indicano il modo in cui i filtri possono essere applicati da una tabella a un'altra. Se, ad esempio, si posiziona un filtro su **Tempo[Data]**, nello schema corrente verrebbero filtrati solo i valori della tabella **Vendite**. Questo filtro non influirebbe su altre tabelle, perché tutte le frecce sulle linee relative alle relazioni fanno riferimento alla tabella Sales, non ad altre tabelle.
+* Le frecce sulle linee relative alle relazioni indicano il modo in cui i filtri possono essere applicati da una tabella a un'altra. Se, ad esempio, si posiziona un filtro su **Tempo[Data]** , nello schema corrente verrebbero filtrati solo i valori della tabella **Vendite**. Questo filtro non influirebbe su altre tabelle, perché tutte le frecce sulle linee relative alle relazioni fanno riferimento alla tabella Sales, non ad altre tabelle.
 * La tabella **District** indica il manager per ogni area:
   
   ![Righe della tabella District](media/row-level-security/district-table-4.png)
@@ -111,7 +111,7 @@ Al termine di queste procedure, se un utente accede all'applicazione per visuali
 
 ![Report visualizzato nell'applicazione](media/row-level-security/dashboard-13.png)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Sicurezza a livello di riga con Power BI](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
 [Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI](app-token-flow.md)  

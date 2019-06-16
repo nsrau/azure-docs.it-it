@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736285"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Individuazione della corrispondenza tra le richieste e una regola di routing in Frontdoor
@@ -50,7 +50,7 @@ Per spiegare ulteriormente questo processo, esaminiamo una configurazione di ese
 
 | Regola di routing | Host front-end | `Path` |
 |-------|--------------------|-------|
-| Una  | foo.contoso.com | /\* |
+| Una | foo.contoso.com | /\* |
 | b | foo.contoso.com | /users/\* |
 | C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
 
@@ -80,7 +80,7 @@ Per chiarire ulteriormente il processo, esaminiamo un altro set di esempi:
 
 | Regola di routing | Host front-end    | `Path`     |
 |-------|---------|----------|
-| Una      | www\.contoso.com | /        |
+| Una     | www\.contoso.com | /        |
 | b     | www\.contoso.com | /\*      |
 | C     | www\.contoso.com | /ab      |
 | D     | www\.contoso.com | /abc     |
@@ -93,7 +93,7 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 
 | Richiesta in ingresso    | Route corrispondente |
 |---------------------|---------------|
-| www\.contoso.com/            | Una              |
+| www\.contoso.com/            | Una             |
 | www\.contoso.com/a           | b             |
 | www\.contoso.com/ab          | C             |
 | www\.contoso.com/abc         | D             |
@@ -114,7 +114,7 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 >
 > | Route | Host             | `Path`    |
 > |-------|------------------|---------|
-> | Una      | profile.contoso.com | /api/\* |
+> | Una     | profile.contoso.com | /api/\* |
 >
 > Tabella corrispondente:
 >

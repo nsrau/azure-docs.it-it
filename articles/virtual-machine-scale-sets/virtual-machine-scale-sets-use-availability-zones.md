@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
 ms.openlocfilehash: 7fa903f65a6c7d244ff424eae4a0def258b50bbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803253"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità
@@ -45,7 +45,7 @@ Quando si distribuisce un set di scalabilità, è anche possibile procedere con 
 
 ### <a name="zone-balancing"></a>Bilanciamento delle zone
 
-Infine, per i set di scalabilità distribuiti in più zone è anche possibile scegliere tra il bilanciamento delle zone con massimo sforzo e il bilanciamento delle zone restrittivo. Un set di scalabilità viene considerato "bilanciato" se ogni zona del set ha lo stesso numero di macchine virtuali o +\\- 1 macchine virtuali in tutte le altre zone. Ad esempio: 
+Infine, per i set di scalabilità distribuiti in più zone è anche possibile scegliere tra il bilanciamento delle zone con massimo sforzo e il bilanciamento delle zone restrittivo. Un set di scalabilità viene considerato "bilanciato" se ogni zona del set ha lo stesso numero di macchine virtuali o +\\- 1 macchine virtuali in tutte le altre zone. Ad esempio:
 
 - Un set di scalabilità con 2 macchine virtuali nella zona 1, 3 macchine virtuali nella zona 2 e 3 macchine virtuali nella zona 3 è considerato bilanciato. C'è solo una zona con un numero di macchine virtuali diverso e la differenza è di 1 sola in meno rispetto alle altre zone. 
 - Un set di scalabilità con 1 macchina virtuale nella zona 1, 3 nella zona 2 e 3 nella zona 3 è considerato sbilanciato. La zona 1 ha 2 macchine virtuali in meno rispetto alle zone 2 e 3.

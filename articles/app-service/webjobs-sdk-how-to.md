@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831793"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Come usare Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
@@ -130,7 +130,7 @@ static void Main()
 
 Nella versione 3. *x*, per impostazione predefinita il limite di connessione per connessioni infinite. Se per qualche motivo è necessario modificare questo limite, è possibile usare la [ `MaxConnectionsPerServer` ](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) proprietà della [ `WinHttpHandler` ](/dotnet/api/system.net.http.winhttphandler) classe.
 
-Nella versione 2. *x*, controllare il numero di connessioni simultanee a un host tramite il [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2. *x*, è necessario aumentare questo valore dal valore predefinito di 2 prima di avviare l'host di processi Web.
+Nella versione 2. *x*, controllare il numero di connessioni simultanee a un host tramite il [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2\. *x*, è necessario aumentare questo valore dal valore predefinito di 2 prima di avviare l'host di processi Web.
 
 Tutte in uscita richieste HTTP eseguite da una funzione usando `HttpClient` fluiscono `ServicePointManager`. Dopo avere raggiunto il valore impostato nel `DefaultConnectionLimit`, `ServicePointManager` avvia le richieste di Accodamento prima di inviarli. Si supponga che il valore `DefaultConnectionLimit` sia impostato su 2 e che il codice effettui 1000 richieste HTTP. All'inizio sono consentite solo due richieste al sistema operativo. Le altre 998 vengono inserite nella coda finché ci sarà spazio. Ciò significa che il `HttpClient` potrebbe scadere perché sembra avere effettuato la richiesta, ma mai inviata dal sistema operativo nel server di destinazione. Pertanto si potrebbe osservare un comportamento apparentemente senza senso: `HttpClient` locale richiede 10 secondi per completare una richiesta, ma il servizio restituisce ogni richiesta in 200 ms. 
 

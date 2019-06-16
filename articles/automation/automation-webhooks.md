@@ -10,10 +10,10 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61305021"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Avviare un runbook di Automazione di Azure con un webhook
@@ -47,7 +47,7 @@ Quando avvia un runbook con un webhook, un client non può eseguire l'override d
 
 Di seguito sono elencate le proprietà dell'oggetto **$WebhookData**:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | WebhookName |Nome del webhook. |
 | RequestHeader |Tabella hash contenente le intestazioni della richiesta POST in ingresso. |
@@ -110,7 +110,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 Il client riceve uno dei codici restituiti seguenti dalla richiesta POST.
 
-| Codice | Testo | DESCRIZIONE |
+| Codice | Testo | Descrizione |
 |:--- |:--- |:--- |
 | 202 |Accepted |La richiesta è stata accettata e il Runbook è stato accodato. |
 | 400 |Bad Request |La richiesta non è stata accettata per uno dei motivi seguenti: <ul> <li>Il webhook è scaduto.</li> <li>Il webhook è disabilitato.</li> <li>Il token nell'URL non è valido.</li>  </ul> |

@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: robb
 ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65471791"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
 Questo articolo contiene informazioni sulla risoluzione dei problemi relativi all'uso di Diagnostica di Azure. Per altre informazioni su Diagnostica di Azure, vedere la [panoramica di Diagnostica di Azure](diagnostics-extension-overview.md).
 
 ## <a name="logical-components"></a>Componenti logici
-**Utilità di avvio plug-in di diagnostica (DiagnosticsPluginLauncher.exe)**: Avvia l'estensione Diagnostica di Azure. Svolge la funzione di processo del punto di ingresso.
+**Utilità di avvio plug-in di diagnostica (DiagnosticsPluginLauncher.exe)** : Avvia l'estensione Diagnostica di Azure. Svolge la funzione di processo del punto di ingresso.
 
-**Plug-in di diagnostica (DiagnosticsPlugin.exe)**: configura e avvia l'agente di monitoraggio e ne gestisce il ciclo di vita. È il principale processo avviato dall'utilità di avvio.
+**Plug-in di diagnostica (DiagnosticsPlugin.exe)** : configura e avvia l'agente di monitoraggio e ne gestisce il ciclo di vita. È il principale processo avviato dall'utilità di avvio.
 
-**Agente di monitoraggio (processi MonAgent\*.exe)**: Monitora, raccoglie e trasferisce i dati di diagnostica.  
+**Agente di monitoraggio (processi MonAgent\*.exe)** : Monitora, raccoglie e trasferisce i dati di diagnostica.  
 
 ## <a name="logartifact-paths"></a>Percorsi di log ed elementi
 Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel resto del documento verrà fatto riferimento a queste informazioni.
@@ -167,7 +167,7 @@ Le tabelle in Archiviazione di Azure contenenti gli eventi ETW vengono denominat
             tableName = "WAD" + eventDestination;
 ```
 
-Di seguito è fornito un esempio: 
+Di seguito è fornito un esempio:
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -232,7 +232,7 @@ Il plug-in restituisce i seguenti codici di uscita:
 
 | Codice di uscita | Descrizione |
 | --- | --- |
-| 0 |Riuscite. |
+| 0 |Completamento della procedura. |
 | -1 |Errore generico. |
 | -2 |Impossibile caricare il file rcf.<p>Questo errore interno dovrebbe verificarsi solo se l'utilità di avvio del plug-in dell'agente guest viene richiamata manualmente in modo non corretto sulla VM. |
 | -3 |Impossibile caricare il file di configurazione di Diagnostica.<p><p>Soluzione: Questo errore si verifica quando un file di configurazione non supera la convalida dello schema. La soluzione consiste nel fornire un file di configurazione conforme allo schema. |
@@ -250,7 +250,7 @@ Il plug-in restituisce i seguenti codici di uscita:
 | -108 |Impossibile convertire il file di configurazione di Diagnostica nel file di configurazione dell'agente di monitoraggio.<p><p>Questo errore interno dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido. |
 | -110 |Errore di configurazione generale di Diagnostica.<p><p>Questo errore interno dovrebbe verificarsi solo se il plug-in di Diagnostica viene richiamato manualmente con un file di configurazione non valido. |
 | -111 |Impossibile avviare l'agente di monitoraggio.<p><p>Soluzione: verificare che siano disponibili risorse di sistema sufficienti. |
-| -112 |Errore generale |
+| -112 |Errore generale: |
 
 ### <a name="local-log-extraction"></a>Estrazione dei log locali
 L'agente di monitoraggio raccoglie log ed elementi come file `.tsf`. Il file con estensione `.tsf` non è leggibile ma può essere convertito in `.csv` come illustrato di seguito:

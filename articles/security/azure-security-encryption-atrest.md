@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/07/2019
 ms.author: barclayn
 ms.openlocfilehash: d0974b98975b8f7d09760be964024f92e9690a4e
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596377"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
@@ -60,7 +60,7 @@ Come descritto in precedenza, l'obiettivo della crittografia dei dati inattivi �
 
 ![Componenti](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
-### <a name="azure-key-vault"></a>Insieme di credenziali delle chiavi di Azure
+### <a name="azure-key-vault"></a>Azure Key Vault
 
 La posizione di archiviazione delle chiavi di crittografia e il controllo dell'accesso a queste chiavi è essenziale per un modello di crittografia dei dati inattivi. Le chiavi devono essere estremamente protette ma gestibili dagli utenti specificati e disponibili per servizi specifici. Per i servizi di Azure, la soluzione di archiviazione delle chiavi consigliata è Azure Key Vault, che fornisce un'esperienza di gestione comune per tutti i servizi. Le chiavi sono archiviate e gestite in insiemi di credenziali delle chiavi e l'accesso a un insieme di credenziali delle chiavi può essere assegnato a utenti o servizi. Azure Key Vault supporta la creazione di chiavi da parte dei clienti o l'importazione di chiavi dei clienti per l'uso in scenari con chiavi di crittografia gestite dal cliente.
 
@@ -72,8 +72,8 @@ Le autorizzazioni per l'uso delle chiavi archiviate in Azure Key Vault (per la g
 
 Viene usata più di una chiave di crittografia in un'implementazione della crittografia per i dati inattivi. La crittografia asimmetrica è utile per stabilire l'attendibilità e l'autenticazione necessarie per la gestione e l'accesso alle chiavi. La crittografia simmetrica è più efficiente per la crittografia e la decrittografia in blocco, perché consente una crittografia più avanzata e prestazioni migliori. Limitare l'uso di una sola chiave di crittografia riduce il rischio di compromissione della chiave e il costo della ripetizione della crittografia quando è necessario sostituire una chiave. I modelli di crittografia dei dati inattivi usano una gerarchia di chiavi composta dai tipi di chiavi seguenti:
 
-- **Chiave DEK (Data Encryption Key)**: una chiave AES256 simmetrica usata per crittografare una partizione o un blocco di dati.  Una singola risorsa può avere diverse partizioni e più chiavi DEK. La crittografia di ogni blocco di dati con una chiave diversa rende più complessi gli attacchi di crittoanalisi. È necessario l'accesso alle chiavi DEK per il provider di risorse o l'istanza dell'applicazione che esegue la crittografia e la decrittografia di un blocco specifico. Quando una chiave DEK viene sostituita con una nuova chiave, devono essere nuovamente crittografati con la nuova chiave solo i dati nel blocco associato.
-- **Chiave KEK (Key Encryption Key)**: una chiave asimmetrica usata per crittografare le chiavi di crittografia. L'uso di una chiave di crittografia delle chiavi consente di crittografare e controllare le stesse chiavi di crittografia dati. L'entità che ha accesso alla chiave KEK può essere diversa dall'entità che richiede la chiave DEK. Un'entità può gestire l'accesso alla chiave DEK per limitare l'accesso di ogni chiave DEK a una partizione specifica. Poiché è necessaria la chiave KEK per decrittografare le chiavi DEK, la chiave KEK è di fatto un singolo punto che consente di eliminare in modo efficace le chiavi DEK eliminando la chiave KEK.
+- **Chiave DEK (Data Encryption Key)** : una chiave AES256 simmetrica usata per crittografare una partizione o un blocco di dati.  Una singola risorsa può avere diverse partizioni e più chiavi DEK. La crittografia di ogni blocco di dati con una chiave diversa rende più complessi gli attacchi di crittoanalisi. È necessario l'accesso alle chiavi DEK per il provider di risorse o l'istanza dell'applicazione che esegue la crittografia e la decrittografia di un blocco specifico. Quando una chiave DEK viene sostituita con una nuova chiave, devono essere nuovamente crittografati con la nuova chiave solo i dati nel blocco associato.
+- **Chiave KEK (Key Encryption Key)** : una chiave asimmetrica usata per crittografare le chiavi di crittografia. L'uso di una chiave di crittografia delle chiavi consente di crittografare e controllare le stesse chiavi di crittografia dati. L'entità che ha accesso alla chiave KEK può essere diversa dall'entità che richiede la chiave DEK. Un'entità può gestire l'accesso alla chiave DEK per limitare l'accesso di ogni chiave DEK a una partizione specifica. Poiché è necessaria la chiave KEK per decrittografare le chiavi DEK, la chiave KEK è di fatto un singolo punto che consente di eliminare in modo efficace le chiavi DEK eliminando la chiave KEK.
 
 Le chiavi di crittografia dei dati, crittografate con le chiavi di crittografia delle chiavi, sono archiviate separatamente e solo un'entità che ha accesso alla chiave di crittografia delle chiavi può ottenere le chiavi di crittografia dei dati crittografate con tale chiave. Sono supportati diversi modelli di archiviazione delle chiavi. Ogni modello verrà illustrato in modo più dettagliato nella sezione successiva.
 
@@ -257,55 +257,55 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Lato server con chiave gestita dal servizio**     | **Lato server con chiave gestita dal cliente in Key Vault**             | **Lato client con chiave gestita dal client**      |
 | **Intelligenza artificiale e Machine Learning**      |                    |                    |                    |
-| Ricerca di Azure                     | Sì                | -                  | -                  |
-| Servizio Azure Machine Learning   | Sì                | -                  | -                  |
-| Azure Machine Learning Studio    | Sì                | Anteprima, RSA a 2048 bit | -               |
-| Power BI                         | Sì                | -                  | -                  |
+| Ricerca di Azure                     | Yes                | -                  | -                  |
+| Servizio Azure Machine Learning   | Yes                | -                  | -                  |
+| Azure Machine Learning Studio    | Yes                | Anteprima, RSA a 2048 bit | -               |
+| Power BI                         | Yes                | -                  | -                  |
 | **Analisi**                    |                    |                    |                    |
-| Analisi di flusso di Azure           | Sì                | -                  | -                  |
-| Hub eventi                       | Sì                | -                  | -                  |
-| Azure Analysis Services          | Sì                | -                  | -                  |
-| Azure Data Catalog               | Sì                | -                  | -                  |
-| HDInsight                        | Sì                | Anteprima per Apache Kafka, tutte le lunghezze RSA | -                  |
-| Data factory di Azure               | Sì                | -                  | -                  |
-| Archivio Azure Data Lake            | Sì                | Sì, RSA a 2048 bit  | -                  |
+| Analisi di flusso di Azure           | Yes                | -                  | -                  |
+| Hub eventi                       | Yes                | -                  | -                  |
+| Azure Analysis Services          | Yes                | -                  | -                  |
+| Azure Data Catalog               | Yes                | -                  | -                  |
+| HDInsight                        | Yes                | Anteprima per Apache Kafka, tutte le lunghezze RSA | -                  |
+| Data factory di Azure               | Yes                | -                  | -                  |
+| Archivio Azure Data Lake            | Yes                | Sì, RSA a 2048 bit  | -                  |
 | **Calcolo**                      |                    |                    |                    |
 | Macchine virtuali                 | -                  | Sì, RSA a 2048 bit  | -                  |
 | Set di scalabilità di macchine virtuali        | -                  | Sì, RSA a 2048 bit  | -                  |
 | **Database**                    |                    |                    |                    |
-| SQL Server nelle macchine virtuali   | Sì                | Sì, RSA a 2048 bit  | Sì                |
-| Database SQL di Azure               | Sì                | Sì, RSA a 2048 bit  | Sì                |
-| Azure SQL Data Warehouse         | Sì                | Sì, RSA a 2048 bit  | Sì                |
-| SQL Server Stretch Database      | Sì                | Sì, RSA a 2048 bit  | Sì                |
-| Archiviazione tabelle                    | Sì                | -                  | Sì                |
-| Azure Cosmos DB                  | Sì                | -                  | -                  |
+| SQL Server nelle macchine virtuali   | Yes                | Sì, RSA a 2048 bit  | Yes                |
+| Database SQL di Azure               | Yes                | Sì, RSA a 2048 bit  | Yes                |
+| Azure SQL Data Warehouse         | Yes                | Sì, RSA a 2048 bit  | Yes                |
+| SQL Server Stretch Database      | Yes                | Sì, RSA a 2048 bit  | Yes                |
+| Archiviazione tabelle                    | Yes                | -                  | Yes                |
+| Azure Cosmos DB                  | Yes                | -                  | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Azure DevOps                     | Sì                | -                  | Sì                |
-| Azure Repos                      | Sì                | -                  | Sì                |
+| Azure DevOps                     | Yes                | -                  | Yes                |
+| Azure Repos                      | Yes                | -                  | Yes                |
 | **Identità**                     |                    |                    |                    |
-| Azure Active Directory           | Sì                | -                  | -                  |
-| Servizi di dominio Azure Active Directory | Sì          | Sì, RSA a 2048 bit  | -                  |
+| Azure Active Directory           | Yes                | -                  | -                  |
+| Servizi di dominio Azure Active Directory | Yes          | Sì, RSA a 2048 bit  | -                  |
 | **Integrazione**                  |                    |                    |                    |
-| Bus di servizio                      | Sì                | -                  | Sì                |
-| Griglia eventi                       | Sì                | -                  | -                  |
-| Gestione API                   | Sì                | -                  | -                  |
+| Bus di servizio                      | Yes                | -                  | Yes                |
+| Griglia di eventi                       | Yes                | -                  | -                  |
+| Gestione API                   | Yes                | -                  | -                  |
 | **Servizi IoT**                 |                    |                    |                    |
-| Hub IoT                          | -                  | -                  | Sì                |
+| Hub IoT                          | -                  | -                  | Yes                |
 | **Gestione e Governance**    |                    |                    |                    |
-| Azure Site Recovery              | Sì                | Sì, RSA a 2048 bit  | Sì                |
+| Azure Site Recovery              | Yes                | Sì, RSA a 2048 bit  | Yes                |
 | **Media**                        |                    |                    |                    |
-| Servizi multimediali                   | Sì                | -                  | Sì                |
+| Servizi multimediali                   | Yes                | -                  | Yes                |
 | **Archiviazione**                      |                    |                    |                    |
-| Archiviazione BLOB                     | Sì                | Sì, RSA a 2048 bit  | Sì                |
-| Archiviazione su disco                     | Sì                | -                  | -                  |
-| Archiviazione su dischi gestiti             | Sì                | -                  | -                  |
-| Archiviazione file                     | Sì                | Sì, RSA a 2048 bit  | -                  |
-| Archiviazione code                    | Sì                | -                  | Sì                |
-| Avere vFXT                       | Sì                | -                  | -                  |
-| Spazio di archiviazione                  | Sì                | Sì, RSA a 2048 bit  | -                  |
-| StorSimple                       | Sì                | -                  | Sì                |
-| Backup di Azure                     | Sì                | -                  | Sì                |
-| Data Box                         | Sì                | -                  | Sì                |
+| Archiviazione BLOB                     | Yes                | Sì, RSA a 2048 bit  | Yes                |
+| Archiviazione su disco                     | Yes                | -                  | -                  |
+| Archiviazione su dischi gestiti             | Yes                | -                  | -                  |
+| Archiviazione file                     | Yes                | Sì, RSA a 2048 bit  | -                  |
+| Archiviazione code                    | Yes                | -                  | Yes                |
+| Avere vFXT                       | Yes                | -                  | -                  |
+| Spazio di archiviazione                  | Yes                | Sì, RSA a 2048 bit  | -                  |
+| StorSimple                       | Yes                | -                  | Yes                |
+| Backup di Azure                     | Yes                | -                  | Yes                |
+| Data Box                         | Yes                | -                  | Yes                |
 
 ## <a name="conclusion"></a>Conclusioni
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424704"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Usare le stringhe nelle query di log di Monitoraggio di Azure
@@ -49,39 +49,39 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>Confronti di stringhe
 
-operatore       |DESCRIZIONE                         |Distinzione maiuscole/minuscole|Esempio (restituisce `true`)
+operatore       |Descrizione                         |Distinzione maiuscole/minuscole|Esempio (restituisce `true`)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |Uguale a                              |Sì           |`"aBc" == "aBc"`
-`!=`           |Non uguale a                          |Sì           |`"abc" != "ABC"`
-`=~`           |Uguale a                              |No             |`"abc" =~ "ABC"`
-`!~`           |Non uguale a                          |No             |`"aBc" !~ "xyz"`
-`has`          |La stringa a destra corrisponde a un termine completo a sinistra |No |`"North America" has "america"`
-`!has`         |La stringa a destra non corrisponde a un termine completo a sinistra       |No             |`"North America" !has "amer"` 
-`has_cs`       |La stringa a destra corrisponde a un termine completo a sinistra |Sì|`"North America" has_cs "America"`
-`!has_cs`      |La stringa a destra non corrisponde a un termine completo a sinistra       |Sì            |`"North America" !has_cs "amer"` 
-`hasprefix`    |La stringa a destra corrisponde a un prefisso di un termine a sinistra         |No             |`"North America" hasprefix "ame"`
-`!hasprefix`   |La stringa a destra non corrisponde a un prefisso di un termine a sinistra     |No             |`"North America" !hasprefix "mer"` 
-`hasprefix_cs`    |La stringa a destra corrisponde a un prefisso di un termine a sinistra         |Sì            |`"North America" hasprefix_cs "Ame"`
-`!hasprefix_cs`   |La stringa a destra non corrisponde a un prefisso di un termine a sinistra     |Sì            |`"North America" !hasprefix_cs "CA"` 
-`hassuffix`    |La stringa a destra corrisponde a un suffisso di un termine a sinistra         |No             |`"North America" hassuffix "ica"`
-`!hassuffix`   |La stringa a destra non corrisponde a un suffisso di un termine a sinistra     |No             |`"North America" !hassuffix "americ"`
-`hassuffix_cs`    |La stringa a destra corrisponde a un suffisso di un termine a sinistra         |Sì            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |La stringa a destra non corrisponde a un suffisso di un termine a sinistra     |Sì            |`"North America" !hassuffix_cs "icA"`
-`contains`     |La stringa a destra è presente come sottosequenza nella stringa a sinistra  |No             |`"FabriKam" contains "BRik"`
-`!contains`    |La stringa a destra non è presente come sottosequenza nella stringa a sinistra           |No             |`"Fabrikam" !contains "xyz"`
-`contains_cs`   |La stringa a destra è presente come sottosequenza nella stringa a sinistra  |Sì           |`"FabriKam" contains_cs "Kam"`
-`!contains_cs`  |La stringa a destra non è presente come sottosequenza nella stringa a sinistra           |Sì           |`"Fabrikam" !contains_cs "Kam"`
-`startswith`   |La stringa a destra è una sottosequenza iniziale della stringa a sinistra|No             |`"Fabrikam" startswith "fab"`
-`!startswith`  |La stringa a destra non è una sottosequenza iniziale della stringa a sinistra|No         |`"Fabrikam" !startswith "kam"`
-`startswith_cs`   |La stringa a destra è una sottosequenza iniziale della stringa a sinistra|Sì            |`"Fabrikam" startswith_cs "Fab"`
-`!startswith_cs`  |La stringa a destra non è una sottosequenza iniziale della stringa a sinistra|Sì        |`"Fabrikam" !startswith_cs "fab"`
-`endswith`     |La stringa a destra è una sottosequenza di chiusura della stringa a sinistra|No              |`"Fabrikam" endswith "Kam"`
-`!endswith`    |La stringa a destra non è una sottosequenza di chiusura della stringa a sinistra|No          |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |La stringa a destra è una sottosequenza di chiusura della stringa a sinistra|Sì             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |La stringa a destra non è una sottosequenza di chiusura della stringa a sinistra|Sì         |`"Fabrikam" !endswith "brik"`
-`matches regex`|La stringa a sinistra contiene una corrispondenza per la stringa a destra        |Sì           |`"Fabrikam" matches regex "b.*k"`
-`in`           |È uguale a uno degli elementi       |Sì           |`"abc" in ("123", "345", "abc")`
-`!in`          |Non è uguale a nessuno degli elementi   |Sì           |`"bca" !in ("123", "345", "abc")`
+`==`           |Uguale a                              |Yes           |`"aBc" == "aBc"`
+`!=`           |Non uguale a                          |Yes           |`"abc" != "ABC"`
+`=~`           |Uguale a                              |No            |`"abc" =~ "ABC"`
+`!~`           |Non uguale a                          |No            |`"aBc" !~ "xyz"`
+`has`          |La stringa a destra corrisponde a un termine completo a sinistra |No|`"North America" has "america"`
+`!has`         |La stringa a destra non corrisponde a un termine completo a sinistra       |No            |`"North America" !has "amer"` 
+`has_cs`       |La stringa a destra corrisponde a un termine completo a sinistra |Yes|`"North America" has_cs "America"`
+`!has_cs`      |La stringa a destra non corrisponde a un termine completo a sinistra       |Yes            |`"North America" !has_cs "amer"` 
+`hasprefix`    |La stringa a destra corrisponde a un prefisso di un termine a sinistra         |No            |`"North America" hasprefix "ame"`
+`!hasprefix`   |La stringa a destra non corrisponde a un prefisso di un termine a sinistra     |No            |`"North America" !hasprefix "mer"` 
+`hasprefix_cs`    |La stringa a destra corrisponde a un prefisso di un termine a sinistra         |Yes            |`"North America" hasprefix_cs "Ame"`
+`!hasprefix_cs`   |La stringa a destra non corrisponde a un prefisso di un termine a sinistra     |Yes            |`"North America" !hasprefix_cs "CA"` 
+`hassuffix`    |La stringa a destra corrisponde a un suffisso di un termine a sinistra         |No            |`"North America" hassuffix "ica"`
+`!hassuffix`   |La stringa a destra non corrisponde a un suffisso di un termine a sinistra     |No            |`"North America" !hassuffix "americ"`
+`hassuffix_cs`    |La stringa a destra corrisponde a un suffisso di un termine a sinistra         |Yes            |`"North America" hassuffix_cs "ica"`
+`!hassuffix_cs`   |La stringa a destra non corrisponde a un suffisso di un termine a sinistra     |Yes            |`"North America" !hassuffix_cs "icA"`
+`contains`     |La stringa a destra è presente come sottosequenza nella stringa a sinistra  |No            |`"FabriKam" contains "BRik"`
+`!contains`    |La stringa a destra non è presente come sottosequenza nella stringa a sinistra           |No            |`"Fabrikam" !contains "xyz"`
+`contains_cs`   |La stringa a destra è presente come sottosequenza nella stringa a sinistra  |Yes           |`"FabriKam" contains_cs "Kam"`
+`!contains_cs`  |La stringa a destra non è presente come sottosequenza nella stringa a sinistra           |Yes           |`"Fabrikam" !contains_cs "Kam"`
+`startswith`   |La stringa a destra è una sottosequenza iniziale della stringa a sinistra|No            |`"Fabrikam" startswith "fab"`
+`!startswith`  |La stringa a destra non è una sottosequenza iniziale della stringa a sinistra|No        |`"Fabrikam" !startswith "kam"`
+`startswith_cs`   |La stringa a destra è una sottosequenza iniziale della stringa a sinistra|Yes            |`"Fabrikam" startswith_cs "Fab"`
+`!startswith_cs`  |La stringa a destra non è una sottosequenza iniziale della stringa a sinistra|Yes        |`"Fabrikam" !startswith_cs "fab"`
+`endswith`     |La stringa a destra è una sottosequenza di chiusura della stringa a sinistra|No             |`"Fabrikam" endswith "Kam"`
+`!endswith`    |La stringa a destra non è una sottosequenza di chiusura della stringa a sinistra|No         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |La stringa a destra è una sottosequenza di chiusura della stringa a sinistra|Yes             |`"Fabrikam" endswith "Kam"`
+`!endswith_cs`    |La stringa a destra non è una sottosequenza di chiusura della stringa a sinistra|Yes         |`"Fabrikam" !endswith "brik"`
+`matches regex`|La stringa a sinistra contiene una corrispondenza per la stringa a destra        |Yes           |`"Fabrikam" matches regex "b.*k"`
+`in`           |È uguale a uno degli elementi       |Yes           |`"abc" in ("123", "345", "abc")`
+`!in`          |Non è uguale a nessuno degli elementi   |Yes           |`"bca" !in ("123", "345", "abc")`
 
 
 ## <a name="countof"></a>countof

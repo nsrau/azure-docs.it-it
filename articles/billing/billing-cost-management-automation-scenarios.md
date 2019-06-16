@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
 ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232472"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Scenari di automazione per la fatturazione e la gestione dei costi
@@ -52,7 +52,7 @@ In questo articolo vengono elencati gli scenari comuni per la fatturazione e la 
 | Raccomandazioni di prenotazione |                           |                  |           X          |                  |                    |           |
 | Dettagli di prenotazione         |                           |                  |           X          |         X        |                    |           |
 | Riepiloghi di prenotazioni       |                           |                  |           X          |         X        |                    |           |
-| Dettagli utilizzo               |             X             |         X        |           X          |         X        |          X         |     X     |
+| Dettagli sull'utilizzo               |             X             |         X        |           X          |         X        |          X         |     X     |
 | Periodi di fatturazione             |             X             |         X        |           X          |         X        |                    |           |
 | Fatture                    |             X             |         X        |           X          |         X        |                    |           |
 | RateCard                    |             X             |                  |           X          |         X        |          X         |           |

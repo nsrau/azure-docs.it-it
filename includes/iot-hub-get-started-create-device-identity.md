@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 40a5416f15b0e2d66d6ce4b4787573560ee4af00
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: b2bce9788006a564def9bd8c1375a85dc4184b67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66156393"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814734"
 ---
 ## <a name="create-a-device-identity"></a>Creare un'identità del dispositivo
 
-In questa sezione si usa l'interfaccia della riga di comando di Azure per creare un'identità del dispositivo per questa esercitazione. L'interfaccia della riga di comando di Azure è preinstallata in [Azure Cloud Shell](~/articles/cloud-shell/overview.md) oppure è possibile [installarla localmente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Gli ID dispositivo fanno distinzione tra maiuscole e minuscole.
+In questa sezione si usa l'interfaccia della riga di comando di Azure per creare un'identità del dispositivo per questa esercitazione. Il comando di Azure è preinstallato nel [Azure Cloud Shell](~/articles/cloud-shell/overview.md), oppure è possibile [installare CLI Azure localmente](/cli/azure/install-azure-cli). Gli ID dispositivo fanno distinzione tra maiuscole e minuscole.
 
 1. Eseguire il seguente comando nell'ambiente della riga di comando in cui si usa l'interfaccia della riga di comando di Azure per installare l'estensione IoT:
 

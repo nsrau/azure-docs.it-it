@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 0fefe01e413e30e4aa3c1fa90de77cbdece39c38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417389"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato di Log di controllo del Database SQL
@@ -43,7 +43,7 @@ Gli eventi di controllo vengono scritti all'area di lavoro di Log Analitica defi
 
 ## <a id="subheading-1"></a>Campi di Log di controllo
 
-| Nome (Blob) | Nome (Analitica o di Log hub eventi) | DESCRIZIONE | Tipo BLOB | Tipo di evento hub/Log Analitica |
+| Nome (Blob) | Nome (Analitica o di Log hub eventi) | Descrizione | Tipo di BLOB | Tipo di evento hub/Log Analitica |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | ID dell'azione | varchar(4) | string |
 | action_name | action_name_s | Nome dell'azione | N/D | string |
@@ -78,8 +78,8 @@ Gli eventi di controllo vengono scritti all'area di lavoro di Log Analitica defi
 | server_principal_sid | server_principal_sid_s | SID dell'account di accesso corrente | varbinary | string |
 | session_id | session_id_d | ID della sessione in cui si è verificato l'evento | smallint | int |
 | session_server_principal_name | session_server_principal_name_s | Entità server per sessione | sysname | string |
-| istruzione | statement_s | Istruzione T-SQL che è stata eseguita (se presente) | nvarchar(4000) | string |
-| fatto | succeeded_s | Indica se l'azione che ha attivato l'evento ha avuto esito positivo. Per gli eventi diversi da account di accesso e batch, solo un report se il controllo delle autorizzazioni ha avuto esito positivo o negativo, non l'operazione. 1 = esito positivo, 0 = esito negativo | bit | string |
+| Istruzione | statement_s | Istruzione T-SQL che è stata eseguita (se presente) | nvarchar(4000) | string |
+| ha avuto esito positivo | succeeded_s | Indica se l'azione che ha attivato l'evento ha avuto esito positivo. Per gli eventi diversi da account di accesso e batch, solo un report se il controllo delle autorizzazioni ha avuto esito positivo o negativo, non l'operazione. 1 = esito positivo, 0 = esito negativo | bit | string |
 | target_database_principal_id | target_database_principal_id_d | L'entità di database viene eseguita l'operazione GRANT/DENY/REVOKE su. 0 se non applicabile | int | int |
 | target_database_principal_name | target_database_principal_name_s | Utente di destinazione dell'azione. NULL se non applicabile | string | string |
 | target_server_principal_id | target_server_principal_id_d | Entità server cui viene eseguita l'operazione GRANT/DENY/REVOKE. Restituisce 0 se non applicabile | int | int |

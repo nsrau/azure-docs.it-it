@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772959"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funzionalità di diagnostica per i servizi Reliable con stato
@@ -50,7 +50,7 @@ L'evento StatefulRunAsyncSlowCancellation viene emesso ogni volta che una richie
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Il runtime di Reliable Services definisce le categorie di contatori delle prestazioni seguenti:
 
-| Categoria | DESCRIZIONE |
+| Category | Descrizione |
 | --- | --- |
 | Replicatore transazionale di Service Fabric |Contatori specifici di Replicatore transazionale di Service Fabric di Azure |
 | Service Fabric TStore |Contatori specifici di Azure Service Fabric TStore |
@@ -102,11 +102,11 @@ Nell'esempio precedente, `00d0126d-3e36-4d68-98da-cc4f7195d85e` è la rappresent
 
 Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Service Fabric Transactional Replicator`
 
- Nome contatore | DESCRIZIONE |
+ Nome contatore | Descrizione |
 | --- | --- |
 | Operazioni di inizio transazione/sec | Numero di nuove transazioni di scrittura create al secondo.|
 | Operazioni di transazione/sec | Numero di operazioni di aggiunta/aggiornamento/eliminazione eseguite su raccolte Reliable Collections al secondo.|
-| Byte scaricamento log/sec | Numero di byte scaricati sul disco da Replicatore transazionale al secondo. |
+| Byte/sec scaricamento log | Numero di byte scaricati sul disco da Replicatore transazionale al secondo. |
 | Operazioni limitate/sec | Numero di operazioni rifiutate al secondo da Replicatore transazionale a causa della limitazione. |
 | Avg. transazione/commit (ms) | Latenza media commit per transazione in millisecondi |
 | Avg. media flush (ms) | Durata media delle operazioni di flush su disco avviate da Replicatore transazionale in millisecondi |
@@ -115,7 +115,7 @@ Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Serv
 
 Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Service Fabric TStore`
 
- Nome contatore | DESCRIZIONE |
+ Nome contatore | Descrizione |
 | --- | --- |
 | Item Count | Il numero di elementi nell'archivio.|
 | Dimensione disco | Le dimensioni totali del disco, in byte, dei file di checkpoint per l'archivio.|

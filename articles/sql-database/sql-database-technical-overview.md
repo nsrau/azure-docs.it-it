@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ed94677eea91e3543dced9825a1372f60550a524
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073608"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Che cos'è servizio di Database SQL di Azure
@@ -39,11 +39,11 @@ La figura seguente illustra queste opzioni di distribuzione:
 
 Il database SQL condivide la base di codice con il [motore di database di Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). In linea con la strategia Microsoft incentrata sul cloud, le funzionalità più recenti di SQL Server vengono rilasciate prima al database SQL e poi a SQL Server. Questo approccio significa avere la possibilità di usare le funzionalità di SQL Server più nuove senza sovraccarico per l'applicazione di patch o gli aggiornamenti, oltre al vantaggio che le nuove funzionalità sono testate in milioni di database. Per informazioni sulle nuove funzionalità annunciate, vedere:
 
-- **[Roadmap per il database SQL di Azure](https://azure.microsoft.com/roadmap/?category=databases)**:
+- **[Roadmap per il database SQL di Azure](https://azure.microsoft.com/roadmap/?category=databases)** :
 
   Il posto ideale per scoprire le novità recenti e quelle presto disponibili.
 
-- **[Blog sul database SQL di Azure](https://azure.microsoft.com/blog/topics/database)**:
+- **[Blog sul database SQL di Azure](https://azure.microsoft.com/blog/topics/database)** :
 
   Raccoglitore dei post dei membri del team di prodotto SQL Server sulle novità e le funzionalità di database SQL.
 
@@ -110,20 +110,20 @@ Le zone di disponibilità di Azure è riprodurre il problema di disponibilità e
 
 In effetti, contratto di servizio disponibilità al 99,99% leader di Azure del settore [(SLA)](https://azure.microsoft.com/support/legal/sla/), fornito da una rete globale di datacenter gestiti da Microsoft, consente di mantenere l'app in esecuzione 24 e 7 giorni. La piattaforma Azure gestisce completamente ogni database e garantisce l'assenza di perdita di dati e una percentuale elevata di disponibilità dei dati. Azure gestisce automaticamente l'applicazione di patch, i backup, la replica, il rilevamento degli errori, i possibili errori hardware, software o di rete sottostanti, la distribuzione di correzioni di bug, i failover, gli aggiornamenti del database e altre attività di manutenzione. La disponibilità standard viene ottenuta separando i livelli di calcolo e archiviazione. La disponibilità Premium viene ottenuta integrando le risorse di calcolo e archiviazione in un singolo nodo per le prestazioni e quindi implementando una tecnologia simile ai gruppi di disponibilità AlwaysOn a livello sottostante. Per una descrizione completa delle funzionalità a disponibilità elevata del database SQL di Azure, vedere la [disponibilità del database SQL](sql-database-high-availability.md). Il database SQL offre anche funzionalità di [continuità aziendale e scalabilità globale](sql-database-business-continuity.md) incorporate, tra le quali:
 
-- **[Backup automatici](sql-database-automated-backups.md)**:
+- **[Backup automatici](sql-database-automated-backups.md)** :
 
   Il database SQL esegue automaticamente i backup del log delle transazioni completi differenziali dei database SQL di Azure, che consentono di eseguire il ripristino temporizzato. Per i database singoli e i database in pool, è possibile configurare il database SQL per archiviare i backup dei database completi in Archiviazione di Azure per la conservazione a lungo termine. Per le istanza gestite, è anche possibile eseguire backup solo di copia per la conservazione a lungo termine.
 
-- **[Ripristini temporizzati](sql-database-recovery-using-backups.md)**:
+- **[Ripristini temporizzati](sql-database-recovery-using-backups.md)** :
 
   Tutte le opzioni di distribuzione del database SQL supportano il recupero in qualsiasi momento entro il periodo di conservazione automatico del backup per qualsiasi database SQL di Azure.
-- **[Replica geografica attiva](sql-database-active-geo-replication.md)**:
+- **[Replica geografica attiva](sql-database-active-geo-replication.md)** :
 
   Il database singolo e i database in pool consentono di configurare fino a quattro database secondari leggibili nello stesso data center o in data center di Azure distribuiti a livello globale.  Nel caso di un'applicazione SaaS che usa un database catalogo con volumi elevati di transazioni di sola lettura concorrenti, ad esempio, è possibile usare la replica geografica attiva per il potenziamento della lettura su scala globale ed evitare i colli di bottiglia nel database primario causati dai carichi di lavoro di lettura. Per le istanze gestite, usare gruppi di failover automatico.
-- **[Gruppi di failover automatico](sql-database-auto-failover-group.md)**:
+- **[Gruppi di failover automatico](sql-database-auto-failover-group.md)** :
 
   Tutte le opzioni di distribuzione del database SQL consentono di usare gruppi di failover per abilitare soluzioni di disponibilità elevata e bilanciamento del carico su scala globale, inclusi la replica geografica trasparente e il failover di set di database, pool elastici e istanze gestite di grandi dimensioni. I gruppi di failover consentono la creazione di applicazioni SaaS distribuite a livello globale con un sovraccarico amministrativo minimo, grazie alla possibilità di delegare l'orchestrazione complessa di monitoraggio, routing e failover al database SQL.
-- **[Database con ridondanza della zona](sql-database-high-availability.md)**:
+- **[Database con ridondanza della zona](sql-database-high-availability.md)** :
 
   Il database SQL consente di effettuare il provisioning di database o pool elastici Premium o business critical in più zone di disponibilità. Poiché questi database e pool elastici hanno più repliche ridondanti per garantire disponibilità elevata, l'inserimento di tali repliche in più zone di disponibilità assicura resilienza superiore, nonché la possibilità di eseguire automaticamente il ripristino in caso di errori a livello di data center senza perdita di dati.
 
@@ -191,16 +191,16 @@ Il database SQL è sottoposto a regolari controlli e ha ottenuto la certificazio
 
 Il database SQL consente di creare e gestire le applicazioni in modo più facile e produttivo. Con il database SQL è possibile concentrarsi sull'attività principale, ovvero creare app straordinarie. Per la gestione e lo sviluppo nel database SQL è possibile usare strumenti e competenze già disponibili.
 
-- **[Portale di Azure](https://portal.azure.com/)**:
+- **[Portale di Azure](https://portal.azure.com/)** :
 
   Applicazione Web per la gestione di tutti i servizi di Azure.
-- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)**:
+- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)** :
 
   Applicazione client gratuita e scaricabile per la gestione di qualsiasi infrastruttura SQL, da SQL Server al database SQL.
-- **[SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)**:
+- **[SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)** :
 
   Applicazione client gratuita e scaricabile per lo sviluppo di database relazionali di SQL Server, database SQL di Azure, pacchetti di Integration Services, modelli di dati di Analysis Services e report di Reporting Services.
-- **[Visual Studio Code](https://code.visualstudio.com/docs)**:
+- **[Visual Studio Code](https://code.visualstudio.com/docs)** :
 
   Editor di codice open source, gratuito e scaricabile per Windows, macOS e Linux che supporta le estensioni, tra cui l'[estensione mssql](https://aka.ms/mssql-marketplace), per eseguire query in Microsoft SQL Server, database SQL di Azure e SQL Data Warehouse.
 

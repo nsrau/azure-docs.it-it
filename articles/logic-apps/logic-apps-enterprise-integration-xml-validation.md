@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760
 ms.date: 07/08/2016
 ms.openlocfilehash: 8db0dbadd944007ff953f9ea69695bf988ffebb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996354"
 ---
 # <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Convalidare XML per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
@@ -47,7 +47,7 @@ Spesso negli scenari B2B i partner di un contratto devono accertarsi che i messa
 
     ![](./media/logic-apps-enterprise-integration-xml-validation/xml-4.png)
 
-8. Salvare il lavoro   
+8. Salvare il lavoro  
 
     ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
 

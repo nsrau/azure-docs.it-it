@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: 5f55228c80142b2a21af585cb04d16f148460af0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65149106"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
@@ -168,7 +168,7 @@ A partire dalla versione 3.0, quando si avvia l'emulatore di archiviazione viene
 ### <a name="options"></a>Opzioni
 Per visualizzare l'elenco di opzioni, digitare `/help` al prompt dei comandi.
 
-| Opzione | DESCRIZIONE | Comando | Argomenti |
+| Opzione | Descrizione | Comando | Argomenti |
 | --- | --- | --- | --- |
 | **Inizia** |Avvia l'emulatore di archiviazione. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Avvia l'emulatore nel processo corrente anziché creare un nuovo processo. |
 | **Stop** |Interrompe l'emulatore di archiviazione. |`AzureStorageEmulator.exe stop` | |

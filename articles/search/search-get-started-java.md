@@ -10,10 +10,10 @@ ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
 ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61289802"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introduzione a Ricerca di Azure in Java
@@ -97,14 +97,14 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
    
     ![][6]
 3. Fare clic su **Apply**.
-4. Selezionare **Finestra** > **Preferenze** > **Server** > **Runtime Environments (Ambienti di runtime)** > **Aggiungi..**.
+4. Selezionare **Finestra** > **Preferenze** > **Server** > **Runtime Environments (Ambienti di runtime)**  > **Aggiungi..** .
 5. Espandere Apache e selezionare la versione del server Apache Tomcat installata in precedenza. In questo sistema è installata la versione 8.
    
     ![][7]
 6. Nella pagina successiva, specificare la directory di installazione di Tomcat. In un computer Windows, sarà probabilmente C:\Programmi\Microsoft Files\Apache Software Foundation\Tomcat *versione*.
 7. Fare clic su **Finish**.
-8. Selezionare **Finestra** > **Preferenze** > **Java** > **Installed JREs (JRE installati)** > **Aggiungi**.
-9. In **Add JRE** (Aggiungi JRE) selezionare **Standard VM (VM standard)**.
+8. Selezionare **Finestra** > **Preferenze** > **Java** > **Installed JREs (JRE installati)**  > **Aggiungi**.
+9. In **Add JRE** (Aggiungi JRE) selezionare **Standard VM (VM standard)** .
 10. Fare clic su **Avanti**.
 11. Nella definizione dell'ambiente JRE, nella home di JRE, fare clic su **Directory**.
 12. Passare a **Programmi** > **Java** e selezionare il JDK installato in precedenza. È importante selezionare JDK come JRE.

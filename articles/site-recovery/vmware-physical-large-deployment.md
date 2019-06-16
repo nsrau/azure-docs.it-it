@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: raynew
 ms.openlocfilehash: e96aafe61c0d8547ffca9e97bfd9e90c9529155f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237270"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurare il ripristino di emergenza su vasta scala per VM VMware/server fisici
@@ -101,7 +101,7 @@ Che cos'è conforme a mean? Per avviare una VM di Azure, Azure richiede alcuni d
 **Computer sia conforme con Azure?** | **Limiti di macchina virtuale di Azure (failover di disco gestito)**
 --- | --- 
 Yes | 2000
-No  | 1000
+No | 1000
 
 - Limiti presuppongono che minimi che altri processi sono in corso nell'area di destinazione per la sottoscrizione.
 - Alcune aree di Azure sono più piccoli e potrebbero essere leggermente più bassi limiti.

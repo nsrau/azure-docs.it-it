@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60882421"
 ---
 # <a name="replicas-and-instances"></a>Repliche e istanze 
@@ -116,11 +116,11 @@ Il ruolo della replica non è pertinente nello stato StandBy.
 ## <a name="replica-role"></a>Ruolo della replica 
 Il ruolo della replica ne determina la funzione nel set di repliche:
 
-- **Primary (P)**: È presente un database primario nel set di repliche che è responsabile dell'esecuzione di operazioni lettura e scrittura. 
-- **ActiveSecondary (S)**: Si tratta di repliche che ricevono aggiornamenti di stato dalla replica primaria, li applicano e reinviano riconoscimenti. Sono presenti più repliche secondarie attive nel set di repliche. Il numero di queste repliche secondarie attive determina il numero di errori che il servizio può gestire.
-- **IdleSecondary (I)**: Queste repliche vengono compilate dalla replica primaria. Ricevono lo stato dalla replica primaria prima di poter essere alzate al livello di repliche secondarie attive. 
-- **None (N)**: Queste repliche non hanno responsabilità nel set di repliche.
-- **Unknown (U)**: Questo è il ruolo iniziale di una replica prima che riceva **ChangeRole** chiamata all'API di Service Fabric.
+- **Primary (P)** : È presente un database primario nel set di repliche che è responsabile dell'esecuzione di operazioni lettura e scrittura. 
+- **ActiveSecondary (S)** : Si tratta di repliche che ricevono aggiornamenti di stato dalla replica primaria, li applicano e reinviano riconoscimenti. Sono presenti più repliche secondarie attive nel set di repliche. Il numero di queste repliche secondarie attive determina il numero di errori che il servizio può gestire.
+- **IdleSecondary (I)** : Queste repliche vengono compilate dalla replica primaria. Ricevono lo stato dalla replica primaria prima di poter essere alzate al livello di repliche secondarie attive. 
+- **None (N)** : Queste repliche non hanno responsabilità nel set di repliche.
+- **Unknown (U)** : Questo è il ruolo iniziale di una replica prima che riceva **ChangeRole** chiamata all'API di Service Fabric.
 
 Il diagramma seguente illustra le transizioni dei ruoli di replica e alcuni scenari di esempio in cui possono verificarsi:
 

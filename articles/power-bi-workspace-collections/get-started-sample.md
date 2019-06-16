@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.openlocfilehash: 6cf78bf9c83df0a1255c14499bbd2036a2be5ed6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714499"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Esempio introduttivo delle raccolte di aree di lavoro di Power BI
@@ -132,13 +132,13 @@ Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 
 L'uso di attributi comuni di server e database ha esito negativo. Ad esempio:  Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
-### <a name="view"></a>Visualizza
+### <a name="view"></a>visualizzazione
 
 **Visualizza** gestisce la visualizzazione di più **report** di Power BI e di un **report** di Power BI.
 
 **Reports.cshtml**: esegue l'iterazione di **Model.Reports** per creare un elemento **ActionLink**. L'elemento **ActionLink** è costituito da:
 
-| Parte: | DESCRIZIONE |
+| Parte: | Descrizione |
 | --- | --- |
 | Title |Nome del report. |
 | QueryString |Collegamento al l'ID report. |
@@ -259,7 +259,7 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 > [!NOTE]
 > {tableName/fieldName} non può includere spazi o caratteri speciali. {fieldValue} accetta un singolo valore categorico.  
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Scenari comuni delle raccolte di aree di lavoro di Microsoft Power BI](scenarios.md)  
 [Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI](app-token-flow.md)  

@@ -15,10 +15,10 @@ ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924645"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
@@ -38,9 +38,9 @@ Questo articolo descrive come aggiungere o modificare i ruoli di coamministrator
 
     I coamministratori possono essere assegnati solo nell'ambito della sottoscrizione.
 
-1. Fare clic su **Controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
-1. Fare clic sulla scheda **Amministratori (versione classica)**.
+1. Fare clic sulla scheda **Amministratori (versione classica)** .
 
     ![Screenshot che apre Amministratori (versione classica)](./media/classic-administrators/classic-administrators.png)
 
@@ -71,9 +71,9 @@ Si noti che i [ruoli predefiniti per le risorse di Azure](../role-based-access-c
 
 1. Aprire [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
 
-1. Fare clic su **Controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
-1. Fare clic sulla scheda **Amministratori (versione classica)**.
+1. Fare clic sulla scheda **Amministratori (versione classica)** .
 
 1. Aggiungere un segno di spunta accanto al coamministratore che si desidera rimuovere.
 
@@ -133,8 +133,8 @@ Se l'accesso è stato eseguito con un account aziendale o dell'istituto di istru
 
   | Metodo di accesso | Aggiungere l'utente con account Microsoft come amministratore del servizio? | Aggiungere un account aziendale o dell'istituto di istruzione nella stessa organizzazione come amministratore del servizio? | Aggiungere un account aziendale o dell'istituto di istruzione in un'organizzazione diversa come amministratore del servizio? |
   | --- | --- | --- | --- |
-  |  Account Microsoft |Sì |No  |No  |
-  |  Account aziendale o dell'istituto di istruzione |Sì |Sì |No  |
+  |  Account Microsoft |Yes |No |No |
+  |  Account aziendale o dell'istituto di istruzione |Yes |Sì |No |
 
 ## <a name="view-the-account-administrator"></a>Visualizzare l'amministratore dell'account
 

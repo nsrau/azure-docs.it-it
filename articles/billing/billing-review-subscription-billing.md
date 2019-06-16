@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
 ms.openlocfilehash: 0a73462b7fdbaf6386a3051a72da755f31ff8dd2
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192117"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Esaminare la fatturazione della sottoscrizione con le API REST
@@ -45,7 +45,7 @@ Il parametri `${startDate}` e `${endDate}` sono necessari per questo esempio, ma
 
 Gli argomenti seguenti sono obbligatori:
 
-|Intestazione della richiesta|DESCRIZIONE|
+|Intestazione della richiesta|Descrizione|
 |--------------------|-----------------|
 |*Content-Type:*|Richiesto. Impostare su `application/json`.|
 |*Authorization:*|Richiesto. Impostare su un [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valido. |
@@ -81,7 +81,7 @@ Una risposta corretta prevede la restituzione del codice di stato 200 (OK), con 
 
 Ogni elemento in **value** rappresenta un dettaglio relativo all'uso di un servizio:
 
-|Proprietà Response|DESCRIZIONE|
+|Proprietà Response|Descrizione|
 |----------------|----------|
 |**subscriptionGuid** | ID univoco globale per la sottoscrizione. |
 |**startDate** | Data di avvio dell'uso. |

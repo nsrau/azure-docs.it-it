@@ -11,10 +11,10 @@ ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236446"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitoraggio dei carichi di lavoro di Backup di Azure
@@ -49,7 +49,7 @@ Gli avvisi sono principalmente a scenari in cui gli utenti vengono informati in 
 Gli scenari seguenti sono definiti dal servizio come alertable scenari.
 
   - Errori di backup/ripristino
-  - Backup completato con avvisi per l'agente Backup di Azure (MAB)
+  - Backup completato con avvisi per l'agente di Backup di Azure (MAB)
   - Arrestare la protezione con Mantieni dati/arrestare la protezione dati con cancellazione dei dati
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Eccezioni quando non viene generato un avviso
@@ -63,9 +63,9 @@ Le eccezioni sopra sono progettate da comprendere che il risultato di queste ope
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Gli avvisi da soluzioni di Backup di Azure seguenti sono illustrati di seguito:
 
-  - Backup della macchina virtuale di Azure
+  - Backup di macchine virtuali di Azure
   - Backup di File di Azure
-  - Backup del carico di lavoro, ad esempio SQL
+  - Backup del carico di lavoro di Azure, ad esempio SQL
   - Agente di Backup di Azure (MAB)
 
 > [!NOTE]

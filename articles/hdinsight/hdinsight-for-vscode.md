@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: d114a1e62ae0d28e7d4a3ad453d5d7bd3e1d5b7a
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427682"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usare gli strumenti di Azure HDInsight per Visual Studio Code
@@ -319,7 +319,7 @@ Inviare un file e osservare che la cartella con estensione vscode viene aggiunta
     | executorCores | Numero di core da usare per ogni executor | int |
     | numExecutors | Numero di executor da avviare per questa sessione | int |
     | archives | Archivi da usare in questa sessione | Elenco di stringhe |
-    | queue | Nome della coda a cui YARN viene effettuato l'invio | string |
+    | coda | Nome della coda a cui YARN viene effettuato l'invio | string |
     | name | Nome della sessione | string |
     | conf | Proprietà di configurazione di Spark | Mapping della chiave = val |
 
@@ -332,7 +332,7 @@ Inviare un file e osservare che la cartella con estensione vscode viene aggiunta
     | appId | ID applicazione della sessione |  string |
     | appInfo | Informazioni dettagliate sull'applicazione | Mapping della chiave = val |
     | log | Righe di log | elenco di stringhe |
-    | state |   Stato batch | string |
+    | stato |   Stato batch | string |
 
 >[!NOTE]
 >La configurazione di livy assegnata verrà visualizzata nel riquadro di output quando si invia lo script.

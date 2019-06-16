@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7f91e6ab1fb12132068b839e66fafd3ab1bc73
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 061b8a9f16396841c3f0d650ccc2f2c4a907aab3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65543950"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111315"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Uso di web browser in MSAL.NET
 Web browser sono necessari per l'autenticazione interattiva. Per impostazione predefinita, MSAL.NET supporta il [browser web del sistema](#system-web-browser-on-xamarinios-and-xamarinandroid) in xamarin. IOS e [xamarin. Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser). Ma [è anche possibile abilitare il browser Web incorporato](#enable-embedded-webviews) a seconda dei requisiti (esperienza utente, è necessario per single sign-on (SSO), sicurezza) in [xamarin. IOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) e [xamarin. Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) app. E può persino [scegliere in modo dinamico](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) il browser web da utilizzare in base alla presenza di Chrome o un browser che supportano le schede personalizzate di Chrome in Android.
@@ -33,7 +33,7 @@ Web browser sono necessari per l'autenticazione interattiva. Per impostazione pr
 
 - La password (se uno è stato digitato) non viene mai archiviata dall'applicazione, né la libreria di autenticazione.
 - Abilita reindirizzamenti da altri provider di identità (ad esempio account di accesso aggiuntivo con un account dell'istituto di istruzione di lavoro o un account personale con MSAL o con un account di social networking con Azure AD B2C).
-- Consente il servizio token di sicurezza controllo dell'accesso condizionale, ad esempio, facendo in modo che l'autenticazione utente a più fattori (MFA) durante la fase di autenticazione (immettere un pin di Windows Hello o chiamata sul telefono, o in un'app di autenticazione sul telefono). Nei casi in cui i necessari multi-factor authentication non è configurato, ancora, l'utente può configurarlo JIT nella finestra di dialogo stessa.  L'utente immette il numero di telefono cellulare e viene guidato per installare un'applicazione di autenticazione e analisi di un tag di codici a matrice per aggiungere il proprio account. Basato su interazione tra il server è un'esperienza ottimale.
+- Consente che il servizio token di sicurezza controllo dell'accesso condizionale, ad esempio, facendo in modo che l'autenticazione utente a più fattori (MFA) durante la fase di autenticazione (immettere un pin di Windows Hello o chiamata sul telefono, o in un'app di autenticazione sul telefono). Nei casi in cui i necessari multi-factor authentication non è configurato, ancora, l'utente può configurarlo JIT nella finestra di dialogo stessa.  L'utente immette il numero di telefono cellulare e viene guidato per installare un'applicazione di autenticazione e analisi di un tag di codici a matrice per aggiungere il proprio account. Basato su interazione tra il server è un'esperienza ottimale.
 - Consente all'utente di cambiare la password in questa finestra di dialogo stessa quando la password è scaduta (purché campi aggiuntivi per la vecchia password e la nuova password).
 - Abilita personalizzazione dei tenant o l'applicazione (immagini) controllata dall'amministratore del tenant di Azure AD / proprietario dell'applicazione.
 - Consente agli utenti di fornire il consenso per permettere all'applicazione di accedere alle risorse / ambiti nel loro nome subito dopo l'autenticazione.

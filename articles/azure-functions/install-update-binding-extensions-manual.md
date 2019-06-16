@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
 ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035738"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Installare o aggiornare manualmente le estensioni delle associazioni di Funzioni di Azure dal portale
@@ -30,7 +30,7 @@ Usare la procedura seguente per installare o aggiornare manualmente le estension
 
 1. Nel [portale di Azure](https://portal.azure.com) trovare l'app per le funzioni e selezionarla. Scegliere la scheda **Panoramica** e selezionare **Arresta**.  L'arresto dell'app per le funzioni sblocca i file in modo che sia possibile apportare modifiche.
 
-1. Scegliere la scheda **Funzionalità della piattaforma** e in **Strumenti di sviluppo** selezionare **Strumenti avanzati (Kudu)**. L'endpoint Kudu (`https://<APP_NAME>.scm.azurewebsites.net/`) si apre in una nuova finestra.
+1. Scegliere la scheda **Funzionalità della piattaforma** e in **Strumenti di sviluppo** selezionare **Strumenti avanzati (Kudu)** . L'endpoint Kudu (`https://<APP_NAME>.scm.azurewebsites.net/`) si apre in una nuova finestra.
 
 1. Nella finestra Kudu selezionare **Console di debug** > **CMD**.  
 

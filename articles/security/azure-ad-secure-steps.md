@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63ceb6a80f253ea1661d215939705f8e39f3e58
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236757"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119289"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -95,15 +95,15 @@ Poiché le password vengono frequentemente compromesse, è fondamentale per l'or
 
 ### <a name="block-legacy-authentication"></a>Bloccare l'autenticazione legacy
 
-Le app che usano propri metodi legacy per l'autenticazione con Azure AD e l'accesso ai dati aziendali pongono un altro rischio per le organizzazioni. Esempi di app che usano l'autenticazione legacy sono i client POP3, IMAP4 o SMTP. Le app con autenticazione legacy eseguono l'autenticazione per conto dell'utente e impediscono ad Azure AD di eseguire valutazioni avanzate sulla sicurezza. L'alternativa autenticazione moderna consentirà di ridurre i rischi di sicurezza, poiché supporta l'autenticazione a più fattori e l'accesso condizionale. È consigliabile implementare le tre azioni seguenti:
+Le app che usano propri metodi legacy per l'autenticazione con Azure AD e l'accesso ai dati aziendali pongono un altro rischio per le organizzazioni. Esempi di app che usano l'autenticazione legacy sono i client POP3, IMAP4 o SMTP. Le app con autenticazione legacy eseguono l'autenticazione per conto dell'utente e impediscono ad Azure AD di eseguire valutazioni avanzate sulla sicurezza. L'autenticazione alternativo e moderno, consente di ridurre i rischi di protezione, poiché supporta il multi-factor authentication e l'accesso condizionale. È consigliabile implementare le tre azioni seguenti:
 
 1. Bloccare l'[autenticazione legacy se si usa AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Configurare [SharePoint Online ed Exchange Online per l'uso dell'autenticazione moderna](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
-3. Usare [criteri di accesso condizionale per bloccare l'autenticazione legacy](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions).
+3. Uso [criteri di accesso condizionale per bloccare l'autenticazione legacy](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Bloccare punti di ingresso di autenticazione non validi
 
-Con un approccio di presunzione di violazione è consigliabile ridurre l'impatto di credenziali utente compromesse quando si verifica questa condizione. Per ogni app nell'ambiente considerare i casi d'uso validi: quali gruppi, quali reti, quali dispositivi e altri elementi sono autorizzati, quindi bloccare il resto. Con l'[accesso condizionale di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) è possibile controllare la modalità di accesso degli utenti autorizzati alle app e alle risorse in base a specifiche condizioni definite.
+Con un approccio di presunzione di violazione è consigliabile ridurre l'impatto di credenziali utente compromesse quando si verifica questa condizione. Per ogni app nell'ambiente considerare i casi d'uso validi: quali gruppi, quali reti, quali dispositivi e altri elementi sono autorizzati, quindi bloccare il resto. Con [accesso condizionale di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), è possibile controllare gli utenti autorizzati modo in cui accedono le App e le risorse in base alle condizioni specifiche definite.
 
 ### <a name="block-end-user-consent"></a>Bloccare il consenso dell'utente finale
 
@@ -130,13 +130,13 @@ Azure Active Directory offre molte funzionalità che intercettano automaticament
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>Implementare criteri di sicurezza per il rischio utente mediante Azure AD Identity Protection
 
-Il rischio utente indica la probabilità che l'identità di un utente sia stata compromessa e viene calcolato in base agli [eventi di rischio utente](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) associati all'identità di un utente. Un criterio di rischio utente è un criterio di accesso condizionale che valuta il livello di rischio per un utente o gruppo specifico. Basato su un livello di rischio basso, medio o elevato, un criterio può essere configurato per bloccare l'accesso o richiedere una modifica sicura della password mediante autenticazione a più fattori. Microsoft consiglia di richiedere una modifica sicura della password per gli utenti con rischio alto.
+Il rischio utente indica la probabilità che l'identità di un utente sia stata compromessa e viene calcolato in base agli [eventi di rischio utente](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) associati all'identità di un utente. Criteri di rischio utente sono un criterio di accesso condizionale che valuta il livello di rischio per un utente o gruppo specifico. Basato su un livello di rischio basso, medio o elevato, un criterio può essere configurato per bloccare l'accesso o richiedere una modifica sicura della password mediante autenticazione a più fattori. Microsoft consiglia di richiedere una modifica sicura della password per gli utenti con rischio alto.
 
 ![Utenti contrassegnati per il rischio](media/azure-ad/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Implementare criteri di rischio di accesso mediante Azure AD Identity Protection
 
-Il rischio di accesso è la probabilità che un utente diverso dal proprietario dell'account tenti di eseguire l'accesso usando l'identità. Un [criterio di rischio di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) è un criterio di accesso condizionale che valuta il livello di rischio per un utente o gruppo specifico. Basato sul livello di rischio (alto/medio/basso), un criterio può essere configurato per bloccare l'accesso o forzare l'autenticazione a più fattori. Verificare di forzare l'autenticazione a più fattori nei rischi di accesso a partire dal livello medio.
+Il rischio di accesso è la probabilità che un utente diverso dal proprietario dell'account tenti di eseguire l'accesso usando l'identità. Oggetto [dei criteri di rischio di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) un criterio di accesso condizionale che valuta il livello di rischio per un utente o gruppo specifico. Basato sul livello di rischio (alto/medio/basso), un criterio può essere configurato per bloccare l'accesso o forzare l'autenticazione a più fattori. Verificare di forzare l'autenticazione a più fattori nei rischi di accesso a partire dal livello medio.
 
 ![Accedere da indirizzi IP anonimi](media/azure-ad/azure-ad-sec-steps2.png)
 

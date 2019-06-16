@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
 ms.openlocfilehash: 2bcbf9d145d9b8b5a3c42893235906d24516405c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65792628"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Domande frequenti
@@ -91,7 +91,7 @@ msgen riconosce i file di configurazione nel formato seguente:
 
   |Argomento della riga di comando            | Riga del file di configurazione |
   |:-------------                   |:-------------                 |
-  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-u/--api-url-base https://url`  | *api_url_base: https://url*    |
   |`-k/--access-key KEY`            | *access_key:KEY*              |      
   |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 

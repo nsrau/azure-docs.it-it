@@ -16,17 +16,17 @@ ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60714144"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Log di diagnostica del bus di servizio
 
 È possibile visualizzare due tipi di log per il bus di servizio di Azure:
-* **[Log attività](../azure-monitor/platform/activity-logs-overview.md)**. Questi log contengono informazioni sulle operazioni eseguite in un processo. I log sono sempre attivati.
-* **[Log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md)**. È possibile configurare i log di diagnostica per informazioni più complete su tutto ciò che accade in un processo. I log di diagnostica coprono le attività che si verificano dal momento della creazione del processo fino alla sua eliminazione, inclusi gli aggiornamenti e le attività che si verificano durante l'esecuzione del processo.
+* **[Log attività](../azure-monitor/platform/activity-logs-overview.md)** . Questi log contengono informazioni sulle operazioni eseguite in un processo. I log sono sempre attivati.
+* **[Log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md)** . È possibile configurare i log di diagnostica per informazioni più complete su tutto ciò che accade in un processo. I log di diagnostica coprono le attività che si verificano dal momento della creazione del processo fino alla sua eliminazione, inclusi gli aggiornamenti e le attività che si verificano durante l'esecuzione del processo.
 
 ## <a name="turn-on-diagnostic-logs"></a>Attivare i log di diagnostica
 
@@ -64,7 +64,7 @@ I log nella categoria **OperationalLogs** acquisiscono i dati relativi al funzio
 
 Le stringhe JSON dei log operativi includono gli elementi elencati nella seguente tabella:
 
-NOME | DESCRIZIONE
+Name | Descrizione
 ------- | -------
 ActivityId | ID interno, usato a scopo di rilevamento
 EventName | Nome operazione           
@@ -73,7 +73,7 @@ SubscriptionId | ID sottoscrizione
 EventTimeString | Durata dell'operazione
 EventProperties | Proprietà dell'operazione
 Stato | Stato dell'operazione
-Chiamante | Chiamante dell'operazione (Portale di Azure o client di gestione)
+Caller | Chiamante dell'operazione (Portale di Azure o client di gestione)
 category | OperationalLogs
 
 Di seguito è riportato un esempio di stringa JSON di log operativo:

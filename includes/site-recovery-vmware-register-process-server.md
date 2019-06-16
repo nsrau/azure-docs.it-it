@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
 ms.openlocfilehash: cf39baf34096691144181332566cf567ebc02310
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66169974"
 ---
 1. Stabilire una connessione Desktop remoto nel computer che esegue il server di elaborazione. 
@@ -19,7 +19,7 @@ ms.locfileid: "66169974"
 3. Nelle **server di configurazione IP o FQDN**, specificare il nome o indirizzo IP del server di configurazione con cui registrare il server di elaborazione.
 4. Nelle **porta Server di configurazione**, verificare che sia specificato 443. Questa è la porta su cui è in ascolto il server di configurazione per le richieste.
 5. Nelle **Passphrase di connessione**, specificare la passphrase specificata quando si configura il server di configurazione. Per trovare la passphrase:
-    -  Nel server di configurazione, passare alla cartella di installazione di Site Recovery **\home\svssystems\bin\**. 
+    -  Nel server di configurazione, passare alla cartella di installazione di Site Recovery * *\home\svssystems\bin\** . 
     - Eseguire questo comando: **genpassphrase.exe.n**. Vengono mostrati il percorso della passphrase, che può quindi prendere nota.
 
 6. Nelle **porta per il trasferimento dati**, lasciare il valore predefinito a meno che non è stata specificata una porta personalizzata.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
 ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61291909"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Esempio: Modellare il database di inventario di AdventureWorks per Ricerca di Azure
@@ -43,7 +43,7 @@ Per risolvere questo problema, non basta spostare semplicemente l'indice di dest
 
 ## <a name="use-a-collection-data-type"></a>Usare il tipo di dati Collection
 
-L'approccio "corretto" consiste nell'usare una funzionalità di schema di ricerca che non ha una corrispondenza diretta nel modello di database: **Collection(Edm.String)**. Un tipo di dati Collection viene usato quando si ha un elenco di stringhe singole, anziché una stringa unica molto lunga. Se sono presenti tag o parole chiave, per i campi corrispondenti si usa un tipo di dati Collection.
+L'approccio "corretto" consiste nell'usare una funzionalità di schema di ricerca che non ha una corrispondenza diretta nel modello di database: **Collection(Edm.String)** . Un tipo di dati Collection viene usato quando si ha un elenco di stringhe singole, anziché una stringa unica molto lunga. Se sono presenti tag o parole chiave, per i campi corrispondenti si usa un tipo di dati Collection.
 
 Se si definiscono campi di indice multivalore di tipo **Collection(Edm.String)** per colore, misura e immagine, è possibile mantenere le informazioni ausiliarie per i facet e i filtri senza inquinare l'indice con voci duplicate. Analogamente, applicare funzioni di aggregazione ai campi numerici di Product, indicizzando **minListPrice** anziché **listPrice** di ogni singolo prodotto.
 

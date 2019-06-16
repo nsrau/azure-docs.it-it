@@ -12,10 +12,10 @@ ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154563"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limiti per il modello LUIS e le chiavi
@@ -43,7 +43,7 @@ Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [dispat
 | [Entità di espressione regolare](./luis-concept-entity-types.md)|20 entità<br>È consentito un numero massimo di 500 caratteri. per ogni criterio di entità di espressione regolare|
 | [Ruoli](luis-concept-roles.md)|300 ruoli per ogni applicazione. 10 per entità|
 | [Espressione][utterances] | 500 caratteri|
-| [Espressioni][utterances] | 15.000 per ogni applicazione - non sono previsti limiti al numero di espressioni per finalità|
+| [Espressioni][utterances] | 15\.000 per ogni applicazione - non sono previsti limiti al numero di espressioni per finalità|
 | [Versioni](luis-concept-version.md)| nessun limite |
 | [Nome della versione][luis-how-to-manage-versions] | 10 caratteri limitati a caratteri alfanumerici e punto (.) |
 
@@ -71,8 +71,8 @@ La chiave di creazione presenta diversi limiti per creazione e endpoint. La chia
 
 |Chiave|Creazione|Endpoint|Scopo|
 |--|--|--|--|
-|Creazione/Avvio di Language Understanding|1 milione/mese, 5/secondo|1.000/mese, 5/secondo|Creazione di app LUIS|
-|[Sottoscrizione][pricing] di Language Understanding - F0 - livello gratuito |non valido|10.000/mese, 5/secondo|Esecuzione di query per l'endpoint LUIS|
+|Creazione/Avvio di Language Understanding|1 milione/mese, 5/secondo|1\.000/mese, 5/secondo|Creazione di app LUIS|
+|[Sottoscrizione][pricing] di Language Understanding - F0 - livello gratuito |non valido|10\.000/mese, 5/secondo|Esecuzione di query per l'endpoint LUIS|
 |[Sottoscrizione][pricing] di Language Understanding - S0 - livello Basic|non valido|50/secondo|Esecuzione di query per l'endpoint LUIS|
 |[Sottoscrizione][pricing] di Servizi cognitivi- S0 - livello Standard|non valido|50/secondo|Esecuzione di query per l'endpoint LUIS|
 |[Integrazione dell'Analisi del sentiment](luis-how-to-publish-app.md#enable-sentiment-analysis)|non valido|nessun addebito|Aggiunta di informazioni sentiment inclusa l'estrazione dei dati di frase chiave |
@@ -80,7 +80,7 @@ La chiave di creazione presenta diversi limiti per creazione e endpoint. La chia
 
 ## <a name="keyboard-controls"></a>Controlli tastiera
 
-|Input tastiera | DESCRIZIONE | 
+|Input tastiera | Descrizione | 
 |--|--|
 |Controllo + E|passa dai token alle entità nell'elenco delle espressioni|
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 2719b6b47225576f2eadeb5e5b40b3aa7b39444d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943108"
 ---
 <a name="seller-insights-faq"></a>Domande frequenti su Informazioni dettagliate del venditore
@@ -41,7 +41,7 @@ Dopo aver scaricato le transazioni dal modulo relativo ai proventi, individuare 
 <a name="calculate-revenue-by-customer-usage-period"></a>Calcolare i ricavi per periodo di utilizzo del cliente
 ------------------------------------------
 
-Dopo aver scaricato le transazioni dal modulo relative ai proventi, individuare la colonna con etichettata **lo stato della transazione**e filtrare il valore "Paid".   Per ogni transazione elencato, la colonna con etichetta **proventi quantità (PC)** rappresenta l'importo è stato pagato.  Per stimare il periodo di utilizzo associato alla transazione, usare la colonna **data di addebito**, ovvero un'approssimazione molto vicina all'ultimo giorno di utilizzo per il periodo a cui viene applicata la transazione.
+Dopo aver scaricato le transazioni dal modulo relative ai proventi, individuare la colonna con etichettata **lo stato della transazione**e filtrare il valore "Paid".   Per ogni transazione elencato, la colonna con etichetta **proventi quantità (PC)**  rappresenta l'importo è stato pagato.  Per stimare il periodo di utilizzo associato alla transazione, usare la colonna **data di addebito**, ovvero un'approssimazione molto vicina all'ultimo giorno di utilizzo per il periodo a cui viene applicata la transazione.
 
 
 <a name="calculate-your-bad-debt"></a>Calcolare i crediti inesigibili

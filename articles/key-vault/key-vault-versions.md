@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: e452313934c6a3076a3801b70019048090f2c6d1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685449"
 ---
 # <a name="key-vault-versions"></a>Versioni di Key Vault
@@ -64,5 +64,5 @@ Sono state aggiornate le attività seguenti:
 
 Prima versione di anteprima 2014-12-08-preview, annunciata l'8 gennaio 2015.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 - [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)

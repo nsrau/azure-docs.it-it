@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: bwren
 ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357570"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
@@ -25,7 +25,7 @@ ms.locfileid: "66357570"
 
 
 > [!NOTE]
-> Abilita il metodo consigliato per installare e configurare la soluzione Office 365 le [connettore Office 365](../../sentinel/connect-office-365.md) nelle [Sentinel Azure](../../sentinel/overview.md) invece di usare i passaggi descritti in questo articolo. Si tratta di una versione aggiornata della soluzione Office 365 con un'esperienza di configurazione migliorata. Per connettere i log di Azure AD, usare il [Sentinel Azure Azure AD connector](../../sentinel/connect-azure-active-directory.md), che fornisce dati di log più complessi rispetto ai registri di gestione di Office 365. 
+> Abilita il metodo consigliato per installare e configurare la soluzione Office 365 le [connettore Office 365](../../sentinel/connect-office-365.md) nelle [Sentinel Azure](../../sentinel/overview.md) invece di usare i passaggi descritti in questo articolo. Si tratta di una versione aggiornata della soluzione Office 365 con un'esperienza di configurazione migliorata. Per connettere i log di Azure AD, usare il [connettore Azure AD di Azure Sentinel](../../sentinel/connect-azure-active-directory.md), che fornisce dati di log più complessi rispetto ai log di gestione di Office 365. 
 >
 > Quando si [eseguire l'onboarding Azure Sentinel](../../sentinel/quickstart-onboard.md), specificare l'area di lavoro di Log Analitica che si desidera che la soluzione Office 365 installata. Dopo aver abilitato il connettore, la soluzione sarà disponibile nell'area di lavoro e utilizzato esattamente come qualsiasi altra soluzione di monitoraggio che è stato installato.
 >

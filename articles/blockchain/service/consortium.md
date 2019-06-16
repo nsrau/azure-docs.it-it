@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: e745a4ee4789ef46a61b5cb0bbf806c41ef631ec
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027916"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Il servizio Azure Blockchain Consortium
@@ -39,12 +39,12 @@ I partecipanti in un consorzio possono essere singoli individui o organizzazioni
 
 | Azione | Ruolo utente | Ruolo amministratore
 |--------|:----:|:------------:|
-| Crea nuovo membro | Sì | Sì |
-| Invita nuovi membri | No  | Sì |
-| Impostazione o modifica membro partecipante ruolo | No  | Sì |
+| Crea nuovo membro | Yes | Yes |
+| Invita nuovi membri | No | Yes |
+| Impostazione o modifica membro partecipante ruolo | No | Yes |
 | Modifica nome visualizzato di membro | Solo per un membro | Solo per un membro |
-| Rimuovere membri | Solo per un membro | Sì |
-| Partecipare alle transazioni di blockchain | Sì | Sì |
+| Rimuovere membri | Solo per un membro | Yes |
+| Partecipare alle transazioni di blockchain | Yes | Yes |
 
 ### <a name="user-role"></a>Ruolo utente
 
