@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
 ms.openlocfilehash: bd02a95f485f45c223fce4c24a72251481c2aa7e
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427886"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Versione corrente](connector-azure-sql-data-warehouse.md)
 
@@ -593,7 +593,7 @@ Quando si copiano i dati da o in Azure SQL Data Warehouse, vengono usati i mappi
 | bit | Boolean |
 | char | String, Char[] |
 | date | DateTime |
-| DateTime | DateTime |
+| Datetime | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
 | Decimal | Decimal |

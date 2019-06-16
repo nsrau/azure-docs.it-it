@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66154284"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurare Oracle ASM su una macchina virtuale Linux in Azure  
@@ -515,7 +515,7 @@ Per configurare l'installazione di Oracle ASM, completare la procedura seguente:
 
 2. Nella finestra di dialogo **Configure ASM: Disk Groups** (Configura ASM: gruppi di dischi) fare clic sul pulsante `Create` e quindi fare clic su `Show Advanced Options`.
 
-3. Nella finestra di dialogo **Create Disk Group (Creare il gruppo di dischi)**:
+3. Nella finestra di dialogo **Create Disk Group (Creare il gruppo di dischi)** :
 
    - Immettere il nome del gruppo di dischi **DATA**.
    - In **Select Member Disks** (Selezionare i dischi membri) selezionare **ORCL_DATA** e **ORCL_DATA1**.
@@ -527,7 +527,7 @@ Per configurare l'installazione di Oracle ASM, completare la procedura seguente:
 
 4. Nella finestra di dialogo **Configure ASM: Disk Groups** (Configura ASM: gruppi di dischi) fare clic sul pulsante `Create` e quindi fare clic su `Show Advanced Options`.
 
-5. Nella finestra di dialogo **Create Disk Group (Creare il gruppo di dischi)**:
+5. Nella finestra di dialogo **Create Disk Group (Creare il gruppo di dischi)** :
 
    - Immettere il nome del gruppo di dischi **FRA**.
    - In **Redundancy** (Ridondanza) selezionare **External (none)** (Esterna (nessuna)).
