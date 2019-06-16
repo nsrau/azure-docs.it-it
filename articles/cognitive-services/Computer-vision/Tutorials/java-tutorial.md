@@ -12,10 +12,10 @@ ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
 ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232624"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Usare le funzionalità di visione artificiale con l'API REST e Java
@@ -63,8 +63,8 @@ Importare il file **cognitive-services-java-computer-vision-tutorial-master.zip*
 1. In NetBeans fare clic su **File** > **Import Project**(Importa progetto)  > **From ZIP...** (Da file ZIP). Viene visualizzata la finestra di dialogo **Import Project(s) from ZIP** (Importa progetti da file ZIP).
 1. Nel campo **ZIP File** (File ZIP) fare clic sul pulsante **Browse** (Sfoglia) per trovare il file **cognitive-services-java-computer-vision-tutorial-master.zip**, quindi fare clic su **Open** (Apri).
 1. Nella finestra di dialogo **Import Project(s) from ZIP** (Importa progetti da file ZIP) fare clic su **Import** (Importa).
-1. Nel riquadro **Projects** (Progetti) espandere **ComputerVision** > **Source Packages** (Pacchetti di origine)  > **&lt;default package&gt;** (pacchetto predefinito). 
-   Alcune versioni di NetBeans usano **src** al posto di **Source Packages** > **&lt;default package&gt;**. In questo caso espandere **src**.
+1. Nel riquadro **Projects** (Progetti) espandere **ComputerVision** > **Source Packages** (Pacchetti di origine)  >  **&lt;default package&gt;** (pacchetto predefinito). 
+   Alcune versioni di NetBeans usano **src** al posto di **Source Packages** >  **&lt;default package&gt;** . In questo caso espandere **src**.
 1. Fare doppio clic su **MainFrame.java** per caricare il file nell'editor di NetBeans. Viene visualizzata la scheda **Design** (Progettazione) del file **MainFrame.java**.
 1. Fare clic sulla scheda **Source** (Origine) per visualizzare il codice sorgente Java.
 

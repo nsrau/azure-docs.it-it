@@ -10,10 +10,10 @@ ms.author: brjohnst
 manager: jlembicz
 ms.custom: seodec2018
 ms.openlocfilehash: a222b9e506988929c25a560361611b8f78142053
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024359"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtri di sicurezza per limitare i risultati in Ricerca di Azure
@@ -154,7 +154,7 @@ Specificare il filtro nel corpo della richiesta:
 
 Ecco come è possibile filtrare i risultati in base all'identità dell'utente e alla funzione `search.in()` di Ricerca di Azure. È possibile utilizzare questa funzione per passare gli identificatori di entità per l'utente richiedente per confrontare gli identificatori dell'entità associati a ogni documento di destinazione. Quando viene gestita una richiesta di ricerca, la funzione `search.in` filtra i risultati della ricerca per cui l'accesso in lettura non è consentito ad alcuna entità di sicurezza dell'utente. Gli identificatori dell'entità di sicurezza possono rappresentare oggetti quali i gruppi di sicurezza, i ruoli o persino l'identità dell'utente.
  
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Controllo degli accessi in base all'identità di Active Directory tramite i filtri di Ricerca di Azure](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtri in Ricerca di Azure](search-filters.md)

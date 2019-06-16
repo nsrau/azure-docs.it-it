@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
 ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236953"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Come usare il Dashboard per migliorare l'app
@@ -154,7 +154,7 @@ Determinare le percentuali di soglia che si è pronti per la tua azienda.
 
 Il filtro consente di trovare gli Intent problema specifico:
 
-|Applica filtro|Percentuale suggerita|Scopo|
+|Filtro|Percentuale suggerita|Scopo|
 |--|--|--|
 |Intent più problematici|-|**Iniziare da qui** -correzione le espressioni in questa finalità migliorerà l'app più di altre correzioni.|
 |Stime corrette riportato di seguito|60%|Questa è la percentuale di espressioni nell'intenzione selezionato siano corretti, ma hanno un punteggio di confidenza di sotto della soglia. |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
 ms.openlocfilehash: b5f8c853218a1db53f4dd23e7254b35990a7132b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60829175"
 ---
 # <a name="experimentation"></a>Sperimentazione
@@ -77,10 +77,10 @@ python Experimentation.py [-h] -f FILE_PATH [-b BASE_COMMAND] [-p N_PROC]
 Un log dei risultati viene accodato al file *mwt-ds/DataScience/experiments.csv*.
 
 ### <a name="parameters"></a>Parametri
-| Input | DESCRIZIONE | Predefinito |
+| Input | Descrizione | Predefinito |
 | --- | --- | --- |
 | `-h`, `--help` | Mostra il messaggio di aiuto ed esce. | |
-| `-f FILE_PATH`, `--file_path FILE_PATH` | Percorso file di dati (formato `.json` o `.json.gz` - ogni riga è un `dsjson`). | Obbligatoria |  
+| `-f FILE_PATH`, `--file_path FILE_PATH` | Percorso file di dati (formato `.json` o `.json.gz` - ogni riga è un `dsjson`). | Obbligatorio |  
 | `-b BASE_COMMAND`, `--base_command BASE_COMMAND` | Comando base di Vowpal Wabbit.  | `vw --cb_adf --dsjson -c` |  
 | `-p N_PROC`, `--n_proc N_PROC` | Numero di processi paralleli da usare. | Processori logici |  
 | `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | Spazi dei nomi delle funzioni condivise (ad esempio `abc` corrisponde agli spazi dei nomi `a`, `b` e `c`).  | Rilevamento automatico dal file di dati |  

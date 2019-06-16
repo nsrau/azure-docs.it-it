@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
 ms.openlocfilehash: 638c06e1854504dcb7ff34b1d9df56694556c421
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939784"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core in Reliable Services di Azure Service Fabric
@@ -62,9 +62,9 @@ Un'istanza di Reliable Services è rappresentata dalla classe del servizio deriv
 Il `ICommunicationListener` implementazioni per Kestrel e HTTP. sys nel `Microsoft.ServiceFabric.AspNetCore.*` pacchetti NuGet hanno modelli di uso simili. Ma eseguono azioni leggermente specifiche per ogni server web. 
 
 Entrambi i listener di comunicazione forniscono un costruttore che accetta gli argomenti seguenti:
- - **`ServiceContext serviceContext`**: Si tratta di `ServiceContext` oggetto contenente le informazioni relative al servizio in esecuzione.
- - **`string endpointName`**: Si tratta del nome di un `Endpoint` configurazione nel file servicemanifest. Xml. È principalmente qui che i due listener di comunicazione differiscono. Http. sys *richiede* un `Endpoint` configurazione, anche se Kestrel non.
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: Si tratta di un'espressione lambda implementata, in cui viene creato e restituito un `IWebHost`. Consente di configurare `IWebHost` di come si farebbe normalmente in un'applicazione ASP.NET Core. L'espressione lambda fornisce un URL che viene generato automaticamente, a seconda delle opzioni di integrazione di Service Fabric è utilizzare e `Endpoint` configuration è fornire. È quindi possibile modificare o usare l'URL per avviare il server web.
+ - **`ServiceContext serviceContext`** : Si tratta di `ServiceContext` oggetto contenente le informazioni relative al servizio in esecuzione.
+ - **`string endpointName`** : Si tratta del nome di un `Endpoint` configurazione nel file servicemanifest. Xml. È principalmente qui che i due listener di comunicazione differiscono. Http. sys *richiede* un `Endpoint` configurazione, anche se Kestrel non.
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** : Si tratta di un'espressione lambda implementata, in cui viene creato e restituito un `IWebHost`. Consente di configurare `IWebHost` di come si farebbe normalmente in un'applicazione ASP.NET Core. L'espressione lambda fornisce un URL che viene generato automaticamente, a seconda delle opzioni di integrazione di Service Fabric è utilizzare e `Endpoint` configuration è fornire. È quindi possibile modificare o usare l'URL per avviare il server web.
 
 ## <a name="service-fabric-integration-middleware"></a>Middleware di integrazione di Service Fabric
 Il `Microsoft.ServiceFabric.AspNetCore` pacchetto NuGet include le `UseServiceFabricIntegration` metodo di estensione su `IWebHostBuilder` che aggiunge middleware compatibile con Service Fabric. Questo middleware configura il Kestrel o HTTP. sys `ICommunicationListener` per registrare un URL di servizio univoco con Service Fabric Naming Service. Quindi convalida le richieste client per assicurarsi che i client si connettono al servizio corretto. 

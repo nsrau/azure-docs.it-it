@@ -14,25 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bc0fd83bd45e7c5c671b387d124cdddc75244ade
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705174"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573517"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitoraggio ed elaborazione degli eventi di sicurezza nel Centro sicurezza di Azure
 Il dashboard degli eventi offre una panoramica del numero di eventi di sicurezza raccolti nel tempo e un elenco di eventi importanti che potrebbero richiedere l'attenzione dell'utente.  
 
 > [!NOTE]
-> Per usare questa funzionalità, l'area di lavoro deve eseguire la versione 2 di Log Analytics e trovarsi nel livello Standard del Centro sicurezza. Per altre informazioni sul livello Standard vedere la [pagina dei prezzi](security-center-pricing.md) del Centro sicurezza.
->
->
+> Dashboard degli eventi di sicurezza verrà ritirato il 31 luglio 2019. Per altre informazioni e servizi alternativi, vedere [ritiro del Centro sicurezza di funzionalità (luglio 2019)](security-center-features-retirement-july2019.md#menu_events).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>Definizione di evento di sicurezza
 Il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere diverse configurazione ed eventi correlati alla sicurezza dai computer e archivia questi eventi nelle aree di lavoro dell'utente. Ecco alcuni esempi di dati: log del sistema operativo, ovvero log eventi di Windows, processi in esecuzione ed eventi delle soluzioni di sicurezza integrati nel Centro sicurezza. Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo del sistema nelle aree di lavoro.
+
+## <a name="requirements"></a>Requisiti
+Per usare questa funzionalità, l'area di lavoro deve eseguire la versione 2 di Log Analytics e trovarsi nel livello Standard del Centro sicurezza. Per altre informazioni sul livello Standard vedere la [pagina dei prezzi](security-center-pricing.md) del Centro sicurezza.
 
 ## <a name="events-processed-dashboard"></a>Dashboard degli eventi elaborati
 Dal menu principale del Centro sicurezza o dal pannello **Panoramica** del Centro sicurezza si accede al dashboard **Eventi**.  

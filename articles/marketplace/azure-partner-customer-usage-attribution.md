@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 09ce4cdc6ab4556f0ba68507bb23d09e02ae0357
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 45d575488db8d740069fba961203842899024747
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296822"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807192"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -267,11 +267,13 @@ Durante la distribuzione del software \<PARTNER>, Microsoft è in grado di ident
 
 ## <a name="get-support"></a>Supporto
 
-Se si verificano problemi con i report o accedere al centro per i Partner, creare una richiesta di supporto con il team di supporto di Centro per i Partner: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+Esistono due canali di supporto in base al problema riscontrato.
+
+Se si verificano problemi nel centro per i Partner, ad esempio visualizzare il report di attribuzione di utilizzo dei clienti o accedere, crea una richiesta di supporto con il team di supporto di Centro per i Partner: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
-Se occorre assistenza per Marketplace Onboarding e/o l'attribuzione di utilizzo dei clienti, seguire questa procedura.
+Se occorre assistenza per Marketplace Onboarding e/o dei clienti attribuzione di utilizzo in generale, ad esempio come configurare l'attribuzione di utilizzo dei clienti, attenersi alla procedura seguente:
 
 1. Andare alla [pagina del supporto](https://go.microsoft.com/fwlink/?linkid=844975).
 

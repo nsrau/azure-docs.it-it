@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
 ms.openlocfilehash: eebf9ef63a8622c4cc431322b786fdf30f6352fe
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925828"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnosticare le notifiche non recapitate in hub di notifica di Azure
@@ -194,7 +194,7 @@ Se la notifica non arriva al dispositivo client, potrebbe essersi verificato un 
 
 Per ottenere informazioni dettagliate sugli errori del servizio di notifica push, è possibile usare la proprietà [EnableTestSend]. Questa proprietà viene abilitata automaticamente quando si inviano messaggi di prova dal portale o dal client di Visual Studio È possibile usare questa proprietà per visualizzare informazioni di debug dettagliate e anche tramite le API. Attualmente, è possibile usarla in .NET SDK. Verrà aggiunto a tutti gli SDK client alla fine.
 
-Per usare la proprietà `EnableTestSend` con la chiamata REST, aggiungere un parametro di stringa di query denominato *test* alla fine della chiamata di invio. Ad esempio: 
+Per usare la proprietà `EnableTestSend` con la chiamata REST, aggiungere un parametro di stringa di query denominato *test* alla fine della chiamata di invio. Ad esempio:
 
 ```text
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
 ms.openlocfilehash: ca69424ecbddc068fdaf8bb5839a647701ee27fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686598"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine Learning in HDInsight
@@ -49,7 +49,7 @@ L'[apprendimento avanzato](https://www.microsoft.com/en-us/research/group/dltc/)
 
 A sostegno del proprio impegno nel campo dell'apprendimento avanzato, Microsoft ha sviluppato [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), uno strumento open source gratuito e facile da usare. Il toolkit è ampiamente usato da numerosi prodotti Microsoft, da aziende di tutto il mondo che hanno la necessità di distribuire l'apprendimento avanzato su vasta scala e da studenti interessati agli algoritmi e alle tecniche più recenti.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 ### <a name="scenarios"></a>Scenari
 

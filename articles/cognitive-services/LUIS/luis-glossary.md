@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523508"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossario per la comprensione del linguaggio con vocabolario e concetti comuni
@@ -82,11 +82,11 @@ Un endpoint di esempio è simile al seguente:
 
 |Parametro QueryString|description|
 |--|--|
-|Area| [regione di pubblicazione](luis-reference-regions.md#publishing-regions) |
+|region| [regione di pubblicazione](luis-reference-regions.md#publishing-regions) |
 |appID | ID dell'app LUIS |
 |subscriptionid | Chiave endpoint LUIS creata nel portale di Azure |
 |q | espressione |
-|timezoneOffset| minuti|
+|timezoneOffset| minutes|
 
 ## <a name="entity"></a>Entità
 

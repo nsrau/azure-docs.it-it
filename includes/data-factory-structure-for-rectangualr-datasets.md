@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122518"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Definizione della struttura per i set di dati rettangolari
@@ -19,9 +19,9 @@ Ogni colonna contiene le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | name |Nome della colonna. |Sì |
-| tipo |Tipo di dati della colonna. Vedere la sezione sulle conversioni del tipo di seguito per altre informazioni su quando specificare le informazioni sul tipo |N. |
-| culture |Cultura basata su .NET da usare quando il tipo è specificato e corrisponde al tipo .NET Datetime o Datetimeoffset. Il valore predefinito è "en-us". |N. |
-| format |Stringa di formato da usare quando il tipo è specificato e corrisponde al tipo .NET Datetime o Datetimeoffset. |N. |
+| type |Tipo di dati della colonna. Vedere la sezione sulle conversioni del tipo di seguito per altre informazioni su quando specificare le informazioni sul tipo |No |
+| culture |Cultura basata su .NET da usare quando il tipo è specificato e corrisponde al tipo .NET Datetime o Datetimeoffset. Il valore predefinito è "en-us". |No |
+| format |Stringa di formato da usare quando il tipo è specificato e corrisponde al tipo .NET Datetime o Datetimeoffset. |No |
 
 L'esempio seguente mostra la sezione di struttura JSON per una tabella con tre colonne: userid, name e lastlogindate.
 

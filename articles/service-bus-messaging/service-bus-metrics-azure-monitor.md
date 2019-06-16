@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
 ms.openlocfilehash: fdb0152ef398dbd53a8a2a99a10d90254252908b
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65921225"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Metriche del bus di sevizio di Azure in Monitoraggio di Azure (anteprima)
@@ -38,7 +38,7 @@ Le metriche sono abilitate per impostazione predefinita ed è possibile accedere
 
 ![][1]
 
-È anche possibile accedere alle metriche direttamente tramite lo spazio dei nomi. A tale scopo, selezionare lo spazio dei nomi e quindi fare clic su **Metriche (anteprima)**. Per visualizzare le metriche filtrate in base all'ambito dell'entità, selezionare l'entità e quindi fare clic su **Metriche (anteprima)**.
+È anche possibile accedere alle metriche direttamente tramite lo spazio dei nomi. A tale scopo, selezionare lo spazio dei nomi e quindi fare clic su **Metriche (anteprima)** . Per visualizzare le metriche filtrate in base all'ambito dell'entità, selezionare l'entità e quindi fare clic su **Metriche (anteprima)** .
 
 ![][2]
 
@@ -121,10 +121,10 @@ Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in M
     3. Selezionare lo **spazio dei nomi del bus di servizio** nell'elenco. 
     4. Selezionare **Operazione completata**. 
     
-        ![Seleziona spazio dei nomi](./media/service-bus-metrics-azure-monitor/select-namespace.png)
+        ![Selezionare lo spazio dei nomi](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Selezionare **Aggiungi criteri** ed eseguire le azioni seguenti nella pagina **Configura logica dei segnali**:
     1. Selezionare **Metriche** per **Tipo segnale**. 
-    2. Selezionare un segnale, Ad esempio: **Errori del servizio (anteprima)**. 
+    2. Selezionare un segnale, Ad esempio:  **Errori del servizio (anteprima)** . 
 
         ![Selezionare gli errori del server](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Selezionare **Greater than** (Maggiore di) per **Condizione**.

@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2019
 ms.openlocfilehash: 0086327661df637dc0ae60208ed9424b4610ef0e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969493"
 ---
 # <a name="limits-in-azure-cosmos-db"></a>Limiti di Azure Cosmos DB
@@ -23,13 +23,13 @@ Dopo aver creato un account Azure Cosmos nella propria sottoscrizione, è possib
 
 | Resource | Limite predefinito |
 | --- | --- |
-| Unità richieste massime per ogni contenitore ([modalità di provisioning della velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 1.000.000 per impostazione predefinita. È possibile aumentarlo dal [invio di un ticket di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) o contattare Microsoft tramite [chiedere a Cosmos DB](mailto:askcosmosdb@microsoft.com) |
-| Unità richieste massime per ogni database ([modalità di provisioning di velocità effettiva condiviso](databases-containers-items.md#azure-cosmos-containers)) | 1.000.000 per impostazione predefinita. È possibile aumentarlo dal [invio di un ticket di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) o contattare Microsoft tramite [chiedere a Cosmos DB](mailto:askcosmosdb@microsoft.com) |
+| Unità richieste massime per ogni contenitore ([modalità di provisioning della velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 per impostazione predefinita. È possibile aumentarlo dal [invio di un ticket di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) o contattare Microsoft tramite [chiedere a Cosmos DB](mailto:askcosmosdb@microsoft.com) |
+| Unità richieste massime per ogni database ([modalità di provisioning di velocità effettiva condiviso](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 per impostazione predefinita. È possibile aumentarlo dal [invio di un ticket di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) o contattare Microsoft tramite [chiedere a Cosmos DB](mailto:askcosmosdb@microsoft.com) |
 | Unità richieste massime per ogni chiave di partizione (logici) | 10,000 |
 | Spazio di archiviazione massimo tra tutti gli elementi per chiave di partizione (logici)| 10 GB |
-| Numero massimo di chiavi di partizione distinta (logici) | Senza limitazioni |
-| Spazio di archiviazione massimo per ogni contenitore | Senza limitazioni |
-| Spazio di archiviazione massimo per ogni database | Senza limitazioni |
+| Numero massimo di chiavi di partizione distinta (logici) | Illimitato |
+| Spazio di archiviazione massimo per ogni contenitore | Illimitato |
+| Spazio di archiviazione massimo per ogni database | Illimitato |
 
 > [!NOTE]
 > Per le procedure consigliate gestire i carichi di lavoro che dispongono di chiavi di partizione che richiedono limiti più elevati per l'archiviazione o velocità effettiva, vedere [progetta per accesso frequente le chiavi di partizione](synthetic-partition-keys.md)

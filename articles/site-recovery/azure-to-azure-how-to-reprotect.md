@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: eabb7d194a3ef65282befab1ae59e85ba56f2f5b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472150"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Riproteggere macchine virtuali di Azure sottoposte a failover nell'area primaria
@@ -84,7 +84,7 @@ Nella maggior parte dei casi, Azure Site Recovery non esegue la replica dei dati
 1.  Se l'origine dati della macchina virtuale viene eliminato, danneggiato o è inaccessibile a causa di un qualche motivo, ad esempio gruppo di risorse modifica/eliminazione quindi durante il runtime di integrazione completato la riprotezione verrà eseguito perché non sono presenti dati disponibili sull'area di origine da utilizzare.
 2.  Se l'origine dati della macchina virtuale è accessibile solo backup differenziali vengono calcolati confrontando entrambi i dischi e quindi trasferiti. Controllare la tabella seguente per ottenere il tempo stimato 
 
-|* * Situazione esempio * * | * * Tempo impiegato per la Riprotezione * * |
+|\* * Situazione esempio * * | \* * Tempo impiegato per la Riprotezione * * |
 |--- | --- |
 |Area di origine con 1 macchina virtuale con dischi standard di 1 TB<br/>-Solo i dati di 127 GB vengono usati e rest del disco è vuoto<br/>-Disco è di tipo standard con 60 MiB/S di velocità effettiva<br/>-Nessuna modifica dei dati dopo il failover| Ora approssimativa in 45 minuti-1,5 ore<br/> -Durante la riprotezione Site Recovery popolerà il valore di checksum di dati intere che conducono 127 GB / 45 MB circa 45 minuti<br/>-Tempo overhead è necessaria per configurare la scalabilità che è di circa 20-30 minuti automatica tramite Site Recovery<br/>-Nessun spese di uscita |
 |Area di origine con 1 macchina virtuale con dischi standard di 1 TB<br/>-Solo i dati di 127 GB vengono usati e rest del disco è vuoto<br/>-Disco è di tipo standard con 60 MiB/S di velocità effettiva<br/>-Le modifiche ai dati 45 GB dopo il failover| Ora approssimativa in ore 1 – 2 ore<br/>-Durante la riprotezione Site Recovery popolerà il valore di checksum di dati intere che conducono 127 GB / 45 MB circa 45 minuti<br/>-Tempo di applicare le modifiche di 45 GB che è 45 GB di trasferimento / 45 MBps ~ 17 minuti<br/>-I costi di uscita sarebbe solo per 45 GB di dati non per il valore di checksum|

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606386"
 ---
 # <a name="core-reports-from-verizon"></a>Report principali da Verizon
@@ -96,7 +96,7 @@ Per ridurre i riscontri nella cache scaduti, impostare il valore `max-age` dell'
   
   * Cache-Control: s-maxage
   * Cache-Control: max-age
-  * Scade
+  * Expires
 * TCP_MISS: Questo stato indica che una versione memorizzata nella cache dell'asset richiesto non è stata trovata nel POP vicino al client. La risorsa viene richiesta da un server di origine o da un server shield di origine. Se il server di origine o il server shield di origine restituiscono un asset, esso viene fornito al client e memorizzato nella cache sul client e sul server perimetrale. In caso contrario, viene restituito un codice di stato diverso da 200 (ad esempio, 403 - Accesso negato o 404 - Non trovato).
 * TCP_EXPIRED_HIT: Questo stato viene segnalato quando una richiesta avente per destinazione un asset con un tempo TTL scaduto è stata servita direttamente dal POP al client. Ad esempio, quando la durata max. della risorsa è scaduta. 
   

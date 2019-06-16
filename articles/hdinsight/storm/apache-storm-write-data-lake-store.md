@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.openlocfilehash: 4ba0c861674eb2308cf1f96c33d0792f3e1a0f94
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683689"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Scrivere in Apache Hadoop HDFS da Apache Storm in HDInsight
@@ -223,5 +223,5 @@ Le topologie Storm vengono eseguite fino all'arresto o all'eliminazione del clus
 
 Dopo aver appreso come usare Apache Storm per scrivere in Archiviazione di Azure e Azure Data Lake Storage, è possibile vedere altri [esempi di Apache Storm per HDInsight](apache-storm-example-topology.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

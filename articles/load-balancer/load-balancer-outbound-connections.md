@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: kumud
 ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967727"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
@@ -156,7 +156,7 @@ Nella tabella seguente sono riportate le preallocazioni delle porte SNAT per i l
 
 | Dimensioni del pool (istanze VM) | Porte SNAT preallocate per configurazione IP|
 | --- | --- |
-| 1-50 | 1.024 |
+| 1-50 | 1\.024 |
 | 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |

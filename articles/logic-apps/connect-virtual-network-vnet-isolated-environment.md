@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65961444"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
@@ -48,7 +48,7 @@ Per altre informazioni sugli ambienti del servizio di integrazione, vedere [Acce
     > [!NOTE]
     > Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md), che fornisce una connessione privata a servizi cloud Microsoft, devi [creare una tabella di route](../virtual-network/manage-route-table.md) indirizzare e collegare tale tabella con ogni subnet usata per l'ISE, che prevede i seguenti:
     > 
-    > **Nome**: <*-nome della route*><br>
+    > **Nome**: < *-nome della route*><br>
     > **Prefisso dell'indirizzo**: 0.0.0.0/0<br>
     > **Hop successivo**: Internet
 
@@ -102,7 +102,7 @@ Per creare un ambiente del servizio di integrazione (ISE), seguire questa proced
 1. Scegliere [Crea una risorsa](https://portal.azure.com) dal menu principale di Azure nel **portale di Azure**.
 Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come filtro.
 
-   ![Crea nuova risorsa](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
+   ![Create new resource (Crea nuova risorsa)](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
 1. Nel riquadro di creazione ambiente del servizio di integrazione, scegliere **Create**.
 
@@ -114,13 +114,13 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
 
    | Proprietà | Obbligatorio | Value | DESCRIZIONE |
    |----------|----------|-------|-------------|
-   | **Sottoscrizione** | Sì | <*nome sottoscrizione di Azure*> | Sottoscrizione di Azure da usare per l'ambiente |
-   | **Gruppo di risorse** | Sì | <*Azure-resource-group-name*> | Il gruppo di risorse di Azure in cui si desidera creare l'ambiente |
-   | **Nome dell'ambiente del servizio di integrazione** | Sì | <*Nome ambiente*> | Il nome da assegnare all'ambiente |
-   | **Posizione** | Sì | <*Azure-datacenter-region*> | L'area del datacenter di Azure in cui distribuire l'ambiente |
-   | **Capacità aggiuntiva** | Sì | da 0 a 10 | Il numero di unità di elaborazione aggiuntivi da usare per questa risorsa ISE. Per aggiungere capacità dopo la creazione, vedere [capacità di aggiungere ISE](#add-capacity). |
-   | **Rete virtuale** | Sì | <*Azure-virtual-network-name*> | La rete virtuale di Azure in cui si desidera collegare l'ambiente in modo che le app per la logica in quell'ambiente possano accedere alla rete virtuale. Se non si dispone di una rete [creare una rete virtuale di Azure prima di tutto](../virtual-network/quick-create-portal.md). <p>**Importante**: È possibile seguire questo collegamento *solo* quando si crea l'ISE. |
-   | **Subnet** | Sì | <*subnet-resource-list*> | Un ISE richiede quattro subnet *vuote* per la creazione di risorse nell'ambiente. Per creare ciascuna subnet, [seguire i passaggi descritti in questa tabella](#create-subnet).  |
+   | **Sottoscrizione** | Yes | <*nome sottoscrizione di Azure*> | Sottoscrizione di Azure da usare per l'ambiente |
+   | **Gruppo di risorse** | Yes | <*Azure-resource-group-name*> | Il gruppo di risorse di Azure in cui si desidera creare l'ambiente |
+   | **Nome dell'ambiente del servizio di integrazione** | Yes | <*Nome ambiente*> | Il nome da assegnare all'ambiente |
+   | **Location** | Yes | <*Azure-datacenter-region*> | L'area del datacenter di Azure in cui distribuire l'ambiente |
+   | **Capacità aggiuntiva** | Yes | da 0 a 10 | Il numero di unità di elaborazione aggiuntivi da usare per questa risorsa ISE. Per aggiungere capacità dopo la creazione, vedere [capacità di aggiungere ISE](#add-capacity). |
+   | **Rete virtuale** | Yes | <*Azure-virtual-network-name*> | La rete virtuale di Azure in cui si desidera collegare l'ambiente in modo che le app per la logica in quell'ambiente possano accedere alla rete virtuale. Se non si dispone di una rete [creare una rete virtuale di Azure prima di tutto](../virtual-network/quick-create-portal.md). <p>**Importante**: È possibile seguire questo collegamento *solo* quando si crea l'ISE. |
+   | **Subnet** | Yes | <*subnet-resource-list*> | Un ISE richiede quattro subnet *vuote* per la creazione di risorse nell'ambiente. Per creare ciascuna subnet, [seguire i passaggi descritti in questa tabella](#create-subnet).  |
    |||||
 
    <a name="create-subnet"></a>
@@ -146,7 +146,7 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
 
    * Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md), ricordarsi di [creare una tabella di route](../virtual-network/manage-route-table.md) indirizzare e collegare tale tabella con ogni subnet usata per l'ISE, che prevede i seguenti:
 
-     **Nome**: <*-nome della route*><br>
+     **Nome**: < *-nome della route*><br>
      **Prefisso dell'indirizzo**: 0.0.0.0/0<br>
      **Hop successivo**: Internet
 
@@ -161,7 +161,7 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
    1. Nel riquadro **Aggiungi subnet**, specificare queste informazioni.
 
       * **Nome**: Nome per la subnet
-      * **Intervallo di indirizzi (blocco CIDR)**: L'intervallo di subnet nella rete virtuale e nel formato CIDR
+      * **Intervallo di indirizzi (blocco CIDR)** : L'intervallo di subnet nella rete virtuale e nel formato CIDR
 
       ![Aggiungere i dettagli della subnet](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
 
@@ -183,7 +183,7 @@ Nella casella di ricerca, digitare "ambiente del servizio di integrazione" come 
 
    Se la distribuzione avviene con successo, Azure Mostra questa notifica:
 
-   ![La distribuzione è riuscita](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+   ![Distribuzione completata](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
    In caso contrario, seguire le istruzioni del portale di Azure per la risoluzione dei problemi di distribuzione.
 

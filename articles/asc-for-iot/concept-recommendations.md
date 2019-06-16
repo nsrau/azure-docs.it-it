@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: 122a1585abf43d1aedc7f329cd7e41a6228f8c3e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200678"
 ---
 # <a name="security-recommendations"></a>Suggerimenti per la sicurezza
@@ -35,9 +35,9 @@ In questo articolo, si troverà un elenco delle raccomandazioni può essere atti
 
 Suggerimenti di dispositivi forniscono informazioni e suggerimenti per migliorare le condizioni di sicurezza di dispositivi. 
 
-| Severity | NOME                                                      | origine dati | DESCRIZIONE                                                                                                                                                                                           |
+| Severity | Name                                                      | origine dati | Descrizione                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Media   | Porte aperte nel dispositivo                                      | Agente       | È stato rilevato un endpoint in ascolto sul dispositivo                                                                                                                                                          |
+| Media   | Porte aperte nel dispositivo                                      | Agente       | Un endpoint di ascolto è stato trovato nel dispositivo                                                                                                                                                          |
 | Media   | Sono stati trovati in una delle catene di criteri di firewall permissivi. | Agente       | Criteri firewall trovati (INPUT/OUTPUT) è consentito. Criteri firewall devono rifiutare il traffico per impostazione predefinita e definiscono delle regole per consentire la comunicazione necessaria da e verso il dispositivo.                               |
 | Media   | Regola di firewall permissivi nella catena di input è stata trovata     | Agente       | È stata trovata una regola del firewall che contiene un modello permissivo per un'ampia gamma di porte o indirizzi IP.                                                                                    |
 | Media   | Regola di firewall permissivi nella catena di output è stata trovata    | Agente       | È stata trovata una regola del firewall che contiene un modello permissivo per un'ampia gamma di porte o indirizzi IP.                                                                                   |
@@ -47,7 +47,7 @@ Suggerimenti di dispositivi forniscono informazioni e suggerimenti per migliorar
 
 Raccomandazioni operative forniscono informazioni e suggerimenti per migliorare la configurazione dell'agente protezione.
 
-| Severity | NOME                                    | origine dati | DESCRIZIONE                                                                       |
+| Severity | NOME                                    | origine dati | Descrizione                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
 | Basso      | Agent invierà messaggi inutilizzati          | Agente       | 10% o più dei messaggi di sicurezza sono stati inferiori a 4kb nelle ultime 24 ore.  |
 | Basso      | Configurazione della sicurezza dei dispositivi gemelli non ottimale | Agente       | Configurazione della sicurezza dei dispositivi gemelli non è ottimale.                                        |
@@ -58,10 +58,10 @@ Raccomandazioni operative forniscono informazioni e suggerimenti per migliorare 
 
 Gli avvisi di raccomandazione forniscono informazioni dettagliate e i suggerimenti per le azioni aumentare la sicurezza dell'ambiente.  
 
-| Severity | NOME                                                     | origine dati | DESCRIZIONE                                                                                                                                                                                                             |
+| Severity | NOME                                                     | origine dati | Descrizione                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alto     | Credenziali di autenticazione identici utilizzate da più dispositivi | Hub IoT     | Le credenziali di autenticazione di IoT Hub vengono usate da più dispositivi. Questo può indicare un dispositivo illegittimo rappresentando un dispositivo legittimo. Uso delle credenziali duplicate aumenta il rischio di rappresentazione del dispositivo da un attore malintenzionato. |
 | Media   | Dovrebbe essere negare i criteri di filtro IP predefiniti                  | Hub IoT     | Configurazione del filtro IP deve disporre di regole definite per il traffico consentito ed è necessario per impostazione predefinita, negare il traffico di tutti gli altri per impostazione predefinita.                                                                                                     |
 | Media   | Regola del filtro IP include ampio intervallo IP                   | Hub IoT     | Un intervallo IP Consenti IP filtro regola origine è troppo grande. Le regole eccessivamente permissive possono esporre l'hub IoT per attori dannosi.                                                                                       |
-| Basso      | Abilitare i log di diagnostica nell'hub IoT                       | Hub IoT     | Abilitare i log e conservarli per un periodo massimo di un anno. Conservazione dei log consente di ricreare gli itinerari di attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o di rete è compromessa.                                       |
+| Basso      | Abilitare i log di diagnostica in IoT Hub                       | Hub IoT     | Abilitare i log e conservarli per un periodo massimo di un anno. Conservazione dei log consente di ricreare gli itinerari di attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o di rete è compromessa.                                       |
 |

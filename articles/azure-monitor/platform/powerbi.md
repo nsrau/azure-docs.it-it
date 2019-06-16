@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/01/219
 ms.author: bwren
 ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234193"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importare i dati di log di monitoraggio di Azure in Power BI
@@ -36,7 +36,7 @@ Per importare dati da un [dell'area di lavoro di Log Analitica](manage-access.md
 Iniziare creando un [query di log](../log-query/log-query-overview.md) che restituisce i dati che si desidera popolare il set di dati di Power BI.  Esportare quindi la query nella [lingua di Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx), in modo che possa essere usata da Power BI Desktop.
 
 1. [Creare la query di log in Log Analitica](../log-query/get-started-portal.md) per estrarre i dati per il set di dati.
-2. Selezionare **esportare** > **Power BI Query (M)**.  Ciò consente di esportare la query in un file di testo denominato **Powerbiquery**. 
+2. Selezionare **esportare** > **Power BI Query (M)** .  Ciò consente di esportare la query in un file di testo denominato **Powerbiquery**. 
 
     ![Esportare la ricerca log](media/powerbi/export-analytics.png)
 

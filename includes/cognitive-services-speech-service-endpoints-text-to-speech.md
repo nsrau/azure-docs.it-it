@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
 ms.openlocfilehash: d5a4b3a07854c2664de7ec60f3677b666798a9bd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66145390"
 ---
 ### <a name="standard-and-neural-voices"></a>Voices standard e neurale
@@ -17,24 +17,24 @@ Usare questa tabella per determinare la disponibilità di standard e neurale voi
 
 | Region | Endpoint | Voices standard | Voices neurale |
 |--------|----------|-----------------|---------------|
-| Australia orientale | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
-| Canada centrale | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
-| Stati Uniti centrali | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | N. |
-| Asia orientale | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | N. |
-| Stati Uniti orientali | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
-| Stati Uniti orientali 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | N. |
-| Francia centrale | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | N. |
-| India centrale | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
-| Giappone orientale | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | N. |
-| Corea del Sud centrale | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | N. |
-| Stati Uniti centro-settentrionali | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | N. |
-| Europa settentrionale | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | N. |
-| Stati Uniti centro-meridionali | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
-| Asia sud-orientale | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
-| Regno Unito meridionale | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
-| Europa occidentale | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
-| Stati Uniti occidentali | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | N. |
-| Stati Uniti occidentali 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
+| Australia orientale | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
+| Canada centrale | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
+| Stati Uniti centrali | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| Asia orientale | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| Stati Uniti orientali | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
+| Stati Uniti orientali 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| Francia centrale | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| India centrale | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
+| Giappone orientale | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| Corea del Sud centrale | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| Stati Uniti centro-settentrionali | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| Europa settentrionale | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| Stati Uniti centro-meridionali | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
+| Asia sud-orientale | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
+| Regno Unito meridionale | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
+| Europa occidentale | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
+| Stati Uniti occidentali | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| Stati Uniti occidentali 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
 
 ### <a name="custom-voices"></a>Voci personalizzate
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 6189ea2866d1c16f994179df0179e29353e6c47d
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410704"
 ---
 # <a name="create-a-custom-voice"></a>Creare una voce personalizzata
@@ -47,7 +47,7 @@ Nella tabella seguente sono indicati gli stati di elaborazione per i set di dati
 | Stato | Significato |
 | ----- | ------- |
 | Elaborazione in corso | Il set di dati è stato ricevuto ed elaborato. |
-| Riuscita | Il set di dati è stato convalidato e può ora essere usato per compilare un modello vocali. |
+| Succeeded | Il set di dati è stato convalidato e può ora essere usato per compilare un modello vocali. |
 | Failed | Il set di dati è stato eseguito durante l'elaborazione a causa di vari motivi, ad esempio gli errori del file, i problemi dei dati o problemi di rete. |
 
 Dopo la convalida è completa, è possibile visualizzare il numero totale di espressioni corrispondenti per ogni set di dati nel **Utterances** colonna. Se il tipo di dati che è stata selezionata richiede prolungata-audio segmentazione, questa colonna si rifletta solo le espressioni che è stata segmentata automaticamente in base le trascrizioni o tramite il servizio di trascrizione vocale. Inoltre, è possibile scaricare il set di dati convalidati per visualizzare i risultati di dettaglio delle espressioni è state importate e le trascrizioni di mapping. Hint: segmentazione prolungata-audio può richiedere più di un'ora per completare l'elaborazione dei dati.
@@ -89,7 +89,7 @@ Lo stato visualizzato riflette il processo di conversione del set di dati a un m
 | Stato | Significato |
 | ----- | ------- |
 | Elaborazione in corso | Viene creato il modello vocali. |
-| Riuscita | Il modello vocale è stato creato e può essere distribuito. |
+| Succeeded | Il modello vocale è stato creato e può essere distribuito. |
 | Failed | Il modello vocale è stato eseguito nel training dovuto a vari motivi, problemi di rete o problemi di dati, ad esempio non visti. |
 
 Il tempo necessario per il training varia a seconda del volume dei dati audio elaborati. In genere, i tempi vanno da 30 minuti per alcune centinaia di espressioni a 40 ore per 20.000 espressioni. Il training del modello è stato completato correttamente, è possibile iniziare a testarla.

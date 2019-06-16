@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: kumud
 ms.openlocfilehash: f28088a1a0586964092a0b5f86ce8bf0f95402cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122436"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurare le regole in uscita e il bilanciamento del carico in Load Balancer Standard usando l'interfaccia della riga di comando di Azure
@@ -30,7 +30,7 @@ Al termine, la risorsa Load Balancer conterrà due front-end e le regole associa
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="create-resource-group"></a>Crea gruppo di risorse
+## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
 Come prima cosa creare un gruppo di risorse con [az group create](https://docs.microsoft.com/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
@@ -41,7 +41,7 @@ L'esempio seguente crea un gruppo di risorse denominato *myresourcegroupoutbound
     --name myresourcegroupoutbound \
     --location eastus2
 ```
-## <a name="create-virtual-network"></a>Crea rete virtuale
+## <a name="create-virtual-network"></a>Creare una rete virtuale
 Creare una rete virtuale denominata *myvnetoutbound* con una subnet denominata *mysubnetoutbound* nel gruppo *myresourcegroupoutbound* con il comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive

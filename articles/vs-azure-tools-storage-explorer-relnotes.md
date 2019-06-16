@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: b753b565b7dae6cdc244d05d051df964eda3c6f2
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65620486"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
@@ -471,7 +471,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * L'interruzione del lease può ora essere eseguita solo su un BLOB alla volta. È inoltre necessario immettere il nome del BLOB di cui si vuole interrompere il lease. Questa modifica è stata apportata per ridurre la probabilità di interruzione accidentale di un lease, soprattutto nelle macchine virtuali. 394
 * Se si verificano problemi di accesso, è ora possibile provare a reimpostare l'autenticazione. Passare al menu "Guida" e fare clic su "Reimposta" per accedere a questa funzionalità. 419
 
-### <a name="fix"></a>Correggi
+### <a name="fix"></a>Correzione
 
 * In seguito ai numerosi commenti e suggerimenti inviati dagli utenti, il nodo dell'emulatore predefinito è stato nuovamente abilitato. È comunque possibile aggiungere altre connessioni all'emulatore tramite la finestra di dialogo Connect (Connetti), ma se l'emulatore è configurato in modo da usare le porte predefinite, è anche possibile usare il nodo "Emulator * Default Ports" (Emulatore * Porte predefinite) in "Local & Attached/Storage Accounts" (Locali e collegati/Account di archiviazione). 669
 * Storage Explorer non consente più di impostare i valori dei metadati del BLOB che contengono spazi iniziali o finali. 760

@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570591"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Eseguire gli script della shell nella macchina virtuale Linux con Esegui comando
@@ -65,7 +65,7 @@ Seleziona un comando da eseguire Alcuni comandi potrebbero avere parametri di in
 
 Una volta scelto il comando, fare clic su **Esegui** per eseguire lo script. Lo script viene eseguito e,m al termine, restituisce l'output e gli eventuali errori nella finestra di output. Lo screenshot seguente illustra un esempio di output dall'esecuzione del comando **ifconfig**.
 
-![Eseguire l'output dello script di comando ](./media/run-command/run-command-script-output.png)
+![Eseguire l'output dello script di comando](./media/run-command/run-command-script-output.png)
 
 ## <a name="available-commands"></a>Comandi disponibili
 

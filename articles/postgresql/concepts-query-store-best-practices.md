@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 798a7a3edbf11c8421848871d26ba55b5bada0b6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067244"
 ---
 # <a name="best-practices-for-query-store"></a>Procedure consigliate per Query Store
@@ -26,7 +26,7 @@ Consentire a Query Store di acquisire i dati importanti.
 |---|---|
 |_Tutti_  |Analizzare l'intero carico di lavoro esaminando tutte le query, la rispettiva frequenza di esecuzione e altre statistiche. Identificare le nuove query nel carico di lavoro. Rilevare se le query ad hoc vengono usate per identificare le opportunità di parametrizzazione automatica o dell'utente. La modalità _All_ comporta un costo maggiore per il consumo delle risorse. |
 |_Top_  |Concentrare l'attenzione sulle query più frequenti, ovvero quelle emesse dai client.
-|_Nessuno_ |Sono già stati acquisiti un set di query e un intervallo di tempo da analizzare e si vogliono eliminare eventuali distrazioni causate da altre query. La modalità _None_ è adatta agli ambienti di test e di benchmark. La modalità _None_ deve essere usata con attenzione perché potrebbe impedire di tenere traccia di nuove query importanti e di ottimizzarle. Non è possibile ripristinare i dati negli intervalli di tempo trascorsi. |
+|_None_ |Sono già stati acquisiti un set di query e un intervallo di tempo da analizzare e si vogliono eliminare eventuali distrazioni causate da altre query. La modalità _None_ è adatta agli ambienti di test e di benchmark. La modalità _None_ deve essere usata con attenzione perché potrebbe impedire di tenere traccia di nuove query importanti e di ottimizzarle. Non è possibile ripristinare i dati negli intervalli di tempo trascorsi. |
 
 Query Store include anche un archivio per le statistiche di attesa. Esiste un'altra modalità di acquisizione delle query che regola le statistiche di attesa: **pgms_wait_sampling.query_capture_mode** può essere impostata su _none_ o su _all_. 
 

@@ -12,10 +12,10 @@ ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: f0faad91e9e3ff9384dcae57ed27c21fa21946b5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573780"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guida di Azure AI per soluzioni di manutenzione predittiva
@@ -215,7 +215,7 @@ Alcuni esempi di funzioni di aggregazione in sequenza in una finestra temporale 
 Un'altra tecnica utile in PdM consiste nell'acquisire modifiche della tendenza, picchi e modifiche dei livelli usando algoritmi che rilevano le anomalie nei dati.
 
 #### <a name="tumbling-aggregates"></a>Aggregazioni a cascata
-Per ogni record con etichetta di un asset, viene definita una finestra con dimensione _W-<sub>k</sub>_, dove _k_ è il numero di finestre con dimensione _W_. Vengono quindi create le aggregazioni su _k_ _finestre a cascata_ _W-k, W-<sub>(k-1)</sub>, …, W-<sub>2</sub>, W-<sub>1</sub>_ per i periodi prima di un timestamp del record. _k_ può essere un numero ridotto per acquisire gli effetti a breve termine o un numero elevato per acquisire schemi di degradazione a lungo termine (vedere la figura 2).
+Per ogni record con etichetta di un asset, viene definita una finestra con dimensione _W-<sub>k</sub>_ , dove _k_ è il numero di finestre con dimensione _W_. Vengono quindi create le aggregazioni su _k_ _finestre a cascata_ _W-k, W-<sub>(k-1)</sub>, …, W-<sub>2</sub>, W-<sub>1</sub>_ per i periodi prima di un timestamp del record. _k_ può essere un numero ridotto per acquisire gli effetti a breve termine o un numero elevato per acquisire schemi di degradazione a lungo termine (vedere la figura 2).
 
 ![Figura 2. Funzioni di aggregazione a cascata](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png) Figura 2. Funzioni di aggregazione a cascata
 
@@ -291,11 +291,11 @@ In questo caso, la domanda è: "qual è la probabilità che un asset si guasti e
 
 ![Figura 5. Etichette per la classificazione multiclasse per la stima dell'ora del guasto](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) Figura 5. Assegnazione di etichette per la classificazione multiclasse per la stima dell'ora del guasto
 
-In questo caso, la domanda è: "qual è la probabilità che l'asset si guasti entro X unità di tempo per via della causa radice o del problema _P<sub>i</sub>_?" dove _i_ è il numero di possibili cause radice. Per rispondere a questa domanda, assegnare a X record prima dell'errore di un asset l'etichetta "possibile guasto per via della causa radice _P<sub>i</sub>_" (etichetta = _P<sub>i</sub>_). Assegnare a tutti gli altri record l'etichetta "normale" (etichetta = 0). Anche in questo metodo le etichette sono categoriche (vedere la figura 6).
+In questo caso, la domanda è: "qual è la probabilità che l'asset si guasti entro X unità di tempo per via della causa radice o del problema _P<sub>i</sub>_ ?" dove _i_ è il numero di possibili cause radice. Per rispondere a questa domanda, assegnare a X record prima dell'errore di un asset l'etichetta "possibile guasto per via della causa radice _P<sub>i</sub>_ " (etichetta = _P<sub>i</sub>_ ). Assegnare a tutti gli altri record l'etichetta "normale" (etichetta = 0). Anche in questo metodo le etichette sono categoriche (vedere la figura 6).
 
 ![Figura 6. Etichette di classificazione multiclasse per la stima delle cause radice](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) Figura 6. Assegnazione di etichette per la classificazione multiclasse per la stima delle cause radice
 
-Il modello assegna una probabilità di guasto a causa di ogni problema _P<sub>i</sub>_, oltre alla probabilità che non si verifichi alcun guasto. Queste probabilità possono essere ordinate per grandezza, per consentire la stima dei problemi con la più alta possibilità che si verifichino in futuro.
+Il modello assegna una probabilità di guasto a causa di ogni problema _P<sub>i</sub>_ , oltre alla probabilità che non si verifichi alcun guasto. Queste probabilità possono essere ordinate per grandezza, per consentire la stima dei problemi con la più alta possibilità che si verifichino in futuro.
 
 In questo caso, la domanda è: "quali azioni di manutenzione consigliare dopo un guasto?" Per rispondere a questa domanda, l'assegnazione di etichette _non richiede la selezione di un orizzonte futuro_, perché il modello non deve prevedere un guasto in futuro. Deve semplicemente stimare la causa radice più probabile_dopo che il guasto si è già verificato_.
 

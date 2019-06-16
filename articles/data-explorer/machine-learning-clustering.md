@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: bc72cc21ab525ec82d9ce4b24e80ce82d92a5d21
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233504"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>Machine learning funzionalità in Esplora dati di Azure
@@ -108,7 +108,7 @@ demo_clustering1
 | evaluate autocluster()
 ```
 
-| SegmentId | Conteggio | Percentuale | Region | ScaleUnit | DeploymentId | ServiceHost |
+| SegmentId | Conteggio | Percent | Region | ScaleUnit | DeploymentId | ServiceHost |
 |-----------|-------|------------------|--------|-----------|----------------------------------|--------------------------------------|
 | 0 | 639 | 65.7407407407407 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 1 | 94 | 9.67078189300411 | scus | su5 | 9dbd1b161d5b4779a73cf19a7836ebd6 |  |
@@ -132,7 +132,7 @@ demo_clustering1
 | evaluate basket()
 ```
 
-| SegmentId | Conteggio | Percentuale | Region | ScaleUnit | DeploymentId | Punto di analisi | ServiceHost |
+| SegmentId | Conteggio | Percent | Region | ScaleUnit | DeploymentId | Punto di analisi | ServiceHost |
 |-----------|-------|------------------|--------|-----------|----------------------------------|------------|--------------------------------------|
 | 0 | 639 | 65.7407407407407 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 1 | 642 | 66.0493827160494 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  |  |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: b1ad5aa074a7719dbe6000301c8cd04e6e1ad632
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: ee2fe91d915faf7e09dee004891edfc6bef38d6f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984546"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64685406"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Caricare un disco rigido virtuale generalizzato e usarlo per creare nuove macchine virtuali in Azure
 
@@ -33,7 +33,7 @@ Per uno script di esempio, vedere [Script di esempio per caricare un disco rigid
 - Prima di caricare dischi rigidi virtuali in Azure, è necessario seguire la procedura in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Rivedere l'articolo [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) (Piano per la migrazione a Managed Disks) prima di avviare la migrazione a [Managed Disks](managed-disks-overview.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalizzare la macchina virtuale di origine con Sysprep
@@ -109,7 +109,7 @@ L'esecuzione del comando potrebbe richiedere del tempo, a seconda della connessi
     Il servizio Importazione/esportazione può essere usato per eseguire la copia in un account di archiviazione standard. È possibile eseguire la copia dall'archiviazione standard all'account di archiviazione Premium usando uno strumento come AzCopy.
 
 > [!IMPORTANT]
-> Se per il caricamento del disco rigido virtuale in Azure si usa AzCopy, verificare di aver impostato [**/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) prima di eseguire lo script di caricamento. Se la destinazione è un BLOB e questa opzione non è specificata, per impostazione predefinita AzCopy crea un BLOB in blocchi.
+> Se per il caricamento del disco rigido virtuale in Azure si usa AzCopy, verificare di aver impostato [ **/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) prima di eseguire lo script di caricamento. Se la destinazione è un BLOB e questa opzione non è specificata, per impostazione predefinita AzCopy crea un BLOB in blocchi.
 > 
 > 
 

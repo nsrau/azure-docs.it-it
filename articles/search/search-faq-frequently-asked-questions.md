@@ -10,10 +10,10 @@ ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c77f26187914b2c6e52426bb2a07303b22ccb2b0
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023986"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Ricerca di Azure: Domande frequenti
@@ -94,7 +94,7 @@ La maggior parte dei clienti sceglie campi dedicati da una raccolta quando si tr
 
 La domanda riguarda una funzione o una funzionalità mancante? Richiedere la funzionalità sul [sito Web User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
  [StackOverflow: Ricerca di Azure](https://stackoverflow.com/questions/tagged/azure-search)   
  [Funzionamento della ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md)  

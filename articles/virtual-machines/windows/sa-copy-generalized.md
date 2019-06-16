@@ -17,11 +17,11 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: e1ed419892412c1fb9334fed74b82c53154723ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252410"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708427"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Come creare un'immagine di macchina virtuale non gestita da una macchina virtuale di Azure
 
@@ -89,7 +89,7 @@ Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da 
     Stop-AzVM -ResourceGroupName <resourceGroup> -Name <vmName>
     ```
    
-    Nel portale di Azure lo *stato* della VM passa da **Arrestato** ad **Arrestato (deallocato)**.
+    Nel portale di Azure lo *stato* della VM passa da **Arrestato** ad **Arrestato (deallocato)** .
 2. Impostare lo stato della macchina virtuale su **Generalizzato**. 
    
     ```powershell
