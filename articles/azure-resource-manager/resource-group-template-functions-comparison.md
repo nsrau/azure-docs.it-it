@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6591a75577670f5bb50c1275af7e51e9b8328d50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128679"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funzioni di confronto per i modelli di Azure Resource Manager
@@ -42,8 +42,8 @@ Controlla se due valori sono uguali tra loro.
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |int, stringa, matrice o oggetto |Il primo valore per verificare l'uguaglianza. |
-| arg2 |Sì |int, stringa, matrice o oggetto |Il secondo valore per verificare l'uguaglianza. |
+| arg1 |Yes |int, stringa, matrice o oggetto |Il primo valore per verificare l'uguaglianza. |
+| arg2 |Yes |int, stringa, matrice o oggetto |Il secondo valore per verificare l'uguaglianza. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -135,12 +135,12 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| checkInts | Bool | True  |
-| checkStrings | Bool | True  |
-| checkArrays | Bool | True  |
-| checkObjects | Bool | True  |
+| checkInts | Bool | True |
+| checkStrings | Bool | True |
+| checkArrays | Bool | True |
+| checkObjects | Bool | True |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -175,7 +175,7 @@ L'output dell'esempio precedente è:
 
 | NOME | Type | Value |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True  |
+| checkNotEquals | Bool | True |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -198,8 +198,8 @@ Controlla se il primo valore è maggiore del secondo.
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore. |
-| arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore. |
+| arg1 |Yes |int o stringa |Il primo valore per il confronto del maggiore. |
+| arg2 |Yes |int o stringa |Il secondo valore per il confronto del maggiore. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -248,10 +248,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| checkInts | Bool | Falso |
-| checkStrings | Bool | True  |
+| checkInts | Bool | False |
+| checkStrings | Bool | True |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -274,8 +274,8 @@ Controlla se il primo valore è maggiore o uguale al secondo valore.
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore e dell'uguaglianza. |
-| arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore e dell'uguaglianza. |
+| arg1 |Yes |int o stringa |Il primo valore per il confronto del maggiore e dell'uguaglianza. |
+| arg2 |Yes |int o stringa |Il secondo valore per il confronto del maggiore e dell'uguaglianza. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -324,10 +324,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| checkInts | Bool | Falso |
-| checkStrings | Bool | True  |
+| checkInts | Bool | False |
+| checkStrings | Bool | True |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -341,7 +341,7 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
 ```
 
-## <a name="less"></a>meno
+## <a name="less"></a>less
 `less(arg1, arg2)`
 
 Controlla se il primo valore è minore del secondo.
@@ -350,8 +350,8 @@ Controlla se il primo valore è minore del secondo.
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |int o stringa |Il primo valore per il confronto del minore. |
-| arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore. |
+| arg1 |Yes |int o stringa |Il primo valore per il confronto del minore. |
+| arg2 |Yes |int o stringa |Il secondo valore per il confronto del minore. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -402,8 +402,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | NOME | Type | Value |
 | ---- | ---- | ----- |
-| checkInts | Bool | True  |
-| checkStrings | Bool | Falso |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -426,8 +426,8 @@ Controlla se il primo valore è minore o uguale al secondo valore.
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |int o stringa |Il primo valore per il confronto del minore o dell'uguaglianza. |
-| arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore o dell'uguaglianza. |
+| arg1 |Yes |int o stringa |Il primo valore per il confronto del minore o dell'uguaglianza. |
+| arg2 |Yes |int o stringa |Il secondo valore per il confronto del minore o dell'uguaglianza. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -476,10 +476,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| checkInts | Bool | True  |
-| checkStrings | Bool | Falso |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: 455e78c63960103f5facae764aff3d2b3b2a590d
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 4d772b8cad64f138d93d91e87f6e6364c5a5d602
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735192"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808901"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Come eseguire il debug di funzioni definite dall'utente in Gemelli digitali di Azure
 
@@ -34,7 +34,7 @@ A tal fine vengono forniti svariati la registrazione analitica e degli strumenti
 Gemelli digitali di Azure supporta potenti funzionalità di registrazione, monitoraggio e analisi. Gli sviluppatori di soluzioni possono usare i log, i log di diagnostica, i log attività e altri servizi di monitoraggio di Azure per supportare le complesse esigenze di monitoraggio di un'app IoT. Le opzioni di registrazione possono essere combinate per eseguire query o visualizzare i record in diversi servizi e per fornire una copertura di registrazione granulare per numerosi servizi.
 
 * Per la configurazione della registrazione specifica a dispositivi gemelli digitale di Azure, leggere [come configurare monitoraggio e registrazione](./how-to-configure-monitoring.md).
-* Consultare il il [monitoraggio di Azure](../azure-monitor/overview.md) Panoramica per informazioni sulle impostazioni di log potente abilitate tramite Monitoraggio di Azure.
+* Consultare il [monitoraggio di Azure](../azure-monitor/overview.md) Panoramica per informazioni sulle impostazioni di log potente abilitate tramite Monitoraggio di Azure.
 * Vedere l'articolo [raccogliere e usare i dati di log dalle risorse di Azure](../azure-monitor/platform/diagnostic-logs-overview.md) per la configurazione delle impostazioni di log di diagnostica in dispositivi gemelli digitale di Azure tramite il portale di Azure, della riga di comando di Azure o PowerShell.
 
 Una volta configurato, sarà possibile selezionare tutte le categorie di log, metriche, e usare le aree di lavoro di potenti monitoraggio di Azure log analitica per supportare le operazioni di debug.

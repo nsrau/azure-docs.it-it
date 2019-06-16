@@ -10,10 +10,10 @@ ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 7e569fa30727f2df7411eee5fa6d48f9b9454460
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025331"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Come gestire la concorrenza in Ricerca di Azure
@@ -27,7 +27,7 @@ Quando si gestiscono le risorse di Ricerca di Azure, ad esempio indici e origini
 
 La concorrenza ottimistica viene implementata tramite i controlli delle condizioni di accesso nelle chiamate API che scrivono in indici, indicizzatori, origini dati e risorse synonymMap.
 
-Tutte le risorse hanno un [*tag di entità (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) che fornisce informazioni sulla versione dell'oggetto. Controllando prima l'ETag, è possibile evitare aggiornamenti simultanei in un flusso di lavoro tipico (acquisizione, modifica locale, aggiornamento) assicurandosi che l'ETag della risorsa corrisponda alla copia locale.
+Tutte le risorse hanno un [*tag di entità (ETag)* ](https://en.wikipedia.org/wiki/HTTP_ETag) che fornisce informazioni sulla versione dell'oggetto. Controllando prima l'ETag, è possibile evitare aggiornamenti simultanei in un flusso di lavoro tipico (acquisizione, modifica locale, aggiornamento) assicurandosi che l'ETag della risorsa corrisponda alla copia locale.
 
 + L'API REST usa un [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) nell'intestazione della richiesta.
 + .NET SDK imposta l'ETag tramite un oggetto accessCondition, impostando l'[intestazione If-Match | If-Match-None](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) per la risorsa. Tutti gli oggetti che ereditano da [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) hanno un oggetto accessCondition.
@@ -215,7 +215,7 @@ Provare a modificare uno dei due esempi seguenti per includere ETag o oggetti Ac
 + [Esempio di API REST in GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [Esempio di .NET SDK in GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Questa soluzione include il progetto "DotNetEtagsExplainer" contenente il codice presentato in questo articolo.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Common HTTP request and response headers (Intestazioni di richiesta e risposta HTTP comuni)](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 [HTTP status codes (Codici di stato HTTP)](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)

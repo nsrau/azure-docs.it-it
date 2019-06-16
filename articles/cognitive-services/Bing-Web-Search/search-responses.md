@@ -12,10 +12,10 @@ ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 47a573fd4ed4d058b9f9a265c8774f0856371b94
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66390088"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipi e struttura delle risposte dell'API Ricerca Web Bing  
@@ -479,6 +479,6 @@ Di seguito è riportato un esempio di suggerimento ortografico da parte di Bing.
 
 * Rivedere la documentazione relativa alla [limitazione delle richieste](throttling-requests.md).  
 
-## <a name="see-also"></a>Vedere anche   
+## <a name="see-also"></a>Vedere anche  
 
 * [Informazioni di riferimento per l'API Ricerca Web Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165548"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Aprire le porte TCP in Windows Firewall per l'istanza predefinita del motore di database
@@ -60,14 +60,14 @@ Il motore di database di SQL Server non può utilizzare l'Autenticazione di Wind
     ![Connetti al server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. In Esplora oggetti di SQL Server Management Studio fare clic con il pulsante destro del mouse sul nome dell'istanza di SQL Server (nome della macchina virtuale) e quindi scegliere **Proprietà**.
    
-    ![Proprietà server](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
+    ![Proprietà del server](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
 4. Nella pagina **Sicurezza**, in **Autenticazione server** selezionare **Autenticazione di SQL Server e di Windows** e quindi fare clic su **OK**.
    
     ![Selezione della modalità di autenticazione](./media/virtual-machines-sql-server-connection-steps/21Mixed-Mode.png)
 5. Nella finestra di dialogo di SQL Server Management Studio fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
 6. In Esplora oggetti fare clic con il pulsante destro del mouse sul server e quindi scegliere **Riavvia**. (Se SQL Server Agent è in esecuzione, anch'esso dovrà essere riavviato).
    
-    ![Riavvia](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
+    ![Riavvio](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. Nella finestra di dialogo di SQL Server Management Studio fare clic su **Sì** per accettare il riavvio di SQL Server.
 
 ### <a name="create-sql-server-authentication-logins"></a>Creare gli account di accesso di SQL Server

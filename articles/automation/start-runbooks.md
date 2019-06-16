@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b065b611c923c4a28dc79c390ffb56ed97b316fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60880200"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Avviare un runbook in Automazione di Azure
@@ -84,7 +84,7 @@ Il servizio Web Automazione di Azure fornisce funzionalità speciali per i param
 
 ### <a name="named-values"></a>Valori denominati
 
-Se il parametro è un tipo di dati [object], è possibile usare il formato JSON seguente per inviargli un elenco di valori denominati: *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}*. Questi valori devono essere tipi semplici. Il runbook riceve il parametro come [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) con proprietà che corrispondono a ogni valore denominato.
+Se il parametro è un tipo di dati [object], è possibile usare il formato JSON seguente per inviargli un elenco di valori denominati: *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}* . Questi valori devono essere tipi semplici. Il runbook riceve il parametro come [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) con proprietà che corrispondono a ogni valore denominato.
 
 Si consideri il Runbook di test seguente che accetta un parametro denominato user.
 
@@ -121,7 +121,7 @@ Smith
 
 ### <a name="arrays"></a>Matrici
 
-Se il parametro è una matrice, ad esempio [array] o [string[]], è possibile usare il formato JSON seguente per inviare un elenco di valori: *[Value1, Value2, Value3]*. Questi valori devono essere tipi semplici.
+Se il parametro è una matrice, ad esempio [array] o [string[]], è possibile usare il formato JSON seguente per inviare un elenco di valori: *[Value1, Value2, Value3]* . Questi valori devono essere tipi semplici.
 
 Si consideri il Runbook di test seguente che accetta un parametro denominato *user*.
 

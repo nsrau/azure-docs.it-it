@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: mjbrown
 ms.openlocfilehash: 943ed63aed0f64ae6cbd62c52731c6ec73ddd0bd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388476"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Esempi di query SQL per Azure Cosmos DB
@@ -568,17 +568,17 @@ Gli operatori logici funzionano con valori booleani. Le tabelle seguenti illustr
 
 **Operator OR**
 
-| Oppure | True  | False | Undefined |
+| Oppure | True | False | Undefined |
 | --- | --- | --- | --- |
-| True  |True  |True  |True  |
-| False |True  |False |Undefined |
-| Undefined |True  |Undefined |Undefined |
+| True |True |True |True |
+| False |True |False |Undefined |
+| Undefined |True |Undefined |Undefined |
 
 **Operatore AND**
 
-| AND | True  | False | Undefined |
+| AND | True | False | Undefined |
 | --- | --- | --- | --- |
-| True  |True  |False |Undefined |
+| True |True |False |Undefined |
 | False |False |False |False |
 | Undefined |Undefined |False |Undefined |
 
@@ -586,8 +586,8 @@ Gli operatori logici funzionano con valori booleani. Le tabelle seguenti illustr
 
 | NOT |  |
 | --- | --- |
-| True  |False |
-| False |True  |
+| True |False |
+| False |True |
 | Undefined |Undefined |
 
 ## <a name="between-keyword"></a>Parola chiave BETWEEN
@@ -1986,7 +1986,7 @@ Il provider di query supporta le seguenti espressioni scalari:
 
 - Valori costanti, inclusi i valori costanti dei tipo di dati primitivi al momento della valutazione di query.
   
-- Espressioni di indice di matrice/di proprietà che fanno riferimento alla proprietà di un oggetto o un elemento della matrice. Ad esempio: 
+- Espressioni di indice di matrice/di proprietà che fanno riferimento alla proprietà di un oggetto o un elemento della matrice. Ad esempio:
   
   ```
     family.Id;

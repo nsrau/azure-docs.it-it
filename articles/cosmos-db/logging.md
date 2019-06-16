@@ -8,10 +8,10 @@ ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 67a6eec938a4a18455e4063925e21e26fe362f76
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66243481"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registrazione diagnostica in Azure Cosmos DB 
@@ -266,7 +266,7 @@ I valori di data e ora sono nel formato UTC.
 
 Poiché si può usare lo stesso account di archiviazione per raccogliere i log per più risorse, è possibile usare l'ID della risorsa completo nel nome del BLOB per accedere ai BLOB specifici necessari e scaricarli. Prima di procedere, verrà illustrato come scaricare tutti i BLOB.
 
-Creare prima di tutto una cartella per scaricare i BLOB. Ad esempio: 
+Creare prima di tutto una cartella per scaricare i BLOB. Ad esempio:
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
@@ -288,7 +288,7 @@ $blobs | Get-AzStorageBlobContent `
 
 Quando si esegue questo secondo comando, il delimitatore **/** nei nomi dei BLOB crea una struttura di cartelle completa nella cartella di destinazione. Questa struttura verrà usata per scaricare e archiviare i BLOB come file.
 
-Per scaricare BLOB in modo selettivo, usare caratteri jolly. Ad esempio: 
+Per scaricare BLOB in modo selettivo, usare caratteri jolly. Ad esempio:
 
 * Se sono disponibili più database e si vogliono scaricare i log per un solo database denominato **CONTOSOCOSMOSDB3**, usare il comando:
 

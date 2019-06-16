@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60530982"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64698647"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Note sulla versione dell'aggiornamento 4 di StorSimple serie 8000
 
@@ -66,14 +66,14 @@ L'aggiornamento 4 include gli importanti aggiornamenti e correzioni di bug descr
 
 La seguente tabella fornisce un riepilogo dei problemi risolti nell'aggiornamento 4.    
 
-| No  | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
+| No | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- |
-| 1 |Failover |Nella versione precedente, dopo il failover nel sito del cliente si verificava un problema legato alla pulizia. Tale problema è stato corretto in questa versione. |Sì |Sì |
-| 2 |Volumi aggiunti in locale |Nella versione precedente, si verificava un problema per la creazione di volumi correlati per i volumi aggiunti localmente che causava errori nella creazione. In questa versione il problema è stato corretto una volta individuata la causa radice. |Sì |No  |
-| 3 |Pacchetto di supporto |Nella versione precedente, si verificavano problemi relativi al pacchetto di supporto che causavano un'eccezione System.OutOfMemory o altri errori, risultanti nell'esito negativo della creazione del pacchetto. Tali bug sono stati risolti in questa versione. |Sì |Sì |
-| 4 |Monitoraggio |Nella versione precedente, si verificava un problema con i grafici di monitoraggio per i volumi aggiunti localmente, per cui l'utilizzo veniva mostrato in EB. Questo bug è stato risolto in questa versione. |Sì |Sì |
-| 5 |Migrazione |Nella versione precedente, si verificavano diversi problemi legati all'affidabilità della migrazione dai dispositivi delle serie 5000-7000 a quelli della serie 8000. I problemi sono stati risolti in questa versione. |Sì |Sì |
-| 6 |Aggiornare |Se nelle versioni precedenti si è verificato un errore di aggiornamento, i controller vengono inseriti in modalità di ripristino, pertanto l'utente non può procedere con l'aggiornamento e deve contattare il supporto tecnico Microsoft. <br> In questa versione il comportamento è stato modificato. Se l'utente sperimenta un errore di aggiornamento con entrambi i controller che eseguono la stessa versione (aggiornamento 4), i controller non entrano in modalità di ripristino. Se l'utente sperimenta questo errore, è consigliabile che attenda un po' e poi riprovi a eseguire l'aggiornamento. Il nuovo tentativo potrebbe avere esito positivo. Se il nuovo tentativo non riesce, è necessario contattare il supporto tecnico Microsoft. |Sì |Sì |
+| 1 |Failover |Nella versione precedente, dopo il failover nel sito del cliente si verificava un problema legato alla pulizia. Tale problema è stato corretto in questa versione. |Yes |Yes |
+| 2 |Volumi aggiunti in locale |Nella versione precedente, si verificava un problema per la creazione di volumi correlati per i volumi aggiunti localmente che causava errori nella creazione. In questa versione il problema è stato corretto una volta individuata la causa radice. |Yes |No |
+| 3 |Pacchetto di supporto |Nella versione precedente, si verificavano problemi relativi al pacchetto di supporto che causavano un'eccezione System.OutOfMemory o altri errori, risultanti nell'esito negativo della creazione del pacchetto. Tali bug sono stati risolti in questa versione. |Yes |Yes |
+| 4 |Monitoraggio |Nella versione precedente, si verificava un problema con i grafici di monitoraggio per i volumi aggiunti localmente, per cui l'utilizzo veniva mostrato in EB. Questo bug è stato risolto in questa versione. |Yes |Yes |
+| 5 |Migrazione |Nella versione precedente, si verificavano diversi problemi legati all'affidabilità della migrazione dai dispositivi delle serie 5000-7000 a quelli della serie 8000. I problemi sono stati risolti in questa versione. |Yes |Yes |
+| 6 |Aggiornare |Se nelle versioni precedenti si è verificato un errore di aggiornamento, i controller vengono inseriti in modalità di ripristino, pertanto l'utente non può procedere con l'aggiornamento e deve contattare il supporto tecnico Microsoft. <br> In questa versione il comportamento è stato modificato. Se l'utente sperimenta un errore di aggiornamento con entrambi i controller che eseguono la stessa versione (aggiornamento 4), i controller non entrano in modalità di ripristino. Se l'utente sperimenta questo errore, è consigliabile che attenda un po' e poi riprovi a eseguire l'aggiornamento. Il nuovo tentativo potrebbe avere esito positivo. Se il nuovo tentativo non riesce, è necessario contattare il supporto tecnico Microsoft. |Yes |Yes |
 
 
 ## <a name="known-issues-in-update-4-from-previous-releases"></a>Problemi noti nell'aggiornamento 4 rispetto alle versioni precedenti

@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: jingwang
 ms.openlocfilehash: faf0cab55ec0cef034638d218f2172f3676ff39b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66245116"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiare dati in un indice di Ricerca di Azure usando Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-azure-search-connector.md)
 > * [Versione corrente](connector-azure-search.md)
 
@@ -46,7 +46,7 @@ Per il servizio collegato di Ricerca di Azure sono supportate le proprietà segu
 | type | La proprietà type deve essere impostata su: **AzureSearch** | Sì |
 | url | URL del servizio Ricerca di Azure. | Sì |
 | key | Chiave amministratore del servizio Ricerca di Azure. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 > [!IMPORTANT]
 > Quando si copiano dati da un archivio dati cloud nell'indice di ricerca di Azure, in ricerca di Azure, servizio collegato, è necessario fare riferimento a un Runtime di integrazione di Azure con area esplicita in connactVia. Impostare l'area in base a quella in cui si trova Ricerca di Azure. Altre informazioni da [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
@@ -113,8 +113,8 @@ Per copiare dati in Ricerca di Azure, impostare il tipo di origine nell'attivit�
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine di attività di copia deve essere impostata su: **AzureSearchIndexSink** | Sì |
-| writeBehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).<br/><br/>I valori consentiti sono i seguenti: **Merge** (predefinito) e **Upload**. | No  |
-| writeBatchSize | Consente di caricare dati nell'indice di Ricerca di Azure quando le dimensioni del buffer raggiungono il valore indicato da writeBatchSize. Per informazioni dettagliate, vedere la [proprietà WriteBatchSize](#writebatchsize-property).<br/><br/>I valori consentiti sono: integer da 1 a 1.000; il valore predefinito è 1000. | No  |
+| writeBehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).<br/><br/>I valori consentiti sono i seguenti: **Merge** (predefinito) e **Upload**. | No |
+| writeBatchSize | Consente di caricare dati nell'indice di Ricerca di Azure quando le dimensioni del buffer raggiungono il valore indicato da writeBatchSize. Per informazioni dettagliate, vedere la [proprietà WriteBatchSize](#writebatchsize-property).<br/><br/>I valori consentiti sono: integer da 1 a 1.000; il valore predefinito è 1000. | No |
 
 ### <a name="writebehavior-property"></a>Proprietà WriteBehavior
 

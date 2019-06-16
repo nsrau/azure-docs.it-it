@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: erikre
 ms.openlocfilehash: 96c4da8465a87fee4c00bfc6177515c94910704a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121372"
 ---
 I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 messaggi gratuiti mensili offrono l'accesso a funzionalità avanzate di creazione di report e analisi e a [tutte le API][all APIs] (Web, SMTP, Event, Parse e altre). Per informazioni sui servizi aggiuntivi offerti da SendGrid, vedere la pagina delle [soluzioni di SendGrid][SendGrid Solutions].
@@ -46,14 +46,14 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
     Per modificare il piano di sottoscrizione o visualizzare le impostazioni di contatto di SendGrid, fare clic sul nome del servizio SendGrid per aprire il dashboard del Marketplace di SendGrid.
 
-    ![impostazioni][settings]
+    ![Scheda Impostazioni][settings]
 
     Per inviare un'email tramite SendGrid, è necessario specificare la chiave API.
 
 ### <a name="to-find-your-sendgrid-api-key"></a>Per trovare la chiave API per SendGrid
 1. Fare clic su **Manage**.
 
-    ![Gestisci][manage]
+    ![manage][manage]
 2. Nel dashboard di SendGrid, selezionare **Impostazioni** e quindi **Chiavi API** nel menu a sinistra.
 
     ![chiavi API][api-keys]
@@ -74,7 +74,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
 Per gestire le impostazioni di recapito della posta, fare clic sul **pulsante Gestisci**. Si verrà reindirizzati al dashboard di SendGrid.
 
-![Gestisci][manage]
+![manage][manage]
 
 Per altre informazioni sull'invio di posta elettronica tramite SendGrid, vedere la [panoramica dell'API Email][Email API Overview].
 

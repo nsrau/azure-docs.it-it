@@ -10,10 +10,10 @@ ms.date: 05/20/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 8afe8fed8912dd365071f1c4c5560c9f5578dcd8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133108"
 ---
 # <a name="workspace-mappings"></a>Mapping area di lavoro
@@ -58,7 +58,7 @@ Dopo la rimozione di queste soluzioni è possibile eseguire i passaggi seguenti 
 
 1. Nel portale di Azure aprire l'account di Automazione e nella pagina Account di automazione selezionare **Area di lavoro collegata** nella sezione **Risorse correlate** a sinistra.
 
-2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)**. Si riceverà una richiesta di verifica per determinare se che si desidera continuare.
+2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)** . Si riceverà una richiesta di verifica per determinare se che si desidera continuare.
 
 3. Mentre Automazione di Azure tenta di scollegare l'account dall'area di lavoro Log Analytics, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
 

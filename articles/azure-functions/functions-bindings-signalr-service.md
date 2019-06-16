@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: f0d4a607676285ed4f0f91d8ce8c83ddf1313b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306824"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511150"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associazioni del servizio SignalR per Funzioni di Azure
 
@@ -601,7 +601,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|----------------------|
 |**type**|| Il valore deve essere impostato su `signalRConnectionInfo`.|
 |**direction**|| Il valore deve essere impostato su `in`.|
-|**nome**|| Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
+|**name**|| Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
 |**hubName**|**HubName**| Questo valore deve essere impostato sul nome dell'hub SignalR per il quale vengono generate le informazioni di connessione.|
 |**userId**|**UserId**| Facoltativo: valore dell'attestazione dell'ID utente da impostare nel token della chiave di accesso. |
 |**connectionStringSetting**|**ConnectionStringSetting**| Nome dell'impostazione app contenente la stringa di connessione al servizio SignalR (valore predefinito:"AzureSignalRConnectionString") |
@@ -614,7 +614,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|----------------------|
 |**type**|| Il valore deve essere impostato su `signalR`.|
 |**direction**|| Il valore deve essere impostato su `out`.|
-|**nome**|| Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
+|**name**|| Nome della variabile usato nel codice della funzione per l'oggetto informazioni di connessione. |
 |**hubName**|**HubName**| Questo valore deve essere impostato sul nome dell'hub SignalR per il quale vengono generate le informazioni di connessione.|
 |**connectionStringSetting**|**ConnectionStringSetting**| Nome dell'impostazione app contenente la stringa di connessione al servizio SignalR (valore predefinito:"AzureSignalRConnectionString") |
 
@@ -626,4 +626,4 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 > [Altre informazioni su trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Lo sviluppo di funzioni di Azure e configurazione con il servizio Azure SignalR](../azure-signalr/signalr-concept-serverless-development-config.md)
+> [Sviluppo e configurazione di Funzioni di Azure e con il Servizio Azure SignalR](../azure-signalr/signalr-concept-serverless-development-config.md)

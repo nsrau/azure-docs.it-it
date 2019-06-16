@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
 ms.openlocfilehash: 50092db9e2e3670168cbb3440b8cb99eb0c2ac20
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714725"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher usando il portale
@@ -54,7 +54,7 @@ Se un gruppo di sicurezza di rete è associato all'interfaccia di rete o alla su
 
    - **Numero massimo di byte per pacchetto**: Il numero di byte che sono stati acquisiti da ogni pacchetto. Se lasciato vuoto, vengono acquisiti tutti i byte.
    - **Numero massimo di byte per sessione**: Numero totale di byte acquisiti. Una volta raggiunto il valore, l'acquisizione pacchetti si arresta.
-   - **Il limite di tempo (secondi)**: Il limite di tempo prima che l'acquisizione di pacchetti viene arrestata. Il valore predefinito è 18.000 secondi.
+   - **Il limite di tempo (secondi)** : Il limite di tempo prima che l'acquisizione di pacchetti viene arrestata. Il valore predefinito è 18.000 secondi.
    - Filtro (facoltativo). Selezionare **+ Aggiungere filtro**
      - **Protocollo**: Protocollo per filtrare l'acquisizione di pacchetti. I valori disponibili sono TCP, UDP e Qualsiasi.
      - **Indirizzo IP locale**: Filtra l'acquisizione di pacchetti per i pacchetti in cui l'indirizzo IP locale corrisponde a questo valore.

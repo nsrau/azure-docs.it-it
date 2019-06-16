@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919158"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurare l'account di fatturazione per un contratto di Microsoft dal cliente
@@ -81,7 +81,7 @@ Per completare l'installazione, è necessario l'accesso seguente:
 
 L'utente nell'organizzazione, che ha firmato il contratto del cliente di Microsoft viene aggiunto come proprietario del profilo di fatturazione. Richiedere all'utente di aggiungere l'utente come proprietario in modo che è possibile completare l'installazione.  <!-- Todo Are there any next steps -->
 
-## <a name="understand-changes-to-your-billing-hierarchy"></a>Informazioni sulle modifiche alla gerarchia di fatturazione
+## <a name="understand-changes-to-your-billing-hierarchy"></a>Comprendere le modifiche alla gerarchia di fatturazione
 
 Il nuovo account di fatturazione semplifica la fatturazione per l'organizzazione, oltre che migliorata di fatturazione e le funzionalità di gestione dei costi. Il diagramma seguente illustra come la fatturazione è organizzata nel nuovo account di fatturazione.
 

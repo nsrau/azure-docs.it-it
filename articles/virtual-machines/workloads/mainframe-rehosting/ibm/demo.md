@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925683"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Set di backup di un'applicazione agli sviluppatori controllato distribuzione (ADCD) in IBM zD & T v1
@@ -165,7 +165,7 @@ Una volta completato, il passaggio di configurazione precedenti il **creare un'i
 
 7. Nella schermata successiva, fornire le credenziali per la macchina virtuale (vale a dire, non il ztadmin credential).
 
-8. Nel riquadro proprietà, immettere il numero di **processori centrali (CPs)**, la quantità **memoria di sistema (GB)** e il **directory di distribuzione** per l'immagine in esecuzione. Poiché si tratta di una demo, mantenere piccola.
+8. Nel riquadro proprietà, immettere il numero di **processori centrali (CPs)** , la quantità **memoria di sistema (GB)** e il **directory di distribuzione** per l'immagine in esecuzione. Poiché si tratta di una demo, mantenere piccola.
 
 9. Assicurarsi che la casella è selezionata per **distribuire automaticamente il problema IPL comando per z/OS dopo**.
 

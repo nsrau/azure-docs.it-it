@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148626"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Eseguire l'autenticazione Analitica Stream per Azure Data Lake archiviazione Gen1 usando identità gestite
@@ -180,7 +180,7 @@ Questa funzionalità non supporta le operazioni seguenti:
 
 1. **L'accesso multi-tenant**: L'entità servizio creata per un determinato processo di Stream Analitica si troverà nel tenant di Azure Active Directory in cui è stato creato il processo e non può essere utilizzato in una risorsa che risiede in un altro tenant di Azure Active Directory. Pertanto, è possibile usare solo MSI sulle risorse di Azure Data Lake Store generazione 1 che sono nello stesso tenant di Azure Active Directory del processo di Azure Stream Analitica. 
 
-2. **[Identità utente assegnata](../active-directory/managed-identities-azure-resources/overview.md)**: non è supportato. Ciò significa che l'utente non è in grado di immettere le proprie entità di servizio da utilizzare per svolgere il proprio lavoro Stream Analitica. L'entità servizio viene generato da Azure Stream Analitica.
+2. **[Identità utente assegnata](../active-directory/managed-identities-azure-resources/overview.md)** : non è supportato. Ciò significa che l'utente non è in grado di immettere le proprie entità di servizio da utilizzare per svolgere il proprio lavoro Stream Analitica. L'entità servizio viene generato da Azure Stream Analitica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

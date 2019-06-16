@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408766"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e dischi condivisi per SAP ASCS/SCS
@@ -204,7 +204,7 @@ _**Figura 1:** Impostare i parametri di Azure Resource Manager di disponibilità
     * \<SIDSistemaSAP\>-nic-ascs-\<Numero\>
     * \<SIDSistemaSAP\>-nic-db-\<Numero\>
 
-  * **Account di archiviazione di Azure (solo dischi non gestiti)**:
+  * **Account di archiviazione di Azure (solo dischi non gestiti)** :
 
   * **Gruppi di disponibilità** per:
     * Macchine virtuali del server applicazioni SAP: \<SIDSistemaSAP\>-avset-di
@@ -525,7 +525,7 @@ Per usare numeri diversi per le istanze di SAP ASCS o SCS, è necessario cambiar
 1. Nel portale di Azure selezionare **\<SID\>-lb-ascs load balancer** > **Regole di bilanciamento del carico**.
 2. Per tutte le regole di bilanciamento del carico appartenenti all'istanza di SAP ASCS o SCS, modificare questi valori:
 
-   * NOME
+   * Name
    * Port
    * Porta back-end
 

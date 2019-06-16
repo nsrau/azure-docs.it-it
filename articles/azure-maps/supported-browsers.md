@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.openlocfilehash: 84c5dbcf5073ba8c0ae662af019cde590a9adf10
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686641"
 ---
 # <a name="web-sdk-supported-browsers"></a>Browser supportati dall'SDK Web
@@ -40,7 +40,7 @@ Mappe di Azure SDK per Web supporta i seguenti browser desktop:
 
 Vedere anche [browser legacy come destinazione](#Target-Legacy-Browsers) più avanti in questo articolo.
 
-## <a name="mobile"></a>Mobile
+## <a name="mobile"></a>Cellulare
 
 Mappe di Azure SDK per Web supporta i browser per dispositivi mobili seguenti:
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: d5ddec40a1b20e377ec18ce871018f674557e7b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60704042"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Abilitare Transparent Data Encryption nel Centro sicurezza di Azure
@@ -43,7 +43,7 @@ Questa indicazione si applica esclusivamente al servizio SQL di Azure e non incl
 
    ![Stato della crittografia][4]
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Questo documento illustra come implementare la raccomandazione "Abilitare Transparent Data Encryption" del Centro sicurezza. Per altre informazioni su TDE di SQL, vedere gli argomenti seguenti:
 
 * [Transparent Data Encryption con il database SQL di Azure](https://msdn.microsoft.com/library/dn948096)

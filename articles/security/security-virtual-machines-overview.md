@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 3467050214cba6ce5723c2747d2c13e40e86609b
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64872020"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Informazioni generali sulla sicurezza di Macchine virtuali di Azure
@@ -170,7 +170,7 @@ Altre informazioni:
 
 Il confidential computing non fa tecnicamente parte dell'ambito della sicurezza delle macchine virtuali. L'argomento relativo alla sicurezza delle macchine virtuali appartiene tuttavia alla categoria di più alto livello della sicurezza di calcolo, in cui è incluso anche il confidential computing.
 
-Con il confidential computing si ha la sicurezza che i dati "in chiaro", necessari per un'elaborazione efficiente, siano protetti all'interno di un ambiente di esecuzione attendibile (https://en.wikipedia.org/wiki/Trusted_execution_environment), noto anche come enclave, di cui è illustrato un esempio di seguito.  
+Con il confidential computing si ha la sicurezza che i dati "in chiaro", necessari per un'elaborazione efficiente, siano protetti all'interno di un ambiente di esecuzione attendibile (https://en.wikipedia.org/wiki/Trusted_execution_environment ), noto anche come enclave, di cui è illustrato un esempio di seguito.  
 
 Gli ambienti di esecuzione attendibili impediscono qualsiasi tentativo di visualizzare operazioni o dati interni dall'esterno, anche con un debugger. Consentono inoltre l'accesso ai dati solo a codice autorizzato. Se il codice è stato modificato o manomesso, le operazioni vengono negate e l'ambiente viene disabilitato. Gli ambienti di esecuzione attendibili applicano queste protezioni a tutto il ciclo di esecuzione del codice in essi contenuto.
 

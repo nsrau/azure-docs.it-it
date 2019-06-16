@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: d572da27cee33cf546933e55a59c27dac4c1efd9
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475194"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variabili HTTP per il motore regole della rete CDN di Azure
@@ -34,7 +34,7 @@ Le variabili HTTP forniscono gli strumenti per recuperare i metadati di richiest
 La tabella seguente descrive le variabili HTTP supportate. Quando i metadati di tipo GEO (ad esempio, il codice postale) non sono disponibili per una particolare richiesta, viene restituito un valore vuoto.
 
 
-| Name | Variabile | Descrizione | Valore di esempio |
+| NOME | Variabile | Descrizione | Valore di esempio |
 | ---- | -------- | ----------- | ------------ |
 | ASN (Requester) (ASN (richiedente)) | %{geo_asnum} | Indica il numero AS del richiedente. <br /><br />**Deprecata:** %{virt_dst_asnum}. <br />Questa variabile è stata deprecata a favore di %{geo_asnum}. Anche se una regola che usa questa variabile deprecata continuerà a funzionare, è necessario aggiornarla in modo da usare la nuova variabile. | AS15133 |
 | City (Requester) (Città (richiedente)) | %{geo_city} | Indica la città del richiedente. | Los Angeles |

@@ -15,10 +15,10 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 9f81e2b7537a5ecc6778baa93a1bab23dd30ff8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475508"
 ---
 # <a name="powershell-dsc-extension"></a>Estensione DSC di PowerShell
@@ -33,7 +33,7 @@ L'estensione DSC di PowerShell per Windows è pubblicata e supportata da Microso
 
 L'estensione DSC supporta i seguenti sistemi operativi
 
-Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Client Windows 7/8.1/10
+Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 

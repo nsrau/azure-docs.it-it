@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: beb08c29587e4ce522131142fd61925b5af45fa9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114545"
 ---
 Le modifiche apportate alla condivisione file di Azure tramite il portale di Azure o SMB non vengono rilevate e replicate immediatamente come le modifiche all'endpoint server. File di Azure non ha ancora funzioni di notifica o di inserimento nel journal per le modifiche. Non è quindi possibile avviare automaticamente una sessione di sincronizzazione quando i file vengono modificati. In Windows Server Sincronizzazione file di Azure usa [l'inserimento nel journal del numero di sequenza di aggiornamento (USN) di Windows](https://msdn.microsoft.com/library/windows/desktop/aa363798.aspx) per avviare automaticamente una sessione di sincronizzazione quando i file vengono modificati.<br /><br /> Per rilevare le modifiche apportate alla condivisione file di Azure, Sincronizzazione file di Azure ha un processo pianificato denominato *processo di rilevamento modifiche*. Il processo di rilevamento modifiche enumera tutti i file nella condivisione file e quindi confronta ogni file con la versione di sincronizzazione corrispondente. Se il processo di rilevamento modifiche determina che i file sono stati modificati, Sincronizzazione file di Azure avvia una sessione di sincronizzazione. Il processo di rilevamento modifiche viene avviato ogni 24 ore. Poiché il processo di rilevamento modifiche funziona tramite l'enumerazione di ogni file nella condivisione file di Azure, il rilevamento delle modifiche richiede più tempo negli spazi dei nomi di grandi dimensioni rispetto agli spazi dei nomi più piccoli. Per gli spazi dei nomi di grandi dimensioni il tempo necessario per determinare quali file sono stati modificati può risultare superiore a 24 ore.<br /><br />

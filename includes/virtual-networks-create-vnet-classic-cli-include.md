@@ -9,10 +9,10 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: cd686e1bf62bbd7f37f61ced767e92918edf919c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116923"
 ---
 ## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Come creare una rete virtuale classica con l’Interfaccia della riga di comando di Azure
@@ -32,12 +32,12 @@ ms.locfileid: "66116923"
             info:    network vnet create command OK
    
    * **--vnet**. Nome della rete virtuale da creare. Per questo scenario, *TestVNet*
-   * **-e (o --address-space)**. Spazio degli indirizzi della rete virtuale. Per questo scenario, *192.168.0.0*
-   * **-i (o -cidr)**. Maschera di rete nel formato CIDR. Per questo scenario, *16*.
+   * **-e (o --address-space)** . Spazio degli indirizzi della rete virtuale. Per questo scenario, *192.168.0.0*
+   * **-i (o -cidr)** . Maschera di rete nel formato CIDR. Per questo scenario, *16*.
    * **- n (o --subnet-name**). Nome della prima subnet. Per questo scenario, *FrontEnd*.
-   * **-p (or --subnet-start-ip)**. Indirizzo IP iniziale per la subnet o spazio di indirizzi della subnet. Per questo scenario, *192.168.1.0*.
-   * **-r (o --subnet-cidr)**. Maschera di rete nel formato CIDR per la subnet. Per questo scenario, *24*.
-   * **-l (o --location)**. Area di Azure in cui verrà creata la rete virtuale. Per questo scenario, *Central US*.
+   * **-p (or --subnet-start-ip)** . Indirizzo IP iniziale per la subnet o spazio di indirizzi della subnet. Per questo scenario, *192.168.1.0*.
+   * **-r (o --subnet-cidr)** . Maschera di rete nel formato CIDR per la subnet. Per questo scenario, *24*.
+   * **-l (o --location)** . Area di Azure in cui verrà creata la rete virtuale. Per questo scenario, *Central US*.
 3. Per creare una subnet, eseguire il comando **azure network vnet subnet create**:
    
             azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
@@ -55,8 +55,8 @@ ms.locfileid: "66116923"
             info:    network vnet subnet create command OK
    
    * **-t (o --vnet-name**. Nome della rete virtuale in cui verrà creata la subnet. Per questo scenario, *TestVNet*.
-   * **-n (o --name)**. Nome della nuova subnet. Per questo scenario, *BackEnd*.
-   * **-a (o --address-prefix)**. Blocco CIDR della subnet. Per questo scenario, *192.168.2.0/24*.
+   * **-n (o --name)** . Nome della nuova subnet. Per questo scenario, *BackEnd*.
+   * **-a (o --address-prefix)** . Blocco CIDR della subnet. Per questo scenario, *192.168.2.0/24*.
 4. Per visualizzare le proprietà della nuova rete virtuale, eseguire il comando **azure network vnet show**.
    
             azure network vnet show

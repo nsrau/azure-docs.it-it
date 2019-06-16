@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
 ms.openlocfilehash: d7e38e8eca58c06fc6896887522b320a797fc42e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575308"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Esportare e importare in blocco le registrazioni di hub di notifica di Azure

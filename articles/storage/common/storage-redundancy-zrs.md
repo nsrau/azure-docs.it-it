@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 111167584fb2e0e2ee5977e0e24b3ebf07b170c1
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237995"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata
@@ -145,7 +145,7 @@ Per eseguire l'aggiornamento all'archiviazione ZRS utilizzando CLI di chiamare i
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 - [Replica di Archiviazione di Azure](storage-redundancy.md)
 - [Archiviazione con ridondanza locale: ridondanza dei dati a basso costo per Archiviazione di Azure](storage-redundancy-lrs.md)
 - [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md)

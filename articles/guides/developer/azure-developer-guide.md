@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
 ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570560"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
@@ -158,7 +158,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
 
 È fondamentale non solo sapere chi sta usando le applicazioni, ma anche impedire l'accesso non autorizzato alle risorse. In Azure sono disponibili diversi modi per autenticare i client delle app.
 
-- **Azure Active Directory (Azure AD)**: il servizio Microsoft multi-tenant e basato sul cloud per la gestione delle identità e dell'accesso. Tramite l'integrazione con Azure AD è possibile aggiungere la funzionalità Single-Sign-On (SSO) alle applicazioni. È possibile accedere alle proprietà delle directory usando direttamente l'API di Azure AD Graph o l'API di Microsoft Graph. È possibile eseguire l'integrazione con il supporto di Azure AD per il framework di autorizzazione OAuth 2.0 e OpenID Connect usando endpoint HTTP/REST nativi e le librerie di autenticazione di Azure AD multipiattaforma.
+- **Azure Active Directory (Azure AD)** : il servizio Microsoft multi-tenant e basato sul cloud per la gestione delle identità e dell'accesso. Tramite l'integrazione con Azure AD è possibile aggiungere la funzionalità Single-Sign-On (SSO) alle applicazioni. È possibile accedere alle proprietà delle directory usando direttamente l'API di Azure AD Graph o l'API di Microsoft Graph. È possibile eseguire l'integrazione con il supporto di Azure AD per il framework di autorizzazione OAuth 2.0 e OpenID Connect usando endpoint HTTP/REST nativi e le librerie di autenticazione di Azure AD multipiattaforma.
 
   > **Uso consigliato**: quando si vuole offrire un'esperienza Single Sign-On, usare dati basati su Graph o autenticare utenti in base al dominio.
   > 
@@ -291,7 +291,7 @@ Quando si consente l'accesso alle risorse di Azure, la procedura sempre consigli
 
   > **Uso consigliato**: quando si gestiscono le risorse di Azure o si concede l'accesso per le applicazioni a livello di codice. Per altre informazioni, vedere [Creare un'applicazione e un'entità servizio di Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-#### <a name="tags"></a>Tag
+#### <a name="tags"></a>`Tags`
 
 Azure Resource Manager consente di assegnare tag personalizzati a risorse singole. I tag sono coppie chiave-valore che possono essere utili quando è necessario organizzare le risorse per la fatturazione o il monitoraggio. I tag rappresentano un metodo per tenere traccia delle risorse attraverso più gruppi di risorse. È possibile assegnare tag nel portale, nel modello di Azure Resource Manager o a livello di codice usando l'API REST, l'interfaccia della riga di comando di Azure o PowerShell. È possibile assegnare più tag a ogni risorsa. Per altre informazioni, vedere [Uso dei tag per organizzare le risorse di Azure](../../resource-group-using-tags.md).
 

@@ -18,10 +18,10 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60833068"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile" nel Servizio app di Azure
@@ -83,7 +83,7 @@ Per accedere alla diagnostica del servizio app, passare alla app del servizio ap
 #### <a name="use-the-kudu-debug-console"></a>Usare la console di debug Kudu
 Il servizio app include una console di debug che è possibile usare per il debug, l'esplorazione e il caricamento di file, nonché endpoint JSON per ottenere informazioni sull'ambiente in uso. Questa console è chiamata *console Kudu* o *dashboard SCM* dell'app.
 
-È possibile accedere a questo dashboard selezionando il collegamento **https://&lt;nome app>.scm.azurewebsites.net/**.
+È possibile accedere a questo dashboard selezionando il collegamento **https://&lt;nome app>.scm.azurewebsites.net/** .
 
 Elementi forniti dalla console Kudu:
 

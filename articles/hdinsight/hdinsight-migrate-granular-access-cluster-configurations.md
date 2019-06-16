@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 1ec4786291d6e2e5be6785e52cf3ab5bb5bbc690
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754546"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Eseguire la migrazione all'accesso granulare in base al ruolo per le configurazioni dei cluster
@@ -148,7 +148,7 @@ Aggiornamento a [versione 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree
 Aggiornamento a [Az PowerShell versione 2.0.0](https://www.powershellgallery.com/packages/Az) o versione successiva per evitare interruzioni.  Se si usa un metodo interessato da queste modifiche, possono essere necessarie modifiche di codice minima.
 - `Grant-AzHDInsightHttpServicesAccess` è ora deprecata ed è stata sostituita dalla nuova `Set-AzHDInsightGatewayCredential` cmdlet.
 - `Get-AzHDInsightJobOutput` è stato aggiornato per supportare l'accesso in base al ruolo granulare per la chiave di archiviazione.
-    - Gli utenti con ruoli di operatore del Cluster HDInsight, collaboratore o proprietario non influirà.
+    - Gli utenti con ruolo di collaboratore, proprietario oppure operatore cluster HDInsight non sono interessati.
     - Saranno necessario specificare gli utenti che dispongono solo il ruolo Lettore di `DefaultStorageAccountKey` parametro in modo esplicito.
 - `Revoke-AzHDInsightHttpServicesAccess` è ora deprecata. HTTP ora è sempre abilitata, in modo che questo cmdlet non è più necessario.
  Vedere il [az. Guida alla migrazione HDInsight](https://github.com/Azure/azure-powershell/blob/master/documentation/migration-guides/Az.2.0.0-migration-guide.md#azhdinsight) per altri dettagli.

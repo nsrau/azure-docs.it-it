@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
 ms.openlocfilehash: a560cc526e73f3ce7e851f2a545f9b16fa53b423
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65501725"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Ripristino di emergenza con DNS di Azure e Gestione traffico
@@ -140,7 +140,7 @@ I passaggi da eseguire per configurare il failover con Gestione traffico di Azur
 ### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>Passaggio 1: Creare un nuovo profilo di Gestione traffico di Azure
 Creare un nuovo profilo di Gestione traffico di Azure denominato contoso123 e selezionare Priorità come Metodo di routing. Se si ha già un gruppo di risorse da associare al profilo, è possibile selezionarlo, altrimenti crearne uno nuovo.
 
-![Crea profilo di Gestione traffico](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+![Crea profilo di gestione traffico](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
 
 *Figura - creare un profilo di Traffic Manager*
 

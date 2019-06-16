@@ -9,10 +9,10 @@ ms.date: 11/06/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: d70544866b9e321d98acd3978da145276e036025
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146508"
 ---
 <!-- put the ## header in the file that includes this file -->
@@ -25,7 +25,7 @@ In questa sezione si creerà un'identità del dispositivo nel registro delle ide
 
 1. Specificare un nome per il nuovo dispositivo, ad esempio **myDeviceId**e selezionare **salvare**. In questo modo viene creata una nuova identità del dispositivo per l'hub IoT.
 
-   ![Aggiungi un nuovo dispositivo](./media/iot-hub-include-create-device/create-a-device.png)
+   ![Aggiungere un nuovo dispositivo](./media/iot-hub-include-create-device/create-a-device.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 

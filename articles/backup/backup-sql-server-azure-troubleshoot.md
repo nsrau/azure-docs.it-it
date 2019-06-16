@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/27/2019
 ms.author: anuragm
 ms.openlocfilehash: 8459bb451c4ff462ee816b986cafdbf776603917
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306960"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Risolvere i problemi relativi al backup di SQL Server in Azure
@@ -94,7 +94,7 @@ Per configurare la protezione per un database di SQL Server in una macchina virt
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il backup del log utilizzato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non è utilizzabile per arrestare in un punto arbitrario nel tempo in base alle linee guida di SQL. | Quando un database è in modalità di ripristino registrati in blocco, non è possibile recuperare i dati tra una transazione di operazioni bulk registrate e il troncamento del log successivo. | Scegliere un altro punto nel tempo per il ripristino. [Altre informazioni](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non è utilizzabile per l'arresto in un punto arbitrario nel tempo in base alle linee guida di SQL. | Quando un database è in modalità di ripristino registrati in blocco, non è possibile recuperare i dati tra una transazione di operazioni bulk registrate e il troncamento del log successivo. | Scegliere un altro punto nel tempo per il ripristino. [Altre informazioni](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
 
 
 ## <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError

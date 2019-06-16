@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687457"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
@@ -161,13 +161,13 @@ HDInsight registra l'output dello script scritto in STDOUT e STDERR. È possibil
 > [!NOTE]  
 > Apache Ambari è disponibile solo se il cluster viene creato correttamente. Se si usa un'azione script durante la creazione del cluster e la creazione ha esito negativo, vedere la sezione relativa alla risoluzione dei problemi nell'articolo [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) che illustra altri modi per accedere alle informazioni registrate.
 
-Sebbene la maggior parte delle utilità e dei pacchetti di installazione scriva già le informazioni in STDOUT e STDERR, è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. Ad esempio: 
+Sebbene la maggior parte delle utilità e dei pacchetti di installazione scriva già le informazioni in STDOUT e STDERR, è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. Ad esempio:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla a STDERR, aggiungere `>&2` prima di `echo`. Ad esempio: 
+Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla a STDERR, aggiungere `>&2` prima di `echo`. Ad esempio:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -235,7 +235,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 In uno script personalizzato possono essere usati gli helper seguenti:
 
-| Utilizzo dell'helper | DESCRIZIONE |
+| Utilizzo dell'helper | Descrizione |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Scarica un file dall'URI di origine al percorso file specificato. Per impostazione predefinita, non sovrascrive un file esistente. |
 | `untar_file TARFILE DESTDIR` |Estrae un file TAR (usando `-xf`) nella directory di destinazione. |

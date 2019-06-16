@@ -9,10 +9,10 @@ ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114526"
 ---
 La tabella seguente descrive i limiti predefiniti per Azure per utilizzo generico v1, v2 e account di archiviazione Blob. Il *ingress* limite si riferisce a tutti i dati dalle richieste inviate a un account di archiviazione. Il *uscita* limite si riferisce a tutti i dati dalle risposte che vengono ricevute da un account di archiviazione.
@@ -22,7 +22,7 @@ La tabella seguente descrive i limiti predefiniti per Azure per utilizzo generic
 | Numero di account di archiviazione per ogni area per ogni sottoscrizione, inclusi gli account sia Standard che Premium | 250 |
 | Capacità dell'account di archiviazione massimo | 2 PB di Stati Uniti ed Europa, 500 TB per tutte le altre aree, che include il Regno Unito |
 | Numero massimo di contenitori blob, BLOB, condivisioni file, tabelle, code, entità o messaggi per ogni account di archiviazione | Nessun limite |
-| Frequenza massima di richieste<sup>1</sup> per account di archiviazione | 20.000 richieste al secondo |
+| Frequenza massima di richieste<sup>1</sup> per account di archiviazione | 20\.000 richieste al secondo |
 | Massimo in ingresso<sup>1</sup> per ogni account di archiviazione (aree degli Stati Uniti) | 10 Gbps se RA-GRS/archiviazione con ridondanza geografica è abilitata, 20 Gbps per LRS/ZRS<sup>2</sup> |
 | Massimo in ingresso<sup>1</sup> per ogni account di archiviazione (aree non degli Stati Uniti) | 5 Gbps se RA-GRS/archiviazione con ridondanza geografica è abilitata, 10 Gbps per LRS/ZRS<sup>2</sup> |
 | Numero massimo in uscita per utilizzo generico v2 e account di archiviazione Blob (tutte le aree) | 50 Gbps |

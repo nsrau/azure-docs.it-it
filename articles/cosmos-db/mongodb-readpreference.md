@@ -9,10 +9,10 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 8fc66d70b840578bff086519a7b39e5f389a3de3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479624"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Come distribuire a livello globale le letture tramite l'API di Azure Cosmos DB per MongoDB

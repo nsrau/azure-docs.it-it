@@ -10,10 +10,10 @@ ms.topic: article
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: e6359d57a1f4cce6ec89fd76ef343b515cafae6e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133131"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Abilitare le soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario in più VM
@@ -85,7 +85,7 @@ Dopo la rimozione di queste soluzioni è possibile eseguire i passaggi seguenti 
 
 1. Nel portale di Azure aprire l'account di Automazione e nella pagina Account di automazione selezionare **Area di lavoro collegata** nella sezione **Risorse correlate** a sinistra.
 
-2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)**.
+2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)** .
 
    ![Pagina Unlink workspace (Scollega area di lavoro)](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65507917"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Linux
@@ -97,7 +97,7 @@ Se si riavvia una macchina virtuale, viene pianificato un evento di tipo `Reboot
 
 ## <a name="use-the-api"></a>Usare l'API
 
-### <a name="headers"></a>Intestazioni
+### <a name="headers"></a>Headers
 Quando si eseguono query sul servizio metadati, è necessario specificare l'intestazione `Metadata:true` per garantire che la richiesta non sia stata reindirizzata accidentalmente. L'intestazione `Metadata:true` è obbligatoria per tutte le richieste di eventi pianificati. Se non si include l'intestazione nella richiesta, il servizio metadati restituisce una risposta di richiesta non valida.
 
 ### <a name="query-for-events"></a>Query per gli eventi
@@ -139,7 +139,7 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una matr
 ### <a name="event-scheduling"></a>Event Scheduling
 Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento. Questo tempo si riflette in una proprietà `NotBefore` dell'evento. 
 
-|Tipo di evento  | Preavviso minimo |
+|EventType  | Preavviso minimo |
 | - | - |
 | Freeze| 15 minuti |
 | Riavvio | 15 minuti |

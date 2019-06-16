@@ -16,10 +16,10 @@ ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
 ms.openlocfilehash: 88de601caf984d2511229cd68190554086c3da38
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779552"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
@@ -37,7 +37,7 @@ L'endpoint è disponibile a un indirizzo IP non instradabile noto (`169.254.169.
 
 Il servizio è disponibile a livello generale nelle aree di Azure. Le versioni API potrebbero non essere tutte disponibili in tutte le aree di Azure.
 
-Aree                                        | Disponibilità                                 | Versioni supportate
+Regioni                                        | Disponibilità                                 | Versioni supportate
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
@@ -108,7 +108,7 @@ API | Formato dati predefinito | Altri formati
 --------|---------------------|--------------
 /instance | json | text
 /scheduledevents | json | Nessuno
-/attested | JSON | Nessuno
+/attested | json | Nessuno
 
 Per accedere a un formato di risposta non predefinito, specificare il formato richiesto come parametro della stringa di query nella richiesta. Ad esempio:
 
@@ -132,7 +132,7 @@ Codice di stato HTTP | Motivo
 ----------------|-------
 200 - OK |
 400 - Richiesta non valida | Missing `Metadata: true` intestazione o manca il formato quando si eseguono query di un nodo foglia
-404 Non trovato | L'elemento richiesto non esiste
+404 - Non trovato | L'elemento richiesto non esiste
 405 - Metodo non consentito | Sono supportate solo le richieste `GET` e `POST`
 429 - Numero eccessivo di richieste | L'API supporta attualmente un massimo di 5 query al secondo
 500 - Errore del servizio     | Ripetere l'operazione in un secondo momento
@@ -344,7 +344,7 @@ Dati | Descrizione | Versione introdotta
 -----|-------------|-----------------------
 attested | Vedere [Dati con attestazione](#attested-data) | 2018-10-01
 identity | Identità gestite per le risorse di Azure. Vedere [Acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-istanza | Vedere [API dell'istanza](#instance-api) | 2017-04-02
+instance | Vedere [API dell'istanza](#instance-api) | 2017-04-02
 scheduledevents | Vedere [Eventi pianificati](scheduled-events.md) | 2017-08-01
 
 #### <a name="instance-api"></a>API dell'istanza
@@ -357,7 +357,7 @@ Dati | Descrizione | Versione introdotta
 -----|-------------|-----------------------
 azEnvironment | Ambiente di Azure in cui la macchina virtuale è in esecuzione in | 2018-10-01
 customData | Vedere [dati personalizzati](#custom-data) | 2019-02-01
-percorso | Area di Azure in cui la macchina virtuale è in esecuzione | 2017-04-02
+location | Area di Azure in cui la macchina virtuale è in esecuzione | 2017-04-02
 name | Nome della VM | 2017-04-02
 offer | Offrono informazioni per l'immagine di macchina virtuale e sia presente solo per le immagini distribuite dalla raccolta immagini di Azure | 2017-04-02
 osType | Linux o Windows | 2017-04-02
@@ -365,7 +365,7 @@ placementGroupId | [Gruppo di posizionamento](../../virtual-machine-scale-sets/v
 piano | [Pianificare](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) contenente nome prodotto e server di pubblicazione per una macchina virtuale se relativo un'immagine di Marketplace di Azure | 2018-04-02
 platformUpdateDomain |  [Dominio di aggiornamento](manage-availability.md) in cui è in esecuzione la macchina virtuale | 2017-04-02
 platformFaultDomain | [Dominio di errore](manage-availability.md) in cui è in esecuzione la macchina virtuale | 2017-04-02
-un provider | Provider della macchina virtuale | 2018-10-01
+provider | Provider della macchina virtuale | 2018-10-01
 publicKeys | [Raccolta di chiavi pubbliche](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assegnato alla VM e i percorsi | 2018-04-02
 publisher | Autore dell'immagine della macchina virtuale | 2017-04-02
 resourceGroupName | [Gruppo di risorse](../../azure-resource-manager/resource-group-overview.md) per la macchina virtuale | 2017-08-01
@@ -619,7 +619,7 @@ Dopo aver ottenuto la firma sopra indicata, è possibile verificare che provenga
 > [!NOTE]
 > Il certificato per il cloud pubblico e il cloud sovrano sarà diverso.
 
- Aree | Certificato
+ Regioni | Certificate
 ---------|-----------------
 [Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
@@ -723,7 +723,7 @@ My custom data.
 Linguaggio | Esempio
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Vai  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs

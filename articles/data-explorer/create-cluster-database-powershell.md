@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 85c8cc81b3c61e2faf65bf8a06c69ca7f2b906c9
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497332"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Creare un database e un cluster di Esplora dati di Azure tramite PowerShell
@@ -92,7 +92,7 @@ Se il risultato contiene `provisioningState` con il valore `Succeeded`, il clust
    |**Impostazione** | **Valore consigliato** | **Descrizione campo**|
    |---|---|---|
    | ClusterName | *mykustocluster* | Nome del cluster in cui verrà creato il database.|
-   | Name | *mykustodatabase* | Nome del database.|
+   | NOME | *mykustodatabase* | Nome del database.|
    | ResourceGroupName | *testrg* | Il nome del gruppo di risorse in cui verrà creato il cluster. |
    | SoftDeletePeriod | *3650:00:00:00* | Periodo di tempo in cui i dati verranno mantenuti disponibili in modo che sia possibile eseguire una query. |
    | HotCachePeriod | *3650:00:00:00* | Periodo di tempo in cui i dati verranno conservati nella cache. |

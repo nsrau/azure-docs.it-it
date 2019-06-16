@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 55def52d248babd439227cdcd4170c0a3ca91bb1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704757"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569834"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Analizzare gli eventi imprevisti e gli avvisi nel Centro sicurezza di Azure (anteprima)
 Questo documento illustra come usare la funzionalità di indagine nel Centro sicurezza di Azure per analizzare gli eventi imprevisti e gli avvisi relativi alla sicurezza.
+
+> [!NOTE]
+> L'esperienza di analisi di avvisi ed eventi imprevisti verrà ritirato il 31 luglio 2019. Per altre informazioni e servizi alternativi, vedere [ritiro del Centro sicurezza di funzionalità (luglio 2019)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>Informazioni sull'indagine nel Centro sicurezza
 La funzionalità Indagine del Centro sicurezza consente di valutare, determinare l'ambito e individuare la causa radice di un potenziale [evento imprevisto relativo alla sicurezza](https://docs.microsoft.com/azure/security-center/security-center-incident).
@@ -45,7 +48,7 @@ L'utente può passare da un'entità all'altra selezionandole nel grafico. Il gra
 ### <a name="investigation-path"></a>Percorso di indagine
 Quando l'utente si sposta tra entità diverse, il percorso di indagine consente di tenere traccia del contesto dell'indagine e di spostarsi rapidamente. L'evento imprevisto che contiene i risultati dell'indagine è sempre l'evento visualizzato all'estrema sinistra del percorso di indagine.
 
-![path](./media/security-center-investigation/security-center-investigation-fig2.png)
+![`Path`](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Informazioni generali
 Quando un'entità viene presentata nel grafico, le schede mostrano informazioni aggiuntive sull'entità. La scheda **Info** presenta informazioni generali sull'entità da diverse origini di informazioni disponibili.
@@ -110,7 +113,7 @@ Gli elementi seguenti vengono presentati indipendentemente dall'ambito temporale
 
 A partire da questo punto è possibile esplorare le entità interessate dall'evento imprevisto ed esplorare altri dettagli su ogni entità.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 In questo documento è stato descritto come usare la funzionalità Indagine nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.

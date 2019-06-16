@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127123"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
@@ -70,7 +70,7 @@ Per delegare la gestione dell'accesso per una prenotazione:
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** > **Prenotazione** per visualizzare l'elenco delle prenotazioni a cui è possibile accedere.
 3. Selezionare la prenotazione per la quale si desidera delegare l'accesso ad altri utenti.
-4. Selezionare **Controllo di accesso (IAM)**.
+4. Selezionare **Controllo di accesso (IAM)** .
 5. Selezionare **Aggiungi assegnazione di ruolo** > **Ruolo** > **Proprietario**. Oppure selezionare un ruolo diverso se si intende concedere un ruolo limitato.
 6. Digitare l'indirizzo e-mail dell'utente che si vuole aggiungere come proprietario.
 7. Selezionare l'utente e quindi selezionare **Salva**.

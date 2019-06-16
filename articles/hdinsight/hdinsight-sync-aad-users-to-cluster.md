@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 2be67c604bebbe9b4c4356e241d1480ca0778d4a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64688558"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizzare gli utenti di Azure Active Directory con un cluster HDInsight
@@ -45,7 +45,7 @@ I gruppi di utenti specificati durante il processo di creazione del cluster veng
 
 Il metodo seguente usa POST con l'API REST di Ambari. Per altre informazioni, vedere [Gestire i cluster HDInsight usando l'API REST di Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-1. [Connettersi al cluster con SSH](hdinsight-hadoop-linux-use-ssh-unix.md). Nel riquadro Panoramica per il cluster nel portale di Azure selezionare il pulsante **Secure Shell (SSH)**.
+1. [Connettersi al cluster con SSH](hdinsight-hadoop-linux-use-ssh-unix.md). Nel riquadro Panoramica per il cluster nel portale di Azure selezionare il pulsante **Secure Shell (SSH)** .
 
     ![Secure Shell (SSH)](./media/hdinsight-sync-aad-users-to-cluster/ssh.png)
 
@@ -127,7 +127,7 @@ Il metodo seguente usa POST con l'API REST di Ambari. Per altre informazioni, ve
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Verificare l'utente di Azure AD appena aggiunto
 
-Aprire l'[interfaccia utente Web di Apache Ambari](hdinsight-hadoop-manage-ambari.md) per verificare che il nuovo utente di Azure AD sia stato aggiunto. Accedere all'interfaccia utente Web di Ambari passando a **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Immettere il nome utente e la password dell'amministratore del cluster.
+Aprire l'[interfaccia utente Web di Apache Ambari](hdinsight-hadoop-manage-ambari.md) per verificare che il nuovo utente di Azure AD sia stato aggiunto. Accedere all'interfaccia utente Web di Ambari passando a **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Immettere il nome utente e la password dell'amministratore del cluster.
 
 1. Nel dahsboard di Ambari selezionare **Manage Ambari** (Gestisci Ambari) nel menu **admin** (amministratore).
 
@@ -145,7 +145,7 @@ Aprire l'[interfaccia utente Web di Apache Ambari](hdinsight-hadoop-manage-ambar
 
 Quando il nuovo utente (o qualsiasi altro utente di dominio) accede ad Ambari, usa le credenziali complete di nome utente e dominio di Azure AD.  Ambari visualizza un alias dell'utente, ovvero il nome visualizzato dell'utente in Azure AD. Il nuovo utente di esempio ha il nome utente `hiveuser3@contoso.com`. In Ambari, il nuovo utente viene visualizzato come `hiveuser3` ma l'utente accede ad Ambari come `hiveuser3@contoso.com`.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Configurare criteri Apache Hive in HDInsight con ESP](hdinsight-domain-joined-run-hive.md)
 * [Gestire i cluster HDInsight con ESP](hdinsight-domain-joined-manage.md)

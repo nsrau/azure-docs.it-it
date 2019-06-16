@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 7ea6e6be0597a114b02fad8c41e37d21ce1f6028
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942963"
 ---
 # <a name="azure-application-marketplace-tab"></a>Scheda Marketplace per applicazioni di Azure
@@ -26,7 +26,7 @@ Il modulo Panoramica presenta i campi obbligatori e facoltativi illustrati nella
 
 La tabella seguente descrive le impostazioni da usare per la creazione di una vetrina dell'offerta.   I campi aggiunti con un asterisco sono obbligatori.
 
-|      Campo         |    DESCRIZIONE    |
+|      Campo         |    Descrizione    |
 |  ---------------   |  ---------------  |
 | **Titolo\***        | Titolo dell'offerta. Verrà visualizzato in posizione prominente nel marketplace. La lunghezza massima consentita è di 50 caratteri. |
 | **Riepilogo\***      | Breve riepilogo dell'offerta. La lunghezza massima consentita è di 100 caratteri.           |
@@ -47,7 +47,7 @@ Il modulo Artefatti di marketing presenta i campi obbligatori e facoltativi illu
 
 La tabella seguente descrive gli artefatti di marketing.
 
-|      Campo         |    DESCRIZIONE    |
+|      Campo         |    Descrizione    |
 |  ---------------   |  ---------------  |
 | **Small\***        | Logo piccolo: Formato PNG 40x40 pixel     |
 | **Medium\***       | Logo medio: 90 x 90 pixel in formato PNG    |

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/24/2019
 ms.author: jingwang
 ms.openlocfilehash: 3a7cc1ac3940104993e6643e92da923ad1c6a14a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66248776"
 ---
 | Category | Archivio dati | Supportato come un [attività di copia](../articles/data-factory/copy-activity-overview.md) origine | Supportato come un [attività di copia](../articles/data-factory/copy-activity-overview.md) sink | Supportato dal [runtime di integrazione di Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Supportato dal [runtime di integrazione self-hosted](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) | Supportato da [flusso di dati](../articles/data-factory/concepts-data-flow-overview.md)

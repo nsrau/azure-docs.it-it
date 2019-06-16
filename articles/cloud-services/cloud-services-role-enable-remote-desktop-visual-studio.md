@@ -13,11 +13,11 @@ ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
 ms.openlocfilehash: 924719a8371f4d41cb9ead09252d8f3d3424326a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406447"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717745"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Abilitare una connessione Desktop remoto per un ruolo in Servizi cloud di Azure con Visual Studio
 
@@ -86,7 +86,7 @@ Se si condivide il progetto con un team, è quindi consigliabile deselezionare l
 
 Per usare l'estensione RDP da Azure DevOps Services, includere i dettagli seguenti nella pipeline di compilazione:
 
-1. Includere `/p:ForceRDPExtensionOverPlugin=true` negli argomenti di MSBuild per assicurarsi che la distribuzione funzioni con l'estensione RDP anziché con il plug-in RDP. Ad esempio: 
+1. Includere `/p:ForceRDPExtensionOverPlugin=true` negli argomenti di MSBuild per assicurarsi che la distribuzione funzioni con l'estensione RDP anziché con il plug-in RDP. Ad esempio:
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None

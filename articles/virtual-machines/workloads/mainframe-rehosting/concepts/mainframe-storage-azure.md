@@ -7,10 +7,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
 ms.openlocfilehash: dc78f87d9b47745119da91b8ed1f8f6c8572968c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190432"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Spostare risorse di archiviazione di mainframe in Azure
@@ -51,7 +51,7 @@ Archiviazione di Azure è disponibile come [dischi di Azure](/azure/virtual-mach
 
 <table>
 <thead>
-    <tr><th>Type</th><th>DESCRIZIONE</th><th>Usa questa opzione quando vuoi:</th></tr>
+    <tr><th>Type</th><th>Descrizione</th><th>Usa questa opzione quando vuoi:</th></tr>
 </thead>
 <tbody>
 <tr><td>File di Azure
@@ -96,7 +96,7 @@ Le unità SSD offrono le migliori prestazioni di archiviazione in Azure. Le opzi
 
 | Type         | Dimensione           | IOPS                  |
 |--------------|----------------|-----------------------|
-| Ultra SSD    | 4 GB a 64 TB  | 1.200 a 160,000 IOPS |
+| Ultra SSD    | 4 GB a 64 TB  | 1\.200 a 160,000 IOPS |
 | SSD Premium  | 32 GB a 32 TB | IOPS di 12 a 15.000     |
 | SSD Standard | 32 GB a 32 TB | IOPS di 12 a 2.000      |
 

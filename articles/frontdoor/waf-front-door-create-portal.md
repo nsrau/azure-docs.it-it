@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 15a80dac0e0601480e22ad960f2827f3d8f290c0
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479037"
 ---
 # <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Creare un criterio di Web Application firewall per l'ingresso principale di Azure usando il portale di Azure
@@ -77,5 +77,5 @@ Gestito da Azure Set di regole predefinito è abilitato per impostazione predefi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Scopri [firewall applicazione web di Azure](waf-overview.md).
+- Informazioni sul [web application firewall di Azure](waf-overview.md).
 - Altre informazioni sulle [porta d'ingresso Azure](front-door-overview.md).

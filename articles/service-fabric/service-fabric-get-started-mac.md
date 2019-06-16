@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
 ms.openlocfilehash: 84d1f52b5fb8f18d3578bad28930f74534b1409f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60947594"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurare l'ambiente di sviluppo in Mac OS X
@@ -202,7 +202,7 @@ Installare il [.NET Core 2.0 SDK per Mac](https://www.microsoft.com/net/core#mac
 
 Azure Service Fabric fornisce un plug-in per Eclipse Neon (o versione successiva) per l'ambiente IDE Java. Il plug-in semplifica il processo di creazione, compilazione e distribuzione di servizi Java. Per installare o aggiornare il plug-in Service Fabric per Eclipse alla versione più recente, seguire [questa procedura](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse). Sono applicabili anche gli altri passaggi della [documentazione di Service Fabric per Eclipse](service-fabric-get-started-eclipse.md): compilare un'applicazione, aggiungere un servizio a un'applicazione, disinstallare un'applicazione e così via.
 
-L'ultimo passaggio prevede la creazione di un'istanza del contenitore con un percorso condiviso con l'host. Il plug-in richiede che questo tipo di creazione di istanza usi il contenitore Docker nel Mac, Ad esempio: 
+L'ultimo passaggio prevede la creazione di un'istanza del contenitore con un percorso condiviso con l'host. Il plug-in richiede che questo tipo di creazione di istanza usi il contenitore Docker nel Mac, Ad esempio:
 
 ```bash
 docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox

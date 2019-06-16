@@ -16,10 +16,10 @@ ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c17835a4155e97395e8ae1b8e9ba6d2a42433f71
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298736"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch
@@ -261,7 +261,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Nei nodi di Linux, il formato è leggermente diverso. Punti (.), trattini (-) e simboli di cancelletto (#) vengono convertiti in caratteri di sottolineatura nella variabile di ambiente. Si noti inoltre che il caso dell'ID dell'applicazione viene mantenuto. Ad esempio: 
+Nei nodi di Linux, il formato è leggermente diverso. Punti (.), trattini (-) e simboli di cancelletto (#) vengono convertiti in caratteri di sottolineatura nella variabile di ambiente. Si noti inoltre che il caso dell'ID dell'applicazione viene mantenuto. Ad esempio:
 
 ```
 Linux:

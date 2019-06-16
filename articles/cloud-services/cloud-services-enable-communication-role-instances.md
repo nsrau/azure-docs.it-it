@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fa3885f9c273cf6aaf9173ebd3fee3d4499be34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519415"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808102"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Abilitare la comunicazione delle istanze del ruolo in azure
 I ruoli del servizio cloud comunicano tramite connessioni interne ed esterne. Le connessioni esterne vengono chiamate **endpoint di input** mentre le connessioni interne vengono chiamate **endpoint interni**. In questo argomento viene descritto come modificare la [definizione del servizio](cloud-services-model-and-package.md#csdef) per creare gli endpoint.
 
 ## <a name="input-endpoint"></a>Endpoint di input
-L'endpoint di input viene utilizzato quando si desidera esporre una porta all'esterno. Specificare il tipo di protocollo e porta dell'endpoint che vengono poi applicati per le porte interne ed esterne per l'endpoint. Se si desidera, è possibile specificare una porta interna diversa per l'endpoint con l’attributo [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) .
+L'endpoint di input viene utilizzato quando si desidera esporre una porta all'esterno. Specificare il tipo di protocollo e porta dell'endpoint che vengono poi applicati per le porte interne ed esterne per l'endpoint. Se si desidera, è possibile specificare una porta interna diversa per l'endpoint con l’attributo [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) .
 
 L'endpoint di input può utilizzare i seguenti protocolli: **http, https, tcp, udp**.
 

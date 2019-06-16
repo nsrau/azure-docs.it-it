@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
 ms.openlocfilehash: 11d3deb029ef0d8478844b64c54db7982ed1091e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570991"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Modificare la sottoscrizione con pagamento in base al consumo in un'offerta diversa
