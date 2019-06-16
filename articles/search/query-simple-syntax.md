@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 75e2d7c493b535c984b0ef61dd9a9fae53aee80a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024191"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Sintassi di query semplice in Ricerca di Azure
@@ -87,7 +87,7 @@ L'operatore di precedenza racchiude la stringa racchiuso tra parentesi `( )`. Ad
 > [!NOTE]  
 >  Anche se i caratteri di escape mantengono uniti i token, l'analisi del testo potrebbe dividerli, a seconda della modalità di analisi. Per informazioni dettagliate, vedere [Supporto per la lingua &#40;API REST per il servizio Ricerca di Azure&#41;](index-add-language-analyzers.md).  
 
-## <a name="see-also"></a>Vedere anche   
+## <a name="see-also"></a>Vedere anche  
 
 + [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Cercare documenti - API REST per il servizio Ricerca di Azure) 
 + [Sintassi di query Lucene](query-lucene-syntax.md)

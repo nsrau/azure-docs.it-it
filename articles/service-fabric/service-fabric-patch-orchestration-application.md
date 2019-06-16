@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
 ms.openlocfilehash: ccc0399b6ac886ec8d9ef7d207c3539f1d078070
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951934"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
@@ -151,7 +151,7 @@ Il comportamento di Patch Orchestration App può essere configurato per soddisfa
 |:-|-|-|
 |MaxResultsToCache    |long                              | Numero massimo di risultati di Windows Update memorizzabili nella cache. <br>Il valore predefinito è 3000 presumendo che il: <br> - Numero di nodi sia 20. <br> - Numero di aggiornamenti eseguiti su un nodo per ogni mese sia pari a cinque. <br> - Numero di risultati per ogni operazione sia pari a 10. <br> - I risultati per gli ultimi tre mesi debbano essere archiviati. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati dal Coordinator Service per installare gli aggiornamenti di Windows Update nei nodi del cluster di Service Fabric.<br>                         I valori consentiti sono i seguenti: <br>                                                           <b>NodeWise</b>. Windows Update viene installato un nodo alla volta. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update viene installato un dominio di aggiornamento alla volta (al massimo, tutti i nodi appartenenti a un dominio di aggiornamento possono passare per Windows Update).<br> Fare riferimento alla sezione delle [domande frequenti](#frequently-asked-questions) su come scegliere i migliori criteri per il cluster.
-|LogsDiskQuotaInMB   |Estesa  <br> (Valore predefinito: 1024)               |Dimensione massima in MB dei log di Patch Orchestration App che è possibile salvare in modo permanente e locale sui nodi.
+|LogsDiskQuotaInMB   |long  <br> (Valore predefinito: 1024)               |Dimensione massima in MB dei log di Patch Orchestration App che è possibile salvare in modo permanente e locale sui nodi.
 | WUQuery               | string<br>(Valore predefinito: "IsInstalled=0")                | Eseguire una query per ottenere gli aggiornamenti di Windows. Per altre informazioni, vedere [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 | InstallWindowsOSOnlyUpdates | Boolean <br> (impostazione predefinita: false)                 | Usare questo flag per controllare quali aggiornamenti devono essere scaricati e installati. Sono consentiti i valori seguenti: <br>true: installa solo gli aggiornamenti del sistema operativo Windows.<br>false: installa tutti gli aggiornamenti disponibili nel computer.          |
 | WUOperationTimeOutInMinutes | Int <br>(Valore predefinito: 90)                   | Specifica il timeout per qualsiasi operazione di Windows Update (ricerca, download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
@@ -229,7 +229,7 @@ I campi del formato JSON sono descritti di seguito.
 
 Campo | Valori | Dettagli
 -- | -- | --
-Risultato operazione | 0 - Completata<br> 1 - Completata con errori<br> 2 - Non riuscita<br> 3 - Interrotta<br> 4 - Interrotta con timeout | Indica il risultato dell'operazione globale, che in genere implica l'installazione di uno o più aggiornamenti.
+OperationResult | 0 - Completata<br> 1 - Completata con errori<br> 2 - Non riuscita<br> 3 - Interrotta<br> 4 - Interrotta con timeout | Indica il risultato dell'operazione globale, che in genere implica l'installazione di uno o più aggiornamenti.
 ResultCode | Stesso di OperationResult | Questo campo indica il risultato dell'operazione di installazione di un singolo aggiornamento.
 OperationType | 1 - Installazione<br> 0 - Ricerca e download.| Installation è l'unico OperationType visualizzato nei risultati per impostazione predefinita.
 WindowsUpdateQuery | Impostazione predefinita: "IsInstalled = 0" |Query di aggiornamento di Windows usata per ricercare gli aggiornamenti. Per altre informazioni, vedere [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
@@ -378,7 +378,7 @@ D: **Quanto tempo occorre per applicare patch a un intero cluster?**
 R. Il tempo necessario per applicare patch a un intero cluster dipende dai fattori seguenti:
 
 - Tempo necessario per applicare patch a un nodo.
-- I criteri del Coordinator Service. I criteri predefiniti, `NodeWise`, comportano l'applicazione di patch a un solo nodo alla volta e tale operazione è più lenta di `UpgradeDomainWise`. Ad esempio: si supponga che l'applicazione di patch a un nodo richieda circa 1 ora, e si debbano applicare patch a un cluster di 20 nodi (dello stesso tipo) con 5 domini di aggiornamento, ognuno dei quali contiene 4 nodi.
+- I criteri del Coordinator Service. I criteri predefiniti, `NodeWise`, comportano l'applicazione di patch a un solo nodo alla volta e tale operazione è più lenta di `UpgradeDomainWise`. Ad esempio:  si supponga che l'applicazione di patch a un nodo richieda circa 1 ora, e si debbano applicare patch a un cluster di 20 nodi (dello stesso tipo) con 5 domini di aggiornamento, ognuno dei quali contiene 4 nodi.
     - Sono necessarie circa 20 ore per applicare patch all'intero cluster, se il criterio è `NodeWise`
     - Sono necessarie 5 ore se il criterio è `UpgradeDomainWise`
 - Caricamento del cluster - ogni operazione di installazione di patch richiede la rilocazione del carico di lavoro dei clienti in altri nodi disponibili nel cluster. Un nodo in fase di patch può essere in stato di [disabilitazione](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) durante l'operazione. Se il cluster è in prossimità di picchi di carico, il processo di disabilitazione richiederà più tempo. Di conseguenza il processo complessivo dell'applicazione di patch in tali condizioni potrebbe risultare lento.

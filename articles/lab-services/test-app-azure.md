@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
 ms.openlocfilehash: f8c57b9e1fabbd04a7d9c92484b0f52f074c2577
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872529"
 ---
 # <a name="test-your-app-in-azure"></a>Testare l'app in Azure 
@@ -75,7 +75,7 @@ In questa sezione, verrà mostrato come pubblicare l'app da Visual Studio a una 
 
     **App Web:**
 
-    ![App Web](media/test-app-in-azure/web-app.png)
+    ![app Web](media/test-app-in-azure/web-app.png)
 
 1. Selezionare **Avanti** per completare il flusso di lavoro e selezionare **Fine**. Al termine della procedura guidata, Visual Studio compila l'applicazione e la pubblica nella condivisione file. 
 

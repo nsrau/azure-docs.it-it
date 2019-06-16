@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61341705"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Supporto per metadati OpenAPI 2.0 in Funzioni di Azure (anteprima)
@@ -36,7 +36,7 @@ I [metadati OpenAPI](https://swagger.io/) consentono a una funzione che ospita u
 > [!NOTE]
 > La funzionalità Definizione dell'API della funzione non è attualmente supportata per il runtime beta.
 
-Per abilitare la generazione di una definizione OpenAPI ospitata e una definizione di avvio rapido, impostare **Origine della definizione dell'API** su **Funzione (anteprima)**. L'**URL esterno** consente alla funzione di usare una definizione OpenAPI ospitata altrove.
+Per abilitare la generazione di una definizione OpenAPI ospitata e una definizione di avvio rapido, impostare **Origine della definizione dell'API** su **Funzione (anteprima)** . L'**URL esterno** consente alla funzione di usare una definizione OpenAPI ospitata altrove.
 
 ## <a name="generate-definition"></a>Generare una struttura Swagger dai metadati della funzione
 Per iniziare a scrivere la prima definizione OpenAPI può essere utile usare un modello. La funzione del modello di definizione crea una definizione OpenAPI di tipo sparse usando tutti i metadati contenuti nel file function.json per ognuna delle funzioni trigger HTTP. Le altre informazioni relative all'API, ad esempio i modelli di richiesta e risposta, devono essere inserite nella [specifica OpenAPI](https://swagger.io/specification/).
@@ -45,7 +45,7 @@ Per istruzioni dettagliate, vedere l'[esercitazione introduttiva](./functions-ap
 
 ### <a name="templates"></a>Modelli disponibili
 
-|NOME| DESCRIZIONE |
+|NOME| Descrizione |
 |:-----|:-----|
 |Definizione generata|Una definizione OpenAPI con la quantità massima di informazioni deducibili dai metadati esistenti della funzione.|
 

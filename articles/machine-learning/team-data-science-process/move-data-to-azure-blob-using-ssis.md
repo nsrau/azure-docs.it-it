@@ -12,10 +12,10 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 688ef059387dc4c312873051c7c9d1eae259b1ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61429885"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Spostare dati da o verso un archivio BLOB di Azure con connettori SSIS
@@ -42,7 +42,7 @@ Per eseguire le attività illustrate in questo articolo, è necessario avere con
 
 Per usare i **connettori SSIS**è necessario scaricare:
 
-* **SQL Server 2014 o 2016 Standard (o versione successiva)**: l'installazione include SQL Server Integration Services.
+* **SQL Server 2014 o 2016 Standard (o versione successiva)** : l'installazione include SQL Server Integration Services.
 * **Microsoft SQL Server 2014 o 2016 Integration Services Feature Pack per Azure**: possono essere scaricati dalle pagine [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) e [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492).
 
 > [!NOTE]
@@ -64,7 +64,7 @@ Per spostare i dati usando il Feature Pack di SSIS da una posizione locale a un 
 
 I parametri usati dall'attività sono descritti di seguito:
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 | --- | --- |
 | **AzureStorageConnection** |Specifica un'istanza esistente di Gestione connessione dell'archiviazione di Azure o crea una nuova istanza che fa riferimento a un account di archiviazione di Azure che punta alla posizione in cui sono ospitati i file BLOB. |
 | **BlobContainer** |Specifica il nome del contenitore BLOB che includerà i file caricati come BLOB. |

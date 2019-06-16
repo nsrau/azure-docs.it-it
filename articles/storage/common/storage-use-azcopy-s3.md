@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b18c4c039b615c7c88268b6e668df9f7fec9fabf
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 414573a90e5a7b7de845b65e6e88715a26024f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687916"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125777"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>Copiare dati da Amazon S3 bucket con AzCopy
 
@@ -49,6 +49,9 @@ Raccogliere la chiave di accesso AWS e la chiave di accesso segreta e quindi imp
 ## <a name="copy-objects-directories-and-buckets"></a>Copiare gli oggetti, le directory e bucket
 
 AzCopy Usa il [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, in modo che i dati vengono copiati direttamente tra AWS S3 e server di archiviazione. Queste operazioni di copia non usano la larghezza di banda di rete del computer in uso.
+
+> [!IMPORTANT]
+> Questa funzionalità è attualmente in anteprima. Se si decide di rimuovere i dati dal bucket di S3 dopo un'operazione di copia, assicurarsi di verificare che i dati siano stati copiati correttamente all'account di archiviazione prima di rimuovere i dati.
 
 ### <a name="copy-an-object"></a>Copia un oggetto
 

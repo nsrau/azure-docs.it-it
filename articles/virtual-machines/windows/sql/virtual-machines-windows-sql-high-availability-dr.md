@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
 ms.openlocfilehash: 379d3076559643b1445412074ed689e2e94a5ab2
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408816"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure
@@ -137,7 +137,7 @@ Per ottenere le prestazioni migliori di SQL Server in esecuzione su una VM di Az
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-### <a name="other-resources"></a>Altre risorse
+### <a name="other-resources"></a>Altre risorse:
 * [Installare una nuova foresta Active Directory in Azure](../../../active-directory/active-directory-new-forest-virtual-machine.md)
 * [Creare cluster di failover per i gruppi di disponibilità in una macchina virtuale di Azure](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 

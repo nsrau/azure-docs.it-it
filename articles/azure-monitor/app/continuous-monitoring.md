@@ -10,10 +10,10 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 41999defb01e024773b6364f169a1ce3b1377237
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60902392"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Aggiungere un monitoraggio continuo alla pipeline di versione
@@ -70,7 +70,7 @@ Azure DevOps Services supporta ora il monitoraggio continuo con cui le pipeline 
 
    ![Condizioni di pre-distribuzione](media/continuous-monitoring/004.png)
 
-2. Impostare **Gates** (Controlli) su **Enabled (Abilitati)** > **Approval gates (Controlli di approvazione)**>  fare clic su **Add (Aggiungi).**
+2. Impostare **Gates** (Controlli) su **Enabled (Abilitati)**  > **Approval gates (Controlli di approvazione)** >  fare clic su **Add (Aggiungi).**
 
 3. Selezionare **Monitoraggio di Azure** (questa opzione offre la possibilità di accedere agli avvisi sia da Monitoraggio di Azure che da Application Insights)
 

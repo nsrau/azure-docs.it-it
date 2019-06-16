@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: e522883da7fddad44741599107f2dbc4c99aace6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826933"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Caricare file in un account Servizi multimediali usando il servizio Aspera Server On Demand in Azure 
@@ -42,7 +42,7 @@ Per un esempio che illustra come usare le funzioni di Azure con Aspera e Servizi
 Per completare questa esercitazione, sono necessari:
 
 * Un Windows Live ID.
-* Un [account Azure](https://azure.microsoft.com). Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Un [account Azure](https://azure.microsoft.com). Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 * Un [account Servizi multimediali di Azure](media-services-portal-create-account.md).
 
 ## <a name="purchase-aspera-on-demand-for-azure"></a>Acquistare Aspera On Demand per Azure

@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: 5ea701682c03370cea46f9126ecf78427a776371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61280672"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Risolvere i problemi relativi all'agente di Azure Site Recovery
@@ -26,14 +26,14 @@ Codice errore: "151076"
 
  Azure Site Recovery installa un'estensione nella macchina virtuale come parte del processo di abilitazione della protezione. Una delle condizioni seguenti potrebbe impedire l'attivazione della protezione e causare l'esito negativo del processo. Completare questa procedura di risoluzione dei problemi e provare a eseguire di nuovo l'operazione:
 
-**Causa 1: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Causa 1: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Causa 2: [L'agente installato nella macchina virtuale non è aggiornato (per macchine virtuali Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Causa 3: [Non è possibile aggiornare o caricare l'estensione di Site Recovery](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 Messaggio di errore: "Previous site recovery extension operation is taking more time than expected" (L'operazione di estensione di Site Recovery precedente sta impiegando più tempo del previsto).<br>
 Codice errore: "150066"<br>
 
-**Causa 1: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Causa 1: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Causa 2: [L'agente installato nella macchina virtuale non è aggiornato (per macchine virtuali Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Causa 3: [Lo stato dell'estensione di Site Recovery non è corretto](#the-site-recovery-extension-fails-to-update-or-load)**  
 
@@ -45,7 +45,7 @@ Codice errore: "151099"<br>
 Questo errore può verificarsi se l'agente guest di Azure nella macchina virtuale non è nello stato Pronto.
 È possibile verificare lo stato dell'agente guest di Azure nel [portale di Azure](https://portal.azure.com/). Passare alla macchina virtuale che si vuole proteggere e verificarne lo stato in "VM > Impostazioni > Proprietà > Stato agente". Nella maggior parte dei casi lo stato dell'agente diventa pronto dopo il riavvio della macchina virtuale. Se però il riavvio non è un'opzione possibile o se il problema persiste, completare la procedura di risoluzione dei problemi seguente.
 
-**Causa 1: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Causa 1: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Causa 2: [L'agente installato nella macchina virtuale non è aggiornato (per macchine virtuali Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 

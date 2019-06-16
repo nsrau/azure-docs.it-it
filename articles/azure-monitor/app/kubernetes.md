@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
 ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65555828"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Zero monitoraggio strumentazione dell'applicazione per Kubernetes ospitato applicazioni
@@ -34,7 +34,7 @@ Monitoraggio di Azure sfrutta ora tech mesh del servizio nel cluster Kubernetes 
 - Un [risorsa di Application Insights](create-new-resource.md)
 - Disporre di una rete mesh di servizi. Se il cluster non dispone di Istio distribuito, sarà possibile apprendere come [installare e usare Istio in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/istio-install).
 
-## <a name="capabilities"></a>Funzionalità
+## <a name="capabilities"></a>Capabilities
 
 Con zero applicazione di strumentazione di monitoraggio per Kubernetes App ospitate, sarà possibile usare:
 
@@ -78,13 +78,13 @@ Le applicazioni in esecuzione all'esterno di rete mesh di servizi non sono inter
 3. Modifica *application-insights-istio-mixer-adapter-deployment.yaml*
     - modificare il valore della *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* variabile di ambiente per contenere la chiave di strumentazione della risorsa di Application Insights nel portale di Azure per contenere i dati di telemetria.
     - Se necessario, modificare il valore della *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* variabile di ambiente conterrà un elenco delimitato da virgole degli spazi dei nomi per il quale si desidera abilitare il monitoraggio. Lasciare vuoto per monitorare tutti gli spazi dei nomi.
-4. Si applicano *ogni* trovare il file YAML sotto *src/kubernetes/* eseguendo le operazioni seguenti (è necessario comunque essere all'interno */src/kubernetes/*):
+4. Si applicano *ogni* trovare il file YAML sotto *src/kubernetes/* eseguendo le operazioni seguenti (è necessario comunque essere all'interno */src/kubernetes/* ):
 
    ```console
    kubectl apply -f .
    ```
 
-### <a name="verify-deployment"></a>Verifica distribuzione
+### <a name="verify-deployment"></a>Verificare la distribuzione
 
 - Assicurarsi che l'adapter di Application Insights è stato distribuito:
 

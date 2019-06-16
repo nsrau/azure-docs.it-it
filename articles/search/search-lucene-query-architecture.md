@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
 ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65797476"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Funzionamento della ricerca full-text in Ricerca di Azure
@@ -253,7 +253,7 @@ Per produrre i termini in un indice inverso, il motore di ricerca esegue l'anali
 
 Ritornando all'esempio precedente, per il campo **titolo**, l'indice invertito è simile al seguente:
 
-| Periodo | Elenco di documenti |
+| Nome | Elenco di documenti |
 |------|---------------|
 | atman | 1 |
 | spiaggia | 2 |
@@ -267,7 +267,7 @@ Nel campo del titolo, solo *hotel* viene visualizzato in due documenti: 1 e 3.
 
 Per il campo **descrizione**, l'indice è il seguente:
 
-| Periodo | Elenco di documenti |
+| Nome | Elenco di documenti |
 |------|---------------|
 | aria | 3
 | e | 4
@@ -281,7 +281,7 @@ Per il campo **descrizione**, l'indice è il seguente:
 | nord | 2
 | oceano | 1, 2, 3
 | di | 2
-| sì |2
+| in |2
 | tranquillo | 4
 | camere  | 1, 3
 | appartato | 4
@@ -393,7 +393,7 @@ In questo articolo è stata illustrata la ricerca full-text nel contesto di Rice
 
 + [Configurare gli analizzatori personalizzati](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) per un'elaborazione minima o specializzati per settori specifici.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
 

@@ -8,10 +8,10 @@ ms.author: cabailey
 manager: barbkess
 ms.date: 05/07/2019
 ms.openlocfilehash: 468e392cd2c45d79cbb24f8d737a6e83fbcd2725
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65079271"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox per Microsoft Azure
@@ -64,7 +64,7 @@ I passaggi seguenti illustrano un flusso di lavoro tipico per una richiesta a Cu
     
     ![Azure Customer Lockbox - visualizzare la richiesta in sospeso](./media/azure-customer-lockbox/customer-lockbox-pending-requests.png)
 
-10. Il responsabile dell'approvazione designato può inoltre selezionare il **ID richiesta di servizio** per visualizzare la richiesta di ticket di supporto che è stata creata dall'utente originale. Queste informazioni forniscono contesto per il motivo per cui viene avviato il supporto tecnico Microsoft e la cronologia del problema segnalato. Ad esempio: 
+10. Il responsabile dell'approvazione designato può inoltre selezionare il **ID richiesta di servizio** per visualizzare la richiesta di ticket di supporto che è stata creata dall'utente originale. Queste informazioni forniscono contesto per il motivo per cui viene avviato il supporto tecnico Microsoft e la cronologia del problema segnalato. Ad esempio:
     
     ![Azure Customer Lockbox - visualizzare la richiesta del ticket di supporto](./media/azure-customer-lockbox/customer-lockbox-support-ticket.png)
 

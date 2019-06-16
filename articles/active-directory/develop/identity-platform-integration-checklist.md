@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0acef783b4877b5b1787f142aec6cc3588293f83
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823343"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111468"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Elenco di controllo per l'integrazione di Microsoft identity platform
 
@@ -33,7 +33,7 @@ Se sta appena iniziando a usare, consultare il [documentazione](index.yml) per a
 
 Attenersi alla procedura seguente per assicurarsi che l'applicazione è integrata in modo efficace con la [piattaforma delle identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
 
-### <a name="basics"></a>Generale
+### <a name="basics"></a>Nozioni di base
 
 |   |   |
 |---|---|

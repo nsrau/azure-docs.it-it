@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
 ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922434"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
@@ -138,7 +138,7 @@ Seguire questa procedura nel portale di Azure:
 Per eseguire l'autenticazione con un'entità servizio, è necessario assegnare il ruolo con controllo degli accessi in base al ruolo all'applicazione. A tale scopo, seguire questa procedura:
 
 1. Nel portale di Azure passare all'account Batch usato dall'applicazione.
-2. Nel pannello **Impostazioni** per l'account Batch selezionare **Controllo di accesso (IAM)**.
+2. Nel pannello **Impostazioni** per l'account Batch selezionare **Controllo di accesso (IAM)** .
 3. Fare clic sulla scheda **Assegnazioni di ruolo**.
 4. Fare clic sul pulsante **Aggiungi un'assegnazione di ruolo**. 
 5. Dall'elenco a discesa **Ruolo** scegliere il ruolo _Collaboratore_ o _Lettore_ per l'applicazione. Per altre informazioni sui ruoli, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).  

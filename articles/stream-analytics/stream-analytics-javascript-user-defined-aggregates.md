@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.openlocfilehash: 6663e3fc48408de83e92f39e8c8070005818852d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61479559"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure (anteprima)
@@ -175,7 +175,7 @@ A questo punto viene creata un'aggregazione JavaScript definita dall'utente in u
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Chiamata di un'aggregazione JavaScript definita dall'utente in una query ASA
 
-Nel portale di Azure aprire il processo, modificare la query e chiamare la funzione TWA() con un prefisso obbligatorio "uda". Ad esempio: 
+Nel portale di Azure aprire il processo, modificare la query e chiamare la funzione TWA() con un prefisso obbligatorio "uda". Ad esempio:
 
 ```SQL
 WITH value AS

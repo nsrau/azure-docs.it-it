@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: b46acb2f0fe04c37e73a69a09ee6ede9110864ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827936"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Contenuto esterno e della community per il servizio cognitivo Analisi del testo
@@ -47,7 +47,7 @@ ms.locfileid: "60827936"
 
 Se si stanno cercando informazioni su una funzionalità o su un caso d'uso non trattato qui, è possibile presentare una richiesta o votare in [UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
  [StackOverflow: API Analisi del testo di Azure Machine Learning](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Servizi cognitivi di Azure](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

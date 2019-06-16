@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
 ms.openlocfilehash: 88c40021ff2e974ba16b3b3506ee54b45de90fda
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427585"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
@@ -136,8 +136,8 @@ I limiti seguenti si applicano quando si usa Azure Resource Manager e i gruppi d
 
 Sono previsti limiti, per ogni sottoscrizione, per la distribuzione di risorse usando raccolte di immagini condivise:
 - 100 raccolte di immagini condivise, per ogni sottoscrizione per area
-- 1.000 definizioni di immagini, per ogni sottoscrizione per area
-- 10.000 versioni dell'immagine, per ogni sottoscrizione per area
+- 1\.000 definizioni di immagini, per ogni sottoscrizione per area
+- 10\.000 versioni dell'immagine, per ogni sottoscrizione per area
 
 ### <a name="virtual-machine-scale-sets-limits"></a>Limiti dei set di scalabilità di macchine virtuali
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]

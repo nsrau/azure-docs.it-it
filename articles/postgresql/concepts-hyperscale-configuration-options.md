@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: e8c1c2e51ca14ae9b17f0d7efb20552cdd55139b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65077291"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-preview-performance-options"></a>Database di Azure per PostgreSQL-(Citus) (anteprima) con Iperscalabilità opzioni relative alle prestazioni
@@ -20,7 +20,7 @@ ms.locfileid: "65077291"
  
 È possibile selezionare le impostazioni calcolo e archiviazione in modo indipendente per i nodi di lavoro e il nodo coordinatore in un gruppo di server con scalabilità elevatissima (Citus).  Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. Le dimensioni di archiviazione per il provisioning si intende la capacità disponibile per i nodi di lavoro e coordinator nel gruppo di server con scalabilità elevatissima (Citus). Lo spazio di archiviazione include i file di database, i file temporanei, i log delle transazioni e i log del server Postgres. La quantità totale di spazio di archiviazione che viene effettuato il provisioning anche definisce la capacità dei / o disponibile per ogni nodo del ruolo di lavoro e coordinator.
  
-|                       | Nodo del ruolo di lavoro           | Nodo coordinatore      |
+|                       | Nodo di lavoro           | Nodo coordinatore      |
 |-----------------------|-----------------------|-----------------------|
 | Risorse di calcolo, Vcore       | 4, 8, 16, 32          | 4, 8, 16, 32          |
 | Memoria per ogni vCore, GiB | 8                     | 4                     |

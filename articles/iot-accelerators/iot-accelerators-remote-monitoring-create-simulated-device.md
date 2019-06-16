@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 5044f8b85e59911633a4ffab509efc000948144a
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65832590"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Creare e testare un nuovo dispositivo simulato
@@ -40,7 +40,7 @@ Nel secondo scenario Contoso intende testare un nuovo dispositivo lampadina inte
 
 La tabella seguente mostra i dati trasmessi dalla lampadina al cloud come flusso di dati:
 
-| NOME   | Valori      |
+| Name   | Valori      |
 | ------ | ----------- |
 | Stato | "on", "off" |
 | Temperatura | Gradi F |
@@ -53,7 +53,7 @@ La tabella seguente mostra i dati trasmessi dalla lampadina al cloud come flusso
 
 La tabella seguente mostra le azioni supportate dal nuovo dispositivo:
 
-| NOME        |
+| Name        |
 | ----------- |
 | Switch on (Accendi)   |
 | Switch off (Spegni)  |

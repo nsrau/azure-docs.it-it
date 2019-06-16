@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: multiple
 ms.topic: article
-origin.date: 01/23/2017
-ms.date: 02/27/2019
-ms.author: v-junlch
+ms.date: 01/23/2017
+ms.author: yegu
 ms.openlocfilehash: 73c771ab18d1cc2944298818c1cab90eb2f277ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60829804"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Esempi di Cache Redis di Azure
@@ -32,14 +31,14 @@ L'esempio [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloW
 
 In questo esempio viene illustrato come:
 
-- Utilizzare varie opzioni di connessione
-- Leggere e scrivere gli oggetti da e nella cache utilizzando operazioni sincrone e asincrone
-- Utilizzare i comandi MGET/MSET di Redis per restituire i valori delle chiavi specificate
-- Eseguire operazioni Redis transazionali
-- Utilizzare gli elenchi e i set ordinati di Redis
-- Archiviare oggetti .NET mediante i serializzatori JsonConvert
-- Utilizzare i set di Redis per implementare l'assegnazione di tag
-- Lavorare con Cluster Redis
+* Utilizzare varie opzioni di connessione
+* Leggere e scrivere gli oggetti da e nella cache utilizzando operazioni sincrone e asincrone
+* Utilizzare i comandi MGET/MSET di Redis per restituire i valori delle chiavi specificate
+* Eseguire operazioni Redis transazionali
+* Utilizzare gli elenchi e i set ordinati di Redis
+* Archiviare oggetti .NET mediante i serializzatori JsonConvert
+* Utilizzare i set di Redis per implementare l'assegnazione di tag
+* Lavorare con Cluster Redis
 
 Per altre informazioni, vedere la documentazione di [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) in GitHub. Per altri scenari di utilizzo, vedere gli unit test [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests).
 
@@ -53,8 +52,8 @@ Nell'esempio sull'[utilizzo di Cache Redis come backplane con scalabilità orizz
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Esempio di query cliente Cache Redis di Azure
 Questo esempio mette a confronto le prestazioni di accesso ai dati da una cache e di accesso ai dati da un archivio di salvataggio permanente. L'esempio contiene due progetti.
 
-- [Demo su come Cache Redis di Azure può migliorare le prestazioni grazie alla memorizzazione dei dati nella cache](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
-- [Effettuare il seeding del database e della cache per la demo](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
+* [Demo su come Cache Redis di Azure può migliorare le prestazioni grazie alla memorizzazione dei dati nella cache](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
+* [Effettuare il seeding del database e della cache per la demo](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
 
 ## <a name="aspnet-session-state-and-output-caching"></a>Memorizzazione nella cache dell'output e dello stato sessione ASP.NET
 Nell'[esempio relativo all'uso di Cache Redis di Azure per archiviare SessionState e OutputCache ASP.NET](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) viene illustrato come usare Cache Redis di Azure per archiviare la cache di output e la sessione ASP.NET usando i provider SessionState e OutputCache per Redis.
@@ -70,6 +69,4 @@ L’esempio [Retwis](https://github.com/SyntaxC4-MSFT/retwis) rappresenta Hello 
 
 ## <a name="bandwidth-monitor"></a>Monitor della larghezza di banda
 L’esempio relativo al [monitor della larghezza di banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) consente di monitorare la larghezza di banda utilizzata nel client. Per misurare la larghezza di banda, eseguire l'esempio nel computer client della cache, effettuare chiamate alla cache e osservare la larghezza di banda segnalata nell'esempio del monitor della larghezza di banda.
-
-<!-- Update_Description: update metedata properties -->
 

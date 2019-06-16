@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: e8d4ab46c598580a3a87f4344202f2700926bf5c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510332"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo Windows IoT Core all'applicazione Azure IoT Central
@@ -106,8 +106,8 @@ Impostazioni numeriche
 
 | Type            | `Display name` | Nome campo | Tipo di dati |
 | --------------- | ------------ | ---------- | --------- |
-| Proprietà dispositivo | Numero stampo   | dieNumber  | numero    |
-| Text            | Località     | percorso   | N/D       |
+| Proprietà dispositivo | Numero stampo   | dieNumber  | number    |
+| Text            | Località     | location   | N/D       |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

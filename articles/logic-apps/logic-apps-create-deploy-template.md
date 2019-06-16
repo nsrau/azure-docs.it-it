@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
 ms.openlocfilehash: 624539557b0bf57e9d919a3a46337f1cf93a4f07
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128601"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Creare modelli di Azure Resource Manager per la distribuzione di app per la logica
@@ -79,7 +79,7 @@ Dopo aver creato il modello di app per la logica, è possibile aggiungere e modi
 
 * Definizione di flusso di lavoro dell'app per la logica dispone di propri [ `parameters` sezione](../logic-apps/logic-apps-workflow-definition-language.md#parameters) che consente di definire tutti i parametri che l'app per la logica Usa per accettare gli input in fase di distribuzione.
 
-* Modello di Resource Manager dispone di propri [ `parameters` sezione](../azure-resource-manager/resource-group-authoring-templates.md#parameters), separato dell'app per la logica `parameters` sezione. Ad esempio: 
+* Modello di Resource Manager dispone di propri [ `parameters` sezione](../azure-resource-manager/resource-group-authoring-templates.md#parameters), separato dell'app per la logica `parameters` sezione. Ad esempio:
 
   [!INCLUDE [logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
 

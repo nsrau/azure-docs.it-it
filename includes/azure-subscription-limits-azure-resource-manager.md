@@ -9,21 +9,21 @@ ms.date: 04/22/2019
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146233"
 ---
 | Resource | Limite predefinito | Limite massimo |
 | --- | --- | --- |
-| VM per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |25.000<sup>1</sup> per ogni area. |25.000 per ogni area. |
+| VM per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |25\.000<sup>1</sup> per ogni area. |25\.000 per ogni area. |
 | Numero totale di core della VM per ogni [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per ogni area. | Contattare il supporto tecnico. |
 | Macchina virtuale per ogni serie, ad esempio Dv2 e F, core per ogni [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per ogni area. | Contattare il supporto tecnico. |
 | [Ai coamministratori](../articles/billing-add-change-azure-subscription-administrator.md) per ogni sottoscrizione |Senza limiti. |Senza limiti. |
 | [Account di archiviazione](../articles/storage/common/storage-quickstart-create-account.md) per area per sottoscrizione |250 |250 |
 | [Gruppi di risorse](../articles/azure-resource-manager/resource-group-overview.md) per ogni sottoscrizione |980 |980 |
-| [Set di disponibilità](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per ogni sottoscrizione |2.000 per area. |2.000 per area. |
+| [Set di disponibilità](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per ogni sottoscrizione |2\.000 per area. |2\.000 per area. |
 | Dimensioni delle richieste API di gestione risorse di Azure |4,194,304 byte. |4,194,304 byte. |
 | Tag per sottoscrizione<sup>2</sup> |Senza limiti. |Senza limiti. |
 | Calcoli di tag univoco per ogni sottoscrizione<sup>2</sup> | 10,000 | 10,000 |

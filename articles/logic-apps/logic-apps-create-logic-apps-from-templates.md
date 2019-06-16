@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
 ms.openlocfilehash: 134a8f9625b45a8196ebd47f10286093f6ba0d46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459700"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creare flussi di lavoro di app per la logica da modelli predefiniti
@@ -63,7 +63,7 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
    Quando Azure ha distribuito l'app per la logica, Progettazione app per la logica si apre e visualizza una pagina con un video introduttivo. 
    Sotto il video è possibile trovare i modelli di app per la logica comuni. 
 
-5. Scorrere oltre il video introduttivo e i trigger comuni fino a **Modelli**. Scegliere un modello predefinito. Ad esempio: 
+5. Scorrere oltre il video introduttivo e i trigger comuni fino a **Modelli**. Scegliere un modello predefinito. Ad esempio:
 
    ![Scegliere un modello di app per la logica](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
@@ -71,7 +71,7 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
    > Per creare l'app per la logica da zero, scegliere **App per la logica vuota**.
 
    Quando si seleziona un modello predefinito, è possibile visualizzare altre informazioni sul modello. 
-   Ad esempio: 
+   Ad esempio:
 
    ![Scegliere un modello predefinito](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -85,7 +85,7 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
 
    * Se queste connessioni sono già state configurate, scegliere **Continua**.
 
-   Ad esempio: 
+   Ad esempio:
 
    ![Creare le connessioni](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
@@ -103,16 +103,16 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
 
 1. Nel [portale di Azure](https://portal.azure.com "Azure portal") individuare e aprire l'app per la logica in Progettazione app per la logica.
 
-2. Nella barra degli strumenti della finestra di progettazione scegliere **Modelli**. Questa azione elimina eventuali modifiche non salvate, quindi viene visualizzato un messaggio di avviso che richiede di confermare che si vuole continuare. Per confermare, scegliere **OK**. Ad esempio: 
+2. Nella barra degli strumenti della finestra di progettazione scegliere **Modelli**. Questa azione elimina eventuali modifiche non salvate, quindi viene visualizzato un messaggio di avviso che richiede di confermare che si vuole continuare. Per confermare, scegliere **OK**. Ad esempio:
 
    ![Scegliere "Modelli"](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. Scorrere oltre il video introduttivo e i trigger comuni fino a **Modelli**. Scegliere un modello predefinito. Ad esempio: 
+3. Scorrere oltre il video introduttivo e i trigger comuni fino a **Modelli**. Scegliere un modello predefinito. Ad esempio:
 
    ![Scegliere un modello di app per la logica](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    Quando si seleziona un modello predefinito, è possibile visualizzare altre informazioni sul modello. 
-   Ad esempio: 
+   Ad esempio:
 
    ![Scegliere un modello predefinito](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 

@@ -11,35 +11,38 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/05/2019
-ms.openlocfilehash: b39d2c839444e3cad60d5ff08e117282ecc04d7a
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.date: 06/12/2019
+ms.openlocfilehash: b740b49e2decabd5f104d1db5d38b48f2bc2111c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734767"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116193"
 ---
-# <a name="sql-database-serverless-preview"></a>Database SQL serverless (anteprima)
+# <a name="azure-sql-database-serverless-preview"></a>Database SQL di Azure senza server (anteprima)
+
+Database SQL di Azure senza server (anteprima) è un livello di calcolo per i database singoli che offre scalabilità automatica di calcolo basata su richiesta di carico di lavoro e le fatture per la quantità di calcolo utilizzate al secondo. Il livello di calcolo senza server sospende automaticamente anche i database durante i periodi di inattività quando solo l'archiviazione viene fatturato e riprende automaticamente i database al termine dell'attività.
 
 ## <a name="serverless-compute-tier"></a>Livello di elaborazione serverless
 
-Database SQL senza server (anteprima) è un livello di calcolo database singolo che viene ridimensionato automaticamente di calcolo e prevede la fatturazione per la quantità di calcolo utilizzata al secondo. 
-
-Per definire i parametri di un database nel livello di calcolo serverless, si considerano l'intervallo di calcolo utilizzabile e un ritardo di sospensione automatica.
+Il livello di calcolo senza server per un database singolo con i parametri di un intervallo di scalabilità automatica di calcolo e un ritardo autopause.  La configurazione di questi parametri forma l'esperienza con prestazioni del database e dei costi di calcolo.
 
 ![Fatturazione serverless](./media/sql-database-serverless/serverless-billing.png)
 
-### <a name="performance"></a>Prestazioni
+### <a name="performance-configuration"></a>Configurazione delle prestazioni
 
-- Il numero di Vcore minimo e massimo numero di Vcore è parametri configurabili che definiscono l'intervallo di capacità di calcolo disponibili per il database. I limiti di memoria e I/O sono proporzionali all'intervallo vCore specificato.  
-- Il ritardo di sospensione automatica è un parametro configurabile che definisce il periodo di tempo in cui il database deve rimanere inattivo prima che venga messo in pausa automaticamente. Il database viene ripristinato automaticamente in seguito all'accesso successivo.
+- Il **Vcore minimi** e **Vcore** configurabile di parametri che definiscono l'intervallo di capacità di calcolo disponibili per il database. I limiti di memoria e I/O sono proporzionali all'intervallo vCore specificato.  
+- Il **ritardo autopause** è un parametro configurabile che definisce il periodo di tempo il database deve essere inattivo prima che verrà automaticamente messo in pausa. Il database viene ripresa automaticamente quando si verifica all'accesso successivo o un'altra attività.  In alternativa, è possibile disabilitare autopausing.
 
-### <a name="pricing"></a>Prezzi
+### <a name="cost"></a>Costi
 
-- Il totale della fattura relativa a un database serverless corrisponde alla somma della fattura per le risorse di calcolo e della fattura per le risorse di archiviazione.
-La fatturazione per le risorse di calcolo si basa sulla quantità di vCore usati e sulla memoria usata al secondo.
-- Il numero minimo di risorse di calcolo fatturate si basa sul numero minimo di vCore e sulla quantità minima di memoria.
-- Durante la sospensione del database vengono addebitate solo le risorse di archiviazione.
+- Il costo per un database senza server è la somma del costo di calcolo e costi di archiviazione.
+- Quando l'utilizzo di calcolo è compreso tra min e max limiti configurati, il costo di calcolo è basato su vCore e memoria usata.
+- Quando l'utilizzo di calcolo è di sotto di limiti di min configurati, il costo di calcolo è basato sul numero minimo di Vcore e memoria minima configurata.
+- Quando il database è sospeso, il costo di calcolo è uguale a zero e vengono addebitati solo i costi di archiviazione.
+- Il costo di archiviazione è determinato esattamente come il livello di calcolo sottoposte a provisioning.
+
+Per altre informazioni dettagliate dei costi, vedere [fatturazione](sql-database-serverless.md#billing).
 
 ## <a name="scenarios"></a>Scenari
 
@@ -73,7 +76,7 @@ La tabella seguente riepiloga le differenze tra il livello di calcolo serverless
 
 Il database SQL serverless è attualmente supportato solo nel livello per utilizzo generico su hardware di quinta generazione nel modello di acquisto vCore.
 
-## <a name="autoscale"></a>Autoscale
+## <a name="autoscaling"></a>Scalabilità automatica
 
 ### <a name="scaling-responsiveness"></a>Tempo di risposta per il ridimensionamento
 
@@ -98,9 +101,9 @@ Senza server sia stato eseguito il provisioning nel calcolo i database, le voci 
 
 La cache SQL aumenta man mano che i dati vengono recuperati dal disco nello stesso modo e con la stessa velocità a quelli di database con provisioning. Quando il database è occupato, la cache è consentita a crescere senza vincoli fino al limite di memoria massima.
 
-## <a name="autopause-and-autoresume"></a>Sospensione automatica e ripresa automatica
+## <a name="autopausing-and-autoresuming"></a>Autopausing e autoresuming
 
-### <a name="autopause"></a>Sospensione automatica
+### <a name="autopausing"></a>Autopausing
 
 Autopausing viene attivato se tutte le condizioni seguenti sono true per la durata del ritardo autopause:
 
@@ -117,7 +120,7 @@ Le funzionalità seguenti non supportano autopausing.  Vale a dire, se si usano 
 
 Autopausing temporaneamente non è consentita durante la distribuzione di alcuni aggiornamenti dei servizi che richiedono che il database sia online.  In questi casi, autopausing diventa consentita nuovamente dopo aver completato l'aggiornamento del servizio.
 
-### <a name="autoresume"></a>Ripresa automatica
+### <a name="autoresuming"></a>Autoresuming
 
 Autoresuming viene attivato se una delle condizioni seguenti è vera in qualsiasi momento:
 
@@ -148,7 +151,7 @@ La latenza autoresume e autopause un database senza server è in genere ordine p
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Onboarding nel livello di calcolo senza server
 
-La procedura di creazione di un nuovo database o di spostamento di un database esistente in un livello di calcolo serverless è analoga a quella di creazione di un nuovo database nel livello di calcolo con provisioning e prevede i due passaggi seguenti:
+Crea un nuovo database o lo spostamento di che un database esistente a un livello di calcolo senza server segue lo stesso modello come creare un nuovo database in stato effettuato il provisioning a livello di calcolo e prevede i due passaggi seguenti.
 
 1. Specificare il nome dell'obiettivo di servizio. L'obiettivo di servizio prevede il livello di servizio, la generazione di hardware e numero massimo di Vcore. La tabella seguente mostra le opzioni relative all'obiettivo di servizio:
 
@@ -163,18 +166,20 @@ La procedura di creazione di un nuovo database o di spostamento di un database e
    |Parametro|Valori disponibili|Valore predefinito|
    |---|---|---|---|
    |Numero minimo di Vcore|Uno qualsiasi tra {0,5, 1, 2, 4} purché non superi il numero massimo di vCore|0,5 vCore|
-   |Ritardo di sospensione automatica|Min: 360 minuti (6 ore)<br>Max: 10080 minuti (7 giorni)<br>Incrementi: 60 minuti<br>Disabilita la sospensione automatica: -1|360 minuti|
+   |Ritardo di sospensione automatica|Minimo: 360 minuti (6 ore)<br>Massima: 10080 minuti (7 giorni)<br>Incrementi: 60 minuti<br>Disabilita la sospensione automatica: -1|360 minuti|
 
 > [!NOTE]
 > L'uso di T-SQL per spostare un database esistente in un database serverless o modificarne le dimensioni di calcolo non è attualmente supportato, ma è possibile effettuare queste operazioni tramite il portale di Azure o PowerShell.
 
-### <a name="create-new-serverless-database-using-azure-portal"></a>Creare nuovi database senza server tramite il portale di Azure
+### <a name="create-new-database-in-serverless-compute-tier"></a>Crea nuovo database nel livello di calcolo senza server 
+
+#### <a name="use-azure-portal"></a>Usare il portale di Azure
 
 Vedere [Avvio rapido: Creare un database singolo nel database SQL di Azure usando il portale di Azure](sql-database-single-database-get-started.md).
 
-### <a name="create-new-serverless-database-using-powershell"></a>Creare nuovi database senza server usando PowerShell
+#### <a name="use-powershell"></a>Usare PowerShell
 
-Nell'esempio seguente viene creato un nuovo database nel livello di calcolo serverless definito dall'obiettivo di servizio denominato GP_S_Gen5_4 con i valori predefiniti per il numero minimo di vCore e il ritardo di sospensione automatica.
+L'esempio seguente crea un nuovo database nel livello di calcolo senza server.  In questo esempio vengono specificati in modo esplicito il numero minimo e massimo di vCore e il ritardo di sospensione automatica.
 
 ```powershell
 New-AzSqlDatabase `
@@ -189,9 +194,11 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
-### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>Spostare il database di calcolo sottoposte a provisioning a livello di calcolo senza server
+### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Spostare i database dal livello di calcolo sottoposte a provisioning a livello di calcolo senza server
 
-Nell'esempio seguente un database singolo esistente viene spostato dal livello di calcolo con provisioning al livello di calcolo serverless. In questo esempio vengono specificati in modo esplicito il numero minimo e massimo di vCore e il ritardo di sospensione automatica.
+#### <a name="use-powershell"></a>Usare PowerShell
+
+L'esempio seguente sposta un database dal livello di calcolo sottoposte a provisioning nel livello di calcolo senza server. In questo esempio vengono specificati in modo esplicito il numero minimo e massimo di vCore e il ritardo di sospensione automatica.
 
 ```powershell
 Set-AzSqlDatabase
@@ -206,7 +213,7 @@ Set-AzSqlDatabase
   -AutoPauseDelayInMinutes 1440
 ```
 
-### <a name="move-serverless-database-into-provisioned-compute-tier"></a>Spostare database senza server nel livello di calcolo sottoposte a provisioning
+### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>Spostare i database dal livello di calcolo senza server a livello di calcolo sottoposte a provisioning
 
 La procedura per spostare un database serverless in un livello di calcolo con provisioning è analoga a quella per spostare un database di calcolo con provisioning in un livello di calcolo serverless.
 
@@ -214,13 +221,19 @@ La procedura per spostare un database serverless in un livello di calcolo con pr
 
 ### <a name="maximum-vcores"></a>Numero massimo di vCore
 
+#### <a name="use-powershell"></a>Usare PowerShell
+
 Modifica il numero massimo di Vcore viene eseguita usando il [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando in PowerShell usando il `MaxVcore` argomento.
 
 ### <a name="minimum-vcores"></a>Numero minimo di vCore
 
+#### <a name="use-powershell"></a>Usare PowerShell
+
 Modifica il numero minimo di Vcore viene eseguita usando il [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando in PowerShell usando il `MinVcore` argomento.
 
 ### <a name="autopause-delay"></a>Ritardo di sospensione automatica
+
+#### <a name="use-powershell"></a>Usare PowerShell
 
 Modifica del ritardo autopause viene eseguita usando il [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando in PowerShell usando il `AutoPauseDelayInMinutes` argomento.
 
@@ -228,7 +241,7 @@ Modifica del ritardo autopause viene eseguita usando il [Set-AzSqlDatabase](http
 
 ### <a name="resources-used-and-billed"></a>Risorse usate e fatturate
 
-Le risorse di un database serverless sono incapsulate dalle entità seguenti:
+Pacchetto dell'app, istanza di SQL Server e le entità del pool di risorse utente sono incapsulate le risorse di un database senza server.
 
 #### <a name="app-package"></a>Pacchetto dell'app
 

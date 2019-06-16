@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 1e85b633024b5a3e85874707ae9a1f068e7a328d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734836"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808514"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Monitoraggio su larga scala tramite Monitoraggio di Azure
 
@@ -109,7 +109,7 @@ L'aspetto principale è la condizione di attivazione dell'avviso. Facendo clic s
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-Modificare la query Kusto, se necessario, selezionare la soglia a destra (che deciderà se verrà generato l'avviso), il periodo di corretto (intervallo di tempo per cui viene eseguita la query) e la relativa frequenza. Ad esempio:  Se la soglia è superiore a 0, il periodo è 5 minuti e la frequenza è 5 minuti, quindi la regola viene convertita come "Eseguire la query ogni 5 minuti negli ultimi 5 minuti e se il numero di risultati è maggiore di 0, invia una notifica tramite il gruppo di azione selezionato"
+Modificare la query Kusto, se necessario, selezionare la soglia a destra (che deciderà se verrà generato l'avviso), il periodo di corretto (intervallo di tempo per cui viene eseguita la query) e la relativa frequenza. Ad esempio: Se la soglia è superiore a 0, il periodo è 5 minuti e la frequenza è 5 minuti, quindi la regola viene convertita come "Eseguire la query ogni 5 minuti negli ultimi 5 minuti e se il numero di risultati è maggiore di 0, invia una notifica tramite il gruppo di azione selezionato"
 
 #### <a name="action-group-integration"></a>Integrazione di gruppo di azione
 
@@ -257,7 +257,7 @@ In questo caso la risorsa è l'insieme di credenziali di servizi di ripristino s
 Mentre la notifica tramite i log attività può essere utilizzata, ***servizio Backup di Azure consiglia di usare LA per il monitoraggio in scala e non i log attività per i motivi seguenti***.
 
 - **Alcuni scenari:** Applicabile solo per i backup di macchine Virtuali di Azure e deve essere ripetuto per ogni insieme di credenziali RS.
-- **Definizione di base:** L'attività di backup pianificato non è compatibile con l'ultima definizione del log attività e viene allineato [log di diagnostica](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs). Ciò ha comportato un impatto non previsto quando i dati distribuendo tramite i canali di log attività vengono modificati come evidenziato di seguito.
+- **Definizione di base:** L'attività di backup pianificato non è compatibile con l'ultima definizione del log attività e viene allineato [log di diagnostica](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). Ciò ha comportato un impatto non previsto quando i dati distribuendo tramite i canali di log attività vengono modificati come evidenziato di seguito.
 - **Problemi con canale del registro attività:** Si è passati a un nuovo modello di distribuzione dei log attività da Backup di Azure negli insiemi di credenziali di Servizi di ripristino. Sfortunatamente, lo spostamento è interessata la generazione dei log di attività nei cloud sovrani di Azure. Se gli utenti del Cloud sovrani di Azure creato/configurato tutti gli avvisi dai log attività tramite Monitoraggio di Azure, si potrebbe non essere attivate. Inoltre, in tutte le aree pubbliche di Azure, se un utente sta raccogliendo i log attività di Servizi di ripristino in un'area di lavoro di Log Analytics come indicato [qui](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), anche questi log non saranno visibili.
 
 Di conseguenza, è consigliabile usare analisi di Log dell'area di lavoro per il monitoraggio e avvisi su larga scala per tutti i Backup di Azure di carichi di lavoro protetti.

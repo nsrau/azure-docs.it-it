@@ -9,10 +9,10 @@ ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: e144214a58f9fe383cf4edd878554792d9d6a6f9
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64947154"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Riscrivere le intestazioni di richiesta e risposta HTTP con il Gateway applicazione di Azure - portale di Azure
@@ -97,7 +97,7 @@ In questo esempio, modifichiamo un URL di reindirizzamento riscrivendo l'intesta
 
    - Sotto **distinzione maiuscole/minuscole**, selezionare **No**.
 
-   - Nel **Operator** elenco, selezionare **uguale (=)**.
+   - Nel **Operator** elenco, selezionare **uguale (=)** .
 
    - Immettere un modello di espressione regolare. In questo esempio, si userà il modello `(https?):\/\/.*azurewebsites\.net(.*)$`.
 

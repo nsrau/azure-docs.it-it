@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: banders
 ms.openlocfilehash: 8f4279d9ac085cdd1ded0dfdda4fad9d3fe12fb8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480231"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Annullare la sottoscrizione di Azure

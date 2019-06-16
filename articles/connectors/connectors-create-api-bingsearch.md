@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952604"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Trovare notizie con Ricerca Bing e App per la logica di Azure
@@ -58,11 +58,11 @@ Se la connessione è già presente, fornire le informazioni necessarie per il tr
    | Search Query | Sì | <*termini di ricerca*> | Immettere le parole chiave di ricerca da usare. |
    | Market | Sì | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. |
    | Ricerca sicura | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
-   | Conteggio | No  | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
-   | Offset | No  | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati |
+   | Conteggio | No | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
+   | Offset | No | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati |
    |||||
 
-   Ad esempio: 
+   Ad esempio:
 
    ![Configurare trigger](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
@@ -89,7 +89,7 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
    ![Aggiungere un'azione](./media/connectors-create-api-bing-search/add-action.png)
 
    Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. 
-   Fare clic sul segno più (**+**) visualizzato e quindi scegliere **Aggiungi un'azione**.
+   Fare clic sul segno più ( **+** ) visualizzato e quindi scegliere **Aggiungi un'azione**.
 
 3. Nella casella di ricerca digitare "Ricerca Bing" come filtro.
 Nell'elenco delle azioni, scegliere l'azione desiderata.
@@ -109,8 +109,8 @@ Nell'elenco delle azioni, scegliere l'azione desiderata.
    | Search Query | Sì | <*espressione di ricerca*> | Immettere un'espressione per l'esecuzione di query tra i risultati del trigger. È possibile eseguire una selezione tra i campi dell'elenco di contenuti dinamici o creare un'espressione con il Generatore di espressioni. |
    | Market | Sì | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. |
    | Ricerca sicura | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
-   | Conteggio | No  | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
-   | Offset | No  | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati |
+   | Conteggio | No | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
+   | Offset | No | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati |
    |||||
 
    Si supponga, ad esempio, che si desideri visualizzare i risultati il cui nome di categoria include il termine "tech".
@@ -122,7 +122,7 @@ Nell'elenco delle azioni, scegliere l'azione desiderata.
 
       È ora possibile iniziare a creare l'espressione.
 
-   2. Nell'elenco di funzioni, selezionare la funzione **contiene()**, che verrà quindi visualizzata nella casella dell'espressione. Fare clic su **Contenuto dinamico** in modo che venga nuovamente visualizzato l'elenco dei campi, assicurandosi tuttavia che il cursore rimanga all'interno delle parentesi.
+   2. Nell'elenco di funzioni, selezionare la funzione **contiene()** , che verrà quindi visualizzata nella casella dell'espressione. Fare clic su **Contenuto dinamico** in modo che venga nuovamente visualizzato l'elenco dei campi, assicurandosi tuttavia che il cursore rimanga all'interno delle parentesi.
 
       ![Selezionare una funzione](./media/connectors-create-api-bing-search/expression-select-function.png)
 
@@ -158,7 +158,7 @@ Nell'elenco delle azioni, scegliere l'azione desiderata.
    | API key | Sì | <*chiave API*> | Chiave API di Ricerca Bing ottenuta in precedenza. Se non si dispone di una chiave, ottenere una [chiave API](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
-   Ad esempio: 
+   Ad esempio:
 
    ![Creare la connessione](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 

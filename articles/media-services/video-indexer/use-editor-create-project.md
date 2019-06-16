@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518143"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Usare l'editor di indicizzatore Video per creare progetti
@@ -55,7 +55,7 @@ Questo articolo illustra come creare un progetto da zero, nonché come creare un
 
     È possibile filtrare ulteriormente i risultati selezionando **filtrare i risultati**. È possibile filtrare per visualizzare i video con una determinata persona in essi contenuti o per specificare che si desidera solo vedere risultati video che sono una in una determinata lingua o dispone di un proprietario specifico. <br/> È anche possibile specificare l'ambito della query. Ad esempio, se si desidera eseguire la ricerca di OCR "GitHub", selezionare **testo Visual**.
 
-    ![Applica filtro](./media/video-indexer-view-edit/visual-text.png)
+    ![Filtro](./media/video-indexer-view-edit/visual-text.png)
 
     Puoi aggiungere livelli di più filtri alla query. Usare la **+** / **-** pulsanti per aggiungere o rimuovere i filtri. Uso **cancellare i filtri** per rimuovere tutti i filtri.
 1. Per aggiungere video, selezionarli e quindi selezionare **Add**.
@@ -77,7 +77,7 @@ Se si fa clic sulla freccia verso il basso sul lato destro di ogni video, aprir�
 1. Per creare query per clip specifica, usare la casella di ricerca con la dicitura "Eseguire ricerche nella trascrizione, testo visual, persone e le etichette".
 1. Aggiungere filtri per specificare ulteriormente le informazioni dettagliate su quali scene di cui si sta cercando selezionando **opzioni di filtro**.
 
-    ![Opzioni filtro](./media/video-indexer-view-edit/filter-options.png)
+    ![Opzioni di filtro](./media/video-indexer-view-edit/filter-options.png)
 
     Ad esempio, si desideri vedere clip in cui viene menzionato GitHub mentre Donovan Brown è sullo schermo. A tale scopo, è necessario aggiungere un filtro "include" con "People" come tipo di informazioni dettagliate. È quindi necessario immettere "Donovan Brown" nella casella di ricerca per il filtro.
     
@@ -89,7 +89,7 @@ Se si fa clic sulla freccia verso il basso sul lato destro di ogni video, aprir�
     
     Aggiungere tutti i segmenti di un video, fare clic sull'opzione di menu elenco accanto al video e selezionando **selezionare tutti i segmenti**. 
 
-    ![Aggiungi tutti](./media/video-indexer-view-edit/add-all.png)
+    ![Aggiungi tutto](./media/video-indexer-view-edit/add-all.png)
 
     È possibile deselezionare tutti la selezione selezionando annullare la selezione.
 
@@ -130,7 +130,7 @@ Ricordarsi di salvare il progetto quando si apportano modifiche selezionando **S
 
     Verrà visualizzata la stessa pagina in cui è utilizzato per creare un nuovo progetto. A differenza di nuovo progetto, noterete che i segmenti di insights con timestamp del video, che si era ha iniziato la modifica in precedenza.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Panoramica di Video Indexer](video-indexer-overview.md)
 

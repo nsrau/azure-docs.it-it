@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: reference
 ms.date: 05/13/2019
 ms.openlocfilehash: aa5d3a0555875571276fdf4046ad0e4dd1e69bbd
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596938"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Riferimento per i tipi di trigger e azione nel linguaggio di definizione del flusso di lavoro per le App per la logica di Azure
@@ -157,7 +157,7 @@ Questo trigger verifica o *esegue il polling* di un endpoint usando le [API gest
 | Elemento | Type | Descrizione |
 |---------|------|-------------|
 | headers | Oggetto JSON | Intestazioni dalla risposta |
-| corpo | Oggetto JSON | Il corpo dalla risposta |
+| Corpo | Oggetto JSON | Il corpo dalla risposta |
 | Codice di stato | Integer | Il codice di stato della risposta |
 |||| 
 
@@ -330,7 +330,7 @@ Questo trigger verifica o esegue il polling dell'endpoint specificato in base al
 | Elemento | Type | Descrizione |
 |---------|------|-------------| 
 | headers | Oggetto JSON | Intestazioni dalla risposta | 
-| corpo | Oggetto JSON | Il corpo dalla risposta | 
+| Corpo | Oggetto JSON | Il corpo dalla risposta | 
 | Codice di stato | Integer | Il codice di stato della risposta | 
 |||| 
 
@@ -340,14 +340,14 @@ Per funzionare correttamente con l'app per la logica, l'endpoint deve essere con
   
 | Risposta | Obbligatorio | Descrizione | 
 |----------|----------|-------------| 
-| Codice stato | Sì | Il codice di stato "200 OK" avvia un'esecuzione. Nessun altro codice di stato avvia un'esecuzione. | 
-| Intestazione retry-after | N. | Il numero di secondi fino a quando l'app per la logica esegue il polling dell'endpoint nuovamente | 
-| Intestazione Location | N. | URL da chiamare al successivo intervallo di polling. Se non è specificato, viene usato l'URL originale. | 
+| Codice di stato | Yes | Il codice di stato "200 OK" avvia un'esecuzione. Nessun altro codice di stato avvia un'esecuzione. | 
+| Intestazione retry-after | No | Il numero di secondi fino a quando l'app per la logica esegue il polling dell'endpoint nuovamente | 
+| Intestazione Location | No | URL da chiamare al successivo intervallo di polling. Se non è specificato, viene usato l'URL originale. | 
 |||| 
 
 *Comportamenti di esempio per diverse richieste*
 
-| Codice stato | Nuovo tentativo dopo | Comportamento | 
+| Codice di stato | Nuovo tentativo dopo | Comportamento | 
 |-------------|-------------|----------|
 | 200 | {none} | Esegue il flusso di lavoro e quindi controlla di nuovo la presenza di altri dati dopo la ricorrenza definita. | 
 | 200 | 10 secondi | Esegue il flusso di lavoro e quindi controlla di nuovo la presenza di altri dati dopo 10 secondi. |  
@@ -425,7 +425,7 @@ Alcuni valori, ad esempio <*method-type*>, sono disponibili per gli oggetti `"su
 | Elemento | Type | Descrizione |
 |---------|------|-------------| 
 | headers | Oggetto JSON | Intestazioni dalla risposta | 
-| corpo | Oggetto JSON | Il corpo dalla risposta | 
+| Corpo | Oggetto JSON | Il corpo dalla risposta | 
 | Codice di stato | Integer | Il codice di stato della risposta | 
 |||| 
 
@@ -2665,9 +2665,9 @@ Per l'[autenticazione di base](../active-directory-b2c/active-directory-b2c-cust
 
 | Proprietà | Obbligatorio | Value | Descrizione | 
 |----------|----------|-------|-------------| 
-| **type** | Sì | "Basic" | Il tipo di autenticazione da usare, in questo caso, "Basic" | 
-| **username** | Sì | "@parameters('userNameParam')" | Il nome utente per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
-| **password** | Sì | "@parameters('passwordParam')" | La password per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
+| **type** | Yes | "Basic" | Il tipo di autenticazione da usare, in questo caso, "Basic" | 
+| **username** | Yes | "@parameters('userNameParam')" | Il nome utente per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
+| **password** | Yes | "@parameters('passwordParam')" | La password per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
 ||||| 
 
 In questa definizione dell'azione HTTP di esempio, la sezione `authentication` specifica l'autenticazione `Basic`. Per altre informazioni sull'uso e sulla protezione dei parametri, vedere [Proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2699,9 +2699,9 @@ Per l'[autenticazione basata sul certificato](../active-directory/authentication
 
 | Proprietà | Obbligatorio | Value | Descrizione |
 |----------|----------|-------|-------------|
-| **type** | Sì | "ClientCertificate" | Il tipo di autenticazione da usare per i certificati client di Secure Sockets Layer (SSL). Benché siano supportati i certificati autofirmati, non sono supportati i certificati autofirmati per SSL. |
-| **pfx** | Sì | "@parameters('pfxParam') | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
-| **password** | Sì | "@parameters('passwordParam')" | Password per accedere al file PFX. |
+| **type** | Yes | "ClientCertificate" | Il tipo di autenticazione da usare per i certificati client di Secure Sockets Layer (SSL). Benché siano supportati i certificati autofirmati, non sono supportati i certificati autofirmati per SSL. |
+| **pfx** | Yes | "@parameters('pfxParam') | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
+| **password** | Yes | "@parameters('passwordParam')" | Password per accedere al file PFX. |
 ||||| 
 
 In questa definizione dell'azione HTTP di esempio, la sezione `authentication` specifica l'autenticazione `ClientCertificate`. Per altre informazioni sull'uso e sulla protezione dei parametri, vedere [Proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2733,12 +2733,12 @@ Per l'[autenticazione OAuth di Azure Active Directory](../active-directory/devel
 
 | Proprietà | Obbligatorio | Value | Descrizione |
 |----------|----------|-------|-------------|
-| **type** | Sì | `ActiveDirectoryOAuth` | Il tipo di autenticazione da usare, ovvero "ActiveDirectoryOAuth" per OAuth di Azure AD |
-| **authority** | N. | <*URL-for-authority-token-issuer*> | L'URL per l'autorità che fornisce il token di autenticazione |
-| **tenant** | Sì | <*tenant-ID*> | L'ID tenant per il tenant di Azure AD |
-| **audience** | Sì | <*resource-to-authorize*> | La risorsa che si vuole usare per l'autorizzazione, ad esempio `https://management.core.windows.net/` |
-| **clientId** | Sì | <*client-ID*> | L'ID client per l'app richiedente l'autorizzazione |
-| **credentialType** | Sì | "Certificate" o "Secret" | Il tipo di credenziale client utilizzata per la richiesta di autorizzazione. Tale proprietà e valore non viene visualizzata nella definizione sottostante, ma determina i parametri obbligatori per il tipo di credenziale. |
+| **type** | Yes | `ActiveDirectoryOAuth` | Il tipo di autenticazione da usare, ovvero "ActiveDirectoryOAuth" per OAuth di Azure AD |
+| **authority** | No | <*URL-for-authority-token-issuer*> | L'URL per l'autorità che fornisce il token di autenticazione |
+| **tenant** | Yes | <*tenant-ID*> | L'ID tenant per il tenant di Azure AD |
+| **audience** | Yes | <*resource-to-authorize*> | La risorsa che si vuole usare per l'autorizzazione, ad esempio `https://management.core.windows.net/` |
+| **clientId** | Yes | <*client-ID*> | L'ID client per l'app richiedente l'autorizzazione |
+| **credentialType** | Yes | "Certificate" o "Secret" | Il tipo di credenziale client utilizzata per la richiesta di autorizzazione. Tale proprietà e valore non viene visualizzata nella definizione sottostante, ma determina i parametri obbligatori per il tipo di credenziale. |
 | **pfx** | Sì, solo per il tipo di credenziale "Certificato" | "@parameters('pfxParam') | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
 | **password** | Sì, solo per il tipo di credenziale "Certificato" | "@parameters('passwordParam')" | Password per accedere al file PFX. |
 | **secret** | Sì, solo per il tipo di credenziale "Segreto" | "@parameters('secretParam')" | Il segreto client per la richiesta dell'autorizzazione |

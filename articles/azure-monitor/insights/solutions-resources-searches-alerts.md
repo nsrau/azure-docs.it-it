@@ -14,10 +14,10 @@ ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104831"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione (anteprima)
@@ -76,14 +76,14 @@ Le risorse [ricerca salvata di Log Analytics](../../azure-monitor/log-query/log-
 
 Le singole proprietà di una ricerca salvata sono descritte nella tabella seguente.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | category | Categoria della ricerca salvata.  Tutte le ricerche salvate nella stessa soluzione condivideranno in genere una singola categoria in modo da essere raggruppate nella console. |
 | displayname | Nome da visualizzare per la ricerca salvata nel portale. |
 | query | Query da eseguire. |
 
 > [!NOTE]
-> Potrebbe essere necessario usare caratteri di escape, se la query include caratteri che potrebbero essere interpretati come JSON. La query **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, ad esempio, dovrà essere scritta nel file di soluzione nel modo seguente: **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"**.
+> Potrebbe essere necessario usare caratteri di escape, se la query include caratteri che potrebbero essere interpretati come JSON. La query **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** , ad esempio, dovrà essere scritta nel file di soluzione nel modo seguente: **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"** .
 
 ## <a name="alerts"></a>Avvisi
 Gli [avvisi del log di Azure](../../azure-monitor/platform/alerts-unified-log.md) vengono creati dalle regole di avviso di Azure che eseguono le query di log specificate a intervalli regolari. Se i risultati della query corrispondono ai criteri specificati, viene creato un record di avviso e vengono eseguite una o più azioni usando i [gruppi di azioni](../../azure-monitor/platform/action-groups.md).
@@ -121,11 +121,11 @@ Una ricerca salvata può avere una o più pianificazioni, ognuna delle quali rap
     }
 Le proprietà delle risorse pianificazione sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
-| Enabled       | Sì | Specifica se l'avviso viene abilitato al momento della creazione. |
-| interval      | Sì | Frequenza, in minuti, con cui viene eseguita la query. |
-| queryTimeSpan | Sì | Periodo di tempo, in minuti, per cui verranno valutati i risultati. |
+| enabled       | Yes | Specifica se l'avviso viene abilitato al momento della creazione. |
+| interval      | Yes | Frequenza, in minuti, con cui viene eseguita la query. |
+| queryTimeSpan | Yes | Periodo di tempo, in minuti, per cui verranno valutati i risultati. |
 
 La risorsa pianificazione dipenderà dalla ricerca salvata, che verrà quindi creata prima della pianificazione.
 > [!NOTE]
@@ -174,21 +174,21 @@ Le azioni di avviso hanno la struttura seguente. Nella struttura sono inclusi pa
 
 Le proprietà delle risorse azione di avviso sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
-| Type | Sì | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
-| NOME | Sì | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
-| DESCRIZIONE | No  | Descrizione facoltativa dell'avviso. |
-| Severity | Sì | Gravità del record di avviso tra i valori seguenti:<br><br> **critical**<br>**warning**<br>**informational**
+| Type | Yes | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
+| Name | Yes | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
+| Descrizione | No | Descrizione facoltativa dell'avviso. |
+| Severity | Yes | Gravità del record di avviso tra i valori seguenti:<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Soglia
 Questa sezione è obbligatoria e definisce le proprietà della soglia dell'avviso.
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
-| Operator | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
-| Value | Sì | Valore per il confronto dei risultati. |
+| Operator | Yes | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
+| Value | Yes | Valore per il confronto dei risultati. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Questa sezione è facoltativa. Includere la sezione per un avviso di misurazione delle metriche.
@@ -196,17 +196,17 @@ Questa sezione è facoltativa. Includere la sezione per un avviso di misurazione
 > [!NOTE]
 > Gli avvisi di misurazione delle metriche sono attualmente disponibili in anteprima pubblica.
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
-| TriggerCondition | Sì | Specifica se la soglia riguarda il numero totale di violazioni o le violazioni consecutive, con i valori seguenti:<br><br>**Total<br>Consecutive** |
-| Operator | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
-| Value | Sì | Numero di volte in cui i criteri devono essere soddisfatti per attivare l'avviso. |
+| TriggerCondition | Yes | Specifica se la soglia riguarda il numero totale di violazioni o le violazioni consecutive, con i valori seguenti:<br><br>**Total<br>Consecutive** |
+| Operator | Yes | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
+| Value | Yes | Numero di volte in cui i criteri devono essere soddisfatti per attivare l'avviso. |
 
 
 #### <a name="throttling"></a>Limitazione
 Questa sezione è facoltativa. Includere la sezione se si vogliono eliminare gli avvisi generati dalla stessa regola per un determinato intervallo di tempo dopo la creazione di un avviso.
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
 | DurationInMinutes | Sì, se è incluso l'elemento Throttling | Numero di minuti in cui verranno eliminati gli avvisi dopo che ne è stato creato uno dalla stessa regola di avviso. |
 
@@ -215,11 +215,11 @@ Tutti gli avvisi in Azure usano un gruppo di azioni come meccanismo predefinito 
 
 Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devono ora essere passati i dettagli del gruppo di azioni insieme alla soglia per poter creare un avviso. I dettagli di posta elettronica, gli URL di webhook, i dettagli relativi all'automazione runbook e altre azioni devono essere definiti all'interno di un gruppo di azioni prima di creare un avviso. È possibile creare un [gruppo di azioni da Monitoraggio di Azure](../../azure-monitor/platform/action-groups.md) nel portale o usare il [modello Gruppo di azioni - Risorsa](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
-| AzNsNotification | Sì | ID risorsa del gruppo di azioni di Azure da associare a un avviso per l'esecuzione di azioni necessarie quando viene soddisfatto il criterio di avviso. |
-| CustomEmailSubject | No  | Riga dell'oggetto personalizzata del messaggio inviato a tutti gli indirizzi specificati nel gruppo di azioni associato. |
-| CustomWebhookPayload | No  | Payload personalizzato da inviare a tutti gli endpoint webhook definiti nel gruppo di azioni associato. Il formato dipende da ciò che è previsto dal webhook e deve essere un oggetto JSON serializzato valido. |
+| AzNsNotification | Yes | ID risorsa del gruppo di azioni di Azure da associare a un avviso per l'esecuzione di azioni necessarie quando viene soddisfatto il criterio di avviso. |
+| CustomEmailSubject | No | Riga dell'oggetto personalizzata del messaggio inviato a tutti gli indirizzi specificati nel gruppo di azioni associato. |
+| CustomWebhookPayload | No | Payload personalizzato da inviare a tutti gli endpoint webhook definiti nel gruppo di azioni associato. Il formato dipende da ciò che è previsto dal webhook e deve essere un oggetto JSON serializzato valido. |
 
 #### <a name="actions-for-oms-legacy"></a>Azioni per OMS (legacy)
 
@@ -231,20 +231,20 @@ Ogni pianificazione ha un'azione **Alert**. che definisce i dettagli dell'avviso
 ##### <a name="emailnotification"></a>EmailNotification
  Questa sezione è facoltativa, includerla se si vuole inviare un messaggio di posta elettronica a uno o più destinatari.
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
-| Recipients | Sì | Elenco delimitato da virgole di indirizzi di posta elettronica a cui inviare una notifica quando viene creato un avviso, come nell'esempio seguente.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
-| Subject | Sì | Riga dell'oggetto del messaggio di posta elettronica. |
-| Attachment | No  | Gli allegati non sono attualmente supportati. Se questo elemento è incluso, il valore dovrà essere **None**. |
+| Recipients | Yes | Elenco delimitato da virgole di indirizzi di posta elettronica a cui inviare una notifica quando viene creato un avviso, come nell'esempio seguente.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
+| Subject | Yes | Riga dell'oggetto del messaggio di posta elettronica. |
+| Attachment | No | Gli allegati non sono attualmente supportati. Se questo elemento è incluso, il valore dovrà essere **None**. |
 
 ##### <a name="remediation"></a>Correzione
 Questa sezione è facoltativa, includerla se si vuole avviare un runbook in risposta all'avviso. 
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
-| RunbookName | Sì | Nome del runbook da avviare. |
-| WebhookUri | Sì | URI del webhook per il runbook. |
-| Expiry | No  | Data e ora di scadenza della correzione. |
+| RunbookName | Yes | Nome del runbook da avviare. |
+| WebhookUri | Yes | URI del webhook per il runbook. |
+| Expiry | No | Data e ora di scadenza della correzione. |
 
 ##### <a name="webhook-actions"></a>Azioni webhook
 
@@ -269,12 +269,12 @@ Se l'avviso chiamerà un webhook, sarà necessaria una risorsa azione di tipo **
     }
 Le proprietà delle risorse azione webhook sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
-| type | Sì | Tipo di azione. Per le azioni webhook, il tipo è **Webhook**. |
-| name | Sì | Nome visualizzato per l'azione. Non viene visualizzato nella console. |
-| webhookUri | Sì | URI del webhook. |
-| customPayload | No  | Payload personalizzato da inviare al webhook. Il formato dipende da ciò che il webhook si aspetta. |
+| tipo | Yes | Tipo di azione. Per le azioni webhook, il tipo è **Webhook**. |
+| name | Yes | Nome visualizzato per l'azione. Non viene visualizzato nella console. |
+| webhookUri | Yes | URI del webhook. |
+| customPayload | No | Payload personalizzato da inviare al webhook. Il formato dipende da ciò che il webhook si aspetta. |
 
 ## <a name="sample"></a>Esempio
 

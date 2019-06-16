@@ -10,10 +10,10 @@ ms.reviewer: derek1ee, LADocs
 ms.topic: article
 ms.date: 05/14/2019
 ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602110"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Aggiungere ed eseguire i frammenti di codice utilizzando codice inline nelle App per la logica di Azure
@@ -52,7 +52,7 @@ In questo articolo, i trigger di app per la logica di esempio quando un nuovo me
 
    * Per aggiungere l'azione alla fine del flusso di lavoro, scegliere **nuovo passaggio**.
 
-   * Per aggiungere l'azione tra i passaggi esistenti, spostare il puntatore del mouse sulla freccia che collega tali passaggi. Scegliere il segno più (**+**) e selezionare **Aggiungi un'azione**.
+   * Per aggiungere l'azione tra i passaggi esistenti, spostare il puntatore del mouse sulla freccia che collega tali passaggi. Scegliere il segno più ( **+** ) e selezionare **Aggiungi un'azione**.
 
    Questo esempio viene aggiunto il **codice Inline** azione sotto il trigger di Office 365 Outlook.
 
@@ -204,7 +204,7 @@ Nell'esempio di questo argomento, il `workflowContext` oggetto presenta le segue
 
 <a name="add-parameters"></a>
 
-## <a name="add-parameters"></a>Aggiungi parametri
+## <a name="add-parameters"></a>Aggiungere parametri
 
 In alcuni casi, potrebbe essere necessario richiedere in modo esplicito che il **codice Inline** azione include i risultati da trigger o azioni specifiche che fa riferimento il codice come dipendenze aggiungendo le **Trigger** o **Azioni** parametri. Questa opzione è utile per scenari in cui i risultati di cui viene fatto riferimento non vengono trovati in fase di esecuzione.
 
@@ -215,7 +215,7 @@ Ad esempio, si supponga che si dispone di codice che fa riferimento il **Selecte
 
 Per aggiungere questi parametri, aprire il **Aggiungi nuovo parametro** elencare e selezionare i parametri desiderati:
 
-   ![Aggiungi parametri](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
+   ![Aggiungere parametri](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
    | Parametro | Descrizione |
    |-----------|-------------|

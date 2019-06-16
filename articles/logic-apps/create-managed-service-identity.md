@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65416146"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Eseguire l'autenticazione e accedere alle risorse con le identità gestite nelle App per la logica di Azure
@@ -132,7 +132,7 @@ Per fornire l'accesso a un'altra risorsa di Azure per l'identità gestita assegn
 
 1. Nel portale di Azure passare alla risorsa di Azure in cui si desidera assegnare l'accesso per l'identità gestita. 
 
-1. Dal menu della risorsa, selezionare **controllo di accesso (IAM)**. Sulla barra degli strumenti, scegliere **Add** > **aggiungere un'assegnazione di ruolo**.
+1. Dal menu della risorsa, selezionare **controllo di accesso (IAM)** . Sulla barra degli strumenti, scegliere **Add** > **aggiungere un'assegnazione di ruolo**.
 
    ![Aggiungi un'assegnazione di ruolo](./media/create-managed-service-identity/add-permissions-logic-app.png)
 

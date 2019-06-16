@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596072"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Anteprima della versione 2.0 di funzioni permanente (funzioni di Azure)
@@ -26,9 +26,9 @@ Funzioni permanenti è una funzionalità di disponibilità generale (disponibile
 > [!NOTE]
 > Queste funzionalità di anteprima sono parte di una versione 2.0 di funzioni permanenti, che è attualmente un' **versione di qualità alfa** con molte modifiche di rilievo. Azure funzioni durevoli compila pacchetto di estensione è reperibile in nuget.org con le versioni costituiti **2.0.0-alpha**. Tali build non sono adatte per i carichi di lavoro di produzione e versioni successive possono contenere modifiche di rilievo aggiuntive.
 
-## <a name="breaking-changes"></a>Modifiche che causano un'interruzione
+## <a name="breaking-changes"></a>Modifiche di rilievo
 
-2.0 di funzioni permanenti sono introdotte diverse modifiche di rilievo. Le applicazioni esistenti non possono essere compatibili con 2.0 di funzioni permanenti senza modifiche al codice. In questa sezione sono elencate alcune delle modifiche:
+2\.0 di funzioni permanenti sono introdotte diverse modifiche di rilievo. Le applicazioni esistenti non possono essere compatibili con 2.0 di funzioni permanenti senza modifiche al codice. In questa sezione sono elencate alcune delle modifiche:
 
 ### <a name="dropping-net-framework-support"></a>Eliminazione di supporto di .NET Framework
 
@@ -73,7 +73,7 @@ Il frammento seguente mostra il nuovo schema per l'host. JSON. La modifica princ
 }
 ```
 
-2.0 di funzioni durevoli continua di stabilizzarsi e altre modifiche verranno introdotti i `durableTask` sezione host. JSON. Per altre informazioni su queste modifiche, vedere [questo problema su GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/641).
+2\.0 di funzioni durevoli continua di stabilizzarsi e altre modifiche verranno introdotti i `durableTask` sezione host. JSON. Per altre informazioni su queste modifiche, vedere [questo problema su GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/641).
 
 ### <a name="public-interface-changes"></a>Modifiche all'interfaccia pubblica
 
@@ -154,8 +154,8 @@ Supporto Entity comporta diverse API. Per uno, è disponibile una nuova API per 
 L'esecuzione di un'operazione su un'entità può chiamare questi membri dell'oggetto di contesto (`IDurableEntityContext` in .NET):
 
 * **OperationName**: Ottiene il nome dell'operazione.
-* **GetInput\<T >**: Ottiene l'input per l'operazione.
-* **GetState\<T >**: Ottiene lo stato corrente dell'entità.
+* **GetInput\<T >** : Ottiene l'input per l'operazione.
+* **GetState\<T >** : Ottiene lo stato corrente dell'entità.
 * **SetState**: aggiorna lo stato dell'entità.
 * **SignalEntity**: invia un messaggio unidirezionale a un'entità.
 * **Self**: Ottiene l'ID dell'entità.
@@ -172,7 +172,7 @@ Le operazioni sono meno restrizioni rispetto a orchestrazioni:
 
 Entità permanente può essere richiamata da funzioni ordinarie tramite il `orchestrationClient` binding (`IDurableOrchestrationClient` in .NET). Sono supportati i metodi seguenti:
 
-* **ReadEntityStateAsync\<T >**: legge lo stato di un'entità.
+* **ReadEntityStateAsync\<T >** : legge lo stato di un'entità.
 * **SignalEntityAsync**: invia un messaggio unidirezionale a un'entità e attende il suo da accodare.
 
 Questi metodi di definire la priorità delle prestazioni sul coerenza: `ReadEntityStateAsync` può restituire un valore non aggiornato, e `SignalEntityAsync` può restituire prima del completamento dell'operazione. Al contrario, la chiamata delle entità dalle orchestrazioni (come descritto di seguito) è con coerenza assoluta.
@@ -183,7 +183,7 @@ Le orchestrazioni possono accedere le entità usando l'oggetto di contesto. È p
 
 * **SignalEntity**: invia un messaggio unidirezionale a un'entità.
 * **CallEntityAsync**: invia un messaggio a un'entità e attende una risposta che indica che l'operazione è stata completata.
-* **CallEntityAsync\<T >**: invia un messaggio a un'entità e attende una risposta che contiene un risultato di tipo T.
+* **CallEntityAsync\<T >** : invia un messaggio a un'entità e attende una risposta che contiene un risultato di tipo T.
 
 Quando si usa la comunicazione bidirezionale, tutte le eccezioni generate durante l'esecuzione dell'operazione vengono anche trasmessi nuovamente all'orchestrazione chiama e generata di nuovo. Al contrario, quando si usa fire-and-forget, le eccezioni non vengono rispettate.
 

@@ -1,8 +1,8 @@
 ---
-title: Quali sono le dipendenze dei servizi nell'accesso condizionale di Azure Active Directory? | Microsoft Docs
-description: Informazioni su come vengono usate le condizioni nell'accesso condizionale di Azure Active Directory per attivare un criterio.
+title: Quali sono le dipendenze del servizio in Active Directory accesso condizionale di Azure? | Microsoft Docs
+description: Informazioni su come le condizioni vengono utilizzate in Active Directory accesso condizionale di Azure per attivare un criterio.
 services: active-directory
-keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
+keywords: Accesso condizionale alle App, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, i criteri di accesso condizionale
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,14 +18,14 @@ ms.date: 03/18/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f727fc7133ebc9ee124e63253e8a266862b0d908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54e5de5fdb03cfaff4d4ed53da94b512f30db58a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354359"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112091"
 ---
-# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Quali sono le dipendenze dei servizi nell'accesso condizionale di Azure Active Directory? 
+# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Quali sono le dipendenze del servizio in Active Directory accesso condizionale di Azure? 
 
 
 Con i criteri di accesso condizionale, è possibile specificare i requisiti di accesso per siti Web e servizi. Ad esempio, i requisiti di accesso possono includere che richiedono l'autenticazione a più fattori (MFA) o [i dispositivi gestiti](require-managed-devices.md). 
@@ -79,4 +79,4 @@ La tabella seguente sono elencate le dipendenze del servizio aggiuntive, in cui 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come implementare l'accesso condizionale nell'ambiente in uso, vedere [Pianificare la distribuzione dell'accesso condizionale in Azure Active Directory](plan-conditional-access.md).
+Per informazioni su come implementare l'accesso condizionale nell'ambiente in uso, vedere [pianificare la distribuzione di accesso condizionale in Azure Active Directory](plan-conditional-access.md).

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60698825"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usare Apache Ambari per ottimizzare le configurazioni cluster HDInsight
@@ -178,10 +178,10 @@ I tipi di compressione disponibili sono:
 
 | Format | Strumento | Algoritmo | Estensione file | Divisibile |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | gz | No  |
-| Bzip2 | Bzip2 | Bzip2 |bz2 | Sì |
+| Gzip | Gzip | DEFLATE | gz | No |
+| Bzip2 | Bzip2 | Bzip2 |bz2 | Yes |
 | LZO | Lzop | LZO | lzo | Sì, se indicizzato |
-| Snappy | N/D | Snappy | Snappy | No  |
+| Snappy | N/D | Snappy | Snappy | No |
 
 Come regola generale, è importante che il metodo di compressione sia divisibile. In caso contrario, verranno creati pochissimi mapper. Se i dati di input sono costituiti da testo, `bzip2` è l'opzione migliore. Per il formato ORC, Snappy è l'opzione di compressione più rapida.
 

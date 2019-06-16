@@ -10,10 +10,10 @@ ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: 44944955019fcf81fb0d296592577e2b00a15928
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299503"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-sliding-window-trigger-in-azure-logic-apps"></a>Creare, pianificare ed eseguire le attività ricorrenti e flussi di lavoro con il trigger di finestra temporale scorrevole nelle App per la logica di Azure
@@ -54,7 +54,7 @@ Le differenze tra questo trigger e i trigger di ricorrenza o per ulteriori infor
    | Proprietà | Obbligatorio | Nome JSON | Type | Descrizione |
    |----------|----------|-----------|------|-------------|
    | **Interval** | Yes | interval | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. Ecco gli intervalli minimo e massimo: <p>- Hour: 1-12.000 ore </br>- Minute: 1-72.000 minuti </br>- Second: 1-9.999.999 secondi<p>Ad esempio, se l'intervallo è 6 e la frequenza è "Hour", la ricorrenza è ogni 6 ore. |
-   | **Frequenza** | Yes | frequency | string | Unità di tempo per la ricorrenza: **Seconda**, **minuto**, o **ora** |
+   | **Frequenza** | Yes | frequency | String | Unità di tempo per la ricorrenza: **Seconda**, **minuto**, o **ora** |
    ||||||
 
    ![Opzioni di ricorrenza avanzate](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
@@ -64,9 +64,9 @@ Le differenze tra questo trigger e i trigger di ricorrenza o per ulteriori infor
 
    | Proprietà | Obbligatorio | Nome JSON | Type | Descrizione |
    |----------|----------|-----------|------|-------------|
-   | **Ritardo** | No  | delay | String | La durata di ritardo ogni ricorrenza usando il [specifica ora data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
-   | **Fuso orario** | No  | timeZone | string | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Selezionare il fuso orario che si desidera applicare. |
-   | **Ora di inizio** | No  | startTime | String | Specificare una data di inizio e un'ora nel formato seguente: <p>AAAA-MM-GGThh:mm:ss se si seleziona un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si seleziona un fuso orario <p>Ad esempio, se si desidera 18 settembre 2017 alle 14:00, specificare "2017-09-18T14:00:00" e selezionare un fuso orario, ad esempio ora solare Pacifico. In alternativa, specificare "2017-09-18T14:00:00Z" senza un fuso orario. <p>**Nota:** l'ora di inizio deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si seleziona un fuso orario, è necessario aggiungere la lettera "Z" alla fine, senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici, l'ora di inizio è la prima occorrenza, mentre per le ricorrenze avanzate, il trigger non viene attivato prima alla data di inizio. [*In quali modi posso usare la data e l'ora di inizio?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Ritardo** | No | delay | String | La durata di ritardo ogni ricorrenza usando il [specifica ora data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
+   | **Fuso orario** | No | timeZone | String | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Selezionare il fuso orario che si desidera applicare. |
+   | **Ora di inizio** | No | startTime | String | Specificare una data di inizio e un'ora nel formato seguente: <p>AAAA-MM-GGThh:mm:ss se si seleziona un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si seleziona un fuso orario <p>Ad esempio, se si desidera 18 settembre 2017 alle 14:00, specificare "2017-09-18T14:00:00" e selezionare un fuso orario, ad esempio ora solare Pacifico. In alternativa, specificare "2017-09-18T14:00:00Z" senza un fuso orario. <p>**Nota:** l'ora di inizio deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si seleziona un fuso orario, è necessario aggiungere la lettera "Z" alla fine, senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici, l'ora di inizio è la prima occorrenza, mentre per le ricorrenze avanzate, il trigger non viene attivato prima alla data di inizio. [*In quali modi posso usare la data e l'ora di inizio?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    |||||
 
 1. A questo punto compilare il flusso di lavoro rimanente con altre azioni. Per altre azioni che è possibile aggiungere, vedere [connettori per App per la logica di Azure](../connectors/apis-list.md).

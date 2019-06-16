@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
 ms.openlocfilehash: a3df5f28475b03f1799dc1e245c3a7e904b49cb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772925"
 ---
 # <a name="reliable-services-notifications"></a>Notifiche di Reliable Services
@@ -34,7 +34,7 @@ Le notifiche vengono attivate come parte dell'applicazione dell'operazione. Per 
 ## <a name="reliable-state-manager-notifications"></a>Notifiche di Reliable State Manager
 Reliable State Manager prevede notifiche per gli eventi seguenti:
 
-* Transazione
+* Transaction
   * Commit
 * State Manager
   * Ricompilazione
@@ -112,7 +112,7 @@ Reliable Dictionary prevede notifiche per gli eventi seguenti.
 * Ricostruzione: Chiamato quando **ReliableDictionary** ha recuperato il proprio stato da un backup o lo stato locale copiato o ripristinato.
 * Chiaro: Chiamato quando lo stato del **ReliableDictionary** è stato cancellato tramite il **ClearAsync** (metodo).
 * Aggiungere: Chiamato quando un elemento è stato aggiunto **ReliableDictionary**.
-* Aggiorna: Chiamato quando un elemento **IReliableDictionary** è stata aggiornata.
+* Aggiornamento: Chiamato quando un elemento **IReliableDictionary** è stata aggiornata.
 * Rimuovere: Chiamato quando un elemento **IReliableDictionary** è stata eliminata.
 
 Per ricevere le notifiche di Reliable Dictionary, è necessario registrarsi nel gestore eventi **DictionaryChanged** in **IReliableDictionary**. Una posizione frequente per la registrazione in questi gestori eventi è la notifica di aggiunta **ReliableStateManager.StateManagerChanged** .

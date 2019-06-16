@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 88776e2f4167c950d60c0405dcf950b5173fb989
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814143"
 ---
 # <a name="interpret-method"></a>Metodo interpret
@@ -25,7 +25,7 @@ Il metodo *interpret* accetta una stringa di query in linguaggio naturale e rest
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-NOME|Value| DESCRIZIONE
+Name|Value| Descrizione
 ----|----|----
 query    | Stringa di testo | Query immessa dall'utente.  Se complete è impostato su 1, la query verrà interpretata come un prefisso per la generazione dei suggerimenti di completamento automatico della query.        
 complete | 0 (valore predefinito) o 1 | 1 indica che i suggerimenti di completamento automatico vengono generati in base alla grammatica e ai dati di indice.         
@@ -37,7 +37,7 @@ Usando i parametri *count* e *offset*, un numero elevato di risultati può esser
 
 ## <a name="response-json"></a>Risposta (JSON)
 
-JSONPath     | DESCRIZIONE
+JSONPath     | Descrizione
 ---------|---------
 $.query |Parametro *query* della richiesta.
 $.interpretations   |Matrice di 0 o più metodi di confronto della query di input rispetto alla grammatica.

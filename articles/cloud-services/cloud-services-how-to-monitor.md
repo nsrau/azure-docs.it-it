@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
 ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61432901"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Presentazione del monitoraggio del servizio cloud
@@ -60,7 +60,7 @@ In fase di creazione, Visual Studio aggiunge a ogni ruolo l'estensione Diagnosti
 
 In primo luogo, se non si ha già un account di archiviazione **classico**, [crearne uno](../storage/common/storage-quickstart-create-account.md). Verificare che l'account di archiviazione sia creato con il **modello di distribuzione classica** specificato.
 
-Quindi passare alla risorsa **Account di archiviazione (classico)**. Selezionare **Impostazioni** > **Chiavi di accesso** e copiare il valore **Stringa di connessione primaria**. Questo valore è necessario per il servizio cloud. 
+Quindi passare alla risorsa **Account di archiviazione (classico)** . Selezionare **Impostazioni** > **Chiavi di accesso** e copiare il valore **Stringa di connessione primaria**. Questo valore è necessario per il servizio cloud. 
 
 Per poter abilitare la diagnostica avanzata, è necessario modificare i due file di configurazione seguenti: **ServiceDefinition.csdef** e **ServiceConfiguration.cscfg**.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 842c35a1575c7bcf6f547fb04d5680178b3bee78
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c402b82b91b02f8d9619c851d09c689fd103c9fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730382"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116443"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentazione di riferimento di Swagger per Gemelli digitali di Azure
 
@@ -104,7 +104,7 @@ Per altre informazioni sul test interattivo delle richieste protette tramite OAu
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | NOME  | Sostituire con | Esempio |
+    | Name  | Sostituire con | Esempio |
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | L'URL della documentazione API REST di gestione disponibili nel portale di  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
@@ -112,7 +112,7 @@ Per altre informazioni sul test interattivo delle richieste protette tramite OAu
 
     ![API di aggiunta in registrazioni di app di Azure AD](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
-4. Configurare il manifesto dell'applicazione per Consenti flusso implicito OAuth 2.0. Fare clic su **Manifesto** per aprire il manifesto dell'applicazione per l'app. Impostare *oauth2AllowImplicitFlow* su `true`.
+4. Configurare il manifesto dell'applicazione per Consenti flusso implicito OAuth 2.0. Selezionare **manifesto** per aprire il manifesto dell'applicazione per l'app. Impostare *oauth2AllowImplicitFlow* su `true`.
 
     ![Flusso implicito di Azure AD](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
 
@@ -120,9 +120,9 @@ Per altre informazioni sul test interattivo delle richieste protette tramite OAu
 
 Dopo aver completato la registrazione di Azure Active Directory:
 
-6. Scegliere il **Authorize** su pulsante della pagina di swagger.
+6. Selezionare il **Authorize** su pulsante della pagina di swagger.
 
-    [![Fare clic sul file Swagger pulsante Autorizza](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![Selezionare il file Swagger pulsante Autorizza](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
 7. Incollare l'ID applicazione nella **client_id** campo.
 

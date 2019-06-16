@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: kumud
 ms.openlocfilehash: f1353165954021cd949d6e46357d10514ee26b3c
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65560936"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Creare, modificare o eliminare un gruppo di sicurezza di rete
@@ -186,7 +186,7 @@ L'elenco contiene tutte le regole create e il gruppo di sicurezza di rete [regol
 
 Un gruppo di sicurezza delle applicazioni contiene zero o più interfacce di rete. Per altre informazioni, vedere [Gruppi di sicurezza delle applicazioni](security-overview.md#application-security-groups). Tutte le interfacce di rete in un gruppo di sicurezza delle applicazioni devono trovarsi nella stessa rete virtuale. Per informazioni su come aggiungere un'interfaccia di rete a un gruppo di sicurezza delle applicazioni, vedere [Aggiungere un'interfaccia di rete a un gruppo di sicurezza delle applicazioni](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups).
 
-### <a name="create-an-application-security-group"></a>Crea un gruppo di sicurezza delle applicazioni
+### <a name="create-an-application-security-group"></a>Creare un gruppo di sicurezza delle applicazioni
 
 1. Selezionare **+ Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
 2. Nella casella **Cerca nel Marketplace** immettere *Gruppo di sicurezza delle applicazioni*. Quando **Gruppo di sicurezza delle applicazioni** viene visualizzato nei risultati della ricerca, selezionarlo, selezionare ancora **Gruppo di sicurezza delle applicazioni** in **Tutto** e quindi selezionare **Crea**.
@@ -194,10 +194,10 @@ Un gruppo di sicurezza delle applicazioni contiene zero o più interfacce di ret
 
     | Impostazione        | Valore                                                   |
     | ---            | ---                                                     |
-    | NOME           | Il nome deve essere univoco all'interno di un gruppo di risorse.        |
+    | Name           | Il nome deve essere univoco all'interno di un gruppo di risorse.        |
     | Sottoscrizione   | Selezionare la propria sottoscrizione.                               |
     | Gruppo di risorse | Selezionare un gruppo di risorse esistente o crearne uno nuovo. |
-    | Località       | Selezionare una posizione                                       |
+    | Località       | Selezionare una località                                       |
 
 **Comandi**
 
@@ -254,25 +254,25 @@ Per eseguire attività in gruppi di sicurezza di rete, regole di sicurezza e gru
 
 ### <a name="network-security-group"></a>Gruppo di sicurezza di rete
 
-| Azione                                                        |   NOME                                                                |
+| Azione                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   Ottenere un gruppo di sicurezza di rete                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   Creare o aggiornare un gruppo di sicurezza di rete                             |
-| Microsoft.Network/networkSecurityGroups/delete                |   Elimina gruppo di sicurezza di rete                                       |
+| Microsoft.Network/networkSecurityGroups/delete                |   Eliminare un gruppo di sicurezza di rete                                       |
 | Microsoft.Network/networkSecurityGroups/join/action           |   Assegnare un gruppo di sicurezza di rete a una subnet o un'interfaccia di rete 
 
 
 ### <a name="network-security-group-rule"></a>Regola del gruppo di sicurezza di rete
 
-| Azione                                                        |   NOME                                                                |
+| Azione                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/rules/read            |   Ottenere una regola                                                            |
 | Microsoft.Network/networkSecurityGroups/rules/write           |   Creare o aggiornare una regola                                               |
-| Microsoft.Network/networkSecurityGroups/rules/delete          |   Elimina regola                                                         |
+| Microsoft.Network/networkSecurityGroups/rules/delete          |   Eliminare una regola                                                         |
 
-### <a name="application-security-group"></a>Gruppo di sicurezza delle applicazioni
+### <a name="application-security-group"></a>Gruppo di sicurezza dell'applicazione
 
-| Azione                                                                     | NOME                                                     |
+| Azione                                                                     | Name                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Aggiungere una configurazione IP a gruppi di sicurezza dell'applicazione|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Aggiungere una regola di sicurezza a un gruppo di sicurezza dell'applicazione    |

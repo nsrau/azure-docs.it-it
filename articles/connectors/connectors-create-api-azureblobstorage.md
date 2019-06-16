@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60958639"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Creare e gestire BLOB in Archiviazione BLOB di Azure con App per la logica di Azure
@@ -63,7 +63,7 @@ Questo esempio illustra come avviare un flusso di lavoro di un'app logica con il
 
    1. Nella casella **Contenitore** selezionare l'icona di cartella.
 
-   2. Nell'elenco delle cartelle scegliere la parentesi uncinata chiusa (**>**) e quindi individuare e selezionare la cartella desiderata.
+   2. Nell'elenco delle cartelle scegliere la parentesi uncinata chiusa ( **>** ) e quindi individuare e selezionare la cartella desiderata.
 
       ![Selezionare la cartella](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
@@ -86,7 +86,7 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
    ![Aggiungere un'azione](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
    Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. 
-   Fare clic sul segno più (**+**) visualizzato e quindi scegliere **Aggiungi un'azione**.
+   Fare clic sul segno più ( **+** ) visualizzato e quindi scegliere **Aggiungi un'azione**.
 
 3. Nella casella di ricerca immettere "BLOB di Azure" come filtro. Nell'elenco delle azioni scegliere l'azione desiderata.
 

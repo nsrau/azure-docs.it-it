@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 5a28d69ae5ba9f3b7eeb28b6824ad9a458832bb3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153624"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
@@ -94,7 +94,7 @@ Le metriche selezionate in **Diagnostica** determinano la risoluzione delle metr
 
 È possibile creare avvisi per ricevere una notifica quando sono state raggiunte le soglie per le metriche delle risorse di archiviazione.
 
-1. Per aprire il **pannello delle regole di avviso** scorrere alla sezione **MONITORAGGIO** del **pannello Menu** e selezionare **Avvisi (classico)**.
+1. Per aprire il **pannello delle regole di avviso** scorrere alla sezione **MONITORAGGIO** del **pannello Menu** e selezionare **Avvisi (classico)** .
 2. Selezionare **Aggiungi avviso per la metrica (versione classica)** per aprire il pannello **Aggiungi una regola di avviso**
 3. Immettere un **Nome** e una **Descrizione** per la nuova regola di avviso.
 4. Selezionare la **metrica** per cui si vuole aggiungere un avviso, una **condizione** di avviso e una **soglia**. Il tipo di unità della soglia varia a seconda della metrica scelta. Ad esempio, il tipo di unità per *ContainerCount* è "conteggio", mentre l'unità per la metrica *PercentNetworkError* è una percentuale.

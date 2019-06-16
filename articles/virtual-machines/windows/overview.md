@@ -17,10 +17,10 @@ ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 604a47ef73d50a2d127d1569b0b6a240a7a27d73
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506832"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Panoramica delle macchine virtuali Windows in Azure
@@ -103,12 +103,12 @@ Le risorse in questa tabella vengono usate dalla VM e devono essere presenti o e
 
 | Resource | Obbligatorio | Descrizione |
 | --- | --- | --- |
-| [Gruppo di risorse](../../azure-resource-manager/resource-group-overview.md) |Sì |La VM deve essere contenuta in un gruppo di risorse. |
-| [Account di archiviazione](../../storage/common/storage-create-storage-account.md) |Sì |La VM richiede l'account di archiviazione per archiviare i dischi rigidi virtuali. |
-| [Rete virtuale](../../virtual-network/virtual-networks-overview.md) |Sì |La VM deve appartenere a una rete virtuale. |
-| [Indirizzo IP pubblico](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |N. |È possibile che la VM disponga di un indirizzo IP pubblico assegnato per accedervi in modalità remota. |
-| [Interfaccia di rete](../../virtual-network/virtual-network-network-interface.md) |Sì |La VM richiede l'interfaccia di rete per comunicare in rete. |
-| [Dischi dati](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |N. |La VM può includere dischi dati per espandere le funzionalità di archiviazione. |
+| [Gruppo di risorse](../../azure-resource-manager/resource-group-overview.md) |Yes |La VM deve essere contenuta in un gruppo di risorse. |
+| [Account di archiviazione](../../storage/common/storage-create-storage-account.md) |Yes |La VM richiede l'account di archiviazione per archiviare i dischi rigidi virtuali. |
+| [Rete virtuale](../../virtual-network/virtual-networks-overview.md) |Yes |La VM deve appartenere a una rete virtuale. |
+| [Indirizzo IP pubblico](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |È possibile che la VM disponga di un indirizzo IP pubblico assegnato per accedervi in modalità remota. |
+| [Interfaccia di rete](../../virtual-network/virtual-network-network-interface.md) |Yes |La VM richiede l'interfaccia di rete per comunicare in rete. |
+| [Dischi dati](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |La VM può includere dischi dati per espandere le funzionalità di archiviazione. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Come creare la prima VM
 Sono disponibili diverse opzioni per creare una VM. La scelta dipende dall'ambiente interessato. 

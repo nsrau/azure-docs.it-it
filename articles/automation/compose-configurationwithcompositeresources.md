@@ -11,17 +11,17 @@ ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 64588829cec964e52dcb44465869e0090f36f9f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61303968"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Creazione di configurazioni DSC in Desired State Configuration (DSC) di Automazione di Azure usando risorse composite
 
 Se si deve gestire una risorsa con più di una configurazione DSC, è consigliabile usare le [risorse composite](/powershell/dsc/authoringresourcecomposite). Una risorsa composita è una configurazione annidata e con parametri usata come risorsa DSC all'interno di un'altra configurazione. Consente di creare configurazioni complesse e al tempo stesso gestire e creare singolarmente le risorse composite sottostanti, vale a dire le configurazioni con parametri.
 
-Automazione di Azure consente l'[importazione e la compilazione di risorse composite](automation-dsc-compile.md#composite-resources). Dopo aver importato le risorse composite nell'account di Automazione, è possibile usare l'esperienza **Crea configurazione** nella pagina **Configurazione stato (DSC)**.
+Automazione di Azure consente l'[importazione e la compilazione di risorse composite](automation-dsc-compile.md#composite-resources). Dopo aver importato le risorse composite nell'account di Automazione, è possibile usare l'esperienza **Crea configurazione** nella pagina **Configurazione stato (DSC)** .
 
 ## <a name="composing-a-configuration-from-composite-resources"></a>Creazione di una configurazione da risorse composite
 

@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 09777a9980e4576a5d00123516e33696e845dcac
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65990231"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromessi tra coerenza, disponibilità e prestazioni 
@@ -55,7 +55,7 @@ Nella tabella seguente definisce la relazione tra coerenza del modello e durabil
 |1|Master singolo o multimaster|Qualsiasi livello di coerenza|< 240 minuti|<1 settimana|
 |>1|Master singolo|Sessione, Prefisso coerente, Finale|< 15 minuti|< 15 minuti|
 |>1|Master singolo|Decadimento ristretto|*K* & *T*|< 15 minuti|
-|>1|Master singolo|Alta|0|< 15 minuti|
+|>1|Master singolo|Assoluta|0|< 15 minuti|
 |>1|Multimaster|Sessione, Prefisso coerente, Finale|< 15 minuti|0|
 |>1|Multimaster|Decadimento ristretto|*K* & *T*|0|
 

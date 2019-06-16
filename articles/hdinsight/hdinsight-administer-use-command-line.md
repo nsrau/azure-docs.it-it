@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tyfox
 ms.openlocfilehash: 7c12831c43762ddc776e8d5701f002be97992cbc
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65859972"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Gestire i cluster HDInsight di Azure tramite la CLI di Azure
@@ -25,13 +25,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Interfaccia della riga di comando di Azure. Se non è stato installato l'interfaccia CLI di Azure, vedere [installare CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) per questa procedura.
+* Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è stata installata, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) per la relativa procedura.
 
-* Un cluster di Apache Hadoop in HDInsight. Visualizzare [Introduzione a HDInsight su Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Apache Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="connect-to-azure"></a>Connettersi ad Azure
+## <a name="connect-to-azure"></a>Connect to Azure
 
-Accedere alla sottoscrizione di Azure. Se si prevede di usare Azure Cloud Shell, quindi selezionare semplicemente **Provalo** nell'angolo superiore destro del blocco di codice. In caso contrario, immettere il comando seguente:
+Accedere alla sottoscrizione di Azure. Se si prevede di usare Azure Cloud Shell, è sufficiente fare clic su **Prova** nell'angolo superiore destro del blocco di codice. In caso contrario, immettere il comando seguente:
 
 ```azurecli-interactive
 az login

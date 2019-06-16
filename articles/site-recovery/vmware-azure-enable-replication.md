@@ -7,10 +7,10 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540776"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
@@ -34,7 +34,7 @@ Quando si esegue la replica di macchine virtuali VMware, tenere presente queste 
 * Per aggiungere le macchine virtuali per la replica senza attendere l'individuazione pianificata, evidenziare il server di configurazione, ma senza selezionarlo e selezionare **Aggiorna**.
 * Quando si abilita la replica, se la macchina virtuale è pronto, il server di elaborazione installa automaticamente il servizio Azure Site Recovery Mobility su di esso.
 
-## <a name="enable-replication"></a>Abilita replica
+## <a name="enable-replication"></a>Abilitare la replica
 
 Prima di seguire i passaggi descritti in questa sezione, tenere presente quanto segue:
 * Azure Site Recovery replica ora direttamente al servizio managed disks per tutte le nuove repliche. Il server di elaborazione scrive i log di replica in un account di archiviazione della cache nell'area di destinazione. Questi log vengono utilizzati per creare i punti di ripristino in dischi gestiti di replica.
@@ -46,7 +46,7 @@ Prima di seguire i passaggi descritti in questa sezione, tenere presente quanto 
 2. Nella pagina **Origine** > **Origine** selezionare il server di configurazione.
 3. Per la **tipo di computer**, selezionare **macchine virtuali** oppure **macchine fisiche**.
 4. In **vCenter/vSphere Hypervisor** selezionare il server vCenter che gestisce l'host di vSphere oppure selezionare l'host. Questa impostazione non è rilevante se si esegue la replica di computer fisici.
-5. Selezionare il server di elaborazione. Se non sono presenti server di elaborazione aggiuntivi creati, il server di elaborazione incorporata del server di configurazione sarà disponibile nell'elenco a discesa. Viene indicato lo stato di integrità di ogni server di elaborazione in base ai limiti consigliati e altri parametri. Scegliere un server di elaborazione integro. Oggetto [critici](vmware-physical-azure-monitor-process-server.md#process-server-alerts) server di elaborazione non può essere scelta. È possibile [individuare e risolvere](vmware-physical-azure-troubleshoot-process-server.md) gli errori **oppure** configurare una [server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md).
+5. Selezionare il server di elaborazione. Se non sono presenti server di elaborazione aggiuntivi creati, il server di elaborazione incorporata del server di configurazione sarà disponibile nell'elenco a discesa. Viene indicato lo stato di integrità di ogni server di elaborazione in base ai limiti consigliati e altri parametri. Scegliere un server di elaborazione integro. Non è possibile scegliere un server di elaborazione [critico](vmware-physical-azure-monitor-process-server.md#process-server-alerts). È possibile [individuare e risolvere](vmware-physical-azure-troubleshoot-process-server.md) gli errori **oppure** configurare un [server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md).
     ![Abilitare la finestra di origine di replica](media/vmware-azure-enable-replication/ps-selection.png)
 
 > [!NOTE]

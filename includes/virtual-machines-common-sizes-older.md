@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: 7196a2ea794c1d17a2c55c05accb447d83929972
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 5c35cbfbd2e9d0a1655d05c1116d293fb78c9eb7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145702"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133356"
 ---
 Questa sezione vengono fornite informazioni sulle versioni precedenti di dimensioni delle macchine virtuali. Queste dimensioni sono ancora supportate ma non riceveranno capacità aggiuntiva. Sono disponibili più recenti o alternative dimensioni disponibili a livello generale. Consultare [macchine virtuali di dimensioni per Windows in Azure](../articles/virtual-machines/windows/sizes.md) oppure [dimensioni delle macchine virtuali Linux in Azure](../articles/virtual-machines/linux/sizes.md) per scegliere la macchina virtuale di dimensioni maggiormente esigenze.  
 
@@ -25,13 +25,13 @@ Per altre informazioni sul ridimensionamento di una VM Linux, vedere [ridimensio
 
 **Indicazioni sulle dimensioni più recente**: [Serie Av2](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
-Archiviazione Premium:  Non supportata
+Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache archiviazione Premium:  Non supportata
+Memorizzazione nella cache archiviazione Premium:  Non supportato
 
 Le dimensioni del livello Basic sono destinate principalmente ai carichi di lavoro di sviluppo e alle altre applicazioni che non necessitano di bilanciamento del carico, scalabilità automatica o macchine virtuali con utilizzo intensivo della memoria.
 
-|Dimensioni – Dimensioni\Nome | CPU virtuale |Memoria|NIC (Max)|Dimensioni massime per il disco temporaneo |Max. (1023 GB ciascuno)|Max. IOPS (300 per disco)|
+|Dimensioni – Dimensioni\Nome | vCPU |Memoria|NIC (Max)|Dimensioni massime per il disco temporaneo |Max. (1023 GB ciascuno)|Max. IOPS (300 per disco)|
 |---|---|---|---|---|---|---|
 |A0\Basic_A0|1|768 MB|2| 20 GB|1|1x300|
 |A1\Basic_A1|1|1,75 GB|2| 40 GB |2|2x300|
@@ -47,11 +47,11 @@ Le dimensioni del livello Basic sono destinate principalmente ai carichi di lavo
 
 ACU: 50-100
 
-Archiviazione Premium:  Non supportata
+Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache archiviazione Premium:  Non supportata
+Memorizzazione nella cache archiviazione Premium:  Non supportato
 
-| Dimensione | CPU virtuale | Memoria: GiB | Spazio di archiviazione temp (HDD): GiB | Numero massimo di dischi dati | Velocità effettiva massima del disco dati: Input/output al secondo | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps)  |
+| Dimensione | vCPU | Memoria: GiB | Spazio di archiviazione temp (HDD): GiB | Numero massimo di dischi dati | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0&nbsp;<sup>1</sup> |1 |0,768 |20 |1 |1x500 |2 / 100 |
 | Standard_A1 |1 |1,75 |70 |2 |2x500 |2 / 500  |
@@ -72,13 +72,13 @@ Memorizzazione nella cache archiviazione Premium:  Non supportata
 
 ACU: 225
 
-Archiviazione Premium:  Non supportata
+Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache archiviazione Premium:  Non supportata
+Memorizzazione nella cache archiviazione Premium:  Non supportato
 
 Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. La serie A8-A11 usa Intel Xeon E5-2670 a 2,6 GHZ, mentre la serie H usa Intel Xeon E5-2667 v3 a 3,2 GHz.  
 
-| Dimensione | CPU virtuale | Memoria: GiB | Spazio di archiviazione temp (HDD): GiB | Numero massimo di dischi dati | Velocità effettiva massima del disco dati: Input/output al secondo | Schede di interfaccia di rete max|
+| Dimensione | vCPU | Memoria: GiB | Spazio di archiviazione temp (HDD): GiB | Numero massimo di dischi dati | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max|
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A8&nbsp;<sup>1</sup> |8 |56 |382 |32 |32x500 |2 |
 | Standard_A9&nbsp;<sup>1</sup> |16 |112 |382 |64 |64x500 |4 |
@@ -95,11 +95,11 @@ Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso
 
 ACU: 160-250 <sup>1</sup>
 
-Archiviazione Premium:  Non supportata
+Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache archiviazione Premium:  Non supportata
+Memorizzazione nella cache archiviazione Premium:  Non supportato
 
-| Dimensione         | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: Input/output al secondo | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensione         | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D1  | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 4/4 x 500                         | 2 / 500                 |
 | Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8/8 x 500                         | 2 / 1000                     |
@@ -116,11 +116,11 @@ Memorizzazione nella cache archiviazione Premium:  Non supportata
 
 ACU: 160-250 <sup>1</sup>
 
-Archiviazione Premium:  Non supportata
+Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache archiviazione Premium:  Non supportata
+Memorizzazione nella cache archiviazione Premium:  Non supportato
 
-| Dimensione         | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: Input/output al secondo | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensione         | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8/8 x 500                         | 2 / 1000                     |
 | Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16/16 x 500                         | 4 / 2000                     |
@@ -141,12 +141,12 @@ Archiviazione Premium:  Supportato
 
 Memorizzazione nella cache archiviazione Premium:  Supportato
 
-| Dimensione | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1 |1 |3.5 |7 |4 |4.000/32 (43) |3.200/32 |2 / 500 |
-| Standard_DS2 |2 |7 |14 |8 |8.000/64 (86) |6.400/64 |2 / 1000 |
-| Standard_DS3 |4 |14 |28 |16 |16.000/128 (172) |12.800/128 |4 / 2000 |
-| Standard_DS4 |8 |28 |56 |32 |32.000/256 (344) |25.600/256 |8 / 4000 |
+| Standard_DS1 |1 |3.5 |7 |4 |4\.000/32 (43) |3\.200/32 |2 / 500 |
+| Standard_DS2 |2 |7 |14 |8 |8\.000/64 (86) |6\.400/64 |2 / 1000 |
+| Standard_DS3 |4 |14 |28 |16 |16\.000/128 (172) |12\.800/128 |4 / 2000 |
+| Standard_DS4 |8 |28 |56 |32 |32\.000/256 (344) |25\.600/256 |8 / 4000 |
 
 <sup>1</sup> famiglia di macchine Virtuali eseguibili in una delle seguenti della CPU: 2,2 Intel GHz Xeon® E5 2660 v2, Intel a 2,4 GHz Xeon®-2673 E5 v3 (Haswell) a 2,3 GHz Intel XEON® o E5 2673 v4 (Broadwell)  
 
@@ -162,14 +162,57 @@ Archiviazione Premium:  Supportato
 
 Memorizzazione nella cache archiviazione Premium:  Supportato
 
-| Dimensione | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS11 |2 |14 |28 |8 |8.000/64 (72) |6.400/64 |2 / 1000 |
-| Standard_DS12 |4 |28 |56 |16 |16.000/128 (144) |12.800/128 |4 / 2000 |
-| Standard_DS13 |8 |56 |112 |32 |32.000/256 (288) |25.600/256 |8 / 4000 |
-| Standard_DS14 |16 |112 |224 |64 |64.000/512 (576) |51.200/512 |8 / 8000 |
+| Standard_DS11 |2 |14 |28 |8 |8\.000/64 (72) |6\.400/64 |2 / 1000 |
+| Standard_DS12 |4 |28 |56 |16 |16\.000/128 (144) |12\.800/128 |4 / 2000 |
+| Standard_DS13 |8 |56 |112 |32 |32\.000/256 (288) |25\.600/256 |8 / 4000 |
+| Standard_DS14 |16 |112 |224 |64 |64\.000/512 (576) |51\.200/512 |8 / 8000 |
 
 <sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie DS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per maggiori dettagli, vedere [Progettazione per prestazioni elevate](../articles/virtual-machines/windows/premium-storage-performance.md).   
 <sup>2</sup> famiglia di macchine Virtuali eseguibili in una delle seguenti della CPU: 2,2 Intel GHz Xeon® E5 2660 v2, Intel a 2,4 GHz Xeon®-2673 E5 v3 (Haswell) a 2,3 GHz Intel XEON® o E5 2673 v4 (Broadwell)  
 
+<br>
+
+### <a name="gs-series"></a>Serie GS 
+
+ACU: 180 - 240 <sup>1</sup>
+
+Archiviazione Premium:  Supportato
+
+Memorizzazione nella cache archiviazione Premium:  Supportato
+
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+|---|---|---|---|---|---|---|---|
+| Standard_GS1 |2 |28 |56 |8 |10\.000/100 (264) |5\.000/125 |2 / 2000 |
+| Standard_GS2 |4 |56 |112 |16 |20\.000/200 (528) |10\.000 / 250 |2 / 4000 |
+| Standard_GS3 |8 |112 |224 |32 |40\.000/400 (1.056) |20\.000 / 500 |4 / 8000 |
+| Standard_GS4&nbsp;<sup>3</sup> |16 |224 |448 |64 |80\.000/800 (2,112) |40\.000 /1.000 |8 / 16000 |
+| Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> |32 |448 |896 |64 |160\.000/1.600 (4.224) |80\.000/2.000 |8 / 20000 |
+
+<sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie GS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per maggiori dettagli, vedere [Progettazione per prestazioni elevate](../articles/virtual-machines/windows/premium-storage-performance.md).
+
+<sup>2</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
+
+<sup>3</sup> Disponibili dimensioni core vincolate.
+
+<br>
+
+### <a name="g-series"></a>Serie G
+
+ACU: 180 - 240
+
+Archiviazione Premium:  Non supportato
+
+Memorizzazione nella cache archiviazione Premium:  Non supportato
+
+| Dimensione         | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8/8 x 500                       | 2 / 2000                     |
+| Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 16/16 x 500                       | 2 / 4000                     |
+| Standard_G3  | 8         | 112         | 1\.536          | 24000 / 375 / 187                                        | 32/32 x 500                     | 4 / 8000                |
+| Standard_G4  | 16        | 224         | 3\.072          | 48000 / 750 / 375                                        | 64/64 x 500                     | 8 / 16000          |
+| Standard_G5&nbsp;<sup>1</sup> | 32        | 448         | 6,144          | 96000 / 1500 / 750                                       | 64/64 x 500                     | 8 / 20000           |
+
+<sup>1</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 <br>

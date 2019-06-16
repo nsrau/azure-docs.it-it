@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
 ms.openlocfilehash: ee7ffba182cdbc2a77df5edf112e29c49cd610ad
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65519663"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Creare, modificare o eliminare un peering reti virtuali
@@ -100,7 +100,7 @@ Per far comunicare le reti virtuali non sempre, ma solo in alcuni casi, invece d
 1. Nella casella di ricerca nella parte superiore del portale immettere *reti virtuali*. Selezionare **Reti virtuali** quando viene visualizzato nei risultati della ricerca. Non selezionare **Reti virtuali (versione classica)** se è visualizzato nell'elenco, perché non è possibile creare un peering da una rete virtuale distribuita tramite il modello di distribuzione classica.
 2. Nell'elenco selezionare la rete virtuale per cui si vuole eliminare un peering.
 3. In **Impostazioni** selezionare **Peer**.
-4. Sul lato destro del peering da eliminare, selezionare **...**, **Elimina** e quindi **Sì** per eliminare il peering dalla prima rete virtuale.
+4. Sul lato destro del peering da eliminare, selezionare **...** , **Elimina** e quindi **Sì** per eliminare il peering dalla prima rete virtuale.
 5. Completare la procedura precedente per eliminare il peering dall'altra rete virtuale nel peering.
 
 **Comandi**
@@ -142,7 +142,7 @@ L'account usato per il peering della rete virtuale deve essere assegnato ai ruol
 
 Se l'account non è assegnato a uno dei ruoli precedenti, deve essere assegnato a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) al quale vengono assegnate le azioni richieste indicate nella tabella seguente:
 
-| Azione                                                          | NOME |
+| Azione                                                          | Name |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Necessaria per creare un peering dalla rete virtuale A alla rete virtuale B. La rete virtuale A deve essere una rete virtuale (Resource Manager)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Necessaria per creare un peering dalla rete virtuale B (Resource Manager) alla rete virtuale A                                                       |

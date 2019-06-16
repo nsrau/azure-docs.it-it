@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
 ms.openlocfilehash: 7f33312d0a5fbe383d438408d471dd9ae09d0332
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156252"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Aree e disponibilità per le macchine virtuali in Azure
@@ -40,7 +40,7 @@ Ogni area di Azure è associata a un'altra area con la stessa collocazione geogr
 
 Esempi di coppie di aree includono:
 
-| Primaria | Secondario |
+| Primario | Secondario |
 |:--- |:--- |
 | Stati Uniti occidentali |Stati Uniti orientali |
 | Europa settentrionale |Europa occidentale |
@@ -63,7 +63,7 @@ Conoscere le aree geografiche di Azure diventa importante quando si considerano 
   * I dati vengono replicati tre volte all'interno dell'area in cui è stato creato l'account di archiviazione.
 * Archiviazione con ridondanza della zona (ZRS)
   * I dati vengono replicati tre volte in due o tre strutture distribuite in un'area sola o in due aree.
-* Archiviazione con ridondanza geografica
+* Archiviazione con ridondanza geografica (GRS)
   * I dati vengono replicati in un'area secondaria a centinaia di chilometri di distanza dall'area primaria.
 * Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
   * I dati vengono replicati in un'area secondaria, come con la ridondanza geografica, ma risultano anche accessibili in sola lettura nell'area secondaria.
@@ -72,8 +72,8 @@ La tabella seguente fornisce una rapida panoramica delle differenze tra i tipi d
 
 | Strategia di replica | Archiviazione con ridondanza locale | ZRS | Archiviazione con ridondanza geografica | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| I dati vengono replicati in più strutture |N. |Sì |Sì |Sì |
-| I dati possono essere letti dalla località secondaria e da quella primaria. |N. |N. |N. |Sì |
+| I dati vengono replicati in più strutture |No |Yes |Sì |Yes |
+| I dati possono essere letti dalla località secondaria e da quella primaria. |No |No |No |Yes |
 | Numero di copie di dati mantenute in nodi distinti |3 |3 |6 |6 |
 
 Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md). Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../articles/virtual-machines/windows/managed-disks-overview.md) (Panoramica di Azure Managed Disks).
