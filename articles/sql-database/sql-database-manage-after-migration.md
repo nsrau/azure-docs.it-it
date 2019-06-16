@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357319"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione dei database singoli e in pool nel database SQL di Azure
@@ -172,7 +172,7 @@ Per proteggere i dati sensibili in elaborazione e inattivi, il database SQL incl
 |**Caratteristiche**|**Always Encrypted**|**Transparent Data Encryption**|
 |---|---|---|
 |**Intervallo di crittografia**|End-to-end|Dati inattivi|
-|**Il server di database può accedere ai dati sensibili**|No |Sì, poiché la crittografia è per i dati inattivi|
+|**Il server di database può accedere ai dati sensibili**|No|Sì, poiché la crittografia è per i dati inattivi|
 |**Operazioni T-SQL consentite**|Confronto delle uguaglianze|L'intera superficie di attacco T-SQL è disponibile|
 |**Modifiche all'app richieste per usare la funzionalità**|Minime|Estremamente minime|
 |**Granularità di crittografia**|A livello di colonna|A livello di database|

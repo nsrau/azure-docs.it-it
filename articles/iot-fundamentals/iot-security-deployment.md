@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 13ed08cee53ac9aa0d22506ba63e1365784a2205
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66023451"
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 Altre informazioni sulla protezione dell'hub IoT sono disponibili in [Controllare l'accesso all'hub IoT](../iot-hub/iot-hub-devguide-security.md) nella guida per gli sviluppatori dell'hub IoT. 

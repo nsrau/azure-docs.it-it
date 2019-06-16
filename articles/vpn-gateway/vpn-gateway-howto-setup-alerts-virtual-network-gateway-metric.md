@@ -8,10 +8,10 @@ ms.topic: conceptional
 ms.date: 04/22/2019
 ms.author: alzam
 ms.openlocfilehash: e54dadbda0582095e8152ea30376d369177bfd86
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65509898"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Impostare avvisi sulle metriche di Gateway VPN
@@ -21,10 +21,10 @@ Questo articolo consente di impostare avvisi sulle metriche di Gateway VPN di Az
 
 |**Metrica**   | **Unità** | **Granularity** | **Descrizione** | 
 |---       | ---        | ---       | ---            | ---       |
-|**AverageBandwidth**| Byte/s  | 5 minuti| Media di utilizzo della larghezza di banda combinati di tutte le connessioni site-to-site nel gateway.     |
-|**P2SBandwidth**| Byte/s  | 1 minuto  | Media di utilizzo della larghezza di banda combinati di tutte le connessioni da punto a sito nel gateway.    |
+|**AverageBandwidth**| Bytes/sec  | 5 minuti| Media di utilizzo della larghezza di banda combinati di tutte le connessioni site-to-site nel gateway.     |
+|**P2SBandwidth**| Bytes/sec  | 1 minuto  | Media di utilizzo della larghezza di banda combinati di tutte le connessioni da punto a sito nel gateway.    |
 |**P2SConnectionCount**| Conteggio  | 1 minuto  | Numero di connessioni da punto a sito nel gateway.   |
-|**TunnelAverageBandwidth** | Byte/s    | 5 minuti  | Utilizzo medio della larghezza di banda del tunnel creati nel gateway. |
+|**TunnelAverageBandwidth** | Bytes/sec    | 5 minuti  | Utilizzo medio della larghezza di banda del tunnel creati nel gateway. |
 |**TunnelEgressBytes** | Byte | 5 minuti | Traffico in uscita nei tunnel creati nel gateway.   |
 |**TunnelEgressPackets** | Conteggio | 5 minuti | Numero di pacchetti in uscita nel tunnel creati nel gateway.   |
 |**TunnelEgressPacketDropTSMismatch** | Conteggio | 5 minuti | Eliminata il conteggio dei pacchetti in uscita tunnel causato dalla mancata corrispondenza del selettore di traffico. |
@@ -40,7 +40,7 @@ Nell'esempio seguente creerà un avviso su un gateway per:
 - **Metrica:** TunnelAverageBandwidth
 - **Condizione:** Larghezza di banda > 10 byte al secondo
 - **Window:** 5 minuti
-- **Azione di avviso:** Posta
+- **Azione di avviso:** Email
 
 
 

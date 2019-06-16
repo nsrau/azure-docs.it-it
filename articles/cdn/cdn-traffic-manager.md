@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
 ms.openlocfilehash: 956df17c821b86d95b1d87c3c8d8197bab7a95be
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955276"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurare il failover in più endpoint della rete CDN di Azure con Gestione traffico di Azure
@@ -62,13 +62,13 @@ Dopo aver configurato i profili della rete CDN e di Gestione traffico, seguire q
 
     a. Per la prima voce CNAME mappare il dominio personalizzato, con il sottodominio cdnverify, all'endpoint della rete CDN. Questa voce è un passaggio obbligatorio per registrare il dominio personalizzato nell'endpoint della rete CDN che è stato aggiunto a Gestione traffico nel passaggio 2.
 
-      Ad esempio:  
+      Ad esempio: 
 
       `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101akamai.azureedge.net`  
 
     b. Per la seconda voce CNAME mappare il dominio personalizzato, senza il sottodominio cdnverify, all'endpoint della rete CDN. Questa voce esegue il mapping del dominio personalizzato a Gestione traffico. 
 
-      Ad esempio:  
+      Ad esempio: 
       
       `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`   
 
@@ -87,7 +87,7 @@ Dopo aver configurato i profili della rete CDN e di Gestione traffico, seguire q
 
 3.  Tornare al sito Web per il provider di dominio del dominio personalizzato e aggiornare il primo mapping DNS creato, in modo che il dominio personalizzato sia mappato al secondo endpoint della rete CDN.
                              
-    Ad esempio:  
+    Ad esempio: 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 

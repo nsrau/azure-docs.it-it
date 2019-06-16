@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 823ebc985c77785f8b48d12d5919dbbd1b2b1459
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60821678"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-go"></a>Inviare eventi a o ricevere eventi da hub eventi con Go
@@ -38,7 +38,7 @@ Questa sezione illustra come creare un'applicazione Go per inviare eventi a un h
 
 ### <a name="install-go-package"></a>Installare il pacchetto di Go
 
-Ottenere il pacchetto di Go per Hub eventi con `go get` o `dep`. Ad esempio: 
+Ottenere il pacchetto di Go per Hub eventi con `go get` o `dep`. Ad esempio:
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go

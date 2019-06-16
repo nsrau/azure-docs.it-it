@@ -13,10 +13,10 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 ms.openlocfilehash: 3ab3ec5380fbc90dffd4f258073ad8b477e2318a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002838"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Trasformare i dati eseguendo un'attività Python in Azure Databricks
@@ -64,13 +64,13 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella de
 
 |Proprietà|Descrizione|Obbligatorio|
 |---|---|---|
-|name|Nome dell'attività nella pipeline.|Sì|
-|description|Testo che descrive l'attività.|N.|
-|tipo|Per l'attività Python di Databricks il tipo di attività è DatabricksSparkPython.|Sì|
-|linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione l'attività Python. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|Sì|
-|pythonFile|L'URI del file Python da eseguire. Sono supportati solo i percorsi DBFS.|Sì|
-|Parametri|Parametri della riga di comando che verranno passati al file Python. È una matrice di stringhe.|N.|
-|libraries|Un elenco di librerie da installare nel cluster che eseguirà il processo. Può essere una matrice di <stringa, oggetto>|N.|
+|name|Nome dell'attività nella pipeline.|Yes|
+|description|Testo che descrive l'attività.|No|
+|type|Per l'attività Python di Databricks il tipo di attività è DatabricksSparkPython.|Yes|
+|linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione l'attività Python. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|Yes|
+|pythonFile|L'URI del file Python da eseguire. Sono supportati solo i percorsi DBFS.|Yes|
+|parameters|Parametri della riga di comando che verranno passati al file Python. È una matrice di stringhe.|No|
+|libraries|Un elenco di librerie da installare nel cluster che eseguirà il processo. Può essere una matrice di <stringa, oggetto>|No|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Librerie supportate per le attività di databricks
 

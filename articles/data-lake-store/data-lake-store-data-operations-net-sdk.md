@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0771c9c5311e264fb996bbac1c540f9ed11873cb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65908065"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operazioni del file System in Azure Data Lake Storage Gen1 con .NET SDK
@@ -42,7 +42,7 @@ Per istruzioni su come eseguire le operazioni di gestione di account in Data Lak
 Il codice di esempio disponibile in [GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) offre una descrizione dei processi di creazione dei file nell'archivio, concatenazione dei file, download di un file ed eliminazione di alcuni file nell'archivio. Questa sezione dell'articolo descrive in modo dettagliato le parti principali del codice.
 
 1. In Visual Studio, selezionare la **File** dal menu **New**e quindi **progetto**.
-2. Scegli **App Console (.NET Framework)**, quindi selezionare **successivo**.
+2. Scegli **App Console (.NET Framework)** , quindi selezionare **successivo**.
 3. Nelle **nome progetto**, immettere `CreateADLApplication`, quindi selezionare **Create**.
 
 4. Aggiungere i pacchetti NuGet al progetto.
@@ -131,7 +131,7 @@ Il frammento di codice seguente legge i contenuti di un file in Data Lake Storag
         }
     }
 
-## <a name="get-file-properties"></a>Recupera proprietà file
+## <a name="get-file-properties"></a>Ottenere le proprietà dei file
 Il frammento di codice seguente restituisce le proprietà associate a un file o una directory.
 
     // Get file properties
@@ -164,12 +164,12 @@ Il frammento di codice seguente elimina una directory e tutte le relative sottod
     // Delete a directory and all its subdirectories and files
     client.DeleteRecursive("/Test");
 
-## <a name="samples"></a>Campioni
+## <a name="samples"></a>Esempi
 Ecco alcuni esempi che illustrano come usare il SDK del file System di Data Lake Storage Gen1.
 * [Esempio di base in GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [Esempio avanzato in GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Operazioni di gestione di account in Data Lake Storage Gen1 con .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Riferimento a .NET SDK di Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 

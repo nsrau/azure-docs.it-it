@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: e8b8f9856fe7e0fa591ceb42aab97e92642b6098
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399358"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali Hyper-V in un sito secondario
@@ -59,9 +59,9 @@ Host - Gruppo NIC | Yes
 Host - VLAN | Yes 
 Host - IPv4 | Yes 
 Host - IPv6 | No 
-VM guest - Gruppo NIC | No 
+VM guest - Gruppo NIC | No
 VM guest - IPv4 | Yes
-VM guest - IPv6 | No 
+VM guest - IPv6 | No
 VM guest - Windows/Linux - Indirizzo IP statico | Yes
 VM guest - Più NIC | Yes
 
@@ -84,16 +84,16 @@ Percorsi multipli (MPIO) | Yes
 VMDK |  N/D
 VHD/VHDX | Sì (fino a 16 dischi)
 VM di seconda generazione | Yes
-Disco cluster condiviso | No 
-Disco crittografato | No 
+Disco cluster condiviso | No
+Disco crittografato | No
 UEFI| N/D
-NFS | No 
-SMB 3.0 | No 
+NFS | No
+SMB 3.0 | No
 RDM | N/D
 Disco superiore a 1 TB | Yes
 Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Yes
 Spazi di archiviazione | Yes
-Aggiunta/rimozione a caldo disco | No 
+Aggiunta/rimozione a caldo disco | No
 Esclusione disco | Yes
 Percorsi multipli (MPIO) | Yes
 
@@ -101,8 +101,8 @@ Percorsi multipli (MPIO) | Yes
 
 **Azione** | **Supportato**
 --- | --- 
-Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni |  No 
-Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No 
+Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni |  No
+Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No
 
 ## <a name="azure-site-recovery-provider"></a>Provider di Azure Site Recovery
 

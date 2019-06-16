@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
 ms.openlocfilehash: 80de4e1479fac7296889e45289a5f20e586e3f57
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510759"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Rete per consorzi Hyperledger Fabric
@@ -70,11 +70,11 @@ Nel modello **Hyperledger Fabric Consortium** selezionare **Crea**.
 
 La distribuzione del modello consente di configurare in modo guidato la rete multinodo [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/). Il flusso di distribuzione è suddiviso in quattro fasi: informazioni di base, impostazioni della rete per consorzi, configurazione dell'infrastruttura e componenti facoltativi.
 
-### <a name="basics"></a>Generale
+### <a name="basics"></a>Nozioni di base
 
 In **Basics** (Informazioni di base) specificare i valori dei parametri standard per qualsiasi distribuzione. Ad esempio, la sottoscrizione, il gruppo di risorse e le proprietà di base delle macchine virtuali.
 
-![Generale](./media/hyperledger-fabric-consortium-blockchain/basics.png)
+![Nozioni di base](./media/hyperledger-fabric-consortium-blockchain/basics.png)
 
 | Nome parametro | Descrizione | Valori consentiti |
 |---|---|---|
@@ -85,7 +85,7 @@ In **Basics** (Informazioni di base) specificare i valori dei parametri standard
 **Chiave SSH (tipo di autenticazione = chiave pubblica SSH)** |Chiave Secure Shell usata per l'accesso remoto ||
 **Sottoscrizione** |Sottoscrizione in cui eseguire la distribuzione ||
 **Gruppo di risorse** |Gruppo di risorse nel quale eseguire la distribuzione della rete per consorzi ||
-**Posizione** |Area di Azure in cui distribuire il primo membro ||
+**Location** |Area di Azure in cui distribuire il primo membro ||
 
 Selezionare **OK**.
 
@@ -100,7 +100,7 @@ In **Impostazioni di rete** specificare i valori di input per la creazione di un
 **Network configuration** |È possibile scegliere di creare una nuova rete o aggiungersi a una rete esistente. Se si sceglie *Join existing* (Aggiungi esistente), è necessario fornire valori aggiuntivi. |New network (Nuova rete) <br/> Join existing (Aggiungi esistente) |
 **HLF CA password** (Password CA HLF) |Password usata per i certificati generati dalle autorità di certificazione create nell'ambito della distribuzione. La password deve contenere tre dei tipi di caratteri seguenti: un carattere maiuscolo, un carattere minuscolo, un numero e un carattere speciale.<br /><br />Inizialmente tutte le macchine virtuali hanno la stessa password, ma è possibile cambiarla dopo il provisioning.|1-25 caratteri |
 **Organization setup** (Configurazione organizzazione) |È possibile personalizzare il nome e il certificato dell'organizzazione oppure usare i valori predefiniti.|Predefinito <br/> Avanzate |
-**VPN network settings** (Impostazioni rete VPN) | Provisioning di un gateway con tunnel VPN per l'accesso alle macchine virtuali | Sì <br/> N. |
+**VPN network settings** (Impostazioni rete VPN) | Provisioning di un gateway con tunnel VPN per l'accesso alle macchine virtuali | Yes <br/> No |
 
 Selezionare **OK**.
 
@@ -113,7 +113,7 @@ In **Fabric configuration** ( Configurazione dell'infrastruttura) è possibile c
 | Nome parametro | Descrizione | Valori consentiti |
 |---|---|---|
 **Tipo di scala** |Tipo di distribuzione di una singola macchina virtuale con più contenitori o di più macchine virtuali in un modello di aumento del numero di istanze.|Single VM (Singola VM) o Multi VM (Più VM) |
-**Tipo di disco della macchina virtuale** |Tipo di archiviazione a supporto di ognuno dei nodi distribuiti. <br/> Per altre informazioni sui tipi di dischi disponibili, vedere [Selezionare un tipo di disco](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> Unità SSD Premium |
+**Tipo di disco della macchina virtuale** |Tipo di archiviazione a supporto di ognuno dei nodi distribuiti. <br/> Per altre informazioni sui tipi di dischi disponibili, vedere [Selezionare un tipo di disco](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> SSD Premium |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Distribuzione su più macchine virtuali (impostazioni aggiuntive)
 
@@ -135,7 +135,7 @@ Questo modello consente di selezionare il motore di persistenza per nodo peer. N
 
 Selezionare **OK**.
 
-### <a name="deploy"></a>Distribuisci
+### <a name="deploy"></a>Distribuire
 
 In **Riepilogo** controllare l'input specificato ed eseguire la convalida pre-distribuzione di base.
 

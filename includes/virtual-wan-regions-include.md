@@ -9,10 +9,10 @@ ms.date: 03/30/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8ec5c39342f0477bd2b529da38fd4d1292476c93
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119231"
 ---
 La tabella seguente contiene l'elenco di tutte le aree supportate per le funzionalità disponibili a livello generale.
@@ -28,7 +28,7 @@ La tabella seguente contiene l'elenco di tutte le aree supportate per le funzion
 | Australia Government | Australia centrale, Australia centrale 2 |
 | India | India occidentale, India centrale, India Meridionale |
 | Corea del Sud | Corea del Sud centrale, Corea del Sud meridionale |
-| Sudafrica | Sudafrica settentrionale, Sudafrica occidentale |
+| Sud Africa | Sudafrica settentrionale, Sudafrica occidentale |
 
 * Per informazioni sull'anteprima di ExpressRoute, vedere [Rete WAN virtuale e ExpressRoute - Anteprima](../articles/virtual-wan/virtual-wan-expressroute-portal.md#register).
 * Per informazioni sull'anteprima della funzionalità da punto a sito, vedere [Rete WAN virtuale e connettività da punto a sito - Anteprima](../articles/virtual-wan/virtual-wan-point-to-site-portal.md#register).

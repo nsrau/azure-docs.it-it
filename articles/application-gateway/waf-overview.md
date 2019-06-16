@@ -8,10 +8,10 @@ ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991396"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Web application firewall per il Gateway applicazione di Azure
@@ -133,7 +133,7 @@ In modalità di assegnazione dei punteggi delle anomalie, il traffico che corris
 |Critico     |5|
 |Tipi di errore        |4|
 |Avviso      |3|
-|Avviso       |2|
+|Si noti che       |2|
 
 È una soglia pari a 5 per il punteggio delle anomalie per bloccare il traffico. Pertanto, un singolo *critico* corrispondenza regola è sufficiente per il WAF del Gateway applicazione bloccare una richiesta, anche in modalità di prevenzione. Ma uno *avviso* regola di corrispondenza aumenta solo l'anomalia punteggio per 3, che non è sufficiente da sola per bloccare il traffico.
 

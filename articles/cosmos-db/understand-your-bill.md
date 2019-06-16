@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: a097539e51aa2a2130dead236d553d60f2ebb89d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965629"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
@@ -28,7 +28,7 @@ Questo articolo presenta alcuni esempi che consentono di comprendere i dettagli 
 
 * Si supponga di configurare una velocità effettiva di 1.000 UR/sec per un contenitore esistente 24 ore * 30 giorni al mese = 720 ore totali.  
 
-* 1.000 UR/sec corrisponde a 10 unità di 100 UR/sec all'ora per ogni ora di esistenza dei contenitori (1.000/100 = 10). 
+* 1\.000 UR/sec corrisponde a 10 unità di 100 UR/sec all'ora per ogni ora di esistenza dei contenitori (1.000/100 = 10). 
 
 * Moltiplicando 10 unità all'ora per il costo di 0,008 dollari (per 100 UR/sec all'ora) si ottiene 0,08 dollari all'ora. 
 
@@ -203,7 +203,7 @@ Si consideri un altro esempio, in cui si vuole stimare in modo proattivo la fatt
 |**Costi di archiviazione** | |
 |----|----|
 |Dimensioni medie dei record (KB) |1 |
-|Numero di record  |100.000.000  |
+|Numero di record  |100\.000.000  |
 |Spazio di archiviazione totale (GB)  |100 |
 |Costo mensile per GB  |$ 0,25  |
 |Costo mensile previsto per l'archiviazione   |$ 25,00  |
@@ -252,7 +252,7 @@ Ciò che si è effettivamente acquistato è un credito di 8 dollari all'ora, per
 |----|----|----|----|----|
 |Stati Uniti orientali|$ 0,008 |50 K|$ 4|$ 2.880 |
 |Giappone orientale|$ 0,009 |50 K| $ 4,50 |$ 3.240 |
-|||Pagamento a consumo|$ 8,50|$ 6120|
+|||Pagamento in base al consumo|$ 8,50|$ 6120|
 |Capacità riservata acquistata|$ 0,0064 (20% di sconto) |100 UR/sec o $ 8 di capacità preacquistata |-$ 8|-$ 5.760 |
 |Fattura netta|||$ 0.50 |$ 360 |
 

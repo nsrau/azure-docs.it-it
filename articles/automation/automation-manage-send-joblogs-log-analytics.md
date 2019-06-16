@@ -10,10 +10,10 @@ ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e0f2d3491db24ecbb49c189232dbc7f698e09fb1
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66430779"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Inoltrare lo stato del processo e i flussi del processo da automazione a log di monitoraggio di Azure
@@ -116,7 +116,7 @@ La diagnostica di automazione di Azure crea due tipi di record nel log di monito
 | TimeGenerated |Data e ora di esecuzione del processo del runbook. |
 | RunbookName_s |Il nome del runbook. |
 | Caller_s |Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati. |
-| StreamType_s |Il tipo di flusso del processo. I valori possibili sono:<br>- Avanzamento<br>- Output<br>- Avviso<br>- Errore<br>- Debug<br>- Dettagliato |
+| StreamType_s |Il tipo di flusso del processo. I valori possibili sono:<br>\- Avanzamento<br>- Output<br>- Avviso<br>- Errore<br>- Debug<br>- Dettagliato |
 | Tenant_g | GUID che identifica il tenant del chiamante. |
 | JobId_g |Il GUID che rappresenta l'ID del processo del runbook. |
 | ResultType |Lo stato del processo di runbook. I valori possibili sono:<br>- In corso |

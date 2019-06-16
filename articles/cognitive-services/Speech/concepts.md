@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954514"
 ---
 # <a name="basic-concepts"></a>Concetti di base
@@ -81,10 +81,10 @@ Il servizio di riconoscimento vocale Microsoft consente agli sviluppatori di agg
 
 | Casi d'uso | [API REST](GetStarted/GetStartedREST.md) | [Librerie client](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Convertire breve contenuto vocale, ad esempio comandi (lunghezza audio < 15 secondi) senza risultati temporanei | Sì | Sì |
-| Convertire contenuto audio lungo (> 15 secondi) | N. | Sì |
-| Trasmettere un flusso audio con risultati temporanei desiderati | N. | Sì |
-| Comprendere il testo convertito dall'audio tramite LUIS | N. | Sì |
+| Convertire breve contenuto vocale, ad esempio comandi (lunghezza audio < 15 secondi) senza risultati temporanei | Yes | Yes |
+| Convertire contenuto audio lungo (> 15 secondi) | No | Yes |
+| Trasmettere un flusso audio con risultati temporanei desiderati | No | Yes |
+| Comprendere il testo convertito dall'audio tramite LUIS | No | Yes |
 
  Se la lingua o la piattaforma non dispone ancora di un componente SDK, è possibile creare la propria implementazione in base alla [documentazione del protocollo](API-Reference-REST/websocketprotocol.md).
 
@@ -162,7 +162,7 @@ Le risposte di trascrizione restituiscono il testo convertito dall'audio ai clie
 
 | Stato | Descrizione |
 | ------------- | ---------------- |
-| Esito positivo | Il riconoscimento ha avuto esito positivo e il campo DisplayText è presente |
+| Riuscito | Il riconoscimento ha avuto esito positivo e il campo DisplayText è presente |
 | NoMatch | La parte parlata è stata rilevata nel flusso audio, ma non sono state trovate corrispondenze per alcuna parola nella lingua di destinazione. Per altri dettagli, vedere [NoMatch Recognition Status(#nomatch-recognition-status)  |
 | InitialSilenceTimeout | La parte iniziale del flusso audio conteneva solo silenzio e il servizio ha raggiunto il timeout in attesa della parte parlata |
 | BabbleTimeout | La parte iniziale del flusso audio conteneva solo rumore e il servizio ha raggiunto il timeout in attesa della parte parlata |

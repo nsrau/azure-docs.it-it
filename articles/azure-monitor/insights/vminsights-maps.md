@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2019
 ms.author: magoedte
 ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522166"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uso della mappa di Monitoraggio di Azure per le macchine virtuali (anteprima) per comprendere i componenti delle applicazioni
@@ -90,7 +90,7 @@ Se il gruppo include server monitorati e non monitorati, è possibile selezionar
 Per accedere a Monitoraggio di Azure per le macchine virtuali direttamente da una macchina virtuale, eseguire queste operazioni.
 
 1. Nel portale di Azure selezionare **Macchine virtuali**. 
-2. Nell'elenco scegliere una macchina virtuale e nella sezione **Monitoraggio** scegliere **Informazioni dettagliate (anteprima)**.  
+2. Nell'elenco scegliere una macchina virtuale e nella sezione **Monitoraggio** scegliere **Informazioni dettagliate (anteprima)** .  
 3. Selezionare la scheda **Mappa**.
 
 La mappa consente di visualizzare le dipendenze delle macchine virtuali, ovvero i gruppi di processi in esecuzione e i processi con connessioni di rete attive in un intervallo di tempo specifico.  Per impostazione predefinita, la mappa visualizza gli ultimi 30 minuti.  Grazie al selettore **TimeRange** nell'angolo superiore a sinistra, è possibile cercare intervalli di tempo cronologici della durata massima di un'ora per visualizzare l'aspetto delle dipendenze nel passato, ad esempio durante un evento imprevisto o prima di una modifica.  
@@ -102,7 +102,7 @@ La mappa consente di visualizzare le dipendenze delle macchine virtuali, ovvero 
 Per accedere a monitoraggio di Azure per le macchine virtuali direttamente da un set di scalabilità di macchine virtuali, eseguire le operazioni seguenti.
 
 1. Nel portale di Azure, selezionare **set di scalabilità di macchine virtuali**.
-2. Nell'elenco scegliere una macchina virtuale e nella sezione **Monitoraggio** scegliere **Informazioni dettagliate (anteprima)**.  
+2. Nell'elenco scegliere una macchina virtuale e nella sezione **Monitoraggio** scegliere **Informazioni dettagliate (anteprima)** .  
 3. Selezionare la scheda **Mappa**.
 
 Mappa Visualizza tutte le istanze nel set come un nodo di gruppo con le dipendenze del gruppo di scalabilità. Il nodo espanso Elenca le istanze nel set di scalabilità, è possibile scorrere dieci alla volta. Per caricare una mappa per un'istanza specifica, selezionare sulla mappa dell'istanza e quindi fare clic sui puntini di sospensione a esso è a destra e scegliere **carica mappa Server**. Verrà caricata la mappa per tale istanza, consentendo di visualizzare gruppi di processi e processi con connessioni di rete attive in un intervallo di tempo specificato. Per impostazione predefinita, la mappa visualizza gli ultimi 30 minuti. Usando il **TimeRange** selettori è possibile eseguire una query per gli intervalli di tempo cronologici della durata di fino a un'ora per visualizzare l'aspetto delle dipendenze in precedenza (ad esempio, durante un evento imprevisto o prima che si è verificata una modifica).  
@@ -110,7 +110,7 @@ Mappa Visualizza tutte le istanze nel set come un nodo di gruppo con le dipenden
 ![Panoramica di mappe direttamente da macchina virtuale](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->È anche possibile accedere una mappa per una specifica istanza dalla visualizzazione di istanze per il set di scalabilità di macchine virtuali. Passare a **istanze** sotto il **impostazioni** sezione e quindi scegliere **Insights (anteprima)**.
+>È anche possibile accedere una mappa per una specifica istanza dalla visualizzazione di istanze per il set di scalabilità di macchine virtuali. Passare a **istanze** sotto il **impostazioni** sezione e quindi scegliere **Insights (anteprima)** .
 
 ## <a name="view-map-from-azure-monitor"></a>Visualizzare la mappa da Monitoraggio di Azure
 In Monitoraggio di Azure la funzionalità Mappa offre una visualizzazione globale delle macchine virtuali e delle relative dipendenze.  Per accedere alla funzionalità Mappa da Monitoraggio di Azure, eseguire queste operazioni. 

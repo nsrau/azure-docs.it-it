@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116345"
 ---
 >[!NOTE]
@@ -18,20 +18,20 @@ ms.locfileid: "66116345"
 | --- | --- | 
 | Account di servizi multimediali di Azure in una singola sottoscrizione | 25 (fisso) |
 | Media reserved unit per ogni account di servizi multimediali |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
-| Job per ogni account di Servizi multimediali | 50.000<sup>2</sup> |
+| Job per ogni account di Servizi multimediali | 50\.000<sup>2</sup> |
 | Attività concatenate per processo | 30 (fisso) |
-| Asset per ogni account di servizi multimediali | 1.000.000|
+| Asset per ogni account di servizi multimediali | 1\.000.000|
 | Asset per attività | 50 |
 | Asset per processo | 100 |
 | Localizzatori univoci associati a un asset contemporaneamente | 5<sup>4</sup> |
 | Canali Live per ogni account di servizi multimediali |5|
-| Programmi con stato arrestato per canale  |50|
-| Programmi con stato in esecuzione per canale  |3|
+| Programmi con stato arrestato per canale |50|
+| Programmi con stato in esecuzione per canale |3|
 | Gli endpoint vengono arrestate o in esecuzione per ogni account di servizi multimediali di streaming|2|
-| Unità di streaming per endpoint di streaming  |10 |
-| Account di archiviazione | 1.000<sup>5</sup> (fisso) |
+| Unità di streaming per endpoint di streaming |10 |
+| Account di archiviazione | 1\.000<sup>5</sup> (fisso) |
 | Criteri | 1,000,000<sup>6</sup> |
-| Dimensione file| In alcuni scenari è previsto un limite per le dimensioni massime del file supportate per l'elaborazione in servizi multimediali. <sup>7</sup> |
+| Dimensioni complete| In alcuni scenari è previsto un limite per le dimensioni massime del file supportate per l'elaborazione in servizi multimediali. <sup>7</sup> |
 
 <sup>1</sup>se si modifica il tipo, ad esempio da S2 a S1, i limiti di numero massimo di unità riservata vengono reimpostati.
 

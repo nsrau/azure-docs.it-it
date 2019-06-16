@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 04163d1fa2a46a2de877702d479f439a5e8711d7
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603143"
 ---
 # <a name="azure-customer-data-protection"></a>Protezione dei dati dei clienti di Azure   
@@ -56,7 +56,7 @@ I dati possono essere replicati all'interno di un'area geografica selezionata pe
 Quando si crea un account di archiviazione, selezionare una delle opzioni di replica seguenti:
 
 - **Archiviazione con ridondanza locale**.  Con l'archiviazione con ridondanza locale vengono conservate tre copie dei dati. Tale tipo di archiviazione viene replicato per tre volte all'interno di una singola struttura di una singola area. Questa opzione di archiviazione con ridondanza locale protegge i dati dai normali errori hardware ma non dagli errori di una singola struttura.
-- **Archiviazione con ridondanza della zona (ZRS)**.  Con l'archiviazione con ridondanza della zona vengono conservate tre copie dei dati. Questa opzione viene replicata tre volte in due o tre strutture per garantire una durabilità maggiore rispetto all'archiviazione con ridondanza locale. La replica viene eseguita in una singola area o in due aree. Questa opzione ZRS consente di garantire la durabilità dei dati all'interno di una singola area.
+- **Archiviazione con ridondanza della zona (ZRS)** .  Con l'archiviazione con ridondanza della zona vengono conservate tre copie dei dati. Questa opzione viene replicata tre volte in due o tre strutture per garantire una durabilità maggiore rispetto all'archiviazione con ridondanza locale. La replica viene eseguita in una singola area o in due aree. Questa opzione ZRS consente di garantire la durabilità dei dati all'interno di una singola area.
 - **Archiviazione con ridondanza geografica**: L'archiviazione con ridondanza geografica è abilitata per impostazione predefinita quando si crea l'account di archiviazione. Con tale tipo di archiviazione vengono conservate sei copie dei dati. Con l'archiviazione con ridondanza geografica, i dati vengono replicati tre volte all'interno dell'area primaria. I dati vengono replicati per tre volte anche in un'area secondaria situata a centinaia di chilometri di distanza dall'area primaria, fornendo il massimo livello di durabilità. In caso di errore nell'area primaria, il servizio di Archiviazione di Azure esegue il failover all'area secondaria. L'archiviazione con ridondanza geografica consente di garantire la durabilità dei dati in due aree distinte.
 
 **Distruzione dei dati**: quando i clienti eliminano i dati o cessano di usare Azure, Microsoft applica rigidi standard per la sovrascrittura delle risorse di archiviazione prima del riutilizzo ed esegue l'eliminazione fisica dell'hardware ritirato. Microsoft esegue l'eliminazione completa dei dati su richiesta dei clienti e al termine del contratto.

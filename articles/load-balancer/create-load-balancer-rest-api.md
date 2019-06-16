@@ -14,10 +14,10 @@ ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
 ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60884980"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Creare Azure Load Balancer Basic con API REST
@@ -33,12 +33,12 @@ Usare la seguente richiesta HTTP PUT per creare un nuovo Azure Load Balancer Bas
   ```
 ### <a name="uri-parameters"></a>Parametri URI
 
-|NOME  |In ingresso  |Obbligatoria |Type |DESCRIZIONE |
+|Name  |In ingresso  |Obbligatorio |Type |Descrizione |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  path       |  True        |   string      |  Le credenziali della sottoscrizione che identificano in modo univoco la sottoscrizione a Microsoft Azure. L'ID sottoscrizione fa parte dell'URI per ogni chiamata di servizio.      |
-|resourceGroupName     |     path    | True         |  string       |   Nome del gruppo di risorse.     |
-|loadBalancerName     |  path       |      True    |    string     |    Nome del bilanciamento del carico.    |
-|api-version    |   query     |  True        |     string    |  Versione API client.      |
+|subscriptionId   |  path       |  True       |   string      |  Le credenziali della sottoscrizione che identificano in modo univoco la sottoscrizione a Microsoft Azure. L'ID sottoscrizione fa parte dell'URI per ogni chiamata di servizio.      |
+|resourceGroupName     |     path    | True        |  string       |   Nome del gruppo di risorse.     |
+|loadBalancerName     |  path       |      True   |    string     |    Nome del bilanciamento del carico.    |
+|api-version    |   query     |  True       |     string    |  Versione API client.      |
 
 
 
@@ -46,7 +46,7 @@ Usare la seguente richiesta HTTP PUT per creare un nuovo Azure Load Balancer Bas
 
 L'unico parametro obbligatorio è `location`. Se non si definisce la versione *SKU*, per impostazione predefinita viene creato Load Balancer Basic.  Usare [parametri facoltativi](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body) per personalizzare il servizio di bilanciamento del carico.
 
-| NOME | Type | DESCRIZIONE |
+| NOME | Type | Descrizione |
 | :--- | :--- | :---------- |
 | location | string | Percorso della risorsa. Ottenere un elenco aggiornato delle località usando l'operazione [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations). |
 

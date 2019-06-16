@@ -14,10 +14,10 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 07c1a726e33eb8287634b63ef2e309483c05c3f3
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962106"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
@@ -1213,9 +1213,9 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.Compute/locations/usages/read | Ottiene i limiti del servizio e le quantità di utilizzo corrente delle risorse di calcolo della sottoscrizione in una posizione |
 > | Azione | Microsoft.Compute/locations/vmSizes/read | Elenca le dimensioni delle macchine virtuali disponibili in una posizione |
 > | Azione | Microsoft.Compute/operations/read | Elenca le operazioni disponibili sul provider di risorse Microsoft.Compute |
-> | Azione | Microsoft.Compute/proximityPlacementGroups/delete | Elimina il gruppo di selezione host di prossimità |
-> | Azione | Microsoft.Compute/proximityPlacementGroups/read | Recupera le proprietà di un gruppo di selezione host di prossimità |
-> | Azione | Microsoft.Compute/proximityPlacementGroups/write | Crea un nuovo gruppo di selezione host di prossimità o ne aggiorna uno esistente |
+> | Azione | Microsoft.Compute/proximityPlacementGroups/delete | Elimina il gruppo di posizionamento di prossimità |
+> | Azione | Microsoft.Compute/proximityPlacementGroups/read | Ottiene le proprietà di un gruppo di posizionamento di prossimità |
+> | Azione | Microsoft.Compute/proximityPlacementGroups/write | Crea un nuovo gruppo di posizionamento di prossimità o ne aggiorna uno esistente |
 > | Azione | Microsoft.Compute/register/action | Registra la sottoscrizione con il provider di risorse Microsoft.Compute |
 > | Azione | Microsoft.Compute/restorePointCollections/delete | Elimina la raccolta di punti di ripristino e i punti di ripristino contenuti |
 > | Azione | Microsoft.Compute/restorePointCollections/read | Ottiene le proprietà di un insieme di punti di ripristino |
@@ -2304,13 +2304,13 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/read | Leggere un keyspace o elencare tutti gli spazi. Applicabile solo ai tipi di API: 'cassandra'. |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/throughput/read | Leggere una velocità effettiva di keyspace. Applicabile solo ai tipi di API: 'cassandra'. |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/throughput/write | Aggiornare una velocità effettiva di keyspace. Applicabile solo ai tipi di API: 'cassandra'. |
-> | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/delete | Elimina una tabella. Applicabile solo ai tipi di API: 'cassandra'. |
+> | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/delete | Eliminare una tabella. Applicabile solo ai tipi di API: 'cassandra'. |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/read | Leggere una tabella o l'elenco di tutte le tabelle. Applicabile solo ai tipi di API: 'cassandra'. |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/throughput/read | Leggere una velocità effettiva di tabella. Applicabile solo ai tipi di API: 'cassandra'. |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/throughput/write | Aggiornare una velocità effettiva di tabella. Applicabile solo ai tipi di API: 'cassandra'. |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/write | Crea o aggiorna una tabella. Applicabile solo ai tipi di API: 'cassandra'. |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/write | Creare un keyspace. Applicabile solo ai tipi di API: 'cassandra'. |
-> | Azione | Microsoft.DocumentDB/databaseAccounts/apis/tables/delete | Elimina una tabella. Applicabile solo ai tipi di API: 'table'. |
+> | Azione | Microsoft.DocumentDB/databaseAccounts/apis/tables/delete | Eliminare una tabella. Applicabile solo ai tipi di API: 'table'. |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/tables/read | Leggere una tabella o l'elenco di tutte le tabelle. Applicabile solo ai tipi di API: 'table'. |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/throughput/read | Leggere una velocità effettiva di tabella. Applicabile solo ai tipi di API: 'table'. |
 > | Azione | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/throughput/write | Aggiornare una velocità effettiva di tabella. Applicabile solo ai tipi di API: 'table'. |
@@ -2472,8 +2472,8 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.EventHub/namespaces/ipFilterRules/delete | Elimina la risorsa filtro IP |
 > | Azione | Microsoft.EventHub/namespaces/ipFilterRules/read | Recupera la risorsa filtro IP |
 > | Azione | Microsoft.EventHub/namespaces/ipFilterRules/write | Crea la risorsa filtro IP |
-> | DataAction | Microsoft.EventHub/namespaces/messages/receive/action | Ricevi messaggi |
-> | DataAction | Microsoft.EventHub/namespaces/messages/send/action | Invia messaggi |
+> | DataAction | Microsoft.EventHub/namespaces/messages/receive/action | Ricevere messaggi |
+> | DataAction | Microsoft.EventHub/namespaces/messages/send/action | Inviare messaggi |
 > | Azione | Microsoft.EventHub/namespaces/messagingPlan/read | Ottiene il piano di messaggistica per uno spazio dei nomi.<br>Questa API è deprecata.<br>Le proprietà esposte tramite la risorsa MessagingPlan sono state spostate nella risorsa spazio dei nomi, padre, nelle versioni API successive.<br>Questa operazione non è supportata per l'API versione 2017-04-01. |
 > | Azione | Microsoft.EventHub/namespaces/messagingPlan/write | Aggiorna il piano di messaggistica per uno spazio dei nomi.<br>Questa API è deprecata.<br>Le proprietà esposte tramite la risorsa MessagingPlan sono state spostate nella risorsa spazio dei nomi, padre, nelle versioni API successive.<br>Questa operazione non è supportata per l'API versione 2017-04-01. |
 > | Azione | Microsoft.EventHub/namespaces/networkrulesets/delete | Elimina la risorsa regola di rete virtuale |
@@ -2807,7 +2807,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.Insights/MetricDefinitions/Microsoft.Insights/Read | Consente di leggere le definizioni della metrica |
 > | Azione | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | Consente di leggere le definizioni della metrica |
 > | Azione | Microsoft.Insights/MetricDefinitions/Read | Consente di leggere le definizioni della metrica |
-> | Azione | Microsoft.Insights/Metricnamespaces/Read | Lettura spazio dei nomi metrica |
+> | Azione | Microsoft.Insights/Metricnamespaces/Read | Leggere gli spazi dei nomi delle metriche |
 > | Azione | Microsoft.Insights/Metrics/Action | Azione della metrica |
 > | Azione | Microsoft.Insights/Metrics/Microsoft.Insights/Read | Esegue la lettura delle metriche |
 > | Azione | Microsoft.Insights/Metrics/providers/Metrics/Read | Esegue la lettura delle metriche |
@@ -4596,7 +4596,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.Resources/deployments/operations/read | Ottiene o elenca le operazioni di distribuzione. |
 > | Azione | Microsoft.Resources/deployments/read | Ottiene o elenca le distribuzioni. |
 > | Azione | Microsoft.Resources/deployments/validate/action | Convalida una distribuzione. |
-> | Azione | Microsoft.Resources/deployments/whatIf/action | Prevede le modifiche della distribuzione modelli. |
+> | Azione | Microsoft.Resources/deployments/whatIf/action | Consente di stimare le modifiche di distribuzione modello. |
 > | Azione | Microsoft.Resources/deployments/write | Crea o aggiorna una distribuzione. |
 > | Azione | Microsoft.Resources/links/delete | Elimina un collegamento a una risorsa. |
 > | Azione | Microsoft.Resources/links/read | Ottiene o elenca i collegamenti a una risorsa. |
@@ -4763,9 +4763,9 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.ServiceBus/namespaces/ipFilterRules/write | Crea la risorsa filtro IP |
 > | DataAction | Microsoft.ServiceBus/namespaces/messages/browse/action | Sfoglia messaggi |
 > | DataAction | Microsoft.ServiceBus/namespaces/messages/defer/action | Rinviare i messaggi |
-> | DataAction | Microsoft.ServiceBus/namespaces/messages/receive/action | Ricevi messaggi |
+> | DataAction | Microsoft.ServiceBus/namespaces/messages/receive/action | Ricevere messaggi |
 > | DataAction | Microsoft.ServiceBus/namespaces/messages/schedule/action | Messaggi Shedule |
-> | DataAction | Microsoft.ServiceBus/namespaces/messages/send/action | Invia messaggi |
+> | DataAction | Microsoft.ServiceBus/namespaces/messages/send/action | Inviare messaggi |
 > | DataAction | Microsoft.ServiceBus/namespaces/messages/setstate/action | Stato della sessione set |
 > | Azione | Microsoft.ServiceBus/namespaces/messagingPlan/read | Ottiene il piano di messaggistica per uno spazio dei nomi.<br>Questa API è deprecata.<br>Le proprietà esposte tramite la risorsa MessagingPlan sono state spostate nella risorsa spazio dei nomi, padre, nelle versioni API successive.<br>Questa operazione non è supportata per l'API versione 2017-04-01. |
 > | Azione | Microsoft.ServiceBus/namespaces/messagingPlan/write | Aggiorna il piano di messaggistica per uno spazio dei nomi.<br>Questa API è deprecata.<br>Le proprietà esposte tramite la risorsa MessagingPlan sono state spostate nella risorsa spazio dei nomi, padre, nelle versioni API successive.<br>Questa operazione non è supportata per l'API versione 2017-04-01. |

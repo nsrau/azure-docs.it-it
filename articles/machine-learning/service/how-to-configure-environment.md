@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: seodec18
 ms.openlocfilehash: 7be6c9eda6d0a70d929efe4c00f661eb67105820
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606418"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
@@ -297,10 +297,10 @@ Usare queste impostazioni:
 
 | Impostazione |Si applica a| Value |
 |----|---|---|
-| Nome cluster |sempre| nomecluster |
-| Databricks Runtime |sempre| Qualsiasi runtime non ML (non ML 4.x, 5.x) |
-| Versione Python |sempre| 3 |
-| Ruoli di lavoro |sempre| almeno 2 |
+| Nome cluster |Sempre| nomecluster |
+| Databricks Runtime |Sempre| Qualsiasi runtime non ML (non ML 4.x, 5.x) |
+| Versione Python |Sempre| 3 |
+| Ruoli di lavoro |Sempre| almeno 2 |
 | Worker node VM types (Tipi di VM dei nodi di ruolo di lavoro) <br>(determina il numero massimo di iterazioni simultanee) |Funzionalità automatiche di Machine Learning<br>Solo| È preferibile una macchina virtuale ottimizzata per la memoria |
 | Enable Autoscaling (Abilita la scalabilità automatica) |Funzionalità automatiche di Machine Learning<br>Solo| Deselezionare |
 
@@ -378,9 +378,9 @@ Per usare questo file dal codice, usare `ws=Workspace.from_config()`. Questo cod
 
 È possibile creare il file di configurazione in tre modi:
 
-* **Seguire i passaggi descritti in [creare un'area di lavoro del servizio di Azure Machine Learning](setup-create-workspace.md#sdk)**: nella libreria di Azure Notebooks viene creato un file *config.json* che contiene le informazioni di configurazione per l'area di lavoro. È possibile scaricare o copiare il file *config.json* in altri ambienti di sviluppo.
+* **Seguire i passaggi descritti in [creare un'area di lavoro del servizio di Azure Machine Learning](setup-create-workspace.md#sdk)** : nella libreria di Azure Notebooks viene creato un file *config.json* che contiene le informazioni di configurazione per l'area di lavoro. È possibile scaricare o copiare il file *config.json* in altri ambienti di sviluppo.
 
-* **Scaricare il file**: Nel portale di Azure selezionare **Scarica config.json** nella sezione **Panoramica** dell'area di lavoro.
+* **Scaricare il file**: Nel [portale di Azure](https://ms.portal.azure.com) selezionare **Scarica config.json** nella sezione **Panoramica** dell'area di lavoro.
 
      ![Portale di Azure](./media/how-to-configure-environment/configure.png)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
 ms.openlocfilehash: b9756920d25891dbe6b71fa24c06ed8f0c8eabb0
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963248"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Rettifica del protocollo Smooth Streaming (MS-SSTR) per HEVC 
@@ -34,7 +34,7 @@ L'utilizzo di una distribuzione della struttura dei dati basata su MPEG-4 ([[MPE
 
 ## <a name="11-glossary"></a>1.1 Glossario 
 
-I termini seguenti sono definiti in *[MS-GLOS]*:
+I termini seguenti sono definiti in *[MS-GLOS]* :
 
 >   **identificatore univoco globale (GUID) identificatore univoco universale (UUID)**
 
