@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
 ms.openlocfilehash: 01430c40ec9fcf1af3a463f8f86d646d15b6dd49
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925950"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostica e monitoraggio delle prestazioni per Reliable Service Remoting
@@ -28,7 +28,7 @@ Il runtime Reliable ServiceRemoting genera [i contatori delle prestazioni](https
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Il runtime di Reliable ServiceRemoting definisce le categorie di contatori delle prestazioni seguenti.
 
-| Categoria | DESCRIZIONE |
+| Category | Descrizione |
 | --- | --- |
 | Servizio Service Fabric |Contatori specifici per Azure Service Fabric Serivce Remoting, ad esempio tempo medio impiegato per elaborare la richiesta |
 | Metodo del servizio Service Fabric |Contatori specifici dei metodi implementati da Service Fabric Remoting Service, ad esempio per la frequenza con cui viene richiamato un metodo di un servizio |
@@ -83,7 +83,7 @@ Nell'esempio precedente `ivoicemailboxservice.leavemessageasync` è il nome del 
 
 Il runtime di Reliable Service pubblica i contatori delle prestazioni seguenti relativi all'esecuzione dei metodi dei servizi.
 
-| Nome categoria | Nome contatore | DESCRIZIONE |
+| Nome categoria | Nome contatore | Descrizione |
 | --- | --- | --- |
 | Metodo del servizio Service Fabric |Invocations/Sec |Numero di volte in cui il metodo del servizio viene richiamato al secondo |
 | Metodo del servizio Service Fabric |Average milliseconds per invocation |Tempo necessario per eseguire il metodo del servizio in millisecondi |
@@ -92,7 +92,7 @@ Il runtime di Reliable Service pubblica i contatori delle prestazioni seguenti r
 ### <a name="service-request-processing-performance-counters"></a>Contatori delle prestazioni di elaborazione delle richieste dei servizi
 Quando un client richiama un metodo tramite un oggetto proxy di servizio, viene generato un messaggio di richiesta inviato in rete al servizio remoting. Il servizio elabora il messaggio di richiesta e invia una risposta al client. Il runtime di Reliable ServiceRemoting pubblica i contatori delle prestazioni seguenti relativi all’elaborazione delle richieste dei servizi.
 
-| Nome categoria | Nome contatore | DESCRIZIONE |
+| Nome categoria | Nome contatore | Descrizione |
 | --- | --- | --- |
 | Servizio Service Fabric |# of outstanding requests |Numero di richieste elaborate nel servizio |
 | Servizio Service Fabric |Average milliseconds per request |Tempo richiesto (in millisecondi) dal servizio per elaborare una richiesta |

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
 ms.openlocfilehash: 10bc4e4c440e5495afd820f588270b7990108b68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135409"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creare un gateway applicazione con regole di routing basato su percorsi usando il portale di Azure
@@ -61,7 +61,7 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
    - *myAGSubnet* come nome della subnet.
    - *10.0.0.0/24* come spazio indirizzi della subnet.
 
-     ![Crea rete virtuale](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
+     ![Creare una rete virtuale](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
 6. Fare clic su **OK** per creare la rete virtuale e la subnet.
 7. Fare clic su **Scegliere un indirizzo IP pubblico**, **Crea nuovo** e quindi immettere il nome dell'indirizzo IP pubblico. In questo esempio il nome dell'indirizzo IP pubblico è *myAGPublicIPAddress*. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
@@ -73,7 +73,7 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
 1. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi su **myVNet** nell'elenco delle risorse.
 2. Fare clic su **Subnet** e quindi su **Subnet**.
 
-    ![Crea subnet](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
+    ![Creare una subnet](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
 3. Immettere *myBackendSubnet* come nome della subnet e quindi fare clic su **OK**.
 
@@ -143,8 +143,8 @@ In questo esempio vengono create tre macchine virtuali da usare come server back
 
 1. Fare clic su **Regole** e quindi su **Basata sul percorso**.
 2. Immettere *rule2* come nome.
-3. Immettere *Images* come nome del primo percorso. Immettere */images/*\* come percorso. Selezionare **imagesBackendPool** come pool back-end.
-4. Immettere *Video* come nome del secondo percorso. Immettere */video/*\* come percorso. Selezionare **videoBackendPool** come pool back-end.
+3. Immettere *Images* come nome del primo percorso. Immettere */images/* \* come percorso. Selezionare **imagesBackendPool** come pool back-end.
+4. Immettere *Video* come nome del secondo percorso. Immettere */video/* \* come percorso. Selezionare **videoBackendPool** come pool back-end.
 
     ![Creare una regola basata sul percorso](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 

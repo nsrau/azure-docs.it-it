@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475695"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Creare contatori delle prestazioni per monitorare le prestazioni del gestore delle mappe partizioni
@@ -66,7 +66,7 @@ I contatori delle prestazioni verranno aggiornati da tutte le operazioni della c
 * La creazione della categoria e dei contatori delle prestazioni deve essere eseguita solo una volta prima della creazione dell'oggetto ShardMapManager. Ogni esecuzione del comando CreatePerformanceCategoryAndCounters() cancella i contatori precedenti (con la perdita di tutti i dati segnalati da tutte le istanze) e ne crea di nuovi.  
 * Le istanze dei contatori delle prestazioni vengono create in modalità per processo. Un arresto anomalo dell'applicazione o la rimozione di una mappa partizioni dalla cache causa l'eliminazione delle istanze dei contatori delle prestazioni.  
 
-### <a name="see-also"></a>Vedere anche 
+### <a name="see-also"></a>Vedere anche
 
 [Panoramica sulle funzionalità di database elastico](sql-database-elastic-scale-introduction.md)  
 

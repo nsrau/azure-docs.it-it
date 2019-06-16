@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 462cbd6261723aa91bbfd23292611e758a800ed2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60844092"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Note sulla versione dell'aggiornamento 5 di StorSimple serie 8000
@@ -51,11 +51,11 @@ L'aggiornamento 5 include i miglioramenti essenziali e le correzioni di bug desc
 
 La seguente tabella fornisce un riepilogo dei problemi risolti nell'aggiornamento 5.
 
-| No  | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
+| No | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- |
-| 1 |Comunicazione remota di Windows PowerShell |Nella versione precedente, gli utenti ricevevano un errore se provavano a stabilire una connessione remota all'appliance cloud StorSimple tramite Windows PowerShell. In questa versione il problema è stato corretto una volta individuata la causa radice. |No  |Sì |
-| 2 |Modelli di larghezza di banda |Nella versione precedente, un problema con i modelli di larghezza di banda determinava una larghezza di banda inferiore rispetto a quella per cui era stato configurato il dispositivo. Questo problema è stato risolto in questa versione. |Sì |Sì |
-| 3 |Failover |Nella versione precedente, quando veniva eseguito il failover di un dispositivo con un numero elevato di volumi su un altro dispositivo che eseguiva l'aggiornamento 4, il processo si interrompeva mentre provava ad applicare i record di controllo di accesso. Tale problema è stato corretto in questa versione. |Sì |Sì |
+| 1 |Comunicazione remota di Windows PowerShell |Nella versione precedente, gli utenti ricevevano un errore se provavano a stabilire una connessione remota all'appliance cloud StorSimple tramite Windows PowerShell. In questa versione il problema è stato corretto una volta individuata la causa radice. |No |Yes |
+| 2 |Modelli di larghezza di banda |Nella versione precedente, un problema con i modelli di larghezza di banda determinava una larghezza di banda inferiore rispetto a quella per cui era stato configurato il dispositivo. Questo problema è stato risolto in questa versione. |Yes |Yes |
+| 3 |Failover |Nella versione precedente, quando veniva eseguito il failover di un dispositivo con un numero elevato di volumi su un altro dispositivo che eseguiva l'aggiornamento 4, il processo si interrompeva mentre provava ad applicare i record di controllo di accesso. Tale problema è stato corretto in questa versione. |Yes |Yes |
 
 
 

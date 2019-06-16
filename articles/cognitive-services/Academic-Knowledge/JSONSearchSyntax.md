@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: fddd2291fe7fbb46c57d31e9aebc7fc6244df971
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61336967"
 ---
 # <a name="json-search-syntax"></a>Sintassi di ricerca JSON
@@ -33,7 +33,7 @@ ms.locfileid: "61336967"
 }
 ```
 
-I nomi dei nodi in un percorso di query (_v0, v1,..._ ) fungono da identificatori dei nodi a cui è possibile fare riferimento nell'oggetto query. I nomi dei limiti (_e0, e1,..._ ) nel percorso rappresentano i tipi di limiti corrispondenti. È possibile usare un asterisco _*_ come nome di un nodo o di un limite (ad eccezione del nodo iniziale, che deve essere specificato) per dichiarare che non ci sono vincoli per tale elemento. Un percorso di query `/v0/*/v1/e1/*/`, ad esempio, recupera i percorsi dal grafico senza restrizioni per il tipo di limite _(v0, v1)_. La query non ha nemmeno vincoli sulla destinazione (l'ultimo nodo) del percorso.
+I nomi dei nodi in un percorso di query (_v0, v1,..._ ) fungono da identificatori dei nodi a cui è possibile fare riferimento nell'oggetto query. I nomi dei limiti (_e0, e1,..._ ) nel percorso rappresentano i tipi di limiti corrispondenti. È possibile usare un asterisco _*_ come nome di un nodo o di un limite (ad eccezione del nodo iniziale, che deve essere specificato) per dichiarare che non ci sono vincoli per tale elemento. Un percorso di query `/v0/*/v1/e1/*/`, ad esempio, recupera i percorsi dal grafico senza restrizioni per il tipo di limite _(v0, v1)_ . La query non ha nemmeno vincoli sulla destinazione (l'ultimo nodo) del percorso.
 
 Quando un percorso contiene un solo nodo, ad esempio _v0_, la query restituisce semplicemente tutte le entità che soddisfano i vincoli. Un oggetto vincolo applicato al nodo iniziale viene detto *oggetto query iniziale* e la relativa specifica è illustrata di seguito.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 837235e04ce190a4481e1f19789d8e9ff9cb7578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61131588"
 ---
 # <a name="media-encoder-standard-schema"></a>Schema di Media Encoder Standard
@@ -28,7 +28,7 @@ Definisce un set di impostazioni per la codifica.
 
 ### <a name="elements"></a>Elementi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **Encoding** |[Encoding](media-services-mes-schema.md#Encoding) |Elemento radice, indica che le origini dell'input devono essere codificate. |
 | **Outputs** |[Outputs](media-services-mes-schema.md#Output) |Raccolta dei file dell'output desiderato. |
@@ -36,16 +36,16 @@ Definisce un set di impostazioni per la codifica.
 
 ### <a name="attributes"></a>Attributi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
-| **Versione**<br/><br/> Obbligatoria |**xs: decimal** |Versione predefinita. Valgono le limitazioni seguenti: xs:fractionDigits value="1" e xs:minInclusive value="1" Ad esempio, **version="1.0"**. |
+| **Versione**<br/><br/> Obbligatorio |**xs: decimal** |Versione predefinita. Valgono le limitazioni seguenti: xs:fractionDigits value="1" e xs:minInclusive value="1" Ad esempio, **version="1.0"** . |
 
 ## <a name="Encoding"></a> Encoding
 Contiene una sequenza degli elementi seguenti:  
 
 ### <a name="elements"></a>Elementi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **H264Video** |[H264Video](media-services-mes-schema.md#H264Video) |Impostazioni per la codifica video H.264. |
 | **AACAudio** |[AACAudio](media-services-mes-schema.md#AACAudio) |Impostazioni per la codifica audio AAC. |
@@ -56,7 +56,7 @@ Contiene una sequenza degli elementi seguenti:
 ## <a name="H264Video"></a> H264Video
 ### <a name="elements"></a>Elementi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Al momento è supportata solo la codifica in un passaggio. |
 | **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Determina la spaziatura fissa tra i frame IDR in unità di secondi. Chiamata anche la durata GOP. Per controllare se il codificatore può deviare da questo valore, vedere **SceneChangeDetection**. |
@@ -67,7 +67,7 @@ Contiene una sequenza degli elementi seguenti:
 
 ### <a name="attributes"></a>Attributi
 
-| NOME | Type | DESCRIZIONE |
+| NOME | Type | Descrizione |
 | --- | --- | --- |
 | **Condition** |**xs:string** | Quando l'input non ha video, è consigliabile forzare il codificatore per inserire una traccia video monocromatica. A tale scopo, usare Condition="InsertBlackIfNoVideoBottomLayerOnly" (per inserire un video solo alla più bassa velocità in bit) o Condition="InsertBlackIfNoVideo" (per inserire un video a tutte le velocità in bit di output). Per altre informazioni, vedere [questo](media-services-advanced-encoding-with-mes.md#no_video) articolo.|
 
@@ -77,7 +77,7 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
               
 ### <a name="elements"></a>Elementi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |Raccolta di livelli H264. |
 
@@ -89,7 +89,7 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 
 ### <a name="elements"></a>Elementi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **Profilo**<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs: string** |Può corrispondere a uno dei valori **xs:string** seguenti: **Auto**, **Baseline**, **Main** o **High**. |
 | **Level**<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs: string** | |
@@ -112,19 +112,19 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 
 ### <a name="elements"></a>Elementi
 
-| NOME | Type | DESCRIZIONE |
+| NOME | Type | Descrizione |
 | --- | --- | --- |
 | **Profilo**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs: string** |Può avere uno dei valori seguenti: **AACLC**, **HEAACV1** o **HEAACV2**. |
 
 ### <a name="attributes"></a>Attributi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **Condition** |**xs: string** |Per forzare la generazione di un asset contenente una traccia audio silenziosa da parte del codificatore quando l'input è privo di audio, specificare il valore "InsertSilenceIfNoAudio".<br/><br/> Per impostazione predefinita, se si invia al codificatore un input che contiene solo video e nessun audio, l'asset di output contiene file di soli dati video. Alcuni lettori non possono gestire flussi di output di questo tipo. In tal caso, è possibile usare questa impostazione per forzare l'aggiunta di una traccia audio silenziosa all'output da parte del codificatore. |
 
 ### <a name="groups"></a>Gruppi
 
-| Riferimenti | DESCRIZIONE |
+| Riferimenti | Descrizione |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Vedere la descrizione di [AudioGroup](media-services-mes-schema.md#AudioGroup) per conoscere il numero di canali, la frequenza di campionamento e la velocità in bit appropriati che è possibile impostare per ogni profilo. |
 
@@ -133,7 +133,7 @@ Per altre informazioni sui valori validi per ogni profilo, vedere la tabella "De
 
 ### <a name="elements"></a>Elementi
 
-| NOME | Type | DESCRIZIONE |
+| NOME | Type | Descrizione |
 | --- | --- | --- |
 | **Channels**<br/><br/> minOccurs="0" |**xs: int** |Numero dei canali audio codificati. Le opzioni valide sono: 1, 2, 5, 6, 8.<br/><br/> Predefinito: 2. |
 | **SamplingRate**<br/><br/> minOccurs="0" |**xs: int** |Frequenza di campionamento audio, espressa in Hz. |
@@ -150,7 +150,7 @@ Codec audio|Dettagli
 ## <a name="Clip"></a> Clip
 ### <a name="attributes"></a>Attributi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **StartTime** |**xs:duration** |Specifica l'ora di inizio di una presentazione. Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. |
 | **Duration** |**xs:duration** |Specifica la durata di una presentazione (ad esempio, l'aspetto di una sovrimpressione nel video). |
@@ -158,13 +158,13 @@ Codec audio|Dettagli
 ## <a name="Output"></a> Output
 ### <a name="attributes"></a>Attributi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
-| **FileName** |**xs:string** |Nome del file di output.<br/><br/> È possibile usare le macro descritte nella tabella seguente per creare i nomi dei file di output. Ad esempio: <br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
+| **FileName** |**xs:string** |Nome del file di output.<br/><br/> È possibile usare le macro descritte nella tabella seguente per creare i nomi dei file di output. Ad esempio:<br/><br/> **"Outputs": [      {       "FileName": "{Basename} *{Resolution}* {Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Macro
 
-| Macro | DESCRIZIONE |
+| Macro | Descrizione |
 | --- | --- |
 | **{Basename}** |Se si esegue la codifica VoD, {Basename} corrisponde ai primi 32 caratteri della proprietà AssetFile.Name del file primario dell'asset di input.<br/><br/> Se l'asset di input è un archivio live, {Basename} è derivato dagli attributi trackName nel manifesto server. Se si invia un processo subclip usando TopBitrate, come in "<VideoStream\>TopBitrate</VideoStream\>", e il file di output contiene video, {Basename} corrisponde ai primi 32 caratteri dell'attributo trackName del livello video con il valore di velocità in bit più alto.<br/><br/> Se invece si invia un processo subclip usando tutte le velocità in bit dell'input, come in "<VideoStream\>*</VideoStream\>", e il file di output contiene video, {Basename} corrisponde ai primi 32 caratteri dell'attributo trackName del livello video corrispondente. |
 | **{Codec}** |Esegue il mapping a "H264" per i video e "AAC" per l'audio. |
@@ -178,7 +178,7 @@ Codec audio|Dettagli
 ## <a name="Video"></a> Video (il tipo complesso eredita da Codec)
 ### <a name="attributes"></a>Attributi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **Inizia** |**xs:string** | |
 | **Step** |**xs:string** | |
@@ -203,7 +203,7 @@ In alternativa, è possibile usare il flag **PreserveResolutionAfterRotation** e
 ## <a name="FormatGroup"></a> FormatGroup (gruppo)
 ### <a name="elements"></a>Elementi
 
-| NOME | Type | DESCRIZIONE |
+| NOME | Type | Descrizione |
 | --- | --- | --- |
 | **BmpFormat** |**BmpFormat** | |
 | **PngFormat** |**PngFormat** | |
@@ -212,35 +212,35 @@ In alternativa, è possibile usare il flag **PreserveResolutionAfterRotation** e
 ## <a name="BmpLayer"></a> BmpLayer
 ### <a name="element"></a>Elemento
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Attributi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="PngLayer"></a> PngLayer
 ### <a name="element"></a>Elemento
 
-| NOME | Type | DESCRIZIONE |
+| NOME | Type | Descrizione |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Attributi
 
-| NOME | Type | DESCRIZIONE |
+| NOME | Type | Descrizione |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>Elemento
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
@@ -248,49 +248,49 @@ In alternativa, è possibile usare il flag **PreserveResolutionAfterRotation** e
 
 ### <a name="attributes"></a>Attributi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="PngLayers"></a> PngLayers
 ### <a name="elements"></a>Elementi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>Elementi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>Elementi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="BmpImage"></a> BmpImage (il tipo complesso eredita da Video)
 ### <a name="elements"></a>Elementi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
 ## <a name="JpgImage"></a> JpgImage (il tipo complesso eredita da Video)
 ### <a name="elements"></a>Elementi
 
-| NOME | Type | DESCRIZIONE |
+| Name | Type | Descrizione |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
 ## <a name="PngImage"></a> PngImage (il tipo complesso eredita da Video)
 ### <a name="elements"></a>Elementi
 
-| NOME | Type | DESCRIZIONE |
+| NOME | Type | Descrizione |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 

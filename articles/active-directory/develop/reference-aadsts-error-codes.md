@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 287e4ee53a108d1e2b83d4a8b11a98a2c7727721
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 10ac2f4ac83240acf644fc1529c9c14f5e9631a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545582"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111293"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione
 
@@ -53,7 +53,7 @@ Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servi
 | AADSTS50001 | InvalidResource: la risorsa è disabilitata o non esiste. Controllare il codice dell'app per verificare di avere specificato l'URL della risorsa esatta cui si sta tentando di accedere.  |
 | AADSTS50002 | NotAllowedTenant: accesso non riuscito a causa di limitazioni di accesso al proxy nel tenant. Se questo errore è dovuto ai propri criteri per il tenant, è possibile modificare le impostazioni di limitazione per il tenant per correggerlo. |
 | AADSTS50003 | MissingSigningKey: accesso non riuscito a causa di una chiave o un certificato di firma mancante. Questo errore può essere dovuto al fatto che non è stata configurata alcuna chiave di firma nell'app. Vedere le soluzioni illustrate in [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Se il problema persiste, contattare il proprietario o l'amministratore dell'app. |
-| AADSTS50005 | DevicePolicyError: l'utente ha tentato di accedere a un dispositivo da una piattaforma attualmente non supportata tramite criteri di accesso condizionale. |
+| AADSTS50005 | DevicePolicyError - utente ha tentato di accedere a un dispositivo da una piattaforma che non è attualmente supportata tramite i criteri di accesso condizionale. |
 | AADSTS50006 | InvalidSignature: la verifica della firma non è riuscita a causa di una firma non valida. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing: non è stato trovato il certificato di crittografia del partner per l'app. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) presso Microsoft per richiedere la risoluzione del problema. |
 | AADSTS50008 | InvalidSamlToken: l'asserzione SAML non è presente o non è configurata correttamente nel token. Contattare il provider di federazione. |
@@ -105,7 +105,7 @@ Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servi
 | AADSTS50127 | BrokerAppNotInstalled: l'utente deve installare un'app broker per ottenere l'accesso a questo contenuto. |
 | AADSTS50128 | Nome di dominio non valido. Non sono state trovate informazioni di identificazione del tenant nella richiesta o incluse in modo implicito nelle credenziali fornite. |
 | AADSTS50129 | DeviceIsNotWorkplaceJoined: per registrare il dispositivo, è necessaria l'aggiunta alla rete aziendale. |
-| AADSTS50131 | ConditionalAccessFailed: indica diversi errori di accesso condizionale, ad esempio a causa di uno stato del dispositivo Windows non valido, di una richiesta bloccata a causa di un'attività sospetta o di decisioni relative a criteri di accesso o criteri di sicurezza. |
+| AADSTS50131 | ConditionalAccessFailed - indica diversi errori di accesso condizionale, ad esempio stato del dispositivo Windows non valido, richiesta bloccata a causa di un'attività sospetta, i criteri di accesso o decisioni relative ai criteri di sicurezza. |
 | AADSTS50132 | SsoArtifactInvalidOrExpired: la sessione non è valida perché la password è scaduta o è stata modificata di recente. |
 | AADSTS50133 | SsoArtifactRevoked: la sessione non è valida perché la password è scaduta o è stata modificata di recente. |
 | AADSTS50134 | DeviceFlowAuthorizeWrongDatacenter: data center non corretto. Per autorizzare una richiesta avviata da un'app nel flusso del dispositivo OAuth 2.0, la parte responsabile dell'autorizzazione deve trovarsi nello stesso data center in cui si trova la richiesta originale. |
@@ -134,10 +134,10 @@ Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servi
 | AADSTS51005 | TemporaryRedirect: equivale allo stato HTTP 307, che indica che le informazioni richieste si trovano nell'URI specificato nell'intestazione location. Quando viene restituito questo stato, seguire l'intestazione location associata alla risposta. Quando il metodo di richiesta originale è POST, anche la richiesta reindirizzata userà il metodo POST. |
 | AADSTS51006 | ForceReauthDueToInsufficientAuth: è necessaria l'autenticazione integrata di Windows. L'utente ha eseguito l'accesso con un token di sessione in cui manca l'attestazione di autenticazione integrata di Windows. Chiedere all'utente di ripetere l'accesso. |
 | AADSTS52004 | DelegationDoesNotExistForLinkedIn: l'utente non ha fornito il proprio consenso per l'accesso a risorse di LinkedIn. |
-| AADSTS53000 | DeviceNotCompliant: il criterio di accesso condizionale richiede un dispositivo conforme, ma il dispositivo non è conforme. L'utente deve registrare il dispositivo con un provider MDM approvato, come Intune. |
-| AADSTS53001 | DeviceNotDomainJoined: il criterio di accesso condizionale richiede un dispositivo aggiunto al dominio, ma il dispositivo non è aggiunto al dominio. Chiedere all'utente di usare un dispositivo aggiunto al dominio. |
-| AADSTS53002 | ApplicationUsedIsNotAnApprovedApp: l'app usata non è un'app approvata per l'accesso condizionale. L'utente deve usare una delle app incluse nell'elenco delle app approvate per l'uso per ottenere l'accesso. |
-| AADSTS53003 | BlockedByConditionalAccess: l'accesso è stato bloccato da criteri di accesso condizionale. Il criterio di accesso non permette il rilascio di token. |
+| AADSTS53000 | DeviceNotCompliant - criteri di accesso condizionale richiedono un dispositivo conforme e il dispositivo non conforme. L'utente deve registrare il dispositivo con un provider MDM approvato, come Intune. |
+| AADSTS53001 | DeviceNotDomainJoined - criteri di accesso condizionale richiedono un dispositivo aggiunto al dominio e il dispositivo non è aggiunto a un dominio. Chiedere all'utente di usare un dispositivo aggiunto al dominio. |
+| AADSTS53002 | ApplicationUsedIsNotAnApprovedApp - l'app usata non è un'app approvata per l'accesso condizionale. L'utente deve usare una delle app incluse nell'elenco delle app approvate per l'uso per ottenere l'accesso. |
+| AADSTS53003 | BlockedByConditionalAccess - accesso è stato bloccato dai criteri di accesso condizionale. Il criterio di accesso non permette il rilascio di token. |
 | AADSTS53004 | ProofUpBlockedDueToRisk: l'utente deve completare il processo di registrazione dell'autenticazione a più fattori prima di accedere al contenuto. L'utente deve eseguire la registrazione per l'autenticazione a più fattori. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist: l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare una richiesta di autorizzazione interattiva per questo utente e questa risorsa. |

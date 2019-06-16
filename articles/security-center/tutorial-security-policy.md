@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 5/05/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967887"
 ---
 # <a name="working-with-security-policies"></a>Utilizzo dei criteri di sicurezza
@@ -146,9 +146,9 @@ Nell'iniziativa integrata sono presenti tutti i criteri del Centro sicurezza abi
 
 Negli esempi seguenti sostituire queste variabili:
 
-- **{scope}**: immettere il nome del gruppo di gestione o la sottoscrizione a cui si applicano i criteri.
-- **{policyAssignmentName}**: immettere il [nome dell'assegnazione di criteri pertinente](#policy-names).
-- **{name}**: immettere il proprio nome o il nome dell'amministratore che ha approvato la modifica dei criteri.
+- **{scope}** : immettere il nome del gruppo di gestione o la sottoscrizione a cui si applicano i criteri.
+- **{policyAssignmentName}** : immettere il [nome dell'assegnazione di criteri pertinente](#policy-names).
+- **{name}** : immettere il proprio nome o il nome dell'amministratore che ha approvato la modifica dei criteri.
 
 Questo esempio illustra come assegnare l'iniziativa del Centro sicurezza integrata in una sottoscrizione oppure in un gruppo di gestione:
  
@@ -233,12 +233,12 @@ Questo esempio illustra come rimuovere un'assegnazione:
 |Aggiornamenti del sistema |Monitora gli aggiornamenti di sistema mancanti nel Centro sicurezza di Azure |systemUpdatesMonitoringEffect|
 |Crittografia di archiviazione |Controlla crittografia BLOB mancante per gli account di archiviazione |storageEncryptionMonitoringEffect|
 |Accesso alla rete JIT |Monitora i possibili accessi JIT alla rete nel Centro sicurezza di Azure |jitNetworkAccessMonitoringEffect |
-|Controlli applicazione adattivi |Monitora il possibile elenco elementi consentiti dell'app nel Centro sicurezza di Azure |adaptiveApplicationControlsMonitoringEffect|
+|Controlli delle applicazioni adattivi |Monitora il possibile elenco elementi consentiti dell'app nel Centro sicurezza di Azure |adaptiveApplicationControlsMonitoringEffect|
 |Gruppi di sicurezza di rete |Monitora gli accessi di rete permissivi nel Centro sicurezza di Azure |networkSecurityGroupsMonitoringEffect| 
-|Configurazioni della sicurezza |Monitora le vulnerabilità del sistema operativo nel Centro sicurezza di Azure |systemConfigurationsMonitoringEffect| 
+|Configurazioni di sicurezza |Monitora le vulnerabilità del sistema operativo nel Centro sicurezza di Azure |systemConfigurationsMonitoringEffect| 
 |Endpoint Protection |Monitora server senza Endpoint Protection nel Centro sicurezza di Azure |endpointProtectionMonitoringEffect |
 |Crittografia del disco |Monitora i dischi di macchine virtuali non crittografati nel Centro sicurezza di Azure |diskEncryptionMonitoringEffect|
-|Valutazione della vulnerabilità |Monitora le vulnerabilità delle macchine virtuali nel Centro sicurezza di Azure |vulnerabilityAssessmentMonitoringEffect|
+|Valutazione della vulnerabilità |Monitorare le vulnerabilità delle macchine virtuali nel Centro sicurezza di Azure |vulnerabilityAssessmentMonitoringEffect|
 |Web application firewall |Monitora le applicazioni Web non protette nel Centro sicurezza di Azure |webApplicationFirewallMonitoringEffect |
 |Firewall di nuova generazione |Monitora gli endpoint rete non protetti nel Centro sicurezza di Azure| |
 

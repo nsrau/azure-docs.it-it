@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 52e092e6e48f004656860cb5d078e780039584ab
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730229"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Panoramica di Hub eventi dedicato
@@ -59,7 +59,7 @@ L'offerta dedicato di hub eventi viene fatturato a un prezzo mensile fisso, con 
 | Dimensioni del messaggio | 1 milione di byte | 1 milione di byte |
 | Partitions | 40 per ogni spazio dei nomi | 2000 per unità di capacità |
 | Gruppi di consumer | 20 per Hub eventi | Nessun limite per ogni unità di capacità, 1000 per hub eventi |
-| Connessioni negoziate | 1.000 incluso, numero massimo di 5.000 | 100 K incluse e max |
+| Connessioni negoziate | 1\.000 incluso, numero massimo di 5.000 | 100 K incluse e max |
 | Conservazione dei messaggi | 7 giorni, incluso per ogni unità Elaborata 84 GB | 90 giorni, 10 TB, incluse per ogni unità di capacità |
 | Acquisizione | Pagamento per ogni ora | Incluso |
 

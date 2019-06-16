@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60928083"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Versione corrente](transform-data-using-machine-learning.md)
 
@@ -66,7 +66,7 @@ Si crea un servizio collegato di **Azure Machine Learning** per collegare un ser
 
 Vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md) per le descrizioni sulle proprietà nella definizione JSON.
 
-Azure Machine Learning supporta sia i servizi Web classici che i nuovi servizi Web per l'esperimento predittivo. È possibile scegliere quello corretto da usare da Data Factory. Per ottenere le informazioni necessarie per creare il servizio collegato di Azure Machine Learning, andare a https://services.azureml.net, dove sono elencati tutti i servizi Web nuovi e i servizi Web classici. Fare clic sul servizio Web cui si desidera accedere e fare clic sulla pagina **Consume (Uso)**. Copiare la **chiave primaria** per la proprietà **apiKey** e le **richieste batch** per la proprietà **mlEndpoint**.
+Azure Machine Learning supporta sia i servizi Web classici che i nuovi servizi Web per l'esperimento predittivo. È possibile scegliere quello corretto da usare da Data Factory. Per ottenere le informazioni necessarie per creare il servizio collegato di Azure Machine Learning, andare a https://services.azureml.net, dove sono elencati tutti i servizi Web nuovi e i servizi Web classici. Fare clic sul servizio Web cui si desidera accedere e fare clic sulla pagina **Consume (Uso)** . Copiare la **chiave primaria** per la proprietà **apiKey** e le **richieste batch** per la proprietà **mlEndpoint**.
 
 ![Servizi Web di Azure Machine Learning](./media/transform-data-using-machine-learning/web-services.png)
 
@@ -126,13 +126,13 @@ Il frammento JSON seguente definisce un'attività di esecuzione batch di Azure M
 
 | Proprietà          | Descrizione                              | Obbligatorio |
 | :---------------- | :--------------------------------------- | :------- |
-| name              | Nome dell'attività nella pipeline     | Sì      |
-| description       | Testo che descrive l'attività.  | No        |
-| type              | Per l'attività U-SQL di Data Lake Analytics, il tipo di attività è **AzureMLBatchExecution**. | Sì      |
-| linkedServiceName | Servizi collegati al servizio collegato di Azure Machine Learning. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
-| webServiceInputs  | Coppie valore, chiave, che eseguono il mapping dei nomi di input dei servizi Web di Azure Machine Learning. La chiave deve corrispondere ai parametri di input definiti nel servizio Web pubblicato di Azure Machine Learning. Il valore è una coppia di proprietà FilePath e dei servizi collegati di archiviazione di Azure che specifica i percorsi BLOB di input. | No        |
-| webServiceOutputs | Coppie valore, chiave, che eseguono il mapping dei nomi di output dei servizi Web di Azure Machine Learning. La chiave deve corrispondere ai parametri di output definiti nel servizio Web pubblicato di Azure Machine Learning. Il valore è una coppia di proprietà FilePath e dei servizi collegati di archiviazione di Azure che specifica i percorsi BLOB di output. | No        |
-| globalParameters  | Coppie di valore, chiave da passare all'endpoint del servizio Esecuzione batch di Azure Machine Learning Studio. Le chiavi devono corrispondere ai nomi dei parametri dei servizi Web definiti nel servizio Web pubblicato di Azure Machine Learning Studio. I valori vengono passati nella proprietà GlobalParameters della richiesta di esecuzione batch di Azure Machine Learning Studio | No        |
+| name              | Nome dell'attività nella pipeline     | Yes      |
+| description       | Testo che descrive l'attività.  | No       |
+| type              | Per l'attività U-SQL di Data Lake Analytics, il tipo di attività è **AzureMLBatchExecution**. | Yes      |
+| linkedServiceName | Servizi collegati al servizio collegato di Azure Machine Learning. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Yes      |
+| webServiceInputs  | Coppie valore, chiave, che eseguono il mapping dei nomi di input dei servizi Web di Azure Machine Learning. La chiave deve corrispondere ai parametri di input definiti nel servizio Web pubblicato di Azure Machine Learning. Il valore è una coppia di proprietà FilePath e dei servizi collegati di archiviazione di Azure che specifica i percorsi BLOB di input. | No       |
+| webServiceOutputs | Coppie valore, chiave, che eseguono il mapping dei nomi di output dei servizi Web di Azure Machine Learning. La chiave deve corrispondere ai parametri di output definiti nel servizio Web pubblicato di Azure Machine Learning. Il valore è una coppia di proprietà FilePath e dei servizi collegati di archiviazione di Azure che specifica i percorsi BLOB di output. | No       |
+| globalParameters  | Coppie di valore, chiave da passare all'endpoint del servizio Esecuzione batch di Azure Machine Learning Studio. Le chiavi devono corrispondere ai nomi dei parametri dei servizi Web definiti nel servizio Web pubblicato di Azure Machine Learning Studio. I valori vengono passati nella proprietà GlobalParameters della richiesta di esecuzione batch di Azure Machine Learning Studio | No       |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Scenario 1: Esperimenti di uso degli input/output del servizio Web che fanno riferimento ai dati presenti in Archiviazione BLOB di Azure
 

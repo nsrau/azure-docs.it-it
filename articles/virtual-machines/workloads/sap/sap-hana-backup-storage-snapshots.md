@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
 ms.openlocfilehash: 74f47344afff630a8633b340ea4ce21db28db7ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60936611"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Backup di SAP HANA basato su snapshot di archiviazione
@@ -32,7 +32,7 @@ Quando si usa una funzionalità di backup di VM per un sistema dimostrativo all-
 
 SAP HANA dispone di una funzionalità che supporta la creazione di uno snapshot di archiviazione. Esiste una limitazione per i sistemi a contenitore singolo. Scenari di accesso a SAP HANA MCS con più di un tenant non supportano questo tipo di snapshot del database SAP HANA (vedere [Creare uno Snapshot di archiviazione (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)).
 
-Il funzionamento è il seguente:
+Funziona come indicato di seguito:
 
 - Preparare la creazione dello snapshot di archiviazione avviando lo snapshot di SAP HANA
 - Eseguire lo snapshot di archiviazione (ad esempio uno snapshot BLOB di Azure)

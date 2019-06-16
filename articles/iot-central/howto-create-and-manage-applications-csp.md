@@ -9,10 +9,10 @@ ms.date: 04/03/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 43fe0047022173cc20f58688920fa95b95cc6c22
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65473537"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Creare e gestire in qualità di CSP un'applicazione IoT Central di Azure per conto del cliente 
@@ -43,7 +43,7 @@ Per creare un'applicazione Azure IoT Central, selezionare la **nuova applicazion
 
 In qualità di CSP è possibile creare solo applicazioni con pagamento in base al consumo. Per presentare IoT Central di Azure al cliente è possibile creare separatamente un'applicazione di prova. Altre informazioni sulle applicazioni in versione di prova e con pagamento in base al consumo sono disponibili nella [pagina Prezzi di IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
-## <a name="application-name"></a>Nome applicazione
+## <a name="application-name"></a>Nome dell'applicazione
 
 Il nome dell'applicazione è mostrato sulla pagina **Application Manager** e in ogni applicazione Azure IoT Central. È possibile scegliere qualsiasi nome per l'applicazione Azure IoT Central. Scegliere un nome significativo per sé e per tutte le persone dell'organizzazione.
 

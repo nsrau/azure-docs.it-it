@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66392917"
 ---
 # <a name="streaming-policies"></a>Criteri di streaming
@@ -48,7 +48,7 @@ Se si hanno requisiti speciali (ad esempio, se si desidera specificare protocoll
 
 ## <a name="get-a-streaming-policy-definition"></a>Ottenere una definizione di criteri di Streaming  
 
-Se si desidera visualizzare la definizione di un criterio di Streaming, usare [ottenere](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) e specificare il nome del criterio. Ad esempio: 
+Se si desidera visualizzare la definizione di un criterio di Streaming, usare [ottenere](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) e specificare il nome del criterio. Ad esempio:
 
 ### <a name="rest"></a>REST
 

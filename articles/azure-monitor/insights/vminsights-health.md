@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 9fa76c9637a6dcdca48bf45e8ee2aa9305a4f64f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66130444"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Comprendere l'integrità delle macchine virtuali di Azure
@@ -34,7 +34,7 @@ Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine v
 
 Questa sezione descrive i criteri di integrità predefiniti per monitorare le macchine virtuali Linux e Windows Azure. Tutti i criteri di integrità sono preconfigurati per l'invio di un avviso quando viene rilevata una condizione di non integrità. 
 
-### <a name="windows-vms"></a>Macchine virtuali Windows
+### <a name="windows-vms"></a>Macchine virtuali di Windows
 
 - Megabyte disponibili per la memoria 
 - Media scritture disco/secondi (disco logico)
@@ -65,7 +65,7 @@ Questa sezione descrive i criteri di integrità predefiniti per monitorare le ma
 - Integrità del servizio Windows Firewall
 - Integrità del servizio Gestione remota Windows
 
-### <a name="linux-vms"></a>Macchine virtuali Linux
+### <a name="linux-vms"></a>Macchine virtuali di Linux
 - Media disco Disk sec/Transfer 
 - Media disco Disk sec/Read 
 - Media disco Disk sec/Write 
@@ -95,12 +95,12 @@ Nella sezione **Integrità della macchina virtuale guest** della scheda **Integr
 
 La tabella seguente descrive gli stati di integrità definiti per una macchina virtuale: 
 
-|Icona |Stato del sistema |Significato |
+|Icona |Stato di integrità |Significato |
 |-----|-------------|---------------|
-| |Integra |Lo stato è Integro se è conforme alle condizioni di integrità definite, e questo indica che per la macchina virtuale non sono stati rilevati problemi e la macchina funziona in modo corretto. Con un monitoraggio rollup padre, esegue il rollup dell'integrità che riflette lo stato peggiore o migliore dell'elemento figlio.|
+| |Healthy |Lo stato è Integro se è conforme alle condizioni di integrità definite, e questo indica che per la macchina virtuale non sono stati rilevati problemi e la macchina funziona in modo corretto. Con un monitoraggio rollup padre, esegue il rollup dell'integrità che riflette lo stato peggiore o migliore dell'elemento figlio.|
 | |Critico |Lo stato di integrità è critico se non è conforme alla condizione di integrità definita, la quale indica che sono stati rilevati uno o più problemi critici, che devono essere risolti per poter ripristinare il normale funzionamento. Con un monitoraggio rollup padre, esegue il rollup dell'integrità che riflette lo stato peggiore o migliore dell'elemento figlio.|
 | |Avviso |Lo stato di integrità è definito come Avviso se è compreso tra due valori soglia della condizione di integrità definita, dove uno indica uno stato *Avviso* e l'altro indica uno stato *Critico* (è possibile configurare tre soglie per lo stato di integrità), oppure quando viene rilevato un problema non critico che può causare problemi critici se non risolto. Con un rollup padre monitor, se uno o più elementi figlio è in uno stato di avviso, quindi padre rifletterà *avviso* dello stato. Se è presente un elemento figlio in stato *Critico* e un altro in stato *Avviso*, il rollup padre mostra uno stato di integrità *Critico*.|
-| |Sconosciuti |Stato di integrità *sconosciuto* quando non può essere calcolata per diversi motivi. Vedere la nota seguente <sup>1</sup> per altri dettagli e le possibili soluzioni per risolverli. |
+| |Sconosciuto |Stato di integrità *sconosciuto* quando non può essere calcolata per diversi motivi. Vedere la nota seguente <sup>1</sup> per altri dettagli e le possibili soluzioni per risolverli. |
 
 <sup>1</sup> sconosciuto di stato di integrità è causato da problemi seguenti:
 
@@ -120,7 +120,7 @@ Quando si accede integrità da una VM di Azure che eseguono il sistema operativo
 
 ### <a name="aggregate-virtual-machine-perspective"></a>Prospettiva delle macchine virtuali aggregate
 
-Per visualizzare la raccolta di integrità per tutte le macchine virtuali in un gruppo di risorse, dall'elenco spostamenti del portale selezionare **Monitoraggio di Azure**, quindi **Macchine virtuali (anteprima)**.  
+Per visualizzare la raccolta di integrità per tutte le macchine virtuali in un gruppo di risorse, dall'elenco spostamenti del portale selezionare **Monitoraggio di Azure**, quindi **Macchine virtuali (anteprima)** .  
 
 ![Visualizzazione del monitoraggio di Informazioni dettagliate macchina virtuale da Monitoraggio di Azure](./media/vminsights-health/vminsights-aggregate-health.png)
 
@@ -239,7 +239,7 @@ Le tre colonne sono correlate tra loro. Quando un utente seleziona un'istanza in
 
 ![Esempio di selezione dell'istanza monitorata e dei risultati](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-Nell'esempio precedente, quando si seleziona **Disk - 1 D:**, l'albero Criteri di integrità viene filtrato in base a **Disk - 1 D:**. La colonna **State Change** (Modifica stato) indica il cambiamento dello stato in base alla disponibilità di **Disk - 1 D:**. 
+Nell'esempio precedente, quando si seleziona **Disk - 1 D:** , l'albero Criteri di integrità viene filtrato in base a **Disk - 1 D:** . La colonna **State Change** (Modifica stato) indica il cambiamento dello stato in base alla disponibilità di **Disk - 1 D:** . 
 
 Per visualizzare lo stato di integrità aggiornato, è possibile aggiornare la pagina Diagnostica integrità facendo clic sul collegamento **Aggiorna**.  Se lo stato di integrità del criterio di integrità viene aggiornato in base all'intervallo di polling predefinito, questa attività consente di evitare l'attesa e riflette lo stato di integrità più recente.  Il filtro **Stato criteri di integrità** consente di esaminare i risultati in base allo stato di integrità selezionato: *Integro*, *Avviso*, *Critico*, *Sconosciuti* e *tutti*.  L'ora riportata in **Ultimo aggiornamento** nell'angolo in alto a destra indica l'ora dell'ultimo aggiornamento della pagina Diagnostica integrità.  
 
@@ -267,7 +267,7 @@ Gli avvisi provenienti da altri tipi di risorse o servizi non devono essere incl
 |Resource |Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un tipo di risorsa. | 
 |Severity |Selezionare un livello di gravità degli avvisi oppure *Tutti* per includere gli avvisi di tutti i livelli di gravità. | 
 |Condizione del monitoraggio |Selezionare una condizione di monitoraggio per filtrare gli avvisi se sono stati *Attivati* dal sistema oppure *Risolti* dal sistema se la condizione non è più attiva. In alternativa selezionare *Tutti* per includere gli avvisi di tutte le condizioni. | 
-|Stato avviso |Selezionare uno stato dell'avviso, *Nuovo*, *Conferma*, *Chiuso*, oppure selezionare *Tutti* per includere gli avvisi di tutti gli stati. | 
+|Stato dell'avviso |Selezionare uno stato dell'avviso, *Nuovo*, *Conferma*, *Chiuso*, oppure selezionare *Tutti* per includere gli avvisi di tutti gli stati. | 
 |Servizio di monitoraggio |Selezionare un servizio oppure *Tutti* per includere tutti i servizi. Per questa funzionalità sono supportati solo gli avvisi generati da *Informazioni dettagliate macchina virtuale*.| 
 |Intervallo di tempo| Nella visualizzazione vengono inclusi solo gli avvisi attivati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. | 
 

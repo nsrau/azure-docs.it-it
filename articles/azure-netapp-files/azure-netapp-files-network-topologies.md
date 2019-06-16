@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
 ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826473"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Linee guida per la pianificazione della rete per Azure NetApp Files
@@ -52,13 +52,13 @@ La tabella seguente descrive le topologie di rete supportate da file di Azure Ne
 
 |    Topologie    |    è supportato    |     Soluzione alternativa    |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
-|    Connettività al volume in una rete virtuale locale    |    Sì    |         |
-|    Connettività al volume in una rete virtuale con peering (stessa area)    |    Sì    |         |
-|    Connettività al volume in una rete virtuale con peering (regione o tra il peering globale)    |    N.    |    Nessuna    |
-|    Connettività a un volume su gateway di ExpressRoute    |    Sì    |         |
-|    Connettività da locale a un volume in un rete virtuale spoke su gateway ExpressRoute e il peering con il transito gateway della rete virtuale    |    N.    |    Creare una subnet di delegato nella rete virtuale (rete virtuale di Azure con il Gateway) dell'hub    |
-|    Connettività da locale a un volume in un rete virtuale spoke tramite gateway VPN    |    Sì    |         |
-|    Connettività da locale a un volume in un rete virtuale spoke tramite gateway VPN e il peering con il transito gateway della rete virtuale    |    Sì    |         |
+|    Connettività al volume in una rete virtuale locale    |    Yes    |         |
+|    Connettività al volume in una rete virtuale con peering (stessa area)    |    Yes    |         |
+|    Connettività al volume in una rete virtuale con peering (regione o tra il peering globale)    |    No    |    Nessuna    |
+|    Connettività a un volume su gateway di ExpressRoute    |    Yes    |         |
+|    Connettività da locale a un volume in un rete virtuale spoke su gateway ExpressRoute e il peering con il transito gateway della rete virtuale    |    No    |    Creare una subnet di delegato nella rete virtuale (rete virtuale di Azure con il Gateway) dell'hub    |
+|    Connettività da locale a un volume in un rete virtuale spoke tramite gateway VPN    |    Yes    |         |
+|    Connettività da locale a un volume in un rete virtuale spoke tramite gateway VPN e il peering con il transito gateway della rete virtuale    |    Yes    |         |
 
 
 ## <a name="virtual-network-for-azure-netapp-files-volumes"></a>Rete virtuale per i volumi di file di Azure NetApp
@@ -95,7 +95,7 @@ Il diagramma seguente illustra un ambiente di Azure nativo:
 
 Uno scenario di base consiste nel creare o connettersi a un volume di file di Azure NetApp da una macchina virtuale (VM) nella stessa rete virtuale. Per la rete virtuale 2 nel diagramma precedente, Volume 1 viene creato in una subnet del delegato e può essere montata su 1 macchina virtuale nella subnet predefinita.
 
-### <a name="vnet-peering"></a>Peering di rete virtuale
+### <a name="vnet-peering"></a>Peering reti virtuali
 
 Se si dispone di altre reti virtuali nella stessa area che richiedono l'accesso alle risorse di altro, le reti virtuali possono essere connesse tramite [peering reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) per abilitare la connettività sicura tramite l'infrastruttura di Azure. 
 

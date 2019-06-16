@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 50f19d50f211972c2042c69a1e3177ffb4a47624
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247200"
 ---
 # <a name="common-security-attributes-for-azure-event-hubs"></a>Attributi di sicurezza comuni per hub eventi di Azure
@@ -37,9 +37,9 @@ Questo articolo sono descritti gli attributi di sicurezza comuni incorporati in 
 | Attributo di sicurezza | Sì/No | Note |
 |---|---|--|
 | Supporto endpoint del servizio| Yes |  |
-| supportare l'inserimento di rete virtuale| No  | |
+| supportare l'inserimento di rete virtuale| No | |
 | Isolamento di rete e supporto firewall| Yes |  |
-| Supporto di tunneling forzato| No  |  |
+| Supporto di tunneling forzato| No |  |
 
 ## <a name="detection"></a>Rilevamento
 

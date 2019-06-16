@@ -3,33 +3,29 @@ title: Come disabilitare le funzioni in Funzioni di Azure
 description: Informazioni su come disabilitare e abilitare le funzioni in Funzioni di Azure 1.x e 2.x.
 services: functions
 documentationcenter: ''
-author: tdykstra
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
-origin.date: 07/24/2018
-ms.date: 08/31/2018
-ms.author: v-junlch
+author: ggailey777
+manager: jeconnoc
+ms.service: azure-functions
+ms.topic: conceptual
+ms.date: 07/24/2018
+ms.author: glenga
 ms.openlocfilehash: a32b4815a2716428ceeec034ddc5589e3aa062e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60710562"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Come disabilitare le funzioni in Funzioni di Azure
 
 Questo articolo illustra come disabilitare una funzione in Funzioni di Azure. *Disabilitare* una funzione significa fare in modo che il runtime ignori il trigger automatico definito per la funzione. La modalità di disabilitazione di una funzione dipende dalla versione del runtime e dal linguaggio di programmazione:
 
-- Funzioni 1.x
-  - Linguaggi di scripting
-  - Libreria di classi C#
-- Funzioni 2.x
-  - Una sola modalità per tutti i linguaggi
-  - Una modalità facoltativa per le librerie di classi C#
+* Funzioni 1.x
+  * Linguaggi di scripting
+  * Libreria di classi C#
+* Funzioni 2.x
+  * Una sola modalità per tutti i linguaggi
+  * Una modalità facoltativa per le librerie di classi C#
 
 ## <a name="functions-1x---scripting-languages"></a>Funzioni 1.x: linguaggi di scripting
 
@@ -62,7 +58,7 @@ Nel secondo esempio la funzione viene disabilitata se è presente un'impostazion
 
 È possibile modificare il file nel portale di Azure o usare l'opzione **Stato funzione** nella scheda **Gestione** della funzione. L'opzione del portale funziona modificando il file *function.json*.
 
-![Opzione Stato funzione](./media/disable-function/function-state-switch.png)
+![Opzione Stato funzione](media/disable-function/function-state-switch.png)
 
 ## <a name="functions-1x---c-class-libraries"></a>Funzioni 1.x: librerie di classi C#
 
@@ -113,7 +109,7 @@ Questo metodo consente di abilitare e disabilitare la funzione modificando l'imp
 
 In Funzioni versione 2.x si disabilita una funzione usando un'impostazione dell'app. Ad esempio, per disabilitare una funzione denominata `QueueTrigger`, si crea un'impostazione dell'app denominata `AzureWebJobs.QueueTrigger.Disabled` e si imposta il parametro su `true`. Per abilitare la funzione, impostare il parametro su `false`. È anche possibile usare l'opzione **Stato funzione** nella scheda **Gestione** della funzione. L'opzione funziona creando ed eliminando l'impostazione dell'app `AzureWebJobs.<functionname>.Disabled`.
 
-![Opzione Stato funzione](./media/disable-function/function-state-switch.png)
+![Opzione Stato funzione](media/disable-function/function-state-switch.png)
 
 ## <a name="functions-2x---c-class-libraries"></a>Funzioni 2.x: librerie di classi C#
 
@@ -122,4 +118,3 @@ In una libreria di classi di Funzioni 2.x è consigliabile usare il metodo appli
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questo articolo contiene informazioni sulla disabilitazione dei trigger automatici. Per altre informazioni, vedere [Trigger e associazioni](functions-triggers-bindings.md).
-

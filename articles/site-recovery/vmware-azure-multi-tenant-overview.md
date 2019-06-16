@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60718122"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Panoramica del supporto multi-tenant per il ripristino di emergenza da VMware ad Azure con CSP
@@ -89,7 +89,7 @@ Configurare il server di configurazione con un account a cui sia assegnato un ru
 
 3. Assegnare i livelli di accesso all'account vCenter (usato nel server di configurazione del tenant) per diversi oggetti, come segue:
 
->| Object | Ruolo | Osservazioni |
+>| Object | Ruolo | Note |
 >| --- | --- | --- |
 >| vCenter | Read-Only | Necessario solo per consentire l'accesso a vCenter per la gestione di oggetti diversi. Questa autorizzazione può essere rimossa se l'account non dovrà mai essere offerto a un tenant o usato per operazioni di gestione in vCenter. |
 >| Data center | Azure_Site_Recovery |  |
@@ -110,7 +110,7 @@ Per limitare le operazioni di ripristino di emergenza fino al solo failover (val
 ### <a name="deploy-resources-to-the-tenant-subscription"></a>Distribuire le risorse nella sottoscrizione del tenant
 
 1. Nel portale di Azure creare un gruppo di risorse e distribuire un insieme di credenziali di Servizi di ripristino seguendo la procedura consueta.
-2. Scaricare la chiave di registrazione dell'insieme di credenziali,
+2. Scaricare la chiave di registrazione dell'insieme di credenziali.
 3. Registrare il server di configurazione per il tenant usando la chiave di registrazione dell'insieme di credenziali.
 4. Immettere le credenziali per i due account di accesso, ovvero l'account di accesso al server vCenter e l'account di accesso alla macchina virtuale.
 

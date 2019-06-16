@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c7b73cad200666db9e926d8e808eaa4a8dccffb2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2bc5602011ed64b11b1b8c96b7e69a8d5ee9bf32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248843"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67132943"
 ---
 ## <a name="premium-ssd"></a>SSD Premium
 
@@ -45,7 +45,7 @@ Per le unità SSD standard, ogni operazione dei / o minore o uguale a 256 KB di 
 
 ## <a name="standard-hdd"></a>HDD Standard
 
-Le unità HDD Standard di Azure offrono un supporto dei dischi affidabile e a basso costo per le VM che eseguono carichi di lavoro non sensibili alla latenza. Con l'archiviazione standard, i dati vengono archiviati in unità disco rigido (HDD). Latenza, IOPS e velocità effettiva di Standard HDD dischi possono variare in modo più esteso rispetto ai dischi basati su unità SSD. Quando si lavora con le macchine virtuali, è possibile usare i dischi HDD standard per scenari di sviluppo/test e ridurre i carichi di lavoro critici. Unità disco rigido standard è disponibili in tutte le aree di Azure e può essere usato con tutte le macchine virtuali di Azure.
+Le unità HDD Standard di Azure offrono un supporto dei dischi affidabile e a basso costo per le VM che eseguono carichi di lavoro non sensibili alla latenza. Con l'archiviazione standard, i dati vengono archiviati in unità disco rigido (HDD). Latenza, IOPS e velocità effettiva di Standard HDD dischi possono variare in modo più esteso rispetto ai dischi basati su unità SSD. I dischi HDD standard sono progettati per offrire le latenze di scrittura in 10 ms e latenze in 20 ms per la maggior parte delle operazioni dei / o, di lettura ma le prestazioni effettive possono variare a seconda il modello di carico di lavoro e le dimensioni dei / o. Quando si lavora con le macchine virtuali, è possibile usare i dischi HDD standard per scenari di sviluppo/test e ridurre i carichi di lavoro critici. Unità disco rigido standard è disponibili in tutte le aree di Azure e può essere usato con tutte le macchine virtuali di Azure.
 
 ### <a name="disk-size"></a>Dimensioni disco
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]

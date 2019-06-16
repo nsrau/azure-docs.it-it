@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 51c1ea7b554178f7fb3f264bf731ffd5872ceea2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5b53819c1d30f6cd62c5941d4b44d70a4996daad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234553"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67117886"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Trasformazione di origine per il Mapping del flusso di dati 
 
@@ -65,13 +65,13 @@ In un secondo momento, è possibile modificare i nomi delle colonne in una trasf
 
 Nel **Ottimizza** scheda per la trasformazione di origine, è possibile visualizzare un **origine** tipo di partizione. Questa opzione è disponibile solo quando l'origine è il Database SQL di Azure. Si tratta in quanto il tentativo di stabilire connessioni parallele per eseguire query di grandi dimensioni di origine del Database SQL di Data Factory.
 
-![Le impostazioni della partizione di origine](media/data-flow/sourcepart2.png "partizionamento")
+![Le impostazioni della partizione di origine](media/data-flow/sourcepart3.png "partizionamento")
 
 Non è necessario partizionare i dati nell'origine Database SQL, ma le partizioni sono utili per query di grandi dimensioni. È possibile basare la partizione in una colonna o una query.
 
 ### <a name="use-a-column-to-partition-data"></a>Utilizzare una colonna di partizionamento dei dati
 
-Dalla tabella di origine, selezionare una colonna di partizione su. Impostare anche il numero massimo di connessioni.
+Dalla tabella di origine, selezionare una colonna di partizione su. Impostare anche il numero di partizioni.
 
 ### <a name="use-a-query-to-partition-data"></a>Usare una query per partizionare i dati
 
@@ -84,9 +84,39 @@ Scegliere le impostazioni per gestire i file nell'origine.
 ![Nuove impostazioni di origine](media/data-flow/source2.png "nuove impostazioni")
 
 * **Percorso con caratteri jolly**: La cartella di origine, scegliere una serie di file che corrispondono ai criteri. Questa impostazione esegue l'override di qualsiasi file nella definizione del set di dati.
+
+Esempi di carattere jolly:
+
+* ```*``` Rappresenta qualsiasi set di caratteri
+* ```**``` Rappresenta l'annidamento di directory ricorsiva
+* ```?``` Sostituisce un carattere
+* ```[]``` Corrisponde a una delle più caratteri tra parentesi quadre
+
+* ```/data/sales/**/*.csv``` Ottiene tutti i file csv in /data/sales
+* ```/data/sales/20??/**``` Ottiene tutti i file nel ventesimo secolo
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Ottiene tutti i file csv nel 2004 nel mese di dicembre iniziano con X o Y preceduto da un numero a 2 cifre
+
+Contenitore deve essere specificato nel set di dati. Il percorso con caratteri jolly pertanto necessario includere anche il percorso della cartella nella cartella radice.
+
 * **Elenco di file**: Si tratta di un set di file. Creare un file di testo che include un elenco di file di percorso relativo per l'elaborazione. Puntare a questo file di testo.
 * **Colonna per archiviare il nome di file**: Store il nome del file di origine in una colonna nei dati. Immettere un nuovo nome per archiviare la stringa del nome file.
 * **Dopo il completamento**: Scegliere di non eseguire alcuna operazione con il file di origine dopo che i dati di esecuzioni dei flussi, eliminare il file di origine o spostare il file di origine. I percorsi per lo spostamento sono relativi.
+
+Per spostare i file di origine per la post-elaborazione di un altro percorso, selezionare prima di tutto "Spostare" per l'operazione di file. Quindi, impostare la directory "da". Se non si usa caratteri jolly per il percorso, "l'impostazione from" sarà la stessa cartella come cartella di origine.
+
+Se si dispone di un percorso di origine con caratteri jolly, ad esempio:
+
+```/data/sales/20??/**/*.csv```
+
+È possibile specificare "da" come
+
+```/data/sales```
+
+E "a" come
+
+```/backup/priorSales```
+
+In questo caso, tutte le sottodirectory /data/sales che sono state originate vengono spostate relativo /backup/priorSales.
 
 ### <a name="sql-datasets"></a>Set di dati SQL
 

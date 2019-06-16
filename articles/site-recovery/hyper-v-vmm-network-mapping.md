@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: d2f7f83654f397cc6b93adbbebc25193155bcedb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399381"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparare il mapping di rete per il ripristino di emergenza della macchina virtuale Hyper-V in Azure
@@ -54,7 +54,7 @@ Il mapping di rete funziona nel modo seguente:
 
 Di seguito è riportato un esempio per illustrare questo meccanismo. Si prenda come esempio un’organizzazione con due sedi, New York e Chicago.
 
-**Posizione** | **Server VMM** | **Reti VM** | **Mappata a**
+**Location** | **Server VMM** | **Reti VM** | **Mappata a**
 ---|---|---|---
 New York | VMM-NewYork| VMNetwork1-NewYork | Mappata a VMNetwork1-Chicago
  |  | VMNetwork2-NewYork | Non mappata
@@ -79,7 +79,7 @@ SilverCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwor
 
 ### <a name="logical-and-vm-network-settings"></a>Impostazioni di rete VM e logica
 
-**Posizione** | **Rete logica** | **Rete VM associata**
+**Location** | **Rete logica** | **Rete VM associata**
 ---|---|---
 New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
 Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
@@ -115,7 +115,7 @@ Con queste impostazioni esaminare cosa accade in un paio di scenari possibili.
 **Scenario** | **Risultato**
 ---|---
 Nessuna modifica nelle proprietà della rete di VM-2 dopo il failover | VM-1 rimane connessa alla rete di origine.
-Le proprietà di rete di VM-2 cambiano dopo il failover e la macchina virtuale viene disconnessa  | VM-1 viene disconnessa
+Le proprietà di rete di VM-2 cambiano dopo il failover e la macchina virtuale viene disconnessa | VM-1 viene disconnessa
 Le proprietà di rete di VM-2 cambiano dopo il failover e la macchina virtuale viene connessa a VMNetwork2-Chicago | Se non viene eseguito il mapping di VMNetwork2-Chicago, VM-1 verrà disconnessa
 Il mapping di rete di VMNetwork1-Chicago viene modificato | VM-1 verrà connessa alla rete ora mappata a VMNetwork1-Chicago
 

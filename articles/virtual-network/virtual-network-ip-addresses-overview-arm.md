@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
 ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236348"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
@@ -57,7 +57,7 @@ Gli indirizzi IP pubblici vengono creati con uno degli SKU seguenti:
 >[!IMPORTANT]
 > Per le risorse di bilanciamento del carico e IP pubblico è necessario usare SKU corrispondenti. Non è possibile avere una combinazione di risorse SKU Basic e Standard. Non è possibile collegare le macchine virtuali autonome, le macchine virtuali in una risorsa del set di disponibilità, o una risorsa di un set di scalabilità di macchina virtuale per entrambi gli SKU contemporaneamente.  Per i nuovi progetti è consigliabile prendere in considerazione l'uso di risorse SKU Standard.  Per informazioni dettagliate, consultare [Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-#### <a name="basic"></a>Di base
+#### <a name="basic"></a>Basic
 
 Tutti gli indirizzi IP pubblici creati prima dell'introduzione degli SKU sono indirizzi IP pubblici con SKU Basic. Con l'introduzione degli SKU, è possibile specificare lo SKU per l'indirizzo IP pubblico. Gli indirizzi con SKU Basic sono:
 
@@ -133,11 +133,11 @@ Un [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2
 ### <a name="at-a-glance"></a>Riepilogo
 La tabella seguente illustra la proprietà specifica tramite la quale un indirizzo IP pubblico può essere associato a una risorsa di livello superiore e i metodi di allocazione possibili (dinamici o statici) utilizzabili.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | Statico |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dynamic | statico |
 | --- | --- | --- | --- |
-| Macchina virtuale |interfaccia di rete |Sì |Sì |
-| Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Sì |Sì |
-| Gateway VPN |Configurazione IP del gateway |Sì |N. |
+| Macchina virtuale |interfaccia di rete |Yes |Yes |
+| Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Yes |Yes |
+| gateway VPN |Configurazione IP del gateway |Yes |No |
 | gateway applicazione |Configurazione front-end |Sì (solo V1) |Sì (solo V2) |
 
 ## <a name="private-ip-addresses"></a>Indirizzi IP privati
@@ -181,11 +181,11 @@ Le macchine virtuali configurate con server DNS gestiti di Azure possono risolve
 ### <a name="at-a-glance"></a>Riepilogo
 La tabella seguente illustra la proprietà specifica tramite la quale un indirizzo IP privato può essere associato a una risorsa di livello superiore e i metodi di allocazione possibili (dinamici o statici) utilizzabili.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | dinamico | Statico |
+| Risorse di livello superiore | Associazione di indirizzi IP | dinamico | statico |
 | --- | --- | --- | --- |
-| Macchina virtuale |interfaccia di rete |Sì |Sì |
-| Servizio di bilanciamento del carico |Configurazione front-end |Sì |Sì |
-| gateway applicazione |Configurazione front-end |Sì |Sì |
+| Macchina virtuale |interfaccia di rete |Yes |Yes |
+| Bilanciamento del carico |Configurazione front-end |Yes |Yes |
+| gateway applicazione |Configurazione front-end |Yes |Yes |
 
 ## <a name="limits"></a>Limiti
 I limiti imposti agli indirizzi IP sono indicati nel set completo di [limiti della rete](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. I limiti sono classificati per area e per sottoscrizione. È possibile [contattare il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai massimi consentiti in base alle esigenze aziendali.

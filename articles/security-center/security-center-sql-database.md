@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
 ms.openlocfilehash: 0a889de79b6a5921007614dac8d610c1be0222d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60704555"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Centro sicurezza di Azure e servizio Database SQL di Azure
@@ -67,7 +67,7 @@ Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse 
 
 Dopo l'impostazione dei criteri di sicurezza, il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificare le potenziali vulnerabilità. Le raccomandazioni vengono visualizzate sotto forma di tabella, dove ogni riga rappresenta una particolare raccomandazione. Usare la tabella seguente come riferimento per comprendere le raccomandazioni disponibili per il database SQL di Azure e l'effetto prodotto da ogni raccomandazione che viene applicata. Se si seleziona una raccomandazione, viene visualizzato un articolo che illustra come implementare la raccomandazione nel Centro sicurezza.
 
-| Recommendation | DESCRIZIONE |
+| Recommendation | Descrizione |
 | --- | --- |
 | [Enable Auditing &amp; Threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md) (Abilita il controllo e il rilevamento delle minacce nei server SQL) |Raccomanda di abilitare il controllo e il rilevamento delle minacce per i server di database SQL (solo per il servizio Database SQL; non prevede l'esecuzione di Microsoft SQL Server sulle macchine virtuali). |
 | [Enable Auditing & Threat detection on SQL databases](security-center-enable-auditing-on-sql-databases.md) (Abilita il controllo e il rilevamento delle minacce nei database SQL) |Raccomanda di abilitare il controllo e il rilevamento delle minacce per i database del servizio database SQL (solo per il servizio Database SQL; non prevede l'esecuzione di Microsoft SQL Server sulle macchine virtuali). |

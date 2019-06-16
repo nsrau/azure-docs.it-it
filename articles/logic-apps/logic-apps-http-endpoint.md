@@ -13,10 +13,10 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66495046"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare flussi di lavoro con endpoint HTTP nelle App per la logica di Azure

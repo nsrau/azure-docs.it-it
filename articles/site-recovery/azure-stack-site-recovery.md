@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399587"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicare le macchine virtuali di Azure Stack in Azure
@@ -43,7 +43,7 @@ Quando la procedura è completata, è quindi possibile eseguire un failover comp
 
 ![Architettura](./media/azure-stack-site-recovery/architecture.png)
 
-**Posizione** | **Componente** |**Dettagli**
+**Location** | **Componente** |**Dettagli**
 --- | --- | ---
 **Server di configurazione** | Viene eseguito in una singola macchina virtuale di Azure Stack. | In ogni sottoscrizione viene impostata una macchina virtuale del server di configurazione. Tale macchina virtuale esegue questi componenti di Site Recovery:<br/><br/> - Server di configurazione: Coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati. - Server di elaborazione: Agisce come un gateway di replica. Riceve i dati di replica, li ottimizza tramite la memorizzazione nella cache, la compressione e la crittografia e li invia ad Archiviazione di Azure.<br/><br/> Se le macchine virtuali da replicare superano i limiti indicati di seguito, è possibile configurare un server di elaborazione autonomo separato. [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale)
 **Servizio Mobility** | Installato in ogni macchina virtuale da replicare. | Nei passaggi descritti in questo articolo si procede alla preparazione di un account in modo che il servizio Mobility venga installato automaticamente in una macchina virtuale quando è abilitata la replica. Se non si intende installare automaticamente il servizio, è possibile usare altri metodi. [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service)
@@ -68,7 +68,7 @@ Di seguito vengono indicati gli elementi necessari per configurare questo scenar
 **Requisito** | **Dettagli**
 --- | ---
 **Account di sottoscrizione di Azure** | Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
-**Autorizzazioni dell'account di Azure** | L'account di Azure in uso ha bisogno delle autorizzazioni per le operazioni seguenti:<br/><br/> - Creare un insieme di credenziali di Servizi di ripristino<br/><br/> - Creare una macchina virtuale nel gruppo di risorse e nella rete virtuale usata per lo scenario<br/><br/> - Scrivere sull'account di archiviazione specificato<br/><br/> Si noti che:<br/><br/> - Se si crea un account, si è l'amministratore della sottoscrizione e si possono eseguire tutte le azioni.<br/><br/> - Se si usa una sottoscrizione esistente e non si ha il ruolo di amministratore, è necessario rivolgersi all'amministratore per l'assegnazione delle autorizzazioni di proprietario o collaboratore.<br/><br/> - Se sono necessarie autorizzazioni più granulari, leggere [questo articolo](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control). 
+**Autorizzazioni dell'account di Azure** | L'account di Azure in uso ha bisogno delle autorizzazioni per le operazioni seguenti:<br/><br/> - Creare un insieme di credenziali di Servizi di ripristino<br/><br/> - Creare una macchina virtuale nel gruppo di risorse e nella rete virtuale usata per lo scenario<br/><br/> - Scrivere sull'account di archiviazione specificato<br/><br/> Si noti che:<br/><br/> \- Se si crea un account, si è l'amministratore della sottoscrizione e si possono eseguire tutte le azioni.<br/><br/> - Se si usa una sottoscrizione esistente e non si ha il ruolo di amministratore, è necessario rivolgersi all'amministratore per l'assegnazione delle autorizzazioni di proprietario o collaboratore.<br/><br/> - Se sono necessarie autorizzazioni più granulari, leggere [questo articolo](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control). 
 **Macchina virtuale di Azure Stack** | È necessaria una macchina virtuale di Azure Stack nella sottoscrizione del tenant, che verrà distribuita come server di configurazione di Site Recovery. 
 
 

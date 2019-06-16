@@ -8,14 +8,13 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 03/19/2019
-ms.author: v-junlch
+ms.date: 12/07/2018
+ms.author: azfuncdf
 ms.openlocfilehash: ee96bc5e17051ab37be34eecbb8e4fe35599cd5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60730770"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gestire le istanze in Durable Functions in Azure
@@ -87,11 +86,11 @@ module.exports = async function(context, input) {
 
 È anche possibile avviare un'istanza direttamente utilizzando il [Azure Functions Core Tools](../functions-run-local.md) `durable start-new` comando. È necessario specificare i seguenti parametri:
 
-* **`function-name` (obbligatorio)**: Nome della funzione da avviare.
-* **`input` (facoltativo)**: Input alla funzione inline o tramite un file JSON. Per i file, aggiungere un prefisso per il percorso del file con `@`, ad esempio `@path/to/file.json`.
-* **`id` (facoltativo)**: ID dell'istanza di orchestrazione. Se non si specifica questo parametro, il comando Usa un GUID casuale.
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è AzureWebJobsStorage.
-* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è DurableFunctionsHub. È possibile impostarla anche nella [host. JSON](durable-functions-bindings.md#host-json) usando durableTask:HubName.
+* **`function-name` (obbligatorio)** : Nome della funzione da avviare.
+* **`input` (facoltativo)** : Input alla funzione inline o tramite un file JSON. Per i file, aggiungere un prefisso per il percorso del file con `@`, ad esempio `@path/to/file.json`.
+* **`id` (facoltativo)** : ID dell'istanza di orchestrazione. Se non si specifica questo parametro, il comando Usa un GUID casuale.
+* **`connection-string-setting` (facoltativo)** : nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è AzureWebJobsStorage.
+* **`task-hub-name` (facoltativo)** : Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è DurableFunctionsHub. È possibile impostarla anche nella [host. JSON](durable-functions-bindings.md#host-json) usando durableTask:HubName.
 
 > [!NOTE]
 > Comandi di strumenti di base presuppongono che siano in esecuzione dalla directory radice dell'app per le funzioni. Se si specifica in modo esplicito il `connection-string-setting` e `task-hub-name` parametri, è possibile eseguire i comandi da qualsiasi directory. Sebbene sia possibile eseguire questi comandi senza un host di app di funzione in esecuzione, si noterà che è non è possibile osservare alcuni effetti, a meno che l'host è in esecuzione. Ad esempio, il `start-new` comando Accoda un messaggio di avvio in hub di attività di destinazione, ma l'orchestrazione non viene effettivamente eseguito a meno che non è presente un processo di host di app di funzione in esecuzione che può elaborare il messaggio.
@@ -110,9 +109,9 @@ Il metodo [GetStatusAsync](https://azure.github.io/azure-functions-durable-exten
 
 Accetta `instanceId` (obbligatorio), `showHistory` (facoltativo), `showHistoryOutput` (facoltativo) e `showInput` (facoltativo, solo .NET) come parametri.
 
-* **`showHistory`**: Se impostato su `true`, la risposta contiene la cronologia di esecuzione.
-* **`showHistoryOutput`**: Se impostato su `true`, la cronologia di esecuzione contiene gli output di attività.
-* **`showInput`**: Se impostato su `false`, la risposta non includerà l'input della funzione. Il valore predefinito è `true`. (Solo .NET)
+* **`showHistory`** : Se impostato su `true`, la risposta contiene la cronologia di esecuzione.
+* **`showHistoryOutput`** : Se impostato su `true`, la cronologia di esecuzione contiene gli output di attività.
+* **`showInput`** : Se impostato su `false`, la risposta non includerà l'input della funzione. Il valore predefinito è `true`. (Solo .NET)
 
 Il metodo restituisce un oggetto JSON con le proprietà seguenti:
 
@@ -164,11 +163,11 @@ module.exports = async function(context, instanceId) {
 
 È anche possibile ottenere lo stato di un'istanza di orchestrazione, direttamente tramite il [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` comando. È necessario specificare i seguenti parametri:
 
-* **`id` (obbligatorio)**: ID dell'istanza di orchestrazione.
-* **`show-input` (facoltativo)**: Se impostato su `true`, la risposta contiene l'input della funzione. Il valore predefinito è `false`.
-* **`show-output` (facoltativo)**: Se impostato su `true`, la risposta contiene l'output della funzione. Il valore predefinito è `false`.
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
-* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
+* **`id` (obbligatorio)** : ID dell'istanza di orchestrazione.
+* **`show-input` (facoltativo)** : Se impostato su `true`, la risposta contiene l'input della funzione. Il valore predefinito è `false`.
+* **`show-output` (facoltativo)** : Se impostato su `true`, la risposta contiene l'output della funzione. Il valore predefinito è `false`.
+* **`connection-string-setting` (facoltativo)** : nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)** : Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
 Il comando seguente recupera lo stato (inclusi input e output) di un'istanza con un ID istanza orchestrazione 0ab8c55a66644d68a3a8b220b12d209c. Si presuppone che sia in esecuzione il `func` comando dalla directory radice dell'app per le funzioni:
 
@@ -178,9 +177,9 @@ func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-inp
 
 È possibile usare il `durable get-history` comando per recuperare la cronologia di un'istanza di orchestrazione. È necessario specificare i seguenti parametri:
 
-* **`id` (obbligatorio)**: ID dell'istanza di orchestrazione.
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
-* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. Si può anche essere impostato nell'host. JSON, con durableTask:HubName.
+* **`id` (obbligatorio)** : ID dell'istanza di orchestrazione.
+* **`connection-string-setting` (facoltativo)** : nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)** : Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. Si può anche essere impostato nell'host. JSON, con durableTask:HubName.
 
 ```bash
 func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
@@ -228,10 +227,10 @@ module.exports = async function(context, req) {
 
 È anche possibile per le istanze di query direttamente, usando il [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` comando. È necessario specificare i seguenti parametri:
 
-* **`top` (facoltativo)**: questo comando supporta il paging. Questo parametro corrisponde al numero di istanze recuperate per ogni richiesta. Il valore predefinito è 10.
-* **`continuation-token` (facoltativo)**: Un token per indicare la pagina o sezione di istanze da recuperare. Ogni esecuzione `get-instances` restituisce un token per il set successivo di istanze.
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
-* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
+* **`top` (facoltativo)** : questo comando supporta il paging. Questo parametro corrisponde al numero di istanze recuperate per ogni richiesta. Il valore predefinito è 10.
+* **`continuation-token` (facoltativo)** : Un token per indicare la pagina o sezione di istanze da recuperare. Ogni esecuzione `get-instances` restituisce un token per il set successivo di istanze.
+* **`connection-string-setting` (facoltativo)** : nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)** : Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
 ```bash
 func durable get-instances
@@ -295,13 +294,13 @@ module.exports = async function(context, req) {
 
 In Azure Functions Core Tools, è anche possibile usare il `durable get-instances` comando con i filtri. Oltre a citato in precedenza `top`, `continuation-token`, `connection-string-setting`, e `task-hub-name` parametri, è possibile utilizzare tre parametri di filtro (`created-after`, `created-before`, e `runtime-status`).
 
-* **`created-after` (facoltativo)**: consente di recuperare le istanze create dopo questa data/ora (UTC). Datetime in formato ISO 8601 accettati.
-* **`created-before` (facoltativo)**: consente di recuperare le istanze create prima di questa data/ora (UTC). Datetime in formato ISO 8601 accettati.
-* **`runtime-status` (facoltativo)**: Recuperare le istanze con uno stato specifico (ad esempio, in esecuzione o completato). Può fornire più stati (separati da spazi).
-* **`top` (facoltativo)**: numero di istanze recuperate per ogni richiesta. Il valore predefinito è 10.
-* **`continuation-token` (facoltativo)**: Un token per indicare la pagina o sezione di istanze da recuperare. Ogni esecuzione `get-instances` restituisce un token per il set successivo di istanze.
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
-* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
+* **`created-after` (facoltativo)** : consente di recuperare le istanze create dopo questa data/ora (UTC). Datetime in formato ISO 8601 accettati.
+* **`created-before` (facoltativo)** : consente di recuperare le istanze create prima di questa data/ora (UTC). Datetime in formato ISO 8601 accettati.
+* **`runtime-status` (facoltativo)** : Recuperare le istanze con uno stato specifico (ad esempio, in esecuzione o completato). Può fornire più stati (separati da spazi).
+* **`top` (facoltativo)** : numero di istanze recuperate per ogni richiesta. Il valore predefinito è 10.
+* **`continuation-token` (facoltativo)** : Un token per indicare la pagina o sezione di istanze da recuperare. Ogni esecuzione `get-instances` restituisce un token per il set successivo di istanze.
+* **`connection-string-setting` (facoltativo)** : nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)** : Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
 Se non si forniscono tutti i filtri (`created-after`, `created-before`, o `runtime-status`), il comando recupera semplicemente `top` istanze, senza considerare lo stato o la creazione di runtime di integrazione.
 
@@ -348,10 +347,10 @@ module.exports = async function(context, instanceId) {
 
 È anche possibile terminare un'istanza di orchestrazione a direttamente, usando il [Azure Functions Core Tools](../functions-run-local.md) `durable terminate` comando. È necessario specificare i seguenti parametri:
 
-* **`id` (obbligatorio)**: ID dell'istanza di orchestrazione per terminare.
-* **`reason` (facoltativo)**: Motivo della terminazione.
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
-* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
+* **`id` (obbligatorio)** : ID dell'istanza di orchestrazione per terminare.
+* **`reason` (facoltativo)** : Motivo della terminazione.
+* **`connection-string-setting` (facoltativo)** : nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)** : Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
 Il comando seguente consente di terminare un'istanza di orchestrazione con l'ID di 0ab8c55a66644d68a3a8b220b12d209c:
 
@@ -404,11 +403,11 @@ module.exports = async function(context, instanceId) {
 
 È inoltre possibile generare un evento a un'istanza di orchestrazione a direttamente, usando il [Azure Functions Core Tools](../functions-run-local.md) `durable raise-event` comando. È necessario specificare i seguenti parametri:
 
-* **`id` (obbligatorio)**: ID dell'istanza di orchestrazione.
-* **`event-name` (facoltativo)**: nome dell'evento da generare. Il valore predefinito è `$"Event_{RandomGUID}"`.
-* **`event-data` (facoltativo)**: dati da inviare all'istanza di orchestrazione. Ciò può essere il percorso di un file JSON, o è possibile fornire i dati direttamente nella riga di comando.
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
-* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
+* **`id` (obbligatorio)** : ID dell'istanza di orchestrazione.
+* **`event-name` (facoltativo)** : nome dell'evento da generare. Il valore predefinito è `$"Event_{RandomGUID}"`.
+* **`event-data` (facoltativo)** : dati da inviare all'istanza di orchestrazione. Ciò può essere il percorso di un file JSON, o è possibile fornire i dati direttamente nella riga di comando.
+* **`connection-string-setting` (facoltativo)** : nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)** : Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
 ```bash
 func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
@@ -426,91 +425,9 @@ Il [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-
 
 Di seguito è riportato un esempio di funzione trigger HTTP che illustra come usare questa API:
 
-```C#
-// Copyright (c) .NET Foundation. All rights reserved.
-// Licensed under the MIT License. See LICENSE in the project root for license information.
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Extensions.Logging;
-
-namespace VSSample
-{
-    public static class HttpSyncStart
-    {
-        private const string Timeout = "timeout";
-        private const string RetryInterval = "retryInterval";
-
-        [FunctionName("HttpSyncStart")]
-        public static async Task<HttpResponseMessage> Run(
-            [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/wait")]
-            HttpRequestMessage req,
-            [OrchestrationClient] DurableOrchestrationClientBase starter,
-            string functionName,
-            ILogger log)
-        {
-            // Function input comes from the request content.
-            dynamic eventData = await req.Content.ReadAsAsync<object>();
-            string instanceId = await starter.StartNewAsync(functionName, eventData);
-
-            log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
-
-            TimeSpan timeout = GetTimeSpan(req, Timeout) ?? TimeSpan.FromSeconds(30);
-            TimeSpan retryInterval = GetTimeSpan(req, RetryInterval) ?? TimeSpan.FromSeconds(1);
-            
-            return await starter.WaitForCompletionOrCreateCheckStatusResponseAsync(
-                req,
-                instanceId,
-                timeout,
-                retryInterval);
-        }
-
-        private static TimeSpan? GetTimeSpan(HttpRequestMessage request, string queryParameterName)
-        {
-            string queryParameterStringValue = request.RequestUri.ParseQueryString()[queryParameterName];
-            if (string.IsNullOrEmpty(queryParameterStringValue))
-            {
-                return null;
-            }
-
-            return TimeSpan.FromSeconds(double.Parse(queryParameterStringValue));
-        }
-    }
-}
-```
-
-```Javascript
-const df = require("durable-functions");
-
-const timeout = "timeout";
-const retryInterval = "retryInterval";
-
-module.exports = async function (context, req) {
-    const client = df.getClient(context);
-    const instanceId = await client.startNew(req.params.functionName, undefined, req.body);
-
-    context.log(`Started orchestration with ID = '${instanceId}'.`);
-
-    const timeoutInMilliseconds = getTimeInSeconds(req, timeout) || 30000;
-    const retryIntervalInMilliseconds = getTimeInSeconds(req, retryInterval) || 1000;
-
-    return client.waitForCompletionOrCreateCheckStatusResponse(
-        context.bindingData.req,
-        instanceId,
-        timeoutInMilliseconds,
-        retryIntervalInMilliseconds);
-};
-
-function getTimeInSeconds (req, queryParameterName) {
-    const queryValue = req.query[queryParameterName];
-    return queryValue
-        ? queryValue // expected to be in seconds
-        * 1000 : undefined;
-}
-```
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
 
 Chiamare la funzione con la riga seguente. Utilizzare 2 secondi per il timeout e 0,5 secondi per l'intervallo tra tentativi:
 
@@ -658,10 +575,10 @@ module.exports = async function(context, instanceId) {
 
 È anche possibile tornare indietro un'istanza di orchestrazione direttamente tramite il [Azure Functions Core Tools](../functions-run-local.md) `durable rewind` comando. È necessario specificare i seguenti parametri:
 
-* **`id` (obbligatorio)**: ID dell'istanza di orchestrazione.
-* **`reason` (facoltativo)**: Motivo per l'istanza di orchestrazione riavvolgimento.
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
-* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
+* **`id` (obbligatorio)** : ID dell'istanza di orchestrazione.
+* **`reason` (facoltativo)** : Motivo per l'istanza di orchestrazione riavvolgimento.
+* **`connection-string-setting` (facoltativo)** : nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)** : Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
 ```bash
 func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator failed and needs to be revived."
@@ -711,11 +628,11 @@ public static Task Run(
 
 Si possono eliminare la cronologia dell'istanza di un'orchestrazione utilizzando la [Azure Functions Core Tools](../functions-run-local.md) `durable purge-history` comando. Simile al secondo C# esempio nella sezione precedente, Elimina la cronologia per tutte le istanze di orchestrazione create durante un intervallo di tempo specificato. È possibile filtrare ulteriormente le istanze eliminate in base allo stato di runtime. Il comando ha diversi parametri:
 
-* **`created-after` (facoltativo)**: consente di ripulire la cronologia delle istanze create dopo questa data/ora (UTC). Datetime in formato ISO 8601 accettati.
-* **`created-before` (facoltativo)**: consente di ripulire la cronologia delle istanze create prima di questa data/ora (UTC). Datetime in formato ISO 8601 accettati.
-* **`runtime-status` (facoltativo)**: Eliminare la cronologia delle istanze con un determinato stato (ad esempio, in esecuzione o completato). Può fornire più stati (separati da spazi).
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
-* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
+* **`created-after` (facoltativo)** : consente di ripulire la cronologia delle istanze create dopo questa data/ora (UTC). Datetime in formato ISO 8601 accettati.
+* **`created-before` (facoltativo)** : consente di ripulire la cronologia delle istanze create prima di questa data/ora (UTC). Datetime in formato ISO 8601 accettati.
+* **`runtime-status` (facoltativo)** : Eliminare la cronologia delle istanze con un determinato stato (ad esempio, in esecuzione o completato). Può fornire più stati (separati da spazi).
+* **`connection-string-setting` (facoltativo)** : nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)** : Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
 Il comando seguente elimina la cronologia di tutte le istanze non riuscite creato prima del 14 novembre 2018 7:35 PM (UTC).
 
@@ -727,8 +644,8 @@ func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runti
 
 Usando il [Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` comando, è possibile eliminare tutti gli elementi di archiviazione associati a un hub attività particolare. Sono inclusi i BLOB, le code e le tabelle di archiviazione di Azure. Il comando presenta due parametri:
 
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
-* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
+* **`connection-string-setting` (facoltativo)** : nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)** : Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
 Il seguente comando Elimina tutti i dati di archiviazione di Azure associati il `UserTest` hub attività.
 
@@ -740,5 +657,3 @@ func durable delete-task-hub --task-hub-name UserTest
 
 > [!div class="nextstepaction"]
 > [Informazioni su come usare le API HTTP per la gestione delle istanze](durable-functions-http-api.md)
-
-<!-- Update_Description: wording update -->

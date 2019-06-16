@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 06/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f6af5e5e42a16548b1997845ea5076ddd4dd3be5
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 01358d13d30358a9950cbe35622df065fc5a6de5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66736004"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133559"
 ---
-Questo articolo usa i cmdlet di PowerShell. Per eseguire i cmdlet, è possibile usare Azure Cloud Shell, un ambiente shell interattiva ospitato in Azure e utilizzato tramite il browser. Azure Cloud Shell include i cmdlet di PowerShell di Azure pre-installati.
+Questo articolo usa i cmdlet di PowerShell. Per eseguire i cmdlet è possibile usare Azure Cloud Shell, un ambiente di shell interattiva ospitato in Azure e usato tramite il browser. In Azure Cloud Shell sono preinstallati i cmdlet di Azure PowerShell.
 
-Per eseguire qualsiasi codice contenuto in questo articolo in Azure Cloud Shell, aprire una sessione di Cloud Shell, usare il **copia** pulsante in un blocco di codice per copiare il codice e incollarlo nella sessione di Cloud Shell con __Ctrl + MAIUSC + V__ su Windows e Linux, oppure __Cmd + MAIUSC + V__ in macOS. Testo incollato non viene eseguito automaticamente, quindi premere **invio** per eseguire il codice.
+Per eseguire il codice contenuto in questo articolo in Azure Cloud Shell, aprire una sessione di Cloud Shell, usare il pulsante **Copia** in un blocco di codice per copiare il codice e incollarlo nella sessione di Cloud Shell con __CTRL+MAIUSC+V__ in Windows e Linux o __CMD+MAIUSC+V__ in macOS. Il testo incollato non viene eseguito automaticamente. Premere quindi **INVIO** per eseguire il codice.
 
-È possibile avviare Azure Cloud Shell con:
+È possibile avviare Azure Cloud Shell nei modi seguenti:
 
 |  |   |
 |-----------------------------------------------|---|
-| Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. Ciò __non__ copiare automaticamente il testo in Cloud Shell. | ![Esempio di Prova per Azure Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png) |
+| Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. Questa azione __non__ copia automaticamente il testo in Cloud Shell. | ![Esempio di Prova per Azure Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png) |
 | Aprire [shell.azure.com](https://shell.azure.com) nel browser. | [![Pulsante di avvio di Azure Cloud Shell](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com) |
 | Selezionare il pulsante **Cloud Shell** nel menu nell'angolo superiore destro del [portale di Azure](https://portal.azure.com). | ![Pulsante Cloud Shell nel portale di Azure](./media/cloud-shell-try-it/cloud-shell-menu.png) |
 
 **Esecuzione di PowerShell in locale**
 
-È anche possibile installare ed eseguire i cmdlet di Azure PowerShell in locale nel computer. I cmdlet di PowerShell vengono aggiornati di frequente. Se non si esegue la versione più recente, i valori specificati nelle istruzioni potrebbero non riuscire. Per trovare la versione di PowerShell in esecuzione in locale, usare il `Get-Module -ListAvailable Az` cmdlet. Per installare o aggiornare, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
+È anche possibile installare ed eseguire i cmdlet di Azure PowerShell in locale nel computer. I cmdlet di PowerShell vengono aggiornati di frequente. Se non si esegue la versione più recente, i valori specificati nelle istruzioni potrebbero non riuscire. Per trovare le versioni di Azure PowerShell installata nel computer, usare il `Get-Module -ListAvailable Az` cmdlet. Per installare o aggiornare, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).

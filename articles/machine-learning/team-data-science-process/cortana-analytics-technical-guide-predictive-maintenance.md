@@ -12,10 +12,10 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715665"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guida tecnica del modello di soluzione con Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale
@@ -174,7 +174,7 @@ La procedura seguente illustra come connettere il file con estensione pbix al da
    * Quando la voce **Database SQL di Azure** nel diagramma del modello di soluzione diventa verde, selezionarla e quindi fare clic su **Apri**.
    * Verrà aperta una nuova scheda o finestra del browser con la pagina del portale di Azure. Fare clic su **Gruppi di risorse** nel pannello di sinistra.
    * Selezionare la sottoscrizione usata per la distribuzione della soluzione e quindi **NomeSoluzione\_GruppoDiRisorse**.
-   * Nel nuovo pannello a comparsa fare clic sull'icona ![Icona SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) per accedere al database. Il nome del database si trova accanto a questa icona, ad esempio **'pmaintenancedb'**, mentre il **nome del server di database** è riportato nella proprietà Nome server ed è simile a **NomeSoluzione.database.windows.net**.
+   * Nel nuovo pannello a comparsa fare clic sull'icona ![Icona SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) per accedere al database. Il nome del database si trova accanto a questa icona, ad esempio **'pmaintenancedb'** , mentre il **nome del server di database** è riportato nella proprietà Nome server ed è simile a **NomeSoluzione.database.windows.net**.
    * Il **nome utente** e la **password** del database sono quelli registrati prima durante la distribuzione della soluzione.
 2. Aggiornare l'origine dati del file di report del percorso non critico con Power BI Desktop.
    

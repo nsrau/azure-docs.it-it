@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: alkohli
 ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953132"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gestione del calcolo in Azure Data Box Edge
@@ -68,7 +68,7 @@ Eseguire i passaggi seguenti nel portale di Azure per eliminare un trigger.
 
 1. Nell'elenco dei trigger selezionare il trigger che si desidera eliminare.
 
-    ![Seleziona trigger](media/data-box-edge-manage-compute/add-trigger-1.png)
+    ![Selezionare il trigger](media/data-box-edge-manage-compute/add-trigger-1.png)
 
 2. Fare clic con il pulsante destro del mouse e quindi scegliere **Elimina**.
 
@@ -76,7 +76,7 @@ Eseguire i passaggi seguenti nel portale di Azure per eliminare un trigger.
 
 3. Alla richiesta di conferma fare clic su **Sì**.
 
-    ![Conferma eliminazione](media/data-box-edge-manage-compute/add-trigger-1.png)
+    ![Conferma dell'eliminazione](media/data-box-edge-manage-compute/add-trigger-1.png)
 
 Viene inoltre aggiornato l'elenco dei trigger per riflettere l'eliminazione.
 
