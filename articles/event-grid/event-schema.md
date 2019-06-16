@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
 ms.openlocfilehash: 4a795221790a9d56bcbfe30a50b0c838fb8d9e56
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304240"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schema di eventi di Griglia di eventi di Azure
@@ -83,7 +83,7 @@ Ad esempio, lo schema pubblicato per un evento di archiviazione BLOB di Azure è
 
 Tutti gli eventi contengono gli stessi dati di livello principale indicati di seguito:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | topic | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |

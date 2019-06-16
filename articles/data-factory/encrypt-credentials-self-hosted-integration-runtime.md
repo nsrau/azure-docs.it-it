@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
 ms.openlocfilehash: 8e705a4430f6ccee847dc7d41ef80456a6dc4ea5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155139"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Crittografare le informazioni sulle credenziali per gli archivi dati locali in Azure Data Factory
@@ -50,7 +50,7 @@ Sostituire `<servername>`, `<databasename>`, `<username>` e `<password>` con i v
 }
 ```
 
-## <a name="encrypt-credentials"></a>Crittografa credenziali
+## <a name="encrypt-credentials"></a>Crittografare le credenziali
 Per crittografare i dati sensibili dal payload JSON in un runtime di integrazione self-hosted locale, eseguire **New-AzDataFactoryV2LinkedServiceEncryptedCredential**e passare il payload JSON. Questo cmdlet assicura che le credenziali vengano crittografate utilizzando DPAPI e archiviate nel nodo del runtime di integrazione self-hosted in locale. Il payload di output contenente il riferimento alle credenziali crittografato può essere reindirizzato a un altro file JSON (in questo caso 'Encryptedlinkedservice').
 
 ```powershell

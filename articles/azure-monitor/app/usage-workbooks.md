@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64569610"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure
@@ -166,7 +166,7 @@ Attualmente sono supportati quattro tipi diversi di parametri:
 
 ### <a name="using-a-text-parameter"></a>Uso di un parametro di testo
 
-Il valore digitato da un utente nella casella di testo viene sostituito direttamente nella query, senza escape o virgolette. Se il valore necessario è una stringa, all'interno della query il parametro deve essere racchiuso tra virgolette (ad esempio **'{parametro}'**).
+Il valore digitato da un utente nella casella di testo viene sostituito direttamente nella query, senza escape o virgolette. Se il valore necessario è una stringa, all'interno della query il parametro deve essere racchiuso tra virgolette (ad esempio **'{parametro}'** ).
 
 In questo modo il valore in una casella di testo può essere usato ovunque, in un nome di tabella, di colonna o di funzione, in un operatore e così via.
 

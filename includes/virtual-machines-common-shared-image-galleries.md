@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7a0e628eed861767d1eeb50b0ded7bb3d8807328
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 3ea41a16f79f903b5ff7d2b93f74f7d3d2a0dd83
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66271599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133241"
 ---
 Raccolta di immagini condivise è un servizio che consente di compilare una struttura e l'organizzazione per le immagini gestite. Raccolte di immagini condivise fornite:
 
 - Gestire replica globale di immagini.
 - Raggruppamento di immagini per semplificare la gestione e controllo delle versioni.
-- Immagini a disponibilità elevata con gli account di archiviazione con ridondanza della zona (ZRS) in aree che supportano le zone di disponibilità. ZRS offre una resilienza migliore in caso di errori di zona.
+- Immagini a disponibilità elevata con gli account di archiviazione con ridondanza della zona (ZRS) in aree che supportano le zone di disponibilità. L'archiviazione con ridondanza della zona offre una resilienza migliore in caso di errori specifici di una zona.
 - La condivisione tra sottoscrizioni e anche tra i tenant di Active Directory (AD), uso di RBAC.
 - Scalabilità delle distribuzioni delle repliche di immagine in ogni area.
 
@@ -78,15 +78,15 @@ Nella tabella seguente sono elencate le aree di origine. Tutte le aree pubbliche
 
 | Aree di origine |
 |---------------------|-----------------|------------------|-----------------|
-| Australia centrale   | Stati Uniti centrali EUAP | Corea del Sud centrale    | Regno Unito meridionale 2      |
-| Australia centrale 2 | Asia orientale       | Corea del Sud meridionale      | Regno Unito occidentale         |
-| Australia orientale      | Stati Uniti orientali         | Stati Uniti centro-settentrionali | Stati Uniti centro-occidentali |
-| Australia sud-orientale | Stati Uniti orientali 2       | Europa settentrionale     | Europa occidentale     |
-| Brasile meridionale        | Stati Uniti orientali 2 EUAP  | Stati Uniti centro-meridionali | India occidentale      |
-| Canada centrale      | Francia centrale  | India meridionale      | Stati Uniti occidentali         |
-| Canada orientale         | Francia meridionale    | Asia sud-orientale   | Stati Uniti occidentali         |
-| India centrale       | Giappone orientale      | Regno Unito settentrionale         | Stati Uniti occidentali 2       |
-| Stati Uniti centrali          | Giappone occidentale      | Regno Unito meridionale         |                 |
+| Australia centrale   | Stati Uniti centrali EUAP | Corea del Sud centrale    | Stati Uniti centro-occidentali |
+| Australia centrale 2 | Asia orientale       | Corea del Sud meridionale      | Europa occidentale     |
+| Australia orientale      | Stati Uniti orientali         | Stati Uniti centro-settentrionali | India occidentale      |
+| Australia sud-orientale | Stati Uniti orientali 2       | Europa settentrionale     | Stati Uniti occidentali         |
+| Brasile meridionale        | Stati Uniti orientali 2 EUAP  | Stati Uniti centro-meridionali | Stati Uniti occidentali 2       |
+| Canada centrale      | Francia centrale  | India meridionale      |                 |
+| Canada orientale         | Francia meridionale    | Asia sud-orientale   |                 |
+| India centrale       | Giappone orientale      | Regno Unito meridionale         |                 |
+| Stati Uniti centrali          | Giappone occidentale      | Regno Unito occidentale          |                 |
 
 
 
@@ -94,8 +94,8 @@ Nella tabella seguente sono elencate le aree di origine. Tutte le aree pubbliche
 
 Sono previsti limiti, per ogni sottoscrizione, per la distribuzione di risorse usando raccolte di immagini condivise:
 - 100 raccolte di immagini condivise, per ogni sottoscrizione per area
-- 1.000 definizioni di immagini, per ogni sottoscrizione per area
-- 10.000 versioni dell'immagine, per ogni sottoscrizione per area
+- 1\.000 definizioni di immagini, per ogni sottoscrizione per area
+- 10\.000 versioni dell'immagine, per ogni sottoscrizione per area
 
 Per altre informazioni, vedere [controllare l'utilizzo di risorse rispetto ai limiti](https://docs.microsoft.com/azure/networking/check-usage-against-limits) per esempi su come controllare l'utilizzo corrente.
  
@@ -140,7 +140,7 @@ Poiché la raccolta di immagini condivise, definizione dell'immagine e versione 
 | Condivisi con l'utente     | Raccolta di immagini condivise | Definizione delle immagini | Versione dell'immagine |
 |----------------------|----------------------|--------------|----------------------|
 | Raccolta di immagini condivise | Yes                  | Sì          | Yes                  |
-| Definizione delle immagini     | No                    | Yes          | Yes                  |
+| Definizione delle immagini     | No                   | Yes          | Yes                  |
 
 È consigliabile la condivisione a livello di raccolta per ottenere risultati ottimali. Non è consigliabile la condivisione delle versioni delle singole immagini. Per altre informazioni su RBAC, vedere [gestire l'accesso alle risorse di Azure tramite RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
 ms.openlocfilehash: 29b607f10c15ba35a515b55b059b7b55ff594fe6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135788"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Creare un gateway applicazione usando il modello di Gestione risorse di Azure
@@ -161,9 +161,9 @@ Per distribuire il modello di Azure Resource Manager scaricato usando l'interfac
     az group create --location westus --name appgatewayRG
     ```
     
-    **-n (o --name)**. Nome del nuovo gruppo di risorse. Per questo scenario, *appgatewayRG*.
+    **-n (o --name)** . Nome del nuovo gruppo di risorse. Per questo scenario, *appgatewayRG*.
     
-    **-l (o --location)**. Area di Azure in cui viene creato il nuovo gruppo di risorse. Per questo scenario, *westus*.
+    **-l (o --location)** . Area di Azure in cui viene creato il nuovo gruppo di risorse. Per questo scenario, *westus*.
 
 1. Eseguire il cmdlet `az group deployment create` per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati nel passaggio precedente. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
 

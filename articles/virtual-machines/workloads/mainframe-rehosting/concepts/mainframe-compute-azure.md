@@ -7,10 +7,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 335a056a34412a7ed148613bfff59ecb30053e09
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190325"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Spostare il calcolo di mainframe in Azure
@@ -74,7 +74,7 @@ Di seguito sono stime generali:
 
 -   150 MIPS per ogni vCPU
 
--   1.000 MIPS per processore
+-   1\.000 MIPS per processore
 
 Per determinare le dimensioni VM corretta per un carico di lavoro in un LPAR, ottimizzare la macchina virtuale per il carico di lavoro. Quindi determinare il numero di Vcpu necessita. Stima conservativa è 150 MIPS per ogni vCPU. In base a questa stima, ad esempio, una VM serie F con 16 Vcpu può supportare facilmente un carico di lavoro di IBM Db2 provenienti da un LPAR con MIPS 2.400.
 

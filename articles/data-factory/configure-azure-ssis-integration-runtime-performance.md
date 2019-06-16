@@ -11,10 +11,10 @@ ms.author: sawinark
 ms.reviewer: ''
 manager: craigg
 ms.openlocfilehash: 42c69653a002446552da998320a43730dfdaadf5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232505"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurare il runtime di integrazione Azure-SSIS per garantire prestazioni elevate
@@ -118,7 +118,7 @@ Se i pacchetti da eseguire sono molti e la velocità effettiva complessiva è un
 Quando si usa già un nodo del ruolo di lavoro potente per eseguire i pacchetti, se si aumenta il valore di **AzureSSISMaxParallelExecutionsPerNode**, può aumentare la velocità effettiva complessiva del runtime di integrazione. Per i nodi Standard_D1_v2 sono supportate da 1 a 4 esecuzioni parallele per nodo. Per tutti gli altri tipi di nodi, 1-max(2 x number of cores, 8) esecuzioni parallele per nodo sono supportate. Se si desidera **AzureSSISMaxParallelExecutionsPerNode** oltre il valore massimo è supportati, è possibile aprire un ticket di supporto ed è possibile aumentare il valore massimo per l'utente e dopo che è necessario usare Azure Powershell per aggiornare  **AzureSSISMaxParallelExecutionsPerNode**.
 È possibile stimare il valore appropriato in base al costo del pacchetto e alle configurazioni seguenti per i nodi del ruolo di lavoro. Per altre informazioni, vedere [Dimensioni delle macchine virtuali di utilizzo generico](../virtual-machines/windows/sizes-general.md).
 
-| Dimensione             | CPU virtuale | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: Input/output al secondo | Schede di interfaccia di rete max/prestazioni rete previste (Mbps) |
+| Dimensione             | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/prestazioni rete previste (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Standard\_D1\_v2 | 1    | 3.5         | 50                     | 3000 / 46 / 23                                             | 2/2 x 500                         | 2 / 750                                        |
 | Standard\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4/4 x 500                         | 2 / 1500                                       |

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: lbosq
 ms.openlocfilehash: 2f3967c64e79b2bc7b01b35eff26f5ac0d4e3db4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888409"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Come usare il passaggio di profilo di esecuzione per valutare le query Gremlin
@@ -22,7 +22,7 @@ Questo articolo offre una panoramica di come usare il passaggio di profilo di es
 
 Per usare questo passaggio, è sufficiente aggiungere il `executionProfile()` funzione chiamata alla fine della query Gremlin. **Verrà eseguita la query di Gremlin** e il risultato dell'operazione restituirà un oggetto di risposta JSON con il profilo di esecuzione di query.
 
-Ad esempio: 
+Ad esempio:
 
 ```java
     // Basic traversal
@@ -148,7 +148,7 @@ La risposta di una funzione executionProfile() produrrà una gerarchia di oggett
     - `storeOps.count`: Rappresenta il numero di risultati che questa operazione di archiviazione restituita.
     - `storeOps.size`: Rappresenta la dimensione in byte del risultato di un'operazione di archiviazione specificato.
 
-Operatore di Runtime di COSMOS DB Gremlin|DESCRIZIONE
+Operatore di Runtime di COSMOS DB Gremlin|Descrizione
 ---|---
 `GetVertices`| Questo passaggio Ottiene un set di oggetti predicato ha dal livello di persistenza. 
 `GetEdges`| Questa operazione Ottiene i bordi adiacenti a un set di vertici. Questo passaggio può comportare uno o più operazioni di archiviazione.

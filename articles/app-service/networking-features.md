@@ -16,10 +16,10 @@ ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 666430a11fb95871eb601b2a38eb7b97ad16119f
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66498950"
 ---
 # <a name="app-service-networking-features"></a>Funzionalità di rete del servizio App
@@ -46,8 +46,8 @@ Per qualsiasi caso d'uso specifico, possono essere presenti alcuni modi per riso
  
 | Casi di utilizzo in ingresso | Funzionalità |
 |---------------------|-------------------|
-| Supportare le esigenze SSL basato su IP per l'app | indirizzi assegnati alle App |
-| Non condiviso, indirizzi in ingresso dedicato per l'app | indirizzi assegnati alle App |
+| Supportare le esigenze SSL basato su IP per l'app | Indirizzi assegnati alle App |
+| Non condiviso, indirizzi in ingresso dedicato per l'app | Indirizzi assegnati alle App |
 | Limitare l'accesso all'app da un set di indirizzi ben definiti | Restrizioni di accesso |
 | Esporre l'app su indirizzi IP privati nella rete virtuale | Ambiente del servizio app con bilanciamento del carico interno </br> Gateway applicazione con gli endpoint di servizio |
 | Limitare l'accesso alla mia app dalle risorse in una rete virtuale | Endpoint servizio </br> Ambiente del servizio app con bilanciamento del carico interno |

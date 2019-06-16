@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073018"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Ruoli di entità per i sottotipi contestuali
@@ -37,7 +37,7 @@ I ruoli assegnano un nome a tali differenze:
 
 |Tipo di entità|Nome dell'entità|Ruolo|Scopo|
 |--|--|--|--|
-|Semplice|Località|origine|luogo in cui parte l'aereo|
+|Semplice|Località|origin|luogo in cui parte l'aereo|
 |Semplice|Località|destinazione|luogo in cui atterra l'aereo|
 
 ## <a name="non-machine-learned-entity-example-of-roles"></a>Esempio di entità non-machine-appreso dei ruoli

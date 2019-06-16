@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db590c8c79db9bc47edbbef69a11d3b0e4b51f6
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 9035cc629a11c125c1b6351bd4bff9f5576f7baf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540355"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111076"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Tenancy in Azure Active Directory
 
@@ -36,9 +36,9 @@ In fase di sviluppo delle app, gli sviluppatori possono scegliere di configurare
 
 Nel portale di Azure è possibile configurare l'app come multi-tenant o a tenant singolo impostando i destinatari come indicato di seguito.
 
-| Destinatari | Tenant singolo/multi-tenant | Utenti autorizzati a effettuare l'accesso | 
+| Audience | Tenant singolo/multi-tenant | Utenti autorizzati a effettuare l'accesso | 
 |----------|--------| ---------|
-| Account solo in questa directory | Tenant singolo | Tutti gli utenti e gli account guest della directory possono usare l'applicazione o l'API.<br>*Usare questa opzione se i destinatari sono interni all'organizzazione.* |
+| Account solo in questa directory | Tenant singolo | Tutti gli account utente e guest della directory possono usare l'applicazione o l'API.<br>*Usare questa opzione se i destinatari sono interni all'organizzazione.* |
 | Account in qualsiasi directory di Azure AD | Multi-tenant | Tutti gli utenti e gli utenti guest con un account Microsoft aziendale o dell'istituto di istruzione possono usare l'applicazione o l'API. Sono inclusi gli istituti di istruzione e le aziende che usano Office 365.<br>*Usare questa opzione se i destinatari sono clienti aziendali o di istituti di istruzione.* |
 | Account in qualsiasi directory di Azure AD e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com) | Multi-tenant | Tutti gli utenti con un account aziendale o dell'istituto di istruzione o con un account Microsoft personale possono usare l'applicazione o l'API. Sono inclusi gli istituiti di istruzione e le aziende che usano Office 365, nonché gli account personali usati per accedere a servizi come Xbox e Skype.<br>*Usare questa opzione per rivolgersi alla gamma più ampia di account Microsoft.* | 
 

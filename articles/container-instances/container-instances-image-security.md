@@ -10,10 +10,10 @@ ms.date: 04/29/2019
 ms.author: danlep
 ms.custom: ''
 ms.openlocfilehash: dc516277d79e37500e73e1aee6b88c908acb9b1c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943997"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Considerazioni sulla sicurezza per le istanze di contenitore di Azure
@@ -115,7 +115,7 @@ Come per qualsiasi ambiente IT, è necessario monitorare attività e l'accesso u
 
 * [Monitoraggio di Azure per contenitori](../azure-monitor/insights/container-insights-overview.md) per monitorare le prestazioni dei carichi di lavoro distribuiti in ambienti Kubernetes ospitati in Azure Kubernetes Service (AKS). Monitoraggio di Azure per contenitori assicura la visibilità sulle prestazioni raccogliendo metriche sulla memoria e sul processore da controller, nodi e contenitori disponibili in Kubernetes tramite l'API per le metriche. 
 
-* Il [soluzione monitoraggio contenitori di Azure](../azure-monitor/insights/containers.md) consente di visualizzare e gestire altri Docker e Windows host di contenitori in un'unica posizione. Ad esempio: 
+* Il [soluzione monitoraggio contenitori di Azure](../azure-monitor/insights/containers.md) consente di visualizzare e gestire altri Docker e Windows host di contenitori in un'unica posizione. Ad esempio:
 
   * Visualizzare informazioni dettagliate di controllo che mostra i comandi usati con i contenitori. 
   * Risolvere i problemi dei contenitori visualizzando e cercando log centralizzati senza la necessità di visualizzare in remoto gli host Docker o Windows.  

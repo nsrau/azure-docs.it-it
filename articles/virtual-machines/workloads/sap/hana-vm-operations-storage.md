@@ -17,13 +17,13 @@ ms.date: 06/05/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d062b6fff9693d5bda75edd65b8fe88d834eff57
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735512"
 ---
-# <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurazioni di archiviazione macchina virtuale di SAP HANA in Azure
+# <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA
 
 Azure offre diversi tipi di archiviazione adatti per le macchine virtuali di Azure che eseguono SAP HANA. I tipi di archiviazione di Azure che possono essere considerati per l'elenco di distribuzioni di SAP HANA, ad esempio: 
 
@@ -177,14 +177,14 @@ UltraSSD ti offre la possibilità di definire un singolo disco che soddisfa le d
 | M32ts | 192 GiB | 500 MB/s | 250 GB | 500 MBps | 7500 | 256 GB | 500 MBps  | 2000 |
 | M32ls | 256 GiB | 500 MB/s | 300 GB | 500 MBps | 7500 | 256 GB | 500 MBps  | 2000 |
 | M64ls | 512 GiB | 1000 MB/s | 600 GB | 500 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
-| M64s | 1000 GiB | 1.000 MB/s |  1200 GB | 500 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
-| M64ms | 1750 GiB | 1.000 MB/s | 2100 GB | 500 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
-| M128s | 2000 GiB | 2.000 MB/s |2400 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 2000 | 
-| M128ms | 3800 GiB | 2.000 MB/s | 4800 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 2000 | 
-| M208s_v2 | 2850 GiB | 1.000 MB/s | 3500 GB | 1000 MBps | 9000 | 512 GB | 500 MBps  | 2000 | 
-| M208ms_v2 | 5700 GiB | 1.000 MB/s | 7200 GB | 1000 MBps | 9000 | 512 GB | 500 MBps  | 2000 | 
-| M416s_v2 | 5700 GiB | 2.000 MB/s | 7200 GB | 1500 M Bps | 9000 | 512 GB | 800 MBps  | 2000 | 
-| M416ms_v2 | 11400 GiB | 2.000 MB/s | 14400 GB | 1500 MBps | 9000 | 512 GB | 800 MBps  | 2000 |   
+| M64s | 1000 GiB | 1\.000 MB/s |  1200 GB | 500 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
+| M64ms | 1750 GiB | 1\.000 MB/s | 2100 GB | 500 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
+| M128s | 2000 GiB | 2\.000 MB/s |2400 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 2000 | 
+| M128ms | 3800 GiB | 2\.000 MB/s | 4800 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 2000 | 
+| M208s_v2 | 2850 GiB | 1\.000 MB/s | 3500 GB | 1000 MBps | 9000 | 512 GB | 500 MBps  | 2000 | 
+| M208ms_v2 | 5700 GiB | 1\.000 MB/s | 7200 GB | 1000 MBps | 9000 | 512 GB | 500 MBps  | 2000 | 
+| M416s_v2 | 5700 GiB | 2\.000 MB/s | 7200 GB | 1500 M Bps | 9000 | 512 GB | 800 MBps  | 2000 | 
+| M416ms_v2 | 11400 GiB | 2\.000 MB/s | 14400 GB | 1500 MBps | 9000 | 512 GB | 800 MBps  | 2000 |   
 
 Tipi di VM M416xx_v2 non vengono ancora resi disponibili da Microsoft al pubblico. I valori elencati sono progettati per essere un punto di partenza e devono essere valutati rispetto alle esigenze reali. Il vantaggio con unità SSD extra di Azure è che i valori di IOPS e velocità effettiva possono essere adattati senza la necessità di arrestare la macchina virtuale o l'arresto del carico di lavoro applicati al sistema.   
 

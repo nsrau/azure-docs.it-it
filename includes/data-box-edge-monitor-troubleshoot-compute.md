@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 7058d7f46373f8adaacbcbf90e5ea591a15f8f37
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58404076"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67125637"
 ---
 In un dispositivo al bordo casella dei dati con il ruolo di calcolo configurato, un subset di docker sono disponibili per monitorare o risolvere i moduli di comandi. Per visualizzare un elenco di comandi disponibili, [connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface) e usare il `dkrdbe` (funzione).
 
@@ -37,7 +37,7 @@ Commands:
 ```
 La tabella seguente contiene una breve descrizione dei comandi disponibili per `dkrdbe`:
 
-|command  |DESCRIZIONE |
+|command  |Descrizione |
 |---------|---------|
 |`image`     | Gestire le immagini       |
 |`images`     | Elencare le immagini         |

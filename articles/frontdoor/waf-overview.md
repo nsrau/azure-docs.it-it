@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 122e9687ee313edff34e5a4fd9a44b1026a63811
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66478768"
 ---
 # <a name="what-is-azure-web-application-firewall-for-azure-front-door"></a>Che cos'è il firewall applicazione web di Azure per l'ingresso principale di Azure?

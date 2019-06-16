@@ -8,10 +8,10 @@ ms.date: 05/20/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 574dd9fd6189b6d0f1e5d455146d6d083ad7ff77
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389475"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Lavorare con i database, contenitori e gli elementi in Azure Cosmos DB
@@ -82,15 +82,15 @@ Un contenitore Cosmos Azure ha un set di proprietà definito dal sistema. A seco
 
 | Proprietà definita dal sistema | Configurabile dall'utente o generati dal sistema | Scopo | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Generato dal sistema | Identificatore univoco di contenitore | Yes | No  | No | No  | No  |
-|\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Yes | No  | No  | No  | No  |
-|\_Servizi terminal | Generato dal sistema | Ultimo timestamp aggiornato del contenitore | Yes | No  | No  | No  | No |
-|\_self | Generato dal sistema | URI indirizzabile del contenitore | Yes | No  | No  | No  | No |
+|\_id | Generato dal sistema | Identificatore univoco di contenitore | Yes | No | No | No | No |
+|\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Yes | No | No | No | No |
+|\_Servizi terminal | Generato dal sistema | Ultimo timestamp aggiornato del contenitore | Yes | No | No | No | No |
+|\_self | Generato dal sistema | URI indirizzabile del contenitore | Yes | No | No | No | No |
 |id | Configurabile dall'utente | Nome univoco definito dall'utente del contenitore | Yes | Sì | Sì | Sì | Yes |
-|indexingPolicy | Configurabile dall'utente | Offre la possibilità di modificare il percorso di indice, tipo di indice e modalità di indicizzazione | Yes | No  | No | No  | Yes |
-|TimeToLive | Configurabile dall'utente | Offre la possibilità di eliminare automaticamente gli elementi da un contenitore dopo un periodo di tempo prestabilito. Per informazioni dettagliate, vedere [Time to Live](time-to-live.md). | Yes | No | No  | No  | Yes |
-|changeFeedPolicy | Configurabile dall'utente | Usato per leggere le modifiche apportate a elementi in un contenitore. Per informazioni dettagliate, vedere [feed di modifiche](change-feed.md). | Yes | No | No  | No | Yes |
-|uniqueKeyPolicy | Configurabile dall'utente | Usato per garantire l'univocità di uno o più valori in una partizione logica. Per altre informazioni, vedere [vincoli di chiave univoca](unique-keys.md). | Yes | No  | No | No  | Yes |
+|indexingPolicy | Configurabile dall'utente | Offre la possibilità di modificare il percorso di indice, tipo di indice e modalità di indicizzazione | Yes | No | No | No | Yes |
+|TimeToLive | Configurabile dall'utente | Offre la possibilità di eliminare automaticamente gli elementi da un contenitore dopo un periodo di tempo prestabilito. Per informazioni dettagliate, vedere [Time to Live](time-to-live.md). | Yes | No | No | No | Yes |
+|changeFeedPolicy | Configurabile dall'utente | Usato per leggere le modifiche apportate a elementi in un contenitore. Per informazioni dettagliate, vedere [feed di modifiche](change-feed.md). | Yes | No | No | No | Yes |
+|uniqueKeyPolicy | Configurabile dall'utente | Usato per garantire l'univocità di uno o più valori in una partizione logica. Per altre informazioni, vedere [vincoli di chiave univoca](unique-keys.md). | Yes | No | No | No | Yes |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Operazioni su un contenitore Azure Cosmos DB
 
@@ -118,10 +118,10 @@ Ogni elemento Cosmos Azure sono le seguenti proprietà definite dal sistema. A s
 
 | Proprietà definita dal sistema | Configurabile dall'utente o generati dal sistema| Scopo | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Generato dal sistema | Identificatore univoco dell'elemento | Yes | No | No  | No | No  |
-|\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Yes | No  | No  | No  | No  |
-|\_Servizi terminal | Generato dal sistema | Timestamp dell'ultimo aggiornamento dell'elemento | Yes | No  | No  | No  | No  |
-|\_self | Generato dal sistema | URI indirizzabile dell'elemento | Yes | No  | No | No  | No |
+|\_id | Generato dal sistema | Identificatore univoco dell'elemento | Yes | No | No | No | No |
+|\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Yes | No | No | No | No |
+|\_Servizi terminal | Generato dal sistema | Timestamp dell'ultimo aggiornamento dell'elemento | Yes | No | No | No | No |
+|\_self | Generato dal sistema | URI indirizzabile dell'elemento | Yes | No | No | No | No |
 |id | È possibile usare il | Nome definito dall'utente univoco in una partizione logica. Se l'utente non specifica l'ID, il sistema genera automaticamente uno. | Yes | Sì | Sì | Sì | Yes |
 |Proprietà definite dall'utente arbitrarie | Route definite dall'utente | Proprietà definite dall'utente rappresentata nella rappresentazione di API native (incluso JSON, BSON e CQL) | Yes | Sì | Sì | Sì | Yes |
 
@@ -131,7 +131,7 @@ Gli elementi di Azure Cosmos supportano le operazioni seguenti. È possibile usa
 
 | Operazione | Interfaccia della riga di comando di Azure | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- |
-| Inserire, sostituire, eliminare, eseguire l'upsert, leggere | No  | Yes | Sì | Sì | Sì | Yes |
+| Inserire, sostituire, eliminare, eseguire l'upsert, leggere | No | Yes | Sì | Sì | Sì | Yes |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

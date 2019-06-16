@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60782812"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gestire i dati di log e le aree di lavoro in Monitoraggio di Azure
@@ -80,7 +80,7 @@ Durante l'analisi dei dati nell'area di lavoro di Log Analitica dal **monitoragg
 ## <a name="workspace-permissions-and-scope"></a>Ambito e le autorizzazioni dell'area di lavoro
 I dati che un utente può accedere a dipendono da diversi fattori che sono elencati nella tabella seguente. Ognuno è descritto nelle sezioni seguenti.
 
-| Fattore | DESCRIZIONE |
+| Fattore | Descrizione |
 |:---|:---|
 | [Modalità di accesso](#access-modes) | Metodo utilizzato per l'utente accede l'area di lavoro.  Definisce l'ambito dei dati disponibili e la modalità di controllo di accesso che viene applicata. |
 | [Modalità di controllo di accesso](#access-control-mode) | L'impostazione nell'area di lavoro che definisce se le autorizzazioni vengono applicate a livello di area di lavoro o una risorsa. |

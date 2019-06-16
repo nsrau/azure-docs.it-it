@@ -9,10 +9,10 @@ ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 265a1cf0a8a5e1e099a4ec7a9f0d674e0c474dd4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190107"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Come creare una condivisione di file di Azure premium
@@ -47,8 +47,8 @@ Ogni account di archiviazione deve appartenere a un gruppo di risorse di Azure. 
 1. Immettere quindi un nome per l'account di archiviazione. Il nome scelto deve essere univoco in Azure. Deve avere inoltre una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole.
 1. Selezionare la località per l'account di archiviazione o usare la località predefinita.
 1. Per la **Performance** selezionate **Premium**.
-1. Selezionare **tipologia Account** e scegliere **FileStorage (anteprima)**.
-1. Lasciare **replica** impostata sul valore predefinito **l'archiviazione con ridondanza locale (LRS)**.
+1. Selezionare **tipologia Account** e scegliere **FileStorage (anteprima)** .
+1. Lasciare **replica** impostata sul valore predefinito **l'archiviazione con ridondanza locale (LRS)** .
 
     ![Come creare un account di archiviazione per una condivisione di file premium](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
 
@@ -59,7 +59,7 @@ Dopo aver creata la risorsa dell'account di archiviazione, passare ad esso.
 
 ### <a name="create-a-premium-file-share"></a>Creare una condivisione file premium
 
-1. Nel menu a sinistra per l'account di archiviazione, scorrere fino al **per il servizio File** sezione e quindi selezionare **i file (anteprima)**.
+1. Nel menu a sinistra per l'account di archiviazione, scorrere fino al **per il servizio File** sezione e quindi selezionare **i file (anteprima)** .
 1. Selezionare **+ condivisione File** per creare una condivisione di file premium.
 1. Immettere un nome e una quota desiderata per la condivisione file e quindi selezionare **Create**.
 

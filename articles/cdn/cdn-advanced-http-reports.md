@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 67bab857e66edd8e9fae7d45c6157f018da81ccf
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867026"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analizzare le statistiche di utilizzo con i report HTTP avanzati della rete CDN di Azure
@@ -48,7 +48,7 @@ Proprio sotto la mappa vengono fornite informazioni dettagliate sul traffico e s
 
 Di seguito viene fornita una breve descrizione di ogni tipo di report geografico basato su mappa.
 
-| Nome report | DESCRIZIONE |
+| Nome report | Descrizione |
 | --- | --- |
 | Mappa del mondo |Questo report consente di visualizzare la domanda mondiale del contenuto della rete CDN. Ogni paese/area geografica sono contraddistinte da colorato sulla mappa del mondo per indicare la percentuale di riscontri originati da tale area. |
 | Mappa Stati Uniti |Questo report consente di visualizzare la domanda del contenuto della rete CDN negli Stati Uniti. Su questa mappa ogni stato è contraddistinto dal colore per indicare la percentuale di riscontri originati da tale area. |
@@ -71,7 +71,7 @@ I dati usati per generare il grafico a barre possono essere visualizzati sotto i
 
 Per entrambi i tipi di report seguenti viene fornita una breve descrizione.
 
-| Nome report | DESCRIZIONE |
+| Nome report | Descrizione |
 | --- | --- |
 | Città principali |Questo report classifica le città in base al numero di riscontri originati da una determinata area. |
 | Paesi principali |Questo report classifica i paesi/aree geografiche in base al numero di riscontri originati da tale paese/area geografica. |
@@ -199,7 +199,7 @@ Il lato sinistro del grafico (asse y) indica il nome file per ognuno dei primi 1
 
 Proprio sotto il grafico a barre verranno elencate le informazioni seguenti per i primi 250 asset richiesti: il percorso relativo (incluso il nome file), il numero di richieste che hanno restituito un codice di stato 404 Non trovato, il numero totale di volte in cui l'asset è stato richiesto e la percentuale di richieste che hanno restituito un codice di stato 404 Non trovato.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)

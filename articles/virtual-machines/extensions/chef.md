@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
 ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800275"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Estensione macchina virtuale Chef per Linux e Windows
@@ -68,7 +68,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione macchina vi
 
 ### <a name="core-property-values"></a>Valori delle proprietà principali
 
-| NOME | Valore/Esempio | Tipo di dati
+| Name | Valore/Esempio | Tipo di dati
 | ---- | ---- | ---- 
 | apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
@@ -85,7 +85,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione macchina vi
 
 ### <a name="protected-settings"></a>Impostazioni protette
 
-| NOME | Esempio | Tipo di dati | Obbligatorio?
+| Name | Esempio | Tipo di dati | Obbligatorio?
 | ---- | ---- | ---- | ---- |
 | protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
 

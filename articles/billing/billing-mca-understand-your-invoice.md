@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604045"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Comprendere i termini sulla fattura di contratto di Microsoft dal cliente
@@ -41,12 +41,12 @@ Il **riepilogo della fattura** nella parte superiore della prima pagina e contie
 
 ![Sezione di riepilogo della fattura](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
-| Periodo | Descrizione |
+| Nome | Descrizione |
 | --- | --- |
 | Venduto a |Indirizzo della persona giuridica, trovato nella proprietà dell'account di fatturazione|
 | Indirizzo di fatturazione |Indirizzo del profilo di fatturazione ricevuto la fattura di fatturazione, trovato nella proprietà del profilo di fatturazione|
 | Profilo di fatturazione |Il nome del profilo di fatturazione ricevuto la fattura |
-| ORDINE numero |Numero d'ordine d'acquisto, facoltativo, assegnato dall'utente per il monitoraggio |
+| ORDINE number |Numero d'ordine d'acquisto, facoltativo, assegnato dall'utente per il monitoraggio |
 | Numero di fattura |Un numero di fattura univoco, generata da Microsoft usato per scopi di rilevamento |
 | Data fattura |Data in cui viene generata la fattura, in genere cinque a 12 giorni dopo la fine del ciclo di fatturazione. È possibile controllare la data di fatturazione nella fatturazione le proprietà del profilo.|
 | Condizioni di pagamento |Il metodo di pagamento per la fattura di Microsoft. *NET 30 giorni* significa paghi entro 30 giorni dalla data della fattura. |
@@ -57,13 +57,13 @@ Il **riepilogo di fatturazione** indica i costi in base al profilo di fatturazio
 
 ![Sezione di riepilogo di fatturazione](./media/billing-understand-your-invoice-mca/billingsummary.png)
 
-| Periodo | Descrizione |
+| Nome | Descrizione |
 | --- | --- |
-| Addebiti|Numero totale di addebiti di Microsoft per questo profilo di fatturazione dall'ultimo periodo di fatturazione |
-| Riconoscimenti |È stato ricevuto da restituisce crediti |
+| Charges|Numero totale di addebiti di Microsoft per questo profilo di fatturazione dall'ultimo periodo di fatturazione |
+| Credits |È stato ricevuto da restituisce crediti |
 | Applicate i crediti di Azure | Crediti di Azure che vengono applicati automaticamente ai costi di Azure ogni periodo di fatturazione |
 | Subtotale |L'importo lordo delle imposte dovuto |
-| Iva |Il tipo e la quantità della tassa che effettua un pagamento, a seconda del paese/area geografica del profilo di fatturazione. Se non è necessario imposte da pagare, quindi, non si assisterà fiscali nella fattura. |
+| tassa |Il tipo e la quantità della tassa che effettua un pagamento, a seconda del paese/area geografica del profilo di fatturazione. Se non è necessario imposte da pagare, quindi, non si assisterà fiscali nella fattura. |
 | Risparmio totale stimato |La quantità totale stimata che è stato salvato dagli sconti efficaci. Se applicabile, efficace fascia oraria con tariffe sono elencate sotto le voci nei dettagli dell'acquisto dalla sezione della fattura. |
 
 ### <a name="invoice-sections"></a>Sezioni della fattura
@@ -82,7 +82,7 @@ Importo totale dovuto per ogni gruppo di servizio viene calcolato sottraendo *cr
 
 ![Dettagli in base alla sezione della fattura](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
-| Periodo |Descrizione |
+| Nome |Descrizione |
 | --- | --- |
 | Prezzo unitario | Il prezzo unitario effettivo del servizio (nel prezzo valuta) che viene usato per la frequenza di utilizzo. Questo è univoco per un prodotto, famiglia service, contatore e offerta. |
 | Qty | Quantità acquistate o utilizzate durante il periodo di fatturazione |

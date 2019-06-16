@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 5c76cce5a3d9add8a1dcd8acc439a70c4a8655a9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200576"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selezionare e distribuire un agente protezione nel dispositivo IoT
@@ -48,16 +48,16 @@ L'agente protezione basata su C ha un impatto minore sulla memoria e rappresenta
 | --- | ----------- | --------- |
 | Aprire origine | Disponibile nel [licenza MIT](https://en.wikipedia.org/wiki/MIT_License) in [Github](https://aka.ms/iot-security-github-cs) | Disponibile nel [licenza MIT](https://en.wikipedia.org/wiki/MIT_License) in [Github](https://aka.ms/iot-security-github-c) |
 | Linguaggio di sviluppo    | C | C# |
-| Piattaforme supportate di Windows? | No  | Sì |
+| Piattaforme supportate di Windows? | No | Yes |
 | Prerequisiti di Windows | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | Piattaforme supportate di Linux? | Sì, x64 e x86 | Sì, solo x64 |
 | Prerequisiti di Linux | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plug-in | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plug-in, sudo, netstat, iptables |
 | Footprint su disco | 10.5 MB | 90MB |
 | Footprint di memoria (in Media) | 5.5 MB | 33MB |
-| [Autenticazione](concept-security-agent-authentication-methods.md) all'Hub IoT | Sì | Sì |
-| I dati di sicurezza [raccolta](how-to-agent-configuration.md#supported-security-events) | Sì | Sì |
-| Aggregazione di eventi | Sì | Sì |
-| Configurazione remota tramite [dispositivo gemello del modulo security](concept-security-module.md) | Sì | Sì |
+| [Autenticazione](concept-security-agent-authentication-methods.md) all'Hub IoT | Yes | Yes |
+| I dati di sicurezza [raccolta](how-to-agent-configuration.md#supported-security-events) | Yes | Yes |
+| Aggregazione di eventi | Yes | Yes |
+| Configurazione remota tramite [dispositivo gemello del modulo security](concept-security-module.md) | Yes | Yes |
 
 
 ## <a name="choose-an-agent-flavor"></a>Scegliere una versione dell'agente 

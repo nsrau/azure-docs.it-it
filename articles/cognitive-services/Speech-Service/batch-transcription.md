@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 22d85f7a1c5b89c005b4c5b92f2f6b9ea449fe8d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1828cdce66104424cc7845fea89127219e6b77a0
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064081"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137273"
 ---
 # <a name="why-use-batch-transcription"></a>Perché usare la trascrizione batch?
 
@@ -102,6 +102,40 @@ Polling di uno stato di trascrizione potrebbe non essere il più efficiente o fo
 
 Per altre informazioni, vedere [Webhook](webhooks.md).
 
+## <a name="speaker-separation-diarization"></a>Separazione degli altoparlanti (Diarization)
+
+Diarization è il processo di separazione relatori in un frammento di audio. La pipeline di Batch supporta Diarization ed è in grado di riconoscere gli due altoparlanti sulle registrazioni di canale mono.
+
+Per richiedere che la richiesta di trascrizione audio viene elaborata per diarization, è sufficiente aggiungere il parametro in questione nella richiesta HTTP come illustrato di seguito.
+
+ ```json
+{
+  "recordingsUrl": "<URL to the Azure blob to transcribe>",
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
+  "description": "<optional description of the transcription>",
+  "properties": {
+    "AddWordLevelTimestamps" : "True",
+    "AddDiarization" : "True"
+  }
+}
+```
+
+Timestamp di Word a livello sarebbe inoltre necessario 'attivata' perché indicano i parametri nella richiesta precedente. 
+
+L'audio corrispondente conterrà i relatori principali identificati da un numero (attualmente sono supportate solo due voci, in modo che i relatori principali verranno identificati come ' relatore 1 ' e 'Relatore 2') seguito dall'output trascrizione.
+
+Si noti inoltre che Diarization non è disponibile in registrazioni Stereo. Inoltre, tutti i JSON output conterrà il tag del relatore. Se non viene utilizzato diarization, verrà indicato ' relatore: Null' nell'output JSON.
+
+Di seguito sono elencate le impostazioni locali supportate.
+
+| Linguaggio | locale |
+|--------|-------|
+| Inglese | en-US |
+| Cinese | zh-CN |
+| Deutsch | de-DE |
+
 ## <a name="sentiment"></a>Valutazione
 
 Sentiment è una nuova funzionalità nell'API di Batch la trascrizione e costituisce un'importante funzionalità del dominio di centro di chiamata. I clienti possono usare il `AddSentiment` parametri alle loro richieste di 
@@ -112,7 +146,7 @@ Sentiment è una nuova funzionalità nell'API di Batch la trascrizione e costitu
 4.  Individuare la causa anche quando si attiva chiamate negative a positivo
 5.  Identificare cosa, come i clienti e quali sono graditi di un prodotto o un servizio
 
-Punteggio del sentiment è per ogni segmento di audio in cui un segmento di audio è definito come lasso di tempo tra l'inizio di utterance (offset) e l'inattività di rilevamento della fine del flusso di byte. L'intero testo all'interno di tale segmento viene utilizzato per il calcolo del sentiment. Non viene calcolare i valori di aggregazione del sentiment per la chiamata intera o del contenuto vocale intero di ogni canale. Questi vengono lasciati al proprietario del dominio per applicare ulteriormente.
+Punteggio del sentiment è per ogni segmento di audio in cui un segmento di audio è definito come lasso di tempo tra l'inizio di utterance (offset) e l'inattività di rilevamento della fine del flusso di byte. L'intero testo all'interno di tale segmento viene utilizzato per il calcolo del sentiment. Non viene calcolare i valori di aggregazione del sentiment per la chiamata intera o del contenuto vocale intero di ogni canale. Queste aggregazioni vengono lasciate al proprietario del dominio per applicare ulteriormente.
 
 Sentiment viene applicato al formato lessicale.
 
@@ -151,7 +185,7 @@ Un esempio di output JSON simile al seguente:
   ]
 }
 ```
-La funzionalità Usa un modello di Sentiment che è attualmente in versione Beta.
+La funzionalità Usa un modello del Sentiment, che è attualmente in versione Beta.
 
 ## <a name="sample-code"></a>Codice di esempio
 

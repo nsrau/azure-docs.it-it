@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128615"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
@@ -30,14 +30,14 @@ Questo argomento descrive alcuni errori comuni che possono verificarsi durante l
 
 ## <a name="error-codes"></a>Codici di errore
 
-| Codice di errore | Attenuazione | Altre informazioni |
+| Codice di errore | Mitigazione | Altre informazioni |
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Seguire le limitazioni relative all'assegnazione dei nomi per gli account di archiviazione. | [Risolvere gli errori relativi ai nomi degli account di archiviazione](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Controllare le proprietà dell'account di archiviazione disponibili. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | Il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni di macchina virtuale richieste. Ripetere la richiesta in un secondo momento oppure richiedere una dimensione di macchina virtuale diversa. | [Problemi di provisioning e allocazione per Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Problemi di provisioning e allocazione per Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e [Risolvere i problemi relativi agli errori di allocazione](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Attendere il completamento dell'operazione simultanea. | |
 | AuthorizationFailed | L'account o l'entità servizio non dispone dell'accesso sufficiente per completare la distribuzione. Selezionare il ruolo a cui appartiene l'account e il relativo accesso per l'ambito della distribuzione.<br><br>Questo errore può essere visualizzato quando un provider di risorse richiesto non è registrato. | [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
-| BadRequest | I valori della distribuzione inviati non corrispondono ai valori previsti da Resource Manager. Per informazioni sulla risoluzione dei problemi, controllare il messaggio di stato interno. | [Informazioni di riferimento sul modello](/azure/templates/) e [Località supportate](resource-group-authoring-templates.md#resource-location) |
+| RichiestaNonValida | I valori della distribuzione inviati non corrispondono ai valori previsti da Resource Manager. Per informazioni sulla risoluzione dei problemi, controllare il messaggio di stato interno. | [Informazioni di riferimento sul modello](/azure/templates/) e [Località supportate](resource-group-authoring-templates.md#resource-location) |
 | Conflitto | Si sta richiedendo un'operazione non consentita nello stato corrente della risorsa. Il ridimensionamento del disco, ad esempio, è consentito solo quando viene creata o deallocata una macchina virtuale. | |
 | DeploymentActive | Attendere il completamento della distribuzione simultanea al gruppo di risorse. | |
 | DeploymentFailed | DeploymentFailed è un errore generale che non fornisce i dettagli necessari per risolvere l'errore. Nei dettagli cercare un codice di errore che fornisca maggiori informazioni. | [Trovare il codice di errore](#find-error-code) |
@@ -63,7 +63,7 @@ Questo argomento descrive alcuni errori comuni che possono verificarsi durante l
 | MissingRegistrationForLocation | Controllare lo stato della registrazione del provider di risorse e le posizioni supportate. | [Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registrare la sottoscrizione con il provider di risorse. | [Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Controllare lo stato della registrazione del provider di risorse. | [Risoluzione degli errori di registrazione del provider di risorse](resource-manager-register-provider-errors.md) |
-| Non trovato | È possibile che si stia tentando di distribuire una risorsa dipendente in parallelo con una risorsa padre. Controllare se è necessario aggiungere una dipendenza. | [Risolvere gli errori relativi alle risorse di Azure non trovate](resource-manager-not-found-errors.md) |
+| NotFound | È possibile che si stia tentando di distribuire una risorsa dipendente in parallelo con una risorsa padre. Controllare se è necessario aggiungere una dipendenza. | [Risolvere gli errori relativi alle risorse di Azure non trovate](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | La distribuzione sta tentando di eseguire un'operazione che supera la quota per la sottoscrizione, il gruppo di risorse o l'area. Se possibile, modificare la distribuzione in modo da non superare le quote. In alternativa è possibile richiedere una modifica delle quote. | [Risolvere gli errori di quota delle risorse](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Assicurarsi che esista una risorsa padre prima di creare le risorse figlio. | [Risolvere gli errori delle risorse padre](resource-manager-parent-resource-errors.md) |
 | PasswordTooLong | Potrebbe essere stata selezionata una password con troppi caratteri oppure il valore della password può essere stato convertito in una stringa sicura prima di passarlo come parametro. Se il modello include un parametro **secure string**, non è necessario convertire il valore in una stringa sicura. Specificare il valore della password come testo. |  |
@@ -74,7 +74,7 @@ Questo argomento descrive alcuni errori comuni che possono verificarsi durante l
 | ReservedResourceName | Specificare un nome di risorsa che non includa un nome riservato. | [Nomi di risorse riservati](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Attendere il completamento dell'eliminazione. | |
 | ResourceGroupNotFound | Controllare il nome del gruppo della risorse di destinazione per la distribuzione. Deve esistere già nella sottoscrizione. Controllare il contesto della sottoscrizione. | [Interfaccia della riga di comando di Azure](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
-| Risorsa non trovata | La distribuzione referenzia una risorsa di cui non è possibile eseguire la risoluzione. Verificare che l'utilizzo della funzione **reference** includa i parametri necessari per lo scenario in uso. | [Risolvere gli errori relativi ai riferimenti](resource-manager-not-found-errors.md) |
+| ResourceNotFound | La distribuzione referenzia una risorsa di cui non è possibile eseguire la risoluzione. Verificare che l'utilizzo della funzione **reference** includa i parametri necessari per lo scenario in uso. | [Risolvere gli errori relativi ai riferimenti](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | La distribuzione sta tentando di creare risorse che superano la quota per la sottoscrizione, il gruppo di risorse o l'area. Se possibile, modificare l'infrastruttura in modo da non superare le quote. In alternativa è possibile richiedere una modifica delle quote. | [Risolvere gli errori di quota delle risorse](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Selezionare lo SKU, ad esempio le dimensioni delle macchine virtuali, disponibile per la posizione selezionata. | [Risolvere gli errori dovuti all'indisponibilità di SKU](resource-manager-sku-not-available-errors.md) |
 | StorageAccountAlreadyExists | Fornire un nome univoco per l'account di archiviazione. | [Risolvere gli errori relativi ai nomi degli account di archiviazione](resource-manager-storage-account-name-errors.md)  |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 64eb89612765f9a47d0eaac2b9cbceb6341c4155
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64681279"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Vantaggio Azure Hybrid per Windows Server
 Per i clienti con Software Assurance, il vantaggio Azure Hybrid per Windows Server consente di usare le licenze di Windows Server locali e di eseguire macchine virtuali di Windows in Azure a costi ridotti. È possibile usare il vantaggio Azure Hybrid per Windows Server per distribuire nuove macchine virtuali con il sistema operativo Windows. Questo articolo illustra la procedura necessaria per distribuire nuove macchine virtuali con il vantaggio Azure Hybrid per Windows Server e per aggiornare le macchine virtuali in esecuzione esistenti. Per altre informazioni sulle licenze e i risparmi associati al vantaggio Azure Hybrid per Windows Server, vedere la pagina sulle [licenze disponibili per il vantaggio Azure Hybrid per Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -36,7 +36,7 @@ Per i clienti con Software Assurance, il vantaggio Azure Hybrid per Windows Serv
 > Per le macchine virtuali classiche, è supportata solo la distribuzione nuova macchina virtuale da su immagini personalizzate locali. Per usufruire delle funzionalità illustrate in questo articolo, è necessario prima eseguire la migrazione delle macchine virtuali classiche al modello Resource Manager.
 >
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Modalità di utilizzo del vantaggio Azure Hybrid per Windows Server
 Esistono più modi per usare macchine virtuali di Windows con il vantaggio Azure Hybrid:

@@ -10,10 +10,10 @@ ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 2595912732389c8a415d1854a84a7b9c182e4dc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60871149"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Come ricompilare un indice di Ricerca di Azure
@@ -26,7 +26,7 @@ A differenza delle ricompilazioni che prevedono che l'indice venga portato offli
 
 ## <a name="rebuild-conditions"></a>Condizioni di ricompilazione
 
-| Condizione | DESCRIZIONE |
+| Condizione | Descrizione |
 |-----------|-------------|
 | Modificare la definizione di un campo | La modifica di un nome di campo, di un tipo di dati o di [attributi di indice](https://docs.microsoft.com/rest/api/searchservice/create-index) specifici (searchable, filterable, sortable, facetable) richiede una ricompilazione completa. |
 | Assegnare un analizzatore a un campo | Gli [analizzatori](search-analyzers.md) vengono definiti in un indice e quindi assegnati ai campi. È possibile aggiungere una nuova definizione di analizzatore a un indice in qualsiasi momento, ma è possibile *assegnare* un analizzatore solo quando il campo viene creato. Questo vale per entrambe le proprietà **analyzer** e **indexAnalyzer**. La proprietà **searchAnalyzer** è un'eccezione perché è possibile assegnare questa proprietà a un campo esistente. |
@@ -94,7 +94,7 @@ Quando si carica l'indice, l'indice invertito di ogni campo viene popolato con t
 
 È possibile iniziare a eseguire query su un indice subito dopo il caricamento del primo documento. Se si conosce l'ID di un documento, l'[API REST di ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/lookup-document) restituisce il documento specifico. Per un test su più larga scala, è possibile aspettare che l'indice venga caricato completamente e quindi usare le query per verificare il contesto che ci si aspetta di vedere.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Panoramica degli indicizzatori](search-indexer-overview.md)
 + [Indicizzare set di dati di grandi dimensioni](search-howto-large-index.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 140f2ec6252eac2958f236b2ffb48225fa16fe2b
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: fea9e79986e45127ad4918ed62bd8bf8dc782133
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688048"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125800"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Trasferire dati con AzCopy e l'archiviazione Blob
 
@@ -191,10 +191,10 @@ Questa sezione contiene gli esempi seguenti:
 
 ## <a name="synchronize-files"></a>Sincronizzare i file
 
-È possibile sincronizzare il contenuto di un file system locale in un contenitore blob. È inoltre possibile sincronizzare un contenitore blob in un file system locale nel computer. La sincronizzazione è unidirezionale. In altre parole, decidere quali di questi due endpoint è l'origine e quello che rappresenta la destinazione.
+È possibile sincronizzare il contenuto di un file system locale con un contenitore blob. La sincronizzazione è unidirezionale. In altre parole, decidere quali di questi due endpoint è l'origine e quello che rappresenta la destinazione.
 
 > [!NOTE]
-> La versione corrente di AzCopy non sincronizza tra le altre origini e destinazioni (ad esempio: Archiviazione di file o il bucket S3 di Amazon Web Services (AWS)).
+> Attualmente, questo scenario è supportato solo per gli account che non hanno uno spazio dei nomi gerarchico. La versione corrente di AzCopy non sincronizza tra le altre origini e destinazioni (ad esempio: Archiviazione di file o il bucket S3 di Amazon Web Services (AWS)).
 
 Il `sync` comando consente di confrontare i nomi di file e i timestamp dell'ultima modifica. Impostare il `--delete-destination` flag facoltativo su un valore di `true` o `prompt` per eliminare i file nella directory di destinazione se tali file non esistono più nella directory di origine.
 
@@ -203,26 +203,24 @@ Se si impostano i `--delete-destination` flag per `true` AzCopy Elimina i file s
 > [!NOTE]
 > Per impedire eliminazioni accidentali, assicurarsi di abilitare la [eliminazione temporanea](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) funzionalità prima di usare il `--delete-destination=prompt|true` flag.
 
-### <a name="synchronize-a-container-to-a-local-file-system"></a>Sincronizzare un contenitore per un file system locale
+### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Aggiornare un contenitore con le modifiche a un file system locale
 
-In questo caso, il file system locale diventa l'origine e il contenitore è la destinazione.
+In questo caso, il contenitore è la destinazione e nel file system locale è l'origine.
 
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy sync "<local-directory-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive` |
 | **Esempio** | `azcopy sync "C:\myDirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
-| **Esempio** (spazio dei nomi gerarchico) | `azcopy sync "C:\myDirectory" "https://<storage-account-name>.dfs.core.windows.net/mycontainer" --recursive` |
 
+### <a name="update-a-local-file-system-with-changes-to-a-container"></a>Aggiornare un file system locale con le modifiche a un contenitore
 
-### <a name="synchronize-a-local-file-system-to-a-container"></a>Sincronizzare un file system locale a un contenitore
-
-In questo caso, il contenitore diventa l'origine e nel file system locale rappresenta la destinazione.
+In questo caso, il file system locale rappresenta la destinazione e il contenitore è l'origine.
 
 |    |     |
 |--------|-----------|
 | **Sintassi** | `azcopy sync "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" "C:\myDirectory" --recursive` |
 | **Esempio** | `azcopy sync "https://mystorageaccount.blob.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
-| **Esempio** (spazio dei nomi gerarchico) | `azcopy sync "https://mystorageaccount.dfs.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
+|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

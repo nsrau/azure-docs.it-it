@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: aschhab
 ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66003126"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Panoramica delle code dei messaggi non recapitabili del bus di servizio
@@ -50,7 +50,7 @@ Le applicazioni possono definire i propri codici per la proprietà `DeadLetterRe
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Il messaggio è scaduto ed è stato configurato come non recapitabile. |
 | SubscriptionDescription.RequiresSession |L'ID sessione ha valore null. |L'entità attivata dalla sessione non consente il recapito di un messaggio il cui identificatore di sessione è null. |
 | !dead letter queue |MaxTransferHopCountExceeded |Null |
-| Configurazione esplicita di messaggio non recapitabile da parte dell'applicazione  |Specificato dall'applicazione |Specificato dall'applicazione |
+| Configurazione esplicita di messaggio non recapitabile da parte dell'applicazione |Specificato dall'applicazione |Specificato dall'applicazione |
 
 ## <a name="exceeding-maxdeliverycount"></a>Superamento di MaxDeliveryCount
 

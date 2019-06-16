@@ -16,10 +16,10 @@ ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
 ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127829"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Usare una condivisione file di Azure con un pool di Batch
@@ -54,7 +54,7 @@ Ad esempio, includere un comando `net use` per montare la condivisione file come
 * **User name** (Nome utente): AZURE\\\<storageaccountname\>, ad esempio AZURE\\*mystorageaccountname*
 * **Password**: <StorageAccountKeyWhichEnds in==>, ad esempio *XXXXXXXXXXXXXXXXXXXXX==*
 
-Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* come unità *S:*:
+Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* come unità *S:* :
 
 ```
 net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==

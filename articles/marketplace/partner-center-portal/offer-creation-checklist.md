@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: 904058c2c98c8ded2ea9c91e8aa7ec595aa49b05
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481445"
 ---
 # <a name="offer-creation-checklist"></a>Elenco di controllo per la creazione di offerte
@@ -78,7 +78,7 @@ Pagina di presentazione è possibile fornire il testo e immagini che i clienti r
 
 | **Nome campo**    | **Note**   |
 | :---------------- | :-----------| 
-| NOME  | Obbligatoria, numero massimi di 50 caratteri. |
+| Name  | Obbligatoria, numero massimi di 50 caratteri. |
 | Riepilogo  | Obbligatoria, numero massimi di 100 caratteri. | 
 | Descrizione  | Obbligatoria, numero massimi di 3000 caratteri. |
 | Getting Started Instructions (Istruzioni per le attività iniziali)  | Obbligatoria, numero massimi di 3000 caratteri. |

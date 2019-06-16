@@ -9,10 +9,10 @@ ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: fa6b4d6d0db09f8c4955430d6dc227356416d915
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735903"
 ---
 Nella tabella seguente sono elencate le quote e i limiti specifici di [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/). Per informazioni sui prezzi di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
@@ -23,7 +23,7 @@ Nella tabella seguente sono elencate le quote e i limiti specifici di [Hub event
 | Numero di hub eventi per ogni spazio dei nomi |Spazio dei nomi |Le successive richieste per la creazione di un nuovo hub eventi vengono rifiutate. |10 |
 | Numero di partizioni per hub eventi |Entità |- |32 |
 | Numero di gruppi consumer per hub eventi |Entità |- |20 |
-| Numero di connessioni AMQP per spazio dei nomi |Spazio dei nomi |Le successive richieste di connessioni aggiuntive vengono rifiutate e il codice chiamante riceve un'eccezione. |5.000 |
+| Numero di connessioni AMQP per spazio dei nomi |Spazio dei nomi |Le successive richieste di connessioni aggiuntive vengono rifiutate e il codice chiamante riceve un'eccezione. |5\.000 |
 | Dimensione massima degli eventi di Hub eventi|Entità |- |1 MB |
 | Dimensione massima del nome di un hub eventi |Entità |- |50 caratteri |
 | Numero di ricevitori non epoch per gruppo consumer |Entità |- |5 |

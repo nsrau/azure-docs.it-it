@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
 ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851531"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Statistiche delle tabelle in Azure SQL Data Warehouse
@@ -46,7 +46,7 @@ SET AUTO_CREATE_STATISTICS ON
 
 Queste istruzioni verranno attivata la creazione automatica delle statistiche:
 
-- SELEZIONA
+- SELECT
 - INSERT SELECT
 - CTAS
 - AGGIORNAMENTO
@@ -148,7 +148,7 @@ Questa sintassi usa tutte le opzioni predefinite. Per impostazione predefinita, 
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-Ad esempio: 
+Ad esempio:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -164,7 +164,7 @@ Per eseguire il campionamento dell'intera tabella, usare la sintassi seguente:
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-Ad esempio: 
+Ad esempio:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -367,7 +367,7 @@ Usare la sintassi seguente per aggiornare un oggetto statistiche specifico:
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Ad esempio: 
+Ad esempio:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -483,7 +483,7 @@ Questo semplice esempio mostra tutte e tre le parti di un oggetto statistiche:
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Ad esempio: 
+Ad esempio:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -497,7 +497,7 @@ Se si è interessati a visualizzare solo parti specifiche, usare la clausola `WI
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-Ad esempio: 
+Ad esempio:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector

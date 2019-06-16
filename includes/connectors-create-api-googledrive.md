@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: fe726986b3f93ab3bb447b8973727a658ac1c706
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66149296"
 ---
 ### <a name="prerequisites"></a>Prerequisiti
@@ -18,7 +18,7 @@ Prima di poter usare l'account GoogleDrive in un'app per la logica, è necessari
 
 Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account GoogleDrive:  
 
-1. Per creare una connessione a GoogleDrive, nella finestra di progettazione dell'app per la logica, selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa e quindi immettere *GoogleDrive* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:   
+1. Per creare una connessione a GoogleDrive, nella finestra di progettazione dell'app per la logica, selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa e quindi immettere *GoogleDrive* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:  
    ![Passaggio di creazione della connessione a GoogleDrive](./media/connectors-create-api-googledrive/googledrive-1.png)  
 2. Se non sono mai state create connessioni a GoogleDrive prima d'ora, verrà chiesto di fornire le credenziali di GoogleDrive. Queste credenziali verranno usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati dell'account GoogleDrive:  
    ![Passaggio di creazione della connessione a GoogleDrive](./media/connectors-create-api-googledrive/googledrive-2.png)  
@@ -28,6 +28,6 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Go
    ![Passaggio di creazione della connessione a GoogleDrive](./media/connectors-create-api-googledrive/googledrive-4.png)
 5. Consentire la connessione a GoogleDrive  
    ![Passaggio di creazione della connessione a GoogleDrive](./media/connectors-create-api-googledrive/googledrive-5.png)  
-6. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
+6. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:  
    ![Passaggio di creazione della connessione a GoogleDrive](./media/connectors-create-api-googledrive/googledrive-6.png)  
 

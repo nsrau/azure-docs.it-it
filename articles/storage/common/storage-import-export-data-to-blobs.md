@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 68f62a6945f3b651781414e3194104b6d2e6295c
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: 72a91fefc26e9c0b6d5a91223119815c4fcb9551
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455803"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808591"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione BLOB di Azure
 
@@ -58,7 +58,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
 6.  Per preparare il disco, eseguire il comando seguente. **A seconda delle dimensioni dei dati, l'operazione può richiedere da diverse ore a più giorni.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite /enablecontentmd5 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite 
     ```
     Viene creato un file journal nella stessa cartella in cui è stato eseguito lo strumento. Vengono creati altri due file, un file *XML* (cartella in cui è stato eseguito lo strumento) e un file *drive-manifest.xml* (cartella in cui si trovano i dati).
     
@@ -74,7 +74,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
     |/dstdir:     |Nome del contenitore di destinazione in Archiviazione di Azure.         |
     |/blobtype:     |Questa opzione specifica il tipo di blob che si desidera importare i dati. Per i BLOB in blocchi, si tratta `BlockBlob` e per i BLOB di pagine, è `PagaBlob`.         |
     |/skipwrite:     |Opzione che specifica che non sono presenti nuovi dati da copiare e che è necessario preparare i dati esistenti nel disco.          |
-    |/enablecontentmd5:     |Se abilitata, l'opzione assicura che MD5 viene calcolato durante il caricamento di BLOB in blocchi in Azure.          |
+    |/enablecontentmd5:     |Se abilitata, l'opzione assicura che MD5 viene calcolato e impostare come `Content-md5` proprietà in ogni blob. Usare questa opzione solo se si desidera utilizzare il `Content-md5` campo dopo che i dati vengono caricati in Azure. <br> Questa opzione non riguarda il controllo di integrità dei dati (che si verifica per impostazione predefinita). L'impostazione di aumentare il tempo impiegato per il caricamento dei dati nel cloud.          |
 7. Ripetere il passaggio precedente per ogni disco che deve essere spedito. Viene creato un file journal con il nome specificato per ogni esecuzione della riga di comando.
     
     > [!IMPORTANT]

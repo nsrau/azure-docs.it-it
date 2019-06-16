@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
 ms.openlocfilehash: 88b0ac853c64e1e32a2d1c429bdf8655158f030d
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411501"
 ---
 # <a name="specify-a-face-recognition-model"></a>Specificare un modello di riconoscimento volto
@@ -108,7 +108,7 @@ Se è in genere specificare una soglia di probabilità (un valore compreso tra z
 
 In questo articolo è stato descritto come specificare il modello di riconoscimento da utilizzare con le API del servizio faccia diversi. Successivamente, eseguire un avvio rapido per iniziare a usare il rilevamento viso.
 
-* [Rileva i visi in un'immagine](../quickstarts/csharp-detect-sdk.md)
+* [Rilevare i visi in un'immagine](../quickstarts/csharp-detect-sdk.md)
 
 [Viso: rilevare]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Volto - ricerca simili]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

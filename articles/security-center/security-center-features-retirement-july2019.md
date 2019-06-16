@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
 ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952148"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Ritiro della funzionalità del Centro sicurezza (luglio 2019)
@@ -42,7 +42,7 @@ Centro sicurezza Usa Microsoft Monitoring Agent per raccogliere varie configuraz
 
 Si sta ritiro il dashboard degli eventi che viene visualizzata quando si seleziona un'area di lavoro:
 
-![Dashboard Eventi][2]
+![Dashboard eventi][2]
 
 ### <a name="events-dashboard---the-new-experience"></a>Dashboard degli eventi - la nuova esperienza
 
@@ -110,7 +110,7 @@ I dati esistenti rimarranno disponibili nella soluzione di protezione Log Analit
 
 ### <a name="security-events-map---the-new-experience"></a>Mappa eventi di sicurezza - la nuova esperienza
 
-Si consiglia di usare la funzionalità mappa avvisi incorporata in Centro sicurezza: **Mappa di avvisi di sicurezza (anteprima)**. Questa funzionalità offre un'esperienza ottimizzata e ha effetto su tutte le sottoscrizioni e aree di lavoro associati. Ti offre una visualizzazione generale in tutto l'ambiente e non è incentrata su una singola area di lavoro.
+Si consiglia di usare la funzionalità mappa avvisi incorporata in Centro sicurezza: **Mappa di avvisi di sicurezza (anteprima)** . Questa funzionalità offre un'esperienza ottimizzata e ha effetto su tutte le sottoscrizioni e aree di lavoro associati. Ti offre una visualizzazione generale in tutto l'ambiente e non è incentrata su una singola area di lavoro.
 
 ## Regole di avviso personalizzate (anteprima)<a name="menu_customalerts"></a>
 
@@ -164,7 +164,7 @@ Il Centro sicurezza di Azure monitora le configurazioni di sicurezza applicando 
 
 Si sta ritiro di questa funzionalità in anteprima. Se, dopo la data di ritiro, si desidera ripristinare le configurazioni di sicurezza sui valori predefiniti, è possibile farlo tramite Powershell o API usando il [attenendosi alle istruzioni](https://aka.ms/ascresetsecurityconfigurations)
 
-![Modifica le configurazioni di sicurezza][17]
+![Modificare le configurazioni di sicurezza][17]
 
 ### <a name="edit-security-configurations---the-new-experience"></a>Modifica configurazioni di sicurezza, la nuova esperienza
 

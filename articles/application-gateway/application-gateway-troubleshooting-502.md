@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: amsriva
 ms.openlocfilehash: 2a1c7e480e896da6852949c9d765d17290e4e9ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64697154"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Risoluzione degli errori del gateway non valido nel gateway applicazione
@@ -82,7 +82,7 @@ Quando viene eseguito il provisioning di un'istanza del gateway applicazione, vi
 
 Nella tabella seguente sono elencati i valori associati al probe di integrità predefiniti:
 
-| Proprietà probe | Value | DESCRIZIONE |
+| Proprietà probe | Value | Descrizione |
 | --- | --- | --- |
 | URL probe |`http://127.0.0.1/` |Percorso URL |
 | Interval |30 |Intervallo di probe in secondi |
@@ -106,9 +106,9 @@ Il probe di integrità personalizzato consente una maggiore flessibilità per la
 
 Vengono aggiunte le proprietà aggiuntive seguenti:
 
-| Proprietà probe | DESCRIZIONE |
+| Proprietà probe | Descrizione |
 | --- | --- |
-| NOME |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
+| Name |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
 | Protocol |Protocollo usato per inviare il probe. Il probe usa il protocollo definito nelle impostazioni HTTP del back-end. |
 | Host |Nome host per inviare il probe. Applicabile solo quando sono configurato su più siti nel gateway applicazione. Questo nome è diverso dal nome host della macchina virtuale. |
 | `Path` |Percorso relativo del probe. Il percorso valido inizia da "/". Il probe viene inviato a \<protocollo\>://\<host\>:\<porta\>\<percorso\> |

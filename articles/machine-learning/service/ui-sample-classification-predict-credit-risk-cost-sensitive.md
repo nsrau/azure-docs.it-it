@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
 ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787824"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Esempio 4: classificazione: Prevedere il rischio di credito (costo sensibile)
@@ -56,7 +56,7 @@ Ecco il grafico dell'esperimento:
 
 [![Grafico dell'esperimento](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="data-processing"></a>Elaborazione dati
+## <a name="data-processing"></a>Elaborazione dei dati
 
 Iniziamo con il **Metadata Editor** modulo per aggiungere i nomi delle colonne per sostituire i nomi di colonna predefiniti con nomi più significativi, ottenuto dalla descrizione del set di dati nel sito UCI. Vengono forniti i nuovi nomi di colonna con valori delimitati da virgole nel **nuova colonna** campo del nome del **Metadata Editor**.
 

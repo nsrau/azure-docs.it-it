@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713806"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Chiamare endpoint HTTP o HTTPS con le App per la logica di Azure
@@ -71,7 +71,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
    ![Selezionare l'azione HTTP](./media/connectors-native-http/select-http-action.png)
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Fornire i [parametri e valori dell'azione HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) che si desidera includere nella chiamata all'endpoint di destinazione. 
 

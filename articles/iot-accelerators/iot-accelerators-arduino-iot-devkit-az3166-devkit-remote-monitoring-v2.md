@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
 ms.openlocfilehash: 3551d088c1d02715bf9ace09d7eb0048bc10111e
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65473477"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Connettere un dispositivo IoT DevKit all'acceleratore della soluzione di monitoraggio remoto
@@ -115,7 +115,7 @@ Se si intende passare alle esercitazioni, lasciare l'acceleratore della soluzion
 
 Se l'acceleratore di soluzione non è più necessario, eliminarlo dalla pagina Soluzioni di cui è stato effettuato il provisioning selezionandolo e facendo clic su Elimina soluzione:
 
-![Elimina soluzione](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+![Eliminare la soluzione](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 ## <a name="problems-and-feedback"></a>Problemi e commenti
 

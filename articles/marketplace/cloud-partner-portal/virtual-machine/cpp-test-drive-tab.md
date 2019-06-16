@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
 ms.openlocfilehash: 31c7968d0d96a44ff166444f73807e0ccb5dc583
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938012"
 ---
 # <a name="virtual-machine-test-drive-tab"></a>Scheda Test Drive di macchina virtuale
@@ -28,7 +28,7 @@ Per abilitare questa funzionalità, nella scheda **Test drive** fare clic sull'o
 La tabella seguente descrive lo scopo e il contenuto di questi campi.  I campi obbligatori sono indicati da un asterisco (*).
 
 
-|    Campo                  |       DESCRIZIONE                                                            |
+|    Campo                  |       Descrizione                                                            |
 |  ---------                |     ---------------                                                          |
 |  *Dettagli*   |  |
 | **Descrizione\***           | Offrire una panoramica dello scenario di test drive. Questo testo verrà mostrato all'utente durante il provisioning del test drive. Supporta il linguaggio HTML di base qualora si volesse offrire contenuto formattato.  |

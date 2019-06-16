@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: 146b33c1a52838279f000a7f793902e2f35dbfaa
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826530"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
@@ -42,25 +42,25 @@ Griglia di eventi usa le [sottoscrizioni di eventi](../../event-grid/concepts.md
 ## <a name="event-schema"></a>Schema di eventi
 Gli eventi di archiviazione BLOB contengono tutte le informazioni necessarie per rispondere alle modifiche dei dati.  Un evento di archiviazione BLOB è riconoscibile perché la proprietà eventType inizia con "Microsoft.Storage". Informazioni aggiuntive sull'utilizzo delle proprietà degli eventi di Griglia di eventi sono disponibili nello [schema di eventi di Griglia di eventi](../../event-grid/event-schema.md).  
 
-> |Proprietà|Type|Descrizione|
+> |Proprietà|Type|DESCRIZIONE|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |argomento|string|ID completo di Azure Resource Manager dell'account di archiviazione che genera l'evento.|
-> |oggetto|string|Percorso relativo della risorsa all'oggetto che è l'argomento dell'evento, con lo stesso formato esteso di Azure Resource Manager che si usa per descrivere gli account di archiviazione, i servizi e i contenitori per Controllo degli accessi in base al ruolo di Azure.  Questo formato include un nome di BLOB che conserva le maiuscole/minuscole.|
+> |topic|string|ID completo di Azure Resource Manager dell'account di archiviazione che genera l'evento.|
+> |subject|string|Percorso relativo della risorsa all'oggetto che è l'argomento dell'evento, con lo stesso formato esteso di Azure Resource Manager che si usa per descrivere gli account di archiviazione, i servizi e i contenitori per Controllo degli accessi in base al ruolo di Azure.  Questo formato include un nome di BLOB che conserva le maiuscole/minuscole.|
 > |eventTime|string|Data e ora in cui è stato generato l'evento, nel formato ISO 8601|
 > |eventType|string|"Microsoft.Storage.BlobCreated" o "Microsoft.Storage.BlobDeleted"|
 > |ID|string|Identificatore univoco di questo evento|
 > |dataVersion|string|Versione dello schema dell'oggetto dati.|
 > |metadataVersion|string|Versione dello schema delle proprietà di primo livello.|
-> |dati|oggetto|Raccolta di dati dell'evento specifico dell'archiviazione BLOB|
+> |data|object|Raccolta di dati dell'evento specifico dell'archiviazione BLOB|
 > |data.contentType|string|Tipo di contenuto del BLOB, come verrebbe restituito nell'intestazione Content-Type dal BLOB|
-> |data.contentLength|numero|Dimensione del BLOB come valore intero che rappresenta un numero di byte, come verrebbe restituita nell'intestazione Content-Length dal BLOB.  Inviato con l'evento BlobCreated ma non con BlobDeleted.|
+> |data.contentLength|number|Dimensione del BLOB come valore intero che rappresenta un numero di byte, come verrebbe restituita nell'intestazione Content-Length dal BLOB.  Inviato con l'evento BlobCreated ma non con BlobDeleted.|
 > |data.url|string|URL dell'oggetto che è l'argomento dell'evento|
 > |data.eTag|string|Etag dell'oggetto quando viene generato questo evento.  Non disponibile per l'evento BlobDeleted.|
 > |data.api|string|Nome dell'operazione API che ha generato questo evento. Per gli eventi BlobCreated questo valore è "PutBlob", "PutBlockList" o "CopyBlob". Per gli eventi BlobDeleted questo valore è "DeleteBlob". Questi valori sono gli stessi nomi di API che sono presenti nei log di diagnostica di Archiviazione di Azure. Vedere [Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) (Operazioni e messaggi di stati registrati).|
 > |data.sequencer|string|Valore stringa opaca che rappresenta la sequenza logica di eventi per qualsiasi nome di BLOB specifico.  Gli utenti possono usare il confronto tra stringhe standard per comprendere la sequenza relativa di due eventi sullo stesso nome di BLOB.|
 > |data.requestId|string|ID di richiesta generato dal servizio per l'operazione API di archiviazione. Può essere usato per la correlazione ai log di diagnostica di Archiviazione di Azure usando il campo "request-id-header" nei log e viene restituito dall'avvio di una chiamata API nell'intestazione 'x-ms-request-id'. Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log).|
 > |data.clientRequestId|string|ID di richiesta generato dal client per l'operazione API di archiviazione. Può essere usato per la correlazione ai log di diagnostica di Archiviazione di Azure usando il campo "client-request-id" nei log e può essere inserito nelle richieste client usando l'intestazione "x-ms-client-request-id". Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
-> |data.storageDiagnostics|oggetto|Dati di diagnostica occasionalmente inclusi dal servizio Archiviazione di Azure. Quando è presente, questa proprietà deve essere ignorata dai consumer di eventi.|
+> |data.storageDiagnostics|object|Dati di diagnostica occasionalmente inclusi dal servizio Archiviazione di Azure. Quando è presente, questa proprietà deve essere ignorata dai consumer di eventi.|
 |data.blobType|string|Tipo dell'oggetto BLOB. I valori validi sono "BlockBlob" o "PageBlob".| 
 
 Di seguito è riportato un esempio di un evento BlobCreated:

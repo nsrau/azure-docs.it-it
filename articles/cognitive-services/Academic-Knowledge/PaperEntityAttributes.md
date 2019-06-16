@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
 ms.openlocfilehash: 92844b5faf691b67617c9f3424a1322aa05429bb
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875744"
 ---
 # <a name="paper-entity"></a>Entità Paper
@@ -22,35 +22,35 @@ ms.locfileid: "64875744"
 <sub> *Gli attributi seguenti sono specifici dell'entità Paper. (Ty = '0') </sub>
 
 
-NOME    |DESCRIZIONE                                        |Type       | Operazioni
+NOME    |Descrizione                                        |Type       | Operazioni
 ------- | ------------------------------------------------- | --------- | ----------------------------
 ID      |ID entità                                          |Int64      |Uguale a
-Ti      |Titolo Paper                                        |string     |Uguale a<br/>StartsWith
-L       |Codice lingua di carta separati da "\@\@\@"          |string     |Uguale a
+Ti      |Titolo Paper                                        |String     |Uguale a<br/>StartsWith
+L       |Codice lingua di carta separati da "\@\@\@"          |String     |Uguale a
 S       |Anno Paper                                         |Int32      |Uguale a<br/>IsBetween
-D       |Data Paper                                         |Data       |Uguale a<br/>IsBetween
+D       |Data Paper                                         |Date       |Uguale a<br/>IsBetween
 CC      |Numero delle citazioni                                     |Int32      |Nessuno  
 ECC     |Numero stimato delle citazioni                           |Int32      |Nessuno
-AA.AuN  |Nome autore                                        |string     |Uguale a<br/>StartsWith
+AA.AuN  |Nome autore                                        |String     |Uguale a<br/>StartsWith
 AA.AuId |ID autore                                          |Int64      |Uguale a
-AA.AfN  |Nome di affiliazione autore                            |string     |Uguale a<br/>StartsWith
+AA.AfN  |Nome di affiliazione autore                            |String     |Uguale a<br/>StartsWith
 AA.AfId |ID di affiliazione autore                              |Int64      |Uguale a
 AA.S    |Ordine autore per il documento                         |Int32      |Uguale a
-F.FN    |Nome del campo di studi                                |string     |Uguale a<br/>StartsWith
+F.FN    |Nome del campo di studi                                |String     |Uguale a<br/>StartsWith
 F.FId   |ID del campo di studi                                  |Int64      |Uguale a
-J.JN    |Nome del giornale di registrazione                                       |string     |Uguale a<br/>StartsWith
+J.JN    |Nome del giornale di registrazione                                       |String     |Uguale a<br/>StartsWith
 J.JId   |ID giornale di registrazione                                         |Int64      |Uguale a
-C.CN    |Nome della serie di conferenze                             |string     |Uguale a<br/>StartsWith
+C.CN    |Nome della serie di conferenze                             |String     |Uguale a<br/>StartsWith
 C.CId   |ID della serie di conferenze                               |Int64      |Uguale a
 RId     |ID dei documenti referenziati                              |Int64[]    |Uguale a
 W       |Parole dal titolo del documento e Astratto                |String[]   |Uguale a
-E       |Metadati estesi (vedere tabella riportata di seguito)                |string     |Nessuno  
+E       |Metadati estesi (vedere tabella riportata di seguito)                |String     |Nessuno  
         
 
 
 ## <a name="extended-metadata-attributes"></a>Attributi dei metadati estesi ##
 
-NOME    | DESCRIZIONE               
+Name    | Descrizione               
 --------|---------------------------    
 DN      | Nome visualizzato del documento 
 S       | Fonti - elenco di fonti web del documento, ordinate per pertinenza statica

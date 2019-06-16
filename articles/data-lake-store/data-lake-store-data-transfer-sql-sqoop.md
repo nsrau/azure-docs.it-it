@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 7d3283b03d15278d1f7fd42a72b154dab1a442b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878767"
 ---
 # <a name="copy-data-between-azure-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copiare i dati tra Azure Data Lake Storage Gen1 e il database SQL di Azure tramite Sqoop
@@ -107,7 +107,7 @@ In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluste
         -rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
         -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
 
-    Ogni file **part-m-*** corrisponde a una riga nella tabella di origine, **Table1**. È possibile visualizzare i contenuti dei file part-m-* per la verifica.
+    Ogni file **part-m-** * corrisponde a una riga nella tabella di origine, **Table1**. È possibile visualizzare i contenuti dei file part-m-* per la verifica.
 
 
 ### <a name="export-data-from-data-lake-storage-gen1-into-azure-sql-database"></a>Esportare dati da Data Lake Storage Gen1 a un database SQL di Azure
@@ -137,7 +137,7 @@ In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluste
 
 Per ottimizzare le prestazioni del processo di Sqoop per copiare i dati in Data Lake Storage Gen1, vedere il [documento sulle prestazioni di Sqoop](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Copiare i dati dai BLOB di Archiviazione di Azure a Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Usare Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

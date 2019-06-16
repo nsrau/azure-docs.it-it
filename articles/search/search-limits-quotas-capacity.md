@@ -11,10 +11,10 @@ ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024632"
 ---
 # <a name="service-limits-in-azure-search"></a>Limiti dei servizi in Ricerca di Azure
@@ -110,12 +110,12 @@ Numero massimo di occorrenze esecuzione esistenza per fornire il saldo e stabili
 | Numero massimo di indicizzatori |3 |5 o 15|50 |200 |200 |N/D |10 |10 |
 | Numero massimo di origini dati |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
 | Numero massimo di set di competenze <sup>4</sup> |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
-| Carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D |Nessun limite |Nessun limite |
+| Carico di indicizzazione massimo per chiamata |10\.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D |Nessun limite |Nessun limite |
 | Pianificazione minimo | 5 minuti |5 minuti |5 minuti |5 minuti |5 minuti |5 minuti |5 minuti | 5 minuti |
 | Tempo massimo di esecuzione <sup>5</sup> | 1-3 minuti |24 ore |24 ore |24 ore |24 ore |N/D  |24 ore |24 ore |
 | Tempo massimo di esecuzione per set di competenze di ricerca cognitiva o indicizzazione BLOB con analisi delle immagini <sup>5</sup> | 3-10 minuti |2 ore |2 ore |2 ore |2 ore |N/D  |2 ore |2 ore |
 | Indicizzatore BLOB: dimensioni massime per un BLOB, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
-| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4&nbsp;milione |4&nbsp;milione |4&nbsp;milione |N/D |4&nbsp;milione |4&nbsp;milione |
+| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32\.000 |64\.000 |4&nbsp;milione |4&nbsp;milione |4&nbsp;milione |N/D |4&nbsp;milione |4&nbsp;milione |
 
 <sup>1</sup> I servizi del livello Gratuito hanno un tempo massimo di esecuzione degli indicizzatori di 3 minuti per le origini BLOB e di 1 minuto per tutte le altre origini dati. Per l'intelligenza artificiale di indicizzazione che effettua chiamate in servizi cognitivi, servizi gratuiti sono limitati a 20 transazioni gratuite al giorno, in cui una transazione viene definita come un documento in cui vengano passate correttamente attraverso la pipeline enrichment.
 
@@ -144,7 +144,7 @@ Una [pipeline di ricerca cognitiva](cognitive-search-concept-intro.md) che effet
 * 8 KB al massimo per la lunghezza dell'URL
 * 1000 documenti al massimo per ogni batch di carichi, unioni o eliminazioni di indice
 * 32 campi al massimo nella clausola $orderby
-* 32.766 byte (32 KB meno 2 byte) di testo con codifica UTF-8 per la dimensione massima del termine di ricerca
+* 32\.766 byte (32 KB meno 2 byte) di testo con codifica UTF-8 per la dimensione massima del termine di ricerca
 
 <sup>1</sup> In Ricerca di Azure il corpo di una richiesta è soggetto a un limite massimo di 16 MB, che impone un limite pratico ai contenuti di singoli campi o raccolte non vincolati a limiti teorici. Per altre informazioni sulla composizione dei campi e sulle relative restrizioni, vedere [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) (Tipi di dati supportati).
 

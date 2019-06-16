@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/29/2019
 ms.author: mlottner
 ms.openlocfilehash: 7efe32039f926ea9b5be3c24fa967dede72cd081
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192500"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Introduzione a Centro sicurezza di Azure per IoT
@@ -41,15 +41,15 @@ Il Centro sicurezza di Azure (ASC) per IoT semplifica la protezione di carichi d
 
 ### <a name="unified-visibility-and-control"></a>Visibilità e controllo unificati
 
-Ottieni una visualizzazione unificata della sicurezza in tutti tra sito locale e cloud i carichi di lavoro, tra cui la soluzione IoT di Azure. Individuare automaticamente e l'onboarding ai nuovo dispositivi e applicare i criteri di sicurezza sui carichi di lavoro (dispositivi foglia, i dispositivi Edge, l'Hub IOT) per garantire la conformità agli standard di sicurezza.
+Ottieni una visualizzazione unificata della sicurezza in tutti i tuoi carichi di lavoro locali e cloud, inclusa la soluzione Azure IoT. Individua automaticamente ed esegui l'onboarding di nuovi dispositivi e applica i criteri di sicurezza nei carichi di lavoro (dispositivi foglia, dispositivi perimetrali, hub IOT) per assicurare la conformità con gli standard di sicurezza.
 
 ### <a name="adaptive-threat-prevention"></a>Prevenzione delle minacce adattiva
 
-Usare Centro sicurezza di AZURE per IoT per monitorare costantemente la sicurezza dei computer, reti e servizi di Azure, tra cui la soluzione Azure IoT da dispositivi perimetrali per le applicazioni. È possibile scegliere di usare da centinaia di valutazioni della sicurezza predefinite o crearne di personalizzate nel Centro sicurezza di AZURE centrale per il dashboard dell'IoT Hub. Ottimizzare le impostazioni di sicurezza e migliorare il punteggio relativo alla sicurezza con suggerimenti pratici sulle macchine virtuali, reti, le App e dati. Con funzionalità IoT appena aggiunta, è possibile ridurre la superficie di attacco per la soluzione IoT di Azure e risolvere i problemi prima che vengano sfruttate.
+Usare Centro sicurezza di AZURE per IoT per monitorare costantemente la sicurezza dei computer, reti e servizi di Azure, tra cui la soluzione Azure IoT da dispositivi perimetrali per le applicazioni. È possibile scegliere di usare da centinaia di valutazioni della sicurezza predefinite o crearne di personalizzate nel Centro sicurezza di AZURE centrale per il dashboard dell'IoT Hub. Ottimizza le impostazioni di sicurezza e migliora il punteggio di sicurezza con raccomandazioni di utilità pratica in macchine virtuali, risorse di rete, app e dati. Grazie alle funzionalità IoT appena aggiunte, puoi ora ridurre la superficie di attacco per la tua soluzione Azure IoT e correggere i problemi prima che possano essere sfruttati.
 
 ### <a name="intelligent-threat-detection-and-response"></a>Rilevamento intelligente dalle minacce e risposta
 
-Usare l'analitica avanzata e Microsoft Intelligent Security Graph per ottenere una rete perimetrale in continua evoluzione di attacchi informatici. Analitica comportamentali predefinite e machine learning identificare attacchi ed exploit zero-day. Monitorare la tua soluzione IoT per rilevare attacchi imminenti e attività post-violazione. Semplifica l'analisi di dispositivo e la correzione con strumenti interattivi e intelligence per le minacce contestuale.
+Usare l'analitica avanzata e Microsoft Intelligent Security Graph per ottenere una rete perimetrale in continua evoluzione di attacchi informatici. Analitica comportamentali predefinite e machine learning identificare attacchi ed exploit zero-day. Monitora la tua soluzione IoT per individuare attacchi imminenti e attività successive alla violazione. Semplifica l'analisi di dispositivo e la correzione con strumenti interattivi e intelligence per le minacce contestuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 49ac1a7585ddf2a6500c7e9382880109c3f7f431
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66131751"
 ---
 ## <a name="export-an-api-definition"></a>Esportare una definizione API
@@ -23,7 +23,7 @@ Si ha una definizione OpenAPI per la funzione, ottenuta in [Creare una definizio
 
 1. Fare clic su **Esporta in PowerApps e Microsoft Flow**.
 
-    ![Origine della definizione dell'API](media/functions-export-api-definition/export-api-1.png)
+    ![Origine della definizione API](media/functions-export-api-definition/export-api-1.png)
 
 1. Nel riquadro destro usare le impostazioni specificate nella tabella.
 
