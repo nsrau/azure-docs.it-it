@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
 ms.openlocfilehash: 007b6c409dde248a4dde7a15fd16b543add234bc
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870313"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gestire i costi AWS e utilizzo in Azure
@@ -81,9 +81,9 @@ La tabella seguente descrive le dimensioni disponibili per raggruppare e filtrar
 | Località | prodotto/area geografica | Tutti |   |
 | Contatore |   | Tutti |   |
 | Categoria del contatore | lineItem/ProductCode | Tutti |   |
-| Sottocategoria di contatore | lineitem/UsageType | Tutti |   |
+| Sottocategoria del contatore | lineitem/UsageType | Tutti |   |
 | Operazione | lineItem/Operation | Tutti |   |
-| Risorsa | lineItem/ResourceId | Tutti |   |
+| Resource | lineItem/ResourceId | Tutti |   |
 | Tipo di risorsa | product/instanceType | Tutti | Se product/instanceType è null, viene usato lineItem/UsageType. |
 | ResourceGuid | N/D | Tutti | Contatori di Azure GUID. |
 | Nome del servizio | product/ProductName | Tutti | Se product/ProductName è null, viene usato lineItem/ProductCode. |
@@ -91,7 +91,7 @@ La tabella seguente descrive le dimensioni disponibili per raggruppare e filtrar
 | ID sottoscrizione | lineItem/UsageAccountId | Gruppo di gestione e account consolidato |   |
 | Nome della sottoscrizione | N/D | Gruppo di gestione e account consolidato | I nomi degli account vengono raccolte usando l'API dell'organizzazione di AWS. |
 | Tag | resourceTags/\* | Tutti | Il _utente:_ prefisso viene rimosso dai tag definiti dall'utente per consentire i tag tra cloud. Il _aws:_ prefisso rimanga invariato. |
-| ID account di fatturazione | bill/PayerAccountId | Gruppo di gestione |   |
+| ID dell'account di fatturazione | bill/PayerAccountId | Gruppo di gestione |   |
 | Nome dell'account di fatturazione | N/D | Gruppo di gestione | I nomi degli account vengono raccolte usando l'API dell'organizzazione di AWS. |
 | Provider | N/D | Gruppo di gestione | AWS o Azure. |
 

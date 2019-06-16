@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
 ms.openlocfilehash: 7d9aafeb920eab7f6a87061a135bf2e464add436
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64698004"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix in HDInsight
@@ -135,6 +135,6 @@ Un cluster HBase di HDInsight include l'[interfaccia utente di Ambari](hdinsight
 
     ![Sezione di configurazione Phoenix SQL in Ambari](./media/hdinsight-phoenix-in-hdinsight/ambari-phoenix.png)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Usare Apache Phoenix con cluster HBase basati su Linux in HDInsight](hbase/apache-hbase-phoenix-squirrel-linux.md)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: de0f21fbd847ff801308523f48e9d0c8a91880fa
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65198372"
 ---
 # <a name="security-module"></a>Modulo di sicurezza
@@ -46,7 +46,7 @@ Le proprietà di sicurezza di dispositivi vengono gestite in un modulo gemello s
 Visualizzare [crea dispositivo gemello del modulo security](quickstart-create-security-twin.md) e [configurare gli agenti di protezione](how-to-agent-configuration.md) per imparare a creare, personalizzare e configurare il dispositivo gemello. Visualizzare [moduli gemelli Understanding](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) per approfondire il concetto di moduli gemelli nell'IoT Hub. 
  
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 - [Centro sicurezza di AZURE per l'anteprima di IoT](overview.md)
 - [Distribuire gli agenti protezione](how-to-deploy-agent.md)
 - [Metodi di autenticazione di sicurezza dell'agente](concept-security-agent-authentication-methods.md)

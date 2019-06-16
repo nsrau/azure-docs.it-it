@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 3/29/2019
 ms.author: sujayt
 ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789803"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informazioni sulle reti per la replica da Azure ad Azure
@@ -128,7 +128,7 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
 3. Creare regole HTTPS in uscita (443) per gli IP di Site Recovery che corrispondono alla località di destinazione:
 
-   **Posizione** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
+   **Location** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
     --- | --- | ---
    Stati Uniti centrali | 40.69.144.231 | 52.165.34.144
 
@@ -142,7 +142,7 @@ Queste regole sono necessarie in modo che la replica possa essere abilitata dall
 
 3. Creare regole HTTPS in uscita (443) per gli IP di Site Recovery che corrispondono alla località di origine:
 
-   **Posizione** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
+   **Location** | **Indirizzo IP di Site Recovery** |  **Indirizzo IP di monitoraggio di Site Recovery**
     --- | --- | ---
    Stati Uniti centrali | 13.82.88.226 | 104.45.147.24
 

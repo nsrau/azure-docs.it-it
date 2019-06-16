@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: 513ce98703e67053ab0bcac3e6fc7a3e959f6870
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307436"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717281"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Usare gli strumenti remoti per risolvere i problemi delle macchine virtuali di Azure
 
@@ -236,7 +236,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. In un'altra macchina virtuale sulla stessa rete virtuale aprire un'istanza di **Services.msc**.
 
-2. Fare clic con il pulsante destro del mouse su **Servizi (computer locale)**.
+2. Fare clic con il pulsante destro del mouse su **Servizi (computer locale)** .
 
 3. Selezionare **Connetti a un altro computer**.
 

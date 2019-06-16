@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
 ms.openlocfilehash: d9b259ba93be369658638d034f109a3a6ba4c4a4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938196"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Scheda Marketplace per una macchina virtuale
@@ -33,7 +33,7 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi ob
 | **Riepilogo esteso\***          | Scopo o funzione della soluzione.  La lunghezza massima consentita è di 256 caratteri. |
 | **Descrizione\***           | Descrizione della soluzione.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice. |
 | **Canale rivenditore CSP di Microsoft\*** | Cloud Solution Provider (CSP) partner canale acconsentire esplicitamente a questo punto è disponibile.  Vedi [Cloud Solution Provider](../../cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali. |
-| **Identificatore di marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **Identificatore di marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **ID sottoscrizione di anteprima\*** | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
 | **Collegamenti utili**          | Aggiungere gli URL per la documentazione, le note sulla versione, le domande frequenti e così via. |
 | **Suggeriti categorie (al massimo 5)\*** | Selezione multipla di categorie commerciali e tecniche a cui associare l'offerta in modo ottimale.  Il numero massimo consentito è cinque.  |

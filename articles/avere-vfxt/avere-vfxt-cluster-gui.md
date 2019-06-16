@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60794270"
 ---
 # <a name="access-the-vfxt-cluster"></a>Accedere al cluster vFXT
@@ -53,7 +53,7 @@ Esempio: ``azureuser@203.0.113.51``
 
 Nel pannello **Configuration** (Configurazione):
 
-1. Espandere **Connection (Connessione)** > **SSH** a sinistra. 
+1. Espandere **Connection (Connessione)**  > **SSH** a sinistra. 
 1. Fare clic su **Tunnels** (Tunnel). 
 1. Immettere una porta di origine, ad esempio 8443. 
 1. Per la destinazione, immettere l'indirizzo IP di gestione del cluster vFXT e la porta 443. 

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
 ms.openlocfilehash: bc939011f87f03ef1de7e728fc52fc0c9887dd31
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935396"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Modalità offline di FairPlay Streaming per iOS 
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione di servizi multimediali che si sta utilizzando:"]
 > * [Versione 3](../latest/offline-fairplay-for-ios.md)
 > * [Versione 2](media-services-protect-hls-with-offline-fairplay.md)
 
@@ -207,7 +207,7 @@ Questa sezione include le risposte ad alcune domande frequenti utili per la riso
 - **Perché, anche dopo aver aggiunto audio-only=false, in modalità offline continua a essere riprodotto solo l'audio senza il video?** A seconda del modo in cui è progettata la chiave di cache della rete CDN, è possibile che il contenuto sia memorizzato nella cache. Ripulire la cache.
 - **La modalità offline di FPS è anche supportata in iOS 11 oltre che in iOS 10?** Sì. La modalità offline di FPS è supportata per iOS 10 e iOS 11.
 - **Il documento "Offline Playback with FairPlay Streaming and HTTP Live Streaming" non è incluso in FPS Server SDK. Perché?** A partire dalla versione 4 di FPS Server SDK, questo documento è stato incluso in "FairPlay Streaming Programming Guide" (Guida alla programmazione di FairPlay Streaming).
-- **Che cosa rappresenta l'ultimo parametro nell'API seguente per la modalità offline di FPS?**
+- **Che cosa rappresenta l'ultimo parametro nell'API seguente per la modalità offline di FPS?** 
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
     Per informazioni su questa API, vedere [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration Method](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet) (Metodo FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration). Il parametro rappresenta la durata del periodo di noleggio offline, con l'ora specificata come unità.

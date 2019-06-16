@@ -11,10 +11,10 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: b0a5eca4823bd6ec7d1197adb205f7fb98f8d67e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509085"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Panoramica dei token in Azure Active Directory B2C
@@ -50,7 +50,7 @@ Le attestazioni nei token ID non vengono restituite in un ordine particolare. Po
 
 Nella tabella seguente elenca le attestazioni che è possibile aspettarsi nel token ID e accedere ai token emessi da Azure AD B2C.
 
-| Name | Attestazione | Valore di esempio | Descrizione |
+| NOME | Attestazione | Valore di esempio | Descrizione |
 | ---- | ----- | ------------- | ----------- |
 | Audience | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica il destinatario del token. Per Azure AD B2C, il destinatario è l'ID applicazione. L'applicazione deve convalidare questo valore e rifiutare il token, se non corrisponde. Audience equivale a risorsa. |
 | Issuer | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token. Identifica, inoltre, la directory in cui è stato autenticato l'utente. L'applicazione deve convalidare l'attestazione dell'autorità di certificazione per assicurarsi che il token provenga all'endpoint appropriato. |

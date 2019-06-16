@@ -12,10 +12,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727039"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Attività della funzione di Azure in Azure Data Factory
@@ -32,21 +32,21 @@ Il tipo restituito della funzione di Azure deve essere un `JObject` valido. (Ten
 
 | **Proprietà** | **Descrizione** | **Obbligatorio** |
 | --- | --- | --- |
-| type   | La proprietà type deve essere impostata su: **AzureFunction** | Sì |
-| function app url | URL dell'app per le funzioni di Azure. Il formato è `https://<accountname>.azurewebsites.net`. Questo URL è il valore presente nella sezione **URL** quando si visualizza l'app per le funzioni nel portale di Azure  | Sì |
-| function key | Chiave di accesso per la funzione di Azure. Fare clic sulla sezione **Gestisci** per la funzione corrispondente e copiare il **tasto funzione** o la **chiave host**. Per altre informazioni, vedere: [Trigger e associazioni HTTP di Funzioni di Azure](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | Sì |
+| type   | La proprietà type deve essere impostata su: **AzureFunction** | sì |
+| function app url | URL dell'app per le funzioni di Azure. Il formato è `https://<accountname>.azurewebsites.net`. Questo URL è il valore presente nella sezione **URL** quando si visualizza l'app per le funzioni nel portale di Azure  | sì |
+| function key | Chiave di accesso per la funzione di Azure. Fare clic sulla sezione **Gestisci** per la funzione corrispondente e copiare il **tasto funzione** o la **chiave host**. Per altre informazioni, vedere: [Trigger e associazioni HTTP di Funzioni di Azure](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | sì |
 |   |   |   |
 
 ## <a name="azure-function-activity"></a>Attività della funzione di Azure
 
 | **Proprietà**  | **Descrizione** | **Valori consentiti** | **Obbligatorio** |
 | --- | --- | --- | --- |
-| name  | Nome dell'attività nella pipeline  | string | Sì |
-| type  | Il tipo di attività è 'AzureFunctionActivity' | string | Sì |
-| linked service | Servizio collegato della funzione di Azure collegata per l'app per le funzioni di Azure corrispondente  | Riferimento del servizio collegato | Sì |
-| function name  | Nome della funzione nell'app per le funzioni di Azure chiamata dall'attività | string | Sì |
-| method  | Metodo dell'API REST per la chiamata di funzione | Tipi supportati di stringa: "GET", "POST", "PUT"   | Sì |
-| intestazione  | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare la lingua e il tipo in una richiesta: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Stringa (o un'espressione con l'elemento resultType della stringa) | No  |
+| name  | Nome dell'attività nella pipeline  | String | sì |
+| type  | Il tipo di attività è 'AzureFunctionActivity' | String | sì |
+| linked service | Servizio collegato della funzione di Azure collegata per l'app per le funzioni di Azure corrispondente  | Riferimento del servizio collegato | sì |
+| function name  | Nome della funzione nell'app per le funzioni di Azure chiamata dall'attività | String | sì |
+| statico  | Metodo dell'API REST per la chiamata di funzione | Tipi supportati di stringa: "GET", "POST", "PUT"   | sì |
+| intestazione  | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare la lingua e il tipo in una richiesta: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Stringa (o un'espressione con l'elemento resultType della stringa) | No |
 | Corpo  | Corpo inviato insieme alla richiesta al metodo API della funzione  | Stringa (o espressione con l'elemento resultType della stringa) o oggetto.   | Obbligatorio per i metodi POST e PUT |
 |   |   |   | |
 

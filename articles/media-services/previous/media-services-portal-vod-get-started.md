@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 5df666dc2bd574c168d6b5f65dd6a909564a921f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64868433"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introduzione alla distribuzione di contenuto on demand tramite il portale di Azure
@@ -101,8 +101,8 @@ Per monitorare lo stato del processo di codifica, fare clic su **Impostazioni** 
 ## <a name="publish-content"></a>Pubblicare contenuti
 Perché l'utente possa avere a disposizione un URL da usare per scaricare o riprodurre in streaming i contenuti, è prima necessario pubblicare un asset creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali di Azure supporta due tipi di localizzatori: 
 
-* **Localizzatori di streaming (OnDemandOrigin)**. I localizzatori di streaming vengono usati per il flusso adattivo. Sono esempi di flusso adattivo HLS, Smooth Streaming e MPEG-DASH. Per creare un localizzatore di streaming, l'asset deve contenere un file con estensione ism. 
-* **Localizzatori progressivi (firma di accesso condiviso)**. I localizzatori progressivi vengono usati per la distribuzione di video tramite download progressivo.
+* **Localizzatori di streaming (OnDemandOrigin)** . I localizzatori di streaming vengono usati per il flusso adattivo. Sono esempi di flusso adattivo HLS, Smooth Streaming e MPEG-DASH. Per creare un localizzatore di streaming, l'asset deve contenere un file con estensione ism. 
+* **Localizzatori progressivi (firma di accesso condiviso)** . I localizzatori progressivi vengono usati per la distribuzione di video tramite download progressivo.
 
 Per creare un URL di streaming HLS, aggiungere *(format=m3u8-aapl)* all'URL:
 

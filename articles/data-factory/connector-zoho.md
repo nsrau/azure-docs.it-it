@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 70f300d83d904537aab61b95de876f4ac2edb66c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808990"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Copiare dati da Zoho tramite Azure Data Factory (anteprima)
@@ -44,12 +44,12 @@ Per il servizio collegato di Zoho sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Zoho** | Sì |
-| endpoint | Endpoint del server Zoho (`crm.zoho.com/crm/private`). | Sì |
-| accessToken | Token di accesso per l'autenticazione Zoho. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No  |
-| useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No  |
-| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No  |
+| type | La proprietà type deve essere impostata su: **Zoho** | Yes |
+| endpoint | Endpoint del server Zoho (`crm.zoho.com/crm/private`). | Yes |
+| accessToken | Token di accesso per l'autenticazione Zoho. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
+| useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
+| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
 
 **Esempio:**
 
@@ -77,7 +77,7 @@ Per copiare dati da Zoho, impostare la proprietà type del set di dati su **Zoho
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **ZohoObject** | Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **ZohoObject** | Yes |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -106,7 +106,7 @@ Per copiare dati da Zoho, impostare il tipo di origine nell'attività di copia s
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **ZohoSource** | Sì |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **ZohoSource** | Yes |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Accounts"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

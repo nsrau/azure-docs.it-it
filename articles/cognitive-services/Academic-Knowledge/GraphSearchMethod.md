@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 5d47b938560fb1bd15adfe1a1c2d35b7359d47a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61339122"
 ---
 # <a name="graph-search-method"></a>Metodo Graph Search
@@ -30,9 +30,9 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 
 ## <a name="request-parameters"></a>Parametri della richiesta  
 
-NOME     | Value | Obbligatorio?  | DESCRIZIONE
+Name     | Value | Obbligatorio?  | Descrizione
 -----------|-----------|---------|--------
-**mode**       | Stringa di testo | Sì | Nome della modalità che si vuole usare. Il valore può essere *json* oppure *lambda*.
+**mode**       | Stringa di testo | Yes | Nome della modalità che si vuole usare. Il valore può essere *json* oppure *lambda*.
 
 Il metodo Graph Search deve essere chiamato tramite una richiesta HTTP POST. La richiesta POST deve includere l'intestazione del tipo di contenuto: **application/json**.
 
@@ -49,7 +49,7 @@ Per la ricerca *lambda*, il corpo POST è una stringa di testo normale. Il corpo
 
 ## <a name="response-json"></a>Risposta (JSON)
 
-NOME | DESCRIZIONE
+Name | Descrizione
 -------|-----   
 **results** | Matrice di 0 o più entità che corrispondono all'espressione di query. Ogni entità contiene i valori degli attributi richiesti. Questo campo è presente se la richiesta è stata elaborata correttamente.
 **error** | Codici di stato HTTP. Questo campo è presente se la richiesta ha esito negativo.

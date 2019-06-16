@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 09b553f3ca64d8f5217f023c776ec848215366f9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65151000"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure
@@ -45,7 +45,7 @@ Alcune considerazioni da ricordare quando si usa l'archiviazione con ridondanza 
 ## <a name="paired-regions"></a>Aree abbinate 
 L'area primaria viene selezionata durante la creazione di un account di archiviazione. L'area secondaria associata viene determinata in base all'area primaria e non è possibile modificarla. Per informazioni aggiornate sulle aree supportate da Azure, vedere [Continuità aziendale e ripristino di emergenza: aree abbinate di Azure](../../best-practices-availability-paired-regions.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 - [Replica di Archiviazione di Azure](storage-redundancy.md)
 - [Archiviazione con ridondanza locale: ridondanza dei dati a basso costo per Archiviazione di Azure](storage-redundancy-lrs.md)
 - [Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata](storage-redundancy-zrs.md)

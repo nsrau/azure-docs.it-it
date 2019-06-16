@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 5/1/2017
 ms.author: aljo
 ms.openlocfilehash: 9785a09a3ac3e119507b4ac28075d887c7edc619
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60774064"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transazioni e modalità di blocco delle raccolte Reliable Collections in Azure Service Fabric
@@ -46,7 +46,7 @@ Le raccolte Reliable Collections supportano due livelli di isolamento:
 Le raccolte Reliable Collections scelgono automaticamente il livello di isolamento da usare per una determinata operazione di lettura a seconda dell'operazione stessa e del ruolo della replica al momento della creazione della transazione.
 La tabella seguente descrive i valori predefiniti del livello di isolamento per le operazioni Reliable Dictionary e Reliable Queue.
 
-| Operazione\Ruolo | Primaria | Secondario |
+| Operazione\Ruolo | Primario | Secondario |
 | --- |:--- |:--- |
 | Lettura di entità singola |Repeatable Read |Snapshot |
 | Enumerazione, conteggio |Snapshot |Snapshot |

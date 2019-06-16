@@ -11,10 +11,10 @@ ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596106"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Aggiornare il data warehouse a Gen2
@@ -22,7 +22,7 @@ ms.locfileid: "65596106"
 Microsoft aiuta a ridurre il costo dell'esecuzione di un data warehouse di livello standard.  Calcolo inferiore a livelli in grado di gestire le query complesse sono ora disponibili per Azure SQL Data Warehouse. Leggi l'annuncio completo [inferiore calcolo a livello di supporto per Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). La nuova offerta è disponibile nelle aree indicate nella tabella riportata di seguito. Per le aree supportate, i data warehouse Gen1 esistenti possono essere aggiornati a Gen2 in uno dei modi seguenti:
 
 - **Processo di aggiornamento automatico:** Gli aggiornamenti automatici non vengono avviati non appena il servizio è disponibile in un'area.  Quando iniziano in un'area specifica, gli aggiornamenti di data warehouse singoli avvengono durante la pianificazione della manutenzione selezionata.
-- [**Aggiornamento automatico a Gen2:**](#self-upgrade-to-gen2) È possibile controllare quando eseguire l'aggiornamento eseguendo un aggiornamento automatico a Gen2. Se l'area non è ancora supportata, è possibile ripristinare da un punto di ripristino direttamente a un'istanza di Gen2 in un'area supportata.
+- [**Aggiornamento automatico a Gen2:** ](#self-upgrade-to-gen2) È possibile controllare quando eseguire l'aggiornamento eseguendo un aggiornamento automatico a Gen2. Se l'area non è ancora supportata, è possibile ripristinare da un punto di ripristino direttamente a un'istanza di Gen2 in un'area supportata.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>Tabella delle pianificazioni automatiche e della disponibilità per area
 

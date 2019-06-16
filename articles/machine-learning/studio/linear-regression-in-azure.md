@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861115"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Eseguire la migrazione dei dati di analisi da Excel ad Azure Machine Learning Studio

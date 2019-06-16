@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 8b76e1a168d39d2f39098754f43bae73c21c2049
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ac1a6136eae79700c427b27c8869bc9241c62abc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799829"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717800"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandi dell’interfaccia della riga di comando Azure in modalità Resource Manager
 In questo articolo vengono fornite sintassi e opzioni per i comandi dell'interfaccia della riga di comando (CLI) di Azure usati comunemente per creare e gestire risorse di Azure nel modello di distribuzione Azure Resource Manager. Accedere ai comandi eseguendo l’interfaccia della riga di comando in modalità di gestione risorse (arm). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi. Per informazioni generali su risorse e gruppi di risorse di Azure, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -969,7 +969,8 @@ Opzioni dei parametri:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    network lb address-pool delete [opzioni] <resource-group> <lb-name> <name>
+
+    network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 Rimuove la risorsa dell'intervallo pool di indirizzi IP back-end dal servizio/dispositivo di bilanciamento del carico.
 
@@ -1333,7 +1334,9 @@ Opzioni dei parametri:
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-     network public-ip list [opzioni] <resource-group> Elenca tutte le risorse IP pubblico all'interno di un gruppo di risorse.
+
+    network public-ip list [options] <resource-group>
+Elenca tutte le risorse IP pubblico all'interno di un gruppo di risorse.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1353,8 +1356,10 @@ Opzioni dei parametri:
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
+
 <BR>
-    network public-ip show [opzioni] <resource-group> <name>
+
+    network public-ip show [options] <resource-group> <name>
 
 Visualizza le proprietà di una risorsa IP pubblico all'interno di un gruppo di risorse.
 

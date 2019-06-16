@@ -10,10 +10,10 @@ ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: d230fa97d009f0ee2a3bc86a0b6b7c8d40687a46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61216070"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Asset di tipo certificato in Automazione di Azure
@@ -27,7 +27,7 @@ I certificati vengono archiviati in modo sicuro in automazione di Azure in modo 
 
 Per AzureRM, per creare e gestire asset di credenziali di automazione con Windows PowerShell, vengono usati i cmdlet della tabella seguente. Sono inclusi come parte del [modulo azurerm. Automation](/powershell/azure/overview), che è disponibile per l'uso nei runbook di automazione e nelle configurazioni DSC.
 
-|Cmdlets|DESCRIZIONE|
+|Cmdlets|Descrizione|
 |:---|:---|
 |[Get-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Recupera le informazioni su un certificato da usare in un runbook o in una configurazione DSC. È possibile recuperare solo il certificato stesso dall'attività Get-AutomationCertificate.|
 |[New-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Crea un nuovo certificato in Automazione di Azure.|
@@ -35,11 +35,11 @@ Per AzureRM, per creare e gestire asset di credenziali di automazione con Window
 |[Set-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Imposta le proprietà per un certificato esistente, inclusi il caricamento del file del certificato e l'impostazione della password per un file con estensione pfx.|
 |[Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate)|Carica un certificato di servizio per il servizio cloud specificato.|
 
-## <a name="activities"></a>attività
+## <a name="activities"></a>Attività
 
 Le attività incluse nella tabella seguente vengono usate per accedere ai certificati in un runbook e nelle configurazioni DSC.
 
-| attività | DESCRIZIONE |
+| Attività | Descrizione |
 |:---|:---|
 |Get-AutomationCertificate|Ottiene un certificato da usare in un runbook o in una configurazione DSC. Restituisce un oggetto [System.Security.Cryptography.X509Certificates.X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2).|
 
@@ -50,7 +50,7 @@ Le attività incluse nella tabella seguente vengono usate per accedere ai certif
 
 La funzione nella tabella seguente viene usata per accedere ai certificati in un runbook Python2.
 
-| Funzione | DESCRIZIONE |
+| Funzione | Descrizione |
 |:---|:---|
 | automationassets.get_automation_certificate | Recupera informazioni su un asset certificato. |
 
@@ -59,7 +59,7 @@ La funzione nella tabella seguente viene usata per accedere ai certificati in un
 
 ## <a name="creating-a-new-certificate"></a>Creazione di un nuovo certificato
 
-Quando si crea un nuovo certificato, si carica un file con estensione cer o pfx in Automazione di Azure. Se si contrassegna il certificato come esportabile, sarà possibile trasferirlo all'esterno dell'archivio di certificati di Automazione di Azure. Se non è esportabile, quindi utilizzabile solo per la firma all'interno del runbook o configurazione DSC. Automazione di Azure richiede che il certificato disponga di un provider: **Microsoft Enhanced RSA and AES Cryptographic Provider (RSA avanzato di Microsoft e provider del servizio di crittografia AES)**.
+Quando si crea un nuovo certificato, si carica un file con estensione cer o pfx in Automazione di Azure. Se si contrassegna il certificato come esportabile, sarà possibile trasferirlo all'esterno dell'archivio di certificati di Automazione di Azure. Se non è esportabile, quindi utilizzabile solo per la firma all'interno del runbook o configurazione DSC. Automazione di Azure richiede che il certificato disponga di un provider: **Microsoft Enhanced RSA and AES Cryptographic Provider (RSA avanzato di Microsoft e provider del servizio di crittografia AES)** .
 
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Per creare un nuovo certificato con il portale di Azure
 

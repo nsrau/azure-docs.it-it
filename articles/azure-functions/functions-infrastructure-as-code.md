@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 283487eeb0f1f85940da4db8c932602e1b45efd3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737058"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64695795"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -37,7 +37,7 @@ Per i modelli di esempio, vedere:
 
 Una distribuzione di funzioni di Azure è in genere costituita da queste risorse:
 
-| Risorsa                                                                           | Requisito | La sintassi e le proprietà di riferimento                                                         |   |
+| Resource                                                                           | Requisito | La sintassi e le proprietà di riferimento                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | Un'app per le funzioni                                                                     | Obbligatorio    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
 | Un account di [archiviazione di Azure](../storage/index.yml)                                   | Obbligatorio    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
@@ -147,7 +147,7 @@ Risorsa di app per la funzione viene definita tramite una risorsa di tipo **Web/
 
 Un'app di funzione deve includere le impostazioni dell'applicazione:
 
-| Nome impostazione                 | DESCRIZIONE                                                                               | Valori di esempio                        |
+| Nome impostazione                 | Descrizione                                                                               | Valori di esempio                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | Una stringa di connessione a una risorsa di archiviazione dell'account che il runtime di funzioni di Accodamento interno | Vedere [account di archiviazione](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | La versione del runtime di funzioni di Azure                                                | `~2`                                  |
@@ -663,6 +663,27 @@ Di seguito è riportato un esempio che usa HTML:
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"></a>
 ```
+
+### <a name="deploy-using-powershell"></a>Distribuire tramite PowerShell
+
+I comandi di PowerShell seguenti crea un gruppo di risorse e distribuire un modello che crea un'app per le funzioni con le risorse necessarie. Per eseguire in locale, è necessario disporre [Azure PowerShell](/powershell/azure/install-az-ps) installato. Eseguire [ `Connect-AzAccount` ](/powershell/module/az.accounts/connect-azaccount) per l'accesso.
+
+```powershell
+# Register Resource Providers if they're not already registered
+Register-AzResourceProvider -ProviderNamespace "microsoft.web"
+Register-AzResourceProvider -ProviderNamespace "microsoft.storage"
+
+# Create a resource group for the function app
+New-AzResourceGroup -Name "MyResourceGroup" -Location 'West Europe'
+
+# Create the parameters for the file, which for this template is the function app name.
+$TemplateParams = @{"appName" = "<function-app-name>"}
+
+# Deploy the template
+New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
+```
+
+Per testare la distribuzione, è possibile usare una [modello simile](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) che crea un'app per le funzioni in Windows in un piano a consumo. Sostituire `<function-app-name>` con un nome univoco per l'app per le funzioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

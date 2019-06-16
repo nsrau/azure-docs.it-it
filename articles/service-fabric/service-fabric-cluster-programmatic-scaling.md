@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
 ms.openlocfilehash: 128f28d2a8b97feb3d20c34b7468b60c446a78a6
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306924"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Aumentare o ridurre le istanze di un cluster di Service Fabric a livello di codice 

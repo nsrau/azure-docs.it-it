@@ -10,10 +10,10 @@ ms.date: 5/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 8dffc5b87aefe23953d3a74f1d96b5ee03e0315d
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597381"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Come creare un filtro facet in Ricerca di Azure 
@@ -122,7 +122,7 @@ Uno dei problemi dell'esplorazione in base a facet in Ricerca di Azure è che i 
 
 Sebbene sia un caso d'uso comune, non è un servizio che la struttura di esplorazione in base a facet fornisce in modo predefinito. Gli sviluppatori che intendono usare i facet statici aggirandone i limiti eseguono due query filtrate: una limitata ai risultati, l'altra usata per creare un elenco statico di facet per l'esplorazione.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Filtri in Ricerca di Azure](search-filters.md)
 + [Creare un indice: API REST](https://docs.microsoft.com/rest/api/searchservice/create-index)

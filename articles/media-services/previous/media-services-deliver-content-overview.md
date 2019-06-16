@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 5db2cb983c0c3cd0e2194f7686964d9ec3828d6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61232276"
 ---
 # <a name="deliver-content-to-customers"></a>Distribuire contenuti ai clienti
@@ -155,7 +155,7 @@ Un endpoint di streaming rappresenta un servizio di streaming in grado di distri
 
 ## <a name="known-issues"></a>Problemi noti
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Modifiche alla versione del manifesto Smooth Streaming
-Prima della versione del servizio di luglio 2016, quando gli asset prodotti da Media Encoder Standard, dal flusso di lavoro Premium del codificatore multimediale o dalla versione precedente di Azure Media Encoder venivano trasmessi con la creazione dinamica dei pacchetti, il manifesto Smooth Streaming restituito era conforme alla versione 2.0. Nella versione 2.0 le durate dei frammenti non usano i cosiddetti tag di ripetizione ("r"). Ad esempio: 
+Prima della versione del servizio di luglio 2016, quando gli asset prodotti da Media Encoder Standard, dal flusso di lavoro Premium del codificatore multimediale o dalla versione precedente di Azure Media Encoder venivano trasmessi con la creazione dinamica dei pacchetti, il manifesto Smooth Streaming restituito era conforme alla versione 2.0. Nella versione 2.0 le durate dei frammenti non usano i cosiddetti tag di ripetizione ("r"). Ad esempio:
 
 
     <?xml version="1.0" encoding="UTF-8"?>
@@ -169,7 +169,7 @@ Prima della versione del servizio di luglio 2016, quando gli asset prodotti da M
         </StreamIndex>
     </SmoothStreamingMedia>
 
-Nella versione del servizio di luglio 2016, il manifesto Smooth Streaming generato è conforme alla versione 2.2, con durate di frammento che usano i tag di ripetizione, Ad esempio: 
+Nella versione del servizio di luglio 2016, il manifesto Smooth Streaming generato è conforme alla versione 2.2, con durate di frammento che usano i tag di ripetizione, Ad esempio:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">

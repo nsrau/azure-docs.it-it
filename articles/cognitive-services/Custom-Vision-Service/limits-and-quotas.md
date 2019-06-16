@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
 ms.openlocfilehash: 85abc4a50710629d3485d05115698e59a93fc96e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60995631"
 ---
 # <a name="limits-and-quotas"></a>Limiti e quote
@@ -26,7 +26,7 @@ Si prevede che nel tempo il numero di immagini di training per progetto di tag p
 ||**F0**|**S0**|
 |-----|-----|-----|
 |Progetti|2|100|
-|Immagini di training per progetto |5.000|100,000|
+|Immagini di training per progetto |5\.000|100,000|
 |Previsioni/mese|10,000 |Illimitato|
 |Tag/progetto|50|500|
 |Iterazioni |10|10|

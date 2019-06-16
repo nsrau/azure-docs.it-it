@@ -17,10 +17,10 @@ ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 00b4a145da9104cab410c5a07f6d7ec5ded5c45d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800007"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager
@@ -63,7 +63,7 @@ Per una semplice macchina virtuale basata su Gestione risorse, aggiungere la con
 ]
 ```
 
-Un'altra convenzione comune consiste nell'aggiungere la configurazione dell'estensione al nodo delle risorse radice del modello, invece di definirla nel nodo delle risorse della macchina virtuale. Con questo approccio è necessario specificare esplicitamente una relazione gerarchica tra l'estensione e la macchina virtuale con i valori *name* e *type*. Ad esempio:  
+Un'altra convenzione comune consiste nell'aggiungere la configurazione dell'estensione al nodo delle risorse radice del modello, invece di definirla nel nodo delle risorse della macchina virtuale. Con questo approccio è necessario specificare esplicitamente una relazione gerarchica tra l'estensione e la macchina virtuale con i valori *name* e *type*. Ad esempio: 
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935854"
 ---
 <a name="create-a-microsoft-developer-account"></a>Creare un account di Microsoft Developer
@@ -21,7 +21,7 @@ Questo articolo descrive come diventare uno sviluppatore Microsoft approvato per
 
 ## <a name="create-a-microsoft-account"></a>Creare un account Microsoft
 
-Per avviare il processo di pubblicazione, è necessario completare il processo di registrazione nel **Microsoft Developer Center**. Per iniziare il processo di pubblicazione, si userà lo stesso account registrato nel **[portale Cloud Partner](https://cloudpartner.azure.com/)**.
+Per avviare il processo di pubblicazione, è necessario completare il processo di registrazione nel **Microsoft Developer Center**. Per iniziare il processo di pubblicazione, si userà lo stesso account registrato nel **[portale Cloud Partner](https://cloudpartner.azure.com/)** .
 
 ### <a name="general-account-guidelines"></a>Linee guida per gli account generici
 

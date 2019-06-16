@@ -1,8 +1,8 @@
 ---
 title: Codec video H.264 a bitrate multipli con risoluzione 4x3 SD e audio 5.1 | Documentazione Microsoft
 description: Questo argomento offre una panoramica del set di impostazioni di attività **Codec video H.264 a bitrate multipli con risoluzione 4x3 SD e audio 5.1**.
-author: WenJason
-manager: digimobile
+author: Juliako
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/19/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.date: 03/19/2019
+ms.author: juliako
 ms.openlocfilehash: 7f5ea80a055c34cddeab042c33071c6f5799a443
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463668"
 ---
 # <a name="h264-multiple-bitrate-4x3-sd-audio-51"></a>Codec video H.264 a bitrate multipli con risoluzione 4x3 SD e audio 5.1
@@ -30,7 +29,7 @@ ms.locfileid: "61463668"
  Il set di impostazioni genera un set di 5 file MP4 con audio AAC 5.1 e allineamento GOP, con velocità compresa tra 1600 e 400 kbps. Per informazioni dettagliate su profilo, velocità in bit, frequenza di campionamento e così via di questo set di impostazioni, esaminare il codice XML o JSON definito di seguito. Per informazioni sul significato di ogni elemento e sui valori possibili per ciascuno, vedere lo [schema di Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Quando si modificano i valori `Width` e `Height` nei livelli, assicurarsi che le proporzioni rimangano coerenti. Ad esempio:  1920x1080, 1280x720, 1080x576, 640x360. Non è consigliabile usare una combinazione di proporzioni, ad esempio: 1280x720, 720x480, 640x360.  
+>  Quando si modificano i valori `Width` e `Height` nei livelli, assicurarsi che le proporzioni rimangano coerenti. Ad esempio: 1920x1080, 1280x720, 1080x576, 640x360. Non è consigliabile usare una combinazione di proporzioni, ad esempio: 1280x720, 720x480, 640x360.  
   
  XML  
   

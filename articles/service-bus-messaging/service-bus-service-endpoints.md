@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
 ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61471962"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Usare gli endpoint servizio di rete virtuale con il bus di servizio di Azure
@@ -76,7 +76,7 @@ Parametri del modello:
 * **virtualNetworkingSubnetId**: percorso completo di Resource Manager per la subnet della rete virtuale. Ad esempio, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` per la subnet predefinita di una rete virtuale.
 
 > [!NOTE]
-> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"**, che non limita le connessioni.
+> Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
 > Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
 > 
 > from

@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991389"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
@@ -218,7 +218,7 @@ Quando si usano le API gestione dei costi, conoscendo che l'ambito è fondamenta
 4. Copiare il valore del campo ID risorsa.
 5. L'ambito è: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Gestione costi è attualmente supportata nelle [Azure globale](https://management.azure.com) e [Azure per enti pubblici](https://management.usgovcloudapi.net). Per altre informazioni su Azure per enti pubblici, vedere [endpoint di Azure globale e API per enti pubblici](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
+Gestione costi è attualmente supportata nelle [Azure globale](https://management.azure.com) e [Azure per enti pubblici](https://management.usgovcloudapi.net). Per altre informazioni su Azure per enti pubblici, vedere [endpoint di Azure globale e API per enti pubblici](../azure-government/documentation-government-developer-guide.md#endpoint-mapping) _._
 
 ## <a name="next-steps"></a>Passaggi successivi
 

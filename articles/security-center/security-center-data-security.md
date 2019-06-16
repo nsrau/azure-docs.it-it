@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234078"
 ---
 # <a name="azure-security-center-data-security"></a>Sicurezza dei dati nel Centro sicurezza di Azure
@@ -88,7 +88,7 @@ I clienti possono utilizzare i dati relativi al Centro sicurezza da flussi dei d
 > [!NOTE]
 > I consigli sulla sicurezza possono essere utilizzati anche tramite l'API REST. Per altre informazioni, vedere [Security Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx) (Informazioni di riferimento sull'API REST del provider di risorse).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Questo documento ha illustrato come i dati vengono gestiti e protetti nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza di Azure, vedere:
 
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md) : informazioni sulla pianificazione e considerazioni di progettazione per l'adozione del Centro sicurezza di Azure.

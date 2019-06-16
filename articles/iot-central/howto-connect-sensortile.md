@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
 ms.openlocfilehash: 8c1b4a4ab834b2203a7e0b6e4e9e366c3fc38774
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472209"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>Connettere dispositivo SensorTile.box all'applicazione Azure IoT Central
@@ -37,11 +37,11 @@ Nell'applicazione Azure IoT Central, aggiungere un dispositivo reale dal **Senso
     * Immettere una minuscola **ID dispositivo**, oppure usare suggeriti **ID dispositivo**.
     * Immettere un **nome dispositivo**, oppure usare il nome suggerito
 
-    ![Aggiungi dispositivo](media/howto-connect-sensortile/real-device.png)
+    ![Aggiungere un dispositivo](media/howto-connect-sensortile/real-device.png)
 
 1. Per ottenere i dettagli di connessione, il dispositivo **ambito ID**, **ID dispositivo**, e **Primary key**, selezionare **Connect** nella pagina del dispositivo.
 
-    ![Dettagli connessione](media/howto-connect-sensortile/connect-device.png)
+    ![Dettagli della connessione](media/howto-connect-sensortile/connect-device.png)
 
 1. Prendere nota dei dettagli della connessione. Si è temporaneamente disconnessi da internet quando si prepara il dispositivo DevKit nel passaggio successivo.
 
@@ -51,7 +51,7 @@ In questa sezione descrive come eseguire il push del firmware di applicazione ne
 
 1. Aprire l'app ST BLE sensore e premere il **creare una nuova app** pulsante.
 
-    ![Crea app](media/howto-connect-sensortile/create-app.png)
+    ![Creare l'app](media/howto-connect-sensortile/create-app.png)
 
 1. Selezionare il **barometro della rigidità** dell'applicazione.
 1. Premere il pulsante di caricamento.

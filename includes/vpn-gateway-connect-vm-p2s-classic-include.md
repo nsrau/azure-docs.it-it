@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6d0737a7300b2a6025f776c1ed65a05cacf2141a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157680"
 ---
 Creare una connessione Desktop remoto per connettersi a una macchina virtuale distribuita nella rete virtuale. Il modo migliore per verificare di potersi connettere alla macchina virtuale consiste nel connettersi con il suo indirizzo IP privato invece che con il nome del computer. Ciò consente di verificare se è possibile connettersi, non se la risoluzione dei nomi è configurata correttamente. 

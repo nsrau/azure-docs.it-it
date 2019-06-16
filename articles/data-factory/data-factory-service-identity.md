@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153444"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identità gestita per Data Factory
@@ -158,7 +158,7 @@ client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 
 È possibile trovare le informazioni sull'identità gestito dal portale di Azure -> data factory -> proprietà:
 
-- ID oggetto identità gestita
+- ID di oggetto identità gestito
 - Tenant identità gestita
 - **Managed Identity Application ID** > copiare questo valore
 

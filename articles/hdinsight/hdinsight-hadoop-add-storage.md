@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
 ms.openlocfilehash: 6b9577bcf8b527abb0cb7b8720ed83ec8321655b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64724473"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
@@ -23,7 +23,7 @@ Informazioni su come usare azioni script per aggiungere archiviazione di Azure a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Hadoop in HDInsight. Visualizzare [Introduzione a HDInsight su Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nome account di archiviazione e la chiave. Visualizzare [gestire le impostazioni di account di archiviazione nel portale di Azure](../storage/common/storage-account-manage.md).
 * [Nome del cluster in modo corretto maiuscole e minuscole](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name).
 * Se si usa PowerShell, è necessario il modulo di AZ.  Visualizzare [Panoramica di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).

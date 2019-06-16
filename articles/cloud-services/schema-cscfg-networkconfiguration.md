@@ -1,9 +1,8 @@
 ---
 title: Schema NetworkConfiguration dei Servizi cloud di Microsoft Azure| Microsoft Docs
 ms.custom: ''
-origin.date: 12/07/2016
-ms.date: 11/06/2017
-ms.prod: azure
+ms.date: 12/07/2016
+services: cloud-services
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -11,14 +10,14 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: c1b94a9e-46e8-4a18-ac99-343c94b1d4bd
 caps.latest.revision: 28
-author: thraka
-ms.author: v-yiso
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: fb833904502c0c42b46201fd46a368de0376277c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130269"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Schema Config NetworkConfiguration dei Servizi cloud di Microsoft Azure
@@ -67,7 +66,7 @@ L'esempio seguente illustra l'elemento `NetworkConfiguration` e i relativi eleme
 
 La tabella seguente descrive gli elementi figlio dell'elemento `NetworkConfiguration`.
 
-| Elemento       | DESCRIZIONE |
+| Elemento       | Descrizione |
 | ------------- | ----------- |
 | AccessControl | facoltativo. Specifica le regole di accesso agli endpoint in un servizio cloud. Il nome del controllo di accesso è definito da una stringa per l'attributo `name`. L'elemento `AccessControl` contiene uno o più elementi `Rule`. È possibile definire più di un elemento `AccessControl`.|
 | Regola | facoltativo. Specifica l'azione che deve essere eseguita per un intervallo di subnet specifico di indirizzi IP. L'ordine della regola è definito da un valore stringa per l'attributo `order`. Più è basso il numero della regola, maggiore sarà la priorità. Ad esempio, le regole possono essere specificate con numeri di ordine pari a 100, 200 e 300. La regola che ha il numero di ordine pari a 100 ha la precedenza sulla regola che ha un ordine pari a 200.<br /><br /> L'azione per la regola è definita da una stringa per l'attributo `action`. I valori possibili sono:<br /><br /> -   `permit`: specifica che solo i pacchetti dell'intervallo di subnet specificato possono comunicare con l'endpoint.<br />-   `deny`: specifica che l'accesso è negato agli endpoint nell'intervallo di subnet indicato.<br /><br /> L'intervallo di subnet degli indirizzi IP interessati dalla regola è definito da una stringa per l'attributo `remoteSubnet`. La descrizione per la regola è definita da una stringa per l'attributo `description`.|

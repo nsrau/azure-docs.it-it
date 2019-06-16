@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: magoedte
 ms.openlocfilehash: a50f080ee4d72ad098ca87f5b3a62b42f8cd5907
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142745"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurare Mapping dei servizi in Azure
@@ -129,7 +129,7 @@ Mapping dei servizi ottiene i dati da Microsoft Dependency Agent. Dependency Age
 | Agenti di Windows | Sì | Mapping dei servizi analizza e raccoglie i dati dai computer Windows. <br><br>Oltre all'[agente di Log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere Sistemi operativi supportati. |
 | Agenti Linux | Sì | Mapping dei servizi analizza e raccoglie i dati dai computer Linux. <br><br>Oltre all'[agente di Log Analytics per Linux](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere Sistemi operativi supportati. |
 | Gruppo di gestione di System Center Operations Manager | Sì | Mapping dei servizi analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione System Center Operations Manager](../../azure-monitor/platform/om-agents.md) connesso. <br><br>È necessaria una connessione diretta dal computer agente System Center Operations Manager a Log Analytics. |
-| Account di archiviazione di Azure | No  | Mapping dei servizi raccoglie i dati dai computer agente, pertanto non presenta dati che possano essere raccolti dall'Archiviazione di Azure. |
+| Account di archiviazione di Azure | No | Mapping dei servizi raccoglie i dati dai computer agente, pertanto non presenta dati che possano essere raccolti dall'Archiviazione di Azure. |
 
 In Windows, Microsoft Monitoring Agent (MMA) viene usato sia da System Center Operations Manager che da Log Analytics per raccogliere e inviare dati di monitoraggio. Questo agente è chiamato agente System Center Operations Manager, agente di Log Analytics, agente MMA o diretto, a seconda del contesto. System Center Operations Manager e Log Analytics offrono versioni diverse pronte all'uso dell'agente MMA. Ognuna di queste versioni può inviare segnalazioni a System Center Operations Manager, Log Analytics o entrambi.  
 

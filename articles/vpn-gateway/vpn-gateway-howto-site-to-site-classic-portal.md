@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: a2d714cae187e4ebcf2eefd37c61484dc48495e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105961"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Creare una connessione da sito a sito usando il portale di Azure (distribuzione classica)

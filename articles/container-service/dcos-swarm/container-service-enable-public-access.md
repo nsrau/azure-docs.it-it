@@ -10,10 +10,10 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457326"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(DEPRECATO) Abilitare l'accesso pubblico a un'applicazione del servizio Azure Container
@@ -35,10 +35,10 @@ Prima di tutto è necessario aprire la porta desiderata.
     ![Probe del servizio di bilanciamento del carico del servizio Azure Container](./media/container-service-enable-public-access/add-probe.png)
 5. Compilare il form dei probe e fare clic su **OK**.
    
-   | Campo | DESCRIZIONE |
+   | Campo | Descrizione |
    | --- | --- |
-   | NOME |Nome descrittivo del probe. |
-   | Porta |Porta del contenitore da testare. |
+   | Name |Nome descrittivo del probe. |
+   | Port |Porta del contenitore da testare. |
    | `Path` |(In modalità HTTP) Percorso relativo del sito Web su cui eseguire probe. HTTPS non è supportato. |
    | Interval |Intervallo di tempo tra i tentativi del probe, in secondi. |
    | Soglia non integra |Numero di tentativi consecutivi del probe prima che il contenitore sia considerato non integro. |
@@ -47,9 +47,9 @@ Prima di tutto è necessario aprire la porta desiderata.
     ![Regole del servizio di bilanciamento del carico del servizio Azure Container](./media/container-service-enable-public-access/add-balancer-rule.png)
 7. Compilare il modulo del servizio di bilanciamento del carico e fare clic su **OK**.
    
-   | Campo | DESCRIZIONE |
+   | Campo | Descrizione |
    | --- | --- |
-   | NOME |Nome descrittivo del servizio di bilanciamento del carico. |
+   | Name |Nome descrittivo del servizio di bilanciamento del carico. |
    | Port |Porta pubblica in ingresso. |
    | Porta back-end |Porta pubblica interna del contenitore a cui instradare il traffico. |
    | Pool back-end |I contenitori in questo pool saranno la destinazione per questo servizio di bilanciamento del carico. |
@@ -70,9 +70,9 @@ Successivamente, è necessario aggiungere una regola di sicurezza che instradi i
     ![Regole del gruppo di sicurezza di rete del servizio Azure Container](./media/container-service-enable-public-access/add-firewall-rule.png)
 5. Compilare la regola del firewall per consentire la porta pubblica e fare clic su **OK**.
    
-   | Campo | DESCRIZIONE |
+   | Campo | Descrizione |
    | --- | --- |
-   | NOME |Nome descrittivo della regola del firewall. |
+   | Name |Nome descrittivo della regola del firewall. |
    | Priorità |Classificazione di priorità per la regola. Più è basso il numero, maggiore sarà la priorità. |
    | `Source` |Consente di limitare l'intervallo di indirizzi IP in ingresso che la regola dovrà consentire o negare. Usare **Qualsiasi** per non specificare una restrizione. |
    | Service |Selezionare un set di servizi predefiniti a cui è destinata questa regola di sicurezza. In caso contrario, usare **Personalizzato** per crearne di personalizzati. |

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 8f106674c1b1ec90477c7c030dc55085fcf10656
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60729920"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluzioni per il trasferimento dei dati periodico
@@ -55,12 +55,12 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 | Funzionalità                                       | Data Box Gateway | Data Box Edge   | Data factory di Azure        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Fattore di forma                                   | Dispositivo virtuale             | Dispositivo fisico          | Servizio nel portale di Azure, agente in locale                                                            |
-| Hardware                                      | Hypervisor dell'utente            | Fornito da Microsoft    | ND                                                            |
+| Hardware                                      | Hypervisor dell'utente            | Fornito da Microsoft    | NA                                                            |
 | Lavoro richiesto per la configurazione iniziale                          | Basso (<30 min.)            | Moderato (~due ore) | Elevato (alcuni giorni)                                                 |
 | Formato dati                                   | BLOB di Azure, file di Azure   | BLOB di Azure, file di Azure | [Supporta più di 70 connettori dati per archivi e formati dati](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| Pre-elaborazione dei dati                           | No                          | Sì, tramite il calcolo Edge    | Sì                                                           |
-| Cache locale<br>(per archiviare i dati locali)    | Sì                        | Sì                      | No                                                             |
-| Trasferimento da altri cloud                    | No                          | No                        | Sì                                                           |
+| Pre-elaborazione dei dati                           | No                         | Sì, tramite il calcolo Edge    | Yes                                                           |
+| Cache locale<br>(per archiviare i dati locali)    | Yes                        | Sì                      | No                                                            |
+| Trasferimento da altri cloud                    | No                         | No                       | Yes                                                           |
 | Prezzi                                       | [Prezzi](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Prezzi](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Prezzi](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Passaggi successivi

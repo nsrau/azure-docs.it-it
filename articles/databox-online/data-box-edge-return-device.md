@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 9aeae0ab68d809b36a3316054f12a5a9657721f1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65468605"
 ---
 # <a name="return-your-azure-data-box-edge-device"></a>Restituisce il dispositivo periferico casella dei dati di Azure
@@ -71,7 +71,7 @@ Per iniziare il processo restituito, procedere come segue.
 3. Scollegare i cavi di alimentazione e rimuovere tutti i cavi di rete dal dispositivo.
 4. Preparare il pacchetto di spedizione utilizzando una propria finestra o la casella vuota che è stato ricevuto da Azure. Posizionare il dispositivo e i cavi di alimentazione che sono stati forniti con il dispositivo nella finestra di.
 5. Applicare l'etichetta di spedizione del pacchetto ricevuto da Azure.
-6. Pianificare un ritiro presso il corriere a livello di area. Se la restituzione del dispositivo nell'area Stati Uniti, il gestore telefonico è UPS. Per pianificare un ritiro:
+6. Pianificare un ritiro con il corriere di zona. Se la restituzione del dispositivo nell'area Stati Uniti, il gestore telefonico è UPS. Per pianificare un ritiro:
 
     1. Chiamare il servizio UPS locale (numero verde specifico del paese).
     2. La chiamata, racchiudere il numero riportato sulla stampa etichetta di tracciabilità della spedizione inversa.
@@ -102,7 +102,7 @@ Eseguire i passaggi seguenti per eliminare il dispositivo e la risorsa nel porta
 
 2. Nel **Elimina dispositivo** blade, digitare il nome del dispositivo di cui si desidera eliminare, quindi scegliere **eliminare**.
 
-    ![Conferma eliminazione](media/data-box-edge-return-device/delete-resource-2.png)
+    ![Conferma dell'eliminazione](media/data-box-edge-return-device/delete-resource-2.png)
 
 Si riceverà una notifica dopo il dispositivo e la risorsa associata viene eliminata correttamente.
 

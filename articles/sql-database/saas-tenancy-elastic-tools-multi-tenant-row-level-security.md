@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234134"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
@@ -339,7 +339,7 @@ GO
 ```
 
 
-### <a name="maintenance"></a>Manutenzione 
+### <a name="maintenance"></a>Manutenzione
 
 - **Aggiunta di nuove partizioni**: eseguire lo script T-SQL per abilitare Sicurezza a livello di riga in tutte le nuove partizioni. In caso contrario, le query su tali partizioni non verranno filtrate.
 - **Aggiunta di nuove tabelle**: aggiungere un predicato FILTER e BLOCK ai criteri di sicurezza in tutte le partizioni ogni volta che si crea una nuova tabella. In caso contrario, le query sulla nuova tabella non verranno filtrate. Questa operazione può essere automatizzata tramite un trigger DDL, come descritto nel [blog relativo all'applicazione automatica della sicurezza a livello di riga alle tabelle create di recente](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).

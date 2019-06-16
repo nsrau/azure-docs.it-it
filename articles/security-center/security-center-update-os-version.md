@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: a17bc3cf8c8f1ffbb2a91e17944bfc1c203f439d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60905861"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Aggiornare la versione del sistema operativo nel Centro sicurezza di Azure
@@ -34,7 +34,7 @@ Per le macchine virtuali nei servizi cloud il Centro sicurezza di Azure consigli
    ![Aggiornare la versione sistema operativo][1]
 2. Viene visualizzato il pannello **Aggiorna la versione del sistema operativo**. Seguire i passaggi in questo pannello per aggiornare la versione del sistema operativo.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Questo documento illustra come implementare la raccomandazione "Aggiorna la versione del sistema operativo" del Centro sicurezza. Per altre informazioni sui servizi cloud e sull'aggiornamento della versione del sistema operativo per un servizio cloud, vedere:
 
 * [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md)

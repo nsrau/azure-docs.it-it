@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/22/2019
 ms.openlocfilehash: e451b7837a1cff4bbeaecd1573dc860524caf4d3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142663"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL Data Warehouse e Database SQL di individuazione dati e classificazione
@@ -77,7 +77,7 @@ Una volta definiti i criteri a livello di tenant, è possibile continuare con la
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Passare a **Sicurezza dei dati avanzata** sotto l'intestazione Sicurezza nel riquadro del database SQL di Azure. Fare clic per abilitare Sicurezza dei dati avanzata e quindi fare clic sulla scheda **Individuazione dati e classificazione (anteprima)**.
+2. Passare a **Sicurezza dei dati avanzata** sotto l'intestazione Sicurezza nel riquadro del database SQL di Azure. Fare clic per abilitare Sicurezza dei dati avanzata e quindi fare clic sulla scheda **Individuazione dati e classificazione (anteprima)** .
 
    ![Eseguire l'analisi di un database](./media/sql-data-discovery-and-classification/data_classification.png)
 

@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: 2f5520213e7d8792c89f5445d470987323173dc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60859342"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Installare IBM zD & ambiente di sviluppo/test T su Azure
@@ -58,7 +58,7 @@ Questo articolo illustra come configurare lo sviluppo di Z e ambiente di Test (z
 
 3. Ottenere le credenziali SSH visualizzate sulla **Overview** pannello della macchina virtuale tramite il **Connect** pulsante. Selezionare il **SSH** e copiare il comando di accesso SSH negli Appunti.
 
-4. Accedere a un [shell di Bash](/azure/cloud-shell/quickstart) dal computer locale e incollare il comando. Sarà nel formato **ssh\<id utente\>\@\<indirizzo IP\>**. Quando richiesto per le proprie credenziali, immettere in modo da stabilire una connessione alla directory Home.
+4. Accedere a un [shell di Bash](/azure/cloud-shell/quickstart) dal computer locale e incollare il comando. Sarà nel formato **ssh\<id utente\>\@\<indirizzo IP\>** . Quando richiesto per le proprie credenziali, immettere in modo da stabilire una connessione alla directory Home.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Copiare il file di installazione nel server
 

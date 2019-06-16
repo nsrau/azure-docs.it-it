@@ -12,10 +12,10 @@ ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957401"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Come gestire un'app per le funzioni nel portale di Azure 
@@ -26,7 +26,7 @@ Innanzitutto passare al [portale di Azure](https://portal.azure.com) e accedere 
 
 ![Panoramica dell'app per le funzioni nel portale di Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-È possibile passare a tutto il necessario per gestire le app per le funzioni dalla pagina di panoramica, in particolare il **[impostazioni applicazione](#settings)** e **[funzionalitàdellapiattaforma](#platform-features)**.
+È possibile passare a tutto il necessario per gestire le app per le funzioni dalla pagina di panoramica, in particolare il **[impostazioni applicazione](#settings)** e **[funzionalitàdellapiattaforma](#platform-features)** .
 
 ## <a name="settings"></a>Impostazioni dell'applicazione
 

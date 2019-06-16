@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 4d4c540e00794bfdf1df265457798cc13530c828
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61337789"
 ---
 # <a name="lambda-search-syntax"></a>Sintassi di ricerca lambda
@@ -33,13 +33,13 @@ FollowEdge(params string[] edgeTypes)
 > [!NOTE]
 > Se i tipi di limite da seguire non sono importanti, omettere *FollowEdge()* tra due nodi: la query attraverserà tutti i limiti possibili tra questi due nodi.
 
-È possibile specificare le azioni di attraversamento da eseguire su un nodo tramite *VisitNode()*, per indicare se arrestarsi in corrispondenza del nodo e restituire il percorso corrente come risultato oppure se continuare a esplorare il grafico.  Il tipo di enumerazione *Action* definisce due tipi di azioni: *Action.Return* e *Action.Continue*. È possibile passare tale valore di enumerazione direttamente a *VisitNode()* oppure combinare gli elementi con l'operatore AND bit per bit "&". Quando si combinano due azioni, vengono eseguite entrambe le azioni. Nota: non usare l'operatore OR bit per bit "|" per le azioni. Ciò può comportare l'arresto della query senza restituzione di alcun risultato. Se si ignora *VisitNode()* tra due chiamate a *FollowEdge()*, la query esplora in modo incondizionato il grafico dopo aver raggiunto un nodo.
+È possibile specificare le azioni di attraversamento da eseguire su un nodo tramite *VisitNode()* , per indicare se arrestarsi in corrispondenza del nodo e restituire il percorso corrente come risultato oppure se continuare a esplorare il grafico.  Il tipo di enumerazione *Action* definisce due tipi di azioni: *Action.Return* e *Action.Continue*. È possibile passare tale valore di enumerazione direttamente a *VisitNode()* oppure combinare gli elementi con l'operatore AND bit per bit "&". Quando si combinano due azioni, vengono eseguite entrambe le azioni. Nota: non usare l'operatore OR bit per bit "|" per le azioni. Ciò può comportare l'arresto della query senza restituzione di alcun risultato. Se si ignora *VisitNode()* tra due chiamate a *FollowEdge()* , la query esplora in modo incondizionato il grafico dopo aver raggiunto un nodo.
 
 ```
 VisitNode(Action action, IEnumerable<string> select = null)
 ```
 
-Per *VisitNode()*, è anche possibile passare un'espressione lambda di tipo *Expression\<Func\<INode, Action\>\>*, che accetta un elemento *INode* e restituisce un'azione di attraversamento:
+Per *VisitNode()* , è anche possibile passare un'espressione lambda di tipo *Expression\<Func\<INode, Action\>\>* , che accetta un elemento *INode* e restituisce un'azione di attraversamento:
 
 ```
 VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = null)
@@ -65,11 +65,11 @@ Indica se esiste un campo con il nome specificato nel nodo corrente.
 
 ##### <a name="string-getstring-fieldname"></a>string get(string fieldName)
 
-Funziona come *GetField\<string\>(fieldName)*. Tuttavia, non genera eccezioni quando il campo non viene trovato, ma restituisce una stringa vuota ("").
+Funziona come *GetField\<string\>(fieldName)* . Tuttavia, non genera eccezioni quando il campo non viene trovato, ma restituisce una stringa vuota ("").
 
 ##### <a name="bool-hasstring-fieldname"></a>bool has(string fieldName)
 
-Indica se la proprietà specificata esiste nel nodo corrente. Corrisponde a *ContainsField(fieldName)*.
+Indica se la proprietà specificata esiste nel nodo corrente. Corrisponde a *ContainsField(fieldName)* .
 
 ##### <a name="bool-hasstring-fieldname-string-value"></a>bool has(string fieldName, string value)
 

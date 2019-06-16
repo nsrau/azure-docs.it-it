@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/6/2018
 ms.openlocfilehash: 9088e9ad98633b46dc3a7f0ee9002a0dd9fc5a55
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551887"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
@@ -21,8 +21,8 @@ Di seguito è indicato il numero massimo di connessioni per ogni piano tariffari
 
 |**Piano tariffario**|**vCore**| **Numero massimo di connessioni**|
 |---|---|---|
-|Di base| 1| 50|
-|Di base| 2| 100|
+|Basic| 1| 50|
+|Basic| 2| 100|
 |Utilizzo generico| 2| 300|
 |Utilizzo generico| 4| 625|
 |Utilizzo generico| 8| 1250|
@@ -81,7 +81,7 @@ Quando le connessioni superano il limite, è possibile che venga visualizzato l'
 ### <a name="vnet-service-endpoints"></a>Endpoint del servizio di rete virtuale
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
 
-### <a name="storage-size"></a>Dimensioni archiviazione
+### <a name="storage-size"></a>Dimensioni della risorsa di archiviazione
 - Consultare [sui piani tariffari](concepts-pricing-tiers.md) per i limiti delle dimensioni di archiviazione per ogni piano tariffario.
 
 ## <a name="current-known-issues"></a>Problemi attualmente noti

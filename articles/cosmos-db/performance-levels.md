@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.openlocfilehash: 06fa98ae4acc2252d8866858ed0e2194ed84ff79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60928295"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ritiro dei livelli di prestazioni S1, S2 e S3
@@ -45,7 +45,7 @@ Nella tabella seguente vengono confrontate le opzioni di archiviazione e di velo
 
 |   |Raccolta partizionata|Raccolta a partizione singola|S1|S2|S3|
 |---|---|---|---|---|---|
-|Velocità effettiva massima|Illimitato|10.000 UR/sec|250 UR/sec|1000 UR/sec|2500 UR/sec|
+|Velocità effettiva massima|Illimitato|10\.000 UR/sec|250 UR/sec|1000 UR/sec|2500 UR/sec|
 |Velocità effettiva minima|2500 UR/sec|400 UR/sec|250 UR/sec|1000 UR/sec|2500 UR/sec|
 |Spazio di archiviazione massimo|Illimitato|10 GB|10 GB|10 GB|10 GB|
 |Prezzo (ogni mese)|Velocità effettiva: $ 6/100 UR/sec<br><br>Spazio di archiviazione: $ 0,25/GB|Velocità effettiva: $ 6/100 UR/sec<br><br>Spazio di archiviazione: $ 0,25/GB|$ 25 USD|$ 50 USD|$ 100 USD|

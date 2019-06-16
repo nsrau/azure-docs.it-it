@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/8/2018
 ms.author: aljo
 ms.openlocfilehash: 5a45f14e5ac1da5152f320bd92b1ebb42be1d214
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881430"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contenitori
@@ -35,8 +35,8 @@ Per impostazione predefinita, Service Fabric distribuisce e attiva i servizi com
 
 Per iniziare subito a usare i contenitori in Service Fabric, provare una guida introduttiva, un'esercitazione o un esempio:  
 
-[Guida introduttiva: Distribuire un'applicazione contenitore Linux in Service Fabric](service-fabric-quickstart-containers-linux.md)  
-[Guida introduttiva: Distribuire un'applicazione contenitore Windows in Service Fabric](service-fabric-quickstart-containers.md)  
+[Avvio rapido: Distribuire un'applicazione contenitore Linux in Service Fabric](service-fabric-quickstart-containers-linux.md)  
+[Avvio rapido: Distribuire un'applicazione contenitore Windows in Service Fabric](service-fabric-quickstart-containers.md)  
 [Distribuire un'app .NET esistente in un contenitore](service-fabric-host-app-in-a-container.md)  
 [Esempi di contenitori di Service Fabric](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 
@@ -80,7 +80,7 @@ Ecco alcuni esempi tipici dei casi in cui un contenitore rappresenta una buona s
 
 * **Combinazione di contenitori e microservizi di Service Fabric**: Usare un'immagine contenitore esistente per parte dell'applicazione. È ad esempio possibile usare il [contenitore NGINX](https://hub.docker.com/_/nginx/) per il front-end Web dell'applicazione e i servizi con stato per le operazioni di calcolo back-end più intensive.
 
-* **Ridurre l'impatto dei servizi "vicini fastidiosi"**: È possibile usare la funzionalità di governance delle risorse dei contenitori per limitare le risorse che usa un servizio in un host. Se sono presenti servizi che potrebbero usare un elevato numero di risorse e quindi influire sulle prestazioni degli altri (ad esempio, un'operazione come una query a esecuzione prolungata), può essere opportuno inserire tali servizi in contenitori con governance delle risorse.
+* **Ridurre l'impatto dei servizi "vicini fastidiosi"** : È possibile usare la funzionalità di governance delle risorse dei contenitori per limitare le risorse che usa un servizio in un host. Se sono presenti servizi che potrebbero usare un elevato numero di risorse e quindi influire sulle prestazioni degli altri (ad esempio, un'operazione come una query a esecuzione prolungata), può essere opportuno inserire tali servizi in contenitori con governance delle risorse.
 
 ## <a name="service-fabric-support-for-containers"></a>Supporto di Service Fabric per i contenitori
 

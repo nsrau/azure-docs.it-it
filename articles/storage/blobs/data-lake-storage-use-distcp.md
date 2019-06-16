@@ -10,10 +10,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.openlocfilehash: 0e85d2b2c7e9a3022e7fea2063ffa0aa915abb53
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939065"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Usare DistCp per copiare dati tra i BLOB del servizio di Archiviazione di Azure e Azure Data Lake Storage Gen2
@@ -72,7 +72,7 @@ Dato che il livello di granularità minimo per DistCp corrisponde a un singolo f
 
 Ecco alcune linee guida che è possibile usare.
 
-* **Passaggio 1: Determinare la memoria totale disponibile per la coda di app YARN "predefinita"**. Il primo passaggio consiste nel determinare la memoria disponibile per la coda di app YARN "predefinita". Queste informazioni sono disponibili nel portale di Ambari associato al cluster. Passare a YARN e visualizzare la scheda Configs (Configurazioni) per visualizzare la memoria di YARN disponibile per la coda di app "predefinita". Si tratta della memoria totale disponibile per il processo DistCp (che è di fatto un processo MapReduce).
+* **Passaggio 1: Determinare la memoria totale disponibile per la coda di app YARN "predefinita"** . Il primo passaggio consiste nel determinare la memoria disponibile per la coda di app YARN "predefinita". Queste informazioni sono disponibili nel portale di Ambari associato al cluster. Passare a YARN e visualizzare la scheda Configs (Configurazioni) per visualizzare la memoria di YARN disponibile per la coda di app "predefinita". Si tratta della memoria totale disponibile per il processo DistCp (che è di fatto un processo MapReduce).
 
 * **Passaggio 2: Calcolare il numero di mapper**. Il valore di **m** è uguale al quoziente della memoria totale di YARN divisa per le dimensioni del contenitore YARN. Anche queste informazioni sono disponibili nel portale di Ambari. Passare a YARN e visualizzare la scheda Configs (Configurazioni). Le dimensioni del contenitore YARN sono visualizzate in questa finestra. L'equazione per ottenere il numero di mapper (**m**) è
 

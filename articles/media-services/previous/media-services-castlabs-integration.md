@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: dfb82e91b0f65b85d34b7e20d57ed9929469321f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61232571"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure 
@@ -67,7 +67,7 @@ La tabella seguente descrive il token JWT usato in Servizi multimediali di Azure
 
 La tabella seguente descrive il token JWT usato in castLabs. 
 
-| NOME | DESCRIZIONE |
+| NOME | Descrizione |
 | --- | --- |
 | optData |Stringa JSON contenente informazioni relative all'utente. |
 | crt |Stringa JSON contenente informazioni sull'asset, sulla relativa licenza e sui diritti di riproduzione. |
@@ -105,7 +105,7 @@ Per riprodurre un video crittografato con la crittografia comune (PlayReady e/o 
 
 1. Aprire una nuova scheda e avviare il servizio token di sicurezza: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
 2. Accedere a [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
-3. Incollare l'URL di streaming 
+3. Incollare l'URL di streaming
 4. Scegliere la casella di controllo **Opzioni avanzate** .
 5. Nell'elenco a discesa **Protezione** , selezionare PlayReady e/o Widevine.
 6. Incollare il token ottenuto dal servizio token di sicurezza nella casella di testo Token. 

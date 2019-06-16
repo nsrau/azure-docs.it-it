@@ -9,21 +9,21 @@ ms.date: 06/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0074696fe61570b7595179cbf953308f75ed14bd
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730512"
 ---
-Questo articolo usa i cmdlet di PowerShell. Per eseguire i cmdlet, è possibile usare Azure Cloud Shell, un ambiente shell interattiva ospitato in Azure e utilizzato tramite il browser. Azure Cloud Shell include i cmdlet di PowerShell di Azure pre-installati.
+Questo articolo usa i cmdlet di PowerShell. Per eseguire i cmdlet è possibile usare Azure Cloud Shell, un ambiente di shell interattiva ospitato in Azure e usato tramite il browser. In Azure Cloud Shell sono preinstallati i cmdlet di Azure PowerShell.
 
-Per eseguire qualsiasi codice contenuto in questo articolo in Azure Cloud Shell, aprire una sessione di Cloud Shell, usare il **copia** pulsante in un blocco di codice per copiare il codice e incollarlo nella sessione di Cloud Shell con __Ctrl + MAIUSC + V__ su Windows e Linux, oppure __Cmd + MAIUSC + V__ in macOS. Testo incollato non viene eseguito automaticamente, quindi premere **invio** per eseguire il codice.
+Per eseguire il codice contenuto in questo articolo in Azure Cloud Shell, aprire una sessione di Cloud Shell, usare il pulsante **Copia** in un blocco di codice per copiare il codice e incollarlo nella sessione di Cloud Shell con __CTRL+MAIUSC+V__ in Windows e Linux o __CMD+MAIUSC+V__ in macOS. Il testo incollato non viene eseguito automaticamente. Premere quindi **INVIO** per eseguire il codice.
 
-È possibile avviare Azure Cloud Shell con:
+È possibile avviare Azure Cloud Shell nei modi seguenti:
 
 |  |   |
 |-----------------------------------------------|---|
-| Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. Ciò __non__ copiare automaticamente il testo in Cloud Shell. | ![Esempio di Prova per Azure Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png) |
+| Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. Questa azione __non__ copia automaticamente il testo in Cloud Shell. | ![Esempio di Prova per Azure Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png) |
 | Aprire [shell.azure.com](https://shell.azure.com) nel browser. | [![Pulsante di avvio di Azure Cloud Shell](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com) |
 | Selezionare il pulsante **Cloud Shell** nel menu nell'angolo superiore destro del [portale di Azure](https://portal.azure.com). | ![Pulsante Cloud Shell nel portale di Azure](./media/cloud-shell-try-it/cloud-shell-menu.png) |
 

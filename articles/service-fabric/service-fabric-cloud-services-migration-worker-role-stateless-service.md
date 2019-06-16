@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110010"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guida alla conversione di ruoli di lavoro e Web in servizi senza stato di Service Fabric
@@ -41,10 +41,10 @@ Analogamente a un ruolo di lavoro, anche un ruolo Web rappresenta un carico di l
 
 | **Applicazione** | **Supportato** | **Percorso di migrazione** |
 | --- | --- | --- |
-| Web Form ASP.NET |No  |Convertire in ASP.NET Core 1 MVC |
+| Web Form ASP.NET |No |Convertire in ASP.NET Core 1 MVC |
 | ASP.NET MVC |Con migrazione |Eseguire l'aggiornamento ad ASP.NET Core 1 MVC |
 | API Web ASP.NET |Con migrazione |Usare un server self-hosted o ASP.NET Core 1 |
-| ASP.NET Core 1 |Sì |N/D |
+| ASP.NET Core 1 |Yes |N/D |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API del punto di ingresso e ciclo di vita
 Le API del servizio di Service Fabric e del ruolo di lavoro offrono punti di ingresso simili: 

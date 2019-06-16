@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 1a70d1b2ea504d0ccfba925810a2d19d0c7583cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759606"
 ---
 # <a name="language-support-for-computer-vision"></a>Supporto del linguaggio per visione artificiale
@@ -60,7 +60,7 @@ OCR rileva automaticamente la lingua del materiale di input, pertanto non è nec
 
 Alcune operazioni dei [analizzare - immagine](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API possono restituire risultati in altri linguaggi, specificati con il `language` parametro di query. Altre azioni restituiscono i risultati in inglese indipendentemente da quale lingua è specificata, e ad altri utenti genera un'eccezione per le lingue non supportate. Le azioni vengono specificate con il `visualFeatures` e `details` i parametri di query, vedere la [Panoramica](home.md) per un elenco di tutte le azioni eseguibili con analisi delle immagini.
 
-|Linguaggio | Codice lingua | Categories | Tag | DESCRIZIONE | Per adulti | Marchi | Colore | Visi | ImageType | Oggetti | Celebrità | Punti di riferimento |
+|Linguaggio | Codice lingua | Categories | `Tags` | Descrizione | Per adulti | Marchi | Colore | Visi | ImageType | Oggetti | Celebrità | Punti di riferimento |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Cinese | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Inglese | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

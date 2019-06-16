@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/14/2019
 ms.author: mayg
 ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61471134"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Esaminare il report della stima dei costi in Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
@@ -122,7 +122,7 @@ Per aggiungere manualmente le VM:
 
 **Numero di macchine virtuali**: Numero di macchine virtuali corrispondenti alla configurazione. È possibile aggiornare il numero delle VM esistenti se sono presenti VM con configurazione simile che non sono state profilate ma verranno protette.
 
-**Dimensioni IaaS (suggerimento)**: Dimensioni del ruolo macchina virtuale consigliate dallo strumento per le macchine virtuali compatibili. 
+**Dimensioni IaaS (suggerimento)** : Dimensioni del ruolo macchina virtuale consigliate dallo strumento per le macchine virtuali compatibili. 
 
 **IaaS size (Your selection)** (Dimensioni IaaS selezionate): Per impostazione predefinita, è lo stesso valore delle dimensioni del ruolo macchina virtuale consigliate. È possibile modificare il ruolo in base ai propri requisiti. Il costo di calcolo è basato sulle dimensioni selezionate.
 
@@ -156,7 +156,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Valute supportate
 Azure Site Recovery Deployment Planner può generare il report dei costi con una qualsiasi delle valute seguenti.
 
-|Valuta|NOME||Valuta|NOME||Valuta|NOME|
+|Currency|NOME||Currency|Name||Currency|NOME|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentino ($)||AUD|Dollaro australiano ($)||BRL|Real brasiliano (R$)|
 |CAD|Dollaro canadese ($)||CHF|Franco svizzero (CHF)||DKK|Corona danese (kr)|

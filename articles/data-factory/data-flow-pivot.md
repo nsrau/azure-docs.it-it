@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: e16cac281b77f3ca93d9ef358ae806203bc8b663
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61348510"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Trasformazione pivot in Azure data factory
@@ -20,7 +20,7 @@ Usare la trasformazione Pivot nel flusso di dati di Azure Data Factory come un'a
 
 ![Opzioni di Pivot](media/data-flow/pivot1.png "Pivot 1")
 
-## <a name="group-by"></a>Raggruppa in base a
+## <a name="group-by"></a>Raggruppa per
 
 ![Opzioni di Pivot](media/data-flow/pivot2.png "Pivot 2")
 

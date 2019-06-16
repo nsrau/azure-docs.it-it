@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: tylerfox
 ms.openlocfilehash: a7e129f43b957b271c77f451ab198a9068bb0797
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718990"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestire cluster Apache Hadoop in HDInsight usando Azure PowerShell
@@ -24,7 +24,7 @@ Azure PowerShell può essere usato per controllare e automatizzare la distribuzi
 
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* Il comando di PowerShell [modulo di Az](https://docs.microsoft.com/powershell/azure/overview) installato.
+* Il [modulo Az](https://docs.microsoft.com/powershell/azure/overview) di PowerShell installato.
 
 ## <a name="create-clusters"></a>Creare i cluster
 Vedere [Creare cluster basati su Linux in HDInsight tramite Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
 ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952893"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
@@ -74,7 +74,7 @@ I codici di risposta HTTP seguenti indicano che un tentativo di recapito di un e
 
 - 400 - Richiesta non valida
 - 401 - Non autorizzato
-- 404 Non trovato
+- 404 - Non trovato
 - 408 - Timeout richiesta
 - 413 Entità della richiesta troppo grande
 - 414 - URI richiesta troppo lungo

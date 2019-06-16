@@ -8,10 +8,10 @@ ms.topic: reference
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209420"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funzioni per l'utilizzo con progetti di architetture di Azure
@@ -37,7 +37,7 @@ Restituisce che un oggetto di proprietà popolata con tale elementi del progetto
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| artifactName |Sì |string |Il nome di un elemento di progetto. |
+| artifactName |Yes |string |Il nome di un elemento di progetto. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -107,14 +107,14 @@ Un elemento del modello di Resource Manager con l'ID _myTemplateArtifact_ propri
 
 Alcuni esempi di recupero di dati dal _myTemplateArtifact_ esempio sono:
 
-| Espressione | Type | Value |
+| Expression | Type | Value |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | String | "il valore di stringa" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {"myproperty": "il valore", "anotherProperty": true} |
 |`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "il valore" |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True  |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
 
@@ -126,8 +126,8 @@ Combina più valori stringa e restituisce la stringa concatenata.
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| string1 |Sì |string |Il primo valore per la concatenazione. |
-| Argomenti aggiuntivi |N. |string |Altri valori in ordine sequenziale per la concatenazione |
+| string1 |Yes |string |Il primo valore per la concatenazione. |
+| Argomenti aggiuntivi |No |string |Altri valori in ordine sequenziale per la concatenazione |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -141,7 +141,7 @@ La funzione di Azure Blueprint è diversa dalla funzione di modello di Azure Res
 
 `concat(parameters('organizationName'), '-vm')`
 
-## <a name="parameters"></a>Parametri
+## <a name="parameters"></a>parameters
 
 `parameters(parameterName)`
 
@@ -151,7 +151,7 @@ Restituisce un valore di parametro di progetto. Il nome del parametro specificat
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sì |string |Nome del parametro da restituire. |
+| parameterName |Yes |string |Nome del parametro da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -272,7 +272,7 @@ Restituisce un oggetto che rappresenta l'elemento di gruppo di risorse specifica
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| placeholderName |Sì |string |Il nome segnaposto dell'elemento di gruppo di risorse da restituire. |
+| placeholderName |Yes |string |Il nome segnaposto dell'elemento di gruppo di risorse da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
