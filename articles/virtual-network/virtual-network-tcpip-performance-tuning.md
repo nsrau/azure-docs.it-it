@@ -29,10 +29,10 @@ ms.author:
 - btalb
 - prachank
 ms.openlocfilehash: ad1a5b69e4ec7b44c0e61a5ddd2c06633464d31a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234990"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ottimizzazione delle prestazioni per macchine virtuali di Azure
@@ -178,11 +178,11 @@ Questa tabella mostra i numero massimi megabyte o al secondo di velocità effett
 | | | | |
 |-|-|-|-|
 |**Dimensioni della finestra TCP (byte)**|**Latenza RTT (ms)**|**Massimo megabyte al secondo di velocità effettiva**|**Massimo megabit al secondo di velocità effettiva**|
-|65.535|1|65.54|524.29|
-|65.535|30|2.18|17.48|
-|65.535|60|1.09|8.74|
-|65.535|90|.73|5.83|
-|65.535|120|.55|4.37|
+|65\.535|1|65.54|524.29|
+|65\.535|30|2.18|17.48|
+|65\.535|60|1.09|8.74|
+|65\.535|90|.73|5.83|
+|65\.535|120|.55|4.37|
 
 Se viene perso, mentre il server sender ritrasmette dati che ha già inviato verrà ridotta la velocità effettiva massima di una connessione TCP.
 
@@ -195,7 +195,7 @@ Questa tabella illustra le relazioni:
 | | | | |
 |-|-|-|-|
 |**Dimensioni della finestra TCP (byte)**|**Latenza RTT (ms)**|**Massimo megabyte al secondo di velocità effettiva**|**Massimo megabit al secondo di velocità effettiva**|
-|65.535|30|2.18|17.48|
+|65\.535|30|2.18|17.48|
 |131,070|30|4.37|34.95|
 |262,140|30|8.74|69.91|
 |524,280|30|17.48|139.81|

@@ -17,10 +17,10 @@ ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 8c2843840790d1e0dbfd4a789775c6c7ceb51a54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60918700"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gestire l'accesso alle informazioni di fatturazione per Azure
@@ -71,7 +71,7 @@ La funzionalità Fatturazione per lettore è disponibile in anteprima e non supp
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Selezionare la sottoscrizione dal [pannello delle Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) nel portale di Azure.
 
-1. Selezionare **Controllo di accesso (IAM)**.
+1. Selezionare **Controllo di accesso (IAM)** .
 1. Selezionare **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questa sottoscrizione.
 1. Selezionare **Aggiungi assegnazione di ruolo**.
 1. Nell'elenco a discesa **Ruolo** scegliere **Lettore per la fatturazione**.

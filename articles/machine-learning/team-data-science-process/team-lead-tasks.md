@@ -11,10 +11,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 45be3d7f865c7b72ae62efbf99dbbb4594b1846f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811857"
 ---
 # <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Attività per il responsabile del team nel team del processo di data science del team
@@ -104,7 +104,7 @@ Completare questo passaggio se si usa Azure DevOps come piattaforma di hosting d
 
 ### <a name="create-the-myprojecttemplate-repository-r3-on-git"></a>Creare il repository MyProjectTemplate (R3) in Git
 
-- Nella pagina del repository Git del progetto, fare clic sulla freccia verso il basso accanto al nome del repository **MyTeam** e selezionare **Gestisci repository...**.
+- Nella pagina del repository Git del progetto, fare clic sulla freccia verso il basso accanto al nome del repository **MyTeam** e selezionare **Gestisci repository...** .
 
     ![6](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
 

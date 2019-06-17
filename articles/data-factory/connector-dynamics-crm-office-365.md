@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: jingwang
 ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66356968"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiare i dati da e in Dynamics 365 (Common Data Service) o Dynamics CRM usando Azure Data Factory
@@ -65,7 +65,7 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti.
 | deploymentType | Il tipo di distribuzione dell'istanza di Dynamics. Deve essere **"Online"** per Dynamics online. | Yes |
 | serviceUri | URL del servizio dell'istanza di Dynamics, ad esempio `https://adfdynamics.crm.dynamics.com`. | Yes |
 | authenticationType | Il tipo di autenticazione per la connessione a un server Dynamics. Specificare **"Office365"** per Dynamics online. | Yes |
-| userName | Specificare il nome utente per la connessione a Dynamics. | Yes |
+| username | Specificare il nome utente per la connessione a Dynamics. | Yes |
 | password | Specificare la password dell'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink se il servizio collegato all'origine non dispone di un runtime di integrazione |
 
@@ -110,7 +110,7 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti.
 | port | Porta del server Dynamics locale. | No, il valore predefinito è 443 |
 | organizationName | Il nome organizzazione dell'istanza di Dynamics. | Yes |
 | authenticationType | Tipo di autenticazione per la connessione al server Dynamics. Specificare **"Ifd"** per Dynamics locale con IFD. | Yes |
-| userName | Specificare il nome utente per la connessione a Dynamics. | Yes |
+| username | Specificare il nome utente per la connessione a Dynamics. | Yes |
 | password | Specificare la password dell'account utente specificato per il nome utente. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, vedere [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink |
 
@@ -325,7 +325,7 @@ Nella struttura del set di dati, configurare il tipo di dati corrispondente di D
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ | |
-| AttributeType.DateTime | DateTime | ✓ | ✓ |
+| AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | String | ✓ | ✓ |
@@ -337,7 +337,7 @@ Nella struttura del set di dati, configurare il tipo di dati corrispondente di D
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | string | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

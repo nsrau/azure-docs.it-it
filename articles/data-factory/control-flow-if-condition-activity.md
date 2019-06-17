@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153463"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Attività IfCondition in Azure Data Factory
@@ -66,11 +66,11 @@ L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguag
 
 Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività if-condition. | String | Sì
-tipo | Deve essere impostata su **IfCondition** | String | Sì
-expression | Espressione che deve restituire true o false | Espressione con tipo di risultato booleano | Sì
-ifTrueActivities | Set di attività che vengono eseguite quando l'espressione restituisce `true`. | Array | Sì
-ifFalseActivities | Set di attività che vengono eseguite quando l'espressione restituisce `false`. | Array | Sì
+name | Nome dell'attività if-condition. | String | Yes
+type | Deve essere impostata su **IfCondition** | String | Yes
+expression | Espressione che deve restituire true o false | Espressione con tipo di risultato booleano | Yes
+ifTrueActivities | Set di attività che vengono eseguite quando l'espressione restituisce `true`. | Array | Yes
+ifFalseActivities | Set di attività che vengono eseguite quando l'espressione restituisce `false`. | Array | Yes
 
 ## <a name="example"></a>Esempio
 La pipeline in questo esempio copia i dati da una cartella di input a una cartella di output. La cartella di output è determinata dal valore del parametro di pipeline routeSelection. Se il valore di routeSelection è true, i dati vengono copiati in outputPath1. E se il valore di routeSelection è false, i dati vengono copiati in outputPath2. 

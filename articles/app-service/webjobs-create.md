@@ -16,10 +16,10 @@ ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
 ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60833470"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con Processi Web in Servizio app di Azure
@@ -82,7 +82,7 @@ when making changes in one don't forget the other two.
 
    ![Pagina Aggiungi processo Web](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Impostazione      | Valore di esempio   | DESCRIZIONE  |
+   | Impostazione      | Valore di esempio   | Descrizione  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myContinuousWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
@@ -120,7 +120,7 @@ when making changes in one don't forget the other two.
 
    ![Pagina Aggiungi processo Web](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Impostazione      | Valore di esempio   | DESCRIZIONE  |
+   | Impostazione      | Valore di esempio   | Descrizione  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myTriggeredWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_".|
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
@@ -158,7 +158,7 @@ when making changes in one don't forget the other two.
 
    ![Pagina Aggiungi processo Web](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Impostazione      | Valore di esempio   | DESCRIZIONE  |
+   | Impostazione      | Valore di esempio   | Descrizione  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myScheduledWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |

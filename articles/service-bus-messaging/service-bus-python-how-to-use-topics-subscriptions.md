@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 47cd0621a601e3f1ef53572bc7bb8bc1c7ea76ab
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991989"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Python
@@ -41,7 +41,7 @@ Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di
     > Si creerà una **argomento** e una **sottoscrizione** all'argomento usando **Python** in questa Guida introduttiva. 
 3. Installare [pacchetto Azure per Python][Azure Python package]. Vedere le [Guida all'installazione di Python](../python-how-to-install.md).
 
-## <a name="create-a-topic"></a>Crea un argomento
+## <a name="create-a-topic"></a>Creare un argomento
 
 L'oggetto **ServiceBusService** consente di usare gli argomenti. Aggiungere il seguente codice all'inizio di ogni file Python da cui si desidera accedere al bus di servizio a livello di codice:
 
@@ -191,7 +191,7 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
 > [!NOTE]
-> È possibile gestire le risorse del Bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del Bus di servizio e amministrarne le entità di messaggistica in modo semplificato. Lo strumento offre funzionalità avanzate come la funzionalità di importazione/esportazione o la possibilità di testare l'argomento, code, sottoscrizioni, servizi di inoltro, hub di notifica e gli hub eventi. 
+> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

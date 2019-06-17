@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: f61c7a939902ee5d02b2e9ba896c7555968f9d0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60769516"
 ---
 # <a name="add-a-shape-to-a-map"></a>Aggiungere una forma a una mappa
@@ -126,7 +126,7 @@ Il livello poligono include solo poche opzioni di stile. Lo strumento seguente c
 
 ## <a name="add-a-circle-to-the-map"></a>Aggiungere un cerchio alla mappa
 
-Mappe di Azure Usa una versione estesa dello schema che fornisce una definizione di un cerchio come indicato in GeoJSON [qui](extend-geojson.md#circle). Un cerchio può essere sottoposto a rendering sulla mappa mediante la creazione di un `Point` caratteristica che dispone di un `subType` proprietà con il valore `"Circle"` e un `radius` proprietà con un numero che rappresenta il raggio in metri. Ad esempio: 
+Mappe di Azure Usa una versione estesa dello schema che fornisce una definizione di un cerchio come indicato in GeoJSON [qui](extend-geojson.md#circle). Un cerchio può essere sottoposto a rendering sulla mappa mediante la creazione di un `Point` caratteristica che dispone di un `subType` proprietà con il valore `"Circle"` e un `radius` proprietà con un numero che rappresenta il raggio in metri. Ad esempio:
 
 ```javascript
 {

@@ -16,10 +16,10 @@ ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e2bd67ebb977a37c75631f16fbbf4c7dbd6bf250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60782552"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure
@@ -39,7 +39,7 @@ Questo articolo offre una panoramica dell'uso dell'[interfaccia della riga di co
 
 ## <a name="command-help"></a>Guida per i comandi
 
-È possibile visualizzare il testo della Guida per ogni comando dell'interfaccia della riga di comando di Azure aggiungendo `-h` al comando. Omettere qualsiasi altra opzione. Ad esempio: 
+È possibile visualizzare il testo della Guida per ogni comando dell'interfaccia della riga di comando di Azure aggiungendo `-h` al comando. Omettere qualsiasi altra opzione. Ad esempio:
 
 * Per visualizzare la Guida per il comando `az`, immettere `az -h`
 * Per ottenere un elenco di tutti i comandi per Batch nell'interfaccia della riga di comando, usare `az batch -h`
@@ -122,7 +122,7 @@ Vedere gli [script di esempio dell'interfaccia della riga di comando](cli-sample
 
 ## <a name="json-files-for-resource-creation"></a>File JSON per la creazione di risorse
 
-Quando si creano risorse di Batch come pool e processi, è possibile specificare un file JSON contenente la configurazione della nuova risorsa anziché passarne i parametri come opzioni della riga di comando. Ad esempio: 
+Quando si creano risorse di Batch come pool e processi, è possibile specificare un file JSON contenente la configurazione della nuova risorsa anziché passarne i parametri come opzioni della riga di comando. Ad esempio:
 
 ```azurecli
 az batch pool create my_batch_pool.json
@@ -152,7 +152,7 @@ Quando si esegue una query sul servizio Batch con un'operazione `list`, è possi
 
 La tabella seguente illustra le clausole OData supportate dal servizio Batch:
 
-| Clausola | DESCRIZIONE |
+| Clausola | Descrizione |
 |---|---|
 | `--select-clause [select-clause]` | Restituisce un subset di proprietà per ogni entità. |
 | `--filter-clause [filter-clause]` | Restituisce solo le entità che corrispondono all'espressione OData specificata. |

@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: 82b9403a3d5a5b6938f5b95bbfce888d1e70e451
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66431221"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funzioni di stringa nei modelli di Azure Resource Manager
@@ -118,8 +118,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| base64Output | string | b25lLCB0d28sIHRocmVl |
-| toStringOutput | string | one, two, three |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
@@ -183,7 +183,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| base64Output | string | b25lLCB0d28sIHRocmVl |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
@@ -411,7 +411,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | stringTrue | Booleano | True |
 | stringFalse | Bool | False |
@@ -528,7 +528,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | string | Hello, World! |
+| toStringOutput | String | Hello, World! |
 
 ## <a name="empty"></a>empty
 
@@ -589,7 +589,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -708,10 +708,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Value |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | string | one |
-| stringOutput | string | O |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 ## <a name="format"></a>format
 
@@ -766,7 +766,7 @@ Il modello di esempio seguente viene illustrato come utilizzare la funzione form
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | formatTest | String | Hello, utente. Numero formattato: 8,175,133 |
 
@@ -894,7 +894,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | int | 3 |
@@ -951,7 +951,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | NOME | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | string | three |
+| arrayOutput | String | three |
 | stringOutput | String | e |
 
 ## <a name="lastindexof"></a>lastIndexOf
@@ -1007,7 +1007,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | int | 3 |
@@ -1123,7 +1123,7 @@ Il modello di esempio seguente mostra un parametro con un nuovo identificatore.
 
 L'output dell'esempio precedente varia per ogni distribuzione, ma sarà simile a:
 
-| Name | Type | Value |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
 | guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -1217,7 +1217,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Value |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
@@ -1271,7 +1271,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| firstOutput | string | 1231231234 |
+| firstOutput | String | 1231231234 |
 | secondOutput | String | 123-123-xxxx |
 
 ## <a name="skip"></a>skip
@@ -1337,10 +1337,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
-| stringOutput | string | two three |
+| stringOutput | String | two three |
 
 ## <a name="split"></a>split
 
@@ -1396,7 +1396,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | firstOutput | Array | ["one", "two", "three"] |
 | secondOutput | Array | ["one", "two", "three"] |
@@ -1534,9 +1534,9 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | string | {"valueA":10,"valueB":"Example Text"} |
+| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
 | arrayOutput | String | ["a","b","c"] |
-| intOutput | string | 5 |
+| intOutput | String | 5 |
 
 ## <a name="substring"></a>substring
 
@@ -1595,7 +1595,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | substringOutput | String | two |
 
@@ -1665,7 +1665,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
-| stringOutput | string | in |
+| stringOutput | String | in |
 
 ## <a name="tolower"></a>toLower
 
@@ -1715,8 +1715,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| toLowerOutput | string | one two three |
-| toUpperOutput | string | ONE TWO THREE |
+| toLowerOutput | String | one two three |
+| toUpperOutput | String | ONE TWO THREE |
 
 ## <a name="toupper"></a>toUpper
 
@@ -1767,7 +1767,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | NOME | Type | Value |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
-| toUpperOutput | string | ONE TWO THREE |
+| toUpperOutput | String | ONE TWO THREE |
 
 ## <a name="trim"></a>Trim
 
@@ -1813,7 +1813,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| return | string | one two three |
+| return | String | one two three |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1953,8 +1953,8 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| uriOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | string | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponent"></a>uriComponent
@@ -2008,9 +2008,9 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| uriOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | string | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2065,7 +2065,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | ---- | ---- | ----- |
 | uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="utcnow"></a>utcNow
 

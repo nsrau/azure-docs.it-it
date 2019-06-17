@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 3/14/2019
 ms.author: absha
 ms.openlocfilehash: 72ee9123ad959c0c7240d4f7a906adc1a4dd1a93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831731"
 ---
 # <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>Creare certificati per back-end nell'elenco elementi consentiti con il Gateway applicazione di Azure
 
-Per eseguire il SSL end-to-end, il gateway applicazione richiede le istanze back-end siano consentiti tramite il caricamento dei certificati radice attendibili/autenticazione. In caso di SKU v1, sono necessari i certificati di autenticazione mentre in caso di SKU v2, attendibili i certificati radice sono necessari nell'elenco elementi consentiti i certificati
+Per eseguire il SSL end-to-end, il gateway applicazione richiede le istanze back-end siano consentiti tramite il caricamento dei certificati radice attendibili/autenticazione. In caso di SKU v1, sono necessari i certificati di autenticazione, mentre in caso di SKU v2 sono richiesti quelli radice trusted per l'inserimento nell'elenco elementi consentiti
 
 In questo articolo viene spiegato come:
 
@@ -61,7 +61,7 @@ Dal certificato SSL, esportare il file CER di chiave pubblica (non la chiave pri
 
 7. Il certificato è stato esportato correttamente.
 
-   ![Success](./media/certificates-for-backend-authentication/success.png)
+   ![Riuscito](./media/certificates-for-backend-authentication/success.png)
 
    Il certificato esportato è simile al seguente:
 

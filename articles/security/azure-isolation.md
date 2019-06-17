@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: b8142551d9c20c18d83c256b3f07a0deb291577c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147647"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
@@ -72,7 +72,7 @@ Gli utenti, i gruppi e le applicazioni da tale directory possono gestire le riso
 
 Per esigenze di diagnostica e manutenzione, è necessario e viene usato un modello operativo che impiega un sistema di elevazione dei privilegi just-in-time. Azure AD Privileged Identity Management (PIM) introduce il concetto di amministratore idoneo. Gli [amministratori idonei](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) devono essere utenti che necessitano dell'accesso con privilegi in modo occasionale, non con cadenza quotidiana. Il ruolo è inattivo fino a quando l'utente che necessita dell'accesso non completa un processo di attivazione e diventa amministratore attivo per un periodo di tempo predeterminato.
 
-![Azure AD Privileged Identity Management](./media/azure-isolation/azure-isolation-fig2.png)
+![Gestione identità con privilegi di Azure AD](./media/azure-isolation/azure-isolation-fig2.png)
 
 Azure Active Directory ospita ogni tenant nel relativo contenitore protetto, con i criteri e autorizzazioni per il contenitore e gli elementi al suo interno gestiti esclusivamente dal tenant che ne è anche proprietario.
 
@@ -247,7 +247,7 @@ Per molte organizzazioni, [la crittografia dei dati inattivi](https://docs.micro
 
 -   [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) consente di crittografare i dischi dati e del sistema operativo usati da una macchina virtuale IaaS.
 
-#### <a name="azure-disk-encryption"></a>Crittografia dischi di Azure
+#### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) per le macchine virtuali consente di soddisfare i requisiti di conformità e sicurezza dell'organizzazione, grazie alla possibilità di crittografare i dischi delle macchine virtuali, inclusi i dischi di avvio e di dati, con chiavi e criteri gestiti in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 La soluzione Crittografia dischi per Windows è basata su [Crittografia unità BitLocker](https://technet.microsoft.com/library/cc732774.aspx) di Microsoft e la soluzione Linux è basata su [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).

@@ -9,10 +9,10 @@ ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 7b75e24e5d59206ee8330c3ca9eaf86eacbad13d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114827"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Archiviazione blob in blocchi prestazioni Premium
@@ -21,15 +21,15 @@ Un account di archiviazione premium prestazioni blocco blob è ottimizzato per l
 
 ### <a name="premium-performance-filestorage-preview"></a>Prestazioni Premium FileStorage (anteprima)
 
-File Premium usano un account di archiviazione univoco **FileStorage (anteprima)**. Questo tipo di account è progettato per carichi di lavoro con numero elevato di IOPS, velocità effettiva elevata con bassa latenza coerente. Archiviazione Premium di file si adatta alle dimensioni della condivisione con provisioning.
+File Premium usano un account di archiviazione univoco **FileStorage (anteprima)** . Questo tipo di account è progettato per carichi di lavoro con numero elevato di IOPS, velocità effettiva elevata con bassa latenza coerente. Archiviazione Premium di file si adatta alle dimensioni della condivisione con provisioning.
 
 |Area  |Destinazione  |
 |---------|---------|
 |Max effettuato il provisioning delle dimensioni     |100 TiB     |
-|Condivisioni   |Senza limitazioni  |
-|Input/output al secondo     |100,000    |
-|Dati in ingresso|4.136 MiB/s     |
-|Dati in uscita|6,204 MiB/s |
+|Condivisioni   |Illimitato  |
+|IOPS     |100,000    |
+|Ingress|4\.136 MiB/s     |
+|Egress|6,204 MiB/s |
 
  File premium condividono obiettivi di scalabilità, vedere la [file Premium scalare destinazioni](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) sezione.
 

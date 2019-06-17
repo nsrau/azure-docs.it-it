@@ -14,10 +14,10 @@ ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123142"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell
@@ -49,7 +49,7 @@ Questa sezione illustra anche come avviene la transizione di una sezione di un s
 
 ### <a name="navigate-to-your-data-factory"></a>Passare alla data factory
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Data factory** nel menu a sinistra. Se non è visibile, fare clic su **Altri servizi >**, quindi selezionare **Data factory** nella categoria **Intelligence e analisi**.
+2. Fare clic su **Data factory** nel menu a sinistra. Se non è visibile, fare clic su **Altri servizi >** , quindi selezionare **Data factory** nella categoria **Intelligence e analisi**.
 
    ![Esplora tutto > Data factory](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. Nel pannello **Data factory** selezionare la data factory a cui si è interessati.
@@ -117,27 +117,27 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 </tr>
 <tr>
 <tr>
-<td rowspan="2">In corso</td><td>Convalida</td><td>La convalida è in esecuzione.</td>
+<td rowspan="2">InProgress</td><td>Convalida in corso.</td><td>La convalida è in esecuzione.</td>
 </tr>
 <td>-</td>
-<td>La sezione è in fase di elaborazione.</td>
+<td>La sezione è in corso.</td>
 </tr>
 <tr>
 <td rowspan="4">Failed</td><td>TimedOut</td><td>L'esecuzione dell'attività ha richiesto più tempo di quello consentito dall'attività.</td>
 </tr>
 <tr>
-<td>Annullato</td><td>La sezione è stata annullata dall'utente.</td>
+<td>Cancellati</td><td>La sezione è stata annullata dall'utente.</td>
 </tr>
 <tr>
-<td>Convalida</td><td>La convalida non è riuscita.</td>
+<td>Convalida</td><td>Convalida non riuscita.</td>
 </tr>
 <tr>
 <td>-</td><td>Non è stato possibile generare e/o convalidare la sezione.</td>
 </tr>
-<td>Pronto</td><td>-</td><td>La sezione è pronta per essere utilizzata.</td>
+<td>Ready</td><td>-</td><td>La sezione è pronta per essere utilizzata.</td>
 </tr>
 <tr>
-<td>Ignorata</td><td>Nessuna</td><td>La sezione non viene elaborata.</td>
+<td>Skipped</td><td>Nessuna</td><td>La sezione non viene elaborata.</td>
 </tr>
 <tr>
 <td>Nessuna</td><td>-</td><td>Esisteva una sezione con uno stato differente, ma è stata reimpostata.</td>

@@ -9,10 +9,10 @@ ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 8da233088389797271541b1aae55ec2e842f252d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166223"
 ---
 ## <a name="extended-iot-scenarios"></a>Scenari IoT estesi
@@ -26,7 +26,7 @@ Usare altri servizi e strumenti di Azure. Dopo la connessione del dispositivo al
 | [Gestire un dispositivo IoT](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | Estensione Azure IoT Hub Toolkit per Visual Studio Code|
 | [Salvare i messaggi dell'hub IoT nell'archiviazione di Azure](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)  | Archiviazione tabelle di Azure                |
 | [Visualizzare i dati dei sensori](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)                      | Microsoft Power BI                 |
-| [Visualizzare i dati dei sensori](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | App Web di Azure                      |
+| [Visualizzare i dati dei sensori](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | App Web di Azure                     |
 | [Previsioni meteorologiche con i dati dei sensori](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)      | Azure Machine Learning             |
 | [Rilevamento e risposta automatica alle anomalie](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md) | App per la logica di Azure                   |
 

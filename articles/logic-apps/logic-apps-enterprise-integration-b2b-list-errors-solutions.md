@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60998833"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Errori B2B e soluzioni per le App per la logica di Azure
@@ -64,7 +64,7 @@ Questo articolo consente di risolvere gli errori che si possono verificare negli
 | Azione utente | Aggiungere @base64ToBinary a AS2Message prima dell'invio al partner. |
 |||
 
-Ad esempio: 
+Ad esempio:
 
 ```json
 "HTTP": {
@@ -84,7 +84,7 @@ Ad esempio:
 | Azione utente | Aggiungere @base64ToBinary alla notifica sulla ricezione del messaggio prima dell'invio al partner. | 
 |||
 
-Ad esempio: 
+Ad esempio:
 
 ```json
 "Response": {

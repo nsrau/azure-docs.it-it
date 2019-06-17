@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.openlocfilehash: 0e6a52ea2fdd05546a4da9f8cd1165b41ed27944
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097686"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure
@@ -105,7 +105,7 @@ Creare un endpoint con carico bilanciato per ogni VM che ospita una replica di A
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. Dopo aver impostato le variabili, copiare lo script dall'editor di testo nella sessione di PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato **>>**, digitare di nuovo INVIO per assicurarsi che l'esecuzione dello script sia stata avviata.
+13. Dopo aver impostato le variabili, copiare lo script dall'editor di testo nella sessione di PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato **>>** , digitare di nuovo INVIO per assicurarsi che l'esecuzione dello script sia stata avviata.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Se necessario, verificare che KB2854082 sia installato.
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -151,7 +151,7 @@ Creare il listener del gruppo di disponibilità in due passaggi. Creare prima di
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. Dopo aver impostato le variabili, aprire una finestra con privilegi elevati di Windows PowerShell, incollare lo script dall'editor di testo nella sessione di PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato **>>**, digitare di nuovo INVIO per assicurarsi che l'esecuzione dello script sia stata avviata.
+3. Dopo aver impostato le variabili, aprire una finestra con privilegi elevati di Windows PowerShell, incollare lo script dall'editor di testo nella sessione di PowerShell per eseguirlo. Se nel prompt viene ancora visualizzato **>>** , digitare di nuovo INVIO per assicurarsi che l'esecuzione dello script sia stata avviata.
 
 4. Ripetere i passaggi precedenti per ciascuna VM.  
     Questo script consente di configurare la risorsa Indirizzo IP con l'indirizzo IP del servizio cloud e di impostare altri parametri come la porta probe. Quando la risorsa Indirizzo IP viene portata online, può rispondere al polling sulla porta probe dall'endpoint con carico bilanciato, creato in precedenza.

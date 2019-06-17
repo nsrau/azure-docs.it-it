@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878963"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen1
@@ -45,7 +45,7 @@ Le entità servizio di Azure Active Directory vengono in genere usate dai serviz
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Abilitare il firewall di Data Lake Storage Gen1 con l'accesso ai servizi di Azure
 
-Data Lake Storage Gen1 consente di attivare un firewall e limitare l'accesso solo ai servizi di Azure. Questo scenario è consigliato per ridurre il vettore di attacco dalle intrusioni esterne. Il firewall può essere abilitato per l'account Data Lake Storage Gen1 nel portale di Azure tramite le opzioni **Firewall** > **Abilita firewall (ATTIVA)** > **Consenti l'accesso ai servizi di Azure**.
+Data Lake Storage Gen1 consente di attivare un firewall e limitare l'accesso solo ai servizi di Azure. Questo scenario è consigliato per ridurre il vettore di attacco dalle intrusioni esterne. Il firewall può essere abilitato per l'account Data Lake Storage Gen1 nel portale di Azure tramite le opzioni **Firewall** > **Abilita firewall (ATTIVA)**  > **Consenti l'accesso ai servizi di Azure**.
 
 ![Impostazioni del firewall in Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Impostazioni del firewall in Data Lake storage Gen1")
 
@@ -101,8 +101,8 @@ Di seguito sono illustrate le tre principali opzioni consigliate per l'orchestra
 |  |Distcp  |Data factory di Azure  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Limiti di scalabilità**     | Limiti definiti dai nodi di lavoro        | Limiti definiti dal numero massimo di unità di spostamento dei dati cloud        | Limiti definiti dalle unità di analisi        |
-|**Supporto per la copia delta**     |   Sì      | No          | No          |
-|**Orchestrazione predefinita**     |  No (usare i processi CRON o Oozie Airflow)       | Sì        | No (usare Automazione di Azure o Utilità di pianificazione di Windows)         |
+|**Supporto per la copia delta**     |   Yes      | No         | No         |
+|**Orchestrazione predefinita**     |  No (usare i processi CRON o Oozie Airflow)       | Yes        | No (usare Automazione di Azure o Utilità di pianificazione di Windows)         |
 |**File system supportati**     | ADL, HDFS, WASB, S3, GS, CFS        |Numerosi, vedere [Connettori](../data-factory/connector-azure-blob-storage.md).         | Da ADL ad ADL, da WASB ad ADL (solo nella stessa area)        |
 |**Supporto del sistema operativo**     |Qualsiasi sistema operativo che esegue Hadoop         | N/D          | Windows 10         |
 
@@ -136,7 +136,7 @@ Per avvisi più in tempo reale e per un maggiore controllo sulla destinazione de
 
 ### <a name="turn-on-debug-level-logging-in-hdinsight"></a>Attivare la registrazione a livello di debug in HDInsight
 
-Se il log shipping di Data Lake Storage Gen1 non è attivato, Azure HDInsight consente anche di attivare la [registrazione sul lato client per Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) tramite log4j. È necessario impostare la proprietà seguente in **Ambari** > **YARN** > **Config (Configurazione)** > **Advanced yarn-log4j configurations (Configurazioni yarn-log4j avanzate)**:
+Se il log shipping di Data Lake Storage Gen1 non è attivato, Azure HDInsight consente anche di attivare la [registrazione sul lato client per Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) tramite log4j. È necessario impostare la proprietà seguente in **Ambari** > **YARN** > **Config (Configurazione)**  > **Advanced yarn-log4j configurations (Configurazioni yarn-log4j avanzate)** :
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 

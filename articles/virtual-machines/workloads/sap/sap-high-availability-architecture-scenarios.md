@@ -18,10 +18,10 @@ ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60936278"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Architettura e scenari di disponibilità elevata per SAP NetWeaver
@@ -250,7 +250,7 @@ La disponibilità elevata di SAP in Azure può essere di tre tipi:
 
 * **Disponibilità elevata delle applicazioni SAP**: 
 
-    Per ottenere una disponibilità elevata completa del sistema SAP, è necessario proteggere tutti i componenti SAP critici del sistema. Ad esempio: 
+    Per ottenere una disponibilità elevata completa del sistema SAP, è necessario proteggere tutti i componenti SAP critici del sistema. Ad esempio:
     * Server di applicazioni SAP ridondanti.
     * Componenti univoci. Un esempio potrebbe essere un componente singolo punto di guasto (SPOF), come un'istanza di SAP ASCS/SCS o un sistema di gestione di database (DBMS).
 
@@ -268,7 +268,7 @@ La base per il calcolo è di 30 giorni al mese o 43.200 minuti. Ad esempio, un t
 
 (Disponibilità servizio n. 1/100) * (Disponibilità servizio n. 2/100) * (Disponibilità servizio n. 3/100) \*…
 
-Ad esempio: 
+Ad esempio:
 
 (99,95/100) + (99,9/100) + (99,9/100) = 0,9975 o una disponibilità complessiva del 99,75%.
 
@@ -335,7 +335,7 @@ Per altre informazioni su questo approccio, vedere [Utilize Azure infrastructure
 
 ## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Disponibilità elevata delle applicazioni SAP su IaaS di Azure
 
-Per ottenere una disponibilità elevata completa del sistema SAP, è necessario proteggere tutti i componenti SAP critici del sistema. Ad esempio: 
+Per ottenere una disponibilità elevata completa del sistema SAP, è necessario proteggere tutti i componenti SAP critici del sistema. Ad esempio:
   * Server di applicazioni SAP ridondanti.
   * Componenti univoci. Un esempio potrebbe essere un componente singolo punto di guasto (SPOF), come un'istanza di SAP ASCS/SCS o un sistema di gestione di database (DBMS).
 
@@ -369,7 +369,7 @@ Il numero di domini di aggiornamento e di errore che può essere usato da un set
 Se si distribuiscono poche istanze dei server applicazioni SAP nelle relative macchine virtuali dedicate e si suppone che siano presenti cinque domini di aggiornamento, emerge il quadro seguente. Il numero massimo effettivo di domini di aggiornamento e di errore all'interno di un set di disponibilità potrebbe cambiare in futuro:
 
 ![Figura 2: Disponibilità elevata dei server applicazioni SAP in un set di disponibilità di Azure][planning-guide-figure-3000]
-_**Figura 2:** Disponibilità elevata dei server applicazioni SAP in un set di disponibilità di Azure_
+ _**Figura 2:** Disponibilità elevata dei server applicazioni SAP in un set di disponibilità di Azure_
 
 Per altre informazioni, vedere [Gestire la disponibilità delle macchine virtuali Windows in Azure][azure-virtual-machines-manage-availability].
 

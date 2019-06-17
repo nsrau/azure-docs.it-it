@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 11ebaec75b1220f39fe059ea7825cdccafda2f5d
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735617"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Code coverage mobilità delle mappe di Azure
@@ -47,7 +47,7 @@ Nella tabella seguente fornisce informazioni sulla copertura per il servizio Mob
 | Portorico | San Juan |
 | Uruguay | Montevideo, Punta del Este |
 | Stati Uniti d'America | <p>Albany (NY), Albuquerque (NM), posizione di ancoraggio (AK), Appleton-Oshkosh-Neenah (elemento di lavoro), Asheville (NC), (OH) Atene, Atlanta (GA), Austin (Texas), Bakersfield (CA), Baltimore), Bellevue (WA), Berkshire County (AG), Birmingham (AL), Bloomington (IN), Boise (ID), (Boston Agente di gestione), Boulder (CO) Brevard County (FL), Torino (NY), Butte (MT), Cabo Cod), centro County (PA), Inc-Urbana (IL), Charleston (SC), Charleston (WV), Charlotte (NC), Charlottesville (valutazione della vulnerabilità), Chattanooga (TN), Cheyenne (WY), a Chicago (IL), Cincinnati (OH), Contea Citrus (FL), Cleveland (OH), Valley Coachella (CA), Colorado molle (CO), Columbia (TN), Columbus (OH), Corpus Christi (Texas), Dallas/via vale la pena (Texas), Dayton (OH), Delaware, Denver (CO), Des Moines (IA), oltre a Detroit (MI), Duluth (MN), Eugene (OR, El Paso (Texas) ), Fairbanks (AK), Fargo (ND), Fayetteville (NC), Flagstaff (AZ), focaia (MI) Fort Collins (CO), Fort Wayne (IN), Fresno (CA), Gainesville (FL), complessivo fork (ND), complessivo Rapids (MI), segno verde Bay (elemento di lavoro), Greensboro (NC), Greenville (SC), Gunnison (CO), strade Hampton (valutazione della vulnerabilità ), Hanford (CA), Hartford (CT), Hernando provincia (FL), Honolulu (HI), Houston (Texas), Humboldt provincia (CA), Huntsville AL (), Indianapolis (IN), Ithaca (NY), Jackson (MS), Jackson (TN), Jacksonville - Saint John County (FL), Johnson città (TN) Jonesboro (AR), Joplin (mese), Juneau (AK), Roma gli appassionati (MI), Kansas città (mese), Kauai (HI), Ketchum (ID), Knoxville (TN), Lafayette (IN), Lancaster (PA), Lansing (MI), Las Vegas (NV), Lawrence (KS), Lee County (FL), Lexington (KY), Lincoln County (OR), piccolo Rock (AR), Los Angeles ( Autorità di certificazione), Louisville (KY), Madison (elemento di lavoro), McAllen (Texas), Memphis (TN), Miami (FL), Monza/Waukesha (elemento di lavoro), a Minneapolis Saint Paul (MN), Missoula (MT), Modesto (Stati Uniti), Moline (IL), Monroe County (PA), Montgomery (AL), Morgantown (WV), Nashville (TN), Navajo nazione), Nuovo Haven (CT), New Orleans (LA), New YORK-NJ), Ocala (FL), Okaloosa County (FL), Oklahoma città (OK), Omaha (NE), Orlando (FL), Panama città (FL), Pensacola (FL), gran (IL), Philadelphia (PA), Phoenix (AZ), Pittsburgh (PA), Portland (ME), Portland (OR), Racine (elemento di lavoro), Raleigh (NC), Redding (CA), Bologna & Lake SharePoint Portal Server (NV), Valley Roanoke (valutazione della vulnerabilità - Lynchburg), Rochester ("NY"), Rocky Mountain National Park), non autorizzati Valley (OR), Roseburg (OR), Roseville (CA), Sacramento (CA), Salem (OR), il Salt Lake City (UT), San Antonio (Texas), San Diego ( Autorità di certificazione), San Luis Obispo (CA), Milano (CA), Santa Fe (NM), Sarasota (FL), Savannah (GA), area Seacoast (NH), Seattle-Tacoma-Bellevue (WA), Service Fabric Bay Area (CA), Sioux città (IA), Sioux cade (SD), Sitka (AK), Spokane (WA), Springfield (IL), Springfield (massa), Saint George (UT), ST. Louis (mese), Stockton (CA), Syracuse-Utica (NY), Tallahassee (FL), Tampa-s. Pietroburgo (FL), Terre Haute (IN), Toledo (OH), Topeka (KS), città incrociato (MI), Tucson (AZ), Tulsa (OK), Vermont, Victorville (CA), la provincia Volusia (FL), Waco (Texas), Washington (DC), Waterbury (CT), Wichita (KS), Wilmington (NC), Yakima (WA), York County (PA), la provincia Yuma (AZ)</p>|
-| + STATI UNITI Isole Vergini americane | Dati Isole Vergini * |
+| \+ STATI UNITI Isole Vergini americane | Dati Isole Vergini * |
 
 
 ## <a name="asia-pacific"></a>Asia/Pacifico
@@ -90,8 +90,8 @@ Nella tabella seguente fornisce informazioni sulla copertura per il servizio Mob
 | Estonia   | Estonia* |   
 | Finlandia   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola - Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
 | Francia    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, sur Boulogne degli Mer, Brest, Briançon, cannes, Châlons-en-Champagne, Chartres, Clermont-Ferrand, Colmar, Dax, Digione, Grenoble, Haguenau, La Rochelle, Le Mans, obiettivo, Lille, Lorient, Lyon, i computer Mac, Marsiglia & regione Provence, Metz, Millau, r-de-Marsan, Montpellier, Mulhouse, Nancy, Location: Nantes, interessante, Nimes, Normandia, Nyons, Parigi, Poitiers, Privas, Quimper, Rennes, Saint Malo, Saint-Étienne, Saint-Nazaire, Saintes, Sarrebourg, Sete, Strasburgo, Tarbes, ha, indirizzate</P> | 
-| + Guayana francese | Cayenne |
-| + Nuova Caledonia | Nouméa  |
+| \+ Guayana francese | Cayenne |
+| \+ Nuova Caledonia | Nouméa  |
 | Georgia | Tbilisi | 
 | Germania | <p>Berlino, Brandenburg, Bremen & Niedersachsen, colonia, Eisenach, Francoforte, Amburgo, Karlsruhe, Mainz, München - Neustadt-Reno Ruhr area, Stoccarda, Titisee, Monaco, area Reno Neckar Ulm</P> | 
 | Grecia | <p>Atene, Arta, Amorgos, Canea, Corfù, Kos Chio, Heraklion, Ioannina, Kavala, Kalamata, Komotini, Kos, Larissa, Meganisi, Mykonos, Patra, Rethimno, Rhodes, Santorini, Serres, Syros, Tinos, Salonicco, Veria, Volos, Xanthi </P> |

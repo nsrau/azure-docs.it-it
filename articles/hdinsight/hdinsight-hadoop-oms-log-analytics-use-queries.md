@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
 ms.openlocfilehash: cbaaed3fff99778bfab1feeacdab02bf8245a85a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714696"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Monitoraggio di Azure di query di registri per monitorare i cluster HDInsight
@@ -77,7 +77,7 @@ Informazioni su come cercare i messaggi di errore in un intervallo di tempo spec
     ![Output della ricerca di tutti gli errori](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "Output della ricerca di tutti gli errori")
 
 4. Nel riquadro sinistro, nella categoria **Tipo**, selezionare un tipo di errore da analizzare più a fondo e selezionare **Applica**.  Si noti che i risultati mostrano solo l'errore del tipo selezionato.
-5. È possibile esaminare più a fondo l'errore specifico usando le opzioni disponibili nel riquadro sinistro. Ad esempio: 
+5. È possibile esaminare più a fondo l'errore specifico usando le opzioni disponibili nel riquadro sinistro. Ad esempio:
 
     - Per cercare solo i messaggi di errore di un nodo del ruolo di lavoro specifico:
 
@@ -122,7 +122,7 @@ Per modificare o eliminare un avviso esistente:
 
 Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../azure-monitor/platform/alerts-metric.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Creare visualizzazioni personalizzate usando Progettazione viste in Monitoraggio di Azure](../azure-monitor/platform/view-designer.md)
 * [Creare, visualizzare e gestire gli avvisi delle metriche con monitoraggio di Azure](../azure-monitor/platform/alerts-metric.md)

@@ -12,10 +12,10 @@ ms.date: 05/22/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: ce6c5f3059041d8dbb097470cf4a415e73d9156b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237261"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
@@ -40,7 +40,7 @@ Elenco completo dei limiti di QnA Maker.
 
 |**Livello di ricerca di Azure** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Numero massimo di campi di metadati per ogni servizio QnA Maker (attraverso tutte le knowledge base)|1.000|100*|1.000|1.000|1.000|1.000|
+|Numero massimo di campi di metadati per ogni servizio QnA Maker (attraverso tutte le knowledge base)|1\.000|100*|1\.000|1\.000|1\.000|1\.000|
 
 ## <a name="knowledge-base-content-limits"></a>Limiti di contenuto della Knowledge Base
 Limiti complessivi sul contenuto nella knowledge base:

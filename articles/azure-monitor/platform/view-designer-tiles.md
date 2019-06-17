@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61342038"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guida di riferimento per i riquadri di Progettazione viste in Monitoraggio di Azure
@@ -31,7 +31,7 @@ Per altre informazioni su Progettazione visualizzazioni, vedere:
 
 I riquadri di Progettazione viste disponibili sono descritti nella tabella seguente:  
 
-| Riquadro | DESCRIZIONE |
+| Riquadro | Descrizione |
 |:--- |:--- |
 | [Number](#number-tile) |Numero di record restituiti da una query. |
 | [Due numeri](#two-numbers-tile) |Numero di record restituiti da due diverse query. |
@@ -52,8 +52,8 @@ Il riquadro **Numero** visualizza il numero di record restituiti da una query di
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
-| DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
+| Name |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Descrizione |Testo visualizzato sotto il nome del riquadro. |
 | **Riquadro** | |
 | Legenda |Testo visualizzato sotto il valore. |
 | Query |Query eseguita. Viene visualizzato il numero di record restituiti dalla query. |
@@ -70,8 +70,8 @@ Il riquadro visualizza il numero di record di due diverse query di log e un'etic
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
-| DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
+| Name |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Descrizione |Testo visualizzato sotto il nome del riquadro. |
 | **Primo riquadro** | |
 | Legenda |Testo visualizzato sotto il valore. |
 | Query |Query eseguita. Viene visualizzato il numero di record restituiti dalla query. |
@@ -91,8 +91,8 @@ Il riquadro **Anello** visualizza un singolo numero che riepiloga una colonna di
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
-| DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
+| Name |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Descrizione |Testo visualizzato sotto il nome del riquadro. |
 | **Anello** | |
 | Query |Query eseguita per il grafico ad anello. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. |
 | **Anello** |**> Centro** |
@@ -116,7 +116,7 @@ Questo riquadro contiene un grafico a linee con più serie provenienti da una qu
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
-| DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
+| Descrizione |Testo visualizzato sotto il nome del riquadro. |
 | **Grafico a linee** | |
 | Query |Query eseguita per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X usa questo intervallo di tempo. Se la query non usa la parola chiave *interval*, l'asse X usa intervalli orari. |
 | **Grafico a linee** |**> Asse Y** |
@@ -136,8 +136,8 @@ Questo riquadro visualizza un grafico a linee con più serie provenienti da una 
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
-| DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
+| Name |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Descrizione |Testo visualizzato sotto il nome del riquadro. |
 | **Grafico a linee** | |
 | Query |Query eseguita per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X usa questo intervallo di tempo. Se la query non usa la parola chiave *interval*, l'asse X usa intervalli orari. |
 | **Grafico a linee** |**> Callout** |
@@ -162,7 +162,7 @@ Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
-| DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
+| Descrizione |Testo visualizzato sotto il nome del riquadro. |
 | Primo grafico | |
 | Legenda |Testo che viene visualizzato sotto il callout per la prima serie. |
 | Colore |Colore usato per le colonne della prima serie. |

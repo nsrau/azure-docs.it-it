@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119731"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di server fisici
@@ -79,7 +79,7 @@ L'ultima versione del file di installazione del server di configurazione è disp
 9. In **Percorso di installazione** specificare il percorso di installazione dei file binari e di archiviazione della cache. L'unità selezionata deve avere almeno 5 GB di spazio su disco disponibile, ma è consigliabile usare un'unità cache con almeno 600 GB di spazio disponibile.
 
     ![Percorso di installazione](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. Nelle **Selezione rete**, selezionare prima l'interfaccia di rete utilizzato dal server di elaborazione predefinito per il rilevamento e l'installazione push del servizio mobility nelle macchine di origine e quindi selezionare la scheda di rete utilizzato dal Server di configurazione per la connettività con Azure. La porta 9443 è la porta predefinita per l'invio e la ricezione del traffico di replica, ma è possibile modificare il numero di porta in base ai requisiti dell'ambiente. Oltre alla porta 9443, viene aperta anche la porta 443, che viene usata da un server Web per orchestrare le operazioni di replica. Non usare la porta 443 per inviare o ricevere traffico di replica.
+10. In **Selezione della rete** selezionare prima l'interfaccia di rete usata dal server di elaborazione predefinito per il rilevamento e l'installazione push del servizio Mobility nei computer di origine e quindi selezionare la scheda di interfaccia di rete usata dal server di configurazione per la connettività con Azure. La porta 9443 è la porta predefinita per l'invio e la ricezione del traffico di replica, ma è possibile modificare il numero di porta in base ai requisiti dell'ambiente. Oltre alla porta 9443, viene aperta anche la porta 443, che viene usata da un server Web per orchestrare le operazioni di replica. Non usare la porta 443 per inviare o ricevere traffico di replica.
 
     ![Selezione rete](./media/physical-manage-configuration-server/combined-wiz9.png)
 
@@ -108,7 +108,7 @@ Eseguire il file di installazione come segue:
 
 ### <a name="parameters"></a>Parametri
 
-|Nome parametro| Type | DESCRIZIONE| Valori|
+|Nome parametro| Type | Descrizione| Valori|
 |-|-|-|-|
 | /Modalità server|Obbligatorio|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
 |/InstallLocation|Obbligatorio|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
@@ -217,7 +217,7 @@ ProxyPassword="Password"
 
 ## <a name="upgrade-a-configuration-server"></a>Aggiornare un server di configurazione
 
-Per aggiornare il server di configurazione si eseguono aggiornamenti cumulativi. È possibile applicare gli aggiornamenti a un massimo di N-4 versioni. Ad esempio: 
+Per aggiornare il server di configurazione si eseguono aggiornamenti cumulativi. È possibile applicare gli aggiornamenti a un massimo di N-4 versioni. Ad esempio:
 
 - Se si esegue la versione 9.7, 9.8, 9.9 o 9.10, è possibile eseguire l'aggiornamento direttamente alla versione a 9.11.
 - Se si esegue la versione 9.6 o una versione precedente e si desidera eseguire l'aggiornamento alla 9.11, è necessario prima eseguire l'aggiornamento alla versione 9.7 e poi alla 9.11.

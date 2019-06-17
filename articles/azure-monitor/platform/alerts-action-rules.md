@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66734907"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
@@ -161,7 +161,7 @@ Avvisi del log sfrutta migliore con le regole di azione, è consigliabile creare
 * D: Quando si configura una regola di azione, vorrei visualizzare tutte le possibili sovrapposti azioni alle regole che è possibile evitare le notifiche duplicate. È possibile eseguire questa operazione?
 
     R. Dopo aver definito un ambito durante la configurazione di una regola di azione, è possibile visualizzare un elenco di regole di azione che si sovrappongono nello stesso ambito (se presente). Questa sovrapposizione può essere una delle opzioni seguenti:
-    * Una corrispondenza esatta: Ad esempio, si definisce la regola di azione e la regola di azione sovrapposti sono nella stessa sottoscrizione.
+    * Corrispondenza esatta: Ad esempio, si definisce la regola di azione e la regola di azione sovrapposti sono nella stessa sottoscrizione.
     * Un subset: Ad esempio, si definisce la regola di azione è in una sottoscrizione e la regola di azione sovrapposti si trova in un gruppo di risorse all'interno della sottoscrizione.
     * Un superset: Ad esempio, si definisce la regola di azione è in un gruppo di risorse e la sovrapposizione di azione regola è sulla sottoscrizione che contiene il gruppo di risorse.
     * Un'intersezione: Ad esempio, la regola di azione che si sta definendo si trova in 'VM1' e 'VM2' e la sovrapposizione di azione regola si trova in 'VM2' e 'VM3'.
@@ -171,7 +171,7 @@ Avvisi del log sfrutta migliore con le regole di azione, è consigliabile creare
 * D: Durante la configurazione di una regola di avviso, è possibile sapere se esistono già definite regole di azione che può agire su sto definendo la regola di avviso?
 
     R. Dopo aver definito la risorsa di destinazione per la regola di avviso, è possibile visualizzare l'elenco delle regole di azione che operano nello stesso ambito, se presente, facendo clic su 'Visualizza configurate le azioni' con la sezione 'Actions'. Questo elenco viene popolato in base agli scenari seguenti per l'ambito:
-    * Una corrispondenza esatta: Ad esempio, si definisce la regola di avviso e la regola di azione sono nella stessa sottoscrizione.
+    * Corrispondenza esatta: Ad esempio, si definisce la regola di avviso e la regola di azione sono nella stessa sottoscrizione.
     * Un subset: Ad esempio, si definisce la regola di avviso è su una sottoscrizione e la regola di azione è in un gruppo di risorse all'interno della sottoscrizione.
     * Un superset: Ad esempio, si definisce la regola di avviso è in un gruppo di risorse e la regola di azione è nella sottoscrizione che contiene il gruppo di risorse.
     * Un'intersezione: Ad esempio, la regola di avviso che si sta definendo sia in 'VM1' e 'VM2' e la regola di azione si trova in 'VM2' e 'VM3'.

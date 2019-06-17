@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 4943b730bb46ee00200d84faf95a7ccb069d3aa8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790994"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali abilitate per crittografia dischi di Azure in un'altra area di Azure
@@ -98,8 +98,8 @@ Per questo esempio, l'area di Azure primaria sia Asia orientale e l'area seconda
     - **Sottoscrizione di destinazione**: La sottoscrizione di destinazione che viene usata per il ripristino di emergenza. Per impostazione predefinita, la sottoscrizione di destinazione è uguale a quella di origine.
     - **Gruppo di risorse di destinazione**: gruppo di risorse a cui tutte le macchine virtuali replicate appartengono. Per impostazione predefinita, Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione. Il nome Ottiene il suffisso "asr". Se un gruppo di risorse esiste già che è stato creato da Azure Site Recovery, verrà riusato. È anche possibile scegliere di personalizzarlo, come illustrato nella sezione seguente. Il percorso del gruppo di risorse di destinazione può essere qualsiasi area di Azure tranne l'area in cui sono ospitate le macchine virtuali di origine.
     - **Rete virtuale di destinazione**: Per impostazione predefinita, Site Recovery crea una nuova rete virtuale nell'area di destinazione. Il nome Ottiene il suffisso "asr". È mappata alla rete di origine e utilizzato per la protezione futura. [Altre informazioni](site-recovery-network-mapping-azure-to-azure.md) sul mapping di rete.
-    - **Gli account di archiviazione di destinazione (se la VM di origine non usa dischi gestiti)**: Per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione di destinazione mediante la riproduzione di configurazione dell'archiviazione della macchina virtuale di origine. Se esiste già un account di archiviazione, verrà riusato.
-    - **Dischi gestiti di replica (se la VM di origine Usa dischi gestiti)**: Site Recovery Crea dischi gestiti di replica nell'area di destinazione per eseguire il mirroring dischi gestiti della VM di origine dello stesso tipo di archiviazione (standard o premium) come dischi gestiti della VM di origine.
+    - **Gli account di archiviazione di destinazione (se la VM di origine non usa dischi gestiti)** : Per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione di destinazione mediante la riproduzione di configurazione dell'archiviazione della macchina virtuale di origine. Se esiste già un account di archiviazione, verrà riusato.
+    - **Dischi gestiti di replica (se la VM di origine Usa dischi gestiti)** : Site Recovery Crea dischi gestiti di replica nell'area di destinazione per eseguire il mirroring dischi gestiti della VM di origine dello stesso tipo di archiviazione (standard o premium) come dischi gestiti della VM di origine.
     - **Account di archiviazione della cache**: Site Recovery necessita di un account di archiviazione aggiuntivo denominato *memorizza nella cache di archiviazione* nell'area di origine. Tutte le modifiche apportate nelle VM di origine sono registrate e inviate all'account di archiviazione della cache. Si sta quindi replicati al percorso di destinazione.
     - **Set di disponibilità**: Per impostazione predefinita, Site Recovery crea un nuovo set di disponibilità nell'area di destinazione. Il nome con suffisso "asr". Se un set di disponibilità che è stato creato da Site Recovery già esiste, verrà riusato.
     - **Insieme di credenziali delle chiavi di crittografia del Data Box Disk**: Per impostazione predefinita, Site Recovery crea un nuovo insieme di credenziali delle chiavi nell'area di destinazione. Include un suffisso "asr" basato sulle chiavi di crittografia del disco della macchina virtuale di origine. Se un insieme di credenziali delle chiavi creato da Azure Site Recovery già esiste, verrà riusato.
