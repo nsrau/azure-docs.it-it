@@ -1,0 +1,15 @@
+- name: Documentazione sullo sviluppo sicuro
+  href: index.yml
+- name: Concetti
+  expanded: true
+  items:
+    - name: Procedure consigliate
+      items:
+        - name: Panoramica
+          href: secure-dev-overview.md
+        - name: Progettare app sicure
+          href: secure-design.md
+        - name: Sviluppare app sicure
+          href: secure-develop.md
+        - name: Distribuire app sicure
+          href: secure-deploy.md

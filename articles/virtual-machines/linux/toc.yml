@@ -85,9 +85,10 @@
           items:
             - name: Ottimizzare le prestazioni
               href: storage-performance.md
-        - name: Ottimizzate per la GPU
-          href: sizes-gpu.md
+        - name: Calcolo accelerato
           items:
+            - name: Ottimizzate per la GPU
+              href: sizes-gpu.md
             - name: Configurare i driver GPU
               href: n-series-driver-setup.md
         - name: High Performance Computing (HPC)

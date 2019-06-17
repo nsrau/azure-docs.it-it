@@ -43,6 +43,8 @@
         - name: Valutazione offline
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+    - name: Scalabilità e prestazioni
+      href: concepts-scalability-performance.md
 - name: Guide alle procedure
   items:
     - name: Creare e configurare Personalizza esperienze

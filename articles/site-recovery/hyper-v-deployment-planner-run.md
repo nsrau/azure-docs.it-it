@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60748961"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure
@@ -35,7 +35,7 @@ La tabella seguente contiene un elenco dei parametri obbligatori e facoltativi d
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
 
-| Nome parametro | DESCRIZIONE |
+| Nome parametro | Descrizione |
 |---|---|
 | -Operation | GetVMList |
 | -User | Nome utente per la connessione all'host Hyper-V o al cluster Hyper-V. L'utente deve avere l'accesso amministrativo.|
@@ -85,7 +85,7 @@ La tabella seguente elenca i parametri obbligatori e facoltativi dello strumento
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Nome parametro | DESCRIZIONE |
+| Nome parametro | Descrizione |
 |---|---|
 | -Operation | StartProfiling |
 | -User | Nome utente per la connessione all'host Hyper-V o al cluster Hyper-V. L'utente deve avere l'accesso amministrativo.|
@@ -167,7 +167,7 @@ La tabella seguente contiene un elenco dei parametri obbligatori e facoltativi d
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
 
-| Nome parametro | DESCRIZIONE |
+| Nome parametro | Descrizione |
 |---|---|
 | -Operation | GenerateReport |
 |-VMListFile | File contenente l'elenco delle VM profilate per cui verrà generato il report. Il percorso del file può essere assoluto o relativo. Per Hyper-V, si tratta del file di output dell'operazione GetVMList. In caso di preparazione manuale, il file deve contenere un nome server o un indirizzo IP, seguito dal nome della VM separato con un carattere \ per riga. Il nome della VM specificato nel file deve essere uguale al nome della VM nell'host Hyper-V.<br><br>**Esempio:** VMList.txt contiene le VM seguenti:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
@@ -255,7 +255,7 @@ Si supponga, ad esempio, che attualmente la VM sia idonea per un account di repl
 Il report di Microsoft Excel generato contiene le informazioni seguenti:
 
 * [Riepilogo ambiente locale](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
-* [Raccomandazioni](hyper-v-deployment-planner-analyze-report.md#recommendations)
+* [Indicazioni](hyper-v-deployment-planner-analyze-report.md#recommendations)
 * [Selezione host di archiviazione delle VM](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [VM compatibili](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [VM incompatibili](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
@@ -275,7 +275,7 @@ Aprire una console della riga di comando e passare alla cartella dello strumento
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
 
- Nome parametro | DESCRIZIONE |
+ Nome parametro | Descrizione |
 |---|---|
 | -Operation | GetThroughput |
 |-Virtualization|Tipo di virtualizzazione (VMware o Hyper-V).|

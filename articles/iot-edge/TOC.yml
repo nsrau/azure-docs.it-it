@@ -51,6 +51,22 @@
           href: tutorial-deploy-custom-vision.md
         - name: Archiviare i dati in locale con SQL
           href: tutorial-store-data-sql-server.md
+    - name: 4. Esempio completo di Machine Learning al perimetro
+      items:
+        - name: Introduzione
+          href: tutorial-machine-learning-edge-01-intro.md
+        - name: Configurare un computer di sviluppo e i servizi di Azure
+          href: tutorial-machine-learning-edge-02-prepare-environment.md
+        - name: Generare dati di dispositivi simulati
+          href: tutorial-machine-learning-edge-03-generate-data.md
+        - name: Eseguire il training e distribuire un modello di Azure Machine Learning
+          href: tutorial-machine-learning-edge-04-train-model.md
+        - name: Configurare un gateway trasparente
+          href: tutorial-machine-learning-edge-05-configure-edge-device.md
+        - name: Creare e distribuire moduli IoT Edge
+          href: tutorial-machine-learning-edge-06-custom-modules.md
+        - name: Inviare dati a un hub IoT tramite gateway trasparente
+          href: tutorial-machine-learning-edge-07-send-data-to-hub.md
 - name: Concetti
   items:
     - name: Runtime di IoT Edge
@@ -149,6 +165,8 @@
       items:
         - name: Configurare un gateway trasparente
           href: how-to-create-transparent-gateway.md
+        - name: Autenticare un dispositivo downstream
+          href: how-to-authenticate-downstream-device.md
         - name: Connettere un dispositivo downstream
           href: how-to-connect-downstream-device.md
         - name: Gateway di protocollo Modbus

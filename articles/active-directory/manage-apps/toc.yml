@@ -83,6 +83,10 @@
           href: plan-sso-deployment.md
     - name: Portali degli utenti finali
       href: end-user-experiences.md
+    - name: Accesso SSO con un clic
+      items:
+        - name: Cos'è l'accesso SSO con un clic
+          href: one-click-sso-tutorial.md
 - name: Guide alle procedure
   items:
     - name: Aggiungere un'app cloud

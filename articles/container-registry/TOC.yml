@@ -89,12 +89,14 @@
               href: container-registry-auth-aks.md
         - name: Attendibilità del contenuto
           href: container-registry-content-trust.md
-    - name: Compilare e applicare patch
+    - name: Attività di Registro Azure Container
       items:
-        - name: Attività di Registro Azure Container
+        - name: Panoramica delle Attività del Registro Azure Container
           href: container-registry-tasks-overview.md
         - name: Attività in più passaggi
           href: container-registry-tasks-multi-step.md
+        - name: Uso con Identità gestita
+          href: container-registry-tasks-authentication-managed-identity.md
     - name: Registri e altri servizi di Azure
       items:
         - name: Istanze di Azure Container

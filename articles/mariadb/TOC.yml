@@ -59,12 +59,20 @@
           href: concepts-business-continuity.md
         - name: Backup e ripristino
           href: concepts-backup.md
-    - name: Monitorare
+    - name: Monitorare e ottimizzare
       items:
         - name: Monitorare
           href: concepts-monitoring.md
-        - name: Log del server
+        - name: Log query lente
           href: concepts-server-logs.md
+        - name: Log di controllo
+          href: concepts-audit-logs.md
+        - name: Archivio query
+          href: concepts-query-store.md
+        - name: Informazioni dettagliate prestazioni query
+          href: concepts-query-performance-insight.md
+        - name: Raccomandazioni per le prestazioni
+          href: concepts-performance-recommendations.md
     - name: Sviluppo.
       items:
         - name: Compatibilità di driver e strumenti
@@ -75,6 +83,8 @@
       items:
         - name: Replica dei dati in ingresso
           href: concepts-data-in-replication.md
+        - name: Repliche in lettura
+          href: concepts-read-replicas.md
 - name: Guide alle procedure
   items:
     - name: Regole del firewall
@@ -113,10 +123,16 @@
           href: howto-auto-grow-storage-portal.md
     - name: Accesso ai log server
       items:
-        - name: Portale di Azure
-          href: howto-configure-server-logs-portal.md
-        - name: Interfaccia della riga di comando di Azure
-          href: howto-configure-server-logs-cli.md
+        - name: Log query lente
+          items:
+            - name: Portale di Azure
+              href: howto-configure-server-logs-portal.md
+            - name: Interfaccia della riga di comando di Azure
+              href: howto-configure-server-logs-cli.md
+        - name: Log di controllo
+          items:
+            - name: Portale di Azure
+              href: howto-configure-audit-logs-portal.md
     - name: Monitorare
       items:
         - name: Creare avvisi relativi alle metriche
@@ -125,6 +141,8 @@
       items:
         - name: Configurare la replica dei dati in ingresso
           href: howto-data-in-replication.md
+        - name: Creare repliche in lettura nel portale di Azure
+          href: howto-read-replicas-portal.md
     - name: Risolvere problemi
       items:
         - name: Risolvere gli errori di connessione

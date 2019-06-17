@@ -74,8 +74,9 @@
     - name: Visibilità a livello di tenant
       href: security-center-management-groups.md
     - name: Implementare le raccomandazioni sulla sicurezza
-      href: security-center-recommendations.md
       items:
+        - name: Informazioni sulle raccomandazioni di sicurezza
+          href: security-center-recommendations.md
         - name: Migliorare il comportamento di sicurezza
           href: security-center-monitoring.md
         - name: Proteggere i computer e le app
@@ -181,6 +182,8 @@
       href: /learn/browse/?term=securityS
     - name: Gestire i dati utente
       href: security-center-privacy.md
+    - name: Gestire l'IoT
+      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
     - name: Domande frequenti
       href: security-center-faq.md
     - name: Sicurezza di Azure

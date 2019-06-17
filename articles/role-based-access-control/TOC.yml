@@ -54,6 +54,8 @@
           href: deny-assignments.md
         - name: Portale
           href: deny-assignments-portal.md
+        - name: PowerShell
+          href: deny-assignments-powershell.md
         - name: API REST
           href: deny-assignments-rest.md
     - name: Ruoli personalizzati

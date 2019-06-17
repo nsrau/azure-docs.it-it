@@ -16,6 +16,10 @@
       href: manage-app-groups.md
     - name: 5. Creare un pool di host per convalidare gli aggiornamenti dei servizi
       href: create-validation-host-pool.md
+    - name: 6. Distribuire uno strumento di gestione
+      href: manage-resources-using-ui.md
+    - name: 7. Configurare gli avvisi dei servizi
+      href: set-up-service-alerts.md
 - name: Procedura
   items:
     - name: Connettersi alle risorse di Desktop virtuale Windows
@@ -40,6 +44,8 @@
       href: configure-vm-gpu.md
     - name: Ridimensionare automaticamente gli host della sessione
       href: set-up-scaling-script.md
+    - name: Personalizzare le proprietà di RDP
+      href: customize-rdp-properties.md
 - name: Concetti
   items:
     - name: Ambiente di Desktop virtuale Windows

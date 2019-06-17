@@ -23,7 +23,7 @@ abstract:
       height: 110
       src: ./media/index/video.png
       width: 246
-    title: Spiegazione dell'accesso condizionale
+    title: Descrizione dell'accesso condizionale
     href: 'https://www.youtube.com/watch?v=XruceejcCKQ'
     width: 246
 sections:

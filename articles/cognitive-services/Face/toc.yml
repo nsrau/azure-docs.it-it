@@ -59,7 +59,7 @@
       href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
     - name: Aggiungere visi
       href: Face-API-How-to-Topics/how-to-add-faces.md
-    - name: Usare HeadPose per ruotare il rettangolo
+    - name: Usare l'attributo HeadPose
       href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: Specificare un modello di riconoscimento volto
       href: Face-API-How-to-Topics/specify-recognition-model.md

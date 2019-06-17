@@ -48,16 +48,31 @@ sections:
             image:
               src: media/index/mongodb-api.svg
             title: API Azure Cosmos DB per MongoDB
-          - href: /azure/cosmos-db/table-introduction/
-            html: '<p>Se si sta eseguendo la migrazione dei dati dall''archiviazione tabelle di Azure all''offerta premium tabelle di Azure Cosmos DB, utilizzare l''API di tabella.</p>'
-            image:
-              src: media/index/table-api.svg
-            title: API di tabella
           - href: /azure/cosmos-db/cassandra-introduction/
             html: '<p>Se si sta eseguendo la migrazione dei dati da Cassandra al servizio completamente gestito da Azure Cosmos DB, utilizzare l’API Cassandra.</p>'
             image:
               src: media/index/cassandra-api.png
             title: API Cassandra
+          - href: /azure/cosmos-db/table-introduction/
+            html: '<p>Se si sta eseguendo la migrazione dei dati dall''archiviazione tabelle di Azure all''offerta premium tabelle di Azure Cosmos DB, utilizzare l''API di tabella.</p>'
+            image:
+              src: media/index/table-api.svg
+            title: API di tabella
+          - href: /azure/cosmos-db/spark-api-introduction/
+            html: <p>Usare il supporto predefinito per Apache Spark per eseguire analisi sui dati archiviati in un account Azure Cosmos. </p>
+            image:
+              src: media/index/spark-logo.png
+            title: Analisi predefinita con Apache Spark
+          - href: /azure/cosmos-db/change-feed/
+            html: '<p>Con il feed delle modifiche, è possibile eseguire analisi in tempo reale leggendo l''elenco ordinato di documenti all''interno di un contenitore di Azure Cosmos DB, nell''ordine in cui sono stati modificati. </p>'
+            image:
+              src: media/index/change-feed-logo.png
+            title: Feed delle modifiche
+          - href: /azure/cosmos-db/etcd-api-introduction/
+            html: <p> L'API Etcd consente di usare Azure Cosmos DB come archivio back-end per Azure Kubernetes.</p>
+            image:
+              src: media/index/etcd-logo.png
+            title: API Etcd
   - title: Guide introduttive di 5 minuti
     items:
       - type: paragraph

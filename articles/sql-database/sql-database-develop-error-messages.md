@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/06/2019
 ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723494"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codici di errore SQL per le applicazioni client del database SQL: Errori di connessione di database e altri problemi
@@ -53,7 +53,7 @@ Per i client che usano ADO.NET, è disponibile una discussione sul *periodo di b
 
 I seguenti errori sono temporanei e devono essere ripetuti nella logica dell'applicazione: 
 
-| Codice di errore | Gravità | DESCRIZIONE |
+| Codice di errore | Severity | Descrizione |
 | ---:| ---:|:--- |
 | 4060 |16 |Impossibile aprire il database "%.&#x2a;ls" richiesto dall'account di accesso. Accesso non riuscito. Per altre informazioni, vedere [errori 4000 e 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |Il servizio ha rilevato un errore durante l'elaborazione della richiesta. Riprova più tardi. Codice di errore %d.<br/><br/>Questo errore viene visualizzato quando il servizio non è disponibile a causa di aggiornamenti software o hardware, guasti hardware o altri problemi di failover. Nel codice di errore (%d) incorporato nel messaggio di errore 40197 sono contenute ulteriori informazioni sul tipo di errore o failover che si è verificato. Alcuni esempi dei codici di errore incorporati nel messaggio di errore 40197 sono 40020, 40143, 40166 e 40540.<br/><br/>Con la riconnessione al server di database SQL verrà effettuata la connessione automatica a una copia integra del database. L'applicazione deve rilevare l'errore 40197, registrare il codice di errore incorporato (%d) nel messaggio per la risoluzione dei problemi e tentare la riconnessione al database SQL finché le risorse non saranno disponibili e la connessione non sarà stata ristabilita. Per altre informazioni, vedere [gli errori temporanei](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
@@ -68,7 +68,7 @@ I seguenti errori sono temporanei e devono essere ripetuti nella logica dell'app
 
 Durante la copia di un database nel database SQL di Azure, possono essere rilevati gli errori seguenti. Per altre informazioni, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
 
-| Codice di errore | Gravità | DESCRIZIONE |
+| Codice di errore | Severity | Descrizione |
 | ---:| ---:|:--- |
 | 40635 |16 |Il client con indirizzo IP '%.&#x2a;ls' è temporaneamente disabilitato. |
 | 40637 |16 |La creazione della copia del database è attualmente disabilitata. |
@@ -86,7 +86,7 @@ Durante la copia di un database nel database SQL di Azure, possono essere rileva
 
 ## <a name="resource-governance-errors"></a>Errori di governance delle risorse
 
-I seguenti errori sono causati dall'uso eccessivo delle risorse durante l'utilizzo del database SQL di Azure, Ad esempio: 
+I seguenti errori sono causati dall'uso eccessivo delle risorse durante l'utilizzo del database SQL di Azure, Ad esempio:
 
 * La transazione è rimasta aperta troppo a lungo.
 * La transazione contiene troppi blocchi.
@@ -103,7 +103,7 @@ Argomenti correlati:
   * [basato su vCore i limiti per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md)
   * [Limiti delle risorse di istanza gestita](sql-database-managed-instance-resource-limits.md). 
 
-| Codice di errore | Gravità | DESCRIZIONE |
+| Codice di errore | Severity | Descrizione |
 | ---:| ---:|:--- |
 | 10928 |20 |ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [Limiti delle risorse del database SQL per database singoli e in pool](sql-database-resource-limits-database-server.md).<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere: <br/>&bull; &nbsp;[Limiti delle risorse di server di database](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limiti basati su DTU per database singoli](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limiti basati su DTU per pool elastici](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[limiti basati su vCore per database singoli](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[basato su vCore i limiti per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limiti delle risorse di istanza gestita](sql-database-managed-instance-resource-limits.md). |
 | 10929 |20 |ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2. Per altre informazioni, vedere: <br/>&bull; &nbsp;[Limiti delle risorse di server di database](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limiti basati su DTU per database singoli](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limiti basati su DTU per pool elastici](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[limiti basati su vCore per database singoli](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[basato su vCore i limiti per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limiti delle risorse di istanza gestita](sql-database-managed-instance-resource-limits.md). <br/>In caso contrario, riprovare più tardi. |
@@ -118,7 +118,7 @@ Argomenti correlati:
 
 Di seguito sono elencati gli errori riguardanti la creazione e l'uso di pool elastici:
 
-| Codice di errore | Gravità | DESCRIZIONE | Azione correttiva |
+| Codice di errore | Severity | Descrizione | Azione correttiva |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Il pool elastico ha raggiunto il limite di archiviazione. L'utilizzo dell'archiviazione per il pool elastico non può superare (%d) MB. Tentativo di scrittura dei dati in un database quando viene raggiunto il limite di archiviazione del pool elastico. Per informazioni sui limiti di risorse, vedere: <br/>&bull; &nbsp;[Limiti basati su DTU per pool elastici](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[basato su vCore i limiti per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md). <br/> |Prendere in considerazione l'aumento delle DTU e/o l'aggiunta di risorse di archiviazione al pool elastico, se possibile, per aumentare il limite di archiviazione, ridurre le risorse di archiviazione usate dai singoli database all'interno del pool elastico o rimuovere database dal pool elastico. Per il ridimensionamento del pool elastico, vedere [ridimensionare le risorse del pool elastico](sql-database-elastic-pool-scale.md).|
 | 10929 | 16 |La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per informazioni sui limiti di risorse, vedere: <br/>&bull; &nbsp;[Limiti basati su DTU per pool elastici](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[basato su vCore i limiti per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md). <br/> In caso contrario, riprovare più tardi. Numero minimo DTU/vCore per database; numero massimo DTU/vCore per database. Il numero totale dei processi di lavoro simultanei (richieste) in tutti i database nel pool elastico ha tentato di superare il limite del pool. |Prendere in considerazione l'aumento delle DTU o dei vCore del pool elastico, se possibile, per aumentare il limite del ruolo di lavoro, o rimuovere database dal pool elastico. |
@@ -152,7 +152,7 @@ Argomenti correlati:
 
 I seguenti errori non rientrano nelle categorie precedenti.
 
-| Codice di errore | Gravità | DESCRIZIONE |
+| Codice di errore | Severity | Descrizione |
 | ---:| ---:|:--- |
 | [15006](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-15000-to-15999) |16 |AdministratorLogin non è un nome valido perché contiene caratteri non validi.|
 | [18452](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |Accesso non riuscito. L'accesso proviene da un dominio non trusted e non può essere usato con l'autenticazione di Window.%.&#x2a;ls (Account di accesso di Windows non supportati in questa versione di SQL Server.) |
@@ -216,7 +216,7 @@ I seguenti errori non rientrano nelle categorie precedenti.
 | 40652 |16 |Impossibile spostare o creare il server. La sottoscrizione (id sottoscrizione) supera la quota del server. |
 | 40671 |17 |Si è verificato un errore di comunicazione tra il gateway e il servizio di gestione. Riprovare più tardi. |
 | 40852 |16 |Impossibile aprire il database "%.\*ls" nel server "%.\*ls" richiesto dall'account di accesso. L'accesso al database è consentito solo tramite una stringa di connessione con sicurezza abilitata. Per accedere al database, modificare le stringhe di connessione in modo che contengano "secure" nel server FQDN - "nome server".database.windows.net deve essere modificato in "nome server".database`secure`.windows.net. |
-| 40914 | 16 | Impossibile aprire il server "*[nome-server]*" richiesto dall'account di accesso. Non è consentito l'accesso del client al server.<br /><br />Per correggere l'errore, provare ad aggiungere una [regola di rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md). |
+| 40914 | 16 | Impossibile aprire il server " *[nome-server]* " richiesto dall'account di accesso. Non è consentito l'accesso del client al server.<br /><br />Per correggere l'errore, provare ad aggiungere una [regola di rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md). |
 | 45168 |16 |Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del database per un singolo server di database SQL (ad esempio, creare il database). Il server specificato nel messaggio di errore ha superato il numero massimo di connessioni simultanee. Riprovare. |
 | 45169 |16 |Il sistema SQL Azure è in fase di caricamento e sta fissando un limite superiore per le operazioni simultanee CRUD del server per una singola sottoscrizione (ad esempio, creare il server). La sottoscrizione specificata nel messaggio di errore ha superato il numero massimo di connessioni simultanee e la richiesta è stata negata. Riprovare. |
 

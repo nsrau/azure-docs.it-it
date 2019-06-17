@@ -54,8 +54,14 @@
               href: azure-security-disk-encryption-overview.md
             - name: Guide introduttive
               items:
-                - name: Crittografare una VM - Azure PowerShell
-                  href: quick-encrypt-vm-powershell.md
+                - name: Crittografare una VM Linux con l'interfaccia della riga di comando di Azure
+                  href: azure-disk-encryption-linux-cli-quickstart.md
+                - name: Crittografare una VM Linux con Azure PowerShell
+                  href: azure-disk-encryption-linux-powershell-quickstart.md
+                - name: Crittografare una VM Windows con l'interfaccia della riga di comando di Azure
+                  href: azure-disk-encryption-windows-cli-quickstart.md
+                - name: Crittografare una VM Windows con Azure PowerShell
+                  href: azure-disk-encryption-windows-powershell-quickstart.md
             - name: Azure Disk Encryption
               items:
                 - name: Prerequisiti per la crittografia del disco

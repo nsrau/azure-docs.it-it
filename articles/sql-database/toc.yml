@@ -83,22 +83,26 @@
           href: sql-database-design-first-database.md
         - name: Progettare un database con .NET
           href: sql-database-design-first-database-csharp.md
-    - name: Eseguire la migrazione al database SQL
+    - name: Database singleton
       items:
         - name: Eseguire la migrazione a un database singolo/in pool con il Servizio Migrazione del database
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-        - name: Eseguire la migrazione a un'istanza gestita con il Servizio Migrazione del database
+        - name: Implementare un database con distribuzione geografica
+          href: sql-database-implement-geo-distributed-database.md
+        - name: Configurare la sincronizzazione dati SQL
+          href: sql-database-get-started-sql-data-sync.md
+    - name: Istanza gestita
+      items:
+        - name: Eseguire la migrazione online con Servizio Migrazione del database
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+        - name: Configurare la replica transazionale
+          href: replication-with-sql-database-managed-instance.md
     - name: Sicurezza del database SQL
       items:
         - name: Sicurezza di database singoli e in pool
           href: sql-database-security-tutorial.md
         - name: Sicurezza dell'istanza gestita
           href: sql-database-managed-instance-aad-security-tutorial.md
-    - name: Implementare un database con distribuzione geografica
-      href: sql-database-implement-geo-distributed-database.md
-    - name: Configurare la sincronizzazione dati SQL
-      href: sql-database-get-started-sql-data-sync.md
     - name: Machine Learning Services
       items:
         - name: Creare un modello predittivo in R
@@ -500,8 +504,6 @@
           href: sql-database-managed-instance-find-management-endpoint-ip-address.md
         - name: Verificare la protezione del firewall predefinito
           href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
-        - name: Replica transazionale
-          href: replication-with-sql-database-managed-instance.md
         - name: Configurare il rilevamento delle minacce
           href: sql-database-managed-instance-threat-detection.md
         - name: Connettere le applicazioni

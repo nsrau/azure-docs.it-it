@@ -11,10 +11,10 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: 'Creare una funzione: Visual Studio'
-      href: functions-create-your-first-function-visual-studio.md
     - name: 'Creare una funzione: Visual Studio Code'
       href: functions-create-first-function-vs-code.md
+    - name: 'Creare una funzione: Visual Studio'
+      href: functions-create-your-first-function-visual-studio.md
     - name: Creare una funzione - Java/Maven
       href: functions-create-first-java-maven.md
     - name: Creare una funzione - Python
@@ -65,7 +65,9 @@
       href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Esempi
   items:
-    - name: Esempi di codice
+    - name: Azure Serverless Community Library
+      href: 'https://www.serverlesslibrary.net/'
+    - name: Esempi di Azure
       href: 'https://azure.microsoft.com/resources/samples/?service=functions'
     - name: Interfaccia della riga di comando di Azure
       href: functions-cli-samples.md
@@ -74,10 +76,12 @@
     - name: Confrontare le versioni 1.x e 2.x
       href: functions-versions.md
       displayName: 'migrate, migration'
-    - name: Piano Premium
-      href: functions-premium-plan.md
     - name: Scalabilità e hosting
       href: functions-scale.md
+    - name: Piano Premium
+      href: functions-premium-plan.md
+    - name: Deployments
+      href: functions-deployment-technologies.md
     - name: Trigger e associazioni
       items:
         - name: Informazioni su trigger e associazioni

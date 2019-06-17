@@ -233,7 +233,7 @@
           href: search-query-lucene-examples.md
         - name: moreLikeThis (anteprima)
           href: search-more-like-this.md
-    - name: Filtrare e ordinare i dati
+    - name: Usare i filtri
       items:
         - name: Panoramica dei filtri
           href: search-filters.md
@@ -241,8 +241,10 @@
           href: search-filters-facets.md
         - name: Aggiungere l'esplorazione in base a facet
           href: search-faceted-navigation.md
-        - name: Sintassi ed esempi delle espressioni Filter e OrderBy
-          href: query-odata-filter-orderby-syntax.md
+        - name: Rivolvere i problemi dei filtri di raccolta
+          href: search-query-troubleshoot-collection-filters.md
+        - name: Informazioni sui filtri di raccolta
+          href: search-query-understand-collection-filters.md
     - name: Gestire i risultati
       items:
         - name: Funzionalità correlate alle pagine
@@ -283,6 +285,32 @@
       href: search-api-preview.md
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.search/searchservices
+    - name: Informazioni di riferimento sul linguaggio OData
+      items:
+        - name: Panoramica
+          href: query-odata-filter-orderby-syntax.md
+        - name: $filter
+          href: search-query-odata-filter.md
+        - name: $orderby
+          href: search-query-odata-orderby.md
+        - name: $select
+          href: search-query-odata-select.md
+        - name: 'any, all'
+          href: search-query-odata-collection-operators.md
+        - name: 'eq, ne, gt, lt, ge, le'
+          href: search-query-odata-comparison-operators.md
+        - name: 'search.ismatch, search.ismatchscoring'
+          href: search-query-odata-full-text-search-functions.md
+        - name: 'geo.distance, geo.intersects'
+          href: search-query-odata-geo-spatial-functions.md
+        - name: 'and, or, not'
+          href: search-query-odata-logical-operators.md
+        - name: search.in
+          href: search-query-odata-search-in-function.md
+        - name: search.score
+          href: search-query-odata-search-score-function.md
+        - name: Grammatica del linguaggio OData
+          href: search-query-odata-syntax-reference.md
     - name: Informazioni di riferimento sulle competenze cognitive
       href: cognitive-search-predefined-skills.md
       items:
