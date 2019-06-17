@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606429"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Test drive di Azure Resource Manager
@@ -82,7 +82,7 @@ Tuttavia, il test drive funziona in modalità interamente automatica, senza inte
 
 ### <a name="accepted-parameter-metadata-types"></a>Tipi di metadati di parametro accettati
 
-| Tipo di metadati   | Tipo parametro  | Descrizione     | Valore di esempio    |
+| Tipo di metadati   | Tipo di parametro  | Descrizione     | Valore di esempio    |
 |---|---|---|---|
 | **baseuri**     | string          | URI di base del pacchetto di distribuzione| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
 | **username**    | string          | Nuovo nome utente casuale.| admin68876      |
@@ -362,7 +362,7 @@ A questo punto si calcola il numero totale di potenziali test drive simultanei c
 
 **Modello di Resource Manager del test drive -** *Campo obbligatorio* Caricare il modello di Resource Manager di seguito. Si tratta del file creato nella sezione precedente. Assegnare un nome al file del modello principale: "main-template. JSON" e assicurarsi che il modello di Resource Manager contenga i parametri di output per le variabili di chiave necessarie. (Deve essere un file con estensione zip)
 
-**Accedere alle informazioni -** *Campo obbligatorio* Dopo che un cliente ha ottenuto il test drive, vengono visualizzate le informazioni di accesso. Queste istruzioni sono pensate per condividere i parametri di output utili dal modello di Resource Manager del test drive. Per includere i parametri di output, usare le parentesi graffe doppie (ad esempio, **{{nomeoutput}}**) e questi verranno inseriti correttamente nella posizione. (La formattazione delle stringhe HTML è consigliata qui per eseguire il rendering nel front-end).
+**Accedere alle informazioni -** *Campo obbligatorio* Dopo che un cliente ha ottenuto il test drive, vengono visualizzate le informazioni di accesso. Queste istruzioni sono pensate per condividere i parametri di output utili dal modello di Resource Manager del test drive. Per includere i parametri di output, usare le parentesi graffe doppie (ad esempio, **{{nomeoutput}}** ) e questi verranno inseriti correttamente nella posizione. (La formattazione delle stringhe HTML è consigliata qui per eseguire il rendering nel front-end).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Dettagli di sottoscrizione della distribuzione del test drive
 
@@ -403,7 +403,7 @@ Fare clic su Save. L'ultimo passaggio consiste nell'individuare l'ID applicazion
 Poiché l'applicazione da distribuire nella sottoscrizione è in uso, è necessario aggiungere l'applicazione come collaboratore nella sottoscrizione. Le istruzioni per questi sono le seguenti:
 
 1. Sul pannello di sottoscrizione, selezionare la sottoscrizione in uso usando soltanto per il test drive.
-1. Fare clic su **Controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 1. Fare clic sulla scheda **Assegnazioni di ruolo**.  ![Aggiungere una nuova entità di sicurezza controllo di accesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Fare clic su **Aggiungi assegnazione ruolo**.
 1. Impostare il ruolo di **collaboratore**.
