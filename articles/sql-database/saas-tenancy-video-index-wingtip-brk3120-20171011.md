@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: bbe220780a3c21e7bfb15d0568904af4ed47f765
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61487280"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Annotazioni e indicizzazione dei video per l'app SaaS multi-tenant con il database SQL di Azure
@@ -24,7 +24,7 @@ ms.locfileid: "61487280"
 Questo articolo è un indice con annotazioni nelle posizioni temporali di un video di 81 minuti sui criteri o sui modelli di tenancy SaaS. L'articolo consente di spostarsi avanti o indietro nel video fino alla parte di interesse. Il video illustra le principali opzioni di progettazione per un'applicazione di database multi-tenant nel database SQL di Azure. Il video include demo, procedure dettagliate di codice di gestione e, talvolta, dettagli ricavati dalle esperienze più approfonditi rispetto a quanto disponibile nella documentazione.
 
 Il video analizza maggiormente in dettaglio le informazioni disponibili nella nostra documentazione disponibile in: 
-- *Informazioni generali:* Modelli di tenancy di database delle applicazioni SaaS multi-tenant[saas-concept-design-patterns-563e]
+- *Informazioni generali:* [Modelli di tenancy di database delle applicazioni SaaS multi-tenant][saas-concept-design-patterns-563e]
 - *Esercitazioni:* [L'applicazione SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
 Il video e gli articoli descrivono le varie fasi di creazione di un'applicazione multi-tenant nel database SQL di Azure nel cloud. Speciali funzionalità del database SQL di Azure agevolano lo sviluppo e l'implementazione di app multi-tenant più semplici da gestire e affidabili in termini di prestazioni.

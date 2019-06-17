@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 420800e718c8f98bfd3d5d7383829d5aa5472828
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64698169"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Usare Apache Kafka in HDInsight con l'hub IoT
@@ -167,7 +167,7 @@ Per recuperare informazioni sull'hub IoT usato dal connettore, attenersi alla pr
 
 1. Ottenere l'endpoint compatibile con hub eventi e il nome dell'endpoint compatibile con hub eventi per l'hub IoT. Per ottenere tali informazioni, usare uno dei metodi seguenti:
 
-   * __Dal [portale di Azure](https://portal.azure.com/)__, attenersi alla procedura seguente:
+   * __Dal [portale di Azure](https://portal.azure.com/)__ , attenersi alla procedura seguente:
 
      1. Passare all'hub IoT e selezionare __Endpoint__.
      2. Da __Endpoint predefiniti__, selezionare __Eventi__.
@@ -180,7 +180,7 @@ Per recuperare informazioni sull'hub IoT usato dal connettore, attenersi alla pr
         > [!IMPORTANT]  
         > Il valore dell'endpoint del portale può contenere testo aggiuntivo che non è necessario in questo esempio. Estrarre il testo che corrisponde al criterio `sb://<randomnamespace>.servicebus.windows.net/`.
 
-   * __Dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, usare il comando seguente:
+   * __Dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , usare il comando seguente:
 
        ```azure-cli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -196,13 +196,13 @@ Per recuperare informazioni sull'hub IoT usato dal connettore, attenersi alla pr
 
 2. Ottenere i __criteri di accesso condiviso__ e la __chiave__. Per questo esempio, usare la chiave __service__. Per ottenere tali informazioni, usare uno dei metodi seguenti:
 
-    * __Dal [portale di Azure](https://portal.azure.com/)__, attenersi alla procedura seguente:
+    * __Dal [portale di Azure](https://portal.azure.com/)__ , attenersi alla procedura seguente:
 
         1. Selezionare __Criteri di accesso condiviso__ e quindi __service__.
         2. Copiare il valore di __Chiave primaria__.
         3. Copiare il valore di __Stringa di connessione - chiave primaria__.
 
-    * __Dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, usare il comando seguente:
+    * __Dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , usare il comando seguente:
 
         1. Per ottenere il valore della chiave primaria, usare il comando seguente:
 
