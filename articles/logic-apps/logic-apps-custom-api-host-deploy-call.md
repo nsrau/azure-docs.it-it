@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
 ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60740390"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Distribuire e chiamare API personalizzate da flussi di lavoro in App per la logica

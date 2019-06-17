@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61472486"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analizzare il report di Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
@@ -32,13 +32,13 @@ Il foglio di lavoro On-premises summary (Riepilogo ambiente locale) offre una pa
 
 **Numero medio di dischi per macchina virtuale compatibile**: il numero medio di dischi calcolato tra tutte le macchine virtuali compatibili.
 
-**Dimensioni medie disco (GB)**: le dimensioni medie dei dischi calcolate tra tutte le macchine virtuali compatibili.
+**Dimensioni medie disco (GB)** : le dimensioni medie dei dischi calcolate tra tutte le macchine virtuali compatibili.
 
-**RPO desiderato(minuti)**: obiettivo del punto di ripristino predefinito o valore passato per il parametro "DesiredRPO" al momento della generazione di report per stimare la larghezza di banda necessaria.
+**RPO desiderato(minuti)** : obiettivo del punto di ripristino predefinito o valore passato per il parametro "DesiredRPO" al momento della generazione di report per stimare la larghezza di banda necessaria.
 
-**Larghezza di banda desiderata (Mbps)**: valore passato per il parametro "Bandwidth" al momento della generazione di report per stimare il valore RPO ottenibile.
+**Larghezza di banda desiderata (Mbps)** : valore passato per il parametro "Bandwidth" al momento della generazione di report per stimare il valore RPO ottenibile.
 
-**La varianza tipica dei dati osservata al giorno (GB)**: La varianza media dei dati osservata in tutti i giorni di profilatura. Questo numero viene usato come uno degli input per stabilire il numero di server di configurazione e di server di elaborazione aggiuntivi da usare nella distribuzione.
+**La varianza tipica dei dati osservata al giorno (GB)** : La varianza media dei dati osservata in tutti i giorni di profilatura. Questo numero viene usato come uno degli input per stabilire il numero di server di configurazione e di server di elaborazione aggiuntivi da usare nella distribuzione.
 
 ## <a name="recommendations"></a>Consigli
 
@@ -183,7 +183,7 @@ Si possono verificare situazioni in cui non è possibile impostare una larghezza
 
 **Nome macchina virtuale**: nome o indirizzo IP della VM usato in VMListFile quando viene generato un report. Questa colonna elenca anche i dischi (VMDK) collegati alle VM. Per distinguere le VM vCenter con nomi o indirizzi IP duplicati, i nomi includono il nome dell'host ESXi. L'host ESXi elencato è quello in cui la VM è stata inserita quando lo strumento l'ha rilevata durante il periodo di profilatura.
 
-**Compatibilità delle VM**: I valori sono **Sì** e **Sì**\*. **Yes**\* è per i casi in cui la macchina virtuale è idonea per i [dischi SSD Premium](../virtual-machines/windows/disks-types.md). Qui, il disco con varianza elevata o operazioni di I/O al secondo profilato è idoneo per la categoria P20 o P30, ma le dimensioni del disco prevedono la mappatura alla categoria P10 o P20. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco. Ad esempio: 
+**Compatibilità delle VM**: I valori sono **Sì** e **Sì**\*. **Yes**\* è per i casi in cui la macchina virtuale è idonea per i [dischi SSD Premium](../virtual-machines/windows/disks-types.md). Qui, il disco con varianza elevata o operazioni di I/O al secondo profilato è idoneo per la categoria P20 o P30, ma le dimensioni del disco prevedono la mappatura alla categoria P10 o P20. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco. Ad esempio:
 * <128 GB rientrano nella categoria P10.
 * Da 128 GB a 256 GB rientrano nella categoria P15.
 * Da 256 GB a 512 GB rientrano nella categoria P20.
@@ -201,17 +201,17 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 
 **Picco di operazioni di I/O al secondo in lettura/scrittura (con fattore di crescita)** : picco di operazioni di I/O al secondo in lettura/scrittura del carico di lavoro nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che il numero totale di operazioni di I/O al secondo in lettura/scrittura di una VM non è sempre costituito dalla somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della VM, perché il picco di operazioni di I/O al secondo in lettura/scrittura della VM è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
 
-**Picco di varianza dati in Mbps (con fattore di crescita)**: il picco di varianza nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che la varianza dei dati totale della VM non è sempre costituita dalla somma delle varianze dei singoli dischi della VM perché il picco della varianza dei dati corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
+**Picco di varianza dati in Mbps (con fattore di crescita)** : il picco di varianza nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che la varianza dei dati totale della VM non è sempre costituita dalla somma delle varianze dei singoli dischi della VM perché il picco della varianza dei dati corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
 
 **Dimensioni VM di Azure**: dimensioni ideali del mapping per Servizi cloud di Azure per questa VM locale. Il mapping si basa sulla memoria, sul numero di dischi/core/schede di interfaccia di rete e operazioni di I/O al secondo in lettura/scrittura della VM locale. La raccomandazione prevede sempre le dimensioni minime della VM di Azure corrispondenti a tutte le caratteristiche della VM locale.
 
 **Numero di dischi**: numero totale dei dischi nella VM (VMDK).
 
-**Dimensioni disco (GB)**: dimensioni di installazione totali di tutti i dischi della VM. Lo strumento indica anche le dimensioni dei singoli dischi della VM.
+**Dimensioni disco (GB)** : dimensioni di installazione totali di tutti i dischi della VM. Lo strumento indica anche le dimensioni dei singoli dischi della VM.
 
 **Core**: il numero di core CPU nella macchina virtuale.
 
-**Memoria (MB)**: la RAM della macchina virtuale.
+**Memoria (MB)** : la RAM della macchina virtuale.
 
 **Schede di interfaccia di rete**: il numero di schede di interfaccia di rete della macchina virtuale.
 
@@ -253,15 +253,15 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 
 **Picco di operazioni di I/O al secondo in lettura/scrittura (con fattore di crescita)** : picco di operazioni di I/O al secondo del carico di lavoro nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che il numero totale di operazioni di I/O al secondo in lettura/scrittura della VM non è sempre costituito dalla somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della VM, perché il picco di operazioni di I/O al secondo in lettura/scrittura della VM è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
 
-**Picco di varianza dati in Mbps (con fattore di crescita)**: picco della frequenza di varianza nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che la varianza dei dati totale della VM non è sempre costituita dalla somma delle varianze dei singoli dischi della VM perché il picco della varianza dei dati corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
+**Picco di varianza dati in Mbps (con fattore di crescita)** : picco della frequenza di varianza nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che la varianza dei dati totale della VM non è sempre costituita dalla somma delle varianze dei singoli dischi della VM perché il picco della varianza dei dati corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
 
 **Numero di dischi**: numero totale dei dischi VMDK nella VM.
 
-**Dimensioni disco (GB)**: dimensioni di installazione totali di tutti i dischi della VM. Lo strumento indica anche le dimensioni dei singoli dischi della VM.
+**Dimensioni disco (GB)** : dimensioni di installazione totali di tutti i dischi della VM. Lo strumento indica anche le dimensioni dei singoli dischi della VM.
 
 **Core**: il numero di core CPU nella macchina virtuale.
 
-**Memoria (MB)**: la quantità di RAM della macchina virtuale.
+**Memoria (MB)** : la quantità di RAM della macchina virtuale.
 
 **Schede di interfaccia di rete**: il numero di schede di interfaccia di rete della macchina virtuale.
 

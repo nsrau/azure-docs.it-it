@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119079"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Come creare e gestire Cache Redis di Azure mediante l'interfaccia della riga di comando classica di Azure
@@ -44,7 +44,7 @@ Per creare e gestire le istanze di Cache Redis di Azure usando l'interfaccia del
 ## <a name="azure-cache-for-redis-properties"></a>Domande frequenti su Cache Redis di Azure
 Le seguenti proprietà vengono utilizzate durante la creazione e l’aggiornamento delle istanze di Cache Redis di Azure.
 
-| Proprietà | Switch | DESCRIZIONE |
+| Proprietà | Opzione | Descrizione |
 | --- | --- | --- |
 | name |-n, --name |Nome della cache Redis di Azure. |
 | gruppo di risorse |-g, --resource-group |Nome del gruppo di risorse. |

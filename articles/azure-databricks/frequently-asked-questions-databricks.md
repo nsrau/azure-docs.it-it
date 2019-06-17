@@ -10,10 +10,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60784708"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Domande frequenti su Azure Databricks
@@ -99,7 +99,7 @@ I cluster Databricks usano un indirizzo IP pubblico per ogni nodo. Se la sottosc
 #### <a name="error-message"></a>Messaggio di errore
 
 "Errore di avvio del Provider cloud: Si è verificato un errore del provider cloud durante la configurazione del cluster. Per altre informazioni, vedere la guida di Databricks.
-Codice di errore di Azure: Messaggio di errore di MissingSubscriptionRegistration Azure: La sottoscrizione non è registrata per l'uso dello spazio dei nomi 'Microsoft.Compute'. Vedere https://aka.ms/rps-not-found per informazioni su come registrare le sottoscrizioni."
+Codice di errore di Azure: Messaggio di errore di MissingSubscriptionRegistration Azure: La sottoscrizione non è registrata per l'utilizzo dello spazio dei nomi 'Microsoft. COMPUTE'. Vedere https://aka.ms/rps-not-found per informazioni su come registrare le sottoscrizioni."
 
 #### <a name="solution"></a>Soluzione
 
@@ -121,6 +121,6 @@ Accedere come amministratore globale al portale di Azure. Per Azure Active Direc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva: Introduzione ad Azure Databricks](quickstart-create-databricks-workspace-portal.md)
+- [Avvio rapido: Introduzione ad Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [Informazioni su Azure Databricks](what-is-azure-databricks.md)
 

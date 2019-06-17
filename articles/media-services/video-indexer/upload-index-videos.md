@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799196"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
@@ -60,17 +60,17 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 - Modifica stato indicizzazione: 
     - Proprietà:    
     
-        |NOME|Descrizione|
+        |Name|Descrizione|
         |---|---|
-        |ID|L'ID del video|
+        |id|L'ID del video|
         |stato|Lo stato del video|  
     - Esempio: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Persona identificata nel video:
   - Properties
     
-      |NOME|Descrizione|
+      |Name|Descrizione|
       |---|---|
-      |ID| L'ID del video|
+      |id| L'ID del video|
       |faceId|L'ID viso che appare nell'indice video|
       |knownPersonId|L'ID utente univoco all'interno di un modello di viso|
       |personName|Il nome della persona|
@@ -284,7 +284,7 @@ public class AccountContractSlim
 
 L'operazione di caricamento può restituire i codici di stato elencati nella tabella seguente.
 
-|Codice stato|ErrorType (nel corpo della risposta)|Descrizione|
+|Codice di stato|ErrorType (nel corpo della risposta)|Descrizione|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|Lo stesso video è già in fase di elaborazione nell'account specificato.|
 |400|VIDEO_ALREADY_FAILED|Lo stesso video ha restituito un errore di elaborazione nell'account specificato meno di 2 ore prima. I client API devono attendere almeno 2 ore prima di caricare nuovamente un video.|

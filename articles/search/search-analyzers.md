@@ -10,10 +10,10 @@ manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
 ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65795806"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analizzatori per elaborazione del testo in Ricerca di Azure
@@ -345,7 +345,7 @@ Creare un [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure
 
 + [Configurare gli analizzatori personalizzati](index-add-custom-analyzers.md) per un'elaborazione minima o specializzata per settori specifici.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
  [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
 

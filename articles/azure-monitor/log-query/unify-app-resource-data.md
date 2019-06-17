@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
 ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424645"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificare più risorse di Application Insights in Monitoraggio di Azure 
@@ -108,7 +108,7 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
-| AvailabilityTimestamp |  timestamp |
+| AvailabilityTimestamp | timestamp |
 | Browser | client_browser |
 | city | client_city |
 | ClientIP | client_IP |

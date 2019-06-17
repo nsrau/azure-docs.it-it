@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: 000315a2d751a05d3e401ee1bb9f593c6e321194
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922924"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
@@ -45,7 +45,7 @@ Per rendere un utente amministratore per una sottoscrizione di Azure, assegnargl
 
 1. Fare clic sulla sottoscrizione in cui si intende concedere l'accesso.
 
-1. Fare clic su **Controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
 1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questa sottoscrizione.
 

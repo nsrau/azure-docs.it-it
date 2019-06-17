@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: e7f292db06d4da9206aabd14a68e6acde867f92d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822003"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funzionalità e terminologia di Hub eventi di Azure
@@ -146,7 +146,7 @@ Dopo l'apertura di una sessione AMQP 1.0 e del collegamento per una partizione s
 Dati evento:
 * Offset
 * Numero di sequenza
-* Corpo
+* Body
 * Proprietà utente
 * Proprietà di sistema
 

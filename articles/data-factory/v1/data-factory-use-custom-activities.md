@@ -14,14 +14,14 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: f7e3b1496890a4b97fc435b49ab9bf282134d1a6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65910827"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](data-factory-use-custom-activities.md)
 > * [Versione 2 (corrente)](../transform-data-using-dotnet-custom-activity.md)
 
@@ -97,7 +97,7 @@ Il metodo accetta quattro parametri:
 
 Il metodo restituisce un dizionario che può essere usato per concatenare le attività personalizzate in un secondo momento. Questa funzionalità non è ancora implementata, quindi il metodo restituisce un dizionario vuoto.
 
-### <a name="procedure"></a>Procedura
+### <a name="procedure"></a>Routine
 1. Creare un progetto **Libreria di classi .NET** .
    <ol type="a">
      <li>Avviare Visual Studio.</li>

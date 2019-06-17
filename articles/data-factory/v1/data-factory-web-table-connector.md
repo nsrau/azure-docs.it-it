@@ -14,14 +14,14 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61250575"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Spostare i dati da un'origine tabella Web con Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](data-factory-web-table-connector.md)
 > * [Versione 2 (corrente)](../connector-web-table.md)
 
@@ -73,9 +73,9 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **Web** |Sì |
+| type |La proprietà type deve essere impostata su: **Web** |Yes |
 | Url |URL dell'origine Web |Sì |
-| authenticationType |Anonimo. |Sì |
+| authenticationType |Anonimo. |Yes |
 
 ### <a name="using-anonymous-authentication"></a>Uso dell'autenticazione anonima
 
@@ -102,8 +102,8 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type |Tipo del set di dati. Deve essere impostato su **WebTable** |Sì |
-| path |URL relativo della risorsa che contiene la tabella. | No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
-| index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
+| path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
+| index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Yes |
 
 **Esempio:**
 

@@ -10,10 +10,10 @@ ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 8375f4c54dc436ecf0694ec5f629c81d3591594d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234149"
 ---
 # <a name="create-a-storage-account"></a>Creare un account di archiviazione
@@ -137,9 +137,9 @@ Per creare un account di archiviazione per utilizzo generico v2 con un'opzione d
 
 |Opzione di replica  |Parametro SkuName  |
 |---------|---------|
-|Archiviazione con ridondanza locale (LRS)     |Archiviazione con ridondanza locale Standard         |
-|Archiviazione con ridondanza della zona     |Standard_ZRS         |
-|Archiviazione con ridondanza geografica     |Standard_GRS         |
+|Archiviazione con ridondanza locale (LRS)     |Standard_LRS         |
+|Archiviazione con ridondanza della zona (ZRS).     |Standard_ZRS         |
+|Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
 
 # <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
@@ -175,9 +175,9 @@ Per creare un account di archiviazione per utilizzo generico v2 con un'opzione d
 
 |Opzione di replica  |Parametro sku  |
 |---------|---------|
-|Archiviazione con ridondanza locale (LRS)     |Archiviazione con ridondanza locale Standard         |
-|Archiviazione con ridondanza della zona     |Standard_ZRS         |
-|Archiviazione con ridondanza geografica     |Standard_GRS         |
+|Archiviazione con ridondanza locale (LRS)     |Standard_LRS         |
+|Archiviazione con ridondanza della zona (ZRS).     |Standard_ZRS         |
+|Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
 
 # <a name="templatetabtemplate"></a>[Modello](#tab/template)
@@ -220,7 +220,7 @@ Se si vuole pulire le risorse create da questo articolo con procedure, è possib
 Per rimuovere un gruppo di risorse usando il portale di Azure:
 
 1. Nel portale di Azure espandere il menu a sinistra per aprire il menu dei servizi e scegliere **Gruppi di risorse** per visualizzare l'elenco dei gruppi di risorse.
-2. Individuare il gruppo di risorse da eliminare e fare clic con il pulsante destro del mouse su **Altro** (**...**) a destra dell'elenco.
+2. Individuare il gruppo di risorse da eliminare e fare clic con il pulsante destro del mouse su **Altro** ( **...** ) a destra dell'elenco.
 3. Scegliere **Elimina gruppo di risorse** e confermare.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)

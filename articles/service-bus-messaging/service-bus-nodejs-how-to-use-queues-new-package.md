@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: 7aacefde9c037fcce64d9256e35082eb04e0a2f3
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65988358"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Come usare le code del Bus di servizio con Node. js e il pacchetto/service-bus di azure
-> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto Node. js"]
 > - [(Node. js | Service bus di azure)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
@@ -133,7 +133,7 @@ Congratulazioni! Appena ricevuti dei messaggi da una coda del Bus di servizio.
 Il [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient#createreceiver-receivemode-) metodo accetta un `ReceiveMode` che è un'enumerazione con i valori [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Ricordarsi di [finalizzazione dei messaggi](message-transfers-locks-settlement.md#settling-receive-operations) se si usa la `PeekLock` utilizzando una delle modalità `complete()`, `abandon()`, `defer()`, o `deadletter()` metodi sul messaggio.
 
 > [!NOTE]
-> È possibile gestire le risorse del Bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del Bus di servizio e amministrarne le entità di messaggistica in modo semplificato. Lo strumento offre funzionalità avanzate come la funzionalità di importazione/esportazione o la possibilità di testare l'argomento, code, sottoscrizioni, servizi di inoltro, hub di notifica e gli hub eventi. 
+> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere le risorse seguenti.

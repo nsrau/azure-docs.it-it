@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
 ms.openlocfilehash: 42c8c9c89a69224b222aabe8e929d800d22162ce
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604234"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Aprire un ticket di supporto per un processo di Importazione/Esportazione
@@ -28,7 +28,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 
 1. Andare al processo di importazione/esportazione. Passare alla sezione **SUPPORTO E RISOLUZIONE DEI PROBLEMI** e quindi fare clic su **Nuova richiesta di supporto**.
      
-    ![Generale](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
+    ![Nozioni di base](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
 2. In **Nuova richiesta di supporto** selezionare **Informazioni di base**. In **Informazioni di base** seguire questa procedura:
     
@@ -74,15 +74,15 @@ Dopo la creazione del ticket di supporto, sarà possibile gestire il ciclo di vi
 
 1. Per visualizzare la pagina Guida e supporto, passare a **Sfoglia -> Guida e supporto**.
 
-    ![Gestisci richieste di supporto](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
+    ![Gestire le richieste di supporto](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
 
 2. Verrà visualizzato l'elenco tabulare **Richieste di supporto recenti** in **Guida e supporto**.
 
-    ![Gestisci richieste di supporto](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
+    ![Gestire le richieste di supporto](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
 3. Selezionare e fare clic su una richiesta di supporto. È possibile visualizzare lo stato e i dettagli della richiesta. Fare clic su **+ Nuovo messaggio** se si vuole seguire la richiesta.
 
-    ![Gestisci richieste di supporto](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
+    ![Gestire le richieste di supporto](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

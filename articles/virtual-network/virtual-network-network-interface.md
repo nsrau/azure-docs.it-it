@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
 ms.openlocfilehash: f25840c21ec64ca8d8e9e17eb39637cff7524c76
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755254"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creare, modificare o eliminare un'interfaccia di rete

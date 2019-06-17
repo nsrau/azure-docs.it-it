@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: kumud
 ms.openlocfilehash: c612cdefa3f915212c43d7bdc4d48b10a593150b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60426073"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64705576"
 ---
 # <a name="azure-cli-samples-for-networking"></a>Esempi dell'interfaccia della riga di comando di Azure per la rete
 

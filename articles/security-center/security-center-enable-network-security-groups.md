@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 14b7cc8f8162574380ca21ac515af8b7d3d5ded9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60911446"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Abilitare i gruppi di sicurezza di rete nel Centro sicurezza di Azure
@@ -45,7 +45,7 @@ Se non è stato abilitato alcun gruppo di sicurezza di rete, il Centro sicurezza
 
 Se si crea un gruppo di sicurezza di rete, seguire la procedura illustrata in [Creare, modificare o eliminare un gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md) per creare un gruppo di sicurezza di rete e configurare le regole di sicurezza.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Questo articolo ha illustrato come implementare la raccomandazione "Abilita i gruppi di sicurezza di rete" per subnet o macchine virtuali nel Centro sicurezza. Per altre informazioni sull'abilitazione dei gruppi di sicurezza di rete, vedere gli articoli seguenti:
 
 * [Che cos'è un gruppo di sicurezza di rete](../virtual-network/security-overview.md)

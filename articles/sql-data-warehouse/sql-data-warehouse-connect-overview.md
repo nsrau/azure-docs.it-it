@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 2c937285b9c54072c6d1e1b0628c3d5fbfe786f3
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873657"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Connettersi ad Azure SQL Data Warehouse
@@ -63,8 +63,8 @@ SQL Data Warehouse standardizza alcune impostazioni durante la connessione e la 
 
 | Impostazione del database | Value |
 |:--- |:--- |
-| [ANSI_NULLS][ANSI_NULLS] |SÌ |
-| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |SÌ |
+| [ANSI_NULLS][ANSI_NULLS] |ATTIVA |
+| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ATTIVA |
 | [DATEFORMAT][DATEFORMAT] |mdy |
 | [DATEFIRST][DATEFIRST] |7 |
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: ba7d412e9bfc29a53cd0aa47a926f60580b45490
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237648"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creare risorse di Time Series Insights tramite i modelli di Azure Resource Manager
@@ -148,7 +148,7 @@ La procedura seguente descrive come usare PowerShell per distribuire un modello 
 
 1. Se non esiste, creare un nuovo gruppo di risorse.
 
-   * Se non è una risorsa esistente di gruppo, creare un nuovo gruppo di risorse con il **New-AzResourceGroup** comando. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio: 
+   * Se non è una risorsa esistente di gruppo, creare un nuovo gruppo di risorse con il **New-AzResourceGroup** comando. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"

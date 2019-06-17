@@ -12,10 +12,10 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 19666eb668dd120c1705c6a62a8ba1abd2321026
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61261827"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Ruoli e autorizzazioni per Azure Data Factory
@@ -57,7 +57,7 @@ Le autorizzazioni per Azure Repos e GitHub sono indipendenti dalle autorizzazion
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Scenari personalizzati e ruoli personalizzati
 
-In alcuni casi potrebbe essere necessario concedere livelli di accesso diversi a utenti di data factory diversi. Ad esempio: 
+In alcuni casi potrebbe essere necessario concedere livelli di accesso diversi a utenti di data factory diversi. Ad esempio:
 - Potrebbe servire un gruppo in cui gli utenti dispongano solo di autorizzazioni su una data factory specifica.
 - Oppure potrebbe essere necessario un gruppo in cui gli utenti possano monitorare solo una data factory (o più data factory) ma non possano modificarla.
 
@@ -78,7 +78,7 @@ Ecco alcuni esempi che illustrano cosa si può ottenere con i ruoli personalizza
   Questo scenario richiede due assegnazioni di ruolo.
 
   1. Assegnare il ruolo **collaboratore** predefinito a livello di data factory.
-  2. Creare un ruolo personalizzato con l'autorizzazione **Microsoft.Resources/deployments/**. Assegnare questo ruolo personalizzato all'utente a livello di gruppo di risorse.
+  2. Creare un ruolo personalizzato con l'autorizzazione **Microsoft.Resources/deployments/** . Assegnare questo ruolo personalizzato all'utente a livello di gruppo di risorse.
 
 - Consentire a un utente di aggiornare una data factory da PowerShell o da SDK, ma non nel portale di Azure.
 

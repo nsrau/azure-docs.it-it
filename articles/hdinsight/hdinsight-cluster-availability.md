@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
 ms.openlocfilehash: 459de569916af14b0efea0ff08b92e5c93ed2369
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718904"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Come monitorare la disponibilità di cluster con Ambari e monitoraggio di Azure log
@@ -58,7 +58,7 @@ Per visualizzare un elenco di definizioni di avviso e i relativi stati, fare cli
 
 Ambari offre molti avvisi predefiniti relativi alla disponibilità, tra cui:
 
-| Nome avviso                        | DESCRIZIONE                                                                                                                                                                           |
+| Nome avviso                        | Descrizione                                                                                                                                                                           |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Riepilogo dell'integrità DataNode           | Questo avviso a livello di servizio viene attivato se sono presenti DataNodes non integri                                                                                                                |
 | Stato di disponibilità elevata di NameNode | Questo avviso a livello di servizio viene attivato se NameNode attivi o Standby NameNode non è in esecuzione.                                                                              |
@@ -108,7 +108,7 @@ Una volta attivata l'integrazione dei log di monitoraggio di Azure (l'operazione
 
 Il **registri** pannello elenca un numero di query di esempio, ad esempio:
 
-| Nome della query                      | DESCRIZIONE                                                               |
+| Nome della query                      | Descrizione                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | Oggi stesso la disponibilità di computer    | Il numero di computer che inviano i log, ogni ora del grafico                     |
 | Elenco heartbeat                 | Elencare tutti gli heartbeat computer dall'ultima ora                           |

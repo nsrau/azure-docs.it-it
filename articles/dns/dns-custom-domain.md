@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
 ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62096253"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usare il servizio DNS di Azure per specificare impostazioni di dominio personalizzate per un servizio di Azure
@@ -38,9 +38,9 @@ Si noti l'URL corrente nel pannello **Domini personalizzati**, questo indirizzo 
 
 Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazioni seguenti nel pannello **Aggiungi set di record** e fare clic su **OK** per crearlo.
 
-|Proprietà  |Valore  |DESCRIZIONE  |
+|Proprietà  |Valore  |Descrizione  |
 |---------|---------|---------|
-|NOME     | myfunctionapp        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
+|Name     | myfunctionapp        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
 |Type     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
@@ -63,10 +63,10 @@ Passare a **Rete** > **Indirizzo IP pubblico**, selezionare la risorsa indirizzo
 Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazioni seguenti nel pannello **Aggiungi set di record** e fare clic su **OK** per crearlo.
 
 
-|Proprietà  |Valore  |DESCRIZIONE  |
+|Proprietà  |Valore  |Descrizione  |
 |---------|---------|---------|
-|NOME     | mywebserver        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
-|Type     | Una         | Usare un record A perché la risorsa è un indirizzo IP.        |
+|Name     | mywebserver        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
+|Type     | Una        | Usare un record A perché la risorsa è un indirizzo IP.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
 |Indirizzo IP     | `<your ip address>`       | Indirizzo IP pubblico.|
@@ -90,9 +90,9 @@ Si noti l'URL corrente nel pannello **Domini personalizzati**, questo indirizzo 
 Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazioni seguenti nel pannello **Aggiungi set di record** e fare clic su **OK** per crearlo.
 
 
-|Proprietà  |Valore  |DESCRIZIONE  |
+|Proprietà  |Valore  |Descrizione  |
 |---------|---------|---------|
-|NOME     | mywebserver        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
+|Name     | mywebserver        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
 |Type     | CNAME        | L'uso di un record CNAME equivale a usare un alias. Se la risorsa ha usato indirizzo IP, viene usato un record A.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
@@ -124,9 +124,9 @@ Passare ad **Archiviazione** > **Account di archiviazione**, selezionare l'accou
 Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazioni seguenti nel pannello **Aggiungi set di record** e fare clic su **OK** per crearlo.
 
 
-|Proprietà  |Valore  |DESCRIZIONE  |
+|Proprietà  |Valore  |Descrizione  |
 |---------|---------|---------|
-|NOME     | asverify.mystorageaccount        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
+|Name     | asverify.mystorageaccount        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
 |Type     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
@@ -152,9 +152,9 @@ Selezionare l'endpoint che si sta usando e fare clic su **+ Dominio personalizza
 
 Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazioni seguenti nel pannello **Aggiungi set di record** e fare clic su **OK** per crearlo.
 
-|Proprietà  |Valore  |DESCRIZIONE  |
+|Proprietà  |Valore  |Descrizione  |
 |---------|---------|---------|
-|NOME     | cdnverify.mycdnendpoint        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
+|Name     | cdnverify.mycdnendpoint        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
 |Type     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |

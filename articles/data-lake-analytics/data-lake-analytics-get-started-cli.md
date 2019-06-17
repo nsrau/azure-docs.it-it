@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: 9d9d5a7232529989901709013dcfac12f94afad0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60812755"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure
@@ -127,11 +127,11 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-Questo script U-SQL legge il file di dati di origine con **Extractors.Tsv()** e quindi crea un file CSV con **Outputters.Csv()**.
+Questo script U-SQL legge il file di dati di origine con **Extractors.Tsv()** e quindi crea un file CSV con **Outputters.Csv()** .
 
 Non modificare i due percorsi, a meno che il file di origine non sia stato copiato in una posizione diversa.  Data Lake Analytics creerà la cartella di output, se non esiste già.
 
-Risulta più semplice usare i percorsi relativi dei file archiviati in account Data Lake Store predefiniti, ma ma è possibile usare anche percorsi assoluti.  Ad esempio: 
+Risulta più semplice usare i percorsi relativi dei file archiviati in account Data Lake Store predefiniti, ma ma è possibile usare anche percorsi assoluti.  Ad esempio:
 
 ```
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
@@ -156,7 +156,7 @@ Per inviare un processo, usare la sintassi seguente:
 az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 ```
 
-Ad esempio: 
+Ad esempio:
 
 ```
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
@@ -187,7 +187,7 @@ az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/Sea
 az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "<Destination Path and File Name>"
 ```
 
-Ad esempio: 
+Ad esempio:
 
 ```
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"

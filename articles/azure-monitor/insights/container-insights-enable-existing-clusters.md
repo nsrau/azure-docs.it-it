@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
 ms.openlocfilehash: ae340fb11d422b7516cc315e78be974d22239503
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074681"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Abilitare il monitoraggio dei cluster Azure Kubernetes Service (AKS) già distribuito
@@ -37,7 +37,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="enable-using-azure-cli"></a>Abilitare tramite l'interfaccia della riga di comando di Azure
 
-La procedura seguente abilita il monitoraggio del cluster servizio Azure Kubernetes usando l'interfaccia della riga di comando di Azure. In questo esempio non è necessario creare o specificare un'area di lavoro esistente. Questo comando semplifica il processo creando un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster servizio Azure Kubernetes se non ne esiste già una nella regione.  L'area di lavoro predefinita creata ricorda il formato di *DefaultWorkspace-\<GUID>-\<Region>*.  
+La procedura seguente abilita il monitoraggio del cluster servizio Azure Kubernetes usando l'interfaccia della riga di comando di Azure. In questo esempio non è necessario creare o specificare un'area di lavoro esistente. Questo comando semplifica il processo creando un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster servizio Azure Kubernetes se non ne esiste già una nella regione.  L'area di lavoro predefinita creata ricorda il formato di *DefaultWorkspace-\<GUID>-\<Region>* .  
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  

@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409605"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e la condivisione di file per le istanze di SAP ASCS/SCS
@@ -317,7 +317,7 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 > È necessario specificare il numero di macchine virtuali nell'interfaccia utente del modello di Resource Manager del file server di scalabilità orizzontale.
 >
 
-### <a name="use-managed-disks"></a>Usa dischi gestiti
+### <a name="use-managed-disks"></a>Usare i dischi gestiti
 
 Il modello di Azure Resource Manager per la distribuzione del file server di scalabilità orizzontale con Spazi di archiviazione diretta e Azure Managed Disks è disponibile su [GitHub][arm-sofs-s2d-managed-disks].
 

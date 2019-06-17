@@ -12,10 +12,10 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
 ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989958"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Creazione e l'esplorazione automatizzati esperimenti di machine learning nel portale di Azure (anteprima)
@@ -60,8 +60,8 @@ Selezionare il pulsante Crea esperimento per popolare il modulo seguente.
 
     Campo|Descrizione
     ---|---
-    Nome dell'ambiente di calcolo| Immettere un nome univoco che identifica il contesto di calcolo.
-    Dimensioni delle macchine virtuali| Selezionare le dimensioni di macchina virtuale per le risorse di calcolo.
+    Nome calcolo| Immettere un nome univoco che identifica il contesto di calcolo.
+    Dimensioni della macchina virtuale| Selezionare le dimensioni di macchina virtuale per le risorse di calcolo.
     Impostazioni aggiuntive| *Nodo min*: Immettere il numero minimo di nodi per le risorse di calcolo. Il numero minimo di nodi di calcolo di Azure Machine Learning è 0. Per abilitare la profilatura dei dati, è necessario disporre di 1 o più nodi. <br> *Nodo max*: Immettere il numero massimo di nodi per le risorse di calcolo. Il valore predefinito è 6 nodi per un calcolo di Azure Machine Learning.
 
       Per avviare la creazione delle nuove risorse di calcolo, selezionare **Create**. Questa operazione può richiedere alcuni istanti.

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: v-adgera
-ms.openlocfilehash: 31944c08bad503c20832ea7e4e682c0063ab0f9f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: cd67f1065f47b758f2a7e0e5be3c60169c30273e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735045"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116574"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Come configurare Postman per Gemelli digitali di Azure
 
@@ -41,7 +41,7 @@ Configurare l'app di Azure Active Directory per usare il flusso di concessione i
 
     [![Registrazioni per l'app Azure Active Directory aggiungere le api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
-1. Fare clic su **Manifesto** per aprire il manifesto dell'applicazione per l'app. Impostare *oauth2AllowImplicitFlow* su `true`.
+1. Selezionare **manifesto** per aprire il manifesto dell'applicazione per l'app. Impostare *oauth2AllowImplicitFlow* su `true`.
 
     [![Flusso implicito di Azure Active Directory](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
@@ -62,7 +62,7 @@ Successivamente installare e configurare Postman per ottenere un token di Azure 
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | NOME  | Sostituire con | Esempio |
+    | Name  | Sostituire con | Esempio |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | Il nome del tenant o dell'organizzazione | `microsoft` |
 
@@ -111,7 +111,7 @@ Dopo aver completato i passaggi precedenti, configurare Postman per eseguire una
    > * Non è necessario specificare tali intestazioni per ogni parte.
    > * Selezionare `multipart/mixed` o un altro **Content-Type** appropriato per l'intera richiesta.
 
-1. Infine, fare clic su **Invia** per inviare la richiesta POST HTTP multipart.
+1. Infine, selezionare **inviare** per inviare la richiesta HTTP POST in più parti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

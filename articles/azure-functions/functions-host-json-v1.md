@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
 ms.openlocfilehash: 44bc5a245d1bcbc8ff53991af4193ef86f7cd704
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62107075"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 1.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Selezionare la versione del runtime di funzioni di Azure in uso: "]
 > * [Versione 1](functions-host-json-v1.md)
 > * [Versione 2](functions-host-json.md)
 
@@ -163,7 +163,7 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
@@ -210,7 +210,7 @@ Controlla le operazioni di filtro per i log scritti da un [oggetto ILogger](func
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |categoryFilter|n/d|Specifica il filtro per categoria| 
 |defaultLevel|Informazioni|Per tutte le categorie non è state specificate nella matrice `categoryLevels`, inviare i log a questo livello e oltre per Application Insights.| 
@@ -232,7 +232,7 @@ Impostazione di configurazione per i [trigger e le associazioni per code di arch
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |maxPollingInterval|60000|L'intervallo massimo, in millisecondi, tra i polling di coda.| 
 |visibilityTimeout|0|L'intervallo di tempo tra i tentativi se l'elaborazione di un messaggio ha esito negativo.| 
@@ -254,7 +254,7 @@ Impostazione di configurazione per i [trigger e le associazioni dei bus di servi
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|Il numero massimo di chiamate simultanee al callback che il message pump deve avviare. Per impostazione predefinita, il runtime di Funzioni elabora più messaggi contemporaneamente. Per fare in modo che il runtime elabori un solo messaggio della coda o dell'argomento alla volta, impostare `maxConcurrentCalls` su 1. | 
 |prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato per il MessageReceiver sottostante.| 
@@ -276,7 +276,7 @@ Impostazioni di configurazione per il comportamento di blocco Singleton. Per ult
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Il periodo per cui vengono eseguiti blocchi a livello di funzione. I blocchi si rinnovano automaticamente.| 
 |listenerLockPeriod|00:01:00|Il periodo per cui vengono acquisiti blocchi di listener.| 
@@ -299,7 +299,7 @@ Le impostazioni di configurazione per i log creati usando un oggetto `TraceWrite
 }
 ```
 
-|Proprietà  |Predefinito | DESCRIZIONE |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |consoleLevel|info|Il livello di traccia per la registrazione della console. Le opzioni sono: `off`, `error`, `warning`, `info` e `verbose`.|
 |fileLoggingMode|debugOnly|Il livello di traccia per la registrazione di file. Le opzioni sono `never`, `always`, `debugOnly`.| 

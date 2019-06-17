@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: 8b10ef18fd389179a4f5422783606c45fa2e0d32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60728050"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configurare KVSActorStateProvider di Reliable Actors
@@ -50,7 +50,7 @@ La configurazione predefinita viene generata dal modello di Visual Studio e dovr
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Nomi delle configurazioni
-| NOME | Unità | Valore predefinito | Osservazioni |
+| Name | Unità | Valore predefinito | Note |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Secondi |0,015 |Periodo di tempo per cui il replicatore, dopo aver ricevuto un'operazione, attende presso il replicatore secondario prima di inviare un acknowledgement al replicatore principale. Gli altri acknowledgement relativi alle operazioni elaborate all'interno di questo intervallo vengono inviati come risposta unica. |
 | ReplicatorEndpoint |N/D |Nessun valore predefinito: parametro obbligatorio |Indirizzo IP e porta che il replicatore principale/secondario userà per comunicare con altri replicatori nel set di repliche. Deve fare riferimento a un endpoint di risorsa TCP nel manifesto del servizio. Per sapere di più sulla definizione delle risorse dell'endpoint nel manifesto del servizio, vedere [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md) . |
@@ -67,7 +67,7 @@ La configurazione predefinita viene generata dal modello di Visual Studio e dovr
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>Nomi delle configurazioni
-| NOME | Unità | Valore predefinito | Osservazioni |
+| NOME | Unità | Valore predefinito | Note |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |Millisecondi |200 |Intervallo massimo di invio in batch per i commit durevoli nell'archivio locale. |
 | MaxVerPages |Numero di pagine |16384 |Numero massimo di pagine della versione nel database dell'archivio locale. Determina il numero massimo di transazioni in sospeso. |
@@ -94,7 +94,7 @@ La configurazione predefinita viene generata dal modello di Visual Studio e dovr
    </Section>
 </Settings>
 ```
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 Il parametro BatchAcknowledgementInterval controlla la latenza di replica. Il valore '0' determina la latenza più bassa possibile a scapito della velocità effettiva, in quanto è necessario inviare ed elaborare una maggiore quantità di messaggi di acknowledgement, ciascuno dei quali contenente un numero minore di acknowledgement.
 Più alto è il valore di BatchAcknowledgementInterval, maggiore sarà la velocità effettiva di replica complessiva, ma con una latenza delle operazioni più elevata. Questo ha un impatto diretto sulla latenza dei commit delle transazioni.
 

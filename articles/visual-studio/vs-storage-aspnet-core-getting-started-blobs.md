@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
 ms.openlocfilehash: f8de7f7a263a087abb16ed48d05b2cae9834b4ad
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110523"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introduzione all'archiviazione BLOB di Azure e ai relativi servizi di Visual Studio (ASP.NET Core)
@@ -51,7 +51,7 @@ Questa sezione illustra dettagliatamente come configurare l'ambiente di sviluppo
 
     ![Screenshot della finestra di dialogo Nuovo progetto in Visual Studio](./media/vs-storage-aspnet-core-getting-started-blobs/new-project.png)
 
-1. Nella finestra di dialogo **Nuova applicazione Web ASP.NET Core** selezionare **.NET Core** > **ASP.NET Core 2.0** > **Applicazione Web (MVC)**. Selezionare **OK**.
+1. Nella finestra di dialogo **Nuova applicazione Web ASP.NET Core** selezionare **.NET Core** > **ASP.NET Core 2.0** > **Applicazione Web (MVC)** . Selezionare **OK**.
 
     ![Screenshot della finestra di dialogo Nuova applicazione Web ASP.NET Core](./media/vs-storage-aspnet-core-getting-started-blobs/new-mvc.png)
 

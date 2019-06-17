@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65992102"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Come argomenti del Bus di servizio di utilizzo e le sottoscrizioni con Node. js e il pacchetto azure-sb
-> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto Node. js"]
 > - [(Node. js | Service bus di azure)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
@@ -87,7 +87,7 @@ Per un esempio di impostazione delle variabili di ambiente per un servizio cloud
 
 
 
-## <a name="create-a-topic"></a>Crea un argomento
+## <a name="create-a-topic"></a>Creare un argomento
 L'oggetto **ServiceBusService** consente di usare gli argomenti. Il codice seguente consente di creare un oggetto **ServiceBusService**. Aggiungerlo nella parte superiore del file **server.js** dopo l'istruzione per l'importazione del modulo azure:
 
 ```javascript
@@ -336,7 +336,7 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 ```
 
 > [!NOTE]
-> È possibile gestire le risorse del Bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del Bus di servizio e amministrarne le entità di messaggistica in modo semplificato. Lo strumento offre funzionalità avanzate come la funzionalità di importazione/esportazione o la possibilità di testare l'argomento, code, sottoscrizioni, servizi di inoltro, hub di notifica e gli hub eventi. 
+> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di servizio, usare i seguenti collegamenti per altre informazioni.

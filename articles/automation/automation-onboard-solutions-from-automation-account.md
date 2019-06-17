@@ -10,10 +10,10 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: a1bb5534d2f98a4e5143038ab1d5fbbcc76184fe
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133194"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario
@@ -125,7 +125,7 @@ Dopo la rimozione di queste soluzioni è possibile completare i passaggi seguent
 
 1. Nel portale di Azure aprire l'account di Automazione e nella pagina Account di automazione selezionare **Area di lavoro collegata** nella sezione contrassegnata **Risorse correlate** a sinistra.
 
-2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)**.
+2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)** .
 
    ![Pagina Unlink workspace (Scollega area di lavoro)](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 

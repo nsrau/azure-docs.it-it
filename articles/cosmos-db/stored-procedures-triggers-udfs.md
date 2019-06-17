@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 40d120fe5fcc79721923d3493e74b5195ecc129c
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965712"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente

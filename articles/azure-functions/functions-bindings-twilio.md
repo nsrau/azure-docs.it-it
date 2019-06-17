@@ -13,11 +13,11 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc6ca29af1866c5d26d3b73b26121451440c4dac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306654"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511807"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Associazione di Twilio per Funzioni di Azure
 
@@ -403,7 +403,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|---------|----------------------|
 |**type**|**type**| deve essere impostato su `twilioSms`.|
 |**direction**|**direction**| deve essere impostato su `out`.|
-|**nome**|**nome**| Nome della variabile usato nel codice della funzione per il messaggio SMS di Twilio. |
+|**name**|**name**| Nome della variabile usato nel codice della funzione per il messaggio SMS di Twilio. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Questo valore deve essere impostato sul nome di un'impostazione dell'app che contiene il SID account di Twilio, ad esempio TwilioAccountSid. Se non viene impostato, il nome predefinito dell'impostazione dell'app è "AzureWebJobsTwilioAccountSid". |
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| Questo valore deve essere impostato sul nome di un'impostazione dell'app che contiene il token di autenticazione di Twilio, ad esempio TwilioAccountAuthToken. Se non viene impostato, il nome predefinito dell'impostazione dell'app è "AzureWebJobsTwilioAuthToken". |
 |**to**| N/D - specificare nel codice | **To**| Questo valore è impostato sul numero di telefono a cui viene inviato il messaggio SMS.|

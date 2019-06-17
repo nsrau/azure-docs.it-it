@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
 ms.openlocfilehash: 81e00c4a3b9490a05667d58952f7bdf8945bacdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61405255"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Risoluzione dei problemi di connessione SSH a una macchina virtuale Linux di Azure che ha esito negativo, genera errori o è stata rifiutata.
@@ -255,7 +255,7 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 ## <a name="vms-created-by-using-the-classic-deployment-model"></a>VM create con il modello di distribuzione classica
 Per risolvere gli errori di connessione SSH più comuni nelle VM create con il modello di distribuzione classica, provare a eseguire questi passaggi. Dopo ogni passaggio, tentare la riconnessione alla VM.
 
-* Reimpostare l'accesso remoto dal [portale di Azure](https://portal.azure.com). Nel portale di Azure, selezionare la macchina virtuale e quindi selezionare **Reimposta accesso remoto...**.
+* Reimpostare l'accesso remoto dal [portale di Azure](https://portal.azure.com). Nel portale di Azure, selezionare la macchina virtuale e quindi selezionare **Reimposta accesso remoto...** .
 * Riavviare la VM. Nel [portale di Azure](https://portal.azure.com) selezionare la macchina virtuale e selezionare **Riavvia**.
 
 * Ridistribuire la VM su un nuovo nodo di Azure. Per informazioni su come eseguire questa operazione, vedere [Ridistribuzione della macchina virtuale su un nuovo nodo di Azure](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

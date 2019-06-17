@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: 1ec6a174d05f8707bbffcc9fb013a98c2eb9196c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200553"
 ---
 # <a name="access-your-security-data"></a>Accedere ai dati di sicurezza 
@@ -69,7 +69,7 @@ SecurityAlert
 | take 3
 ```
 
-| TimeGenerated           | IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | DESCRIZIONE                                             | ExtendedProperties                                                                                                                                                             |
+| TimeGenerated           | IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | Descrizione                                             | ExtendedProperties                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Alto          | Attacco di forza bruta ha avuto esito positivo           | Un attacco di forza bruta sul dispositivo è stato completato        |    {"Indirizzo di origine completo": "[\"10.165.12.18:\"]", "Nomi utente": "[\"\"]", "DeviceId": "IoT-Device-Linux" }                                                                       |
 | 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Alto          | Eseguito correttamente l'accesso locale sul dispositivo      | È stato rilevato un accesso locale ha esito positivo al dispositivo     | {"Indirizzo remoto": "?", "Porta remota": "", "Porta locale": "", "Account di accesso Shell": "/ bin/unità di streaming", "Id di processo di accesso": "28207", "User Name": "autore dell'attacco", "DeviceId": "IoT-Device-Linux" } |
@@ -149,10 +149,10 @@ SecurityRecommendation
 | take 2
 ```
     
-| TimeGenerated | IoTHubId | deviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | DESCRIZIONE | RecommendationAdditionalData |
+| TimeGenerated | IoTHubId | deviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Descrizione | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
-| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Media | Attivo | Regola di firewall permissivi nella catena di input è stata trovata | È stata rilevata una regola del firewall che contiene un criterio permissivo per un intervallo ampio di indirizzi IP o porte | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
-| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Media | Attivo | Regola di firewall permissivi nella catena di input è stata trovata | È stata rilevata una regola del firewall che contiene un criterio permissivo per un intervallo ampio di indirizzi IP o porte | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Media | Attivo | Regola di firewall permissivi nella catena di input è stata trovata | Una regola del firewall è stata trovata che contiene un modello permissivo per un'ampia gamma di porte o indirizzi IP | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Media | Attivo | Regola di firewall permissivi nella catena di input è stata trovata | Una regola del firewall è stata trovata che contiene un modello permissivo per un'ampia gamma di porte o indirizzi IP | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
 
 ### <a name="device-summary"></a>Riepilogo del dispositivo
 

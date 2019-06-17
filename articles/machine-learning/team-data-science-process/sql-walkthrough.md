@@ -12,10 +12,10 @@ ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606524"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server
@@ -376,7 +376,7 @@ Allo stesso modo, è possibile verificare la relazione tra **rate\_code** e **tr
 ![Grafico n. 8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>Sottocampionamento dei dati in SQL
-Quando si preparano i dati per la creazione di modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da usare direttamente nel modulo Importa dati** o salvare in modo definitivo i dati compilati e campionati in una nuova tabella e poi usarla nel modulo [Importa dati][import-data] con un semplice **SELECT * FROM <nome\_della\_nuova\_tabella>**.
+Quando si preparano i dati per la creazione di modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da usare direttamente nel modulo Importa dati** o salvare in modo definitivo i dati compilati e campionati in una nuova tabella e poi usarla nel modulo [Importa dati][import-data] con un semplice **SELECT * FROM <nome\_della\_nuova\_tabella>** .
 
 In questa sezione verrà creata una nuova tabella per contenere i dati campionati e compilati. Un esempio di query SQL diretta per la creazione di modelli viene fornita nella sezione [Esplorazione dei dati e progettazione di funzionalità in SQL Server](#dbexplore) .
 

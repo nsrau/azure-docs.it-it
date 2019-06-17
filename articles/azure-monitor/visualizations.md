@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
 ms.openlocfilehash: 4e9bb9bd86e22efa5dd514e742481911b09c5e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61088256"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
@@ -53,7 +53,7 @@ I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecno
 ## <a name="azure-monitor-views"></a>Visualizzazioni di Monitoraggio di Azure
 Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consentono di creare visualizzazioni personalizzate con i dati di log. Vengono usate dalle [soluzioni di monitoraggio](insights/solutions.md) per presentare i dati raccolti.
 
-![Visualizza](media/visualizations/view.png)
+![visualizzazione](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Vantaggi
 - Visualizzazioni avanzate per i dati di log.

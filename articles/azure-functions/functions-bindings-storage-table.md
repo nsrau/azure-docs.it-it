@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.openlocfilehash: 0c9cd513f4d5842d14077bb7470ebd18c7a46340
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306750"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511862"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associazioni di Archiviazione tabelle di Azure per Funzioni di Azure
 
@@ -503,7 +503,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su `table`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure.|
 |**direction** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure. |
-|**nome** | n/d | Nome della variabile che rappresenta la tabella o l'entità nel codice della funzione. | 
+|**name** | n/d | Nome della variabile che rappresenta la tabella o l'entità nel codice della funzione. | 
 |**tableName** | **TableName** | Nome della tabella.| 
 |**partitionKey** | **PartitionKey** |facoltativo. Chiave di partizione dell'entità della tabella da leggere. Vedere la sezione [usage](#input---usage) per indicazioni sull'uso di questa proprietà.| 
 |**rowKey** |**RowKey** | facoltativo. Chiave di riga dell'entità della tabella da leggere. Vedere la sezione [usage](#input---usage) per indicazioni sull'uso di questa proprietà.| 
@@ -763,7 +763,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su `table`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure.|
 |**direction** | n/d | Il valore deve essere impostato su `out`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure. |
-|**nome** | n/d | Nome della variabile usato nel codice della funzione che rappresenta la tabella o l'entità. Impostare su `$return` per fare riferimento al valore restituito della funzione.| 
+|**name** | n/d | Nome della variabile usato nel codice della funzione che rappresenta la tabella o l'entità. Impostare su `$return` per fare riferimento al valore restituito della funzione.| 
 |**tableName** |**TableName** | Nome della tabella.| 
 |**partitionKey** |**PartitionKey** | Chiave di partizione dell'entità della tabella da scrivere. Vedere la sezione [usage](#output---usage) per indicazioni sull'uso di questa proprietà.| 
 |**rowKey** |**RowKey** | Chiave di riga dell'entità della tabella da scrivere. Vedere la sezione [usage](#output---usage) per indicazioni sull'uso di questa proprietà.| 

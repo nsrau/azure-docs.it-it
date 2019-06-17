@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: tamram
 ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484275"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Gestire le impostazioni dell'account di archiviazione nel portale di Azure
@@ -27,7 +27,7 @@ Le impostazioni di **Controllo di accesso** nel portale di Azure consentono di a
 > [!NOTE]
 > L'autenticazione degli utenti o delle applicazioni tramite le credenziali di Azure AD offre un livello superiore di sicurezza e facilità d'uso rispetto ad altri metodi di autorizzazione. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token di firma di accesso condiviso o di occuparsi della revoca di una di firma di accesso condiviso compromessa. 
 
-## <a name="tags"></a>Tag
+## <a name="tags"></a>`Tags`
 
 Archiviazione di Azure supporta i tag di Azure Resource Manager per l'organizzazione delle risorse di Azure con una tassonomia personalizzata. È possibile applicare i tag agli account di archiviazione per poterli raggruppare in modo logico nella sottoscrizione. 
 

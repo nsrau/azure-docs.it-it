@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 360b794f0d8ba9c145a92f015f264eb624fbb0f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65144888"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato parquet in Azure Data Factory
@@ -28,9 +28,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 | Proprietà         | Descrizione                                                  | Obbligatoria |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | La proprietà type del set di dati deve essere impostata su **Parquet**. | Sì      |
-| location         | Impostazioni del percorso dei file. Ogni connettore basato su file dispone del proprio tipo di posizione e supportate le proprietà in `location`. **Vedere i dettagli nell'articolo del connettore -> sezione Proprietà set di dati**. | Sì      |
-| compressionCodec | Il codec di compressione da usare durante la scrittura di file Parquet. Durante la lettura dal file Parquet, Data Factory determina automaticamente il codec di compressione in base ai metadati di file.<br>Tipi supportati sono "**none**","**gzip**","**snappy**" (predefinito), e "**lzo**". Si noti attualmente nepodporuje funkci LZO attività di copia. | No        |
+| type             | La proprietà type del set di dati deve essere impostata su **Parquet**. | Yes      |
+| location         | Impostazioni del percorso dei file. Ogni connettore basato su file dispone del proprio tipo di posizione e supportate le proprietà in `location`. **Vedere i dettagli nell'articolo del connettore -> sezione Proprietà set di dati**. | Yes      |
+| compressionCodec | Il codec di compressione da usare durante la scrittura di file Parquet. Durante la lettura dal file Parquet, Data Factory determina automaticamente il codec di compressione in base ai metadati di file.<br>Tipi supportati sono "**none**","**gzip**","**snappy**" (predefinito), e "**lzo**". Si noti attualmente nepodporuje funkci LZO attività di copia. | No       |
 
 > [!NOTE]
 > Spazi vuoti nel nome della colonna non è supportato per i file Parquet.
@@ -69,8 +69,8 @@ Nell'attività di copia sono supportate le proprietà seguenti ***\*sorgente\***
 
 | Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La proprietà type dell'origine dell'attività di copia deve essere impostata su **ParquetSource**. | Sì      |
-| storeSettings | Un gruppo di proprietà sulla lettura dei dati da un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di lettura supportate in `storeSettings`. **Vedere i dettagli nell'articolo del connettore -> sezione Proprietà attività di copia**. | No        |
+| type          | La proprietà type dell'origine dell'attività di copia deve essere impostata su **ParquetSource**. | Yes      |
+| storeSettings | Un gruppo di proprietà sulla lettura dei dati da un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di lettura supportate in `storeSettings`. **Vedere i dettagli nell'articolo del connettore -> sezione Proprietà attività di copia**. | No       |
 
 ### <a name="parquet-as-sink"></a>Parquet come sink
 
@@ -78,8 +78,8 @@ Nell'attività di copia sono supportate le proprietà seguenti ***\*sink\**** se
 
 | Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La proprietà type dell'origine dell'attività di copia deve essere impostata su **ParquetSink**. | Sì      |
-| storeSettings | Un gruppo di proprietà relativa alla scrittura dei dati in un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di scrittura supportati in `storeSettings`. **Vedere i dettagli nell'articolo del connettore -> sezione Proprietà attività di copia**. | No        |
+| type          | La proprietà type dell'origine dell'attività di copia deve essere impostata su **ParquetSink**. | Yes      |
+| storeSettings | Un gruppo di proprietà relativa alla scrittura dei dati in un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di scrittura supportati in `storeSettings`. **Vedere i dettagli nell'articolo del connettore -> sezione Proprietà attività di copia**. | No       |
 
 ## <a name="mapping-data-flow-properties"></a>Mapping delle proprietà del flusso di dati
 
@@ -94,7 +94,7 @@ Parquet tipi di dati complessi non sono attualmente supportati (ad esempio, MAP,
 > [!IMPORTANT]
 > Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file Parquet, è necessario installare **JRE 8 (Java Runtime Environment) a 64 bit o OpenJDK** nel computer del runtime di integrazione. Per informazioni più dettagliate, vedere il paragrafo seguente.
 
-Per la copia in esecuzione nel runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file Parquet, il file di definizione dell'applicazione (AFD) individua il runtime Java eseguendo prima una ricerca di JRE nel Registro di sistema *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`*. In caso di esito negativo, esegue una ricerca di OpenJDK nella variabile di sistema *`JAVA_HOME`*.
+Per la copia in esecuzione nel runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file Parquet, il file di definizione dell'applicazione (AFD) individua il runtime Java eseguendo prima una ricerca di JRE nel Registro di sistema *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* . In caso di esito negativo, esegue una ricerca di OpenJDK nella variabile di sistema *`JAVA_HOME`* .
 
 - **Per usare JRE**: il runtime di integrazione a 64 bit richiede JRE a 64 bit disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Per usare OpenJDK**: è supportato a partire dalla versione 3.13 del runtime di integrazione. Includere jvm.dll in un pacchetto con tutti gli altri assembly necessari di OpenJDK nel computer del runtime di integrazione self-hosted e impostare di conseguenza la variabile di ambiente di sistema JAVA_HOME.

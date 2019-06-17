@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 26f8d885f8cf85ab849ba221392df206e492aac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814481"
 ---
 # <a name="semantic-interpretation"></a>Interpretazione semantica
@@ -33,9 +33,9 @@ Una variabile viene specificata usando un identificatore name che inizia con una
 
 Di seguito è riportato un elenco dei tipi di dati attualmente supportati:
 
-|Type|DESCRIZIONE|Esempi|
+|Type|Descrizione|Esempi|
 |----|----|----|
-|string|Sequenza di 0 o più caratteri|"Hello World!"<br/>""|
+|String|Sequenza di 0 o più caratteri|"Hello World!"<br/>""|
 |Bool|Valore booleano|true<br/>false|
 |Int32|Intero con segno a 32 bit.  Da -2,1e9 a 2,1e9|123<br/>-321|
 |Int64|Intero con segno a 64 bit. -9,2e18 e 9,2e18|9876543210|
@@ -139,7 +139,7 @@ Le variabili dell'ambito della richiesta vengono condivise da tutte le interpret
 
 Le variabili di sistema sono predefinite dal servizio e possono essere usate per recuperare diverse statistiche sullo stato corrente del sistema.  Di seguito è riportato il set di variabili di sistema attualmente supportate:
 
-|NOME|Type|DESCRIZIONE|
+|Name|Type|Descrizione|
 |----|----|----|
 |IsAtEndOfQuery|Bool|true se l'interpretazione corrente ha confrontato tutto il testo della query di input|
 |IsBeyondEndOfQuery|Bool|true se l'interpretazione corrente ha suggerito completamenti oltre al testo della query di input|

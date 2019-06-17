@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: chstone
 ms.openlocfilehash: e17a91a35b69102e4e0ac6025559bbc32e71d8fb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024134"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>Esempio: Facet multilivello in Ricerca di Azure
@@ -87,7 +87,7 @@ categories.count = sum;
   ![filtro in base a facet multilivello](./media/search-example-adventureworks/multi-level-facet.png "filtro in base a facet multilivello")
 
  
-Ogni collegamento nell'albero deve applicare il filtro correlato. Ad esempio: 
+Ogni collegamento nell'albero deve applicare il filtro correlato. Ad esempio:
 
 + **taxonomy/any**`(x:x eq 'Accessories')` restituisce tutti i documenti nel ramo Accessories
 + **taxonomy/any**`(x:x eq 'Accessories|Bike Racks')` restituisce solo i documenti con sottocategoria Bike Racks nel ramo Accessories.
@@ -97,6 +97,6 @@ Questa tecnica può essere adattata per gestire scenari più complessi come albe
 > [!TIP]
 > La velocità della query dipende dal numero di facet restituiti. Per supportare set di tassonomia molto grandi, è consigliabile aggiungere un campo **Edm.String** abilitato per l'esplorazione in base a facet che contenga il valore di tassonomia di primo livello per ogni documento. Applicare quindi la stessa tecnica descritta in precedenza, ma eseguire solo la query in base a facet di tipo raccolta (ovvero filtrata in base al campo radice della tassonomia) quando l'utente espande un nodo di primo livello. In alternativa, se non è necessaria una percentuale di richiamo del 100%, è sufficiente ridurre il totale dei facet a un numero ragionevole e assicurarsi che le voci dei facet siano ordinate in base al totale.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Esempio: Modellare il database di inventario di AdventureWorks per Ricerca di Azure](search-example-adventureworks-modeling.md)

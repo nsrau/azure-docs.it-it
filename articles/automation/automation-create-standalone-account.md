@@ -10,10 +10,10 @@ ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61076794"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creare un account di Automazione di Azure autonomo
@@ -89,7 +89,7 @@ Per creare un account di Automazione di Azure nel portale di Azure, seguire ques
 
 Quando la creazione dell'account di Automazione viene completata, vengono create automaticamente diverse risorse. Dopo la creazione, è possibile eliminare questi runbook in tutta sicurezza, se non li si vuole mantenere. Gli account RunAs possono essere usati per l'autenticazione dell'account in un runbook e devono essere lasciati, a meno che non se ne crei un altro o non ce ne sia bisogno. La tabella seguente offre un riepilogo delle risorse per l'account RunAs.
 
-| Risorsa | DESCRIZIONE |
+| Resource | Descrizione |
 | --- | --- |
 | Runbook AzureAutomationTutorial |Runbook grafico di esempio che illustra come eseguire l'autenticazione con l'account RunAs. Il runbook ottiene tutte le risorse di Resource Manager. |
 | Runbook AzureAutomationTutorialScript |Runbook di PowerShell di esempio che illustra come eseguire l'autenticazione con l'account RunAs. Il runbook ottiene tutte le risorse di Resource Manager. |
@@ -99,7 +99,7 @@ Quando la creazione dell'account di Automazione viene completata, vengono create
 
 La tabella seguente offre un riepilogo delle risorse per l'account RunAs classico.
 
-| Risorsa | DESCRIZIONE |
+| Resource | Descrizione |
 | --- | --- |
 | Runbook AzureClassicAutomationTutorial |Runbook grafico di esempio. Il runbook ottiene tutte le macchine virtuali classiche in una sottoscrizione tramite l'account RunAs classico (certificato). Visualizza quindi i nomi e lo stato delle macchine virtuali. |
 | Runbook di script AzureClassicAutomationTutorial |Runbook di PowerShell di esempio. Il runbook ottiene tutte le macchine virtuali classiche in una sottoscrizione tramite l'account RunAs classico (certificato). Visualizza quindi i nomi e lo stato delle macchine virtuali. |

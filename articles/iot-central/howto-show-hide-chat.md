@@ -9,13 +9,13 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: a8d2b71899cdd6b7f9c8cb803732b760f3009811
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64513285"
 ---
-# <a name="toggle-live-chat"></a>Attiva/Disattiva chat in tempo reale
+# <a name="toggle-live-chat"></a>Attivare e disattivare la live chat
 
 Questo articolo illustra come attivare o disattivare la chat in tempo reale nell'applicazione IoT Central. Chat in tempo reale è possibile usare per accedere al supporto tecnico.
 
@@ -32,17 +32,17 @@ Per ottenere supporto tecnico, aprire l'IoT Central dell'applicazione e selezion
 
 ![Modulo "Configure Device Details" (Configura dettagli dispositivo) con i dettagli per impostazioni e proprietà](media/howto-show-hide-chat/sample-chat.png)
 
-## <a name="hide-chat"></a>Nascondi chat
+## <a name="hide-chat"></a>Nascondi Chat
 
 Per nascondere la chat, scegliere **Chat nasconde** nel **Guida** pannello:
 
- ![Nascondi chat](media/howto-show-hide-chat/hide-chat.png)
+ ![Nascondi Chat](media/howto-show-hide-chat/hide-chat.png)
 
 ## <a name="enable-chat"></a>Abilitare la Chat
 
 Per visualizzare le chat, scegliere **mostrare Chat** nel **Guida** pannello:
 
- ![Mostra chat](media/howto-show-hide-chat/show-chat.png)
+ ![Chat Show](media/howto-show-hide-chat/show-chat.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

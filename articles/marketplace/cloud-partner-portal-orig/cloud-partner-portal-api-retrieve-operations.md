@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935770"
 ---
 <a name="retrieve-operations"></a>Recuperare le operazioni
@@ -33,11 +33,11 @@ Recupera tutte le operazioni relative all'offerta o per ottenere una particolare
 
 |  **Nome**          |      **Descrizione**                                                                                           | **Tipo di dati** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificatore dell'editore, per esempio `Contoso`                                                                   |  string       |
-|  offerId           |  Identificatore dell'offerta                                                                                              |  string       |
+|  publisherId       |  Identificatore dell'editore, per esempio `Contoso`                                                                   |  String       |
+|  offerId           |  Identificatore dell'offerta                                                                                              |  String       |
 |  operationId       |  GUID che identifica in modo univoco l'operazione sull'offerta. L'oprationId può essere recuperato tramite questa API e viene inoltre restituito nell'intestazione HTTP della risposta per tutte le operazioni a esecuzione prolungata, ad esempio l'API [Pubblica offerta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
-|  filteredStatus    | Parametro di query facoltativo usato per filtrare in base allo stato (ad esempio `running`) nella raccolta restituita da questa API.  |   string |
-|  api-version       | Ultima versione dell'API                                                                                           |    Data      |
+|  filteredStatus    | Parametro di query facoltativo usato per filtrare in base allo stato (ad esempio `running`) nella raccolta restituita da questa API.  |   String |
+|  api-version       | Ultima versione dell'API                                                                                           |    Date      |
 |  |  |  |
 
 

@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
 ms.openlocfilehash: 44a9368f82e95641d3df893ba0958c6bf8cf696f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64724969"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C# (.csx)
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-Questo articolo riporta un'introduzione allo sviluppo di Funzioni di Azure tramite script C# (*.csx*).
+Questo articolo riporta un'introduzione allo sviluppo di Funzioni di Azure tramite script C# ( *.csx*).
 
 Funzioni di Azure supporta i linguaggi di programmazione C# e script C# . Per materiale sussidiario sull'[uso di C# in un progetto di libreria di classi di Visual Studio](functions-develop-vs.md), vedere [Informazioni di riferimento per sviluppatori C#](functions-dotnet-class-library.md).
 
@@ -488,7 +488,7 @@ public static async Task Run(string input, Binder binder)
 
 ### <a name="multiple-attribute-example"></a>Esempio con più attributi
 
-L'esempio precedente ottiene l'impostazione dell'app per la stringa di connessione dell'account di archiviazione principale dell'app, ovvero `AzureWebJobsStorage`. È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Usare un parametro `Binder` e non `IBinder`.  Ad esempio: 
+L'esempio precedente ottiene l'impostazione dell'app per la stringa di connessione dell'account di archiviazione principale dell'app, ovvero `AzureWebJobsStorage`. È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Usare un parametro `Binder` e non `IBinder`.  Ad esempio:
 
 ```cs
 using Microsoft.Azure.WebJobs;

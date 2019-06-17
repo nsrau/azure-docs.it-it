@@ -11,10 +11,10 @@ ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996597"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gestire errori ed eccezioni in App per la logica di Azure
@@ -29,12 +29,12 @@ Il metodo di base per gestire eccezioni ed errori consiste nell'usare *criteri d
 
 Ecco i tipi di criteri di ripetizione: 
 
-| Type | DESCRIZIONE | 
+| Type | Descrizione | 
 |------|-------------| 
 | **Default** | Questi criteri inviano fino a quattro richieste di ripetizione a intervalli con *crescita esponenziale* di 7,5 secondi ma con un limite massimo compreso tra 5 e 45 secondi. | 
 | **Intervallo esponenziale**  | Questi criteri attendono un intervallo casuale selezionato da un intervallo con crescita esponenziale prima di inviare la richiesta successiva. | 
 | **Intervallo fisso**  | Questi criteri attendono l'intervallo specificato prima di inviare la richiesta successiva. | 
-| **Nessuno**  | Questi criteri non ripetono la richiesta. | 
+| **None**  | Questi criteri non ripetono la richiesta. | 
 ||| 
 
 Per informazioni sulle restrizioni dei criteri di ripetizione, vedere [Limiti e configurazione per App per la logica](../logic-apps/logic-apps-limits-and-config.md#request-limits). 
@@ -71,19 +71,19 @@ In alternativa, è possibile specificare manualmente i criteri di ripetizione ne
 
 *Obbligatorio*
 
-| Value | Type | DESCRIZIONE |
+| Value | Type | Descrizione |
 |-------|------|-------------|
-| <*retry-policy-type*> | string | Il tipo di criteri di ripetizione da usare: `default`, `none`, `fixed` o `exponential` | 
-| <*retry-interval*> | string | L'intervallo di ripetizione in cui il valore deve usare il [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L'intervallo minimo predefinito è `PT5S`, l'intervallo massimo è `PT1D`. Quando si usano i criteri a intervallo esponenziale, è possibile specificare valori minimi e massimi diversi. | 
+| <*retry-policy-type*> | String | Il tipo di criteri di ripetizione da usare: `default`, `none`, `fixed` o `exponential` | 
+| <*retry-interval*> | String | L'intervallo di ripetizione in cui il valore deve usare il [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L'intervallo minimo predefinito è `PT5S`, l'intervallo massimo è `PT1D`. Quando si usano i criteri a intervallo esponenziale, è possibile specificare valori minimi e massimi diversi. | 
 | <*retry-attempts*> | Integer | Numero di tentativi di ripetizione, che deve essere compresi tra 1 e 90 | 
 ||||
 
 *Facoltativo*
 
-| Value | Type | DESCRIZIONE |
+| Value | Type | Descrizione |
 |-------|------|-------------|
-| <*minimum-interval*> | string | Per i criteri a intervallo esponenziale, l'intervallo più piccolo per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-| <*maximum-interval*> | string | Per i criteri a intervallo esponenziale, l'intervallo più grande per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*minimum-interval*> | String | Per i criteri a intervallo esponenziale, l'intervallo più piccolo per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*maximum-interval*> | String | Per i criteri a intervallo esponenziale, l'intervallo più grande per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 |||| 
 
 Di seguito sono riportate altre informazioni sui diversi tipi di criteri.
