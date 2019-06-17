@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
 ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65464632"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Esportare i dati in Archiviazione BLOB di Azure
@@ -99,7 +99,7 @@ I dati di misurazioni, dispositivi e modelli di dispositivo vengono esportati ne
 - Dispositivi: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 - Modelli di dispositivi: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
-### <a name="measurements"></a>Misurazioni
+### <a name="measurements"></a>Misure
 
 I dati delle misurazioni esportati contengono tutti i nuovi messaggi che IoT Central ha ricevuto da tutti i dispositivi durante tale periodo. I file esportati sono nello stesso formato dei file dei messaggi esportati dal [routing dei messaggi dell'hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) nell'archiviazione BLOB.
 

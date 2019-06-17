@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
 ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60846765"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Connettersi a file system locali dalle App per la logica di Azure
@@ -68,14 +68,14 @@ Per seguire questo esempio, è necessario disporre degli elementi seguenti:
 
    ![Creare la connessione](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | Proprietà | Obbligatorio | Value | DESCRIZIONE | 
+   | Proprietà | Obbligatorio | Value | Descrizione | 
    | -------- | -------- | ----- | ----------- | 
-   | **Connection Name** (Nome connessione) | Sì | <*nome connessione*> | Il nome da assegnare alla connessione | 
-   | **Cartella radice** | Sì | <*root-folder-name*> | La cartella radice del file system, ad esempio se installato un gateway dati locale, una cartella locale nel computer in cui è installato il gateway dati locale o la cartella per una condivisione di rete a cui il computer possa accedere. <p>Ad esempio: `\\PublicShare\\DropboxFiles` <p>La cartella radice è la cartella principale che verrà usata per i percorsi relativi di tutte le azioni correlate ai file. | 
-   | **Tipo di autenticazione** | No  | <*auth-type*> | Il tipo di autenticazione usato dal file system, ad esempio **Windows** | 
-   | **Nome utente** | Sì | <*domain*>\\<*username*> | Il nome utente per il computer in cui è presente il file system | 
-   | **Password** | Sì | <*your-password*> | La password per il computer in cui è presente il file system | 
-   | **gateway** | Sì | <*installed-gateway-name*> | Il nome del gateway installato in precedenza | 
+   | **Connection Name** (Nome connessione) | Yes | <*nome connessione*> | Il nome da assegnare alla connessione | 
+   | **Cartella radice** | Yes | <*root-folder-name*> | La cartella radice del file system, ad esempio se installato un gateway dati locale, una cartella locale nel computer in cui è installato il gateway dati locale o la cartella per una condivisione di rete a cui il computer possa accedere. <p>Ad esempio: `\\PublicShare\\DropboxFiles` <p>La cartella radice è la cartella principale che verrà usata per i percorsi relativi di tutte le azioni correlate ai file. | 
+   | **Tipo di autenticazione** | No | <*auth-type*> | Il tipo di autenticazione usato dal file system, ad esempio **Windows** | 
+   | **Nome utente** | Yes | <*domain*>\\<*username*> | Il nome utente per il computer in cui è presente il file system | 
+   | **Password** | Yes | <*your-password*> | La password per il computer in cui è presente il file system | 
+   | **gateway** | Yes | <*installed-gateway-name*> | Il nome del gateway installato in precedenza | 
    ||| 
 
 1. Al termine dell'operazione, scegliere **Crea**.

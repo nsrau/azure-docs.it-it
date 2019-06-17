@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: roaror
 ms.openlocfilehash: 476a143555323bbb5058541000a5b1a26d23b71a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61330854"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Passaggi di pre-migrazione per migrazioni di dati da MongoDB all'API di Azure Cosmos DB per MongoDB
@@ -60,7 +60,7 @@ In Azure Cosmos DB, la velocità effettiva viene eseguito il provisioning in ant
 A differenza delle macchine virtuali o nei server locali, unità riservate sono facili da scalabilità orizzontale e verticale in qualsiasi momento. È possibile modificare il numero di UR sottoposte a provisioning in pochi secondi e verrà addebitato solo il numero massimo di unità riservate viene effettuato il provisioning per un determinato periodo di un'ora. Per altre informazioni, vedere [Unità richiesta in Azure Cosmos DB](request-units.md).
 
 Di seguito sono fattori chiave che influiscono sul numero di unità richiesta necessarie:
-- **Dimensioni dell'elemento (ad esempio, documento)**: Man mano che aumenta le dimensioni di un elemento o documento, il numero di unità richiesta usate per leggere o scrivere l'elemento o documento anche aumenta.
+- **Dimensioni dell'elemento (ad esempio, documento)** : Man mano che aumenta le dimensioni di un elemento o documento, il numero di unità richiesta usate per leggere o scrivere l'elemento o documento anche aumenta.
 - **Numero di proprietà degli elementi**: Supponendo che il [indicizzazione predefinita](index-overview.md) su tutte le proprietà, il numero di unità richiesta utilizzate per scrivere un elemento aumenta man mano che aumenta il numero di proprietà elemento. È possibile ridurre il consumo delle unità richiesta per le operazioni di scrittura dal [limitando il numero di proprietà indicizzate](index-policy.md).
 - **Operazioni simultanee**: Richiedere unità usate dipende anche dalla frequenza con cui operazioni CRUD diverse (ad esempio, operazioni di scrittura, letture, aggiornamenti, eliminazioni) e vengono eseguite query più complesse. È possibile usare [mongostat](https://docs.mongodb.com/manual/reference/program/mongostat/) per restituire le esigenze di concorrenza dei dati di MongoDB corrente.
 - **Modelli di query**: La complessità di una query influisce sul numero di unità richiesta usato dalla query.

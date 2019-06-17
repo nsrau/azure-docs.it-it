@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: xpouyat
 ms.openlocfilehash: 505def9cde7cddf2ddcc23408fa3159de886167a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61472695"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenza per Microsoft® Smooth Streaming Client Porting Kit 
@@ -29,7 +29,7 @@ Di seguito è riportata un'architettura di alto livello che include la casella I
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>DESCRIZIONE
+## <a name="description"></a>Descrizione
 SSPK è concesso in licenza a condizioni che offrono un valore aziendale eccellente. La licenza SSPK offre al settore:
 
 * Codice sorgente di Smooth Streaming Porting Kit in C++ 

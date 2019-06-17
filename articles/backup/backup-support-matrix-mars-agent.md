@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922994"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
@@ -75,16 +75,16 @@ Limitazione della larghezza di banda della rete | Non è disponibile per le macc
 
 **Sistema operativo** | **File/cartelle** | **Stato del sistema**
 --- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | Sì | No 
-Windows 8.1 (Enterprise, Pro)| Sì |No 
-Windows 8 (Enterprise, Pro) | Sì | No 
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sì | No 
-Windows Server 2016 (Standard, Datacenter, Essentials) | Sì | Sì
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sì | Sì
-Windows Server 2012 (Standard, Datacenter, Foundation) | Sì | Sì
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sì | Sì
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Sì | No 
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sì | No 
+Windows 10 (Enterprise, Pro, Home) | Yes | No
+Windows 8.1 (Enterprise, Pro)| Yes |No
+Windows 8 (Enterprise, Pro) | Yes | No
+Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes | No
+Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes
+Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Yes
+Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Yes | Yes
+Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Yes | No
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | No
 
 Per altre informazioni, vedere [sistemi operativi supportati MABS e DPM](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 

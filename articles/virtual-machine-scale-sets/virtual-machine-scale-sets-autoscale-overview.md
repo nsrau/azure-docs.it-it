@@ -17,10 +17,10 @@ ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 610f3073594f73f04a68865593be6bfb4188d4f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883671"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Panoramica della scalabilità automatica con i set di scalabilità di macchine virtuali di Azure
@@ -83,7 +83,7 @@ Quando si creano regole di scalabilità automatica per monitorare una determinat
 | Minima          |
 | Massima          |
 | Totale            |
-| Last (Ultimo)             |
+| Ultimo             |
 | Conteggio            |
 
 Le regole di scalabilità automatica vengono attivate quando le metriche vengono confrontate con la soglia definita usando uno dei seguenti operatori:

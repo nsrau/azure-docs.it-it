@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595971"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Come comporre una query in Ricerca di Azure
@@ -51,11 +51,11 @@ Gli esempi sono utili per introdurre nuovi concetti. Come una query rappresentat
 
 + **`queryType`** imposta il parser, che in Ricerca di Azure può essere il [parser predefinito di query semplice](search-query-simple-examples.md) (ottimale per la ricerca full-text), o il [parser di query Lucene completo](search-query-lucene-examples.md) usato per i costrutti di query avanzate, come le espressioni regolari, ricerca per prossimità, fuzzy e ricerca con caratteri jolly, per citarne alcuni.
 
-+ **`search`** fornisce la corrispondenza ai criteri, in genere testo ma spesso accompagnato da operatori booleani. I termini singoli autonomi sono query *termine*. Le query in più parti racchiuse tra virgolette sono query *frasi chiave*. La ricerca può essere non definita, come in **`search=*`**, ma è più probabile che sia costituita da termini, frasi e operatori simili a quanto visualizzato nell'esempio.
++ **`search`** fornisce la corrispondenza ai criteri, in genere testo ma spesso accompagnato da operatori booleani. I termini singoli autonomi sono query *termine*. Le query in più parti racchiuse tra virgolette sono query *frasi chiave*. La ricerca può essere non definita, come in **`search=*`** , ma è più probabile che sia costituita da termini, frasi e operatori simili a quanto visualizzato nell'esempio.
 
 + **`searchFields`** è facoltativo, usato per limitare l'esecuzione di query a campi specifici.
 
-Le risposte sono anche delineate dai parametri da includere nella query. Nell'esempio, il set di risultati è costituito da campi elencati nell’istruzione **`select`**. In questa query, vengono restituiti solo i primi 10 risultati ma **`count`** indica il numero di documenti corrispondenti complessivi. In questa query le righe vengono ordinate per daysOnMarket.
+Le risposte sono anche delineate dai parametri da includere nella query. Nell'esempio, il set di risultati è costituito da campi elencati nell’istruzione **`select`** . In questa query, vengono restituiti solo i primi 10 risultati ma **`count`** indica il numero di documenti corrispondenti complessivi. In questa query le righe vengono ordinate per daysOnMarket.
 
 Nella Ricerca di Azure, l'esecuzione della query avviene sempre rispetto a un indice e l'autenticazione viene eseguita con una chiave API fornita nella richiesta. In REST, entrambi vengono forniti nelle intestazioni della richiesta.
 
@@ -86,8 +86,8 @@ Gli elementi obbligatori in una richiesta di query includono i componenti seguen
 
 + Servizio endpoint e la raccolta di documenti di indice, espresso come un URL che contiene i componenti fissi e definito dall'utente: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
 + **`api-version`** (Solo REST) è necessario perché più di una versione dell'API è disponibile in qualsiasi momento. 
-+ **`api-key`**, una query o una chiave api amministratore, autentica la richiesta al servizio.
-+ **`queryType`**, semplice o completo, che può essere omesso se si desidera usare la sintassi semplice predefinita.
++ **`api-key`** , una query o una chiave api amministratore, autentica la richiesta al servizio.
++ **`queryType`** , semplice o completo, che può essere omesso se si desidera usare la sintassi semplice predefinita.
 + **`search`** o **`filter`** fornisce il criterio di corrispondenza che può non essere specificato se si desidera eseguire una ricerca vuota. Entrambi i tipi di query sono descritti in termini di parser semplice, ma anche le query avanzate richiedono il parametro di ricerca per il passaggio di espressioni di query complesse.
 
 Tutti gli altri parametri di ricerca sono facoltativi. Per l'elenco completo degli attributi, vedere [Creare l’indice (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Per informazioni dettagliate sul modo in cui i parametri vengono utilizzati durante l'elaborazione, vedere [come funziona la ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md).
@@ -156,13 +156,13 @@ Altre informazioni sul paging dei risultati della ricerca sono disponibili nell'
 ### <a name="ordering-results"></a>Ordinamento dei risultati
 Quando si ricevono i risultati di una query di ricerca, è possibile richiedere che Ricerca di Azure presenti i risultati ordinati in base ai valori di un campo specifico. Per impostazione predefinita, Ricerca di Azure ordina i risultati della ricerca in base alle priorità del punteggio di ricerca di ciascun documento, che deriva da [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Se si vuole che Ricerca di Azure restituisca i risultati ordinati in base a un valore diverso dal punteggio di ricerca, è possibile usare il parametro di ricerca **`orderby`**. È possibile specificare il valore del parametro **`orderby`** per includere i nomi dei campi e le chiamate alla [**`geo.distance()` funzione**](query-odata-filter-orderby-syntax.md) per ottenere valori geospaziali. Ogni espressione può essere seguita da `asc` per indicare che i risultati vengono richiesti in ordine crescente e **`desc`** per indicare che i risultati vengono richiesti in ordine decrescente. Per impostazione predefinita, l'ordinamento è crescente.
+Se si vuole che Ricerca di Azure restituisca i risultati ordinati in base a un valore diverso dal punteggio di ricerca, è possibile usare il parametro di ricerca **`orderby`** . È possibile specificare il valore del parametro **`orderby`** per includere i nomi dei campi e le chiamate alla [ **`geo.distance()` funzione**](query-odata-filter-orderby-syntax.md) per ottenere valori geospaziali. Ogni espressione può essere seguita da `asc` per indicare che i risultati vengono richiesti in ordine crescente e **`desc`** per indicare che i risultati vengono richiesti in ordine decrescente. Per impostazione predefinita, l'ordinamento è crescente.
 
 
 ### <a name="hit-highlighting"></a>Evidenziazione dei risultati
-In Ricerca di Azure è semplice mettere in evidenza la parte esatta dei risultati della ricerca che corrispondono alla query di ricerca usando i parametri **`highlight`**, **`highlightPreTag`**, e **`highlightPostTag`**. È possibile specificare quali campi *ricercabili* devono avere il testo corrispondente evidenziato e specificare anche i tag della stringa esatta da aggiungere all'inizio e alla fine del testo corrispondente restituito da Ricerca di Azure.
+In Ricerca di Azure è semplice mettere in evidenza la parte esatta dei risultati della ricerca che corrispondono alla query di ricerca usando i parametri **`highlight`** , **`highlightPreTag`** , e **`highlightPostTag`** . È possibile specificare quali campi *ricercabili* devono avere il testo corrispondente evidenziato e specificare anche i tag della stringa esatta da aggiungere all'inizio e alla fine del testo corrispondente restituito da Ricerca di Azure.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Come funziona la ricerca full-text in Ricerca di Azure (architettura di analisi delle query)](search-lucene-query-architecture.md)
 + [Esplora ricerche](search-explorer.md)

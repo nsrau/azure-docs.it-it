@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/13/2019
 ms.author: kraigb
 ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596733"
 ---
 # <a name="manage-and-configure-projects"></a>Gestire e configurare progetti
@@ -86,10 +86,10 @@ Ogni elemento nell'elenco di file del progetto offre una serie di comandi tramit
 | Run in Jupyter Lab (Esegui in JupyterLab) | j | Esegue un notebook in JupyterLab, un'interfaccia più orientata agli sviluppatori rispetto a quella normalmente associata a Jupyter. |
 | Anteprima | p | Apre un'anteprima HTML del file; per i notebook, l'anteprima è un rendering di sola lettura del notebook. Per altre informazioni, vedere la sezione [Anteprima](#preview). |
 | Edit file (Modifica file) | i | Apre il file per la modifica. |
-| Download | giorni | Scarica un file con estensione zip contenente il file o il contenuto di una cartella. |
-| Rinomina | uno | Richiede un nuovo nome per il file o la cartella. |
-| Delete | r | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
-| Sposta | m | Sposta un file in una cartella diversa dello stesso progetto. |
+| Download | d | Scarica un file con estensione zip contenente il file o il contenuto di una cartella. |
+| Rinominare | a | Richiede un nuovo nome per il file o la cartella. |
+| Delete | x | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
+| Spostamento | m | Sposta un file in una cartella diversa dello stesso progetto. |
 
 #### <a name="preview"></a>Anteprima
 
@@ -102,7 +102,7 @@ La pagina di anteprima supporta vari comandi della barra degli strumenti con tas
 | Condividi | s | Consente di visualizzare la finestra popup di condivisione da cui è possibile ottenere un collegamento, condividere sui social media, ottenere HTML per l'incorporamento e inviare un messaggio di posta elettronica. |
 | Clone | c  | Consente di clonare il notebook nel proprio account. |
 | Esegui | r | Consente di eseguire il notebook, se si è autorizzati a eseguire questa operazione. |
-| Download | giorni | Scarica una copia del notebook. |
+| Download | d | Scarica una copia del notebook. |
 
 ## <a name="configure-the-project-environment"></a>Configurare l'ambiente del progetto
 

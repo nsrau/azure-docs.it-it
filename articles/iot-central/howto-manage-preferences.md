@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 00d40b9910f9b549443373c84b079c543037ce62
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236330"
 ---
 # <a name="manage-your-application-preferences"></a>Gestire le preferenze delle applicazioni
@@ -32,7 +32,7 @@ IoT Central è supportato in più lingue. È possibile passare la lingua preferi
 ![Selezione del tema di IoT Central](media/howto-manage-preferences/settings.png)
 
 > [!NOTE]
-> La possibilità di scegliere tra vari temi chiaro e scuri non è disponibile se l'amministratore ha configurato un tema personalizzato per l'applicazione.
+> L'opzione per scegliere il tema chiaro o scuro non è disponibile se l'amministratore ha configurato un tema personalizzato per l'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

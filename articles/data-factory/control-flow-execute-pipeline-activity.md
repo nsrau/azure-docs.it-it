@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808857"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Attività ExecutePipeline in Azure Data Factory
@@ -60,13 +60,13 @@ L'attività ExecutePipeline consente a una pipeline di Data Factory di richiamar
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività di esecuzione della pipeline. | string | Sì
-type | deve essere impostato su: **ExecutePipeline**. | string | Sì
-pipeline | Pipeline di riferimento per la pipeline dipendente chiamata da questa pipeline. Un oggetto di riferimento della pipeline ha due proprietà: **referenceName** e **type**. La proprietà referenceName specifica il nome della pipeline di riferimento. La proprietà type deve essere impostata su PipelineReference. | PipelineReference | Sì
-Parametri | Parametri da passare alla pipeline chiamata | Oggetto JSON che esegue il mapping dei nomi di parametro ai valori degli argomenti | No 
-waitOnCompletion | Definisce se l'esecuzione dell'attività attende che l'esecuzione della pipeline dipendente termini. Il valore predefinito è false. | Boolean | No 
+name | Nome dell'attività di esecuzione della pipeline. | String | Yes
+type | deve essere impostato su: **ExecutePipeline**. | String | Yes
+pipeline | Pipeline di riferimento per la pipeline dipendente chiamata da questa pipeline. Un oggetto di riferimento della pipeline ha due proprietà: **referenceName** e **type**. La proprietà referenceName specifica il nome della pipeline di riferimento. La proprietà type deve essere impostata su PipelineReference. | PipelineReference | Yes
+parameters | Parametri da passare alla pipeline chiamata | Oggetto JSON che esegue il mapping dei nomi di parametro ai valori degli argomenti | No
+waitOnCompletion | Definisce se l'esecuzione dell'attività attende che l'esecuzione della pipeline dipendente termini. Il valore predefinito è false. | Boolean | No
 
 ## <a name="sample"></a>Esempio
 Questo scenario include due pipeline:
