@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: v-pawal
 ms.topic: conceptual
 ms.openlocfilehash: 99538fd18067377efcc9e744e9ec611e0f685273
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389608"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Abbinamento e allineamento di frasi in documenti paralleli
@@ -36,9 +36,9 @@ La tabella seguente mostra il numero minimo di frasi estratte e frasi allineate 
 
 | Set di dati   | Numero minimo suggerito di frasi estratte | Numero minimo suggerito di frasi allineate | Numero massimo di frasi allineate |
 |------------|--------------------------------------------|------------------------------------------|--------------------------------|
-| Formazione   | 10,000                                     | 2.000                                    | Nessun limite massimo                 |
-| Ottimizzazione     | 2.000                                      | 500                                      | 2.500                          |
-| Test    | 2.000                                      | 500                                      | 2.500                          |
+| Formazione   | 10,000                                     | 2\.000                                    | Nessun limite massimo                 |
+| Ottimizzazione     | 2\.000                                      | 500                                      | 2\.500                          |
+| Test    | 2\.000                                      | 500                                      | 2\.500                          |
 | Dizionario | 0                                          | 0                                        | Nessun limite massimo                 |
 
 ## <a name="next-steps"></a>Passaggi successivi

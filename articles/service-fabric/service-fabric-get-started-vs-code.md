@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: f977a48338f784562ec84355aabb212e5a3dade4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60946572"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric per Visual Studio Code
@@ -70,7 +70,7 @@ L'estensione di Reliable Services di Service Fabric per Visual Studio Code offre
 * Service Fabric: Creare l'applicazione 
 * Service Fabric: Pubblicare l'applicazione 
 * Service Fabric: Distribuzione applicazione 
-* Service Fabric: Rimuovi l'applicazione  
+* Service Fabric: Rimuovere l'applicazione  
 * Service Fabric: Compilazione dell'applicazione 
 * Service Fabric: Clean Application 
 
@@ -86,7 +86,7 @@ Il **di Service Fabric: Creare applicazione** comando crea una nuova applicazion
 5.  Viene visualizzata la nuova applicazione di Service Fabric nell'area di lavoro.
 6.  Aprire la cartella dell'applicazione in modo che diventi la cartella radice dell'area di lavoro. È possibile continuare l'esecuzione dei comandi da qui.
 
-### <a name="service-fabric-add-service"></a>Service Fabric: Aggiungi servizio
+### <a name="service-fabric-add-service"></a>Service Fabric: Aggiungere il servizio
 Il **di Service Fabric: Aggiungere servizio** comando aggiunge un nuovo servizio a un'applicazione di Service Fabric esistente. L'applicazione a cui verrà aggiunto il servizio deve essere la directory radice dell'area di lavoro. 
 
 1.  Selezionare il **di Service Fabric: Aggiungere servizio** comando.
@@ -113,7 +113,7 @@ Il **di Service Fabric: Distribuire applicazione** comando distribuisce l'applic
 > [!NOTE]
 > La distribuzione di applicazioni Java nel cluster locale non è supportata nei computer Windows.
 
-### <a name="service-fabric-remove-application"></a>Service Fabric: Rimuovi l'applicazione
+### <a name="service-fabric-remove-application"></a>Service Fabric: Rimuovere l'applicazione
 Il **di Service Fabric: Rimuovi applicazione** comando rimuove un'applicazione di Service Fabric dal cluster che è stato distribuito in precedenza per l'uso dell'estensione di Visual Studio Code. 
 
 1.  Selezionare il **di Service Fabric: Rimuovi applicazione** comando.

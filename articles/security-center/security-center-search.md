@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90dbb33fa516d3a831d4e60969ac6b6c8312d539
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332609"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574151"
 ---
 # <a name="azure-security-center-search"></a>Ricerca nel Centro sicurezza di Azure
+
+> [!NOTE]
+> Dashboard del Centro sicurezza Cerca verrà ritirato il 31 luglio 2019. Per altre informazioni e servizi alternativi, vedere [ritiro del Centro sicurezza di funzionalità (luglio 2019)](security-center-features-retirement-july2019.md#menu_search).
+
 Il Centro sicurezza di Azure Usa [monitoraggio di Azure log ricerca](../log-analytics/log-analytics-log-searches.md) per recuperare e analizzare i dati di sicurezza. Log di monitoraggio di Azure include un linguaggio di query per recuperare e consolidare i dati rapidamente. Dal Centro sicurezza, è possibile sfruttare ricerca nei log di monitoraggio di Azure per creare query e analizzare i dati raccolti.
 
 La ricerca è disponibile sia nel livello Standard che nel livello gratuito del Centro sicurezza.  I dati disponibili nelle ricerche log dipendono dal livello applicato all'area di lavoro.  Per altre informazioni, vedere la [pagina dei prezzi](../security-center/security-center-pricing.md) del Centro sicurezza.
@@ -45,7 +49,7 @@ La ricerca è disponibile sia nel livello Standard che nel livello gratuito del 
 
    SecurityEvent | dove EventID == 4625 | conteggio di riepilogo per TargetAccount
 
-   Il risultato mostra tutti gli account per cui non è stato possibile eseguire l'accesso, ovvero l'evento 4625.
+   Il risultato Mostra tutti gli account che non è stato possibile eseguire l'accesso (l'evento 4625).
 
    ![Search Results][3]
 

@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: cbf6a44f1a3210906ec7ab0d04eecb997bc2c470
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65412822"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Risolvere i problemi di un'app nel Servizio app di Azure tramite Visual Studio
@@ -264,7 +264,7 @@ Un'applicazione ASP.NET in esecuzione in un'app del Servizio app può creare i t
 * **Log dei messaggi di errore dettagliati**<br/>
   Il server Web crea una pagina HTML con alcune informazioni aggiuntive relative alle richieste HTTP non riuscite, ovvero quelle che generano un codice di stato pari ad almeno 400.
 * **Log di traccia delle richieste non riuscite**<br/>
-   Il server Web crea un file XML con informazioni di traccia dettagliate per le richieste HTTP non riuscite. Fornisce inoltre un file XSL per formattare il file XML in un browser.
+  Il server Web crea un file XML con informazioni di traccia dettagliate per le richieste HTTP non riuscite. Fornisce inoltre un file XSL per formattare il file XML in un browser.
 
 Poiché la registrazione influisce sulle prestazioni dell'app, Azure offre la possibilità di abilitare o disabilitare ogni tipo di log in base alle necessità. Per i log dell'applicazione, è possibile specificare che vengano creati solo quelli superiori a un determinato livello di gravità. Quando si crea una nuova app, per impostazione predefinita la registrazione è disabilitata.
 
@@ -649,15 +649,15 @@ Se l'app usa un back-end di Servizi mobili o di API Web di Azure di cui è neces
 In Internet non sono disponibili introduzioni complete e approfondite per la traccia in ASP.NET. È consigliabile iniziare con i materiali introduttivi precedenti scritti per Web Form, perché MVC non esisteva ancora, e quindi integrare queste informazioni con i post di blog più recenti dedicati a specifici problemi. Altre risorse introduttive sono riportate di seguito:
 
 * [Monitoraggio e telemetria (creazione di app per cloud funzionanti con Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
-   Capitolo di un e-book con suggerimenti per la traccia nelle applicazioni per cloud di Azure.
+  Capitolo di un e-book con suggerimenti per la traccia nelle applicazioni per cloud di Azure.
 * [Traccia in ASP.NET](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
-   Risorsa meno recente ma ancora valida per un'introduzione di base sull'argomento.
+  Risorsa meno recente ma ancora valida per un'introduzione di base sull'argomento.
 * [Listener di traccia](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   Informazioni sui listener di traccia, ma senza riferimenti a [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
 * [Walkthrough: Integrating ASP.NET Tracing with System.Diagnostics Tracing](/previous-versions/b0ectfxd(v=vs.140)) (Procedura dettagliata: Integrazione della traccia ASP.NET con la traccia System.Diagnostics)<br/>
   Questo articolo non è molto recente, ma contiene informazioni aggiuntive non trattate nell'articolo introduttivo.
 * [Traccia nelle visualizzazioni Razor ASP.NET MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-   Oltre a informazioni sulla traccia nelle visualizzazioni Razor, in questo post viene illustrato come creare un filtro di errori per registrare tutte le eccezioni non gestite nelle applicazioni MVC. Per informazioni su come registrare tutte le eccezioni non gestite in un'applicazione Web Form, vedere l'esempio relativo a Global.asax in [Esempio completo di gestori di errori](/previous-versions/bb397417(v=vs.140)) in MSDN. In MVC o Web Form, se si desidera registrare determinate eccezioni ma lasciarne la gestione al framework predefinito, è possibile eseguire istruzioni catch e throw, come illustrato nell'esempio seguente:
+  Oltre a informazioni sulla traccia nelle visualizzazioni Razor, in questo post viene illustrato come creare un filtro di errori per registrare tutte le eccezioni non gestite nelle applicazioni MVC. Per informazioni su come registrare tutte le eccezioni non gestite in un'applicazione Web Form, vedere l'esempio relativo a Global.asax in [Esempio completo di gestori di errori](/previous-versions/bb397417(v=vs.140)) in MSDN. In MVC o Web Form, se si desidera registrare determinate eccezioni ma lasciarne la gestione al framework predefinito, è possibile eseguire istruzioni catch e throw, come illustrato nell'esempio seguente:
 
 ``` c#
 try
@@ -672,7 +672,7 @@ catch (Exception ex)
 ```
 
 * [Streaming dei log di traccia della diagnostica dalla riga di comando di Azure (oltre a Glimpse)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-   Informazioni su come usare la riga di comando per eseguire le stesse procedure illustrate in questa esercitazione in Visual Studio. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) è uno strumento per il debug di applicazioni ASP.NET.
+  Informazioni su come usare la riga di comando per eseguire le stesse procedure illustrate in questa esercitazione in Visual Studio. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) è uno strumento per il debug di applicazioni ASP.NET.
 * [Utilizzo delle funzionalità di registrazione e diagnostica di app Web - con David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) e [Streaming dei log da app Web - con David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Video con David Ebbo, di Scott Hanselman e David Ebbo.
 
@@ -686,7 +686,7 @@ Per ulteriori informazioni sull'analisi dei log del server Web, vedere le risors
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Strumento per la visualizzazione di dati nei log del server Web (file con estensione*log* ).
 * [Risoluzione dei problemi di prestazioni di IIS o errori dell'applicazione mediante log parser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
-   Introduzione allo strumento Log Parser, che è possibile utilizzare per analizzare i log del server Web.
+  Introduzione allo strumento Log Parser, che è possibile utilizzare per analizzare i log del server Web.
 * [Post di blog di Robert McMurray sull'uso di Log Parser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [Codice di stato HTTP in IIS 7.0, IIS 7.5 e IIS 8.0](https://support.microsoft.com/kb/943891)
 

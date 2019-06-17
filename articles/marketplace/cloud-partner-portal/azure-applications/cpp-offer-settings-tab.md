@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 789b783629b3cc3528eba1883b21051604cf6e14
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942938"
 ---
 # <a name="azure-application-offer-settings-tab"></a>Scheda Impostazioni dell'offerta per un'applicazione di Azure
@@ -26,7 +26,7 @@ La pagina **Applicazioni Azure > Nuova offerta** si apre con la scheda **Imposta
 
 In **Offer Identity** (Identità offerta) è necessario specificare le informazioni per i campi descritti nella tabella seguente.  
 
-|    Campo         |       DESCRIZIONE                                                            |
+|    Campo         |       Descrizione                                                            |
 |  ---------       |     ---------------                                                          |
 | **ID offerta\***       | Identificatore univoco dell'offerta (in un profilo di pubblicazione). Questo ID sarà visibile negli URL dei prodotti e nei report delle informazioni dettagliate. Ha una lunghezza massima di 50 caratteri e può contenere caratteri alfanumerici minuscoli e trattini (-). L'identificatore non può terminare con un trattino. **Nota:** questo campo non può essere modificato dopo la pubblicazione dell'offerta. <br> Ad esempio, se Contoso pubblica un'offerta con l'ID offerta **sample-container**, viene assegnato all'offerta l'URL di Azure Marketplace `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-container?tab=Overview`. |
 | **ID dell'editore\***     | Identificatore univoco della propria organizzazione in Azure Marketplace. È consigliabile associare a tutte le proprie offerte il proprio ID editore. Questo valore non può essere modificato dopo che l'offerta è stata salvata. |

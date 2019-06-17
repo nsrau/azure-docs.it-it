@@ -9,10 +9,10 @@ author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
 ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966102"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guida alla progettazione di tabelle di Archiviazione di Azure: progettazione di tabelle scalabili ed efficienti
@@ -49,7 +49,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -69,7 +69,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -82,7 +82,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 </tr>
 <tr>
 <td>Marketing</td>
-<td>Reparto</td>
+<td>department</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
 <table>
@@ -106,7 +106,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -162,19 +162,19 @@ Questi elenchi riepilogano alcune linee guida chiave che è necessario tenere pr
 
 Progettazione di una soluzione di servizio tabelle efficiente nelle operazioni di *lettura* :
 
-* ***Progettazione per le query nelle applicazioni con intensa attività di lettura.***  Quando si progettano le tabelle, considerare le query (soprattutto quelle sensibili alla latenza) che si eseguiranno prima di pensare a come si aggiorneranno le entità. Ciò comporta in genere una soluzione efficiente e ad alte prestazioni.  
+* ***Progettazione per le query nelle applicazioni con intensa attività di lettura.*** Quando si progettano le tabelle, considerare le query (soprattutto quelle sensibili alla latenza) che si eseguiranno prima di pensare a come si aggiorneranno le entità. Ciò comporta in genere una soluzione efficiente e ad alte prestazioni.  
 * ***Specificare PartitionKey e RowKey nelle query.*** *Scegliere query* come queste sono le query più efficienti del servizio tabella.  
-* ***Prendere in considerazione l'archiviazione di copie duplicate delle entità.***  Poiché l'archiviazione tabelle è economica, considerare la possibilità di archiviare la stessa entità più volte (con chiavi diverse) per consentire query più efficienti.  
-* ***Considerare la denormalizzazione dei dati.***  L’archiviazione delle tabelle è economica, dunque è opportuno considerare la denormalizzazione dei dati. Ad esempio, archiviare le entità di riepilogo in modo che le query per aggregare i dati debbano accedere a una singola entità.  
+* ***Prendere in considerazione l'archiviazione di copie duplicate delle entità.*** Poiché l'archiviazione tabelle è economica, considerare la possibilità di archiviare la stessa entità più volte (con chiavi diverse) per consentire query più efficienti.  
+* ***Considerare la denormalizzazione dei dati.*** L’archiviazione delle tabelle è economica, dunque è opportuno considerare la denormalizzazione dei dati. Ad esempio, archiviare le entità di riepilogo in modo che le query per aggregare i dati debbano accedere a una singola entità.  
 * ***Usare valori chiave composti.*** Le sole chiavi a disposizione sono **PartitionKey** e **RowKey**. Ad esempio, per abilitare percorsi alternativi per l'accesso con chiave alle entità, ad esempio, utilizzare valori chiave composti.  
-* ***Usare la proiezione di query.***  È possibile ridurre la quantità di dati trasferiti tramite la rete usando query che selezionano solo i campi necessari.  
+* ***Usare la proiezione di query.*** È possibile ridurre la quantità di dati trasferiti tramite la rete usando query che selezionano solo i campi necessari.  
 
 Progettazione di una soluzione di servizio tabelle efficiente nelle operazioni di *scrittura* :  
 
-* ***Non creare partizioni critiche.***  Scegliere chiavi che consentono di distribuire le richieste tra più partizioni in qualsiasi momento.  
-* ***Evitare picchi di traffico.***  Contenere il traffico in un intervallo di tempo ragionevole ed evitare i picchi di traffico.
-* ***Non creare necessariamente una tabella separata per ogni tipo di entità.***  Quando è necessario eseguire transazioni atomiche tra diversi tipi di entità, è possibile archiviare questi tipi di entità nella stessa partizione della stessa tabella.
-* ***Considerare la velocità effettiva massima che è necessario raggiungere.***  È necessario tenere presenti gli obiettivi di scalabilità per il servizio tabelle e assicurarsi di non superarli con la progettazione.  
+* ***Non creare partizioni critiche.*** Scegliere chiavi che consentono di distribuire le richieste tra più partizioni in qualsiasi momento.  
+* ***Evitare picchi di traffico.*** Contenere il traffico in un intervallo di tempo ragionevole ed evitare i picchi di traffico.
+* ***Non creare necessariamente una tabella separata per ogni tipo di entità.*** Quando è necessario eseguire transazioni atomiche tra diversi tipi di entità, è possibile archiviare questi tipi di entità nella stessa partizione della stessa tabella.
+* ***Considerare la velocità effettiva massima che è necessario raggiungere.*** È necessario tenere presenti gli obiettivi di scalabilità per il servizio tabelle e assicurarsi di non superarli con la progettazione.  
 
 Questa guida contiene esempi in cui vengono messi in pratica tutti questi principi.  
 
@@ -1124,7 +1124,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1144,7 +1144,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1162,7 +1162,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <td>
 <table>
 <tr>
-<th>Nome del reparto</th>
+<th>DepartmentName</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -1181,7 +1181,7 @@ Il servizio tabelle è un archivio di tabelle *senza schema*. Ciò significa che
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1217,7 +1217,7 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1239,7 +1239,7 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1259,11 +1259,11 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <table>
 <tr>
 <th>EntityType</th>
-<th>Nome del reparto</th>
+<th>DepartmentName</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
-<td>Reparto</td>
+<td>department</td>
 <td></td>
 <td></td>
 </tr>
@@ -1280,7 +1280,7 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>Tempo di risoluzione</th>
+<th>Age</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -1515,7 +1515,7 @@ In questo esempio asincrono è possibile visualizzare le modifiche seguenti dall
 
 L'applicazione client può chiamare più metodi asincroni come questo e ogni chiamata al metodo verrà eseguita su un thread separato.  
 
-### <a name="credits"></a>Riconoscimenti
+### <a name="credits"></a>Credits
 Un particolare ringraziamento ai membri seguenti del team di Azure per il loro contributo: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah e Serdar Ozler, nonché Tom Hollander di Microsoft DX. 
 
 Un grazie anche ai Microsoft MVP seguenti per i preziosi commenti forniti durante i cicli di revisione: Igor Papirov ed Edward Bakker.

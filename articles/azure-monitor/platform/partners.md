@@ -9,10 +9,10 @@ ms.date: 03/14/2019
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: fae8e80c6fa94c3581de3038399ef031506b2f55
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65774237"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
@@ -96,7 +96,7 @@ Dynatrace OneAgent si integra con Servizi app e con le VM di Azure per mezzo dei
 
 [Vai alla documentazione.][dynatrace-doc]
 
-## <a name="elastic"></a>Elastico
+## <a name="elastic"></a>Elastic
 
 ![Logo elastico](./media/partners/elastic.png)
 

@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66145894"
 ---
 Raccolte di immagini condivise consentono di immagini di condivisione tramite RBAC. È possibile usare RBAC per condividere le immagini all'interno del tenant e anche per singoli utenti all'esterno del tenant. Tuttavia, se si vuole condividere immagini di fuori del tenant di Azure, su larga scala, è consigliabile creare una registrazione dell'app per facilitare la condivisione.  Tramite la registrazione di un'app è possibile abilitare la condivisione di scenari più complessa, ad esempio: 
@@ -38,9 +38,9 @@ Creare la registrazione di un'applicazione che verrà usata da entrambi i tenant
 
 Concedere l'autorizzazione di registrazione di app per usare la raccolta di immagini condivise.
 1. Nel portale di Azure, selezionare la raccolta di immagini condivise che si desidera condividere con un altro tenant.
-1. Selezionare **selezionare il controllo di accesso (IAM)**, quindi in **aggiungere un'assegnazione di ruolo** seleziona *Add*. 
+1. Selezionare **selezionare il controllo di accesso (IAM)** , quindi in **aggiungere un'assegnazione di ruolo** seleziona *Add*. 
 1. Sotto **ruolo**, selezionare **lettore**.
-1. Sotto **assegna accesso a:**, non modificare **utente, gruppo o entità servizio Azure AD**.
+1. Sotto **assegna accesso a:** , non modificare **utente, gruppo o entità servizio Azure AD**.
 1. Sotto **selezionate**, digitare *myGalleryApp* e selezionarlo quando viene visualizzato nell'elenco. Al termine, selezionare **salvare**.
 
 
@@ -54,9 +54,9 @@ https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Appl
 
 Nel [portale di Azure](https://portal.azure.com) accedere come Tenant 2 e concedere l'accesso alla registrazione dell'app al gruppo di risorse in cui si desidera creare la macchina virtuale.
 
-1. Selezionare il gruppo di risorse e quindi selezionare **controllo di accesso (IAM)**. Sotto **aggiungere un'assegnazione di ruolo** selezionate **Add**. 
+1. Selezionare il gruppo di risorse e quindi selezionare **controllo di accesso (IAM)** . Sotto **aggiungere un'assegnazione di ruolo** selezionate **Add**. 
 1. Sotto **ruolo**, digitare **collaboratore**.
-1. Sotto **assegna accesso a:**, non modificare **utente, gruppo o entità servizio Azure AD**.
+1. Sotto **assegna accesso a:** , non modificare **utente, gruppo o entità servizio Azure AD**.
 1. Sotto **selezionate** tipo *myGalleryApp* quindi selezionarlo quando viene visualizzato nell'elenco. Al termine, selezionare **salvare**.
 
 > [!NOTE]

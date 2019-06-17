@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
 ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61402305"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Creare una macchina virtuale da un disco rigido virtuale usando il portale di Azure
@@ -46,14 +46,14 @@ Creare uno snapshot e quindi creare un disco dallo snapshot. Questa strategia co
 4. Dal menu nella parte superiore selezionare **Crea snapshot**. 
 5. Immettere un **Nome** per lo snapshot.
 6. Scegliere un **gruppo di risorse** per lo snapshot. È possibile usare un gruppo di risorse esistente o crearne uno nuovo.
-7. Per **Tipo di account** scegliere l'archiviazione **Standard (unità HDD)** o **Premium (unità SSD)**.
+7. Per **Tipo di account** scegliere l'archiviazione **Standard (unità HDD)** o **Premium (unità SSD)** .
 8. Al termine selezionare **Crea** per creare lo snapshot.
 9. Dopo aver creato lo snapshot, selezionare **Crea una risorsa** nel menu a sinistra.
 10. Nella casella di ricerca immettere **disco gestito** e quindi selezionare **Dischi gestiti** nell'elenco.
 11. Nella pagina **Dischi gestiti** selezionare **Crea**.
 12. Immettere un **nome** per il disco.
 13. Scegliere un **gruppo di risorse** per il disco. È possibile usare un gruppo di risorse esistente o crearne uno nuovo. Questa selezione verrà anche usata come gruppo di risorse in cui creare la macchina virtuale dal disco.
-14. Per **Tipo di account** scegliere l'archiviazione **Standard (unità HDD)** o **Premium (unità SSD)**.
+14. Per **Tipo di account** scegliere l'archiviazione **Standard (unità HDD)** o **Premium (unità SSD)** .
 15. In **Tipo di origine** assicurarsi che l'opzione **Snapshot** sia selezionata.
 16. Nell'elenco a discesa **Snapshot di origine** selezionare lo snapshot da usare.
 17. Apportare eventuali altre modifiche necessarie e quindi selezionare **Crea** per creare il disco.

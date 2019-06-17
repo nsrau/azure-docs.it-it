@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65786072"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introduzione al livello Premium di Cache Redis di Azure
@@ -27,9 +27,9 @@ Cache Redis di Azure è una cache distribuita e gestita che consente di creare a
 Il nuovo livello Premium è un livello per aziende che include tutte le funzionalità del livello Standard e altro ancora, come prestazioni migliori, carichi di lavoro maggiori, ripristino di emergenza, importazione/esportazione e sicurezza avanzata. Continuare a leggere per ulteriori informazioni sulle funzionalità aggiuntive del livello di cache Premium.
 
 ## <a name="better-performance-compared-to-standard-or-basic-tier"></a>Prestazioni migliori rispetto al livello Standard o base
-**Prestazioni migliori a livello Standard o di base.**  Le cache nel livello Premium sono distribuite su un hardware che dispone di processori più veloci e che offre prestazioni migliori rispetto al livello Standard o di base. Le cache di livello Premium dispongono di velocità effettiva più elevata e minori latenze. 
+**Prestazioni migliori a livello Standard o di base.** Le cache nel livello Premium sono distribuite su un hardware che dispone di processori più veloci e che offre prestazioni migliori rispetto al livello Standard o di base. Le cache di livello Premium dispongono di velocità effettiva più elevata e minori latenze. 
 
-**La velocità effettiva per la Cache della stessa dimensione è superiore nel Premium rispetto al livello Standard.**  Ad esempio, la velocità effettiva di una cache P4 (Premium) da 53 GB è di 250K richieste al secondo rispetto a 150 K per C6 (Standard).
+**La velocità effettiva per la Cache della stessa dimensione è superiore nel Premium rispetto al livello Standard.** Ad esempio, la velocità effettiva di una cache P4 (Premium) da 53 GB è di 250K richieste al secondo rispetto a 150 K per C6 (Standard).
 
 Per altre informazioni su dimensioni, velocità effettiva e larghezza di banda con le cache Premium, vedere [Domande frequenti su Cache Redis di Azure](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
@@ -59,7 +59,7 @@ L'esportazione consente di esportare i dati archiviati in Cache Redis in file RD
 
 Per altre informazioni, vedere [How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md)(Come importare ed esportare i dati da Cache Redis di Azure).
 
-## <a name="reboot"></a>Riavvia
+## <a name="reboot"></a>Riavvio
 Il piano Premium consente di riavviare uno o più nodi della cache su richiesta. Ciò consente di verificare la resilienza dell'applicazione in caso di errore. È possibile riavviare i nodi seguenti.
 
 * Nodo principale della cache
@@ -74,7 +74,7 @@ Per altre informazioni, vedere [Riavvia](cache-administration.md#reboot) e [Doma
 >
 >
 
-## <a name="schedule-updates"></a>Pianifica aggiornamenti
+## <a name="schedule-updates"></a>Pianificare gli aggiornamenti
 La funzionalità di pianificazione degli aggiornamenti consente di progettare un intervallo di manutenzione per la cache. Quando viene specificato l'intervallo di manutenzione, tutti gli aggiornamenti del server Redis vengono eseguiti durante questo intervallo. Per pianificare un intervallo di manutenzione, selezionare i giorni desiderati e specificare l'ora di inizio dell'intervallo per ogni giorno. Si noti che l'orario dell'intervallo di manutenzione è in formato UTC. 
 
 Per altre informazioni, vedere [Pianificare gli aggiornamenti](cache-administration.md#schedule-updates) e [Domande frequenti sulla pianificazione degli aggiornamenti](cache-administration.md#schedule-updates-faq).

@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
 ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776525"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usare istanze GPU o RDMA nei pool di Batch
 
-Per eseguire determinati processi Batch, è possibile sfruttare le dimensioni delle macchine virtuali di Azure progettate per il calcolo su larga scala. Ad esempio: 
+Per eseguire determinati processi Batch, è possibile sfruttare le dimensioni delle macchine virtuali di Azure progettate per il calcolo su larga scala. Ad esempio:
 
 * Per eseguire [carichi di lavoro MPI](batch-mpi.md) a istanze multiple, scegliere la serie H o altre dimensioni che offrono un'interfaccia di rete per Accesso diretto a memoria remota (RDMA, Remote Direct Memory Access). Le VM di queste dimensioni si connettono a una rete InfiniBand per la comunicazione tra i nodi, che consente di velocizzare le applicazioni MPI. 
 
@@ -115,7 +115,7 @@ Per eseguire applicazioni CUDA in un pool di nodi NC di Windows, è necessario i
 | **Sku** | 2016-Datacenter |
 | **Dimensioni nodo** | NC6 Standard |
 | **Riferimenti ai pacchetti dell'applicazione** | GPUDriver, versione 411.82 |
-| **Attività di avvio abilitate** | True <br>**Riga di comando** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identità utente**: utente automatico pool, amministratore<br/>**Attendere il completamento dell'operazione**: True
+| **Attività di avvio abilitate** | True<br>**Riga di comando** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identità utente**: utente automatico pool, amministratore<br/>**Attendere il completamento dell'operazione**: True
 
 ## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Esempio: driver NVIDIA GPU in pool di macchine virtuali Linux NC
 
@@ -153,7 +153,7 @@ Per eseguire le applicazioni Windows MPI in un pool di nodi di macchine virtuali
 | **Immagine personalizzata** | *Nome dell'immagine* |
 | **SKU agente nodo** | batch.node.windows amd64 |
 | **Dimensioni nodo** | H16r Standard |
-| **Comunicazione tra nodi abilitata** | True  |
+| **Comunicazione tra nodi abilitata** | True |
 | **Numero massimo di attività per ogni nodo** | 1 |
 
 ## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Esempio: Intel MPI in un pool di macchine virtuali Linux H16r
@@ -169,7 +169,7 @@ Usando l'API Batch o il portale di Azure, creare un pool usando questa immagine,
 | **Offerta** | CentOS-HPC |
 | **Sku** | 7.4 |
 | **Dimensioni nodo** | H16r Standard |
-| **Comunicazione tra nodi abilitata** | True  |
+| **Comunicazione tra nodi abilitata** | True |
 | **Numero massimo di attività per ogni nodo** | 1 |
 
 ## <a name="next-steps"></a>Passaggi successivi

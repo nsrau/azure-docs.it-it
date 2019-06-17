@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.openlocfilehash: b29f3168b7ecc1ec8f783a7ce7a6dea83318fa14
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66455704"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
@@ -170,7 +170,7 @@ Indietro/corrente | Int64 | string | DateTime | Double
 Int64 | Int64 | string | string | Double
 Double | Double | string | string | Double
 string | String | String | String | string 
-DateTime | string | string |  DateTime | string
+DateTime | string | string |  DateTime | String
 
 ## <a name="table-storage"></a>Archiviazione tabelle
 
@@ -316,7 +316,7 @@ Nella tabella seguente vengono illustrate alcune considerazioni per l'invio in b
 | Tipo di output | Dimensioni massime messaggio | Ottimizzazione delle dimensioni batch |
 | :--- | :--- | :--- |
 | Archivio Azure Data Lake | Visualizzare [limiti di archiviazione di Data Lake](../azure-subscription-service-limits.md#data-lake-store-limits). | Usare fino a 4 MB per ogni operazione di scrittura. |
-| Database SQL di Azure | 10.000 righe massime per ogni inserimento di massa singola.<br />100 righe minime per ogni inserimento di massa singola. <br />Visualizzare [SQL di Azure limita](../sql-database/sql-database-resource-limits.md). |  Ogni batch viene inizialmente bulk inseriti con dimensioni massime dei batch. È possibile suddividere il batch metà (fino a raggiungere le dimensioni del batch minimo) in base agli errori non irreversibili da SQL. |
+| Database SQL di Azure | 10\.000 righe massime per ogni inserimento di massa singola.<br />100 righe minime per ogni inserimento di massa singola. <br />Visualizzare [SQL di Azure limita](../sql-database/sql-database-resource-limits.md). |  Ogni batch viene inizialmente bulk inseriti con dimensioni massime dei batch. È possibile suddividere il batch metà (fino a raggiungere le dimensioni del batch minimo) in base agli errori non irreversibili da SQL. |
 | Archivio BLOB di Azure | Visualizzare [archiviazione di Azure limita](../azure-subscription-service-limits.md#storage-limits). | La dimensione del blocco massima dei blob è 4 MB.<br />Il conteggio di bock massime del blob è 50.000. |
 | Hub eventi di Azure  | 256 KB per ogni messaggio. <br />Visualizzare [limiti di hub eventi](../event-hubs/event-hubs-quotas.md). |  Quando il partizionamento di input/output non è allineato, ogni evento viene compresso singolarmente nella **EventData** e inviati in un batch di fino a una dimensione massima messaggio (1 MB per lo SKU Premium). <br /><br />  Quando l'input/output di partizionamento è aligned, più eventi sono compresse in un unico **EventData** dell'istanza, fino alla dimensione massima del messaggio e inviati.  |
 | Power BI | Visualizzare [limita l'API Rest di Power BI](https://msdn.microsoft.com/library/dn950053.aspx). |

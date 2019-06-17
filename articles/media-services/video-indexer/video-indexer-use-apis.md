@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: ce04e19022a9902c228079e866c192985694134c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799252"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Esercitazione: Usare l'API Video Indexer
@@ -72,7 +72,7 @@ I token di accesso scadono dopo un'ora. Assicurarsi che il token di accesso sia 
  
 A questo punto, si è pronti per avviare l'integrazione con l'API. Leggere la [descrizione dettagliata di ogni API REST di Video Indexer](https://api-portal.videoindexer.ai/).
 
-## <a name="account-id"></a>ID account 
+## <a name="account-id"></a>Account ID 
 
 Il parametro Account ID è obbligatorio in tutte le chiamate alle API delle operazioni. L'ID account è un GUID che può essere ottenuto in uno dei modi seguenti:
 
@@ -82,7 +82,7 @@ Il parametro Account ID è obbligatorio in tutte le chiamate alle API delle oper
     2. Passare alla pagina **Impostazioni**.
     3. Copiare l'ID account.
 
-        ![ID account](./media/video-indexer-use-apis/account-id.png)
+        ![Account ID](./media/video-indexer-use-apis/account-id.png)
 
 * Usare il **portale per sviluppatori di Video Indexer** per ottenere l'ID account a livello di codice.
 
@@ -207,7 +207,7 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Panoramica di Video Indexer](video-indexer-overview.md)
 - [Aree](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

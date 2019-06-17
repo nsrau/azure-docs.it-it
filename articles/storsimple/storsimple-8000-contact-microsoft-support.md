@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli;
 ms.openlocfilehash: 77050ad37862394785cf348a242f585cc089ba26
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606858"
 ---
-# <a name="contact-microsoft-support"></a>Contatta il supporto Microsoft
+# <a name="contact-microsoft-support"></a>Contattare il supporto tecnico Microsoft
 
 Gestione dispositivi StorSimple offre la possibilità di **registrare una nuova richiesta di supporto** all'interno del pannello di riepilogo servizio. Se si verificano problemi con la soluzione StorSimple, è possibile creare una richiesta di servizio per il supporto tecnico. In una sessione online con il supporto tecnico, è necessario anche avviare una sessione di supporto nel dispositivo StorSimple. In questo articolo viene descritto:
 
@@ -80,11 +80,11 @@ Dopo la creazione del ticket di supporto, sarà possibile gestire il ciclo di vi
 
 1. Per visualizzare la pagina Guida e supporto, passare a **Sfoglia -> Guida e supporto**.
 
-    ![Gestisci richieste di supporto](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
+    ![Gestire le richieste di supporto](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
 
 2. Nel pannello **Guida e supporto** viene visualizzato un elenco tabulare con tutte le richieste di supporto.
 
-    ![Gestisci richieste di supporto](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![Gestire le richieste di supporto](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
 3. Selezionare e fare clic su una richiesta di supporto. È possibile visualizzare lo stato e i dettagli della richiesta. Fare clic su **+ Nuovo messaggio** se si vuole seguire la richiesta.
 

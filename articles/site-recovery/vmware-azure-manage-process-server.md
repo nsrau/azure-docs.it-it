@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: 2c27779719c73adf4d7fc1a61a0c77d03df71815
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925578"
 ---
 # <a name="manage-process-servers"></a>Gestire server di elaborazione
@@ -61,7 +61,7 @@ Spostare l'intero carico di lavoro gestito da un server di elaborazione per un s
 3. Fare clic sul server di elaborazione da cui si desidera passare il carico di lavoro.
 4. Fare clic su **commutatore**, selezionare il server di elaborazione di destinazione a cui si desidera spostare il carico di lavoro. Quindi fare clic su **OK**
 
-    ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
+    ![Opzione](media/vmware-azure-manage-process-server/Switch.PNG)
 
 5. Nell'insieme di credenziali, monitorare lo stato di avanzamento del processo sotto **Monitoring** > **processi di Site Recovery**.
 
@@ -125,4 +125,4 @@ Se un software antivirus è in esecuzione in un server di elaborazione scale-out
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
-- Directory di installazione server di processo. Ad esempio:  C:\Programmi (x86)\Microsoft Azure Site Recovery
+- Directory di installazione server di processo. Ad esempio: C:\Programmi (x86)\Microsoft Azure Site Recovery

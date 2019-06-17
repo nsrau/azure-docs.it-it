@@ -11,10 +11,10 @@ ms.date: 07/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 93c24f88fcd6a002493933ef71c5c80bd2ff8c10
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120180"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Eseguire operazioni sui dati in App per la logica di Azure
@@ -33,7 +33,7 @@ Queste tabelle riepilogano le operazioni sui dati che è possibile usare e sono 
 
 Queste azioni consentono di operare sui dati in matrici.
 
-| Azione | DESCRIZIONE | 
+| Azione | Descrizione | 
 |--------|-------------| 
 | [**Crea tabella CSV**](#create-csv-table-action) | Creare una tabella di valori delimitati da virgole (CSV) da una matrice. | 
 | [**Crea tabella HTML**](#create-html-table-action) | Creare una tabella HTML da una matrice. | 
@@ -46,7 +46,7 @@ Queste azioni consentono di operare sui dati in matrici.
 
 Queste azioni consentono di operare sui dati in formato JSON (JavaScript Object Notation).
 
-| Azione | DESCRIZIONE | 
+| Azione | Descrizione | 
 |--------|-------------| 
 | [**Componi**](#compose-action) | Creare un messaggio o una stringa da più input che possono avere vari tipi di dati. È quindi possibile usare questa stringa come un singolo input, invece di immettere ripetutamente gli stessi input. Ad esempio, è possibile creare un singolo messaggio JSON da vari input. | 
 | [**Analizza JSON**](#parse-json-action) | Creare token di dati descrittivi per le proprietà in contenuto JSON, in modo da poter usare più facilmente le proprietà nelle app per la logica. | 

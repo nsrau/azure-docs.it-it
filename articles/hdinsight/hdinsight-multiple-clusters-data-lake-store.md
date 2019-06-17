@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: b580890b1663aa6ce742443e927e4d760585d4ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700297"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Usare più cluster HDInsight con un account Azure Data Lake Storage
@@ -50,10 +50,10 @@ Per istruzioni su come creare un'applicazione AAD (che crea anche un'entità ser
 
 Alcuni punti chiave di cui tener conto.
 
-- La struttura di cartelle a due livelli (**/cluster/finance/**) deve essere creata e configurata con le autorizzazioni appropriate dall'amministratore di Data Lake Storage **prima** di usare l'account di archiviazione per i cluster. Questa struttura non viene creata automaticamente durante la creazione dei cluster.
+- La struttura di cartelle a due livelli ( **/cluster/finance/** ) deve essere creata e configurata con le autorizzazioni appropriate dall'amministratore di Data Lake Storage **prima** di usare l'account di archiviazione per i cluster. Questa struttura non viene creata automaticamente durante la creazione dei cluster.
 - Nell'esempio precedente si consiglia di impostare il gruppo proprietario di **/cluster/finance** come **FINGRP** e di fornire a FINGRP l'autorizzazione **r-x** per accedere all'intera gerarchia di cartelle, a partire dalla radice. In questo modo, i membri di FINGRP possono esplorare la struttura di cartelle a partire dalla radice.
 - Nel caso in cui più entità servizio AAD possano creare cluster in **/cluster/finance**, lo sticky bit (se impostato sulla cartella **finance**) garantisce che le cartelle create da un'entità servizio non possano essere eliminate da altre entità servizio.
-- Una volta la struttura di cartelle e le autorizzazioni siano abilitate, processo di creazione di cluster HDInsight crea un percorso di archiviazione specifiche per i cluster in **/Clusters/finance/**. La risorsa di archiviazione per un cluster con nome fincluster01, ad esempio, può essere **/clusters/finance/fincluster01**. La tabella seguente elenca la proprietà e le autorizzazioni relative alle cartelle create dal cluster HDInsight.
+- Una volta la struttura di cartelle e le autorizzazioni siano abilitate, processo di creazione di cluster HDInsight crea un percorso di archiviazione specifiche per i cluster in **/Clusters/finance/** . La risorsa di archiviazione per un cluster con nome fincluster01, ad esempio, può essere **/clusters/finance/fincluster01**. La tabella seguente elenca la proprietà e le autorizzazioni relative alle cartelle create dal cluster HDInsight.
 
     |Cartella  |Autorizzazioni  |utente proprietario  |gruppo proprietario  | Utente non anonimo | Autorizzazioni utente non anonimo | Gruppo non anonimo | Autorizzazioni gruppo non anonimo |
     |---------|---------|---------|---------|---------|---------|---------|---------|
@@ -88,9 +88,9 @@ Queste impostazioni influiscono su uno specifico caso d'uso di HDInsight acquisi
 Come indicato nel documento JIRA YARN citato in precedenza, durante la localizzazione delle risorse pubbliche il localizzatore verifica che tutte le risorse richieste siano realmente pubbliche controllandone le autorizzazioni sul file system remoto. Eventuali LocalResource che non soddisfano questa condizione vengono rifiutate per la localizzazione. Il controllo delle autorizzazioni include l'accesso in lettura al file per gli altri membri. Questo scenario non può essere applicato direttamente per l'hosting di cluster HDInsight in Azure Data Lake, poiché Azure Data Lake nega agli altri membri l'accesso a livello di cartella radice.
 
 #### <a name="workaround"></a>Soluzione alternativa
-Impostare le autorizzazioni di lettura ed esecuzione per gli **altri** membri attraverso la gerarchia, ad esempio in corrispondenza di **/**, **/clusters** e **/clusters/finance**, come illustrato nella tabella precedente.
+Impostare le autorizzazioni di lettura ed esecuzione per gli **altri** membri attraverso la gerarchia, ad esempio in corrispondenza di **/** , **/clusters** e **/clusters/finance**, come illustrato nella tabella precedente.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Avvio rapido: impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)

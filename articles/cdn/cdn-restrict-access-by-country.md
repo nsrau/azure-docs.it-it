@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
 ms.openlocfilehash: 083d8f66a73471548c812e27325e1ec69ad5c45c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869575"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Limita il contenuto della rete CDN di Azure da paese/area geografica
@@ -42,12 +42,12 @@ Per accedere alla funzionalità di filtro geografico, selezionare l'endpoint del
 
 Nella casella **Percorso** specificare il percorso relativo della posizione a cui gli utenti potranno o meno accedere. 
 
-È possibile applicare il filtro geografico a tutti i file con una barra (/) o selezionare cartelle specifiche indicando i percorsi di directory, ad esempio */foto/*. È anche possibile applicare il filtro geografico a un singolo file (ad esempio */foto/città.png*). Sono consentite più regole. Dopo aver immesso una regola, viene visualizzata una riga vuota per immettere la regola successiva.
+È possibile applicare il filtro geografico a tutti i file con una barra (/) o selezionare cartelle specifiche indicando i percorsi di directory, ad esempio */foto/* . È anche possibile applicare il filtro geografico a un singolo file (ad esempio */foto/città.png*). Sono consentite più regole. Dopo aver immesso una regola, viene visualizzata una riga vuota per immettere la regola successiva.
 
 Ad esempio, tutti i filtri di percorso di directory seguenti sono validi:   
 */*                                 
-*/Foto/*     
-*/Foto/Strasburgo/*     
+*/Foto/*      
+*/Foto/Strasburgo/*      
 */Foto/Strasburgo/città.png*
 
 ### <a name="define-the-type-of-action"></a>Definire il tipo di azione

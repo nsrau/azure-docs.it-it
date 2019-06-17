@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
 ms.openlocfilehash: ce5f7ab1e6751a9ce68aa2d9c466a112c9cac182
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900609"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorare dipendenze e rilevare eccezioni e tempi di esecuzione del metodo nelle app Web Java
@@ -27,7 +27,7 @@ Se l'[app Web Java è stata instrumentata con Application Insights][java], sarà
 * **Dipendenze:** dati sulle chiamate effettuate dall'applicazione ad altri componenti, tra cui:
   * **Chiamate REST** eseguite tramite HttpClient, OkHttp e RestTemplate (Spring).
   * **Chiamate Redis** effettuate tramite il client Jedis.
-  * **[Chiamate JDBC](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: vengono acquisiti automaticamente i comandi MySQL, SQL Server e Oracle DB. Per MySQL, se la chiamata dura più di 10s, l'agente segnala il piano di query.
+  * **[Chiamate JDBC](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** : vengono acquisiti automaticamente i comandi MySQL, SQL Server e Oracle DB. Per MySQL, se la chiamata dura più di 10s, l'agente segnala il piano di query.
 * **Eccezioni rilevate:** informazioni sulle eccezioni gestite dal codice.
 * **Tempo di esecuzione del metodo:** informazioni sul tempo necessario per eseguire metodi specifici.
 

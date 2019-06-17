@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60693382"
 ---
 # <a name="set-alerts-in-application-insights"></a>Impostare gli avvisi in Application Insights
@@ -180,7 +180,7 @@ Usare la nuova esperienza di avviso/avvisi quasi in tempo reale se si desidera i
 * [Usare PowerShell per automatizzare la configurazione degli avvisi](../../azure-monitor/app/powershell-alerts.md)
 * [Usare webhook per automatizzare la risposta agli avvisi](../../azure-monitor/platform/alerts-webhooks.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Automatizzare la configurazione degli avvisi](../../azure-monitor/app/powershell-alerts.md)
 * [Diagnostica proattiva](../../azure-monitor/app/proactive-diagnostics.md) 

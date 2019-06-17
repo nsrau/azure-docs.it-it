@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 973b0044844fbdf38eefde2072631586a8ace593
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192600"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Il Centro sicurezza di Azure per IoT prerequisiti
@@ -41,7 +41,7 @@ Questo articolo fornisce una spiegazione dei diversi blocchi predefiniti del Azu
 
 Centro sicurezza di AZURE per informazioni dettagliate IoT e i report sono disponibili tramite l'IoT Hub di Azure e Centro sicurezza di Azure. Per abilitare Centro sicurezza di AZURE per IoT sull'IoT Hub Azure, un account con **proprietario** sono necessari privilegi di livello. Dopo l'abilitazione di Centro sicurezza di AZURE per IoT nell'IoT Hub, Centro sicurezza di AZURE per IoT insights vengono visualizzati come le **sicurezza** funzionalità nell'IoT Hub di Azure e come **IoT** nel Centro sicurezza di Azure. 
 
-## <a name="supported-service-regions"></a>Aree del servizio supportati 
+## <a name="supported-service-regions"></a>Aree del servizio supportate 
 
 Centro sicurezza di AZURE per IoT è attualmente supportata per gli hub IoT nelle aree di Azure seguenti:
   - Stati Uniti centrali
@@ -62,7 +62,7 @@ Controllare la posizione dell'IoT Hub per verificare la disponibilità del servi
 Centro sicurezza di AZURE per gli agenti IoT supporta un elenco in continua crescita di dispositivi e piattaforme. Vedere le [elenco di piattaforme supportate](how-to-deploy-agent.md) per controllare la libreria di dispositivo esistente o pianificato.  
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Overview](overview.md)
+- [Panoramica](overview.md)
 - [Abilitare il servizio](quickstart-onboard-iot-hub.md)
 - [Centro sicurezza di AZURE per IoT domande frequenti](resources-frequently-asked-questions.md)
 - [La comprensione di Centro sicurezza di AZURE per gli avvisi di IoT](concept-security-alerts.md)

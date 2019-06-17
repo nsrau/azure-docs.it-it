@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 04/22/2019
 ms.openlocfilehash: b494f6524e5105a95bc8a24a6fa2521abcca3f7b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64729405"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi AS2 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
@@ -73,7 +73,7 @@ Questo articolo illustra come aggiungere la codifica AS2 e le azioni di decodifi
 
 1. Nella finestra di progettazione, aggiungere una nuova azione di app per la logica. 
 
-1. Sotto **scegliere un'azione** e la ricerca, scegliere **tutte**. Nella casella di ricerca immettere "codifica as2" e selezionare l'azione: **Codifica in un messaggio AS2**.
+1. In **Scegli un'azione** e nella casella di ricerca, scegliere **Tutte**. Nella casella di ricerca immettere "codifica as2" e selezionare l'azione: **Codifica in un messaggio AS2**.
 
    ![Selezionare "Encode al messaggio AS2"](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
@@ -83,14 +83,14 @@ Questo articolo illustra come aggiungere la codifica AS2 e le azioni di decodifi
  
 1. Includono ora informazioni per queste proprietà:
 
-   | Proprietà | DESCRIZIONE |
+   | Proprietà | Descrizione |
    |----------|-------------|
    | **AS2-From** | L'identificatore per il mittente del messaggio come specificato per il contratto AS2 |
    | **AS2-To** | L'identificatore per il destinatario del messaggio come specificato per il contratto AS2 |
    | **body** | Il payload del messaggio |
    |||
 
-   Ad esempio: 
+   Ad esempio:
 
    ![Proprietà codifica dei messaggi](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
@@ -102,7 +102,7 @@ Questo articolo illustra come aggiungere la codifica AS2 e le azioni di decodifi
 
 1. Nella finestra di progettazione, aggiungere una nuova azione di app per la logica. 
 
-1. Sotto **scegliere un'azione** e la ricerca, scegliere **tutte**. Nella casella di ricerca immettere "decodifica as2" e selezionare l'azione: **Decodifica il messaggio AS2**
+1. In **Scegli un'azione** e nella casella di ricerca, scegliere **Tutte**. Nella casella di ricerca immettere "decodifica as2" e selezionare l'azione: **Decodifica il messaggio AS2**
 
    ![Selezionare "Decode AS2 message"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 

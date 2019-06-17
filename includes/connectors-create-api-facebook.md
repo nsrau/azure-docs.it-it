@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: 8fe22f95c1dfc5171c41d6b3f0e00760fd9c9d69
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66149194"
 ---
 ### <a name="prerequisites"></a>Prerequisiti
@@ -18,12 +18,12 @@ Prima di poter usare l'account Facebook in un'app per la logica, è necessario a
 
 Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Facebook:
 
-1. Per creare una connessione a Facebook, nella finestra di progettazione dell'app per la logica, selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa e quindi immettere *Facebook* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:   
+1. Per creare una connessione a Facebook, nella finestra di progettazione dell'app per la logica, selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa e quindi immettere *Facebook* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:  
    ![facebook passaggio 1](./media/connectors-create-api-facebook/facebook-1.png)
 2. Se non sono mai state create connessioni a Facebook prima d'ora, verrà chiesto di fornire le relative credenziali. Queste credenziali verranno usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati dell'account Facebook:  
    ![facebook passaggio 2](./media/connectors-create-api-facebook/facebook-2.png)
 3. Fornire il nome utente e la password di Facebook per autorizzare l'app per la logica:  
    ![facebook passaggio 3](./media/connectors-create-api-facebook/facebook-3.png)   
-4. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
+4. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:  
    ![facebook passaggio 4](./media/connectors-create-api-facebook/facebook-4.png)   
 

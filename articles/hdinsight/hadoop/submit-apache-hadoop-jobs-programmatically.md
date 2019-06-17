@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.openlocfilehash: 48365d8fcb5e95fc9b9fa605321baf28e07eee66
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720811"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Inviare processi Apache Hadoop in HDInsight
@@ -43,6 +43,6 @@ ms.locfileid: "64720811"
   - [Usare Apache Sqoop con Apache Hadoop in HDInsight](apache-hadoop-use-sqoop-powershell.md)
   - [Eseguire processi MapReduce con Apache Hadoop in HDInsight mediante PowerShell](apache-hadoop-use-mapreduce-powershell.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Documentazione di Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/)

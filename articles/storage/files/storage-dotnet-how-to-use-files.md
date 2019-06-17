@@ -10,10 +10,10 @@ ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 38bafdb4753b41a9c8acd599e6b7215e1777c6cd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779472"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Eseguire lo sviluppo per File di Azure con .NET
@@ -46,7 +46,7 @@ API | Quando usare le autorizzazioni | Note
 In Visual Studio creare una nuova applicazione console di Windows. La procedura seguente illustra come creare un'applicazione console in Visual Studio 2017, ma i passaggi sono simili anche per le altre versioni di Visual Studio.
 
 1. Selezionare **File** > **Nuovo** > **Progetto**
-2. Selezionare **Installati** > **Modelli** > **Visual C#** > **Desktop classico di Windows**
+2. Selezionare **Installati** > **Modelli** > **Visual C#**  > **Desktop classico di Windows**
 3. Selezionare **App console (.NET Framework)**
 4. Immettere un nome per l'applicazione nel campo **Nome**
 5. Selezionare **OK**.

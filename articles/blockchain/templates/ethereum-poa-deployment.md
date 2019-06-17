@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66126544"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum Proof-of-Authority Consortium
@@ -46,7 +46,7 @@ Per gli utenti che hanno familiarità con la community blockchain, il rilascio d
 
 Poiché proof-of-authority si basa su un elenco di autorità di rete per mantenere la rete integri consentiti, è importante fornire un meccanismo equo per apportare modifiche a questo elenco di autorizzazioni. Ogni distribuzione include un set di contratti di smart e portale per la governance nella catena di questo elenco consentiti. Dopo che una modifica proposta raggiunge un voto di maggioranza da parte dei membri del consorzio, la modifica viene applicata. In questo modo si possono aggiungere nuovi partecipanti al consenso o rimuovere i partecipanti compromessi in un modo trasparente che favorisce una rete affidabile.
 
-### <a name="admin-account"></a>Account amministrativo
+### <a name="admin-account"></a>Account amministratore
 
 Durante la distribuzione dei nodi di proof-of-authority, verrà chiesto un indirizzo Admin Ethereum. Si possono usare meccanismi diversi per generare e proteggere questo account Ethereum. Dopo che questo indirizzo viene aggiunto come autorità della rete, è possibile usare questo account per partecipare alla governance. Questo account amministratore verrà anche usato per delegare la partecipazione al consenso ai nodi di convalida creati durante questa distribuzione. Poiché viene utilizzato solo l'indirizzo pubblico Ethereum, ogni amministratore ha la possibilità di proteggere le chiavi private in modo che segue il modello di sicurezza desiderato.
 
@@ -202,7 +202,7 @@ Quando una sottoscrizione è protetta, accedere al portale di Azure. Selezionare
 
 La sezione seguente consente di configurare in modo guidato il footprint del primo membro nella rete. Il flusso di distribuzione è suddiviso in cinque fasi: informazioni di base, aree di distribuzione, dimensioni e prestazioni della rete, impostazioni di Ethereum, Monitoraggio di Azure.
 
-#### <a name="basics"></a>Generale
+#### <a name="basics"></a>Nozioni di base
 
 In **Informazioni di base** specificare i valori dei parametri standard per qualsiasi distribuzione, ad esempio sottoscrizione, gruppo di risorse e proprietà di base della macchina virtuale.
 
@@ -210,7 +210,7 @@ Segue una descrizione dettagliata di ogni parametro:
 
 Nome parametro|Descrizione|Valori consentiti|Valori predefiniti
 ---|---|---|---
-Creare una nuova rete o eseguire l'aggiunta a una esistente?|Creare una nuova rete o eseguire l'aggiunta a una rete di consorzio preesistente|Creazione nuova rete, aggiunta a rete esistente|Crea nuova
+Creare una nuova rete o eseguire l'aggiunta a una esistente?|Creare una nuova rete o eseguire l'aggiunta a una rete di consorzio preesistente|Creazione nuova rete, aggiunta a rete esistente|Creazione di un nuovo sito
 Indirizzo di posta elettronica (facoltativo)|Al termine della distribuzione si riceverà una notifica di posta elettronica con le informazioni sulla distribuzione.|Indirizzo di posta elettronica valido|NA
 Nome utente macchina virtuale|Nome utente dell'amministratore di ogni macchina virtuale distribuita (solo caratteri alfanumerici)|1-64 caratteri|NA
 Tipo di autenticazione|Metodo per l'autenticazione per la macchina virtuale.|Password o chiave pubblica SSH|Password
@@ -262,7 +262,7 @@ Macchina virtuale e il livello di archiviazione influirà sulle prestazioni di r
   ---|---|---|---|---
   F1|SSD Standard|basso|bassa|elevata
   D2_v3|SSD Standard|medio|medio|media
-  F16s|Unità SSD Premium|elevata|elevata|bassa
+  F16s|SSD Premium|elevata|elevata|bassa
 
 Di seguito è illustrata una distribuzione di esempio: ![Dimensioni e prestazioni di rete](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
@@ -277,7 +277,7 @@ Segue una descrizione dettagliata di ogni parametro:
 Consortium Member ID (ID membro del consorzio)|L'ID associato a ogni membro che partecipa alla rete di consorzio che consente di configurare spazi di indirizzi IP per evitare conflitti. Nel caso di una rete privata, l'ID membro deve essere univoco per tutte le organizzazioni della stessa rete.  È necessario un ID membro univoco anche quando la stessa organizzazione esegue la distribuzione in più regioni. Prendere nota del valore di questo parametro, poiché sarà necessario per condividerlo con altri membri unita tramite join per assicurarsi che non si verifica alcun conflitto.|0-255|NA
 ID rete|L'ID di rete per la rete di consorzio Ethereum in fase di realizzazione.  Ogni rete Ethereum ha il proprio ID di rete, di cui 1 è l'ID della rete pubblica.|5 - 999,999,999|10101010
 Admin Ethereum Address (Indirizzo Ethereum amministratore)|Indirizzo dell'account Ethereum che viene usato per la partecipazione alla governance PoA.  È consigliabile usare MetaMask per la generazione di un indirizzo Ethereum.|42 caratteri alfanumerici che iniziano con 0x|NA
-Opzioni avanzate|Opzioni avanzate per le impostazioni di Ethereum|Abilita o Disabilita|Disattiva
+Opzioni avanzate|Opzioni avanzate per le impostazioni di Ethereum|Abilita o Disabilita|Disabilitazione
 IP pubblico (Opzioni avanzate = Abilita)|Distribuisce la rete dietro un gateway di rete virtuale e rimuove l'accesso peering. Se questa opzione è selezionata, tutti i membri devono usare un gateway di rete virtuale perché la connessione sia compatibile.|IP pubblico, Private VNet (Rete virtuale privata)|IP pubblico
 Block Gas Limit (Advanced Options = Enable) (Limite gas blocco (Opzioni avanzate = Abilita))|Limite di gas blocco iniziale della rete|Qualsiasi valore numerico|50000000
 Block Reseal Period (sec) (Periodo nuovo sigillo blocco (sec))|Frequenza con cui verranno creati blocchi vuoti in assenza di transazioni in rete. Una frequenza maggiore determina una finalità più rapida, ma costi di archiviazione maggiori.|Qualsiasi valore numerico|15
@@ -293,8 +293,8 @@ Il pannello monitoraggio consente di configurare una risorsa di log di monitorag
 
   Nome parametro|Descrizione|Valori consentiti|Valori predefiniti
   ---|---|---|---
-Monitoraggio|Opzione per abilitare Monitoraggio|Abilita o Disabilita|Attiva
-Connettersi al log di monitoraggio di Azure esistenti|Creare una nuova istanza di log di monitoraggio di Azure o partecipare a un'istanza esistente|Crea nuova o Join existing (Aggiungi esistente)|Crea nuova
+Monitoraggio|Opzione per abilitare Monitoraggio|Abilita o Disabilita|Abilita
+Connettersi al log di monitoraggio di Azure esistenti|Creare una nuova istanza di log di monitoraggio di Azure o partecipare a un'istanza esistente|Crea nuova o Join existing (Aggiungi esistente)|Creare un nuovo gruppo di risorse
 Monitoraggio percorso (connettersi a log di monitoraggio di Azure esistenti = Crea nuovo)|Verrà distribuito l'area in cui il monitoraggio di Azure nuova Registra istanza|Monitoraggio di Azure tutti i log di aree|NA
 ID area di lavoro di analitica log esistenti (connettersi a log di monitoraggio di Azure esistenti = Join esistenti)|ID area di lavoro del monitoraggio di Azure esistente Registra istanza||NA
 Chiave primaria esistente log analitica (connettersi a log di monitoraggio di Azure esistenti = Join esistenti)|La chiave primaria usata per connettersi all'istanza di log di monitoraggio di Azure esistente||NA
@@ -413,7 +413,7 @@ $MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName
 New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
-### <a name="service-monitoring"></a>Monitoraggio dei servizi
+### <a name="service-monitoring"></a>Monitoraggio del servizio
 
 È possibile individuare il portale di Monitoraggio di Azure seguendo il collegamento nel messaggio di posta elettronica di conferma o individuando il parametro nell'output di distribuzione \[OMS\_PORTAL\_URL\].
 

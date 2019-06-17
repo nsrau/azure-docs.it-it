@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c5a76b9cee8fd6eb09ee4d24c1380202fd17cc6d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60836311"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Progettare e implementare un database Oracle in Azure
@@ -139,7 +139,7 @@ La velocità effettiva totale della rete viene stimata in base alle informazioni
 
 In base ai requisiti di larghezza di banda della rete, sono disponibili diversi tipi di gateway tra cui scegliere, ad esempio Basic, VpnGw e Azure ExpressRoute. Per altre informazioni, vedere la [pagina Prezzi di Gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
 
-**Raccomandazioni**
+**Indicazioni**
 
 - La latenza di rete è superiore rispetto a una distribuzione locale. La riduzione dei round trip di rete può migliorare notevolmente le prestazioni.
 - Per ridurre i round trip, consolidare le applicazioni con transazioni elevate o con un livello di comunicazioni elevato nella stessa macchina virtuale.
@@ -175,7 +175,7 @@ Le operazioni di I/O al secondo corrispondono a 12.200.000/2.358 = 5.174.
 
 Dopo avere ottenuto un quadro preciso dei requisiti di I/O, è possibile scegliere la combinazione delle unità più adatte per soddisfare tali requisiti.
 
-**Raccomandazioni**
+**Indicazioni**
 
 - Per lo spazio di tabella dei dati, ripartire il carico di lavoro di I/O tra diversi dischi usando l'archiviazione gestita o Oracle ASM.
 - Con l'aumento della dimensione dei blocchi di I/O, per le operazioni intensive di lettura e di scrittura, aggiungere più dischi dati.
@@ -194,7 +194,7 @@ Sono disponibili tre opzioni per la memorizzazione nella cache dell'host:
 
 - *No* (funzionalità disabilitata): usando questa opzione, è possibile ignorare la cache. Tutti i dati vengono trasferiti sul disco e resi persistenti in Archiviazione di Azure. Questo metodo offre la massima frequenza di I/O per i carichi di lavoro con un uso intensivo dell'I/O. È anche necessario considerare il costo delle transazioni.
 
-**Raccomandazioni**
+**Indicazioni**
 
 Per ottimizzare la velocità effettiva, è consigliabile iniziare con l'opzione **Nessuna** per la memorizzazione nella cache dell'host. Per Archiviazione Premium, tenere presente che è necessario disabilitare le "barriere" quando si esegue il montaggio del file system con le opzioni **Sola lettura** o **Nessuna**. Aggiornare il file /etc/fstab con l'UUID dei dischi.
 
@@ -221,7 +221,7 @@ Dopo avere installato e configurato l'ambiente Azure, il passaggio successivo co
 - *Rete privata* (subnet): è consigliabile tenere il servizio dell'applicazione e il database in subnet separate, per garantire un maggiore controllo tramite i criteri del gruppo di sicurezza di rete.
 
 
-## <a name="additional-reading"></a>Informazioni aggiuntive
+## <a name="additional-reading"></a>Altre informazioni
 
 - [Configurare Oracle ASM](configure-oracle-asm.md)
 - [Configurare Oracle Data Guard](configure-oracle-dataguard.md)

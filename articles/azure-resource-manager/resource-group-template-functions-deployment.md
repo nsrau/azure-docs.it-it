@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128675"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funzioni di distribuzione per i modelli di Azure Resource Manager 
@@ -33,7 +33,7 @@ Per ottenere valori da risorse, gruppi di risorse o sottoscrizioni, vedere [Funz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deployment"></a>Distribuzione
+## <a name="deployment"></a>distribuzione
 `deployment()`
 
 Restituisce informazioni sull'operazione di distribuzione corrente.
@@ -158,7 +158,7 @@ Per un modello a livello di sottoscrizione che usa la funzione di distribuzione,
 
 <a id="parameters" />
 
-## <a name="parameters"></a>Parametri
+## <a name="parameters"></a>parameters
 `parameters(parameterName)`
 
 Restituisce un valore di parametro. Il nome del parametro specificato deve essere definito nella sezione parameters del modello.
@@ -167,7 +167,7 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sì |string |Nome del parametro da restituire. |
+| parameterName |Yes |string |Nome del parametro da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -252,7 +252,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | stringOutput | String | option 1 |
 | intOutput | Int | 1 |
@@ -283,7 +283,7 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| variableName |Sì |String |Nome della variabile da restituire. |
+| variableName |Yes |String |Nome della variabile da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -355,7 +355,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | exampleOutput1 | String | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |

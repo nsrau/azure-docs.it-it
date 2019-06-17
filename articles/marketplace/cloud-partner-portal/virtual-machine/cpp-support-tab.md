@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
 ms.openlocfilehash: 9763c8d520b8736d8f7d7bc5db81b75762cb98f9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938202"
 ---
 # <a name="virtual-machine-support-tab"></a>Scheda Support (Supporto) di macchina virtuale
@@ -24,7 +24,7 @@ La scheda **Support** (Supporto) nella pagina **Nuova offerta** consente di spec
 
 La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi obbligatori sono indicati da un asterisco (*).
 
-|         Campo                 |       DESCRIZIONE                                                        |
+|         Campo                 |       Descrizione                                                        |
 |        -------                |       ------------                                                       |
 | *Engineering Contact* (Contatto tecnico)     | Funge da contatto tecnico tra Microsoft e l'organizzazione | 
 | **Nome\***                | Nome della persona o del gruppo che funge da supporto tecnico/progettazione     |

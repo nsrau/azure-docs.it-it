@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: e542ad59f6fd64b52aef9438ed0f646e9e36fc4a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209632"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
@@ -33,7 +33,7 @@ Prima di creare un processo di esportazione per trasferire dati da Archiviazione
         - [Creare un account FedEX](https://www.fedex.com/en-us/create-account.html), o 
         - [Creare un account DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
-## <a name="step-1-create-an-export-job"></a>Passaggio 1: Crea processo di esportazione
+## <a name="step-1-create-an-export-job"></a>Passaggio 1: Creare un processo di esportazione
 
 Per creare un processo di esportazione nel portale di Azure, eseguire le operazioni seguenti.
 
@@ -55,7 +55,7 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
     - Selezionare una sottoscrizione.
     - Immettere o selezionare un gruppo di risorse.
 
-        ![Generale](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
+        ![Nozioni di base](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
     
 3. In **Dettagli processo**:
 
@@ -193,14 +193,14 @@ Number of drives needed:        3
 
 La tabella seguente mostra alcuni esempi di percorsi BLOB validi:
    
-   | Selettore | Percorso BLOB | Descrizione |
+   | Selector | Percorso BLOB | Descrizione |
    | --- | --- | --- |
-   | Inizia con |/ |Esporta tutti i BLOB nell'account di archiviazione |
-   | Inizia con |/$root/ |Esporta tutti i BLOB nel contenitore radice |
-   | Inizia con |/book |Esporta tutti i BLOB in qualsiasi contenitore che inizia con il prefisso **book** |
+   | Starts With |/ |Esporta tutti i BLOB nell'account di archiviazione |
+   | Starts With |/$root/ |Esporta tutti i BLOB nel contenitore radice |
+   | Starts With |/book |Esporta tutti i BLOB in qualsiasi contenitore che inizia con il prefisso **book** |
    | Starts With |/music/ |Esporta tutti i BLOB nel contenitore **music** |
-   | Inizia con |/music/love |Esporta nel contenitore **music** tutti i BLOB che iniziano con il prefisso **love** |
-   | Uguale a |$root/logo.bmp |Esporta il BLOB **logo.bmp** nel contenitore radice |
+   | Starts With |/music/love |Esporta nel contenitore **music** tutti i BLOB che iniziano con il prefisso **love** |
+   | Equal To |$root/logo.bmp |Esporta il BLOB **logo.bmp** nel contenitore radice |
    | Equal To |videos/story.mp4 |Esporta il BLOB **story.mp4** nel contenitore **video** |
 
 ## <a name="next-steps"></a>Passaggi successivi

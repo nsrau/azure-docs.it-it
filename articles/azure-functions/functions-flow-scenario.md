@@ -13,10 +13,10 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787684"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Chiamare una funzione da Microsoft Flow
@@ -132,7 +132,7 @@ Prima di tutto creare un flusso da zero, senza un modello, e aggiungere un *trig
 
 4. Fare clic su **Nuovo passaggio**, quindi su **Aggiungi una condizione**.
 
-    ![Aggiungi una condizione](media/functions-flow-scenario/add-condition.png)
+    ![Aggiungere una condizione](media/functions-flow-scenario/add-condition.png)
 
     Microsoft Flow aggiunge due rami al flusso: **In caso affermativo** e **se nessun**. Aggiungere passaggi a uno o a entrambi i rami dopo aver definito la condizione per cui si desidera trovare una corrispondenza.
 
@@ -158,7 +158,7 @@ Aggiungere ora il connettore personalizzato che chiama la funzione in Azure. Agg
 
 1. Nel ramo **If yes** (Se sì) fare clic su **Aggiungi un'azione**.
 
-    ![Aggiungi un'azione](media/functions-flow-scenario/condition1-yes-add-action.png)
+    ![Aggiungere un'azione](media/functions-flow-scenario/condition1-yes-add-action.png)
 
 2. Nella finestra di dialogo **Scegli un'azione** cercare `Turbine Repair`, quindi selezionare l'azione **Turbine Repair - Calculates costs** (Riparazione turbina - Calcola costi).
 
@@ -178,7 +178,7 @@ Aggiungere ora il connettore personalizzato che chiama la funzione in Azure. Agg
 
 4. Nella parte inferiore del ramo **If yes** (Se sì) fare clic su **Altro**, quindi **Aggiungi una condizione**.
 
-    ![Aggiungi una condizione](media/functions-flow-scenario/condition2-add.png)
+    ![Aggiungere una condizione](media/functions-flow-scenario/condition2-add.png)
 
 5. Nella scheda **Condition 2** (Condizione 2) fare clic nella prima casella, quindi selezionare **Messaggio** dalla finestra di dialogo **Contenuto dinamico**.
 
@@ -198,7 +198,7 @@ A questo punto nel flusso la funzione ha restituito un valore per **Messaggio**,
 
 1. Nel ramo **If yes** (Se sì) della seconda condizione, fare clic su **Aggiungi un'azione**.
 
-    ![Aggiungi un'azione](media/functions-flow-scenario/condition2-yes-add-action.png)
+    ![Aggiungere un'azione](media/functions-flow-scenario/condition2-yes-add-action.png)
 
 2. Nella finestra di dialogo **Scegli un'azione** cercare `email`, quindi selezionare un'azione per inviare un messaggio di posta elettronica in base al sistema di posta elettronica usato, in questo caso Outlook.
 
@@ -231,7 +231,7 @@ Dopo aver completato il flusso, aggiungere una riga all'elenco di SharePoint e v
     | **Titolo**           | Turbina 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
-    | **ServiceRequired** | Sì |
+    | **ServiceRequired** | Yes |
     | **EstimatedEffort** | 10 |
 
 3. Fare clic su **Done**.
@@ -246,7 +246,7 @@ Dopo aver completato il flusso, aggiungere una riga all'elenco di SharePoint e v
 
 5. In **Cronologia di esecuzione** fare clic sull'esecuzione del flusso.
 
-    ![Cronologia](media/functions-flow-scenario/run-history.png)
+    ![Cronologia di esecuzione](media/functions-flow-scenario/run-history.png)
 
     Se l'esecuzione ha avuto esito positivo, è possibile esaminare le operazioni di flusso nella pagina successiva. Se l'esecuzione per qualche motivo non è riuscita, la pagina successiva conterrà informazioni sulla risoluzione dei problemi.
 

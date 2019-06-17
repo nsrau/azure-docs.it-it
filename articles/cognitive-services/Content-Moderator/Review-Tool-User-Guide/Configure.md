@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: f88ccbabc925b651abbc06f571a9d4220ed8aeb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61285561"
 ---
 # <a name="configure-the-review-tool"></a>Configurare lo strumento di revisione
@@ -64,7 +64,7 @@ Se sei un membro di più di una Sub-team, è possibile passare tra tali sottotea
 
 ![Passare da un sottoteam a un altro](images/3-review-image-subteam-2.png)
 
-## <a name="tags"></a>Tag
+## <a name="tags"></a>`Tags`
 
 Il **tag** scheda consente di definire tag personalizzati moderazione oltre i tag di moderazione due predefiniti&mdash;**isadult** (**un**) e **isracy**  (**r**). Quando si crea un tag personalizzato, diventa disponibile per le revisioni insieme i tag predefiniti. È possibile modificare i tag che compaiono nelle revisioni passando le relative impostazioni di visibilità.
 

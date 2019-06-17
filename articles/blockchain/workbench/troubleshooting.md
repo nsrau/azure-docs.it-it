@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: b0263761a4aaf663b16584fbf9caa11bb124d5c4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510081"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Risoluzione dei problemi relativi ad Azure Blockchain Workbench
@@ -39,7 +39,7 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ## <a name="run-the-script"></a>Esecuzione dello script
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-Eseguire lo script `collectBlockchainWorkbenchTroubleshooting.ps1` per raccogliere i log e creare un file ZIP che contiene una cartella delle informazioni di risoluzione dei problemi. Ad esempio: 
+Eseguire lo script `collectBlockchainWorkbenchTroubleshooting.ps1` per raccogliere i log e creare un file ZIP che contiene una cartella delle informazioni di risoluzione dei problemi. Ad esempio:
 
 ``` powershell
 collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>" -ResourceGroupName "workbench-resource-group-name"
@@ -50,11 +50,11 @@ Questo script accetta i parametri seguenti:
 |---------|---------|----|
 | SubscriptionID | ID sottoscrizione per creare o individuare tutte le risorse. | Sì |
 | ResourceGroupName | Nome del gruppo di risorse di Azure in cui è stato distribuito Blockchain Workbench. | Sì |
-| OutputDirectory | Percorso in cui creare il file ZIP di output. Se non è specificato, per impostazione predefinita viene usata la directory corrente. | No  |
-| LookbackHours | Numero di ore da usare durante il pull dei dati di telemetria. Il valore predefinito è 24 ore. Il valore massimo è 90 ore. | No  |
-| OmsSubscriptionId | L'ID sottoscrizione in cui log di monitoraggio di Azure viene distribuito. Passare questo parametro solo se i log di monitoraggio di Azure per la blockchain di rete viene distribuito di fuori di gruppo di risorse di Blockchain Workbench.| No  |
-| OmsResourceGroup |Il gruppo di risorse in cui log di monitoraggio di Azure viene distribuito. Passare questo parametro solo se i log di monitoraggio di Azure per la blockchain di rete viene distribuito di fuori di gruppo di risorse di Blockchain Workbench.| No  |
-| OmsWorkspaceName | Nome dell'area di lavoro Log Analytics. Questo parametro verrà passato solo se i log di monitoraggio di Azure per la blockchain di rete viene distribuito di fuori di gruppo di risorse di Blockchain Workbench | No  |
+| OutputDirectory | Percorso in cui creare il file ZIP di output. Se non è specificato, per impostazione predefinita viene usata la directory corrente. | No |
+| LookbackHours | Numero di ore da usare durante il pull dei dati di telemetria. Il valore predefinito è 24 ore. Il valore massimo è 90 ore. | No |
+| OmsSubscriptionId | L'ID sottoscrizione in cui log di monitoraggio di Azure viene distribuito. Passare questo parametro solo se i log di monitoraggio di Azure per la blockchain di rete viene distribuito di fuori di gruppo di risorse di Blockchain Workbench.| No |
+| OmsResourceGroup |Il gruppo di risorse in cui log di monitoraggio di Azure viene distribuito. Passare questo parametro solo se i log di monitoraggio di Azure per la blockchain di rete viene distribuito di fuori di gruppo di risorse di Blockchain Workbench.| No |
+| OmsWorkspaceName | Nome dell'area di lavoro Log Analytics. Questo parametro verrà passato solo se i log di monitoraggio di Azure per la blockchain di rete viene distribuito di fuori di gruppo di risorse di Blockchain Workbench | No |
 
 ## <a name="what-is-collected"></a>Quali dati vengono raccolti?
 

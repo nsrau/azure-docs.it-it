@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61443094"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto
@@ -28,19 +28,19 @@ Gli utenti con il ruolo **Admin** hanno accesso completo alla soluzione, incluse
 | Autorizzazione            | Admin | Sola lettura |
 |----------------       |-------|-----------|
 | Visualizza soluzione         | Sì   | Sì       |
-| Aggiornare avvisi         | Sì   | No         |
-| Eliminare avvisi         | Sì   | No         |
-| Creare dispositivi        | Sì   | No         |
-| Aggiornare dispositivi        | Sì   | No         |
-| Eliminare dispositivi        | Sì   | No         |
-| Creare gruppi di dispositivi  | Sì   | No         |
-| Aggiornare gruppi di dispositivi  | Sì   | No         |
-| Eliminare gruppi di dispositivi  | Sì   | No         |
-| Creazione di regole          | Sì   | No         |
-| Aggiornare regole          | Sì   | No         |
-| Eliminare regole          | Sì   | No         |
-| Creare processi           | Sì   | No         |
-| Aggiornare la gestione di SIM | Sì   | No         |
+| Aggiornare avvisi         | Sì   | No        |
+| Eliminare avvisi         | Sì   | No        |
+| Creare dispositivi        | Sì   | No        |
+| Aggiornare dispositivi        | Sì   | No        |
+| Eliminare dispositivi        | Sì   | No        |
+| Creare gruppi di dispositivi  | Sì   | No        |
+| Aggiornare gruppi di dispositivi  | Sì   | No        |
+| Eliminare gruppi di dispositivi  | Sì   | No        |
+| Creazione di regole          | Sì   | No        |
+| Aggiornare regole          | Sì   | No        |
+| Eliminare regole          | Sì   | No        |
+| Creare processi           | Sì   | No        |
+| Aggiornare la gestione di SIM | Sì   | No        |
 
 Per impostazione predefinita, l'utente che ha distribuito la soluzione viene assegnato automaticamente al ruolo **Admin** ed è proprietario di un'applicazione di Azure Active Directory. Come proprietario dell'applicazione, può anche assegnare ruoli ad altri utenti tramite il portale di Azure. Se si vuole consentire a un altro utente di assegnare ruoli nella soluzione, è necessario impostare anche tale utente come proprietario dell'applicazione nel portale di Azure.
 

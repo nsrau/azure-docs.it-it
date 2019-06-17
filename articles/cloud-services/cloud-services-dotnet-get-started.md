@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595169"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
@@ -236,7 +236,7 @@ Le stringhe di connessione per l'account di archiviazione di Azure per il proget
 2. Fare clic sulla scheda **Impostazioni**. Nella casella di riepilogo **Configurazione servizio** selezionare **Cloud**.
 
     ![Configurazione del cloud](./media/cloud-services-dotnet-get-started/sccloud.png)
-3. Se si seleziona la voce **StorageConnectionString**, verrà visualizzato un pulsante con puntini di sospensione (**...**) all'estremità destra della riga. Fare clic su tale pulsante per aprire la finestra di dialogo **Crea Stringa di connessione all'account di archiviazione** .
+3. Se si seleziona la voce **StorageConnectionString**, verrà visualizzato un pulsante con puntini di sospensione ( **...** ) all'estremità destra della riga. Fare clic su tale pulsante per aprire la finestra di dialogo **Crea Stringa di connessione all'account di archiviazione** .
 
     ![Casella di creazione della stringa di connessione](./media/cloud-services-dotnet-get-started/opencscreate.png)
 4. Nella finestra di dialogo **Crea stringa di connessione a risorsa di archiviazione** fare clic su **Sottoscrizione** scegliere l'account di archiviazione creato in precedenza, quindi fare clic su **OK**. Se non è già stato effettuato l'accesso, saranno richieste le credenziali dell'account di Azure.
@@ -326,7 +326,7 @@ Dopo la creazione della soluzione, esaminare il codice univoco per i progetti di
 
 ### <a name="create-a-cloud-service-visual-studio-solution"></a>Creare una soluzione servizio cloud di Visual Studio
 1. In Visual Studio scegliere **Nuovo progetto** from the **File**.
-2. Nel riquadro sinistro della finestra di dialogo **Nuovo progetto** espandere **Visual C#**, scegliere i modelli **Cloud**, quindi selezionare il modello **Servizio cloud di Azure**.
+2. Nel riquadro sinistro della finestra di dialogo **Nuovo progetto** espandere **Visual C#** , scegliere i modelli **Cloud**, quindi selezionare il modello **Servizio cloud di Azure**.
 3. Assegnare al progetto e alla soluzione il nome ContosoAdsCloudService, quindi fare clic su **OK**.
 
     ![Nuovo progetto](./media/cloud-services-dotnet-get-started/newproject.png)
