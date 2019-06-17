@@ -11,17 +11,17 @@ ms.date: 10/08/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 5041458fdc3c6a49c59f2c4c476db71098531419
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912167"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Novità di Azure SQL Data Warehouse Settembre 2018
 Azure SQL Data Warehouse riceve continuamente miglioramenti. Questo articolo illustra le nuove funzionalità e le modifiche introdotte nel mese di settembre 2018.
 
 ## <a name="new-lower-entry-point-for-sql-data-warehouse-gen2"></a>Nuovo livello di servizio ridotto per SQL Data Warehouse di seconda generazione
-Nell'aprile 2018 [Microsoft ha annunciato](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse di seconda generazione, che offre prestazioni 5 volte superiori, una scalabilità delle risorse di calcolo 5 volte superiore, un livello di concorrenza 4 volte superiore e uno spazio di archiviazione illimitato. Come indicato nel [benchmark sul data warehouse nel cloud](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) di Gigaom, SQL Data Warehouse di seconda generazione **supera le prestazioni di Amazon Redshift del 42%**.
+Nell'aprile 2018 [Microsoft ha annunciato](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse di seconda generazione, che offre prestazioni 5 volte superiori, una scalabilità delle risorse di calcolo 5 volte superiore, un livello di concorrenza 4 volte superiore e uno spazio di archiviazione illimitato. Come indicato nel [benchmark sul data warehouse nel cloud](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) di Gigaom, SQL Data Warehouse di seconda generazione **supera le prestazioni di Amazon Redshift del 42%** .
 
 SQL Data Warehouse di seconda generazione è ora disponibile a livello generale al livello di servizio ridotto DWU500c, che consente di eseguire un data warehouse di dimensioni inferiori o ambienti di sviluppo/test con tutti i più recenti miglioramenti ai servizi. Il nuovo livello di servizio mantiene tutte le funzionalità della seconda generazione, tra cui la [memorizzazione adattiva nella cache](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), la [riproduzione casuale ultrarapida dei dati](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/) e il supporto del [data warehouse in tempo reale](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
 

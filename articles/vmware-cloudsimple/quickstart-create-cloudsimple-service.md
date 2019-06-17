@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9b3b95db24f4b0f9a0cf8f5102dfeea5dc51e29f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577571"
 ---
 # <a name="quickstart---create-service"></a>Guida introduttiva - creare servizio
@@ -71,7 +71,7 @@ Attenersi alla procedura seguente per abilitare il provider di risorse per il se
 
 Il servizio viene creato e aggiunto all'elenco dei servizi.
 
-## <a name="purchase-nodes"></a>Acquisto nodi
+## <a name="purchase-nodes"></a>Acquistare nodi
 
 Per impostare il pagamento in base al capacità di passare la capacità per un ambiente Cloud privato CloudSimple, prima di tutto eseguire il provisioning di nodi nel portale di Azure.
 

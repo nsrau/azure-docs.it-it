@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 311a867c863cbd72292d8e34b4f7abdb949b12c6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65198452"
 ---
 # <a name="tutorial-configure-security-agents"></a>Esercitazione: Configurare gli agenti di sicurezza
@@ -107,12 +107,12 @@ Nella tabella seguente contiene le proprietà controllabile del Centro sicurezza
 
 I valori predefiniti sono disponibili nello schema appropriata [Github](https://aka.ms/iot-security-module-default).
 
-| NOME| Stato | Valori validi| Valori predefiniti| DESCRIZIONE |
+| NOME| Stato | Valori validi| Valori predefiniti| Descrizione |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |highPriorityMessageFrequency|Richiesto: false |Valori validi:  Durata in formato ISO 8601 |Valore predefinito: PT7M |Tempo massimo prima dei messaggi con priorità alta vengono inviati.|
 |lowPriorityMessageFrequency |Richiesto: false|Valori validi:  Durata in formato ISO 8601 |Valore predefinito: PT5H |Tempo massimo prima dei messaggi con priorità bassa vengono inviati.| 
 |snapshotFrequency |Richiedi: false|I valori valida: durata in formato ISO 8601 |Valore predefinito PT13H |Intervallo di tempo per la creazione di snapshot dello stato di dispositivi.| 
-|maxLocalCacheSizeInBytes |Richiesto: false |Valori validi:  |Valore predefinito: 2560000, dimensioni superiori a 8192 | Archiviazione massima (in byte) consentito per la cache messaggi di un agente. Quantità massima di spazio consentito per archiviare i messaggi sul dispositivo, prima che i messaggi vengono inviati.| 
+|maxLocalCacheSizeInBytes |Richiesto: false |Valori validi: |Valore predefinito: 2560000, dimensioni superiori a 8192 | Archiviazione massima (in byte) consentito per la cache messaggi di un agente. Quantità massima di spazio consentito per archiviare i messaggi sul dispositivo, prima che i messaggi vengono inviati.| 
 |maxMessageSizeInBytes |Richiesto: false |Valori validi:  Un numero positivo maggiore di 8192 262144 minore di |Valore predefinito: 204800 |Numero massimo di dimensioni del messaggio da cloud di un agente. Questa impostazione controlla la quantità di dati massimi in ogni messaggio inviati. |
 |eventPriority${EventName} |Richiesto: false |Valori validi:  Massimo, minimo, disattivato |Valori predefiniti: |Priorità di ogni agente ha generato l'evento | 
 
@@ -122,18 +122,18 @@ I valori predefiniti sono disponibili nello schema appropriata [Github](https://
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |Evento di diagnostica|eventPriorityDiagnostic| Off| False| Gli eventi di diagnostica correlati all'agente. Usare questo evento per la registrazione dettagliata.| 
 |Errore di configurazione |eventPriorityConfigurationError |Basso |False |Agente non è riuscito ad analizzare la configurazione. Verificare la configurazione a fronte dello schema.| 
-|Statistiche di eventi eliminati |eventPriorityDroppedEventsStatistics |Basso |True |Le statistiche di eventi correlati all'agente. |
-|Statistiche relative ai messaggi|eventPriorityMessageStatistics |Basso |True  |Statistiche relative ai messaggi correlati all'agente. |
-|Componenti hardware connessi|eventPriorityConnectedHardware |Basso |True  |Snapshot di tutti i componenti hardware connessi al dispositivo.|
-|Porte in ascolto|eventPriorityListeningPorts |Alto |True  |Snapshot di tutte le porte in ascolto sul dispositivo.|
+|Statistiche di eventi eliminati |eventPriorityDroppedEventsStatistics |Basso |True|Le statistiche di eventi correlati all'agente. |
+|Statistiche relative ai messaggi|eventPriorityMessageStatistics |Basso |True |Statistiche relative ai messaggi correlati all'agente. |
+|Componenti hardware connessi|eventPriorityConnectedHardware |Basso |True |Snapshot di tutti i componenti hardware connessi al dispositivo.|
+|Porte in ascolto|eventPriorityListeningPorts |Alto |True |Snapshot di tutte le porte in ascolto sul dispositivo.|
 |Crea processo |eventPriorityProcessCreate |Basso |False |I controlli di elaborano la creazione del dispositivo.|
 |Processo interrotto|eventPriorityProcessTerminate |Basso |False |I controlli di chiusura sul dispositivo del processo.| 
-|Informazioni di sistema |eventPrioritySystemInformation |Basso |True  |Un'istantanea delle informazioni di sistema (ad esempio: Sistema operativo o CPU).| 
-|Utenti locali| eventPriorityLocalUsers |Alto |True |Uno snapshot degli utenti locali registrati all'interno del sistema. |
+|Informazioni di sistema |eventPrioritySystemInformation |Basso |True |Un'istantanea delle informazioni di sistema (ad esempio: Sistema operativo o CPU).| 
+|Utenti locali| eventPriorityLocalUsers |Alto |True|Uno snapshot degli utenti locali registrati all'interno del sistema. |
 |Login|  eventPriorityLogin |Alto|False|Controllare gli eventi di accesso al dispositivo (accessi locali e remoti).|
 |Crea connessione |eventPriorityConnectionCreate|Basso|False|Consente di controllare le connessioni TCP create da e verso il dispositivo. |
-|Configurazione del firewall| eventPriorityFirewallConfiguration|Basso|True |Snapshot della configurazione del firewall dispositivo (regole del firewall). |
-|Linea di base del sistema operativo| eventPriorityOSBaseline| Basso|True |Snapshot della linea di base del sistema operativo dispositivo controllare.|
+|Configurazione del firewall| eventPriorityFirewallConfiguration|Basso|True|Snapshot della configurazione del firewall dispositivo (regole del firewall). |
+|Linea di base del sistema operativo| eventPriorityOSBaseline| Basso|True|Snapshot della linea di base del sistema operativo dispositivo controllare.|
  
 
 ## <a name="next-steps"></a>Passaggi successivi

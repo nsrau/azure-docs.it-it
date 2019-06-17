@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9765af13a22a0ae9db8a45c396e7d5a32b71b79c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 5dc2587a0c127106d5afb41e20eca43919065f1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730315"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118775"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Come configurare il monitoraggio in Gemelli digitali di Azure
 
@@ -68,11 +68,11 @@ Esempi di registrazione diagnostica includono:
 Per abilitare i log di diagnostica per un'istanza:
 
 1. Aprire la risorsa nel portale di Azure.
-1. Fare clic su **Impostazioni di diagnostica**:
+1. Selezionare **le impostazioni di diagnostica**:
 
     [![Impostazioni di diagnostica uno](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
-1. Fare clic su **Abilita diagnostica** per raccogliere i dati (se l'opzione non era stata abilitata in precedenza).
+1. Selezionare **attivare la diagnostica** per raccogliere i dati (se precedentemente non abilitata).
 1. Compilare i campi richiesti e scegliere come e dove salvare i dati:
 
     [![Due impostazioni di diagnostica](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
@@ -101,7 +101,7 @@ L'esecuzione di query di log completo viene fornito tramite [monitoraggio di Azu
 
     [![Log analitica](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
-1. Se si ha già un **dell'area di lavoro di Log Analitica** istanza, è possibile creare un'area di lavoro facendo il **Add** pulsante:
+1. Se non hai già un **dell'area di lavoro di Log Analitica** istanza, è possibile creare un'area di lavoro selezionando le **Add** pulsante:
 
     [![Creazione di OMS](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
@@ -114,7 +114,7 @@ Per altre informazioni sulle operazioni avanzate relative alle query, vedere [In
 > [!NOTE]
 > Che si verifichi un ritardo di 5 minuti quando si inviano eventi a **dell'area di lavoro di Log Analitica** per la prima volta.
 
-Log di monitoraggio di Azure forniscono inoltre errore potenti e servizi di notifica di avviso, che possono essere visualizzati facendo **diagnosticare e risolvere i problemi**:
+Log di monitoraggio di Azure forniscono inoltre errore potenti e servizi di notifica di avviso, che possono essere visualizzati selezionando **diagnosticare e risolvere i problemi**:
 
    [![Notifiche di avviso ed errore](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 

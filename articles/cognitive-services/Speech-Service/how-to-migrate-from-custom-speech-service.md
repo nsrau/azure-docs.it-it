@@ -12,10 +12,10 @@ ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: 8a2c149faa0ec9d135713a123a33d7c220522496
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60995641"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Eseguire la migrazione dal Servizio di riconoscimento vocale personalizzato al servizio Voce
@@ -59,7 +59,7 @@ Eseguire la migrazione di chiavi di risorsa esistente ai servizi di riconoscimen
 * [Prova gratuitamente i servizi di riconoscimento vocale](get-started.md).
 * Apprendere i concetti del [riconoscimento vocale](./speech-to-text.md).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni sul servizio Voce](overview.md)
 * [Documentazione di servizi di riconoscimento vocale e Speech SDK](speech-sdk.md#get-the-sdk)

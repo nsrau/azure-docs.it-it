@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
 ms.openlocfilehash: ca014e4f5fbc4a5695dbc5fedc85826c71a2a906
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60863981"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Eliminare un gateway di rete virtuale usando PowerShell (classico)
@@ -56,7 +56,7 @@ In questo esempio il file di configurazione di rete viene esportato in C:\AzureN
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-Aprire il file con un editor di testo e visualizzare il nome di una rete virtuale classica. Quando si crea una rete virtuale nel portale di Azure, il nome completo che usa Azure non è visibile nel portale. Ad esempio, una rete virtuale che nel portale di Azure sembra avere il nome di "ClassicVNet1" potrebbe avere un nome molto più lungo nel file di configurazione di rete. Il nome potrebbe essere simile a: "Gruppo ClassicRG1 ClassicVNet1". I nomi delle reti virtuali sono elencati come **"VirtualNetworkSite name ="**. Usare i nomi nel file di configurazione di rete durante l'esecuzione dei cmdlet di PowerShell.
+Aprire il file con un editor di testo e visualizzare il nome di una rete virtuale classica. Quando si crea una rete virtuale nel portale di Azure, il nome completo che usa Azure non è visibile nel portale. Ad esempio, una rete virtuale che nel portale di Azure sembra avere il nome di "ClassicVNet1" potrebbe avere un nome molto più lungo nel file di configurazione di rete. Il nome potrebbe essere simile a: "Gruppo ClassicRG1 ClassicVNet1". I nomi delle reti virtuali sono elencati come **"VirtualNetworkSite name ="** . Usare i nomi nel file di configurazione di rete durante l'esecuzione dei cmdlet di PowerShell.
 
 ## <a name="delete"></a>Passaggio 3: Eliminare il gateway di rete virtuale
 

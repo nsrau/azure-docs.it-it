@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707984"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster Apache HBase nelle reti virtuali di Azure
@@ -105,7 +105,7 @@ Nella sezione precedente il modello crea una macchina virtuale Ubuntu in ognuna 
 Per installare Bind, è necessario trovare l'indirizzo IP pubblico delle due macchine virtuali DNS.
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
-2. Aprire la macchina virtuale DNS selezionando **Gruppi di risorse > [nome gruppo di risorse] > [vnet1DNS]**.  Il nome del gruppo di risorse è quello creato nella procedura precedente. I nomi di macchina virtuale DNS predefiniti sono *vnet1DNS* e *vnet2NDS*.
+2. Aprire la macchina virtuale DNS selezionando **Gruppi di risorse > [nome gruppo di risorse] > [vnet1DNS]** .  Il nome del gruppo di risorse è quello creato nella procedura precedente. I nomi di macchina virtuale DNS predefiniti sono *vnet1DNS* e *vnet2NDS*.
 3. Selezionare **Proprietà** per aprire la pagina delle proprietà della rete virtuale.
 4. Annotare l'**Indirizzo IP pubblico** e verificare inoltre l'**Indirizzo IP privato**.  L'indirizzo IP privato deve essere **10.1.0.4** per vnet1DNS e **10.2.0.4** per vnet2DNS.  
 5. Modificare i server DNS in modo che entrambe le reti virtuali usino i server DNS predefiniti (forniti da Azure) per consentire l'accesso in ingresso e in uscita ai pacchetti di download per poter installare Bind con i passaggi seguenti.
@@ -288,7 +288,7 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
 5. Selezionare o immettere le seguenti informazioni:
 
    1. **Nome**: immettere **Abilitazione replica**.
-   2. **URL script Bash**: Immettere **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+   2. **URL script Bash**: Immettere **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
    3. **Head**: assicurarsi che questa opzione sia selezionata. Deselezionare gli altri tipi di nodo.
    4. **Parametri**: i parametri di esempio seguenti abilitano la replica per tutte le tabelle esistenti e quindi copiano tutti i dati dal cluster di origine al cluster di destinazione:
 
@@ -301,7 +301,7 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
 
 Argomenti obbligatori:
 
-|NOME|DESCRIZIONE|
+|Name|Descrizione|
 |----|-----------|
 |-s, --src-cluster | Specifica il nome DNS del cluster HBase di origine. Ad esempio: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, - dst-cluster | Specifica il nome DNS del cluster HBase di destinazione (replica). Ad esempio: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -310,7 +310,7 @@ Argomenti obbligatori:
 
 Argomenti facoltativi:
 
-|NOME|DESCRIZIONE|
+|Name|Descrizione|
 |----|-----------|
 |-su, --src-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di origine. Il valore predefinito è **admin**. |
 |-du, --dst-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di destinazione. Il valore predefinito è **admin**. |
@@ -360,7 +360,7 @@ La sezione `print_usage()` dello [script](https://github.com/Azure/hbase-utils/b
 
 ### <a name="scenarios"></a>Scenari
 
-- **Copiare tabelle specifiche (test1, test2 e test3) per tutte le righe modificate finora (timestamp corrente)**:
+- **Copiare tabelle specifiche (test1, test2 e test3) per tutte le righe modificate finora (timestamp corrente)** :
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
   In alternativa:
@@ -390,7 +390,7 @@ La sezione `print_usage()` dello [script](https://raw.githubusercontent.com/Azur
 
         --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
-- **Disabilitare la replica in tabelle specifiche (table1, table2 e table3)**:
+- **Disabilitare la replica in tabelle specifiche (table1, table2 e table3)** :
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 

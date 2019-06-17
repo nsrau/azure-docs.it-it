@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 037996385f34c5037e0386686e3bdf8dc1b7a37a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d25efa8c666fa91c7bd652a7cf931ea6ca379aa2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113763"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133227"
 ---
-L'archiviazione con ridondanza della zona (ZRS) replica i dati in modo sincrono in tre cluster di archiviazione in una singola area. Ogni cluster di archiviazione è separato fisicamente dagli altri e si trova nella propria zona di disponibilità. Ogni zona di disponibilità&mdash;con il cluster di archiviazione con ridondanza della zona al suo interno&mdash;è autonoma e include funzionalità di rete e utilità separate.
+L'archiviazione con ridondanza della zona (ZRS) replica i dati in modo sincrono in tre cluster di archiviazione in una singola area. Ogni cluster di archiviazione è separato fisicamente dagli altri e si trova nella propria zona di disponibilità. Ogni zona di disponibilità&mdash;con il cluster di archiviazione con ridondanza della zona al suo interno&mdash;è autonoma e include funzionalità di rete e utilità separate. Una richiesta di scrittura in un account di archiviazione ZRS viene restituita correttamente solo dopo che i dati vengono scritti in tutte le repliche tra i tre cluster.
 
 Quando si archiviano i dati in un account di archiviazione con replica di archiviazione con ridondanza della zona, è possibile continuare ad accedere ai dati e gestirli se una zona di disponibilità non è più disponibile. L'archiviazione con ridondanza della zona offre prestazioni eccellenti e bassa latenza. L'archiviazione con ridondanza della zona offre gli stessi [obiettivi di scalabilità](../articles/storage/common/storage-scalability-targets.md) dell'[archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md).
 

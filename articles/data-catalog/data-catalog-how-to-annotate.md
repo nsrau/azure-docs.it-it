@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 18dfd9eb66c1dc71ecb14bb748d9cdd6afeb00a7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953181"
 ---
 # <a name="how-to-annotate-data-sources"></a>Come annotare le origini dati
@@ -41,7 +41,7 @@ Data Catalog supporta i tipi di annotazione seguenti:
 | Tag (tag utente) |I tag possono essere forniti a livello asset di dati e attributo / colonna. I tag utente sono etichette definite dall'utente che possono essere usate per definire categorie di asset di dati o attributi. |
 | Tag (tag glossario) |I tag possono essere forniti a livello asset di dati e attributo / colonna. I tag di glossario sono termini di glossario definiti a livello centrale che possono essere usati per definire categorie di asset di dati o attributi tramite una tassonomia aziendale comune. Per altre informazioni, vedere [Come configurare il glossario aziendale per l'assegnazione di tag regolamentata](data-catalog-how-to-business-glossary.md) |
 | Esperti |Gli esperti possono essere forniti a livello di asset di dati. Gli esperti identificano utenti o gruppi con prospettive da esperti sui dati e possono fungere come punto di contatto per gli utenti che individuano le origini dei dati registrati e hanno domande le cui risposte non vengono fornite dalle annotazioni esistenti. |
-| Richiedi l'accesso |Le informazioni di richiesta di accesso possono essere fornite a livello di asset di dati. Queste informazioni sono per gli utenti che individuano un'origine dati per cui non dispongono di autorizzazioni di accesso. Gli utenti possono immettere l'indirizzo di posta elettronica dell'utente o del gruppo che concede l'accesso, l'URL del processo o lo strumento a cui gli utenti devono accedere, oppure immettere lo stesso processo come testo. |
+| Richiedere l'accesso |Le informazioni di richiesta di accesso possono essere fornite a livello di asset di dati. Queste informazioni sono per gli utenti che individuano un'origine dati per cui non dispongono di autorizzazioni di accesso. Gli utenti possono immettere l'indirizzo di posta elettronica dell'utente o del gruppo che concede l'accesso, l'URL del processo o lo strumento a cui gli utenti devono accedere, oppure immettere lo stesso processo come testo. |
 | Documentazione |La documentazione può essere fornita a livello di asset di dati. La documentazione degli asset è costituita da informazioni in formato RTF che possono includere collegamenti e immagini e fornire informazioni aggiuntive rispetto a descrizioni e tag. |
 
 ## <a name="annotating-multiple-assets"></a>Asset con più annotazioni
@@ -60,5 +60,5 @@ Così come i metadati estratti dall'origine dati durante la registrazione vengon
 ## <a name="summary"></a>Riepilogo
 La registrazione di un'origine dati in Data Catalog rende individuabili tali dati copiando i metadati strutturali e descrittivi dall'origine dati al servizio Catalog. Dopo la registrazione di un'origine dati, gli utenti possono specificare annotazioni per facilitare l'individuazione e la comprensione dal portale di Data Catalog.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Introduzione ad Azure Data Catalog](data-catalog-get-started.md) .

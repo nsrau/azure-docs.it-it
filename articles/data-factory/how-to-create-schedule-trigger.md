@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
 ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65151080"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creare un trigger per l'esecuzione di una pipeline in base a una pianificazione
@@ -44,7 +44,7 @@ Le sezioni successive illustrano la procedura per creare un trigger di pianifica
 3. Nella pagina **Nuovo trigger** seguire questa procedura: 
 
     1. Verificare che sia selezionata l'opzione **Pianificazione** per **Tipo**. 
-    2. Specificare il valore datetime di inizio del trigger per **Data di inizio (UTC)**. Per impostazione predefinita, questa opzione è impostata sul valore datetime corrente. 
+    2. Specificare il valore datetime di inizio del trigger per **Data di inizio (UTC)** . Per impostazione predefinita, questa opzione è impostata sul valore datetime corrente. 
     3. Specificare **Ricorrenza** per il trigger. Selezionare uno dei valori dall'elenco a discesa (Ogni minuto, Ogni ora, Ogni giorno, Ogni settimana e Ogni mese). Immettere il moltiplicatore nella casella di testo. Ad esempio, se si vuole impostare l'esecuzione del trigger una volta ogni 15 minuti, selezionare **Ogni minuto** e immettere **15** nella casella di testo. 
     4. Per il campo **Fine**, se non si vuole specificare un valore datetime di fine per il trigger, selezionare **No End** (Nessuna data di fine). Per specificare un valore datetime di fine, selezionare **On Date** (In data), specificare un valore datetime di fine e fare clic su **Applica**. Ogni esecuzione della pipeline è associata a un costo. Se si stanno eseguendo test, si consiglia di verificare che la pipeline sia attivata solo un paio di volte. Assicurarsi tuttavia che il tempo specificato tra l'ora di pubblicazione e l'ora di fine sia sufficiente per l'esecuzione della pipeline. Il trigger viene applicato solo dopo la pubblicazione della soluzione in Data Factory, non quando si salva il trigger nell'interfaccia utente.
 
@@ -312,7 +312,7 @@ La definizione JSON seguente illustra come creare un trigger di pianificazione c
 ### <a name="schema-overview"></a>Panoramica dello schema
 La tabella seguente fornisce una panoramica generale degli elementi dello schema principali correlati alla ricorrenza e alla pianificazione di un trigger:
 
-| Proprietà JSON | DESCRIZIONE |
+| Proprietà JSON | Descrizione |
 |:--- |:--- |
 | **startTime** | Valore di data e ora. Per le pianificazioni semplici, il valore della proprietà **startTime** si applica alla prima occorrenza. Per le pianificazioni complesse, il trigger viene attivato non prima del valore **startTime** specificato. |
 | **endTime** | Data e ora di fine per il trigger. Il trigger non viene eseguito dopo la data e l'ora di fine specificate. Il valore della proprietà non può essere nel passato. Questa proprietà è facoltativa. |
@@ -327,11 +327,11 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 | Proprietà JSON | Type | Obbligatorio | Valore predefinito | Valori validi | Esempio |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | String | Sì | Nessuna | Date-Ore ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Object | Sì | Nessuna | Oggetto ricorrenza | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | Number | No  | 1 | Da 1 a 1.000 | `"interval":10` |
-| **endTime** | String | Sì | Nessuna | Valore di data e ora che fa riferimento a un momento nel futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | Object | No  | Nessuna | Oggetto pianificazione | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **startTime** | String | Yes | Nessuna | Date-Ore ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | Object | Yes | Nessuna | Oggetto ricorrenza | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **interval** | Number | No | 1 | Da 1 a 1.000 | `"interval":10` |
+| **endTime** | String | Yes | Nessuna | Valore di data e ora che fa riferimento a un momento nel futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | Object | No | Nessuna | Oggetto pianificazione | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Proprietà startTime
 La tabella seguente illustra come la proprietà **startTime** controlla l'esecuzione di un trigger:
@@ -359,7 +359,7 @@ Se vengono specificati più elementi **schedule**, l'ordine di valutazione è da
 La tabella seguente illustra in modo dettagliato gli elementi **schedule**:
 
 
-| Elemento JSON | DESCRIZIONE | Valori validi |
+| Elemento JSON | Descrizione | Valori validi |
 |:--- |:--- |:--- |
 | **minutes** | Minuti dell'ora in cui verrà eseguito il trigger. | <ul><li>Integer</li><li>Matrice di numeri interi</li></ul>
 | **hours** | Ore del giorno in cui verrà eseguito il trigger. | <ul><li>Integer</li><li>Matrice di numeri interi</li></ul> |
@@ -373,7 +373,7 @@ Questa sezione fornisce esempi di pianificazioni di ricorrenza con attenzione al
 
 Gli esempi presumono che il valore **interval** sia 1 e che il valore **frequency** sia corretto in base alla definizione della pianificazione. Non è ad esempio possibile avere un valore **frequency** uguale a "day" e anche una modifica "monthDays" nell'oggetto **schedule**. Restrizioni come queste sono indicate nella tabella nella sezione precedente.
 
-| Esempio | DESCRIZIONE |
+| Esempio | Descrizione |
 |:--- |:--- |
 | `{"hours":[5]}` | Viene eseguito alle 5:00 ogni giorno. |
 | `{"minutes":[15], "hours":[5]}` | Viene eseguito alle 05:15 ogni giorno. |

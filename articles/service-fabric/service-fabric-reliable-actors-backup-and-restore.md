@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/29/2018
 ms.author: vturecek
 ms.openlocfilehash: cb397141c86f40f02d8046838865106e0fb8992c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726622"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementare il backup e il ripristino di Reliable Actors

@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129554"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurare i gruppi di disponibilità AlwaysOn in macchine virtuali di Azure automaticamente: Gestione risorse
@@ -209,6 +209,6 @@ Per connettersi mediante RDP al server SQL, seguire questa procedura:
 4. Nel pannello di **sqlserver-0** fare clic su **Connetti**. Il browser chiederà se si desidera aprire o salvare l'oggetto di connessione remota. Fare clic su **Apri**.
 5. La **connessione Desktop remoto** potrebbe visualizzare un avviso che l'entità di pubblicazione della connessione remota non può essere identificato. Fare clic su **Connetti**.
 6. Il sistema di sicurezza di Windows chiede all'utente di immettere le proprie credenziali per eseguire la connessione all'indirizzo IP del controller di dominio primario. Fare clic su **Usa un altro account**. In **Nome utente** digitare **contoso\DomainAdmin**. Questo account è stato configurato quando è stato impostato il nome utente dell'amministratore nel modello. Usare la password complessa scelta durante la configurazione del modello.
-7. **Desktop remoto** potrebbe segnalare che il computer remoto non può essere autenticato a causa di problemi relativi al certificato di sicurezza. Mostra il nome del certificato di sicurezza. Se sono stati eseguiti i passaggi dell'esercitazione, il nome è **sqlserver-0.contoso.com**. Fare clic su **Sì**.
+7. **Desktop remoto** potrebbe segnalare che il computer remoto non può essere autenticato a causa di problemi relativi al certificato di sicurezza. Mostra il nome del certificato di sicurezza. Se sono stati eseguiti i passaggi dell'esercitazione, il nome è **sqlserver-0.contoso.com**. Scegliere **Sì**.
 
 A questo punto si è connessi alla macchina virtuale di server SQL tramite Remote Desktop Protocol (RDP). È possibile aprire SQL Server Management Studio, connettersi all'istanza predefinita di SQL Server e verificare che il gruppo di disponibilità sia configurato.

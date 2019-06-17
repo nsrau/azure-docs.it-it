@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: a544cdca1ef4be56fcf368a39040f4ee85076a9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60815108"
 ---
 # <a name="structured-query-expression"></a>Espressioni di query strutturate
@@ -31,14 +31,14 @@ Un'espressione di query per attributo identifica un set di oggetti in base alla 
 
 | Type | Operazione | Esempi |
 |------|-------------|------------|
-| string | equals | Title = 'latent semantic analysis' (valore canonico + sinonimi) |
-| string | equals | Author.Name=='susan t dumais' (solo valore canonico)|
-| string | starts_with | Title='latent s'... |
+| String | equals | Title = 'latent semantic analysis' (valore canonico + sinonimi) |
+| String | equals | Author.Name=='susan t dumais' (solo valore canonico)|
+| String | starts_with | Title='latent s'... |
 | Int32/Int64/Double | equals | Year=2000 |
 | Int32/Int64/Double | starts_with | Year='20'... (qualsiasi valore decimale a partire da "20") |
 | Int32/Int64/Double | is_between | Year&lt;2000 <br/> Year&lt;=2000 <br/> Year&gt;2000 <br/> Year&gt;=2000 <br/> Year=2010,2012 *(include solo il valore limite sinistro: 2010, 2011)* <br/> Year=2000,2012 *(include entrambi i valori limite: 2010, 2011, 2012)* |
-| Data | equals | BirthDate='1984-05-14' |
-| Data | is_between | BirthDate&lt;='2008/03/14' <br/> PublishDate=['2000-01-01','2009-12-31'] |
+| Date | equals | BirthDate='1984-05-14' |
+| Date | is_between | BirthDate&lt;='2008/03/14' <br/> PublishDate=['2000-01-01','2009-12-31'] |
 | Guid | equals | Id='602DD052-CC47-4B23-A16A-26B52D30C05B' |
 
 

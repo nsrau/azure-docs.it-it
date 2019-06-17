@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/11/2019
 ms.author: juliako
 ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550155"
 ---
 # <a name="cloud-upload-and-storage"></a>Caricamento e archiviazione nel cloud
@@ -54,14 +54,14 @@ Per proteggere gli asset inattivi, è necessario crittografarli tramite crittogr
 
 ## <a name="storage-account-errors"></a>Errori di account di archiviazione
 
-Lo stato di "Disconnesso" per un account servizi multimediali indica che l'account non ha più accesso a uno o più degli account di archiviazione collegati a causa di una modifica nelle chiavi di accesso di archiviazione. Chiavi di accesso archiviazione aggiornati necessarie da servizi multimediali per eseguire molte attività nell'account.
+Lo stato "Disconnesso" per un account Servizi multimediali indica che l'account non ha più accesso a uno o più degli account di archiviazione collegati a causa di una modifica alle chiavi di accesso alle risorse di archiviazione. Sono necessarie chiavi di accesso alle risorse di archiviazione aggiornate in Servizi multimediali per eseguire molte attività nell'account.
 
-Di seguito sono gli scenari principali che comporterebbero un account di servizi multimediali non disporre dell'accesso agli account di archiviazione collegati. 
+Di seguito sono riportati gli scenari principali che potrebbero comportare il mancato accesso, da parte di un account di Servizi multimediali, agli account di archiviazione collegati. 
 
 |Problema|Soluzione|
 |---|---|
-|L'account di servizi multimediali o gli account di archiviazione collegati sono stati migrati per separare le sottoscrizioni. |Eseguire la migrazione di account di archiviazione o account di servizi multimediali in modo che siano tutte nella stessa sottoscrizione. |
-|L'account di servizi multimediali Usa un account di archiviazione associato in un'altra sottoscrizione che aveva un account servizi multimediali anticipato in cui si era supportata. Tutti gli account di servizi multimediali iniziali sono stati convertiti in account di gestione delle risorse Azure (ARM) basato su moderne e avranno uno stato disconnesso. |Eseguire la migrazione di account di archiviazione o un account di servizi multimediali in modo che siano tutte nella stessa sottoscrizione.|
+|L'account di Servizi multimediali o gli account di archiviazione collegati sono stati migrati per separare le sottoscrizioni. |Eseguire la migrazione degli account di archiviazione o dell'account di servizi multimediali in modo che si trovino tutti nella stessa sottoscrizione. |
+|L'account di Servizi multimediali usa un account di archiviazione associato in un'altra sottoscrizione perché si tratta di un account Servizi multimediali iniziale in cui l'account di archiviazione era già precedentemente supportato. Tutti gli account di servizi multimediali iniziali sono stati convertiti in moderni account di Azure Resource Manager (ARM) e presentano lo stato Disconnesso. |Eseguire la migrazione dell'account di archiviazione o dell'account di Servizi multimediali in modo che si trovino tutti nella stessa sottoscrizione.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

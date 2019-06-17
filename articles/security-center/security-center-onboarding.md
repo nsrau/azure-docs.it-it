@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 19/02/2019
 ms.author: v-mohabe
 ms.openlocfilehash: fe8ceb8c196f7329027502847fba481169458d86
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966798"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Caricamento del livello Standard di Centro sicurezza di Azure per la sicurezza avanzata
@@ -69,7 +69,7 @@ Il Centro di sicurezza di Azure consente di monitorare le condizioni di sicurezz
 
 3. Fare clic su **Configura** in **Aggiungi nuovi computer non Azure**. Viene visualizzato un elenco delle aree di lavoro di Log Analytics. L'elenco include, se applicabile, l'area di lavoro predefinita creata dal Centro sicurezza quando è stato abilitato il provisioning automatico. Selezionare l'area di lavoro che si desidera usare.
 
-   ![Aggiungi computer non di Azure][7]
+   ![Aggiungere computer non Azure][7]
 
 Se sono disponibili, le aree di lavoro esistenti vengono elencate sotto **Add new Non-Azure computers** (Aggiungi nuovi computer non Azure). È possibile aggiungere computer a un'area di lavoro esistente o creare una nuova area di lavoro. Per creare una nuova area di lavoro, selezionare il collegamento per **aggiungere una nuova area di lavoro**.
 

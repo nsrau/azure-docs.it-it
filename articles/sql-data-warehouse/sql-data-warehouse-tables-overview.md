@@ -11,10 +11,10 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 06bdd21363aee8202ce7178f157f01a5c26e3a52
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851581"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Progettazione di tabelle in Azure SQL Data Warehouse
@@ -92,7 +92,7 @@ La categoria della tabella spesso determina l'opzione appropriata per la distrib
 |:---------------|:--------------------|
 | Fact           | Usare la distribuzione hash con indice columnstore cluster. Le prestazioni aumentano quando si crea un join tra due tabelle hash nella stessa colonna di distribuzione. |
 | Dimensione      | Usare le tabelle replicate per le tabelle di dimensioni più piccole. Se le tabelle sono troppo grandi per essere archiviate in ogni nodo di calcolo, usare le tabelle con distribuzione hash. |
-| Gestione temporanea        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Una volta i dati nella tabella di staging, utilizza l'istruzione INSERT... Selezionare questa opzione per spostare i dati in tabelle di produzione. |
+| Staging        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Una volta i dati nella tabella di staging, utilizza l'istruzione INSERT... Selezionare questa opzione per spostare i dati in tabelle di produzione. |
 
 ## <a name="table-partitions"></a>Partizioni della tabella
 Una tabella partizionata archivia ed esegue operazioni sulle righe di tabella in base agli intervalli di dati. Una tabella può, ad esempio, essere partizionata in base ai giorni, ai mesi o agli anni. È possibile migliorare le prestazioni delle query tramite l'eliminazione della partizione, che limita l'analisi di una query ai dati all'interno di una partizione. È inoltre possibile gestire i dati tramite la commutazione tra partizioni. Poiché i dati in SQL Data Warehouse sono già distribuiti, un numero eccessivo di partizioni può rallentare le prestazioni delle query. Per altre informazioni, vedere [Indicazioni sul partizionamento](sql-data-warehouse-tables-partition.md).  Quando le partizioni nella tabella cambio della partizione che non sono vuoti, è possibile usare l'opzione TRUNCATE_TARGET nel [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) istruzione se è possibile troncare i dati esistenti. Il seguente codice commutatori nei dati giornalieri trasformati nel SalesFact sovrascrivendo eventuali dati esistenti. 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: db3a955cd9e572d1daca044aed75048e394e8457
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200749"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Il Centro sicurezza di Azure per gli avvisi di sicurezza IoT
@@ -37,7 +37,7 @@ Per altre informazioni, vedere [creare avvisi personalizzati](quickstart-create-
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Avvisi predefiniti per i dispositivi IoT
 
-| Severity | NOME                                                   | origine dati | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Severity | NOME                                                   | origine dati | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------|--------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alto     | Eseguito correttamente l'accesso locale                                 | Agente       | Rilevato accesso riuscita del dispositivo locale                                                                                                                                                                                                                                                                                                                                                                                         |
 | Alto     | Forza bruta                                  | Agente       | Rilevate più tentativi di accesso non riuscito, seguita da un account di accesso ha esito positivo. Si è verificato un attacco di forza bruta nel dispositivo.                                                                                                                                                                                                                                                                                                              |
@@ -81,7 +81,7 @@ Per altre informazioni, vedere [creare avvisi personalizzati](quickstart-create-
 
 ## <a name="built-in-alerts-for-iot-hub"></a>Avvisi predefiniti per l'IoT Hub
 
-| Severity | NOME                                                                         | DESCRIZIONE                                                                                                                                                                                                                                                                                                                            |
+| Severity | Name                                                                         | Descrizione                                                                                                                                                                                                                                                                                                                            |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Media   | Nuovo certificato aggiunto a un IoT Hub                                    |Nuovo certificato aggiunto a un hub IoT. Se questa aggiunta non è stata eseguita da un'entità autorizzata, potrebbe indicare attività dannose.                                                                                                                                                                                                    |
 | Media   | Certificato è stato eliminato da un IoT Hub                                    | Certificato è stato eliminato da un hub IoT. Se questa azione non è stata eseguita da un'entità autorizzata, potrebbe indicare attività dannose.                                                                                                                                                                                                |
@@ -91,8 +91,8 @@ Per altre informazioni, vedere [creare avvisi personalizzati](quickstart-create-
 | Basso      | Tenta di eliminare un'impostazione di diagnostica da un Hub IoT ha rilevato       | Provare a eliminare le impostazioni di diagnostica di un hub IoT rilevato. Impostazione di diagnostica consente di ricreare gli itinerari di attività per scopi di analisi quando si verifica un evento imprevisto della sicurezza o di rete è compromessa. Se questa azione non è stata eseguita da un'entità autorizzata, è possibile in un'attività dannose.       |
 |
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
-- [Overview](overview.md)
+- [Panoramica](overview.md)
 - [Accedere ai dati di sicurezza](how-to-security-data-access.md)
 - [Provare a utilizzare un dispositivo](how-to-investigate-device.md)

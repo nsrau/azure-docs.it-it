@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 04/29/2019
 ms.author: raynew
 ms.openlocfilehash: 6e31308800f72d60381f1e4ecd540482ba263851
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969357"
 ---
 # <a name="troubleshoot-the-process-server"></a>Risolvere i problemi del server di elaborazione
@@ -51,7 +51,7 @@ Il server di elaborazione genera un numero di avvisi sull'integrità. Questi avv
 
 **Tipo di avviso** | **Error (Errore) (Error (Errore)e)** | **Risolvere i problemi**
 --- | --- | --- 
-![Integra][green] | Nessuna  | Server di elaborazione sia connesso e integro.
+![Healthy][green] | Nessuna  | Server di elaborazione sia connesso e integro.
 ![Avviso][yellow] | Servizi specificati non sono in esecuzione. | 1. Verificare che i servizi siano in esecuzione.<br/> 2. Se i servizi sono eseguiti come previsto, seguire le istruzioni seguenti per [risolvere i problemi di connettività e della replica](#check-connectivity-and-replication).
 ![Avviso][yellow]  | CPU utilizzo > 80% negli ultimi 15 minuti. | 1. Non aggiungere nuovi computer.<br/>2. Verificare che il numero di macchine virtuali con il server di elaborazione viene allineato al [definiti limiti](site-recovery-plan-capacity-vmware.md#capacity-considerations)e provare a configurare un [server di elaborazione aggiuntivo](vmware-azure-set-up-process-server-scale.md).<br/>3. Seguire le istruzioni seguenti per [risolvere i problemi di connettività e della replica](#check-connectivity-and-replication).
 ![Critico][red] |  CPU utilizzo > 95% negli ultimi 15 minuti. | 1. Non aggiungere nuovi computer.<br/>2. Verificare che il numero di macchine virtuali con il server di elaborazione viene allineato al [definiti limiti](site-recovery-plan-capacity-vmware.md#capacity-considerations)e provare a configurare un [server di elaborazione aggiuntivo](vmware-azure-set-up-process-server-scale.md).<br/>3. Seguire le istruzioni seguenti per [risolvere i problemi di connettività e della replica](#check-connectivity-and-replication).<br/> 4. Se il problema persiste, eseguire la [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) per la replica di server VMware/computer fisici.
@@ -69,7 +69,7 @@ Il server di elaborazione genera un numero di avvisi sull'integrità. Questi avv
 
 Nella tabella seguente sono riepilogati i servizi che devono essere in esecuzione nel server di elaborazione. Esistono piccole differenze nei servizi, a seconda del modo in cui viene distribuito il server di elaborazione. 
 
-Per tutti i servizi, ad eccezione di Microsoft Azure Recovery Services Agent (obengine), verificare che sia impostato il StartType **automatici** oppure **automatico (avvio ritardato)**.
+Per tutti i servizi, ad eccezione di Microsoft Azure Recovery Services Agent (obengine), verificare che sia impostato il StartType **automatici** oppure **automatico (avvio ritardato)** .
  
 **Distribuzione** | **Servizi in esecuzione**
 --- | ---

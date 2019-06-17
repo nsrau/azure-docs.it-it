@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
 ms.openlocfilehash: 5e384520c1b8d6cf5e3b182bbddf41a5f4f7f8f6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707821"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Eseguire il debug di processi Apache Spark in esecuzione in Azure HDInsight
@@ -24,7 +24,7 @@ Questo articolo illustra come tenere traccia ed eseguire il debug di processi [A
 
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Il notebook dovrebbe essere in esecuzione, **[Machine Learning: analisi predittiva dei dati di controllo degli alimenti tramite MLLib](apache-spark-machine-learning-mllib-ipython.md)**. Per istruzioni su come eseguire questo notebook, seguire il collegamento.  
+* Il notebook dovrebbe essere in esecuzione, **[Machine Learning: analisi predittiva dei dati di controllo degli alimenti tramite MLLib](apache-spark-machine-learning-mllib-ipython.md)** . Per istruzioni su come eseguire questo notebook, seguire il collegamento.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Tenere traccia di un'applicazione nell'interfaccia utente di YARN
 1. Avviare l'interfaccia utente di YARN Fare clic su **Yarn** in **Dashboard cluster**.
@@ -96,7 +96,7 @@ Una volta completato un processo, le informazioni corrispondenti vengono salvate
    
     ![Avviare Server cronologia Spark](./media/apache-spark-job-debugging/view-completed-applications.png)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 *  [Gestire le risorse del cluster Apache Spark in Azure HDInsight](apache-spark-resource-manager.md)
 *  [Eseguire il debug dei processi Apache Spark tramite il Server cronologia Spark esteso](apache-azure-spark-history-server.md)
 

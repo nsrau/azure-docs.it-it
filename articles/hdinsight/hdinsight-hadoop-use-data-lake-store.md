@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 890cd7080447649396855bfbe051dca4470a4564
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546289"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Usare Data Lake Storage Gen1 con i cluster Azure HDInsight
@@ -42,12 +42,12 @@ Attualmente, solo alcuni dei tipi/versioni di cluster HDInsight supportano l'uso
 
 | Tipo di cluster HDInsight | Data Lake Storage Gen1 come risorsa di archiviazione predefinita | Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva| Note |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight versione 4.0 | N. | N. |Gen1 Azure Data Lake Store non è supportato con HDInsight 4.0 |
-| HDInsight versione 3.6 | Sì | Sì | Ad eccezione di HBase|
-| HDInsight versione 3.5 | Sì | Sì | Ad eccezione di HBase|
-| HDInsight versione 3.4 | N. | Sì | |
-| HDInsight versione 3.3 | N. | N. | |
-| HDInsight versione 3.2 | N. | Sì | |
+| HDInsight versione 4.0 | No | No |Gen1 Azure Data Lake Store non è supportato con HDInsight 4.0 |
+| HDInsight versione 3.6 | Yes | Yes | Ad eccezione di HBase|
+| HDInsight versione 3.5 | Yes | Yes | Ad eccezione di HBase|
+| HDInsight versione 3.4 | No | Yes | |
+| HDInsight versione 3.3 | No | No | |
+| HDInsight versione 3.2 | No | Yes | |
 | Storm | | |È possibile usare Data Lake Storage Gen1 per scrivere dati da una topologia Storm. È anche possibile usare Data Lake Storage per archiviare dati di riferimento che possono essere letti da una topologia Storm.|
 
 > [!WARNING]  

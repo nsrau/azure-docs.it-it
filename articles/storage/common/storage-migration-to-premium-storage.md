@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
 ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153773"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrazione in Archiviazione Premium di Azure (dischi non gestiti)
@@ -180,11 +180,11 @@ Tramite AzCopy è possibile caricare facilmente il disco rigido virtuale in Inte
 
     Di seguito sono riportate le descrizioni dei parametri utilizzati nel comando AzCopy:
 
-   * **/Source: *&lt;origine&gt;:*** percorso della cartella o URL del contenitore di archiviazione che contiene il disco rigido virtuale.
-   * **/SourceKey: *&lt;chiave-account-origine&gt;:*** chiave dell'account di archiviazione di origine.
-   * **/Dest: *&lt;destinazione&gt;:*** URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
-   * **/DestKey: *&lt;chiave-account-dest&gt;:*** chiave dell'account di archiviazione di destinazione.
-   * **/Pattern: *&lt;nome-file&gt;:*** specificare il nome file del disco rigido virtuale da copiare.
+   * **/Source: *&lt;origine&gt;:* ** percorso della cartella o URL del contenitore di archiviazione che contiene il disco rigido virtuale.
+   * **/SourceKey: *&lt;chiave-account-origine&gt;:* ** chiave dell'account di archiviazione di origine.
+   * **/Dest: *&lt;destinazione&gt;:* ** URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
+   * **/DestKey: *&lt;chiave-account-dest&gt;:* ** chiave dell'account di archiviazione di destinazione.
+   * **/Pattern: *&lt;nome-file&gt;:* ** specificare il nome file del disco rigido virtuale da copiare.
 
 Per informazioni dettagliate sull'uso dello strumento AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
@@ -277,12 +277,12 @@ Tramite AzCopy è possibile caricare facilmente il disco rigido virtuale in Inte
 
     Di seguito sono riportate le descrizioni dei parametri utilizzati nel comando AzCopy:
 
-   * **/Source: *&lt;origine&gt;:*** percorso della cartella o URL del contenitore di archiviazione che contiene il disco rigido virtuale.
-   * **/SourceKey: *&lt;chiave-account-origine&gt;:*** chiave dell'account di archiviazione di origine.
-   * **/Dest: *&lt;destinazione&gt;:*** URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
-   * **/DestKey: *&lt;chiave-account-dest&gt;:*** chiave dell'account di archiviazione di destinazione.
+   * **/Source: *&lt;origine&gt;:* ** percorso della cartella o URL del contenitore di archiviazione che contiene il disco rigido virtuale.
+   * **/SourceKey: *&lt;chiave-account-origine&gt;:* ** chiave dell'account di archiviazione di origine.
+   * **/Dest: *&lt;destinazione&gt;:* ** URL del contenitore di archiviazione in cui copiare il disco rigido virtuale.
+   * **/DestKey: *&lt;chiave-account-dest&gt;:* ** chiave dell'account di archiviazione di destinazione.
    * **/BlobType: page:** specifica che la destinazione è un BLOB di pagine.
-   * **/Pattern: *&lt;nome-file&gt;:*** specificare il nome file del disco rigido virtuale da copiare.
+   * **/Pattern: *&lt;nome-file&gt;:* ** specificare il nome file del disco rigido virtuale da copiare.
 
 Per informazioni dettagliate sull'uso dello strumento AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 

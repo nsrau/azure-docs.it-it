@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
 ms.openlocfilehash: dffeb81ae1eb244c38639a1241c0581e6fcdf94a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027961"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurare i nodi delle transazioni di servizio di Azure Blockchain
@@ -23,7 +23,7 @@ Per interagire con il servizio di Azure Blockchain, questa operazione tramite la
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Creare un membro di Blockchain di Azure](create-member.md)
+* [Creare un membro di Azure Blockchain](create-member.md)
 
 ## <a name="transaction-node-overview"></a>Cenni preliminari sul nodo delle transazioni
 
@@ -32,13 +32,13 @@ Nodi di transazione vengono usati per inviare le transazioni di blockchain Block
 Per visualizzare i dettagli del nodo predefinito delle transazioni:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare al membro servizio Blockchain di Azure. Selezionare **nodi transazione**.
+1. Passare al membro del servizio Azure Blockchain. Selezionare **nodi transazione**.
 
-    ![Selezionare un nodo transazione predefinito](./media/configure-transaction-nodes/nodes.png)
+    ![Selezionare il nodo della transazione predefinito](./media/configure-transaction-nodes/nodes.png)
 
     Dettagli della panoramica includono gli indirizzi degli endpoint pubblici e la chiave pubblica.
 
-## <a name="create-transaction-node"></a>Creare il nodo delle transazioni
+## <a name="create-transaction-node"></a>Creare il nodo di transazioni
 
 È possibile aggiungere fino a nove nodi delle transazioni aggiuntivi al membro blockchain, per un totale di dieci nodi delle transazioni. Quando si aggiungono nodi di transazione, è possibile aumentare la scalabilità o distribuire il carico. Ad esempio, hai un endpoint del nodo delle transazioni per le applicazioni client diverse.
 
@@ -51,12 +51,12 @@ Per aggiungere un nodo transazione:
 
     | Impostazione | DESCRIZIONE |
     |---------|-------------|
-    | NOME | Nome del nodo delle transazioni. Il nome viene usato per creare l'indirizzo DNS per l'endpoint del nodo delle transazioni. Ad esempio: `newnode-myblockchainmember.blockchain.azure.com`. Il nome del nodo non può essere modificato dopo averla creata. |
+    | Name | Nome del nodo di transazioni. Il nome viene usato per creare l'indirizzo DNS per l'endpoint del nodo di transazioni. Ad esempio: `newnode-myblockchainmember.blockchain.azure.com`. Il nome del nodo non può essere modificato dopo averla creata. |
     | Password | Impostare una password complessa. Usare la password per accedere all'endpoint del nodo di transazione con l'autenticazione di base.
 
 1. Selezionare **Create**.
 
-    Il provisioning di un nuovo nodo di transazione richiede circa 10 minuti. I nodi delle transazioni aggiuntivi addebitati dei costi. Per altre informazioni sui costi, vedere [prezzi di Azure](https://aka.ms/ABSPricing).
+    Il provisioning del nuovo nodo di transazioni richiede circa 10 minuti. I nodi delle transazioni aggiuntivi addebitati dei costi. Per altre informazioni sui costi, vedere [prezzi di Azure](https://aka.ms/ABSPricing).
 
 ## <a name="endpoints"></a>Endpoint
 

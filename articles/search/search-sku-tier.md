@@ -11,10 +11,10 @@ ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539259"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Scegliere un piano tariffario per Ricerca di Azure
@@ -46,7 +46,7 @@ La tabella seguente elenca i piani disponibili. È possibile trovare ulteriori i
 |Livello | Capacity |
 |-----|-------------|
 |Gratuito | Condiviso con altri sottoscrittori. Non è scalabile. Limitato a tre indici e 50 MB di spazio di archiviazione. |
-|Di base | Risorse di calcolo dedicate per carichi di lavoro di produzione su scala ridotta. Una partizione di 2 GB e un massimo di tre repliche. |
+|Basic | Risorse di calcolo dedicate per carichi di lavoro di produzione su scala ridotta. Una partizione di 2 GB e un massimo di tre repliche. |
 |Standard 1 (S1) | Per S1 e versioni successive, dedicato macchine con maggiore capacità di elaborazione e archiviazione a ogni livello. Per S1, dimensioni della partizione sono 25 GB per partizione (con un massimo di 300 GB per ogni servizio). |
 |Standard 2 (S2) | Simile a S1, ma con partizioni di 100 GB (e un massimo di 1,2 TB per ogni servizio). |
 |Standard 3 (S3) | Partizioni di 200 GB (con un massimo di 2,4 TB per ogni servizio). |
@@ -80,7 +80,7 @@ Quando si esegue la stima del costo di una soluzione di ricerca, tenere presente
 
 Il concetto di fatturazione più importante da comprendere per le operazioni di ricerca di Azure è il *unità di ricerca* (SU). Poiché Ricerca di Azure dipende sia dalle repliche che dalle partizioni per l'esecuzione di indicizzazione e repliche, la fatturazione non può essere eseguita solo in base all'uno o all'altro elemento. Al contrario, la fatturazione si basa su una combinazione di entrambi gli elementi.
 
-Unità di streaming è il prodotto del *repliche* e *partizioni* utilizzato da un servizio: **(R x P = SU)**.
+Unità di streaming è il prodotto del *repliche* e *partizioni* utilizzato da un servizio: **(R x P = SU)** .
 
 Ogni servizio inizia con una SU (una replica moltiplicata per una partizione) come valore minimo. Il valore massimo per tutti i servizi è 36 unità di streaming. Questo limite può essere ottenuto in diversi modi: 6 partizioni x 6 repliche o le repliche di 3 partizioni x 12, ad esempio. Accade spesso di usare minore capacità totale (ad esempio, una replica di 3, 3-partition servizio fatturata come 9 unità di streaming). Vedere le [combinazioni di partizioni e repliche](search-capacity-planning.md#chart) grafico per le combinazioni valide.
 
@@ -155,7 +155,7 @@ I livelli standard più comunemente utilizzati, da S1 a S3, costituiscono una pr
 
 |  | S1 | S2 | S3 |  |  |  |  |
 |--|----|----|----|--|--|--|--|
-| Dimensioni partizione|  25 GB | 100 GB | 200 GB |  |  |  |  |
+| Dimensioni della partizione|  25 GB | 100 GB | 200 GB |  |  |  |  |
 | limiti di indice e dell'indicizzatore| 50 | 200 | 200 |  |  |  |  |
 
 S1 è una soluzione comune per i clienti che necessitano di risorse dedicate e più partizioni. S1 offre partizioni di 25 GB e un massimo di 12 partizioni, che fornisce un limite per ogni servizio di 300 GB, se si ingrandisce le partizioni tramite le repliche. (Vedere [allocare partizioni e repliche](search-capacity-planning.md#chart) per più bilanciato allocazioni.)
@@ -172,7 +172,7 @@ I livelli ottimizzato di archiviazione L1 e L2, sono ideali per applicazioni con
 
 |  | L1 | L2 |  |  |  |  |  |
 |--|----|----|--|--|--|--|--|
-| Dimensioni partizione|  1 TB | 2 TB |  |  |  |  |  |
+| Dimensioni della partizione|  1 TB | 2 TB |  |  |  |  |  |
 | limiti di indice e dell'indicizzatore| 10 | 10 |  |  |  |  |  |
 
 L2 offre due volte la capacità di archiviazione complessiva di tipo L1.  Scegliere il livello in base alla quantità massima di dati che si ritiene che è l'indice. Le partizioni di livello L1 aumentare le prestazioni in incrementi di 1 TB a un massimo di 12 TB. Le partizioni L2 incrementato di 2 TB per ogni partizione con un massimo di 24 TB.

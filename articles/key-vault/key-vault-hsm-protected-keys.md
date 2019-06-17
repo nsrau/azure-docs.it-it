@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
 ms.openlocfilehash: 1ae94718aa41c58f4d5e397942492ad8ed643ae3
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65556211"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure
@@ -162,7 +162,7 @@ KeyVault-BYOK-Tools-Australia.zip
 CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
 - - -
-[**Azure per enti pubblici:**](https://azure.microsoft.com/features/gov/)
+[**Azure per enti pubblici:** ](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
@@ -236,7 +236,7 @@ Per questo secondo passaggio eseguire le procedure seguenti nella workstation no
 
 Installare il software di supporto nCipher in un computer Windows e quindi collegare un modulo di protezione hardware di nShield nCipher a tale computer.
 
-Assicurarsi che gli strumenti nCipher trovino nel percorso (**%nfast_home%\bin**). Digitare ad esempio:
+Assicurarsi che gli strumenti nCipher trovino nel percorso ( **%nfast_home%\bin**). Digitare ad esempio:
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"

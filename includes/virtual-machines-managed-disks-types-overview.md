@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4abf50e11070f2060309ae9b9cd045c874a2c52e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147859"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133730"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quali tipi di dischi sono disponibili in Azure?
 
@@ -23,17 +23,17 @@ I dischi gestiti di Azure offrono attualmente quattro tipi di dischi, tre dei qu
 
 La tabella seguente mette a confronto unità Ultra SSD (anteprima), SSD Premium, SSD Standard e HDD Standard per dischi gestiti in modo da aiutare a scegliere quali usare.
 
-|   | Ultra SSD (anteprima)   | Unità SSD Premium   | SSD Standard   | HDD Standard   |
+|   | Ultra SSD (anteprima)   | SSD Premium   | SSD Standard   | HDD Standard   |
 |---------|---------|---------|---------|---------|
 |Tipo di disco   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |Carichi di lavoro con I/O elevato come SAP HANA, database di alto livello (ad esempio SQL, Oracle) e altri carichi di lavoro con numerose transazioni.   |Carichi di lavoro di produzione su cui influiscono le prestazioni   |Server Web, applicazioni aziendali con un utilizzo non intensivo e sviluppo/test   |Backup, carichi di lavoro non critici, accesso poco frequente   |
-|Dimensioni disco   |65.536 gibibyte (GiB) (Anteprima)   |32.767 GiB    |32.767 GiB   |32.767 GiB   |
-|Velocità effettiva massima   |2.000 MiB/s (Anteprima)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|Numero massimo di operazioni di I/O al secondo   |160.000 (Anteprima)   |20.000   |6000   |2.000   |
+|Dimensioni disco   |65\.536 gibibyte (GiB) (Anteprima)   |32\.767 GiB    |32\.767 GiB   |32\.767 GiB   |
+|Velocità effettiva massima   |2\.000 MiB/s (Anteprima)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|Operazioni di I/O al secondo max   |160\.000 (Anteprima)   |20\.000   |6000   |2\.000   |
 
 ## <a name="ultra-ssd-preview"></a>Ultra SSD (anteprima)
 
-Le unità Ultra SSD di Azure (anteprima) offrono una velocità effettiva elevata, un numero elevato di operazioni di I/O al secondo e archiviazione su disco con bassa latenza coerente per le macchine virtuali IaaS di Azure. Alcuni vantaggi aggiuntivi delle unità Ultra SSD includono la possibilità di modificare dinamicamente le prestazioni del disco, in base ai carichi di lavoro, senza dover riavviare le macchine virtuali. Le unità Ultra SSD sono idonee per carichi di lavoro a elevato utilizzo di dati, come SAP HANA, database di alto livello e carichi di lavoro con numerose transazioni. Le unità Ultra SSD possono essere usate solo come dischi dati. È consigliabile usare unità SSD Premium come dischi del sistema operativo.
+SSD Ultra-Azure (anteprima) offre una velocità effettiva elevata, numero elevato di IOPS e di archiviazione su disco a bassa latenza coerente per le macchine virtuali IaaS di Azure. Alcuni vantaggi aggiuntivi delle unità Ultra SSD includono la possibilità di modificare dinamicamente le prestazioni del disco, in base ai carichi di lavoro, senza dover riavviare le macchine virtuali. Unità SSD extra sono adatti per carichi di lavoro a elevato utilizzo di dati, ad esempio SAP HANA, i database di livello superiore e i carichi di lavoro con intensa attività di transazione. Le unità Ultra SSD possono essere usate solo come dischi dati. È consigliabile usare unità SSD Premium come dischi del sistema operativo.
 
 ### <a name="performance"></a>Prestazioni
 
@@ -53,12 +53,12 @@ Ecco alcune delle caratteristiche principali delle unità SSD Ultra:
 |4     |1200         |300         |
 |8     |2400         |600         |
 |16     |4800         |1200         |
-|32     |9.600         |2.000         |
-|64     |19.200         |2.000         |
-|128     |38.400         |2.000         |
-|256     |76.800         |2.000         |
-|512     |80.000         |2.000         |
-|1.024-65.536 (dimensioni in questo intervallo con aumento con incrementi di 1 TiB)     |160.000         |2.000         |
+|32     |9\.600         |2\.000         |
+|64     |19\.200         |2\.000         |
+|128     |38\.400         |2\.000         |
+|256     |76\.800         |2\.000         |
+|512     |80\.000         |2\.000         |
+|1\.024-65.536 (dimensioni in questo intervallo con aumento con incrementi di 1 TiB)     |160\.000         |2\.000         |
 
 ### <a name="transactions"></a>Transazioni
 
@@ -73,7 +73,8 @@ Durante la fase di anteprima, i dischi Ultra SSD:
 - Sono supportati solo nelle macchine virtuali ES/DS v3
 - Sono disponibili solo come dischi dati e supportano solo dimensioni di settori fisici di 4k  
 - Possono essere creati solo come dischi vuoti  
-- Attualmente possono essere distribuiti solo usando modelli di Azure Resource Manager, l'interfaccia della riga di comando e Python SDK.
+- Attualmente può essere distribuito solo utilizzando modelli Azure Resource Manager, CLI, PowerShell e Python SDK.
+- Non possono essere distribuite con il portale di Azure (ancora).
 - Non supportano ancora snapshot di dischi, immagini di macchine virtuali, set di disponibilità, set di scalabilità di macchine virtuali e Crittografia dischi di Azure.
 - Non supportano ancora l'integrazione con Backup di Azure o Azure Site Recovery.
 - Come per la  [maggior parte delle versioni di anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), questa funzionalità non deve essere usata per i carichi di lavoro in produzione fino al momento della disponibilità generale (GA).

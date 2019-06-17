@@ -10,10 +10,10 @@ ms.date: 05/03/2019
 ms.author: mhopkins
 ms.subservice: common
 ms.openlocfilehash: df7c14f1ee83015303657f9a0babde3d60c92292
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209699"
 ---
 # <a name="azure-storage-samples-using-net"></a>Esempi di Archiviazione di Azure che usano .NET
@@ -25,7 +25,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Endpoint</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Codice di esempio</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>BLOB</b></td>
-<td>Aggiungi BLOB</td> 
+<td>Append Blob</td> 
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144">Getting Started with Blobs</a> (Introduzione ai BLOB)</td> 
 </tr> 
 <tr> 

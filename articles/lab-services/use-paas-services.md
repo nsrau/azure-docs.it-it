@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833920"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Usare i servizi Platform-as-a-Service (PaaS) in Azure DevTest Labs
@@ -57,7 +57,7 @@ DevTest Labs supporta l'utilizzo delle [modelli di Resource Manager nidificati](
 
 ## <a name="user-experience"></a>Esperienza utente
 
-## <a name="developer"></a>Developer
+## <a name="developer"></a>Sviluppatore
 Gli sviluppatori di usano stesso flusso di lavoro per la creazione di una macchina virtuale per creare un ambiente specifico. Essi selezionare l'ambiente e l'immagine della macchina e immettere le informazioni necessarie dal modello. Ogni sviluppatore un ambiente consente la distribuzione delle modifiche e il debug migliorato ciclo interno. È possibile creare l'ambiente in qualsiasi momento usando il modello più recente.  Questa funzionalità consente gli ambienti essere eliminata e ricreata in modo da contribuire a ridurre il tempo di inattività di dover manualmente il sistema di creazione o il ripristino da errori di test.  
 
 ### <a name="testing"></a>Test

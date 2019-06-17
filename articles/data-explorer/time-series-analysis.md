@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: 7415e13a445a73af197362c6cfbd3a865a2fea02
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604059"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analisi di serie temporali in Esplora dati di Azure
@@ -72,7 +72,7 @@ Nella tabella precedente sono presenti tre partizioni. È possibile creare una s
 In questa sezione si eseguiranno tipiche funzioni di elaborazione delle serie temporali.
 Dopo la creazione di un set di serie temporali, in Esplora dati di Azure è disponibile un numero crescente di funzioni di elaborazione e analisi di tali serie, che è possibile trovare nella [documentazione relativa alle serie temporali](/azure/kusto/query/machine-learning-and-tsa). Di seguito sono descritte alcune funzioni rappresentative per l'elaborazione e l'analisi di serie temporali.
 
-### <a name="filtering"></a>Filtro
+### <a name="filtering"></a>Filtri
 
 L'applicazione di filtri è una pratica comune nell'elaborazione dei segnali ed è utile per le attività di elaborazione delle serie temporali, ad esempio lo smorzamento di un segnale di disturbo o il rilevamento di modifiche.
 - Sono presenti due funzioni di filtro generiche:

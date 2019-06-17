@@ -8,12 +8,12 @@ editor: TomSh
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
-ms.openlocfilehash: fbc3bba3d95526277da3487cb8670c1f1a88a925
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 7d40b8f0ca05000a51e70d7a124e9cb143aa2dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951762"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127247"
 ---
 # <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>Applicare l'autenticazione a più fattori (MFA) per gli amministratori della sottoscrizione
 
@@ -22,7 +22,7 @@ Quando si creano gli amministratori, incluso l'account amministratore globale, �
 È possibile eseguire le operazioni di amministrazione quotidiana assegnando ruoli di amministratore specifici, ad esempio amministratore di Exchange o amministratore password, ad account utente del personale IT in base alle esigenze.
 Inoltre, l'abilitazione di [Azure Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) per gli amministratori consente di aggiungere un secondo livello di sicurezza agli accessi e alle transazioni degli utenti. Grazie a Azure MFA, i reparti IT possono anche ridurre la probabilità di accesso ai dati dell'organizzazione usando credenziali compromesse.
 
-Ad esempio: Applicare Azure MFA per gli utenti e configurarlo per usare una telefonata o un messaggio di testo come verifica. Se le credenziali dell'utente vengono compromesse, l'autore dell'attacco non sarà possibile accedere alle risorse perché non hanno accesso al telefono dell'utente. Le organizzazioni che non aggiungono livelli supplementari di protezione delle identità sono più vulnerabili agli attacchi con furto di credenziali, con conseguente rischio di compromissione dei dati.
+Ad esempio:  Applicare Azure MFA per gli utenti e configurarlo per usare una telefonata o un messaggio di testo come verifica. Se le credenziali dell'utente vengono compromesse, l'autore dell'attacco non sarà possibile accedere alle risorse perché non hanno accesso al telefono dell'utente. Le organizzazioni che non aggiungono livelli supplementari di protezione delle identità sono più vulnerabili agli attacchi con furto di credenziali, con conseguente rischio di compromissione dei dati.
 
 In alternativa, le organizzazioni che vogliono mantenere in locale tutto il controllo dell'autenticazione possono usare il [server Microsoft Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server), detto anche "MFA in locale". Questo metodo consentirà comunque di applicare la Multi-Factor Authentication, mantenendo il server MFA in locale.
 
@@ -44,5 +44,5 @@ Se gli utenti hanno licenze che comprendono Azure Multi-Factor Authentication, n
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Attivare la verifica in due passaggi per gli utenti
 
-Usare una delle procedure elencate in [Come richiedere la verifica in due passaggi per un utente o un gruppo](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) per iniziare a usare Azure MFA. È possibile scegliere di applicare la verifica in due passaggi per tutti gli accessi o creare criteri di accesso condizionale per richiedere la verifica in due passaggi solo quando lo si ritiene opportuno.
+Usare una delle procedure elencate in [Come richiedere la verifica in due passaggi per un utente o un gruppo](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) per iniziare a usare Azure MFA. È possibile scegliere di applicare la verifica in due passaggi per tutti gli accessi oppure è possibile creare criteri di accesso condizionale per richiedere la verifica in due passaggi solo quando lo si ritiene opportuno.
 

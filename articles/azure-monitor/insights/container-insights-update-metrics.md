@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/06/2019
 ms.author: magoedte
 ms.openlocfilehash: f4e15c4fc7bd7b786c5204153fe64f010e5ffe85
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148864"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Come aggiornare il monitoraggio di Azure per contenitori per abilitare le metriche
@@ -25,7 +25,7 @@ Monitoraggio di Azure per contenitori viene introdotto il supporto per la raccol
 
 Come parte di questa funzionalità sono abilitate le metriche seguenti:
 
-| Spazio dei nomi delle metriche | Metrica | DESCRIZIONE |
+| Spazio dei nomi delle metriche | Metrica | Descrizione |
 |------------------|--------|-------------|
 | insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Si tratta *nodo* metriche e includere *host* come una dimensione e sono inclusi anche i<br> nome del nodo come valore per il *host* dimensione. |
 | insights.container/pods | podCount | Si tratta *pod* metriche e aggiungere quanto segue come dimensioni - ControllerName, spazi dei nomi Kubernetes, il nome, fase. |

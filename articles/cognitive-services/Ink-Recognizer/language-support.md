@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 98962182da86fceb0b6fcc8540422f93bc0058f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65026300"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Supporto lingua e area geografica per l'API di riconoscimento input penna
@@ -57,7 +57,7 @@ Questo articolo spiega in quali lingue sono supportate per l'API di riconoscimen
 | Kiswahili (Kenya)                          |     `sw-KE`     |
 | Coreano                                     |     `ko-KR`     |
 | Lussemburghese                              |     `lb-LU`     |
-| Malese (Brunei Darussalam)                  |     `ms-BN`     |
+| Malay (Brunei Darussalam)                  |     `ms-BN`     |
 | Malese (Malaysia)                           |     `ms-MY`     |
 | Maori                                      |     `mi-NZ`     |
 | Norvegese (Bokmål)                         |     `nb-NO`     |
@@ -65,7 +65,7 @@ Questo articolo spiega in quali lingue sono supportate per l'API di riconoscimen
 | Polacco                                     |     `pl-PL`     |
 | Portoghese (Brasile)                        |     `pt-BR`     |
 | Portoghese (Portogallo)                      |     `pt-PT`     |
-| Romancio                                    |     `rm-CH`     |
+| Romansh                                    |     `rm-CH`     |
 | Rumeno                                   |     `ro-RO`     |
 | Russo                                    |     `ru-RU`     |
 | Scozzese Gaelico                            |     `gd-GB`     |
@@ -74,7 +74,7 @@ Questo articolo spiega in quali lingue sono supportate per l'API di riconoscimen
 | Serbo (alfabeto cirillico, Montenegro)             |  `sr-Cyrl-ME`   |
 | Serbo (alfabeto cirillico, Serbia)                 |  `sr-Cyrl-RS`   |
 | Serbo (alfabeto latino, Bosnia ed Erzegovina)    |  `sr-Latn-BA`   |
-| Serbo (alfabeto latino, Montenegro)                |  `sr-Latn-ME`   |
+| Serbian (Latin, Montenegro)                |  `sr-Latn-ME`   |
 | Serbo (alfabeto latino, Serbia)                    |  `sr-Latn-RS`   |
 | SeTswana (Sudafrica)                    |     `tn-ZA`     |
 | Slovacco                                     |     `sk-SK`     |
@@ -89,7 +89,7 @@ Questo articolo spiega in quali lingue sono supportate per l'API di riconoscimen
 | Xhosa                                      |     `xh-ZA`     |
 | Zulu                                       |     `zu-ZA`     |
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
-* [Che cos'è l'API di riconoscimento input penna?](overview.md)
+* [Informazioni sull'API Riconoscimento input penna](overview.md)
 * [L'invio di tratti input penna digitale all'API di riconoscimento di input penna](concepts/send-ink-data.md)

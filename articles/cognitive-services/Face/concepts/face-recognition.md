@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
 ms.openlocfilehash: fa38c492530cb8938e49bc15e13fdd39ed5b6f1c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65890888"
 ---
 # <a name="face-recognition-concepts"></a>Concetti di riconoscimento volto
@@ -37,7 +37,7 @@ Le operazioni di riconoscimento utilizzano principalmente le strutture di dati s
 
 In questa sezione descrive in dettaglio come le operazioni di riconoscimento quattro usano strutture di dati descritte in precedenza. Per una vasta descrizione di ogni operazione di riconoscimento, vedere [Panoramica](../Overview.md).
 
-### <a name="verify"></a>Esegui verifica
+### <a name="verify"></a>Verificare
 
 Il [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) operazione accetta un ID volto da DetectedFace o PersistedFace e un altro ID viso o un oggetto Person e determina se appartengono alla stessa persona. Se passa un oggetto Person, è possibile passare facoltativamente in un gruppo di persone a cui appartiene questa persona per migliorare le prestazioni.
 

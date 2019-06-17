@@ -3,19 +3,19 @@ title: Supporto dei contenitori
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come usare i contenitori Docker per facilitare la gestione dei dati con Servizi cognitivi.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 3d09ee542b98e1c365aceaf86b051d706c7882d4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 8faa524d7d88f09835d26439b772b8d57c84cc73
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304275"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122230"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Supporto dei contenitori in Servizi cognitivi di Azure
 
@@ -75,14 +75,14 @@ Inoltre, alcuni contenitori sono supportati in servizi cognitivi [ **offerta All
 * Visione artificiale
 * Viso
 * LUIS
-* Analisi del testo
+* Text Analytics
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilità dei contenitori in Servizi cognitivi di Azure
 
 I contenitori di Servizi cognitivi di Azure sono disponibili pubblicamente attraverso la sottoscrizione di Azure e le immagini dei contenitori Docker possono essere estratte da Registro contenitori di Microsoft o dall'hub Docker. È possibile usare il comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore dal registro appropriato.
 
 > [!IMPORTANT]
-> Attualmente, è necessario completare un processo di iscrizione per accedere ai contenitori seguenti, in cui si compilano e invia un questionario con domande sull'utente, l'azienda e il caso d'uso per il quale si desidera implementare i contenitori. Dopo che è stato concesso l'accesso e sono state fornite le credenziali, è possibile estrarre le immagini dei contenitori Viso e Riconoscimento del testo da un registro contenitori privato ospitato da Registro Azure Container.
+> Attualmente, è necessario completare un processo di iscrizione per accedere ai contenitori seguenti, in cui si compilano e invia un questionario con domande sull'utente, l'azienda e il caso d'uso per il quale si desidera implementare i contenitori. Una volta che si ha concesso l'accesso e ha fornito credenziali, è quindi possibile caricare le immagini del contenitore da un registro contenitori privato, ospitato da registro contenitori di Azure.
 > * [Anomalie dectector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [Viso](Face/face-how-to-install-containers.md)
 > * [Riconoscimento di form](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)

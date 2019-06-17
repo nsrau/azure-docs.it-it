@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: ef4ea2419c64d0376023ea5d291460df48a51c63
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943423"
 ---
 # <a name="azure-application-skus-tab"></a>Scheda SKU per un'applicazione Azure
@@ -43,7 +43,7 @@ La schermata successiva mostra il modulo dei dettagli dello SKU per un modello d
 
 Specificare i valori SKU seguenti.  I campi aggiunti con un asterisco sono obbligatori.
 
-|    Campo         |       DESCRIZIONE                                                            |
+|    Campo         |       Descrizione                                                            |
 |  ---------       |     ---------------                                                          |
 |  **Titolo\***     | Un titolo per lo SKU. Questo titolo viene visualizzato nella raccolta di questo elemento.   |
 | **Riepilogo\***    | Una breve descrizione di riepilogo dello SKU. (La lunghezza massima consentita è di 100 caratteri.)  |
@@ -65,7 +65,7 @@ La schermata successiva mostra il modulo Dettagli SKU per un'applicazione gestit
 
 Configurare le impostazioni della SKU seguenti. I campi aggiunti con un asterisco sono obbligatori.
 
-|    Campo         |       DESCRIZIONE                                                            |
+|    Campo         |       Descrizione                                                            |
 |  ---------       |     ---------------                                                          |
 |  **Titolo\***     | Un titolo per lo SKU. Questo titolo viene visualizzato nella raccolta di questo elemento.   |
 | **Riepilogo\***    | Una breve descrizione di riepilogo dello SKU. (La lunghezza massima consentita è di 100 caratteri.)  |

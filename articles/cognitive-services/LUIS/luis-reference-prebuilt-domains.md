@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233883"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Informazioni di riferimento sui domini predefiniti per l'app LUIS
@@ -54,9 +54,9 @@ The table below summarizes the currently supported domains. Support for English 
 
 |Tipo di entità|description|
 |--|--|
-|Calendario|Calendario è alcuna operazione sulle riunioni personale e gli appuntamenti _non_ eventi pubblici (come mondo FIFA pianificazioni, calendari Seattle o calendari generici (ad esempio quale giorno è oggi, ciò che rientrano avviata, quando è Labor Day).|
-|Comunicazioni|Le richieste per effettuare chiamate, inviare messaggi o messaggi immediati, trovare e aggiungere contatti e varie altre richieste alle comunicazioni (a livello generale in uscita). Nome del contatto solo le query non appartengono al dominio di comunicazione.|
-|Posta|Messaggio di posta elettronica è un sottodominio del dominio di comunicazione. Contiene principalmente le richieste per inviare e ricevere messaggi tramite messaggi di posta elettronica.|
+|Calendar|Calendario è alcuna operazione sulle riunioni personale e gli appuntamenti _non_ eventi pubblici (come mondo FIFA pianificazioni, calendari Seattle o calendari generici (ad esempio quale giorno è oggi, ciò che rientrano avviata, quando è Labor Day).|
+|Comunicazione|Le richieste per effettuare chiamate, inviare messaggi o messaggi immediati, trovare e aggiungere contatti e varie altre richieste alle comunicazioni (a livello generale in uscita). Nome del contatto solo le query non appartengono al dominio di comunicazione.|
+|Email|Messaggio di posta elettronica è un sottodominio del dominio di comunicazione. Contiene principalmente le richieste per inviare e ricevere messaggi tramite messaggi di posta elettronica.|
 |HomeAutomation|Il dominio HomeAutomation fornisce finalità ed entità correlate al controllo del smart device home. Principalmente supporta il comando di controllo correlato alla luce puntiforme e condizionatore d'aria, ma presenta alcune funzionalità di generalizzazione per altre Appliance electric.|
 |Note|Dominio nota fornisce finalità ed entità per la creazione di note e annotare gli elementi per gli utenti.|
 |Località|Posizioni includono le aziende, gli istituti, i ristoranti, spazi pubblici e indirizzi. Il dominio supporta la posizione di ricerca e che richiede le informazioni di un luogo pubblico, ad esempio posizione, ore e distanza operativi.|

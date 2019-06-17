@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
 ms.openlocfilehash: 6f283ce007e96547e01a01a3753ddcb60574bfc3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65412794"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gestire account lab in Azure Lab Services 
@@ -38,9 +38,9 @@ La procedura seguente illustra come usare il portale di Azure per creare un acco
     2. Selezionare la **sottoscrizione di Azure** in cui creare l'account lab.
     3. In **Gruppo di risorse** selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse.
     4. In **Posizione** selezionare una posizione o un'area in cui si vuole creare l'account lab. 
-    5. Selezionare un oggetto esistente **raccolta di immagini condivise** o crearne uno. È possibile salvare il modello di macchina virtuale nella raccolta immagini condivise per poter essere riutilizzato da altri utenti. Per informazioni dettagliate sulle raccolte di immagini condivise, vedere [Usa una raccolta di immagini condivise di Azure Lab Services](how-to-use-shared-image-gallery.md).
+    5. Selezionare una **raccolta immagini condivisa** esistente o crearne una. È possibile salvare la macchina virtuale modello nella raccolta immagini condivisa per poter essere riutilizzata da altri utenti. Per informazioni dettagliate sulle raccolte di immagini condivisa, vedere [Use a shared image gallery in Azure Lab Services](how-to-use-shared-image-gallery.md) (Usare una raccolta immagini condivisa in Azure Lab Services).
     6. Per **Rete virtuale peer** selezionare una rete virtuale peer per la rete lab. I lab creati in questo account sono connessi alla rete virtuale selezionata e hanno accesso alle risorse nella rete virtuale selezionata. 
-    7. Specificare un **intervallo di indirizzi** per le macchine virtuali nel lab. L'intervallo di indirizzi deve essere nella notazione classless interdomain routing (CIDR) (esempio: 10.20.0.0/23). Le macchine virtuali nel lab verrà create in questo intervallo di indirizzi. Per altre informazioni, vedere [specificare un intervallo di indirizzi per le macchine virtuali nel lab](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab).    
+    7. Specificare un **intervallo di indirizzi** per le macchine virtuali nel lab. L'intervallo di indirizzi deve essere nella notazione CIDR (Classless Interdomain Routing). Ad esempio: 10.20.0.0/23. Le macchine virtuali nel lab verranno create in questo intervallo di indirizzi. Per altre informazioni, vedere [Specificare un intervallo di indirizzi per le macchine virtuali nel lab](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab).    
     8. Per il campo **Consenti all'autore del lab di selezionare la località del lab**, specificare se si vuole consentire agli autori di selezionare una località per il lab. L'opzione è disabilitata per impostazione predefinita. Quando l'opzione è disattivata, gli autori del lab non possono specificare una località per il lab che si sta creando. I lab vengono creati nella località geografica più vicina all'account lab. Quando l'opzione è abilitata, un autore può selezionare una località al momento della creazione di un lab.      
     9. Selezionare **Create**. 
 

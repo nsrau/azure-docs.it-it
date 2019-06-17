@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: b-juche
 ms.openlocfilehash: aca0668fc364518fe45d9fe94d089ee366b25676
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870883"
 ---
-# <a name="performance-benchmarks-for-azure-netapp-files"></a>Benchmark delle prestazioni per file di Azure NetApp
+# <a name="performance-benchmarks-for-azure-netapp-files"></a>Benchmark delle prestazioni per Azure NetApp Files
 
 Questo articolo descrive i risultati dei test di benchmark delle prestazioni per file di NetApp Azure a livello di volume. 
 

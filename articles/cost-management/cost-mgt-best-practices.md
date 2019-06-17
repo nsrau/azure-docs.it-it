@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
 ms.openlocfilehash: 7c562e6f0a1358d16b9abef08a5e582e4ff84472
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002033"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Come ottimizzare gli investimenti per il cloud con Gestione costi di Azure
@@ -187,7 +187,7 @@ Se si hanno già licenze di Windows Server o SQL Server nelle distribuzioni loca
 
 Per altre informazioni, vedere [Calcolatore del risparmio generato dal vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-### <a name="other-resources"></a>Altre risorse
+### <a name="other-resources"></a>Altre risorse:
 
 Azure offre anche un servizio che consente di creare servizi che sfruttano la capacità in eccedenza in Azure per ridurre le tariffe. Per altre informazioni, vedere [Usare le macchine virtuali con priorità bassa in Batch](../batch/batch-low-pri-vms.md).
 

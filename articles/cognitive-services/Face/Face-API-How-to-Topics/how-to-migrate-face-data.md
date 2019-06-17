@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
 ms.openlocfilehash: 702aed12860c090e83b997e6b56d56e06b416568
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65913800"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Eseguire la migrazione dei dati sui visi in una sottoscrizione dell'API Viso diversa
@@ -232,6 +232,6 @@ Successivamente, vedere la relativa documentazione di riferimento API, esplorare
 
 - [Documentazione di riferimento sugli snapshot (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Esempio di snapshot API viso](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
-- [Aggiungere i visi](how-to-add-faces.md)
-- [Rileva i visi in un'immagine](HowtoDetectFacesinImage.md)
-- [Identifica i visi in un'immagine](HowtoIdentifyFacesinImage.md)
+- [Aggiungere visi](how-to-add-faces.md)
+- [Rilevare i visi in un'immagine](HowtoDetectFacesinImage.md)
+- [Identificare i visi in un'immagine](HowtoIdentifyFacesinImage.md)

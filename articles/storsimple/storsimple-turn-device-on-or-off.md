@@ -16,11 +16,11 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 29a45c0d32e35b5d321670bf25334a2976b93e56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482747"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693671"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Attivare o disattivare il dispositivo StorSimple serie 8000
 
@@ -120,7 +120,7 @@ Se solo l’enclosure EBOD ha esito negativo su entrambi gli alimentatori, il si
 3. Accendere l'enclosure EBOD.
 4. Dopo l'accensione dell’enclosure EBOD, accendere l'enclosure principale.
 
-## <a name="turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost"></a>Attivare un dispositivo dopo la perdita della connessione dell’enclosure principale e dell’enclosure EBOD 
+## <a name="turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost"></a>Attivare un dispositivo dopo la perdita della connessione dell’enclosure principale e dell’enclosure EBOD
 Se la connessione si interrompe tra il controller in standby e il controller EBOD corrispondente, il dispositivo continua a funzionare. Se la connessione tra il controller attivo del sistema e il controller EBOD corrispondente viene persa, dovrebbe verificarsi il failover e il dispositivo dovrebbe continuare a funzionare normalmente.
 
 Quando vengono rimossi entrambi i cavi Serial Attached SCSI (SAS) o viene interrotta la connessione tra l'enclosure EBOD e l'enclosure principale, il dispositivo smette di funzionare. A questo punto, eseguire la procedura seguente.

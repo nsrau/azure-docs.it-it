@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 3d86960e726ae18fba8d171ab9f85d7c991b4e40
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64729226"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorare e gestire la creazione di certificati
@@ -413,9 +413,9 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|Nome dell'elemento|Obbligatoria|Type|Version|DESCRIZIONE|
+|Nome dell'elemento|Obbligatoria|Type|Version|Descrizione|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|Sì|array|\<versione di introduzione>|Catena di certificati X509 sotto forma di matrice di stringhe Base 64.|
+|x5c|Yes|array|\<versione di introduzione>|Catena di certificati X509 sotto forma di matrice di stringhe Base 64.|
 
 ### <a name="response"></a>Risposta
 

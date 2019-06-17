@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: yizhon
 ms.openlocfilehash: d758d761e560642de76e149c83fc6898aa78bafb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65910319"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT SDK per dispositivi per C
@@ -414,7 +414,7 @@ In questo esempio è presente un singolo modello chiamato **ContosoAnemometer**.
 
 I dati e le azioni specificati nel modello definiscono una superficie dell'API che si può usare per inviare messaggi all'hub IoT e per rispondere ai messaggi inviati al dispositivo. L'uso di questo modello può essere illustrato meglio con un esempio.
 
-### <a name="send-messages"></a>Invia messaggi
+### <a name="send-messages"></a>Inviare messaggi
 
 Il modello definisce i dati che è possibile inviare all'hub IoT. In questo esempio è uno dei due elementi dati definiti con la macro **WITH_DATA**. Sono necessari diversi passaggi per inviare i valori **DeviceId** e **WindSpeed** a un hub IoT. Il primo consiste nell'impostare i dati da inviare:
 
@@ -483,7 +483,7 @@ Il secondo parametro è un puntatore al contesto utente, lo stesso puntatore pas
 
 Non sono necessarie altre operazioni per l'invio di messaggi da dispositivo a cloud. Rimane solo da illustrare come ricevere i messaggi.
 
-### <a name="receive-messages"></a>Ricevi messaggi
+### <a name="receive-messages"></a>Ricevere messaggi
 
 La ricezione di un messaggi funziona in modo simile alla modalità d'uso dei messaggi nella libreria **IoTHubClient** . Prima di tutto occorre registrare la funzione di callback di un messaggio.
 

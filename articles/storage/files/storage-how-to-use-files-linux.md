@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 375d0de60b916becc8e86a1e33cf4ed46f12c077
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: e9363f88db4fa44879eb8f6a6a04e23563c5ba44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754829"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125742"
 ---
 # <a name="use-azure-files-with-linux"></a>Usare File di Azure con Linux
 
@@ -34,22 +34,22 @@ ms.locfileid: "66754829"
 
     Il supporto della crittografia in SMB 3.0 è stato introdotto nella versione kernel Linux 4.11 ed è stato eseguito il backport per le versioni kernel precedenti per distribuzioni di Linux più diffuse. Al momento della pubblicazione di questo documento, le distribuzioni seguenti della raccolta di Azure supportano l'opzione di montaggio specificata nelle intestazioni della tabella. 
 
-* **Versioni minime consigliate con funzionalità di montaggio corrispondenti (SMB versione 2.1 e SMB versione 3.0)**    
+### <a name="minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30"></a>Consigliati minimo versioni con funzionalità di montaggio corrispondenti (SMB versione 2.1 e SMB 3.0)
 
-    |   | SMB 2.1 <br>(Montaggio in macchine virtuali nella stessa area di Azure) | SMB 3.0 <br>(Montaggio in locale e tra più aree) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+|   | SMB 2.1 <br>(Montaggio in macchine virtuali nella stessa area di Azure) | SMB 3.0 <br>(Montaggio in locale e tra più aree) |
+| --- | :---: | :---: |
+| Ubuntu Server | 14.04+ | 16.04+ |
+| RHEL | 7+ | 7.5+ |
+| CentOS | 7+ |  7.5+ |
+| Debian | 8+ |   |
+| openSUSE | 13.2+ | 42.3+ |
+| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-    Se la propria distribuzione di Linux non è elencata, è possibile verificare la versione kernel Linux con il comando seguente:
+Se la propria distribuzione di Linux non è elencata, è possibile verificare la versione kernel Linux con il comando seguente:
 
-   ```bash
-   uname -r
-   ```
+```bash
+uname -r
+```
 
 * <a id="install-cifs-utils"></a>**Viene installato il pacchetto cifs-utils.**  
     Il pacchetto cifs-utils può essere installato tramite l'utilità di gestione dei pacchetti nella distribuzione Linux scelta. 
@@ -75,7 +75,7 @@ ms.locfileid: "66754829"
 
     In altre distribuzioni usare l'utilità di gestione pacchetti appropriata o [compilare il codice sorgente](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **Scegliere le autorizzazioni per directory e file della condivisione montata**: negli esempi seguenti viene usata l'autorizzazione `0777` per concedere le autorizzazioni di lettura, scrittura ed esecuzione a tutti gli utenti. È possibile sostituirlo con altro [autorizzazioni chmod](https://en.wikipedia.org/wiki/Chmod) in base alle esigenze, anche se ciò comporterà potenzialmente la limitazione dell'accesso. Se si usano altre autorizzazioni, è consigliabile usare anche uid e un gid per mantenere l'accesso per i gruppi locali di propria scelta.
+* **Scegliere le autorizzazioni per directory e file della condivisione montata**: negli esempi seguenti viene usata l'autorizzazione `0777` per concedere le autorizzazioni di lettura, scrittura ed esecuzione a tutti gli utenti. È possibile sostituirlo con altro [autorizzazioni chmod](https://en.wikipedia.org/wiki/Chmod) in base alle esigenze, anche se ciò comporterà potenzialmente la limitazione dell'accesso. Se si usano altre autorizzazioni, è consigliabile usare anche uid e un gid per mantenere l'accesso per gli utenti locali e i gruppi di propria scelta.
 
 > [!NOTE]
 > Se non si assegna in modo esplicito l'autorizzazione di file e directory con dir_mode e file_mode, per impostazione predefinita verranno 0755.

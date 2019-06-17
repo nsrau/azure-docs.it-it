@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
 ms.openlocfilehash: 77f8b7094c96e507eef1d360a26240627bc0e350
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60836086"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Aggiungere una connessione da sito a sito a una rete virtuale con una connessione gateway VPN esistente (modello classico)
@@ -163,7 +163,7 @@ Importare il file di configurazione di rete. Quando si importa questo file con l
 ## <a name="6-download-keys"></a>6. Chiavi di download
 Una volta che sono stati aggiunti i nuovi tunnel, usare i cmdlet di PowerShell "Get-AzureVNetGatewayKey" per ottenere le chiavi precondivise IPsec/IKE per ogni tunnel.
 
-Ad esempio: 
+Ad esempio:
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"

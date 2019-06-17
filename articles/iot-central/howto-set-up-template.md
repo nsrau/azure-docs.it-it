@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466501"
 ---
 # <a name="set-up-a-device-template"></a>Configurare un modello di dispositivo
@@ -54,7 +54,7 @@ Da questo modello di dispositivo, un operatore può creare e connettere dei disp
 
 Le sezioni seguenti descrivono ogni scheda della pagina **Modello di dispositivo**.
 
-## <a name="measurements"></a>Misurazioni
+## <a name="measurements"></a>Misure
 
 Le misure sono i dati provenienti dal dispositivo. È possibile aggiungere più misure al modello di dispositivo per replicare le funzionalità del dispositivo.
 
@@ -213,7 +213,7 @@ Esistono due tipi di proprietà di posizione che è possibile aggiungere:
 
     | Nome visualizzato  | Nome campo | Tipo di dati |
     | --------------| -----------|-----------|
-    | Posizione dispositivo | deviceLocation | percorso  |
+    | Posizione dispositivo | deviceLocation | location  |
 
    > [!NOTE]
    > I nomi dei campi devono corrispondere ai nomi delle proprietà nel codice del dispositivo corrispondente
