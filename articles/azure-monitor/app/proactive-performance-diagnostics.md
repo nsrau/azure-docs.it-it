@@ -14,10 +14,10 @@ ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
 ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61294057"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
@@ -69,7 +69,7 @@ I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti
 ## <a name="faq"></a>Domande frequenti
 
 * *È vero che il personale Microsoft ha accesso ai dati personali?*
-  *  No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](../../azure-monitor/app/data-retention-privacy.md).
+  * No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](../../azure-monitor/app/data-retention-privacy.md).
 * *Tutti i dati raccolti vengono analizzati da Application Insights?*
   * Attualmente no. Al momento vengono analizzati il tempo di risposta alla richiesta, il tempo di risposta della dipendenza e il tempo di caricamento della pagina. L'analisi delle metriche aggiuntive si trova nel backlog futuro.
 
@@ -85,7 +85,7 @@ I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti
 
   * L'analisi viene eseguita giornalmente sui dati di telemetria dal giorno precedente, giornata completa nel fuso orario UTC.
 * *Ciò sostituisce [gli avvisi delle metriche](../../azure-monitor/app/alerts.md)?*
-  *  No.  Non viene eseguito il rilevamento di tutti i comportamenti presumibilmente ritenuti anomali dall'utente.
+  * No.  Non viene eseguito il rilevamento di tutti i comportamenti presumibilmente ritenuti anomali dall'utente.
 
 
 * *Se non eseguo alcuna operazione in risposta a una notifica, viene inviato un promemoria?*

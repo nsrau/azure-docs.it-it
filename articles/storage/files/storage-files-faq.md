@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
 ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190058"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
@@ -254,7 +254,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 * <a id="expressroute-not-required"></a>
 **È necessario usare Azure ExpressRoute per connettersi a File di Azure o per usare Sincronizzazione file di Azure in locale?**  
 
-     No. ExpressRoute non è richiesto per accedere a una condivisione file di Azure. Se si esegue il montaggio di una condivisione file di Azure direttamente in locale, è necessario solo che la porta 445 (TCP in uscita), ovvero la porta usata per le comunicazioni da SMB, sia aperta per l'accesso a Internet. Se si usa Sincronizzazione file di Azure, occorre solo la porta 443 (TCP in uscita) per l'accesso HTTPS (non è richiesto SMB). È comunque *possibile* usare ExpressRoute con queste opzioni di accesso.
+    No. ExpressRoute non è richiesto per accedere a una condivisione file di Azure. Se si esegue il montaggio di una condivisione file di Azure direttamente in locale, è necessario solo che la porta 445 (TCP in uscita), ovvero la porta usata per le comunicazioni da SMB, sia aperta per l'accesso a Internet. Se si usa Sincronizzazione file di Azure, occorre solo la porta 443 (TCP in uscita) per l'accesso HTTPS (non è richiesto SMB). È comunque *possibile* usare ExpressRoute con queste opzioni di accesso.
 
 * <a id="mount-locally"></a>
 **Come è possibile montare una condivisione file di Azure nel computer locale?**  
@@ -357,10 +357,10 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="need-larger-share"></a>
 **Se serve una condivisione file più grande di quella attualmente offerta da File di Azure è possibile aumentare le dimensioni della condivisione file di Azure?**  
-     No. La dimensione massima di una condivisione file di Azure è 5 TiB. Attualmente non è possibile modificare questo limite. Microsoft sta lavorando a una soluzione per aumentare la dimensione della condivisione a 100 TiB, ma non sono ancora disponibili indicazioni precise sui tempi di attuazione.
+    No. La dimensione massima di una condivisione file di Azure è 5 TiB. Attualmente non è possibile modificare questo limite. Microsoft sta lavorando a una soluzione per aumentare la dimensione della condivisione a 100 TiB, ma non sono ancora disponibili indicazioni precise sui tempi di attuazione.
 
 * <a id="open-handles-quota"></a>
-**Quanti client possono accedere allo stesso file contemporaneamente?**   
+**Quanti client possono accedere allo stesso file contemporaneamente?**    
     È prevista una quota pari a 2.000 handle aperti su un singolo file. In presenza di 2.000 handle aperti viene visualizzato un messaggio di errore che segnala il raggiungimento della quota.
 
 * <a id="zip-slow-performance"></a>
@@ -386,13 +386,13 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="nested-shares"></a>
 **È possibile configurare una condivisione annidata, ovvero una condivisione in una condivisione?**  
-     No. La condivisione file *è* il driver virtuale che è possibile montare, quindi le condivisioni annidate non sono supportate.
+    No. La condivisione file *è* il driver virtuale che è possibile montare, quindi le condivisioni annidate non sono supportate.
 
 * <a id="ibm-mq"></a>
 **Come si può usare File di Azure con IBM MQ?**  
     IBM ha pubblicato un documento per supportare i clienti di IBM MQ nella configurazione di File di Azure con il servizio IBM. Per altre informazioni, vedere [How to set up an IBM MQ multi-instance queue manager with Microsoft Azure Files service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (Come configurare IBM MQ Multi Instance Queue Manager (MIQM) con il servizio File di Microsoft Azure).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Risolvere i problemi relativi a File di Azure in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Risolvere i problemi relativi a File di Azure in Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Risolvere i problemi di Sincronizzazione file di Azure](storage-sync-files-troubleshoot.md)

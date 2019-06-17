@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: resources
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 3426681aad19bbe01c0f7e88ca16e79c0b490c36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1f2b4d25b39e9b3ebc6659e736d47640964251dc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61335331"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693888"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Domande frequenti su acustica progetto
 
@@ -27,7 +27,7 @@ Il gruppo di progetto acustica dei plug-in è un sistema acustica che calcola il
 
 È possibile scaricare il [plug-in progetto acustica Unity](https://www.microsoft.com/download/details.aspx?id=57346) o il [plug-in di progetto acustica Unreal](https://www.microsoft.com/download/details.aspx?id=58090).
 
-## <a name="does-project-acoustics-support-x-platform"></a>Supporta progetti acustica <x> piattaforma?
+## <a name="does-project-acoustics-support-ltxgt-platform"></a>Supporta progetti acustica &lt;x&gt; piattaforma?
 
 Supporto della piattaforma acustica progetto si evolve in base alle esigenze dei clienti. Contattaci sul [forum di Project acustica](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) per richiedere informazioni sul supporto per altre piattaforme.
 
@@ -45,7 +45,7 @@ Acoustics utilizza circa lo 0,01% della CPU per ogni sorgente per ogni fotogramm
  
 ## <a name="do-i-need-to-simplify-the-level-geometry-control-triangle-count-make-meshes-watertight"></a>È necessario semplificare la geometria del livello? Controllare il numero di triangoli? Rendere le mesh chiuse?
 
- No. Il sistema inserirà direttamente la geometria dettagliata del livello. Questa sarà voxelizzata per l'elaborazione interna.
+No. Il sistema inserirà direttamente la geometria dettagliata del livello. Questa sarà voxelizzata per l'elaborazione interna.
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>Cosa contiene la tabella di ricerca di runtime?
 
@@ -57,7 +57,7 @@ Sì, progetto acustica consulta la tabella di ricerca e aggiorna il DSP audio su
  
 ## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>Progetto acustica gestibili geometry dinamica? Porte che si chiudono? Muri che esplodono?
 
- No. I parametri acustici vengono pre-calcolati secondo lo stato statico di un livello di gioco. È consigliabile lasciando lo sportello della geometria da acustica e applicando quindi aggiuntive relative all'occlusione basata sullo stato di distruttibile e gli oggetti gioco mobili usando stabilita tecniche.
+No. I parametri acustici vengono pre-calcolati secondo lo stato statico di un livello di gioco. È consigliabile lasciando lo sportello della geometria da acustica e applicando quindi aggiuntive relative all'occlusione basata sullo stato di distruttibile e gli oggetti gioco mobili usando stabilita tecniche.
  
 ## <a name="does-project-acoustics-use-acoustic-materials"></a>Progetto acustica Usa materiali acustici?
 

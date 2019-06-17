@@ -8,10 +8,10 @@ ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
 ms.openlocfilehash: 03c5fb0f399e43af2584743655eeea8af4c5b2f5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924454"
 ---
 # <a name="azure-resource-health-faq"></a>Domande frequenti su Integrità risorse di Azure
@@ -80,7 +80,7 @@ Diversamente dallo [Stato di Azure](https://status.azure.com) e dal dashboard pe
 No, le informazioni di integrità sono disponibili per tutti i tipi di risorse supportati da Integrità risorse. 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>È necessario abilitare Integrità risorse per l'organizzazione?
- No.  Integrità risorse di Azure è accessibile dal portale di Azure e non prevede requisiti di configurazione.
+No.  Integrità risorse di Azure è accessibile dal portale di Azure e non prevede requisiti di configurazione.
 
 ## <a name="is-resource-health-available-free-of-charge"></a>Integrità risorse è disponibile gratuitamente?
 Sì.  Integrità risorse di Azure è gratuito.

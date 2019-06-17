@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: f0dfed10190685c1d51822b8bec2b3c80cea7bb2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153934"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metriche di analitica di archiviazione Azure (versione classica)
@@ -141,7 +141,7 @@ Se si vogliono scaricare le metriche per archiviazione a lungo termine o per ana
 ||||  
 |-|-|-|  
 |**Metriche**|**Nomi di tabella**|**Note**|  
-|Metriche orarie|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|Nelle versioni precedenti 2013-08-15, queste tabelle sono note come:<br /><br /> $MetricsTransactionsBlob <br /><br /> $MetricsTransactionsTable<br /><br />  $MetricsTransactionsQueue<br /><br /> Le metriche per il servizio File sono disponibili a partire dalla versione 2015-04-05.|  
+|Metriche orarie|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|Nelle versioni precedenti 2013-08-15, queste tabelle sono note come:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> Le metriche per il servizio File sono disponibili a partire dalla versione 2015-04-05.|  
 |Metriche al minuto|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Può essere abilitata solo tramite PowerShell o a livello di codice.<br /><br /> Le metriche per il servizio File sono disponibili a partire dalla versione 2015-04-05.|  
 |Capacity|$MetricsCapacityBlob|Solo servizio BLOB.|  
 

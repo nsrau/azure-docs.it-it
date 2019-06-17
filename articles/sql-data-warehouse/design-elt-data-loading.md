@@ -11,10 +11,10 @@ ms.date: 05/10/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: de5649498dddcec8c65f2cfca6dcb39fa20a9267
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242255"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Progettazione di un strategia di caricamento dei dati di PolyBase per Azure SQL Data Warehouse
@@ -68,11 +68,11 @@ PolyBase carica i dati da file di testo delimitati con codifica UTF-8 e UTF-16. 
 |        string         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinary                           |
-|        timestamp       |                             date                             |
-|        timestamp       |                        smalldatetime                         |
-|        timestamp       |                          datetime2                           |
-|        timestamp       |                           Datetime                           |
-|        timestamp       |                             time                             |
+|       timestamp       |                             date                             |
+|       timestamp       |                        smalldatetime                         |
+|       timestamp       |                          datetime2                           |
+|       timestamp       |                           Datetime                           |
+|       timestamp       |                             time                             |
 |       date        | 1) da caricare come int ed eseguire il cast a oggi </br> 2) [usare il connettore di Azure Databricks SQL DW](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) con </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**aggiornare presto**) |
 |        decimal        | [Usare il connettore di Azure Databricks SQL DW](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) con </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**aggiornare presto**) |
 

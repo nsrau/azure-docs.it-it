@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: magoedte
 ms.openlocfilehash: 94b23bc29c3c986e6a0cd74e0805b5d47ce35849
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120632"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Ottimizzare l'ambiente di SQL con la soluzione controllo integrità SQL Server in Monitoraggio di Azure
@@ -230,7 +230,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Mo
 
 * Vengono raccolti i tipi di dati seguenti:
   * WMI
-  *  Registro
+  * Registro
   * Contatori delle prestazioni
   * DMV (Dynamic Management View) di SQL.
 

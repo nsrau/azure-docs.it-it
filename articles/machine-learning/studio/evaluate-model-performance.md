@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60750664"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Come valutare le prestazioni del modello in Azure Machine Learning Studio
@@ -115,7 +115,7 @@ Tornando al problema della classificazione del reddito, di seguito vengono forni
 
 ![Risultati della valutazione della classificazione binaria](./media/evaluate-model-performance/7.png)
 
- Figura 7. Risultati della valutazione della classificazione binaria.
+Figura 7. Risultati della valutazione della classificazione binaria.
 
 Un'altra metrica correlata spesso usata è **Punteggio F1**, che prende in considerazione precisione e richiamo. Si tratta della media armonica di queste due metriche ed è calcolata nel modo seguente: F1 = 2 (precisione x recupero) / (precisione + recupero). Il punteggio F1 è un buon modo per riassumere la valutazione in un unico numero, ma si dovrebbe sempre tenere conto di precisione e richiamo parallelamente per comprendere meglio il comportamento di un classificatore.
 

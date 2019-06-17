@@ -14,10 +14,10 @@ ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
 ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61299112"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Rilevamento intelligente - Anomalie degli errori
@@ -131,11 +131,11 @@ Il rilevamento intelligente delle anomalie degli errori integra altre funzionali
 
 *Il servizio implica l'accesso manuale ai dati da parte di Microsoft?*
 
-*  No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](../../azure-monitor/app/data-retention-privacy.md).
+* No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](../../azure-monitor/app/data-retention-privacy.md).
 
 *Va eseguita una sottoscrizione a questo avviso?*
 
-*  No. In ogni applicazione che invia dati di telemetria della richiesta è presente la regola di avviso per il rilevamento intelligente.
+* No. In ogni applicazione che invia dati di telemetria della richiesta è presente la regola di avviso per il rilevamento intelligente.
 
 *È possibile annullare la sottoscrizione oppure ottenere le notifiche inviate ai colleghi?*
 

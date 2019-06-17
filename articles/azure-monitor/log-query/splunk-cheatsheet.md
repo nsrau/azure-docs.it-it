@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61425135"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk in query di log di Monitoraggio di Azure
@@ -28,14 +28,14 @@ Questo articolo è concepito per aiutare gli utenti che hanno familiarità con S
 
 La tabella seguente confronta i concetti e le strutture di dati tra Splunk e i log di Monitoraggio di Azure.
 
- | Concetto  | Splunk | Monitoraggio di Azure |  Comment
+ | Concetto  | Splunk | Monitoraggio di Azure |  Commento
  | --- | --- | --- | ---
  | Unità di distribuzione  | cluster |  cluster |  Monitoraggio di Azure consente query tra cluster arbitrari. Splunk non lo consente. |
  | Cache di dati |  bucket  |  Memorizzazione nella cache e criteri di conservazione |  Controlla il periodo e il livello di memorizzazione nella cache per i dati. Questa impostazione influisce direttamente sulle prestazioni delle query e sui costi della distribuzione. |
  | Partizione logica dei dati  |  index  |  database  |  Consente la separazione logica dei dati. Entrambe le implementazioni consentono unioni e join tra le partizioni. |
- | Metadati degli eventi strutturati | N/D | tabella |  Splunk non dispone del concetto espresso nel linguaggio di ricerca di metadati dell'evento. I log di Monitoraggio di Azure presentano il concetto di una tabella che contiene colonne. Ogni istanza dell'evento è mappata a una riga. |
+ | Metadati degli eventi strutturati | N/D | table |  Splunk non dispone del concetto espresso nel linguaggio di ricerca di metadati dell'evento. I log di Monitoraggio di Azure presentano il concetto di una tabella che contiene colonne. Ogni istanza dell'evento è mappata a una riga. |
  | Record dei dati | event | riga |  Solo modifica terminologica. |
- | Attributo di record di dati | campo |  colonna |  In Monitoraggio di Azure, questo è già definito come parte della struttura della tabella. In Splunk, ogni evento ha un proprio set di campi. |
+ | Attributo di record di dati | campo |  column |  In Monitoraggio di Azure, questo è già definito come parte della struttura della tabella. In Splunk, ogni evento ha un proprio set di campi. |
  | Tipi | tipo di dati |  tipo di dati |  I tipi di dati di Monitoraggio di Azure sono più espliciti poiché vengono impostati nelle colonne. Entrambi sono in grado di lavorare in modo dinamico con i tipi di dati e con i set quasi equivalenti ai tipi di dati che includono il supporto JSON. |
  | Query e ricerca  | ricerca | query |  I concetti sono essenzialmente uguali tra Monitoraggio di Azure e Splunk. |
  | Tempo di inserimento evento | Ora di sistema | ingestion_time() |  In Splunk, ogni evento ottiene un timestamp di sistema del momento in cui l'evento è stato indicizzato. In Monitoraggio di Azure, è possibile definire un criterio denominato ingestion_time che espone una colonna di sistema a cui è possibile fare riferimento tramite la funzione ingestion_time(). |
@@ -44,7 +44,7 @@ La tabella seguente confronta i concetti e le strutture di dati tra Splunk e i l
 
 La tabella seguente specifica le funzioni in Monitoraggio di Azure equivalenti alle funzioni di Splunk.
 
-|Splunk | Monitoraggio di Azure |Comment
+|Splunk | Monitoraggio di Azure |Commento
 |---|---|---
 |strcat | strcat()| (1) |
 |split  | split() | (1) |
@@ -55,7 +55,7 @@ La tabella seguente specifica le funzioni in Monitoraggio di Azure equivalenti a
 | substr | substring() | (1)<br>Si noti inoltre che Splunk usa gli indici in base uno. Monitoraggio di Azure rileva indici in base zero. |
 | tolower |  tolower() | (1) |
 | toupper | toupper() | (1) |
-| match | corrisponde a regex |   (2)  |
+| match | corrisponde a regex |  (2)  |
 | regex | corrisponde a regex | In Splunk, `regex` è un operatore. In Monitoraggio di Azure, è un operatore relazionale. |
 | searchmatch | == | In Splunk, `searchmatch` consente di cercare la stringa esatta.
 | random | rand()<br>rand(n) | La funzione di Splunk restituisce un numero compreso tra zero e 2<sup>31</sup>-1. Monitoraggio di Azure restituisce un numero compreso tra 0,0 e 1,0, o se un parametro specificato, compreso tra 0 e n-1.
@@ -70,7 +70,7 @@ La tabella seguente specifica le funzioni in Monitoraggio di Azure equivalenti a
 Nelle sezioni seguenti vengono illustrati esempi dell'uso di diversi operatori tra Splunk e Monitoraggio di Azure.
 
 > [!NOTE]
-> Ai fini di questo esempio, la _regola_ del campo Splunk esegue il mapping a una tabella in Monitoraggio di Azure, e il timestamp predefinito di Splunk esegue il mapping alla colonna di Log Analytics _ingestion_time()_.
+> Ai fini di questo esempio, la _regola_ del campo Splunk esegue il mapping a una tabella in Monitoraggio di Azure, e il timestamp predefinito di Splunk esegue il mapping alla colonna di Log Analytics _ingestion_time()_ .
 
 ### <a name="search"></a>Ricerca
 In Splunk, è possibile omettere la parola chiave `search` e specificare una stringa senza virgolette. In Monitoraggio di Azure è necessario avviare ogni query con `find`, una stringa senza virgolette è un nome di colonna e il valore di ricerca deve essere una stringa tra virgolette. 
@@ -158,7 +158,7 @@ Vedere le [Aggregazioni nelle query di log di Monitoraggio di Azure](aggregation
 
 
 
-### <a name="join"></a>Join
+### <a name="join"></a>Unisci
 Join in Splunk presenta limitazioni significative. La sottoquery ha un limite dei 10000 risultati (impostati nel file di configurazione della distribuzione); non esiste un numero limitato di caratteristiche join.
 
 | |  | |

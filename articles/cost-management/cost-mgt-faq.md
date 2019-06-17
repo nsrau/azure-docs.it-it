@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002019"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Domande frequenti su Cloudyn
@@ -154,7 +154,7 @@ Dopo aver aggiunto l'accesso di Azure Resource Manager e aver raccolto i dati, v
 
 ## <a name="is-cloudyn-agent-based"></a>Si basa sull'agente di Cloudyn?
 
- No. Gli agenti non vengono usati. I dati di metrica della macchina virtuale di Azure per le macchine virtuali vengono raccolti dall'API di Microsoft Insights. Se si desidera raccogliere dati di metrica da macchine virtuali di Azure, queste dovranno avere abilitate le impostazioni di diagnostica.
+No. Gli agenti non vengono usati. I dati di metrica della macchina virtuale di Azure per le macchine virtuali vengono raccolti dall'API di Microsoft Insights. Se si desidera raccogliere dati di metrica da macchine virtuali di Azure, queste dovranno avere abilitate le impostazioni di diagnostica.
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>I report di Cloudyn mostrano più di un tenant di Active Directory per ogni report?
 

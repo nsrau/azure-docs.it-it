@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
 ms.openlocfilehash: cb7ace20fd0a59dafff3d7f8240f54c3c8e12492
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66226408"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per applicazioni ASP.NET Core
@@ -348,7 +348,7 @@ Se è installato il SDK in fase di compilazione come illustrato in questo artico
 
 ### <a name="can-i-enable-application-insights-monitoring-using-tools-like-status-monitor"></a>È possibile abilitare il monitoraggio di Application Insights usando strumenti come Status Monitor?
 
- No. [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now) e la relativa sostituzione imminente [v2 Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) attualmente supporta ASP.NET 4.x solo.
+No. [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now) e la relativa sostituzione imminente [v2 Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) attualmente supporta ASP.NET 4.x solo.
 
 ### <a name="i-have-an-aspnet-core-20-application-isnt-application-insights-automatically-enabled-without-me-doing-anything"></a>Ho un'applicazione ASP.NET Core 2.0. Application Insights non è abilitata automaticamente senza intervento dell'utente?
 
@@ -383,7 +383,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 ## <a name="video"></a>Video
 
 - Video esterno dettagliato sulla [configurazione da zero di Application Insights con .NET Core e Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
-- External video dettagliata sulla [configurazione di Application Insights con .NET Core e Visual Studio Code](https://youtu.be/ygGt84GDync) da zero.
+- Video esterno dettagliato sulla [configurazione da zero di Application Insights con .NET Core e Visual Studio Code](https://youtu.be/ygGt84GDync).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Esplorare i flussi degli utenti](../../azure-monitor/app/usage-flows.md) per identificare in che modo gli utenti si sposteranno nell'app.

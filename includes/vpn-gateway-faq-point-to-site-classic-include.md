@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0c0ad6ea5a687d066c78533b45a7f531561661bf
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157652"
 ---
 Queste domande frequenti si applicano alle connessioni da punto a sito che usano il modello di distribuzione classica.
@@ -31,7 +31,7 @@ Sono supportati i sistemi operativi client seguenti:
 
 ### <a name="can-i-use-any-software-vpn-client-that-supports-sstp-for-point-to-site"></a>Per la connettività da punto a sito è possibile usare qualsiasi client VPN software che supporta SSTP?
 
- No. L'assistenza è limitata solo alle versioni dei sistemi operativi Windows elencati.
+No. L'assistenza è limitata solo alle versioni dei sistemi operativi Windows elencati.
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>Quanti endpoint client VPN possono esistere nella configurazione da punto sito?
 
@@ -51,7 +51,7 @@ Per impostazione predefinita, il computer client non ristabilirà automaticament
 
 ### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>La funzionalità Da punto a sito supporta la riconnessione automatica e DDNS nei client VPN?
 
- No. La riconnessione automatica e DDNS non sono supportati attualmente nelle VPN da punto a sito.
+No. La riconnessione automatica e DDNS non sono supportati attualmente nelle VPN da punto a sito.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-for-the-same-virtual-network"></a>È possibile la coesistenza di configurazioni da sito a sito e da punto a sito per la stessa rete virtuale?
 

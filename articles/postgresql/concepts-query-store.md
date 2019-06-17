@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067194"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorare le prestazioni con Query Store
@@ -120,8 +120,8 @@ Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni
 |query_id   |bigint  || Codice hash interno, calcolato dall'albero di analisi dell'istruzione|
 |query_sql_text |Varchar(10000)  || Testo di un'istruzione rappresentativa. Query diverse con la stessa struttura vengono raggruppate e questo è il testo per la prima query del gruppo.|
 |plan_id    |bigint |   |ID del piano corrispondente alla query, non ancora disponibile|
-|start_time | timestamp  ||  Le query vengono aggregate per intervalli di tempo. La durata di un intervallo è di 15 minuti per impostazione predefinita. Questo timestamp è l'ora di inizio corrispondente all'intervallo di tempo della voce.|
-|end_time   | timestamp  ||  Ora di fine corrispondente all'intervallo di tempo della voce|
+|start_time |timestamp  ||  Le query vengono aggregate per intervalli di tempo. La durata di un intervallo è di 15 minuti per impostazione predefinita. Questo timestamp è l'ora di inizio corrispondente all'intervallo di tempo della voce.|
+|end_time   |timestamp  ||  Ora di fine corrispondente all'intervallo di tempo della voce|
 |calls  |bigint  || Numero di volte in cui la query è stata eseguita|
 |total_time |double precision   ||  Tempo totale di esecuzione della query, in millisecondi|
 |min_time   |double precision   ||  Tempo minimo di esecuzione della query, in millisecondi|

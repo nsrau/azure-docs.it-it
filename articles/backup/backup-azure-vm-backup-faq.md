@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sogup
 ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966309"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Back-domande frequenti su backup di macchine virtuali di Azure
@@ -27,7 +27,7 @@ Quando si crea una macchina virtuale, è possibile abilitare il backup per macch
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>È il costo del backup è incluso nel costo della macchina virtuale?
 
- No. Costi di backup sono separati dai costi della macchina virtuale. Altre informazioni sulle [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
+No. Costi di backup sono separati dai costi della macchina virtuale. Altre informazioni sulle [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
 
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Quali autorizzazioni sono necessarie per abilitare il backup per una macchina virtuale?
 
@@ -51,7 +51,7 @@ Se l'insieme di credenziali di servizi di ripristino e della macchina virtuale d
 Rivedere le [matrice di supporto](backup-support-matrix-iaas.md) per dettagli sul supporto e le limitazioni.
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Un processo di backup su richiesta si basa sulla stessa pianificazione di conservazione dei backup pianificati?
- No. Specificare l'intervallo di conservazione per un processo di backup su richiesta. Per impostazione predefinita, un backup attivato dal portale viene conservato per 30 giorni.
+No. Specificare l'intervallo di conservazione per un processo di backup su richiesta. Per impostazione predefinita, un backup attivato dal portale viene conservato per 30 giorni.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Di recente è stata abilitata la Crittografia dischi di Azure in alcune macchine virtuali. I backup continueranno a funzionare?
 Specificare le autorizzazioni per Backup di Azure per accedere a Key Vault. Specificare le autorizzazioni in PowerShell come descritto nella sezione **Attivare un backup** nella documentazione relativa a [PowerShell di Backup di Azure](backup-azure-vms-automation.md).
@@ -91,7 +91,7 @@ Backup di Azure non può eseguire il backup del disco con acceleratore di scritt
 Anteprima privata per un backup di SAP HANA è in esecuzione con un RPO pari a 15 minuti. È stata creata in modo simile al backup del database SQL e usa l'interfaccia backInt per soluzioni di terze parti certificate da SAP HANA. Se si è interessati, scrivici all'indirizzo `AskAzureBackupTeam@microsoft.com` con il soggetto **iscriversi per l'anteprima privata per il backup di SAP HANA in macchine virtuali di Azure**.
 
 
-## <a name="restore"></a>Ripristina
+## <a name="restore"></a>Restore
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>In che modo si decide se è opportuno ripristinare solo i dischi oppure una macchina virtuale completa?
 Il ripristino di una macchina virtuale può essere considerato come un'opzione di creazione rapida di una macchina virtuale di Azure. Questa opzione consente di modificare i nomi dei dischi, contenitori usati dai dischi, gli indirizzi IP pubblici e i nomi di interfaccia di rete. Con la modifica le risorse vengono mantenute univoche quando si crea una macchina virtuale. La macchina virtuale non viene aggiunta a un set di disponibilità.

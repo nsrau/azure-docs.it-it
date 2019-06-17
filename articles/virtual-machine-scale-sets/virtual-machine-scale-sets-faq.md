@@ -17,10 +17,10 @@ ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
 ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258298"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
@@ -69,7 +69,7 @@ Un set di scalabilità basato sull'area e non sulla zona usa i *gruppi di posizi
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>I set di scalabilità si integrano con le zone di disponibilità di Azure?
 
- Sì. Per altre informazioni, vedere il [documento sulle zone del set di scalabilità](./virtual-machine-scale-sets-use-availability-zones.md).
+Sì. Per altre informazioni, vedere il [documento sulle zone del set di scalabilità](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Autoscale
@@ -134,7 +134,7 @@ Per configurare la scalabilità automatica in un set di scalabilità di macchine
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Una VM arrestata (deallocata) verrà avviata come parte di un'operazione di scalabilità automatica?
 
- No. Se le regole di scalabilità automatica richiedono istanze aggiuntive della VM come parte di un set di scalabilità, verrà creata una nuova istanza di VM. Le istanze di VM arrestate (deallocate) non vengono avviate come parte di un evento di scalabilità automatica. Tuttavia, le VM arrestate (deallocate) possono essere eliminate come parte di un evento di scalabilità automatica che riduce il numero di istanze, allo stesso modo in cui qualsiasi istanza di VM può essere eliminata in base all'ordine di ID istanza della VM.
+No. Se le regole di scalabilità automatica richiedono istanze aggiuntive della VM come parte di un set di scalabilità, verrà creata una nuova istanza di VM. Le istanze di VM arrestate (deallocate) non vengono avviate come parte di un evento di scalabilità automatica. Tuttavia, le VM arrestate (deallocate) possono essere eliminate come parte di un evento di scalabilità automatica che riduce il numero di istanze, allo stesso modo in cui qualsiasi istanza di VM può essere eliminata in base all'ordine di ID istanza della VM.
 
 
 
@@ -231,7 +231,7 @@ Quando si crea una VM Linux è possibile fornire le chiavi pubbliche SSH in test
 
 Nome dell'elemento linuxConfiguration | Obbligatorio | Type | DESCRIZIONE
 --- | --- | --- | ---
-ssh | No  | Raccolta | Specifica la configurazione delle chiavi SSH per un sistema operativo Linux
+ssh | No | Raccolta | Specifica la configurazione delle chiavi SSH per un sistema operativo Linux
 path | Sì | string | Specifica il percorso del file Linux in cui devono essere salvate le chiavi SSH o il certificato
 keyData | Sì | string | Specifica una chiave pubblica SSH con codifica Base64
 

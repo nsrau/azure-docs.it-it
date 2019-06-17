@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 7f742b094575b78f453fb735b23cc5319a27fa7e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65206644"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventi estesi nel database SQL
@@ -90,9 +90,9 @@ La funzionalità degli eventi estesi è supportata da diverse [viste del catalog
 | **sys.database_event_session_targets** |Restituisce una riga per ogni destinazione di evento per una sessione di eventi. |
 | **sys.database_event_sessions** |Restituisce una riga per ogni sessione di eventi nel database SQL del database. |
 
-In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.server\_* anziché *.database\_*. Il modello del nome è simile a **sys.server_event_%**.
+In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.server\_* anziché *.database\_* . Il modello del nome è simile a **sys.server_event_%** .
 
-## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a> [DMV](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>[DMV](https://msdn.microsoft.com/library/ms188754.aspx)
 
 Il database SQL di Azure include [viste a gestione dinamica (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) che supportano gli eventi estesi. Le DMV indicano le sessioni di eventi *attive* .
 

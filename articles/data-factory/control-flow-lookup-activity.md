@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
 ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60768653"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
@@ -54,11 +54,11 @@ Per l'attività Lookup attualmente sono supportate le origini dati seguenti. Il 
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-NOME | DESCRIZIONE | Type | Obbligatorio?
+NOME | Descrizione | Type | Obbligatorio?
 ---- | ----------- | ---- | --------
-dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione **Proprietà del set di dati** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
-una sezione source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione **Proprietà dell'attività di copia** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
-firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | Boolean |  No. Il valore predefinito è `true`.
+dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione **Proprietà del set di dati** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Yes
+source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione **Proprietà dell'attività di copia** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Yes
+firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | Boolean | No. Il valore predefinito è `true`.
 
 > [!NOTE]
 > 
@@ -70,7 +70,7 @@ firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | Boole
 
 Il risultato della ricerca viene restituito nella sezione `output` del risultato dell'esecuzione attività.
 
-* **Se `firstRowOnly` è impostato su `true` (impostazione predefinita)**, il formato di output è mostrato nel codice seguente. Il risultato della ricerca è sotto una chiave `firstRow` fissa. Per usare il risultato in un'attività successiva, usare il criterio di `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **Se `firstRowOnly` è impostato su `true` (impostazione predefinita)** , il formato di output è mostrato nel codice seguente. Il risultato della ricerca è sotto una chiave `firstRow` fissa. Per usare il risultato in un'attività successiva, usare il criterio di `@{activity('MyLookupActivity').output.firstRow.TableName}`.
 
     ```json
     {

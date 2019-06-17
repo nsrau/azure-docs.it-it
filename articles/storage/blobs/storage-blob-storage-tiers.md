@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: clausjor
 ms.subservice: blobs
 ms.openlocfilehash: 8e9e27f14c4ccd6f5822033baa21aaafcf96c428
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148505"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Archiviazione Blob di Azure: accesso frequente, ad accesso sporadico e archivio i livelli di accesso
@@ -89,7 +89,7 @@ L'organizzazione a livello di BLOB consente di modificare il livello dei dati a 
 
 L'ora dell'ultima modifica a livello di BLOB viene esposta tramite la proprietà BLOB **Access Tier Change Time** (Ora modifica livello di accesso). Se un blob nel livello archivio, che non può essere sovrascritto, in modo da caricare lo stesso blob non è consentito in questo scenario. È possibile sovrascrivere un blob in un livello ad accesso frequente o sporadico, nel quale caso il nuovo blob eredita il livello di blob che è stato sovrascritto.
 
-I BLOB in tutti i livelli di accesso tre possono coesistere nello stesso account. I BLOB a cui non viene assegnato un livello in modo esplicito lo ereditano dall'impostazione del livello di accesso dell'account. Se il livello di accesso viene derivato dall'account, la proprietà BLOB **Access Tier Inferred** (Livello di accesso derivato) è impostata su "true" e la proprietà BLOB **Livello di accesso** del BLOB corrisponde al livello dell'account. Nel portale di Azure, il livello di accesso derivato proprietà viene visualizzata con livello di accesso ai blob (ad esempio, **Hot (dedotto)** o **ad accesso sporadico (dedotto)**).
+I BLOB in tutti i livelli di accesso tre possono coesistere nello stesso account. I BLOB a cui non viene assegnato un livello in modo esplicito lo ereditano dall'impostazione del livello di accesso dell'account. Se il livello di accesso viene derivato dall'account, la proprietà BLOB **Access Tier Inferred** (Livello di accesso derivato) è impostata su "true" e la proprietà BLOB **Livello di accesso** del BLOB corrisponde al livello dell'account. Nel portale di Azure, il livello di accesso derivato proprietà viene visualizzata con livello di accesso ai blob (ad esempio, **Hot (dedotto)** o **ad accesso sporadico (dedotto)** ).
 
 > [!NOTE]
 > Il livello di archiviazione archivio e l'organizzazione a livello di BLOB supportano solo BLOB in blocchi. Non è inoltre possibile modificare il livello di un BLOB in blocchi con snapshot.
@@ -127,8 +127,8 @@ La seguente tabella mostra un confronto tra archiviazione blob in blocchi presta
 
 |                                           | **Prestazioni Premium** | **Livello ad accesso frequente** | **Livello ad accesso sporadico** | **Livello spazio di archiviazione**
 | ----------------------------------------- | ---------------- | ------------ | ----- | ----- |
-| **Disponibilità**                          | 99,9%            | 99,9%        | 99% | N/D |
-| **Disponibilità** <br> **(letture RA-GRS)**  | N/D              | 99,99%       | 99,9% | N/D |
+| **Disponibilità**                          | 99.9%            | 99.9%        | 99% | N/D |
+| **Disponibilità** <br> **(letture RA-GRS)**  | N/D              | 99,99%       | 99.9% | N/D |
 | **Costi di utilizzo**                         | Costi di archiviazione più elevati, accesso più basso e costi di transazione | Costi di archiviazione più elevati e costi di accesso e transazione più bassi | Costi di archiviazione più bassi e costi di accesso e transazione più elevati | Costi di archiviazione minimi e costi di accesso e transazione più alti |
 | **Dimensioni minime oggetti**                   | N/D | N/D | N/D | N/D |
 | **Durata archiviazione minima**              | N/D | N/D | 30 giorni (solo per utilizzo generico v2) | 180 giorni
@@ -198,7 +198,7 @@ Sì, è possibile modificare il livello di accesso predefinito impostando la **l
 
 **È possibile impostare il livello di accesso all'account predefinito su archivio?**
 
- No. Solo i livelli di accesso frequente e sporadico possono essere impostati come il livello di accesso predefinito. L'archivio può essere impostato solo a livello di oggetto.
+No. Solo i livelli di accesso frequente e sporadico possono essere impostati come il livello di accesso predefinito. L'archivio può essere impostato solo a livello di oggetto.
 
 **In cui le aree sono di frequente, sporadico e archivio i livelli di accesso disponibili in?**
 

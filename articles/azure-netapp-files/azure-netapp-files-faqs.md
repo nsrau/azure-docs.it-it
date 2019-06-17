@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: b-juche
 ms.openlocfilehash: 6f1ca3398678b59a81e5c22b51b36a1f5505d4c2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806387"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sui file di Azure NetApp
@@ -29,7 +29,7 @@ Questo articolo risponde alle domande frequenti (FAQ) su file di Azure NetApp.
 
 ### <a name="does-the-nfs-data-path-go-over-the-internet"></a>Il percorso dati NFS enunciato in Internet?  
 
- No. Il percorso dati NFS non passa da Internet. File di NetApp Azure è un servizio nativo di Azure che viene distribuito nella rete virtuale di Azure (VNet) in cui il servizio è disponibile. NetApp file usa una subnet del delegato e Azure effettua il provisioning di un'interfaccia di rete direttamente sulla rete virtuale. 
+No. Il percorso dati NFS non passa da Internet. File di NetApp Azure è un servizio nativo di Azure che viene distribuito nella rete virtuale di Azure (VNet) in cui il servizio è disponibile. NetApp file usa una subnet del delegato e Azure effettua il provisioning di un'interfaccia di rete direttamente sulla rete virtuale. 
 
 Visualizzare [pianificazione di rete le linee guida per i file di Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) per informazioni dettagliate.  
 
@@ -150,7 +150,7 @@ File di Azure NetApp fornisce metriche di utilizzo capacità pool e il volume. �
 
 ### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>È possibile gestire i file di NetApp Azure tramite Azure Storage Explorer?
 
- No. File di NetApp Azure non è supportato da Azure Storage Explorer.
+No. File di NetApp Azure non è supportato da Azure Storage Explorer.
 
 ## <a name="data-migration-and-protection-faqs"></a>Domande frequenti sulla migrazione e la protezione dei dati
 
@@ -184,11 +184,11 @@ Come indicato di seguito sono riportati i requisiti per la replica di un volume 
 
 ### <a name="is-migration-with-azure-data-box-supported"></a>È la migrazione con Azure Data Box è supportato?
 
- No. Azure Data Box non supporta attualmente i file di Azure NetApp. 
+No. Azure Data Box non supporta attualmente i file di Azure NetApp. 
 
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>È la migrazione con il servizio importazione/esportazione di Azure è supportato?
 
- No. Il servizio importazione/esportazione di Azure non supporta attualmente i file di Azure NetApp.
+No. Il servizio importazione/esportazione di Azure non supporta attualmente i file di Azure NetApp.
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

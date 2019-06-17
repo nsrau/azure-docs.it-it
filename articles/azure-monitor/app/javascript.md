@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 2192bad89764f20c24c85d9571bebbd6518de307
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66387282"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
@@ -67,7 +67,7 @@ window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({}
 </script>
 ```
 
-Inserire lo script poco prima del tag `</head>` di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio: 
+Inserire lo script poco prima del tag `</head>` di ogni pagina di cui si vuole tenere traccia. Se il sito Web presenta una pagina master, è possibile inserire lo script in tale posizione. Ad esempio:
 
 * In un progetto ASP.NET MVC inserire lo script in `View\Shared\_Layout.cshtml`
 * Nel pannello di controllo di un sito di SharePoint aprire [Impostazioni sito/pagina Master](sharepoint.md).
@@ -144,17 +144,17 @@ Il grafico mostra la media di tutti i caricamenti di pagina nell'app. Per verifi
 
 Si noti il conteggio delle visualizzazioni pagina e la deviazione standard. Se il conteggio delle pagine è molto basso, il problema non influisce molto sugli utenti. Una deviazione standard elevata, paragonabile alla media stessa, indica grandi differenze tra le singole misure.
 
-**Ingrandire un URL e una visualizzazione pagina.**  Fare clic su un nome di pagina per visualizzare un pannello relativo ai grafici del browser filtrati in base a tale URL e quindi fare clic sull'istanza di una visualizzazione pagina.
+**Ingrandire un URL e una visualizzazione pagina.** Fare clic su un nome di pagina per visualizzare un pannello relativo ai grafici del browser filtrati in base a tale URL e quindi fare clic sull'istanza di una visualizzazione pagina.
 
 ![](./media/javascript/35.png)
 
 Fare clic su `...` per un elenco completo delle proprietà dell'evento oppure controllare le chiamate AJAX e gli eventi correlati. La lentezza delle chiamate AJAX influisce sul tempo di caricamento totale delle pagine se le chiamate sono sincrone. Gli eventi correlati includono le richieste server per lo stesso URL, se Application Insights è stato configurato nel server Web.
 
-**Prestazioni delle pagine nel tempo.**  Tornare al pannello Browser e trasformare la griglia del tempo di caricamento della visualizzazione pagina in un grafico a linee per verificare se ci sono stati picchi in orari specifici:
+**Prestazioni delle pagine nel tempo.** Tornare al pannello Browser e trasformare la griglia del tempo di caricamento della visualizzazione pagina in un grafico a linee per verificare se ci sono stati picchi in orari specifici:
 
 ![Fare clic sull'intestazione della griglia e selezionare un nuovo tipo di grafico](./media/javascript/10-page-perf-area.png)
 
-**Segmentare in base ad altre dimensioni.**  Il caricamento delle pagine potrebbe risultare più lento in un determinato browser, un sistema operativo client o una località utente. Aggiungere un nuovo grafico e provare la dimensione **Raggruppamento** .
+**Segmentare in base ad altre dimensioni.** Il caricamento delle pagine potrebbe risultare più lento in un determinato browser, un sistema operativo client o una località utente. Aggiungere un nuovo grafico e provare la dimensione **Raggruppamento** .
 
 ![](./media/javascript/21.png)
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
 ms.openlocfilehash: 8af6998c8e9fbfb230c00597600b3aa4f3991f03
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62112579"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-uk-nhs"></a>Progetto di sicurezza e conformità di Azure: Applicazione Web PaaS per il servizio sanitario nazionale (NHS) Regno Unito
@@ -51,7 +51,7 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
 - Monitoraggio di Azure
 - Azure Resource Manager
 - Centro sicurezza di Azure
--  database SQL di Azure
+- database SQL di Azure
 - Archiviazione di Azure
 - Rete virtuale di Azure
     - Gruppi di sicurezza di rete

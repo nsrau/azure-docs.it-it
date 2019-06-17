@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 2001b849e9c43d552889475ca237c52b141f3f04
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 32eb2c47ed46aed8e2e3755a83437a21391295c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306273"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122972"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift, domande frequenti
 
@@ -35,7 +35,7 @@ Visualizzare [risorse supportate](supported-resources.md#azure-regions) per un e
 
 ## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>È possibile distribuire un cluster in una rete virtuale esistente?
 
- No. Ma è possibile connettersi a un cluster Azure Red Hat OpenShift a una rete virtuale esistente tramite il peering. Visualizzare [connettere la rete virtuale di un cluster a una rete virtuale esistente ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) per informazioni dettagliate.
+No. Ma è possibile connettersi a un cluster Azure Red Hat OpenShift a una rete virtuale esistente tramite il peering. Visualizzare [connettere la rete virtuale di un cluster a una rete virtuale esistente ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) per informazioni dettagliate.
 
 ## <a name="what-cluster-operations-are-available"></a>Le operazioni di cluster sono disponibili?
 
@@ -49,9 +49,13 @@ Visualizzare [dimensioni delle macchine virtuali di Azure Red Hat OpenShift](sup
 
 Per impostazione predefinita, è presente crittografia dei dati inattivi. La piattaforma di archiviazione di Azure crittografa automaticamente i dati prima di renderli persistenti e consente di decrittografare i dati prima del recupero. Visualizzare [la crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) per informazioni dettagliate.
 
-## <a name="can-i-use-prometheusgrafana-to-monitor-containers-and-manage-capacity"></a>È possibile usare Prometheus/Grafana per monitorare i contenitori e gestire la capacità?
+## <a name="can-i-use-prometheusgrafana-to-monitor-my-applications"></a>È possibile usare Prometheus/Grafana per monitorare le applicazioni?
 
-No, non l'ora corrente.
+Sì, è possibile distribuire Prometheus nelle applicazioni dello spazio dei nomi e monitoraggio nello spazio dei nomi.
+
+## <a name="can-i-use-prometheusgrafana-to-monitor-metrics-related-to-cluster-health-and-capacity"></a>È possibile usare Prometheus/Grafana per monitorare le metriche relative alla capacità e l'integrità del cluster?
+
+No, non in fase corrente.
 
 ## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>È il registro Docker disponibili esternamente in modo che è possibile usare strumenti come Jenkins?
 
@@ -71,12 +75,16 @@ Sì. È possibile limitare quali Azure AD gli utenti possono accedere a un clust
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>Un cluster possono avere nodi di calcolo in più aree di Azure?
 
- No. Tutti i nodi in un cluster Azure Red Hat OpenShift devono provenire dalla stessa area di Azure.
+No. Tutti i nodi in un cluster Azure Red Hat OpenShift devono provenire dalla stessa area di Azure.
 
 ## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>Sono i nodi master e l'infrastruttura speditamente così come sono con Azure Kubernetes Service (AKS)?
 
- No. Tutte le risorse, incluso il database master del cluster, eseguire nella propria sottoscrizione dei clienti. Questi tipi di risorse vengono inseriti in un gruppo di risorse di sola lettura.
+No. Tutte le risorse, incluso il database master del cluster, eseguire nella propria sottoscrizione dei clienti. Questi tipi di risorse vengono inseriti in un gruppo di risorse di sola lettura.
 
 ## <a name="is-open-service-broker-for-azure-osba-supported"></a>È Open Service Broker for Azure (OSBA) è supportato?
 
 Sì. È possibile usare OSBA con Azure Red Hat OpenShift. Visualizzare [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) per altre informazioni.
+
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Sto tentando di eseguire il peering in una rete virtuale in una sottoscrizione diversa, ma il recupero `Failed to get vnet CIDR` errore.
+
+Nella sottoscrizione che contiene la rete virtuale, assicurarsi di registrare `Microsoft.ContainerService` provider con `az provider register -n Microsoft.ContainerService --wait` 

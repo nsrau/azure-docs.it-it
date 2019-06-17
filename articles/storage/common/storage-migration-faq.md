@@ -9,10 +9,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
 ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114912"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Domande frequenti sulla migrazione di Archiviazione di Azure
@@ -37,7 +37,7 @@ Lo script di automazione è progettato per la distribuzione di Azure Resource Ma
 
 **Sono previsti costi per la copia dei dati tra due condivisioni file diverse nello stesso account di archiviazione all'interno della stessa area?**
 
- No. Per questo processo non vengono addebitati costi.
+No. Per questo processo non vengono addebitati costi.
 
 **Come si esegue il backup dell'intero account di archiviazione in un altro account di archiviazione?**
 
@@ -193,7 +193,7 @@ Usare AzCopy per copiare i dati in un altro account di archiviazione e quindi sp
 
 **Esistono prerequisiti per la modifica della replica di un account di archiviazione passando dall'archiviazione con ridondanza geografica all'archiviazione con ridondanza locale?**
 
- No. 
+No. 
 
 **Come si accede all'archiviazione ridondante di File di Azure?**
 

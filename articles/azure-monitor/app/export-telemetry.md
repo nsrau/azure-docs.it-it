@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mbullwin
 ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899427"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
@@ -128,7 +128,7 @@ Gli intervalli di tempo sono espressi in tick, dove 10.000 tick = 1 ms. Questi v
 [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Elaborazione dei dati
-Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in un foglio di calcolo e così via. Ad esempio: 
+Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in un foglio di calcolo e così via. Ad esempio:
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -183,7 +183,7 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
     No. Il motore di esportazione attualmente funziona solo con Archiviazione di Azure.  
 * *Esiste un limite alla quantità di dati da inserire nell'archivio personale?*
 
-     No. L'inserimento dei dati continuerà fino a quando non si elimina l'esportazione. Occorrerà fermarsi se i limiti esterni per l'archiviazione BLOB sono stati raggiunti, ma ciò è abbastanza difficile. Spetta all'utente controllare quante risorse di archiviazione usare.  
+    No. L'inserimento dei dati continuerà fino a quando non si elimina l'esportazione. Occorrerà fermarsi se i limiti esterni per l'archiviazione BLOB sono stati raggiunti, ma ciò è abbastanza difficile. Spetta all'utente controllare quante risorse di archiviazione usare.  
 * *Quanti BLOB dovrebbero essere visualizzati nella risorsa di archiviazione?*
 
   * Per ogni tipi di dati selezionato per l'esportazione, viene creato un nuovo BLOB ogni minuto, se sono disponibili dati.

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 8b486e617389e1611dfebf3d347d2d64df088593
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258643"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Informazioni sulle differenze tra Servizi cloud e Service Fabric che è opportuno conoscere prima di procedere alla migrazione di applicazioni.
@@ -29,11 +29,11 @@ Questa è una guida introduttiva alla migrazione di applicazioni da Servizi clou
 ## <a name="applications-and-infrastructure"></a>Applicazioni e infrastruttura
 Una differenza fondamentale tra Servizi cloud e Service Fabric è la relazione tra macchine virtuali, carichi di lavoro e applicazioni. Per carico di lavoro in questo caso si intente il codice scritto dall'utente per eseguire un'attività specifica o fornire un servizio.
 
-* **Servizi cloud viene usato per la distribuzione di applicazioni come macchine virtuali.**  Il codice scritto dall'utente è strettamente accoppiato a un'istanza di macchina virtuale, ad esempio un ruolo di lavoro o Web. Per distribuire un carico di lavoro in Servizi Cloud, distribuire una o più istanze di VM che eseguono il carico di lavoro. Non essendoci una separazione tra applicazioni e VM, non esiste una definizione formale di applicazione. Un'applicazione può essere considerata come un set di istanze del ruolo di lavoro o Web all'interno di una distribuzione di Servizi cloud o come un'intera distribuzione di Servizi cloud. In questo esempio un'applicazione viene illustrata come un set di istanze del ruolo.
+* **Servizi cloud viene usato per la distribuzione di applicazioni come macchine virtuali.** Il codice scritto dall'utente è strettamente accoppiato a un'istanza di macchina virtuale, ad esempio un ruolo di lavoro o Web. Per distribuire un carico di lavoro in Servizi Cloud, distribuire una o più istanze di VM che eseguono il carico di lavoro. Non essendoci una separazione tra applicazioni e VM, non esiste una definizione formale di applicazione. Un'applicazione può essere considerata come un set di istanze del ruolo di lavoro o Web all'interno di una distribuzione di Servizi cloud o come un'intera distribuzione di Servizi cloud. In questo esempio un'applicazione viene illustrata come un set di istanze del ruolo.
 
 ![Applicazioni e topologia di Servizi cloud][1]
 
-* **Service Fabric viene usato per la distribuzione di applicazioni in macchine virtuali esistenti o nei computer che eseguono Service Fabric in Windows o Linux.**  I servizi scritti dall'utente sono completamente disaccoppiati dall'infrastruttura sottostante, che è astratta dalla piattaforma di applicazioni di Service Fabric, consentendo la distribuzione di un'applicazione in più ambienti. Un carico di lavoro in Service Fabric è detto "servizio" e uno o più servizi sono raggruppati in un'applicazione definita formalmente che viene eseguita sulla piattaforma di applicazioni di Service Fabric. Più applicazioni possono essere distribuite in un singolo cluster di Service Fabric.
+* **Service Fabric viene usato per la distribuzione di applicazioni in macchine virtuali esistenti o nei computer che eseguono Service Fabric in Windows o Linux.** I servizi scritti dall'utente sono completamente disaccoppiati dall'infrastruttura sottostante, che è astratta dalla piattaforma di applicazioni di Service Fabric, consentendo la distribuzione di un'applicazione in più ambienti. Un carico di lavoro in Service Fabric è detto "servizio" e uno o più servizi sono raggruppati in un'applicazione definita formalmente che viene eseguita sulla piattaforma di applicazioni di Service Fabric. Più applicazioni possono essere distribuite in un singolo cluster di Service Fabric.
 
 ![Applicazioni e topologia di Service Fabric][2]
 

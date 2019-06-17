@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.openlocfilehash: eac6a27c3bcf64462a9f3d9a57da6df736f30c78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61386103"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Soluzione monitoraggio VMware (deprecato) in Monitoraggio di Azure
@@ -57,14 +57,14 @@ Creare una VM del sistema operativo Linux per ricevere tutti i dati di Syslog da
     ![vspherefwproperties](./media/vmware/vsphere3.png)  
 1. Controllare vSphere Console per verificare che Syslog sia configurato correttamente. Verificare che nell'host ESXI sia configurata la porta **1514**.
 1. Scaricare e installare l'agente di Log Analytics per Linux sul server Linux. Per altre informazioni, vedere la [documentazione relativa all'agente di Log Analytics per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
-1. Dopo l'installazione dell'agente di Log Analytics per Linux, passare alla directory /etc/opt/microsoft/omsagent/sysconf/omsagent.d e copiare il file vmware_esxi.conf nella directory /etc/opt/microsoft/omsagent/conf/omsagent.d, quindi modificare il proprietario o il gruppo e le autorizzazioni del file. Ad esempio: 
+1. Dopo l'installazione dell'agente di Log Analytics per Linux, passare alla directory /etc/opt/microsoft/omsagent/sysconf/omsagent.d e copiare il file vmware_esxi.conf nella directory /etc/opt/microsoft/omsagent/conf/omsagent.d, quindi modificare il proprietario o il gruppo e le autorizzazioni del file. Ad esempio:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 1. Riavviare l'agente di Log Analytics per Linux eseguendo `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-1. Verificare la connettività tra il server Linux e l'host ESXi usando il `nc` comando nell'host ESXi. Ad esempio: 
+1. Verificare la connettività tra il server Linux e l'host ESXi usando il `nc` comando nell'host ESXi. Ad esempio:
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
@@ -170,7 +170,7 @@ Dopo aver creato le query, è possibile usarle come avvisi nel caso in cui si ve
 La soluzione usa il meccanismo di inoltro del SysLog dell'host ESXi nativo. Non è necessario aggiungere software Microsoft nell'host ESXi per acquisire log. Non dovrebbero esserci conseguenze di grande entità per l'ambiente esistente. Tuttavia, è necessario impostare l'inoltro SysLog, una funzionalità ESXi.
 
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>È necessario riavviare l'host ESXi?
- No. Questo processo non richiede un riavvio. Talvolta, vSphere non aggiorna correttamente il SysLog. In tal caso, accedere all'host ESXi e ricaricare il SysLog. Anche qui, non è necessario riavviare l'host, pertanto questo processo non risulta problematico per l'ambiente.
+No. Questo processo non richiede un riavvio. Talvolta, vSphere non aggiorna correttamente il SysLog. In tal caso, accedere all'host ESXi e ricaricare il SysLog. Anche qui, non è necessario riavviare l'host, pertanto questo processo non risulta problematico per l'ambiente.
 
 ### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>È possibile aumentare o diminuire il volume dei dati di log inviati a Log Analytics?
 Sì. È possibile usare le impostazioni a livello di log dell'host ESXi in vSphere. La raccolta dei log è basata sul livello *info*. Pertanto, se si desidera controllare la creazione o l'eliminazione di VM, è necessario mantenere il livello *info* in HostId. Per altre informazioni, consultare la [Knowledge Base di VMware](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).

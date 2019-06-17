@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935446"
 ---
 <a name="retrieve-offer-status"></a>Recupero dello stato dell'offerta 
@@ -26,16 +26,16 @@ Recupera lo stato corrente dell'offerta.
 
 |  **Nome**       |   **Descrizione**                            |  **Tipo di dati** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificatore dell'editore, per esempio `Contoso`  |     string     |
-|  offerId        | GUID che identifica in modo univoco l'offerta      |     string     |
-|  api-version    | Ultima versione dell'API                        |     Data       |
+|  publisherId    | Identificatore dell'editore, per esempio `Contoso`  |     String     |
+|  offerId        | GUID che identifica in modo univoco l'offerta      |     String     |
+|  api-version    | Ultima versione dell'API                        |     Date       |
 |  |  |
 
 
 <a name="header"></a>Intestazione
 ------
 
-|  NOME           |  Value               |
+|  Name           |  Value               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
 |  Authorization  | `Bearer YOUR_TOKEN`  |
@@ -125,14 +125,14 @@ Recupera lo stato corrente dell'offerta.
 |  **Nome**             |    **Descrizione**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
 |  status               | Lo stato dell'offerta. Per l'elenco di valori possibili, vedere [Stato dell'offerta](#offer-status) di seguito: |
-|   del cloud al dispositivo             | Matrice di messaggi associati all'offerta                                                    |
+|  del cloud al dispositivo             | Matrice di messaggi associati all'offerta                                                    |
 |  steps                | Matrice dei passaggi di pubblicazione di un'offerta                      |
 |  estimatedTimeFrame   | Stima del tempo necessario per completare questo passaggio, in formato descrittivo                       |
 |  id                   | Identificatore del passaggio                                                                         |
 |  stepName             | Nome del passaggio                                                                               |
 |  description          | Descrizione del passaggio                                                                        |
 |  status               | Stato del passaggio. Per l'elenco di valori possibili, vedere [Stato del passaggio](#step-status) di seguito:    |
-|   del cloud al dispositivo             | Matrice di messaggi correlati al passaggio                                                          |
+|  del cloud al dispositivo             | Matrice di messaggi correlati al passaggio                                                          |
 |  processPercentage    | Percentuale di completamento del passaggio                                                              |
 |  previewLinks         | *Non attualmente implementato*                                                                    |
 |  liveLinks            | *Non attualmente implementato*                                                                    |

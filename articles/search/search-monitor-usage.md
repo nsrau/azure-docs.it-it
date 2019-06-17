@@ -12,10 +12,10 @@ ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755068"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorare l'utilizzo delle risorse e l'attività di query in ricerca di Azure
@@ -125,7 +125,7 @@ I BLOB che contengono i log del traffico del servizio di ricerca sono strutturat
 
 **Schema delle proprietà**
 
-| Name | Type | Esempio | Note |
+| NOME | Type | Esempio | Note |
 | --- | --- | --- | --- |
 | Descrizione |string |"GET /indexes('content')/docs" |Endpoint dell'operazione |
 | Query |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Parametri della query |
@@ -136,7 +136,7 @@ I BLOB che contengono i log del traffico del servizio di ricerca sono strutturat
 
 Vengono acquisite metriche per le richieste di query.
 
-| NOME | Type | Esempio | Note |
+| Name | Type | Esempio | Note |
 | --- | --- | --- | --- |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa in uso |
 | metricName |string |"Latenza" |Nome della metrica |

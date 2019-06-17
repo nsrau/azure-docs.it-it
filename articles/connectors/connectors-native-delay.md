@@ -11,10 +11,10 @@ tags: connectors
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: 27475fb3f086dbc5166a473e9d657d2dab723938
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297653"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Ritardo esecuzione dell'azione successiva nell'App per la logica di Azure
@@ -81,7 +81,7 @@ Ecco alcuni metodi di esempio per usare queste azioni:
 
    | Proprietà | Nome JSON | Obbligatorio | Type | Descrizione |
    |----------|-----------|----------|------|-------------|
-   | Timestamp |  timestamp | Yes | String | La data di fine e l'ora per riprendere il flusso di lavoro usando questo formato: <p>YYYY-MM-DDThh:mm:ssZ <p>Ad esempio, se si desidera 18 settembre 2017 alle 14:00, specificare "2017-09-18T14:00:00Z". <p>**Nota:** Questo formato di ora deve seguire il [specifica ora data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [formato data UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza una [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Senza un fuso orario, è necessario aggiungere la lettera "Z" alla fine senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. |
+   | Timestamp | timestamp | Yes | String | La data di fine e l'ora per riprendere il flusso di lavoro usando questo formato: <p>YYYY-MM-DDThh:mm:ssZ <p>Ad esempio, se si desidera 18 settembre 2017 alle 14:00, specificare "2017-09-18T14:00:00Z". <p>**Nota:** Questo formato di ora deve seguire il [specifica ora data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [formato data UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza una [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Senza un fuso orario, è necessario aggiungere la lettera "Z" alla fine senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. |
    ||||||
 
 1. Aggiungere tutte le altre azioni che si desidera eseguire il flusso di lavoro.

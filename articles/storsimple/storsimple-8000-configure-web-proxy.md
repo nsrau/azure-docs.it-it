@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204257"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurare il proxy web per il dispositivo StorSimple
@@ -132,7 +132,7 @@ Le impostazioni proxy Web sono configurate tramite l'interfaccia di Windows Powe
 
 3. Nel pannello **Proxy Web**, verificare le impostazioni proxy Web configurate sul dispositivo StorSimple.
    
-    ![ Visualizzare le impostazioni del proxy web](./media/storsimple-8000-configure-web-proxy/view-web-proxy-3.png)
+    ![Visualizzare le impostazioni del proxy web](./media/storsimple-8000-configure-web-proxy/view-web-proxy-3.png)
 
 
 ## <a name="errors-during-web-proxy-configuration"></a>Errori durante la configurazione del proxy Web

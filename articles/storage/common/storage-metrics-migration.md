@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 58ac15c1aba715c9a5b67e723401b531e76608b2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153605"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migrazione delle metriche di Archiviazione di Azure
@@ -113,7 +113,7 @@ Se sono state create regole di avviso classiche in base a metriche di archiviazi
 
 ### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>I dati delle nuove metriche vengono archiviati nello stesso account di archiviazione per impostazione predefinita?
 
- No. Per archiviare i dati delle metriche in un account di archiviazione, usare l'[API delle impostazioni di diagnostica di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
+No. Per archiviare i dati delle metriche in un account di archiviazione, usare l'[API delle impostazioni di diagnostica di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

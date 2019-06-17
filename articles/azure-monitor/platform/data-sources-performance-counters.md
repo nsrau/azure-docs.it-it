@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205744"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Origini dati delle prestazioni di Windows e Linux in Monitoraggio di Azure
@@ -32,7 +32,7 @@ Quando si configurano per la prima volta i contatori delle prestazioni di Window
 
 Per i contatori delle prestazioni di Windows è possibile scegliere un'istanza specifica per ogni contatore delle prestazioni. Per i contatori delle prestazioni di Linux, l'istanza di ogni contatore scelto viene applicata a tutti i contatori figlio del contatore padre. La tabella seguente illustra le istanze comuni disponibili ai contatori delle prestazioni di Linux e Windows.
 
-| Nome dell'istanza | DESCRIZIONE |
+| Nome dell'istanza | Descrizione |
 | --- | --- |
 | \_Totale |Totale di tutte le istanze |
 | \* |Tutte le istanze |
@@ -46,7 +46,7 @@ Seguire questa procedura per aggiungere un nuovo contatore delle prestazioni Win
 
 1. Digitare il nome del contatore nella casella di testo, usando il formato *oggetto(istanza)\contatore*.  Quando si inizia a digitare, viene visualizzato un elenco di contatori comuni corrispondenti.  È possibile selezionare un contatore nell'elenco o digitare quello desiderato.  Per restituire tutte le istanze per un contatore specifico, specificare *oggetto\contatore*.  
 
-    Quando si raccolgono i contatori delle prestazioni di SQL Server da istanze denominate, tutti i contatori di tali istanze iniziano con *MSSQL$*, seguito dal nome dell'istanza.  Ad esempio, per raccogliere il contatore Percentuale riscontri cache log di tutti i database dall'oggetto delle prestazioni del database per l'istanza di SQL denominata INST2, specificare `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
+    Quando si raccolgono i contatori delle prestazioni di SQL Server da istanze denominate, tutti i contatori di tali istanze iniziano con *MSSQL$* , seguito dal nome dell'istanza.  Ad esempio, per raccogliere il contatore Percentuale riscontri cache log di tutti i database dall'oggetto delle prestazioni del database per l'istanza di SQL denominata INST2, specificare `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
 2. Fare clic su **+** o premere **INVIO** per aggiungere il contatore all'elenco.
 3. Quando si aggiunge un contatore, per **Intervallo di campionamento** verrà usato il valore predefinito di 10 secondi.  Per ridurre i requisiti di spazio di archiviazione dei dati sulle prestazioni raccolti, è possibile impostare questa opzione su un valore più alto, fino a un massimo di 1800 secondi (30 minuti).
@@ -80,7 +80,7 @@ Ogni oggetto o categoria delle metriche delle prestazioni da raccogliere deve es
 
 I parametri di questo elemento sono descritti nella tabella seguente.
 
-| Parametri | DESCRIZIONE |
+| Parametri | Descrizione |
 |:--|:--|
 | object\_name | Nome dell'oggetto per la raccolta. |
 | instance\_regex |  *Espressione regolare* che definisce le istanze da raccogliere. Il valore `.*` specifica tutte le istanze. Per raccogliere le metriche del processore solo per l'istanza \_Total, è possibile specificare `_Total`. Per raccogliere le metriche del processore solo per le istanze crond o sshd, è possibile specificare `(crond\|sshd)`. |
@@ -96,8 +96,8 @@ La tabella seguente elenca gli oggetti e i contatori che è possibile specificar
 | Logical Disk | % Free Space |
 | Logical Disk | % Used Inodes |
 | Logical Disk | % Used Space |
-| Logical Disk | Byte letti da disco/sec  |
-| Logical Disk | Letture disco/sec  |
+| Logical Disk | Byte letti da disco/sec |
+| Logical Disk | Letture disco/sec |
 | Logical Disk | Disk Transfers/sec |
 | Logical Disk | Byte scritti su disco/sec |
 | Logical Disk | Scritture disco/sec |
@@ -195,7 +195,7 @@ Il tipo dei record delle prestazioni è **Perf** e le proprietà sono elencate n
 | CounterValue |Valore numerico del contatore. |
 | InstanceName |Nome dell'istanza dell'evento.  Vuoto se l'istanza non è presente. |
 | ObjectName |Nome dell'oggetto prestazioni |
-| SourceSystem |Tipo di agente da cui sono stati raccolti i dati. <br><br>OpsManager: agente Windows, con connessione diretta o SCOM <br>  Linux – Tutti gli agenti Linux  <br>  AzureStorage: Diagnostica di Azure |
+| SourceSystem |Tipo di agente da cui sono stati raccolti i dati. <br><br>OpsManager: agente Windows, con connessione diretta o SCOM <br> Linux – Tutti gli agenti Linux  <br> AzureStorage: Diagnostica di Azure |
 | TimeGenerated |Data e ora di campionamento dei dati. |
 
 ## <a name="sizing-estimates"></a>Stime di dimensionamento
@@ -206,7 +206,7 @@ Il tipo dei record delle prestazioni è **Perf** e le proprietà sono elencate n
 ## <a name="log-queries-with-performance-records"></a>Query di log con record delle prestazioni
 La tabella seguente mostra alcuni esempi di query di log che recuperano i record delle prestazioni.
 
-| Query | DESCRIZIONE |
+| Query | Descrizione |
 |:--- |:--- |
 | Perf |Tutti i dati sulle prestazioni |
 | Perf &#124; where Computer == "MyComputer" |Tutti i dati sulle prestazioni da un computer specifico |

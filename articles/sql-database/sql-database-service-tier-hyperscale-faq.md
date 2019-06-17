@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
 ms.openlocfilehash: 38d9ad007b67756bdca0c6f98267aa16ba38ee9d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791436"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Domande frequenti sui database SQL di Azure di livello Hyperscale
@@ -132,11 +132,11 @@ Non attualmente, tuttavia, è possibile scalare il calcolo e il numero di replic
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>È possibile effettuare il provisioning di risorse di calcolo con RAM aggiuntiva per un carico di lavoro a elevato utilizzo di memoria
 
- No. Per ottenere più RAM, è necessario eseguire l'aggiornamento a dimensioni di calcolo superiori. Per altre informazioni, vedere [Dimensioni di calcolo e archiviazione del livello Hyperscale](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier).
+No. Per ottenere più RAM, è necessario eseguire l'aggiornamento a dimensioni di calcolo superiori. Per altre informazioni, vedere [Dimensioni di calcolo e archiviazione del livello Hyperscale](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier).
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>È possibile effettuare il provisioning di più nodi di calcolo di dimensioni diverse
 
- No.
+No.
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>Quante repliche con scalabilità in lettura sono supportate
 
@@ -182,11 +182,11 @@ Con il livello Hyperscale, i file di dati vengono archiviati in Archiviazione St
 
 ### <a name="can-i-manage-or-define-files-or-filegroups-with-hyperscale"></a>È possibile gestire o definire file o filegroup con il livello Hyperscale
 
-N.
+No
   
 ### <a name="can-i-provision-a-hard-cap-on-the-data-growth-for-my-database"></a>È possibile effettuare il provisioning di un limite rigido per la crescita dei dati per il database
 
-N.
+No
 
 ### <a name="how-are-data-files-laid-out-with-sql-database-hyperscale"></a>Come vengono organizzati i file di dati con il database SQL Hyperscale
 
@@ -194,11 +194,11 @@ I file di dati vengono controllati dai server di pagina. Man mano che le dimensi
 
 ### <a name="is-database-shrink-supported"></a>È supportata la compattazione del database
 
-N.
+No
 
 ### <a name="is-database-compression-supported"></a>È supportata la compressione del database
 
-Sì
+Yes
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>In presenza di una tabella di grandi dimensioni, i dati della tabella vengono distribuiti in più file di dati
 
@@ -212,7 +212,7 @@ Sì. È possibile spostare i database SQL di Azure esistenti al livello Hypersca
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-editions"></a>È possibile spostare i database Hyperscale ad altre edizioni
 
- No. A questo punto, è possibile spostare un database con scalabilità elevatissima per un altro livello di servizio.
+No. A questo punto, è possibile spostare un database con scalabilità elevatissima per un altro livello di servizio.
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Dopo la migrazione al livello di servizio Hyperscale si perdono funzionalità o caratteristiche
 
@@ -239,7 +239,7 @@ Il modello di recupero con registrazione minima o con registrazione bulk non è 
 
 ### <a name="does-sql-database-hyperscale-allow-provisioning-multiple-nodes-for-ingesting-large-amounts-of-data"></a>Il database SQL Hyperscale permette il provisioning di più nodi per l'inserimento di grandi quantità di dati
 
- No. Il database SQL Hyperscale è un'architettura SMP e non un'architettura a multielaborazione simmetrica o multimaster. È possibile solo creare più repliche per la scalabilità orizzontale dei carichi di lavoro di sola lettura.
+No. Il database SQL Hyperscale è un'architettura SMP e non un'architettura a multielaborazione simmetrica o multimaster. È possibile solo creare più repliche per la scalabilità orizzontale dei carichi di lavoro di sola lettura.
 
 ### <a name="what-is-the-oldest-sql-server-version-will-sql-database-hyperscale-support-migration-from"></a>Qual è la versione di SQL Server meno recente di cui sarà supportata la migrazione al database SQL Hyperscale
 
@@ -257,7 +257,7 @@ Con il valore predefinito di quella primario e 1 replica secondaria leggibile, i
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>I backup dei database vengono gestiti automaticamente dal servizio di database SQL di Azure
 
-Sì
+Yes
 
 ### <a name="how-often-are-the-database-backups-taken"></a>Con che frequenza vengono eseguiti i backup dei database
 
@@ -265,7 +265,7 @@ Per i database SQL Hyperscale non sono previsti i tradizionali backup completi, 
 
 ### <a name="does-sql-database-hyperscale-support-point-in-time-restore"></a>Il database SQL Hyperscale supporta il ripristino temporizzato
 
-Sì
+Yes
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-with-backuprestore-in-sql-database-hyperscale"></a>Quali sono l'obiettivo del punto di ripristino (RPO) e l'obiettivo del tempo di ripristino (RTO) per le operazioni di backup/ripristino nel database SQL Hyperscale
 
@@ -273,7 +273,7 @@ L'obiettivo del punto di ripristino è 0 minuti. L'obiettivo del tempo di ripris
 
 ### <a name="do-backups-of-large-databases-affect-compute-performance-on-my-primary"></a>I backup di database di grandi dimensioni influiscono sulle prestazioni di calcolo del nodo primario
 
- No. I backup vengono gestiti dal sottosistema di archiviazione e sfruttano gli snapshot di file. Non influiscono sul carico di lavoro dell'utente nel nodo primario.
+No. I backup vengono gestiti dal sottosistema di archiviazione e sfruttano gli snapshot di file. Non influiscono sul carico di lavoro dell'utente nel nodo primario.
 
 ### <a name="can-i-perform-geo-restore-with-a-sql-database-hyperscale-database"></a>È possibile eseguire il ripristino geografico con un database SQL Hyperscale
 
@@ -289,7 +289,7 @@ Attualmente non è possibile.
 
 ### <a name="can-i-take-a-sql-database-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-sql-server-in-vm"></a>È possibile ripristinare un backup di un database SQL Hyperscale nel server locale o in SQL Server in una macchina virtuale
 
- No. Il formato di archiviazione per i database Hyperscale è diverso da quello di SQL Server tradizionale e non è possibile controllare i backup o accedervi. Per estrarre i dati da un database SQL Hyperscale, usare il servizio di esportazione oppure gli script e BCP.
+No. Il formato di archiviazione per i database Hyperscale è diverso da quello di SQL Server tradizionale e non è possibile controllare i backup o accedervi. Per estrarre i dati da un database SQL Hyperscale, usare il servizio di esportazione oppure gli script e BCP.
 
 ## <a name="cross-feature-questions"></a>Domande sulle funzionalità
 
@@ -299,15 +299,15 @@ Sì. Alcune delle funzionalità di Database SQL di Azure non sono supportati in 
 
 ### <a name="will-polybase-work-with-sql-database-hyperscale"></a>Polybase funzionerà con il database SQL Hyperscale
 
- No. La tecnologia Polybase non è supportata nel database SQL di Azure.
+No. La tecnologia Polybase non è supportata nel database SQL di Azure.
 
 ### <a name="does-the-compute-have-support-for-r-and-python"></a>Le risorse di calcolo offrono supporto per R e Python
 
- No. R and Python non sono supportati nel database SQL di Azure.
+No. R and Python non sono supportati nel database SQL di Azure.
 
 ### <a name="are-the-compute-nodes-containerized"></a>I nodi di calcolo sono inclusi in contenitori
 
- No. Il database si trova in un macchina virtuale di calcolo e non in un contenitore.
+No. Il database si trova in un macchina virtuale di calcolo e non in un contenitore.
 
 ## <a name="performance-questions"></a>Domande sulle prestazioni
 
@@ -321,7 +321,7 @@ Latenza dei / o e IOPS varia a seconda di modelli di carico di lavoro.  Se i dat
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>La velocità effettiva è influenzata dai backup
 
- No. Il calcolo è separato dal livello di archiviazione per evitare un impatto sulle risorse di calcolo.
+No. Il calcolo è separato dal livello di archiviazione per evitare un impatto sulle risorse di calcolo.
 
 ### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-nodes"></a>La velocità effettiva cambia quando viene effettuato il provisioning di nodi di calcolo aggiuntivi
 
@@ -335,7 +335,7 @@ Scalabilità di calcolo o verso il basso dovrebbe richiedere circa 5-10 minuti i
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>Il database è offline mentre vengono eseguite le operazioni di ridimensionamento
 
- No. Le operazioni di ridimensionamento vengono eseguite online.
+No. Le operazioni di ridimensionamento vengono eseguite online.
 
 ### <a name="should-i-expect-connection-drop-when-the-scaling-operations-are-in-progress"></a>Possono verificarsi interruzioni della connessione mentre vengono eseguite le operazioni di ridimensionamento
 
@@ -351,7 +351,7 @@ Sì. Il database temporaneo viene ridimensionato automaticamente quando aumentan
 
 ### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>È possibile effettuare il provisioning di più risorse di calcolo primarie, ad esempio un sistema multimaster in cui più nodi head di calcolo primari possono consentire un livello più elevato di concorrenza
 
- No. Solo il nodo di calcolo primario accetta le richieste di lettura/scrittura. I nodi di calcolo secondari accettano solo le richieste di sola lettura.
+No. Solo il nodo di calcolo primario accetta le richieste di lettura/scrittura. I nodi di calcolo secondari accettano solo le richieste di sola lettura.
 
 ## <a name="read-scale-questions"></a>Domande sulla scalabilità in lettura
 
@@ -365,23 +365,23 @@ Creiamo 2 repliche per i database con scalabilità elevatissima per impostazione
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>È possibile creare un endpoint dedicato per la replica con scalabilità in lettura
 
- No. È possibile connettersi solo alla scalabilità in lettura replica specificando `ApplicationIntent=ReadOnly`.
+No. È possibile connettersi solo alla scalabilità in lettura replica specificando `ApplicationIntent=ReadOnly`.
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>Il sistema esegue il bilanciamento del carico intelligente per il carico di lavoro di lettura
 
- No. Il carico di lavoro di sola lettura sia reindirizzato a una replica casuale di scalabilità in lettura.
+No. Il carico di lavoro di sola lettura sia reindirizzato a una replica casuale di scalabilità in lettura.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>È possibile ridimensionare i nodi di calcolo secondari indipendentemente dal nodo di calcolo primario
 
- No. I nodi di calcolo secondario vengono utilizzati anche per la disponibilità elevata, in modo che devono essere la stessa configurazione del database primario, in caso di failover.
+No. I nodi di calcolo secondario vengono utilizzati anche per la disponibilità elevata, in modo che devono essere la stessa configurazione del database primario, in caso di failover.
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>Il database temporaneo viene ridimensionato in modo diverso per il nodo di calcolo primario e i nodi di calcolo secondari aggiuntivi
 
- No. Il `tempdb` è configurato in base il provisioning di dimensioni di calcolo, i nodi di calcolo secondario hanno le stesse dimensioni come le principali risorse di calcolo.
+No. Il `tempdb` è configurato in base il provisioning di dimensioni di calcolo, i nodi di calcolo secondario hanno le stesse dimensioni come le principali risorse di calcolo.
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-nodes"></a>È possibile aggiungere indici e viste nei nodi di calcolo secondari
 
- No. I database Hyperscale hanno un'archiviazione condivisa e ciò significa che tutti i nodi di calcolo vedono gli stessi indici, tabelle e viste. Se si vuole disporre di indici aggiuntivi ottimizzati per operazioni di lettura nei nodi secondari, è prima di tutto necessario aggiungerli nel nodo primario.
+No. I database Hyperscale hanno un'archiviazione condivisa e ciò significa che tutti i nodi di calcolo vedono gli stessi indici, tabelle e viste. Se si vuole disporre di indici aggiuntivi ottimizzati per operazioni di lettura nei nodi secondari, è prima di tutto necessario aggiungerli nel nodo primario.
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-node"></a>Quanto ritardo c'è tra il nodo di calcolo primario e quello secondario
 

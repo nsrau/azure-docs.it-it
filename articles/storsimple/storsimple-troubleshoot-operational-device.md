@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: v-sharos
 ms.openlocfilehash: 8ad3f09bf46caf426b2008b583ebd2ff78522462
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302518"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64713056"
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Risoluzione dei problemi relativi a un dispositivo StorSimple operativo
 > [!NOTE]
@@ -45,12 +45,12 @@ La configurazione guidata non esegue le operazioni correlate alla raccolta della
 ## <a name="errors-that-occur-during-subsequent-runs-of-the-setup-wizard"></a>Errori che si verificano durante le esecuzioni successive della configurazione guidata
 Nella tabella seguente vengono descritti gli errori che potrebbero verificarsi quando si esegue l'installazione guidata su un dispositivo operativo, le cause di errori e le azioni consigliate per la risoluzione. 
 
-|  No. | Messaggio di errore o condizione | Possibili cause | Azione consigliata |
+| No. | Messaggio di errore o condizione | Possibili cause | Azione consigliata |
 |:--- |:--- |:--- |:--- |
 | 1 |Errore 350032: Questo dispositivo è già stato disattivato. |Questo errore verrà visualizzato se si esegue la configurazione guidata su un dispositivo disattivato. |[Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per i passaggi successivi. Un dispositivo disattivato non può essere messo in servizio. Prima di poter attivare nuovamente il dispositivo, potrebbe essere necessario un ripristino delle impostazioni predefinite. |
 | 2 |Invoke-HcsSetupWizard : ERROR_INVALID_FUNCTION (eccezione da HRESULT: 0x80070001) |L'aggiornamento del server DNS in corso ha esito negativo. Le impostazioni DNS sono impostazioni globali e vengono applicate a tutte le interfacce di rete abilitate. |Abilitare l'interfaccia e applicare nuovamente le impostazioni DNS. Siccome queste impostazioni sono globali, ciò potrebbe interferire con la rete per le altre interfacce abilitate. |
 | 3 |Il dispositivo apparirà online nel portale del servizio StorSimple Manager ma quando si tenta di completare l'installazione minima e salvare la configurazione, l'operazione ha esito negativo. |Durante l'installazione iniziale, il proxy Web non è stato configurato, anche se era disponibile un server proxy effettivo. |Usare il [cmdlet Test-HcsmConnection][2] per individuare l'errore. [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) se non si è in grado di risolvere il problema. |
-| 4 |Invoke-HcsSetupWizard: Valore non compreso nell'intervallo previsto. |L'errore viene generato da una subnet mask non corretta. Le possibili cause sono:  <ul><li> La subnet mask è mancante o vuota.</li><li>Il formato del prefisso Ipv6 non è corretto.</li><li>L'interfaccia è abilitata per il cloud, ma il gateway è mancante o non corretto.</li></ul>Considerare che DATI 0 è automaticamente abilitata per il cloud se configurata tramite la configurazione guidata. |Per determinare il problema, utilizzare la subnet 0.0.0.0 o 256.256.256.256 ed esaminare l'output. Immettere i valori corretti per la subnet mask, un gateway e un prefisso Ipv6, se necessario. |
+| 4 |Invoke-HcsSetupWizard: Valore non compreso nell'intervallo previsto. |L'errore viene generato da una subnet mask non corretta. Le possibili cause sono: <ul><li> La subnet mask è mancante o vuota.</li><li>Il formato del prefisso Ipv6 non è corretto.</li><li>L'interfaccia è abilitata per il cloud, ma il gateway è mancante o non corretto.</li></ul>Considerare che DATI 0 è automaticamente abilitata per il cloud se configurata tramite la configurazione guidata. |Per determinare il problema, utilizzare la subnet 0.0.0.0 o 256.256.256.256 ed esaminare l'output. Immettere i valori corretti per la subnet mask, un gateway e un prefisso Ipv6, se necessario. |
 
 ## <a name="error-codes"></a>Codici di errore
 Gli errori sono elencati in ordine numerico.

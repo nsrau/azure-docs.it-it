@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb0726fdddf6d20a9c8c5f20d6cec0cae68322ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586993"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119251"
 ---
 # <a name="azure-operational-security"></a>Sicurezza operativa di Azure
 ## <a name="introduction"></a>Introduzione
@@ -224,16 +224,16 @@ Il controllo della sicurezza della rete è fondamentale per rilevare le vulnerab
 
 Di seguito sono elencate le funzionalità attualmente disponibili in Network Watcher.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Log di controllo</a>**- Vengono registrate le operazioni eseguite nell'ambito della configurazione di reti. È possibile visualizzare i relativi log nel portale di Azure o recuperarli usando strumenti Microsoft, come Power BI, o strumenti di terze parti. I log di controllo sono disponibili tramite il portale, PowerShell, l'interfaccia della riga di comando e l'API REST. Per altre informazioni sui log di controllo, vedere l'articolo relativo alle operazioni di controllo con Gestione risorse. I log di controllo sono disponibili per le operazioni eseguite su tutte le risorse di rete.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Log di controllo</a>** - Vengono registrate le operazioni eseguite nell'ambito della configurazione di reti. È possibile visualizzare i relativi log nel portale di Azure o recuperarli usando strumenti Microsoft, come Power BI, o strumenti di terze parti. I log di controllo sono disponibili tramite il portale, PowerShell, l'interfaccia della riga di comando e l'API REST. Per altre informazioni sui log di controllo, vedere l'articolo relativo alle operazioni di controllo con Gestione risorse. I log di controllo sono disponibili per le operazioni eseguite su tutte le risorse di rete.
 
 
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">Verifica flusso IP</a>** - Controlla se un pacchetto viene accettato o rifiutato in base ai relativi parametri sul flusso di informazioni, costituiti da informazioni a 5 tuple, ovvero l'indirizzo IP di destinazione, l'indirizzo IP di origine, la porta di destinazione, la porta di origine e il protocollo. Se il pacchetto viene rifiutato da un gruppo di sicurezza di rete, vengono restituiti la regola e il gruppo di sicurezza di rete che hanno rifiutato il pacchetto.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">Hop successivo</a>**: determina l'hop successivo per i pacchetti indirizzati nell'infrastruttura di rete di Azure, permettendo così di diagnosticare eventuali route definite dall'utente non configurate in modo corretto.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">Hop successivo</a>** : determina l'hop successivo per i pacchetti indirizzati nell'infrastruttura di rete di Azure, permettendo così di diagnosticare eventuali route definite dall'utente non configurate in modo corretto.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview">Visualizzazione dei gruppi di sicurezza</a>**: ottiene le regole di sicurezza valide e applicate in una macchina virtuale.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview">Visualizzazione dei gruppi di sicurezza</a>** : ottiene le regole di sicurezza valide e applicate in una macchina virtuale.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">Registrazione dei flussi dei gruppi di sicurezza di rete</a>**: la registrazione dei flussi dei gruppi di sicurezza di rete permette di acquisire i log relativi al traffico consentito o negato dalle regole di sicurezza nel gruppo. Il flusso è definito da informazioni a 5 tuple, ovvero l'indirizzo IP di destinazione, l'indirizzo IP di origine, la porta di destinazione, la porta di origine e il protocollo.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">Registrazione dei flussi dei gruppi di sicurezza di rete</a>** : la registrazione dei flussi dei gruppi di sicurezza di rete permette di acquisire i log relativi al traffico consentito o negato dalle regole di sicurezza nel gruppo. Il flusso è definito da informazioni a 5 tuple, ovvero l'indirizzo IP di destinazione, l'indirizzo IP di origine, la porta di destinazione, la porta di origine e il protocollo.
 
 ## <a name="azure-storage-analytics"></a>Analisi archiviazione di Azure
 
@@ -276,7 +276,7 @@ Vengono registrati i tipi seguenti di richieste autenticate e anonime.
 
 Azure AD include anche una suite completa di funzionalità per la gestione delle identità, tra cui la Multi-Factor Authentication, la registrazione dei dispositivi, la gestione self-service delle password e dei gruppi, la gestione degli account con privilegi, il controllo degli accessi in base al ruolo, il monitoraggio dell'utilizzo dell'applicazione, il controllo avanzato e il monitoraggio e gli avvisi relativi alla sicurezza.
 
--   Miglioramento della sicurezza delle applicazioni grazie all'autenticazione a più fattori e all'accesso condizionale di Azure AD.
+-   Migliorare la sicurezza delle applicazioni con autenticazione a più fattori di Azure AD e l'accesso condizionale.
 
 -   Monitoraggio dell'utilizzo delle applicazioni e protezione dell'attività da minacce avanzate, grazie alla creazione di report e al monitoraggio della sicurezza.
 
@@ -309,7 +309,7 @@ Per i clienti interessati alla conservazione degli [eventi di controllo](https:/
 
 ## <a name="summary"></a>Summary
 
-Questo articolo riassume le caratteristiche di protezione della privacy e dei dati degli utenti, mettendo a disposizione software e servizi che aiutino a gestire l'infrastruttura IT dell'organizzazione. Microsoft è a conoscenza della necessità di applicare rigorose misure di sicurezza quando si affidano i dati a terzi. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio.  La sicurezza e la protezione dei dati sono altamente prioritarie per Microsoft.
+Questo articolo riassume le caratteristiche di protezione della privacy e dei dati degli utenti, mettendo a disposizione software e servizi che aiutino a gestire l'infrastruttura IT dell'organizzazione. Microsoft è a conoscenza della necessità di applicare rigorose misure di sicurezza quando si affidano i dati a terzi. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio. La sicurezza e la protezione dei dati sono altamente prioritarie per Microsoft.
 
 Questo articolo descrive
 

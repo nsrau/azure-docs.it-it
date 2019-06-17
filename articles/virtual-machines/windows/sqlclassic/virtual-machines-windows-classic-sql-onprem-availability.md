@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61481581"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Estendere i gruppi di disponibilità AlwaysOn locali ad Azure
@@ -42,13 +42,13 @@ Questa sezione mostra come usare la **procedura guidata per l'aggiunta della rep
 > [!IMPORTANT]
 > La **procedura guidata per l'aggiunta della replica di Azure** supporta solo le macchine virtuali create con il modello di distribuzione classica. Le nuove distribuzioni di macchine virtuali devono usare il modello di Resource Manager più recente. Se si usano macchine virtuali con Resource Manager, è necessario aggiungere manualmente la replica secondaria di Azure usando comandi Transact-SQL, che non sono inclusi in questo articolo. La procedura guidata non funziona in uno scenario di Resource Manager.
 
-1. In SQL Server Management Studio espandere **Disponibilità elevata AlwaysOn** > **Gruppi di disponibilità** > **[nome del gruppo di disponibilità]**.
+1. In SQL Server Management Studio espandere **Disponibilità elevata AlwaysOn** > **Gruppi di disponibilità** >  **[nome del gruppo di disponibilità]** .
 2. Fare doppio clic su **Repliche di disponibilità**, quindi fare clic su **Aggiungi Replica**.
 3. Per impostazione predefinita, viene visualizzata la **procedura guidata Aggiungi replica di Azure** . Fare clic su **Avanti**.  Se durante un precedente avvio della procedura guidata è stata selezionata l'opzione **Non visualizzare più questa pagina** nella parte inferiore della pagina, questa schermata non verrà visualizzata.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
-4. Verrà richiesto di connettersi a tutte le repliche secondarie esistenti. È possibile fare clic su **Connetti...** accanto a ogni replica oppure selezionare **Connetti tutto...**  nella parte inferiore della schermata. Dopo l'autenticazione, fare clic su **Avanti** per passare alla schermata successiva.
-5. Nel **specifica repliche** pagina sono disponibili più schede nella parte superiore: **Le repliche**, **endpoint**, **preferenze di Backup**, e **Listener**. Dalla scheda **Repliche** fare clic su **Aggiungi Replica Azure...**  per avviare la procedura guidata Aggiungi replica di Azure.
+4. Verrà richiesto di connettersi a tutte le repliche secondarie esistenti. È possibile fare clic su **Connetti...** accanto a ogni replica oppure selezionare **Connetti tutto...** nella parte inferiore della schermata. Dopo l'autenticazione, fare clic su **Avanti** per passare alla schermata successiva.
+5. Nel **specifica repliche** pagina sono disponibili più schede nella parte superiore: **Le repliche**, **endpoint**, **preferenze di Backup**, e **Listener**. Dalla scheda **Repliche** fare clic su **Aggiungi Replica Azure...** per avviare la procedura guidata Aggiungi replica di Azure.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742863.png)
 6. Selezionare un certificato di gestione di Azure esistente dall'archivio certificati di Windows locale, se in precedenza ne è già stato installato uno. Selezionare o immettere l'ID di una sottoscrizione di Azure, se invece non ne è mai stato usato uno. È possibile fare clic su Download per scaricare e installare un certificato di gestione di Azure e scaricare l'elenco delle sottoscrizioni tramite un account di Azure.
@@ -56,7 +56,7 @@ Questa sezione mostra come usare la **procedura guidata per l'aggiunta della rep
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
 7. In questa pagina è necessario immettere in ciascun campo i valori richiesti che verranno usati per creare la macchina virtuale di Azure.
    
-   | Impostazione | DESCRIZIONE |
+   | Impostazione | Descrizione |
    | --- | --- |
    | **Immagine** |Selezionare la combinazione di sistema operativo e SQL Server desiderata. |
    | **Dimensioni macchina virtuale** |Selezionare le dimensioni della macchina virtuale più adatte alle esigenze aziendali. |
