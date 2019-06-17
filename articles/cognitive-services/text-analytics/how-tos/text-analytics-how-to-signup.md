@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: 53532a19482a33f8727e71d44ae169225b5b1c98
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60829668"
 ---
 # <a name="how-to-sign-up-for-the-text-analytics-api"></a>Come effettuare la registrazione per l'API Analisi del testo
@@ -52,7 +52,7 @@ Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.co
 ### <a name="what-constitutes-a-transaction-in-the-text-analytics-api"></a>Da cosa è costituita una transazione nell'API Analisi del testo?
 Qualsiasi annotazione a un documento viene conteggiata come transazione. Le chiamate del punteggio batch prenderanno in considerazione anche il numero di documenti per cui deve essere calcolato il punteggio nella transazione. Se, ad esempio, vengono inviati 1.000 documenti per l'analisi del sentiment in una singola chiamata API, verranno conteggiate 1.000 transazioni.
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
  [Panoramica di Analisi del testo](../overview.md)  
  [Domande frequenti](../text-analytics-resource-faq.md)

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn;davberg
 ms.openlocfilehash: 041906120ea156a00d272e2d3da15dc5174b6585
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866292"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcolare i punteggi di benchmark per le VM Windows
@@ -75,7 +75,7 @@ I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per
 | Standard_D8s_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 28 | 155.4 | 5.6 | 
 | Standard_D16s_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 3 | 275.7 | 5.1 | 
 | Standard_D16s_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 38 | 298.2 | 4.4 | 
-| Standard_D32s_v3 | 32 | 1 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 24 | 545.8 | 10,5 | 
+| Standard_D32s_v3 | 32 | 1 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 24 | 545.8 | 10.5 | 
 | Standard_D32s_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 9 | 535.6 | 12.6 | 
 | Standard_D64s_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 35 | 1070.6 | 2.4 | 
 
@@ -129,7 +129,7 @@ I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per
 | Standard_DS14-4_v2 | 4 | 2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 16 | 125.1 | 4.8 | 
 | Standard_DS14-8_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 27 | 251.3 | 2.4 | 
 | Standard_DS14-8_v2 | 8 | 2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 14 | 247.4 | 10.2 | 
-| Standard_DS15_v2 | 20 | 2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 45 | 546.1 | 10,5 | 
+| Standard_DS15_v2 | 20 | 2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 45 | 546.1 | 10.5 | 
 
 ## <a name="dv2---general-compute"></a>Dv2 - Calcolo generale
 | Dimensione | vCPU | Nodi NUMA | CPU | Esecuzioni | Tariffa Base Media | Deviazione standard | 
@@ -274,7 +274,7 @@ I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per
 | Standard_L4s | 4 | 1 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 29 | 122.7 | 6.6 | 
 | Standard_L8s | 8 | 1 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 30 | 223.3 | 7.5 | 
 | Standard_L16s | 16 | 1 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 31 | 397.3 | 2.5 | 
-| Standard_L32s | 32 | 2 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 31 | 766.1 | 3,5 | 
+| Standard_L32s | 32 | 2 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 31 | 766.1 | 3.5 | 
 
 ## <a name="m---memory-optimized"></a>M - Con ottimizzazione per la memoria
 | Dimensione | vCPU | Nodi NUMA | CPU | Esecuzioni | Tariffa Base Media | Deviazione standard | 
@@ -326,7 +326,7 @@ I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NC6 | 6 | 1 | Intel (r) Xeon (r) CPU E5 2690 v3 a 2,60 GHz | 27 | 209.6 | 4.4 | 
 | Standard_NC12 | 12 | 1 | Intel (r) Xeon (r) CPU E5 2690 v3 a 2,60 GHz | 28 | 394.4 | 3.8 | 
-| Standard_NC24 | 24 | 2 | Intel (r) Xeon (r) CPU E5 2690 v3 a 2,60 GHz | 28 | 751.7 | 3,5 | 
+| Standard_NC24 | 24 | 2 | Intel (r) Xeon (r) CPU E5 2690 v3 a 2,60 GHz | 28 | 751.7 | 3.5 | 
 | Standard_NC24r | 24 | 2 | Intel (r) Xeon (r) CPU E5 2690 v3 a 2,60 GHz | 27 | 752.9 | 3.4 | 
 
 ## <a name="nds--gpu-enabled"></a>GPU NDs - abilitata
@@ -334,7 +334,7 @@ I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_ND6s | 6 | 1 | Intel (r) Xeon (r) CPU E5 2690 v4 a 2,60 GHz | 8 | 230.1 | 1.2 | 
 | Standard_ND12s | 12 | 1 | Intel (r) Xeon (r) CPU E5 2690 v4 a 2,60 GHz | 11 | 426.5 | 1.4 | 
-| Standard_ND24rs | 24 | 2 | Intel (r) Xeon (r) CPU E5 2690 v4 a 2,60 GHz | 10 | 811.4 | 3,5 | 
+| Standard_ND24rs | 24 | 2 | Intel (r) Xeon (r) CPU E5 2690 v4 a 2,60 GHz | 10 | 811.4 | 3.5 | 
 | Standard_ND24s | 24 | 2 | Intel (r) Xeon (r) CPU E5 2690 v4 a 2,60 GHz | 11 | 812.6 | 4.4 | 
 
 ## <a name="nv---gpu-enabled"></a>NV - abilitato per la GPU

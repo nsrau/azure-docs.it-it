@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
 ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864453"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Inviare messaggi dal cloud al dispositivo con Hub IoT (.NET)
@@ -113,7 +113,7 @@ In primo luogo, è possibile recuperare la stringa di connessione dell'IoT Hub d
 
 Ora possibile scrivere un'app console .NET che invia messaggi da cloud a dispositivo all'app del dispositivo.
 
-1. Nella soluzione corrente di Visual Studio, fare doppio clic sulla soluzione e scegliere Aggiungi > Nuovo progetto. Selezionare **Desktop di Windows** e quindi **App Console (.NET Framework)**. Denominare il progetto **SendCloudToDevice** e selezionare la versione più recente di .NET Framework, quindi selezionare **OK** per creare il progetto.
+1. Nella soluzione corrente di Visual Studio, fare doppio clic sulla soluzione e scegliere Aggiungi > Nuovo progetto. Selezionare **Desktop di Windows** e quindi **App Console (.NET Framework)** . Denominare il progetto **SendCloudToDevice** e selezionare la versione più recente di .NET Framework, quindi selezionare **OK** per creare il progetto.
 
    ![Nuovo progetto in Visual Studio](./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png)
 

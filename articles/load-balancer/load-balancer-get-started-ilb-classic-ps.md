@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
 ms.openlocfilehash: ef6aac0d97c38798f826304475779ea8059875c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60848547"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Introduzione alla creazione di un servizio di bilanciamento del carico interno (classico) tramite PowerShell
@@ -61,7 +61,7 @@ Si noti che questo uso del cmdlet di Windows PowerShell [Add-AzureEndpoint](http
 
 ### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Passaggio 2: Aggiungere endpoint all'istanza del bilanciamento del carico interno
 
-Di seguito è fornito un esempio: 
+Di seguito è fornito un esempio:
 
 ```powershell
 $svc="mytestcloud"
@@ -86,7 +86,7 @@ $svc="<Cloud Service Name>"
 Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 ```
 
-Per usare questi comandi, inserire i valori e rimuovere < and >. Di seguito è fornito un esempio: 
+Per usare questi comandi, inserire i valori e rimuovere < and >. Di seguito è fornito un esempio:
 
 ```powershell
 $svc="mytestcloud"
@@ -147,7 +147,7 @@ Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname
 
 Per usare questi comandi, inserire i valori rimuovendo < and >.
 
-Di seguito è fornito un esempio: 
+Di seguito è fornito un esempio:
 
 ```powershell
 $svc="mytestcloud"
@@ -165,7 +165,7 @@ Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 Per usare questi comandi, inserire il valore e rimuovere < and >.
 
-Di seguito è fornito un esempio: 
+Di seguito è fornito un esempio:
 
 ```powershell
 $svc="mytestcloud"

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 7c1a13a44d9db8ed029ce798f0bb34944a1a65a7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409067"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Dispositivo: Roobo Smart Audio Dev Kit
@@ -36,7 +36,7 @@ Questo articolo fornisce informazioni specifiche del dispositivo per il Kit di D
     |Configurazione kit di sviluppo|Orientamento|
     |-----------------------------|------------|
     |Circolare|Diritto, con i microfoni rivolti verso l'alto|
-    |Lineare|Sul lato, con i microfoni rivolti verso l'utente (vedere l'immagine seguente)|
+    |Lineari|Sul lato, con i microfoni rivolti verso l'utente (vedere l'immagine seguente)|
 
     ![Orientamento del kit di sviluppo lineare](media/speech-devices-sdk/qsg-2.png)
 

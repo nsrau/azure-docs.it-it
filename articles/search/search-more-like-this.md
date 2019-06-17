@@ -11,16 +11,16 @@ ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 5723f1ab7258a9e0d672b5c0fd9fd0b9c4dc8721
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522915"
 ---
 # <a name="morelikethis-in-azure-search"></a>moreLikeThis in ricerca di Azure
 
 > [!Note]
-> moreLikeThis è in anteprima e non è destinata all'uso in produzione. Il [API REST versione 2019-05-06-Preview](search-api-preview.md) fornisce questa funzionalità. Non sarà disponibile alcun supporto di .NET SDK in questo momento.
+> moreLikeThis è in anteprima e non è destinata all'uso in produzione. Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Non è attualmente disponibile alcun supporto di .NET SDK.
 
 `moreLikeThis=[key]` è un parametro di query nella [API di ricerca di documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents) che trova documenti simili al documento specificato dalla chiave del documento. Quando viene effettuata una richiesta di ricerca con `moreLikeThis`, viene generata una query con i termini di ricerca estratti dal documento specificato che lo descrivono al meglio. La query generata viene quindi usata per eseguire la richiesta di ricerca. Per impostazione predefinita, è considerato il contenuto di tutti i campi ricercabili, meno tutti i campi con restrizioni che è specificato utilizzando il `searchFields` parametro. Il parametro `moreLikeThis` non può essere usato con il parametro di ricerca `search=[string]`.
 

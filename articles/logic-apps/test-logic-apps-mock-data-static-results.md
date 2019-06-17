@@ -10,10 +10,10 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597204"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testare le App per la logica con dati fittizi configurando risultati statici
@@ -38,7 +38,7 @@ Ad esempio, se si configura posta elettronica azione di invio statici risultati 
 
 1. L'azione in cui si desidera configurare risultati statici, seguire questa procedura: 
 
-   1. Nell'angolo superiore destro dell'azione, scegliere i puntini di sospensione (*...* ) e selezionare **risultato statico**, ad esempio:
+   1. Nell'angolo superiore destro dell'azione, scegliere i puntini di sospensione ( *...* ) e selezionare **risultato statico**, ad esempio:
 
       ![Selezionare "Risultato statico" > "Abilita risultato statico"](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 

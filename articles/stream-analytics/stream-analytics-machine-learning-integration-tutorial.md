@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61480809"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Analisi del sentiment con Analisi di flusso di Azure e Azure Machine Learning
@@ -175,7 +175,7 @@ In questa sezione dell'esercitazione si definisce una funzione nel processo di A
 
 1. Assicurarsi di avere a disposizione l'URL del servizio Web e la chiave API scaricati in precedenza nella cartella di lavoro di Excel.
 
-2. Passare al pannello del processo > **Funzioni** > **+ Aggiungi** > **AzureML**.
+2. Passare al pannello del processo > **Funzioni** >  **+ Aggiungi** > **AzureML**.
 
 3. Completare il pannello **Funzione di Azure Machine Learning** con questi valori:
 

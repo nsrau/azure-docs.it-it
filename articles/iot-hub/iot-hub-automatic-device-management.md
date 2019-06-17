@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333642"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Gestione automatica dei dispositivi IoT su larga scala usando il portale di Azure
@@ -88,7 +88,7 @@ Le metriche forniscono riepiloghi conteggi dei diversi stati di un dispositivo p
 
 2. Immettere una query per **Metric Criteria** (Criteri metrica).  La query è basata sulle proprietà segnalate dei dispositivi gemelli.  La metrica rappresenta il numero di righe restituite dalla query.
 
-Ad esempio: 
+Ad esempio:
 
 ```sql
 SELECT deviceId FROM devices 
@@ -178,7 +178,7 @@ Per modificare una configurazione, seguire questa procedura:
    * Condizione di destinazione 
    * Etichette 
    * Priorità 
-   * Metriche
+   * metrics
 
 4. Selezionare **Salva**.
 

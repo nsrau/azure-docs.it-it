@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 43bca65810d09c87f7f473b3bbac71ca6a7f9bc2
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389004"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Endpoint dell'API Ricerca entità Bing
@@ -35,6 +35,6 @@ Per ottenere i risultati dell'entità tramite l'**API Bing**, inviare una richie
 > [!div class="nextstepaction"]
 > [Informazioni sull'API Ricerca entità Bing](overview.md)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
 Per altre informazioni su intestazioni, parametri, codici di mercato, oggetti risposta, errori e altro ancora, vedere l'articolo di riferimento [API Ricerca entità Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

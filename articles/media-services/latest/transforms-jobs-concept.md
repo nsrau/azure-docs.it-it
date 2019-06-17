@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: juliako
 ms.openlocfilehash: 01b386c820a09af0e616698aabc58a886c30bb09
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550937"
 ---
 # <a name="transforms-and-jobs"></a>Trasformazioni e processi
@@ -109,7 +109,7 @@ Per informazioni dettagliate, vedere [Ridimensionamento dell'elaborazione di con
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Codici di errore](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
 * [Filtri, ordinamento, paging dell'entità di servizi multimediali](entities-overview.md)

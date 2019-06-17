@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61369849"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
@@ -40,7 +40,7 @@ ms.locfileid: "61369849"
 
 ## <a name="provision-azure-services"></a>Eseguire il provisioning dei servizi di Azure
 
-1. Fare clic sul menu a discesa **Attività** in Visual Studio Code e selezionare **Esegui attività...** - **cloud-provision**.
+1. Fare clic sul menu a discesa **Attività** in Visual Studio Code e selezionare **Esegui attività...**  - **cloud-provision**.
 
 2. Lo stato di avanzamento viene visualizzato nella scheda **TERMINALE** del pannello **Benvenuti**.
 
@@ -59,7 +59,7 @@ ms.locfileid: "61369849"
 
 ## <a name="deploy-function-app"></a>Distribuire l'app per le funzioni
 
-1. Fare clic sul menu a discesa **Attività** in Visual Studio Code e selezionare **Esegui attività...** - **cloud-deploy**.
+1. Fare clic sul menu a discesa **Attività** in Visual Studio Code e selezionare **Esegui attività...**  - **cloud-deploy**.
 
 2. Attendere il completamento del processo di caricamento del codice dell'app per le funzioni. Verrà visualizzato il messaggio *function app deploys: done* (Distribuzione del modello di Resource Manager: completata).
 
@@ -67,7 +67,7 @@ ms.locfileid: "61369849"
 
 1. Connettere il dispositivo MXChip IoT DevKit al computer.
 
-2. Fare clic sul menu a discesa **Attività** in Visual Studio Code e selezionare **Esegui attività...** - **config-device-connection**
+2. Fare clic sul menu a discesa **Attività** in Visual Studio Code e selezionare **Esegui attività...**  - **config-device-connection**
 
 3. Sul dispositivo MXChip IoT DevKit premere e tenere premuto il pulsante **A**, premere il **pulsante di reimpostazione**, quindi rilasciare il pulsante **A** per fare in modo che il DevKit entri in modalità di configurazione.
 
@@ -106,7 +106,7 @@ Con il dispositivo MXChip IoT DevKit connesso al computer:
 ![Procedura di test di esempio](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> È possibile visualizzare i dati non elaborati del dispositivo gemello nel portale di Azure: Hub IoT -\> dispositivi IoT -\> *\<dispositivo\>* -\> Dispositivo gemello.
+> È possibile visualizzare i dati non elaborati del dispositivo gemello nel portale di Azure: Hub IoT -\> dispositivi IoT -\> *\<dispositivo\>*  -\> Dispositivo gemello.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

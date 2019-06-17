@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: diberry
 ms.openlocfilehash: c19d328c3a5f4dd6dbe14ca94809e42c5655ea72
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66391145"
 ---
 # <a name="application-settings"></a>Impostazioni dell'applicazione
@@ -24,8 +24,8 @@ Le impostazioni dell'applicazione vengono archiviate nel [esportati](https://wes
 
 |Impostazione|Valore predefinito|Note|
 |--|--|--|
-|NormalizePunctuation|True |Rimuove la punteggiatura.|
-|NormalizeDiacritics|True |Rimuove i segni diacritici.|
+|NormalizePunctuation|True|Rimuove la punteggiatura.|
+|NormalizeDiacritics|True|Rimuove i segni diacritici.|
 
 ## <a name="diacritics-normalization"></a>Normalizzazione dei segni diacritici 
 

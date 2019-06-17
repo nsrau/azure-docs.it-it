@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
 ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61466479"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure 
@@ -149,7 +149,7 @@ La tabella seguente illustra il mapping:
 | --- | --- |
 | **Lettore** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
 | **Provider di identità (IdP)** |Azure Active Directory (Azure AD) |
-| **Servizio token di sicurezza (STS)**  |Azure AD |
+| **Servizio token di sicurezza (STS)** |Azure AD |
 | **Flusso di lavoro protezione DRM** |Protezione dinamica di Servizi multimediali |
 | **Distribuzione di licenze DRM** |* Distribuzione delle licenze di Servizi multimediali (PlayReady, Widevine, FairPlay) <br/>* Server licenze Axinom <br/>* Server licenze PlayReady personalizzato |
 | **Origine** |Endpoint di streaming di Servizi multimediali |
@@ -337,7 +337,7 @@ Per registrare e configurare l'app "puntatore" in Azure AD, seguire questa proce
 
 3. Aggiornare il file manifesto dell'app in modo che il valore della proprietà groupMembershipClaims sia "groupMembershipClaims": "All".
 
-4. Nell'app Azure AD che punta all'app Web del lettore, nella sezione **Autorizzazioni per altre applicazioni** aggiungere l'app risorsa aggiunta nel passaggio 1. In **Autorizzazioni delegate** selezionare **Accedi a [nome_risorsa]**. Questa opzione consente all'app Web di creare i token di accesso per accedere all'app risorsa. È consigliabile eseguire questa operazione sia per la versione locale che per quella distribuita dell'app Web se si sviluppa con Visual Studio e l'app Web di Azure.
+4. Nell'app Azure AD che punta all'app Web del lettore, nella sezione **Autorizzazioni per altre applicazioni** aggiungere l'app risorsa aggiunta nel passaggio 1. In **Autorizzazioni delegate** selezionare **Accedi a [nome_risorsa]** . Questa opzione consente all'app Web di creare i token di accesso per accedere all'app risorsa. È consigliabile eseguire questa operazione sia per la versione locale che per quella distribuita dell'app Web se si sviluppa con Visual Studio e l'app Web di Azure.
 
 Il token JWT rilasciato da Azure AD è il token di accesso usato per accedere alla risorsa puntatore.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: jowargo
 ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457805"
 ---
 # <a name="routing-and-tag-expressions"></a>Espressioni di routing e tag
@@ -35,7 +35,7 @@ L'unico modo per avere come destinazione registrazioni di notifiche specifiche c
 2. **Tag**: tutte le registrazioni contenenti il tag specificato ricevono la notifica.
 3. **Espressione tag**: tutte le registrazioni il cui set di tag corrisponde all'espressione specificata ricevono la notifica.
 
-## <a name="tags"></a>Tag
+## <a name="tags"></a>`Tags`
 
 Un tag può essere qualsiasi stringa, fino a 120 caratteri, che contiene caratteri alfanumerici e i caratteri non alfanumerici seguenti: ‘_’, ‘@’, ‘#’, ‘.’, ‘:’, ‘-’. Nell'esempio seguente viene illustrata un'applicazione da cui è possibile ricevere notifiche di tipo avviso popup su gruppi musicali specifici. In questo scenario, un modo semplice per instradare le notifiche è etichettare le registrazioni con tag che rappresentano i diversi gruppi musicali, come illustrato nell'immagine seguente:
 

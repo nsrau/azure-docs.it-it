@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.openlocfilehash: b7968de8ad4357241eb8d86d51e991f4bbab959d
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65601582"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Soluzione di wire Data 2.0 (anteprima) in Monitoraggio di Azure
@@ -63,7 +63,7 @@ Wire Data ottiene i dati da Microsoft Dependency Agent. Dependency Agent dipende
 | Agenti di Windows | Sì | Wire Data analizza e raccoglie i dati da computer agente Windows. <br><br> Oltre all'[agente di Log Analytics per Windows](../../azure-monitor/platform/agent-windows.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems). |
 | Agenti Linux | Sì | Wire Data analizza e raccoglie i dati da computer agente Linux.<br><br> Oltre all'[agente di Log Analytics per Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems). |
 | Gruppo di gestione di System Center Operations Manager | Sì | Wire Data analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione di System Center Operations Manager](../../azure-monitor/platform/om-agents.md) connesso. <br><br> È necessaria una connessione diretta dal computer agente System Center Operations Manager a monitoraggio di Azure. |
-| Account di archiviazione di Azure | No  | Wire Data raccoglie i dati dai computer agente, quindi non devono essere raccolti dati da Archiviazione di Azure. |
+| Account di archiviazione di Azure | No | Wire Data raccoglie i dati dai computer agente, quindi non devono essere raccolti dati da Archiviazione di Azure. |
 
 In Windows, Microsoft Monitoring Agent (MMA) viene usato da System Center Operations Manager e monitoraggio di Azure per raccogliere e inviare i dati. A seconda del contesto, l'agente viene chiamato agente di System Center Operations Manager, agente di Log Analytics, agente MMA o agente diretto. System Center Operations Manager e monitoraggio di Azure offrono versioni leggermente diverse dell'agente MMA. Queste versioni ogni possano segnalazioni a System Center Operations Manager, al monitoraggio di Azure o a entrambi.
 

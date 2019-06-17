@@ -16,10 +16,10 @@ ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
 ms.openlocfilehash: 9f7d482b088003e3800debb2db9f6f26bda1672a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298182"
 ---
 # <a name="azure-log-integration-faq"></a>Domande frequenti sull'integrazione dei log di Azure
@@ -49,7 +49,7 @@ Eseguire il comando **AzLog source list**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Come è possibile stabilire da quale sottoscrizione provengono i log di integrazione dei log di Azure?
 
-Nel caso dei log di controllo presenti nella directory **AzureResourcemanagerJson**, l'ID della sottoscrizione è il nome del file di log. Questo vale anche per i log nella cartella **AzureSecurityCenterJson**. Ad esempio: 
+Nel caso dei log di controllo presenti nella directory **AzureResourcemanagerJson**, l'ID della sottoscrizione è il nome del file di log. Questo vale anche per i log nella cartella **AzureSecurityCenterJson**. Ad esempio:
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 

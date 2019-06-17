@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 130ca6bc946d44d80cddba5486d405bfb15523cb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235872"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central
@@ -213,7 +213,7 @@ Un'applicazione creata dal modello di applicazione Sample Devkits include un mod
 | DeviceState   | Stato del dispositivo   | Verde  | Arancione  | Rosso    | 
 
 #### <a name="events"></a>Eventi 
-| NOME             | `Display name`      | 
+| Name             | `Display name`      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Pulsante B premuto  | 
 
@@ -246,7 +246,7 @@ Impostazioni attivazione/disattivazione
 | `Display name` | Nome campo | Tipo restituito | Nome visualizzato del campo di input | Nome del campo di input | Tipo di campo di input |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | Echo         | echo (eco)       | text        | valore da visualizzare         | displayedValue   | text             |
-| Conto alla rovescia    | Conto alla rovescia  | number      | Il conteggio da               | countFrom        | number           |
+| conto alla rovescia    | Conto alla rovescia  | number      | Il conteggio da               | countFrom        | number           |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

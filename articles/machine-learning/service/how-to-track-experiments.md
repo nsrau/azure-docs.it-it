@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: d3cbc2d5be1f7addf833162b23c5db0786e9d361
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297485"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Registrare le metriche durante il training viene eseguito in Azure Machine Learning
@@ -394,7 +394,7 @@ Per ogni modello di regressione creato tramite le funzionalità di Machine Learn
 
 <a name="pvt"></a>
 
-#### <a name="predicted-vs-true"></a>Valore stimato rispetto a valore True 
+#### <a name="predicted-vs-true"></a>Valore stimato rispetto a valore True
 
 Questo grafico mostra la relazione tra un valore stimato e il valore vero correlato per un problema di regressione. Può essere usato per misurare le prestazioni di un modello poiché la vicinanza dei valori stimati alla linea y=x è direttamente proporzionale all'accuratezza di un modello predittivo.
 

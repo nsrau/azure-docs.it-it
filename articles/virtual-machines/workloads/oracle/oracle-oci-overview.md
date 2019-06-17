@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 711fce9627537e68171c3b170121900d6b14ca1e
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 8827feaf1d541edc7c0b54d8af951ddab79c5aaa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743651"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808630"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluzioni di applicazioni Oracle l'integrazione di Microsoft Azure e dell'infrastruttura Cloud di Oracle (anteprima)
 
@@ -45,7 +45,7 @@ Le applicazioni che è possibile eseguire in una configurazione tra cloud includ
 * Applicazioni di vendita al dettaglio Oracle
 * Gestione finanziaria di Oracle Hyperion
 
-Il diagramma seguente è una panoramica generale della soluzione connesso. Per semplicità, il diagramma illustra solo un livello di applicazione e un livello dati. A seconda architecutre l'applicazione, la soluzione potrebbe includere livelli aggiuntivi, ad esempio un livello web in Azure. Per altre informazioni, vedere le sezioni seguenti.
+Il diagramma seguente è una panoramica generale della soluzione connesso. Per semplicità, il diagramma illustra solo un livello di applicazione e un livello dati. A seconda dell'architettura dell'applicazione, la soluzione potrebbe includere livelli aggiuntivi, ad esempio un livello web in Azure. Per altre informazioni, vedere le sezioni seguenti.
 
 ![Panoramica della soluzione Azure OCI](media/oracle-oci-overview/crosscloud.png)
 

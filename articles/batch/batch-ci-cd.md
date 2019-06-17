@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.openlocfilehash: a811a9cb1b124aff7c64d25cf71a1b84bff0c173
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65541725"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usare le pipeline di Azure per compilare e distribuire soluzioni HPC
@@ -418,13 +418,13 @@ Esistono una serie di passaggi necessari per distribuire l'infrastruttura. Come 
     * **Azione**: Creare o aggiornare un gruppo di risorse
     * **Gruppo di risorse**: $ (resourcegroupname)
     * **Percorso**: $(location)
-    * **Template**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/storageAccount.json
+    * **Template**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/storageAccount.json
     * **Esegui override dei parametri di modello**: - accountName $(storageAccountName)
 
 1. Caricare gli artefatti dal controllo del codice sorgente nell'Account di archiviazione. È un'attività della Pipeline di Azure per eseguire questa operazione. Come parte di questa attività, l'URL di contenitore di Account di archiviazione e il Token di firma di accesso condiviso può da includere nell'output a una variabile nelle pipeline di Azure. Ciò significa che questa possa essere riutilizzata in tutta questa fase agente.
 
     Aggiungere il **copia dei File di Azure** attività e impostare le proprietà seguenti:
-    * **Source:** $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/
+    * **Source:** $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/
     * **Tipo di connessione Azure**: Azure Resource Manager
     * **Sottoscrizione di Azure:** Selezionare la sottoscrizione Azure appropriata
     * **Tipo di destinazione**: BLOB di Azure
@@ -441,7 +441,7 @@ Esistono una serie di passaggi necessari per distribuire l'infrastruttura. Come 
     * **Azione**: Creare o aggiornare un gruppo di risorse
     * **Gruppo di risorse**: $ (resourcegroupname)
     * **Percorso**: $(location)
-    * **Template**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/deployment.json
+    * **Template**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/deployment.json
     * **Esegui override dei parametri di modello**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 Una procedura comune consiste nell'usare le attività di Azure Key Vault. Se l'entità servizio (connessione alla sottoscrizione di Azure) è un criteri di accesso appropriati impostata, può scaricare i segreti da Azure Key Vault e utilizzabile come variabili nella pipeline. Il nome della chiave privata verrà impostato con il valore associato. Ad esempio, può fare riferimento una chiave privata di sshPassword con $(sshPassword) nella definizione di versione.

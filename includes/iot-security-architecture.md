@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166335"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Architettura della sicurezza di Internet delle cose (IoT)
@@ -169,22 +169,22 @@ Questa sezione illustra l'architettura descritta in precedenza attraverso l'obie
 
 In ognuna delle categorie descritte nell'architettura IoT di Azure, in questo esempio si prova ad attenuare una serie di diverse minacce nelle varie fasi in cui esistono dati e/o informazioni: processo, comunicazione e archiviazione. Di seguito viene fornita una panoramica delle minacce più comuni per la categoria "processo", seguita da una panoramica su come sia possibile attenuarle:
 
-**Spoofing (S)**: un utente malintenzionato potrebbe estrarre materiale della chiave crittografica da un dispositivo, a livello di software o hardware, e successivamente accedere al sistema con un diverso dispositivo fisico o virtuale che assume l'identità del dispositivo da cui è stata estratta la chiave. Un buon esempio sono i telecomandi che possono accendere qualsiasi televisore e sono popolari strumenti per burloni.
+**Spoofing (S)** : un utente malintenzionato potrebbe estrarre materiale della chiave crittografica da un dispositivo, a livello di software o hardware, e successivamente accedere al sistema con un diverso dispositivo fisico o virtuale che assume l'identità del dispositivo da cui è stata estratta la chiave. Un buon esempio sono i telecomandi che possono accendere qualsiasi televisore e sono popolari strumenti per burloni.
 
-**Denial of Service (D)**: un dispositivo potrebbe essere messo fuori uso o reso incapace di comunicare tramite interferenza con le frequenze radio o taglio dei cavi. Ad esempio, una videocamera di sorveglianza a cui sia stata intenzionalmente interrotta l'alimentazione o la connessione di rete non segnala alcun dato.
+**Denial of Service (D)** : un dispositivo potrebbe essere messo fuori uso o reso incapace di comunicare tramite interferenza con le frequenze radio o taglio dei cavi. Ad esempio, una videocamera di sorveglianza a cui sia stata intenzionalmente interrotta l'alimentazione o la connessione di rete non segnala alcun dato.
 
-**Manomissione (T)**: un utente malintenzionato potrebbe sostituire interamente o in parte il software in esecuzione sul dispositivo, consentendo potenzialmente al software sostituito di sfruttare l'autentica identità del dispositivo se il materiale della chiave o le strutture crittografiche che lo contengono sono disponibili per il programma illecito. Ad esempio, un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per intercettare ed eliminare i dati dal dispositivo nel percorso di comunicazione e sostituirli con dati falsi che sono stati autenticati con il materiale della chiave trafugato.
+**Manomissione (T)** : un utente malintenzionato potrebbe sostituire interamente o in parte il software in esecuzione sul dispositivo, consentendo potenzialmente al software sostituito di sfruttare l'autentica identità del dispositivo se il materiale della chiave o le strutture crittografiche che lo contengono sono disponibili per il programma illecito. Ad esempio, un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per intercettare ed eliminare i dati dal dispositivo nel percorso di comunicazione e sostituirli con dati falsi che sono stati autenticati con il materiale della chiave trafugato.
 
-**Diffusione di informazioni (I)**: se nel dispositivo viene eseguito software manipolato, questo potrebbe potenzialmente far trapelare dati a parti non autorizzate. Ad esempio, un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per inserirsi automaticamente nel percorso di comunicazione tra il dispositivo e un controller o un gateway sul campo o un gateway di cloud per trafugare informazioni.
+**Diffusione di informazioni (I)** : se nel dispositivo viene eseguito software manipolato, questo potrebbe potenzialmente far trapelare dati a parti non autorizzate. Ad esempio, un utente malintenzionato potrebbe sfruttare il materiale della chiave estratto per inserirsi automaticamente nel percorso di comunicazione tra il dispositivo e un controller o un gateway sul campo o un gateway di cloud per trafugare informazioni.
 
-**Elevazione dei privilegi (E)**: è possibile forzare un dispositivo che esegue una funzione specifica a eseguire un'altra operazione. Ad esempio, una valvola che è programmata per aprirsi a metà può essere indotta ad aprirsi completamente.
+**Elevazione dei privilegi (E)** : è possibile forzare un dispositivo che esegue una funzione specifica a eseguire un'altra operazione. Ad esempio, una valvola che è programmata per aprirsi a metà può essere indotta ad aprirsi completamente.
 
 | **Componente** | **Minaccia** | **Attenuazione** | **Rischio** | **Implementazione** |
 | --- | --- | --- | --- | --- |
 | Dispositivo |S |Assegnazione dell'identità al dispositivo e autenticazione del dispositivo |Sostituzione del dispositivo o di parte dello stesso con un altro dispositivo Come stabilire se si sta comunicando con il dispositivo giusto? |Autenticazione del dispositivo con Transport Layer Security (TLS) o IPSec. L'infrastruttura deve supportare l'uso di una chiave precondivisa (PSK) nei dispositivi che non riescono a gestire la crittografia asimmetrica completa. Usare Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Applicare meccanismi a prova di manomissione al dispositivo, ad esempio rendendo molto difficile, se non impossibile, estrarre chiavi e altro materiale crittografico dallo stesso. |Il rischio esiste se un utente sta manomettendo il dispositivo (intromissione fisica). Come è possibile accertarsi che il dispositivo non sia stato manomesso. |La soluzione più efficace è una funzionalità TPM (Trusted Platform Module) che consente l'archiviazione delle chiavi in speciali circuiti su chip da cui non è possibile leggerle, ma solo usarle per le operazioni di crittografia che le adoperano, senza mai divulgarle. Crittografia della memoria del dispositivo. Gestione delle chiavi per il dispositivo. Firma del codice. |
 || E |Avere il controllo di accesso del dispositivo. Schema di autorizzazione. |Se il dispositivo consente di eseguire singole azioni in base ai comandi da un'origine esterna o persino a sensori compromessi, l'attacco può eseguire operazioni non altrimenti accessibili. |Avere uno schema di autorizzazione per il dispositivo |
-| Gateway sul campo |D |Autenticazione del gateway sul campo al gateway cloud (basata sul certificato, PSK o basata su attestazione). |Se qualcuno riesce a effettuare lo spoofing del gateway sul campo, questo potrà presentarsi come qualsiasi dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Tutti gli stessi principali problemi di archiviazione e attestazione dei dispositivi in generale: il miglior caso è l'uso di TPM. Estensione 6LowPAN per IPSec per supportare le reti WSN (Wireless Sensor Network). |
+| Gateway sul campo |S |Autenticazione del gateway sul campo al gateway cloud (basata sul certificato, PSK o basata su attestazione). |Se qualcuno riesce a effettuare lo spoofing del gateway sul campo, questo potrà presentarsi come qualsiasi dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Tutti gli stessi principali problemi di archiviazione e attestazione dei dispositivi in generale: il miglior caso è l'uso di TPM. Estensione 6LowPAN per IPSec per supportare le reti WSN (Wireless Sensor Network). |
 || TRID |Proteggere il gateway sul campo da eventuali manomissioni (TPM)? |Gli attacchi di spoofing che simulano la comunicazione tra il gateway cloud e il gateway sul campo potrebbero comportare la divulgazione delle informazioni e la manomissione dei dati |Crittografia della memoria, TPM, autenticazione. |
 || E |Meccanismo di controllo di accesso per il gateway sul campo | | |
 
@@ -218,7 +218,7 @@ Ecco alcuni esempi di minacce in questa categoria:
 
 **Spoofing/manomissione/ripudio**: se un dispositivo non è protetto, condizione che si verifica assai raramente con i telecomandi di consumo, un utente malintenzionato può manipolarne lo stato in maniera anonima. Un buon esempio sono i telecomandi che possono accendere qualsiasi televisore e sono popolari strumenti per burloni.
 
-#### <a name="communication"></a>Comunicazioni
+#### <a name="communication"></a>Comunicazione
 
 Minacce presenti nel percorso di comunicazione tra dispositivi, dispositivi e gateway sul campo e dispositivo e gateway cloud. La tabella seguente contiene alcune indicazioni sui socket aperti nel dispositivo/VPN:
 

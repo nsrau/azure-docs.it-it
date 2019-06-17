@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61070008"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analizzare le prestazioni del nodo perimetrale nella rete CDN di Microsoft Azure
@@ -84,7 +84,7 @@ La finalità di queste metriche consiste nel verificare se è possibile migliora
   * Costi operativi ridotti.
 * Miglioramento dell'accelerazione della distribuzione dei dati, perché un numero maggiore di richieste verrà gestito direttamente dalla rete CDN.
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 | --- | --- |
 | Efficienza della cache |Indica la percentuale dei dati trasferiti che è stata fornita dalla cache. Questa metrica indica quando una versione del contenuto richiesto memorizzata nella cache è stata fornita direttamente dalla rete CDN (server perimetrali) ai richiedenti (ad esempio un Web browser). |
 | Percentuale riscontri |Indica la percentuale di richieste gestite dalla cache. Questa metrica indica quando una versione del contenuto richiesto memorizzata nella cache è stata fornita direttamente dalla rete CDN (server perimetrali) ai richiedenti (ad esempio un Web browser). |
@@ -102,7 +102,7 @@ Lo scopo di queste metriche consiste nel fornire approfondimenti nelle misure se
 > 
 > 
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 | --- | --- |
 | Media byte in uscita |Indica il numero medio di byte trasferiti per ogni richiesta fornita dalla rete CDN (server perimetrali) al richiedente (ad esempio un Web browser). |
 | Velocità in byte senza cache configurata |Indica la percentuale di traffico fornita dalla rete CDN (server perimetrali) al richiedente (ad esempio un Web browser) che non verrà memorizzata nella cache a causa della funzionalità di bypass della cache. |
@@ -114,7 +114,7 @@ Lo scopo di queste metriche consiste nel fornire approfondimenti nelle misure se
 #### <a name="performance-metrics"></a>Metriche delle prestazioni
 Lo scopo di queste metriche consiste nel tenere traccia delle prestazioni complessive della rete CDN per il traffico.
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 | --- | --- |
 | Velocità di trasferimento |Indica la velocità media del trasferimento del contenuto dalla rete CDN a un richiedente. |
 | Duration |Indica il tempo medio, in millisecondi, necessario per distribuire un asset a un richiedente (ad esempio un Web browser). |
@@ -126,7 +126,7 @@ Lo scopo di queste metriche consiste nel tenere traccia delle prestazioni comple
 #### <a name="secure-traffic-metrics"></a>Metriche relative al traffico sicuro
 Lo scopo di queste metriche consiste nel tenere traccia delle prestazioni della rete CDN per il traffico HTTPS.
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 | --- | --- |
 | Efficienza della cache sicura |Indica la percentuale dei dati trasferiti per richieste HTTPS che sono state fornite dalla cache. Questa metrica indica quando una versione del contenuto richiesto memorizzata nella cache è stata fornita direttamente dalla rete CDN (server perimetrali) ai richiedenti (ad esempio un Web browser) su HTTPS. |
 | Velocità di trasferimento sicuro |Indica la velocità media di trasferimento dei contenuti dalla rete CDN (server perimetrali) ai richiedenti (ad esempio server Web) su HTTPS. |
@@ -147,7 +147,7 @@ Ogni report in questo modulo contiene un grafico e statistiche relative a larghe
    
     Verrà visualizzata la schermata dei report sulle analisi relative al nodo perimetrale.
 
-| Report | DESCRIZIONE |
+| Report | Descrizione |
 | --- | --- |
 | Riepilogo giornaliero |Consente di visualizzare le tendenza relative al traffico giornaliero per un periodo di tempo specificato. Ogni barra di questo grafico rappresenta una data specifica. Le dimensioni della barra indicano il numero totale di riscontri rilevati nella data specifica. |
 | Riepilogo orario |Consente di visualizzare le tendenza relative al traffico orario per un periodo di tempo specificato. Ogni barra di questo grafico rappresenta una singola ora in una data specifica. Le dimensioni della barra indicano il numero totale di riscontri rilevati durante l'ora. |
@@ -183,7 +183,7 @@ Ogni report in questo modulo contiene un grafico e statistiche relative a larghe
 | Errori 502 |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno restituito un codice di risposta di tipo 502 - Gateway non valido. Un codice di risposta di tipo 502 - Gateway non valido viene restituito in caso di errore del protocollo HTTP tra un server e un proxy HTTP. Nel caso della rete CDN, un codice di risposta di tipo 502 - Gateway non valido viene in genere restituito quando un server di origine del cliente restituisce una risposta non valida a un server perimetrale. Una risposta non è valida se non può essere analizzata o se è incompleta. |
 | Errori 5xx |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno avuto come risultato un codice di risposta incluso nell'intervallo 500.  I codici di risposta di tipo 502 - Gateway non valido e 504 - Timeout gateway sono esclusi da questo report. |
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * [Override del comportamento HTTP predefinito mediante il motore regole](cdn-rules-engine.md)

@@ -12,10 +12,10 @@ ms.date: 02/20/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: cdfa5212f321cc6ec976ea9df301243acc54a23f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65794852"
 ---
 # <a name="qna-maker-api-http-response-codes"></a>Codici di risposta HTTP delle API di QnA Maker
@@ -25,7 +25,7 @@ Le API di [gestione](https://go.microsoft.com/fwlink/?linkid=2092179) e stima re
 
 |Codice|Spiegazione|
 |:--|--|
-|2xx|Esito positivo|
+|2xx|Riuscito|
 |400|I parametri della richiesta non sono corretti, vale a dire che i parametri obbligatori mancano, non solo validi o sono troppo grandi|
 |400|Il corpo della richiesta non è corretto, vale a dire che la stringa JSON manca, non è valida o è troppo grande|
 |401|Chiave non valida|

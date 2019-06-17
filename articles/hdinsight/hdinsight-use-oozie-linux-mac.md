@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142818"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux
@@ -31,7 +31,7 @@ Oozie può anche essere usato per pianificare processi specifici di un sistema, 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Un cluster Hadoop in HDInsight**. Visualizzare [Introduzione a HDInsight su Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* **Un cluster Hadoop in HDInsight**. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 * **Un client SSH**. Visualizzare [Connetti a HDInsight (Apache Hadoop) usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -482,7 +482,7 @@ Con l'API REST di Oozie, è possibile compilare strumenti personalizzati che fun
 
 * **URI**: è possibile accedere all'API REST all'esterno del cluster in `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Autenticazione**: per eseguire l'autenticazione, usare l'API, l'account (admin) e la password HTTP del cluster. Ad esempio: 
+* **Autenticazione**: per eseguire l'autenticazione, usare l'API, l'account (admin) e la password HTTP del cluster. Ad esempio:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -508,7 +508,7 @@ Per accedere all'interfaccia utente Web di Oozie, completare la procedura seguen
 
 2. Dopo aver creato un tunnel, aprire l'interfaccia utente web Ambari nel web browser usando URI `http://headnodehost:8080`.
 
-3. Nel lato sinistro della pagina selezionare **Oozie** > **Quick Links (Collegamenti rapidi)** > **Oozie Web UI (Interfaccia utente Web di Oozie)**.
+3. Nel lato sinistro della pagina selezionare **Oozie** > **Quick Links (Collegamenti rapidi)**  > **Oozie Web UI (Interfaccia utente Web di Oozie)** .
 
     ![Immagine dei menu](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
 

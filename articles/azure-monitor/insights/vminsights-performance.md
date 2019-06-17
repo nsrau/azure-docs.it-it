@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: magoedte
 ms.openlocfilehash: c83a862a37dbf28c6933877bf4a0aecc4364e6c5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522097"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Come creare un grafico delle prestazioni con Monitoraggio di Azure per le macchine virtuali (anteprima)
@@ -86,7 +86,7 @@ Selezionando una macchina virtuale dall'elenco si apre il riquadro **Proprietà*
 Per accedere direttamente da una macchina virtuale, eseguire la procedura seguente.
 
 1. Nel portale di Azure selezionare **Macchine virtuali**. 
-2. Nell'elenco scegliere una macchina virtuale e nella sezione **Monitoraggio** scegliere **Informazioni dettagliate (anteprima)**.  
+2. Nell'elenco scegliere una macchina virtuale e nella sezione **Monitoraggio** scegliere **Informazioni dettagliate (anteprima)** .  
 3. Selezionare la scheda **Prestazioni**. 
 
 Questa pagina non solo include i grafici di utilizzo delle prestazioni, ma anche una tabella che mostra capacità, utilizzo e media totale di ogni disco logico individuato per ogni misura.  
@@ -119,7 +119,7 @@ Facendo clic sull'icona della puntina nell'angolo in alto a destra di uno qualsi
 ![Visualizzazione del set di insights VM prestazioni direttamente dalla scalabilità di macchine virtuali](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
 
 >[!NOTE]
->È anche possibile accedere una vista prestazioni dettagliati per un'istanza specifica dalla visualizzazione di istanze per il set di scalabilità. Passare a **istanze** sotto il **impostazioni** sezione e quindi scegliere **Insights (anteprima)**.
+>È anche possibile accedere una vista prestazioni dettagliati per un'istanza specifica dalla visualizzazione di istanze per il set di scalabilità. Passare a **istanze** sotto il **impostazioni** sezione e quindi scegliere **Insights (anteprima)** .
 
 ## <a name="alerts"></a>Avvisi  
 Le metriche delle prestazioni abilitate nell'ambito di Monitoraggio di Azure per macchine virtuali non includono regole di avviso preconfigurate. Esistono [gli avvisi sull'integrità](vminsights-health.md#alerts) corrispondente a problemi di prestazioni rilevati nella VM di Azure, ad esempio un utilizzo elevato della CPU, spazio su disco insufficiente, disponibili di memoria insufficiente, e così via.  Tuttavia, questi avvisi di integrità si applicano solo a tutte le macchine virtuali abilitate per monitoraggio di Azure per le macchine virtuali. 

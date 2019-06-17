@@ -12,10 +12,10 @@ ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954645"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Esempi di campioni vocali per la creazione di una voce personalizzata
@@ -72,7 +72,7 @@ Le espressioni nello script possono provenire da origini diverse, ad esempio rom
 
 Le espressioni non devono provenire necessariamente dalla stessa origine o dallo stesso tipo di origine. e possono anche non essere correlate tra loro. Se tuttavia nell'applicazione di riconoscimento vocale si usano frasi standard, ad esempio "Accesso eseguito", assicurasi di includerle nello script. In questo modo la voce personalizzata avrà una migliore possibilità di pronunciare tali frasi correttamente. Se si decide di usare una registrazione anziché la sintesi vocale, si disporrà già della registrazione nella stessa voce.
 
-Se l'uniformità è il fattore chiave nella scelta dello speaker, la varietà è la caratteristica di base di uno script valido. Lo script deve includere molte parole e frasi diverse, con un'ampia gamma di lunghezze, strutture e intonazioni. Tutti i suoni del linguaggio devono essere rappresentati più volte e in numerosi contesti (condizione definita *copertura fonetica)*.
+Se l'uniformità è il fattore chiave nella scelta dello speaker, la varietà è la caratteristica di base di uno script valido. Lo script deve includere molte parole e frasi diverse, con un'ampia gamma di lunghezze, strutture e intonazioni. Tutti i suoni del linguaggio devono essere rappresentati più volte e in numerosi contesti (condizione definita *copertura fonetica)* .
 
 Il testo deve anche incorporare tutti i modi in cui un suono specifico può essere rappresentato in forma scritta e posizionare ogni suono in punti diversi nelle frasi. È necessario includere sia frasi dichiarative che domande ed entrambe devono essere lette con l'intonazione appropriata.
 
