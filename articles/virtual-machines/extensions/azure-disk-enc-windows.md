@@ -157,7 +157,7 @@ Utilizzo di `AADClientCertificate`:
 | KeyVaultURL | url | string |
 | (facoltativo) Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
-| VolumeType | Sistema operativo, dati, tutti | string |
+| VolumeType | OS, Data, All | string |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 Per un esempio di distribuzione del modello, vedere [ Creare una nuova macchina virtuale Windows crittografata dall'immagine della raccolta](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).
