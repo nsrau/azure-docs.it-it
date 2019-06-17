@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
 ms.openlocfilehash: c5f92d564a93823fd9c0f932fa95f20d4e827761
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60734476"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Risolvere i problemi di Azure Load Balancer

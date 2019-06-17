@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
 ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411367"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Risoluzione dei nomi per le risorse in reti virtuali di Azure
@@ -44,7 +44,7 @@ Il tipo di risoluzione dei nomi usato dipende dal modo in cui le risorse devono 
 | Risoluzione dei nomi di servizi e computer locali da istanze del ruolo o macchine virtuali in Azure. |Server DNS gestiti dal cliente (ad esempio, controller di dominio locale, controller di dominio di sola lettura locale o server DNS secondario sincronizzati con trasferimenti di zona). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
 | Risoluzione di nomi host di Azure da computer locali. |Inoltra le query a un server proxy DNS gestito dal cliente nella rete virtuale corrispondente. Il server proxy trasferisce le query ad Azure per la risoluzione. Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
 | DNS inversi per indirizzi IP interni. |[Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Non applicabile |
-| Risoluzione dei nomi tra macchine virtuali o istanze del ruolo situate in servizi cloud diversi e non in una rete virtuale. |Non applicabile. Connettività tra macchine virtuali e istanze del ruolo in servizi cloud diversi non è supportata esternamente a una rete virtuale. |Non applicabile|
+| Risoluzione dei nomi tra macchine virtuali o istanze del ruolo situate in servizi cloud diversi e non in una rete virtuale. |Non applicabile Connettività tra macchine virtuali e istanze del ruolo in servizi cloud diversi non è supportata esternamente a una rete virtuale. |Non applicabile|
 
 ## <a name="azure-provided-name-resolution"></a>Risoluzione dei nomi fornita da Azure
 
@@ -88,15 +88,15 @@ Il client DNS di Windows predefinito contiene una cache DNS predefinita. Alcune 
 
 Sono disponibili alcuni pacchetti di memorizzazione nella cache DNS diversi, tra cui dnsmasq. Ecco la procedura per installare dnsmasq nelle distribuzioni più comuni:
 
-* **Ubuntu (usa resolvconf)**:
+* **Ubuntu (usa resolvconf)** :
   * Installare il pacchetto dnsmasq con `sudo apt-get install dnsmasq`.
-* **SUSE (usa netconf)**:
+* **SUSE (usa netconf)** :
   * Installare il pacchetto dnsmasq con `sudo zypper install dnsmasq`.
   * Abilitare il servizio dnsmasq con `systemctl enable dnsmasq.service`. 
   * Avviare il servizio dnsmasq con `systemctl start dnsmasq.service`. 
   * Modificare **/etc/sysconfig/network/config** e sostituire *NETCONFIG_DNS_FORWARDER=""* con *dnsmasq*.
   * Aggiornare resolv.conf con `netconfig update` per impostare la cache come resolver DNS locale.
-* **CentOS (Usa NetworkManager)**:
+* **CentOS (Usa NetworkManager)** :
   * Installare il pacchetto dnsmasq con `sudo yum install dnsmasq`.
   * Abilitare il servizio dnsmasq con `systemctl enable dnsmasq.service`.
   * Avviare il servizio dnsmasq con `systemctl start dnsmasq.service`.
@@ -154,7 +154,7 @@ L'inoltro DNS consente anche la risoluzione DNS tra reti virtuali e permette ai 
 
 ![Figura della risoluzione DNS tra reti virtuali](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Quando si usa la risoluzione dei nomi fornita da Azure, il protocollo DHCP (Dynamic Host Configuration Protocol) di Azure assegna un suffisso DNS interno (**.internal.cloudapp.net**) a ogni macchina virtuale. Questo suffisso consente la risoluzione dei nomi host perché i record dei nomi host si trovano nell'area **internal.cloudapp.net**. Quando si usa la soluzione di risoluzione dei nomi personalizzata, questo suffisso non viene fornito alle macchine virtuali perché interferisce con altre architetture DNS, ad esempio gli scenari con aggiunta al dominio. Azure assegna invece un segnaposto non funzionante (*reddog.microsoft.com*).
+Quando si usa la risoluzione dei nomi fornita da Azure, il protocollo DHCP (Dynamic Host Configuration Protocol) di Azure assegna un suffisso DNS interno ( **.internal.cloudapp.net**) a ogni macchina virtuale. Questo suffisso consente la risoluzione dei nomi host perché i record dei nomi host si trovano nell'area **internal.cloudapp.net**. Quando si usa la soluzione di risoluzione dei nomi personalizzata, questo suffisso non viene fornito alle macchine virtuali perché interferisce con altre architetture DNS, ad esempio gli scenari con aggiunta al dominio. Azure assegna invece un segnaposto non funzionante (*reddog.microsoft.com*).
 
 Se necessario, è possibile determinare il suffisso DNS interno usando PowerShell o l'API:
 

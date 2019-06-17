@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: c352100392a5bf7b590b27b9448f7f37fb105fbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751659"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guida al linguaggio di specifica Net# delle reti neurali per Azure Machine Learning Studio
@@ -89,17 +89,17 @@ Ad esempio, l'istruzione seguente definisce una costante `x`:
 
 `Const X = 28;`
 
-Per definire contemporaneamente due o più costanti, racchiudere i nomi e i valori degli identificatori tra parentesi graffe e separarle da punti e virgola. Ad esempio: 
+Per definire contemporaneamente due o più costanti, racchiudere i nomi e i valori degli identificatori tra parentesi graffe e separarle da punti e virgola. Ad esempio:
 
 `Const { X = 28; Y = 4; }`
 
-La parte destra di ogni espressione di assegnazione può essere costituita da un valore Integer, un numero reale, un valore booleano (true/false) o un'espressione matematica. Ad esempio: 
+La parte destra di ogni espressione di assegnazione può essere costituita da un valore Integer, un numero reale, un valore booleano (true/false) o un'espressione matematica. Ad esempio:
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>Dichiarazione dei livelli
 
-La dichiarazione di livello è obbligatoria. Definisce le dimensioni e l'origine del livello, inclusi il raggruppamento di connessione e gli attributi. L'istruzione della dichiarazione inizia con il nome del livello (di input, nascosto o di output), seguito dalle dimensioni del livello (una tupla di valori Integer positivi). Ad esempio: 
+La dichiarazione di livello è obbligatoria. Definisce le dimensioni e l'origine del livello, inclusi il raggruppamento di connessione e gli attributi. L'istruzione della dichiarazione inizia con il nome del livello (di input, nascosto o di output), seguito dalle dimensioni del livello (una tupla di valori Integer positivi). Ad esempio:
 
 ```Net#
 input Data auto;

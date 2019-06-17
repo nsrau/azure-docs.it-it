@@ -10,10 +10,10 @@ ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: d3601fd8c32c70cf828cd08fada71258ec8fa5d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60812729"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Modificare le quote e i limiti in Azure Data Lake Analytics
@@ -34,7 +34,7 @@ Per superare questo limite, è possibile provare queste opzioni:
 
 **Numero massimo di Analitica di unità per ogni account:** 32
 
-Questo è il numero massimo di unità di analisi che si possono eseguire contemporaneamente nell'account. Se il numero totale di unità di analisi dei processi in esecuzione supera questo limite, i processi più recenti vengono accodati automaticamente. Ad esempio: 
+Questo è il numero massimo di unità di analisi che si possono eseguire contemporaneamente nell'account. Se il numero totale di unità di analisi dei processi in esecuzione supera questo limite, i processi più recenti vengono accodati automaticamente. Ad esempio:
 
 * Se si ha un solo processo in esecuzione con 32 unità di analisi, quando si invia un secondo processo, esso rimarrà in attesa nella coda finché il primo non viene completato.
 * Se si dispone di quattro processi in esecuzione e ognuno usa 8 unità di analisi, quando si invia un quinto processo che richiede 8 unità di analisi questo attende nella coda dei processi fino a quando non sono presenti 8 unità di analisi disponibili.

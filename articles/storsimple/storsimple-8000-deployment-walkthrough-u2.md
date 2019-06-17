@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a4f9d9a7fe368ec4ffaceff80ce42d42a318c68d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61489116"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Distribuire un dispositivo StorSimple locale (aggiornamento 3 e successivi)
@@ -40,7 +40,7 @@ Per completare il processo di installazione e configurazione sono necessari priv
 ## <a name="deployment-steps"></a>Passaggi di distribuzione
 Eseguire questi passaggi obbligatori per configurare il dispositivo StorSimple e connetterlo al servizio Gestione dispositivi StorSimple. Oltre ai passaggi necessari sono disponibili passaggi facoltativi e procedure che possono essere necessarie durante la distribuzione. Le istruzioni dettagliate di distribuzione indicano quando è necessario eseguire ciascuno di questi passaggi facoltativi.
 
-| Passaggio | DESCRIZIONE |
+| Passaggio | Descrizione |
 | --- | --- |
 | **PREREQUISITI** |Devono essere completati per preparare la successiva distribuzione. |
 | [Elenco di controllo configurazione della distribuzione](#deployment-configuration-checklist) |Usare questo elenco di controllo per raccogliere e registrare informazioni prima e durante la distribuzione. |
@@ -137,7 +137,7 @@ Seguire questa procedura nel portale di Azure per creare un contenitore del volu
 
 [!INCLUDE [storsimple-8000-create-volume-container](../../includes/storsimple-8000-create-volume-container.md)]
 
-## <a name="step-6-create-a-volume"></a>Passaggio 6: Crea un volume
+## <a name="step-6-create-a-volume"></a>Passaggio 6: Creare un volume
 Dopo aver creato un contenitore di volumi, è possibile eseguire il provisioning di un volume di archiviazione nel dispositivo StorSimple per i server. Seguire questa procedura nel portale di Azure per creare un volume.
 
 > [!IMPORTANT]

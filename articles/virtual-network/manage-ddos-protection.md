@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65911257"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gestire Protezione DDoS di Azure Standard nel portale di Azure
@@ -31,7 +31,7 @@ Prima di completare qualsiasi passaggio in questa esercitazione, accedere al por
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-a-ddos-protection-plan"></a>Crea un piano di protezione DDoS
+## <a name="create-a-ddos-protection-plan"></a>Creare un piano di protezione DDoS
 
 Un piano di protezione DDoS definisce un set di reti virtuali in cui è abilitata la protezione DDoS standard per le sottoscrizioni. È possibile configurare un piano di protezione DDoS standard per l'organizzazione e collegare reti virtuali da più sottoscrizioni allo stesso piano. Il piano di protezione DDoS è a sua volta associato a una sottoscrizione che viene selezionata durante la creazione del piano. Il piano di protezione DDoS funziona in diverse aree e sottoscrizioni. Esempio-è possibile creare il piano nell'area geografica East-US e collegamento a #1 sottoscrizione nel tenant. Lo stesso piano può essere collegato a reti virtuali da altre sottoscrizioni in aree diverse, tra il tenant. Alla sottoscrizione a cui è associato il piano viene addebitato il costo mensile relativo al piano, nonché i costi in eccedenza, nel caso in cui gli indirizzi IP pubblici protetti siano più di 100. Per altre informazioni sui prezzi di DDoS, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
@@ -44,7 +44,7 @@ Per la maggior parte delle organizzazioni, non è necessaria la creazione di pi�
 
     |Impostazione        |Valore                                              |
     |---------      |---------                                          |
-    |NOME           | myDdosProtectionPlan                              |
+    |Name           | myDdosProtectionPlan                              |
     |Sottoscrizione   | Selezionare la propria sottoscrizione.                         |
     |Gruppo di risorse | Selezionare **Crea nuovo** e immettere *myResourceGroup* |
     |Località       | Stati Uniti orientali                                           |
@@ -98,7 +98,7 @@ Usando la configurazione degli avvisi di Monitoraggio di Azure, è possibile sel
 
     |Impostazione                  |Valore                                                                                               |
     |---------                |---------                                                                                           |
-    |NOME                     | myDdosAlert                                                                                        |
+    |Name                     | myDdosAlert                                                                                        |
     |Sottoscrizione             | Selezionare la sottoscrizione che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi.        |
     |Gruppo di risorse           | Selezionare il gruppo di risorse che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi.      |
     |Resource                 | Selezionare l'indirizzo IP pubblico che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi. La protezione DDoS esegue il monitoraggio degli indirizzi IP pubblici assegnati alle risorse all'interno di una rete virtuale. Se non si dispone di risorse con indirizzi IP pubblici nella rete virtuale, è innanzitutto necessario creare una risorsa con un indirizzo IP pubblico. È possibile eseguire il monitoraggio dell'indirizzo IP pubblico di tutte le risorse distribuite tramite Resource Manager (distribuzione classica) elencate in [Rete virtuale per servizi di Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), ad eccezione degli ambienti di Servizio app di Azure e del gateway VPN di Azure. Per continuare questa esercitazione, è possibile creare rapidamente una macchina virtuale [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).                   |
@@ -187,10 +187,10 @@ I log del flusso di mitigazione degli attacchi consentono di esaminare il traffi
 
 I log del flusso conterranno i campi seguenti: 
 - IP di origine
-- IP destinazione
+- IP di destinazione
 - Porta di origine 
 - Porta di destinazione 
-- Tipo di protocollo 
+- Protocol type (Tipo di protocollo) 
 - Action taken during mitigation (Azione eseguita durante la mitigazione)
 
 
