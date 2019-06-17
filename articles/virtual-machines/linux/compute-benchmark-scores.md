@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn;davberg
 ms.openlocfilehash: 7a302a3c6c32819f898cccc99cb83ed09ae03f2c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869830"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Calcolare i punteggi di benchmark per le VM Linux
@@ -41,8 +41,8 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 | Standard_A2m_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 2 | 1 | 15.7 | 12,401 | 656 | 5,29% | 224 |
 | Standard_A4_v2 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 4 | 1 | 7.8 | 26,307 | 231 | 0.88% | 231 |
 | Standard_A4_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 1 | 7.8 | 24,552 | 720 | 2,93% | 224 |
-| Standard_A4_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 7.8 | 24,963 | 1.625 | 6.51% | 252 |
-| Standard_A4m_v2 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 4 | 1 | 31.4 | 26.238 | 292 | 1.11% | 259 |
+| Standard_A4_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 7.8 | 24,963 | 1\.625 | 6.51% | 252 |
+| Standard_A4m_v2 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 4 | 1 | 31.4 | 26\.238 | 292 | 1.11% | 259 |
 | Standard_A4m_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 1 | 31.4 | 24,250 | 491 | 2,02% | 189 |
 | Standard_A4m_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 31.4 | 24,725 | 1,553 | 6.28% | 259 |
 | Standard_A8_v2 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 8 | 1 | 15.7 | 53,237 | 687 | 1.29% | 266 |
@@ -65,7 +65,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 | Standard_B2ms | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 2 | 1 | 7.8 | 27,432 | 771 | 2.81% | 672 |
 | Standard_B2s | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 2 | 1 | 3.9 | 27,488 | 822 | 2.99% | 28 |
 | Standard_B2s | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 2 | 1 | 3.9 | 27,548 | 864 | 3.14% | 672 |
-| Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 1 | 15.7 | 54,951 | 1,868 | 3,40% | 28 |
+| Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 1 | 15.7 | 54,951 | 1,868 | 3.40% | 28 |
 | Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 15.7 | 54,051 | 1,260 | 2.33% | 672 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 8 | 1 | 31.4 | 111,929 | 1,562 | 1.40% | 35 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 8 | 1 | 31.4 | 109,537 | 1,354 | 1.24% | 665 |
@@ -78,7 +78,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 2 | 1 | 7.8 | 20,153 | 838 | 4.16% | 147 |
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 2 | 1 | 7.8 | 20,903 | 1,324 | 6.33% | 553 |
 | Standard_D4s_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 1 | 15.7 | 39,502 | 1,257 | 3,18% | 189 |
-| Standard_D4s_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 15.7 | 40,547 | 1.935 | 4.77% | 511 |
+| Standard_D4s_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 15.7 | 40,547 | 1\.935 | 4.77% | 511 |
 | Standard_D8s_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 8 | 1 | 31.4 | 80,191 | 1,054 | 1,31% | 168 |
 | Standard_D8s_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 8 | 1 | 31.4 | 79,884 | 3,073 | 3.85% | 532 |
 | Standard_D16s_v3 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 16 | 1 | 62.9 | 160,319 | 1,213 | 0.76% | 105 |
@@ -137,7 +137,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 | Standard_DS13-4_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 1 | 55.0 | 56,992 | 1,814 | 3,18% | 280 |
 | Standard_DS13-4_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 55.0 | 57,781 | 2,122 | 3.67% | 427 |
 | Standard_DS14_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 16 | 2 | 110.2 | 224,149 | 3,450 | 1,54% | 196 |
-| Standard_DS14_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 16 | 1 | 110.2 | 227,108 | 1.267 | 0.56% | 504 |
+| Standard_DS14_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 16 | 1 | 110.2 | 227,108 | 1\.267 | 0.56% | 504 |
 | Standard_DS14-4_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 2 | 110.2 | 56,211 | 2,154 | 3.83% | 189 |
 | Standard_DS14-4_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 110.2 | 59,651 | 2,560 | 4.29% | 518 |
 | Standard_DS14-8_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 8 | 2 | 110.2 | 112,280 | 4,430 | 3.95% | 196 |
@@ -167,7 +167,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 | Standard_D13_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 8 | 1 | 55.0 | 117,218 | 1,514 | 1.29% | 329 |
 | Standard_D13_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 8 | 1 | 55.0 | 114,344 | 3,307 | 2.89% | 378 |
 | Standard_D14_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 16 | 2 | 110.2 | 224,348 | 5,477 | 2,44% | 280 |
-| Standard_D14_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 16 | 1 | 110.2 | 228,221 | 2,733 | 1,20% | 427 |
+| Standard_D14_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 16 | 1 | 110.2 | 228,221 | 2,733 | 1.20% | 427 |
 | Standard_D15_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 20 | 2 | 137.7 | 281,494 | 7,976 | 2.83% | 672 |
 
 ## <a name="esv3---memory-optimized--premium-storage"></a>Esv3 - Ottimizzazione per la memoria + Archiviazione Premium
@@ -276,7 +276,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 | Standard_GS2 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 4 | 1 | 55.0 | 55,568 | 3,139 | 5.65% | 287 |
 | Standard_GS3 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 8 | 1 | 110.2 | 106,567 | 2,188 | 2.05% | 287 |
 | Standard_GS4 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 16 | 1 | 220.4 | 210,586 | 4,130 | 1,96% | 287 |
-| Standard_GS4-4 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 4 | 1 | 220.4 | 58,598 | 2.670 | 4,56% | 287 |
+| Standard_GS4-4 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 4 | 1 | 220.4 | 58,598 | 2\.670 | 4,56% | 287 |
 | Standard_GS4-8 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 8 | 1 | 220.4 | 108,234 | 2,392 | 2.21% | 287 |
 | Standard_GS5 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 32 | 2 | 440.9 | 399,835 | 8,694 | 2,17% | 287 |
 | Standard_GS5-8 | Intel(R) Xeon(R) CPU E5-2698B vers. 3 a 2,00 GHz | 8 | 2 | 440.9 | 116,643 | 2,354 | 2,02% | 287 |

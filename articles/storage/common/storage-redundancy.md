@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002830"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
@@ -37,10 +37,10 @@ La tabella seguente presenta una rapida panoramica dell'ambito di durabilità e 
 
 | Scenario                                                                                                 | Archiviazione con ridondanza locale                             | ZRS                              | Archiviazione con ridondanza geografica                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Mancata disponibilità di un nodo in un data center                                                                 | Sì                             | Sì                              | Sì                                  | Sì                                  |
-| Mancata disponibilità di un intero data center (di zona o non di zona)                                           | N.                              | Sì                              | Sì                                  | Sì                                  |
-| Interruzione a livello di area                                                                                     | N.                              | N.                               | Sì                                  | Sì                                  |
-| Accesso in lettura ai dati (in un'area remota con replica geografica) in caso di mancata disponibilità a livello di area | N.                              | N.                               | N.                                   | Sì                                  |
+| Mancata disponibilità di un nodo in un data center                                                                 | Yes                             | Sì                              | Sì                                  | Yes                                  |
+| Mancata disponibilità di un intero data center (di zona o non di zona)                                           | No                              | Yes                              | Sì                                  | Yes                                  |
+| Interruzione a livello di area                                                                                     | No                              | No                               | Yes                                  | Yes                                  |
+| Accesso in lettura ai dati (in un'area remota con replica geografica) in caso di mancata disponibilità a livello di area | No                              | No                               | No                                   | Yes                                  |
 | Replica progettata per fornire una durabilità di \_\_ per gli oggetti nel corso di un determinato anno                                          | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
 | Tipi di account di archiviazione supportati                                                                   | GPv2, GPv1, BLOB                | GPv2                             | GPv2, GPv1, BLOB                     | GPv2, GPv1, BLOB                     |
 | Contratto di servizio relativo alla disponibilità per le richieste di lettura | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,99% (99,9% per livello di accesso sporadico) |
@@ -66,7 +66,7 @@ Se si converte l'account di archiviazione da archiviazione con ridondanza geogra
 
 Se si converte l'account di archiviazione da RA-GRS in archiviazione con ridondanza geografica o archiviazione con ridondanza locale, tale account viene fatturato come RA-GRS per altri 30 giorni oltre la data in cui è stato convertito.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Archiviazione con ridondanza locale: ridondanza dei dati a basso costo per Archiviazione di Azure](storage-redundancy-lrs.md)
 - [Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata](storage-redundancy-zrs.md)

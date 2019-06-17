@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: f36658d57fb514ff279c39e9cb1644cf56341ec4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 137b23432a80d3ceeb0f96cd863514c9ee824c9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761840"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127216"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Azure e le procedure consigliate per la sicurezza di rete
 Questo articolo descrive una raccolta di Azure e le procedure consigliate per migliorare la sicurezza di rete. derivate dalla nostra esperienza con la rete di Azure e dalle esperienze di altri clienti.

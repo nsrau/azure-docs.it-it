@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: ffe2760c004db24d503ee381b8752c875c286fca
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105837"
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>Introduzione al connettore MailChimp
@@ -26,9 +26,9 @@ Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la 
 ## <a name="create-a-connection-to-mailchimp"></a>Creare una connessione a MailChimp
 Per creare app per la logica con MailChimp, è prima necessario creare una **connessione** e quindi fornire i dettagli per le proprietà seguenti:
 
-| Proprietà | Obbligatorio | DESCRIZIONE |
+| Proprietà | Obbligatorio | Descrizione |
 | --- | --- | --- |
-| token |Sì |Fornisce le credenziali per MailChimp |
+| token |Yes |Fornisce le credenziali per MailChimp |
 
 > [!INCLUDE [Steps to create a connection to MailChimp](../../includes/connectors-create-api-mailchimp.md)]
 > 

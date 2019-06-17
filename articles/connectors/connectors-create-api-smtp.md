@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106151"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Inviare messaggi di posta elettronica dall'account SMTP con App per la logica di Azure
@@ -47,20 +47,20 @@ Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protoc
 1. Nell'ultimo passaggio in cui si vuole aggiungere un'azione di SMTP, scegliere **Nuovo passaggio**. 
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca immettere "smtp" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
 1. Quando richiesto, specificare queste informazioni di connessione:
 
-   | Proprietà | Obbligatorio | DESCRIZIONE |
+   | Proprietà | Obbligatorio | Descrizione |
    |----------|----------|-------------|
-   | **Connection Name** (Nome connessione) | Sì | Nome per la connessione al server SMTP | 
-   | **Indirizzo del server SMTP** | Sì | Indirizzo relativo al server SMTP | 
-   | **Nome utente** | Sì | Nome utente per l'account SMTP | 
-   | **Password** | Sì | Password per l'account SMTP | 
-   | **Porta del server SMTP** | No  | Porta specifica sul server SMTP che si vuole usare | 
-   | **Abilitare SSL?** | No  | Attivare o disattivare la crittografia SSL. | 
+   | **Connection Name** (Nome connessione) | Yes | Nome per la connessione al server SMTP | 
+   | **Indirizzo del server SMTP** | Yes | Indirizzo relativo al server SMTP | 
+   | **Nome utente** | Yes | Nome utente per l'account SMTP | 
+   | **Password** | Yes | Password per l'account SMTP | 
+   | **Porta del server SMTP** | No | Porta specifica sul server SMTP che si vuole usare | 
+   | **Abilitare SSL?** | No | Attivare o disattivare la crittografia SSL. | 
    |||| 
 
 1. Specificare i dettagli necessari per l'azione selezionata. 

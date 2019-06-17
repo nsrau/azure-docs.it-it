@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 92fee850b6ba013c759d3441219f1946a0faedb3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: aa6e93ef7e403f1b230814b7afa20d2e8e68b71a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984137"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64718658"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quote vCPU delle macchine virtuali
 
 Le quote vCPU per le macchine virtuali e i set di scalabilità di macchine virtuali vengono disposte in due livelli per ogni sottoscrizione, in ogni area. Il primo livello è costituito dalle vCPU regionali totali e il secondo livello contiene i vari core a livello di famiglia di dimensioni della macchina virtuale, ad esempio vCPU della serie D. Ogni volta che viene distribuita una nuova macchina virtuale, le relative vCPU non devono superare la quota di vCPU per la famiglia di dimensioni della macchina virtuale o la quota vCPU regionale totale. Se una di queste quote viene superata, la distribuzione della macchina virtuale non sarà possibile. È inoltre disponibile una quota per il numero complessivo di macchine virtuali nell'area. I dettagli su ciascuna di queste quote sono disponibili nella sezione **Utilizzo e quote** della pagina **Sottoscrizione** nel [portale di Azure](https://portal.azure.com) o è possibile eseguire una ricerca dei valori utilizzando PowerShell.
 
- [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)] 
+ [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)] 
  
 ## <a name="check-usage"></a>Controllare l'utilizzo
 

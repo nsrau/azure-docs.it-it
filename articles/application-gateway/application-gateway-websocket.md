@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
 ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831241"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Panoramica del supporto di WebSocket nel gateway dell'applicazione

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035732"
 ---
 # <a name="in-memory-sample"></a>Esempio in memoria
@@ -52,7 +52,7 @@ Per una dimostrazione più semplice e visivamente più interessante sulle presta
 
 3. Copiare lo [script Transact-SQL OLTP in memoria](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) negli Appunti. Lo script T-SQL crea gli oggetti in memoria necessari nel database AdventureWorksLT di esempio creato nel passaggio 1.
 
-4. Incollare lo script T-SQL in SSMS.exe, quindi eseguirlo. La clausola `MEMORY_OPTIMIZED = ON` è fondamentale nelle istruzioni CREATE TABLE, Ad esempio: 
+4. Incollare lo script T-SQL in SSMS.exe, quindi eseguirlo. La clausola `MEMORY_OPTIMIZED = ON` è fondamentale nelle istruzioni CREATE TABLE, Ad esempio:
 
 
 ```sql
@@ -216,7 +216,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 Per eseguire la riga di comando ostress.exe precedente:
 
 
-1. Reimpostare il contenuto dei dati del database eseguendo questo comando in SSMS per eliminare tutti i dati inseriti da esecuzioni precedenti: 
+1. Reimpostare il contenuto dei dati del database eseguendo questo comando in SSMS per eliminare tutti i dati inseriti da esecuzioni precedenti:
 
     ``` tsql
     EXECUTE Demo.usp_DemoReset;

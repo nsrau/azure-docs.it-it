@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
 ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60926079"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Connettività dei dispositivi e dati di telemetria in ingresso
@@ -67,12 +67,12 @@ Nel payload di risposta, copiare la proprietà **connectionString** del disposit
 
  Il contenuto del payload di un **messaggio** può essere costituito da dati arbitrari con dimensioni massime di 256 KB. Per le proprietà del tipo [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) sono previsti alcuni requisiti. La tabella mostra le proprietà obbligatorie e facoltative supportate dal sistema.
 
-| Nome proprietà | Value | Obbligatoria | DESCRIZIONE |
+| Nome proprietà | Value | Obbligatorio | Descrizione |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | Sì | Valore costante che identifica un messaggio al sistema. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | Sì | Identificatore univoco del sensore che invia il **messaggio**. Questo valore deve corrispondere alla proprietà **HardwareId** di un oggetto affinché il sistema possa elaborarlo. Ad esempio: `00FF0643BE88-CO2`. |
-| **CreationTimeUtc** | `string` | No  | Stringa di data in formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) che identifica l'ora di campionamento del payload. Ad esempio: `2018-09-20T07:35:00.8587882-07:00`. |
-| **CorrelationId** | `string` | No  | UUID usato per tracciare gli eventi nel sistema. Ad esempio: `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
+| **DigitalTwins-Telemetry** | 1.0 | Yes | Valore costante che identifica un messaggio al sistema. |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | Yes | Identificatore univoco del sensore che invia il **messaggio**. Questo valore deve corrispondere alla proprietà **HardwareId** di un oggetto affinché il sistema possa elaborarlo. Ad esempio: `00FF0643BE88-CO2`. |
+| **CreationTimeUtc** | `string` | No | Stringa di data in formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) che identifica l'ora di campionamento del payload. Ad esempio: `2018-09-20T07:35:00.8587882-07:00`. |
+| **CorrelationId** | `string` | No | UUID usato per tracciare gli eventi nel sistema. Ad esempio: `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 
 ### <a name="send-your-message-to-digital-twins"></a>Inviare il messaggio a Gemelli digitali
 

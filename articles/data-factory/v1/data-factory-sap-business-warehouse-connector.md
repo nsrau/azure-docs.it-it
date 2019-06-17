@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61258659"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Spostare dati da SAP Business Warehouse usando Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](data-factory-sap-business-warehouse-connector.md)
 > * [Versione 2 (corrente)](../connector-sap-business-warehouse.md)
 
@@ -62,7 +62,7 @@ Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle propri
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato SAP Business Warehouse (BW).
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
 server | Nome del server in cui si trova l'istanza di SAP BW. | string | Sì
 systemNumber | Numero del sistema SAP BW. | Numero decimale a due cifre rappresentato come stringa. | Sì
@@ -70,7 +70,7 @@ clientId | ID del client nel sistema SAP BW. | Numero decimale a tre cifre rappr
 username | Nome dell'utente che ha accesso al server SAP | string | Sì
 password | Password per l'utente. | string | Sì
 gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP BW locale. | string | Sì
-encryptedCredential | Stringa di credenziali crittografata. | string | No 
+encryptedCredential | Stringa di credenziali crittografata. | string | No
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
@@ -85,9 +85,9 @@ Le proprietà disponibili nella sezione **typeProperties** dell'attività varian
 
 Se l'origine nell'attività di copia è di tipo **RelationalSource** (che include SAP BW), nella sezione typeProperties sono disponibili le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| query | Specifica la query MDX che consente di leggere i dati dall'istanza di SAP BW. | Query MDX. | Sì |
+| query | Specifica la query MDX che consente di leggere i dati dall'istanza di SAP BW. | Query MDX. | Yes |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Esempio di JSON: Copiare dati da SAP Business Warehouse a BLOB di Azure
@@ -309,10 +309,10 @@ QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
 STRING | String
-UNITÀ | String
+UNIT | String
 DATS | String
 NUMC | String
-TIMS | string
+TIMS | String
 
 > [!NOTE]
 > Per eseguire il mapping dal set di dati di origine alle colonne del set di dati sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 465b53e1c5f56c5c05c860ebd69a825141f7e703
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706071"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Introduzione all'uso di ML Services in HDInsight
@@ -22,7 +22,7 @@ Azure HDInsight permette di creare un cluster ML Services. Con questa opzione, g
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Sottoscrizione di Azure**: Prima di iniziare questa esercitazione, è necessario disporre di un abbonamento ad Azure. Per altre informazioni, vedere il video su come [ottenere una versione di valutazione gratuita di Microsoft Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Un client Secure Shell (SSH)**: il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Un client Secure Shell (SSH)** : il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 <a name="create-hdi-custer-with-aure-portal"></a>
@@ -37,7 +37,7 @@ Azure HDInsight permette di creare un cluster ML Services. Con questa opzione, g
     * **Nome del cluster**: nome del cluster HDInsight.
     * **Sottoscrizione** Selezionare la sottoscrizione da usare.
     * **Nome utente dell'account di accesso del cluster** e **Password dell'account di accesso del cluster**: account di accesso usato quando si accede al cluster su HTTPS. Queste credenziali vengono usate per accedere a servizi quali l'interfaccia utente Web di Apache Ambari o l'API REST.
-    * **Nome utente Secure Shell (SSH)**: L'account di accesso usato quando si accede al cluster su SSH. Per impostazione predefinita, la password corrisponde alla password di accesso al cluster.
+    * **Nome utente Secure Shell (SSH)** : L'account di accesso usato quando si accede al cluster su SSH. Per impostazione predefinita, la password corrisponde alla password di accesso al cluster.
     * **Gruppo di risorse**: Il gruppo di risorse in cui creare il cluster.
     * **Località**: Area di Azure in cui creare il cluster.
 
@@ -178,7 +178,7 @@ Per trovare il comando SSH per il cluster, dal portale di Azure fare clic sul no
 
 ![Immagine dell'endpoint SSH per il nodo perimetrale](./media/r-server-get-started/sshendpoint.png)
 
-Se è stata usata una password per proteggere l'account utente SSH, viene richiesto di specificarla. Se è stata usata una chiave pubblica, può essere necessario usare il parametro `-i` per specificare la chiave privata corrispondente. Ad esempio: 
+Se è stata usata una password per proteggere l'account utente SSH, viene richiesto di specificarla. Se è stata usata una chiave pubblica, può essere necessario usare il parametro `-i` per specificare la chiave privata corrispondente. Ad esempio:
 
     ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 

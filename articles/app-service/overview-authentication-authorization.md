@@ -16,10 +16,10 @@ ms.date: 08/24/2018
 ms.author: mahender,cephalin
 ms.custom: seodec18
 ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835601"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticazione e autorizzazione nel servizio app di Azure
@@ -132,7 +132,7 @@ Scegliere questa opzione se non sono necessarie l'autenticazione e l'autorizzazi
 
 ### <a name="allow-only-authenticated-requests"></a>Consentire solo le richieste autenticate
 
-L'opzione è **Accedi con \<provider>**. Il servizio app reindirizza tutte le richieste anonime a `/.auth/login/<provider>` per il provider scelto. Se la richiesta anonima proviene da un'app per dispositivi mobili nativa, verrà restituita la risposta `HTTP 401 Unauthorized`.
+L'opzione è **Accedi con \<provider>** . Il servizio app reindirizza tutte le richieste anonime a `/.auth/login/<provider>` per il provider scelto. Se la richiesta anonima proviene da un'app per dispositivi mobili nativa, verrà restituita la risposta `HTTP 401 Unauthorized`.
 
 Con questa opzione non è necessario scrivere codice di autenticazione nell'app. È possibile gestire un livello di autorizzazione più specifico, ad esempio l'autorizzazione specifica dei ruoli, esaminando le attestazioni utente (vedere [Accedere alle attestazioni utente](app-service-authentication-how-to.md#access-user-claims)).
 

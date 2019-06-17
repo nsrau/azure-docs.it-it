@@ -14,15 +14,15 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61462412"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiare dati da o verso un database Oracle locale con Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
 > * [Versione 1](data-factory-onprem-oracle-connector.md)
 > * [Versione 2 (corrente)](../connector-oracle.md)
 
@@ -55,7 +55,7 @@ Il gateway è necessario anche se il database Oracle è ospitato in una macchina
 
 Il connettore Oracle supporta due versioni di driver:
 
-- **Driver Microsoft per Oracle (scelta consigliata)**: a partire da Gateway di gestione dati versione 2.7, un driver Microsoft per Oracle viene installato automaticamente con il gateway. Non è necessario installare o aggiornare il driver per stabilire la connettività a Oracle. È inoltre possibile ottenere migliori prestazioni di copia usando questo driver. Sono supportate le versioni seguenti dei database Oracle:
+- **Driver Microsoft per Oracle (scelta consigliata)** : a partire da Gateway di gestione dati versione 2.7, un driver Microsoft per Oracle viene installato automaticamente con il gateway. Non è necessario installare o aggiornare il driver per stabilire la connettività a Oracle. È inoltre possibile ottenere migliori prestazioni di copia usando questo driver. Sono supportate le versioni seguenti dei database Oracle:
   - Oracle 12c R1 (12.1)
   - Oracle 11g R1, R2 (11.1, 11.2)
   - Oracle 10g R1, R2 (10.1, 10.2)
@@ -102,10 +102,10 @@ La tabella seguente descrive gli elementi JSON specifici del servizio collegato 
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà **type** deve essere impostata su **OnPremisesOracle**. |Sì |
-| driverType | Specificare il driver da usare per copiare i dati da o verso il database Oracle. I valori consentiti sono **Microsoft** e **ODP** (impostazione predefinita). Per informazioni dettagliate sui driver, vedere [Versioni supportate e installazione](#supported-versions-and-installation). | No  |
-| connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà **connectionString**. | Sì |
-| gatewayName | Nome del gateway usato per connettersi al server Oracle locale. |Sì |
+| type |La proprietà **type** deve essere impostata su **OnPremisesOracle**. |Yes |
+| driverType | Specificare il driver da usare per copiare i dati da o verso il database Oracle. I valori consentiti sono **Microsoft** e **ODP** (impostazione predefinita). Per informazioni dettagliate sui driver, vedere [Versioni supportate e installazione](#supported-versions-and-installation). | No |
+| connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà **connectionString**. | Yes |
+| gatewayName | Nome del gateway usato per connettersi al server Oracle locale. |Yes |
 
 **Esempio: mediante il driver Microsoft**
 
@@ -170,20 +170,20 @@ Le proprietà disponibili nella sezione **typeProperties** dell'attività varian
 
 Nell'attività di copia con origine di tipo **OracleSource** sono disponibili le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio, "select \* from **MyTable**". <br/><br/>Se non specificato, viene eseguita questa istruzione SQL: "select \* from **MyTable**" |No <br />(se è specificato **tableName** nel **set di dati**) |
+| oracleReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio, "select \* from **MyTable**". <br/><br/>Se non specificato, viene eseguita questa istruzione SQL: "select \* from **MyTable**" |No<br />(se è specificato **tableName** nel **set di dati**) |
 
 ### <a name="oraclesink"></a>OracleSink
 
 **OracleSink** supporta le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |**timespan**<br/><br/> Esempio: 00:30:00 (30 minuti) |No  |
+| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |**timespan**<br/><br/> Esempio: 00:30:00 (30 minuti) |No |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge il valore di **writeBatchSize**. |Numero intero (numero di righe) |No (valore predefinito: 100) |
-| sqlWriterCleanupScript |Specifica una query da eseguire nell'attività di copia per eseguire la pulizia dei dati di una sezione specifica. |Istruzione di query. |No  |
-| sliceIdentifierColumnName |Specifica il nome della colonna per l'attività di copia da riempire con un identificatore di sezione generato automaticamente. Il valore di **sliceIdentifierColumnName** viene usato per eseguire la pulizia dei dati di una sezione specifica quando viene nuovamente eseguita. |Nome di colonna di una colonna con tipo di dati **binary(32)**. |No  |
+| sqlWriterCleanupScript |Specifica una query da eseguire nell'attività di copia per eseguire la pulizia dei dati di una sezione specifica. |Istruzione di query. |N. |
+| sliceIdentifierColumnName |Specifica il nome della colonna per l'attività di copia da riempire con un identificatore di sezione generato automaticamente. Il valore di **sliceIdentifierColumnName** viene usato per eseguire la pulizia dei dati di una sezione specifica quando viene nuovamente eseguita. |Nome di colonna di una colonna con tipo di dati **binary(32)** . |No |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Esempi JSON per la copia dei dati da e verso il database Oracle
 
@@ -571,7 +571,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
     1. Aprire il file machine.config per .NET 2.0 dalla cartella <disco di sistema\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
     2. Cercare **Provider di dati Oracle per .NET**. Dovrebbe essere possibile trovare una voce, come illustrato nell'esempio seguente in **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * Copiare questa voce nel file machine.config nella seguente cartella .NET 4.0: <disco di sistema\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Modificare quindi la versione impostandola su 4.xxx.x.x.
-* Installare <percorso di installazione di ODP.NET\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll nella Global Assembly Cache eseguendo **gacutil /i [percorso del provider]**.
+* Installare <percorso di installazione di ODP.NET\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll nella Global Assembly Cache eseguendo **gacutil /i [percorso del provider]** .
 
 ### <a name="problem-2-datetime-formatting"></a>Problema 2: formattazione di data/ora
 
@@ -599,27 +599,27 @@ Quando si spostano dati da Oracle, vengono usati i mapping seguenti dal tipo di 
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(supportato solo in Oracle 10g e versioni successive quando si usa un driver Microsoft) |
-| CHAR |string |
-| CLOB |string |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
 | FLOAT |Decimal, String (se la precisione > 28) |
 | INTEGER |Decimal, String (se la precisione > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
 | INTERVAL DAY TO SECOND |Intervallo di tempo |
-| LONG |string |
+| LONG |String |
 | LONG RAW |Byte[] |
-| NCHAR |string |
-| NCLOB |string |
+| NCHAR |String |
+| NCLOB |String |
 | NUMBER |Decimal, String (se la precisione > 28) |
-| NVARCHAR2 |string |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |string |
+| ROWID |String |
 | TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
 | TIMESTAMP WITH TIME ZONE |DateTime |
 | UNSIGNED INTEGER |NUMBER |
-| VARCHAR2 |string |
-| XML |string |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > I tipi di dati **INTERVAL YEAR TO MONTH** e **INTERVAL DAY TO SECOND** non sono supportati quando si usa un driver Microsoft.

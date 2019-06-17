@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
 ms.openlocfilehash: 1bcec37e7642ae0cb5bd68de1426c8cc62085d38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475525"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Estensione Desired State Configuration (DSC) con modelli di Azure Resource Manager
@@ -178,7 +178,7 @@ Per un elenco degli argomenti disponibili per lo script di configurazione predef
 
 ## <a name="details"></a>Dettagli
 
-| Nome proprietà | Type | DESCRIZIONE |
+| Nome proprietà | Type | Descrizione |
 | --- | --- | --- |
 | settings.wmfVersion |string |Specifica la versione di Windows Management Framework (WMF) da installare nella macchina virtuale. Impostando questa proprietà su **latest** verrà installata la versione più recente di WMF. Attualmente, gli unici valori possibili per questa proprietà sono **4.0**, **5.0**, **5.1** e **latest**. Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è **latest**. |
 | settings.configuration.url |string |Specifica il percorso URL da cui scaricare il file ZIP della configurazione DSC. Se l'URL specificato richiede un token di firma di accesso condiviso per l'accesso, impostare la proprietà **protectedSettings.configurationUrlSasToken** sul valore del token di firma di accesso condiviso. Questa proprietà è obbligatoria se **settings.configuration.script** o **settings.configuration.function** sono definiti. Se non viene specificato alcun valore per queste proprietà, l'estensione chiama lo script di configurazione predefinito per impostare i metadati di Gestione configurazione locale e devono essere forniti gli argomenti. |
@@ -186,7 +186,7 @@ Per un elenco degli argomenti disponibili per lo script di configurazione predef
 | settings.configuration.function |stringa |Specifica il nome della configurazione DSC. La configurazione indicata deve essere inclusa nello script definito da **settings.configuration.script**. Questa proprietà è obbligatoria se **settings.configuration.url** o **settings.configuration.function** sono definiti. Se non viene specificato alcun valore per queste proprietà, l'estensione chiama lo script di configurazione predefinito per impostare i metadati di Gestione configurazione locale e devono essere forniti gli argomenti. |
 | settings.configurationArguments |Raccolta |Definisce i parametri da passare alla configurazione DSC. Questa proprietà non è crittografata. |
 | settings.configurationData.url |string |Specifica l'URL da cui scaricare il file di dati di configurazione con estensione psd1 da usare come input per la configurazione DSC. Se l'URL specificato richiede un token di firma di accesso condiviso per l'accesso, impostare la proprietà **protectedSettings.configurationDataUrlSasToken** sul valore del token di firma di accesso condiviso. |
-| settings.privacy.dataCollection |string |Abilita o disabilita la raccolta di dati di telemetria. Gli unici valori possibili per questa proprietà sono **Enable**, **Disable**, **''** o **$null**. Lasciando questa proprietà vuota o con valore null verrà abilitata la raccolta di dati di telemetria. Il valore predefinito è **''**. Per altre informazioni, vedere [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Raccolta di dati dell'estensione DSC di Azure). |
+| settings.privacy.dataCollection |string |Abilita o disabilita la raccolta di dati di telemetria. Gli unici valori possibili per questa proprietà sono **Enable**, **Disable**, **''** o **$null**. Lasciando questa proprietà vuota o con valore null verrà abilitata la raccolta di dati di telemetria. Il valore predefinito è **''** . Per altre informazioni, vedere [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Raccolta di dati dell'estensione DSC di Azure). |
 | settings.advancedOptions.downloadMappings |Raccolta |Definisce i percorsi alternativi da cui scaricare WMF. Per altre informazioni, vedere [Azure DSC extension 2.8 and how to map downloads of the extension dependencies to your own location](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) (Estensione DSC di Azure 2.8 e come eseguire il mapping dei download delle dipendenze dell'estensione al percorso). |
 | protectedSettings.configurationArguments |Raccolta |Definisce i parametri da passare alla configurazione DSC. Questa proprietà è crittografata. |
 | protectedSettings.configurationUrlSasToken |string |Specifica il token di firma di accesso condiviso da usare per accedere all'URL definito da **settings.configuration.url**. Questa proprietà è crittografata. |
@@ -197,7 +197,7 @@ Per un elenco degli argomenti disponibili per lo script di configurazione predef
 Per altre informazioni sui valori seguenti, vedere [Configurazione di Gestione configurazione locale - Impostazioni di base](/powershell/dsc/metaconfig#basic-settings).
 È possibile usare lo script di configurazione predefinito dell'estensione DSC per configurare solo le proprietà di Gestione configurazione locale elencate nella tabella seguente.
 
-| Nome proprietà | Type | DESCRIZIONE |
+| Nome proprietà | Type | Descrizione |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |Proprietà obbligatoria. Specifica la chiave che viene usata per la registrazione di un nodo nel servizio Automazione di Azure come password di un oggetto credenziale di PowerShell. Questo valore può essere individuato automaticamente usando il metodo **listkeys** per l'account di Automazione.  Vedere l'[esempio](#example-using-referenced-azure-automation-registration-values). |
 | settings.configurationArguments.RegistrationUrl |string |Proprietà obbligatoria. Specifica l'URL dell'endpoint di Automazione in cui il nodo tenta di registrarsi. Questo valore può essere individuato automaticamente usando il metodo **reference** per l'account di Automazione. |

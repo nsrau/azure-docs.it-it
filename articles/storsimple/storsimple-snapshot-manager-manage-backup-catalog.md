@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: dc24ebd59fd977ef35766c304aec5824e2c7bb4c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127195"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Uso di StorSimple Snapshot Manager per gestire il catalogo di backup
@@ -92,7 +92,7 @@ Utilizzare la procedura seguente per creare un duplicato (clone) di un volume o 
    
    1. Nella casella di testo **Nome** , digitare un nome per il volume clonato. Questo nome verrà visualizzato nel nodo **Volumi** . 
    2. (Facoltativo) Selezionare **Unità**, quindi selezionare la lettera di un’unità dall'elenco a discesa.
-   3. (Facoltativo) Selezionare **Cartella (NTFS)**, quindi digitare il percorso di una cartella o fare clic su Sfoglia e selezionare un percorso per la cartella. 
+   3. (Facoltativo) Selezionare **Cartella (NTFS)** , quindi digitare il percorso di una cartella o fare clic su Sfoglia e selezionare un percorso per la cartella. 
    4. Fare clic su **Create**(Crea).
 5. Al termine del processo di clonazione, è necessario inizializzare il volume clonato. Avviare Server Manager, quindi avviare Gestione disco. Per istruzioni dettagliate, vedere [Montaggio volumi](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Al termine dell'inizializzazione, il volume verrà elencato sotto il nodo **Volumi** nel riquadro **Ambito**. Se non viene visualizzato il volume elencato, aggiornare l'elenco dei volumi (fare clic con il pulsante destro del mouse sul nodo **Volumi**, quindi fare clic su **Aggiorna**).
 
@@ -125,7 +125,7 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
    
    1. Nella casella di testo **Nome** , digitare un nome per il volume clonato. Questo nome verrà visualizzato nel nodo **Volumi** . 
    2. (Facoltativo) Selezionare **Unità**, quindi selezionare la lettera di un’unità dall'elenco a discesa. 
-   3. (Facoltativo) Selezionare **Cartella (NTFS)**, quindi digitare il percorso di una cartella o fare clic su **Sfoglia** e selezionare un percorso per la cartella. 
+   3. (Facoltativo) Selezionare **Cartella (NTFS)** , quindi digitare il percorso di una cartella o fare clic su **Sfoglia** e selezionare un percorso per la cartella. 
    4. Fare clic su **Create**(Crea). 
 5. Al termine del processo di clonazione, è necessario inizializzare il volume clonato. Avviare Server Manager, quindi avviare Gestione disco. Per istruzioni dettagliate, vedere [Montaggio volumi](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Al termine dell'inizializzazione, il volume verrà elencato sotto il nodo **Volumi** nel riquadro **Ambito**. 
    

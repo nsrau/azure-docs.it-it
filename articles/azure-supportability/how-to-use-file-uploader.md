@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 949d6b00b4e04921ea745dd4efa1b8a58c49f534
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60995645"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Linee guida dell'utilità Caricamento file per le nuove richieste di supporto di Microsoft Azure
@@ -43,7 +43,7 @@ Per l'uso dell'utilità Caricamento file, seguire queste indicazioni:
 | 7z         | dat  | hwl        | odx  | rar     | tdb       | xlam   |
 | a          | db   | ics        | oft  | rdl     | tdf       | xlr    |
 | abc        | DMP  | ini        | old  | rdlc    | text      | xls    |
-| adm        | do_  | java       | one  | re_     | thmx      | xlsb   |
+| adm        | do_  | .java       | one  | re_     | thmx      | xlsb   |
 | aspx       | doc  | jpg        | osd  | reg     | tif       | xlsm   |
 | ATF        | docm | LDF        | OUT  | remove  | trc       | xlsx   |
 | b          | docx | letterhead | p1   | ren     | TTD       | xlt    |
@@ -59,7 +59,7 @@ Per l'uso dell'utilità Caricamento file, seguire queste indicazioni:
 | compressed | evt  | mpg        | pptx | stp     | wdb       | z02    |
 | Config     | evtx | ms_        | prn  | svclog  | wks       | zi     |
 | cpk        | EX   | msg        | psf  |   -       | wma       | zi_    |
-| cpp        | ex_  | msi        | pst  |  -        | wmv       | zip    |
+| .cpp        | ex_  | msi        | pst  |  -        | wmv       | zip    |
 | cs         | ex0  | mso        | pub  | -         | wmz       | zip_   |
 | CSV        | FRD  | msu        | -      |-          | wps       | zipp   |
 | cvr        | gif  | nfo        | -      |-          | wpt       | zipped |

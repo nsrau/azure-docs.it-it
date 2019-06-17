@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
 ms.openlocfilehash: b83368b913bf1303b49e3a56e3a15248af222cbe
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002059"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Visualizzare le metriche di costo chiave con i dashboard
@@ -233,7 +233,7 @@ Questo dashboard visualizza le indicazioni sulla riduzione delle dimensioni, le 
 Questo widget visualizza il numero di consigli per l'acquisto di istanze riservate ed evidenzia il potenziale risparmio annuale.
 - Fare clic sul widget per aprire il calcolatore di istanze riservate in cui è possibile determinare quando usare i piani tariffari on demand o riservati.
 
-### <a name="sizing"></a>Dimensionamento
+### <a name="sizing"></a>Ridimensionamento
 Questo widget evidenzia il ridimensionamento consigliato e il risparmio potenziale, se implementato.
 - Fare clic sul widget per aprire il report EC2 Cost Effective Sizing Recommendations (Consigli per il ridimensionamento effettivo dei costi EC2).
 

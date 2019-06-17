@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
 ms.openlocfilehash: 65ce9e7d298131486ae4e5f3584c7975ca81e1ab
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64684253"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher
@@ -51,34 +51,34 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 
 | Tipo di errore | `Reason` | Log|
 |---|---|---|
-| NoFault | Nessun errore rilevato |Sì|
-| GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No |
-| PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione  |No |
-| UserDrivenUpdate | Questo errore si verifica quando è in corso l'aggiornamento utente. L’aggiornamento potrebbe essere di un'operazione di ridimensionamento. | No  |
-| VipUnResponsive | Questo errore si verifica quando l'istanza primaria del gateway non può essere raggiunta a causa di un errore di integrità probe. | No  |
-| PlatformInActive | Si è verificato un errore con la piattaforma. | No |
-| ServiceNotRunning | Il servizio sottostante non è in esecuzione. | No |
-| NoConnectionsFoundForGateway | Nessuna connessione sul gateway. Questo errore è solo un avviso.| No |
-| ConnectionsNotConnected | Le connessioni non sono connesse. Questo errore è solo un avviso.| Sì|
-| GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Sì |
+| NoFault | Nessun errore rilevato |Yes|
+| GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No|
+| PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione  |No|
+| UserDrivenUpdate | Questo errore si verifica quando è in corso l'aggiornamento utente. L’aggiornamento potrebbe essere di un'operazione di ridimensionamento. | No |
+| VipUnResponsive | Questo errore si verifica quando l'istanza primaria del gateway non può essere raggiunta a causa di un errore di integrità probe. | No |
+| PlatformInActive | Si è verificato un errore con la piattaforma. | No|
+| ServiceNotRunning | Il servizio sottostante non è in esecuzione. | No|
+| NoConnectionsFoundForGateway | Nessuna connessione sul gateway. Questo errore è solo un avviso.| No|
+| ConnectionsNotConnected | Le connessioni non sono connesse. Questo errore è solo un avviso.| Yes|
+| GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Yes |
 
 ### <a name="connection"></a>Connessione
 
 | Tipo di errore | `Reason` | Log|
 |---|---|---|
-| NoFault | Nessun errore rilevato |Sì|
-| GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No |
-| PlannedMaintenance | L'istanza del gateway è in fase di manutenzione  |No |
-| UserDrivenUpdate | Questo errore si verifica quando è in corso l'aggiornamento utente. L’aggiornamento potrebbe essere di un'operazione di ridimensionamento.  | No  |
-| VipUnResponsive | Questo errore si verifica quando l'istanza primaria del gateway non può essere raggiunta a causa di un errore di integrità probe. | No  |
-| ConnectionEntityNotFound | Configurazione della connessione non presente | No  |
-| ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected" |No |
-| ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Sì |
-| ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Sì|
-| Authentication | Mancata corrispondenza della chiave precondivisa | Sì|
-| PeerReachability | Il gateway peer non è raggiungibile. | Sì|
-| IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Sì|
-| WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Sì|
+| NoFault | Nessun errore rilevato |Yes|
+| GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No|
+| PlannedMaintenance | L'istanza del gateway è in fase di manutenzione  |No|
+| UserDrivenUpdate | Questo errore si verifica quando è in corso l'aggiornamento utente. L’aggiornamento potrebbe essere di un'operazione di ridimensionamento.  | No |
+| VipUnResponsive | Questo errore si verifica quando l'istanza primaria del gateway non può essere raggiunta a causa di un errore di integrità probe. | No |
+| ConnectionEntityNotFound | Configurazione della connessione non presente | No |
+| ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected" |No|
+| ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Yes |
+| ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Yes|
+| Authentication | Mancata corrispondenza della chiave precondivisa | Yes|
+| PeerReachability | Il gateway peer non è raggiungibile. | Yes|
+| IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Yes|
+| WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Yes|
 
 ## <a name="supported-gateway-types"></a>Tipi di gateway supportati
 

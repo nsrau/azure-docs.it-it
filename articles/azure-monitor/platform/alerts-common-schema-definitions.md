@@ -9,10 +9,10 @@ ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: e29a1f5d1e258ab66540010dc12f9326b8fd57a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60775747"
 ---
 # <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
@@ -76,11 +76,11 @@ Qualsiasi istanza di avviso descrive **la risorsa che è stata interessata** e *
 
 ## <a name="essentials-fields"></a>Campi riga "essentials"
 
-| Campo | DESCRIZIONE|
+| Campo | Descrizione|
 |:---|:---|
 | alertId | GUID che identifica l'istanza di avviso. |
 | alertRule | Nome della regola di avviso che ha generato l'istanza di avviso. |
-| Gravità | Gravità dell'avviso Valori possibili: Sev0, Sev1, Sev2, Sev3, Sev4 |
+| Severity | Gravità dell'avviso Valori possibili: Sev0, Sev1, Sev2, Sev3, Sev4 |
 | signalType | Identifica il segnale in cui è stata definita la regola di avviso. Valori possibili: Metriche, Log, Log di attività |
 | monitorCondition | Quando viene generato un avviso, condizione di monitoraggio dell'avviso è impostato su 'Attivato'. Quando si cancella la condizione sottostante che ha causato l'avviso venga generato, la condizione del monitoraggio è impostata su 'Risolto'.   |
 | monitoringService | Il servizio di monitoraggio o una soluzione che ha generato l'avviso. I campi per il contesto dell'avviso dipendono dal servizio di monitoraggio. |

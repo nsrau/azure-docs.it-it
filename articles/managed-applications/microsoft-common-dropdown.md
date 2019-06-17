@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: e78fa419b067c0bad48229dcfd8d4e986fc16903
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62117302"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Elemento Microsoft.Common.DropDown dell'interfaccia utente
@@ -51,7 +51,7 @@ Controllo di selezione con elenco a discesa.
 }
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 - L'etichetta per `constraints.allowedValues` è il testo visualizzato per un elemento e il rispettivo valore è il valore di output dell'elemento in caso di selezione.
 - Se specificato, il valore predefinito deve essere un'etichetta presente in `constraints.allowedValues`. Se non è specificato, viene selezionato il primo elemento in `constraints.allowedValues`. Il valore predefinito è **null**.

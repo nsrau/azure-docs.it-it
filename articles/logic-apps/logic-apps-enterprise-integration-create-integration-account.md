@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
 ms.openlocfilehash: 43ecdafac4f0a5cdc9e619537cdbe2a42ff7fe1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60999612"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Creare e gestire account di integrazione per soluzioni B2B con le app per la logica
@@ -59,7 +59,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
    | Gruppo di risorse | Sì | test-integration-account-rg | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare le risorse correlate. Per questo esempio, creare un nuovo gruppo di risorse con il nome specificato. | 
    | Piano tariffario | Sì | Gratuito | Piano tariffario che si vuole usare. Per questo esempio, selezionare **Gratuito**, ma per altre informazioni, vedere [Limiti e configurazione di App per la logica](../logic-apps/logic-apps-limits-and-config.md) e [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/). | 
    | Località | Sì | Stati Uniti occidentali | Area in cui archiviare le informazioni sull'account di integrazione. Selezionare la stessa posizione dell'app per la logica oppure creare un'app per la logica nella stessa posizione dell'account di integrazione. | 
-   | Area di lavoro Log Analytics | No  | Off | Lasciare l'impostazione **No** per la registrazione diagnostica. | 
+   | Area di lavoro Log Analytics | No | Off | Lasciare l'impostazione **No** per la registrazione diagnostica. | 
    ||||| 
 
 4. Selezionare quindi **Aggiungi al dashboard** e scegliere **Crea**.
@@ -125,7 +125,7 @@ Per collegare l'app per la logica a un altro account di integrazione o smettere 
    },
    ```
 
-   Ad esempio: 
+   Ad esempio:
 
    ![Trovare la definizione della proprietà "integrationAccount"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 

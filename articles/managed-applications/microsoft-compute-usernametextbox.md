@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 88ab13329a719ba1e1b8a7b5fba2f7a2d381eca2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251370"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64700849"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Elemento Microsoft.Compute.UserNameTextBox dell'interfaccia utente
 Controllo casella di testo con convalida predefinita per i nomi utente di Windows e Linux.
@@ -43,7 +43,7 @@ Controllo casella di testo con convalida predefinita per i nomi utente di Window
 }
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 - Se `constraints.required` è impostato su **true**, perché la convalida abbia esito positivo la casella di testo deve avere un valore. Il valore predefinito è **true**.
 - È necessario specificare `osPlatform`, che può essere **Windows** o **Linux**.
 - `constraints.regex` è un modello di espressione regolare di JavaScript. Se specificato, perché la convalida venga abbia esito positivo il valore della casella di testo deve corrispondere al modello. Il valore predefinito è **null**.
