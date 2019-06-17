@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 37e42b05046be27254d2ceb15a59fbdb931ae161
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711919"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usare l'acquisizione di pacchetti per il monitoraggio proattivo della rete con avvisi e Funzioni di Azure
@@ -81,10 +81,10 @@ Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avvi
     |**Sottoscrizione**|[Sottoscrizione] sottoscrizione in cui creare l'app per le funzioni.||
     |**Gruppo di risorse**|PacketCaptureRG|Nome del gruppo di risorse che conterrà l'app per le funzioni.|
     |**Piano di hosting**|Piano a consumo| Tipo di piano usato dall'app per le funzioni. Le opzioni sono Consumo e Piano di servizio app di Azure. |
-    |**Posizione**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
+    |**Location**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
     |**Storage Account**|{generato automaticamente}| Account di archiviazione richiesto da Funzioni di Azure per l'archiviazione di uso generico.|
 
-3. Nel pannello delle app per le funzioni **PacketCaptureExample** selezionare **Funzioni** > **Funzione personalizzata** >**+**.
+3. Nel pannello delle app per le funzioni **PacketCaptureExample** selezionare **Funzioni** > **Funzione personalizzata** > **+** .
 
 4. Selezionare **HttpTrigger-Powershell** e quindi immettere le informazioni rimanenti. Selezionare infine **Crea** per creare la funzione.
 
@@ -208,7 +208,7 @@ L'ID client è l'ID applicazione di un'applicazione in Azure Active Directory.
    > [!NOTE]
    > La password usata per la creazione dell'applicazione deve essere la stessa creata in precedenza durante il salvataggio del file di chiave.
 
-1. Nel portale di Azure selezionare **Sottoscrizioni**. Selezionare la sottoscrizione da usare e quindi fare clic su **Controllo di accesso (IAM)**.
+1. Nel portale di Azure selezionare **Sottoscrizioni**. Selezionare la sottoscrizione da usare e quindi fare clic su **Controllo di accesso (IAM)** .
 
     ![IAM delle funzioni][functions9]
 

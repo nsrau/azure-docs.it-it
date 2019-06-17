@@ -8,10 +8,10 @@ ms.date: 05/30/2019
 ms.topic: article
 ms.service: azure-app-configuration
 ms.openlocfilehash: 601124aef37d2b285db71130f5c63b3620c7768f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735647"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reazione a eventi di configurazione delle App di Azure
@@ -37,9 +37,9 @@ Griglia di eventi usa le [sottoscrizioni di eventi](../event-grid/concepts.md#ev
 ## <a name="event-schema"></a>Schema di eventi
 Eventi di configurazione delle App di Azure contengono tutte le informazioni che necessarie per rispondere alle modifiche nei dati. È possibile identificare un evento di configurazione app perché la proprietà eventType inizia con "Microsoft.AppConfiguration". Informazioni aggiuntive sull'utilizzo delle proprietà degli eventi di Griglia di eventi sono disponibili nello [schema di eventi di Griglia di eventi](../event-grid/event-schema.md).  
 
-> |Proprietà|Type|Descrizione|
+> |Proprietà|Type|DESCRIZIONE|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |argomento|string|Id Azure Resource Manager completo della configurazione di app che genera l'evento.|
+> |topic|string|Id Azure Resource Manager completo della configurazione di app che genera l'evento.|
 > |subject|string|L'URI della chiave-valore che rappresenta l'oggetto dell'evento.|
 > |eventTime|string|Data/ora che è stato generato l'evento, in formato ISO 8601.|
 > |eventType|string|"Microsoft.AppConfiguration.KeyValueModified" o "Microsoft.AppConfiguration.KeyValueDeleted".|

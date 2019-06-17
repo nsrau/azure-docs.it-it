@@ -11,10 +11,10 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: sajagtap
 ms.openlocfilehash: b7ec997fd3e9bfe294050893d80fd57a96a47aae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61270004"
 ---
 # <a name="content-moderator-review-tool"></a>Strumento di revisione di moderatore del contenuto
@@ -23,7 +23,7 @@ Azure Content Moderator fornisce servizi per combinare moderazione dei contenuti
 
 ![Il dashboard di strumento di revisione in un browser](./images/0-dashboard.png)
 
-## <a name="what-it-does"></a>Risultato
+## <a name="what-it-does"></a>Descrizione
 
 Il [strumento di revisione](https://contentmoderator.cognitive.microsoft.com), quando usate in combinazione con la moderazione automatica le API, è possibile eseguire le attività seguenti nel processo di moderazione dei contenuti:
 

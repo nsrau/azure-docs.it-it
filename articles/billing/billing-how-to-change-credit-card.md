@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 3/13/2019
 ms.author: banders
 ms.openlocfilehash: b910cb3061b1451ea80b9843e2aa4047a784548f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60918732"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Aggiungere, aggiornare o rimuovere una carta di credito o di debito per Azure
@@ -44,12 +44,12 @@ Nel portale di Azure, è possibile aggiungere una nuova carta di credito, aggior
 
     ![Screenshot che mostra l'opzione Gestisci i metodi di pagamento selezionata.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. Nell'angolo superiore sinistro, seleziona "+" per aggiungere una carta. Sulla destra verrà visualizzato un form di carta di credito.
+1. Nell'angolo in alto a sinistra selezionare "+" per aggiungere una carta. A destra verrà visualizzato un modulo per la carta di credito.
 1. Immettere i dettagli della carta di credito o di debito.
 
     ![Screenshot che mostra l'aggiunta di una nuova scheda.](./media/billing-how-to-change-credit-card/sub-add-new-x.png)
 
-1. Rendere questo metodo di pagamento attivo di schede, selezionare la casella accanto a **imposta il metodo di pagamento attivo** sopra il modulo. Questa scheda diventerà lo strumento di pagamento attivo per tutte le sottoscrizioni che usano la stessa scheda come la sottoscrizione selezionata.
+1. Rendere questo metodo di pagamento attivo di schede, selezionare la casella accanto a **imposta il metodo di pagamento attivo** sopra il modulo. Questa carta diventerà lo strumento di pagamento attivo per tutte le sottoscrizioni che usano la stessa carta della sottoscrizione selezionata.
 
 1. Selezionare **Avanti**.
 
@@ -68,7 +68,7 @@ Se la carta di credito viene rinnovata e il numero rimane invariato, aggiornare 
 
     ![Screenshot che mostra l'opzione Gestisci i metodi di pagamento selezionata.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. Fare clic sulla carta di credito o debito che si desidera modificare. Sulla destra verrà visualizzato un form di carta di credito.
+1. Fare clic sulla carta di credito o di debito da modificare. A destra verrà visualizzato un modulo per la carta di credito.
 
     ![Screenshot che mostra una carta di credito o debito selezionato.](./media/billing-how-to-change-credit-card/edit-card-x.png)
 
@@ -104,7 +104,7 @@ Se più di una delle sottoscrizioni hanno lo stesso metodo di pagamento attivo, 
 
     ![Screenshot che mostra l'opzione Gestisci i metodi di pagamento selezionata.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. Selezionare la casella accanto alla carta che si desidera rimuovere.
+1. Selezionare la casella accanto alla carta da rimuovere.
 1. Fare clic su **Elimina**.
 
 Se la carta di credito è il metodo di pagamento attivo per tutte le sottoscrizioni di Microsoft, sarà possibile rimuoverlo dal proprio account Azure. Modificare il metodo di pagamento attivo per tutti gli abbonamenti collegati a questa carta di credito o debito e riprovare

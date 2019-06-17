@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea1e47939913435b5b7040c0e6d01b1208d709d3
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 355e61fdfd9847e54a4bd13ac3b0f2d416c05812
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962891"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111951"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso di Microsoft identity platform
 
@@ -204,7 +204,7 @@ La logica di business dell'applicazione richiede questo passaggio e di seguito s
 * Convalidare lo stato dell'autenticazione del client chiamante mediante `appidacr` -, non dovrebbe essere 0 se i client pubblici non sono autorizzati a chiamare l'API.
 * Eseguire una verifica con un elenco di precedenza `nonce` attestazioni verificare il token non è in corso di riesecuzione.
 * Controllare che `tid` corrisponda a un tenant autorizzato a chiamare l'API.
-* Usare l'attestazione `acr` per verificare che l'utente abbia eseguito l'autenticazione a più fattori. Ciò deve essere applicato usando l'[accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Usare l'attestazione `acr` per verificare che l'utente abbia eseguito l'autenticazione a più fattori. Questo deve essere attuato utilizzando [accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Se hai richiesto la `roles` o `groups` attestazioni nel token di accesso, verificare che l'utente sia presente il gruppo può eseguire questa azione.
   * Per i token recuperati tramite il flusso implicito, sarà probabilmente necessario eseguire una query su [Microsoft Graph](https://developer.microsoft.com/graph/) per ottenere questi dati, in quanto in genere le dimensioni sono troppo grandi per l'inserimento nel token.
 
@@ -237,8 +237,8 @@ Aggiornare i token possono essere invalidati o revocati in qualsiasi momento, pe
 | Utente esegue SSPR | Revocato | Revocato | Rimarrà attivo | Rimarrà attivo | Rimarrà attivo |
 | Amministratore reimposta password | Revocato | Revocato | Rimarrà attivo | Rimarrà attivo | Rimarrà attivo |
 | Utente revoca token di aggiornamento [tramite PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revocato | Revocato | Revocato | Revocato | Revocato |
-| Amministrazione revoca tutti i token di aggiornamento per il tenant [tramite PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revocato | Revocato |Revocato | Revocato | Revocata |
-| [Single Sign-Out](v1-protocols-openid-connect-code.md#single-sign-out) nel Web | Revocata | Rimarrà attivo | Revocato | Rimarrà attivo | Rimarrà attivo |
+| Amministrazione revoca tutti i token di aggiornamento per il tenant [tramite PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revocato | Revocato |Revocato | Revocato | Revocato |
+| [Single Sign-Out](v1-protocols-openid-connect-code.md#single-sign-out) nel Web | Revocato | Rimarrà attivo | Revocato | Rimarrà attivo | Rimarrà attivo |
 
 > [!NOTE]
 > Un accesso "Non basato su password" si ha quando l'utente non digita alcuna password per accedere. Ad esempio, con il riconoscimento facciale di Windows Hello, una chiave FIDO o un PIN.

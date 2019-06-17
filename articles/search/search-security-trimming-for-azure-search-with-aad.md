@@ -10,10 +10,10 @@ ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61282212"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtri di sicurezza per limitare i risultati di Ricerca di Azure usando le identità di Active Directory
@@ -43,7 +43,7 @@ Anche l'applicazione in uso deve essere registrata con AAD, come descritto nella
 
 Questo passaggio integra l'applicazione in uso con AAD allo scopo di accettare gli accessi di account di gruppi e utenti. Se non si è un amministratore AAD all'interno dell'organizzazione, potrebbe essere necessario [creare un nuovo tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) per eseguire la procedura seguente.
 
-1. Passare al [**portale di registrazione delle applicazioni**](https://apps.dev.microsoft.com) >  **Converged app (App con convergenza)** > **Aggiungi un'app**.
+1. Passare al [**portale di registrazione delle applicazioni**](https://apps.dev.microsoft.com) >  **Converged app (App con convergenza)**  > **Aggiungi un'app**.
 2. Immettere un nome per l'applicazione e quindi fare clic su **Crea**. 
 3. Selezionare l'applicazione appena registrata nella pagina Applicazioni personali.
 4. Nella pagina di registrazione dell'applicazione > **Piattaforme** > **Aggiungi piattaforma**, scegliere **API Web**.
@@ -187,7 +187,7 @@ La risposta include un elenco filtrato dei documenti, costituito da quelli che l
 
 In questa procedura dettagliata sono state illustrate le tecniche per l'uso degli accessi ad AAD per filtrare i documenti nei risultati di Ricerca di Azure, limitando i risultati relativi ai documenti che non corrispondono al filtro specificato nella richiesta.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Controllo degli accessi in base all'identità tramite i filtri di Ricerca di Azure](search-security-trimming-for-azure-search.md)
 + [Filtri in Ricerca di Azure](search-filters.md)

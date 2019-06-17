@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 39a757900b4307d702a0ce0ce1c20694418aa8dd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872828"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Come per l'esecuzione di funzioni permanenti come processi Web
@@ -53,9 +53,9 @@ Questo articolo illustra come sviluppare un progetto di WebJobs SDK 2.x (equival
 
 Per eseguire funzioni permanenti come processi Web, è innanzitutto necessario creare un'app console. Un progetto di WebJobs SDK è semplicemente un progetto di app console con i pacchetti NuGet appropriati installati.
 
-In Visual Studio **nuovo progetto** finestra di dialogo **Desktop classico di Windows** > **App Console (.NET Framework)**. Nel file di progetto `TargetFrameworkVersion` deve essere `v4.6.1`.
+In Visual Studio **nuovo progetto** finestra di dialogo **Desktop classico di Windows** > **App Console (.NET Framework)** . Nel file di progetto `TargetFrameworkVersion` deve essere `v4.6.1`.
 
-Visual Studio include anche un modello di progetto processo Web, che è possibile usare selezionando **Cloud** > **processo Web di Azure (.NET Framework)**. Questo modello comporta l'installazione di molti pacchetti, alcuni dei quali potrebbero non essere necessari.
+Visual Studio include anche un modello di progetto processo Web, che è possibile usare selezionando **Cloud** > **processo Web di Azure (.NET Framework)** . Questo modello comporta l'installazione di molti pacchetti, alcuni dei quali potrebbero non essere necessari.
 
 ## <a name="install-nuget-packages"></a>Installare i pacchetti NuGet
 
@@ -222,7 +222,7 @@ Questo articolo illustra come sviluppare un progetto di WebJobs SDK versione 2.x
 
 La principale modifica introdotta è l'uso di .NET Core invece di .NET Framework. Per creare un progetto di WebJobs SDK 3.x, le istruzioni sono gli stessi, con le seguenti eccezioni:
 
-1. Creare un'app console di .NET Core. In Visual Studio **nuovo progetto** finestra di dialogo **.NET Core** > **App Console (.NET Core)**. Il file di progetto specifica che `TargetFramework` è `netcoreapp2.x`.
+1. Creare un'app console di .NET Core. In Visual Studio **nuovo progetto** finestra di dialogo **.NET Core** > **App Console (.NET Core)** . Il file di progetto specifica che `TargetFramework` è `netcoreapp2.x`.
 
 1. Scegliere la versione di WebJobs SDK 3.x dei pacchetti seguenti:
 

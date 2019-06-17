@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: ad7d4dceefcaa06effa6b2974b0a8a03ad641372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60794017"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Copertura per il traffico in Mappe di Azure
@@ -105,8 +105,8 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 |Ucraina     |✓         |✓         |
 |Regno Unito     |✓         |✓         |
 |+Gibilterra     |✓         |✓         |
-|+ Guernsey & Jersey     |✓         |✓         |
-|+ Isola di Man     |✓         |✓         |
+|\+ Guernsey & Jersey     |✓         |✓         |
+|\+ Isola di Man     |✓         |✓         |
 |Città del Vaticano   |✓         |✓         |
 
 

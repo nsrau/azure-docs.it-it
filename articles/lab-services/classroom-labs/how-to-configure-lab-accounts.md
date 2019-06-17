@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
 ms.openlocfilehash: ba469c038f04a31a57e798b97b5120bec573feae
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65414050"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Configurare gli account del lab in Azure Lab Services 
@@ -59,7 +59,7 @@ Ecco alcune limitazioni quando si specifica l'intervallo di indirizzi è necessa
 - Se viene eseguito il peering di una rete virtuale per l'account del lab, l'intervallo di indirizzi specificati non può sovrapporsi all'intervallo di indirizzi da rete virtuale con peering.
 
 1. Nel **Account del Lab** pagina, selezionare **configurazione Labs** nel menu a sinistra.
-2. Per il **intervallo di indirizzi** , specificare l'intervallo di indirizzi per le macchine virtuali che verranno create nell'ambiente di laboratorio. L'intervallo di indirizzi deve essere nella notazione classless interdomain routing (CIDR) (esempio: 10.20.0.0/23). Le macchine virtuali nel lab verrà create in questo intervallo di indirizzi.
+2. Per il **intervallo di indirizzi** , specificare l'intervallo di indirizzi per le macchine virtuali che verranno create nell'ambiente di laboratorio. L'intervallo di indirizzi deve essere nella notazione CIDR (Classless Interdomain Routing). Ad esempio: 10.20.0.0/23. Le macchine virtuali nel lab verranno create in questo intervallo di indirizzi.
 3. Sulla barra degli strumenti selezionare **Salva**. 
 
     ![Configurare l'intervallo di indirizzi](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)

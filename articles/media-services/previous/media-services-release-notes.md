@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991906"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
@@ -409,7 +409,7 @@ Per altre informazioni su queste modifiche, vedere: [Azure Media Services .NET S
 Nella versione 3.0.0.3 sono state apportate le modifiche seguenti:
 
 * Le dipendenze dell'archiviazione di Azure sono state aggiornate per usare la versione 3.0.3.0.
-* È stato risolto un problema relativo alla compatibilità con le versioni precedenti per le versioni 3.0.*.* risolto.
+* È stato risolto un problema relativo alla compatibilità con le versioni precedenti per le versioni 3.0. *.* risolto.
 
 ## <a id="december_changes_13"></a>Versione di dicembre 2013
 ### <a name="dec_13_donnet_changes"></a>Media Services .NET SDK 3.0.0.0

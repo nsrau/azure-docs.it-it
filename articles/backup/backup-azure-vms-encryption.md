@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
 ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61216978"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Eseguire il backup e ripristino della macchina virtuale crittografata di Azure
@@ -32,8 +32,8 @@ Backup di Azure può eseguire il backup e ripristino di macchine virtuali di Azu
 
 **Tipo di disco VM** | **ADE (BEK/dm-crypt)** | **ADE e KEK**
 --- | --- | ---
-**non gestito** | Sì | Sì
-**Gestito**  | Sì | Sì
+**non gestito** | Yes | Yes
+**Gestito**  | Yes | Yes
 
 - Altre informazioni sulle [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md), e [scambio](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/).
 - Leggere il [domande frequenti su](../security/azure-security-disk-encryption-faq.md) per crittografia dischi di macchina virtuale di Azure.
@@ -134,7 +134,7 @@ Per impostare le autorizzazioni:
 
     ![Selezione del servizio di backup](./media/backup-azure-vms-encryption/select-backup-service.png)
 
-6. Nelle **criteri di accesso Add** > **Configura dal modello (facoltativo)**, selezionare **Backup di Azure**.
+6. Nelle **criteri di accesso Add** > **Configura dal modello (facoltativo)** , selezionare **Backup di Azure**.
     - Le autorizzazioni necessarie sono precompilate per **Autorizzazioni chiave** e **Autorizzazioni segrete**.
     - Se la macchina virtuale viene crittografata usando **solo con BEK**, rimuovere la selezione per **autorizzazioni chiave** poiché è necessario solo le autorizzazioni per i segreti.
 

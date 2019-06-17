@@ -8,14 +8,13 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-origin.date: 02/18/2019
-ms.date: 03/04/2019
-ms.author: v-junlch
+ms.date: 02/18/2019
+ms.author: cshoe
 ms.openlocfilehash: 3865f748a9ca2fe09660d6454542d64f73a8e3c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61020963"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
@@ -24,7 +23,7 @@ In questo articolo descrive i concetti generali che circondano funzioni trigger 
 
 I trigger sono le cause di una funzione da eseguire. Un trigger definisce come viene richiamata una funzione e una funzione deve avere esattamente un trigger. I trigger sono associati dati, che viene spesso forniti come il payload della funzione. 
 
-Associazione a una funzione è una modalità di connessione in modo dichiarativo un'altra risorsa rispetto alla funzione. le associazioni possono essere connessi come *associazioni di input*, *le associazioni di output*, o entrambi. I dati di binding viene forniti alla funzione come parametri.
+Associazione a una funzione è una modalità di connessione in modo dichiarativo un'altra risorsa rispetto alla funzione. le associazioni possono essere connessi come *associazioni di input*, *le associazioni di output*, o entrambi. I dati dei binding vengono forniti alla funzione come parametri.
 
 È possibile combinare e associare le associazioni diverse in base alle esigenze. Le associazioni sono facoltative e una funzione può avere uno o più input e/o le associazioni di output.
 
@@ -34,10 +33,10 @@ Considerare i seguenti esempi di come si può implementare diverse funzioni.
 
 | Scenario di esempio | Trigger | Associazione di input | Associazione di output |
 |-------------|---------|---------------|----------------|
-| Un nuovo messaggio di arrivo che esegue una funzione per scrivere in un'altra coda. | Queue<sup>*</sup> | *Nessuno* | Queue<sup>*</sup> |
+| Un nuovo messaggio di arrivo che esegue una funzione per scrivere in un'altra coda. | Queue<sup>*</sup> | *None* | Queue<sup>*</sup> |
 |Un processo pianificato legge il contenuto di archiviazione Blob e crea un nuovo documento di Cosmos DB. | Timer | Archiviazione BLOB | Cosmos DB |
 |Griglia di eventi consente di leggere un'immagine dall'archiviazione Blob e un documento da Cosmos DB per inviare un messaggio di posta elettronica. | Griglia di eventi | Archiviazione BLOB e Cosmos DB | SendGrid |
-| Un webhook che usa Microsoft Graph per aggiornare un foglio di Excel. | HTTP | *Nessuno* | Microsoft Graph |
+| Un webhook che usa Microsoft Graph per aggiornare un foglio di Excel. | HTTP | *None* | Microsoft Graph |
 
 <sup>\*</sup> Rappresenta diverse code
 
@@ -97,5 +96,3 @@ Per informazioni sulle associazioni in anteprima o approvate per l'uso in ambien
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > [Registrare le estensioni delle associazioni di funzioni di Azure](./functions-bindings-register.md)
-
-<!-- Update_Description: wording update -->

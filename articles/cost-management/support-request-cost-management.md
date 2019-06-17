@@ -11,17 +11,17 @@ ms.service: cost-management
 manager: benshy
 ms.custom: ''
 ms.openlocfilehash: 2553d08b55aff45e52b9d8c5a64db141a668eb62
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967122"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Creare una richiesta di supporto per Cloudyn
 
 È possibile aprire una richiesta di supporto se non è possibile trovare le informazioni che si sta cercando oppure se si sospetta che un problema sia dovuto a un'interruzione del servizio o a un bug. Quando si apre un ticket di supporto, assicurarsi di aprirlo per un singolo problema. Ciò consente di indirizzare velocemente il problema segnalato.
 
-## <a name="open-a-support-ticket"></a>Apri un ticket di supporto
+## <a name="open-a-support-ticket"></a>Aprire un ticket di supporto
 
 1. Accedere al portale di Azure (https://portal.azure.com).
 2. Fare clic su **?** sulla barra di spostamento in alto.

@@ -16,10 +16,10 @@ ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955703"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
@@ -53,7 +53,7 @@ Usare la tabella seguente per informazioni sulla configurazione del certificato.
 | Nome host di dominio di tipo naked | Se qui si specifica il dominio radice, si ottiene un certificato che protegge *entrambi* il dominio radice e il sottodominio `www`. Per proteggere solo un sottodominio, specificare qui il nome di dominio completo del sottodominio, ad esempio `mysubdomain.contoso.com`. |
 | Sottoscrizione | Data center in cui è ospitata l'app Web. |
 | Gruppo di risorse | Gruppo di risorse che contiene il certificato. È possibile usare un nuovo gruppo di risorse o selezionare lo stesso gruppo di risorse, ad esempio, dell'app del servizio app. |
-| SKU del certificato | Determina il tipo di certificato da creare, se si tratta di un certificato standard o di un [certificato con caratteri jolly](https://wikipedia.org/wiki/Wildcard_certificate). |
+| Certificato SKU | Determina il tipo di certificato da creare, se si tratta di un certificato standard o di un [certificato con caratteri jolly](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Note legali | Fare clic per confermare che si accettano le condizioni legali. Vengono ottenuti i certificati di GoDaddy. |
 
 ## <a name="store-in-azure-key-vault"></a>Archiviare il certificato in Azure Key Vault
@@ -70,7 +70,7 @@ Nella pagina **Stato insieme di credenziali delle chiavi** fare clic su **Reposi
 
 | Impostazione | DESCRIZIONE |
 |-|-|
-| NOME | Nome univoco costituito da caratteri alfanumerici e trattini. |
+| Name | Nome univoco costituito da caratteri alfanumerici e trattini. |
 | Gruppo di risorse | È consigliabile selezionare lo stesso gruppo di risorse del certificato del servizio app. |
 | Località | Selezionare la stessa località dell'app del servizio app. |
 | Piano tariffario | Per altre informazioni, vedere [Prezzi di Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
@@ -97,9 +97,9 @@ Selezionare **Verifica del servizio app**. Poiché è già stato eseguito il map
 
 ## <a name="bind-certificate-to-app"></a>Associare un certificato all'app
 
-Nel menu a sinistra nel **[portale di Azure](https://portal.azure.com/)** scegliere **Servizi app** > **\<app>**.
+Nel menu a sinistra nel **[portale di Azure](https://portal.azure.com/)** scegliere **Servizi app** >  **\<app>** .
 
-Dalla barra di spostamento a sinistra dell'app selezionare **impostazioni SSL** > **Certificati privati (.pfx)** > **Importa il certificato del servizio app**.
+Dalla barra di spostamento a sinistra dell'app selezionare **impostazioni SSL** > **Certificati privati (.pfx)**  > **Importa il certificato del servizio app**.
 
 ![inserimento immagine dell'importazione del certificato](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
@@ -136,7 +136,7 @@ Una volta completata l'operazione di reimpostazione delle chiavi, fare clic su *
 > [!NOTE]
 > Se non si sceglie **sincronizzazione**, servizio App esegue automaticamente la sincronizzazione del certificato entro 48 ore.
 
-## <a name="renew-certificate"></a>Rinnova certificato
+## <a name="renew-certificate"></a>Certificato da rinnovare
 
 Per attivare il rinnovo automatico del certificato in qualsiasi momento, selezionare il certificato nella pagina [Certificati del servizio app](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e quindi fare clic su **Impostazioni di rinnovo automatico** nel riquadro di spostamento a sinistra.
 

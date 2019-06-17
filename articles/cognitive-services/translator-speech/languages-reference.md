@@ -12,10 +12,10 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827902"
 ---
 # <a name="translator-speech-api-languages"></a>API Traduzione vocale: Languages
@@ -132,13 +132,13 @@ Langagues { speech (oggetto, facoltativo), text (oggetto, facoltativo), tts (ogg
 
 ### <a name="headers"></a>Headers
 
-|Intestazione|DESCRIZIONE|Type|
+|Intestazione|Descrizione|Type|
 :--|:--|:--|
 X-RequestId|Valore generato dal server per identificare la richiesta e usato per la risoluzione dei problemi.|string|
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|DESCRIZIONE|Tipo di parametro|Tipo di dati|
+|Parametro|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|
 |api-version    |Versione dell'API richiesta dal client. I valori consentiti sono: `1.0`.|query|string|
 |scope  |Set di lingue o voci supportate da restituire al client. Questo parametro viene specificato come elenco di parole chiave delimitato da virgole. Sono disponibili le parole chiave seguenti:<ul><li>`speech`: fornisce il set di lingue supportate per la trascrizione di contenuti vocali.</li><li>`tts`: fornisce il set di voci supportato per la sintesi vocale.</li><li>`text`: fornisce il set di lingue supportate per la traduzione di testo.</li></ul>Se non viene specificato un valore, il valore predefinito di `scope` è `text`.|query|string|

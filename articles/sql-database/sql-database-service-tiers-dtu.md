@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 5/10/2019
 ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546461"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Livelli di servizio nel modello di acquisto basato su DTU
@@ -32,7 +32,7 @@ I livelli di servizio nel modello di acquisto basato su DTU si differenziano in 
 
 La scelta di un livello di servizio dipende soprattutto dai requisiti in termini di continuità aziendale, archiviazione e prestazioni.
 
-||Di base|Standard|Premium|
+||Basic|Standard|Premium|
 | :-- | --: |--:| --:|
 |Carico di lavoro di destinazione|Sviluppo e produzione|Sviluppo e produzione|Sviluppo e produzione|
 |Contratto di servizio relativo al tempo di attività|99,99%|99,99%|99,99%|
@@ -51,7 +51,7 @@ La scelta di un livello di servizio dipende soprattutto dai requisiti in termini
 
 Le dimensioni di calcolo per i database singoli sono espresse in unità di transazione di database (DTU), quelle per i pool elastici sono espresse in unità di transazione di database elastico (eDTU). Per altre informazioni su DTU ed EDTU, vedere [Modello di acquisto basato su DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 
-||Di base|Standard|Premium|
+||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
 | Dimensioni massime di archiviazione | 2 GB | 1 TB | 4 TB  |
 | DTU massime | 5 | 3000 | 4000 | 
@@ -90,7 +90,7 @@ Il benchmark e la relativa metodologia sono descritti con maggiori dettagli più
 
 Il benchmark misura le prestazioni di una combinazione di operazioni di database di base che si verificano con maggiore frequenza in carichi di lavoro di elaborazione di transazioni online (OLTP). Benché il benchmark sia stato progettato tenendo conto del cloud computing, lo schema del database, il popolamento di dati e le transazioni sono stati progettati in modo da rappresentare a grandi linee gli elementi di base usati con maggiore frequenza con carichi di lavoro OLTP.
 
-### <a name="schema"></a>Schema
+### <a name="schema"></a>SCHEMA
 
 Lo schema è progettato in modo da prevedere una varietà e una complessità sufficienti per supportare una vasta gamma di operazioni. Il benchmark viene eseguito a fronte di un database costituito da sei tabelle. Le tabelle rientrano in tre categorie, ovvero a dimensione fissa, ridimensionabili ed espandibili. Sono presenti due tabelle a dimensione fissa, tre tabelle ridimensionabili e una tabella espandibile. Le tabelle a dimensione fissa includono un numero costante di righe. Le tabelle ridimensionabili prevedono una cardinalità proporzionale alle prestazioni del database che però non cambia durante l'esecuzione del benchmark. La tabella espandibile ha le dimensioni di una tabella ridimensionabile con carico iniziale, ma successivamente la cardinalità cambia nel corso dell'esecuzione del benchmark con l'inserimento e l'eliminazione di righe.
 
@@ -120,7 +120,7 @@ Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato n
 
 Le transazioni vengono selezionate casualmente da una distribuzione ponderata con la seguente combinazione globale. La combinazione globale presenta un rapporto di lettura/scrittura di circa 2:1.
 
-| Tipo transazione | % di combinazione |
+| Tipo di transazione | % di combinazione |
 | --- | --- |
 | Operazioni lettura leggere |35 |
 | Operazioni lettura medie |20 |
@@ -156,7 +156,7 @@ Ad esempio, un database con fattore di scala pari a 500 (SF=500) avrà 100 utent
 
 Per l'esecuzione di un benchmark valido è necessaria una durata della misurazione in condizioni stabili di almeno un'ora.
 
-### <a name="metrics"></a>Metriche
+### <a name="metrics"></a>metrics
 
 La metrica di base del benchmark è rappresentata dalla velocità effettiva e dal tempo di risposta.
 
@@ -167,7 +167,7 @@ La metrica di base del benchmark è rappresentata dalla velocità effettiva e da
 | --- | --- | --- |
 | Premium |Transazioni al secondo |95° percentile a 0,5 secondi |
 | Standard |Transazioni al minuto |90° percentile a 1,0 secondi |
-| Di base |Transazioni all'ora |80° percentile a 2,0 secondi |
+| Basic |Transazioni all'ora |80° percentile a 2,0 secondi |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

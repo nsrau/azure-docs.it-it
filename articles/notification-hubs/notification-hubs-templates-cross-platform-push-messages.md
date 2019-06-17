@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 02473eb5649c7d201b6a54fd57faea997c1a21cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60872091"
 ---
 # <a name="templates"></a>Modelli
@@ -131,7 +131,7 @@ I modelli sono limitati ai formati di documento XML o JSON. Inoltre, è possibil
 
 Nella tabella seguente viene descritto il linguaggio consentito nei modelli:
 
-| Espressione       | DESCRIZIONE |
+| Espressione       | Descrizione |
 | ---------------- | --- |
 | $(prop)          | Riferimento a una proprietà di evento con il nome specificato. I nomi delle proprietà non distinguono tra maiuscole e minuscole. Questa espressione viene risolta nel valore di testo della proprietà o in una stringa vuota se la proprietà non è presente. |
 | $(prop, n)       | Come in precedenza, ma il testo viene esplicitamente troncato dopo n caratteri, ad esempio $(title, 20) tronca il contenuto della proprietà del riquadro dopo 20 caratteri. |
@@ -157,7 +157,7 @@ Ad esempio, il modello XML seguente non è valido:
 </tile>
 ```
 
-Come spiegato in precedenza, quando si usa la concatenazione, le espressioni devono essere racchiuse tra parentesi graffe. Ad esempio: 
+Come spiegato in precedenza, quando si usa la concatenazione, le espressioni devono essere racchiuse tra parentesi graffe. Ad esempio:
 
 ```xml
 <tile>

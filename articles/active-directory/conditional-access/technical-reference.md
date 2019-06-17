@@ -1,6 +1,6 @@
 ---
-title: Informazioni di riferimento sulle impostazioni di accesso condizionale di Azure Active Directory | Microsoft Docs
-description: Panoramica delle impostazioni supportate nei criteri di accesso condizionale di Azure Active Directory.
+title: Riferimento alle impostazioni di accesso condizionale di Active Directory Azure | Microsoft Docs
+description: Panoramica delle impostazioni supportate in un criterio di Active Directory accesso condizionale di Azure.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 5919eebccad8d7f9e048ae07be296eaaaf8428eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823557"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112115"
 ---
-# <a name="azure-active-directory-conditional-access-settings-reference"></a>Informazioni di riferimento sulle impostazioni di accesso condizionale di Azure Active Directory
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Fare riferimento a impostazioni di accesso condizionale di Active Directory di Azure
 
-È possibile usare l'[accesso condizionale di Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md) per controllare il modo in cui gli utenti autorizzati possono accedere alle risorse.
+È possibile usare [accesso condizionale di Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md) per controllare il modo in cui gli utenti possono accedere alle risorse.
 
-Questo articolo contiene informazioni di supporto per le opzioni di configurazione seguenti di un criterio di accesso condizionale:
+Questo articolo offre informazioni di supporto per le opzioni di configurazione seguenti nei criteri di accesso condizionale:
 
 - Assegnazioni delle applicazioni cloud
 - Condizione per le piattaforme del dispositivo
@@ -33,13 +33,13 @@ Se queste informazioni non soddisfano le aspettative, lasciare un commento alla 
 
 ## <a name="cloud-apps-assignments"></a>Assegnazioni di app cloud
 
-Grazie ai criteri di accesso condizionale è possibile controllare la modalità di accesso degli utenti alle [app cloud](conditions.md#cloud-apps-and-actions). Quando si configura un criterio di accesso condizionale, è necessario selezionare almeno un'app cloud. 
+Con criteri di accesso condizionale è controllare la modalità di accesso agli utenti di [le app cloud](conditions.md#cloud-apps-and-actions). Quando si configura un criterio di accesso condizionale, è necessario selezionare almeno un'app cloud. 
 
 ![Selezionare le app cloud per il criterio](./media/technical-reference/09.png)
 
 ### <a name="microsoft-cloud-applications"></a>Applicazioni cloud Microsoft
 
-È possibile assegnare un criterio di accesso condizionale alle app cloud seguenti di Microsoft:
+È possibile assegnare un criterio di accesso condizionale per le app cloud seguenti di Microsoft:
 
 - Azure Analysis Services
 - Azure DevOps
@@ -77,7 +77,7 @@ Grazie ai criteri di accesso condizionale è possibile controllare la modalità 
 
 ### <a name="other-applications"></a>Altre applicazioni
 
-Oltre che alle app cloud Microsoft, è possibile assegnare un criterio di accesso condizionale ai tipi seguenti di app cloud:
+Oltre alle App cloud Microsoft, è possibile assegnare un criterio di accesso condizionale per i tipi di App cloud seguenti:
 
 - Applicazioni connesse ad Azure AD
 - Applicazione SaaS (Software as a Service) federata preintegrata
@@ -87,7 +87,7 @@ Oltre che alle app cloud Microsoft, è possibile assegnare un criterio di access
 
 ## <a name="device-platform-condition"></a>Condizione per le piattaforme del dispositivo
 
-In un criterio di accesso condizionale è possibile configurare la condizione per le piattaforme del dispositivo in modo da collegare il criterio al sistema operativo di un client. L'accesso condizionale di Azure AD supporta le piattaforme seguenti per i dispositivi:
+In un criterio di accesso condizionale, è possibile configurare la condizione della piattaforma del dispositivo per collegare il criterio al sistema operativo in un client. Accesso condizionale di Azure AD supporta le piattaforme di dispositivo seguenti:
 
 - Android
 - iOS
@@ -99,7 +99,7 @@ In un criterio di accesso condizionale è possibile configurare la condizione pe
 
 ## <a name="client-apps-condition"></a>Condizione per le app client
 
-Nel criterio di accesso condizionale è possibile configurare le condizioni delle [app client](conditions.md#client-apps) per associare il criterio all'app client che ha avviato un tentativo di accesso. Impostare la condizione per le app client in modo da concedere o bloccare l'accesso quando viene eseguito un tentativo di accesso da questi tipi di app client:
+Nel criterio di accesso condizionale, è possibile configurare il [App client](conditions.md#client-apps) condizione per associare il criterio per l'app client che ha avviato un tentativo di accesso. Impostare la condizione per le app client in modo da concedere o bloccare l'accesso quando viene eseguito un tentativo di accesso da questi tipi di app client:
 
 - Browser
 - App per dispositivi mobili e app desktop
@@ -108,7 +108,7 @@ Nel criterio di accesso condizionale è possibile configurare le condizioni dell
 
 ### <a name="supported-browsers"></a>Browser supportati
 
-Nel criterio di accesso condizionale è possibile selezionare **Browser** come app client.
+Nel criterio di accesso condizionale, è possibile selezionare **browser** come app client.
 
 ![Controllare l'accesso in relazione ai browser supportati](./media/technical-reference/05.png)
 
@@ -141,7 +141,7 @@ Per distribuire automaticamente questa estensione ai browser Chrome, creare la c
 |    |    |
 | --- | --- |
 | `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| NOME | 1 |
+| Name | 1 |
 | Type | REG_SZ (String) |
 | Dati | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
@@ -150,7 +150,7 @@ Per il supporto di Chrome in **Windows 8.1 e 7**, creare la chiave del Registro 
 |    |    |
 | --- | --- |
 | `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| NOME | 1 |
+| Name | 1 |
 | Type | REG_SZ (String) |
 | Dati | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
@@ -158,7 +158,7 @@ Questi browser supportano l'autenticazione del dispositivo, consentendo al dispo
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Applicazioni per dispositivi mobili e client desktop supportati
 
-Nel criterio di accesso condizionale è possibile selezionare **App per dispositivi mobili e client desktop** come app client.
+Nel criterio di accesso condizionale, è possibile selezionare **App per dispositivi mobili e client desktop** come app client.
 
 ![Controllare l'accesso in relazione alle app per dispositivi mobili o ai client desktop supportati](./media/technical-reference/06.png)
 
@@ -194,7 +194,7 @@ Per altre informazioni, vedere la sezione relativa alle [app client](conditions.
 
 ## <a name="approved-client-app-requirement"></a>Requisito per le app client approvate
 
-Nel criterio di accesso condizionale è possibile impostare l'esecuzione dei tentativi di accesso alle app cloud selezionate da un'app client approvata. 
+Nel criterio di accesso condizionale, è possibile richiedere i tentativi di accesso per le app cloud selezionate devono essere effettuate da un'app client approvata. 
 
 ![Controllare l'accesso in relazione alle app client approvate](./media/technical-reference/21.png)
 
@@ -251,8 +251,8 @@ Questa impostazione è valida solo per le app client seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica dell'accesso condizionale, vedere [Accesso condizionale in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
-- Se si è pronti per configurare criteri di accesso condizionale nell'ambiente in uso, vedere [Procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md).
+- Per una panoramica dell'accesso condizionale, vedere [qual è l'accesso condizionale in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+- Se si è pronti a configurare i criteri di accesso condizionale nell'ambiente in uso, vedere la [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md).
 
 <!--Image references-->
 [1]: ./media/technical-reference/01.png

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
 ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66019778"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integrazione continua in Azure DevOps Services con i progetti di distribuzione di tipo Gruppo di risorse di Azure
@@ -111,7 +111,7 @@ Le procedure seguenti consentono di eseguire i passaggi necessari per configurar
    
    | Parametro | Descrizione |
    | --- | --- |
-   | -ResourceGroupLocation |Valore dell'area geografica in cui si trova il gruppo di risorse, ad esempio **eastus** o **'East US'**. Aggiungere virgolette singole se nel nome è presente uno spazio. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |
+   | -ResourceGroupLocation |Valore dell'area geografica in cui si trova il gruppo di risorse, ad esempio **eastus** o **'East US'** . Aggiungere virgolette singole se nel nome è presente uno spazio. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |
    | -ResourceGroupName |Nome del gruppo di risorse usato per la distribuzione. |
    | -UploadArtifacts |Questo parametro, se presente, specifica che gli elementi devono essere caricati in Azure dal sistema locale. È sufficiente impostare questa opzione se la distribuzione del modello richiede elementi aggiuntivi che si prevede di preparare usando lo script di PowerShell, ad esempio gli script di configurazione o i modelli annidati. |
    | -StorageAccountName |Nome dell'account di archiviazione usato per la preparazione degli elementi per questa distribuzione. Questo parametro viene usato solo se si sta eseguendo la gestione temporanea di elementi per la distribuzione. Se questo parametro viene specificato, viene creato un nuovo account di archiviazione, se lo script non ne ha creato uno durante una distribuzione precedente. Se il parametro viene specificato, l'account di archiviazione deve esistere già. |
@@ -172,8 +172,8 @@ Le procedure seguenti consentono di eseguire i passaggi necessari per configurar
    * Azione - selezionare **Creare o aggiornare un gruppo di risorse**
    * Gruppo di risorse: selezionare un gruppo di risorse o immettere il nome del nuovo gruppo di risorse per la distribuzione
    * Posizione: selezionare la posizione per il gruppo di risorse
-   * Modello: immettere il percorso e il nome del modello da distribuire anteponendo **$(Build.StagingDirectory)**, ad esempio: **$(Build.StagingDirectory/DSC-CI/azuredeploy.json)**
-   * Parametri modello: immettere il percorso e il nome dei parametri da usare, anteponendo **$(Build.StagingDirectory)**, ad esempio: **$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)**
+   * Modello: immettere il percorso e il nome del modello da distribuire anteponendo **$(Build.StagingDirectory)** , ad esempio: **$(Build.StagingDirectory/DSC-CI/azuredeploy.json)**
+   * Parametri modello: immettere il percorso e il nome dei parametri da usare, anteponendo **$(Build.StagingDirectory)** , ad esempio: **$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)**
    * Esegui override dei parametri del modello: immettere o copiare e incollare il codice seguente:
      
      ```    

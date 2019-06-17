@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967308"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
@@ -58,8 +58,8 @@ Come illustrato nella tabella seguente, a seconda della scelta dell'API, è poss
 |API SQL|Database|Contenitore|
 |API Azure Cosmos DB per MongoDB|Database|Raccolta|
 |API Cassandra|Keyspace|Tabella|
-|API Gremlin|Account del database|Grafico|
-|API di tabella|Account del database|Tabella|
+|API Gremlin|Account di database|Grafico|
+|API di tabella|Account di database|Tabella|
 
 Con il provisioning della velocità effettiva a livelli diversi, è possibile ottimizzare i costi in base alle caratteristiche del carico di lavoro. Come accennato in precedenza, è possibile aumentare o ridurre la velocità effettiva con provisioning in modo programmatico e in qualsiasi momento per i singoli contenitori o in modo collettivo in un set di contenitori. Il ridimensionamento elastico della velocità effettiva con il cambiare del carico di lavoro consente di pagare solo la velocità effettiva che è stata configurata. Se il contenitore o un set di contenitori viene distribuito tra più aree, la velocità effettiva configurata nel contenitore o in un set di contenitori è garantita come disponibile in tutte le aree.
 
