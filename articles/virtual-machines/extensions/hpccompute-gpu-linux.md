@@ -85,7 +85,7 @@ Tutte le impostazioni sono facoltative. In base al comportamento predefinito, il
 | NOME | Descrizione | Default Value | Valori validi | Tipo di dati |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Aggiorna il kernel anche se non è necessario per l'installazione del driver | false | true, false | boolean |
-| driverVersion | NV: Versione del driver GRID<br> NC/ND: Versione del toolkit CUDA. I driver più recenti del CUDA scelto vengono installati automaticamente. | più recenti | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: Versione del driver GRID<br> NC/ND: Versione del toolkit CUDA. I driver più recenti del CUDA scelto vengono installati automaticamente. | latest | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Installa il toolkit CUDA. Pertinente solo per le macchine virtuali serie NC/ND. | true | true, false | boolean |
 
 
