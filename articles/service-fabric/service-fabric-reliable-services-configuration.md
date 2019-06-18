@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
 ms.openlocfilehash: 8ddb5d0566c57dd1d507d543ac53c0975a83dd43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723556"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurazione di servizi Reliable Services con stato
@@ -28,7 +28,7 @@ Esistono due set di impostazioni di configurazione per i servizi Reliable Servic
 La configurazione globale dei servizi Reliable Services viene specificata nel manifesto del cluster per il cluster nella sezione KtlLogger. Consente di configurare il percorso di log condiviso e la dimensione oltre i limiti di memoria globali utilizzati dal logger. Il manifesto del cluster è un unico file XML che contiene le impostazioni e le configurazioni applicabili a tutti i nodi e ai servizi del cluster. Il file tipicamente si chiama ClusterManifest.xml. È possibile visualizzare il manifesto del cluster utilizzando il comando Powershell Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Nomi delle configurazioni
-| NOME | Unità | Valore predefinito | Osservazioni |
+| NOME | Unità | Valore predefinito | Note |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobyte |8388608 |Numero minimo di KB da allocare in modalità kernel per il pool di memoria del buffer di scrittura del logger. Questo pool di memoria viene utilizzato per il caching delle informazioni sullo stato prima della scrittura su disco. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobyte |Nessun limite |Dimensioni massime raggiungibili dal pool di memoria del buffer di scrittura del logger. |
@@ -59,7 +59,7 @@ Per modificare questa sezione nell'ambiente di sviluppo locale, è necessario mo
    </Section>
 ```
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 Il logger dispone di un pool di memoria globale allocato dalla memoria non di paging del kernel disponibile per tutti i servizi Reliable Services su un nodo per il caching dei dati sullo stato prima che siano scritti sul log dedicato associato alla replica del servizio Reliable Services. La dimensione del pool è controllata dalle impostazioni WriteBufferMemoryPoolMinimumInKB e WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB specifica la dimensione iniziale del pool di memoria e la dimensione minima alla quale è possibile ridurre la memoria. WriteBufferMemoryPoolMaximumInKB è la dimensione massima che può raggiungere il pool di memoria. Ogni replica del servizio Reliable Services aperta può aumentare la dimensione del pool di memoria di una quantità determinata dal sistema, fino a WriteBufferMemoryPoolMaximumInKB. Qualora la domanda per la memoria sia superiore alla disponibilità del pool di memoria, le richieste per la memoria sono ritardate finché la memoria non è disponibile. Pertanto se il pool di memoria del buffer di scrittura è troppo piccolo per una configurazione specifica, le prestazioni potrebbero risentirne.
 
 Le impostazioni SharedLogId e SharedLogPath vengono sempre utilizzate per definire GUID e percorso del log condiviso predefinito per tutti i nodi del cluster. Il log condiviso predefinito viene utilizzato per tutti i servizi Reliable Services che non specificano le impostazioni nel file settings.xml per il servizio specifico. Per ottenere le migliori prestazioni, i file di log condivisi devono essere memorizzati su dischi riservati esclusivamente al file di log condiviso, in modo da ridurre le situazioni di contesa della testina.
@@ -109,7 +109,7 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>Nomi delle configurazioni
-| NOME | Unità | Valore predefinito | Osservazioni |
+| Name | Unità | Valore predefinito | Note |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Secondi |0,015 |Periodo di tempo per cui il replicatore, dopo aver ricevuto un'operazione, attende presso il replicatore secondario prima di inviare un acknowledgement al replicatore principale. Gli altri acknowledgement relativi alle operazioni elaborate all'interno di questo intervallo vengono inviati come risposta unica. |
 | ReplicatorEndpoint |N/D |Nessun valore predefinito: parametro obbligatorio |Indirizzo IP e porta che il replicatore principale/secondario userà per comunicare con altri replicatori nel set di repliche. Deve fare riferimento a un endpoint di risorsa TCP nel manifesto del servizio. Per ulteriori informazioni sulla definizione delle risorse dell'endpoint in un manifesto del servizio, vedere [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md) . |
@@ -180,7 +180,7 @@ class MyStatefulService : StatefulService
 ```
 
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 BatchAcknowledgementInterval controlla la latenza di replica. Il valore '0' determina la latenza più bassa possibile a scapito della velocità effettiva, in quanto è necessario inviare ed elaborare una maggiore quantità di messaggi di acknowledgement, ciascuno dei quali contenente un numero minore di acknowledgement.
 Più alto è il valore di BatchAcknowledgementInterval, maggiore sarà la velocità effettiva di replica complessiva, ma con una latenza delle operazioni più elevata. Questo ha un impatto diretto sulla latenza dei commit delle transazioni.
 

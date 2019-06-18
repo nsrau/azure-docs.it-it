@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 21fbfe22901de677209b55639cd8871ab408375b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719026"
 ---
 # <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
@@ -86,9 +86,9 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 | Dimensione            | Core CPU | Memoria: GiB  | Archivio temporaneo: GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Molto piccola      | 1         | 0,768        | 20                   | 1/bassa |
-| Piccolo           | 1         | 1,75         | 225                  | 1/moderata |
-| Media          | 2         | 3,5          | 490                  | 1/moderata |
-| Grande           | 4         | 7            | 1000                 | 2/alta |
+| Small           | 1         | 1,75         | 225                  | 1/moderata |
+| Media          | 2         | 3.5          | 490                  | 1/moderata |
+| Large           | 4         | 7            | 1000                 | 2/alta |
 | Molto grande      | 8         | 14           | 2040                 | 4/alta |
 | A5              | 2         | 14           | 490                  | 1/moderata |
 | A6              | 4         | 28           | 1000                 | 2/alta |
@@ -122,7 +122,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 ## <a name="d-series"></a>Serie D
 | Dimensione            | Core CPU | Memoria: GiB  | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| Standard_D1     | 1         | 3,5          | 50                   | 1/moderata |
+| Standard_D1     | 1         | 3.5          | 50                   | 1/moderata |
 | Standard_D2     | 2         | 7            | 100                  | 2/alta |
 | Standard_D3     | 4         | 14           | 200                  | 4/alta |
 | Standard_D4     | 8         | 28           | 400                  | 8/alta |
@@ -134,7 +134,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 ## <a name="dv2-series"></a>Serie Dv2
 | Dimensione            | Core CPU | Memoria: GiB  | Archivio temporaneo (unità SSD): GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| Standard_D1_v2  | 1         | 3,5          | 50                   | 1/moderata |
+| Standard_D1_v2  | 1         | 3.5          | 50                   | 1/moderata |
 | Standard_D2_v2  | 2         | 7            | 100                  | 2/alta |
 | Standard_D3_v2  | 4         | 14           | 200                  | 4/alta |
 | Standard_D4_v2  | 8         | 28           | 400                  | 8/alta |
@@ -143,7 +143,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 | Standard_D12_v2 | 4         | 28           | 200                  | 4/alta |
 | Standard_D13_v2 | 8         | 56           | 400                  | 8/alta |
 | Standard_D14_v2 | 16        | 112          | 800                  | 8/estremamente alta |
-| Standard_D15_v2 | 20        | 140          | 1.000                | 8/estremamente alta |
+| Standard_D15_v2 | 20        | 140          | 1\.000                | 8/estremamente alta |
 
 ## <a name="dv3-series"></a>Serie Dv3
 
@@ -184,9 +184,9 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1/alta |
 | Standard_G2     | 4         | 56           | 768                  |2/alta |
-| Standard_G3     | 8         | 112          | 1.536                |4/molto alta |
-| Standard_G4     | 16        | 224          | 3.072                |8/estremamente alta |
-| Standard_G5     | 32        | 448          | 6.144                |8/estremamente alta |
+| Standard_G3     | 8         | 112          | 1\.536                |4/molto alta |
+| Standard_G4     | 16        | 224          | 3,072                |8/estremamente alta |
+| Standard_G5     | 32        | 448          | 6\.144                |8/estremamente alta |
 
 ## <a name="h-series"></a>Serie H
 Le macchine virtuali serie H di Azure sono le VM high performance computing di prossima generazione che puntano a risolvere esigenze di calcolo di fascia alta, come modellazione molecolare e fluidodinamica computazionale. Queste VM a 8 e 16 core sono basate sulla tecnologia del processore Intel Haswell E5-2667 V3 con memoria DDR4 e archiviazione basata su SSD locale.

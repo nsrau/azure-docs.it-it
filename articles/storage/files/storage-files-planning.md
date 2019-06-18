@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237666"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
@@ -115,11 +115,11 @@ Nella tabella seguente illustra alcuni esempi di queste formule per le dimension
 |---------|---------|---------|---------|---------|
 |100         | 100     | Fino a 300     | 66   | 44   |
 |500         | 500     | Massimo di 1.500   | 90   | 60   |
-|1.024       | 1.024   | Fino a 3.072   | 122   | 81   |
+|1\.024       | 1\.024   | Fino a 3.072   | 122   | 81   |
 |5120       | 5120   | Fino a 15,360  | 368   | 245   |
 |10,240      | 10,240  | Fino a 30.720  | 675 | 450   |
 |33,792      | 33,792  | Fino a 100.000 | 2,088 | 1,392   |
-|51,200      | 51,200  | Fino a 100.000 | 3.132 | 2,088   |
+|51,200      | 51,200  | Fino a 100.000 | 3\.132 | 2,088   |
 |102,400     | 100,000 | Fino a 100.000 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>Burst

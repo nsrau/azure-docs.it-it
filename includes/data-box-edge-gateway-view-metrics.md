@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161342"
 ---
 È anche possibile visualizzare le metriche per monitorare le prestazioni del dispositivo e in alcuni casi per la risoluzione dei problemi del dispositivo.
@@ -17,7 +17,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare un grafico per le m
 
 1. Per la risorsa nel portale di Azure, passare a **Monitoraggio > Metrica** e selezionare **Aggiungi metrica**.
 
-    ![Aggiungi metrica](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
+    ![Aggiungere una metrica](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
 
 2. La risorsa viene inserita automaticamente.  
 
@@ -65,4 +65,4 @@ Eseguire i passaggi seguenti nel portale di Azure per creare un grafico per le m
 
 8. Per esportare i dati del grafico in un foglio di calcolo di Excel o ottenere un collegamento al grafico che è possibile condividere, selezionare l'opzione di condivisione dalla barra dei comandi.
 
-    ![Consente di esportare dati](media/data-box-edge-gateway-view-metrics/view-metrics-8.png)
+    ![Esportazione dei dati](media/data-box-edge-gateway-view-metrics/view-metrics-8.png)

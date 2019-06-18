@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 646b862733e8727c9c8729f1ac038fa88cfa0580
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726418"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Usare gli script basati su Azure Resource Manager SDK per gestire i dispositivi StorSimple
@@ -33,7 +33,7 @@ Gli script di esempio seguenti sono disponibili per l'automazione di diversi pro
 
 #### <a name="table-of-azure-resource-manager-sdk-based-sample-scripts"></a>Tabella degli script di esempio basati su Azure Resource Manager SDK
 
-| Script di Azure Resource Manager                    | DESCRIZIONE                                                                                                                                                                                                       |
+| Script di Azure Resource Manager                    | Descrizione                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Authorize-ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | Questo script consente di autorizzare il dispositivo StorSimple a modificare la chiave di crittografia dei dati del servizio.                                                                                                           |
 | [Create-StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | Questo script crea un'appliance cloud StorSimple 8010 o 8020. L'appliance cloud può essere quindi configurata e registrata con il servizio Gestore dati StorSimple.                                                       |

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024436"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Creare un indice di base in Ricerca di Azure
@@ -146,7 +146,7 @@ La [*raccolta campi*](#fields-collection) in genere costituisce la maggior parte
 Quando si definisce lo schema, è necessario specificare il nome, tipo e gli attributi di ogni campo nell'indice. Il tipo di campo classifica i dati archiviati in quel campo. Gli attributi sono impostati nei singoli campi per specificare come viene usato il campo. La tabella seguente enumera gli attributi che è possibile specificare.
 
 ### <a name="data-types"></a>Tipi di dati
-| Type | DESCRIZIONE |
+| Type | Descrizione |
 | --- | --- |
 | *Edm.String* |Testo facoltativamente soggetto a tokenizzazione per la ricerca full-text (suddivisione delle parole, stemming e così via). |
 | *Collection(Edm.String)* |Elenco di stringhe facoltativamente soggette a tokenizzazione per la ricerca full-text. Non esiste alcun limite superiore teorico al numero di elementi in una raccolta, ma alle raccolte si applica il limite massimo di 16 MB di dimensioni del payload. |
@@ -160,7 +160,7 @@ Quando si definisce lo schema, è necessario specificare il nome, tipo e gli att
 È possibile trovare altre informazioni sui [tipi di dati supportati di Ricerca di Azure qui](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="index-attributes"></a>Attributi dell'indice
-| Attributo | DESCRIZIONE |
+| Attributo | Descrizione |
 | --- | --- |
 | *Chiave* |Stringa che fornisce l'ID univoco di ogni documento, usata per la ricerca di documenti. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostata su Edm.String. |
 | *Recuperabile* |Specifica se il campo può essere restituito nel risultato di una ricerca. |
@@ -179,7 +179,7 @@ L'indice è basato sul [immobiliare incorporati esempio](search-get-started-port
 
 ![Dimensioni dell'indice in base alla selezione dell'attributo](./media/search-what-is-an-index/realestate-index-size.png "Dimensioni dell'indice in base alla selezione dell'attributo")
 
-Sebbene queste varianti di indice siano artificiali, è possibile farvi riferimento per una considerazione generale sul modo in cui gli attributi influiscono sull'archiviazione. L'impostazione **recuperabile** aumenta le dimensioni dell'indice?  No. L'aggiunta di campi a uno **Strumento suggerimenti** aumenta le dimensioni dell'indice? Sì.
+Sebbene queste varianti di indice siano artificiali, è possibile farvi riferimento per una considerazione generale sul modo in cui gli attributi influiscono sull'archiviazione. L'impostazione **recuperabile** aumenta le dimensioni dell'indice? No. L'aggiunta di campi a uno **Strumento suggerimenti** aumenta le dimensioni dell'indice? Sì.
 
 Gli indici che supportano filtro e ordinamento sono proporzionalmente più grandi rispetto agli indici che supportano soltanto la ricerca full-text. Questo avviene perché filtro e ordinamento eseguono query su corrispondenze esatte in modo che i documenti siano archiviati senza alterazioni. Al contrario, i campi ricercabili che supportano la ricerca full-text e fuzzy usano indici invertiti, popolati con termini in formato token che consumano meno spazio rispetto a documenti interi.
 

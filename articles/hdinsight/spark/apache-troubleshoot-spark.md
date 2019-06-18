@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: a4dc7293c00097c7a5752e29bf7c9a203cbb31a5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721163"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache Spark tramite Azure HDInsight
@@ -82,7 +82,7 @@ I valori di configurazione di Spark è possibile ottimizzare consentono di evita
 
 Queste modifiche si applicano a tutto il cluster ma è possibile eseguirne l'override quando si invia il processo Spark.
 
-### <a name="additional-reading"></a>Informazioni aggiuntive
+### <a name="additional-reading"></a>Altre informazioni
 
 [Invio del processo Apache Spark nei cluster HDInsight](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
@@ -96,7 +96,7 @@ Queste modifiche si applicano a tutto il cluster ma è possibile eseguirne l'ove
 
     ![Aggiungere una configurazione](./media/apache-troubleshoot-spark/add-configuration-cell.png)
 
-### <a name="additional-reading"></a>Informazioni aggiuntive
+### <a name="additional-reading"></a>Altre informazioni
 
 [Invio del processo Apache Spark nei cluster HDInsight](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
@@ -113,7 +113,7 @@ Queste modifiche si applicano a tutto il cluster ma è possibile eseguirne l'ove
     curl -k --user 'username:password' -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://container@storageaccountname.blob.core.windows.net/example/jars/sparkapplication.jar", "className":"com.microsoft.spark.application", "numExecutors":4, "executorMemory":"4g", "executorCores":2, "driverMemory":"8g", "driverCores":4}'  
     ```
 
-### <a name="additional-reading"></a>Informazioni aggiuntive
+### <a name="additional-reading"></a>Altre informazioni
 
 [Invio del processo Apache Spark nei cluster HDInsight](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
@@ -129,7 +129,7 @@ Queste modifiche si applicano a tutto il cluster ma è possibile eseguirne l'ove
     spark-submit --master yarn-cluster --class com.microsoft.spark.application --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4 /home/user/spark/sparkapplication.jar
     ```
 
-### <a name="additional-reading"></a>Informazioni aggiuntive
+### <a name="additional-reading"></a>Altre informazioni
 
 [Invio del processo Apache Spark nei cluster HDInsight](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
@@ -213,7 +213,7 @@ La causa più probabile per questa eccezione è costituita dall'allocazione di m
     spark.driver.memory + spark.yarn.driver.memoryOverhead
     ```
 
-### <a name="additional-reading"></a>Informazioni aggiuntive
+### <a name="additional-reading"></a>Altre informazioni
 
 - [Apache Spark memory management overview](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview) (Panoramica della gestione della memoria Apache Spark)
 - [Debug an Apache Spark application on an HDInsight cluster](https://web.archive.org/web/20190112152909/ https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/) (Eseguire il debug di un'applicazione Apache Spark in un cluster HDInsight)

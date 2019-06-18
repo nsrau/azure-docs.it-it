@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: 20729d1e73dd0ff9010201a1c6597b616b364a09
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66149682"
 ---
 ### <a name="prerequisites"></a>Prerequisiti
@@ -18,12 +18,12 @@ Prima di poter usare l'account Office 365 Video in un'app per la logica, è nece
 
 Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Office 365 Video:  
 
-1. Per creare una connessione a Office 365 Video, nella finestra di progettazione dell'app per la logica, selezionare **Show Microsoft managed APIs** (Mostra API gestite da Microsoft) nell'elenco a discesa, quindi immettere *Office 365 Video* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:   
+1. Per creare una connessione a Office 365 Video, nella finestra di progettazione dell'app per la logica, selezionare **Show Microsoft managed APIs** (Mostra API gestite da Microsoft) nell'elenco a discesa, quindi immettere *Office 365 Video* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:  
    ![Passaggio di creazione della connessione a Office 365 Video](./media/connectors-create-api-office365video/office365video-1.png)  
-2. Se non sono mai state create connessioni a Office 365 Video prima d'ora, verrà chiesto di fornire le credenziali di Office 365 Video. Queste credenziali verranno usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati dell'account Office 365 Video:   
+2. Se non sono mai state create connessioni a Office 365 Video prima d'ora, verrà chiesto di fornire le credenziali di Office 365 Video. Queste credenziali verranno usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati dell'account Office 365 Video:  
    ![Passaggio di creazione della connessione a Office 365 Video](./media/connectors-create-api-office365video/office365video-2.png)  
-3. Fornire le credenziali per connettersi a Office 365 Video:   
+3. Fornire le credenziali per connettersi a Office 365 Video:  
    ![Passaggio di creazione della connessione a Office 365 Video](./media/connectors-create-api-office365video/office365video-3.png)  
-4. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
+4. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:  
    ![Passaggio di creazione della connessione a Office 365 Video](./media/connectors-create-api-office365video/office365video-4.png)  
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 4b75b2cbd629204e7edbf1196eec9b03cb7a6736
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943147"
 ---
 <a name="web-analytics"></a>Web Analytics
@@ -54,7 +54,7 @@ Ad esempio, è possibile usare: <https://appsource.microsoft.com/product/dynamic
 
 È possibile scegliere una combinazione di più di questi ID campagna per identificare ulteriormente più origini del traffico per la campagna, come la risorsa da cui proviene il cliente (e-mail, blog, social media e così via).
 
-Ad esempio: 
+Ad esempio:
 
 1. Referrer newsletter: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
 2. Referrer LinkedIn: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
@@ -63,7 +63,7 @@ Ad esempio:
 
 Uno scenario possibile è quello in cui le campagne usano una pagina intermedia a cui viene indirizzato il traffico, da cui i clienti vengono inviati al marketplace. È importante passare attraverso gli ID campagna iniziali fino all'URL finale di invio al marketplace.
 
-Di seguito è fornito un esempio: 
+Di seguito è fornito un esempio:
 
 1. Un dipendente di marketing acquista annunci da Google per indirizzare il traffico verso la pagina di destinazione dell'azienda <https://contoso.com>. Questa pagina di destinazione contiene un collegamento per \"provare il prodotto\" che rimanda a <https://appsource.com>.
 2. Un utente fa clic sull'annuncio e accede alla pagina di destinazione dell'azienda.
@@ -71,7 +71,7 @@ Di seguito è fornito un esempio:
     2.  URL della pagina di destinazione = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. L'utente fa clic sul collegamento per \"provare il prodotto\" e accede ad AppSource.
     1. URL del referrer = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. URL della pagina di destinazione (**assicurarsi che questo URL includa utm\_campaign e utm\_source aggiunto a questo URL**) = [https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername? **utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. URL della pagina di destinazione (**assicurarsi che questo URL includa utm\_campaign e utm\_source aggiunto a questo URL**) = [https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername? **utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Come valutare il successo di una campagna
 -----------------------------------------

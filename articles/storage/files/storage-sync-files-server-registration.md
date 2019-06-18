@@ -9,10 +9,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ef6def9f03a880d9fc8d649fe226caf597ba0ad5
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991833"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gestire i server registrati con Sincronizzazione file di Azure
@@ -152,7 +152,7 @@ Dopo che tutti i dati sono stati richiamati e il server è stato rimosso da tutt
 1. Nel portale di Azure passare alla sezione *Server registrati* del servizio di sincronizzazione archiviazione.
 2. Fare clic con il pulsante destro del mouse sul server per cui si vuole annullare la registrazione e fare clic su "Annulla registrazione server".
 
-    ![Annulla registrazione server](media/storage-sync-files-server-registration/unregister-server-1.png)
+    ![Annullare la registrazione del server](media/storage-sync-files-server-registration/unregister-server-1.png)
 
 ## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>Corretta integrazione di Sincronizzazione file di Azure nel data center 
 Dato che Sincronizzazione file di Azure raramente è l'unico servizio in esecuzione nel data center, potrebbe essere opportuno limitarne l'utilizzo della rete e dello spazio di archiviazione.
@@ -188,7 +188,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ### <a name="use-windows-server-storage-qos"></a>Usare QoS di archiviazione di Windows Server 
 Quando il servizio Sincronizzazione file di Azure è ospitato in una macchina virtuale eseguita in un host di virtualizzazione Windows Server, è possibile usare QoS (Quality of Service) di archiviazione per regolamentare l'utilizzo di I/O di archiviazione. I criteri QoS di archiviazione possono essere impostati come massimo o limite (come il limite StorageSyncNetwork applicato sopra) oppure come minimo o prenotazione. Impostando un minimo anziché un massimo, Sincronizzazione file di Azure potrà potenziare l'uso della larghezza di banda di archiviazione disponibile se non viene usata da altri carichi di lavoro. Per altre informazioni, vedere [QoS di archiviazione](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
 - [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
 - [Monitorare Sincronizzazione file di Azure](storage-sync-files-monitoring.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pabutler
 ms.openlocfilehash: 702be34a5be69c050b809713a5742c2189892a27
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943330"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Creare un'offerta di app Power BI
@@ -20,7 +20,7 @@ Questo articolo indica i passaggi da seguire per creare una nuova offerta di app
 
 I gruppi di asset sono descritti nella tabella seguente:
 
-|   Gruppo di asset      | DESCRIZIONE                                                                         |
+|   Gruppo di asset      | Descrizione                                                                         |
 | ----------------   | ----------------                                                                    |
 | Impostazioni dell'offerta     | Identificatori principali e nome dell'offerta.                                      |
 | Informazioni tecniche     | URL del programma di installazione usato per installare l'app nell'area di lavoro di Power BI del client. Per altre informazioni su come generare questo URL, vedere la [documentazione relativa alle app Power BI](https://go.microsoft.com/fwlink/?linkid=2028636). |

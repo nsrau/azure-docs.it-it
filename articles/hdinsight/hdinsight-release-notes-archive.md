@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 95a530ea57237453a3b0d7d8dd42963f4b9c3dde
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713051"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Note sulla versione di Azure HDInsight
@@ -638,7 +638,7 @@ Questa versione fornisce Ranger 0.7.0 e le patch di Apache seguenti:
 
 -   [RANGER-2008](https://issues.apache.org/jira/browse/RANGER-2008): La valutazione dei criteri non riesce per le condizioni dei criteri su più righe.
 
-### <a name="slider"></a>Dispositivo di scorrimento
+### <a name="slider"></a>Slider
 
 Questa versione fornisce Slider 0.92.0 con nessuna patch Apache aggiuntiva.
 
@@ -822,73 +822,73 @@ Questa sezione descrive tutte le CVE (Common Vulnerabilities and Exposures) che 
 
 ### <a name="cve-2017-7676"></a>**CVE-2017-7676**
 
-| **Riepilogo:** la valutazione dei criteri di Apache Ranger ignora i caratteri dopo il carattere jolly '\*' |
+| **Riepilogo:**  la valutazione dei criteri di Apache Ranger ignora i caratteri dopo il carattere jolly '\*' |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Gravità:** critica                                                                           |
-| **Fornitore:** Hortonworks                                                                          |
-| **Versioni interessate:** versioni di HDInsight 3.6 incluse le versioni 0.5.x/0.6.x/0.7.0 di Apache Ranger     |
-| **Utenti interessati:** ambienti che usano i criteri Ranger con i caratteri dopo il carattere jolly '\*', ad esempio my\*test, test\*.txt |
-| **Impatto:** il matcher della risorsa criteri ignora i caratteri dopo il carattere jolly '\*' che potrebbero causare comportamenti imprevisti.      |
-| **Dettaglio della correzione:** il matcher della risorsa criteri Ranger è stato aggiornato per gestire correttamente le corrispondenze con i caratteri jolly.           |
-| **Azione consigliata:** eseguire l'aggiornamento a HDI 3.6 (con Apache Ranger 0.7.1+).                                |
+| **Gravità:**  critica                                                                           |
+| **Fornitore:**  Hortonworks                                                                          |
+| **Versioni interessate:**  versioni di HDInsight 3.6 incluse le versioni 0.5.x/0.6.x/0.7.0 di Apache Ranger     |
+| **Utenti interessati:**  ambienti che usano i criteri Ranger con i caratteri dopo il carattere jolly '\*', ad esempio my\*test, test\*.txt |
+| **Impatto:**  il matcher della risorsa criteri ignora i caratteri dopo il carattere jolly '\*' che potrebbero causare comportamenti imprevisti.      |
+| **Dettaglio della correzione:**  il matcher della risorsa criteri Ranger è stato aggiornato per gestire correttamente le corrispondenze con i caratteri jolly.           |
+| **Azione consigliata:**  eseguire l'aggiornamento a HDI 3.6 (con Apache Ranger 0.7.1+).                                |
 
 ### <a name="cve-2017-7677"></a>**CVE-2017-7677**
 
-| **Riepilogo:** Apache Ranger Hive Authorizer deve controllare l'autorizzazione RWX quando viene specificato un percorso esterno |
+| **Riepilogo:**  Apache Ranger Hive Authorizer deve controllare l'autorizzazione RWX quando viene specificato un percorso esterno |
 |--------------------------------------------------------------------------------------------------|
-| **Gravità:** critica                                                                           |
-| **Fornitore:** Hortonworks                                                                          |
-| **Versioni interessate:** versioni di HDInsight 3.6 incluse le versioni 0.5.x/0.6.x/0.7.0 di Apache Ranger |
-| **Utenti interessati:** ambienti che usano una posizione esterna per le tabelle hive. |
-| **Impatto:** negli ambienti che usano la posizione esterna per le tabelle hive, Apache Ranger Hive Authorizer deve controllare l'autorizzazione RWX per il percorso esterno specificato per creare una tabella. |
-| **Dettaglio della correzione:** Ranger Hive Authorizer è stato aggiornato per poter gestire correttamente il controllo delle autorizzazioni con la posizione esterna. |
-| **Azione consigliata:** gli utenti devono eseguire l'aggiornamento a HDI 3.6 (con Apache Ranger 0.7.1+). |
+| **Gravità:**  critica                                                                           |
+| **Fornitore:**  Hortonworks                                                                          |
+| **Versioni interessate:**  versioni di HDInsight 3.6 incluse le versioni 0.5.x/0.6.x/0.7.0 di Apache Ranger |
+| **Utenti interessati:**  ambienti che usano una posizione esterna per le tabelle hive. |
+| **Impatto:**  negli ambienti che usano la posizione esterna per le tabelle hive, Apache Ranger Hive Authorizer deve controllare l'autorizzazione RWX per il percorso esterno specificato per creare una tabella. |
+| **Dettaglio della correzione:**  Ranger Hive Authorizer è stato aggiornato per poter gestire correttamente il controllo delle autorizzazioni con la posizione esterna. |
+| **Azione consigliata:**  gli utenti devono eseguire l'aggiornamento a HDI 3.6 (con Apache Ranger 0.7.1+). |
 
 ### <a name="cve-2017-9799"></a>**CVE-2017-9799**
 
-| **Riepilogo:** potenziale esecuzione di codice come utente non corretto in Apache Storm |
+| **Riepilogo:**  potenziale esecuzione di codice come utente non corretto in Apache Storm |
 |--------------------------------------------------------------------------------------------------|
-|**Gravità:** importante |
-| **Fornitore:** Hortonworks |
-| **Versioni interessate:** HDP 2.4.0, HDP 2.5.0, HDP 2.6.0 |
-| **Utenti interessati:** gli utenti che usano Storm in modalità protetta e usano l'archivio BLOB per distribuire elementi basati sulla topologia o che usano l'archivio BLOB per distribuire le risorse di topologia. |
-| **Impatto:** in alcune situazioni e configurazioni di Storm è teoricamente possibile per il proprietario di una topologia ingannare il supervisore in modo che avvii un ruolo di lavoro come utente diverso, non ROOT. Nel peggiore dei casi, questo potrebbe causare la compromissione delle credenziali protette dell'altro utente. Questa vulnerabilità si applica solo alle installazioni di Apache Storm con la sicurezza abilitata. |
-| **Mitigazione dei rischi:** eseguire l'aggiornamento a HDP 2.6.2.1 in quanto non esistono attualmente soluzioni alternative.  |
+|**Gravità:**  importante |
+| **Fornitore:**  Hortonworks |
+| **Versioni interessate:**  HDP 2.4.0, HDP 2.5.0, HDP 2.6.0 |
+| **Utenti interessati:**  gli utenti che usano Storm in modalità protetta e usano l'archivio BLOB per distribuire elementi basati sulla topologia o che usano l'archivio BLOB per distribuire le risorse di topologia. |
+| **Impatto:**  in alcune situazioni e configurazioni di Storm è teoricamente possibile per il proprietario di una topologia ingannare il supervisore in modo che avvii un ruolo di lavoro come utente diverso, non ROOT. Nel peggiore dei casi, questo potrebbe causare la compromissione delle credenziali protette dell'altro utente. Questa vulnerabilità si applica solo alle installazioni di Apache Storm con la sicurezza abilitata. |
+| **Mitigazione dei rischi:**  eseguire l'aggiornamento a HDP 2.6.2.1 in quanto non esistono attualmente soluzioni alternative.  |
 
 ### <a name="cve-2016-4970"></a>**CVE-2016-4970**
 
-| **Riepilogo:** handler/ssl/OpenSslEngine.java in Netty 4.0.x precedente a 4.0.37.Final e 4.1.x precedente a 4.1.1.Final consente agli utenti malintenzionati remoti di causare un attacco Denial of Service (ciclo infinito) |
+| **Riepilogo:**  handler/ssl/OpenSslEngine.java in Netty 4.0.x precedente a 4.0.37.Final e 4.1.x precedente a 4.1.1.Final consente agli utenti malintenzionati remoti di causare un attacco Denial of Service (ciclo infinito) |
 |--------------------------------------------------------------------------------------------------|
 | **Gravità:** Moderata  |
-| **Fornitore:** Hortonworks  |
-| **Versioni interessate:** HDP 2.x.x dopo 2.3.x  |
-| **Utenti interessati:** tutti gli utenti che usano Hadoop Distributed File System (HDFS). |
-| **Impatto:** impatto basso poiché Hortonworks non usa OpenSslEngine.java direttamente nella codebase di Hadoop.     |
-| **Azione consigliata:** eseguire l'aggiornamento a HDP 2.6.3.   |
+| **Fornitore:**  Hortonworks  |
+| **Versioni interessate:**  HDP 2.x.x dopo 2.3.x  |
+| **Utenti interessati:**  tutti gli utenti che usano Hadoop Distributed File System (HDFS). |
+| **Impatto:**  impatto basso poiché Hortonworks non usa OpenSslEngine.java direttamente nella codebase di Hadoop.     |
+| **Azione consigliata:**  eseguire l'aggiornamento a HDP 2.6.3.   |
 
 ### <a name="cve-2016-8746"></a>**CVE-2016-8746**
 
-| **Riepilogo:** problema di corrispondenza percorso Apache Ranger nella valutazione dei criteri                                                                    |
+| **Riepilogo:**  problema di corrispondenza percorso Apache Ranger nella valutazione dei criteri                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
-| **Gravità:** normale                                                                                                                   |
+| **Gravità:**  normale                                                                                                                   |
 | **Fornitore:** Hortonworks                                                                                                                |
-| **Versioni interessate:** tutte le versioni di HDP 2.5 incluse le versioni 0.6.0/0.6.1/0.6.2 di Apache Ranger                                         |
-| **Utenti interessati:** tutti gli utenti dello strumento di amministrazione di criteri di Ranger.                                                                         |
-| **Impatto:** il motore dei criteri di Ranger mette in corrispondenza in modo non corretto i percorsi in determinate condizioni quando alcuni criteri contengono caratteri jolly e flag ricorsivi. |
+| **Versioni interessate:**  tutte le versioni di HDP 2.5 incluse le versioni 0.6.0/0.6.1/0.6.2 di Apache Ranger                                         |
+| **Utenti interessati:**  tutti gli utenti dello strumento di amministrazione di criteri di Ranger.                                                                         |
+| **Impatto:**  il motore dei criteri di Ranger mette in corrispondenza in modo non corretto i percorsi in determinate condizioni quando alcuni criteri contengono caratteri jolly e flag ricorsivi. |
 | **Dettagli della correzione:** corretta la logica di valutazione dei criteri                                                                                          |
-| **Azione consigliata:** gli utenti devono eseguire l'aggiornamento a HDP 2.5.4+ (con Apache Ranger 0.6.3+) o a HDP 2.6+ (con Apache Ranger 0.7.0+).         |
+| **Azione consigliata:**  gli utenti devono eseguire l'aggiornamento a HDP 2.5.4+ (con Apache Ranger 0.6.3+) o a HDP 2.6+ (con Apache Ranger 0.7.0+).         |
 
 ### <a name="cve-2016-8751"></a>**CVE-2016-8751**
 
-| **Riepilogo:** problema di Apache Ranger di scripting archiviato tra siti  |
+| **Riepilogo:**  problema di Apache Ranger di scripting archiviato tra siti  |
 |--------------------------------------------------------------------------------------------------|
-| **Gravità:** normale |
-| **Fornitore:** Hortonworks |
-| **Versioni interessate:** tutte le versioni di HDP 2.3/2.4/2.5 incluse le versioni 0.5.x/0.6.0/0.6.1/0.6.2 di Apache Ranger  |
-| **Utenti interessati:** tutti gli utenti dello strumento di amministrazione di criteri di Ranger. |
-| **Impatto:** Apache Ranger è vulnerabile a uno scripting archiviato tra siti quando si immettono le condizioni dei criteri personalizzati. Gli utenti amministratori possono archiviare alcune esecuzioni di codice javascript arbitrario quando gli utenti normali si collegano e accedono ai criteri. |
-| **Dettaglio della correzione:** aggiunta di logica per purificare l'input dell'utente.  |
-| **Azione consigliata:** gli utenti devono eseguire l'aggiornamento a HDP 2.5.4+ (con Apache Ranger 0.6.3+) o a HDP 2.6+ (con Apache Ranger 0.7.0+).  |
+| **Gravità:**  normale |
+| **Fornitore:**  Hortonworks |
+| **Versioni interessate:**  tutte le versioni di HDP 2.3/2.4/2.5 incluse le versioni 0.5.x/0.6.0/0.6.1/0.6.2 di Apache Ranger  |
+| **Utenti interessati:**  tutti gli utenti dello strumento di amministrazione di criteri di Ranger. |
+| **Impatto:**  Apache Ranger è vulnerabile a uno scripting archiviato tra siti quando si immettono le condizioni dei criteri personalizzati. Gli utenti amministratori possono archiviare alcune esecuzioni di codice javascript arbitrario quando gli utenti normali si collegano e accedono ai criteri. |
+| **Dettaglio della correzione:**  aggiunta di logica per purificare l'input dell'utente.  |
+| **Azione consigliata:**  gli utenti devono eseguire l'aggiornamento a HDP 2.5.4+ (con Apache Ranger 0.6.3+) o a HDP 2.6+ (con Apache Ranger 0.7.0+).  |
 
 ## <a name="fixed-issues-for-support"></a>Problemi risolti per il supporto
 
@@ -896,7 +896,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
 
 **Risultati non corretti**
 
-| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                                                                                                                                                                | **Summary**                                                                                                            |
+| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                                                                                                                                                                | **Riepilogo**                                                                                                            |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | BUG-100019             | [YARN-8145](https://issues.apache.org/jira/browse/YARN-8145)                                                                                                                                                                                                                   | yarn rmadmin - getGroups non restituisce i gruppi aggiornati per l'utente                                                         |
 | BUG-100058             | [PHOENIX-2645](https://issues.apache.org/jira/browse/PHOENIX-2645)                                                                                                                                                                                                             | I caratteri jolly non corrispondono a caratteri di nuova riga                                                                    |
@@ -930,7 +930,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
 
 **Altri**
 
-| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                        | **Summary**                                                                                                                                |
+| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                        | **Riepilogo**                                                                                                                                |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | BUG-100267             | [HBASE-17170](https://issues.apache.org/jira/browse/HBASE-17170)                                                                       | HBase ripete anche il tentativo DoNotRetryIOException a causa delle differenze del caricatore di classe.                                                          |
 | BUG-92367              | [YARN-7558](https://issues.apache.org/jira/browse/YARN-7558)                                                                           | Il comando "yarn logs" non riesce a ottenere i log dei contenitori in esecuzione se è abilitata l'autenticazione dell'interfaccia utente.                                              |
@@ -946,7 +946,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
 
 **Prestazioni**
 
-| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                                                                                                                                                                                                                                                                                                                                                              | **Summary**                                                                                                                         |
+| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                                                                                                                                                                                                                                                                                                                                                              | **Riepilogo**                                                                                                                         |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | BUG-83282              | [HBASE-13376](https://issues.apache.org/jira/browse/HBASE-13376), [HBASE-14473](https://issues.apache.org/jira/browse/HBASE-14473), [HBASE-15210](https://issues.apache.org/jira/browse/HBASE-15210), [HBASE-15515](https://issues.apache.org/jira/browse/HBASE-15515), [HBASE-16570](https://issues.apache.org/jira/browse/HBASE-16570), [HBASE-16810](https://issues.apache.org/jira/browse/HBASE-16810), [HBASE-18164](https://issues.apache.org/jira/browse/HBASE-18164) | Calcolo veloce località del bilanciamento                                                                                               |
 | BUG-91300              | [HBASE-17387](https://issues.apache.org/jira/browse/HBASE-17387)                                                                                                                                                                                                                                                                                                                                                                                                             | Riduzione dell'overhead del report delle eccezioni in RegionActionResult per multi ()                                                           |
@@ -970,7 +970,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
 
 **Potenziale perdita di dati**
 
-| **ID Bug di Hortonworks** | **Apache JIRA**                                                  | **Summary**                                                       |
+| **ID Bug di Hortonworks** | **Apache JIRA**                                                  | **Riepilogo**                                                       |
 |------------------------|------------------------------------------------------------------|-------------------------------------------------------------------|
 | BUG-95613              | [HBASE-18808](https://issues.apache.org/jira/browse/HBASE-18808) | Archiviazione della configurazione inefficace in BackupLogCleaner\#getDeletableFiles() |
 | BUG-97051              | [HIVE-17403](https://issues.apache.org/jira/browse/HIVE-17403)   | Concatenazione non riuscita delle tabelle non gestite e transazionali         |
@@ -979,7 +979,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
 
 **Errore di query**
 
-| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                        | **Summary**                                                                                            |
+| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                        | **Riepilogo**                                                                                            |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | BUG-100180             | [CALCITE-2232](https://issues.apache.org/jira/browse/CALCITE-2232)                                                                     | Errore di asserzione in AggregatePullUpConstantsRule durante la regolazione degli indici di aggregazione                      |
 | BUG-100422             | [HIVE-19085](https://issues.apache.org/jira/browse/HIVE-19085)                                                                         | FastHiveDecimal abs(0) imposta la firma su +ve                                                                |
@@ -1003,7 +1003,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
 
 **Sicurezza**
 
-| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                                                                                            | **Summary**                                                                                                           |
+| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                                                                                            | **Riepilogo**                                                                                                           |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
 | BUG-100436             | [RANGER-2060](https://issues.apache.org/jira/browse/RANGER-2060)                                                                                                                                           | Proxy Knox con knox-sso non funziona per Ranger                                                                    |
 | BUG-101038             | [SPARK-24062](https://issues.apache.org/jira/browse/SPARK-24062)                                                                                                                                           | Errore "Connection refused" dell'interprete Zeppelin %Spark, errore"A secret key must be specified..." in HiveThriftServer |
@@ -1041,7 +1041,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
 
 **Stabilità**
 
-| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **Summary**                                                                                                                                    |
+| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **Riepilogo**                                                                                                                                    |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | BUG-100040             | [ATLAS-2536](https://issues.apache.org/jira/browse/ATLAS-2536)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | NPE nell'Hook Hive Atlas                                                                                                                         |
 | BUG-100057             | [HIVE-19251](https://issues.apache.org/jira/browse/HIVE-19251)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | ObjectStore.getNextNotification con LIMIT deve usare meno memoria                                                                              |
@@ -1164,7 +1164,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
 
 **Supporto**
 
-| **ID Bug di Hortonworks** | **Apache JIRA**                                                  | **Summary**                                                                                   |
+| **ID Bug di Hortonworks** | **Apache JIRA**                                                  | **Riepilogo**                                                                                   |
 |------------------------|------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | BUG-87343              | [HIVE-18031](https://issues.apache.org/jira/browse/HIVE-18031)   | Supporto della replica per l'operazione Alter Database.                                             |
 | BUG-91293              | [RANGER-2060](https://issues.apache.org/jira/browse/RANGER-2060) | Proxy Knox con knox-sso non funziona per Ranger                                            |
@@ -1177,7 +1177,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
 
 **Aggiornamento**
 
-| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                | **Summary**                                                                 |
+| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                | **Riepilogo**                                                                 |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
 | BUG-100134             | [SPARK-22919](https://issues.apache.org/jira/browse/SPARK-22919)                                                               | Ripristino di "Bump Apache httpclient versions"                                 |
 | BUG-95823              | N/D                                                                                                                            | Knox: aggiornamento Beanutils                                                     |
@@ -1188,7 +1188,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
 
 **Usabilità**
 
-| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                                                                                                                                                                | **Summary**                                                                                                                                                  |
+| **ID Bug di Hortonworks** | **Apache JIRA**                                                                                                                                                                                                                                                                | **Riepilogo**                                                                                                                                                  |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | BUG-100045             | [HIVE-19056](https://issues.apache.org/jira/browse/HIVE-19056)                                                                                                                                                                                                                 | IllegalArgumentException in FixAcidKeyIndex quando il file ORC ha zero righe                                                                                         |
 | BUG-100139             | [KNOX-1243](https://issues.apache.org/jira/browse/KNOX-1243)                                                                                                                                                                                                                   | Normalizzare i DN necessari che vengono configurati nel servizio KnoxToken                                                                                          |
@@ -1295,7 +1295,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
 
 ## <a name="behavioral-changes"></a>Modifiche funzionali
 
-|**Componente Apache**|**Apache JIRA**|**Summary**|**Dettagli**|
+|**Componente Apache**|**Apache JIRA**|**Riepilogo**|**Dettagli**|
 |--|--|--|--|
 |**Spark 2.3** |**N/D** |**Modifiche come documentato nelle Note sulla versione di Apache Spark** |- È disponibile un documento relativo alla deprecazione ("Deprecation") e una guida sulle modifiche funzionali ("Change of behavior"), https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- Per la parte SQL, è disponibile un'altra Guida dettagliata sulla migrazione ("Migration") dalla versione 2.2 alla 2.3, https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Il processo Spark viene completato correttamente, ma si verifica un errore di quota disco HDFS esaurita |**Scenario:** esecuzione di **insert overwrite** quando è impostata una quota nella cartella Cestino dell'utente che esegue il comando.<br /><br />**Comportamento precedente:** il processo ha esito positivo anche se non riesce a spostare i dati nel Cestino. Il risultato può erroneamente contenere alcuni dei dati presenti in precedenza nella tabella.<br /><br />**Nuovo comportamento:** quando il trasferimento nella cartella Cestino ha esito negativo, i file vengono eliminati definitivamente.|
@@ -1371,7 +1371,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
     
   Se un utente desidera creare criteri con condizioni personalizzate e l'espressione o il testo contiene caratteri speciali, l'imposizione dei criteri non funzionerà. I caratteri speciali vengono convertiti in caratteri ASCII prima di salvare il criterio nel database.
     
-  **Caratteri speciali:** & &lt; &gt; " \` '
+  **Caratteri speciali:**  & &lt; &gt; " \` '
     
   Ad esempio, la condizione tags.attributes\['type'\]= 'abc' verrebbe convertita nel modo seguente dopo il salvataggio del criterio.
     

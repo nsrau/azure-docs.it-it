@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
 ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424755"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Eseguire operazioni con un runbook di automazione dai risultati della ricerca log di Log Analytics
@@ -38,7 +38,7 @@ Per intervenire su un evento e avviare un runbook dai risultati della ricerca lo
 
 1. Nel portale di Azure fare clic su **Tutti i servizi** e selezionare **Log Analytics**.  
 2. Selezionare l'area di lavoro Log Analytics.
-3. Nell'area di lavoro selezionare **Log (versione classica)**.  
+3. Nell'area di lavoro selezionare **Log (versione classica)** .  
 4. Nella pagina Ricerca log eseguire una ricerca log.  
 5. Nei risultati della ricerca log fare clic sui puntini di sospensione a sinistra di uno dei campi disponibili e nella finestra popup visualizzata selezionare **Take action on** (Intervieni su).<br><br> ![Selezione dell'azione di intervento dai risultati della ricerca](./media/take-action/log-search-takeaction-menuoption.png) 
 6. Selezionare **Esegui un runbook** e quindi un runbook da eseguire.  È possibile selezionare qualsiasi runbook disponibile nell'account di automazione associato all'area di lavoro Log Analytics.  Tenere presente quanto segue:

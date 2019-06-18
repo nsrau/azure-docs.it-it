@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 2a669f5b46db4d5de7d1d6863b94e6c117667aee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2b57ec7727e8f5b648bcb97e5fae26c63724411c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153233"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127199"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 Questo articolo illustra una serie di procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure. Le procedure consigliate si basano sull'esperienza di tecnici e clienti con [Azure AD](../active-directory/fundamentals/active-directory-whatis.md).
@@ -40,7 +40,7 @@ Procedure consigliate per la sicurezza con il controllo di accesso e la gestione
 * Centralizzare la gestione delle identità
 * Gestire i tenant connesso
 * Abilita Single Sign-On
-* Attivare l'accesso condizionale
+* Abilitare l'accesso condizionale
 * Abilitare la gestione delle password
 * Applicare la verifica a più fattori per gli utenti
 * Usare il controllo degli accessi in base al ruolo
@@ -109,14 +109,14 @@ Usare SSO per consentire agli utenti di accedere alle [applicazioni SaaS](../act
 
 Le organizzazioni che non creano un'identità comune per stabilire l'accesso SSO per utenti e applicazioni sono più esposte a situazioni in cui gli utenti devono utilizzare più password. In queste situazioni aumenta la probabilità di riutilizzare le password o di utilizzare password vulnerabili.
 
-## <a name="turn-on-conditional-access"></a>Attivare l'accesso condizionale
+## <a name="turn-on-conditional-access"></a>Abilitare l'accesso condizionale
 
 Gli utenti possono accedere alle risorse dell'organizzazione con una serie di dispositivi e app ovunque si trovino. Gli amministratori IT, si desidera assicurarsi che i dispositivi soddisfino gli standard di sicurezza e conformità. Tuttavia, non è più sufficiente concentrarsi solo su chi può accedere a una risorsa.
 
-Per bilanciare la sicurezza e la produttività, è necessario pensare al modo in cui si accede a una risorsa prima è possibile prendere una decisione sul controllo degli accessi. Con l'accesso condizionale di Azure AD è possibile soddisfare questo requisito. Grazie all'accesso condizionale, è possibile prendere decisioni di controllo di accesso automatizzato in base alle condizioni per l'accesso alle App cloud.
+Per bilanciare la sicurezza e la produttività, è necessario pensare al modo in cui si accede a una risorsa prima è possibile prendere una decisione sul controllo degli accessi. Grazie all'accesso condizionale di Azure AD, è possibile soddisfare questo requisito. Grazie all'accesso condizionale, è possibile prendere decisioni di controllo di accesso automatizzato in base alle condizioni per l'accesso alle App cloud.
 
 **Procedura consigliata**: gestire e controllare l'accesso alle risorse aziendali.  
-**Dettagli**: configurare l'[accesso condizionale](../active-directory/active-directory-conditional-access-azure-portal.md) di Azure AD basato sull'importanza di gruppi, posizioni e applicazioni per le app SaaS e le app connesse ad Azure AD.
+**Dettagli**: Configurare Azure AD [accesso condizionale](../active-directory/active-directory-conditional-access-azure-portal.md) basato su un gruppo, posizione e alla sensibilità dell'applicazione per le app SaaS e le app connesse AD Azure.
 
 **Procedura consigliata**: Bloccare i protocolli di autenticazione legacy.
 **Dettagli**: Gli utenti malintenzionati deboli protocolli meno recenti ogni giorno, in particolare per gli attacchi spray password. Configurare l'accesso condizionale per bloccare protocolli legacy. Vedere il video [Azure AD: Operazioni consigliate e sconsigliate](https://www.youtube.com/watch?v=wGk0J4z90GI) per altre informazioni.
@@ -143,16 +143,16 @@ Sono disponibili vari modi per richiedere la verifica in due passaggi. L'opzione
 Di seguito sono indicati i vantaggi e le opzioni per l'abilitazione della verifica in due passaggi:
 
 **Opzione 1**: [abilitare l'autenticazione a più fattori modificando lo stato utente](../active-directory/authentication/howto-mfa-userstates.md).   
-**Vantaggio**: questo è il metodo tradizionale per richiedere la verifica in due passaggi. Funziona sia con [Azure Multi-Factor Authentication nel cloud e Server Multi-Factor Authentication](../active-directory/authentication/concept-mfa-whichversion.md). Con questo metodo gli utenti devono eseguire la verifica in due passaggi ogni volta che eseguono l'accesso e vengono ignorati i criteri di accesso condizionale.
+**Vantaggio**: questo è il metodo tradizionale per richiedere la verifica in due passaggi. Funziona sia con [Azure Multi-Factor Authentication nel cloud e Server Multi-Factor Authentication](../active-directory/authentication/concept-mfa-whichversion.md). Con questo metodo richiede agli utenti di eseguire la verifica in due passaggi ogni volta che accedono ed esegue l'override di criteri di accesso condizionale.
 
 Per determinare dove è necessario abilitare multi-Factor Authentication, vedere [quale versione di Azure MFA sia corretta per la mia organizzazione?](../active-directory/authentication/concept-mfa-whichversion.md).
 
-**Opzione 2**: [abilitare l'autenticazione a più fattori con criteri di accesso condizionale](../active-directory/authentication/howto-mfa-getstarted.md).
-**Vantaggio**: questa opzione consente di richiedere la verifica in due passaggi in determinate condizioni usando l'[accesso condizionale](../active-directory/active-directory-conditional-access-azure-portal.md). L'accesso di utenti da posizioni diverse, l'uso di dispositivi non attendibili o l'uso di applicazioni considerate rischiose possono essere considerate condizioni specifiche. La definizione di condizioni specifiche in cui si richiede la verifica in due passaggi consente di evitare di chiedere continuamente conferma agli utenti della loro identità, che può risultare spiacevole.
+**Opzione 2**: [Abilitare multi-Factor Authentication con criteri di accesso condizionale](../active-directory/authentication/howto-mfa-getstarted.md).
+**Vantaggio**: Questa opzione consente di per la richiesta di verifica in due passaggi in condizioni specifiche usando [accesso condizionale](../active-directory/active-directory-conditional-access-azure-portal.md). L'accesso di utenti da posizioni diverse, l'uso di dispositivi non attendibili o l'uso di applicazioni considerate rischiose possono essere considerate condizioni specifiche. La definizione di condizioni specifiche in cui si richiede la verifica in due passaggi consente di evitare di chiedere continuamente conferma agli utenti della loro identità, che può risultare spiacevole.
 
-Questo rappresenta il mezzo più flessibile per abilitare la verifica in due passaggi per gli utenti. L'abilitazione mediante criteri di accesso condizionale funziona solo per Azure Multi-Factor Authentication nel cloud ed è una funzione Premium di Azure AD. Per altre informazioni su questo metodo, vedere [Implementare Azure Multi-Factor Authentication basato su cloud](../active-directory/authentication/howto-mfa-getstarted.md).
+Questo rappresenta il mezzo più flessibile per abilitare la verifica in due passaggi per gli utenti. L'abilitazione di un criterio di accesso condizionale funziona solo per Azure multi-Factor Authentication nel cloud ed è una funzionalità premium di Azure AD. Per altre informazioni su questo metodo, vedere [Implementare Azure Multi-Factor Authentication basato su cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 
-**Opzione 3**: abilitare l'autenticazione a più fattori con criteri di accesso condizionale valutando il rischio per l'utente e l'accesso di [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
+**Opzione 3**: Abilitare multi-Factor Authentication con criteri di accesso condizionale per la valutazione di rischio utente e l'accesso di [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
 **Vantaggio**: questa opzione consente di:
 
 - Rilevare le potenziali vulnerabilità per le identità dell'organizzazione.
@@ -162,7 +162,7 @@ Questo rappresenta il mezzo più flessibile per abilitare la verifica in due pas
 Questo metodo usa la valutazione del rischio di Azure AD Identity Protection per determinare se la verifica in due passaggi è necessaria in funzione del rischio per l'utente e l'accesso per tutte le applicazioni cloud. Questo metodo richiede una licenza di Azure Active Directory P2. Per altre informazioni su questo metodo, vedere [Azure Active Directory Identity Protection](../active-directory/identity-protection/overview.md).
 
 > [!Note]
-> L'opzione 1, l'abilitazione di Multi-Factor Authentication modificando lo stato utente, sostituisce i criteri di accesso condizionale. Dal momento che le opzioni 2 e 3 usano criteri di accesso condizionale, l'opzione 1 è incompatibile con le altre due.
+> Opzione 1, l'abilitazione di multi-Factor Authentication modificando lo stato utente, esegue l'override di criteri di accesso condizionale. Poiché le opzioni 2 e 3 usano criteri di accesso condizionale, è possibile usare l'opzione 1 con essi.
 
 Le organizzazioni che non aggiungono livelli supplementari di protezione delle identità, come la verifica in due passaggi, sono più vulnerabili agli attacchi con furto di credenziali. Un attacco con furto di credenziali comporta il rischio di compromissione dei dati.
 

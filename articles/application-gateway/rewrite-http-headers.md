@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
 ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476027"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Riscrivere le intestazioni HTTP con il Gateway applicazione
@@ -20,7 +20,7 @@ ms.locfileid: "66476027"
 
 Intestazioni HTTP consentono un client e server passare informazioni aggiuntive con una richiesta o risposta. Riscrivendo le intestazioni, è possibile eseguire attività importanti, ad esempio l'aggiunta di campi di intestazione di sicurezza, ad esempio HSTS / X-XSS-Protection, la rimozione di campi di intestazione di risposta che potrebbero rivelare informazioni riservate e rimozione di informazioni sulle porte da Intestazioni X-Forwarded-For.
 
-Il Gateway applicazione consente di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP durante la richiesta e spostano pacchetti di risposta tra il client e il pool back-end. E consente di aggiungere le condizioni per garantire che le intestazioni specificate vengono riscritti solo quando vengono soddisfatte determinate condizioni.
+Il gateway applicazione permette di aggiungere, rimuovere o aggiornare le intestazioni di richieste e risposte HTTP durante lo spostamento dei pacchetti di richiesta e risposta tra il client e i pool back-end. Consente anche di aggiungere le condizioni necessarie per garantire che le intestazioni specificate vengano riscritte solo in presenza di determinate condizioni.
 
 Il Gateway applicazione supporta anche diversi [variabili server](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) che consentono archiviare informazioni aggiuntive sulle richieste e risposte. Questo rende più semplice per creare regole di riscrittura potenti.
 

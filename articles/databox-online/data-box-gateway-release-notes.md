@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60754200"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Note sulla versione di disponibilità di dati Edge o Azure Data finestra Gateway generale della finestra di Azure
@@ -40,7 +40,7 @@ La versione GA corrisponde per le versioni del software:
 
 Nella tabella seguente fornisce un riepilogo dei problemi noti per il Gateway di finestra di dati esegue una versione.
 
-|  No. | Funzionalità | Problema | Soluzione alternativa/commenti |
+| No. | Funzionalità | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
 | **1.** |Tipi di file | Non sono supportati i seguenti tipi di file: file, i file di blocco, socket, le pipe, i collegamenti simbolici di caratteri.  |La copia di questi file comporta la creazione di file di lunghezza 0 nella condivisione NFS. Questi file rimangono in uno stato di errore e vengono anche segnalati in *error.xml*. <br> I collegamenti simbolici alle directory hanno come risultato che le directory non vengono mai contrassegnate come offline. Di conseguenza, è possibile che non venga visualizzata la croce grigia indicante che le directory sono offline e che tutto il contenuto associato è stato caricato completamente in Azure. |
 | **2.** |Eliminazione | A causa di un bug in questa versione, potrebbe essere impossibile eliminare una condivisione NFS. Lo stato della condivisione rimarrà comunque *In fase di eliminazione*.  |Questo problema si verifica solo quando la condivisione usa un nome file non supportato. |

@@ -9,17 +9,17 @@ ms.date: 05/28/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9f7f9b1504533e0ec503e97c086c380da71671a0
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299701"
 ---
 | Resource | Limite predefinito o massimo |
 | --- | --- |
 | Circuiti ExpressRoute per ogni sottoscrizione |10 |
 | Circuiti ExpressRoute per area per sottoscrizione, con Azure Resource Manager |10 |
-| Numero massimo di route annunciati su peering privato di Azure con ExpressRoute Standard |4.000 |
+| Numero massimo di route annunciati su peering privato di Azure con ExpressRoute Standard |4\.000 |
 | Numero massimo di route annunciati su peering privato di Azure con il componente aggiuntivo ExpressRoute Premium |10,000 |
 | Numero massimo di route annunciate dal peering privato di Azure dallo spazio degli indirizzi della rete virtuale per una connessione ExpressRoute |200 |
 | Numero massimo di route annunciati su peering Microsoft con ExpressRoute Standard |200 |
@@ -42,4 +42,4 @@ ms.locfileid: "66299701"
 | 40 Gbps* |10 |100 |
 | 100 Gbps* |10 |100 |
 
-* Solo Direct ExpressRoute
+\* Solo Direct ExpressRoute

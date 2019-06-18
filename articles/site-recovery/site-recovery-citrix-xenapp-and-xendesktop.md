@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61038234"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Configurare il ripristino di emergenza di una distribuzione Citrix XenApp e XenDesktop multilivello
@@ -56,9 +56,9 @@ Per le finalità di questo articolo, sono state usate distribuzioni Citrix in ma
 
 **Scenario** | **In un sito secondario** | **In Azure**
 --- | --- | ---
-**Hyper-V** | Non nell'ambito | Sì
-**VMware** | Non nell'ambito | Sì
-**Server fisico** | Non nell'ambito | Sì
+**Hyper-V** | Non nell'ambito | Yes
+**VMware** | Non nell'ambito | Yes
+**Server fisico** | Non nell'ambito | Yes
 
 ### <a name="versions"></a>Versioni
 I clienti possono distribuire componenti di XenApp come macchine virtuali in esecuzione su Hyper-V o VMware oppure come server fisici. Azure Site Recovery può proteggere le distribuzioni fisiche e virtuali in Azure.

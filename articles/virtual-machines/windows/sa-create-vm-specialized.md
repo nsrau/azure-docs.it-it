@@ -17,11 +17,11 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: f2110a749c41f59b11a6d400faa2e42e751305fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251069"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693825"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Creare una VM da un disco rigido virtuale specializzato in un account di archiviazione
 
@@ -126,7 +126,7 @@ Deallocare la VM, operazione che consente di liberare il disco rigido virtuale d
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-Nel portale di Azure lo **stato** della VM passa da **Arrestato** ad **Arrestato (deallocato)**.
+Nel portale di Azure lo **stato** della VM passa da **Arrestato** ad **Arrestato (deallocato)** .
 
 ### <a name="get-the-storage-account-urls"></a>Ottenere gli URL dell'account di archiviazione
 Sono necessari gli URL degli account di archiviazione di origine e destinazione. Gli URL hanno l'aspetto seguente: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Se si conosce già il nome degli account di archiviazione e dei contenitori, per creare l'URL è sufficiente sostituire le informazioni tra parentesi. 

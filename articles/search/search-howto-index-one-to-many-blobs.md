@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
 ms.openlocfilehash: 628ced069c9d32c6e874c2e36a1e3b752c476003
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024657"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>Indicizzazione di blob che produce più documenti di ricerca
@@ -61,7 +61,7 @@ Quando si crea un indicizzatore e impostare il **parsingMode** a `jsonLines` - s
 
 Questa configurazione comporterà l'indice di ricerca di Azure contenente le informazioni seguenti (con codificata base64 id abbreviato per comodità)
 
-| id | temperatura | pressure |  timestamp |
+| id | temperatura | pressure | timestamp |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |
@@ -98,7 +98,7 @@ Se si desidera configurare un mapping dei campi espliciti, assicurarsi che il _s
 > [!NOTE]
 > L'approccio utilizzato da `AzureSearch_DocumentKey` garantire l'univocità per ogni entità estratti è soggette a modifiche e pertanto è consigliabile non fare affidamento su presenta un valore per le esigenze dell'applicazione.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Indicizzatori in Ricerca di Azure](search-indexer-overview.md)
 + [Indicizzazione di Archiviazione BLOB di Azure con Ricerca di Azure](search-howto-index-json-blobs.md)

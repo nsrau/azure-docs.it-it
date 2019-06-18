@@ -11,10 +11,10 @@ ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1697f479cf013f2ef94dd5a8a2fc637d72e6e18a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60739958"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Il primo runbook del flusso di lavoro PowerShell
@@ -61,7 +61,7 @@ Si inizia creando un runbook semplice che restituisce il testo *Hello World*.
    }
    ```
 
-1. Digitare *Write-Output "Hello World".*  tra parentesi graffe.
+1. Digitare *Write-Output "Hello World".* tra parentesi graffe.
 
    ```powershell-interactive
    Workflow MyFirstRunbook-Workflow

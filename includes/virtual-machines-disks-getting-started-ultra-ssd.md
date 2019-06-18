@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 326382339e2b4aeaa488d3d7f76b7ff35f9bc620
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 7515c061467419412608bb8103136791845ae093
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147769"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133729"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>Abilita e si distribuisce Azure SSDs extra (anteprima)
 
@@ -33,11 +33,12 @@ La risposta sarà simile a quello riportato di seguito, dove X è la zona da uti
 
 Mantenere il **zone** valore, rappresenta la zona di disponibilità e sarà necessario per distribuire un'unità SSD extra.
 
-|ResourceType  |NOME  |Località  |Zone  |Restrizione  |Capacità  |Value  |
+|ResourceType  |Name  |Località  |Zone  |Restrizione  |Funzionalità  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
-|dischi     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
-Se si è verificato alcun risposta dal comando, quindi la registrazione per la funzionalità è ancora in sospeso o non ancora approvati.
+> [!NOTE]
+> Se si è verificato alcun risposta dal comando, quindi la registrazione per la funzionalità è ancora in sospeso o non ancora approvati.
 
 Ora che si conosce la zona in cui eseguire la distribuzione, seguire la procedura illustrata in questo articolo per distribuire le prime macchine virtuali con unità Ultra SSD.
 

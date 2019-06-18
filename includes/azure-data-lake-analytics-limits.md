@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 7f89dc33c105a82646c8f12422f88a06efdca18b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238230"
 ---
 Azure Data Lake Analitica semplifica l'impegnativa attività di gestione dell'infrastruttura distribuita e codice complesso. In modo dinamico il provisioning di risorse e usarlo per eseguire operazioni su più exabyte di dati analitica. Al termine del processo, lo concludersi risorse automaticamente. Si paga solo per la potenza di elaborazione che è stata usata. Se si aumenta o riduce le dimensioni dei dati archiviati o la quantità di calcolo usata, non è necessario riscrivere il codice. Per aumentare i limiti predefiniti per la sottoscrizione, contattare il supporto tecnico.

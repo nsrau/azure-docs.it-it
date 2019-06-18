@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
 ms.openlocfilehash: a5deee4209001d8c2212033c2d547d7c4199bd25
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192630"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regole di avviso personalizzate nel Centro sicurezza di Azure (anteprima)
@@ -58,7 +58,7 @@ Le regole di avviso personalizzate nel Centro sicurezza consentono di definire n
 
 Aprire il dashboard **Centro sicurezza** e seguire questa procedura per creare una regola di avviso personalizzata:
 
-1.  In **Rilevamento** nel riquadro di sinistra fare clic su **Regole di avviso personalizzate (anteprima)**.
+1.  In **Rilevamento** nel riquadro di sinistra fare clic su **Regole di avviso personalizzate (anteprima)** .
 2.  Nella pagina **Centro sicurezza – Regole di avviso personalizzate (anteprima)** fare clic su **Nuova regola di avviso personalizzata**.
 
     ![Regola personalizzata](./media/security-center-custom-alert/security-center-custom-alert-fig1.png)
@@ -98,7 +98,7 @@ Dopo la creazione, la nuova regola di avviso verrà visualizzata nell'elenco di 
 
 Si noti che i parametri (query di ricerca, soglia e così via) stabiliti durante la creazione della regola sono disponibili nell'avviso per questa regola personalizzata.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 In questo documento è stato descritto come creare una regola di avviso personalizzata nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.

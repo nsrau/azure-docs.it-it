@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602723"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Aggregazioni nelle query dei log di Monitoraggio di Azure
@@ -31,7 +31,7 @@ Questo articolo descrive le funzioni di aggregazione disponibili per le query de
 
 ## <a name="counts"></a>Conteggi
 
-### <a name="count"></a>Conteggio
+### <a name="count"></a>count
 Questa funzione conta il numero di righe nel set di risultati dopo l'applicazione di eventuali filtri. L'esempio seguente restituisce il numero totale di righe della tabella _Perf_ negli ultimi 30 minuti. Il risultato viene restituito in una colonna denominata *count_* a meno che non si definisca un nome specifico:
 
 

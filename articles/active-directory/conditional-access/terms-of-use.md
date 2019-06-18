@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1abae0a454e17e8f633f68bc5853bfb4a4b24d14
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 0534613a9df3177290e9b4b57e9830fe62f9741a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383185"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112121"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Condizioni d'uso per Azure Active Directory
 
@@ -115,23 +115,23 @@ Dopo avere completato le condizioni per usare documenti, utilizzare la procedura
 
 1. Sotto **accesso condizionale**, utilizzare il **Imponi con modello di criteri di accesso condizionale** elenco per selezionare il modello per applicare le condizioni d'uso.
 
-   ![Modelli di accesso condizionale](./media/terms-of-use/conditional-access-templates.png)
+   ![Modelli di accesso condizionali](./media/terms-of-use/conditional-access-templates.png)
 
    | Modello | Descrizione |
    | --- | --- |
    | **Accesso alle app cloud per tutti i guest** | Verrà creato un criterio di accesso condizionale per tutti i guest e tutte le app cloud. Questi criteri influiscono sul portale di Azure. Dopo la creazione, potrebbe essere necessario disconnettersi e accedere. |
    | **Accesso alle app cloud per tutti gli utenti** | Verrà creato un criterio di accesso condizionale per tutti gli utenti e tutte le app cloud. Questi criteri influiscono sul portale di Azure. Dopo la creazione, sarà necessario disconnettersi e accedere. |
    | **Criteri personalizzati** | Selezionare gli utenti, gruppi e le app che verranno applicate a questo condizioni d'uso. |
-   | **Creare criteri di accesso condizionale in seguito** | Queste condizioni per l'utilizzo verranno visualizzate nell'elenco di concessione del controllo durante la creazione di un criterio di accesso condizionale. |
+   | **Creare criteri di accesso condizionale in un secondo momento** | Queste condizioni per l'utilizzo verranno visualizzato nell'elenco di controllo concessione durante la creazione di un criterio di accesso condizionale. |
 
    >[!IMPORTANT]
-   >L'applicazione dei controlli dei criteri di accesso condizionale (incluse le condizioni per l'utilizzo) non è supportata per account di servizio. È consigliabile escludere tutti gli account di servizio dai criteri di accesso condizionale.
+   >Controlli condizionali dei criteri di accesso (incluse le condizioni d'uso) non supporta l'imposizione sugli account di servizio. È consigliabile escludere tutti gli account del servizio dai criteri di accesso condizionale.
 
-    I criteri di accesso condizionale personalizzati consentono granulare condizioni d'uso, fino a un'applicazione cloud specifico o un gruppo di utenti. Per altre informazioni, vedere [Avvio rapido: Richiedere l'accettazione delle condizioni per l'utilizzo prima dell'accesso alle app cloud](require-tou.md).
+    I criteri di accesso condizionale personalizzati abilitano granulare condizioni d'uso, fino a un'applicazione cloud specifico o un gruppo di utenti. Per altre informazioni, vedere [Avvio rapido: Richiedere l'accettazione delle condizioni per l'utilizzo prima dell'accesso alle app cloud](require-tou.md).
 
 1. Fare clic su **Create**(Crea).
 
-   Se è stato selezionato un modello personalizzato di accesso condizionale, verrà visualizzata una nuova schermata che consente di creare il criterio personalizzato di accesso condizionale.
+   Se si seleziona un modello personalizzato di accesso condizionale, quindi una nuova schermata viene visualizzato che consente di creare i criteri di accesso condizionale personalizzati.
 
    ![Criteri personalizzati](./media/terms-of-use/custom-policy.png)
 
@@ -302,12 +302,12 @@ Per impostazione predefinita, un utente eliminato rimane comunque in Azure AD pe
 
 ## <a name="policy-changes"></a>Modifiche dei criteri
 
-I criteri di accesso condizionale diventano effettivi immediatamente. In questo caso l'amministratore inizierà a vedere nuvolette "tristi" o messaggi relativi a problemi di token di Azure AD. Dovrà quindi disconnettersi e accedere nuovamente per soddisfare il nuovo criterio.
+Criteri di accesso condizionale vengono applicate immediatamente. In questo caso l'amministratore inizierà a vedere nuvolette "tristi" o messaggi relativi a problemi di token di Azure AD. Dovrà quindi disconnettersi e accedere nuovamente per soddisfare il nuovo criterio.
 
 > [!IMPORTANT]
 > Gli utenti inclusi nell'ambito devono disconnettersi e accedere per soddisfare un nuovo criterio se:
 >
-> - è abilitato un criterio di accesso condizionale per una condizione per l'utilizzo
+> - criteri di accesso condizionale sono abilitato in termini di utilizzo
 > - o viene creata una seconda condizione
 
 ## <a name="b2b-guests-preview"></a>Guest B2B (anteprima)
@@ -364,10 +364,10 @@ R: Sì. Attualmente sono presenti diverse 108 lingue un amministratore può conf
 R: Le condizioni di utilizzo viene attivata durante l'esperienza di accesso.
 
 **D: Quali altre applicazioni è possibile applicare le condizioni per l'uso da**<br />
-R: È possibile creare un criterio di accesso condizionale per le applicazioni aziendali utilizzando l'autenticazione moderna. Per altre informazioni, vedere le [applicazioni aziendali](./../manage-apps/view-applications-portal.md).
+R: È possibile creare un criterio di accesso condizionale per le applicazioni aziendali tramite l'autenticazione moderna. Per altre informazioni, vedere le [applicazioni aziendali](./../manage-apps/view-applications-portal.md).
 
 **D: È possibile aggiungere più condizioni d'uso per un determinato utente o app?**<br />
-R: Sì, mediante la creazione di più criteri di accesso condizionale destinati a tali gruppi o applicazioni. Se un utente rientra nell'ambito di più condizioni d'uso, accettano uno condizioni d'uso in un momento.
+R: Sì, mediante la creazione di più criteri di accesso condizionale destinate a tali gruppi o applicazioni. Se un utente rientra nell'ambito di più condizioni d'uso, accettano uno condizioni d'uso in un momento.
 
 **D: Cosa accade se un utente rifiuta le condizioni d'uso?**<br />
 R: Ne viene bloccato l'accesso all'applicazione. L'utente deve accedere nuovamente e accettare le condizioni.
@@ -384,4 +384,4 @@ R: Condizioni di utilizzo utilizza i seguenti endpoint per l'autenticazione: htt
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Avvio rapido: Richiedere l'accettazione delle condizioni per l'utilizzo prima dell'accesso alle app cloud](require-tou.md)
-- [Procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md)
+- [Le procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md)

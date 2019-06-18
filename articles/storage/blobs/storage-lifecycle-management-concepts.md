@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
 ms.openlocfilehash: ce2559f62d29c7b062cfd1ad1dcb61146adfd91c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001748"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di archiviazione Blob di Azure
@@ -37,7 +37,7 @@ I criteri di gestione del ciclo di vita sono disponibili sia con gli account per
 
 La funzionalità di gestione del ciclo di vita è gratuita. Ai clienti viene addebitato il normale costo dell'operazione per le chiamate API [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) (Elenca BLOB) e [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) (Imposta livello BLOB). Operazione di eliminazione è gratuita. Per altre informazioni sui prezzi, vedere [Prezzi dei BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="regional-availability"></a>Disponibilità a livello di area
+## <a name="regional-availability"></a>Disponibilità internazionale
 
 La funzionalità di gestione del ciclo di vita è disponibile in tutte le aree globali di Azure.
 
@@ -167,7 +167,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 }
 ```
 
-## <a name="policy"></a>Criteri
+## <a name="policy"></a>Policy
 
 I criteri di gestione del ciclo di vita sono una raccolta di regole in un documento JSON:
 
@@ -199,10 +199,10 @@ Ogni regola all'interno del criterio ha diversi parametri:
 
 | Nome parametro | Tipo di parametro | Note | Obbligatorio |
 |----------------|----------------|-------|----------|
-| `name`         | String |Nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | True  |
-| `enabled`      | Boolean | Un valore booleano facoltativo per consentire una regola affinché sia temporanea è disabilitata. Valore predefinito è true se non è impostata. | Falso | 
-| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle`. | True  |
-| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True  |
+| `name`         | String |Nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | True |
+| `enabled`      | Boolean | Un valore booleano facoltativo per consentire una regola affinché sia temporanea è disabilitata. Valore predefinito è true se non è impostata. | False | 
+| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle`. | True |
+| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True |
 
 ## <a name="rules"></a>Regole
 
@@ -251,12 +251,12 @@ I filtri limitano le azioni della regola a un sottoinsieme di BLOB all'interno d
 
 I filtri includono:
 
-| Nome filtro | Tipo filtro | Note | Obbligatorio |
+| Nome filtro | Tipo di filtro | Note | Obbligatorio |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione corrente supporta `blockBlob`. | Sì |
-| prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Ogni regola può definire prefissi fino a 10. Una stringa di prefisso deve iniziare con un nome di contenitore. Ad esempio, se si desidera che in tutti i BLOB in modo che corrispondano `https://myaccount.blob.core.windows.net/container1/foo/...` per una regola, è il prefixMatch `container1/foo`. | Se non si definisce prefixMatch, la regola si applica a tutti i BLOB nell'account di archiviazione.  | N. |
+| blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione corrente supporta `blockBlob`. | Yes |
+| prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Ogni regola può definire prefissi fino a 10. Una stringa di prefisso deve iniziare con un nome di contenitore. Ad esempio, se si desidera che in tutti i BLOB in modo che corrispondano `https://myaccount.blob.core.windows.net/container1/foo/...` per una regola, è il prefixMatch `container1/foo`. | Se non si definisce prefixMatch, la regola si applica a tutti i BLOB nell'account di archiviazione.  | No |
 
-### <a name="rule-actions"></a>Azioni regola
+### <a name="rule-actions"></a>Azioni della regola
 
 Le azioni vengono applicate ai BLOB filtrati quando viene soddisfatta la condizione di esecuzione.
 

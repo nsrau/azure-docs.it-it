@@ -1,6 +1,6 @@
 ---
 title: Estensione di macchina virtuale di Azure dipendenza del monitoraggio per Windows | Microsoft Docs
-description: Distribuire l'agente di dipendenza di monitoraggio di Azure nella macchina virtuale Windows usando un'estensione di macchina virtuale.
+description: Distribuire l'agente di dipendenza di monitoraggio di Azure nella macchina virtuale Windows usando un'estensione macchina virtuale.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mgoedtel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 2cdde2f9dbba9676ba8a4d35ed6b79940668d684
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 34dd872db199a4c10e9f321457188b7f7642944d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521784"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67120230"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Estensione di macchina virtuale di Azure dipendenza del monitoraggio per Windows
 
@@ -36,7 +36,7 @@ L'estensione agente di dipendenza di macchina virtuale di Azure per Windows eseg
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
-Il codice JSON seguente mostra lo schema per l'estensione dell'agente di dipendenza di macchina virtuale di Azure in una macchina virtuale Windows Azure. 
+Il codice JSON seguente mostra lo schema per l'estensione dell'agente di dipendenza di macchina virtuale di Azure in una VM Windows di Azure.
 
 ```json
 {
@@ -76,20 +76,20 @@ Il codice JSON seguente mostra lo schema per l'estensione dell'agente di dipende
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| NOME | Valore/Esempio |
+| Name | Valore/esempio |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | type | DependencyAgentWindows |
-| typeHandlerVersion | 9.5 |
+| typeHandlerVersion | 9,5 |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
-Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON indicato nella sezione precedente può essere utilizzato in un modello di Azure Resource Manager per eseguire l'estensione dell'agente di dipendenza di macchina virtuale di Azure durante la distribuzione di un modello di Azure Resource Manager. 
+È possibile distribuire le estensioni della macchina virtuale di Azure con modelli Azure Resource Manager. È possibile utilizzare lo schema JSON indicato nella sezione precedente in un modello di Azure Resource Manager per eseguire l'estensione di agente di dipendenza di macchina virtuale di Azure durante la distribuzione di un modello di Azure Resource Manager.
 
-Il codice JSON per un'estensione della macchina virtuale può essere nidificato nella risorsa della macchina virtuale o posizionato nel livello radice o nel livello superiore di un modello JSON di Resource Manager. Il posizionamento di JSON influisce sul valore del nome e tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources) (Impostare il nome e il tipo per le risorse figlio). 
+Il codice JSON per un'estensione macchina virtuale può essere annidato all'interno della risorsa macchina virtuale. In alternativa, è possibile inserirlo nel livello radice o livello superiore di un modello JSON di Resource Manager. Il posizionamento di JSON influisce sul valore del nome e tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources) (Impostare il nome e il tipo per le risorse figlio).
 
-Nell'esempio seguente presuppone che l'estensione dell'agente di dipendenza sia annidata nella risorsa della macchina virtuale. Quando la risorsa di estensione viene nidificata, JSON viene inserito nell'oggetto `"resources": []` della macchina virtuale.
+Nell'esempio seguente presuppone che l'estensione dell'agente di dipendenza sia annidata nella risorsa della macchina virtuale. Quando si nidifica la risorsa dell'estensione, il codice JSON viene inserito nel `"resources": []` oggetto della macchina virtuale.
 
 
 ```json
@@ -110,7 +110,7 @@ Nell'esempio seguente presuppone che l'estensione dell'agente di dipendenza sia 
 }
 ```
 
-Quando si posiziona l'estensione JSON nella radice del modello, il nome della risorsa include un riferimento alla macchina virtuale padre e il tipo riflette la configurazione annidata. 
+Quando si posiziona l'estensione JSON nella radice del modello, il nome di risorsa include un riferimento alla macchina virtuale padre. Il tipo riflette la configurazione annidata.
 
 ```json
 {
@@ -132,7 +132,7 @@ Quando si posiziona l'estensione JSON nella radice del modello, il nome della ri
 
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
 
-Il `Set-AzVMExtension` comando può essere utilizzato per distribuire l'estensione di macchina virtuale dell'agente di dipendenza in una macchina virtuale esistente. Prima di eseguire il comando, le configurazioni pubbliche e private devono essere archiviate in una tabella hash di PowerShell. 
+È possibile usare il `Set-AzVMExtension` comando per distribuire l'estensione di macchina virtuale dell'agente di dipendenza a una macchina virtuale esistente. Prima di eseguire il comando, le configurazioni pubbliche e private devono essere archiviati in una tabella hash di PowerShell.
 
 ```powershell
 
@@ -149,7 +149,7 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
 
 ### <a name="troubleshoot"></a>Risolvere problemi
 
-I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite il modulo Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una determinata VM, eseguire questo comando nel modulo Azure PowerShell.
+Dati sullo stato delle distribuzioni dell'estensione possono essere recuperati dal portale di Azure e usando il modulo Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una determinata VM, eseguire il comando seguente usando il modulo Azure PowerShell:
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
@@ -163,4 +163,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitoring.DependencyAgent\
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile inviare un evento imprevisto di supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**. Per informazioni su come usare il supporto di Azure, vedere la [domande frequenti sul supporto di Microsoft Azure](https://azure.microsoft.com/support/faq/).

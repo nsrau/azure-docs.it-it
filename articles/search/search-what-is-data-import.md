@@ -10,10 +10,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 83ca0c11ab0065929d939b7345cbd15869740bb3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024348"
 ---
 # <a name="data-import-overview---azure-search"></a>Panoramica: importazione dati di ricerca di Azure
@@ -49,7 +49,7 @@ Nell'API REST di inviare richieste HTTP POST con corpi delle richieste JSON all'
 In .NET SDK, creare un pacchetto di dati in un `IndexBatch` oggetto. Un' `IndexBatch` incapsula una raccolta di `IndexAction` oggetti, ognuno dei quali contiene un documento e una proprietà che indica l'azione da eseguire sul documento di ricerca di Azure. Per un esempio di codice, vedere [costruire IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
 
 
-| @search.action | DESCRIZIONE | Campi necessari per ogni documento | Note |
+| @search.action | Descrizione | Campi necessari per ogni documento | Note |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |L'azione `upload` è simile a "upsert", in cui il documento viene inserito se è nuovo e aggiornato o sostituito se esiste già. |chiave, oltre a tutti gli altri campi da definire |Quando si aggiorna o si sostituisce un documento esistente, qualsiasi campo non specificato nella richiesta avrà il campo impostato su `null`. Ciò si verifica anche quando il campo è stato precedentemente impostato su un valore diverso da null. |
 | `merge` |Aggiorna un documento esistente con i campi specificati. Se il documento non esiste nell'indice, l'unione non riuscirà. |chiave, oltre a tutti gli altri campi da definire |I campi specificati in un'azione di unione sostituiscono i campi esistenti nel documento. In .NET SDK, questa categoria include campi di tipo `DataType.Collection(DataType.String)`. Nell'API REST, questa categoria include campi di tipo `Collection(Edm.String)`. Ad esempio, se il documento contiene un campo `tags` con valore `["budget"]` e si esegue un'unione con valore `["economy", "pool"]` per `tags`, il valore finale del campo `tags` sarà `["economy", "pool"]` e non `["budget", "economy", "pool"]`. |
@@ -94,7 +94,7 @@ Un modo rapido per eseguire un controllo preliminare sul caricamento del documen
 > [!TIP]
 > Numerosi [esempi di codice di Ricerca di Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) includono set di dati incorporati o immediatamente disponibili, che consentono di iniziare con facilità. Il portale offre anche un indicizzatore e un'origine dati di esempio, costituita da un piccolo set di dati immobiliari, denominato "realestate-us-sample". Quando si esegue l'indicizzatore preconfigurato nell'origine dati di esempio, viene creato un indice che viene caricato con i documenti su cui possono essere eseguite query in Esplora ricerche o tramite codice scritto dall'utente.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 + [Panoramica degli indicizzatori](search-indexer-overview.md)
 + [Procedura dettagliata per il portale: creare, caricare ed eseguire query su un indice](search-get-started-portal.md)

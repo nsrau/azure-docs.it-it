@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 91dc386641c758c42f64afff387d0463d1445f1d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969073"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Informazioni sui report di gestione dei costi Cloudyn
@@ -73,9 +73,9 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 
    Ecco alcuni esempi:
    - Centro di costo
-   - Reparto
+   - department
    - Applicazione
-   - Ambiente
+   - Environment
    - Codice di costo
 
      Di seguito è riportato un elenco dei gruppi predefiniti disponibili nei report:
@@ -112,7 +112,7 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
        - No Upfront (Nessun anticipo)
        - Partial Upfront (Anticipo parziale)
        - On Demand (Su richiesta)
-       - Prenotazione
+       - Reservation
        - Spot (Contante)
      - **Charge Type** (Tipo di addebito)
        - Selezionare l'addebito di tipo Negative (Negativo), Positive (Positivo) o entrambi.
@@ -145,7 +145,7 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 
     Usare questo elenco per selezionare la risoluzione dei dati temporali nell'intervallo di date selezionato. La risoluzione determina il numero di unità visualizzate nel report e può essere:
     - Ogni giorno
-    - Ogni settimana
+    - Settimanale
     - Mensile
     - Trimestrale
     - Annuale

@@ -9,10 +9,10 @@ ms.date: 04/01/2019
 ms.author: jehollan, glenga
 ms.custom: include file
 ms.openlocfilehash: 0f3303e7bc87ca0bd29f367405372568ed6da7a7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66131550"
 ---
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -38,7 +38,7 @@ ms.locfileid: "66131550"
     | Impostazione      | Valore consigliato  | Descrizione                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome app** | Nome globalmente univoco | Nome che identifica la nuova app per le funzioni. I caratteri validi sono `a-z`, `0-9` e `-`.  | 
-    | **Sottoscrizione** | Sottoscrizione | Sottoscrizione in cui viene creata questa nuova app per le funzioni. |
+    | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui viene creata questa nuova app per le funzioni. |
     | **[Gruppo di risorse](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nome del nuovo gruppo di risorse in cui creare l'app per le funzioni. È anche possibile usare il valore suggerito. |
     | **OS** | Windows | Linux non è attualmente supportato nel piano Premium. |
     | **Stack di runtime** | Lingua preferita | Scegliere un runtime che supporti il linguaggio di programmazione della funzione preferito. Scegliere **.NET** per le funzioni C# e F #. Solo i linguaggi supportati nella prescelta **OS** vengono visualizzati. |

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
 ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61345755"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
@@ -112,7 +112,7 @@ Una sottoscrizione di Azure può includere una o più istanze di Azure Data Fact
 ### <a name="pipelines"></a>Pipeline
 Una data factory può comprendere una o più pipeline. Una pipeline è un raggruppamento logico di attività per eseguire un'unità di lavoro, L'insieme delle attività di una pipeline esegue un'operazione. Una pipeline, ad esempio, può contenere un gruppo di attività che inseriscono dati da un BLOB di Azure e quindi eseguono una query Hive in un cluster HDInsight per partizionare i dati. Il vantaggio è che è possibile usare una pipeline per gestire le attività come set invece che singolarmente. È possibile concatenare le attività in una pipeline per usarle in modo sequenziale o indipendentemente in parallelo.
 
-### <a name="activities"></a>attività
+### <a name="activities"></a>Attività
 Le attività rappresentano un passaggio di elaborazione in una pipeline. Ad esempio, è possibile usare un'attività di copia per copiare dati da un archivio dati in un altro archivio dati. Allo stesso modo, è possibile usare un'attività Hive che esegue una query Hive su un cluster Azure HDInsight per trasformare o analizzare i dati. Data Factory supporta tre tipi di attività: attività di spostamento dei dati, attività di trasformazione dei dati e attività di controllo.
 
 ### <a name="datasets"></a>Set di dati
@@ -196,7 +196,7 @@ Sì. [Seguire le istruzioni](https://www.slideshare.net/kromerm/adf-mapping-data
 
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>Ho bisogno di aiuto la logica del flusso di dati di risoluzione dei problemi. Quali sono le informazioni è necessario fornire per ottenere assistenza?
 
-Quando Microsoft fornisce assistenza o risoluzione dei problemi con i flussi di dati, fornire il piano di codice di linguaggio specifico di dominio. A questo scopo, seguire questa procedura:
+Quando Microsoft fornisce assistenza o risoluzione dei problemi con i flussi di dati, fornire il piano di codice di linguaggio specifico di dominio. A tale scopo, effettuare le operazioni seguenti:
 
 1. La progettazione del flusso di dati, selezionare **codice** nell'angolo superiore destro. Verrà visualizzato il codice JSON modificabile per il flusso di dati.
 2. Visualizzazione codice, selezionare **pianificare** nell'angolo superiore destro. Questo interruttore passerà da JSON a sola lettura formattato DSL script piano.
@@ -211,5 +211,5 @@ Usare l'attività di copia per organizzare i dati da uno qualsiasi degli altri c
 ## <a name="next-steps"></a>Passaggi successivi
 Per istruzioni dettagliate per la creazione di una data factory, vedere le esercitazioni seguenti:
 
-- [Guida introduttiva: Creare una data factory](quickstart-create-data-factory-dot-net.md)
+- [Avvio rapido: Creare una data factory](quickstart-create-data-factory-dot-net.md)
 - [Esercitazione: Copiare i dati nel cloud](tutorial-copy-data-dot-net.md)

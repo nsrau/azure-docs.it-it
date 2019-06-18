@@ -2,18 +2,17 @@
 title: Modelli di progettazione tabella di Archiviazione di Azure | Microsoft Docs
 description: Usare i modelli per le soluzioni di servizio tabelle di Azure.
 services: storage
-author: WenJason
+author: tamram
 ms.service: storage
 ms.topic: article
-origin.date: 04/08/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 04/08/2019
+ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101442"
 ---
 # <a name="table-design-patterns"></a>Modelli di progettazione tabella
@@ -264,7 +263,7 @@ In un database relazionale, in genere i dati vengono normalizzati per rimuovere 
 ![Entità reparto ed entità dipendente](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
 ### <a name="solution"></a>Soluzione
-Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. Ad esempio:   
+Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. Ad esempio:  
 
 ![Entità reparto](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
 
@@ -349,7 +348,7 @@ Per tornare al valore di data e ora, usare il codice seguente:
 
 La query sulla tabella ha un aspetto simile al seguente:  
 
-`https://myaccount.table.core.chinacloudapi.cn/EmployeeExpense(PartitionKey='empid')?$top=10`  
+`https://myaccount.table.core.windows.net/EmployeeExpense(PartitionKey='empid')?$top=10`  
 
 ### <a name="issues-and-considerations"></a>Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:  

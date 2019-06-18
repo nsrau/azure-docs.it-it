@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: 92a5f7c058904015cb22a239b7e7c4938ae1fdae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61044657"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento Microsoft.Common.FileUpload dell'interfaccia utente
@@ -47,7 +47,7 @@ Controllo che consente a un utente di specificare uno o più file da caricare.
 }
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 - `constraints.accept` specifica i tipi di file visualizzati nella finestra di dialogo del browser relativa ai file. Per informazioni sui valori consentiti, vedere la [specifica HTML5](https://www.w3.org/TR/html5/forms.html#attr-input-accept). Il valore predefinito è **null**.
 - Se la proprietà `options.multiple` è impostata su **true**, l'utente è autorizzato a selezionare più di un file nella finestra di dialogo del browser relativa ai file. Il valore predefinito è **false**.
 - Questo elemento supporta il caricamento dei file in due modalità in base al valore di `options.uploadMode`. Se il valore **file** è specificato, l'output include i contenuti del file sotto forma di BLOB. Se il valore **url** è specificato, il file viene caricato in una posizione temporanea e l'output contiene l'URL del BLOB. I BLOB temporanei verranno eliminati dopo 24 ore. Il valore predefinito è **file**.

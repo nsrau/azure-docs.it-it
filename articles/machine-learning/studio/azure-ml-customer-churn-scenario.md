@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
 ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64699432"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analizzare la varianza dei clienti con Azure Machine Learning Studio
@@ -176,7 +176,7 @@ Il grafico seguente illustra i risultati non elaborati della valutazione usando 
 
 La tabella seguente riepiloga le prestazioni degli algoritmi:  
 
-*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi* 
+*Tabella 1. Prestazioni generali (accuratezza) degli algoritmi*
 
 | LR | BT | AP | SVM |
 | --- | --- | --- | --- |
@@ -188,7 +188,7 @@ I modelli ospitati in Machine Learning Studio hanno superato il livello SAS del 
 Nel settore delle telecomunicazioni sono state sviluppate numerose pratiche per l'analisi della varianza, tra cui:  
 
 * Derivare metriche per quattro categorie fondamentali:
-  * **Entità (ad esempio, una sottoscrizione)**. Fornire informazioni di base sulle sottoscrizioni e/o sui clienti soggetti a varianza.
+  * **Entità (ad esempio, una sottoscrizione)** . Fornire informazioni di base sulle sottoscrizioni e/o sui clienti soggetti a varianza.
   * **Attività**. Ottenere tutte le informazioni di utilizzo possibili correlate all'entità, ad esempio, il numero di account di accesso.
   * **Supporto tecnico**. Raccogliere informazioni dai log del supporto tecnico per indicare se l'abbonato ha avuto problemi o interazioni con il supporto tecnico.
   * **Dati commerciali e competitivi**. Ottenere qualunque informazione possibile in merito al cliente (ad esempio, se non è disponibile o difficile da monitorare).

@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417584"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Raccomandazioni per le prestazioni per il database SQL
@@ -79,7 +79,7 @@ Le raccomandazioni relative alla "correzione di problemi di schema" vengono visu
 
 | Codice di errore SQL | `Message` |
 | --- | --- |
-| 201 |La procedura o funzione '*' richiede il parametro '*', che non è stato specificato. |
+| 201 |La procedura o funzione ' *' richiede il parametro '* ', che non è stato specificato. |
 | 207 |Il nome di colonna '*' non è valido. |
 | 208 |Il nome di oggetto '*' non è valido. |
 | 213 |Il nome della colonna o il numero dei valori specificati non corrisponde alla definizione della tabella. |

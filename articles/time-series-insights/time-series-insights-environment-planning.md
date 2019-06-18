@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: 9d9f9b7fe7aafa927f023e1d4e30e079a26f7fab
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66431044"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Pianificare l'ambiente di Azure ora Series Insights disponibile a livello generale
@@ -83,7 +83,7 @@ La tabella seguente riepiloga la capacità in ingresso per unità per ogni SKU d
 |SKU  |Conteggio di eventi al mese  |Dimensioni eventi al mese  |Conteggio di eventi al minuto  |Dimensioni eventi al minuto  |
 |---------|---------|---------|---------|---------|
 |S1     |   30 milioni     |  30 GB     |  720    |  720 KB   |
-|S2     |   300 milioni    |   300 GB   | 7.200   | 7.200 KB  |
+|S2     |   300 milioni    |   300 GB   | 7\.200   | 7\.200 KB  |
 
 È possibile aumentare la capacità di uno SKU S1 o S2 a 10 unità in un unico ambiente. È possibile eseguire la migrazione da un ambiente S1 a un livello S2. È possibile eseguire la migrazione da un ambiente S2 per un S1.
 
