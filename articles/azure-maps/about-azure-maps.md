@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fbb855db1ff5a2cf79826294365733614259e4b0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8092cd169f93a6815e52517d805941ac7ddcbbc0
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575738"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807505"
 ---
 # <a name="what-is-azure-maps"></a>Informazioni su Mappe di Azure
 
-Mappe di Azure è una raccolta di servizi geospaziali esclusi dai dati di mappa più aggiornati disponibili che fornisce un contesto geografico preciso alle applicazioni Web e ai dispositivi mobili. Mappe di Azure consiste in API REST per il rendering delle **mappe** in più stili e immagini satellitari, la **ricerca** di indirizzi, luoghi e punti di interesse in tutto il mondo; il **routing** point-to-point, multipoint, ottimizzazione multipoint, isocrono, veicoli commerciali, influenzato dal traffico e il routing di matrici; la visualizzazione ottimale di flusso del traffico e incidenti; l'individuazione della posizione dell'utente attraverso la **georilevazione**; infine, la conversione della posizione in **fusi orari** oltre che il recupero dell'orario di una posizione. In più, Mappe di Azure offre servizi per **geofencing**, archiviazione dei **dati** sulle mappe, ospitando informazioni sulla posizione in Azure, e **Operazioni spaziali** che offrono informazioni sulla posizione attraverso dati analitici geospaziali. I servizi di Mappe di Azure sono disponibili direttamente come API REST o attraverso un **Web SDK** o **Android SDK**. Questi strumenti consentono agli sviluppatori di sviluppare e ridimensionare rapidamente soluzioni che integrano informazioni sulla posizione nelle soluzioni di Azure dal cloud di Azure. Per iniziare subito a sviluppare, iscriversi per ottenere un [account gratuito di Mappe di Azure](https://azure.microsoft.com/services/azure-maps/).
+Mappe di Azure è una raccolta di servizi geospaziali esclusi dai dati di mappa più aggiornati disponibili che fornisce un contesto geografico preciso alle applicazioni Web e ai dispositivi mobili. Mappe di Azure consiste in API REST per il rendering delle **mappe** in più stili e immagini satellitari, la **ricerca** di indirizzi, luoghi e punti di interesse in tutto il mondo; il **routing** point-to-point, multipoint, ottimizzazione multipoint, isocrono, veicoli commerciali, influenzato dal traffico e di matrici; la visualizzazione ottimale di flusso del traffico e incidenti; i servizi di **mobilità** che richiedono informazioni su trasporto pubblico e sulla condivisione di biciclette, scooter e automobili per pianificare itinerari usando modalità di trasporto alternative e dati in tempo reale; l'individuazione della posizione dell'utente attraverso la **georilevazione**; infine, la conversione della posizione in **fusi orari** oltre al recupero dell'orario di una posizione. In più, Mappe di Azure offre servizi per **geofencing**, archiviazione dei **dati** sulle mappe, ospitando informazioni sulla posizione in Azure, e **operazioni spaziali** che offrono informazioni sulla posizione attraverso l'analisi di dati geospaziali. I servizi di Mappe di Azure sono disponibili direttamente come API REST o attraverso un **Web SDK** o **Android SDK**. Questi strumenti consentono agli sviluppatori di sviluppare e ridimensionare rapidamente soluzioni che integrano informazioni sulla posizione nelle soluzioni di Azure dal cloud di Azure. Per iniziare subito a sviluppare, iscriversi per ottenere un [account gratuito di Mappe di Azure](https://azure.microsoft.com/services/azure-maps/).
 
 Il video seguente spiega Mappe di Azure in modo approfondito:
 
@@ -42,7 +42,18 @@ Android SDK di Mappe di Azure consente di creare applicazioni di mapping avanzat
 
 ## <a name="services-in-azure-maps"></a>Servizi di Mappe di Azure
 
-Mappe di Azure è costituito dai sei servizi seguenti che possono fornire il contesto geografico alle applicazioni di Azure.
+Mappe di Azure consiste nei nove servizi seguenti che possono fornire il contesto geografico alle applicazioni di Azure.
+
+### <a name="data-service"></a>Servizio dati
+
+Avvicinando i dati dei clienti, che sono fondamentali per le mappe, al servizio Mappe di Azure è possibile ridurre la latenza, aumentare la produttività e creare nuovi scenari avanzati da evidenziare nelle applicazioni. Il servizio dati consente di caricare e archiviare dati geospaziali per l'uso con operazioni spaziali o la composizione di immagini, in modo da ridurre la latenza, aumentare la produttività e consentire nuovi scenari nelle applicazioni. Per informazioni dettagliate su questo servizio, visitare la pagina delle [API del servizio dati](https://docs.microsoft.com/rest/api/maps/data).
+
+### <a name="mobility-service"></a>Servizio Mobility
+
+I servizi di mobilità di Mappe di Azure forniscono informazioni in tempo reale sulla posizione per i servizi di trasporto pubblico nelle vicinanze, tra cui dati su fermate, percorsi e stime sulla durata del viaggio. Il servizio consente di cercare specifici tipi di oggetto, come le fermate del trasporto pubblico e la disponibilità di servizi di condivisione di biciclette, scooter o automobili in una data località, restituendo un set di oggetti trasporto con relativi dettagli. Il servizio consente anche agli sviluppatori di richiedere dettagli sulle linee del trasporto, con informazioni di base e dettagli aggiuntivi come la mappa delle linee, l'elenco di fermate, gli arrivi pianificati e in tempo reale e gli avvisi sul servizio. Gli utenti possono anche richiedere alla stazione più vicina la quantità di biciclette condivise rimaste nel parcheggio. Il servizio di mobilità offre inoltre la possibilità di cercare veicoli in car sharing disponibili, restituendo dettagli come la futura disponibilità e l'attuale livello di carburante.
+Il servizio di mobilità di Mappe di Azure consente di pianificare viaggi in tempo reale, restituendo le opzioni migliori possibili per gli itinerari e fornendo un'ampia varietà di modalità di spostamento, tra cui a piedi, in bicicletta e tramite trasporto pubblico, disponibili nell'area metropolitana. Inoltre, gli sviluppatori possono richiedere dettagli sugli itinerari del trasporto pubblico, con informazioni aggiuntive come la mappa delle linee e orari dettagliati.
+
+Per altre informazioni sul servizio e sulle varie funzionalità, vedere la [documentazione dell'API](https://docs.microsoft.com/rest/api/maps/mobility)
 
 ### <a name="render-service"></a>Servizio di rendering
 
@@ -67,6 +78,10 @@ Il servizio di ricerca è stato progettato per consentire agli sviluppatori di o
 ![Azure Maps Search.png](media/about-azure-maps/Introduction_Search.png)
 
 Il servizio di ricerca fornisce anche funzionalità avanzate come la ricerca lungo un percorso, la ricerca all'interno di un'area più ampia, l'elaborazione in batch di gruppi di richieste di ricerca e la ricerca di un'area più grande anziché di una posizione corrispondente a un punto. Le API per la ricerca in batch e di area sono attualmente in anteprima. Per altre informazioni sulle funzionalità di ricerca, vedere la pagina dell'[API di ricerca di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/search).
+
+### <a name="spatial-operations"></a>Operazioni spaziali
+
+Le operazioni spaziali di Mappe di Azure analizzano al momento i dati sulla posizione per informare i clienti sugli eventi in corso nel tempo e nello spazio, abilitando l'analisi quasi in tempo reale e la modellazione predittiva degli eventi. Il servizio consente ai clienti di Mappe di Azure di ottimizzare in modo nativo le loro informazioni sulla posizione con una raccolta di calcoli matematici geospaziali comuni, tra cui servizi come il punto più vicino, l'ortodromia e i buffer. Per altre informazioni sul servizio e sulle varie funzionalità, vedere la [documentazione dell'API](https://docs.microsoft.com/rest/api/maps/spatial).
 
 ### <a name="time-zone-service"></a>Servizio fuso orario
 

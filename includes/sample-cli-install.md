@@ -1,16 +1,16 @@
 ---
 author: sptramer
-ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 05/31/2019
 ms.author: sttramer
-ms.openlocfilehash: ebdfadcb70cc9788a3d18fa99261412506889764
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c4bc5a6befaf684cd07fb3b6799ba00099627132
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66110312"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814748"
 ---
-Per eseguire questo esempio, verificare di aver installato l'ultima versione dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Per iniziare, eseguire `az login` per creare una connessione con Azure.
+Per eseguire questo esempio, installare l'ultima versione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Per iniziare, eseguire `az login` per creare una connessione con Azure.
 
-Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure nel client Windows, vedere [Installare l'interfaccia della riga di comando di Azure in Windows](/cli/azure/install-azure-cli-windows).
+Gli esempi per l'interfaccia della riga di comando di Azure sono scritti per la shell `bash`. Per eseguire questo esempio in Windows PowerShell o dal prompt dei comandi, può essere necessario cambiare elementi dello script.
+

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: cb4ad20067783d8d6bd649710950fea51a22a454
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: c97b974919c5aec4c902867604d207cda11e8594
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979148"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754303"
 ---
 # <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>Guida introduttiva: Creare un'applicazione Java usando l'account API SQL di Azure Cosmos DB
 
@@ -26,7 +26,7 @@ ms.locfileid: "65979148"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Questa guida introduttiva spiega come creare e gestire le risorse di un account [API SQL](sql-api-introduction.md) di Azure Cosmos DB usando un'applicazione Java. Prima di tutto creare un account API SQL di Azure Cosmos DB usando il portale di Azure, creare un'app Java usando [SQL Java SDK](sql-api-sdk-async-java.md), aggiungere le risorse all'account Cosmos DB usando l'applicazione Java. Le istruzioni di questa guida introduttiva possono essere eseguite in qualsiasi sistema operativo in grado di eseguire Java. Dopo il completamento di questa guida introduttiva si sarà acquisita familiarità con la creazione e la modifica di raccolte e database di Cosmos DB nell'interfaccia utente o a livello di codice, in base alle proprie preferenze.
+Questa guida introduttiva spiega come creare e gestire le risorse di un account [API SQL](sql-api-introduction.md) di Azure Cosmos DB usando un'applicazione Java. Prima di tutto creare un account API SQL di Azure Cosmos DB usando il portale di Azure, creare un'app Java usando [SQL Java SDK](sql-api-sdk-async-java.md), aggiungere le risorse all'account Cosmos DB usando l'applicazione Java. Le istruzioni di questa guida introduttiva possono essere eseguite in qualsiasi sistema operativo in grado di eseguire Java. Dopo aver completato questa guida si sarà acquisita familiarità con la creazione e la modifica di database e contenitori di Cosmos DB nell'interfaccia utente o a livello di codice, in base alle proprie preferenze.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -48,7 +48,7 @@ Per poter creare un database di documenti, è prima necessario creare un account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Aggiungere una raccolta
+## <a name="add-a-container"></a>Aggiungere un contenitore
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -75,7 +75,7 @@ Si può ora passare a usare il codice. Clonare un'app per le API SQL da GitHub, 
 
 Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. Altrimenti è possibile passare direttamente a [Esecuzione dell'app](#run-the-app). 
 
-* Inizializzazione di `AsyncDocumentClient`. L'oggetto [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) fornisce una rappresentazione logica lato client per il servizio di database Azure Cosmos DB. Questo client viene usato per configurare ed eseguire richieste nel servizio.
+* Inizializzazione di `AsyncDocumentClient`. L'oggetto [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) fornisce una rappresentazione logica lato client per il servizio di database Azure Cosmos. Questo client viene usato per configurare ed eseguire richieste nel servizio.
 
     ```java
     client = new AsyncDocumentClient.Builder()
@@ -204,7 +204,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB, un database di documenti e una raccolta usando Esplora dati e come creare eseguire un'app per ottenere lo stesso risultato a livello di codice. È ora possibile importare dati aggiuntivi nella raccolta di Azure Cosmos DB. 
+In questo argomento di avvio rapido si è appreso come creare un account Azure Cosmos, un database di documenti e un contenitore usando Esplora dati e come creare eseguire un'app per ottenere lo stesso risultato a livello di codice. È ora possibile importare dati aggiuntivi nel contenitore di Azure Cosmos. 
 
 > [!div class="nextstepaction"]
 > [Importare dati in Azure Cosmos DB](import-data.md)

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e600204479bc54a590df6bf1bbcd634eaac7fc
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: b17ef24d753041934f68f3daee950aaa0bec46ba
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605630"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734725"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Guida introduttiva: Criteri di denominazione per i gruppi in Azure Active Directory
 
@@ -31,12 +31,12 @@ In questa guida introduttiva si configurano criteri di denominazione nel tenant 
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Configurare i criteri di denominazione dei gruppi per un tenant mediante il portale di Azure (anteprima)
+## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal"></a>Configurare i criteri di denominazione dei gruppi per un tenant con il portale di Azure
 
 1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account Amministratore utenti.
 1. Selezionare **Gruppi** e quindi **Criteri di denominazione** per visualizzare la pagina corrispondente.
 
-    ![aprire la pagina Criteri di denominazione nell'interfaccia di amministrazione](./media/groups-naming-policy/policy-preview.png)
+    ![aprire la pagina Criteri di denominazione nell'interfaccia di amministrazione](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Visualizzare o modificare i criteri di denominazione prefisso-suffisso
 
@@ -49,7 +49,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 1. Nella pagina **Criteri di denominazione** fare clic su **Parole bloccate**.
 
-    ![modificare e caricare l'elenco delle parole bloccate per i criteri di denominazione](./media/groups-naming-policy/blockedwords-preview.png)
+    ![modificare e caricare l'elenco delle parole bloccate per i criteri di denominazione](./media/groups-naming-policy/blockedwords.png)
 
 1. Visualizzare o modificare l'elenco corrente di parole bloccate personalizzate facendo clic su **Scarica**.
 1. Caricare il nuovo elenco di parole bloccate personalizzate facendo clic sull'icona del file.
@@ -59,7 +59,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Rimuovere i criteri di denominazione mediante il portale di Azure (anteprima)
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Rimuovere i criteri di denominazione con il portale di Azure
 
 1. Nella pagina **Criteri di denominazione** fare clic su **Elimina criteri**.
 1. Dopo la conferma dell'eliminazione, i criteri di denominazione vengono rimossi, inclusi tutti i criteri di denominazione prefisso-suffisso e le eventuali parole bloccate personalizzate.

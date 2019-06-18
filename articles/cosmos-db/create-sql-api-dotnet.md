@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/20/2019
-ms.openlocfilehash: 432ddf6e0fea0d6de3c24dc853502dca303ce693
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 06/06/2019
+ms.openlocfilehash: e39440a46228d82b0722f7d9d349d11fb2417b42
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954547"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754650"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Guida introduttiva: Compilare un'app Web .NET usando l'account API SQL in Azure Cosmos DB
 
@@ -52,33 +52,32 @@ Una sottoscrizione di Azure o un account di prova gratuito di Azure Cosmos DB
 
 È possibile usare Esplora dati nel portale di Azure per creare un database e una raccolta. 
 
-1.  Selezionare **Esplora dati** dal menu di spostamento a sinistra nella pagina dell'account di Azure Cosmos DB, quindi selezionare **Nuova raccolta**. 
+1.  Scegliere **Esplora dati** dal menu di spostamento sinistro nella pagina dell'account Azure Cosmos DB, quindi selezionare **Nuovo contenitore**. 
     
-    Potrebbe essere necessario scorrere verso destra per visualizzare l'area **Aggiungi raccolta**.
+    Può essere necessario scorrere verso destra per visualizzare la finestra **Aggiungi contenitore**.
     
     ![Esplora dati nel portale di Azure, riquadro Aggiungi raccolta](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
-1.  Nella pagina **Aggiungi raccolta** immettere le impostazioni per la nuova raccolta.
+1.  Nel riquadro **Aggiungi contenitore** immettere le impostazioni per la nuova raccolta.
     
     |Impostazione|Valore consigliato|DESCRIZIONE
     |---|---|---|
-    |**ID database**|ToDoList|Immettere *ToDoList* come nome del nuovo database. I nomi dei database devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/, \\, #, ?` o spazi finali.|
-    |**ID raccolta**|Items|Immettere *Items* come nome della nuova raccolta. Gli ID delle raccolte prevedono gli stessi requisiti relativi ai caratteri dei nomi di database.|
-    |**Chiave di partizione**| /category| L'esempio descritto in questo articolo usa */category* come chiave di partizione.|
+    |**ID database**|ToDoList|Immettere *ToDoList* come nome del nuovo database. I nomi dei database devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/, \\, #, ?` o spazi finali. Selezionare l'opzione **Provision database throughput** (Provisioning delle unità di elaborazione del database) che consente di condividere le unità di elaborazione del database con tra tutti i contenitori al suo interno. Questa opzione permette anche di risparmiare sui costi. |
     |**Velocità effettiva**|400|Lasciare la velocità effettiva a 400 unità di richiesta al secondo (UR/s). Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento.| 
+    |**ID contenitore**|Items|Immettere *Items* come nome della nuova raccolta. Gli ID delle raccolte prevedono gli stessi requisiti relativi ai caratteri dei nomi di database.|
+    |**Chiave di partizione**| /category| L'esempio descritto in questo articolo usa */category* come chiave di partizione.|
+
     
     Non aggiungere **chiavi univoche** per questo esempio. Le chiavi univoche consentono di aggiungere un livello di integrità dei dati al database garantendo l'univocità di uno o più valori per ogni chiave di partizione. Per altre informazioni, vedere [Chiavi univoche in Azure Cosmos DB](unique-keys.md).
     
-1.  Selezionare **OK**. 
-    In Esplora dati verranno visualizzati il nuovo database e la nuova raccolta.
+1.  Selezionare **OK**. In Esplora dati vengono visualizzati il nuovo database e il nuovo contenitore creati.
     
-    ![Esplora dati nel portale di Azure, con il nuovo database e la nuova raccolta](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
 ## <a name="add-data-to-your-database"></a>Aggiungere dati al database
 
 Aggiungere dati al nuovo database usando Esplora dati.
 
-1. In **Esplora dati** il nuovo database viene visualizzato nel riquadro **Raccolte**. Espandere il database **ToDoList**, espandere la raccolta **Items**, selezionare **Documenti**, quindi selezionare **Nuovo documento**. 
+1. In **Esplora dati** espandere il database **ToDoList** e quindi il contenitore **Elementi**. Selezionare **Elementi** e quindi **Nuovo elemento**. 
    
    ![Creare nuovi documenti in Esplora dati nel portale di Azure](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
    
@@ -108,7 +107,7 @@ Aggiungere dati al nuovo database usando Esplora dati.
 
 Per vedere come è facile interagire con i dati di Azure Cosmos DB a livello di codice, clonare l'app Web API SQL .NET di esempio da GitHub, aggiornare la stringa di connessione ed eseguire l'app per aggiornare i dati. 
 
-È anche possibile creare il database e la raccolta con il codice di esempio .NET. Per altre informazioni, vedere [Esaminare il codice .NET](#review-the-net-code).
+È anche possibile creare il database e il contenitore con il codice di esempio .NET. Per altre informazioni, vedere [Esaminare il codice .NET](#review-the-net-code).
 
 ### <a name="clone-the-sample-app"></a>Clonare l'app di esempio
 
@@ -139,16 +138,16 @@ Clonare prima di tutto un'app [API SQL](https://github.com/Azure-Samples/documen
       
       ![Visualizzazione e copia di una chiave di accesso nel portale di Azure, pannello Chiavi](./media/create-sql-api-dotnet/keys.png)
       
-   1. In **Chiavi di lettura/scrittura** copiare il valore **URI** usando il pulsante di copia a destra e incollarlo nella chiave `endpoint` del file *web.config*. Ad esempio:  
+   1. In **Chiavi di lettura/scrittura** copiare il valore **URI** usando il pulsante di copia a destra e incollarlo nella chiave `endpoint` del file *web.config*. Ad esempio: 
       
       `<add key="endpoint" value="https://mysqlapicosmosdb.documents.azure.com:443/" />`
       
-   1. Copiare il valore **CHIAVE PRIMARIA** e incollarlo nella chiave `authKey` del file *web.config*. Ad esempio: 
+   1. Copiare il valore **CHIAVE PRIMARIA** e incollarlo nella chiave `authKey` del file *web.config*. Ad esempio:
       
       `<add key="authKey" value="19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==" />`
 
        
-1. Assicurarsi che i valori del database e della raccolta nel file *web.config* corrispondano ai nomi creati in precedenza. 
+1. Assicurarsi che i valori del database e della raccolta (anche detta contenitore) nel file *web.config* corrispondano ai nomi creati in precedenza. 
 
    ```csharp
    <add key="database" value="ToDoList"/>
@@ -163,7 +162,7 @@ Clonare prima di tutto un'app [API SQL](https://github.com/Azure-Samples/documen
 
 1. Nella casella **Sfoglia** di NuGet digitare *DocumentDB*.
 
-1. Dai risultati installare la libreria **Microsoft.Azure.DocumentDB**, se non è già stata installata. Verrà installato il pacchetto [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) insieme a tutte le dipendenze.
+1. Nei risultati installare la **versione 2.2.3** della libreria **Microsoft.Azure.DocumentDB**, se non è già stata installata. Verrà installato il pacchetto [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) insieme a tutte le dipendenze.
    
    Se Gestione pacchetti NuGet visualizza un messaggio per indicare che mancano alcuni pacchetti nella soluzione, selezionare **Ripristina** per installarli da origini interne. 
 
@@ -177,7 +176,7 @@ Clonare prima di tutto un'app [API SQL](https://github.com/Azure-Samples/documen
 
 ## <a name="review-the-net-code"></a>Esaminare il codice .NET
 
-Questo passaggio è facoltativo. In questa guida di avvio rapido sono stati creati un database e una raccolta nel portale di Azure e sono stati aggiunti dati di esempio usando l'esempio .NET. Tuttavia, è anche possibile creare il database e la raccolta usando l'esempio di .NET. Esaminare i frammenti di codice seguenti per scoprire come vengono create le risorse del database nel codice. Tutti i frammenti di codice sono tratti dal file *DocumentDBRepository.cs* del progetto **todo**.
+Questo passaggio è facoltativo. In questo argomento di avvio rapido sono stati creati un database e un contenitore nel portale di Azure e sono stati aggiunti dati di esempio usando l'esempio di .NET. Tuttavia, è anche possibile creare il database e il contenitore usando l'esempio di .NET. Esaminare i frammenti di codice seguenti per scoprire come vengono create le risorse del database nel codice. Tutti i frammenti di codice sono tratti dal file *DocumentDBRepository.cs* del progetto **todo**.
 
 * Questo codice inizializza l'elemento `DocumentClient`: 
 
@@ -230,7 +229,7 @@ Questo passaggio è facoltativo. In questa guida di avvio rapido sono stati crea
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB, creare un database e una raccolta con Esplora dati ed eseguire un'app Web .NET per aggiornare i dati. È ora possibile importare dati aggiuntivi nell'account Azure Cosmos DB. 
+In questo argomento di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare un database e un contenitore con Esplora dati e come eseguire un'app Web .NET per aggiornare i dati. È ora possibile importare dati aggiuntivi nell'account Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importare dati in Azure Cosmos DB](import-data.md)

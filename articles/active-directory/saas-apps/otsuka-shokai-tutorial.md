@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0411e1ab76d010eae26142d681dc157a1eb776a8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bec4cb17f2d25cd00ef115a78736c95eaf26d95f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481937"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752456"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Esercitazione: Integrare Otsuka Shokai con Azure Active Directory
 
@@ -64,7 +64,7 @@ Per configurare e testare l'accesso SSO di Azure AD con Otsuka Shokai, completar
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare Otsuka Shokai](#configure-otsuka-shokai)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+3. **[Creare un utente test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Otsuka Shokai](#create-otsuka-shokai-test-user)** : per avere una controparte di B. Simon in Otsuka Shokai collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-sso)** per verificare se la configurazione funziona.
@@ -79,14 +79,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** eseguire questa procedura:
-
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.otsuka-shokai.co.jp/S000000100`
-
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.otsuka-shokai.co.jp/ResponseOffice365`
-
-    > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+1. Nella sezione **Configura l'accesso Single Sign-On con SAML** l'applicazione è preconfigurata e gli URL necessari sono già prepopolati con Azure. L'utente deve salvare la configurazione facendo clic sul pulsante **Salva**.
 
 1. L'applicazione Otsuka Shokai prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui  **nameidentifier**  è associato a  **user.userprincipalname**. L'applicazione Otsuka Shokai prevede il mapping di  **nameidentifier**  a  **user.objectid**, di conseguenza per modificare il mapping degli attributi, è necessario fare clic sull'icona  **Modifica** .
 
@@ -131,7 +124,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 Per configurare l'accesso Single Sign-On sul lato **Otsuka Shokai**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B. Simon nel portale di Azure.
 
@@ -139,11 +132,11 @@ In questa sezione verrà creato un utente di test di nome B. Simon nel portale d
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B. Simon`.  
-   1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `BrittaSimon@contoso.com`.
+   1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Otsuka Shokai.
 
@@ -163,7 +156,7 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
 ### <a name="create-otsuka-shokai-test-user"></a>Creare l'utente di test di Otsuka Shokai
 
-In questa sezione viene creato un utente di nome Britta Simon in Otsuka Shokai. Collaborare con il [team di supporto di Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) per aggiungere gli utenti alla piattaforma Otsuka Shokai. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome B. Simon in Otsuka Shokai. Collaborare con il [team di supporto di Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) per aggiungere gli utenti alla piattaforma Otsuka Shokai. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-sso"></a>Testare l'accesso SSO
 

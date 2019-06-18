@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6f571342b02084ceb8d67fbb889e030194663489
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 5b05755502ad5836a21080a122d2e1721825f10c
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493824"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734678"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Creare e usare un ambiente del servizio app con bilanciamento del carico interno 
 
@@ -109,7 +109,7 @@ Per configurare il DNS:
 
 - creare una zona per *&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net*
 - creare un record A in tale zona che punti * all'indirizzo IP del servizio ILB 
-- creare una zona in *&lt;nome ambiente del servizio app&gt;.appserviceenvironment.net* denominata SCM
+- creare una zona in *&lt;nome ambiente del servizio app&gt;.scm.appserviceenvironment.net* denominata SCM
 - creare un record A nella zona che punti * all'indirizzo IP del servizio ILB
 
 ## <a name="publish-with-an-ilb-ase"></a>Pubblicare con un ambiente del servizio app ILB

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0be7a8b756ee3d1d71b15e10797176e50037a47
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: b35d2e21de3da184496da53fdf46d865fdfdf5c7
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540167"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734479"
 ---
 # <a name="what-is-authentication"></a>Informazioni sull'autenticazione
 
@@ -85,14 +85,11 @@ Il diagramma seguente illustra un flusso di provisioning di Microsoft Identity P
 
 In questo flusso di provisioning:
 
-|   |   |
-|---|---|
-| 1 | Un utente del tenant B prova a eseguire l'accesso con l'app |
-| 2 | Le credenziali dell'utente vengono acquisite e verificate |
-| 3 | All'utente viene richiesto di specificare il consenso per l'app per ottenere l'accesso al tenant B |
-| 4 | Microsoft Identity Platform usa l'oggetto applicazione del tenant A come un progetto per creare un'entità servizio nel tenant B |
-| 5 | L'utente riceve il token richiesto |
-|   |   |
+1. Un utente del tenant B prova ad accedere con l'app, l'endpoint di autorizzazione richiede un token per l'applicazione.
+1. Le credenziali dell'utente vengono acquisite e verificate per l'autenticazione
+1. All'utente viene richiesto di specificare il consenso per l'app per ottenere l'accesso al tenant B
+1. Microsoft Identity Platform usa l'oggetto applicazione del tenant A come un progetto per creare un'entità servizio nel tenant B
+1. L'utente riceve il token richiesto
 
 È possibile ripetere questo processo ogni volta che si desidera per altri tenant (C, D e così via). Il tenant A mantiene il progetto per l'app (oggetto applicazione). Gli utenti e amministratori di tutti gli altri tenant in cui all'app viene dato il consenso mantengono il controllo su ciò che l'applicazione può eseguire tramite l'oggetto entità servizio corrispondente in ogni tenant. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio in Microsoft Identity Platform](app-objects-and-service-principals.md).
 

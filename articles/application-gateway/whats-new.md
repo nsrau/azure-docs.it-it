@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: cdf2a1a730be657b41c7a4b2daf2f178661394b4
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 2a494b924107baeabbcf412af7e1bbdb1db0f753
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947117"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752011"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Novità del gateway applicazione di Azure
 
@@ -27,6 +27,7 @@ Il gateway applicazione di Azure viene aggiornato regolarmente. Per stare al pas
 
 |Funzionalità  |DESCRIZIONE  |Data di aggiunta  |
 |---------|---------|---------|
+|Regole personalizzate di WAF |Il gateway applicazione WAF_v2 supporta ora la creazione di regole personalizzate. Vedere [Regole personalizzate del gateway applicazione](custom-waf-rules-overview.md). |Giugno 2019 |
 |Ridimensionamento automatico, ridondanza delle zone, disponibilità generale del supporto di VIP statici |Disponibilità generale dello SKU v2, che supporta dimensionamento automatico, ridondanza di zona, miglioramento delle prestazioni, indirizzi VIP statici, Key Vault, riscrittura dell'intestazione. Vedere la [documentazione sul ridimensionamento automatico del gateway applicazione](application-gateway-autoscaling-zone-redundant.md). |Aprile 2019 |
 |Integrazione di Key Vault |Il gateway applicazione supporta ora l'integrazione con Key Vault (in anteprima pubblica) per i certificati server associati a listener abilitati per HTTPS. Vedere [SSL termination with Key Vault certificates](key-vault-certs.md) (Terminazione SSL con certificati di Key Vault). |Aprile 2019 |
 |CRUD/riscritture intestazioni     |È ora possibile riscrivere le intestazioni HTTP. Per istruzioni dettagliate, vedere [Esercitazione: Creare un gateway applicazione e riscrivere intestazioni HTTP](tutorial-http-header-rewrite-powershell.md).|Dicembre 2018|

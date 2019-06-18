@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 962955a405d12365f69519b004ea8f95d529a97c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475535"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742914"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -119,7 +119,7 @@ nell'esempio dell'esercitazione si aggiunge un record CNAME per il sottodominio 
 
 #### <a name="create-the-cname-record"></a>Creazione di un record CNAME
 
-Aggiungere un record CNAME per eseguire il mapping di un sottodominio al nome host predefinito dell'app (`<app_name>.azurewebsites.net`, dove `<app_name>` è il nome dell'app).
+Aggiungere un record CNAME per eseguire il mapping di un sottodominio al nome di dominio predefinito dell'app (`<app_name>.azurewebsites.net`, dove `<app_name>` è il nome dell'app).
 
 Per l'esempio di dominio `www.contoso.com`, aggiungere un record CNAME che esegue il mapping del nome `www` a `<app_name>.azurewebsites.net`.
 
@@ -129,13 +129,13 @@ Dopo aver aggiunto il record CNAME, la pagina dei record DNS è simile all'esemp
 
 #### <a name="enable-the-cname-record-mapping-in-azure"></a>Abilitare il mapping dei record CNAME in Azure
 
-Nel riquadro di spostamento a sinistra della pagina dell'app nel portale di Azure selezionare **Domini personalizzati**. 
+Nel riquadro di spostamento a sinistra della pagina dell'app nel portale di Azure selezionare **Domini personalizzati**.
 
 ![Menu del dominio personalizzato](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 Nella pagina **Domini personalizzati** dell'app aggiungere il nome DNS personalizzato completo (`www.contoso.com`) all'elenco.
 
-Selezionare l'icona **+** accanto ad **Aggiungi il nome host**.
+Selezionare l'icona **+** accanto ad **Aggiungi dominio personalizzato**.
 
 ![Aggiunta del nome host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -143,15 +143,15 @@ Digitare il nome di dominio completo per il quale è stato aggiunto un record CN
 
 Selezionare **Convalida**.
 
-Viene visualizzata la pagina **Aggiungi il nome host**. 
+Viene visualizzata la pagina **Aggiungi dominio personalizzato**.
 
 Assicurarsi che **Tipo di record del nome host** sia impostato su **CNAME (www\.example.com o qualsiasi sottodominio**).
 
-Selezionare **Aggiungi il nome host**.
+Selezionare **Aggiungi dominio personalizzato**.
 
 ![Aggiunta del nome DNS all'app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-La visualizzazione del nuovo nome host nella pagina **Domini personalizzati** dell'app potrebbe richiedere qualche minuto. Provare ad aggiornare il browser per visualizzare i dati più recenti.
+La visualizzazione del nuovo dominio personalizzato nella pagina **Domini personalizzati** dell'app potrebbe richiedere qualche minuto. Provare ad aggiornare il browser per visualizzare i dati più recenti.
 
 ![Record CNAME aggiunto](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
@@ -191,7 +191,7 @@ Nella pagina **Domini personalizzati**, copiare l'indirizzo IP dell'applicazione
 Per eseguire il mapping di un record A a un'app, il servizio app richiede **due** record DNS:
 
 - Un record **A** di cui eseguire il mapping all'indirizzo IP dell'app.
-- Un record **TXT** di cui eseguire il mapping al nome host predefinito dell'app `<app_name>.azurewebsites.net`. Il servizio app usa questo record solo in fase di configurazione per verificare che si è proprietari del dominio personalizzato. Dopo che il dominio personalizzato è stato convalidato e configurato nel servizio app, è possibile eliminare il record TXT.
+- Un record **TXT** di cui eseguire il mapping al nome di dominio predefinito dell'app `<app_name>.azurewebsites.net`. Il servizio app usa questo record solo in fase di configurazione per verificare che si è proprietari del dominio personalizzato. Dopo che il dominio personalizzato è stato convalidato e configurato nel servizio app, è possibile eliminare il record TXT.
 
 Per l’esempio di dominio `contoso.com`, creare i record A e TXT in base alla tabella seguente (`@` rappresenta in genere il dominio radice).
 
@@ -219,23 +219,23 @@ Dopo aver aggiunto i record, la pagina dei record DNS è simile all'esempio segu
 
 Nella pagina **Domini personalizzati** dell'app nel portale di Azure aggiungere il nome DNS personalizzato completo, ad esempio `contoso.com`, all'elenco.
 
-Selezionare l'icona **+** accanto ad **Aggiungi il nome host**.
+Selezionare l'icona **+** accanto ad **Aggiungi dominio personalizzato**.
 
-![Aggiunta del nome host](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
+![Aggiunta del nome host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Digitare il nome di dominio completo per il quale è stato configurato il record A, ad esempio `contoso.com`.
 
 Selezionare **Convalida**.
 
-Viene visualizzata la pagina **Aggiungi il nome host**. 
+Viene visualizzata la pagina **Aggiungi dominio personalizzato**.
 
 Assicurarsi che **Tipo di record del nome host** sia impostato su **Record A (esempio.com)** .
 
-Selezionare **Aggiungi il nome host**.
+Selezionare **Aggiungi dominio personalizzato**.
 
 ![Aggiunta del nome DNS all'app](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-La visualizzazione del nuovo nome host nella pagina **Domini personalizzati** dell'app potrebbe richiedere qualche minuto. Provare ad aggiornare il browser per visualizzare i dati più recenti.
+La visualizzazione del nuovo dominio personalizzato nella pagina **Domini personalizzati** dell'app potrebbe richiedere qualche minuto. Provare ad aggiornare il browser per visualizzare i dati più recenti.
 
 ![Record A aggiunto](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
@@ -258,7 +258,7 @@ Nell'esempio dell'esercitazione si esegue il mapping di un [nome DNS con caratte
 
 #### <a name="create-the-cname-record"></a>Creazione di un record CNAME
 
-Aggiungere un record CNAME per eseguire il mapping di un nome con caratteri jolly al nome host predefinito dell'app (`<app_name>.azurewebsites.net`).
+Aggiungere un record CNAME per eseguire il mapping di un nome con caratteri jolly al nome di dominio predefinito dell'app (`<app_name>.azurewebsites.net`).
 
 Per l'esempio di dominio `*.contoso.com`, il record CNAME eseguirà il mapping del nome `*` a `<app_name>.azurewebsites.net`.
 
@@ -274,23 +274,23 @@ Nel riquadro di spostamento a sinistra della pagina dell'app nel portale di Azur
 
 ![Menu del dominio personalizzato](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Selezionare l'icona **+** accanto ad **Aggiungi il nome host**.
+Selezionare l'icona **+** accanto ad **Aggiungi dominio personalizzato**.
 
 ![Aggiunta del nome host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Digitare un nome di dominio completo corrispondente al dominio con caratteri jolly, ad esempio `sub1.contoso.com`, quindi selezionare **Convalida**.
 
-Viene attivato il pulsante **Aggiungi il nome host**. 
+Il pulsante **Aggiungi dominio personalizzato** viene attivato.
 
 Assicurarsi che **Tipo di record del nome host** sia impostato su **CNAME (www\.example.com o qualsiasi sottodominio**).
 
-Selezionare **Aggiungi il nome host**.
+Selezionare **Aggiungi dominio personalizzato**.
 
 ![Aggiunta del nome DNS all'app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-La visualizzazione del nuovo nome host nella pagina **Domini personalizzati** dell'app potrebbe richiedere qualche minuto. Provare ad aggiornare il browser per visualizzare i dati più recenti.
+La visualizzazione del nuovo dominio personalizzato nella pagina **Domini personalizzati** dell'app potrebbe richiedere qualche minuto. Provare ad aggiornare il browser per visualizzare i dati più recenti.
 
-Fare di nuovo clic sull'icona **+** per aggiungere un altro nome host corrispondente al dominio con caratteri jolly. Ad esempio, aggiungere `sub2.contoso.com`.
+Fare di nuovo clic sull'icona **+** per aggiungere un altro dominio personalizzato corrispondente al dominio con caratteri jolly. Ad esempio, aggiungere `sub2.contoso.com`.
 
 ![Record CNAME aggiunto](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 

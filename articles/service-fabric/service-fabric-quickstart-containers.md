@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 03f2f6bb572c46a1683d73ba42f435eca59829e5
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 4795952faa91d62b76f267795660db5ab4075e79
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428089"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734505"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Guida introduttiva: Distribuire contenitori Windows in Service Fabric
 
@@ -57,7 +57,7 @@ Selezionare l'**applicazione di Service Fabric**, denominarla "MyFirstContainer"
 
 Selezionare **Contenitore** dai modelli **Applicazioni e contenitori ospitati**.
 
-In **Nome immagine** immettere "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016", ossia l'[immagine di base di Windows Server Core Server e IIS](https://hub.docker.com/r/microsoft-windows-servercore-iis).
+In **Nome immagine** immettere "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016", ossia l'[immagine di base di Windows Server Core Server e IIS](https://hub.docker.com/_/microsoft-windows-servercore-iis).
 
 Configurare il mapping dalla porta all'host del contenitore in modo che per le richieste in ingresso per il servizio sulla porta 80 venga eseguito il mapping alla porta 80 del contenitore.  Impostare la **Porta del contenitore** su "80" e impostare **Porta host** su "80".  
 
@@ -77,14 +77,14 @@ Microsoft pubblica immagini diverse per le versioni di IIS compilate per version
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
-          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-Il manifesto del servizio continua a specificare solo un'immagine per nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016`.
+Il manifesto del servizio continua a specificare solo un'immagine per nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016`.
 
 Nel file *ApplicationManifest.xml* impostare anche **PasswordEncrypted** su **false**. Dato che l'account e la password sono vuoti per l'immagine del contenitore pubblica disponibile nell'hub Docker, si disattiva la crittografia perché la crittografia di una password vuota genera un errore di compilazione.
 
