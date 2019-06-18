@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 3d59fc48f1f6f6931ca18e09a420fdbccc7d53dc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922277"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su SUSE Linux Enterprise Server
@@ -26,17 +26,17 @@ ms.locfileid: "64922277"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2205917]: https://launchpad.support.sap.com/#/notes/2205917
+[1944799]: https://launchpad.support.sap.com/#/notes/1944799
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[401162]:https://launchpad.support.sap.com/#/notes/401162
+[401162]: https://launchpad.support.sap.com/#/notes/401162
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -113,7 +113,7 @@ Per distribuire il modello, seguire questi passaggi:
     - **Disponibilità del sistema**: Selezionare **HA**.
     - **Admin Username and Admin Password** (Nome utente e password amministratore): Viene creato un nuovo utente che può essere usato per accedere alla macchina.
     - **New Or Existing Subnet** (Subnet nuova o esistente): Determina se devono essere create una nuova rete virtuale e una nuova subnet o deve essere usata una subnet esistente. Se è già presente una rete virtuale connessa alla rete locale, selezionare **Esistente**.
-    - **ID subnet**: Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere ha il formato **/subscriptions/\<ID sottoscrizione>/resourceGroups/\<nome gruppo di risorse>/providers/Microsoft.Network/virtualNetworks/\<nome rete virtuale>/subnets/\<nome subnet>**.
+    - **ID subnet**: Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere ha il formato **/subscriptions/\<ID sottoscrizione>/resourceGroups/\<nome gruppo di risorse>/providers/Microsoft.Network/virtualNetworks/\<nome rete virtuale>/subnets/\<nome subnet>** .
 
 ### <a name="manual-deployment"></a>Distribuzione manuale
 
@@ -204,11 +204,11 @@ Seguire i passaggi descritti in [Setting up Pacemaker on SUSE Linux Enterprise S
 ## <a name="install-sap-hana"></a>Installare SAP HANA
 
 Per i passaggi in questa sezione vengono usati i prefissi seguenti:
-- **[A]**: il passaggio si applica a tutti i nodi.
-- **[1]**: il passaggio si applica solo al nodo 1.
-- **[2]**: il passaggio si applica solo al nodo 2 del cluster Pacemaker.
+- **[A]** : il passaggio si applica a tutti i nodi.
+- **[1]** : il passaggio si applica solo al nodo 1.
+- **[2]** : il passaggio si applica solo al nodo 2 del cluster Pacemaker.
 
-1. **[A]** Configurare il layout dei dischi: **Gestione volumi logici (LVM)**.
+1. **[A]** Configurare il layout dei dischi: **Gestione volumi logici (LVM)** .
 
    È consigliabile usare LVM per i volumi che archiviano file di log e dati. L'esempio seguente presuppone che le macchine virtuali abbiano quattro dischi dati collegati, usati per creare due volumi.
 
@@ -321,28 +321,28 @@ Per installare la replica di sistema SAP HANA, seguire il capitolo 4 della guida
 1. **[T]** Eseguire il programma **hdblcm** dal DVD di HANA. Immettere i valori seguenti al prompt:
    * Scegliere l'installazione: Immettere **1**.
    * Selezionare i componenti aggiuntivi per l'installazione: Immettere **1**.
-   * Immettere il percorso di installazione [/hana/shared]: Selezionare Invio.
-   * Immettere il nome host locale [..]: Selezionare Invio.
-   * Aggiungere altri host al sistema? (y/n) [n]: Selezionare Invio.
+   * Immettere il percorso di installazione [/hana/shared]: Premere INVIO.
+   * Immettere il nome host locale [..]: Premere INVIO.
+   * Aggiungere altri host al sistema? (y/n) [n]: Premere INVIO.
    * Immettere l'ID di sistema SAP HANA: Immettere il SID di HANA, ad esempio: **HN1**.
    * Immettere il numero di istanza [00]: Immettere il numero di istanza di HANA. Immettere **03** se è stato usato il modello di Azure o se è stata seguita la sezione di questo articolo relativa alla distribuzione manuale.
-   * Selezionare la modalità di database/immettere l'indice [1]: Selezionare Invio.
+   * Selezionare la modalità di database/immettere l'indice [1]: Premere INVIO.
    * Selezionare l'utilizzo del sistema/immettere l'indice [4]: Selezionare il valore di utilizzo del sistema.
-   * Immettere il percorso dei volumi di dati [/hana/data/HN1]: Selezionare Invio.
-   * Immettere il percorso dei volumi di log [/hana/log/HN1]: Selezionare Invio.
-   * Limitare l'allocazione massima della memoria? [n]: Selezionare Invio.
-   * Immettere il nome host del certificato per l'host '...' [...]: Selezionare Invio.
+   * Immettere il percorso dei volumi di dati [/hana/data/HN1]: Premere INVIO.
+   * Immettere il percorso dei volumi di log [/hana/log/HN1]: Premere INVIO.
+   * Limitare l'allocazione massima della memoria? [n]: Premere INVIO.
+   * Immettere il nome host del certificato per l'host '...' [...]: Premere INVIO.
    * Immettere la password dell'utente agente host SAP (sapadm): Immettere la password utente dell'agente host.
    * Confermare la password dell'utente agente host SAP (sapadm): Immettere nuovamente la password utente dell'agente host per confermarla.
    * Immettere la password dell'amministratore di sistema (hdbadm): Immettere la password amministratore di sistema.
    * Confermare la password dell'amministratore di sistema (hdbadm): Immettere nuovamente la password dell'amministratore di sistema per confermarla.
-   * Immettere la home directory dell'amministratore di sistema [/usr/sap/HN1/home]: Selezionare Invio.
-   * Immettere la shell di accesso dell'amministratore di sistema [/bin/sh]: Selezionare Invio.
-   * Immettere l'ID utente dell'amministratore di sistema [1001]: Selezionare Invio.
-   * Immettere l'ID del gruppo di utenti (sapsys) [79]: Selezionare Invio.
+   * Immettere la home directory dell'amministratore di sistema [/usr/sap/HN1/home]: Premere INVIO.
+   * Immettere la shell di accesso dell'amministratore di sistema [/bin/sh]: Premere INVIO.
+   * Immettere l'ID utente dell'amministratore di sistema [1001]: Premere INVIO.
+   * Immettere l'ID del gruppo di utenti (sapsys) [79]: Premere INVIO.
    * Immettere la password dell'utente del database (SYSTEM): Immettere la password utente del database.
    * Confermare la password dell'utente del database (SYSTEM): Immettere nuovamente la password utente del database per confermarla.
-   * Riavviare il sistema dopo il riavvio della macchina? [n]: Selezionare Invio.
+   * Riavviare il sistema dopo il riavvio della macchina? [n]: Premere INVIO.
    * Continuare? (y/n): Convalidare il riepilogo. Immettere **y** per continuare.
 
 1. **[T]** Aggiornare l'agente host SAP.
@@ -356,9 +356,9 @@ Per installare la replica di sistema SAP HANA, seguire il capitolo 4 della guida
 
 Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
-* **[A]**: il passaggio si applica a tutti i nodi.
-* **[1]**: il passaggio si applica solo al nodo 1.
-* **[2]**: il passaggio si applica solo al nodo 2 del cluster Pacemaker.
+* **[A]** : il passaggio si applica a tutti i nodi.
+* **[1]** : il passaggio si applica solo al nodo 1.
+* **[2]** : il passaggio si applica solo al nodo 2 del cluster Pacemaker.
 
 1. **[1]** Creare il database tenant.
 
@@ -401,9 +401,9 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
-* **[A]**: il passaggio si applica a tutti i nodi.
-* **[1]**: il passaggio si applica solo al nodo 1.
-* **[2]**: il passaggio si applica solo al nodo 2 del cluster Pacemaker.
+* **[A]** : il passaggio si applica a tutti i nodi.
+* **[1]** : il passaggio si applica solo al nodo 1.
+* **[2]** : il passaggio si applica solo al nodo 2 del cluster Pacemaker.
 
 1. **[1]** Creare gli utenti richiesti.
 
