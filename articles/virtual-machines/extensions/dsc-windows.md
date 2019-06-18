@@ -113,19 +113,19 @@ Il JSON seguente illustra lo schema per la sezione delle impostazioni dell'esten
 | settings.configuration.url | string | Specifica il percorso URL da cui scaricare il file ZIP della configurazione DSC. Se l'URL specificato richiede un token di firma di accesso condiviso per accedere, sarà necessario impostare la proprietà protectedSettings.configurationUrlSasToken sul valore del token di firma di accesso condiviso. Questa proprietà è obbligatoria se settings.configuration.script e/o settings.configuration.function sono definiti.
 | settings.configuration.script | string | Specifica il nome del file di script che contiene la definizione della configurazione DSC. Questo script deve trovarsi nella cartella radice del file ZIP scaricato dall'URL specificato dalla proprietà configuration.url. Questa proprietà è obbligatoria se settings.configuration.url e/o settings.configuration.script sono definiti.
 | settings.configuration.function | string | Specifica il nome della configurazione DSC. La configurazione indicata deve essere contenuta nello script definito da configuration.script. Questa proprietà è obbligatoria se settings.configuration.url e/o settings.configuration.function sono definiti.
-| settings.configurationArguments | Collection | Definisce i parametri da passare alla configurazione DSC. Questa proprietà non verrà crittografata.
+| settings.configurationArguments | Raccolta | Definisce i parametri da passare alla configurazione DSC. Questa proprietà non verrà crittografata.
 | settings.configurationData.url | string | Specifica l'URL da cui scaricare il file di dati di configurazione con estensione pds1 da usare come input per la configurazione DSC. Se l'URL specificato richiede un token di firma di accesso condiviso per accedere, sarà necessario impostare la proprietà protectedSettings.configurationDataUrlSasToken sul valore del token di firma di accesso condiviso.
 | settings.privacy.dataEnabled | string | Abilita o disabilita la raccolta di dati di telemetria. Gli unici valori possibili per questa proprietà sono "Abilita", "Disabilita", '' o $null. Lasciando questa proprietà vuota o con valore null verrà abilitata la raccolta di dati di telemetria.
 | settings.advancedOptions.forcePullAndApply | Bool | Questa impostazione è progettata per migliorare l'esperienza di utilizzo con l'estensione per registrare i nodi con DSC di automazione di Azure.  Se il valore è `$true`, attenderà l'estensione per la prima esecuzione della configurazione dal servizio di pull prima della restituzione di esito positivo o negativo.  Se il valore è impostato su $false false per, lo stato restituito dall'estensione farà riferimento solo a se il nodo è stato registrato con configurazione dello stato di automazione di Azure e la configurazione del nodo non verrà eseguita durante la registrazione.
-| settings.advancedOptions.downloadMappings | Collection | Definisce posizioni alternative per scaricare le dipendenze, ad esempio WMF e .NET
+| settings.advancedOptions.downloadMappings | Raccolta | Definisce posizioni alternative per scaricare le dipendenze, ad esempio WMF e .NET
 
 ### <a name="protected-settings-property-values"></a>Valori di proprietà delle impostazioni protette
 
 | NOME | Tipo di dati | DESCRIZIONE
 | ---- | ---- | ---- |
-| protectedSettings.configurationArguments | stringa | Definisce i parametri da passare alla configurazione DSC. Questa proprietà verrà crittografata. |
-| protectedSettings.configurationUrlSasToken | stringa | Specifica il token di firma di accesso condiviso per accedere all'URL definito da configuration.url. Questa proprietà verrà crittografata. |
-| protectedSettings.configurationDataUrlSasToken | stringa | Specifica il token di firma di accesso condiviso per accedere all'URL definito da configurationData.url. Questa proprietà verrà crittografata. |
+| protectedSettings.configurationArguments | string | Definisce i parametri da passare alla configurazione DSC. Questa proprietà verrà crittografata. |
+| protectedSettings.configurationUrlSasToken | string | Specifica il token di firma di accesso condiviso per accedere all'URL definito da configuration.url. Questa proprietà verrà crittografata. |
+| protectedSettings.configurationDataUrlSasToken | string | Specifica il token di firma di accesso condiviso per accedere all'URL definito da configurationData.url. Questa proprietà verrà crittografata. |
 
 
 ## <a name="template-deployment"></a>Distribuzione del modello
