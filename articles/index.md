@@ -6,12 +6,12 @@ description: Informazioni su come compilare e gestire applicazioni avanzate usan
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: bc052b749724a76df3df3572913f4bcbc146df17
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: dffb0fc1ca08cb0b1ab73448c987d648bc8aead7
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497052"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67191023"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -773,6 +773,12 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                             <a href="/azure/frontdoor/">
                                                 <img src="media/index/frontdoor.svg" alt="" />
                                                 <p>Servizio Frontdoor di Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/bastion/">
+                                                <img src="media/index/web_connect.svg" alt="" />
+                                                <p>Azure Bastion</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2414,6 +2420,25 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Servizio Frontdoor di Azure</h3>
                                                     <p>Punto di ingresso scalabile e sicuro per distribuire app Web globali</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+<li>
+                                <a href="/azure/bastion/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/web_connect.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Bastion</h3>
+                                                    <p>Proteggere la connettività con le macchine virtuali su SSL tramite portale di Azure senza un indirizzo IP pubblico</p>
                                                 </div>
                                             </div>
                                         </div>

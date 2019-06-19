@@ -10,7 +10,7 @@
     - name: Guida introduttiva
       expanded: true
       items:
-        - name: Inizializzare e acquistare capacità
+        - name: Inizializzare ed effettuare il provisioning di capacità
           href: quickstart-create-cloudsimple-service.md
         - name: Configurare l'ambiente di cloud privato
           href: quickstart-create-private-cloud.md
@@ -62,7 +62,7 @@
           href: access-cloudsimple-portal.md
         - name: Gestire nodi
           items:
-            - name: Acquistare nodi
+            - name: Effettuare il provisioning dei nodi
               href: create-nodes.md
         - name: Gestire le risorse del cloud privato
           items:

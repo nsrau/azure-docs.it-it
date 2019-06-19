@@ -31,6 +31,14 @@
       href: search-get-started-python.md
 - name: Esercitazioni
   items:
+    - name: Creare la prima app
+      items:
+        - name: 1 - Pagina di ricerca di base
+          href: tutorial-csharp-create-first-app.md
+        - name: 2 - Aggiungere la suddivisione in pagine dei risultati
+          href: tutorial-csharp-paging.md
+        - name: 3 - Aggiungere il completamento automatico
+          href: tutorial-csharp-type-ahead-and-suggestions.md
     - name: Indicizzare un database SQL di Azure
       href: search-indexer-tutorial.md
     - name: Indicizzare BLOB JSON di Azure
