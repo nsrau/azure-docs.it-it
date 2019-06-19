@@ -5,20 +5,11 @@
     - name: Informazioni su Apache Hadoop in HDInsight
       href: apache-hadoop-introduction.md
       maintainContext: true
-    - name: Architettura di Apache Hadoop in Azure HDInsight
-      href: ../hdinsight-hadoop-architecture.md
-      maintainContext: true
-    - name: Componenti Apache Hadoop in HDInsight
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
-      maintainContext: true
 - name: Guide introduttive
   items:
     - name: Creare un cluster Apache Hadoop - Portale
       href: apache-hadoop-linux-create-cluster-get-started-portal.md
-    - name: Creare un cluster Apache Hadoop - Modello di Resource Manager
+    - name: Creare un cluster Apache Hadoop - Modello
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-hadoop-linux-tutorial-get-started.md
 - name: Esercitazioni
@@ -45,6 +36,15 @@
       maintainContext: true
 - name: Concetti
   items:
+    - name: HDInsight 4.0
+      href: ../hdinsight-version-release.md
+      maintainContext: true
+    - name: Architettura di Apache Hadoop in Azure HDInsight
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
+    - name: Componenti di Apache Hadoop in HDInsight
+      href: ../hdinsight-component-versioning.md
+      maintainContext: true
     - name: Pianificazione della capacità dei cluster
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -471,9 +471,6 @@
   items:
     - name: Cluster Windows
       items:
-        - name: Eseguire la migrazione di cluster Windows a cluster Linux
-          href: ../hdinsight-migrate-from-windows-to-linux.md
-          maintainContext: true
         - name: Eseguire la migrazione di soluzioni .NET a cluster Linux
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
           maintainContext: true

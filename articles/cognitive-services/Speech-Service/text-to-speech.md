@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 06/14/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 84e8eedfb206e28f245128a4e30aba44e96277ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a3469e4f7fe1c234a6df694d7bdd6d9e2c46407a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072426"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204880"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è sintesi vocale?
 
@@ -26,13 +25,13 @@ Tecnologia di riconoscimento vocale consente ai creatori di contenuti interagire
 
 ### <a name="standard-voices"></a>Voci standard
 
-Voices standard vengono create utilizzando le tecniche di sintesi parametriche statistica e/o sintesi di concatenazione. Queste voci sono altamente comprensibili e sembrare piuttosto normale. È possibile abilitare facilmente le applicazioni da leggere a voce in più di 45 lingue, con un'ampia gamma di opzioni relative alla voce. Queste voci forniscono precisione elevata pronuncia, incluso il supporto per le abbreviazioni, le espansioni acronimo, data/ora interpretazioni, polyphones e altro ancora. Usa la voce standard per migliorare l'accessibilità per le applicazioni e servizi, consentendo agli utenti di interagire con i contenuti acustico.
+Voices standard vengono create utilizzando le tecniche di sintesi parametriche statistica e/o sintesi di concatenazione. Queste voci siano naturale altamente comprensibili e audio. È possibile abilitare facilmente le applicazioni da leggere a voce in più di 45 lingue, con un'ampia gamma di opzioni relative alla voce. Queste voci forniscono precisione elevata pronuncia, incluso il supporto per le abbreviazioni, le espansioni acronimo, data/ora interpretazioni, polyphones e altro ancora. Usa la voce standard per migliorare l'accessibilità per le applicazioni e servizi, consentendo agli utenti di interagire con i contenuti acustico.
 
 ### <a name="neural-voices"></a>Voci neurali
 
-Voices neurale usare reti neurali profonde per superare i limiti dei tradizionali sistemi di sintesi vocale in corrispondenti ai modelli di stress e intonazione in linguaggio parlato e la sintesi le unità di riconoscimento vocale in una voce di computer. Sintesi vocale standard suddivide prosodia separato per analisi linguistica e intervalli per la stima acustico governate dai modelli indipendenti. Che può comportare la sintesi vocale sordo, squillanti. La funzionalità neurale esegue sintesi vocale e stima di prosodia contemporaneamente, offrendo una voce più fluida e naturale.
+Voices neurale usare reti neurali profonde per superare i limiti dei tradizionali sistemi di sintesi vocale in corrispondenti ai modelli di stress e intonazione in linguaggio parlato e la sintesi le unità di riconoscimento vocale in una voce di computer. Sintesi vocale standard suddivide prosodia separato per analisi linguistica e intervalli per la stima acustico governate dai modelli indipendenti, che possono comportare la sintesi vocale ovattato. La funzionalità neurale esegue sintesi vocale e stima di prosodia contemporaneamente, offrendo una voce più fluida e naturale.
 
-Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le interazioni con chatbot e assistenti virtuali, per convertire testo digitale, come gli e-book, in audiolibri e per migliorare i sistemi dei navigatori per le automobili. Prosodia naturale human-like e la chiaro tempestiva delle parole, voices neurale ridurre notevolmente la fatica di ascolto quando si interagisce con i sistemi di intelligenza artificiale. 
+Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le interazioni con chatbot e assistenti virtuali, per convertire testo digitale, come gli e-book, in audiolibri e per migliorare i sistemi dei navigatori per le automobili. Prosodia naturale human-like e la chiaro tempestiva delle parole, voices neurale ridurre notevolmente la fatica di ascolto quando si interagisce con i sistemi di intelligenza artificiale.
 
 Voices neurale supportano stili diversi, ad esempio indipendente e persone. Pronunciare, ad esempio, la voce Jessa (en-US) possa cheerfully, che è ottimizzata per la conversazione a caldo, felice. È possibile modificare l'output vocale, come segnale acustico, passo e facilitare l'uso delle [linguaggio di Markup sintesi vocale](speech-synthesis-markup.md). Per un elenco completo delle voci disponibili, vedere [lingue supportate](language-support.md#text-to-speech).
 
@@ -41,6 +40,26 @@ Per altre informazioni sui vantaggi di voci neurale, vedere [servizio di sintesi
 ### <a name="custom-voices"></a>Voci personalizzate
 
 Personalizzazione casella vocale consente di creare una voce riconoscibile, uno di tipo per il tuo marchio. Per creare il carattere voce personalizzato, si apportano una registrazione in studio e caricare gli script associati come dati di training. Il servizio crea quindi un modello vocale univoco ottimizzato per la registrazione. È possibile utilizzare questo carattere voce personalizzato per sintesi vocale. Per altre informazioni, vedere [voci personalizzate](how-to-customize-voice-font.md).
+
+## <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
+
+Linguaggio di Markup sintesi della voce (SSML) è un linguaggio di markup basato su XML che consente agli sviluppatori di specificare il testo come input viene convertito in sintesi vocale, utilizzando il servizio di sintesi vocale. Rispetto al testo normale, SSML consente agli sviluppatori di ottimizzare il tono, pronuncia, velocità di pronuncia, volume e più output di sintesi vocale. Punteggiatura normali, ad esempio tramite l'intonazione corretto quando si termina una frase con un punto interrogativo o sospensione dopo un periodo vengono gestiti automaticamente.
+
+Tutti gli input di testo inviati al servizio di sintesi vocale devono essere strutturati con SSML. Per altre informazioni, vedere [linguaggio di Markup sintesi vocale](speech-synthesis-markup.md).
+
+### <a name="pricing-note"></a>Nota sui prezzi
+
+Quando si usa il servizio di sintesi vocale, ti vengono fatturate per ogni carattere viene convertito nel riconoscimento vocale, inclusi segni di punteggiatura. Anche se il documento SSML stesso non fatturabile, elementi facoltativi che consentono di modificare la modalità di conversione il testo per il riconoscimento vocale, come fonemi e tono, vengono conteggiati come caratteri fatturabile. Ecco un elenco di cosa è fatturabile:
+
+* Testo passato al servizio di sintesi vocale nel corpo della richiesta SSML
+* Tutti i commenti all'interno del campo di testo del corpo della richiesta nel formato SSML, ad eccezione di `<speak>` e `<voice>` tag
+* Lettere, punteggiatura, spazi, tabulazioni, markup e tutti i caratteri spazi vuoti
+* Ogni elemento di codice definito in Unicode
+
+Per informazioni dettagliate, vedere [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+> [!IMPORTANT]
+> Ogni carattere di lingua cinese, giapponese e coreano viene conteggiata come due caratteri per la fatturazione.
 
 ## <a name="core-features"></a>Funzionalità di base
 

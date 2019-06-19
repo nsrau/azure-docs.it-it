@@ -1,6 +1,6 @@
 ---
 title: Authentication
-titleSuffix: Cognitive Services - Azure
+titleSuffix: Azure Cognitive Services
 description: 'Esistono tre modi per autenticare una richiesta a una risorsa di Servizi cognitivi di Azure: tramite una chiave di sottoscrizione, un token di connessione o una sottoscrizione multiservizio. Questo articolo descrive ciascun modo e come effettuare una richiesta.'
 services: cognitive-services
 author: erhopf
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 90bc2bf4c207f3bb2727d76c2e6b4fd5597539b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06cc5509598cb6227a64e2cf375a5686c89312eb
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60336772"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163668"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticare le richieste a Servizi cognitivi di Azure
 
@@ -29,7 +29,7 @@ Ogni richiesta a un servizio di Servizi cognitivi di Azure deve includere un'int
 Per poter effettuare una richiesta, è necessario disporre di un account Azure e di una sottoscrizione di Servizi cognitivi di Azure. Se si dispone già di un account, passare direttamente alla sezione successiva. Se non si dispone dell'account, seguire le indicazioni per crearne uno in pochi minuti: [Creare un account Servizi cognitivi di Azure](cognitive-services-apis-create-account.md).
 
 È possibile ottenere la chiave di sottoscrizione dal [portale di Azure](cognitive-services-apis-create-account.md#access-your-resource) dopo la creazione dell'account o attivazione di un [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/my-apis).
- 
+
 ## <a name="authentication-headers"></a>Intestazioni di autenticazione
 
 È opportuno esaminare rapidamente le intestazioni di autenticazione disponibili per l'uso con Servizi cognitivi di Azure.

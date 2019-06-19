@@ -9,29 +9,28 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198574"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204152"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Uso delle chiavi della sottoscrizione con l'app LUIS
 
-Non è necessario creare chiavi di sottoscrizione per usare le prime 1000 query di endpoint gratuite. Dopo averle usate tutte, creare una risorsa di Azure nel [portale di Azure](https://portal.azure.com), quindi assegnarla a un'app LUIS nel [portale LUIS](https://www.luis.ai).
-
-Se si riceve un errore di _superamento della quota_ in forma di messaggio HTTP 403 o 429, è necessario creare una chiave e assegnarla all'app. 
+Quando si usa LUIS (Language Understanding), non occorre creare le chiavi di sottoscrizione. Si può iniziare con le query di endpoint di 1000. 
 
 Solo in caso di test o come prototipo, usa il livello (F0) gratuito. Per i sistemi di produzione, usa un livello [a pagamento](https://aka.ms/luis-price-tier). Non usare la [chiave di creazione](luis-concept-keys.md#authoring-key) per le query di endpoint nell'ambiente di produzione.
+
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
 ## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Crea risorsa di runtime di stima endpoint nel portale di Azure
 
-Scopri di più con il [creare un'app](get-started-portal-build-app.md) Guida introduttiva.
+Si crea il [risorsa endpoint stima](get-started-portal-deploy-app.md#create-the-endpoint-resource) nel portale di Azure. Dovrà essere usata solo per le query di stima dell'endpoint. Non usarla per apportare modifiche all'app.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -49,7 +48,7 @@ Scopri di più con il [creare un'app](get-started-portal-build-app.md) Guida int
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Assegnare la chiave di risorsa all'app LUIS nel portale LUIS
 
-Scopri di più con il [distribuzione](get-started-portal-deploy-app.md) Guida introduttiva.
+Ogni volta che si crea una nuova risorsa per LUIS, devi [assegnare le risorse all'app LUIS](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). Dopo l'assegnazione, non sarà più necessario eseguire questo passaggio a meno che non venga creata una nuova risorsa. Si potrebbe creare una nuova risorsa per espandere le aree dell'app oppure per supportare un numero più elevato di query di stima.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -155,10 +154,30 @@ Per scopi di automazione, ad esempio una pipeline CI/CD, è possibile automatizz
     ![Verifica il piano tariffario LUIS](./media/luis-usage-tiers/updated.png)
 1. Ricorda di [assegnare questa chiave di endpoint](#assign-endpoint-key) nella pagina **Pubblica** e di usarla in tutte le query di endpoint. 
 
-## <a name="how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage"></a>Come correggere gli errori di superamento della quota quando la chiave supera il limite di utilizzo del piano tariffario
-Ogni livello consente richieste di endpoint al proprio account LUIS a una specifica velocità. Se la frequenza delle richieste è superiore alla frequenza consentita per l'account a consumo al minuto o al mese, le richieste ricevono un errore HTTP "429: Troppe richieste."
+## <a name="fix-http-status-code-403-and-429"></a>Correzione del codice di stato HTTP 403 e 429
 
-Ogni livello consente richieste cumulative mensili. Se le richieste totali sono superiori rispetto alla velocità consentita, le richieste riportano un errore HTTP "403: accesso negato".  
+Otterrai errore 403 e 429 codici di stato quando si superano le transazioni al secondo o transazioni al mese per il piano tariffario.
+
+### <a name="when-you-receive-an-http-403-error-status-code"></a>Quando si riceve un codice di stato di errore HTTP 403
+
+Quando si usano tutte le query endpoint 1000 gratuito o si supera la quota mensile delle transazioni di un piano tariffario, si riceve un codice di stato di errore HTTP 403. 
+
+Per correggere questo errore, è necessario [cambiare il piano tariffario](luis-how-to-azure-subscription.md#change-pricing-tier) a un livello superiore oppure [creare una nuova risorsa](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [assegnarla all'app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+
+Soluzioni per correggere l'errore includono:
+
+* Nel [portale di Azure](https://portal.azure.com), in base al linguaggio di informazioni sulle risorse, nelle **gestione delle risorse -> livello di prezzo**, modificare il piano tariffario passando a un livello di transazione superiore. Non è necessario eseguire alcuna operazione nel portale di Language Understanding Intelligent Service, se la risorsa è già assegnata all'app per la comprensione del linguaggio.
+*  Se l'utilizzo supera il livello di prezzo più alto, aggiungere altre risorse di Language Understanding Intelligent Service con un bilanciamento del carico davanti a essi. Il [contenitore di Language Understanding Intelligent Service](luis-container-howto.md) con Kubernetes o Docker Compose possono essere d'aiuto.
+
+### <a name="when-you-receive-an-http-429-error-status-code"></a>Quando si riceve un codice di stato di errore HTTP 429
+
+Questo codice di stato viene restituito quando le transazioni al secondo superano il piano tariffario.  
+
+Le soluzioni includono:
+
+* È possibile [aumentare il piano tariffario](#change-pricing-tier), se non si è al livello più alto.
+* Se l'utilizzo supera il livello di prezzo più alto, aggiungere altre risorse di Language Understanding Intelligent Service con un bilanciamento del carico davanti a essi. Il [contenitore di Language Understanding Intelligent Service](luis-container-howto.md) con Kubernetes o Docker Compose possono essere d'aiuto.
+* È possibile controllare le richieste delle applicazioni client con un [criterio di ripetizione](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) implementare manualmente quando si riceve questo codice di stato. 
 
 ## <a name="viewing-summary-usage"></a>Visualizzazione del riepilogo dell'utilizzo
 È possibile visualizzare le informazioni sull'utilizzo di LUIS in Azure. La pagina **Panoramica** contiene informazioni di riepilogo recenti, incluse chiamate ed errori. Se effettui una richiesta LUIS di endpoint, quindi osservi la **pagina Panoramica**, attendi fino a cinque minuti perché compaia l'utilizzo.

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 881c829424124cca843beb7005306edd53be2673
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65231435"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203982"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare Named Entity Recognition in testo Analitica
 
@@ -31,7 +31,7 @@ Per collegamento delle entità si intende la capacità di identificare senza amb
 ### <a name="named-entity-recognition-ner"></a>Riconoscimento delle entità denominate (NER)
 Il riconoscimento delle entità denominate (NER) è la possibilità di identificare le diverse entità in formato testo e classificarle in classi già definite. Le classi di entità supportate sono elencate di seguito.
 
-Nel testo Analitica [la versione 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), riconoscimento di entità denominate (NER) sia entità di collegamento sono disponibili.
+Nel testo Analitica [la versione 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), riconoscimento di entità denominate (NER) sia entità di collegamento sono disponibili per diversi linguaggi. Vedere le [supporto delle lingue](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) per altre informazioni. 
 
 ### <a name="language-support"></a>Supporto per le lingue
 

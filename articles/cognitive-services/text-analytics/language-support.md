@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 69c14c6b98b572bc413f5a35696269e13344387e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 704a1193eb47f9346900c6c8a003122c30c8ab44
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417321"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203962"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Supporto lingua e area geografica per l'API Analisi del testo
 
@@ -31,7 +31,14 @@ Se si ha contenuto espresso in un lingua usata con minore frequenza, si può pro
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Analisi del sentiment, estrazione frasi chiave e riconoscimento di entità denominate
 
-Per l'analisi del sentiment, l'estrazione delle frasi chiave e il riconoscimento delle entità, l'elenco delle lingue supportate è più selettivo, poiché gli analizzatori sono ottimizzati in base alle regole linguistiche di lingue aggiuntive.
+Per l'analisi del sentiment, l'estrazione delle frasi chiave e il riconoscimento delle entità, l'elenco delle lingue supportate è più selettivo, poiché gli analizzatori sono ottimizzati in base alle regole linguistiche di lingue aggiuntive. Supporto per il set completo di [tipi di entità](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) è attualmente limitato alle lingue seguenti: 
+* Inglese
+* Cinese semplificato
+* Francese
+* Tedesco
+* Spagnolo
+
+Solo le `Person`, `Location` e `Organization` vengono restituite le entità denominate per le altre lingue.
 
 ## <a name="language-list-and-status"></a>Elenco e stato delle lingue
 
@@ -64,7 +71,7 @@ Il supporto di una lingua viene inizialmente implementato in anteprima e quindi 
 
 \* Supporto del linguaggio è disponibile in anteprima
 
-\*\* Riconoscimento di entità denominato e [collegamento di entità](how-tos/text-analytics-how-to-entity-linking.md) sono entrambi disponibili per questa lingua.    
+\*\* [Denominato Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) e [collegamento entità](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) sono entrambi disponibili per questa lingua.    
 
 ## <a name="see-also"></a>Vedere anche
 

@@ -3,20 +3,20 @@ title: Punteggio di attendibilità - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Il punteggio di attendibilità indica la probabilità che la risposta corrisponda perfettamente alla query dell'utente specificata.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
+ms.date: 06/17/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4fb5d1e20c4c857dedcec2dc4695f82fccd9269d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65792738"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165128"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Punteggio di attendibilità di una knowledge base di QnA Maker
 Quando una query dell'utente viene confrontata con una knowledge base, QnA Maker restituisce le risposte pertinenti insieme a un punteggio di attendibilità. Questo punteggio indica la probabilità che la risposta corrisponda perfettamente alla query dell'utente specificata. 
@@ -46,7 +46,7 @@ La tabella seguente indica l'attendibilità tipica associata a un determinato pu
 |0|Nessuna corrispondenza, perciò non viene restituita alcuna risposta.|"Quanto costa il servizio?"|
 
 ## <a name="choose-a-score-threshold"></a>Scegliere un punteggio soglia
-La tabella precedente illustra i punteggi previsti nella maggior parte delle knowledge base. Tuttavia, poiché ogni KB è diversa e presenta tipi di parole, finalità e obiettivi differenti, è consigliabile eseguire i test necessari e scegliere la soglia più adatta. Per impostazione predefinita la soglia è impostata su 0, in modo che vengano restituite tutte le risposte possibili. La soglia consigliata che dovrebbe funzionare per la maggior parte delle Knowledge Base, viene **50**.
+La tabella precedente illustra i punteggi previsti nella maggior parte delle knowledge base. Tuttavia, poiché ogni KB è diverso e dispone di diversi tipi di parole, finalità e obiettivi-è consigliabile testare e scelgono la soglia che meglio funziona automaticamente. Per impostazione predefinita la soglia è impostata su 0, in modo che vengano restituite tutte le risposte possibili. La soglia consigliata che dovrebbe funzionare per la maggior parte delle Knowledge Base, viene **50**.
 
 Quando si sceglie la soglia, tenere presente il bilanciamento tra Accuracy (Precisione) e Coverage (Attinenza) e modificare la soglia in base alle esigenze.
 
@@ -56,6 +56,12 @@ Quando si sceglie la soglia, tenere presente il bilanciamento tra Accuracy (Prec
 
 > [!NOTE]
 > Le versioni più recenti di QnA Maker includono miglioramenti della logica di assegnazione dei punteggi e potrebbero influire sulla soglia. Ogni volta che si aggiorna il servizio, assicurarsi di testare e modificare la soglia, se necessario. È possibile controllare la versione del servizio QnA [qui](https://www.qnamaker.ai/UserSettings) e scoprire come ottenere gli aggiornamenti più recenti [qui](../How-To/troubleshooting-runtime.md).
+
+## <a name="set-threshold"></a>Soglia impostata 
+
+Impostare il punteggio di soglia come una proprietà del [corpo JSON API GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Ciò significa che è possibile impostare ogni chiamata a GenerateAnswer. 
+
+Dal bot framework, impostare il punteggio come parte dell'oggetto con le opzioni [ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) oppure [Node. js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Migliorare i punteggi di attendibilità
 Per ottimizzare il punteggio di attendibilità di una particolare risposta a una query dell'utente, è possibile aggiungere la query alla Knowledge Base come domanda alternativa per tale risposta. È anche possibile usare [variazioni delle parole](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) senza distinzione tra maiuscole e minuscole per aggiungere i sinonimi alle parole chiave nella Knowledge Base.

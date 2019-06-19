@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: c19d328c3a5f4dd6dbe14ca94809e42c5655ea72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8a1f6fe9372d013d310c557161ceb813b8a478b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391145"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163645"
 ---
 # <a name="application-settings"></a>Impostazioni dell'applicazione
 
@@ -107,8 +107,8 @@ Si tratta di impostazioni cultura secondarie sia una francese canadese.
 |I segni diacritici impostato su false|I segni diacritici impostato su false|
 |--|--|
 |`ä`|`a`|
-|`ö `|`o`| 
-|`ü `|`u`| 
+|`ö`|`o`| 
+|`ü`|`u`| 
 
 #### <a name="italian-it-it-diacritics"></a>Italiano `it-it` segni diacritici
 
@@ -121,7 +121,7 @@ Si tratta di impostazioni cultura secondarie sia una francese canadese.
 |`í`|`i`| 
 |`î`|`i`| 
 |`ò`|`o`| 
-|`ó `|`o`| 
+|`ó`|`o`| 
 |`ù`|`u`|
 |`ú`|`u`|
 
@@ -134,7 +134,7 @@ Ciò include canadese sia spagnolo messicano.
 |`á`|`a`|
 |`é`|`e`|
 |`í`|`i`| 
-|`ó `|`o`| 
+|`ó`|`o`| 
 |`ú`|`u`|
 |`ü`|`u`|
 |`ñ`|`u`|
