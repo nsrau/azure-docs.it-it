@@ -4,20 +4,23 @@ description: Informazioni su come configurare e modificare i criteri per l'indic
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 4206fba8297672a1a24415169cfd19ff89344038
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 3f19668cc4fb4f4f4a900c157aa79de83ad1b79b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431191"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163732"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
 
 In Azure Cosmos DB, ogni contenitore dispone di un criterio di indicizzazione che determina come devono essere indicizzati gli elementi del contenitore. L'impostazione predefinita l'indicizzazione dei criteri per appena creati indici contenitori tutte le proprietà di ogni elemento, l'applicazione degli indici di intervallo per qualsiasi stringa o un numero e gli indici spaziali per qualsiasi oggetto GeoJSON di tipo punto. Ciò consente di ottenere prestazioni elevate delle query senza doversi preoccupare di indicizzazione e la gestione degli indici iniziali.
 
 In alcune situazioni, è possibile eseguire l'override di questo comportamento automatico in base alle proprie esigenze. È possibile personalizzare i criteri di indicizzazione del contenitore tramite l'impostazione relativa *modalità di indicizzazione*e includere o escludere *i percorsi delle proprietà*.
+
+> [!NOTE]
+> Il metodo di aggiornamento di criteri di indicizzazione descritti in questo articolo si applica solo a Azure Cosmos DB SQL API (Core).
 
 ## <a name="indexing-mode"></a>Modalità di indicizzazione
 

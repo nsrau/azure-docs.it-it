@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/23/2019
-ms.openlocfilehash: 0f764ebbad53185f46c7166011e05493ed261d6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 6549892bfd04065bf83ab50fa5f5b439c35c4238
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696652"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190537"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Archiviare i backup del database SQL di Azure per un massimo di 10 anni
 
@@ -59,8 +59,8 @@ W=12 settimane (84 giorni), M=12 mesi (365 giorni), Y=10 anni (3650 giorni), Wee
 
 Se si modifica il criterio precedente e impostare w=0 (Nessun backup settimanale), la cadenza delle copie di backup verrà modificato come illustrato dalle date evidenziate nella tabella precedente. Lo spazio di archiviazione necessario per conservare questi backup si ridurrebbe di conseguenza. 
 
-> [!NOTE]
-> La tempistica dei singoli backup di conservazione a lungo termine è controllata dal Database SQL di Azure. Impossibile manualmente creare un backup di conservazione a lungo termine o controllare l'intervallo della creazione del backup.
+> [!IMPORTANT]
+> La tempistica dei singoli backup di conservazione a lungo termine è controllata dal Database SQL di Azure. Impossibile manualmente creare un backup di conservazione a lungo termine o controllare l'intervallo della creazione del backup. Dopo aver configurato un criterio di conservazione a lungo termine, potrebbe richiedere fino a 7 giorni prima che il primo backup di conservazione a lungo termine verrà visualizzato nell'elenco dei backup disponibili.  
 > 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>Conservazione backup a lungo termine e replica geografica

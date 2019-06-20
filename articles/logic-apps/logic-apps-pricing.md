@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: 776f79d7f32cf23943ecab4133e055993d30c7cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04b1d0eda85972517155f80488ad590fb56619ab
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075069"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190676"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -53,7 +53,7 @@ Per informazioni specifiche sui prezzi, vedere [prezzi di Azure per la logica ap
 
 ## <a name="connectors"></a>Connettori
 
-Connettori di App per la logica di Azure consentono di accedere alle app di app per la logica, servizi e sistemi nel cloud o in locale, fornendo [trigger](#triggers), [azioni](#actions), o entrambi. I connettori sono classificati come Standard o Enterprise. Per una panoramica su questi connettori, vedere [connettori per App per la logica di Azure](../connectors/apis-list.md). Le sezioni seguenti forniscono altre informazioni su come attiva la fatturazione per azioni e di lavoro.
+Connettori di App per la logica di Azure consentono di accedere alle app di app per la logica, servizi e sistemi nel cloud o in locale, fornendo [trigger](#triggers), [azioni](#actions), o entrambi. I connettori sono classificati come Standard o Enterprise. Per una panoramica su questi connettori, vedere [connettori per App per la logica di Azure](../connectors/apis-list.md). Se nessun connettori predefiniti sono disponibili per le API REST da usare nelle App per la logica, è possibile creare [connettori personalizzati](https://docs.microsoft.com/connectors/custom-connectors), che sono semplicemente wrapper per le API REST. I connettori personalizzati vengono fatturati come connettori Standard. Le sezioni seguenti forniscono altre informazioni su come attiva la fatturazione per azioni e di lavoro.
 
 <a name="triggers"></a>
 

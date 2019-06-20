@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/16/2019
 ms.author: juliako
-ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 02c359fa7a0da5c7b374e202dc91ceb6489a5352
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65556215"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190893"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -31,7 +31,7 @@ Servizi multimediali di Azure consente di offrire eventi live per i clienti nel 
 - I componenti in Servizi multimediali, che consentono di inserire, visualizzare in anteprima, includere in un pacchetto, registrare, crittografare e trasmettere l'evento live ai clienti o a una rete CDN per un'ulteriore distribuzione.
 
 Questo articolo offre una panoramica e informazioni aggiuntive dello streaming live con servizi multimediali e include collegamenti ad altri articoli pertinenti.
-
+ 
 > [!NOTE]
 > Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
@@ -49,7 +49,7 @@ Applicazione di filtri dinamici viene utilizzato per controllare il numero di in
 
 ## <a name="live-event-types"></a>Tipi di evento live
 
-Un evento Live può essere uno dei due tipi: codifica pass-through e in tempo reale. Per informazioni dettagliate sullo streaming live in servizi multimediali v3, vedere [eventi in tempo reale e Live output](live-events-outputs-concept.md).
+Gli [eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'inserimento e dell'elaborazione dei feed video live. Un evento Live può essere uno dei due tipi: codifica pass-through e in tempo reale. Per informazioni dettagliate sullo streaming live in servizi multimediali v3, vedere [eventi in tempo reale e Live output](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Pass-through
 
@@ -67,9 +67,9 @@ Quando si usa la codifica live con Servizi multimediali, è possibile configurar
 
 Per comprendere il flusso di lavoro streaming live in servizi multimediali v3, è necessario esaminare prima e comprendere i concetti seguenti: 
 
-- [Gli endpoint API di streaming](streaming-endpoint-concept.md)
-- [In tempo reale degli eventi e API di output in tempo reale](live-events-outputs-concept.md)
-- [I localizzatori di API di streaming](streaming-locators-concept.md)
+- [Endpoint di streaming](streaming-endpoint-concept.md)
+- [Eventi live e output live](live-events-outputs-concept.md)
+- [Localizzatori di streaming](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Passaggi generali
 
@@ -79,7 +79,7 @@ Per comprendere il flusso di lavoro streaming live in servizi multimediali v3, �
 4. Ottenere l'URL di anteprima e usarlo per verificare che l'input dal codificatore venga effettivamente ricevuto.
 5. Creare un nuovo oggetto **Asset**.
 6. Creare un **LiveOutput** e usare il nome dell'asset creato.<br/>L'**output live** archivierà il flusso nell'**asset**.
-7. Creare un **localizzatore di streaming** con i tipi di **Criterio di streaming** predefiniti.<br/>Se si prevede di crittografare il contenuto, rivedere la [Panoramica della protezione del contenuto](content-protection-overview.md).
+7. Creare un **localizzatore di Streaming** con il [tipi predefiniti di criteri di Streaming](streaming-policy-concept.md)
 8. Elencare i percorsi nel **localizzatore di streaming** per ottenere gli URL da usare (questi sono deterministici).
 9. Ottenere il nome host per il **Endpoint di Streaming** (Origin) si desidera trasmettere dal.
 10. Combinare l'URL del passaggio 8 con il nome host del passaggio 9 per ottenere l'URL completo.

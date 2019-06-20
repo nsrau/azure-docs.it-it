@@ -9,11 +9,11 @@ ms.date: 04/02/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: c15d695e072e72c6e7be6dcf49f3ea049a9b70b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152396"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180738"
 ---
 Quando si inviano notifiche modello, è necessario fornire solo un set di proprietà. In questo scenario il set di proprietà contiene la versione localizzata delle notizie correnti.
 

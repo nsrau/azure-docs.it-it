@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a3806a7f64f30e5073182f96f552b8584cf1ce0c
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989095"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147247"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurare i client OpenVPN per Gateway VPN di Azure
 
@@ -26,7 +26,7 @@ Verificare di aver completato i passaggi per configurare OpenVPN per il gateway 
 
 ## <a name="windows"></a>Client Windows
 
-1. Scaricare e installare il client OpenVPN dal [sito Web ufficiale di OpenVPN](https://openvpn.net/index.php/open-source/downloads.html).
+1. Scaricare e installare il client OpenVPN (versione 2.4 o versioni successive) da ufficiale [sito Web OpenVPN](https://openvpn.net/index.php/open-source/downloads.html).
 2. Scaricare il profilo VPN per il gateway. Questa operazione può essere eseguita dalla scheda Configurazione da punto a sito nel portale di Azure o tramite il comando "New-AzVpnClientConfiguration" in PowerShell.
 3. Decomprimere il profilo. Aprire quindi il file di configurazione *vpnconfig.ovpn* dalla cartella OpenVPN usando il Blocco note.
 4. [Esportare](vpn-gateway-certificates-point-to-site.md#clientexport) il certificato client per connessioni da punto a sito creato e caricato nella configurazione della connessione da punto a sito sul gateway.
@@ -61,7 +61,7 @@ Verificare di aver completato i passaggi per configurare OpenVPN per il gateway 
 
 ## <a name="mac"></a>Client Mac
 
-1. Scaricare e installare un client OpenVPN, ad esempio [TunnelBlik](https://tunnelblick.net/downloads.html). 
+1. Scaricare e installare, ad esempio un client, OpenVPN [TunnelBlick](https://tunnelblick.net/downloads.html). 
 2. Scaricare il profilo VPN per il gateway. Questa operazione può essere eseguita dalla scheda Configurazione da punto a sito nel portale di Azure o tramite il comando "New-AzVpnClientConfiguration" in PowerShell.
 3. Decomprimere il profilo. Aprire il file di configurazione vpnconfig.ovpn dalla cartella OpenVPN nel Blocco note.
 4. Completare la sezione relativa al certificato client da punto a sito con la chiave pubblica del certificato client da punto a sito in formato Base 64. In un certificato in formato PEM è possibile aprire semplicemente il file con estensione cer e copiare la chiave in formato base64 tra le intestazioni del certificato. Visualizzare come [esportare la chiave pubblica](vpn-gateway-certificates-point-to-site.md#cer) per informazioni sull'esportazione di un certificato per ottenere la chiave pubblica codificata.
