@@ -49,6 +49,11 @@
         - name: Procedura per la distribuzione
           displayName: 'standards, iso, 27001'
           href: ./samples/iso27001-ase-sql-workload/deploy.md
+    - name: UFFICIALE DEL REGNO UNITO
+      items:
+        - name: Mapping dei controlli
+          displayName: 'standards, uk official'
+          href: ./samples/ukofficial/control-mapping.md
 - name: Concetti
   items:
     - name: Ciclo di vita di un progetto

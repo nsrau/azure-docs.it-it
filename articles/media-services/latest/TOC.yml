@@ -19,29 +19,19 @@
         - name: Con Node.js
           href: stream-files-nodejs-quickstart.md
     - name: Codificare il file caricato e trasmettere il video in streaming
-      items:
-        - name: Con .NET
-          displayName: 'encode, encoding, job, transform'
-          href: stream-files-tutorial-with-api.md
+      displayName: 'encode, encoding, job, transform'
+      href: stream-files-tutorial-with-api.md
     - name: Streaming live
-      items:
-        - name: Con .NET
-          href: stream-live-tutorial-with-api.md
-          displayName: 'Live Events, Live Outputs, ingest'
+      href: stream-live-tutorial-with-api.md
+      displayName: 'Live Events, Live Outputs, ingest'
     - name: Analizzare i video
-      items:
-        - name: Con .NET
-          displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
-          href: analyze-videos-tutorial-with-api.md
+      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
+      href: analyze-videos-tutorial-with-api.md
     - name: Crittografare in modo dinamico il contenuto con AES-128
-      items:
-        - name: Con .NET
-          href: protect-with-aes128.md
+      href: protect-with-aes128.md
     - name: Crittografare in modo dinamico il contenuto con DRM
-      items:
-        - name: Con .NET
-          displayName: 'PlayReady, Widevine, FairPlay'
-          href: protect-with-drm.md
+      displayName: 'PlayReady, Widevine, FairPlay'
+      href: protect-with-drm.md
 - name: Concetti
   items:
     - name: Panoramica

@@ -16,14 +16,14 @@
       href: apache-kafka-quickstart-resource-manager-template.md
 - name: Esercitazioni
   items:
-    - name: Usare il flusso strutturato Apache Spark
-      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-    - name: Scrivere/leggere da Apache Kafka con Apache Storm
-      href: ../hdinsight-apache-storm-with-kafka.md
     - name: Usare l'API Apache Kafka per producer e consumer
       href: apache-kafka-producer-consumer-api.md
     - name: Sviluppare app con l'API Apache Kafka Streams
       href: apache-kafka-streams-api.md
+    - name: Usare il flusso strutturato Apache Spark
+      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+    - name: Scrivere/leggere da Apache Kafka con Apache Storm
+      href: ../hdinsight-apache-storm-with-kafka.md
 - name: Concetti
   items:
     - name: Pianificazione della capacità
