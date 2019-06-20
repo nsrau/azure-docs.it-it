@@ -12,20 +12,20 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2019
+ms.date: 06/18/2019
 ms.author: pepogors
-ms.openlocfilehash: 051d6b1129724ce4e8a67bde4e56ebe61cd832f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fdbd3f15b11e4c3975ca29627d5984382bcf049
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65231378"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206793"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Procedure consigliate per applicazioni e cluster di Azure Service Fabric
 
-Per gestire correttamente i cluster e applicazioni di Azure Service Fabric, sono presenti operazioni che è altamente consigliabile che eseguire per ottimizzare l'affidabilità dell'ambiente di produzione; . eseguire le operazioni definite in questo documento e selezionare uno dei nostri [modelli di Cluster di Service Fabric di Azure esempi](https://github.com/Azure-Samples/service-fabric-cluster-templates) per iniziare a progettare la soluzione di produzione o modificare il modello esistente in modo da incorporare queste procedure consigliate.
+Questo articolo vengono forniti collegamenti alle procedure consigliate per la gestione dei cluster e applicazioni di Azure Service Fabric. È consigliabile implementare queste procedure consigliate per ottimizzare l'affidabilità dell'ambiente di produzione. Usare uno dei [modelli di cluster di Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates) per iniziare a progettare la soluzione di produzione o per aggiornare il modello esistente in modo da incorporare queste procedure consigliate.
 
-## <a name="security"></a>Security 
+## <a name="security"></a>Security
 
 * [Procedure consigliate per la sicurezza](service-fabric-best-practices-security.md)
 
@@ -52,11 +52,11 @@ Per gestire correttamente i cluster e applicazioni di Azure Service Fabric, sono
 
 ## <a name="checklist"></a>Elenco di controllo
 
-Dopo aver completato tutte le sezioni precedenti, verificare di aver integrato tutte le procedure consigliate nell'elenco di controllo per l'idoneità per la produzione:
-* [Elenco di controllo per l'idoneità per la produzione di Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
+Dopo aver implementato le procedure consigliate nelle sezioni precedenti, verificare che tutte le procedure consigliate nell'elenco di controllo dello stato di preparazione dell'ambiente di produzione è stata integrata:
+* [Azure Service Fabric produzione readiness elenco di controllo](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Creare un cluster nelle macchine virtuali o nei computer che eseguono Windows Server: [Creazione del cluster di Service Fabric per Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 * Creare un cluster nelle macchine virtuali o nei computer che eseguono Linux: [Creare un cluster Linux](service-fabric-cluster-creation-via-portal.md)
-* Risoluzione dei problemi: [Guida alla risoluzione dei problemi di Service Fabric](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)
+* Risolvere i problemi di Service Fabric: [Risoluzione dei problemi di guide](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)

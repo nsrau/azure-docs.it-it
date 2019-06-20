@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c79a4907e277c337509bd362653cfb100c4bd39c
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979519"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137433"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -114,7 +114,8 @@ Lo strumento di convalida fornisce i risultati al client della configurazione gu
 Criteri di Azure usa la proprietà **complianceStatus** dei provider di risorse della configurazione guest per segnalare la conformità nel nodo **Conformità**. Per altre informazioni, vedere [Ottenere dati sulla conformità](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> Per ogni definizione di configurazione guest devono esistere entrambe le definizioni dei criteri **DeployIfNotExists** e **Audit**.
+> Il **DeployIfNotExists** dei criteri sono necessario per il **Audit** criteri per restituire i risultati.
+> Senza il **DeployIfNotExists**, il **Audit** criterio viene visualizzato "0 0" risorse allo stato.
 
 Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa predefinita denominata *[Anteprima]: Controllo delle impostazioni di sicurezza della password nelle macchine virtuali Linux e Windows* contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **Audit** per Windows e tre coppie per Linux. In ogni caso, la logica all'interno della definizione convalida solo che il sistema operativo di destinazione venga valutato in base alla definizione di [regola dei criteri](definition-structure.md#policy-rule).
 

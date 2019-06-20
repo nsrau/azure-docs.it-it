@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b28d590390cd1a1ef1c6651e6943ac2a7fa0af29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f4fd47ae4f1ebc50de916b537b165eba1c5efb11
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075509"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205016"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -39,7 +39,7 @@ Il diagramma seguente offre una visualizzazione concettuale del comportamento e 
 
 Gestione aggiornamenti può essere usato per l'onboarding nativo di computer in più sottoscrizioni nello stesso tenant.
 
-Per i computer Linux, la visualizzazione della patch per la valutazione dopo il rilascio di una CVE richiede 2-3 ore.  Per i computer Windows, la visualizzazione della patch per la valutazione dopo il rilascio richiede 12-15 ore.
+Una volta che un pacchetto viene rilasciato, occorrono 2-3 ore per la patch per visualizzati per computer Linux per la valutazione. Per i computer Windows, la visualizzazione della patch per la valutazione dopo il rilascio richiede 12-15 ore.
 
 Al termine di un'analisi conformità degli aggiornamenti, un computer l'agente inoltra le informazioni in blocco per i log di monitoraggio di Azure. In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita.
 
@@ -227,7 +227,7 @@ Per creare una nuova distribuzione di aggiornamenti, selezionare **Pianifica la 
 | --- | --- |
 | NOME |Nome univoco che identifica la distribuzione degli aggiornamenti. |
 |Sistema operativo| Linux o Windows|
-| Gruppi per l'aggiornamento |Per macchine virtuali di Azure, definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, percorsi e i tag per creare un gruppo dinamico delle macchine virtuali di Azure da includere nella distribuzione. </br></br>Per i computer Non Azure, selezionare una ricerca per selezionare un gruppo di computer Non Azure da includere nella distribuzione salvata. </br></br>Per altre informazioni, vedere [Gruppi dinamici](automation-update-management.md#using-dynamic-groups)|
+| Gruppi da aggiornare |Per i computer di Azure, definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. </br></br>Per i computer non di Azure, selezionare una ricerca esistente salvata per selezionare un gruppo di computer non di Azure da includere nella distribuzione. </br></br>Per altre informazioni, vedere [Gruppi dinamici](automation-update-management.md#using-dynamic-groups)|
 | Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../azure-monitor/platform/computer-groups.md) |
 |Classificazioni degli aggiornamenti|Selezionare tutte le classificazioni degli aggiornamenti necessarie|
 |Includi/Escludi aggiornamenti|Apre la pagina **Includi/Escludi**. Gli aggiornamenti da includere o escludere si trovano in schede separate. Per altre informazioni sulla modalità di gestione dell'inclusione, vedere il [comportamento dell'inclusione](automation-update-management.md#inclusion-behavior) |

@@ -5,20 +5,75 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 50e1cb95249f0108430e978ae3ffe23b6edc778d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bfaf848b0b700c8d745acf8c6a63c898dc91140
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418395"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272861"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) viene aggiornato e migliorato in modo continuativo. Per consentire ai clienti di restare sempre aggiornati, in questo articolo vengono fornite informazioni sulle versioni più recenti, le nuove funzionalità e i nuovi contenuti. Questa pagina viene aggiornata regolarmente.
 
 Se si hanno suggerimenti per le funzionalità di Site Recovery, Microsoft è lieta di ricevere [commenti e suggerimenti dai clienti](https://feedback.azure.com/forums/256299-site-recovery).
+
+
+## <a name="updates-june-2019"></a>Aggiornamenti (2019 giugno)
+
+### <a name="update-rollup-37"></a>Aggiornamento cumulativo 37
+
+[Aggiornamento cumulativo 37](https://support.microsoft.com/help/4508614/) fornisce gli aggiornamenti seguenti.
+
+**Aggiornamento** | **Dettagli**
+--- | ---
+**Provider e agenti** | Aggiornamenti per gli agenti di Site Recovery e i provider (come descritto in dettaglio nell'aggiornamento cumulativo)
+**Correzioni/miglioramenti di problema** | Numerose correzioni e miglioramenti (come descritto in dettaglio nell'aggiornamento cumulativo)
+
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>Ripristino di emergenza di VMware/server fisici
+
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
+
+**Funzionalità** | **Dettagli**
+--- | ---
+**Partizione GPT** | Dall'aggiornamento cumulativo 37 e versioni successive (versione del servizio Mobility 9.25.5241.1), fino a cinque GPT le partizioni sono supportate in UEFI. Prima dell'aggiornamento, quattro erano supportate.
+
+
+
+## <a name="updates-may-2019"></a>Aggiornamenti (maggio 2019)
+
+### <a name="update-rollup-36"></a>Aggiornamento cumulativo 36
+
+[Aggiornamento cumulativo 36](https://support.microsoft.com/help/4503156) fornisce gli aggiornamenti seguenti.
+
+**Aggiornamento** | **Dettagli**
+--- | ---
+**Provider e agenti** | Un aggiornamento di agenti di Site Recovery e i provider (come descritto in dettaglio nell'aggiornamento cumulativo)
+**Correzioni/miglioramenti di problema** | Numerose correzioni e miglioramenti (come descritto in dettaglio nell'aggiornamento cumulativo)
+
+### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza di macchine Virtuali Azure
+
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
+
+**Funzionalità** | **Dettagli**
+--- | ---
+**Replicare i dischi aggiunti** | Abilitare la replica per i dischi di dati aggiunti a una VM di Azure che è già abilitato per il ripristino di emergenza. [Altre informazioni](azure-to-azure-enable-replication-added-disk.md)
+**Aggiornamenti automatici** | Quando si configurano gli aggiornamenti automatici per l'estensione del servizio Mobility in esecuzione su macchine virtuali di Azure abilitata per il ripristino di emergenza, è ora possibile selezionare un account di automazione esistente da usare, invece di usare l'account predefinito creato da Site Recovery. [Altre informazioni](azure-to-azure-autoupdate.md)
+
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>Ripristino di emergenza di VMware/server fisici
+
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
+
+**Funzionalità** | **Dettagli**
+--- | ---
+**Elaborare il monitoraggio del server** | Per il ripristino di emergenza di macchine virtuali VMware locali e server fisici, monitorare e risolvere i problemi di server di processo con report sull'integrità server migliorata e gli avvisi. [Altre informazioni](vmware-physical-azure-monitor-process-server.md) 
+
+
+
 
 
 ## <a name="updates-march-2019"></a>Aggiornamenti (marzo 2019)
@@ -32,8 +87,9 @@ Se si hanno suggerimenti per le funzionalità di Site Recovery, Microsoft è lie
 **Provider e agenti** | Un aggiornamento di agenti di Site Recovery e i provider (come descritto in dettaglio nell'aggiornamento cumulativo)
 **Correzioni/miglioramenti di problema** | Numerose correzioni e miglioramenti (come descritto in dettaglio nell'aggiornamento cumulativo)
 
-#### <a name="vmwarephysical-server-disaster-recovery"></a>Ripristino di emergenza di VMware/server fisici
-Nuove funzionalità aggiunte nell'aggiornamento.
+### <a name="vmwarephysical-server-disaster-recovery"></a>Ripristino di emergenza di VMware/server fisici
+
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
@@ -63,8 +119,8 @@ Nuove funzionalità aggiunte nell'aggiornamento.
 **Correzioni/miglioramenti di problema** | Numerose correzioni e miglioramenti (come descritto in dettaglio nell'aggiornamento cumulativo).
 
 
-#### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza di macchine Virtuali Azure 
-Nuove funzionalità aggiunte nell'aggiornamento.
+### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza di macchine Virtuali Azure 
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
@@ -73,8 +129,8 @@ Nuove funzionalità aggiunte nell'aggiornamento.
 **Spazi di archiviazione diretta** | È possibile configurare il ripristino di emergenza per le App in esecuzione su macchine Virtuali di Azure le app usando [spazi di archiviazione diretta](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) per la disponibilità elevata.  Usa spazi di archiviazione è diretta (S2D) insieme a Site Recovery offre protezione completa dei carichi di lavoro di macchina virtuale di Azure. S2D consente di ospitare un cluster guest in Azure. Ciò è particolarmente utile quando una macchina virtuale ospita un'applicazione critica, ad esempio livello di SAP ASCS, SQL Server o file server di scalabilità orizzontale.
 
 
-#### <a name="vmwarephysical-server-disaster-recovery"></a>Ripristino di emergenza di VMware/server fisici
-Nuove funzionalità aggiunte nell'aggiornamento.
+### <a name="vmwarephysical-server-disaster-recovery"></a>Ripristino di emergenza di VMware/server fisici
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
@@ -83,6 +139,7 @@ Nuove funzionalità aggiunte nell'aggiornamento.
 
 
 ## <a name="updates-january-2019"></a>Aggiornamenti (gennaio 2019)
+
 
 ### <a name="accelerated-networking-azure-vms"></a>Funzionalità rete accelerata (macchine virtuali di Azure)
 
@@ -99,16 +156,19 @@ La rete accelerata abilita SR-IOV (Single Root I/O Virtualization) per le macchi
 **Provider e agenti** | Un aggiornamento di agenti di Site Recovery e i provider (come descritto in dettaglio nell'aggiornamento cumulativo).
 **Correzioni/miglioramenti di problema** | Numerose correzioni e miglioramenti (come descritto in dettaglio nell'aggiornamento cumulativo).
 
-#### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza di macchine Virtuali Azure
+### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza di macchine Virtuali Azure
 
-Nuove funzionalità aggiunte nell'aggiornamento.
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
 **Supporto Linux** | È stato aggiunto il supporto per RedHat Workstation 6, 7 e le nuove versioni del kernel per Ubuntu, Debian e SUSE.
 **Spazi di archiviazione diretta** | Site Recovery supporta macchine virtuali di Azure tramite spazi di archiviazione è diretta (S2D).
 
-#### <a name="vmware-vmsphysical-servers-replication"></a>Replica di server fisici/macchine virtuali VMware 
+### <a name="vmware-vmsphysical-servers-disaster-recovery"></a>Ripristino di emergenza di server fisici/macchine virtuali VMware
+
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
+ 
 **Funzionalità** | **Dettagli**
 --- | ---
 **Supporto Linux** | È stato aggiunto il supporto per Red Hat Enterprise Linux 7.6, RedHat Workstation 6, 7, Oracle Linux 6.10/7.6 e nuove versioni del kernel per Ubuntu, Debian e SUSE.
@@ -123,9 +183,8 @@ Nuove funzionalità aggiunte nell'aggiornamento.
 **Provider e agenti** | Un aggiornamento di agenti di Site Recovery e i provider (come descritto in dettaglio nell'aggiornamento cumulativo).
 **Correzioni/miglioramenti di problema** | Numerose correzioni e miglioramenti (come descritto in dettaglio nell'aggiornamento cumulativo).
 
-#### <a name="vmware-vmsphysical-servers-replication"></a>Replica di server fisici/macchine virtuali VMware 
-Nuove funzionalità aggiunte nell'aggiornamento.
-
+### <a name="vmware-vmsphysical-servers-replication"></a>Replica di server fisici/macchine virtuali VMware 
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
 **Funzionalità** | **Dettagli**
 --- | ---
 **Supporto Linux** | È stato aggiunto il supporto per Oracle Linux 6.8 e 6.9/7.0 e per il kernel UEK5.
@@ -135,8 +194,8 @@ Nuove funzionalità aggiunte nell'aggiornamento.
 **Failover** | Migliorato il tempo di failover per le macchine virtuali VMware in cui storvsc e vsbus non sono driver di avvio.
 **Supporto per UEFI** | Macchine virtuali di Azure non supportano il tipo di avvio UEFI. È ora possibile eseguire la migrazione di server fisici locali con UEFI in Azure con Site Recovery. Site Recovery esegue la migrazione di server per la conversione del tipo di avvio in BIOS prima della migrazione. Solo il ripristino del sito supportato in precedenza questa conversione per le macchine virtuali. Il supporto è disponibile per i server fisici che eseguono Windows Server 2012 o versione successiva.
 
-#### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza di macchine Virtuali Azure
-Nuove funzionalità aggiunte nell'aggiornamento.
+### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza di macchine Virtuali Azure
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
@@ -176,8 +235,8 @@ Ripristino di emergenza di VM di Azure comporta costi di licenza della macchina 
 **Provider e agenti** | Un aggiornamento di agenti di Site Recovery e i provider (come descritto in dettaglio nell'aggiornamento cumulativo).
 **Correzioni/miglioramenti di problema** | Numerose correzioni e miglioramenti (come descritto in dettaglio nell'aggiornamento cumulativo).
 
-#### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza di macchine Virtuali Azure
-Nuove funzionalità aggiunte nell'aggiornamento.
+### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza di macchine Virtuali Azure
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
@@ -208,8 +267,8 @@ Nuove funzionalità aggiunte nell'aggiornamento.
 **Provider e agenti** | Un aggiornamento di agenti di Site Recovery e i provider (come descritto in dettaglio nell'aggiornamento cumulativo).
 **Correzioni/miglioramenti di problema** | Numerose correzioni e miglioramenti (come descritto in dettaglio nell'aggiornamento cumulativo).
 
-#### <a name="azure-vms-disaster-recovery"></a>Ripristino di emergenza di macchine virtuali di Azure 
-Nuove funzionalità aggiunte nell'aggiornamento.
+### <a name="azure-vms-disaster-recovery"></a>Ripristino di emergenza di macchine virtuali di Azure 
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
@@ -217,8 +276,8 @@ Nuove funzionalità aggiunte nell'aggiornamento.
 **Supporto di cloud** | È supportato il ripristino di emergenza per macchine virtuali di Azure nel cloud Germania.
 **Ripristino di emergenza tra sottoscrizioni** | Supporto per la replica di macchine virtuali di Azure in un'unica area a un'altra area in una sottoscrizione diversa, nello stesso tenant di Azure Active Directory. [Altre informazioni](https://aka.ms/cross-sub-blog)
 
-#### <a name="vmware-vmphysical-server-disaster-recovery"></a>Ripristino di emergenza di VM VMware/server fisici 
-Nuove funzionalità aggiunte nell'aggiornamento.
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Ripristino di emergenza di VM VMware/server fisici 
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
@@ -237,17 +296,17 @@ Nuove funzionalità aggiunte nell'aggiornamento.
 **Provider e agenti** | Un aggiornamento di agenti di Site Recovery e i provider (come descritto in dettaglio nell'aggiornamento cumulativo).
 **Correzioni/miglioramenti di problema** | Numerose correzioni e miglioramenti (come descritto in dettaglio nell'aggiornamento cumulativo).
 
-#### <a name="azure-vms-disaster-recovery"></a>Ripristino di emergenza di macchine virtuali di Azure 
+### <a name="azure-vms-disaster-recovery"></a>Ripristino di emergenza di macchine virtuali di Azure 
 
-Nuove funzionalità aggiunte nell'aggiornamento.
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
 **Supporto Linux** | Supporto aggiunto per Red Hat Enterprise Linux 7.5.
 
-#### <a name="vmware-vmphysical-server-disaster-recovery"></a>Ripristino di emergenza di VM VMware/server fisici 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Ripristino di emergenza di VM VMware/server fisici 
 
-Nuove funzionalità aggiunte nell'aggiornamento.
+Aggiunte di funzionalità di questo mese sono riepilogati nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---

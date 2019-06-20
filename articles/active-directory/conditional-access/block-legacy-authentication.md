@@ -2,37 +2,27 @@
 title: Come bloccare l'autenticazione legacy per Azure Active Directory (Azure AD) con l'accesso condizionale | Microsoft Docs
 description: Informazioni su come aumentare la sicurezza mediante il blocco tramite l'accesso condizionale di Azure AD con l'autenticazione legacy.
 services: active-directory
-keywords: Accesso condizionale alle App, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, i criteri di accesso condizionale
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: conditional-access
+ms.topic: conceptual
+ms.date: 06/17/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-ms.subservice: conditional-access
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/25/2019
-ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a638b501ea04db787ca366aa015850d94eb475ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2120466652db363206ec20c2303ad56670228c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112712"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164792"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: Autenticazione legacy di blocco con Azure AD con accesso condizionale   
 
 Per consentire agli utenti di accedere facilmente alle app cloud, Azure Active Directory (Azure AD) supporta una vasta gamma di protocolli di autenticazione, inclusa l'autenticazione legacy. Tuttavia, i protocolli legacy non supportano l'autenticazione a più fattori (MFA). La MFA è in molti ambienti un requisito comune contro il furto di identità di indirizzo. 
 
-
 Se l'ambiente è pronto per l'autenticazione legacy di blocco per migliorare la protezione del tenant, è possibile raggiungere questo obiettivo con accesso condizionale. Questo articolo illustra come configurare i criteri di accesso condizionale che bloccano l'autenticazione legacy per il tenant.
-
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,8 +30,6 @@ Questo articolo presuppone che l'utente abbia familiarità con:
 
 - Il [concetti di base](overview.md) di accesso condizionale di Azure AD 
 - Il [procedure consigliate](best-practices.md) per la configurazione dei criteri di accesso condizionale nel portale di Azure
-
-
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -57,12 +45,21 @@ Come si può impedire alle app che usano l'autenticazione legacy di accedere all
 
 Criteri di accesso condizionale vengono applicati dopo il primo-factor authentication è stato completato. Pertanto, l'accesso condizionale non è stato progettato come una prima linea di difesa per gli scenari, ad esempio attacchi di tipo denial of service (DoS), ma possono essere utilizzate segnali provenienti da questi eventi (ad esempio, il livello di rischio di accesso, il percorso della richiesta e così via) per determinare l'accesso.
 
-
-
-
 ## <a name="implementation"></a>Implementazione
 
 Questa sezione viene illustrato come configurare un criterio di accesso condizionale per l'autenticazione legacy di blocco. 
+
+### <a name="identify-legacy-authentication-use"></a>Identificare l'utilizzo di autenticazione legacy
+
+Prima è possibile bloccare l'autenticazione legacy nella directory, è necessario innanzi tutto capire se gli utenti hanno le app che usano l'autenticazione legacy e relativo impatto sulla directory globale. Azure AD i log di accesso utilizzabile per capire se si usa l'autenticazione legacy.
+
+1. Passare il **portale di Azure** > **Azure Active Directory** > **accessi**.
+1. Aggiungere la colonna di App Client se non viene visualizzato facendo clic su **colonne** > **App Client**.
+1. Filtrare in base al **App Client** > **altri client** e fare clic su **applica**.
+
+Applicazione di filtri di solo i tentativi di show avere effettuato l'accesso sono state apportate dai protocolli di autenticazione legacy. Facendo clic su ogni tentativo di accesso singoli visualizzerà i dettagli aggiuntivi. Il **App Client** campo sotto il **le informazioni di base** scheda indicherà quale protocollo di autenticazione legacy è stato utilizzato.
+
+Questi log indica che gli utenti dipendono ancora da autenticazione legacy e le applicazioni che usano protocolli legacy per effettuare richieste di autenticazione. Per gli utenti che non vengono visualizzati in questi log e vengano confermati che non venga usata l'autenticazione legacy, implementare criteri di accesso condizionale per solo tali utenti.
 
 ### <a name="block-legacy-authentication"></a>Bloccare l'autenticazione legacy 
 

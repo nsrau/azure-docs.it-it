@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek, jrasnick
+ms.reviewer: genemi, ayolubek, jrasnick
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 9704acee2ca8bad7437ae22ff5041e2253916dce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: d15e629343e015af5f83e1d185c6a46fc48fa3c4
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160798"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275190"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias DNS per il database SQL di Azure
 
@@ -49,7 +49,7 @@ Successivamente, quando il nuovo sistema passa in produzione, è possibile aggio
 
 ### <a name="cross-region-support"></a>Supporto per più aree
 
-In seguito a un ripristino di emergenza, il server di database SQL potrebbe venire spostato in un'area geografica diversa. Per un sistema che usa un alias DNS, non è necessario individuare e aggiornare tutte le stringhe di connessione per tutti i client. È invece possibile aggiornare un alias per fare riferimento al nuovo server di database SQL che ora ospita il database.
+In seguito a un ripristino di emergenza, il server di database SQL potrebbe venire spostato in un'area geografica diversa. Per un sistema che usava un alias DNS, è possibile evitare la necessità di individuare e aggiornare tutte le stringhe di connessione per tutti i client. È invece possibile aggiornare un alias per fare riferimento al nuovo server di database SQL che ora ospita il database.
 
 ## <a name="properties-of-a-dns-alias"></a>Proprietà di un alias DNS
 
@@ -67,13 +67,6 @@ Le proprietà seguenti si applicano a ogni alias DNS per il server di database S
 Per gestire a livello di codice gli alias DNS, sono disponibili le API REST e i cmdlet di PowerShell.
 
 ### <a name="rest-apis-for-managing-your-dns-aliases"></a>API REST per la gestione degli alias DNS
-
-<!-- TODO
-??2 "soon" in the following live sentence, is not the best situation.
-TODO update this subsection very soon after REST API docu goes live.
-Dev = Magda Bojarska
-Comment as of:  2018-01-26
--->
 
 La documentazione per le API REST è disponibile nel sito Web seguente:
 
@@ -111,7 +104,7 @@ Attualmente l'alias DNS ha le limitazioni seguenti:
 - *Ritardo fino a 2 minuti:* per l'aggiornamento o la rimozione di un alias DNS sono necessari fino a 2 minuti.
   - Indipendentemente da qualsiasi breve ritardo, l'alias smette immediatamente di reindirizzare le connessioni client al server legacy.
 - *Ricerca DNS:* per il momento, l'unico modo autorevole per controllare a quale server fa riferimento un alias DNS specifico consiste nell'eseguire una [ricerca DNS](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-- *[Controllo tabelle non supportato](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* non è possibile usare un alias DNS in un server di database SQL di Azure con il *controllo tabelle* abilitato in un database.
+- _Controllo tabelle non è supportato:_ non è possibile usare un alias DNS in un server di database SQL di Azure con il *controllo tabelle* abilitato in un database.
   - Il controllo tabelle è deprecato.
   - È consigliabile passare al [controllo BLOB](sql-database-auditing.md).
 

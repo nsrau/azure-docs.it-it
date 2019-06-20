@@ -1,22 +1,17 @@
 ---
 title: Uso del portale di Azure per distribuire le risorse di Azure | Microsoft Docs
 description: Utilizzare il portale di Azure e Azure Resource Manager per distribuire le risorse.
-services: azure-resource-manager,azure-portal
-documentationcenter: ''
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7ceaf6e41c08f47da9c6b2d22001ab9f5a48c8e
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60520227"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205576"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure
 

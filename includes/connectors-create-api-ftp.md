@@ -1,10 +1,15 @@
 ---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
 ms.openlocfilehash: 65f1e6d2489775a17ba2dacef0623706364fffab
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108983"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202807"
 ---
 ### <a name="prerequisites"></a>Prerequisiti
 * Un account [FTP](https://wikipedia.org/wiki/File_Transfer_Protocol)  
@@ -13,7 +18,7 @@ Prima di poter usare l'account FTP in un'app per la logica, è necessario autori
 
 Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account FTP:  
 
-1. Per creare una connessione a FTP, nella finestra di progettazione dell'app per la logica selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere *FTP* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:   
+1. Per creare una connessione a FTP, nella finestra di progettazione dell'app per la logica selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere *FTP* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:  
    ![Passaggio di creazione della connessione a FTP](./media/connectors-create-api-ftp/ftp-1.png)  
 2. Se non sono mai state create connessioni a FTP prima d'ora, verrà chiesto di fornire le relative credenziali. Queste credenziali verranno usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati dell'account FTP:  
    ![Passaggio di creazione della connessione a FTP](./media/connectors-create-api-ftp/ftp-2.png)  

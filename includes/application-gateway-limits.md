@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 592e1973344b231693077f8286a41dfd67a8d188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 9a8d925e5d72500817028b913a80255a4339255c
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66689117"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148433"
 ---
 | Resource | Limite predefinito o massimo | Note |
 | --- | --- | --- |
@@ -23,7 +23,7 @@ ms.locfileid: "66689117"
 | Back-end impostazioni HTTP |100<sup>1</sup> | |
 | Istanze per gateway |32 | |
 | Certificati SSL |100<sup>1</sup> |1 per listener HTTP |
-| Dimensioni massime di certificato SSL |V1 SKU - 10 KB<br>V2 SKU - 25 KB| |
+| Dimensioni massime di certificato SSL |V1 SKU - 10 KB<br>V2 SKU - 16 KB| |
 | Certificati di autenticazione |100 | |
 | Certificati radice trusted |100 | |
 | Timeout della richiesta minima |1 secondo | |

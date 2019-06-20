@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2019
+ms.date: 06/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 3f93318dedb8a4667d32bcc97eb6a697ccebfcc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d4e49b4f7c1aa244b59ef17716c90369a0d3339
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122585"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273386"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Abilitare il monitoraggio di Azure per la panoramica di macchine virtuali (anteprima)
 
@@ -42,10 +42,10 @@ Monitoraggio per le macchine virtuali di Azure supporta un'area di lavoro di Log
 - Stati Uniti centro-occidentali
 - Stati Uniti occidentali 2<sup>1</sup>
 - Stati Uniti orientali
-- Canada Central<sup>1</sup>
-- Regno Unito meridionale<sup>1</sup>
+- Canada centrale
+- Regno Unito meridionale
 - Europa occidentale
-- Asia sud-orientale<sup>1</sup>
+- Asia sud-orientale
 
 <sup>1</sup> Quest'area attualmente non supporta la funzionalità di integrità di Monitoraggio di Azure per le macchine virtuali.
 
@@ -90,6 +90,10 @@ La tabella seguente elenca i sistemi operativi Windows e Linux che supporta il m
 |Debian 8, 9.4 | X<sup>1</sup> | | X |
 
 <sup>1</sup> La funzionalità relativa alle prestazioni di Monitoraggio di Azure per le macchine virtuali è disponibile solo da Monitoraggio di Azure. Non è disponibile direttamente dal riquadro sinistro della macchina virtuale di Azure.
+
+>[!NOTE]
+>La funzionalità integrità del monitoraggio di Azure per le macchine virtuali non supporta [virtualizzazione nidificata](../../virtual-machines/windows/nested-virtualization.md) in una VM di Azure.
+>
 
 >[!NOTE]
 >Nel sistema operativo Linux:

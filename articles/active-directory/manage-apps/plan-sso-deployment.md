@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8cebbd7c60715bc90412d9f53458edfee6c56d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5278d504c43688bf064b869982938db52b1b1bf
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108194"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164944"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Pianificare una distribuzione di single sign-on
 
@@ -61,9 +61,9 @@ Esistono due modi principali in cui è possibile abilitare gli utenti per l'acce
 
 Uso di Azure AD per l'accesso SSO basato su password richiede la distribuzione di un'estensione del browser in modo sicuro recuperare le credenziali e compilare i moduli di account di accesso. Definire un meccanismo per distribuire l'estensione su larga scala con [browser supportati](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Le opzioni includono:
 
-- [Criteri di gruppo per Internet Explorer ](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [System Center Configuration Manager (SCCM) per Internet Explorer ](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
-- [Utente basato su download e la configurazione per Chrome, Firefox, Microsoft Edge o Internet Explorer ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- [Criteri di gruppo per Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
+- [System Center Configuration Manager (SCCM) per Internet Explorer](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [Utente basato su download e la configurazione per Chrome, Firefox, Microsoft Edge o Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Per altre informazioni, vedere [modo in cui configurare password single sign-on](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
 

@@ -1,10 +1,15 @@
 ---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
 ms.openlocfilehash: 70ca28fbcd6feea75788cd58677ca44080e47ae5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130045"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202783"
 ---
 ### <a name="prerequisites"></a>Prerequisiti
 * Un account [Salesforce](https://salesforce.com)  
@@ -13,7 +18,7 @@ Prima di poter usare l'account Salesforce in un'app per la logica, è necessario
 
 Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Salesforce:  
 
-1. Per creare una connessione a Salesforce, nella finestra di progettazione dell'app per la logica, selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa e quindi immettere *Salesforce* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:   
+1. Per creare una connessione a Salesforce, nella finestra di progettazione dell'app per la logica, selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa e quindi immettere *Salesforce* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:  
    ![Immagine di connessione a Salesforce 1](./media/connectors-create-api-salesforce/salesforce-1.png)  
 2. Se non sono mai state create connessioni a Salesforce prima d'ora, verrà chiesto di fornire le credenziali di Salesforce. Queste credenziali verranno usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati dell'account Salesforce:  
    ![Immagine di connessione a Salesforce 2](./media/connectors-create-api-salesforce/salesforce-2.png)  

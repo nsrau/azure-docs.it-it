@@ -1,10 +1,15 @@
 ---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
 ms.openlocfilehash: d1db175ecc2cf61de0debc15d198d6367aae8bdd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119976"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202820"
 ---
 ### <a name="prerequisites"></a>Prerequisiti
 * Un account [box](http://box.com)  
@@ -13,7 +18,7 @@ Prima di poter usare l'account Box in un'app per la logica, è necessario autori
 
 Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Box:  
 
-1. Per creare una connessione a Box, nella finestra di progettazione dell'app per la logica selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere *box* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:   
+1. Per creare una connessione a Box, nella finestra di progettazione dell'app per la logica selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere *box* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:  
    ![Passaggio di creazione della connessione a Box](./media/connectors-create-api-box/box-1.png)  
 2. Se non sono mai state create connessioni a Box prima d'ora, verrà chiesto di fornire le relative credenziali. Queste credenziali verranno usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati dell'account Box:  
    ![Passaggio di creazione della connessione a Box](./media/connectors-create-api-box/box-2.png)  
@@ -21,6 +26,6 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Bo
    ![Passaggio di creazione della connessione a Box](./media/connectors-create-api-box/box-3.png)  
 4. In questo modo sarà possibile connettersi a Box:  
    ![Passaggio di creazione della connessione a Box](./media/connectors-create-api-box/box-4.png)  
-5. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
+5. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:  
    ![Passaggio di creazione della connessione a Box](./media/connectors-create-api-box/box-5.png)  
 

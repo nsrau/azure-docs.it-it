@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8ade695f1930c11f2d2d7ab7e0430910bd6f8705
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ae821dc9ae0d739526b91bad76bca544cad2fb0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508650"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203699"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Azure Active Directory usando criteri personalizzati in Azure Active Directory B2C 
 
@@ -132,7 +132,7 @@ Per ottenere un token dall'endpoint di Azure AD, è necessario definire i protoc
 5. Impostare il valore di **METADATA** su `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, dove `your-AD-tenant-name` è il nome del tenant di Azure AD. Ad esempio: `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. Aprire il browser, passare all'URL **METADATA** appena aggiornato, cercare l'oggetto **issuer**, quindi copiare e incollare il valore di **ProviderName** nel file XML.
 8. Impostare **client_id** e **IdTokenAudience** sull'ID applicazione ottenuto con la registrazione dell'applicazione.
-9. In **CryptograhicKeys** aggiornare il valore di **StorageReferenceId** sulla chiave criteri definita. Ad esempio: `ContosoAppSecret`.
+9. Sotto **CryptographicKeys**, aggiornare il valore per **StorageReferenceId** alla chiave dei criteri definiti. Ad esempio: `ContosoAppSecret`.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Caricare il file di estensione per la verifica
 

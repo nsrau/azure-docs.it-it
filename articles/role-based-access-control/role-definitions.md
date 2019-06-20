@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2019
+ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 00501ec72dff99f93fa04944c5ab733fce38ce21
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f5f9b3595074c26c80c824052727e962b01162a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074015"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275053"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Informazioni sulle definizioni del ruolo per le risorse di Azure
 
@@ -52,7 +52,8 @@ La parte `{action}` di una stringa relativa a un'operazione specifica il tipo di
 | ------------------- | ------------------- |
 | `*` | Il carattere jolly concede l'accesso a tutte le operazioni che corrispondono alla stringa. |
 | `read` | Abilita le operazioni di lettura (GET). |
-| `write` | Abilita le operazioni di scrittura (PUT, POST e PATCH). |
+| `write` | Consente di scrivere operazioni (PUT o PATCH). |
+| `action` | Abilita operazioni personalizzate, ad esempio il riavvio delle macchine virtuali (POST). |
 | `delete` | Abilita le operazioni di eliminazione (DELETE). |
 
 Di seguito è riportata la definizione del ruolo [Collaboratore](built-in-roles.md#contributor) in formato JSON. L'operazione identificata dal carattere jolly (`*`) in `Actions` indica che l'entità di sicurezza assegnata a questo ruolo può eseguire qualsiasi azione, anche quelle definite in futuro in seguito all'aggiunta di nuovi tipi di risorse da parte di Azure. Le operazioni sotto `NotActions` vengono sottratte a `Actions`. Nel caso del ruolo [Collaboratore](built-in-roles.md#contributor), `NotActions` rimuove la capacità di gestire e assegnare l'accesso alle risorse.
@@ -79,7 +80,7 @@ Di seguito è riportata la definizione del ruolo [Collaboratore](built-in-roles.
 }
 ```
 
-## <a name="management-and-data-operations-preview"></a>Gestione e operazioni sui dati (anteprima)
+## <a name="management-and-data-operations"></a>Operazioni di gestione e dei dati
 
 Il controllo degli accessi in base al ruolo per le operazioni di gestione è specificato nelle proprietà `Actions` e `NotActions` di una definizione di ruolo. Di seguito sono riportati alcuni esempi di operazioni di gestione in Azure:
 
@@ -89,7 +90,7 @@ Il controllo degli accessi in base al ruolo per le operazioni di gestione è spe
 
 L'accesso in modalità di gestione non viene ereditato nei dati. Questa separazione impedisce ai ruoli con caratteri jolly (`*`) di avere accesso illimitato ai dati. Se ad esempio un utente ha un ruolo [Lettore](built-in-roles.md#reader) in una sottoscrizione, può visualizzare l'account di archiviazione, ma per impostazione predefinita non può visualizzare i dati sottostanti.
 
-In precedenza, il controllo degli accessi in base al ruolo non veniva usato per le operazioni sui dati. L'autorizzazione per le operazioni sui dati variava a seconda del provider di risorse. Lo stesso modello di autorizzazione del controllo degli accessi in base al ruolo usato per le operazioni di gestione è stato esteso alle operazioni sui dati (attualmente in anteprima).
+In precedenza, il controllo degli accessi in base al ruolo non veniva usato per le operazioni sui dati. L'autorizzazione per le operazioni sui dati variava a seconda del provider di risorse. Lo stesso modello autorizzazione di accesso basato sui ruoli controllo utilizzato per operazioni di gestione è stato esteso alle operazioni sui dati.
 
 Per supportare le operazioni sui dati sono state aggiunte nuove proprietà di dati alla struttura di definizione dei ruoli. Le operazioni sui dati vengono specificate nelle proprietà `DataActions` e `NotDataActions`. Con l'aggiunta di queste proprietà di dati viene mantenuta la separazione tra gestione e dati. In tal modo, si impedisce alle assegnazioni di ruolo correnti con caratteri jolly (`*`) di accedere immediatamente ai dati. Ecco alcune operazioni sui dati che possono essere specificate in `DataActions` e `NotDataActions`:
 
@@ -169,11 +170,7 @@ Per visualizzare ed eseguire le operazioni sui dati, è necessario disporre dell
 
 Per visualizzare e usare le operazioni di dati di API REST, è necessario impostare il parametro **api-version** per la seguente versione o versioni successive:
 
-- anteprima 01/01/2018
-
-Il portale di Azure consente anche agli utenti di esplorare e gestire i contenuti di Coda e contenitori Blob tramite l'esperienza di anteprima di Azure AD. Per visualizzare e gestire il contenuto di Coda o contenitori Blob fare clic **Esplora i dati usando l'anteprima di Azure AD** nella panoramica dell'account di archiviazione.
-
-![Esplorare i Code e contenitori Blob tramite l'anteprima di Azure AD](./media/role-definitions/rbac-dataactions-browsing.png)
+- 2018-07-01
 
 ## <a name="actions"></a>Azioni
 
@@ -195,7 +192,7 @@ L'autorizzazione `NotActions` specifica le operazioni di gestione che sono esclu
 > Se a un utente si assegna un ruolo che esclude un'operazione in `NotActions` e quindi si assegna un secondo ruolo che concede l'accesso alla stessa operazione, l'utente può eseguire tale operazione. `NotActions` non è una regola di negazione. È semplicemente un modo comodo per creare un set di operazioni consentite quando è necessario escludere operazioni specifiche.
 >
 
-## <a name="dataactions-preview"></a>DataActions (anteprima)
+## <a name="dataactions"></a>DataActions
 
 L'autorizzazione `DataActions` specifica le operazioni sui dati che il ruolo consente di eseguire sui dati all'interno dell'oggetto. Ad esempio, se un utente dispone dell'accesso in lettura ai dati di BLOB per un account di archiviazione, può leggere i BLOB all'interno di tale account. Di seguito sono riportati alcuni esempi di operazioni sui dati che possono essere usate in `DataActions`.
 
@@ -206,7 +203,7 @@ L'autorizzazione `DataActions` specifica le operazioni sui dati che il ruolo con
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | Restituisce un messaggio. |
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | Restituisce un messaggio o il risultato della scrittura o dell'eliminazione di un messaggio. |
 
-## <a name="notdataactions-preview"></a>NotDataActions (anteprima)
+## <a name="notdataactions"></a>NotDataActions
 
 L'autorizzazione `NotDataActions` specifica le operazioni sui dati che sono escluse dall'autorizzazione `DataActions`. L'accesso concesso da un ruolo (ovvero le autorizzazioni effettive) viene calcolato sottraendo le operazioni `NotDataActions` alle operazioni `DataActions`. Ogni provider di risorse fornisce il rispettivo set di API per consentire l'esecuzione delle operazioni sui dati.
 

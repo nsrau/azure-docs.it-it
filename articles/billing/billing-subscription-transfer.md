@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91880e43382662b5d55f112455ee8f4c92ad01c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d206ea1afe43a91707a4bcd981a4158ff08fdc3a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471590"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206154"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Trasferimento della proprietà di una sottoscrizione di Azure a un altro account
 
@@ -116,7 +116,7 @@ Tutte le risorse, come macchine virtuali, dischi e siti Web, vengono trasferite 
 
 ### <a id="no-button"></a> Perché non viene visualizzato il pulsante Trasferisci sottoscrizione?
 
-Sfortunatamente, trasferimento della sottoscrizione Self-Service non è disponibile per l'offerta. Visualizzare l'elenco di offerte supportate nel [supportate offerte](#supported-offers) sezione di questo articolo. Abbiamo, inoltre, non impediscono il trasferimento della sottoscrizione per tutti i paesi. Tuttavia, cross-paese trasferimento non è supportato. Per trasferire la sottoscrizione incrociato, paese [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
+Sfortunatamente, il trasferimento di sottoscrizione self-service non è disponibile per l'offerta. Visualizzare l'elenco di offerte supportate nel [supportate offerte](#supported-offers) sezione di questo articolo. Abbiamo, inoltre, non impediscono il trasferimento della sottoscrizione per tutti i paesi. Vedere le [elenco completo dei paesi](https://azure.microsoft.com/pricing/faq/) in cui Azure è attualmente disponibile in commercio. Tuttavia, il trasferimento di sottoscrizione self-service non supporta il trasferimento tra paese. Per trasferire la sottoscrizione incrociato, paese [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>È possibile trasferire la proprietà a un account in un altro paese?

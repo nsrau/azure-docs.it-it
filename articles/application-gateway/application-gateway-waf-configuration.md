@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 272c6d2de23b1e89caef3f9bee20a96c5c196cde
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65620286"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275185"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limiti delle dimensioni di richiesta di Web application firewall ed elenchi di esclusione
 
@@ -35,16 +35,16 @@ Web application firewall offre anche una funzione configurabile per attivare o d
 
 Gli elenchi di esclusione di Web Application firewall consentono agli utenti di omettere determinati attributi di richiesta da una valutazione di WAF. Un esempio comune è rappresentato dai token inseriti in Active Directory che vengono usati per l'autenticazione o per i campi password. Tali attributi sono soggetti a contenere caratteri speciali che possono attivare un falso positivo dalle regole di WAF. Una volta che un attributo è stato aggiunto all'elenco di esclusione WAF, non viene preso in considerazione da nessuna regola WAF configurata e attiva. Gli elenchi di esclusione hanno ambito globale.
 
-Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione:
+Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione. I valori del campo scelto non vengono valutati in base alle regole di WAF. L'esclusione Elenca ispezione di rimozione del valore del campo.
 
 * Intestazioni richiesta
 * Cookie della richiesta
-* Richiedere il nome dell'attributo (argumenty)
+* Nome dell'attributo richiesta (args) può essere aggiunto come un elemento di esclusione, ad esempio:
 
-   * Dati multiparte del modulo
-   * XML
-   * JSON
-   * Argomenti di query dell'URL
+   * Nome del campo modulo
+   * Entità XML
+   * Entità JSON
+   * Argomenti di stringa di query URL
 
 È possibile specificare un'esatta intestazione di richiesta, un corpo, un cookie o una corrispondenza dell'attributo stringa della query.  In alternativa, è possibile specificare facoltativamente corrispondenze parziali. L'esclusione è sempre in un campo di intestazione, mai sul relativo valore. Le regole di esclusione hanno ambito globale e si applicano a tutte le pagine e regole.
 

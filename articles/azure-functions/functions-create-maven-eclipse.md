@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9dcc959e51aa42fd6ef3173dba2aec8d9970deb1
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61341440"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154612"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Creare la prima funzione con Java ed Eclipse 
 
@@ -43,15 +43,15 @@ Per sviluppare un'app per le funzioni con Java ed Eclipse, è necessario che sia
 
 ## <a name="create-a-functions-project"></a>Creare un progetto per le funzioni
 
-1. In Eclipse scegliere **Project** (Progetto) dal menu **File**. 
-1. Nella finestra **New Project** (Nuovo progetto) aprire la cartella **Java Project** (Progetto Java) e selezionare **Maven Project** (Progetto Maven) e quindi scegliere **Next** (Avanti).
+1. In Eclipse selezionare il **File** menu, quindi selezionare **New -&gt; progetto Maven**. 
 1. Nella finestra di dialogo **New Maven Project** (Nuovo progetto Maven) accettare i valori predefiniti e scegliere **Next** (Avanti).
 1. Selezionare **Add Archetype** (Aggiungi archetipo) e aggiungere le voci per [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Archetype Group ID (ID gruppo archetipo): com.microsoft.azure
     - Archetype Artifact ID (ID artefatto archetipo): azure-functions-archetype
-    - Versione: Usare la versione più recente dal [il repository centrale](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - Versione: Usare la versione più recente **1.22** dalla [il repository centrale](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Maven Eclipse creare](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. Fare clic su **OK**, immettere i dettagli per il progetto corrente e quindi fare clic su **Finish** (Fine).
+1. Fare clic su **OK** e quindi fare clic su **successiva** immettere i valori, ad esempio lo snapshot seguente (utilizzare diverso da un diverso appName **fabrikam-funzione-20170920120101928**), e infine **fine**.
+    ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven crea i file di progetto in una nuova cartella denominata _artifactId_. Il codice generato nel progetto è una semplice funzione [attivata tramite HTTP](/azure/azure-functions/functions-bindings-http-webhook) che restituisce il corpo della richiesta di attivazione dell'HTTP.
 
@@ -68,7 +68,7 @@ Dopo aver completato la procedura di test della funzione, terminare il runtime n
 
 ### <a name="debug-the-function-in-eclipse"></a>Eseguire il debug della funzione in Eclipse
 
-Nella procedura di configurazione **Run As** descritta nel passaggio precedente, sostituire `azure-functions:run` con `mvn azure-functions:run -DenableDebug` ed eseguire la configurazione aggiornata per avviare l'app per le funzioni in modalità di debug.
+Nella procedura di configurazione **Run As** descritta nel passaggio precedente, sostituire `azure-functions:run` con `azure-functions:run -DenableDebug` ed eseguire la configurazione aggiornata per avviare l'app per le funzioni in modalità di debug.
 
 Selezionare il menu **Run** (Esegui) e aprire **Debug Configurations** (Configurazioni di debug). Scegliere **Remote Java Application** (Applicazione Java remota) e crearne una nuova. Assegnare un nome alla configurazione e specificare le impostazioni. La porta deve essere coerente con la porta di debug aperta dall'host di funzioni, che per impostazione predefinita è `5005`. Al termine dell'installazione, fare clic su `Debug` per avviare il debug.
 

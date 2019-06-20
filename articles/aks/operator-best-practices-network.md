@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: b26af87de8a09f987d69f0441a817638e626b4af
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2bdc18ba4dc77178d5fcc5d2ba6d89aa109d923c
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65192229"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e la connettività di rete nel servizio Azure Kubernetes
@@ -47,7 +47,7 @@ Quando si usano le funzionalità di rete Azure CNI, la risorsa di rete virtuale 
 
 Per altre informazioni sulla delega dell'entità servizio del servizio Azure Kubernetes, vedere [Delegare l'accesso ad altre risorse di Azure][sp-delegation].
 
-Dal momento che a ogni nodo e a ogni pod è assegnato un indirizzo IP, pianificare gli intervalli di indirizzi per le subnet del servizio Azure Kubernetes. Le dimensioni della subnet devono essere tali da fornire gli indirizzi IP per tutti i nodi, pod e risorse di rete che vengono distribuiti. Ogni cluster del servizio Azure Kubernetes deve essere inserito nella relativa subnet. Per consentire la connettività a reti locali o associate in Azure, non usare intervalli di indirizzi IP che si sovrappongono alle risorse di rete esistenti. Sono previsti limiti predefiniti per il numero di pod utilizzabili con ogni nodo sia con le funzionalità di rete kubenet che con quelle Azure CNI. Per gestire eventi di aumento o aggiornamenti del cluster, sono necessari anche indirizzi IP aggiuntivi disponibili per l'uso nella subnet assegnata.
+Dal momento che a ogni nodo e a ogni pod è assegnato un indirizzo IP, pianificare gli intervalli di indirizzi per le subnet del servizio Azure Kubernetes. Le dimensioni della subnet devono essere tali da fornire gli indirizzi IP per tutti i nodi, pod e risorse di rete che vengono distribuiti. Ogni cluster del servizio Azure Kubernetes deve essere inserito nella relativa subnet. Per consentire la connettività a reti locali o associate in Azure, non usare intervalli di indirizzi IP che si sovrappongono alle risorse di rete esistenti. Sono previsti limiti predefiniti per il numero di pod utilizzabili con ogni nodo sia con le funzionalità di rete kubenet che con quelle Azure CNI. Per gestire eventi di aumento o aggiornamenti del cluster, sono necessari anche indirizzi IP aggiuntivi disponibili per l'uso nella subnet assegnata. Questo spazio indirizzi aggiuntivo è particolarmente importante se si usano contenitori di Windows Server (attualmente in anteprima nel servizio contenitore di AZURE), come i pool di nodi, richiedono un aggiornamento per applicare le patch di sicurezza più recenti. Per altre informazioni sui nodi di Windows Server, vedere [esegue l'aggiornamento di un pool di nodi in AKS][nodepool-upgrade].
 
 Per calcolare l'indirizzo IP richiesto, vedere [Configure Azure CNI networking in Azure Kubernetes Service (AKS)][advanced-networking] (Configurare le funzionalità di rete Azure CNI nel servizio Azure Kubernetes).
 
@@ -101,6 +101,8 @@ spec:
 
 Un controller di ingresso è un daemon che viene eseguito in un nodo del servizio Azure Kubernetes e controlla le richieste in arrivo. Il traffico viene quindi distribuito in base alle regole definite nella risorsa in ingresso. Il controller in ingresso più comune è basato su [NGINX]. Il servizio Azure Kubernetes non limita l'uso a uno specifico controller, quindi è possibile usare altri controller come [Contour][contour], [HAProxy][haproxy] o [Traefik][traefik].
 
+Controller di ingresso deve essere pianificato in un nodo Linux. I nodi di Windows Server (attualmente in anteprima nel servizio contenitore di AZURE) non devono eseguire il controller di ingresso. Usare un selettore di nodo nel manifesto YAML o distribuzione grafico Helm per indicare che la risorsa deve essere eseguito in un nodo basato su Linux. Per altre informazioni, vedere [usare i selettori di nodo di controllo in cui i POD vengono programmati in AKS][concepts-node-selectors].
+
 Esistono molti scenari per l'ingresso, tra cui le guide pratiche seguenti:
 
 * [Creare un controller di ingresso di base con connettività di rete esterna][aks-ingress-basic]
@@ -126,7 +128,7 @@ Le risorse in ingresso e il servizio di bilanciamento del carico continuano a es
 
 I criteri di rete sono una funzionalità Kubernetes che consente di controllare il flusso del traffico tra pod. È possibile scegliere di consentire o non consentire il traffico in base a impostazioni come la porta del traffico, lo spazio dei nomi o le etichette assegnate. L'uso di criteri di rete rappresenta un metodo nativo del cloud per controllare il flusso del traffico. Poiché i pod vengono creati dinamicamente in un cluster del servizio Azure Kubernetes, i criteri di rete necessari possono essere applicati automaticamente. Usare tali criteri, anziché gruppi di sicurezza di rete di Azure, per controllare il traffico da pod a pod.
 
-Per usare criteri di rete, è necessario che la funzionalità sia abilitata quando si crea un cluster del servizio Azure Kubernetes. Non è possibile abilitare criteri di rete in un cluster esistente di tale servizio. Pianificare in anticipo per essere certi di abilitare i criteri di rete nei cluster e poterli quindi usare in base alle esigenze.
+Per usare criteri di rete, è necessario che la funzionalità sia abilitata quando si crea un cluster del servizio Azure Kubernetes. Non è possibile abilitare criteri di rete in un cluster esistente di tale servizio. Pianificare in anticipo per essere certi di abilitare i criteri di rete nei cluster e poterli quindi usare in base alle esigenze. Criteri di rete devono essere utilizzato solo per i nodi basati su Linux e i POD nel servizio contenitore di AZURE.
 
 I criteri di rete vengono creati come una risorsa Kubernetes con un manifesto YAML. I criteri vengono applicati ai pod definiti, quindi le regole di ingresso o uscita definiscono la modalità di flusso del traffico. L'esempio seguente applica i criteri di rete ai pod a cui è stata applicata l'etichetta *app: backend*. La regola di ingresso quindi consente solo il traffico proveniente da pod con l'etichetta *app: frontend*:
 
@@ -186,3 +188,5 @@ Questo articolo è stato incentrato sulla sicurezza e la connettività di rete. 
 [use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
+[concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

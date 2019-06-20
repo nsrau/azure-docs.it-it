@@ -1,10 +1,15 @@
 ---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
 ms.openlocfilehash: ad543ca2cd92895b9042ba795591523f00feb70a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129953"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202712"
 ---
 ### <a name="prerequisites"></a>Prerequisiti
 * Un account Wunderlist  
@@ -13,7 +18,7 @@ Prima di poter usare l'account Wunderlist in un'app per la logica, è necessario
 
 Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Wunderlist:
 
-1. Per creare una connessione a Wunderlist, nella finestra di progettazione dell'app per la logica selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere *Wunderlist* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:   
+1. Per creare una connessione a Wunderlist, nella finestra di progettazione dell'app per la logica selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere *Wunderlist* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:  
    ![](./media/connectors-create-api-wunderlist/wunderlist-0.png)
 2. Se non sono mai state create connessioni a Wunderlist prima d'ora, verrà chiesto di fornire le credenziali di Wunderlist. Queste credenziali verranno usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati dell'account Wunderlist:   
    ![](./media/connectors-create-api-wunderlist/wunderlist-1.png)  

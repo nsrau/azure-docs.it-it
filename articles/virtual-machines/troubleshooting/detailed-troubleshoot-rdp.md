@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 4b4d2e2099f0d49c7dd9a150ac659ffde62eaa21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506412"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64693080"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Procedura dettagliata per la risoluzione dei problemi di connessione di Desktop remoto con le macchine virtuali Windows in Azure
 Questo articolo contiene una procedura dettagliata sulla risoluzione dei problemi per diagnosticare e risolvere errori di Desktop remoto complessi per le macchine virtuali di Azure basate su Windows.
@@ -40,7 +40,7 @@ Di seguito sono riportati i componenti di una connessione RDP:
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
-Prima di procedere, può essere utile riflettere su cosa è stato modificato dall'ultima connessione Desktop remoto riuscita alla VM. Ad esempio: 
+Prima di procedere, può essere utile riflettere su cosa è stato modificato dall'ultima connessione Desktop remoto riuscita alla VM. Ad esempio:
 
 * L'indirizzo IP pubblico della VM o il servizio cloud contenente la VM, detto anche indirizzo IP virtuale o [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address), è cambiato. L'errore RDP può essere causato dal fatto che la cache del client DNS ha ancora l' *indirizzo IP precedente* registrato per il nome DNS. Svuotare la cache del client DNS e riprovare a connettersi alla VM. Oppure, provare a connettersi direttamente con il nuovo indirizzo VIP.
 * Per gestire le connessioni Desktop remoto si usa un'applicazione di terze parti anziché la connessione generata dal portale di Azure. Verificare che la configurazione dell'applicazione includa la porta TCP corretta per il traffico di Desktop remoto. È possibile controllare questa porta per una macchina virtuale classica nel [portale di Azure](https://portal.azure.com) facendo clic sulle impostazioni della VM > Endpoint.

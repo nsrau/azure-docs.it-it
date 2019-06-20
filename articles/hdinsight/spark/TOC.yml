@@ -44,6 +44,10 @@
       href: ../hdinsight-sdk-python-samples.md
 - name: Concetti
   items:
+    - name: Usare IntelliJ per eseguire query Apache Spark
+      href: apache-spark-intellij-tool-plugin.md
+    - name: Usare VSCode per eseguire query Apache Spark
+      href: ../hdinsight-for-vscode.md
     - name: Componenti Apache Hadoop in HDInsight
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0
@@ -58,74 +62,74 @@
           href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
         - name: Uso di Azure Data Lake Storage Gen1
           href: ../hdinsight-hadoop-use-data-lake-store.md
-    - name: Sviluppo
-      items:
-        - name: Usare una shell di Apache Spark interattiva
-          href: apache-spark-shell.md
-        - name: Processi remoti con Apache Livy
-          href: apache-spark-livy-rest-interface.md
-        - name: Creare app usando Eclipse
-          href: apache-spark-eclipse-tool-plugin.md
-        - name: Creare app usando IntelliJ
-          href: apache-spark-intellij-tool-plugin.md
-        - name: Eseguire il debug remoto dei processi Apache Spark con IntelliJ tramite SSH
-          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
-        - name: Eseguire il debug remoto dei processi Apache Spark con IntelliJ tramite VPN
-          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
-        - name: Creare applicazioni .NET HDInsight di autenticazione non interattive
-          href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
-    - name: Uso di strumenti HDInsight
-      items:
-        - name: Strumenti per Visual Studio
-          href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
-        - name: Strumenti per VSCode
-          href: ../hdinsight-for-vscode.md
-        - name: Strumenti per IntelliJ
-          href: apache-spark-intellij-tool-plugin.md
-        - name: Strumenti per Eclipse
-          href: apache-spark-eclipse-tool-plugin.md
-        - name: PySpark per VSCode
-          href: ../set-up-pyspark-interactive-environment.md
-        - name: Eseguire il debug di Apache Spark in IntelliJ
-          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
-    - name: Usare i notebook con Apache Spark
-      items:
-        - name: Usare un Jupyter Notebook locale
-          href: apache-spark-jupyter-notebook-install-locally.md
-        - name: Kernel di Jupyter Notebook
-          href: apache-spark-jupyter-notebook-kernels.md
-        - name: Usare pacchetti esterni con Jupyter usando Magic nella cella
-          href: apache-spark-jupyter-notebook-use-external-packages.md
-        - name: Usare pacchetti esterni con Jupyter usando l'azione script
-          href: apache-spark-python-package-installation.md
-        - name: Usare i notebook di Apache Zeppelin
-          href: apache-spark-zeppelin-notebook.md
-    - name: Uso con altri servizi di Azure
-      items:
-        - name: Uso con Data Lake Storage
-          href: apache-spark-use-with-data-lake-store.md
-        - name: Connettersi al database SQL di Azure
-          href: apache-spark-connect-to-sql-database.md
-        - name: Implementare un'architettura lambda Apache Spark e Cosmos DB
-          href: ../../cosmos-db/lambda-architecture.md
-        - name: Eseguire i carichi di lavoro di Azure Machine Learning con AutoML
-          href: apache-spark-run-machine-learning-automl.md
-    - name: Streaming in Apache Spark
-      items:
-        - name: Panoramica dello streaming
-          href: apache-spark-streaming-overview.md
-        - name: Panoramica dello streaming strutturato
-          href: apache-spark-structured-streaming-overview.md
-        - name: Creare processi di streaming Apache Spark a disponibilità elevata in Apache Hadoop YARN
-          href: apache-spark-streaming-high-availability.md
-        - name: Flusso strutturato con Apache Kafka
-          href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-        - name: Flusso strutturato da Apache Kafka a CosmosDB
-          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
-        - name: Flusso Spark (DStream) con Apache Kafka
-          href: ../hdinsight-apache-spark-with-kafka.md
-        - name: Creare processi di streaming Apache Spark con elaborazione di eventi di tipo exactly-once
-          href: apache-spark-streaming-exactly-once.md
+        - name: Sviluppo
+          items:
+            - name: Usare una shell di Apache Spark interattiva
+              href: apache-spark-shell.md
+            - name: Processi remoti con Apache Livy
+              href: apache-spark-livy-rest-interface.md
+            - name: Creare app usando Eclipse
+              href: apache-spark-eclipse-tool-plugin.md
+            - name: Creare app usando IntelliJ
+              href: apache-spark-intellij-tool-plugin.md
+            - name: Eseguire il debug remoto dei processi Apache Spark con IntelliJ tramite SSH
+              href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+            - name: Eseguire il debug remoto dei processi Apache Spark con IntelliJ tramite VPN
+              href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
+            - name: Creare applicazioni .NET HDInsight di autenticazione non interattive
+              href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
+        - name: Uso di strumenti HDInsight
+          items:
+            - name: Strumenti per Visual Studio
+              href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
+            - name: Strumenti per VSCode
+              href: ../hdinsight-for-vscode.md
+            - name: Strumenti per IntelliJ
+              href: apache-spark-intellij-tool-plugin.md
+            - name: Strumenti per Eclipse
+              href: apache-spark-eclipse-tool-plugin.md
+            - name: PySpark per VSCode
+              href: ../set-up-pyspark-interactive-environment.md
+            - name: Eseguire il debug di Apache Spark in IntelliJ
+              href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+        - name: Usare i notebook con Apache Spark
+          items:
+            - name: Usare un Jupyter Notebook locale
+              href: apache-spark-jupyter-notebook-install-locally.md
+            - name: Kernel di Jupyter Notebook
+              href: apache-spark-jupyter-notebook-kernels.md
+            - name: Usare pacchetti esterni con Jupyter usando Magic nella cella
+              href: apache-spark-jupyter-notebook-use-external-packages.md
+            - name: Usare pacchetti esterni con Jupyter usando l'azione script
+              href: apache-spark-python-package-installation.md
+            - name: Usare i notebook di Apache Zeppelin
+              href: apache-spark-zeppelin-notebook.md
+        - name: Uso con altri servizi di Azure
+          items:
+            - name: Uso con Data Lake Storage
+              href: apache-spark-use-with-data-lake-store.md
+            - name: Connettersi al database SQL di Azure
+              href: apache-spark-connect-to-sql-database.md
+            - name: Implementare un'architettura lambda Apache Spark e Cosmos DB
+              href: ../../cosmos-db/lambda-architecture.md
+            - name: Eseguire i carichi di lavoro di Azure Machine Learning con AutoML
+              href: apache-spark-run-machine-learning-automl.md
+        - name: Streaming in Apache Spark
+          items:
+            - name: Panoramica dello streaming
+              href: apache-spark-streaming-overview.md
+            - name: Panoramica dello streaming strutturato
+              href: apache-spark-structured-streaming-overview.md
+            - name: Creare processi di streaming Apache Spark a disponibilità elevata in Apache Hadoop YARN
+              href: apache-spark-streaming-high-availability.md
+            - name: Flusso strutturato con Apache Kafka
+              href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+            - name: Flusso strutturato da Apache Kafka a CosmosDB
+              href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
+            - name: Flusso Spark (DStream) con Apache Kafka
+              href: ../hdinsight-apache-spark-with-kafka.md
+            - name: Creare processi di streaming Apache Spark con elaborazione di eventi di tipo exactly-once
+              href: apache-spark-streaming-exactly-once.md
     - name: Apache Spark e apprendimento automatico
       items:
         - name: Prevedere i risultati di un controllo alimentare
@@ -138,173 +142,173 @@
           href: apache-spark-microsoft-cognitive-toolkit.md
         - name: Creare una pipeline di apprendimento automatico di Apache Spark
           href: apache-spark-creating-ml-pipelines.md
-    - name: Analizzare Big Data
-      items:
-        - name: Apache Hive con Apache Spark
-          href: ../interactive-query/apache-hive-warehouse-connector.md
-        - name: Usare Apache Spark per leggere e scrivere dati Apache HBase
-          href: ../hdinsight-using-spark-query-hbase.md
-        - name: Analizzare i log di Application Insights Telemetry
-          href: apache-spark-analyze-application-insight-logs.md
-    - name: Estendere i cluster
-      items:
-        - name: Personalizzare i cluster usando bootstrap
-          href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
-        - name: Personalizzare i cluster con l'azione script
-          href: ../hdinsight-hadoop-customize-cluster-linux.md
-        - name: Sviluppare azioni di script
-          href: ../hdinsight-hadoop-script-actions-linux.md
-        - name: Installare e usare Presto
-          href: ../hdinsight-hadoop-install-presto.md
-        - name: Aggiungere librerie Apache Hive
-          href: ../hdinsight-hadoop-add-hive-libraries.md
-        - name: Usare Apache Giraph
-          href: ../hdinsight-hadoop-giraph-install-linux.md
-        - name: Usare Hue
-          href: ../hdinsight-hadoop-hue-linux.md
-        - name: Usare nodi perimetrali vuoti
-          href: ../hdinsight-apps-use-edge-node.md
-        - name: Sviluppare applicazioni HDInsight
+        - name: Analizzare Big Data
           items:
-            - name: Installare app personalizzate
-              href: ../hdinsight-apps-install-custom-applications.md
-            - name: Usare REST per installare app
-              href: 'https://msdn.microsoft.com/library/mt706515.aspx'
-            - name: Pubblicare app HDInsight in Azure Marketplace
-              href: ../hdinsight-apps-publish-applications.md
-    - name: Proteggere
-      items:
-        - name: Usare SSH con HDInsight
-          href: ../hdinsight-hadoop-linux-use-ssh-unix.md
-        - name: Usare il tunneling SSH
-          href: ../hdinsight-linux-ambari-ssh-tunnel.md
-        - name: Limitare l'accesso ai dati
-          href: ../hdinsight-storage-sharedaccesssignature-permissions.md
-        - name: Autorizzare gli utenti per le visualizzazioni di Apache Ambari
-          href: ../hdinsight-authorize-users-to-ambari.md
-    - name: Gestisci
-      items:
-        - name: Gestire le risorse cluster
-          href: apache-spark-resource-manager.md
-        - name: Gestire le applicazioni Apache Spark tramite il Server cronologia esteso
-          href: apache-azure-spark-history-server.md
-        - name: Configurare le impostazioni di Apache Spark
-          href: apache-spark-settings.md
-        - name: Ottimizzare i processi Apache Spark
-          href: apache-spark-perf.md
-        - name: Abilitare la memorizzazione nella cache con IO Cache
-          href: apache-spark-improve-performance-iocache.md
-        - name: Pianificazione della capacità dei cluster
-          href: ../hdinsight-capacity-planning.md
-        - name: Creare cluster HDInsight
-          href: ../hdinsight-hadoop-provision-linux-clusters.md
+            - name: Apache Hive con Apache Spark
+              href: ../interactive-query/apache-hive-warehouse-connector.md
+            - name: Usare Apache Spark per leggere e scrivere dati Apache HBase
+              href: ../hdinsight-using-spark-query-hbase.md
+            - name: Analizzare i log di Application Insights Telemetry
+              href: apache-spark-analyze-application-insight-logs.md
+        - name: Estendere i cluster
           items:
-            - name: Usare il portale di Azure
-              href: ../hdinsight-hadoop-create-linux-clusters-portal.md
-            - name: Usare i modelli di Gestione risorse di Azure
-              displayName: 'resource manager template, arm template, resource manager group'
-              href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
-            - name: Usare SDK per .NET
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster'
-            - name: Usare SDK per Python
-              href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster'
-            - name: Usare SDK per Java
-              href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster'
-            - name: Usare Azure PowerShell
-              href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-            - name: Usare cURL e l'API REST di Azure
-              href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-            - name: Utilizzare l’interfaccia della riga di comando di Azure
-              href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-            - name: Creare cluster su richiesta
-              href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-        - name: Gestire cluster HDInsight
-          href: ../hdinsight-administer-use-portal-linux.md
+            - name: Personalizzare i cluster usando bootstrap
+              href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
+            - name: Personalizzare i cluster con l'azione script
+              href: ../hdinsight-hadoop-customize-cluster-linux.md
+            - name: Sviluppare azioni di script
+              href: ../hdinsight-hadoop-script-actions-linux.md
+            - name: Installare e usare Presto
+              href: ../hdinsight-hadoop-install-presto.md
+            - name: Aggiungere librerie Apache Hive
+              href: ../hdinsight-hadoop-add-hive-libraries.md
+            - name: Usare Apache Giraph
+              href: ../hdinsight-hadoop-giraph-install-linux.md
+            - name: Usare Hue
+              href: ../hdinsight-hadoop-hue-linux.md
+            - name: Usare nodi perimetrali vuoti
+              href: ../hdinsight-apps-use-edge-node.md
+            - name: Sviluppare applicazioni HDInsight
+              items:
+                - name: Installare app personalizzate
+                  href: ../hdinsight-apps-install-custom-applications.md
+                - name: Usare REST per installare app
+                  href: 'https://msdn.microsoft.com/library/mt706515.aspx'
+                - name: Pubblicare app HDInsight in Azure Marketplace
+                  href: ../hdinsight-apps-publish-applications.md
+        - name: Proteggere
           items:
-            - name: Usare SDK per .NET
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management'
-            - name: Usare SDK per Python
-              href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
-            - name: Usare SDK per Java
-              href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable'
-            - name: Usare SDK per Go (anteprima)
-              href: 'https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview'
-            - name: Usare Azure PowerShell
-              href: ../hdinsight-administer-use-powershell.md
-            - name: Utilizzare l’interfaccia della riga di comando di Azure
-              href: ../hdinsight-administer-use-command-line.md
-        - name: Gestire i cluster con l'interfaccia utente Web di Apache Ambari
-          href: ../hdinsight-hadoop-manage-ambari.md
+            - name: Usare SSH con HDInsight
+              href: ../hdinsight-hadoop-linux-use-ssh-unix.md
+            - name: Usare il tunneling SSH
+              href: ../hdinsight-linux-ambari-ssh-tunnel.md
+            - name: Limitare l'accesso ai dati
+              href: ../hdinsight-storage-sharedaccesssignature-permissions.md
+            - name: Autorizzare gli utenti per le visualizzazioni di Apache Ambari
+              href: ../hdinsight-authorize-users-to-ambari.md
+        - name: Gestisci
           items:
-            - name: Ottimizzare i cluster con l'interfaccia utente Web di Apache Ambari
-              href: ../hdinsight-changing-configs-via-ambari.md
-            - name: Usare l'API REST Apache Ambari
-              href: ../hdinsight-hadoop-manage-ambari-rest-api.md
-        - name: Gestire i log per un cluster HDInsight
-          href: ../hdinsight-log-management.md
-        - name: Aggiungere account di archiviazione
-          href: ../hdinsight-hadoop-add-storage.md
-        - name: Caricare dati per processi Apache Hadoop
-          href: ../hdinsight-upload-data.md
-        - name: Cluster HDInsight multipli con Data Lake Storage
-          href: ../hdinsight-multiple-clusters-data-lake-store.md
-        - name: Importare ed esportare dati con Apache Sqoop
-          href: ../hadoop/hdinsight-use-sqoop.md
+            - name: Gestire le risorse cluster
+              href: apache-spark-resource-manager.md
+            - name: Gestire le applicazioni Apache Spark tramite il Server cronologia esteso
+              href: apache-azure-spark-history-server.md
+            - name: Configurare le impostazioni di Apache Spark
+              href: apache-spark-settings.md
+            - name: Ottimizzare i processi Apache Spark
+              href: apache-spark-perf.md
+            - name: Abilitare la memorizzazione nella cache con IO Cache
+              href: apache-spark-improve-performance-iocache.md
+            - name: Pianificazione della capacità dei cluster
+              href: ../hdinsight-capacity-planning.md
+            - name: Creare cluster HDInsight
+              href: ../hdinsight-hadoop-provision-linux-clusters.md
+              items:
+                - name: Usare il portale di Azure
+                  href: ../hdinsight-hadoop-create-linux-clusters-portal.md
+                - name: Usare i modelli di Gestione risorse di Azure
+                  displayName: 'resource manager template, arm template, resource manager group'
+                  href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
+                - name: Usare SDK per .NET
+                  href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster'
+                - name: Usare SDK per Python
+                  href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster'
+                - name: Usare SDK per Java
+                  href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster'
+                - name: Usare Azure PowerShell
+                  href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+                - name: Usare cURL e l'API REST di Azure
+                  href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+                - name: Utilizzare l’interfaccia della riga di comando di Azure
+                  href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+                - name: Creare cluster su richiesta
+                  href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+            - name: Gestire cluster HDInsight
+              href: ../hdinsight-administer-use-portal-linux.md
+              items:
+                - name: Usare SDK per .NET
+                  href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management'
+                - name: Usare SDK per Python
+                  href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
+                - name: Usare SDK per Java
+                  href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable'
+                - name: Usare SDK per Go (anteprima)
+                  href: 'https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview'
+                - name: Usare Azure PowerShell
+                  href: ../hdinsight-administer-use-powershell.md
+                - name: Utilizzare l’interfaccia della riga di comando di Azure
+                  href: ../hdinsight-administer-use-command-line.md
+            - name: Gestire i cluster con l'interfaccia utente Web di Apache Ambari
+              href: ../hdinsight-hadoop-manage-ambari.md
+              items:
+                - name: Ottimizzare i cluster con l'interfaccia utente Web di Apache Ambari
+                  href: ../hdinsight-changing-configs-via-ambari.md
+                - name: Usare l'API REST Apache Ambari
+                  href: ../hdinsight-hadoop-manage-ambari-rest-api.md
+            - name: Gestire i log per un cluster HDInsight
+              href: ../hdinsight-log-management.md
+            - name: Aggiungere account di archiviazione
+              href: ../hdinsight-hadoop-add-storage.md
+            - name: Caricare dati per processi Apache Hadoop
+              href: ../hdinsight-upload-data.md
+            - name: Cluster HDInsight multipli con Data Lake Storage
+              href: ../hdinsight-multiple-clusters-data-lake-store.md
+            - name: Importare ed esportare dati con Apache Sqoop
+              href: ../hadoop/hdinsight-use-sqoop.md
+              items:
+                - name: Connettersi tramite SSH
+                  href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
+                - name: Esecuzione con cURL
+                  href: ../hadoop/apache-hadoop-use-sqoop-curl.md
+                - name: Esecuzione con SDK per .NET
+                  href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
+                - name: Esecuzione con Azure PowerShell
+                  href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
+            - name: Usare Apache Oozie per i flussi di lavoro
+              href: ../hdinsight-use-oozie-linux-mac.md
+            - name: Porta del cluster e del servizio e URI
+              href: ../hdinsight-hadoop-port-settings-for-services.md
+            - name: Eseguire la migrazione agli strumenti di sviluppo di Resource Manager
+              href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
+            - name: Disponibilità e affidabilità
+              href: ../hdinsight-high-availability-linux.md
+            - name: Aggiornare il cluster HDInsight a una versione più recente
+              href: ../hdinsight-upgrade-cluster.md
+            - name: Applicazione di patch del sistema operativo per il cluster HDInsight
+              href: ../hdinsight-os-patching.md
+        - name: Risolvere problemi
           items:
-            - name: Connettersi tramite SSH
-              href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
-            - name: Esecuzione con cURL
-              href: ../hadoop/apache-hadoop-use-sqoop-curl.md
-            - name: Esecuzione con SDK per .NET
-              href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
-            - name: Esecuzione con Azure PowerShell
-              href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
-        - name: Usare Apache Oozie per i flussi di lavoro
-          href: ../hdinsight-use-oozie-linux-mac.md
-        - name: Porta del cluster e del servizio e URI
-          href: ../hdinsight-hadoop-port-settings-for-services.md
-        - name: Eseguire la migrazione agli strumenti di sviluppo di Resource Manager
-          href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
-        - name: Disponibilità e affidabilità
-          href: ../hdinsight-high-availability-linux.md
-        - name: Aggiornare il cluster HDInsight a una versione più recente
-          href: ../hdinsight-upgrade-cluster.md
-        - name: Applicazione di patch del sistema operativo per il cluster HDInsight
-          href: ../hdinsight-os-patching.md
-    - name: Risolvere problemi
-      items:
-        - name: Eseguire il debug di processi Apache Spark
-          href: apache-spark-job-debugging.md
-        - name: Eseguire il debug di processi Apache Spark tramite il grafico del processo
-          href: apache-azure-spark-history-server.md
-        - name: Usare IntelliJ per il debug di un processo Apache Spark
-          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
-        - name: Risolvere i problemi di un cluster HDInsight lento o in errore
-          href: ../hdinsight-troubleshoot-failed-cluster.md
-        - name: Risoluzione dei problemi di Apache Spark
-          href: apache-troubleshoot-spark.md
-        - name: Risoluzione dei problemi di Apache Hadoop HDFS
-          href: ../hdinsight-troubleshoot-hdfs.md
-        - name: Risoluzione dei problemi di Apache Hadoop YARN
-          href: ../hdinsight-troubleshoot-yarn.md
-        - name: Problemi noti
-          href: apache-spark-known-issues.md
-        - name: Risorse
-          items:
-            - name: Informazioni sull'uso di HDInsight in Linux
-              href: ../hdinsight-hadoop-linux-information.md
-            - name: Memoria e prestazioni di Apache Hadoop
-              href: ../hdinsight-hadoop-stack-trace-error-messages.md
-            - name: Accedere ai log applicazioni di Apache Hadoop YARN in Linux
-              href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
-            - name: Abilitare i dump dell'heap per i servizi Apache Hadoop
-              href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
-            - name: Comprendere e risolvere gli errori di WebHCat
-              href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
-            - name: Errore di memoria insufficiente corretto dalle impostazioni di Apache Hive
-              href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
-            - name: Ottimizzare le query Apache Hive
-              href: ../hdinsight-hadoop-optimize-hive-query.md
+            - name: Eseguire il debug di processi Apache Spark
+              href: apache-spark-job-debugging.md
+            - name: Eseguire il debug di processi Apache Spark tramite il grafico del processo
+              href: apache-azure-spark-history-server.md
+            - name: Usare IntelliJ per il debug di un processo Apache Spark
+              href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+            - name: Risolvere i problemi di un cluster HDInsight lento o in errore
+              href: ../hdinsight-troubleshoot-failed-cluster.md
+            - name: Risoluzione dei problemi di Apache Spark
+              href: apache-troubleshoot-spark.md
+            - name: Risoluzione dei problemi di Apache Hadoop HDFS
+              href: ../hdinsight-troubleshoot-hdfs.md
+            - name: Risoluzione dei problemi di Apache Hadoop YARN
+              href: ../hdinsight-troubleshoot-yarn.md
+            - name: Problemi noti
+              href: apache-spark-known-issues.md
+            - name: Risorse
+              items:
+                - name: Informazioni sull'uso di HDInsight in Linux
+                  href: ../hdinsight-hadoop-linux-information.md
+                - name: Memoria e prestazioni di Apache Hadoop
+                  href: ../hdinsight-hadoop-stack-trace-error-messages.md
+                - name: Accedere ai log applicazioni di Apache Hadoop YARN in Linux
+                  href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
+                - name: Abilitare i dump dell'heap per i servizi Apache Hadoop
+                  href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
+                - name: Comprendere e risolvere gli errori di WebHCat
+                  href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
+                - name: Errore di memoria insufficiente corretto dalle impostazioni di Apache Hive
+                  href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
+                - name: Ottimizzare le query Apache Hive
+                  href: ../hdinsight-hadoop-optimize-hive-query.md
 - name: riferimento
   items:
     - name: Esempi di codice

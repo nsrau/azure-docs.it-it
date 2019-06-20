@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 9d872a6d753a206dcfb03761e50e5854db4f146e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 8712c5fa69b16fc2f743f43ee8a755037f28f722
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071599"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155683"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Comprendere il funzionamento dello strumento di migrazione
 
@@ -23,7 +23,7 @@ Questo articolo spiega come funziona lo strumento di migrazione volontaria. Desc
 > [!NOTE]
 > A causa di un ritardo nell'implementazione dello strumento di migrazione, è stata la data di ritiro per la migrazione di avvisi classici [esteso al 31 agosto 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) dalla data di originariamente annunciata del 30 giugno 2019.
 
-## <a name="which-classic-alert-rules-can-be-migrated"></a>Le regole di avviso classica possono essere migrate?
+## <a name="which-classic-alert-rules-cannot-be-migrated"></a>Quali regole di avviso classici non è possibile eseguire la migrazione?
 
 Anche se lo strumento può eseguire la migrazione di quasi tutte classiche regole di avviso, esistono alcune eccezioni. Le regole di avviso seguente non sarà possibile eseguire la migrazione tramite lo strumento (o durante la migrazione automatica in settembre 2019):
 
@@ -32,6 +32,8 @@ Anche se lo strumento può eseguire la migrazione di quasi tutte classiche regol
 - Regole di avviso classiche su alcune metriche di account di archiviazione. Visualizzare [dettagli](#storage-account-metrics) più avanti in questo articolo.
 
 Se la sottoscrizione include eventuali regole di questo tipo classiche, è necessario eseguirne la migrazione manualmente. Poiché non è possibile offrire una migrazione automatica, qualsiasi avvisi delle metriche classici, esistenti di questi tipi continueranno a funzionare fino a giugno 2020. Questa estensione offre ora per passare a nuovi avvisi. Tuttavia, è possibile creare nessun nuovo avviso classico dopo agosto 2019.
+
+Oltre alle eccezioni elencate sopra, se le regole di avviso classiche non sono validi, ad esempio si trovano sulla [deprecato metriche](#classic- alert-rules-on-deprecated-metrics) o risorse che sono state eliminate, non verrà eseguite durante la migrazione volontaria. Verranno eliminati eventuali questo tipo non validi classici regole di avviso in caso di migrazione automatica. 
 
 ### <a name="guest-metrics-on-virtual-machines"></a>Metriche guest nelle macchine virtuali
 
@@ -60,6 +62,20 @@ Tutti gli avvisi classici in account di archiviazione possono essere migrati, ad
 Avviso classico delle regole per le metriche percentuale devono essere migrate in base a [il mapping tra le metriche di archiviazione di vecchi e nuovi](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Le soglie dovrà essere modificata in modo appropriato in quanto la nuova metrica disponibile è assoluto.
 
 Le regole di avviso di classiche AnonymousThrottlingError, SASThrottlingError e ThrottlingError devono essere suddivisa in due nuovi avvisi, poiché non esiste alcuna metrica combinata che offre le stesse funzionalità. Le soglie dovrà essere adattato in modo appropriato.
+
+### <a name="classic-alert-rules-on-deprecated-metrics"></a>Regole di avviso classica sulle metriche deprecate
+
+Si tratta di regole di avviso classica sulle metriche di cui erano supportate per un periodo di tempo prima che alla fine sono state deprecate. Una piccola percentuale di clienti potrebbe avere regole di avviso di classiche non è valide su tali metriche. Poiché queste regole di avviso non sono validi, essi non verrà eseguita la migrazione. 
+
+| Tipo di risorsa| Metriche deprecate |
+|-------------|----------------- |
+| Microsoft.DBforMySQL/servers | compute_consumption_percent, compute_limit |
+| Microsoft.DBforPostgreSQL/servers | compute_consumption_percent, compute_limit |
+| Microsoft.Network/publicIPAddresses | defaultddostriggerrate |
+| Microsoft.SQL/servers/databases | service_level_objective, storage_limit, storage_used, throttling, dtu_consumption_percent, storage_used |
+| Microsoft.Web/hostingEnvironments/multirolepools | averagememoryworkingset |
+| Microsoft.Web/hostingEnvironments/workerpools | BytesReceived, httpqueuelength |
+
 
 ## <a name="rollout-phases"></a>Fasi di implementazione
 

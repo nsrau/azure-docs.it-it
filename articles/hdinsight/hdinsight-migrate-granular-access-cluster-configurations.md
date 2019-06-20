@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 1ec4786291d6e2e5be6785e52cf3ab5bb5bbc690
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56ba2dfebeb47f7e12a2693eae443e3c31e2a4dd
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754546"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203094"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Eseguire la migrazione all'accesso granulare in base al ruolo per le configurazioni dei cluster
 
@@ -23,7 +23,7 @@ Sono state introdotte alcune importanti modifiche per supportare ulteriori acces
 In precedenza, i segreti è stato possibile ottenere tramite l'API di HDInsight da parte degli utenti cluster che presenta il proprietario, collaboratore o lettore [ruoli RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), come fossero disponibili per chiunque abbia il `*/read` è necessaria l'autorizzazione.
 In futuro, l'accesso a questi segreti richiederanno la `Microsoft.HDInsight/clusters/configurations/*` autorizzazione, vale a dire non siano accessibili da parte degli utenti con ruolo di lettore. I segreti siano definiti come devono consentire valori che può essere usati per ottenere l'accesso con privilegi più elevato rispetto a un ruolo utente. Sono inclusi i valori, ad esempio cluster gateway HTTP credenziali, chiavi dell'account di archiviazione e le credenziali del database.
 
-È stato anche introdotto un nuovo [operatore del Cluster Hdinsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) ruolo che sarà in grado di recuperare i segreti senza disporre delle autorizzazioni amministrative di proprietario o collaboratore. Per riepilogare:
+È stato anche introdotto un nuovo [operatore del Cluster HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) ruolo che sarà in grado di recuperare i segreti senza disporre delle autorizzazioni amministrative di proprietario o collaboratore. Per riepilogare:
 
 | Ruolo                                  | In precedenza                                                                                       | In futuro       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
@@ -155,7 +155,7 @@ Aggiornamento a [Az PowerShell versione 2.0.0](https://www.powershellgallery.com
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>Aggiungere l'assegnazione del ruolo operatore del Cluster HDInsight a un utente
 
-Un utente con il [collaboratori](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) o [proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) ruolo può assegnare il [operatore del Cluster Hdinsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) ruolo agli utenti che si abbiano accesso in lettura/scrittura alla distinzione Valori di configurazione del cluster HDInsight (ad esempio le credenziali del cluster gateway e chiavi dell'account di archiviazione).
+Un utente con il [collaboratori](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) o [proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) ruolo può assegnare il [operatore del Cluster HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) ruolo agli utenti che si abbiano accesso in lettura/scrittura alla distinzione Valori di configurazione del cluster HDInsight (ad esempio le credenziali del cluster gateway e chiavi dell'account di archiviazione).
 
 ### <a name="using-the-azure-cli"></a>Uso dell'interfaccia della riga di comando di Azure
 

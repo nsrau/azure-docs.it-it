@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1130885cc3168582935264ffaad9fd7a8ba3c60b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36ca46d6df9c32f23d3051d1205c3c6b39e69f5a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64920248"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164735"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrare le connessioni dell'account LinkedIn in Azure Active Directory
 
@@ -44,7 +44,7 @@ ms.locfileid: "64920248"
 1. Sotto **le connessioni dell'account LinkedIn**, consentire agli utenti di connettere i propri account per accedere alle connessioni di LinkedIn in alcune App Microsoft. Nessun dato viene condiviso fino a quando gli utenti il consenso per connettere i propri account.
 
     * Selezionare **Sì** per abilitare il servizio per tutti gli utenti nell'organizzazione
-    * Selezionare **Selected** per consentire solo un gruppo di utenti selezionati all'interno dell'organizzazione
+    * Selezionare **gruppo selezionate** per abilitare il servizio per un gruppo di utenti selezionati all'interno dell'organizzazione
     * Selezionare **No** per ritirare il consenso da tutti gli utenti nell'organizzazione
 
     ![Integrare le connessioni dell'account LinkedIn all'interno dell'organizzazione](./media/linkedin-integration/linkedin-integration.png)

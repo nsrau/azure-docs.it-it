@@ -1,25 +1,17 @@
 ---
 title: Distribuire un modello di Azure con un token di firma di accesso condiviso e l'interfaccia della riga di comando di Azure | Microsoft Docs
 description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire risorse in Azure da un modello protetto con un token di firma di accesso condiviso.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: azurecli
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: c869b76a0d1ba10bc27aefa60cbe4ed5b8d8201a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a71698831859e92300706ade8c2284cbfc7ee241
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61061359"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205417"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-cli"></a>Distribuire un modello di Resource Manager privato con un token di firma di accesso condiviso e l'interfaccia della riga di comando di Azure
 

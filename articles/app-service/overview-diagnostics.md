@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f2f798be85e9c3aeb8d4b54cba89d8be059427e0
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539825"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147357"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Panoramica della diagnostica del servizio app di Azure
 
@@ -103,12 +103,12 @@ Come il monitoraggio proattivo della CPU, correzione automatica attiva offre un 
 
 ![Attiva la riparazione automatica](./media/app-service-diagnostics/proactive-auto-healing-10.png)
 
-## <a name="change-analysis"></a>Analisi dei cambiamenti
+## <a name="change-analysis-only-for-windows-app"></a>Analisi di modifica (solo per app Windows)
 
-In un ambiente di sviluppo e veloce, a volte può risultare difficile tenere traccia di tutte le modifiche apportate all'App e consentire pinpoint solo in caso di modifica che ha causato un comportamento non integro. Analisi della modifica può aiutarti a circoscrivere sulle modifiche apportate all'App per facilitare l'esperienza di risoluzione. Analisi della modifica è incorporato nel report di diagnostica, ad esempio **blocchi applicazione** in modo che è possibile usarlo contemporaneamente ad altre metriche.
+In un ambiente di sviluppo e veloce, a volte può risultare difficile tenere traccia di tutte le modifiche apportate all'App e consentire pinpoint solo in caso di modifica che ha causato il comportamento di tipo non integro. Analisi della modifica può aiutarti a circoscrivere sulle modifiche apportate all'App per facilitare l'esperienza di risoluzione. Analisi della modifica viene trovato **le modifiche all'applicazione** e anche incorporato in un rapporto di diagnostica, ad esempio **blocchi applicazione** in modo che è possibile usarlo contemporaneamente ad altre metriche.
+
+Deve essere attivato prima di usare la funzionalità di analisi della modifica. Per altre informazioni sull'analisi di modifica, visitare [annuncia la nuova esperienza di analisi di modifica nella diagnostica del servizio App](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
 
 ![Pagina di modifica analisi predefinita](./media/app-service-diagnostics/change-analysis-default-page-11.png)
 
 ![Visualizzazione delle differenze](./media/app-service-diagnostics/diff-view-12.png)
-
-Deve essere attivato prima di usare la funzionalità di analisi della modifica. Per altre informazioni sull'analisi di modifica, visitare [annuncia la nuova esperienza di analisi di modifica nella diagnostica del servizio App](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).

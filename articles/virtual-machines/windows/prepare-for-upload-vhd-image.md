@@ -1,6 +1,6 @@
 ---
 title: Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure | Microsoft Docs
-description: Come preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
+description: Informazioni su come preparare un disco rigido virtuale Windows o VHDX per caricarlo in Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: glimoli
@@ -15,68 +15,71 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 5ae0e7855db6bec9f48d2b9511f0d0626d883111
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: cc942aeb34d17e8dff064c6a21a3c7b2099c742a
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65561346"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151023"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 
-Prima di caricare un Windows le macchine virtuali (VM) da locale a Microsoft Azure, è necessario preparare il disco rigido virtuale (VHD o VHDX). Azure supporta la generazione 1 e generazione 2 macchine virtuali nel formato di file VHD e avrà a dimensione fissa del disco. La dimensione massima consentita per il disco rigido virtuale è 1023 GB. È possibile convertire una VM di prima generazione dal file system VHDX a VHD e da un disco a espansione dinamica a un disco a dimensione fissa. Non è tuttavia possibile modificare la generazione di una macchina virtuale. Per altre informazioni, vedere [è necessario creare una generazione 1 o 2 macchine Virtuali in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) e [generazione 2 VM in Azure](generation-2.md).
+Prima di caricare una macchina virtuale di Windows (VM) da locale ad Azure, è necessario preparare il disco rigido virtuale (VHD o VHDX). Azure supporta la generazione 1 e generazione 2 macchine virtuali che sono nel formato di file di disco rigido virtuale e che dispone di un disco a dimensione fissa. La dimensione massima consentita per il disco rigido virtuale è 1023 GB. 
 
-Per altre informazioni sui criteri di supporto per le VM di Azure, vedere [Supporto di software server Microsoft per le macchine virtuali Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
+In una generazione 1 macchina virtuale, è possibile convertire un file system VHDX a VHD. È anche possibile convertire un disco a espansione dinamica a un disco a dimensione fissa. Non è tuttavia possibile modificare la generazione di una macchina virtuale. Per altre informazioni, vedere [è necessario creare una generazione 1 o 2 macchine Virtuali in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) e [supporto tecnico di Azure per la generazione 2 macchine virtuali (anteprima)](generation-2.md).
 
-> [!Note]
-> Le istruzioni illustrate in questo articolo si applicano alla versione a 64 bit di Windows Server 2008 R2 e alle versioni successive del sistema operativo Windows Server. Per informazioni sull'esecuzione di sistemi operativi a 32 bit in Azure, vedere [Support for 32-bit operating systems in Azure virtual machines](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines) (Supporto per sistemi operativi a 32 bit in macchine virtuali di Azure).
+Per informazioni sui criteri di supporto per macchine virtuali di Azure, vedere [supporto di software server Microsoft per macchine virtuali di Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
-## <a name="convert-the-virtual-disk-to-vhd-and-fixed-size-disk"></a>Convertire il disco virtuale in formato VHD e disco di dimensioni prestabilite 
-Se è necessario convertire il disco virtuale in un formato richiesto per Azure, usare uno dei metodi descritti in questa sezione. Eseguire il backup della macchina virtuale prima di convertire il disco virtuale e assicurarsi che il disco rigido virtuale di Windows funzioni correttamente nel server locale. Risolvere qualsiasi errore nella macchina virtuale prima di provare a convertire o caricare il disco in Azure.
+> [!NOTE]
+> Le istruzioni in questo articolo si applicano alla versione a 64 bit di Windows Server 2008 R2 e versioni successive i sistemi operativi Windows Server. Per informazioni sull'esecuzione di un sistema operativo a 32 bit in Azure, vedere [supporto per i sistemi operativi a 32 bit in macchine virtuali di Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
 
-Dopo avere convertito il disco, creare una macchina virtuale che utilizzi il disco convertito. Avviare e accedere alla macchina virtuale per terminare la preparazione della macchina virtuale per il caricamento.
+## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>Convertire il disco virtuale in una dimensione fissa e a disco rigido virtuale 
+Se è necessario convertire il disco virtuale in un formato richiesto per Azure, usare uno dei metodi descritti in questa sezione. Eseguire il backup della macchina virtuale prima di convertire il disco virtuale. Assicurarsi che il disco rigido virtuale di Windows funzioni correttamente nel server locale. Prima di provare a convertire o caricarlo in Azure, quindi risolvere gli eventuali errori all'interno della macchina virtuale stessa.
 
-### <a name="convert-disk-using-hyper-v-manager"></a>Convertire il disco tramite la console di gestione di Hyper-V
-1. Aprire la console di gestione di Hyper-V e selezionare il computer locale a sinistra. Nel menu sopra l'elenco di computer fare clic su **Azione** > **Modifica disco**.
-2. Nella schermata **Percorso disco rigido virtuale** trovare e selezionare il disco virtuale.
-3. Nella schermata **Scelta azione** selezionare **Converti** e **Avanti**.
-4. Se è necessaria la conversione dal formato VHDX, selezionare **VHD** e quindi fare clic su **Avanti**.
-5. Se è necessaria la conversione dal disco a espansione dinamica, selezionare **A dimensione fissa** e fare clic su **Avanti**.
+Dopo avere convertito il disco, creare una VM che usa il disco. Avviare e accedere alla macchina virtuale per completare la preparazione per il caricamento.
+
+### <a name="use-hyper-v-manager-to-convert-the-disk"></a>Utilizzare Hyper-V Manager per convertire il disco 
+1. Aprire la console di gestione di Hyper-V e selezionare il computer locale a sinistra. Nel menu sopra l'elenco di computer, selezionare **azione** > **modifica disco**.
+2. Nel **percorso disco rigido virtuale** pagina, selezionare il disco virtuale.
+3. Nel **scelta azione** pagina, selezionare **convertire** > **Avanti**.
+4. Se è necessaria la conversione dal formato VHDX, selezionare **VHD** > **successivo**.
+5. Se è necessario eseguire la conversione da un disco a espansione dinamica, selezionare **a dimensione fissa** > **successivo**.
 6. Trovare e selezionare un percorso in cui salvare il nuovo file VHD.
-7. Fare clic su **Fine**.
+7. Selezionare **Fine**.
 
->[!NOTE]
->I comandi riportati in questo articolo devono essere eseguiti in una sessione di PowerShell con privilegi elevati.
+> [!NOTE]
+> Usare una sessione di PowerShell con privilegi elevata per eseguire i comandi in questo articolo.
 
-### <a name="convert-disk-by-using-powershell"></a>Convertire il disco tramite PowerShell
+### <a name="use-powershell-to-convert-the-disk"></a>Usare PowerShell per convertire il disco 
 È possibile convertire un disco virtuale usando il comando [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) di Windows PowerShell. Selezionare **Esegui come amministratore** quando si avvia PowerShell. 
 
-Nell'esempio seguente viene eseguita la conversione da VHDX a VHD e da un disco a espansione dinamica a un disco a dimensione fissa:
+Il comando seguente converte il disco dal formato VHDX in VHD. Inoltre, il comando converte il disco da un disco a espansione dinamica a un disco a dimensione fissa.
 
 ```Powershell
 Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
 ```
-In questo comando sostituire il valore di "-Path" con il percorso del disco rigido virtuale che si vuole convertire e il valore di "-DestinationPath" con il nuovo percorso e il nome del disco convertito.
+
+In questo comando, sostituire il valore di `-Path` con il percorso per il disco rigido virtuale che si desidera convertire. Sostituire il valore di `-DestinationPath` con il nuovo percorso e il nome del disco convertito.
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>Conversione dal formato VMware VMDK
-Se si ha un'immagine di VM Windows in [formato di file VMDK](https://en.wikipedia.org/wiki/VMDK), convertirla in formato VHD usando [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). Per altre informazioni, vedere l'articolo del blog [How to Convert a VMware VMDK to Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (Come convertire un file VMDK VMWare in un file VHD Hyper-V).
+Se si dispone di un'immagine di macchina virtuale Windows [formato di file VMDK](https://en.wikipedia.org/wiki/VMDK), utilizzare il [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) possa essere convertito in formato VHD. Per altre informazioni, vedere [come convertire un VMDK di VMware in Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## <a name="set-windows-configurations-for-azure"></a>Impostare le configurazioni di Windows per Azure
 
-Nella macchina virtuale che si prevede di caricare in Azure eseguire tutti questi comandi in una [finestra del prompt dei comandi con privilegi elevati](https://technet.microsoft.com/library/cc947813.aspx):
+Nella macchina virtuale che si intende caricare in Azure, eseguire i comandi seguenti da un [finestra prompt dei comandi con privilegi elevati](https://technet.microsoft.com/library/cc947813.aspx):
 
 1. Rimuovere qualsiasi route statica persistente nella tabella di routing:
    
    * Per visualizzare la tabella di route, eseguire `route print` al prompt dei comandi.
-   * Controllare le sezioni **Route persistenti** sezioni. Se è presente una route persistente, utilizzare il comando **Elimina route** per rimuoverla.
+   * Controllare il `Persistence Routes` sezioni. Se è presente una route persistente, Usa il `route delete` comando per rimuoverlo.
 2. Rimuovere il proxy WinHTTP:
    
     ```PowerShell
     netsh winhttp reset proxy
     ```
 
-    Se la macchina virtuale deve lavorare con un proxy specifico, è necessario aggiungere un'eccezione del proxy all'indirizzo IP di Azure ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
-)), in modo che la macchina virtuale disponga della connettività ad Azure:
+    Se la macchina virtuale deve usare un proxy specifico, aggiungere un'eccezione del proxy per l'indirizzo IP di Azure ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
+)) in modo che la macchina virtuale può connettersi ad Azure:
     ```
     $proxyAddress="<your proxy server>"
     $proxyBypassList="<your list of bypasses>;168.63.129.16"
@@ -84,31 +87,31 @@ Nella macchina virtuale che si prevede di caricare in Azure eseguire tutti quest
     netsh winhttp set proxy $proxyAddress $proxyBypassList
     ```
 
-3. Impostare il criterio SAN disco su [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
+3. Impostare il criterio SAN disco su [ `Onlineall` ](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell
     diskpart 
     ```
-    Nella finestra del prompt dei comandi aperta eseguire questi comandi:
+    Nella finestra del prompt dei comandi aperta, digitare i comandi seguenti:
 
      ```DISKPART
     san policy=onlineall
     exit   
     ```
 
-4. Impostare l'ora UTC (Coordinated Universal Time) per Windows e impostare il tipo di avvio del servizio ora di Windows (w32time) su **Automatico**:
+4. Impostare ora Coordinated Universal Time (UTC) per Windows. Impostare anche il tipo di avvio del servizio ora di Windows (`w32time`) a `Automatic`:
    
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" -Value 1 -Type DWord -force
 
     Set-Service -Name w32time -StartupType Automatic
     ```
-5. Impostare il profilo di potenza su **Prestazioni elevate**:
+5. Impostare il profilo di potenza su ad alte prestazioni:
 
     ```PowerShell
     powercfg /setactive SCHEME_MIN
     ```
-6. Verificare che le variabili di ambiente **TEMP** e **TMP** siano impostate sui valori predefiniti:
+6. Assicurarsi che le variabili di ambiente `TEMP` e `TMP` sono impostate sui valori predefiniti:
 
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -name "TEMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -force
@@ -117,7 +120,7 @@ Nella macchina virtuale che si prevede di caricare in Azure eseguire tutti quest
     ```
 
 ## <a name="check-the-windows-services"></a>Verificare i servizi di Windows
-Assicurarsi che ciascuno dei seguenti servizi di Windows sia impostato sui **valori predefiniti di Windows**, Si tratta del numero minimo di servizi che devono essere configurati perché la macchina virtuale abbia connettività. Eseguire i comandi seguenti per reimpostare le impostazioni di avvio:
+Assicurarsi che ciascuno dei seguenti servizi di Windows sia impostato sui valori predefiniti di Windows. Questi servizi sono il valore minimo che deve essere impostato per assicurare la connettività della macchina virtuale. Eseguire i comandi seguenti per reimpostare le impostazioni di avvio:
    
 ```PowerShell
 Set-Service -Name bfe -StartupType Automatic
@@ -133,13 +136,11 @@ Set-Service -Name MpsSvc -StartupType Automatic
 Set-Service -Name RemoteRegistry -StartupType Automatic
 ```
 
-## <a name="update-remote-desktop-registry-settings"></a>Aggiornare le impostazioni del registro di Desktop remoto
-Assicurarsi che le impostazioni seguenti siano configurate correttamente per la connessione Desktop remoto:
+## <a name="update-remote-desktop-registry-settings"></a>Aggiornare le impostazioni del Registro di sistema di desktop remoto
+Assicurarsi che le impostazioni seguenti siano configurate correttamente per l'accesso remoto:
 
->[!Note] 
->Si potrebbe ricevere un messaggio di errore quando si esegue il comando **Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;nome oggetto&gt; -value &lt;valore&gt;** in questi passaggi. È possibile ignorare questo messaggio di errore. Significa solo che il dominio non esegue il push della configurazione tramite un oggetto Criteri di gruppo.
->
->
+>[!NOTE] 
+>Si potrebbe ricevere un messaggio di errore quando si esegue `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;object name&gt; -value &lt;value&gt;`. È possibile ignorare questo messaggio. Significa solo che il dominio non è eseguire il push di tale configurazione tramite un oggetto Criteri di gruppo.
 
 1. Remote Desktop Protocol (RDP) è abilitato:
    
@@ -149,19 +150,19 @@ Assicurarsi che le impostazioni seguenti siano configurate correttamente per la 
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDenyTSConnections" -Value 0 -Type DWord -force
     ```
    
-2. La porta RDP è impostata correttamente. La porta predefinita è 3389:
+2. La porta RDP è configurata correttamente. La porta predefinita è 3389:
    
     ```PowerShell
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "PortNumber" -Value 3389 -Type DWord -force
     ```
-    Quando si distribuisce una VM, le regole predefinite vengono create per la porta 3389. Se si vuole modificare il numero di porta, eseguire l'operazione dopo aver distribuito la VM in Azure.
+    Quando si distribuisce una VM, le regole predefinite vengono create per la porta 3389. Se si desidera modificare il numero di porta, è possibile farlo dopo aver distribuita la macchina virtuale in Azure.
 
 3. Il listener è in ascolto in ogni interfaccia di rete:
    
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "LanAdapter" -Value 0 -Type DWord -force
    ```
-4. Configurare la modalità Autenticazione a livello di rete per le connessioni RDP:
+4. Configurare la modalità di autenticazione a livello di rete (NLA) per le connessioni RDP:
    
     ```PowerShell
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1 -Type DWord -force
@@ -190,31 +191,31 @@ Assicurarsi che le impostazioni seguenti siano configurate correttamente per la 
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "MaxInstanceCount" -Value 4294967295 -Type DWord -force
     ```
-8. Rimuovere eventuali certificati autofirmati associati al listener del protocollo RDP, se presenti:
+8. Rimuovere eventuali certificati autofirmati associati al listener del protocollo RDP:
     
     ```PowerShell
     Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SSLCertificateSHA1Hash" -force
     ```
-    Sarà così possibile connettersi all'inizio, quando si distribuisce la VM. Questa operazione può anche essere eseguita dopo aver distribuito la VM in Azure, se necessario.
+    Questo codice garantisce che sia possibile connettersi all'inizio quando si distribuisce la macchina virtuale. Se è necessario esaminare questo in un secondo momento, è possibile farlo dopo aver distribuita la macchina virtuale in Azure.
 
-9. Se la VM farà parte di un dominio, verificare tutte le impostazioni seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate. I criteri da verificare sono i seguenti:
+9. Se la VM farà parte di un dominio, controllare i criteri seguenti per assicurarsi che le impostazioni precedenti non vengono ripristinate. 
     
     | Obiettivo                                     | Policy                                                                                                                                                       | Value                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP è abilitato                           | Configurazione computer\Criteri\Impostazioni di Windows \Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni         | Consenti la connessione remota tramite Servizi Desktop remoto                                  |
-    | Criteri di gruppo NLA                         | Impostazioni\Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Sicurezza                                                    | Richiedi autenticazione utente tramite Autenticazione a livello di rete per le connessioni remote |
-    | Impostazioni keep-alive                      | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Componenti di Windows\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni | Configura intervallo keep-alive della connessione                                                 |
-    | Impostazioni di riconnessione                       | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Componenti di Windows\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni | Riconnessione automatica                                                                   |
-    | Limitare il numero di impostazioni di connessione | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Componenti di Windows\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni | Limita il numero di connessioni                                                              |
+    | Criteri di gruppo NLA                         | Impostazioni\Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Sicurezza                                                    | Richiedi autenticazione utente per l'accesso remoto mediante la funzione NLA |
+    | Impostazioni Keep-alive                      | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Componenti di Windows\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni | Configura intervallo keep-alive della connessione                                                 |
+    | Impostazioni di riconnessione                       | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Componenti di Windows\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni | La riconnessione automatica                                                                   |
+    | Numero limitato di impostazioni di connessione | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Componenti di Windows\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni | Limita il numero di connessioni                                                              |
 
 ## <a name="configure-windows-firewall-rules"></a>Configurare le regole del firewall di Windows
-1. Attivare Windows Firewall nei tre profili (Dominio, Standard e Pubblico):
+1. Attiva Windows Firewall nei tre profili (dominio, standard e pubblico):
 
    ```PowerShell
     Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True
    ```
 
-2. Eseguire questo comando in PowerShell per consentire WinRM attraverso i tre profili firewall (Dominio, Privato e Pubblico) e abilitare il servizio remoto di PowerShell:
+2. Eseguire il comando seguente in PowerShell per consentire WinRM attraverso i tre profili firewall (dominio, privato e pubblico) e abilitare il servizio remoto PowerShell:
    
    ```PowerShell
     Enable-PSRemoting -force
@@ -226,12 +227,12 @@ Assicurarsi che le impostazioni seguenti siano configurate correttamente per la 
    ```PowerShell
     Set-NetFirewallRule -DisplayGroup "Remote Desktop" -Enabled True
    ```   
-4. Abilitare la regola Condivisione file e stampanti in modo che la VM possa rispondere a un comando ping all'interno della rete virtuale:
+4. Abilitare la regola per file e stampanti in modo che la VM possa rispondere a un comando ping all'interno della rete virtuale:
 
    ```PowerShell
    Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -Enabled True
    ``` 
-5. Se la VM farà parte di un dominio, verificare le impostazioni seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate. I criteri AD da verificare sono i seguenti:
+5. Se la VM farà parte di un dominio, controllare i criteri di Azure AD seguenti per assicurarsi che le impostazioni precedenti non vengono ripristinate. 
 
     | Obiettivo                                 | Policy                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
@@ -241,8 +242,11 @@ Assicurarsi che le impostazioni seguenti siano configurate correttamente per la 
     | Abilitare ICMP V4                       | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Consenti eccezioni ICMP                   |
     |                                      | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo standard\Windows Firewall | Consenti eccezioni ICMP                   |
 
-## <a name="verify-vm-is-healthy-secure-and-accessible-with-rdp"></a>Verificare che la macchina virtuale sia integra, sicura e accessibile con RDP 
-1. Per verificare l'integrità e la coerenza del disco, eseguire un controllo disco al successivo riavvio della VM:
+## <a name="verify-the-vm"></a>Verificare la VM 
+
+Assicurarsi che la macchina virtuale sia integra, sicura e RDP accessibili: 
+
+1. Per assicurarsi che il disco sia integro e coerente, controllare il disco al successivo riavvio della macchina virtuale:
 
     ```PowerShell
     Chkdsk /f
@@ -251,8 +255,8 @@ Assicurarsi che le impostazioni seguenti siano configurate correttamente per la 
 
 2. Configurare le impostazioni dei dati di configurazione di avvio. 
 
-    > [!Note]
-    > Assicurarsi che questi comandi vengano eseguiti in una finestra di PowerShell con privilegi elevati.
+    > [!NOTE]
+    > Usare una finestra di PowerShell con privilegi elevata per eseguire questi comandi.
    
    ```powershell
     cmd
@@ -273,15 +277,15 @@ Assicurarsi che le impostazioni seguenti siano configurate correttamente per la 
 
     exit
    ```
-3. Il log Dump può essere utile per la risoluzione dei problemi di arresto anomalo del sistema Windows. Abilitare la raccolta di log Dump:
+3. Il log dump può essere utile nella risoluzione dei problemi di arresto anomalo del sistema di Windows. Abilitare la raccolta di log dump:
 
     ```powershell
-    # Setup the Guest OS to collect a kernel dump on an OS crash event
+    # Set up the guest OS to collect a kernel dump on an OS crash event
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name CrashDumpEnabled -Type DWord -force -Value 2
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name DumpFile -Type ExpandString -force -Value "%SystemRoot%\MEMORY.DMP"
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name NMICrashDump -Type DWord -force -Value 1
 
-    #Setup the Guest OS to collect user mode dumps on a service crash event
+    # Set up the guest OS to collect user mode dumps on a service crash event
     $key = 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps'
     if ((Test-Path -Path $key) -eq $false) {(New-Item -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting' -Name LocalDumps)}
     New-ItemProperty -Path $key -name DumpFolder -Type ExpandString -force -Value "c:\CrashDumps"
@@ -289,57 +293,60 @@ Assicurarsi che le impostazioni seguenti siano configurate correttamente per la 
     New-ItemProperty -Path $key -name DumpType -Type DWord -force -Value 2
     Set-Service -Name WerSvc -StartupType Manual
     ```
-4. Verificare che il repository di Strumentazione gestione Windows sia coerente. A tale scopo, usare il comando seguente:
+4. Verificare che il repository di Strumentazione gestione Windows (WMI) sia coerenza:
 
     ```PowerShell
     winmgmt /verifyrepository
     ```
-    Se il repository è danneggiato, vedere [WMI: Repository Corruption, or Not](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) (WMI: ipotesi di danneggiamento del repository).
+    Se il repository è danneggiato, vedere [WMI: Archivio danneggiato o non](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
-5. Assicurarsi che un'altra applicazione non stia usando la porta 3389. Questa porta viene utilizzata per il servizio RDP in Azure. È possibile eseguire **netstat -anob** per verificare quali porte sono in uso nella macchina virtuale:
+5. Assicurarsi che nessun altra applicazione sta utilizzando la porta 3389. Questa porta viene utilizzata per il servizio RDP in Azure. Per visualizzare le porte utilizzate nella macchina virtuale, eseguire `netstat -anob`:
 
     ```PowerShell
     netstat -anob
     ```
 
-6. Se il disco VHD di Windows che si vuole caricare è un controller di dominio, seguire questa procedura:
+6. Per caricare un disco rigido virtuale Windows che è un controller di dominio:
 
-    1. Seguire [questi passaggi aggiuntivi](https://support.microsoft.com/kb/2904015) per preparare il disco.
+   * Seguire [questi passaggi aggiuntivi](https://support.microsoft.com/kb/2904015) per preparare il disco.
 
-    1. È necessario conoscere la password DSRM, nel caso in cui si debba avviare la VM in modalità DSRM in un determinato momento. Vedere questo collegamento per impostare la [password DSRM](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
+   * Assicurarsi di conoscere la password modalità ripristino servizi Directory (DSRM) nel caso in cui è necessario avviare la macchina virtuale in modalità ripristino servizi directory in un determinato momento. Per altre informazioni, vedere [impostare una password DSRM](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
 
-7. L'account predefinito Administrator e la password devono essere noti all'utente. È opportuno reimpostare la password dell'amministratore locale corrente e accertarsi di poter usare questo account per accedere a Windows tramite la connessione RDP. Questa autorizzazione di accesso è controllata dall'oggetto Criteri di gruppo "Consenti accesso tramite Servizi Desktop remoto", È possibile visualizzare questo oggetto in Editor criteri di gruppo locali in:
+7. Assicurarsi di conoscere l'account predefinito administrator e la password. È possibile reimpostare la password di amministratore locale corrente e verificare che è possibile usare questo account per accedere a Windows tramite la connessione RDP. Questa autorizzazione di accesso è controllata dall'oggetto Criteri di gruppo "Consenti accesso tramite Servizi Desktop remoto". Visualizzare questo oggetto in locale Editor criteri di gruppo di seguito:
 
     Configurazione computer\Impostazioni di Windows\Impostazioni di sicurezza\Criteri locali\Assegnazione diritti utente
 
-8. Controllare i seguenti criteri AD per assicurarsi che non si stia bloccando l'accesso a RDP né tramite RDP né dalla rete:
+8. Controllare i criteri di Azure AD seguenti per assicurarsi che non siano bloccate l'accesso a RDP tramite RDP o dalla rete:
 
     - Configurazione computer\Impostazioni di Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti utente\Impedisci accesso a questo computer dalla rete
 
     - Configurazione computer\Impostazioni di Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti utente\Impedisci accesso tramite Servizi Desktop remoto
 
 
-9. Controllare i seguenti criteri AD per assicurarsi di non rimuovere uno dei seguenti account di accesso necessari:
+9. Controllare i criteri di Azure AD seguenti per assicurarsi che non si elimina uno qualsiasi degli account di accesso necessario:
 
-   - Configurazione computer\Impostazioni di Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti utente\Accesso a questo calcolo dalla rete
+   - Computer Configurazione computer\Impostazioni Windows\Impostazioni sicurezza\Criteri locali\Assegnazione diritti Assignment\Access questo computer dalla rete
 
-     I gruppi seguenti devono essere elencati in questo criterio:
+   Il criterio deve elencare i gruppi seguenti:
 
    - Administrators
+
    - Operatori di backup
+
    - Tutti
+
    - Utenti
 
-10. Riavviare la VM per assicurarsi che Windows sia ancora integro e che possa essere raggiunto con la connessione RDP. A questo punto può essere opportuno creare una VM nell'ambiente Hyper-V locale per assicurarsi che la macchina virtuale si avvi completamente e quindi testare se è raggiungibile con la connessione RDP.
+10. Riavviare la macchina virtuale per assicurarsi che Windows sia ancora integro e che può essere raggiunto tramite la connessione RDP. A questo punto, si potrebbe voler creare una macchina virtuale di Hyper-V locale per assicurarsi che la macchina virtuale inizia completamente. Quindi verificare che è possibile raggiungere la macchina virtuale tramite RDP.
 
-11. Rimuovere qualsiasi filtro TDI (Transport Driver Interface) aggiuntivo, ad esempio il software che analizza i pacchetti TCP o altri firewall. Questa operazione può anche essere eseguita dopo aver distribuito la VM in Azure, se necessario.
+11. Rimuovere qualsiasi filtro TDI interfaccia TDI (Transport Driver). Ad esempio, rimuovere il software che analizza TCP pacchetti o altri firewall. Se è necessario esaminare questo in un secondo momento, è possibile farlo dopo aver distribuita la macchina virtuale in Azure.
 
-12. Disinstallare qualsiasi altro software di terze parti e i driver relativi a componenti fisici o altre tecnologie di virtualizzazione.
+12. Disinstallare qualsiasi altro software di terze parti o driver i componenti correlati a fisici o altre tecnologie di virtualizzazione.
 
 ### <a name="install-windows-updates"></a>Installare gli aggiornamenti di Windows
-La configurazione ideale è **avere la versione più recente del livello di patch del computer**. Se ciò non è possibile, assicurarsi di aver installato i seguenti aggiornamenti:
+In teoria, è consigliabile mantenere aggiornato il computer di *livello di patch*. Se questo non è possibile, verificare che siano installati gli aggiornamenti seguenti:
 
-| Componente               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 versione 1607 con Windows Server 2016 versione 1607 | Windows 10 versione 1703    | Windows 10 versione 1709, Windows Server 2016 versione 1709 | Windows 10 1803 Windows Server 2016 versione 1803 |
+| Componente               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Archiviazione                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
@@ -377,52 +384,53 @@ La configurazione ideale è **avere la versione più recente del livello di patc
 |                         | CVE-2018-0886  | KB4103718               | KB4103730                | KB4103725       | KB4103723                                               | KB4103731                  | KB4103727                                       | KB4103721                                       |
 |                         |                | KB4103712          | KB4103726          | KB4103715|                                                         |                            |                                                 |                                                 |
        
-### Quando usare sysprep <a id="step23"></a>    
+### Determinare quando usare Sysprep <a id="step23"></a>    
 
-Sysprep è un processo che può essere eseguito in un'installazione di Windows e che reimposta l'installazione del sistema e fornisce un'esperienza predefinita rimuovendo tutti i dati personali e reimpostando diversi componenti. Questo processo viene generalmente eseguito se si vuole creare un modello dal quale si possono distribuire diverse altre macchine virtuali che hanno una configurazione specifica. Il modello è denominato **immagine generalizzata**.
+Utilità preparazione sistema (Sysprep) è un processo è possibile eseguire per ripristinare un'installazione di Windows. Sysprep offre un'esperienza "predefiniti" rimuovendo tutti i dati personali e reimpostando diversi componenti. 
 
-Se si vuole invece creare una sola macchina virtuale da un disco, non è necessario usare Sysprep. In questo caso si può semplicemente creare la macchina virtuale da ciò che viene definita una **immagine specializzata**.
+È in genere eseguire Sysprep per creare un modello da cui è possibile distribuire diverse altre macchine virtuali che hanno una configurazione specifica. Il modello viene chiamato un *immagine generalizzata*.
 
-Per altre informazioni sulla creazione di una VM da un disco specializzato, vedere:
+Se si desidera creare solo una macchina virtuale da un disco, non devi utilizzare Sysprep. In alternativa, è possibile creare la macchina virtuale da un *immagine specializzata*. Per informazioni su come creare una macchina virtuale da un disco specializzato, vedere:
 
 - [Creare una macchina virtuale da un disco specializzato](create-vm-specialized.md)
 - [Creare una macchina virtuale da un disco rigido virtuale specializzato](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-Se si vuole creare un'immagine generalizzata, è necessario eseguire sysprep. Per altre informazioni su Sysprep, vedere [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Introduzione all'uso di Sysprep). 
+Se si desidera creare un'immagine generalizzata, è necessario eseguire Sysprep. Per altre informazioni, vedere [come usare Sysprep: Un'introduzione](https://technet.microsoft.com/library/bb457073.aspx). 
 
-Non tutti i ruoli o le applicazioni installate in un computer basato su Windows supportano questa generalizzazione. Prima di eseguire questa procedura, vedere l'articolo seguente per verificare che il ruolo del computer sia supportato da Sysprep. Per altre informazioni, vedere [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Supporto Sysprep per i ruoli server).
+Non tutti i ruoli o applicazione installata in un computer basato su Windows supporta immagini generalizzate. Pertanto, prima di eseguire questa procedura, verificare che Sysprep supporta il ruolo del computer. Per altre informazioni, vedere [Sysprep support for server roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Supporto di Sysprep per i ruoli server).
 
-### <a name="steps-to-generalize-a-vhd"></a>Procedura per generalizzare un disco rigido virtuale
+### <a name="generalize-a-vhd"></a>Generalizzare un disco rigido virtuale
 
 >[!NOTE]
-> Dopo l'esecuzione di sysprep.exe come specificato nei passaggi seguenti, disattivare la macchina virtuale e non riattivarla prima di averne creato un'immagine da Azure.
+> Dopo aver eseguito `sysprep.exe` nei passaggi seguenti, spegnere la macchina virtuale. Non riaccendere il computer finché non si crea un'immagine da quest'ultimo in Azure.
 
 1. Accedere alla VM Windows.
-2. Eseguire il **prompt dei comandi** come amministratore. 
-3. Passare a **%windir%\system32\sysprep** ed eseguire **sysprep.exe**.
-3. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e verificare che la casella di controllo **Generalizza** sia selezionata.
+1. Eseguire il **prompt dei comandi** come amministratore. 
+1. Passare alla directory `%windir%\system32\sysprep`. Quindi eseguire `sysprep.exe`.
+1. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e verificare che la casella di controllo **Generalizza** sia selezionata.
 
     ![Utilità preparazione sistema](media/prepare-for-upload-vhd-image/syspre.png)
-4. In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
-5. Fare clic su **OK**.
-6. Al termine dell'esecuzione di Sysprep, arrestare la VM. Non usare **Riavvia** per arrestare la macchina virtuale.
-7. A questo punto il disco rigido virtuale è pronto per essere caricato. Per altre informazioni su come creare una VM da un disco generalizzato, vedere [Caricare un disco rigido virtuale generalizzato in Azure e creare una nuova macchina virtuale](sa-upload-generalized.md).
+1. In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
+1. Selezionare **OK**.
+1. Al termine, Sysprep arresta la macchina virtuale. Non usare **riavviare** per arrestare la macchina virtuale.
+
+A questo punto il disco rigido virtuale è pronto per essere caricato. Per altre informazioni su come creare una macchina virtuale da un disco generalizzato, vedere [caricare un disco rigido virtuale generalizzato e usarlo per creare una nuova macchina virtuale in Azure](sa-upload-generalized.md).
 
 
 >[!NOTE]
-> Un file unattend.xml personalizzato non è supportato. La proprietà additionalUnattendContent è supportata, ma fornisce solo supporto limitato per l'aggiunta delle opzioni di [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) nel file unattend.xml usato dall'agente di provisioning di Azure. ad esempio  è possibile usare [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) per aggiungere elementi FirstLogonCommands e LogonCommands. Vedere anche l'[esempio relativo ad additionalUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> Una classe personalizzata *Unattend. XML* file non è supportato. Anche se è supportata la `additionalUnattendContent` proprietà, che fornisce solo un supporto limitato per l'aggiunta [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) opzioni nel *Unattend. XML* file che il provisioning di Azure Agent utilizza. È possibile usare, ad esempio, [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) aggiungere FirstLogonCommands e LogonCommands. Per altre informazioni, vedere [additionalUnattendContent FirstLogonCommands esempio](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 
-## <a name="complete-recommended-configurations"></a>Completare le configurazioni consigliate
-Le seguenti impostazioni non influenzano il caricamento del disco rigido virtuale. È tuttavia fortemente consigliabile configurarle.
+## <a name="complete-the-recommended-configurations"></a>Completare le configurazioni consigliate
+Le seguenti impostazioni non influiscono sul caricamento di VHD. È tuttavia fortemente consigliabile configurarle.
 
-* Installare l'[agente di macchine virtuali di Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Sarà quindi possibile abilitare le estensioni delle VM. Le estensioni delle VM implementano la maggior parte delle funzionalità critiche da usare con le macchine virtuali, come la reimpostazione delle password, la configurazione di RDP e così via. Per altre informazioni, vedere [panoramica dell'agente di macchine virtuali di Azure](../extensions/agent-windows.md).
-* Dopo aver creato la VM in Azure, è consigliabile inserire il file di paging nel volume della "unità temporale" per migliorare le prestazioni. A tale scopo, procedere come segue:
+* Installare il [agente di macchine virtuali di Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Sarà quindi possibile abilitare le estensioni delle VM. Le estensioni delle VM implementano la maggior parte delle funzionalità critiche che è possibile usare con le macchine virtuali. È necessario le estensioni, ad esempio, per reimpostare le password o configurare RDP. Per altre informazioni, vedere [panoramica dell'agente di macchine virtuali di Azure](../extensions/agent-windows.md).
+* Dopo aver creato la macchina virtuale in Azure, è consigliabile archiviare il file di paging nel *volume unità temporale* per migliorare le prestazioni. È possibile impostare il posizionamento di file come indicato di seguito:
 
    ```PowerShell
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
    ```
-  Se è presente un disco dati collegato alla macchina virtuale, la lettera del volume dell'unità temporale è in genere "D". Questa designazione può differire a seconda del numero di unità disponibili e delle impostazioni.
+  Se un disco dati è collegato alla macchina virtuale, in genere è la lettera di volume dell'unità temporale *1!d*. Questa designazione può differire a seconda delle impostazioni e il numero di unità disponibili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Caricare l'immagine di una VM Windows in Azure per distribuzioni di Resource Manager](upload-generalized-managed.md)

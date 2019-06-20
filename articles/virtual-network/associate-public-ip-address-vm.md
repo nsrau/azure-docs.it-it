@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
-ms.openlocfilehash: 69460a111e6fd879807b4025d6832b3ac515a9b4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1b201957a33acd609eed8a2373c8201bdefe9d7d
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "64691994"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associare un indirizzo IP pubblico a una macchina virtuale
@@ -43,7 +43,7 @@ In questo articolo descrive come associare un indirizzo IP pubblico a una macchi
    > [!NOTE]
    > Gli indirizzi IP pubblici associati alle configurazioni IP per un'interfaccia di rete. Nella figura precedente, l'interfaccia di rete ha una configurazione IP. Se l'interfaccia di rete ha più configurazioni IP, vengono visualizzati tutti nell'elenco e selezionare la configurazione IP che si desidera associare l'indirizzo IP pubblico.
 
-5. Selezionare **Enabled**, quindi selezionare **indirizzo IP (*Configura le impostazioni obbligatorie*)**. Scegliere un indirizzo IP pubblico esistente, che chiude automaticamente il **Scegli indirizzo IP pubblico** casella. Se non hai ancora disponibili indirizzi IP pubblici elencati, è necessario crearne uno. Per altre informazioni, vedere [creare un indirizzo IP pubblico](virtual-network-public-ip-address.md#create-a-public-ip-address). Selezionare **salvare**, come illustrato nell'immagine che segue e quindi chiudere la finestra per la configurazione IP.
+5. Selezionare **Enabled**, quindi selezionare **indirizzo IP (*Configura le impostazioni obbligatorie*)** . Scegliere un indirizzo IP pubblico esistente, che chiude automaticamente il **Scegli indirizzo IP pubblico** casella. Se non hai ancora disponibili indirizzi IP pubblici elencati, è necessario crearne uno. Per altre informazioni, vedere [creare un indirizzo IP pubblico](virtual-network-public-ip-address.md#create-a-public-ip-address). Selezionare **salvare**, come illustrato nell'immagine che segue e quindi chiudere la finestra per la configurazione IP.
 
    ![Abilitare l'indirizzo IP pubblico](./media/associate-public-ip-address-vm/enable-public-ip-address.png)
 

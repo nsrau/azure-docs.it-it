@@ -11,12 +11,12 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: dfdfb9e38f16d0077175587933b0800b87cc1931
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727039"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144122"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Attività della funzione di Azure in Azure Data Factory
 
@@ -64,6 +64,10 @@ Azure funzioni timeout dopo 230 secondi indipendentemente il `functionTimeout` c
 
 Altre informazioni su funzioni permanenti [questo articolo](../azure-functions/durable/durable-functions-overview.md). È possibile configurare un'attività di funzione di Azure per chiamare la funzione durevole, che restituirà una risposta con un URI diverso, ad esempio [in questo esempio](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Poiché `statusQueryGetUri` restituisce HTTP 202 stato mentre la funzione è in esecuzione, è possibile eseguire il polling lo stato della funzione usando un'attività Web. È sufficiente configurare un'attività Web con il `url` campo impostato su `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. Al termine, la funzione permanente l'output della funzione sarà l'output dell'attività Web.
 
+
+## <a name="sample"></a>Esempio
+
+È possibile trovare un esempio di una Data Factory che usa una funzione di Azure per estrarre il contenuto di un file con estensione tar [qui](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

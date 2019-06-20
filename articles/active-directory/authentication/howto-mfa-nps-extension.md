@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19bcac68084c4817e0dc0e67f31ab62244db5a2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97bad4d9cd599890dd5e26cbc77f81156c0f1070
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113410"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204664"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -225,7 +225,7 @@ Cercare il certificato autofirmato creato dal programma di installazione nell'ar
 
 I certificati autofirmati generati dal *AzureMfaNpsExtnConfigSetup.ps1* script anche avere una durata di validità di due anni. Quando si verifica che il certificato è installato, controllare anche che il certificato non sia scaduto.
 
--------------------------------------------------------------
+---
 
 ### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>Come verificare che il certificato client sia associato al tenant in Azure Active Directory?
 
@@ -251,13 +251,13 @@ Dopo aver eseguito questo comando, passare all'unità C, individuare il file e f
 
 I timbri data/ora Valido-dal e Valido-fino al, che sono in formato leggibile, possono essere usati per filtrare i risultati errati se il comando restituisce più di un certificato.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-cant-i-sign-in"></a>Perché non è possibile accedere?
 
 Verificare che la password non sia scaduta. L'estensione NPS non supporta la modifica delle password come parte del flusso di lavoro di accesso. Per ulteriore assistenza, contattare il personale IT dell'organizzazione.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-are-my-requests-failing-with-adal-token-error"></a>Perché le richieste hanno esito negativo con errore di token ADAL?
 
@@ -268,19 +268,19 @@ Questo errore potrebbe essere dovuto a diverse ragioni. Usare la procedura segue
 3. Verificare che il certificato sia associato al tenant in Azure AD.
 4. Verificare che https://login.microsoftonline.com/ sia accessibile dal server che esegue l'estensione.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-does-authentication-fail-with-an-error-in-http-logs-stating-that-the-user-is-not-found"></a>Perché l'autenticazione ha esito negativo e restituisce un errore nei log HTTP che indica che l'utente non è stato trovato?
 
 Verificare che AD Connect sia in esecuzione e che l'utente sia presente sia in Active Directory di Windows sia in Azure Active Directory.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Perché vengono visualizzati errori di connessione HTTP nei log che contengono le autenticazioni non riuscite?
 
 Verificare che https://adnotifications.windowsazure.com sia raggiungibile dal server che esegue l'estensione del server dei criteri di rete.
 
--------------------------------------------------------------
+---
 
 ### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Il motivo per cui l'autenticazione non funziona, nonostante un certificato valido presenziando?
 

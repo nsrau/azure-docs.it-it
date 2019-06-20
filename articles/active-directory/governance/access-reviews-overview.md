@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/18/2019
+ms.date: 06/05/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fcc804db66430598e72e9ebf31a8837eda1cca6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351445"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67204603"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Che cosa sono Azure AD access verifiche?
 
@@ -46,7 +46,7 @@ Azure AD consente di collaborare internamente nell'organizzazione e con utenti d
 - **Quando l'automazione non è realizzabile:** è possibile creare regole per l'appartenenza dinamica ai gruppi di sicurezza o ai gruppi di Office 365, ma cosa accade se i dati delle risorse umane non si trovano in Azure AD o se gli utenti necessitano ancora dell'accesso dopo aver lasciato il gruppo per aiutare nella formazione del loro sostituto? È possibile creare una verifica per tale gruppo per assicurarsi che gli utenti che necessitano ancora dell'accesso dispongano di accesso continuo.
 - **Quando un gruppo viene usato per un nuovo scopo**: se c'è un gruppo che deve essere sincronizzato con Azure AD o se si prevede di abilitare l'applicazione Salesforce per tutti gli utenti nel gruppo del team di vendita, può essere utile chiedere al proprietario del gruppo di verificare l'appartenenza al gruppo prima che il gruppo venga usato in un ambito di rischio diverso.
 - **Accesso ai dati business critical**: per determinate risorse, può essere necessario chiedere alle persone esterne all'IT di disconnettersi regolarmente e di fornire una giustificazione in merito al motivo per cui devono eseguire l'accesso a scopo di controllo.
-- **Per mantenere l'elenco eccezioni dei criteri:** In una situazione ideale, tutti gli utenti seguono gli stessi criteri di accesso per proteggere l'accesso alle risorse dell'organizzazione. Esistono tuttavia casi aziendali che richiedono di introdurre eccezioni. L'amministratore IT può gestire questa attività, evitare problemi di supervisione delle eccezioni dei criteri e fornire ai revisori una prova che queste eccezioni vengono esaminate periodicamente.
+- **Per mantenere l'elenco eccezioni dei criteri:** In un mondo ideale, tutti gli utenti seguirà i criteri di accesso per proteggere l'accesso alle risorse dell'organizzazione. Esistono tuttavia casi aziendali che richiedono di introdurre eccezioni. L'amministratore IT può gestire questa attività, evitare problemi di supervisione delle eccezioni dei criteri e fornire ai revisori una prova che queste eccezioni vengono esaminate periodicamente.
 - **Chiedere ai proprietari dei gruppi di confermare che hanno ancora bisogno di guest nei loro gruppi:** Accesso dei dipendenti potrebbe essere automatizzata con alcune in locale IAM, ma non invitati. Se un gruppo assegna a utenti guest l'accesso a contenuti aziendali sensibili, è responsabilità del proprietario del gruppo confermare che gli utenti abbiano ancora un'esigenza aziendale legittima per tale accesso.
 - **Impostare verifiche periodiche**: è possibile configurare verifiche di accesso periodiche per gli utenti in base a una frequenza specifica, ad esempio settimanale, mensile, trimestrale o annuale, e i revisori riceveranno una notifica all'inizio di ogni verifica. I revisori possono approvare o negare l'accesso con un'interfaccia utente semplice da usare e con l'aiuto di consigli intelligenti.
 
@@ -56,21 +56,34 @@ A seconda di ciò che si desidera esaminare, si creerà la verifica di accesso d
 
 | Diritti di accesso degli utenti | I revisori possono essere | Verifica creata in | Esperienza di verifica |
 | --- | --- | --- | --- |
-| Membri di gruppi di sicurezza</br>Membri di gruppi di Office | Revisori specificati</br>Proprietari del gruppo</br>Revisori self-service | Verifiche di accesso di Azure AD</br>Gruppi di Azure AD | Pannello di accesso |
-| Assegnati a un'app connessa | Revisori specificati</br>Revisori self-service | Verifiche di accesso di Azure AD</br>App aziendali di Azure AD (in anteprima) | Pannello di accesso |
-| Ruolo di Azure AD | Revisori specificati</br>Revisori self-service | Azure AD PIM | Portale di Azure |
-| Ruolo delle risorse di Azure | Revisori specificati</br>Revisori self-service | Azure AD PIM | Portale di Azure |
+| Membri di gruppi di sicurezza</br>Membri di gruppi di Office | Revisori specificati</br>Proprietari del gruppo</br>Verifica automatica | Verifiche di accesso di Azure AD</br>Gruppi di Azure AD | Pannello di accesso |
+| Assegnati a un'app connessa | Revisori specificati</br>Verifica automatica | Verifiche di accesso di Azure AD</br>App aziendali di Azure AD (in anteprima) | Pannello di accesso |
+| Ruolo di Azure AD | Revisori specificati</br>Verifica automatica | [Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portale di Azure |
+| Ruolo delle risorse di Azure | Revisori specificati</br>Verifica automatica | [Azure AD Privileged Identity Management](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portale di Azure |
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="which-users-must-have-licenses"></a>Quali utenti devono avere le licenze?
 
-Per usare le verifiche di accesso, è necessario avere una delle licenze seguenti:
+Ogni utente che interagisce con le verifiche di accesso deve avere una licenza a pagamento di Azure AD Premium P2. Tra gli esempi sono inclusi:
 
-- Azure AD P2 Premium
-- Licenza di Enterprise Mobility + Security (EMS) E5
+- Amministratori che creano una verifica di accesso
+- Rivedere i proprietari del gruppo che eseguono un accesso
+- Utenti assegnati come revisori
+- Utenti che eseguono una verifica automatica
 
-Per ulteriori informazioni, consultare [Come effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) o [Versione di valutazione di Enterprise Mobility + Security E5](https://aka.ms/emse5trial).
+È anche possibile chiedere agli utenti guest di verificare il proprio accesso. Per ogni licenza di Azure AD Premium P2 a pagamento che si assegna a uno degli utenti dell'organizzazione, è possibile usare Azure AD business-to-business (B2B) per invitare utenti guest fino a cinque sotto il limite di utenti esterni. Questi utenti guest possono anche usare le funzionalità di Azure AD Premium P2. Per altre informazioni, vedere [linee guida sulla collaborazione B2B di Azure AD](../b2b/licensing-guidance.md).
 
-## <a name="get-started-with-access-reviews"></a>Introduzione alle verifiche di accesso
+Ecco alcuni scenari di esempio che consentono di determinare il numero di licenze di che è necessario disporre.
+
+| Scenario | Calcolo | Numero necessario di licenze |
+| --- | --- | --- |
+| Un amministratore crea una verifica di accesso di un gruppo con 500 utenti.<br/>Assegna proprietari del gruppo 3 come revisori. | 1 amministratore + 3 proprietari del gruppo | 4 |
+| Un amministratore crea una verifica di accesso di un gruppo con 500 utenti.<br/>Rende di una verifica automatica. | 1 amministratore + 500 utenti come revisori Self-Service | 501 |
+| Un amministratore crea una verifica di accesso di gruppo A 25 utenti guest con 5 utenti.<br/>Rende di una verifica automatica. | 1 amministratore + 5 utenti come revisori Self-Service<br/>(gli utenti guest sono vedere il rapporto obbligatorio 1: 5) | 6 |
+| Un amministratore crea una verifica di accesso di un gruppo con 5 utenti e gli utenti guest di 28.<br/>Rende di una verifica automatica. | 1 amministratore + 5 utenti come revisori Self-Service + 1 utente per tutti gli utenti guest nel rapporto 1: 5 necessaria | 7 |
+
+Per informazioni su come assegnare licenze agli utenti, vedere [Assegnare o rimuovere licenze usando il portale di Azure Active Directory](../fundamentals/license-users-groups.md).
+
+## <a name="learn-about-access-reviews"></a>Informazioni sulle verifiche di accesso
 
 Per altre informazioni sulla creazione e sull'esecuzione di verifiche di accesso, guardare questa breve demo:
 
@@ -80,29 +93,9 @@ Se si è pronti per distribuire le verifiche di accesso nell'organizzazione, seg
 
 >[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
 
-## <a name="enable-access-reviews"></a>Abilitare le verifiche di accesso
+## <a name="license-requirements"></a>Requisiti relativi alle licenze
 
-Per abilitare le verifiche di accesso, seguire questa procedura.
-
-1. Come amministratore globale o Amministratore utenti, accedi per il [portale di Azure](https://portal.azure.com) esamina in cui si desidera usare l'accesso.
-
-1. Fare clic su **Tutti i servizi** e trovare il servizio Verifiche di accesso.
-
-1. Fare clic su **verifiche di accesso**.
-
-    ![Tutti i servizi, le verifiche di accesso](./media/access-reviews-overview/all-services-access-reviews.png)
-
-1. Nell'elenco di spostamento fare clic su **Onboarding** per aprire la pagina **Onboarding delle verifiche di accesso**.
-
-    ![Eseguire l'onboarding delle verifiche di accesso](./media/access-reviews-overview/onboard-button.png)
-
-1. Fare clic su **Crea** per abilitare le verifiche di accesso nella directory corrente.
-
-    ![Onboarding delle verifiche di accesso](./media/access-reviews-overview/onboard-access-reviews.png)
-
-    Verifiche al successivo avvio di accesso, le opzioni di verifica di accesso verranno abilitate.
-
-    ![Verifiche di accesso abilitate](./media/access-reviews-overview/access-reviews-enabled.png)
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

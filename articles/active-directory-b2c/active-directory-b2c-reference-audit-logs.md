@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 27c91185bacea839ec73a3f4bd06f5df43bd4edf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509646"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205355"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accesso ai log di controllo di Azure AD B2C
 
@@ -23,6 +24,9 @@ Azure Active Directory B2C (Azure AD B2C) genera log di controllo contenenti inf
 
 > [!IMPORTANT]
 > I log di controllo vengono conservati solo per sette giorni. Se è necessario conservarli per un periodo più lungo, pianificare il download e l'archiviazione dei log con uno dei metodi illustrati sotto.
+
+> [!NOTE]
+> Non è possibile visualizzare gli accessi utente per le singole applicazioni di Azure AD B2C con il **gli utenti** sezione del **Azure Active Directory** o **Azure AD B2C** pannelli. Gli accessi presenti mostrano attività dell'utente, ma non possono essere correlati all'applicazione B2C che l'utente connesso. È necessario usare i log di controllo per cui, come ulteriormente illustrato in questo articolo.
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Panoramica delle attività disponibili nella categoria B2C dei log di controllo
 La categoria **B2C** nei log di controllo contiene i tipi di attività seguenti:
@@ -41,6 +45,18 @@ La categoria **B2C** nei log di controllo contiene i tipi di attività seguenti:
 
 ## <a name="example-activity"></a>Attività di esempio
 L'esempio seguente mostra i dati acquisiti quando un utente esegue l'accesso con un provider di identità esterno: ![Log di controllo - Esempio](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+
+Il riquadro dei dettagli attività contiene le informazioni seguenti:
+
+|`Section`|Campo|Descrizione|
+|-------|-----|-----------|
+| Attività | Name | Quale attività ha avuto luogo. Ad esempio, "emettere un id_token all'applicazione" (che si conclude l'effettivo accesso dell'utente). |
+| Azione avviata da (attore) | ObjectId | Il **ID di oggetto** dell'applicazione B2C in cui l'utente esegue l'accesso a (questo identificatore non è visibile nel portale di Azure, ma è accessibile tramite l'API Graph, ad esempio). |
+| Azione avviata da (attore) | Nome dell'entità servizio | Il **ID applicazione** dell'applicazione che esegue l'accesso utente a B2C. |
+| Destinazioni | ObjectId | Il **ID di oggetto** dell'utente che esegue l'accesso. |
+| Altri dettagli | TenantId | Il **Tenant ID** del tenant di Azure AD B2C. |
+| Altri dettagli | `PolicyId` | Il **ID criterio** del flusso utente (criteri) viene usato per l'accesso all'utente. |
+| Altri dettagli | ApplicationId | Il **ID applicazione** dell'applicazione che esegue l'accesso utente a B2C. |
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Accesso ai log di controllo dal portale di Azure
 1. Accedere al [portale di Azure](https://portal.azure.com). Verificare di essere nella directory B2C.
@@ -62,6 +78,9 @@ Verrà visualizzato un elenco delle attività registrate negli ultimi sette gior
 - Usare la casella di riepilogo a discesa **Intervallo di date** per filtrare l'intervallo di date delle attività visualizzate
 - Se si fa clic su una riga specifica nell'elenco, una casella contestuale a destra visualizzerà gli attributi aggiuntivi associati all'attività
 - Fare clic su **Scarica** per scaricare le attività come file CSV
+
+> [!NOTE]
+> È inoltre possibile visualizzare i log di controllo, passare a **Azure AD B2C** invece **Azure Active Directory** nella barra dei Preferiti a sinistra. Sotto **impegni**, fare clic su **log di controllo**, dove sono disponibili gli stessi log con le funzionalità di filtro simile.
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Accesso ai log di controllo tramite l'API di creazione di report di Azure AD
 I log di controllo vengono pubblicati nella stessa pipeline delle altre attività di Azure Active Directory e quindi sono accessibili tramite l'[API di creazione di report di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).

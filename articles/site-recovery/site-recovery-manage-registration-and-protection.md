@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 1b4cd5bb020e73dc9045eb164ce49931f818f72d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 400ffaa9e6fed14ceabf34283cd5fa7c7a0336b8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65415500"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203406"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Rimuovere server e disabilitare la protezione
 
@@ -151,6 +151,8 @@ Gli host Hyper-V non gestiti da VMM vengono raccolti in un sito di Hyper-V. Rimu
 > [!NOTE]
 > Con entrambe le opzioni, il servizio Mobility non verrà disinstallato dai server protetti e dovrà essere disinstallato manualmente. Se si prevede di proteggere di nuovo il server usando lo stesso server di configurazione, si può omettere la disinstallazione del servizio Mobility.
 
+> [!NOTE]
+> Se già stato eseguito il failover una macchina virtuale ed è in esecuzione in Azure, si noti che disabilita la protezione non rimuovere / interessano è stato effettuato il failover della macchina virtuale.
 ## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Disabilitare la protezione per una macchina virtuale di Azure (Azure ad Azure)
 
 -  In **Elementi protetti** > **Elementi replicati** fare clic con il pulsante destro del mouse sul computer e quindi scegliere **Disabilita replica**.
@@ -167,8 +169,12 @@ Gli host Hyper-V non gestiti da VMM vengono raccolti in un sito di Hyper-V. Rimu
    - **Disabilita la replica e rimuovi (scelta consigliata)** . Questa opzione rimuove l'elemento replicato da Azure Site Recovery e arresta la replica per il computer. La configurazione della replica nella macchina virtuale locale verrà rimossa e la fatturazione di Site Recovery per questo server protetto viene interrotta.
    - **Rimuovi**. Questa opzione dovrebbe essere usata solo se l'ambiente di origine viene eliminato o non è accessibile (perché non connesso). L'opzione rimuove l'elemento replicato da Azure Site Recovery, interrompendo la fatturazione. La configurazione della replica nella macchina virtuale locale **non** verrà rimossa. 
 
-     > [!NOTE]
+ > [!NOTE]
      > Se è stata scelta l'opzione **Rimuovi**, eseguire quindi il set di script seguente per la pulizia del server Hyper-V locale delle impostazioni di replica.
+
+> [!NOTE]
+> Se già stato eseguito il failover una macchina virtuale ed è in esecuzione in Azure, si noti che disabilita la protezione non rimuovere / interessano è stato effettuato il failover della macchina virtuale.
+
 1. Nel server host Hyper-V di origine, rimuovere la replica per la macchina virtuale. Sostituire SQLVM1 con il nome della macchina virtuale ed eseguire lo script da un'istanza amministrativa di PowerShell.
 
 ```powershell

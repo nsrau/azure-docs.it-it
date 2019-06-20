@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 886118614427bea61f745e1ded28824b60225919
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd62cda209a8ac95a41fa271ce3a96001a3b4811
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112302"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164785"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Che cos'è la condizione della posizione in Active Directory accesso condizionale di Azure? 
 
@@ -56,7 +56,10 @@ Una posizione specifica ha le caratteristiche seguenti:
 - **Paesi/aree geografiche**: questa opzione consente di selezionare uno o più paesi o aree geografiche per definire una posizione specifica.
 - **Includi aree sconosciute** -alcuni indirizzi IP non sono mappati a un paese specifico. Questa opzione consente di scegliere se questi indirizzi IP devono essere inclusi nella posizione specifica. Usare questa impostazione quando i criteri che usano la posizione specifica devono essere applicati a posizioni sconosciute.
 
-Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. Le organizzazioni possono configurare fino a 90 posizioni specifiche, ciascuna configurata con un massimo di 1200 intervalli IP.
+Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. È possibile configurare i percorsi in base alle limitazioni seguenti:
+
+- Una posizione specifica con un massimo di 1200 intervalli IP.
+- Un massimo di 90 posizioni specifiche, ognuna con un intervallo IP assegnato.
 
 Criteri di accesso condizionale si applicano al traffico IPv4 e IPv6. Località denominate attualmente non consentire gli intervalli IPv6 da configurare. Questa limitazione comporta le situazioni seguenti:
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: srinathvasireddy
-ms.openlocfilehash: 8a94994d697784fb9dab8027e5a43f24c135b32c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9e5645fef952257580d74eb6e11911e2286bd79
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059808"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165127"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Risolvere i problemi di Backup dello stato del sistema
 
@@ -118,7 +118,7 @@ Per convalidare lo stato di Windows Server Backup, eseguire il seguente:
 
   * Assicurarsi che funzioni correttamente, il backup di Windows Server Backup eseguendo il seguente comando dal prompt dei comandi con privilegi elevati:
 
-      ` wbadmin start systemstatebackup -backuptarget:X: -quiet `
+      `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
       >Sostituire X con la lettera di unità del volume in cui si desidera archiviare lo stato del sistema di eseguire il backup di immagine.

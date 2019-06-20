@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0672f25b30bfb34a6ee99b0f4710d01cf0871300
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237666"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150333"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -76,8 +76,23 @@ Se si usa Sincronizzazione file di Azure per accedere alla condivisione file di 
 
 File di Azure offre due livelli di prestazioni: standard e premium.
 
-* Le **condivisioni file standard** sono supportate da unità disco rigido rotazionali (HDD) che forniscono prestazioni affidabili per i carichi di lavoro di I/O che sono meno sensibili alla variabilità delle prestazioni, ad esempio condivisioni file per utilizzo generico e ambienti di sviluppo/test. Le condivisioni file standard sono disponibili solo in un modello di fatturazione con pagamento in base al consumo.
-* Le **condivisioni file premium (anteprima)** sono supportate da unità a stato solido (SSD) che forniscono prestazioni elevate omogenee e a bassa latenza, in millisecondi a cifra singola per la maggior parte delle operazioni di I/O, per la maggior parte dei carichi di lavoro a elevato utilizzo di I/O. Queste condivisioni sono quindi idonee per una vasta gamma di carichi di lavoro, ad esempio database, hosting di siti Web, ambienti di sviluppo e così via. Le condivisioni file premium sono disponibili solo in un modello di fatturazione con provisioning. Le condivisioni file Premium usano un modello di distribuzione separato dalle condivisioni file standard.
+### <a name="standard-file-shares"></a>Condivisioni file Standard
+
+Le condivisioni di file standard sono supportate da unità disco rigido (HDD). Condivisioni di file standard offrono prestazioni affidabili per i carichi di lavoro dei / o che sono meno sensibili alla variabilità delle prestazioni, ad esempio condivisioni di file per utilizzo generico e ambienti di sviluppo/test. Le condivisioni file standard sono disponibili solo in un modello di fatturazione con pagamento in base al consumo.
+
+Le condivisioni di file standard fino a 5 TiB di dimensioni sono disponibili come un'offerta disponibile a livello generale. Mentre le condivisioni di file più grandi, sono presenti condivisioni dimensioni superiori a 5 TiB e un massimo di 100 TiB, sono attualmente disponibili come un'offerta di anteprima.
+
+> [!IMPORTANT]
+> - È necessario creare un nuovo account di archiviazione di uso generale (non è possibile espandere gli account di archiviazione esistente).
+> - Sono disponibili solo con archiviazione con ridondanza locale.
+> - Disponibile in tre aree: Stati Uniti occidentali 2, Europa occidentale e aree Asia sud-orientale.
+> - Archiviazione con ridondanza locale per la conversione di account di archiviazione con ridondanza geografica non sarà possibile in qualsiasi nuovo account di archiviazione creati dopo la sottoscrizione viene accettata per l'anteprima di condivisioni di file più grande.
+
+Se desidera eseguire l'onboarding per l'anteprima di queste dimensioni di condivisione file più grandi, inviare ciò [form](https://aka.ms/azurefilesatscalesurvey). 
+
+### <a name="premium-file-shares-preview"></a>Condivisioni file Premium (anteprima)
+
+Le condivisioni file Premium (anteprima) sono supportate da dischi SSD (Solid State Drive). Condivisioni di file Premium offrono prestazioni elevate omogenee e bassa latenza, in millisecondi a cifra singola per la maggior parte delle operazioni dei / o, per carichi di lavoro a elevato utilizzo dei / o. Queste condivisioni sono quindi idonee per una vasta gamma di carichi di lavoro, ad esempio database, hosting di siti Web, ambienti di sviluppo e così via. Le condivisioni file premium sono disponibili solo in un modello di fatturazione con provisioning. Le condivisioni file Premium usano un modello di distribuzione separato dalle condivisioni file standard.
 
 Backup di Azure è disponibile per le condivisioni file premium e Azure Kubernetes Service supporta le condivisioni file premium in versione 1.13 e versioni successive.
 
@@ -180,7 +195,7 @@ Nella scelta dell'opzione di replica da usare, tenere presenti queste consideraz
 
 ## <a name="data-growth-pattern"></a>Modello di crescita dei dati
 
-Oggi, la dimensione massima per una condivisione file di Azure è 5 TiB (100 TiB per condivisioni file premium, che sono in anteprima pubblica). A causa di questa limitazione attuale, durante la distribuzione di una condivisione file di Azure è necessario tenere conto della crescita dei dati stimata.
+Oggi, la dimensione massima per una condivisione file di Azure è 5 TiB (100 TiB disponibile in anteprima). A causa di questa limitazione attuale, durante la distribuzione di una condivisione file di Azure è necessario tenere conto della crescita dei dati stimata.
 
 È possibile sincronizzare più condivisioni file di Azure in un singolo file server Windows con Sincronizzazione file di Azure. In questo modo, è possibile assicurarsi che le condivisioni file meno recenti e di grandi dimensioni presenti in locale possano essere inserite in Sincronizzazione file di Azure. Per altre informazioni, vedere [Pianificazione per la distribuzione dei file di Azure](storage-files-planning.md).
 

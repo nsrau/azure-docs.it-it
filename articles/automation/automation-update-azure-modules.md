@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/30/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c09c9df1b8af7adca5c0169cf31881121ba6cc99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: cd7c268008afbd87e855516d5834676423272646
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427477"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146725"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Come aggiornare i moduli di Azure PowerShell in Automazione di Azure
 
@@ -35,9 +35,7 @@ Se si sviluppano gli script in locale, è consigliabile avere in locale le stess
 
 Di seguito sono riportate alcune considerazioni di cui tenere conto quando si usa questo processo per aggiornare i moduli di Azure:
 
-* Questo runbook supporta l'aggiornamento solo il **Azure** e **AzureRm** attualmente i moduli. [I moduli di Azure PowerShell Az](/powershell/azure/new-azureps-module-az) sono supportate negli account di automazione, ma non possono essere aggiornati con questo runbook. Vi sono fattori importanti che è necessario prendere in considerazione quando si usa la `Az` moduli nell'Account di automazione, per altre informazioni, vedere [moduli Az Using nell'Account di automazione](az-modules.md).
-
-* Evitare di avviare questo runbook per gli Account di automazione che contengono i moduli Az.
+* Questo runbook supporta l'aggiornamento di **Azure** e **AzureRm** modules per impostazione predefinita. Questo runbook supporta l'aggiornamento di **Az** anche i moduli. Esaminare i [Update Azure modules runbook Leggimi](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) per altre informazioni sull'aggiornamento di `Az` moduli con questo runbook. Esistono altri fattori importanti che è necessario prendere in considerazione quando si usa la `Az` moduli nell'Account di automazione, per altre informazioni, vedere [moduli Az Using nell'Account di automazione](az-modules.md).
 
 * Prima di avviare il runbook, assicurarsi che l'Account di automazione disponga di una [credenziale dell'account RunAs di Azure](manage-runas-account.md).
 

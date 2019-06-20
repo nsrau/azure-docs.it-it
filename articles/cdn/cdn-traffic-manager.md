@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 956df17c821b86d95b1d87c3c8d8197bab7a95be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7de7fe1c677d54c0fa3e6d3ca4730ef1083bc81
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955276"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273284"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurare il failover in più endpoint della rete CDN di Azure con Gestione traffico di Azure
 
@@ -81,7 +81,7 @@ Dopo aver configurato i profili della rete CDN e di Gestione traffico, seguire q
 
     La rete CDN di Azure usa il sottodominio *cdnverify* per convalidare il mapping DNS per completare questo processo di registrazione. Per altre informazioni, vedere [Creare un record DNS CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Questo passaggio consente alla rete CDN di Azure di riconoscere il dominio personalizzato in modo da rispondere alle sue richieste.
     
- > [!NOTE]
+    > [!NOTE]
     > Per abilitare SSL in un' **rete CDN di Azure fornita da Akamai** profili, è necessario direttamente cname di dominio personalizzato all'endpoint. cdnverify per l'abilitazione di SSL non è ancora supportata. 
     >
 

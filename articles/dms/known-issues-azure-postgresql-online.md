@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/23/2019
-ms.openlocfilehash: 83c5401298d2682328da4e45d150d2d0416601fc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2c8a3f36e04fbedfdd127939d55fab376e3e6b30
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/14/2019
 ms.locfileid: "64691941"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problemi noti e limitazioni per le migrazioni online a Database di Azure per PostgreSQL
@@ -27,7 +27,7 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 - Sono supportate solo le migrazioni della stessa versione. Ad esempio, la migrazione di PostgreSQL 9.5.11 in Database di Azure per PostgreSQL 9.6.7 non è supportata.
 
     > [!NOTE]
-    > Per la versione 10 di PostgreSQL, servizio migrazione del database supporta attualmente solo la migrazione della versione 10.3 al Database di Azure per PostgreSQL. Ma è previsto supportare le versioni più recenti di PostgreSQL molto presto.
+    > Per PostgreSQL versione 10, il Servizio Migrazione del database supporta attualmente solo la migrazione della versione 10.3 a Database di Azure per PostgreSQL. Ma è previsto supportare le versioni più recenti di PostgreSQL molto presto.
 
 - Per abilitare la replica logica nel file **postgresql.config del server PostgreSQL di origine**, impostare i parametri seguenti:
     - **wal_level** = logical

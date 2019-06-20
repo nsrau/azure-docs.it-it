@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 6425fdfe89ca2f4c47aaf0e5ffd1dac7767b5020
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 536d7a572eddc2cf75f6ce135c3cd4f4f2635416
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057942"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203307"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiare dati da e in Azure Data Lake Storage Gen2 tramite Azure Data Factory
 
@@ -60,6 +60,9 @@ Il connettore Azure Data Lake Storage Gen2 supporta i seguenti tipi di autentica
 - [Autenticazione di un'entità servizio](#service-principal-authentication)
 - [Autenticazione di identità gestite per le risorse di Azure](#managed-identity)
 
+>[!NOTE]
+>Quando si usa PolyBase per caricare dati in SQL Data Warehouse, se è configurata l'origine Data Lake Storage Gen2 con endpoint di rete virtuale, è necessario utilizzare l'autenticazione identità gestita come richiesto da PolyBase. Vedere le [autenticazione identità gestita](#managed-identity) sezione con ulteriori prerequisiti di configurazione.
+
 ### <a name="account-key-authentication"></a>Autenticazione basata sulla chiave dell'account
 
 Per usare l'autenticazione basata sulla chiave dell'account di archiviazione, sono supportate le proprietà seguenti:
@@ -103,10 +106,10 @@ Per usare l'autenticazione dell'entità servizio, seguire questa procedura.
     - Chiave applicazione
     - ID tenant
 
-2. Concedere l'autorizzazione appropriata dell'entità servizio.
+2. Concedere l'autorizzazione appropriata dell'entità servizio. Altre informazioni sul funzionamento delle autorizzazioni in Data Lake Storage Gen2 da [elenchi di controllo di accesso su file e directory](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
 
-    - **Come origine**: In Azure Storage Explorer, concedere almeno **lettura ed esecuzione** dell'autorizzazione per elencare e copiare i file nelle cartelle e sottocartelle. In alternativa, è possibile concedere l'autorizzazione **lettura** per copiare un singolo file. In alternativa, nel controllo di accesso (IAM), concedere almeno il **lettore di dati Blob di archiviazione** ruolo.
-    - **Come sink**: In Storage Explorer, concedere almeno **scrittura + esecuzione** dell'autorizzazione per creare elementi figlio nella cartella. In alternativa, nel controllo di accesso (IAM), concedere almeno il **collaboratore ai dati Blob di archiviazione** ruolo.
+    - **Come origine**: In Storage Explorer, concedere almeno **Execute** autorizzazione partire dal sistema, file di origine lungo **lettura** l'autorizzazione per i file da copiare. In alternativa, nel controllo di accesso (IAM), concedere almeno il **lettore di dati Blob di archiviazione** ruolo.
+    - **Come sink**: In Storage Explorer, concedere almeno **Execute** a partire dal file system, sink con l'autorizzazione **scrivere** autorizzazione per la cartella di sink. In alternativa, nel controllo di accesso (IAM), concedere almeno il **collaboratore ai dati Blob di archiviazione** ruolo.
 
 >[!NOTE]
 >Elenco cartelle a partire dal livello di account o al test della connessione, è necessario impostare l'autorizzazione dell'entità servizio viene concesso al **account di archiviazione con l'autorizzazione "Lettore di dati Blob di archiviazione" nella pagina IAM**. Ciò vale quando si usano gli strumenti seguenti:
@@ -157,10 +160,10 @@ Per usare le identità gestito per l'autenticazione di risorse di Azure, seguire
 
 1. [Recuperare le informazioni sull'identità gestita di Data Factory](data-factory-service-identity.md#retrieve-managed-identity) copiando il valore della **ID applicazione identità del servizio** generato con la factory.
 
-2. Concedere un'autorizzazione appropriata l'identità gestita.
+2. Concedere un'autorizzazione appropriata l'identità gestita. Altre informazioni sul funzionamento delle autorizzazioni in Data Lake Storage Gen2 dal [elenchi di controllo di accesso su file e directory](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
-    - **Come origine**: In Storage Explorer, concedere almeno **lettura ed esecuzione** dell'autorizzazione per elencare e copiare i file nelle cartelle e sottocartelle. In alternativa, è possibile concedere l'autorizzazione **lettura** per copiare un singolo file. In alternativa, nel controllo di accesso (IAM), concedere almeno il **lettore di dati Blob di archiviazione** ruolo.
-    - **Come sink**: In Storage Explorer, concedere almeno **scrittura + esecuzione** dell'autorizzazione per creare elementi figlio nella cartella. In alternativa, nel controllo di accesso (IAM), concedere almeno il **collaboratore ai dati Blob di archiviazione** ruolo.
+    - **Come origine**: In Storage Explorer, concedere almeno **Execute** autorizzazione partire dal sistema, file di origine lungo **lettura** l'autorizzazione per i file da copiare. In alternativa, nel controllo di accesso (IAM), concedere almeno il **lettore di dati Blob di archiviazione** ruolo.
+    - **Come sink**: In Storage Explorer, concedere almeno **Execute** a partire dal file system, sink con l'autorizzazione **scrivere** autorizzazione per la cartella di sink. In alternativa, nel controllo di accesso (IAM), concedere almeno il **collaboratore ai dati Blob di archiviazione** ruolo.
 
 >[!NOTE]
 >Elenco cartelle a partire dal livello di account o al test della connessione, è necessario impostare l'autorizzazione di identità gestite concessa al **account di archiviazione con l'autorizzazione "Lettore di dati Blob di archiviazione" nella pagina IAM**. Ciò vale quando si usano gli strumenti seguenti:
@@ -169,7 +172,7 @@ Per usare le identità gestito per l'autenticazione di risorse di Azure, seguire
 >Se si hanno dubbi sulla concessione dell'autorizzazione a livello di account, è possibile ignorare test della connessione e il percorso di input manualmente durante la creazione. Attività di copia continui a funzionare, purché l'identità gestita viene concesso con l'autorizzazione appropriata i file da copiare.
 
 >[!IMPORTANT]
->Se si usa PolyBase per caricare dati da Data Lake Storage Gen2 in SQL Data Warehouse, quando si usa l'autenticazione di Data Lake Storage Gen2 identità gestita, verificare che è anche seguire i passaggi 1 e 2 nella [questo materiale sussidiario](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Seguire le istruzioni per registrare il server di Database SQL con Azure Active Directory (Azure AD). È inoltre possibile assegnare il ruolo di collaboratore ai dati di archiviazione Blob con controllo degli accessi basata sui ruoli al server di Database SQL. Il resto viene gestito da Data Factory. Se il Gen2 di archiviazione Data Lake è configurato con un endpoint di rete virtuale di Azure per usare PolyBase per caricare i dati da quest'ultimo, è necessario usare l'autenticazione identità gestita.
+>Se si usa PolyBase per caricare dati da Data Lake Storage Gen2 in SQL Data Warehouse, quando si usa l'autenticazione identità gestita per Data Lake Storage Gen2, assicurarsi che è anche seguire i passaggi 1 e 2 nella [questo materiale sussidiario](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) su 1) registrare la stringa SQL Server di database con Azure Active Directory (Azure AD) e 2) assegnare il ruolo di collaboratore ai dati Blob di archiviazione al server di Database SQL; il resto sono gestite da Data Factory. Se il Gen2 di archiviazione Data Lake è configurato con un endpoint di rete virtuale di Azure, per usare PolyBase per caricare i dati da esso, è necessario utilizzare l'autenticazione identità gestita come richiesto da PolyBase.
 
 Queste proprietà sono supportate per il servizio collegato:
 

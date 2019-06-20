@@ -7,16 +7,18 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9accdc19062cba7bb313afac3da056798c325a4c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65137869"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274421"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilizzo di set di dati della risorsa di Azure di grandi dimensioni
 
 Azure Resource Graph è progettato per elaborare e ottenere informazioni sulle risorse nell'ambiente di Azure. Resource Graph rende più rapido il recupero di questi dati, anche in caso di query su migliaia di record. Resource Graph offre diverse opzioni per l'utilizzo di questi set di dati di grandi dimensioni.
+
+Per indicazioni sull'utilizzo di query a una frequenza elevata, vedere [linee guida per le richieste limitate](./guidance-for-throttled-requests.md).
 
 ## <a name="data-set-result-size"></a>Dimensioni dei risultati dei set di dati
 
@@ -84,6 +86,6 @@ Per un esempio, vedere [Next page query](/rest/api/azureresourcegraph/resources/
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere il linguaggio in uso nelle [query di base](../samples/starter.md)
-- Vedere gli usi avanzati nelle [query avanzate](../samples/advanced.md)
-- Informazioni su come [esplorare le risorse](explore-resources.md)
+- Vedere il linguaggio in uso nel [query Starter](../samples/starter.md).
+- Vedere avanzata utilizza [query avanzate](../samples/advanced.md).
+- Informazioni su come [esplorare risorse](explore-resources.md).

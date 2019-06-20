@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 21eec5ee2fef185a927f6a416732303765e02b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 468bcdb6aa688157196bb9cba8added623a857d3
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789310"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155300"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servizi, schemi e categorie supportati per i log di Diagnostica di Azure
 
@@ -23,7 +23,7 @@ Una combinazione del tipo di risorsa (disponibile nella proprietà `resourceId`)
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Schema dei log di diagnostica di primo livello
 
-| NOME | Obbligatorio/Facoltativo | Descrizione |
+| Name | Obbligatorio/Facoltativo | Descrizione |
 |---|---|---|
 | time | Obbligatorio | Il timestamp dell’evento (fuso UTC). |
 | resourceId | Obbligatorio | ID della risorsa che ha emesso l’evento. Per i servizi di tenant, questo ha la forma /tenants/tenant-id/providers/provider-name. |
@@ -55,7 +55,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 | Azure Batch |[Registrazione diagnostica di Azure Batch](../../batch/batch-diagnostics.md) |
 | Database di Azure per MySQL | [Log di diagnostica di database di Azure per MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Database di Azure per PostgreSQL | [Log di diagnostica di database di Azure per PostgreSQL](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Servizi cognitivi | Lo schema non è disponibile. |
+| Servizi cognitivi | [Registrazione diagnostica per servizi cognitivi di Azure](../../cognitive-services/diagnostic-logging.md) |
 | Rete per la distribuzione di contenuti (CDN) | [Log di diagnostica di Azure per la rete CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | Cosmos DB | [Registrazione di Azure Cosmos DB](../../cosmos-db/logging.md) |
 | Data Factory | [Monitorare le data factory con Monitoraggio di Azure](../../data-factory/monitor-using-azure-monitor.md) |
@@ -209,4 +209,3 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 * [Trasmettere log di diagnostica di Azure a **Hub eventi**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Modificare le impostazioni di diagnostica di risorsa usando l'API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Analizzare i log di Archiviazione di Azure con Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-

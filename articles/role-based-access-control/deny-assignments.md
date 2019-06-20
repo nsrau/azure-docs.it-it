@@ -15,12 +15,12 @@ ms.date: 06/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 432703b5acb4cd56dac9b25edf99165ca26b0aa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f15d6fd81337aa4a859539e86f37a516848c9370
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118265"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165990"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Informazioni sulle assegnazioni di rifiuto per le risorse di Azure
 
@@ -34,7 +34,7 @@ Negare le assegnazioni vengono create e gestite da Azure per proteggere le risor
 
 ## <a name="compare-role-assignments-and-deny-assignments"></a>Confrontare le assegnazioni di ruolo e negare le assegnazioni
 
-Negare le assegnazioni seguire un modello simile come negare le assegnazioni, ma anche presentano alcune differenze.
+Negare le assegnazioni seguono un modello simile come le assegnazioni di ruolo, ma anche alcune differenze.
 
 | Funzionalità | Assegnazione di ruolo | Negare l'assegnazione |
 | --- | --- | --- |

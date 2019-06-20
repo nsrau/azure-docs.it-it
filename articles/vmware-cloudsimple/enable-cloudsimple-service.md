@@ -8,31 +8,16 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: cacd5510147ce997efec922f4b4656956a098d88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2553aa95d5028c510b4e1a1b7f51a9f410bcea51
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66676939"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154855"
 ---
 # <a name="register-the-microsoftvmwarecloudsimple-resource-provider-on-your-azure-subscription"></a>Registrare il provider di risorse Microsoft.VMwareCloudSimple nella sottoscrizione di Azure
 
-Il servizio CloudSimple consente all'utente di Azure VMware Solution by CloudSimple. Per usare il servizio CloudSimple, è necessario prima abilitarlo nella sottoscrizione di Azure. È quindi possibile registrare il servizio Microsoft.VMwareCloudSimple come provider di risorse.
-
-## <a name="enable-the-cloudsimple-service"></a>Abilitare il servizio CloudSimple
-
-Per abilitare il servizio CloudSimple nella sottoscrizione di Azure, aprire una richiesta di supporto con [supporto tecnico Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Selezionare le opzioni seguenti quando si invia la richiesta.
-
-* Tipo di problema: **Tecnico**
-* Sottoscrizione: **L'ID sottoscrizione**
-* Tipo di servizio: **Soluzione VMware da CloudSimple**
-* Tipo di problema: **Quota di nodi dedicato**
-* Sottotipo di problema: **Aumentare la quota di nodi dedicati**
-* Oggetto: **Abilitare il servizio CloudSimple**
-
-È anche possibile contattare il rappresentante dell'account Microsoft al [ azurevmwaresales@microsoft.com ](mailto:azurevmwaresales@microsoft.com). Fornire l'ID della sottoscrizione di Azure nel messaggio di posta elettronica.  
-
-Dopo che il servizio CloudSimple è abilitato per la sottoscrizione, è possibile abilitare il provider di risorse nella sottoscrizione.
+Il servizio CloudSimple consente all'utente di Azure VMware Solution by CloudSimple. È possibile registrare il servizio Microsoft.VMwareCloudSimple come provider di risorse.
 
 ## <a name="register-the-resource-provider"></a>Registrare il provider di risorse
 

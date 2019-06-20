@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: ab3b742d50cc141420f9bffa1961a6e170b99d2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 9b762f1b3f1c17e15b051e72f5d2cf98bef446bf
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234340"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137765"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Usare le macchine virtuali di analisi scientifica dei dati di Azure
 
@@ -56,6 +56,17 @@ Per mantenere la parità dei percorsi di file con il **calcolo gratuito** livell
 ![Pulsante di arresto nel notebook di Azure](media/shutdown.png)
 
 Quando un progetto viene eseguito in una macchina virtuale, i file vengono montati nella directory radice del server di Jupyter (la directory mostrato in JupyterHub), sostituire i file di Azure Notebooks predefinito. Quando si arresta la macchina virtuale usando il **arresto** pulsante del notebook dell'interfaccia utente, i notebook di Azure consente di ripristinare i file predefiniti.
+
+![Pulsante di arresto nel notebook di Azure](media/shutdown.png)
+
+## <a name="create-new-dsvm-users"></a>Creare nuovi utenti di macchina virtuale data SCIENCE
+
+Se più utenti condividano un DSVM, è possibile evitare il blocco tra loro tramite la creazione e uso di un utente di macchina virtuale data SCIENCE per ogni utente notebook:
+
+1. Nel [portale di Azure](https://portal.azure.com), passare alla macchina virtuale.
+1. Sotto **supporto + risoluzione dei problemi** sul margine sinistro, selezionare **Reimposta password**.
+1. Immettere un nuovo nome utente e una password e selezionare **Update**. (I nomi utente esistenti non sono interessati).
+1. Ripetere il passaggio precedente per tutti gli altri utenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

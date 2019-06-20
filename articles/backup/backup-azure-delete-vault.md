@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: a7dd5530c3941fe55e8a649f8adb217159823f5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 8df4f17c9afbf10c6507e505c6540c3f66a42309
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492782"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275620"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminare un insieme di credenziali dei servizi di ripristino
 
@@ -24,8 +24,8 @@ Questo articolo descrive come eliminare un' [Backup di Azure](backup-overview.md
 
 Prima di iniziare, è importante comprendere che non è possibile eliminare un insieme di credenziali di servizi di ripristino che dispone di server registrati in esso o che contiene dati di backup.
 
-- Per eliminare un insieme di credenziali normalmente, annullare la registrazione di server in essa, rimuovere i dati dell'insieme di credenziali e quindi eliminare l'insieme di credenziali.
-- Se si prova a eliminare un insieme di credenziali che ancora dispone di dipendenze, viene generato un messaggio di errore. ed è necessario rimuovere manualmente le dipendenze dell'insieme di credenziali, tra cui:
+- Per eliminare correttamente un insieme di credenziali, annullare la registrazione di server che contiene, rimuovere i dati dell'insieme di credenziali e quindi eliminare l'insieme di credenziali.
+- Se si prova a eliminare un insieme di credenziali che contiene ancora le dipendenze, viene generato un messaggio di errore e sarà necessario rimuovere manualmente le dipendenze dell'insieme di credenziali, tra cui:
     - Il backup di elementi
     - Server protetti
     - Server di gestione (Server di Backup di Azure, Data Protection Manager) di backup ![selezionare l'insieme di credenziali per aprire il dashboard](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
@@ -40,7 +40,7 @@ Prima di iniziare, è importante comprendere che non è possibile eliminare un i
 
     ![Selezionare l'insieme di credenziali per aprire il relativo dashboard](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-Se si riceve un errore, rimuovere [elementi di backup](#remove-backup-items), [server di infrastruttura](#remove-backup-infrastructure-servers), e [i punti di ripristino](#remove-azure-backup-agent-recovery-points)e quindi eliminare l'insieme di credenziali.
+Se si riceve un errore, rimuovere [elementi di backup](#remove-backup-items), [server di infrastruttura](#remove-azure-backup-management-servers), e [i punti di ripristino](#remove-azure-backup-agent-recovery-points)e quindi eliminare l'insieme di credenziali.
 
 ![Errore dell'insieme di credenziali di eliminazione](./media/backup-azure-delete-vault/error.png)
 
@@ -52,7 +52,7 @@ Se si riceve un errore, rimuovere [elementi di backup](#remove-backup-items), [s
 1. Installazione di chocolatey dal [qui](https://chocolatey.org/) e per installare ARMClient eseguire il comando seguente:
 
    ` choco install armclient --source=https://chocolatey.org/api/v2/ `
-2. Accedere all'account Azure, che esegue il comando seguente
+2. Accedi al tuo account Azure ed eseguire questo comando:
 
     ` ARMClient.exe login [environment name] `
 
@@ -109,7 +109,7 @@ Questa procedura viene fornito un esempio che illustra come rimuovere i dati di 
       ![Elimina dati di backup](./media/backup-azure-delete-vault/empty-items-list.png)
 
 
-### <a name="remove-backup-infrastructure-servers"></a>Rimuovere i server di infrastruttura di backup
+### <a name="remove-azure-backup-management-servers"></a>Rimuovere il server di gestione di Backup di Azure
 
 1. Nel menu del dashboard dell'insieme di credenziali fare clic su **infrastruttura di Backup**.
 2. Fare clic su **server di gestione Backup** per visualizzare i server.
@@ -117,15 +117,25 @@ Questa procedura viene fornito un esempio che illustra come rimuovere i dati di 
     ![Selezionare l'insieme di credenziali per aprire il relativo dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. Fare doppio clic su elemento > **Elimina**.
-4. Per verificare che il processo di eliminazione è stata completata, controllare i messaggi di Azure ![Elimina dati di backup](./media/backup-azure-delete-vault/messages.png).
-5. Dopo il completamento del processo, il servizio invia un messaggio: **è stato arrestato il processo di backup e i dati di backup sono stati eliminati**.
-6. Dopo l'eliminazione di un elemento nell'elenco, nella **infrastruttura di Backup** menu, fare clic su **aggiornare** per visualizzare gli elementi nell'insieme di credenziali.
+4. Nel **eliminare** menu, digitare il nome del server e fare clic su **eliminare**.
+
+     ![Elimina dati di backup](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
+5.  Facoltativamente, specificare un motivo per cui si vuole eliminare i dati e aggiungere commenti.
+
+> [!NOTE]
+> Per rimuovere gli elementi, nella console di server di gestione o nella console di MARS in un server protetto, arrestare la protezione dati ed eliminare i backup. Se gli elementi di backup rimangono, verrà visualizzato l'errore seguente quando si prova a eliminare e annullare la registrazione di server:
+> 
+>![eliminazione non riuscita](./media/backup-azure-delete-vault/deletion-failed.png)
+
+6. Per verificare che il processo di eliminazione è stata completata, controllare i messaggi di Azure ![Elimina dati di backup](./media/backup-azure-delete-vault/messages.png).
+7. Dopo il completamento del processo, il servizio invia un messaggio: **è stato arrestato il processo di backup e i dati di backup sono stati eliminati**.
+8. Dopo l'eliminazione di un elemento nell'elenco, nella **infrastruttura di Backup** menu, fare clic su **aggiornare** per visualizzare gli elementi nell'insieme di credenziali.
 
 
 ### <a name="remove-azure-backup-agent-recovery-points"></a>Rimuovere i punti di ripristino dell'agente di Backup di Azure
 
 1. Nel menu del dashboard dell'insieme di credenziali fare clic su **infrastruttura di Backup**.
-2. Fare clic su **server di gestione Backup** per visualizzare i server dell'infrastruttura.
+2. Fare clic su **Protected Servers** per visualizzare i server dell'infrastruttura.
 
     ![Selezionare l'insieme di credenziali per aprire il relativo dashboard](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
@@ -141,11 +151,18 @@ Questa procedura viene fornito un esempio che illustra come rimuovere i dati di 
 
     ![Eliminare il server selezionato](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
 
-6. Nel menu **Elimina** digitare il nome dell'elemento e fare clic su **Elimina**.
+6. Nel **eliminare** menu, digitare il nome del server e fare clic su **eliminare**.
 
      ![Elimina dati di backup](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
 
 7. Facoltativamente, specificare un motivo per cui si vuole eliminare i dati e aggiungere commenti.
+
+> [!NOTE]
+> Gli elementi di backup associati a un server di Backup del Server di gestione o agente di Backup di Azure devono essere eliminati prima le registrazioni del server, questi vengono eliminate. Per rimuovere gli elementi di Backup, passare a SC DPM, MABS o la console di gestione di MARS nel server come applicabile e selezionare le opzioni rilevanti per arrestare la protezione dati ed eliminare i backup. Se eventuali elementi di backup sono ancora associati, si verrà visualizzato l'errore seguente:
+> 
+> 
+>![eliminazione non riuscita](./media/backup-azure-delete-vault/deletion-failed.png)
+
 8. Per verificare che il processo di eliminazione è stata completata, controllare i messaggi di Azure ![Elimina dati di backup](./media/backup-azure-delete-vault/messages.png).
 9. Dopo l'eliminazione di un elemento nell'elenco, nella **infrastruttura di Backup** menu, fare clic su **aggiornare** per visualizzare gli elementi nell'insieme di credenziali.
 

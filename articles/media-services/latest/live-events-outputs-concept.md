@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 49ab52f031e24ac77a534c86061fe831bbec39ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 01e80748fbca856adfeaaef566093444c425ca6a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67114662"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164599"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventi live e output live
 
@@ -27,20 +27,23 @@ Servizi multimediali di Azure consente di offrire eventi live per i clienti nel 
 > [!TIP]
 > Per i clienti di eseguire la migrazione dalle API di servizi multimediali v2, il **evento Live** entità sostituisce **canale** v2 e **Output Live** sostituisce **programma**.
 
-
 ## <a name="live-events"></a>Eventi live
 
 Gli [eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'inserimento e dell'elaborazione dei feed video live. Quando si crea un evento live, si genera un endpoint di input che è possibile usare per inviare un segnale in tempo reale da un codificatore remoto. Il codificatore live remoto invia il feed di contributi al suddetto endpoint di input usando il protocollo [RTMP](https://www.adobe.com/devnet/rtmp.html) o [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 frammentato). Per il protocollo di inserimento Smooth Streaming, gli schemi URL supportati sono `http://` o `https://`. Per il protocollo di inserimento RTMP, gli schemi URL supportati sono `rtmp://` o `rtmps://`. 
 
 ## <a name="live-event-types"></a>Tipi di evento live
 
-Un [evento live](https://docs.microsoft.com/rest/api/media/liveevents) può essere di due tipi: pass-through e codifica live. 
+Un [evento live](https://docs.microsoft.com/rest/api/media/liveevents) può essere di due tipi: pass-through e codifica live. I tipi vengono impostati durante la creazione usando [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+
+* **LiveEventEncodingType.None** -un codificatore live locale invia un flusso a velocità in bit più. I flussi inseriti passano attraverso l'evento Live senza altre elaborazioni. 
+* **LiveEventEncodingType.Standard** : un codificatore live invia un flusso a bitrate singolo con l'evento Live e servizi multimediali consente di creare flussi a bitrate multipli on-premise. Se il feed di contributo per 720p o risoluzione superiore, il **Default720p** preimpostato codificheranno un set di coppie di risoluzione/velocità in bit 6.
+* **LiveEventEncodingType.Premium1080p** : un codificatore live invia un flusso a bitrate singolo con l'evento Live e servizi multimediali consente di creare flussi a bitrate multipli on-premise. Il set di impostazioni Default1080p specifica il set di output di coppie di risoluzione/velocità in bit. 
 
 ### <a name="pass-through"></a>Pass-through
 
 ![pass-through](./media/live-streaming/pass-through.svg)
 
-Quando si usa l'**evento live** pass-through, al codificatore live locale è affidata la generazione di un flusso video con velocità in bit multipla e l'invio come feed di contributi all'evento live (tramite il protocollo RTMP o MP4 frammentato). L'evento live esegue quindi i flussi video in ingresso senza ulteriori elaborazioni. Questo tipo di LiveEvent pass-through è ottimizzato per eventi in tempo reale di lunga durata o per lo streaming live lineare 24/7. Quando si crea questo tipo di evento live, specificare None (LiveEventEncodingType.None).
+Quando si usa l'**evento live** pass-through, al codificatore live locale è affidata la generazione di un flusso video con velocità in bit multipla e l'invio come feed di contributi all'evento live (tramite il protocollo RTMP o MP4 frammentato). L'evento live esegue quindi i flussi video in ingresso senza ulteriori elaborazioni. Questo tipo un pass-through evento Live è ottimizzato per gli eventi in tempo reale con esecuzione prolungata o lo streaming live 24 x 365 lineare. Quando si crea questo tipo di evento live, specificare None (LiveEventEncodingType.None).
 
 È possibile inviare il feed di contributi a risoluzioni fino a 4K e a una frequenza pari a 60 fotogrammi al secondo, con codec video H.264/AVC o H.265/HEVC e codec audio AAC (AAC-LC, HE-AACv1 o HE-AACv2).  Vedere l'articolo [Confronto tra tipi di eventi live](live-event-types-comparison.md) per altri dettagli.
 
@@ -84,7 +87,9 @@ Al termine della creazione dell'evento live, è possibile ottenere gli URL di in
 
 * URL di non reindirizzamento a microsito
 
-    L'URL di non reindirizzamento a microsito è la modalità predefinita in AMS v3. È possibile ottenere l'evento live rapidamente, ma l'URL di inserimento è noto solo all'avvio dell'evento live. L'URL verrà modificato se si arresta/avvia l'evento live. <br/>Il non reindirizzamento a microsito è utile negli scenari in cui un utente finale vuole trasmettere usando un'app che vuole ottenere un evento live il prima possibile e la presenza di un URL di inserimento dinamico non costituisce un problema.
+    URL non-personale è la modalità predefinita in servizi multimediali v3. È possibile ottenere l'evento live rapidamente, ma l'URL di inserimento è noto solo all'avvio dell'evento live. L'URL verrà modificato se si arresta/avvia l'evento live. <br/>Il non reindirizzamento a microsito è utile negli scenari in cui un utente finale vuole trasmettere usando un'app che vuole ottenere un evento live il prima possibile e la presenza di un URL di inserimento dinamico non costituisce un problema.
+    
+    Se non è necessaria un'applicazione client di pre-generare un URL di inserimento prima dell'evento Live viene creato, consentire solo a servizi multimediali per generare automaticamente il Token di accesso per l'evento live.
 * URL di reindirizzamento a microsito
 
     La modalità di reindirizzamento a microsito è preferita dai responsabili della trasmissione di file multimediali di grandi dimensioni, che usano codificatori di trasmissione hardware e non vogliono riconfigurare i codificatori quando avviano l'evento live, ma vogliono un URL di inserimento predittivo, che non cambia nel tempo.
@@ -93,7 +98,7 @@ Al termine della creazione dell'evento live, è possibile ottenere gli URL di in
 
     Il token di accesso deve essere univoco nel data center. Se l'applicazione deve usare un URL personalizzato, è consigliabile creare sempre una nuova istanza GUID per il token di accesso (anziché riutilizzare qualsiasi GUID esistente). 
 
-    Usare le API seguenti per abilitare l'URL personale e impostare il token di accesso su un GUID valido (ad esempio `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
+    Usare le API seguenti per abilitare l'URL personale e impostare il token di accesso su un GUID valido (ad esempio `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`).  
     
     |Linguaggio|Abilitare l'URL personale|Impostare il token di accesso|
     |---|---|---|
@@ -103,41 +108,41 @@ Al termine della creazione dell'evento live, è possibile ottenere gli URL di in
     
 ### <a name="live-ingest-url-naming-rules"></a>Regole di denominazione degli URL di inserimento live
 
-La stringa *casuale* sottostante è un numero esadecimale a 128 bit (costituito da 32 caratteri 0-9 a-f).<br/>
-Il *token di accesso* è ciò che è necessario specificare per l'URL predefinito. È necessario impostare una stringa di token di accesso che è una stringa GUID lunghezza valida. <br/>
-Il *nome del flusso* indica il nome del flusso per una connessione specifica. Il valore del nome di flusso è in genere aggiunti dal codificatore live usare.
+* La stringa *casuale* sottostante è un numero esadecimale a 128 bit (costituito da 32 caratteri 0-9 a-f).
+* *il token di accesso* -la stringa del GUID valida è impostato quando si usa la modalità personale. Ad esempio: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *nome del flusso* -indica il nome del flusso per una connessione specifica. Il valore del nome di flusso viene in genere aggiunto dal codificatore live che è utilizzare. È possibile configurare il codificatore live per utilizzare qualsiasi nome per descrivere la connessione, ad esempio: "video1_audio1", "video2_audio1", "flusso".
 
 #### <a name="non-vanity-url"></a>URL di non reindirizzamento a microsito
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<auto-generated access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>URL di reindirizzamento a microsito
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<your access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<your access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>URL di anteprima di un evento live
 
-Una volta che l'**evento live** inizia a ricevere il feed di contributi, è possibile usare l'endpoint di anteprima per visualizzare in anteprima e convalidare la ricezione del flusso live prima di pubblicare nuovamente. Dopo avere verificato che il flusso di anteprima sia ottimale, è possibile usare l'evento live per rendere il flusso live disponibile per la pubblicazione tramite uno o più **endpoint di streaming** creati in precedenza. A tale scopo, si crea un nuovo [output live](https://docs.microsoft.com/rest/api/media/liveoutputs) nell'**evento live**. 
+Una volta che l'**evento live** inizia a ricevere il feed di contributi, è possibile usare l'endpoint di anteprima per visualizzare in anteprima e convalidare la ricezione del flusso live prima di pubblicare nuovamente. Dopo avere verificato che il flusso di anteprima è consigliabile, è possibile usare l'evento Live per rendere disponibili per il recapito tramite uno o più, pre-creati, il flusso live **gli endpoint di Streaming**. A tale scopo, si crea un nuovo [output live](https://docs.microsoft.com/rest/api/media/liveoutputs) nell'**evento live**. 
 
 > [!IMPORTANT]
 > Assicurarsi che il video raggiunga l'URL di anteprima prima di continuare.

@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fbb731d9908e791a6fce2b087d9b734b98a25cb
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442138"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137720"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi e moduli gemelli, processi e routing di messaggi
 
-L'hub IoT offre un linguaggio simile a SQL avanzato per recuperare informazioni su [dispositivi gemelli](iot-hub-devguide-device-twins.md), [processi](iot-hub-devguide-jobs.md) e [routing di messaggi](iot-hub-devguide-messages-d2c.md). Questo articolo contiene:
+L'IoT Hub fornisce un linguaggio simile a SQL avanzato per recuperare le informazioni relative a [sui dispositivi gemelli](iot-hub-devguide-device-twins.md), [moduli gemelli](iot-hub-devguide-module-twins.md), [processi](iot-hub-devguide-jobs.md), e [routingdeimessaggi](iot-hub-devguide-messages-d2c.md). Questo articolo contiene:
 
 * Un'introduzione alle principali funzionalità del linguaggio di query dell'hub IoT
 * La descrizione dettagliata del linguaggio Per informazioni sul linguaggio di query per il routing dei messaggi, vedere [Query nel routing dei messaggi](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +25,7 @@ L'hub IoT offre un linguaggio simile a SQL avanzato per recuperare informazioni 
 
 ## <a name="device-and-module-twin-queries"></a>Query su dispositivi e moduli gemelli
 
-I [dispositivi gemelli](iot-hub-devguide-device-twins.md) possono contenere oggetti JSON arbitrari come tag e proprietà. L'hub IoT consente di effettuare una query sui dispositivi e i moduli gemelli come singolo documento JSON contenente tutte le informazioni sui dispositivi e i moduli gemelli.
+[Dispositivi gemelli](iot-hub-devguide-device-twins.md) e [moduli gemelli](iot-hub-devguide-module-twins.md) possono contenere oggetti JSON arbitrari come tag e proprietà. L'hub IoT consente di effettuare una query sui dispositivi e i moduli gemelli come singolo documento JSON contenente tutte le informazioni sui dispositivi e i moduli gemelli.
 
 Si supponga, ad esempio, che i dispositivi gemelli dell'hub IoT abbiano la struttura seguente (i moduli gemelli sarebbero simili, avrebbero solo un moduleId aggiuntivo):
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Query sui moduli gemelli
 
-Le query sui moduli gemelli sono simili alle query sui dispositivi gemelli, ma usano raccolte/spazi dei nomi differenti, ad esempio invece di "from devices" è possibile eseguire la query su device.modules:
+Una query su moduli gemelli è simile all'esecuzione di query sui dispositivi gemelli, ma con una raccolta/spazio dei nomi diverso; anziché da **periferiche**, si esegue una query da **devices.modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -315,7 +315,7 @@ Attualmente le query su **devices.jobs** non supportano:
 
 ## <a name="basics-of-an-iot-hub-query"></a>Nozioni di base di una query dell'hub IoT
 
-Ogni query dell'hub IoT è costituita da una clausola SELECT e da una clausola FROM e dalle clausole facoltative WHERE e GROUP BY. Ogni query viene eseguita su una raccolta di documenti JSON, ad esempio dispositivi gemelli. La clausola FROM indica la raccolta di documenti in cui eseguire l'iterazione (**devices** o **devices.jobs**). Viene quindi applicato il filtro nella clausola WHERE. Con le aggregazioni, i risultati di questo passaggio vengono raggruppati come specificato nella clausola GROUP BY. Per ogni gruppo, viene generata una riga come specificato nella clausola SELECT.
+Ogni query dell'hub IoT è costituita da una clausola SELECT e da una clausola FROM e dalle clausole facoltative WHERE e GROUP BY. Ogni query viene eseguita su una raccolta di documenti JSON, ad esempio dispositivi gemelli. La clausola FROM indica la raccolta di documenti per eseguire l'iterazione (**periferiche**, **devices.modules**, o **devices.jobs**). Viene quindi applicato il filtro nella clausola WHERE. Con le aggregazioni, i risultati di questo passaggio vengono raggruppati come specificato nella clausola GROUP BY. Per ogni gruppo, viene generata una riga come specificato nella clausola SELECT.
 
 ```sql
 SELECT <select_list>
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>Clausola FROM
 
-La clausola **FROM <from_specification>** può avere solo due valori: **FROM devices** per effettuare una query dei dispositivi gemelli o **FROM devices.jobs** per effettuare una query dei dettagli per ogni dispositivo.
+Il **FROM < from_specification >** clausola può avere solo tre valori: **DAI dispositivi** alla query dei dispositivi gemelli, **da devices.modules** a moduli gemelli di query, o **da devices.jobs** a dettagli di ogni dispositivo di processo di query.
 
 
 ## <a name="where-clause"></a>Clausola WHERE

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 664099322bef3ac85d980fbe5e43dcc49cba862b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65411569"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Distribuire OpenShift Container Platform in Azure
@@ -66,7 +66,7 @@ L'esempio seguente mostra un file di parametri denominato azuredeploy.parameters
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "_artifactsLocation": {
@@ -283,11 +283,11 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 | `enableAzure` | Abilitare il Provider di Cloud di Azure | true <br> false | true |
 | `aadClientId` | ID Azure Active Directory Client nota anche come ID dell'applicazione per l'entità servizio |  |  |
 | `domainName` | Nome del nome di dominio personalizzato da utilizzare (se applicabile). Impostare su "none" in caso contrario la distribuzione cluster completamente privato |  | Nessuno |
-| `masterClusterDnsType` | Tipo di dominio per la console web di OpenShift. 'default' userà l'etichetta DNS del master infrastrutture-indirizzo IP pubblico. 'custom' consente di definire il proprio nome | predefinito <br> personalizzato | predefinito |
+| `masterClusterDnsType` | Tipo di dominio per la console web di OpenShift. 'default' userà l'etichetta DNS del master infrastrutture-indirizzo IP pubblico. 'custom' consente di definire il proprio nome | default <br> Personalizzati | default |
 | `masterClusterDns` | Il nome DNS personalizzato da usare per accedere alla console web di OpenShift se si seleziona 'personalizzata' per `masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | Se impostato su 'nipio', `routingSubDomain` userà nip.io.  Usare 'custom' Se si ha il proprio dominio che si desidera utilizzare per il routing | nipio <br> personalizzato | nipio |
+| `routingSubDomainType` | Se impostato su 'nipio', `routingSubDomain` userà nip.io.  Usare 'custom' Se si ha il proprio dominio che si desidera utilizzare per il routing | nipio <br> Personalizzati | nipio |
 | `routingSubDomain` | Il nome DNS jolly per che si desidera utilizzare per il routing se si seleziona 'personalizzata' `routingSubDomainType` |  | apps.contoso.com |
-| `virtualNetworkNewOrExisting` | Selezionare questa opzione per usare una rete virtuale esistente o crearne una nuova rete virtuale | Esistente <br> nuova | nuova |
+| `virtualNetworkNewOrExisting` | Selezionare questa opzione per usare una rete virtuale esistente o crearne una nuova rete virtuale | Esistente <br> Nuovo | Nuovo |
 | `virtualNetworkResourceGroupName` | Nome del gruppo di risorse per la nuova rete virtuale se si seleziona 'new' per `virtualNetworkNewOrExisting` |  | resourceGroup().name |
 | `virtualNetworkName` | Il nome della nuova rete virtuale per creare se si seleziona 'new' per `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | Prefisso degli indirizzi della nuova rete virtuale |  | 10.0.0.0/14 |
@@ -301,12 +301,12 @@ Versioni diverse possono avere parametri diversi, pertanto occorre verificare i 
 | `existingInfraSubnetReference` | Riferimento completo a subnet esistente per infrastrutture-nodi. Non è necessaria se la creazione della nuova rete virtuale / Subnet |  |  |
 | `existingCnsSubnetReference` | Informazioni di riferimento complete per la subnet esistente per i nodi di nomi comuni. Non è necessaria se la creazione della nuova rete virtuale / Subnet |  |  |
 | `existingNodeSubnetReference` | Informazioni di riferimento complete per la subnet esistente per i nodi di calcolo. Non è necessaria se la creazione della nuova rete virtuale / Subnet |  |  |
-| `masterClusterType` | Specificare se il cluster Usa nodi master pubblici o privati. Se si sceglie privato, i nodi master non siano esposti a Internet tramite un indirizzo IP pubblico. Al contrario, userà l'indirizzo IP privato, specificato di `masterPrivateClusterIp` | pubblico <br> privato | pubblico |
+| `masterClusterType` | Specificare se il cluster Usa nodi master pubblici o privati. Se si sceglie privato, i nodi master non siano esposti a Internet tramite un indirizzo IP pubblico. Al contrario, userà l'indirizzo IP privato, specificato di `masterPrivateClusterIp` | public <br> Privato | public |
 | `masterPrivateClusterIp` | Se si selezionano nodi master privati, un indirizzo IP privato deve essere specificato per l'utilizzo dal servizio di bilanciamento del carico interno per i nodi master. Questo indirizzo IP statico deve essere all'interno del blocco CIDR per la subnet del master e non è già in uso. Se si selezionano nodi master pubblici, questo valore non verrà usato, ma è necessario comunque specificare |  | 10.1.0.200 |
-| `routerClusterType` | Specificare se il cluster Usa pubblico o privato infra nodi. Se si sceglie privato, l'infrastruttura nodi non siano esposti a Internet tramite un indirizzo IP pubblico. Al contrario, userà l'indirizzo IP privato, specificato di `routerPrivateClusterIp` | pubblico <br> privato | pubblico |
+| `routerClusterType` | Specificare se il cluster Usa pubblico o privato infra nodi. Se si sceglie privato, l'infrastruttura nodi non siano esposti a Internet tramite un indirizzo IP pubblico. Al contrario, userà l'indirizzo IP privato, specificato di `routerPrivateClusterIp` | public <br> Privato | public |
 | `routerPrivateClusterIp` | Se privata infrastruttura vengono selezionati i nodi, quindi specificare un indirizzo IP privato per usare dal servizio di bilanciamento del carico interno per infrastrutture-nodi. Questo indirizzo IP statico deve essere all'interno del blocco CIDR per la subnet del master e non è già in uso. Se pubblici infra vengono selezionati i nodi, questo valore non verrà usato, ma è necessario comunque specificare |  | 10.2.0.200 |
-| `routingCertType` | Usa certificato personalizzato per il dominio di routing o il certificato autofirmato predefinito - seguire le istruzioni **certificati personalizzati** sezione | selfsigned <br> personalizzato | selfsigned |
-| `masterCertType` | Usa certificato personalizzato per il certificato autofirmato predefinito o un dominio del master - seguire le istruzioni **certificati personalizzati** sezione | selfsigned <br> personalizzato | selfsigned |
+| `routingCertType` | Usa certificato personalizzato per il dominio di routing o il certificato autofirmato predefinito - seguire le istruzioni **certificati personalizzati** sezione | selfsigned <br> Personalizzati | selfsigned |
+| `masterCertType` | Usa certificato personalizzato per il certificato autofirmato predefinito o un dominio del master - seguire le istruzioni **certificati personalizzati** sezione | selfsigned <br> Personalizzati | selfsigned |
 
 <br>
 

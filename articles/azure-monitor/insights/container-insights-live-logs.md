@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2019
+ms.date: 06/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 71c6f1936f8cbc700a24d0ffb497947c8c8d3a50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7fd9248fd38054b7f0e1fad2888d8b0d4cf2e60c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075316"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274234"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Come visualizzare i log ed eventi in tempo reale (anteprima)
 Monitoraggio di Azure per contenitori include una funzionalità, che è attualmente in anteprima, che offre una visualizzazione in tempo reale i log dei contenitori di Azure Kubernetes Service (AKS) (stdout o stderr) e gli eventi senza dover eseguire i comandi di kubectl. Quando si seleziona l'opzione desiderata, un nuovo riquadro viene visualizzato sotto la tabella di dati delle prestazioni nel **i nodi**, **controller**, e **contenitori** visualizzazione. Mostra la registrazione in tempo reale e gli eventi generati dal modulo del contenitore per ulteriore assistenza nella risoluzione dei problemi in tempo reale.
@@ -77,6 +77,9 @@ Il servizio Azure Kubernetes può essere configurato in modo da usare Azure Acti
 
 >[!NOTE]
 >Configurazione dell'autenticazione con Azure Active Directory per single sign-on può essere eseguita solo durante la distribuzione iniziale di un nuovo cluster AKS. Non è possibile configurare l'accesso Single Sign-On per un cluster del servizio Azure Kubernetes già distribuito.
+  
+>[!IMPORTANT]
+>Se è stato riconfigurato Azure AD per l'autenticazione utente tramite l'URI aggiornato, cancellare la cache del browser per verificare che il token di autenticazione aggiornate verrà scaricato e applicato.   
 
 ## <a name="view-live-logs-and-events"></a>Visualizzare i log in tempo reale ed eventi
 

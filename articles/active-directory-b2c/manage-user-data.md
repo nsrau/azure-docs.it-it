@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eb99cd94dca2a463c275dd5d4fab540b4fc55318
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 4cbca467b50dd0e43132b6d09dc0785c501fca0f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510454"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204685"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gestire i dati utente in Azure Active Directory B2C
 
@@ -25,7 +26,7 @@ ms.locfileid: "66510454"
 
 ## <a name="delete-user-data"></a>Eliminare dati utente
 
-I dati utente vengono archiviati nella directory di Azure Active Directory B2C e nei log di controllo. Tutti i dati di controllo degli utenti vengono conservati per 30 giorni in Azure Active Directory B2C. Se si vogliono eliminare i dati utente entro il periodo di 30 giorni, è possibile usare l'operazione [Eliminare un utente](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser). È necessaria un'operazione di eliminazione per ognuno dei tenant di Azure Active Directory B2C in cui possono trovarsi i dati. 
+I dati utente vengono archiviati nella directory di Azure Active Directory B2C e nei log di controllo. Tutti i dati di controllo utente vengono conservati per 7 giorni in Azure AD B2C. Se si desidera eliminare i dati utente all'interno di tale periodo di 7 giorni, è possibile usare la [Elimina un utente](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) operazione. È necessaria un'operazione di eliminazione per ognuno dei tenant di Azure Active Directory B2C in cui possono trovarsi i dati. 
 
 A ogni utente in Azure Active Directory B2C viene assegnato un ID oggetto. L'ID oggetto fornisce un identificatore univoco, da usare per eliminare i dati utente in Azure Active Directory B2C. A seconda dell'architettura in uso, l'ID oggetto può essere un utile identificatore di correlazione in altri servizi, ad esempio tra database finanziari, di marketing e di gestione delle relazioni con i clienti. 
 

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 06/13/2019
-ms.openlocfilehash: 15f64c7087ea4d24f271af67b251030a2196fa10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 89df33f453217585e8f0b8ff13d06ee223474fae
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070363"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272235"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Cenni preliminari su Azure SQL Database managed i limiti delle risorse di istanza
 
@@ -54,7 +54,7 @@ Istanza gestita ha due livelli di servizio: Utilizzo generico e Business Critica
 | Spazio di archiviazione massimo istanza | -2 TB per 4 Vcore per utilizzo (solo Gen5)<br/>-8 TB per gli altri formati | Quarta generazione: 1 TB <br/> Quinta generazione: <br/>-1 TB per 4, 8, 16 Vcore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
 | Quantità massima di risorse di archiviazione per database | Determinata dalla dimensione massima di archiviazione per ogni istanza | Determinata dalla dimensione massima di archiviazione per ogni istanza |
 | Numero massimo di database per istanza | 100 | 100 |
-| Numero massimo di file di database per istanza | Fino a 280 | 32\.767 file per ogni database |
+| Numero massimo di file di database per istanza | Fino a 280 | 32.767 file per ogni database |
 | Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes).| 11 K - 110 K (1375/vCore) |
 | Velocità effettiva di log | 3 MB/s per ogni vCore<br/>Max 22 MB/s per ogni istanza | 4 MB al secondo per vCore<br/>Numero massimo 48 MB/s per ogni istanza|
 | Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes). | N/D |
@@ -105,7 +105,7 @@ La tabella seguente illustra i limiti a livello di area predefinita per le sotto
 
 \* Quando si pianificano le distribuzioni, è consigliabile che un vCore aziendali critici (BC) (a causa dell'aggiunta di ridondanza) utilizza 4 volte maggiore capacità rispetto a un Vcore per utilizzo generico generali (GP). In questo caso, per i calcoli, 1 GP vCore = 1 vCore di unit test e BC 1 vCore = 4 unità vCore. Per semplificare l'analisi di utilizzo con i limiti predefiniti, riepilogare le unità vCore tra tutte le subnet nell'area in cui le istanze gestite vengono distribuite e confrontano i risultati con i limiti di unità di istanza per il tipo di sottoscrizione. **Numero massimo di unità vCore** limite si applica a ogni sottoscrizione in un'area. Non sono previsti limiti per ogni singola subnet, ad eccezione del fatto che la somma di tutti i Vcore distribuito su più subnet deve essere inferiore o uguale a **: numero massimo di unità vCore**.
 
-\* * VCore e subnet ampi sono disponibili nelle aree seguenti: Australia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Europa occidentale, Stati Uniti occidentali 2.
+\*\* Limiti di vCore e subnet più grandi sono disponibili nelle aree seguenti: Australia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Europa occidentale, Stati Uniti occidentali 2.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Istanza gestita di ottenere una quota maggiore di quella per SQL
 

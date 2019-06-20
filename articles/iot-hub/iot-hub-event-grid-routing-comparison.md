@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 0b17a87fa02c382ae19cca6e4abcfff2ec475450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6d395d878d38ab48b95ca82d94d2a222428bae1
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252683"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274935"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Confrontare il routing dei messaggi e Griglia di eventi per l'hub IoT
 
@@ -64,7 +64,7 @@ Il routing dei messaggi dell'hub IoT e l'integrazione dell'hub IoT con Griglia d
 
    Routing dei messaggi dell'IoT Hub supporta un numero limitato di un endpoint univoco e tipi di endpoint, ma è possibile compilare connettori per reindirizzare i dati e gli eventi a endpoint aggiuntivi. Per un elenco completo degli endpoint supportati, vedere la tabella nella sezione precedente. 
 
-   L'integrazione dell'IoT Hub con griglia di eventi supporta 500 endpoint per l'IoT Hub e una più ampia varietà di tipi di endpoint. Gestire si integra con funzioni di Azure, App per la logica, le code di archiviazione e Bus di servizio e si integra inoltre con i webhook per estendere l'invio dei dati all'esterno dell'ecosistema di servizi di Azure e nelle applicazioni aziendali di terze parti.
+   L'integrazione dell'IoT Hub con griglia di eventi supporta 500 endpoint per l'IoT Hub e una più ampia varietà di tipi di endpoint. Si integra in modo nativo con funzioni di Azure, App per la logica, le code di archiviazione e Bus di servizio e si integra inoltre con i webhook per estendere l'invio dei dati all'esterno dell'ecosistema di servizi di Azure e nelle applicazioni aziendali di terze parti.
 
 * **È importante che i dati arrivino in ordine?**
 

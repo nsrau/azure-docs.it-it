@@ -10,12 +10,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 06/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd2552cdfde19995413f4665f04c41c295304d50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e070b80f86cb6c8b1d9e7575e19022b5cb08f340
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082599"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165563"
 ---
 # <a name="train-and-register-keras-models-at-scale-with-azure-machine-learning-service"></a>Eseguire il training e di registrare modelli Keras su larga scala con il servizio di Azure Machine Learning
 
@@ -27,12 +27,20 @@ Se si sta sviluppando un modello di Keras da zero o si desidera introdurre un mo
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
-- [Installare Azure Machine Learning SDK per Python](setup-create-workspace.md#sdk)
-- [Creare un file di configurazione dell'area di lavoro](setup-create-workspace.md#write-a-configuration-file)
-- [Scaricare i file di script di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` e `utils.py`
+Eseguire questo codice in uno dei due ambienti:
 
-È anche possibile trovare un completate [versione di Notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) di questa Guida nella pagina di esempi di GitHub. Il notebook include sezioni espanse che coprono l'ottimizzazione degli iperparametri intelligenti, la distribuzione del modello e i widget di notebook.
+ - Azure Machine Learning Notebook VM - alcun download o installazione necessaria
+
+     - Completare la [Guida introduttiva di notebook basato su cloud](quickstart-run-cloud-notebook.md) per creare un server notebook dedicato precaricato con il SDK e il repository di esempio.
+    - Nella cartella samples nel server notebook, trovare un notebook completato ed espanso passando a questa directory: **how-to-uso-azureml > formazione con deep learning > train-hyperparameter-tune-deploy-with-keras** cartella. 
+ 
+ - Server Jupyter Notebook personale
+
+     - [Installare Azure Machine Learning SDK per Python](setup-create-workspace.md#sdk)
+    - [Creare un file di configurazione dell'area di lavoro](setup-create-workspace.md#write-a-configuration-file)
+    - [Scaricare i file di script di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` e `utils.py`
+     
+    È anche possibile trovare un completate [versione di Notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) di questa Guida nella pagina degli esempi di GitHub. Il notebook include sezioni espanse che coprono l'ottimizzazione degli iperparametri intelligenti, la distribuzione del modello e i widget di notebook.
 
 ## <a name="set-up-the-experiment"></a>Configurare l'esperimento
 
@@ -105,12 +113,24 @@ Il [datastore](how-to-access-data.md) è una posizione in cui i dati possono ess
     shutil.copy('./utils.py', script_folder)
     ```
 
-## <a name="get-the-default-compute-target"></a>Ottenere la destinazione di calcolo predefinito
+## <a name="create-a-compute-target"></a>Creare una destinazione di calcolo
 
-Ogni area di lavoro viene fornito con due simboli, impostazione predefinita le destinazioni di calcolo: una destinazione di calcolo basate su gpu e una destinazione di calcolo basate sulla cpu. Le destinazioni di calcolo predefinite hanno impostata su 0, ovvero che non vengono allocate finché non si utilizza la scalabilità automatica. Vinci in questo esempio, usare la destinazione di calcolo GPU predefinita.
+Creare una destinazione di calcolo per il processo TensorFlow eseguire nell'ambito. In questo esempio, creare un cluster di calcolo abilitate per GPU di Azure Machine Learning.
 
 ```Python
-compute_target = ws.get_default_compute_target(type="GPU")
+cluster_name = "gpucluster"
+
+try:
+    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
+    print('Found existing compute target')
+except ComputeTargetException:
+    print('Creating a new compute target...')
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6', 
+                                                           max_nodes=4)
+
+    compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
+
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
 Per altre informazioni sulle destinazioni di calcolo, vedere la [What ' s una destinazione di calcolo](concept-compute-target.md) articolo.

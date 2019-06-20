@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a66fa70f6f5615257554e98e40e605d6a7e981fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d415686e4d8a10043df59aa6bf58a5ed4be0149
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508965"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154028"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Accedere a pagina singola con il flusso implicito OAuth 2.0 in Azure Active Directory B2C
 
-Molte applicazioni moderne hanno un front-end app a singola pagina scritto principalmente in JavaScript. L'app viene scritta spesso usando un framework come AngularJS, Ember.js o Durandal. Le app a pagina singola e le altre app JavaScript che vengono eseguite soprattutto in un browser presentano alcune problematiche aggiuntive per l'autenticazione:
+Molte applicazioni moderne hanno un front-end app a singola pagina scritto principalmente in JavaScript. Spesso, l'app viene scritta usando un framework, ad esempio React, Angular o VUE. Le app a pagina singola e le altre app JavaScript che vengono eseguite soprattutto in un browser presentano alcune problematiche aggiuntive per l'autenticazione:
 
 - Le caratteristiche di sicurezza di queste App sono diverse da applicazioni web basate su server tradizionali.
 - Molti server di autorizzazione e provider di identità non supportano le richieste CORS (Condivisione risorse tra le origini).

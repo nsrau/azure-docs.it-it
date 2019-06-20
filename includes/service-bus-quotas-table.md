@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: f48ad6ca74e6ce10148d66549fea16bc74015b2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1c4a0384342db82ee9c1f6b9e806188d5949681
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171212"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67235353"
 ---
 Nella tabella seguente contiene informazioni sulle quote specifiche di messaggistica del Bus di servizio di Azure. Per informazioni sui prezzi e altre quote del Bus di servizio, vedere [sui prezzi del Bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
 | Nome della quota | `Scope` | Note | Value |
 | --- | --- | --- | --- |
 | Numero massimo di spazi dei nomi Basic o Standard per ogni sottoscrizione di Azure |Spazio dei nomi |Le successive richieste di altri spazi dei nomi Basic o Standard vengono rifiutate dal portale di Azure. |100|
-| Numero massimo di spazi dei nomi Premium per ogni sottoscrizione di Azure |Spazio dei nomi |Le successive richieste di altri spazi dei nomi Premium vengono rifiutate dal portale. |25 |
+| Numero massimo di spazi dei nomi Premium per ogni sottoscrizione di Azure |Spazio dei nomi |Le successive richieste di altri spazi dei nomi Premium vengono rifiutate dal portale. |50 |
 | Dimensioni coda o argomento |Entità |Definito al momento della creazione della coda o argomento. <br/><br/> I messaggi in arrivo successivi vengono rifiutati e il codice chiamante riceve un'eccezione. |1, 2, 3, 4 GB o 5 GB.<br /><br />Lo SKU Premium e lo SKU Standard con [partizionamento](/azure/service-bus-messaging/service-bus-partitioning) abilitata, le dimensioni massime della coda o argomento sono di 80 GB. |
 | Numero di connessioni simultanee per uno spazio dei nomi |Spazio dei nomi |Le successive richieste di connessioni aggiuntive vengono rifiutate e il codice chiamante riceve un'eccezione. Operazioni REST non vengono considerati connessioni TCP simultanee. |NetMessaging: 1,000.<br /><br />AMQP: 5,000. |
 | Numero di ricezione simultanee richieste su un'entità coda, argomento o sottoscrizione |Entità |Ricezione successive vengono rifiutate e il codice chiamante riceve un'eccezione. Questa quota si applica al numero combinato di operazioni di ricezione simultanee per tutte le sottoscrizioni relative a un argomento. |5\.000 |

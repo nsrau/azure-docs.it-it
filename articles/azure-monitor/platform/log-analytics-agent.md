@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 081d65f60eab4e2412a5dd14c3a63a18598e3b8a
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751974"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146323"
 ---
-# <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Raccogliere dati di log con l'agente di Azure Log Analytics
+# <a name="collect-log-data-with-the-log-analytics-agent"></a>Raccogliere dati di log con l'agente di Log Analitica
 
 L'agente di Azure Log Analytics, precedentemente noto come agente MMA (Microsoft Monitoring Agent) o Linux OMS, è stato sviluppato per la gestione completa di computer locali, computer monitorati da [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) e macchine virtuali in qualsiasi cloud. Gli agenti Windows e Linux collegare a un monitoraggio di Azure e archiviano i dati di log raccolti da origini diverse nell'area di lavoro di Log Analitica, nonché qualsiasi log univoco o metriche come definito in una soluzione di monitoraggio. 
 
@@ -34,11 +34,11 @@ Prima di analizzare e agisce sui dati raccolti, è necessario innanzitutto insta
 
 L'agente per Linux e Windows comunica in uscita al servizio di monitoraggio di Azure sulla porta TCP 443 e se il computer si connette tramite un firewall o server proxy per comunicare in Internet, rivedere i requisiti seguenti per comprendere la configurazione di rete richiesto. Se i criteri di sicurezza IT non consentono ai computer nella rete per la connessione a Internet, è possibile configurare un [gateway Log Analitica](gateway.md) e quindi configurare l'agente possa connettersi tramite il gateway per i log di monitoraggio di Azure. L'agente può quindi ricevere le informazioni di configurazione e inviare i dati raccolti a seconda delle regole di raccolta e monitoraggio delle soluzioni è abilitata nell'area di lavoro. 
 
-Se si sta monitorando un computer con System Center Operations Manager 2012 R2 o versione successiva, possono essere multihomed con il servizio di monitoraggio di Azure per raccogliere dati e inoltrarli al servizio, mantenendo il monitoraggio [Operations Manager](../../azure-monitor/platform/om-agents.md). Con i computer Linux, l'agente non include un componente del servizio integrità quando esegue l'agente di Windows e le informazioni vengono raccolte ed elaborato da un server di gestione per suo conto. Poiché i computer Linux monitorati in modo diverso con Operations Manager, essi non ricevono la configurazione o raccogliere i dati direttamente e inoltrare tramite il gruppo di gestione, ad esempio, un sistema Windows gestiti tramite agente. Di conseguenza, questo scenario non è supportato con i computer Linux a Operations Manager reporting.  
+Se si sta monitorando un computer con System Center Operations Manager 2012 R2 o versione successiva, possono essere multihomed con il servizio di monitoraggio di Azure per raccogliere dati e inoltrarli al servizio, mantenendo il monitoraggio [Operations Manager](../../azure-monitor/platform/om-agents.md). Con i computer Linux, l'agente non include un componente del servizio integrità quando esegue l'agente di Windows e le informazioni vengono raccolte ed elaborato da un server di gestione per suo conto. Poiché i computer Linux monitorati in modo diverso con Operations Manager, essi non ricevono la configurazione o raccogliere i dati direttamente e inoltrare tramite il gruppo di gestione, ad esempio, un sistema Windows gestiti tramite agente. Di conseguenza, questo scenario non è supportato con i computer Linux a Operations Manager reporting ed è necessario configurare il computer Linux [report a un gruppo di gestione di Operations Manager](../platform/agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group) e un'area di lavoro di Log Analitica in due procedura.
 
 L'agente Windows può inviare report a un massimo di quattro aree di lavoro di Log Analytics, mentre l'agente Linux supporta solo l'invio di report a una singola area di lavoro.  
 
-L'agente per Linux e Windows non serve solo per la connessione a monitoraggio di Azure, ma supporta anche l'automazione di Azure per ospitare il ruolo di lavoro ibrido per Runbook e altri servizi, ad esempio [Change Tracking](../../automation/change-tracking.md) e [gestionedegliaggiornamenti](../../automation/automation-update-management.md). Per altre informazioni sul ruolo di lavoro ibrido per runbook, vedere [Ruolo di lavoro ibrido per runbook di Automazione di Azure](../../automation/automation-hybrid-runbook-worker.md).  
+L'agente per Linux e Windows non serve solo per la connessione a monitoraggio di Azure, ma supporta anche l'automazione di Azure per ospitare il ruolo di lavoro ibrido per Runbook e altri servizi, ad esempio [Change Tracking](../../automation/change-tracking.md), [gestionedegliaggiornamenti](../../automation/automation-update-management.md), e [Centro sicurezza di Azure](../../security-center/security-center-intro.md). Per altre informazioni sul ruolo di lavoro ibrido per runbook, vedere [Ruolo di lavoro ibrido per runbook di Automazione di Azure](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Sistemi operativi Windows supportati
 Le versioni seguenti del sistema operativo Windows sono ufficialmente supportate per l'agente Windows:

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop; kumud
-ms.openlocfilehash: e0d27b92b4f0b7da8f96e4b1cc9695537db0e643
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07c8087043526a8eb0bf7a1963a761c40c11a925
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851136"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202862"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -39,7 +39,6 @@ Ogni route contiene un prefisso degli indirizzi e il tipo di hop successivo. Qua
 |Predefinito|Univoco per la rete virtuale                           |Rete virtuale|
 |Predefinito|0.0.0.0/0                                               |Internet       |
 |Predefinito|10.0.0.0/8                                              |Nessuna           |
-|Predefinito|172.16.0.0/12                                           |Nessuna           |
 |Predefinito|192.168.0.0/16                                          |Nessuna           |
 |Predefinito|100.64.0.0/10                                           |Nessuna           |
 
@@ -49,7 +48,7 @@ I tipi di hop successivi elencati nella tabella precedente rappresentano il modo
 * **Internet**: instrada verso Internet il traffico specificato dal prefisso degli indirizzi. La route di sistema predefinita specifica il prefisso degli indirizzi 0.0.0.0/0. Se non si sostituiscono le route predefinite, Azure instrada verso Internet il traffico di tutti gli indirizzi non specificati da un intervallo di indirizzi all'interno di una rete virtuale, con un'eccezione. Se l'indirizzo di destinazione è di uno dei servizi di Azure, Azure instrada il traffico direttamente al servizio tramite la rete backbone di Azure, piuttosto che verso Internet. Il traffico tra i servizi di Azure non attraversa Internet, indipendentemente dall'area di Azure in cui si trova la rete virtuale o in cui viene distribuita un'istanza del servizio di Azure. È possibile eseguire l'override della route di sistema predefinita di Azure per il prefisso degli indirizzi 0.0.0.0/0 con una [route personalizzata](#custom-routes).<br>
 * **Nessuno**: il traffico indirizzato al tipo di hop successivo **Nessuno** viene eliminato e non instradato all'esterno della subnet. Azure crea automaticamente route predefinite per i prefissi degli indirizzi seguenti:<br>
 
-    * **10.0.0.0/8, 172.16.0.0/12 e 192.168.0.0/16**: riservati per l'uso privato in RFC 1918.<br>
+    * **10.0.0.0/8 e 192.168.0.0/16**: riservati per l'uso privato in RFC 1918.<br>
     * **100.64.0.0/10**: riservato in RFC 6598.
 
     Se si assegnano gli intervalli di indirizzi precedenti nello spazio degli indirizzi di una rete virtuale, Azure modifica automaticamente il tipo di hop successivo della route da **Nessuno** a **Rete virtuale**. Se si assegna un intervallo di indirizzi allo spazio degli indirizzi di una rete virtuale che include (ma non è uguale a) uno dei quattro prefissi degli indirizzi riservati, Azure rimuove la route per il prefisso e aggiunge una route per il prefisso degli indirizzi aggiunto, con **Rete virtuale** come tipo di hop successivo.
@@ -253,10 +252,9 @@ La tabella di route per *Subnet2* rappresentata nell'immagine contiene le route 
 |Predefinito |Attivo |0.0.0.0/0           |Internet                  |                   |
 |Predefinito |Attivo |10.0.0.0/8          |Nessuna                      |                   |
 |Predefinito |Attivo |100.64.0.0/10       |Nessuna                      |                   |
-|Predefinito |Attivo |172.16.0.0/12       |Nessuna                      |                   |
 |Predefinito |Attivo |192.168.0.0/16      |Nessuna                      |                   |
 
-La tabella di route per *Subnet2* contiene tutte le route predefinite create da Azure, il peering di rete virtuale facoltativo e le route facoltative del gateway di rete virtuale. Azure ha aggiunto le route facoltative a tutte le subnet della virtuale di rete quando sono stati aggiunti il gateway e il peering alla rete virtuale. Azure ha rimosso le route per i prefissi degli indirizzi 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 e 100.64.0.0/10 dalla tabella di route *Subnet1* quando la route definita dall'utente per il prefisso degli indirizzi 0.0.0.0/0 è stata aggiunta a *Subnet1*.  
+La tabella di route per *Subnet2* contiene tutte le route predefinite create da Azure, il peering di rete virtuale facoltativo e le route facoltative del gateway di rete virtuale. Azure ha aggiunto le route facoltative a tutte le subnet della virtuale di rete quando sono stati aggiunti il gateway e il peering alla rete virtuale. Azure ha rimosso le route per i prefissi di indirizzo 10.0.0.0/8 192.168.0.0/16 e 100.64.0.0/10 dal *Subnet1* tabella di route quando la route definita dall'utente per il prefisso degli indirizzi 0.0.0.0/0 è stato aggiunto a *Subnet1*.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

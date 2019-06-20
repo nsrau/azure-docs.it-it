@@ -10,12 +10,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9961129805d133c4512e40e4c8be80185316a1ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1f587785b06f10bab42a425b0910d4f25fddf9f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074914"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165549"
 ---
 # <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Eseguire il training e di registrare modelli TensorFlow su larga scala con il servizio di Azure Machine Learning
 
@@ -27,12 +27,20 @@ Se si sta sviluppando un modello TensorFlow da zero o si desidera introdurre un 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
-- [Installare Azure Machine Learning SDK per Python](setup-create-workspace.md#sdk)
-- [Creare un file di configurazione dell'area di lavoro](setup-create-workspace.md#write-a-configuration-file)
-- [Scaricare i file di script di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` e `utils.py`
+Eseguire questo codice in uno dei due ambienti:
 
-È anche possibile trovare un completate [versione di Notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) di questa Guida nella pagina di esempi di GitHub. Il notebook include sezioni espanse che coprono l'ottimizzazione degli iperparametri intelligenti, la distribuzione del modello e i widget di notebook.
+ - Azure Machine Learning Notebook VM - alcun download o installazione necessaria
+
+     - Completare la [Guida introduttiva di notebook basato su cloud](quickstart-run-cloud-notebook.md) per creare un server notebook dedicato precaricato con il SDK e il repository di esempio.
+    - Nella cartella samples nel server notebook, trovare un notebook completato ed espanso passando a questa directory: **how-to-uso-azureml > formazione con deep learning > train-hyperparameter-tune-deploy-with-tensorflow**cartella. 
+ 
+ - Server Jupyter Notebook personale
+
+     - [Installare Azure Machine Learning SDK per Python](setup-create-workspace.md#sdk)
+    - [Creare un file di configurazione dell'area di lavoro](setup-create-workspace.md#write-a-configuration-file)
+    - [Scaricare i file di script di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` e `utils.py`
+     
+    È anche possibile trovare un completate [versione di Notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) di questa Guida nella pagina degli esempi di GitHub. Il notebook include sezioni espanse che coprono l'ottimizzazione degli iperparametri intelligenti, la distribuzione del modello e i widget di notebook.
 
 ## <a name="set-up-the-experiment"></a>Configurare l'esperimento
 

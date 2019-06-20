@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61443094"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203187"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto
 
@@ -91,11 +91,11 @@ I passaggi seguenti descrivono come aggiungere un ruolo a un'applicazione in Azu
 
 1. Trovare la **registrazione per l'app** relativa alla soluzione nel portale di Azure. Il nome dell'applicazione corrisponde a quello della soluzione di monitoraggio remoto. Nello screenshot seguente il nome visualizzato della soluzione e dell'applicazione è **contoso-rm4**.
 
-    ![Registrazione delle app](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![Registrazione delle app](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Selezionare l'applicazione e quindi fare clic su **Manifesto**. È possibile visualizzare i due [ruoli di app](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) già definiti per l'applicazione:
 
-    ![Visualizzare il manifesto](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
+    ![Visualizzare il manifesto](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
 1. Modificare il manifesto per aggiungere un ruolo denominato **ManageDevices**, come illustrato nel frammento di codice seguente. Per l'ID del nuovo ruolo è necessario specificare una stringa univoca, ad esempio un GUID. È possibile generare un nuovo GUID usando un servizio come [Online GUID Generator](https://www.guidgenerator.com/):
 

@@ -11,11 +11,11 @@ ms.date: 07/25/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 8de70e8df50b79f27c19c74307d9321ff8cd1eb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128550"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203109"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Esempi di codice per operazioni sui dati per App per la logica di Azure
 

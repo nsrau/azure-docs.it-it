@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/22/2019
-ms.openlocfilehash: 5a7c6c4553f46e8a7308995e05d6c06c0eb10f27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/18/2019
+ms.openlocfilehash: 1d639a8b1d5c7a5dd2b7bac7c5e020be7c8b1c50
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002205"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190951"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Risolvere i problemi di migrazione di Database di Azure e gli errori comuni
 
@@ -59,6 +59,16 @@ Viene visualizzato l'errore seguente quando si arresta l'istanza del servizio mi
 | Causa         | Risoluzione |
 | ------------- | ------------- |
 | Questo errore viene visualizzato quando si tenta di arrestare l'istanza del servizio include attività che sono ancora in esecuzione o presenti nei progetti di migrazione. <br><br><br><br><br><br> | Assicurarsi che non sono presenti attività in esecuzione nell'istanza del servizio migrazione del Database di Azure che si desidera arrestare. È anche possibile eliminare le attività o i progetti prima di tentare di arrestare il servizio. I passaggi seguenti illustrano come rimuovere i progetti per pulire l'istanza del servizio migrazione eliminando tutte le attività in esecuzione:<br>1. Install-Module-nome azurerm. DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription -SubscriptionName "<subName>" <br> 4. Remove-AzureRmDataMigrationProject -Name <projectName> -ResourceGroupName <rgName> -ServiceName <serviceName> -DeleteRunningTask |
+
+## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Errore durante il tentativo di avviare la migrazione di Database di Azure
+
+Viene visualizzato l'errore seguente quando si avvia l'istanza del servizio migrazione del Database:
+
+* **Errore**: Servizio non riesce a Start. Errore: {'errorDetail': 'il servizio non è stato possibile avviare, contattare il supporto tecnico Microsoft'}
+
+| Causa         | Risoluzione |
+| ------------- | ------------- |
+| Questo errore viene visualizzato quando l'istanza precedente non è stato possibile internamente. Questo errore si verifica raramente, e il team di progettazione è consapevole. <br> | Eliminare l'istanza del servizio non è possibile avviare e quindi eseguire il provisioning di uno nuovo per sostituirlo. |
 
 ## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Errore durante il ripristino di database, mentre l'istanza gestita di SQL la migrazione al database SQL di Azure
 

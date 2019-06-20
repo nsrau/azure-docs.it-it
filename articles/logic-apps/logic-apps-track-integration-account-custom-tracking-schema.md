@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.openlocfilehash: 1e75e0be5404ca7107d3f3201d248088b48da12c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 76a9ece9e925543e856136a798a60038316caad9
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067904"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203048"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Creare schemi di rilevamento personalizzati che consentono di monitorare i flussi di lavoro end-to-end in App per la logica di Azure
 
@@ -56,22 +56,22 @@ Questo articolo fornisce un codice personalizzato che è possibile usare nei liv
 }
 ```
 
-| Proprietà | Type | Descrizione |
-| --- | --- | --- |
-| sourceType |   | Tipo dell'origine dell'esecuzione. I valori consentiti sono **Microsoft.Logic/workflows** e **custom**. Obbligatoria |
-| source |   | Se il tipo di origine è **Microsoft.Logic/workflows**, le informazioni dell'origine devono seguire questo schema. Se il tipo di origine è **custom**, lo schema è JToken. Obbligatoria |
-| systemId | String | ID di sistema dell'app per la logica. Obbligatoria |
-| runId | String | ID di esecuzione dell'app per la logica. Obbligatoria |
-| operationName | String | Nome dell'operazione, ad esempio azione o trigger. Obbligatoria |
-| repeatItemScopeName | String | Ripetere il nome dell'elemento se l'azione è all'interno di un loop `foreach` / `until`. Obbligatoria |
-| repeatItemIndex | Integer | Se l'azione è all'interno di un loop `foreach`/`until`. Indica l'indice dell'elemento ripetuto. Obbligatoria |
-| trackingId | String | Indica l'ID di rilevamento per la correlazione dei messaggi. Facoltativa |
-| correlationId | String | ID di correlazione, per la correlazione dei messaggi. Facoltativa |
-| clientRequestId | String | Il client può popolare questo valore per la correlazione dei messaggi. Facoltativa |
-| eventLevel |   | Livello dell'evento. Obbligatoria |
-| eventTime |   | Ora dell'evento in formato UTC, ovvero AAAA-MM-GGTHH:MM:SS.00000Z Obbligatoria |
-| recordType |   | Tipo di record di rilevamento. Il valore consentito è **custom**. Obbligatoria |
-| record |   | Tipo di record personalizzato. Il formato consentito è JToken. Obbligatoria |
+| Proprietà | Obbligatorio | Type | Descrizione |
+| --- | --- | --- | --- |
+| sourceType | Yes |   | Tipo dell'origine dell'esecuzione. I valori consentiti sono **Microsoft.Logic/workflows** e **custom**. |
+| source | Yes |   | Se il tipo di origine è **Microsoft.Logic/workflows**, le informazioni dell'origine devono seguire questo schema. Se il tipo di origine è **custom**, lo schema è JToken. |
+| systemId | Yes | String | ID di sistema dell'app per la logica. |
+| runId | Yes | String | ID di esecuzione dell'app per la logica. |
+| operationName | Yes | String | Nome dell'operazione, ad esempio azione o trigger. |
+| repeatItemScopeName | Yes | String | Ripetere il nome dell'elemento se l'azione è all'interno di un loop `foreach` / `until`. |
+| repeatItemIndex | Yes | Integer | Se l'azione è all'interno di un loop `foreach`/`until`. Indica l'indice dell'elemento ripetuto. |
+| trackingId | No | String | Indica l'ID di rilevamento per la correlazione dei messaggi. |
+| correlationId | No | String | ID di correlazione, per la correlazione dei messaggi. |
+| clientRequestId | No | String | Il client può popolare questo valore per la correlazione dei messaggi. |
+| eventLevel | Yes |   | Livello dell'evento. |
+| eventTime | Yes |   | Ora dell'evento in formato UTC, ovvero AAAA-MM-GGTHH:MM:SS.00000Z |
+| recordType | Yes |   | Tipo di record di rilevamento. Il valore consentito è **custom**. |
+| record | Yes |   | Tipo di record personalizzato. Il formato consentito è JToken. |
 ||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>Schemi di rilevamento per il protocollo B2B

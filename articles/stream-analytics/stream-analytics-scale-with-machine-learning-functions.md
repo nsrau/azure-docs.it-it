@@ -7,19 +7,19 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/11/2019
+ms.openlocfilehash: db14f8240dea95eb073a0a653c2798f02fbb7c35
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479152"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67162578"
 ---
-# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Ridimensionare il processo di Analisi di flusso con funzioni di Azure Machine Learning
+# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-functions"></a>Ridimensionare il processo di Stream Analitica con funzioni di Azure Machine Learning Studio
 È semplice impostare un processo di Analisi di flusso e usarlo per analizzare alcuni dati di esempio. Cosa fare quando è necessario eseguire lo stesso processo con volume di dati più elevato? Bisogna capire come configurare il processo di Analisi di flusso per il ridimensionamento. Questo documento illustra in particolare gli aspetti specifici del ridimensionamento di processi di Analisi di flusso con funzioni di Machine Learning. Per informazioni su come ridimensionare processi di Analisi di flusso in generale, vedere l'articolo relativo al [ridimensionamento dei processi](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Che cos'è una funzione di Azure Machine Learning in Analisi di flusso?
-Una funzione di Machine Learning in Analisi di flusso può essere usata come una normale chiamata di funzione nel linguaggio di query di Analisi di flusso. Tuttavia, le chiamate di funzione sono in realtà richieste del servizio Web Azure Machine Learning. I servizi Web di Machine Learning supportano l'invio in batch di più righe, dette mini-batch, nella stessa chiamata all'API del servizio Web per migliorare la velocità effettiva globale. Per altre informazioni, vedere [servizi Web di Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
+Una funzione di Machine Learning in Analisi di flusso può essere usata come una normale chiamata di funzione nel linguaggio di query di Analisi di flusso. Dietro le quinte, tuttavia, le chiamate di funzione sono effettivamente le richieste di servizio Web di Azure Machine Learning Studio. I servizi Web di Machine Learning supportano l'invio in batch di più righe, dette mini-batch, nella stessa chiamata all'API del servizio Web per migliorare la velocità effettiva globale. Per altre informazioni, vedere [servizi Web di Azure Machine Learning Studio](../machine-learning/studio/consume-web-services.md). Supporto per Azure Machine Learning Studio in Stream Analitica è in anteprima.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configurare un processo di Analisi di flusso con funzioni di Machine Learning
 Quando si configura una funzione di Machine Learning per un processo di Analisi di flusso è necessario prendere in considerazione due parametri, le dimensioni batch delle chiamate di funzione di Machine Learning e le unità di streaming (SU) di cui viene effettuato il provisioning per il processo di Analisi di flusso. Per determinare i relativi valori appropriati, occorre prima scegliere tra latenza e velocità effettiva, vale a dire la latenza del processo di Analisi di flusso e la velocità effettiva di ogni unità di streaming. È sempre possibile aggiungere unità di streaming a un processo per aumentare la velocità effettiva di una query di Analisi di flusso con partizionamento efficiente, anche se le unità di streaming aumentano il costo di esecuzione del processo.
@@ -72,16 +72,16 @@ Si supponga che la latenza del servizio Web di Machine Learning di analisi di va
 
 Di seguito è riportata una tabella della velocità effettiva del processo di Analisi di flusso per diverse unità di streaming e dimensioni batch, in numero di eventi al secondo.
 
-| Dimensioni batch (latenza ML) | 500 (200 ms) | 1\.000 (200 ms) | 5\.000 (250 ms) | 10\.000 (300 ms) | 25\.000 (500 ms) |
+| Dimensioni batch (latenza ML) | 500 (200 ms) | 1\.000 (200 ms) | 5\.000 (250 ms) | 10.000 (300 ms) | 25.000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-| **1 unità di archiviazione** |2\.500 |5\.000 |20\.000 |30\.000 |50,000 |
-| **3 unità di archiviazione** |2\.500 |5\.000 |20\.000 |30\.000 |50,000 |
-| **6 unità di archiviazione** |2\.500 |5\.000 |20\.000 |30\.000 |50,000 |
-| **12 unità di archiviazione** |5\.000 |10,000 |40\.000 |60\.000 |100,000 |
-| **18 unità di archiviazione** |7\.500 |15\.000 |60\.000 |90\.000 |150\.000 |
-| **24 unità di archiviazione** |10,000 |20\.000 |80\.000 |120\.000 |200\.000 |
+| **1 unità di archiviazione** |2\.500 |5\.000 |20.000 |30.000 |50,000 |
+| **3 unità di archiviazione** |2\.500 |5\.000 |20.000 |30.000 |50,000 |
+| **6 unità di archiviazione** |2\.500 |5\.000 |20.000 |30.000 |50,000 |
+| **12 unità di archiviazione** |5\.000 |10,000 |40.000 |60.000 |100,000 |
+| **18 unità di archiviazione** |7\.500 |15.000 |60.000 |90.000 |150.000 |
+| **24 unità di archiviazione** |10,000 |20.000 |80.000 |120.000 |200.000 |
 | **…** |… |… |… |… |… |
-| **60 unità di archiviazione** |25\.000 |50,000 |200,000 |300\.000 |500,000 |
+| **60 unità di archiviazione** |25.000 |50,000 |200,000 |300.000 |500,000 |
 
 A questo punto dovrebbe essere chiaro il funzionamento delle funzioni di Machine Learning in Analisi di flusso. I processi di Analisi di flusso eseguono il pull dei dati dalle origini dati e ogni pull restituisce un batch di eventi al processo di Analisi di flusso per l'elaborazione. Come influisce tale modello pull sulle richieste al servizio Web Machine Learning?
 

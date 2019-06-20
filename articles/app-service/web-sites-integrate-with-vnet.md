@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a5187ed299f77c11892c6e34c8dfd3f904c7e075
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b269c75be7fec55fb77afecc6d04b86266c74a6f
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067718"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147296"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità integrazione rete virtuale di Azure App Service e come configurarlo con le app di [servizio App di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Le [reti virtuali di Azure][VNETOverview] consentono di posizionare molte risorse di Azure in una rete instradabile non Internet.  
@@ -102,6 +102,10 @@ Dopo che l'app è integrata con la rete virtuale, userà lo stesso server DNS co
 Per disconnettere l'app dalla rete virtuale, selezionare **Disconnetti**. L'app Web verrà riavviata. 
 
 La nuova funzionalità Integrazione rete virtuale consente di usare gli endpoint servizio.  Per usarli con l'app, usare la nuova funzionalità Integrazione rete virtuale per connettersi a una rete virtuale selezionata e configurare gli endpoint servizio nella subnet usata per l'integrazione. 
+
+#### <a name="web-app-for-containers"></a>App Web per contenitori
+
+Se si usa servizio App in Linux con immagini predefinite, la funzionalità integrazione rete virtuale regionale funziona senza ulteriori modifiche. Se si usa App Web per contenitori, è necessario modificare l'immagine docker per usare l'integrazione rete virtuale. Nell'immagine docker, usare la variabile di ambiente PORT come porta di ascolto del server web principale, invece di usare un numero di porta hardcoded. La variabile di ambiente PORT viene impostata automaticamente dalla piattaforma servizio App in fase di avvio il contenitore.
 
 ### <a name="how-vnet-integration-works"></a>Funzionamento di Integrazione rete virtuale
 

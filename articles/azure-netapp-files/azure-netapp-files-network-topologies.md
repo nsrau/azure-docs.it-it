@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: bf2262d8a222cec6c5d0d7e53ded7b2994481656
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65826473"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205679"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Linee guida per la pianificazione della rete per Azure NetApp Files
 
@@ -42,7 +42,7 @@ Non sono attualmente supportate per i file di Azure NetApp funzionalità riporta
 
 File di Azure NetApp si applicano le restrizioni di rete seguenti:
 
-* Il numero di macchine virtuali che possono connettersi a un volume (con una rete virtuale o tra reti virtuali con peering) non può superare i 1000.
+* Il numero di indirizzi IP in uso in una rete virtuale con Azure NetApp file (tra cui reti virtuali con peering) non può superare i 1000.
 * In ogni rete virtuale di Azure (VNet), è possibile delegare solo una subnet in Azure NetApp Files.
 
 
@@ -109,7 +109,7 @@ Nel diagramma precedente, anche se 3 macchine Virtuali possono connettersi a Vol
 
 Il diagramma seguente illustra un ambiente ibrido: 
 
-![Ambiente di rete ibrida](../media/azure-netapp-files/azure-netapp-files-networ-hybrid-environment.png)
+![Ambiente di rete ibrida](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
 Nello scenario ibrido, le applicazioni da on-premises data center devono accedere alle risorse in Azure.  Ciò avviene se si desidera estendere il data center di Azure o se si desidera utilizzare servizi nativi di Azure o il ripristino di emergenza. Visualizzare [Gateway VPN di opzioni di pianificazione](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) su come connettere più risorse locali per le risorse in Azure tramite una VPN site-to-site o ExpressRoute.
 
@@ -117,10 +117,10 @@ In una topologia hub-spoke ibrida, l'hub di rete virtuale di Azure funge da un p
 
 A seconda della configurazione. È possibile connettere risorse da locale alle risorse nell'hub e spoke.
 
-Nella topologia illustrata in precedenza, la rete locale è connessa a un hub di rete virtuale in Azure, ed esistono spoke 2 il peering reti virtuali con rete virtuale dell'hub.  In questo scenario, le opzioni di connettività supportate per i volumi di file di Azure NetApp sono i seguenti:
+Nella topologia illustrata in precedenza, la rete locale è connessa a un hub di rete virtuale in Azure e sono presenti reti virtuali nella stessa area di spoke 2 di cui è stato eseguito il peering con la rete virtuale dell'hub.  In questo scenario, le opzioni di connettività supportate per i volumi di file di Azure NetApp sono i seguenti:
 
-* Le risorse locali VM 1 e 2 della macchina virtuale possono connettersi a Volume 1 nell'hub tramite una VPN site-to-site o ExpressRoute. 
-* Le risorse locali, VM 1 e 2 della macchina virtuale possono connettersi a Volume 2 o 3 Volume.
+* Le risorse locali, VM 1 e 2 della macchina virtuale possono connettersi al Volume 1 nell'hub tramite una VPN site-to-site o Expressroute. 
+* Le risorse locali, VM 1 e 2 della macchina virtuale possono connettersi al Volume 2 o 3 Volume tramite una VPN site-to-site e a livello di area peering reti virtuali.
 * 3 macchine Virtuali nell'hub di rete virtuale può connettersi a volume nello spoke 1 rete virtuale 2 e 3 Volume in spoke 2 della rete virtuale.
 * 4 macchine Virtuali dallo spoke di rete virtuale 1 e 5 VM dallo spoke 2 della rete virtuale possono connettersi a Volume 1 nella rete virtuale dell'hub.
 

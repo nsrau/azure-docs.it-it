@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/09/2019
 ms.author: raynew
-ms.openlocfilehash: a9021a44f61f516f144b77309d3ed597bd6f4b06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6a6db30bfe6e4dc1eed04d11b53113c90210a5cf
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067137"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275213"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice di supporto per la replica di macchine virtuali di Azure da un'area a un'altra
 
@@ -135,7 +135,7 @@ Debian 8 | 9.22, 9.23, 9.24 | Da 3.16.0-4-amd64 a 3.16.0-7-amd64, da 4.9.0-0.bpo
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.25 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>4\.4.121-92.73-default SP2(LTSS) a 4.4.121-92.104-default</br></br>4\.4.73-5-default SP3 a 4.4.176-94.88-default</br></br>4\.12.14-94.41-default SP4 a 4.12.14-95.13-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.25 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>4\.4.121-92.73-default SP2(LTSS) a 4.4.121-92.104-default</br></br>4\.4.73-5-default SP3 a 4.4.176-94.88-default</br></br>4\.4.138-4.7-azure SP3 a 4.4.176-4.25-azure</br></br>4\.12.14-94.41-default SP4 a 4.12.14-95.13-default</br>4\.12.14-6.3-azure SP4 a 4.12.14-6.9-azure |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.24 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>4\.4.121-92.73-default SP2(LTSS) a 4.4.121-92.104-default</br></br>4\.4.73-5-default SP3 a 4.4.176-94.88-default</br></br>4\.12.14-94.41-default SP4 a 4.12.14-95.13-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.23 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>4\.4.121-92.73-default SP2(LTSS) a 4.4.121-92.101-default</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.162-94.69 predefinita</br></br>4\.12.14-94.41-default SP4 a 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.22 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.98 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.162-94.72 predefinita |

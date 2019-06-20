@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 3345dd82a1de4f9144cdeb5acd5d3e506dc55de8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97fb4dc37f3c9f776e4abf433f916ceaf177a70b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937836"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202688"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Linee guida per la presentazione in Azure Marketplace
 
@@ -39,14 +39,14 @@ Tutte le offerte devono soddisfare [tutti i requisiti di presentazione](https://
 | 11 | Supporto per la soluzione e Guida | Inserire un collegamento ad almeno una delle informazioni seguenti: <br>o   Numeri di telefono <br>o Indirizzo e-mail del supporto <br>o Agenti di chat <br>o   Forum della community |<br>• Tutti i metodi di supporto elencati: telefono ed e-mail. <br>•    Il tipo di supporto a pagamento deve essere offerto gratuitamente durante il periodo di prova o di test drive | 
 | 12 | Note legali | Le norme e le condizioni devono essere disponibili tramite un URL pubblico |  | 
 
-----
+---
 ## <a name="trial-offer-requirements"></a>Requisiti delle offerte di prova
 
 |  | Elemento | Requisiti di base | Requisiti ottimali | 
 |:--- |:--- |:--- |:--- |
 |  | Stato | Un collegamento deve consentire l'accesso all'esperienza di prova gestita dal cliente | Sono disponibili anche altri inviti all'azione (ad esempio, Acquista ora) | 
 
-----
+---
 ## <a name="saas-apps-requirements"></a>Requisiti delle app SaaS
 
 |  | Elemento | Requisiti di base | Requisiti ottimali | 
@@ -63,7 +63,7 @@ Tutte le offerte devono soddisfare [tutti i requisiti di presentazione](https://
 | 10 | Contatti: Supporto per la soluzione e Guida | <br>•   Nome contatto del reparto tecnico: immettere il nome del contatto tecnico per l'app. Questo contatto riceverà le comunicazioni tecniche da Microsoft.<br>•   E-mail del contatto del reparto tecnico:  immettere l'indirizzo e-mail del contatto tecnico per l'app.<br>•   Telefono del contatto del reparto tecnico: immettere il numero di telefono del contatto tecnico. È supportata la notazione ISO per i numeri di telefono. Per informazioni dettagliate, vedere https://en.wikipedia.org/wiki/E.123.<br>• Nome contatto del supporto: immettere il nome del contatto del supporto per l'app. Questo contatto riceverà le comunicazioni relative al supporto da Microsoft.<br>• E-mail del contatto del supporto: immettere l'indirizzo e-mail del contatto del supporto per l'app. <br>• Telefono del contatto del supporto: immettere il numero di telefono del contatto del supporto. È supportata la notazione ISO per i numeri di telefono. Per informazioni dettagliate, vedere https://en.wikipedia.org/wiki/E.123. <br>• URL del supporto: immettere l'URL della pagina del supporto. | <br>•    Tutti i metodi di supporto elencati: telefono ed e-mail. <br>•    Il tipo di supporto a pagamento deve essere offerto gratuitamente durante il periodo di prova o di test drive |
 | 11 | Note legali |<br>• URL dell'informativa sulla privacy: immettere l'URL dell'informativa sulla privacy dell'app nel campo corrispondente in CPP. <br>•    Condizioni per l'utilizzo: Immettere le condizioni per l'uso dell'app. Per ottenere la versione di prova dell'app, i clienti devono accettare tali condizioni. |  Le norme e le condizioni devono essere disponibili tramite un sito Web pubblico |
 
-----
+---
 
 ## <a name="container-offer-requirements"></a>Requisiti delle offerte Contenitore
 
@@ -74,7 +74,7 @@ Tutte le offerte devono soddisfare [tutti i requisiti di presentazione](https://
 | 3 | Artefatti di Marketplace | I logo vengono visualizzati correttamente |<br>• Il logo include l'"immagine del banner", ovvero l'immagine nel portale di Azure in grande formato <br>• Logo: le dimensioni richieste sono Piccolo (48 x 48) e Grande (216 x 216) <br>• Requisiti dell'immagine del banner: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Screenshot (massimo 5):  CPP richiede un'immagine con estensione png con risoluzione 1280 x 720.|
 | 4 | Gestione dei lead |<br>•    Gestione dei lead: Selezionare il sistema nel quale archiviare i clienti potenziali. <br>•   Le informazioni su come connettere il sistema CRM sono disponibili [qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
-----
+---
 
 ## <a name="consulting-offer-requirements"></a>Requisiti delle offerte di consulenza
 
@@ -97,6 +97,3 @@ Tutte le offerte devono soddisfare [tutti i requisiti di presentazione](https://
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sui diversi tipi di offerta in Marketplace. <br>[App SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Contenitori](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Servizi di consulenza](https://docs.microsoft.com/azure/marketplace/consulting-services)
 *   [Determinare il tipo di inserzione per la propria soluzione](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
-
- 
----

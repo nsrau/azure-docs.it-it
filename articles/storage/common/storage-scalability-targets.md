@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: a61c2577f79f32f97fe2ef10a2ac67fdbbc1feda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 932d250d6685a1b905e4a03a0118d8c8f1f26418
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073753"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151252"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Obiettivi archiviazione di Azure la scalabilità e prestazioni per gli account di archiviazione
 
@@ -45,6 +45,9 @@ Per altre informazioni sugli obiettivi di scalabilità e prestazioni per File di
 
 > [!IMPORTANT]
 > Limiti dell'account di archiviazione si applicano a tutte le condivisioni. Scalabilità per il numero massimo di account di archiviazione solo è realizzabile se è presente solo una condivisione per ogni account di archiviazione.
+>
+> Le condivisioni di file standard di dimensioni superiori a 5 TiB sono disponibili in anteprima e presentano alcune limitazioni.
+> Per un elenco di limitazioni e per eseguire l'onboarding per l'anteprima di queste dimensioni di condivisione file più grandi, vedere la [condivisioni di file Standard](../files/storage-files-planning.md#standard-file-shares) Guida alla sezione della pianificazione file di Azure.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -52,7 +55,7 @@ Per altre informazioni sugli obiettivi di scalabilità e prestazioni per File di
 
 Esistono tre categorie di limitazioni da considerare per i file premium: gli account di archiviazione, condivisioni e file.
 
-Ad esempio:  Una singola condivisione può raggiungere 100.000 IOPS e un singolo file possono aumentare fino a 5.000 IOPS. Quindi, ad esempio, se si dispone di tre file in una condivisione, il numero di IOPs max è possibile ottenere da tale condivisione è 15.000.
+Ad esempio: Una singola condivisione può raggiungere 100.000 IOPS e un singolo file possono aumentare fino a 5.000 IOPS. Quindi, ad esempio, se si dispone di tre file in una condivisione, il numero di IOPs max è possibile ottenere da tale condivisione è 15.000.
 
 #### <a name="premium-file-share-limits"></a>Limiti di condivisione file Premium
 

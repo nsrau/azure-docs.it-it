@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41cf5f8bcc69e181350a63d215fb0d78d43dcfdf
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60870507"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272823"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Delega per l'accesso in anteprima di Desktop virtuale Windows
 
@@ -42,11 +42,11 @@ L'accesso delegato nel Desktop virtuale Windows ha diverse definizioni di ruolo 
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>Cmdlet di PowerShell per le assegnazioni di ruolo
 
-È possibile eseguire i cmdlet seguenti per creare, visualizzare e modificare le assegnazioni di ruolo:
+È possibile eseguire i cmdlet seguenti per creare, visualizzare e rimuovere le assegnazioni di ruolo:
 
 * **Get-RdsRoleAssignment** Visualizza un elenco di assegnazioni di ruolo.
 * **Nuovo RdsRoleAssignment** crea una nuova assegnazione di ruolo.
-* **Set-RdsRoleAssignment** consente di modificare le assegnazioni di ruolo.
+* **Remove-RdsRoleAssignment** consente di eliminare le assegnazioni di ruolo.
 
 ### <a name="accepted-parameters"></a>Parametri accettati
 

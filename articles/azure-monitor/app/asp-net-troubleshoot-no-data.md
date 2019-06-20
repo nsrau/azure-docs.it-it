@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 23d7b0626dba5a88c100868907ecf868a895fc9e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3820a5d7becef275ed3408f01cc53ad8590ba60e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059624"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272411"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alcuni dati di telemetria sono mancanti
@@ -241,13 +241,13 @@ Application Insights SDK log log EventSource self-risoluzione dei problemi che p
 
 Per raccogliere i log, scaricare PerfView ed eseguire questo comando:
 ```cmd
-PerfView.exe collect /onlyProviders=*Microsoft-ApplicationInsights-* -MaxCollectSec:300
+PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-ApplicationInsights-Core,*Microsoft-ApplicationInsights-Data,*Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Microsoft-ApplicationInsights-Extensibility-HostingStartup,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Microsoft-ApplicationInsights-Extensibility-Web,*Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Microsoft-ApplicationInsights-WindowsServer-Core,*Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Microsoft-ApplicationInsights-AspNetCore
 ```
 
-È possibile modificare questi parametri in base alle esigenze.
-
+È possibile modificare questi parametri in base alle esigenze:
 - **MaxCollectSec**. Impostare questo parametro per evitare che PerfView da eseguiti all'infinito e influire sulle prestazioni del server.
 - **OnlyProviders**. Impostare questo parametro per raccogliere solo i log dal SDK. È possibile personalizzare questo elenco in base le indagini specifiche. 
+- **NoGui**. Impostare questo parametro per raccogliere i log di senza l'interfaccia utente grafica.
 
 
 Per altre informazioni,

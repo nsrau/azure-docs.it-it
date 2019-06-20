@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 295c4fed9ab674f0c9e812c02f6b82ee53ef1b91
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646776"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274861"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
@@ -108,13 +108,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 All'URI di *GET* sono associati tutti i parametri obbligatori. Non è necessario alcun corpo della richiesta aggiuntivo.
 
-#### <a name="responses"></a>Responses
+##### <a name="responses-1"></a>Risposte
 
 |NOME  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-##### <a name="example-responses"></a>Risposte di esempio
+##### <a name="example-responses-1"></a>Risposte di esempio
 
 Dopo che la richiesta *GET* è stata inviata, viene restituita una risposta 200 (OK).
 
@@ -325,11 +325,11 @@ L'attivazione di un backup su richiesta è un'[operazione asincrona](https://doc
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Name  |Type  |Descrizione  |
+|NOME  |Type  |Descrizione  |
 |---------|---------|---------|
 |202 - Accettato     |         |     Accepted    |
 
-#### <a name="example-responses"></a>Risposte di esempio
+##### <a name="example-responses-3"></a>Risposte di esempio
 
 Dopo aver inviato la richiesta *POST* per un backup su richiesta, la risposta iniziale è 202 (accettazione) con un'intestazione location o Azure-async.
 
@@ -439,7 +439,7 @@ Gli elementi `{containerName}` e `{protectedItemName}` sono come creati [in prec
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses"></a>Responses
+### <a name="responses-2"></a>Risposte
 
 L'operazione *DELETE* applicata alla protezione è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 

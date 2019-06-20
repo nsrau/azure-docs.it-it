@@ -4,15 +4,15 @@ description: Questo articolo illustra concetti quali stored procedure, trigger e
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 40d120fe5fcc79721923d3493e74b5195ecc129c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965712"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165586"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 
@@ -75,7 +75,7 @@ Le funzioni JavaScript sono anche soggette alla [capacità di velocità effettiv
 
 ## <a name="triggers"></a>Trigger
 
-Questa sezione descrive i due tipi di trigger:
+Azure Cosmos DB supporta due tipi di trigger:
 
 ### <a name="pre-triggers"></a>Pre-trigger
 
@@ -84,6 +84,9 @@ Azure Cosmos DB include trigger che possono essere richiamati eseguendo un'opera
 ### <a name="post-triggers"></a>Post-trigger
 
 Analogamente ai pre-trigger, anche i post-trigger sono associati a un'operazione su un elemento di Azure Cosmos DB e non richiedono parametri di input. Vengono eseguiti *dopo* il completamento dell'operazione e hanno accesso al messaggio di risposta inviato al client. Per gli esempi, vedere [Come scrivere i trigger](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+
+> [!NOTE]
+> Registrato i trigger non vengono eseguiti automaticamente quando le operazioni corrispondenti (creazione / eliminazione / sostituire / aggiornamento) si verificano. Dovranno essere chiamato in modo esplicito durante l'esecuzione di queste operazioni. Per altre informazioni, vedere [sull'esecuzione di trigger](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) articolo.
 
 ## <a id="udfs"></a>Funzioni definite dall'utente
 

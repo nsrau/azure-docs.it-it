@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116345"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180528"
 ---
 >[!NOTE]
 >Per le risorse che non sono corretti, aprire un ticket di supporto per richiedere un aumento di quote. Non creare altri account di servizi multimediali di Azure nel tentativo di ottenere limiti più elevati.
@@ -18,7 +18,7 @@ ms.locfileid: "66116345"
 | --- | --- | 
 | Account di servizi multimediali di Azure in una singola sottoscrizione | 25 (fisso) |
 | Media reserved unit per ogni account di servizi multimediali |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
-| Job per ogni account di Servizi multimediali | 50\.000<sup>2</sup> |
+| Job per ogni account di Servizi multimediali | 50.000<sup>2</sup> |
 | Attività concatenate per processo | 30 (fisso) |
 | Asset per ogni account di servizi multimediali | 1\.000.000|
 | Asset per attività | 50 |

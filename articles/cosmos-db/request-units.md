@@ -4,14 +4,14 @@ description: Informazioni su come specificare e stimare i requisiti relativi all
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: 9615aebd345c957c8e401581ff94735f39ba73c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12f91676ac50511bf3d2d33f7fed2029e152dc98
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953530"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164997"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 
@@ -75,3 +75,4 @@ Per stimare il numero di UR al secondo di cui effettuare il provisioning, consid
 * Informazioni su come [ottimizzare i costi di velocità effettiva con provisioning in Azure Cosmos DB](optimize-cost-throughput.md).
 * Informazioni su come [ottimizzare le letture e scritture dei costi in Azure Cosmos DB](optimize-cost-reads-writes.md).
 * Informazioni su come [ottimizzare il costo di query in Azure Cosmos DB](optimize-cost-queries.md).
+* Informazioni su come [usare le metriche per velocità effettiva di monitoraggio](use-metrics.md).

@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce41ae73a0c55a2b5c27cbdce4d4c16853acf59e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574117"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273198"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrazione del controllo del codice sorgente in Automazione di Azure
 
-Controllo del codice sorgente consente di mantenere i runbook in automazione di account vengono aggiornati con gli script nel repository del controllo codice sorgente GitHub o archivi di Azure. Il controllo del codice sorgente fornisce un ambiente in cui è possibile collaborare con il team, tenere traccia delle modifiche ed eseguire il rollback a versioni precedenti dei runbook. Il controllo del codice sorgente, ad esempio, consente di sincronizzare diversi rami nel controllo del codice sorgente per gli account di automazione di sviluppo, test o produzione. Questo rende facile alzare di livello il codice che è stato testato nell'ambiente di sviluppo a produzione di account di automazione. Integrazione del controllo codice sorgente con automazione supporta la sincronizzazione per direzione singola da repository di controllo del codice sorgente.
+Controllo del codice sorgente consente di mantenere i runbook nell'account di automazione aggiornati con gli script nel repository del controllo codice sorgente GitHub o archivi di Azure. Il controllo del codice sorgente fornisce un ambiente in cui è possibile collaborare con il team, tenere traccia delle modifiche ed eseguire il rollback a versioni precedenti dei runbook. Il controllo del codice sorgente, ad esempio, consente di sincronizzare diversi rami nel controllo del codice sorgente per gli account di automazione di sviluppo, test o produzione. Questo rende facile alzare di livello il codice che è stato testato nell'ambiente di sviluppo a produzione di account di automazione. Integrazione del controllo codice sorgente con automazione supporta la sincronizzazione per direzione singola da repository di controllo del codice sorgente.
 
 Automazione di Azure supporta tre tipi di controllo del codice sorgente:
 

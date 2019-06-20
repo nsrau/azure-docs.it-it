@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e1fc7809ad94d589483b87c638d027a39098164e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a67cd2f82eb069555bda68e4cb04a6634e3b31d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209547"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164346"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Guida introduttiva - configurare un ambiente cloud privato
 
@@ -33,7 +33,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 5. Nel portale CloudSimple, specificare un nome per il Cloud privato
 6. Selezionare il **posizione** della Cloud privata
-7. Selezionare il **tipo di nodo** è stata acquistata in Azure.  È possibile scegliere il [opzione CS28 o CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). L'opzione di quest'ultima include la capacità di calcolo e memoria massima.
+7. Selezionare il **tipo di nodo** è stato effettuato il provisioning in Azure.  È possibile scegliere il [opzione CS28 o CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). L'opzione di quest'ultima include la capacità di calcolo e memoria massima.
 8. Specificare il **conteggio dei nodi**.  Per creare un Cloud privato sono necessari nodi di almeno tre
 
     ![Creazione di Cloud privato - le informazioni di base](media/create-private-cloud-basic-info.png)

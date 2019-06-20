@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: dc07b4eea553e6cb3d9b522826e860ddbfbc1513
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3ab53466cae5bd39d85f8d846c8e59ad94f1f2d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577046"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165752"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Panoramica del cloud privato CloudSimple
 
@@ -63,7 +63,7 @@ Gli utenti utilizzano lo stack di tramite native strumenti VMware, tra cui:
 
 È possibile distribuire i nodi dedicati nella località di Azure. È quindi possibile gestirli con Azure e CloudSimple. Un cloud privato è costituito da uno o più cluster vSphere e ogni cluster contiene 3 a 16 nodi.
 
-È possibile creare un cloud privato tramite acquistato i nodi:
+È possibile creare un cloud privato utilizzando nodi sottoposte a provisioning:
 
 * Nodi con pagamento a consumo
 * Nodi riservati e prenotati

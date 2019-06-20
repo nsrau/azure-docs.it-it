@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 2da5e4653c345464ef11a2ceac89fc6650c69e5d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122893"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203751"
 ---
 1. Copiare il file di installazione nel server e quindi aprire il programma di installazione.
 2. In **Opzioni di installazione** selezionare **Install Mobility Service** (Installa il servizio Mobility).

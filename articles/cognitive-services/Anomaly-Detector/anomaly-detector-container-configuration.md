@@ -6,15 +6,15 @@ services: cognitive-services
 author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
-ms.topic: article
-ms.date: 06/10/2019
+ms.topic: conceptual
+ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 8e6f7e33bf8bae3bc76074093167650813d76a8b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6b5bcefb2a8df136d37dad062fbca651c312dc4
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073341"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275509"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurare i contenitori di rilevatore di anomalie
 
@@ -24,7 +24,7 @@ Il **rilevatore di anomalie** ambiente di runtime contenitore viene configurato 
 
 Questo contenitore ha le impostazioni di configurazione seguenti:
 
-|Obbligatorio|Impostazione|Scopo|
+|Obbligatoria|Impostazione|Scopo|
 |--|--|--|
 |Yes|[ApiKey](#apikey-configuration-setting)|Si usa per rilevare le informazioni di fatturazione.|
 |No|[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
@@ -58,7 +58,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 * Portale di Azure: **Rilevatore di anomalie** panoramica, con l'etichetta `Endpoint`
 
-|Obbligatorio| Name | Tipo di dati | Descrizione |
+|Obbligatoria| Name | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
 |Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
 

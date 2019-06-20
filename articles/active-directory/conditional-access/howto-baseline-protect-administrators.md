@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f8b7f281ad5ed8424110696544ffdb49e50ce59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2ffd2949c2540265539a743cb41d8070d7ba2a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112432"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204624"
 ---
 # <a name="baseline-policy-require-mfa-for-admins"></a>Criterio di base: Richiedere l'autenticazione a più fattori per gli amministratori
 
@@ -71,6 +71,9 @@ Per abilitare questo criterio e proteggere gli amministratori:
 1. Impostare **abilitare i criteri** al **Usa i criteri immediatamente**.
 1. Aggiungere eventuali esclusioni utente facendo clic su **gli utenti** > **selezionare gli utenti esclusi** e scegliendo gli utenti che devono essere escluse. Fare clic su **selezionate** quindi **eseguita**.
 1. Fare clic su **salvare**.
+
+> [!WARNING]
+> Si è verificato percorribile **abilita automaticamente i criteri in futuro** quando questo criterio è stato in fase di anteprima. È stata rimossa questa opzione per ridurre al minimo impatto sugli utenti improvvisi. Se si seleziona questa opzione quando era disponibile **non usare i criteri** viene automaticamente dopo aver selezionato. Se si vuole usare questo criterio di base, vedere i passaggi precedenti per abilitarlo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

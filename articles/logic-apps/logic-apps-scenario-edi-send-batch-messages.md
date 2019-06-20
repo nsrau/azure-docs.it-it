@@ -9,11 +9,11 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60428027"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64715794"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Inviare i messaggi EDI in batch ai partner commerciali con le App per la logica di Azure
 
@@ -94,7 +94,7 @@ Per questo ricevitore di batch, è necessario specificare la modalità di batch,
 
    4. Impostare queste proprietà per l'azione di codificatore batch:
 
-      | Proprietà | DESCRIZIONE |
+      | Proprietà | Descrizione |
       |----------|-------------|
       | **Nome del contratto X12** | Aprire l'elenco e selezionare il contratto esistente. <p>Se l'elenco è vuoto, verificare di aver [collegato l'app per la logica all'account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) che dispone del contratto desiderato. | 
       | **BatchName** | Fare clic all'interno di questa casella e quando viene visualizzato l'elenco di contenuto dinamico, selezionare il token **Nome batch**. | 
@@ -124,7 +124,7 @@ Per assicurarsi che il ricevitore di batch funzioni nel modo previsto, è possib
 
 3. Impostare le proprietà per l'azione HTTP:
 
-   | Proprietà | DESCRIZIONE | 
+   | Proprietà | Descrizione | 
    |----------|-------------|
    | **Metodo** | Selezionare **POST** dall'elenco. | 
    | **Uri** | Generare un URI per il contenitore delle richieste e immetterlo. | 
@@ -174,7 +174,7 @@ A questo punto creare una o più app per la logica che inviano messaggi all’ap
 
 4. Impostare le proprietà del mittente del batch.
 
-   | Proprietà | DESCRIZIONE | 
+   | Proprietà | Descrizione | 
    |----------|-------------| 
    | **Nome batch** | Il nome del batch definito dall'app per la logica ricevente, che in questo esempio è "TestBatch" <p>**Importante**: il nome del batch viene convalidato in fase di esecuzione e deve corrispondere al nome specificato dall'app per la logica ricevente. Se si modifica il nome del batch, l'esecuzione del mittente del batch ha esito negativo. | 
    | **Contenuto del messaggio** | Il contenuto del messaggio da inviare, ovvero il token **corpo** in questo esempio | 

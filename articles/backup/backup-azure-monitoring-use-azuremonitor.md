@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 1e85b633024b5a3e85874707ae9a1f068e7a328d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ac5e77cdda96413db0452fcb13fc48905479419
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808514"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67136277"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Monitoraggio su larga scala tramite Monitoraggio di Azure
 
@@ -29,7 +29,7 @@ Il [predefiniti di monitoraggio e avviso articolo](backup-azure-monitoring-built
 ## <a name="using-log-analytics-workspace"></a>Uso dell'area di lavoro di Log Analitica
 
 > [!NOTE]
-> I dati da backup di macchine Virtuali di Azure, agenti MAB, System Center DPM (SC DPM), i backup di SQL in macchine virtuali di Azure sono viene eseguito il pump all'area di lavoro di Log Analitica tramite le impostazioni di diagnostica. Supporto per i backup di condivisioni File di Azure, Server di Backup di Microsoft Azure (MABS) sarà presto disponibile.
+> I dati da backup di macchine Virtuali di Azure, agenti MAB, System Center DPM (SC DPM), i backup di SQL in macchine virtuali di Azure e i backup di condivisioni File di Azure sono viene eseguito il pump all'area di lavoro di Log Analitica tramite le impostazioni di diagnostica. Supporto per Server di Backup di Microsoft Azure (MABS) sarà presto disponibile.
 
 Vengono usate le funzionalità di due servizi di Azure - **le impostazioni di diagnostica** (per inviare dati da più risorse di Azure Resource Manager a un'altra risorsa) e **Log Analitica** (LA - generare avvisi personalizzati in cui è possibile definire altri canali di notifica con gruppi di azioni) per il monitoraggio su larga scala. Le seguenti sezioni dettagliate su come usare LA per monitorare i Backup di Azure su larga scala.
 
@@ -109,7 +109,7 @@ L'aspetto principale è la condizione di attivazione dell'avviso. Facendo clic s
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-Modificare la query Kusto, se necessario, selezionare la soglia a destra (che deciderà se verrà generato l'avviso), il periodo di corretto (intervallo di tempo per cui viene eseguita la query) e la relativa frequenza. Ad esempio: Se la soglia è superiore a 0, il periodo è 5 minuti e la frequenza è 5 minuti, quindi la regola viene convertita come "Eseguire la query ogni 5 minuti negli ultimi 5 minuti e se il numero di risultati è maggiore di 0, invia una notifica tramite il gruppo di azione selezionato"
+Modificare la query Kusto, se necessario, selezionare la soglia a destra (che deciderà se verrà generato l'avviso), il periodo di corretto (intervallo di tempo per cui viene eseguita la query) e la relativa frequenza. Ad esempio:  Se la soglia è superiore a 0, il periodo è 5 minuti e la frequenza è 5 minuti, quindi la regola viene convertita come "Eseguire la query ogni 5 minuti negli ultimi 5 minuti e se il numero di risultati è maggiore di 0, invia una notifica tramite il gruppo di azione selezionato"
 
 #### <a name="action-group-integration"></a>Integrazione di gruppo di azione
 
