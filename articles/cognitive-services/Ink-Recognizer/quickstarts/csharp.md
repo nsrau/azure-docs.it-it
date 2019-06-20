@@ -1,30 +1,30 @@
 ---
-title: "Avvio rapido: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna eC#"
-description: Usare l'API di riconoscimento input penna per avviare tratti input penna.
+title: "Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e C#"
+description: Usare l'API Riconoscimento input penna per avviare il riconoscimento di tratti input penna.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 9bb9c23cc1f807cae1d0d22f1652e8f4408f1f91
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: d661d6eca6e4916946944c48cc2e5411aeaf8f14
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518680"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060985"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Avvio rapido: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna eC#
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e C#
 
-Usare questa Guida introduttiva per iniziare a inviare i tratti input penna per l'API di riconoscimento input penna. In questo C# applicazione invia una richiesta di API che contiene i dati tratti input penna in formato JSON e ottiene la risposta.
+Usare questo avvio rapido per iniziare a inviare tratti input penna all'API Riconoscimento input penna. Questa applicazione C# invia una richiesta API contenenti i dati del tratto input penna in formato JSON e riceve la risposta.
 
 L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
-In genere è necessario chiamare l'API da un'app di input penna digitale. Questa Guida introduttiva invia i dati di tratti input penna per il seguente codice di esempio scritto a mano da un file JSON.
+In genere è necessario chiamare l'API da un'app di input penna. Questo avvio rapido invia i dati del tratto input penna per il seguente esempio scritto a mano da un file JSON.
 
-![un'immagine di testo scritto a mano](../media/handwriting-sample.jpg)
+![immagine di testo scritto a mano](../media/handwriting-sample.jpg)
 
 Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
 
@@ -32,20 +32,20 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
 
 - Qualsiasi edizione di [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
-    - Per installare newtonsoft. JSON come pacchetto NuGet in Visual studio:
-        1. Fare clic con il pulsante destro sul **Solution Manager**
+    - Per installare Newtonsoft.Json come pacchetto NuGet in Visual Studio:
+        1. Fare clic con il pulsante destro del mouse su **Solution Manager**
         2. Scegliere **Gestisci pacchetti NuGet...**
         3. Cercare `Newtonsoft.Json` e installare il pacchetto
-- Se si usa Linux/MacOS, questa applicazione può essere eseguito usando [Mono](https://www.mono-project.com/).
+- Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 
-- Dati tratti input penna di esempio per questa Guida introduttiva sono disponibili nella [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
+- I dati di esempio del tratto input penna per questo avvio rapido sono disponibili in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
 
 ## <a name="create-a-new-application"></a>Creare una nuova applicazione
 
-1. In Visual Studio, creare una nuova soluzione di console e aggiungere i pacchetti seguenti. 
+1. In Visual Studio creare una nuova soluzione console e aggiungere i pacchetti seguenti. 
 
     ```csharp
     using System;
@@ -59,7 +59,7 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
     using Newtonsoft.Json.Linq;
     ```
 
-2. Creare variabili per la chiave di sottoscrizione e l'endpoint. Di seguito è l'URI è possibile usare per il riconoscimento di input penna. Questo verrà aggiunto all'endpoint di servizio in un secondo momento per creare l'API URl della richiesta.
+2. Creare variabili per la chiave di sottoscrizione e per l'endpoint. Di seguito è riportato l'URI che è possibile usare per il riconoscimento input penna. Questo URI verrà aggiunto all'endpoint di servizio in un secondo momento per creare l'URI della richiesta API.
 
     ```csharp
     // Replace the subscriptionKey string with your valid subscription key.
@@ -73,13 +73,13 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
     const string inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 
-## <a name="create-a-function-to-send-requests"></a>Creare una funzione per l'invio di richieste
+## <a name="create-a-function-to-send-requests"></a>Creare una funzione per inviare richieste
 
-1. Creare una nuova funzione async chiamata `Request` che accetta le variabili create in precedenza.
+1. Creare una nuova funzione asincrona denominata `Request` che accetta le variabili create in precedenza.
 
-2. Impostare il protocollo di sicurezza del client e informazioni di intestazione usando un `HttpClient` oggetto. Assicurarsi di aggiungere la chiave di sottoscrizione per il `Ocp-Apim-Subscription-Key` intestazione. Creare quindi un `StringContent` oggetto per la richiesta.
+2. Impostare il protocollo di sicurezza del client e le informazioni di intestazione con l'oggetto `HttpClient`. Assicurarsi di aggiungere la chiave di sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key`. Creare quindi un oggetto `StringContent` per la richiesta.
  
-3. Inviare la richiesta con `PutAsync()`. Se la richiesta ha esito positivo, restituisce la risposta.  
+3. Inviare la richiesta con `PutAsync()`. Se la richiesta ha esito positivo, viene restituita la risposta.  
     
     ```csharp
     static async Task<string> Request(string apiAddress, string endpoint, string subscriptionKey, string requestData){
@@ -103,9 +103,9 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
 
 ## <a name="send-an-ink-recognition-request"></a>Inviare una richiesta di riconoscimento input penna
 
-1. Creare una nuova funzione denominata `recognizeInk()`. Costruire la richiesta e inviarlo tramite una chiamata di `Request()` canonica con l'endpoint, la chiave di sottoscrizione, l'URL per l'API e i dati del tratto input penna.
+1. Creare una nuova funzione denominata `recognizeInk()`. Creare la richiesta e inviarla chiamando la funzione `Request()` con l'endpoint, la chiave di sottoscrizione, l'URL per l'API e i dati del tratto input penna.
 
-2. Deserializzare l'oggetto JSON e scriverlo nella console. 
+2. Deserializzare l'oggetto JSON e visualizzarlo nella console. 
     
     ```csharp
     static void recognizeInk(string requestData){
@@ -122,9 +122,9 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
     }
     ```
 
-## <a name="load-your-digital-ink-data"></a>Caricare i dati di input penna digitale
+## <a name="load-your-digital-ink-data"></a>Caricare i dati dell'input penna
 
-Creare una funzione denominata `LoadJson()` per caricare il file JSON dei dati di input penna. Usare un `StreamReader` e `JsonTextReader` per creare un `JObject` e restituirlo.
+Creare una funzione denominata `LoadJson()` per caricare il file JSON con i dati dell'input penna. Usare `StreamReader` e `JsonTextReader` per creare `JObject` e restituirlo.
     
 ```csharp
 public static JObject LoadJson(string fileLocation){
@@ -139,11 +139,11 @@ public static JObject LoadJson(string fileLocation){
 }
 ```
 
-## <a name="send-the-api-request"></a>Inviare la richiesta dell'API
+## <a name="send-the-api-request"></a>Inviare la richiesta API
 
-1. Nel metodo main dell'applicazione, caricare i dati JSON con la funzione creata in precedenza. 
+1. Nel metodo main dell'applicazione caricare i dati JSON con la funzione creata in precedenza. 
 
-2. Chiamare il `recognizeInk()` funzione creata in precedenza. Usare `System.Console.ReadKey()` tenere aperta la finestra della console dopo l'esecuzione dell'applicazione.
+2. Chiamare la funzione `recognizeInk()` creata in precedenza. Usare `System.Console.ReadKey()` per mantenere aperta la finestra della console dopo l'esecuzione dell'applicazione.
     
     ```csharp
     static void Main(string[] args){
@@ -158,7 +158,7 @@ public static JObject LoadJson(string fileLocation){
 
 ## <a name="run-the-application-and-view-the-response"></a>Eseguire l'applicazione e visualizzare la risposta
 
-Eseguire l'applicazione. Una risposta con esito positivo viene restituita in formato JSON. È anche possibile trovare la risposta JSON sul [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json).
+Eseguire l'applicazione. Viene restituita una risposta con esito positivo in formato JSON. È anche possibile trovare la risposta JSON in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

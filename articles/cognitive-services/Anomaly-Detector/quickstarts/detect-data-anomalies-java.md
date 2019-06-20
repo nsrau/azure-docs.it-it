@@ -1,41 +1,41 @@
 ---
-title: "Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST di rilevatore di anomalie e Java | Microsoft Docs"
-description: Usare l'API rilevatore di anomalie per rilevare le anomalie nella serie di dati come un batch o nel flusso di dati.
+title: "Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie e Java | Microsoft Docs"
+description: Usare l'API Rilevamento anomalie per rilevare le anomalie nelle serie di dati sia come batch che nei dati in streaming.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 1b52e578afb505c87c4084684e345b7aff6a4362
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 04ace16559a6f5b747bc735aa89265d2962a32b3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922417"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073233"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST di rilevatore di anomalie e Java
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie e Java
 
-Usare questa Guida introduttiva per iniziare a usare due modalità di rilevamento dell'API di rilevamento delle anomalie per rilevare le anomalie nei dati delle serie temporali. L'applicazione Java invia due richieste di API che contiene dati delle serie temporali in formato JSON e ottiene le risposte.
+Usare questo avvio rapido per iniziare a usare le due modalità di rilevamento dell'API Rilevamento anomalie per rilevare le anomalie nei dati delle serie temporali. Questa applicazione Java invia due richieste API contenenti i dati delle serie temporali in formato JSON e riceve le risposte.
 
-| Richiesta dell'API                                        | Output dell'applicazione                                                                                                                         |
+| Richiesta API                                        | Output dell'applicazione                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Rilevare le anomalie in batch                        | La risposta JSON che contiene lo stato delle anomalie (e altri dati) per ogni punto dati in dati della serie temporale e le posizioni di tutte le anomalie rilevate. |
-| Rilevare lo stato delle anomalie del punto dati più recente | La risposta JSON che contiene lo stato delle anomalie (e altri dati) per il punto dati più recente nei dati di serie temporali.                                                                                                                                         |
+| Rilevare anomalie come batch                        | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per ogni punto dati nei dati di serie temporali e le posizioni delle anomalie rilevate. |
+| Rilevare lo stato delle anomalie del punto dati più recente | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per il punto dati più recente nei dati di serie temporali.                                                                                                                                         |
 
  L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Il [Java&trade; sviluppo Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) o versione successiva.
+- [Java&trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) versione successiva.
 
-- Queste librerie di importazione dal Repository Maven
-    - [JSON in Java](https://mvnrepository.com/artifact/org.json/json) pacchetto
-    - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) pacchetto
+- Importare queste librerie dal repository Maven
+    - Pacchetto [JSON in Java](https://mvnrepository.com/artifact/org.json/json)
+    - Pacchetto [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
 
-- Fa riferimento un JSON file contenitore serie temporale. I dati di esempio per questa Guida introduttiva sono disponibili nella [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+- File JSON contenente i punti dati delle serie temporali. I dati di esempio per questo avvio rapido sono disponibili in [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
@@ -60,12 +60,12 @@ Usare questa Guida introduttiva per iniziare a usare due modalità di rilevament
     import java.nio.file.Paths;
     ```
 
-2. Creare variabili per la chiave di sottoscrizione e l'endpoint. Di seguito sono riportati gli URI è possibile usare per il rilevamento anomalie. Queste verranno aggiunte all'endpoint di servizio in un secondo momento per creare l'API URL delle richieste.
+2. Creare variabili per la chiave di sottoscrizione e per l'endpoint. Di seguito sono riportati gli URI che è possibile usare per il rilevamento anomalie. Questi verranno aggiunti all'endpoint di servizio in un secondo momento per creare gli URL delle richieste API.
 
     |Metodo di rilevamento  |URI  |
     |---------|---------|
-    |Rilevamento di batch    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
-    |Rilevamento sul punto dati più recente     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    |Rilevamento in batch    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
+    |Rilevamento nel punto dati più recente     | `/anomalydetector/v1.0/timeseries/last/detect`        |
 
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -85,19 +85,19 @@ Usare questa Guida introduttiva per iniziare a usare due modalità di rilevament
     String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
     ```
 
-## <a name="create-a-function-to-send-requests"></a>Creare una funzione per l'invio di richieste
+## <a name="create-a-function-to-send-requests"></a>Creare una funzione per inviare richieste
 
 1. Creare una nuova funzione denominata `sendRequest()` che accetta le variabili create in precedenza. Quindi, eseguire i passaggi seguenti.
 
-2. Creare un `CloseableHttpClient` oggetto che può inviare richieste all'API. Invia la richiesta a un `HttpPost` oggetto richiesta combinando l'endpoint e un URL di rilevamento delle anomalie.
+2. Creare un oggetto `CloseableHttpClient` che può inviare richieste all'API. Inviare la richiesta a un oggetto richiesta `HttpPost` combinando l'endpoint e un URL di Rilevamento anomalie.
 
-3. Usare la richiesta `setHeader()` funzione per impostare il `Content-Type` intestazione `application/json`e aggiungere la chiave di sottoscrizione per il `Ocp-Apim-Subscription-Key` intestazione.
+3. Usare la funzione `setHeader()` della richiesta per impostare l'intestazione `Content-Type` su `application/json` e aggiungere la chiave di sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key`.
 
-4. Usare la richiesta `setEntity()` funzione per i dati da inviare.
+4. Usare la funzione `setEntity()` della richiesta per i dati da inviare.
 
-5. Usare il client `execute()` funzione per inviare la richiesta e salvarlo in un `CloseableHttpResponse` oggetto.
+5. Usare la funzione `execute()` del client per inviare la richiesta e salvarla in un oggetto `CloseableHttpResponse`.
 
-6. Creare un `HttpEntity` oggetto usato per archiviare il contenuto della risposta. Ottenere il contenuto con `getEntity()`. Se la risposta non è vuota, restituirlo.
+6. Creare un oggetto `HttpEntity` in cui archiviare il contenuto della risposta. Ottenere il contenuto con `getEntity()`. Viene restituita la risposta se non è vuota.
 
 ```java
 static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
@@ -123,13 +123,13 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 }
 ```
 
-## <a name="detect-anomalies-as-a-batch"></a>Rilevare le anomalie in batch
+## <a name="detect-anomalies-as-a-batch"></a>Rilevare anomalie come batch
 
-1. Creare un metodo denominato `detectAnomaliesBatch()` per rilevare le anomalie in tutto i dati come batch. Chiamare il `sendRequest()` metodo creato in precedenza con l'endpoint, url, la chiave di sottoscrizione e i dati json. Ottenere il risultato ed eseguire la stampa nella console.
+1. Creare un metodo denominato `detectAnomaliesBatch()` per rilevare le anomalie in tutti i dati come batch. Chiamare il metodo `sendRequest()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati json. Ottenere il risultato e visualizzarlo nella console.
 
-2. Se la risposta contiene `code` campo, il codice di errore e il messaggio di errore di stampa.
+2. Se la risposta contiene il campo `code`, viene visualizzato il codice di errore e il messaggio di errore.
 
-3. In caso contrario, è possibile trovare le posizioni delle anomalie nel set di dati. La risposta `isAnomaly` campo contiene un valore booleano relative al fatto che un punto dati specificato è un'anomalia. Ottenere la matrice JSON ed eseguire l'iterazione attraverso di esso, stampa l'indice di qualsiasi `true` valori. Questi valori corrispondono all'indice di punti dati anomali, se sono stati trovati.
+3. In caso contrario, trovare le posizioni delle anomalie nel set di dati. Il campo `isAnomaly` della risposta contiene un valore booleano che indica se il punto dati specificato è un'anomalia. Ottenere la matrice JSON e scorrerla, stampando l'indice dei valori `true`. Questi valori corrispondono all'indice dei punti dati anomali, se presenti.
 
 ```java
 static void detectAnomaliesBatch(String requestData) {
@@ -155,7 +155,7 @@ static void detectAnomaliesBatch(String requestData) {
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Rilevare lo stato delle anomalie del punto dati più recente
 
-* Creare un metodo denominato `detectAnomaliesLatest()` per rilevare lo stato di anomalie dell'ultimo punto dati nel set di dati. Chiamare il `sendRequest()` metodo creato in precedenza con l'endpoint, url, la chiave di sottoscrizione e i dati json. Ottenere il risultato ed eseguire la stampa nella console.
+* Creare un metodo denominato `detectAnomaliesLatest()` per rilevare lo stato delle anomalie del punto dati più recente nel set di dati. Chiamare il metodo `sendRequest()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati json. Ottenere il risultato e visualizzarlo nella console.
 
 ```java
 static void detectAnomaliesLatest(String requestData) {
@@ -169,7 +169,7 @@ static void detectAnomaliesLatest(String requestData) {
 
 1. Nel metodo main dell'applicazione, leggere il file JSON che contiene i dati che verranno aggiunti alle richieste.
 
-2. Chiamare le funzioni di rilevamento due anomalie create in precedenza.
+2. Chiamare le due funzioni di rilevamento anomalie create in precedenza.
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -181,9 +181,9 @@ public static void main(String[] args) throws Exception {
 
 ### <a name="example-response"></a>Risposta di esempio
 
-Una risposta con esito positivo viene restituita in formato JSON. Fare clic sui collegamenti seguenti per visualizzare la risposta JSON in GitHub:
-* [Risposta di rilevamento di batch di esempio](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
-* [Risposta di esempio più recente punto di rilevamento](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+Viene restituita una risposta con esito positivo in formato JSON. Fare clic sui collegamenti seguenti per visualizzare la risposta JSON in GitHub:
+* [Esempio di risposta di rilevamento in batch](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
+* [Esempio di risposta di rilevamento nel punto dati più recente](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
