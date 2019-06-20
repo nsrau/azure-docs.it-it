@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161195"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180606"
 ---
 Se si verificano problemi del dispositivo, è possibile creare un pacchetto di supporto dai registri di sistema. Il supporto tecnico Microsoft Usa questo pacchetto per risolvere i problemi. Seguire questi passaggi per creare un pacchetto di supporto:
 

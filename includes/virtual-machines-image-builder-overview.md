@@ -6,11 +6,11 @@ ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111449"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180129"
 ---
 Le immagini standardizzate macchina virtuale (VM) consentono alle organizzazioni di eseguire la migrazione al cloud e garantire la coerenza nelle distribuzioni. Le immagini includono in genere le impostazioni predefinite di sicurezza e la configurazione e software necessari. La configurazione di pipeline di propria creazione dell'immagine richiede tempo, l'infrastruttura e il programma di installazione, ma con Generatore di immagini di macchina virtuale di Azure, è sufficiente fornire una semplice configurazione che descrivono l'immagine, inviarlo al servizio e l'immagine viene compilata e distribuita.
  
@@ -33,7 +33,7 @@ Per l'anteprima, queste funzionalità sono supportate:
 - Creazione di immagini in formato VHD.
  
 
-## <a name="regions"></a>Regioni
+## <a name="regions"></a>Regions
 Il servizio di generatore di immagini di Azure sarà disponibile in anteprima nelle aree seguenti. Le immagini possono essere distribuite di fuori di queste aree.
 - Stati Uniti orientali
 - Stati Uniti orientali 2

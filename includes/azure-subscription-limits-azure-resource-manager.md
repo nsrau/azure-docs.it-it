@@ -9,15 +9,15 @@ ms.date: 04/22/2019
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146233"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180506"
 ---
 | Resource | Limite predefinito | Limite massimo |
 | --- | --- | --- |
-| VM per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |25\.000<sup>1</sup> per ogni area. |25\.000 per ogni area. |
+| VM per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |25.000<sup>1</sup> per ogni area. |25.000 per ogni area. |
 | Numero totale di core della VM per ogni [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per ogni area. | Contattare il supporto tecnico. |
 | Macchina virtuale per ogni serie, ad esempio Dv2 e F, core per ogni [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per ogni area. | Contattare il supporto tecnico. |
 | [Ai coamministratori](../articles/billing-add-change-azure-subscription-administrator.md) per ogni sottoscrizione |Senza limiti. |Senza limiti. |

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: c79727ae33697a8e64543f39bbd72d65c32cd134
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66139811"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180642"
 ---
 > [!div class="op_single_selector"]
 > * [Android](../articles/app-service-mobile/app-service-mobile-android-get-started-offline-data.md)

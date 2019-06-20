@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 26a5876971749a1a63447ef813219dad8485781c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd1416befb74a7299136ea497eccc8a06b7f0f6a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160171"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164856"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Limiti di quota di CloudSimple nodo
 
-Quattro nodi è la quantità predefinita disponibile per l'acquisto, quando la sottoscrizione è abilitata per il servizio CloudSimple.  È possibile acquistare eventuali [tipo di nodo](cloudsimple-node.md) dal portale di Azure.  Per creare un Cloud privato sono necessari almeno tre nodi dello stesso SKU.  Se hai acquistato i nodi, si può vedere un errore quando si tenta di acquisto nodi aggiuntivi.
+Quattro nodi è la quantità predefinita disponibile per il provisioning, quando la sottoscrizione è abilitata per il servizio CloudSimple.  È possibile eseguire il provisioning di qualsiasi [tipo di nodo](cloudsimple-node.md) dal portale di Azure.  Per creare un Cloud privato sono necessari almeno tre nodi dello stesso SKU.  Se è stato effettuato il provisioning di nodi, si verifichi un errore quando si prova a effettuare il provisioning di nodi aggiuntivi.
 
 ## <a name="quota-increase"></a>Aumento della quota
 
@@ -40,5 +40,5 @@ I dettagli del ticket di supporto, specificare il numero necessario di nodi e al
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Acquisto nodi](create-nodes.md)
+* [Provisioning nodi](create-nodes.md)
 * [Panoramica di nodi CloudSimple](cloudsimple-node.md)

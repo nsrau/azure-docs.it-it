@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: aebb82690a7a49aba071ed64349d37d516208cca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67125631"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180608"
 ---
 Per reimpostare il dispositivo, è necessario cancellare in modo sicuro tutti i dati sul disco di dati e il disco di avvio del dispositivo. 
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.openlocfilehash: 73c837897f4a104fabb4143d4b49fa3fbc258bb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0042b0bd8c6ed9e9d253c44151dcf0588c742b48
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305022"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137851"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gestire argomenti e pubblicare eventi con Domini eventi
 
@@ -194,7 +194,7 @@ Usare quindi il metodo preferito per effettuare una richiesta HTTP POST per la p
 
 ## <a name="search-lists-of-topics-or-subscriptions"></a>Elenchi di ricerca di argomenti o sottoscrizioni
 
-Per poter effettuare la ricerca e la gestione di un numero elevato di argomenti o sottoscrizioni, le API della griglia di eventi supportano elenco una paginazione.
+Per poter effettuare la ricerca e la gestione di un numero elevato di argomenti o sottoscrizioni, le API della griglia di eventi supportano listato e la paginazione.
 
 ### <a name="using-cli"></a>Uso dell'interfaccia della riga di comando
 

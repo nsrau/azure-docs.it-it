@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563ec5969a77dd01506270c3e864e00639a56eb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6515f60fb67e52a7924afec2effd0c2001935e5d
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110713"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190248"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Che cos'è un Token di aggiornamento primario?
 
@@ -63,6 +63,9 @@ La PRT viene generata durante l'autenticazione dell'utente in un dispositivo Win
    * Aggiunta di un account dal **le impostazioni** > **account** > **accesso azienda o dell'istituto di istruzione** > **Connect**
 
 In questi scenari, il plug-in Azure AD WAM è l'autorità principale per la PRT dall'accesso di Windows non si verifica con questo account di Azure AD.
+
+> [!NOTE]
+> provider di identità di terze parti 3rd devono supportare il protocollo WS-Trust per consentire l'emissione di PRT nei dispositivi Windows 10. Senza WS-Trust, PRT non possono essere inviate per gli utenti in Hybrid Azure AD unita in join o in Azure AD i dispositivi aggiunti
 
 ## <a name="what-is-the-lifetime-of-a-prt"></a>Che cos'è la durata di un PRT?
 

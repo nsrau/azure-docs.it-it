@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: b8585b62b0728d1ba6e010e42b44840903c46833
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146924"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180615"
 ---
 ### <a name="azure-storage-linked-service"></a>Servizio collegato Archiviazione di Azure
 Il **servizio collegato ad Archiviazione di Azure** consente di collegare un account di Archiviazione di Azure a una data factory di Azure tramite la **chiave dell'account**, che fornisce alla data factory l'accesso globale ad Archiviazione di Azure. La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato Archiviazione di Azure.

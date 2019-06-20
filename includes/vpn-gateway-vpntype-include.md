@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b3907882df09bfae1d6453fbffbd3e7562554f7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66159304"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180029"
 ---
 * **PolicyBased:** Nel modello di distribuzione classica le VPN PolicyBased sono state definite gateway con routing statico. Le VPN basate su criteri crittografano e reindirizzano i pacchetti tramite tunnel IPsec basati sui criteri IPsec configurati con le combinazioni di prefissi di indirizzo tra la rete locale e la rete virtuale di Azure. I criteri o selettori di traffico vengono in genere definiti come un elenco di accesso nella configurazione del dispositivo VPN. Il valore per una VPN basata su criteri è *PolicyBased*. Quando si usa una VPN PolicyBased, tenere presenti le limitazioni seguenti:
   

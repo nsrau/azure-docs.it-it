@@ -8,47 +8,47 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0d890553ee145ca6aafed5a34d158c6a34d9af36
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3eff61408cb190396987ace6dee21182cff4f25c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66358169"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165179"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solution-by-cloudsimple"></a>Concetti chiave per l'amministrazione di Azure VMware Solution by CloudSimple
 
-Amministra Azure VMware soluzione da CloudSimple richiede la comprensione dei concetti seguenti.
+Amministrazione di Azure VMware Solution by CloudSimple richiede una buona conoscenza dei concetti seguenti:
 
-* CloudSimple Service (visualizzato come soluzione di Azure VMware per CloudSimple - Service)
-* Nodo CloudSimple (visualizzato come soluzione di Azure VMware per CloudSimple - nodo)
+* Servizio CloudSimple, che viene visualizzato come soluzione di Azure VMware da CloudSimple - servizio
+* Nodo CloudSimple, che viene visualizzato come soluzione di Azure VMware da CloudSimple - nodo
 * Cloud privato CloudSimple
-* Rete del servizio
-* Macchina virtuale CloudSimple (visualizzato come soluzione di Azure VMware per CloudSimple - macchina virtuale)
+* Funzionalità servizio di rete
+* Macchina virtuale CloudSimple, che viene visualizzato come soluzione di Azure VMware da CloudSimple - macchina virtuale
 
 ## <a name="cloudsimple-service"></a>Servizio CloudSimple
 
-Il servizio CloudSimple consente di creare e gestire tutte le risorse associate alle soluzioni di VMware da CloudSimple dal portale di Azure. Creare una risorsa del servizio in ogni area in cui si prevede di usare il servizio. 
+Con il servizio CloudSimple, è possibile creare e gestire tutte le risorse associate alle soluzioni di VMware da CloudSimple dal portale di Azure. Creare una risorsa del servizio in ogni area in cui si prevede di usare il servizio.
 
-Altre informazioni sul [CloudSimple Service](cloudsimple-service.md)
+Altre informazioni sul [CloudSimple servizio](cloudsimple-service.md).
 
 ## <a name="cloudsimple-node"></a>Nodo CloudSimple
 
-Un nodo CloudSimple è un dedicato, bare metal e host di calcolo e archiviazione in cui viene distribuito l'hypervisor VMware ESXi, iperconvergente. Questo nodo viene quindi incorporato di VMware vSphere e vCenter, vSAN e piattaforme NSX. Vengono inoltre abilitati CloudSimple servizi di rete e servizi di rete perimetrale. Ogni nodo viene utilizzato come un'unità di capacità di calcolo e archiviazione che è possibile acquistare per creare [cloud privati CloudSimple](cloudsimple-private-cloud.md). Per acquistare o riservare i nodi in un'area in cui il servizio CloudSimple è disponibile.
+Un nodo CloudSimple è un host dedicato, bare metal, iperconvergente di calcolo e archiviazione in cui viene distribuito l'hypervisor VMware ESXi. Questo nodo viene quindi incorporato di VMware vSphere e vCenter, vSAN e piattaforme NSX. Vengono inoltre abilitati CloudSimple servizi di rete e servizi di rete perimetrale. Ogni nodo viene utilizzato come un'unità di capacità di calcolo e archiviazione che è possibile eseguire il provisioning per creare [cloud privati CloudSimple](cloudsimple-private-cloud.md). Per effettuare il provisioning o riservare i nodi in un'area in cui è disponibile il servizio CloudSimple.
 
 
-Altre informazioni su [CloudSimple nodi](cloudsimple-node.md)
+Altre informazioni sulle [CloudSimple nodi](cloudsimple-node.md).
 
 ## <a name="cloudsimple-private-cloud"></a>Cloud privato CloudSimple
 
-Un Cloud privato CloudSimple è un ambiente isolato di stack VMware gestito da un server vCenter nel proprio dominio di gestione. Stack VMware include gli host ESXi, vSphere, vCenter, vSAN e NSX.  Le esecuzioni dello stack su nodi (dedicato e isolato hardware bare metal) dedicati e viene utilizzato dagli utenti tramite strumenti VMware nativi che includono gestione NSX e vCenter. Nodi dedicati vengono distribuiti in località di Azure e sono gestiti da Azure. Ogni Cloud privato può essere segmentato e protette tramite i servizi, ad esempio le VLAN/subnet di rete e le tabelle del firewall.  Le connessioni per l'ambiente locale e la rete di Azure vengono create tramite VPN sicura e privata e le connessioni ExpressRoute di Azure.
+Un cloud privato CloudSimple è un ambiente isolato di stack VMware gestito da un server vCenter nel proprio dominio di gestione. Lo stack VMware include gli host ESXi, vSphere, vCenter, vSAN e NSX. Le esecuzioni dello stack su nodi (hardware bare metal dedicato e isolato) dedicati e viene utilizzato dagli utenti tramite strumenti VMware nativi che includono gestione NSX e vCenter. Nodi dedicati vengono distribuiti in località di Azure e sono gestiti da Azure. Ogni cloud privato può essere segmentato e protetti tramite servizi di rete, ad esempio le VLAN e subnet e le tabelle di firewall. Le connessioni per l'ambiente locale e la rete di Azure vengono create usando protetta, privata VPN e Azure ExpressRoute connessioni.
 
-Altre informazioni su [CloudSimple Private Cloud](cloudsimple-private-cloud.md)
+Altre informazioni sulle [cloud privato CloudSimple](cloudsimple-private-cloud.md).
 
 ## <a name="service-networking"></a>Funzionalità servizio di rete
 
-Il servizio CloudSimple fornisce una rete per ogni area in cui viene distribuito il servizio CloudSimple. La rete è un singolo spazio di indirizzi TCP Layer 3 con routing abilitato per impostazione predefinita. Tutti i cloud privati e le subnet create in questa area comunicano tra loro senza alcuna configurazione aggiuntiva. Si crea gruppi di porte distribuite in vCenter con le reti VLAN.  È possibile usare le funzionalità di rete seguenti per configurare e proteggere le risorse del carico di lavoro nel Cloud privato.
+Il servizio CloudSimple fornisce una rete per ogni area in cui viene distribuito il servizio CloudSimple. La rete è un singolo spazio di indirizzi TCP Layer 3 con routing abilitato per impostazione predefinita. Tutti i cloud privati e le subnet create in questa area comunicano tra loro senza alcuna configurazione aggiuntiva. Si crea gruppi di porte distribuite in vCenter con le reti VLAN. Per configurare e proteggere le risorse del carico di lavoro nel cloud privato, è possibile usare le funzionalità di rete seguenti:
 
-* [VLAN/subnet](cloudsimple-vlans-subnets.md)
+* [VLAN e subnet](cloudsimple-vlans-subnets.md)
 * [Tabelle di firewall](cloudsimple-firewall-tables.md)
 * [Gateway VPN](cloudsimple-vpn-gateways.md)
 * [IP pubblico](cloudsimple-public-ip-address.md)
@@ -56,7 +56,7 @@ Il servizio CloudSimple fornisce una rete per ogni area in cui viene distribuito
 
 ## <a name="cloudsimple-virtual-machine"></a>Macchina virtuale CloudSimple
 
-Il servizio CloudSimple consente di gestire le macchine virtuali VMware nel portale di Azure. Uno o più cluster o i pool di risorse dall'ambiente di vSphere possono essere associati alla sottoscrizione in cui viene creato il servizio.
+Con il servizio CloudSimple, è possibile gestire le macchine virtuali VMware nel portale di Azure. Uno o più cluster o i pool di risorse dall'ambiente di vSphere possono essere associati alla sottoscrizione in cui viene creato il servizio.
 
 Altre informazioni su:
 

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a2b92b7673ed852e203ca0926421be6ee8cf977d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24d6658733ea38c15f0673d10db3c0ff5ef51c23
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058179"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190155"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Ripristino di emergenza geografico per il bus di servizio di Azure
 
@@ -62,6 +62,17 @@ Il processo di configurazione si articola nelle fasi seguenti:
 2. Effettuare il provisioning di uno spazio dei nomi Premium ***secondario*** del bus di servizio in un'area *diversa da quella in cui è stato eseguito il provisioning dello spazio dei nomi primario*. In questo modo è possibile attivare l'isolamento dei guasti tra aree di data center diverse.
 
 3. Creare l'associazione tra lo spazio dei nomi primario e quello secondario in modo da ottenere l'***alias***.
+
+    >[!NOTE] 
+    > Se hai [eseguita la migrazione dello spazio dei nomi Service Bus di Azure Standard a Premium del Bus di servizio di Azure](service-bus-migrate-standard-premium.md), sarà necessario usare l'alias preesistente (ad esempio il Bus di servizio Standard dello spazio dei nomi stringa di connessione) per creare il ripristino di emergenza configurazione tramite il **PS/CLI** oppure **API REST**.
+    >
+    >
+    > Questo avviene perché, durante la migrazione, il nome di tipo DNS/stringa di connessione dello spazio dei nomi Standard del Bus di servizio Azure stesso diventa un alias per lo spazio dei nomi Premium del Bus di servizio di Azure.
+    >
+    > Le applicazioni client devono usare questo alias (vale a dire Standard del Bus di servizio Azure dello spazio dei nomi stringa di connessione) per connettersi allo spazio dei nomi Premium in cui l'associazione di ripristino di emergenza è stata configurata.
+    >
+    > Se si usa il portale per configurare la configurazione di ripristino di emergenza, il portale astrarrà questa avvertenza da parte dell'utente.
+
 
 4. Usare l'***alias*** ottenuto nel passaggio 3 per connettere le applicazioni client allo spazio dei nomi primario abilitato per il ripristino di emergenza geografico. Inizialmente, l'alias fa riferimento allo spazio dei nomi primario.
 

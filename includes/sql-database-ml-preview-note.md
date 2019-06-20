@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 04/10/2019
 ms.author: garye
 ms.openlocfilehash: de3cbf4411c2b10c0a5a06c4e220f3a245f5bdc3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66110232"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180228"
 ---
 > [!IMPORTANT]
 > Machine Learning Services nel database SQL di Azure è attualmente in anteprima pubblica.

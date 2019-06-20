@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 46cfb27b8bde95990d13ec4bca4e96f25cfe9dc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141215"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180662"
 ---
 Poiché lo sviluppo è ancora in corso, la versione di Android SDK installata in Android Studio potrebbe non corrispondere a quella del codice. In questa esercitazione si fa riferimento alla versione 26 di Android SDK, ovvero la più recente al momento della stesura di questo documento. Il numero di versione dell'SDK può aumentare nel corso del tempo ed è consigliabile usare la versione più recente disponibile.
 

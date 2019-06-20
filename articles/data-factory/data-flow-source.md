@@ -3,16 +3,15 @@ title: Configurare una trasformazione di origine nella funzionalità di Mapping 
 description: Informazioni su come configurare una trasformazione di origine nel flusso di dati di Mapping.
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 5b53819c1d30f6cd62c5941d4b44d70a4996daad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86e30c465a605681519565261beec75d88ccd472
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67117886"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190795"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Trasformazione di origine per il Mapping del flusso di dati 
 
@@ -124,6 +123,14 @@ Se l'origine è nel Database SQL o SQL Data Warehouse, sono disponibili opzioni 
 
 * **Query**: Immettere una query SQL per l'origine. Questa impostazione esegue l'override di qualsiasi tabella che si è scelto nel set di dati. Si noti che **Order By** clausole non sono supportate in questo caso, ma è possibile impostare un'istruzione SELECT FROM completa. È anche possibile usare funzioni di tabella definito dall'utente. **Selezionare * da udfGetData()** è una funzione definita dall'utente in SQL che restituisce una tabella. Questa query produce una tabella di origine che è possibile usare nel flusso di dati.
 * **Dimensioni batch**: Immettere le dimensioni del batch per suddividere i dati di grandi dimensioni in operazioni di lettura.
+* **Livello di isolamento**: Il valore predefinito per le origini SQL in Azure Data factory di Mapping di flusso dei dati è Read Uncommitted. È possibile modificare il livello di isolamento qui a uno dei valori seguenti:
+* Read commit
+* Read Uncommitted
+* Repeatable Read
+* Serializzabile
+* None (Ignora a livello di isolamento)
+
+![Livello di isolamento](media/data-flow/isolationlevel.png "a livello di isolamento")
 
 > [!NOTE]
 > File operazioni vengono eseguite solo quando si avvia il flusso di dati da un'esecuzione (debug di pipeline o esecuzione) della pipeline che usa l'attività di esecuzione del flusso di dati in una pipeline. Operazioni sui file *non li* eseguito in modalità di debug del flusso di dati.

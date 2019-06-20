@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 1c3996c3f40da496af0cd795d0873864667a1f19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160295"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180152"
 ---
 ## <a name="use-the-azure-portal"></a>Usare il portale di Azure
 1. Selezionare la VM di cui si vuole eseguire di nuovo la distribuzione, quindi selezionare il pulsante *Ridistribuisci* nel pannello *Impostazioni*. Potrebbe essere necessario scorrere fino alla sezione **Supporto e risoluzione dei problemi** che contiene il pulsante "Ridistribuisci", come nell'esempio seguente:

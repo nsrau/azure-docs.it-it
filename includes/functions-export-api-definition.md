@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 49ac1a7585ddf2a6500c7e9382880109c3f7f431
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66131751"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179918"
 ---
 ## <a name="export-an-api-definition"></a>Esportare una definizione API
 Si ha una definizione OpenAPI per la funzione, ottenuta in [Creare una definizione OpenAPI per una funzione](../articles/azure-functions/functions-openapi-definition.md). Il passaggio successivo di questo processo consiste nell'esportare la definizione API in modo che PowerApps e Microsoft Flow possano usarla in un'API personalizzata.

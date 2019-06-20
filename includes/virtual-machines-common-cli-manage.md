@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: beece95164f0d82b1aa7f22d56f4dce02f4bb38c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66117251"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180161"
 ---
 L'interfaccia della riga di comando di Azure consente di creare e gestire le risorse di Azure in macOS, Linux e Windows. Questo articolo illustra in modo dettagliato i comandi più comuni per la creazione e la gestione delle macchine virtuali.
 

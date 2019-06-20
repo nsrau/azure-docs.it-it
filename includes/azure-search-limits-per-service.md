@@ -9,11 +9,11 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160487"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180527"
 ---
 L'archiviazione è vincolata dallo spazio su disco o da un limite rigido al *numero massimo* di indici, documenti o altre risorse di alto livello, a seconda di quale venga raggiunto per primo. Nella tabella seguente vengono documentati i limiti relativi all'archiviazione. Per i limiti massimi per gli indici, documenti e altri oggetti, vedere [limiti per singola risorsa](../articles/search/search-limits-quotas-capacity.md#index-limits).
 

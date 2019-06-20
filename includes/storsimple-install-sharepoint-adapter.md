@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: e2d258f327ade2149adc92bdb7fb4bcc87cdd58c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155858"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180188"
 ---
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>Installare l’adattatore StorSimple per SharePoint
 1. Copiare il programma di installazione al server web front-end (WFE) configurato anche per eseguire l'applicazione web Amministrazione centrale SharePoint. 

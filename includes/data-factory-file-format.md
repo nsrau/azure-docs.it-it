@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 89d5483347f93cd3b57a02ced19b1e8b099a5ab0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66151597"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180818"
 ---
 ## <a name="specifying-formats"></a>Specifica dei formati
 Azure Data Factory supporta i tipi di formato seguenti:
@@ -23,7 +23,7 @@ Azure Data Factory supporta i tipi di formato seguenti:
 ### <a name="specifying-textformat"></a>Specifica di TextFormat
 Per analizzare i file di testo o scrivere i dati in formato testo, impostare la proprietà `format` `type` su **TextFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio di TextFormat](#textformat-example) sulla configurazione.
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile prendere in considerazione la possibilità di usare un carattere raro non stampabile che probabilmente non esiste nei dati: ad esempio, specificare "\u0001" che rappresenta Start of Heading (SOH). |È consentito un solo carattere. Il valore **predefinito** è la **virgola (",")** . <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No |
 | rowDelimiter |Il carattere usato per separare le righe in un file. |È consentito un solo carattere. Sono consentiti i seguenti valori **predefiniti** in lettura: **["\r\n", "\r", "\n"]** e **"\r\n"** in scrittura. |No |
@@ -73,7 +73,7 @@ Per **importare/esportare i file JSON senza modifiche in/da Azure Cosmos DB**, v
 
 Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `format` `type` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No |
 | jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano i dati dai file JSON. | No |

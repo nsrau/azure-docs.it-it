@@ -9,11 +9,11 @@ ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 72e61a36b58c0bc666f3e19b71fb1abe842208f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150285"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179992"
 ---
 1. Accedere al portale di Azure e selezionare **Crea una risorsa**. Verrà visualizzata la pagina **Nuovo**.
 

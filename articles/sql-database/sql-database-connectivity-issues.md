@@ -12,13 +12,13 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.date: 06/14/2019
+ms.openlocfilehash: adbe8dfd41725c11516f820656b0476ed1aa8881
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66019829"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144043"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Gestione dei problemi di connessione e degli errori temporanei del database SQL
 
@@ -93,7 +93,7 @@ Uno dei modi per testare la logica di ripetizione dei tentativi consiste nel dis
 - **SqlException.Number** = 11001
 - Messaggio: "Host sconosciuto"
 
-Come parte del primo tentativo, il programma può correggere l'errore di digitazione e quindi provare a connettersi.
+Come parte del primo tentativo di ripetizione dei tentativi, è possibile riconnettere il computer client alla rete e quindi provare a connettersi.
 
 Per semplificare il test, disconnettere il computer dalla rete prima di avviare il programma. Il programma riconoscerà quindi un parametro di runtime che ha le conseguenze seguenti sul programma:
 

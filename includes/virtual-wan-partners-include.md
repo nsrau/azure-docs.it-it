@@ -9,11 +9,11 @@ ms.date: 03/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: de9bc91e438ff694c96966486908c54562e93902
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119247"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180052"
 ---
 Per altre informazioni sui servizi offerti dai partner, è possibile controllare i collegamenti in questa sezione. Se il partner del dispositivo della succursale non è elencato nella sezione seguente, chiedi al provider di dispositivi della succursale di contattare Microsoft. È possibile contattare Microsoft inviando un messaggio di posta elettronica a azurevirtualwan@microsoft.com.
 

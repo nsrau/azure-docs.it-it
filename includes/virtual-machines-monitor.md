@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
 ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158232"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180120"
 ---
 È possibile sfruttare molte opportunità per il monitoraggio delle macchine virtuali tramite la raccolta, la visualizzazione e l'analisi dei dati di diagnostica e di log. Per eseguire semplici attività di [monitoraggio](../articles/azure-monitor/overview.md) della macchina virtuale, è possibile usare la schermata Panoramica per la macchina virtuale nel portale di Azure. È possibile usare [estensioni](../articles/virtual-machines/windows/extensions-features.md) per configurare la diagnostica nelle macchine virtuali e raccogliere metriche aggiuntive. È anche possibile usare opzioni di monitoraggio più avanzate, come [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) e [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 

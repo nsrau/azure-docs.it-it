@@ -9,11 +9,11 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 026717dff2b6883eb643497dec91226e4afe8133
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115569"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179821"
 ---
 Azure offre i seguenti ruoli RBAC predefiniti per autorizzare l'accesso ai dati blob e coda usando Azure AD e OAuth:
 

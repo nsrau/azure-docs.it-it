@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: a39d71e0f8b8072cab6a3af9a2f0913973f303ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fbdab724e737b9bc223672c41ee9dde51e6cd99c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235937"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165514"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-sql-data-warehouse"></a>Gestire e monitorare l'importanza del carico di lavoro in Azure SQL Data Warehouse
 
@@ -72,4 +72,4 @@ GO
 - Per altre informazioni sull'importanza, vedere [importanza del carico di lavoro](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [Passa a configurare la priorità del carico di lavoro ](sql-data-warehouse-how-to-configure-workload-importance.md)
+> [Passa a configurare la priorità del carico di lavoro](sql-data-warehouse-how-to-configure-workload-importance.md)

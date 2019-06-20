@@ -1,24 +1,24 @@
 ---
-title: Creare e usare regole personalizzate di Web Application Firewall (WAF) di Azure
-description: Questo articolo fornisce informazioni su come creare regole personalizzate di Web Application Firewall (WAF) nel Gateway applicazione di Azure.
+title: Creare e usare regole personalizzate di Web Application Firewall (WAF) di Azure v2
+description: Questo articolo fornisce informazioni su come creare regole personalizzate v2 di Web Application Firewall (WAF) nel Gateway applicazione di Azure.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: bb8c50664261814c7d994c9b879972b1e8b846e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86ddb0b608cd17814cbcbb902f0b2905fe61094a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66689032"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164683"
 ---
-# <a name="create-and-use-web-application-firewall-custom-rules"></a>Creare e usare regole personalizzate di Web Application Firewall
+# <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Creare e usare regole personalizzate di Web Application Firewall v2
 
-Il Web application firewall del gateway applicazione di Azure (WAF) fornisce la protezione per le Applicazioni Web. Questa protezione viene fornita da Open Web Application Security Project (OWASP) Core regola impostato (CRS). In alcuni casi, potrebbe essere necessario creare regole personalizzate per soddisfare esigenze specifiche. Per altre informazioni sulle regole personalizzate di WAF, vedere [panoramica delle regole firewall applicazione web personalizzata](custom-waf-rules-overview.md).
+La versione 2 di Azure Application Gateway Web Application Firewall (WAF) offre protezione per le applicazioni web. Questa protezione viene fornita da Open Web Application Security Project (OWASP) Core regola impostato (CRS). In alcuni casi, potrebbe essere necessario creare regole personalizzate per soddisfare esigenze specifiche. Per altre informazioni sulle regole personalizzate di WAF, vedere [panoramica delle regole firewall applicazione web personalizzata](custom-waf-rules-overview.md).
 
-Questo articolo illustra alcuni esempi di regole personalizzate che è possibile creare e usare con il firewall WAF. Per informazioni su come distribuire un Web Application firewall con una regola personalizzata usando Azure PowerShell, vedere [regole personalizzate configurare Web Application Firewall tramite Azure PowerShell](configure-waf-custom-rules.md).
+Questo articolo illustra alcuni esempi di regole personalizzate che è possibile creare e usare con il firewall WAF v2. Per informazioni su come distribuire un Web Application firewall con una regola personalizzata usando Azure PowerShell, vedere [regole personalizzate configurare Web Application Firewall tramite Azure PowerShell](configure-waf-custom-rules.md).
 
 >[!NOTE]
 > Se il gateway applicazione non sta usando il livello WAF, l'opzione per aggiornare il gateway applicazione al livello WAF, come visualizzato nel riquadro a destra.

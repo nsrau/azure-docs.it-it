@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
-ms.openlocfilehash: 5b5b83fe0028e43ca35bf883b29cb71bad6ca2c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7457c06f9f151cb310704a985c79572c7b770859
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66253760"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67166220"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Creare e configurare i cluster Enterprise Security Package in Azure HDInsight
 
@@ -311,7 +311,7 @@ Verificare che il certificato sia installato nel computer\'archivio personale s.
         | Protocol | Qualsiasi |
         | Azione | CONSENTI |
         | Priorità | <Desired Number> |
-        | NOME | Port_LDAP_636 |
+        | Name | Port_LDAP_636 |
 
     ![regola di sicurezza in ingresso](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
@@ -332,7 +332,7 @@ Questo passaggio richiede i prerequisiti seguenti:
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Creare una relazione peer tra la rete virtuale che ospita AADDS (`HDIFabrikam-AADDSVNET`) e HDInsight cluster abilitato per la rete virtuale che ospiterà il ESP (`HDIFabrikam-HDIVNet `). Usare il codice di powershell seguente per eseguire il peering delle due reti virtuali.
+1. Creare una relazione peer tra la rete virtuale che ospita AADDS (`HDIFabrikam-AADDSVNET`) e HDInsight cluster abilitato per la rete virtuale che ospiterà il ESP (`HDIFabrikam-HDIVNet`). Usare il codice di powershell seguente per eseguire il peering delle due reti virtuali.
 
     ```powershell
     Add-AzVirtualNetworkPeering -Name 'HDIVNet-AADDSVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS')

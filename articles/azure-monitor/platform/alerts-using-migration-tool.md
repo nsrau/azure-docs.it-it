@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 00229cca1d7fb238b330ec98cd35d0bb59bc821a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 5149c20431155b92aa6dab3b976fe68e6d9cb8c2
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015630"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67153946"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Usare lo strumento di migrazione volontaria in modo per eseguire la migrazione delle regole di avviso classiche
 
@@ -38,7 +38,7 @@ Il processo di migrazione converte le regole di avviso classica per le regole di
 
 - Il formato di payload di notifica sia le API per creare e gestire le nuove regole di avviso sono diverse da quelle delle regole di avviso di classico perché supportano più funzionalità. [Informazioni su come preparare la migrazione](alerts-prepare-migration.md).
 
-- Impossibile eseguire la migrazione di alcune regole di avviso classici utilizzando lo strumento. [Informazioni su quali regole non possono essere migrate e che cosa farne](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated).
+- Impossibile eseguire la migrazione di alcune regole di avviso classici utilizzando lo strumento. [Informazioni su quali regole non possono essere migrate e che cosa farne](alerts-understand-migration.md#which-classic-alert-rules-cannot-be-migrated).
 
     > [!NOTE]
     > Il processo di migrazione non influisca sulla valutazione delle regole di avviso di classico. Continueranno a eseguire e inviare avvisi fino a quando la migrazione e le nuove regole di avviso avrà effetto.

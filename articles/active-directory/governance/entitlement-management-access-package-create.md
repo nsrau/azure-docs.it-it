@@ -16,12 +16,12 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 312658bd653d94f3e1a32204b3c5ae4ae290558e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b5ff842d1645d2b47a436eca4fc8dc614a9fb63
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65832635"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190367"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Creare un nuovo pacchetto di accesso nella gestione dei diritti di Azure AD (anteprima)
 
@@ -127,4 +127,5 @@ Nel **esaminare + crea** scheda, è possibile esaminare le impostazioni e cercar
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Modificare e gestire un pacchetto di accesso esistente](entitlement-management-access-package-edit.md)
+- [Aggiungere un proprietario del catalogo o una gestione di pacchetti di accesso](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [Creare e gestire un catalogo](entitlement-management-catalog-create.md)

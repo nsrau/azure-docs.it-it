@@ -10,11 +10,11 @@ ms.date: 01/09/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: b9f0816ad67afa05a5325f03991ac22393c1b416
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66131542"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179935"
 ---
 Informazioni di riferimento per gli sviluppatori delle Funzioni di Azure. Se non si ha familiarità con le Funzioni di Azure, iniziare con le seguenti risorse:
 

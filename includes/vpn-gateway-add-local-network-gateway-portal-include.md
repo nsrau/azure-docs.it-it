@@ -9,11 +9,11 @@ ms.date: 12/19/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 03a4005da7794a989166f914e4ba4d03f93ae8b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170118"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180003"
 ---
 1. Nel portale fare clic su **+Crea una risorsa**.
 2. Nella casella di ricerca digitare **Gateway di rete locale**, quindi premere **INVIO** per eseguire la ricerca. Verrà restituito un elenco di risultati. Fare clic su **Gateway di rete locale**, quindi sul pulsante **Crea** per aprire la pagina **Crea un gateway di rete locale**.

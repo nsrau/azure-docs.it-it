@@ -9,11 +9,11 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: d28244d75da540948093c775ffc525a80e362526
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115404"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180364"
 ---
 Per spedire il pacco al data center di Azure è possibile usare FedEx, UPS o DHL. Se si desidera usare un operatore diverso da FedEx o DHL, contattare il team di finestra operazioni sui dati di Azure all'indirizzo `adbops@microsoft.com`
 

@@ -9,11 +9,11 @@ ms.date: 07/17/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 5aa64671cddf2542972ac753c0132a5abebaebfb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115426"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180361"
 ---
 Dopo aver spedito i dischi, tornare alla pagina **Importazione/Esportazione** nel portale di Azure. 
 

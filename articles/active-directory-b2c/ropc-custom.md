@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7a802354f20998c87ac8c2ef1f2c1dbdf47f6930
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d01e8ce894bfb1ece3555eddc714d2d3a80e44b5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66733651"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164844"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C usando criteri personalizzati
 
@@ -255,7 +255,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
     ```
 
 5. Nella pagina **Criteri personalizzati** del tenant di Azure AD B2C selezionare **Carica il criterio**.
-6. Abilitare **Sovrascrivi il criterio se esistente** e quindi cercare e selezionare il file *TrustFrameworkExtensions.xml*.
+6. Abilitare **Sovrascrivi il criterio se esistente**e quindi individuare e selezionare il *ROPC_Auth.xml* file.
 7. Fare clic su **Carica**.
 
 ## <a name="test-the-policy"></a>Testare i criteri

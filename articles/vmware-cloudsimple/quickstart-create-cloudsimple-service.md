@@ -1,6 +1,6 @@
 ---
 title: La soluzione Azure VMware da CloudSimple Quickstart - Crea servizio
-description: Informazioni su come creare il servizio CloudSimple, l'acquisto nodi e riserva nodi
+description: Informazioni su come creare il servizio CloudSimple, il provisioning dei nodi e di riservare i nodi
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9b3b95db24f4b0f9a0cf8f5102dfeea5dc51e29f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5732ea726bdecc10d0757224870ee5d8be83a2b2
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577571"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164210"
 ---
 # <a name="quickstart---create-service"></a>Guida introduttiva - creare servizio
 
@@ -21,7 +21,7 @@ Per iniziare, creare la soluzione VMware di Azure da CloudSimple nel portale di 
 
 ## <a name="vmware-solution-by-cloudsimple---service-overview"></a>Soluzione VMware da CloudSimple - Panoramica del servizio
 
-Il servizio CloudSimple consente all'utente di Azure VMware Solution by CloudSimple.  Creazione del servizio consente di acquistare i nodi, di riservarlo nodi e creare cloud privati.  Si aggiunge il servizio CloudSimple in ogni area di Azure in cui il servizio CloudSimple è disponibile.  Il servizio definisce la rete perimetrale di Azure VMware Solution by CloudSimple.  Questa rete perimetrale viene usata per i servizi che includono la connettività VPN, ExpressRoute e Internet dei cloud privati.
+Il servizio CloudSimple consente all'utente di Azure VMware Solution by CloudSimple.  Creazione del servizio consente ai nodi di effettuare il provisioning, riserva nodi e creare cloud privati.  Si aggiunge il servizio CloudSimple in ogni area di Azure in cui il servizio CloudSimple è disponibile.  Il servizio definisce la rete perimetrale di Azure VMware Solution by CloudSimple.  Questa rete perimetrale viene usata per i servizi che includono la connettività VPN, ExpressRoute e Internet dei cloud privati.
 
 Per aggiungere il servizio CloudSimple, è necessario creare una subnet del gateway. La subnet del gateway viene usata quando si crea la rete perimetrale e richiede / 28 blocco CIDR. Lo spazio degli indirizzi di subnet del gateway deve essere univoco. Non può sovrapporsi con qualsiasi spazio degli indirizzi di rete virtuale di Azure o spazi di indirizzi della rete locale.
 
@@ -47,9 +47,6 @@ Attenersi alla procedura seguente per abilitare il provider di risorse per il se
 
 ## <a name="create-the-service"></a>Creare il servizio
 
->[!NOTE]
-> Servizio CloudSimple deve essere abilitato per la sottoscrizione. Se la sottoscrizione non è abilitato, si riceverà un errore quando si prova a creare il servizio.  Seguire i passaggi descritti in [CloudSimple Abilita servizio](https://docs.azure.cloudsimple.com/enable-cloudsimple-service) articolo per abilitare il servizio.
-
 1. Selezionare **Tutti i servizi**.
 2. Cercare **CloudSimple servizio**.
 
@@ -71,7 +68,7 @@ Attenersi alla procedura seguente per abilitare il provider di risorse per il se
 
 Il servizio viene creato e aggiunto all'elenco dei servizi.
 
-## <a name="purchase-nodes"></a>Acquistare nodi
+## <a name="provision-nodes"></a>Effettuare il provisioning dei nodi
 
 Per impostare il pagamento in base al capacità di passare la capacità per un ambiente Cloud privato CloudSimple, prima di tutto eseguire il provisioning di nodi nel portale di Azure.
 
@@ -85,7 +82,7 @@ Per impostare il pagamento in base al capacità di passare la capacità per un a
 
     ![Aggiungere nodi CloudSimple](media/create-cloudsimple-node-add.png)
 
-5. Selezionare la sottoscrizione in cui si desidera acquistare CloudSimple nodi.
+5. Selezionare la sottoscrizione in cui si vuole effettuare il provisioning di nodi CloudSimple.
 6. Selezionare il gruppo di risorse per i nodi. Per aggiungere un nuovo gruppo di risorse, fare clic su **Crea nuovo**.
 7. Immettere il prefisso per identificare i nodi.
 8. Selezionare il percorso per le risorse di nodo.

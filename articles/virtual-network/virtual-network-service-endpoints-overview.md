@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: e621eeeca7a4f325efcfb242c204b2f727e55fc4
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61032588"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147754"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint servizio di rete virtuale
 
@@ -61,7 +61,7 @@ Gli endpoint di servizio offrono i vantaggi seguenti:
 - La funzionalità è disponibile solo per le reti virtuali distribuite con il modello di distribuzione Azure Resource Manager.
 - Gli endpoint vengono abilitati nelle subnet configurate nelle reti virtuali di Azure. Gli endpoint non possono essere usati per il traffico dall'ambiente locale ai servizi di Azure. Per altre informazioni, vedere [Proteggere l'accesso ai servizi di Azure dall'ambiente locale](#securing-azure-services-to-virtual-networks)
 - Per SQL di Azure, un endpoint di servizio si applica solo al traffico del servizio di Azure nell'area della rete virtuale. Per il supporto del traffico RA-GRS e GRS in Archiviazione di Azure, gli endpoint includono anche le aree abbinate nelle quali è distribuita la rete virtuale. Vedere altre informazioni sulle [aree abbinate di Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
-- Per ADLS Gen 1, la funzionalità Integrazione rete virtuale è disponibile solo per reti virtuali incluse nella stessa area geografica.
+- Per ADLS Gen 1, la funzionalità Integrazione rete virtuale è disponibile solo per reti virtuali incluse nella stessa area geografica. Si noti che rende l'integrazione rete virtuale per Azure Data Lake archiviazione Gen1 usare anche la protezione di endpoint del servizio rete virtuale tra la rete virtuale e Azure Active Directory (Azure AD) per generare le attestazioni di sicurezza aggiuntivi nel token di accesso. Queste attestazioni vengono quindi usate per autenticare la rete virtuale nell'account Data Lake Storage Gen1 e consentire l'accesso. Tag "Microsoft. azureactivedirectory" elencato in servizi che supportano gli endpoint di servizio viene usato solo per il supporto di endpoint del servizio per Azure Data Lake Store generazione 1. Azure Active Directory (Azure AD) non supporta gli endpoint di servizio in modo nativo. Altre informazioni sulle [integrazione di rete virtuale di Azure Data Lake Store generazione 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Associazione di servizi di Azure a reti virtuali
 
@@ -120,7 +120,7 @@ Dopo aver configurato gli endpoint di servizio per un servizio specifico, verifi
 
 ## <a name="provisioning"></a>Provisioning
 
-Un utente con accesso in scrittura a una rete virtuale può configurare endpoint di servizio indipendenti nelle reti virtuali. Per associare le risorse dei servizi di Azure a una rete virtuale, l'utente deve avere l'autorizzazione *Microsoft.Network/JoinServicetoaSubnet* per le subnet da aggiungere. Per impostazione predefinita, questa autorizzazione è inclusa nei ruoli di amministratore del servizio predefiniti e può essere modificata creando ruoli personalizzati.
+Un utente con accesso in scrittura a una rete virtuale può configurare endpoint di servizio indipendenti nelle reti virtuali. Per proteggere le risorse del servizio di Azure a una rete virtuale, l'utente deve disporre dell'autorizzazione per *Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action* per la subnet da aggiungere. Per impostazione predefinita, questa autorizzazione è inclusa nei ruoli di amministratore del servizio predefiniti e può essere modificata creando ruoli personalizzati.
 
 Altre informazioni sui [ruoli predefiniti](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e sull'assegnazione di autorizzazioni specifiche ai [ruoli personalizzati](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

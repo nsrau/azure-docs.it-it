@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: b7d69e0fe16f96b0e3886c3736f8b91d4c06b446
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/19/2019
+ms.openlocfilehash: c69ffb30a37de8e6dc3e15aa1f7dcd6a9311d614
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063743"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274294"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorare e ottimizzare Database di Azure per PostgreSQL - Server singolo
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per PostgreSQL offre varie opzioni di monitoraggio che consentono di ottenere informazioni dettagliate sul comportamento del server.
@@ -38,6 +38,8 @@ Per Database di Azure per PostgreSQL sono disponibili le metriche seguenti:
 |network_bytes_egress|Rete in uscita|Byte|Rete in uscita tra connessioni attive.|
 |network_bytes_ingress|Rete in ingresso|Byte|Rete in ingresso tra connessioni attive.|
 |backup_storage_used|Risorse di backup in uso|Byte|Quantità di risorse dell'archivio di backup usate.|
+|pg_replica_log_delay_in_bytes|Max Lag Across Replicas (Ritardo massimo tra repliche)|Byte|L'intervallo di byte tra il master e la replica di massimo ritardo. Questa metrica è disponibile solo nel server master.|
+|pg_replica_log_delay_in_seconds|Replica Lag (Ritardo replica)|Secondi|Il periodo trascorso dall'ultima riproduzione delle transazioni. Questa metrica è disponibile per i server di replica solo.|
 
 ## <a name="server-logs"></a>Log del server
 È possibile abilitare l'accesso al server. Questi log sono disponibili anche tramite i log di diagnostica di Azure in [monitoraggio di Azure registra](../azure-monitor/log-query/log-query-overview.md), hub eventi e Account di archiviazione. Per altre informazioni sull'accesso, visitare la pagina dei [log del server](concepts-server-logs.md).

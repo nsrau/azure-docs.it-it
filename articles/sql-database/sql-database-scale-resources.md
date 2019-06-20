@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6285348aa8067f356635dfff9ecd4eb34c431f0b
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743115"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147689"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Ridimensionare in modo dinamico le risorse di database con tempo di inattività minimo
 
@@ -41,7 +41,7 @@ Per il database SQL di Azure è disponibile il [modello di acquisto basato su DT
 È possibile creare la prima app in un singolo database di piccole dimensioni a un costo mensile contenuto nel livello di servizio Basic, Standard o Utilizzo generico e quindi modificare il livello di servizio manualmente o tramite codice in qualsiasi momento passando al livello di servizio Premium o Business Critical in base alle esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
 
 > [!NOTE]
-> La scalabilità dinamica è diversa dalla scalabilità automatica. Con la scalabilità automatica, un servizio viene ridimensionato automaticamente in base a vari criteri, mentre la scalabilità dinamica consente di gestire manualmente il ridimensionamento senza tempi di inattività.
+> La scalabilità dinamica è diversa dalla scalabilità automatica. Scalabilità automatica è quando un servizio viene ridimensionato automaticamente in base ai criteri, mentre la scalabilità dinamica consente un ridimensionamento manuale con un tempo di inattività minimo.
 
 Un singolo database SQL di Azure supporta la scalabilità dinamica manuale, ma non la scalabilità automatica. Per un'esperienza più *automatica*, valutare la possibilità di usare i pool elastici, che consentono ai database di condividere le risorse in un pool in base alle esigenze dei singoli database.
 Esistono comunque script utili per automatizzare la scalabilità per un singolo database SQL di Azure. Per un esempio, vedere [Usare PowerShell per monitorare e ridimensionare un singolo database SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).

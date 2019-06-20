@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tyfox
-ms.openlocfilehash: 7c12831c43762ddc776e8d5701f002be97992cbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 5ae97b17d06fa0a9934a58ac662ef12116cce4f6
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65859972"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137408"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Gestire i cluster HDInsight di Azure tramite la CLI di Azure
 
@@ -85,7 +85,7 @@ az group delete --name RESOURCE_GROUP_NAME
 Uso [ridimensionare hdinsight az](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) per ridimensionare il cluster HDInsight specificato alle dimensioni specificate. Modificare il comando seguente sostituendo `RESOURCE_GROUP_NAME`, e `CLUSTER_NAME` con le informazioni pertinenti. Sostituire `TARGET_INSTANCE_COUNT` con il numero desiderato di nodi di lavoro per il cluster. Per altre informazioni sul ridimensionamento dei cluster, vedere [i cluster HDInsight scalabilità](./hdinsight-scaling-best-practices.md). Immettere il comando:
 
 ```azurecli-interactive
-az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --target-instance-count TARGET_INSTANCE_COUNT
+az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --target-instance-count TARGET_INSTANCE_COUNT
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

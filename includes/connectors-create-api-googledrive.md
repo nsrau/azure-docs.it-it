@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: fe726986b3f93ab3bb447b8973727a658ac1c706
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66149296"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180409"
 ---
 ### <a name="prerequisites"></a>Prerequisiti
 * Un account [GoogleDrive](https://www.google.com/drive/)  

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 48c59ddc1e203030bd967911d536930cb94761d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1cb7c9aa0844c82acd333c4f9dd87a4dda013e7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356186"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165339"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>In modo sicuro eseguire esperimenti e inferenza all'interno di una rete virtuale di Azure
 
@@ -35,9 +35,13 @@ Questo documento si presuppone che abbia familiarità con le reti virtuali di Az
 ## <a name="storage-account-for-your-workspace"></a>Account di archiviazione per l'area di lavoro
 
 > [!IMPORTANT]
-> È possibile inserire l'account di archiviazione collegato all'area di lavoro del servizio Azure Machine Learning dietro la rete virtuale solo durante l'esecuzione di sperimentazione. Inferenza richiede l'accesso illimitato all'account di archiviazione. Se non si è certi che queste impostazioni siano state modificate, vedere la sezione __Modificare la regola predefinita di accesso alla rete__ in [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security). Usare la procedura per consentire l'accesso da tutte le reti durante l'inferenza o di un modello di punteggio.
+> Il __account di archiviazione predefinito__ per il Machine Learning di Azure service può essere inserito in una rete virtuale __solo se si esegue la sperimentazione__.
+>
+> Per la __degli account di archiviazione non predefinito per la sperimentazione__, o se si usa un account di archiviazione per __inferenza__, è necessario disporre di __accesso illimitato all'account di archiviazione__.
+> 
+> Se non si è certi che queste impostazioni siano state modificate, vedere la sezione __Modificare la regola predefinita di accesso alla rete__ in [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security). Usare la procedura per consentire l'accesso da tutte le reti durante l'inferenza o di un modello di punteggio.
 
-Per usare le funzionalità di sperimentazione di Azure Machine Learning con archiviazione di Azure dietro una rete virtuale, attenersi alla procedura seguente:
+Per usare sul posto l'account di archiviazione di Azure predefinito per l'area di lavoro in una rete virtuale, usare la procedura seguente:
 
 1. Creare un calcolo di sperimentazione, ad esempio. Machine Learning calcolo dietro una rete virtuale o collegare un calcolo di sperimentazione all'area di lavoro, ad esempio. Cluster HDInsight o macchina virtuale. Per altre informazioni, vedere [calcolo di usare Machine Learning](#use-machine-learning-compute) e [usare una macchina virtuale o un cluster HDInsight](#use-a-virtual-machine-or-hdinsight-cluster) sezioni in questo documento
 2. Passare alla risorsa di archiviazione collegata all'area di lavoro. ![Immagine del portale di Azure con archiviazione di Azure collegata all'area di lavoro del servizio Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)
@@ -271,7 +275,7 @@ Per aggiungere il servizio Azure Kubernetes in una rete virtuale nell'area di la
 
     - __Subnet__: Selezionare la subnet.
 
-    - __Intervallo di indirizzi del servizio Kubernetes__: selezionare l'intervallo di indirizzi del servizio Kubernetes. Questo intervallo di indirizzi usa un indirizzo IP in notazione CIDR per definire gli indirizzi IP disponibili per il cluster. Non deve sovrapporsi a nessun intervallo IP della subnet. Ad esempio:  10.0.0.0/16.
+    - __Intervallo di indirizzi del servizio Kubernetes__: selezionare l'intervallo di indirizzi del servizio Kubernetes. Questo intervallo di indirizzi usa un indirizzo IP in notazione CIDR per definire gli indirizzi IP disponibili per il cluster. Non deve sovrapporsi a nessun intervallo IP della subnet. Ad esempio: 10.0.0.0/16.
 
     - __Indirizzo IP del servizio DNS Kubernetes__: selezionare l'indirizzo IP del servizio DNS di Kubernetes. Questo indirizzo IP viene assegnato al servizio DNS di Kubernetes. Deve essere compreso nell'intervallo di indirizzi del servizio Kubernetes. Ad esempio:  10.0.0.10.
 

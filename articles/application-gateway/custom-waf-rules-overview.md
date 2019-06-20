@@ -1,22 +1,22 @@
 ---
-title: Regole personalizzate di Web Application Firewall (WAF) di Azure
-description: Questo articolo offre una panoramica di web application firewall regole personalizzate (WAF) nel Gateway applicazione di Azure.
+title: Azure Web Application Firewall (WAF) v2 le regole personalizzate
+description: Questo articolo fornisce una panoramica delle regole personalizzate di Web Application Firewall (WAF) v2 nel Gateway applicazione di Azure.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f6ea831771a8ffecfdd4c7c0d6374c16894e25ed
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752038"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164653"
 ---
-# <a name="custom-rules-for-web-application-firewall"></a>Regole personalizzate per Web Application Firewall
+# <a name="custom-rules-for-web-application-firewall-v2"></a>Regole personalizzate per la versione 2 Web Application Firewall
 
-Il web application firewall (WAF) Gateway applicazione di Azure include un set di regole preconfigurato e piattaforma gestito che offre protezione da molti tipi diversi di attacchi. Questi attacchi includono cross site scripting, attacchi SQL injection e ad altri utenti. Se sei un amministratore di Web Application firewall, è possibile scrivere è norme per potenziare le regole di base impostare regole (CRS). Le regole possono bloccare o consentire il traffico richiesto in base ai criteri definiti.
+La versione 2 di Azure Application Gateway Web Application Firewall (WAF) include un set di regole preconfigurato e piattaforma gestito che offre protezione da molti tipi diversi di attacchi. Questi attacchi includono cross site scripting, attacchi SQL injection e ad altri utenti. Se sei un amministratore di Web Application firewall, è possibile scrivere è norme per potenziare le regole di base impostare regole (CRS). Le regole possono bloccare o consentire il traffico richiesto in base ai criteri definiti.
 
 Regole personalizzate consentono di creare regole personalizzate che vengono valutati per ogni richiesta che passa attraverso il firewall WAF. Queste regole contengono una priorità più alta rispetto al resto delle regole nei set di regole gestite. Le regole personalizzate contengono un nome di regola, priorità della regola e una matrice di condizioni di corrispondenza. Se vengono soddisfatte queste condizioni, viene eseguita un'azione (per consentire o bloccare).
 

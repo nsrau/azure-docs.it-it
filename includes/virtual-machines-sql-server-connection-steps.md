@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165548"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180088"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Aprire le porte TCP in Windows Firewall per l'istanza predefinita del motore di database
 1. Connettersi alla macchina virtuale tramite Desktop remoto. Per istruzioni dettagliate sulla connessione alla macchina virtuale, vedere [Aprire la macchina virtuale tramite Desktop remoto](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).

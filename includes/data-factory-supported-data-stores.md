@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.openlocfilehash: 0c381cc6e2e2957c946207491c666667821184ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122569"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180613"
 ---
 | Categoria | Archivio dati | Supportato come origine | Supportato come sink |
 |:--- |:--- |:--- |:--- |

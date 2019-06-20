@@ -1,22 +1,22 @@
 ---
-title: Automatizzare l'applicazione di patch al sistema operativo e al framework con Attività di Registro Azure Container (ACR Tasks)
-description: Introduzione ad ACR Tasks, un gruppo di funzionalità in Registro Azure Container che consente di eseguire la compilazione di immagini dei contenitori e l'applicazione di patch nel cloud in modo automatico e sicuro.
+title: Automatizzare la compilazione e l'applicazione di patch le immagini dei contenitori con Azure contenitore del Registro di sistema Tasks (attività di registro contenitori di AZURE)
+description: Introduzione alle attività di registro contenitori di AZURE, una suite di funzionalità in Registro contenitori di Azure che fornisce la compilazione dell'immagine contenitore sicuro e automatico, gestione e l'applicazione di patch nel cloud.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 5089650996693b81e548bba8d89c0de29a8afd93
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65977208"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147974"
 ---
-# <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automate OS and framework patching with ACR Tasks (Automatizzare l'applicazione di patch al sistema operativo e al framework con ACR Tasks)
+# <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare la creazione di immagini contenitore e la manutenzione con le attività di registro contenitori di AZURE
 
-I contenitori offrono nuovi livelli di virtualizzazione, isolando le dipendenze di sviluppo e delle applicazioni dai requisiti operativi e dell'infrastruttura. È comunque necessario definire, tuttavia, come applicare patch alla virtualizzazione delle applicazioni.
+I contenitori offrono nuovi livelli di virtualizzazione, isolando le dipendenze di sviluppo e delle applicazioni dai requisiti operativi e dell'infrastruttura. Il valore restante, tuttavia, è la necessità di risolvere come questa virtualizzazione delle applicazioni verrà gestita e applicare patch al ciclo di vita del contenitore.
 
 ## <a name="what-is-acr-tasks"></a>Informazioni su ACR Tasks
 
@@ -46,8 +46,7 @@ La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per 
 | File system locale | File contenuti in una directory nel file System locale. | `/home/user/projects/myapp` |
 | Ramo master GitHub | File nel master (o altra impostazione predefinita) di un repository GitHub.  | `https://github.com/gituser/myapp-repo.git` |
 | Ramo GitHub | Ramo specifico di un repository GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| Richiesta pull GitHub | Richiesta pull in un repository GitHub. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
-| Sottocartella di GitHub | File all'interno di una sottocartella in un repository GitHub. L'esempio mostra una combinazione di richieste pull e specifiche della sottocartella. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| Sottocartella di GitHub | File all'interno di una sottocartella in un repository GitHub. Esempio mostra una combinazione di una specifica del ramo e sottocartella. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | File tarball remoto | File in un archivio compresso in un server Web remoto. | `http://remoteserver/myapp.tar.gz` |
 
 ACR Tasks è progettato come primitiva del ciclo di vita dei contenitori. È ad esempio possibile integrare ACR Tasks in una soluzione CI/CD. Eseguendo [az login][az-login] con un' [entità servizio][az-login-service-principal], la soluzione di integrazione continua/distribuzione continua potrà quindi eseguire comandi [az acr build][az-acr-build] per avviare compilazioni delle immagini.
@@ -65,7 +64,7 @@ Per informazioni su come attivare compilazioni in caso di commit del codice sorg
 
 ## <a name="automate-os-and-framework-patching"></a>Automatizzare l'applicazione di patch al sistema operativo e al framework
 
-ACR Tasks può realmente migliorare il flusso di lavoro di compilazione dei contenitori grazie alla capacità di rilevare un aggiornamento di un'immagine di base. Quando viene eseguito il push dell'immagine di base aggiornata nel registro, ACR Tasks può compilare automaticamente tutte le immagini di applicazioni basate su di essa.
+ACR Tasks può realmente migliorare il flusso di lavoro di compilazione dei contenitori grazie alla capacità di rilevare un aggiornamento di un'immagine di base. Quando l'immagine di base aggiornato viene eseguito il push nel Registro di sistema o un'immagine di base viene aggiornata in un repository pubblico, ad esempio nell'Hub Docker, registro contenitori di AZURE le attività possono compilare automaticamente tutte le immagini di applicazioni basate su di esso.
 
 Le immagini dei contenitori possono essere suddivise in linea di massima in immagini di *base* e immagini di *applicazioni*. Le immagini di base includono in genere il sistema operativo e i framework applicazioni su cui è basata l'applicazione, insieme ad altre personalizzazioni. Tali immagini di base sono in genere basate a propria volta su immagini upstream pubbliche, ad esempio: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet] o [Node.js ][base-node]. Diverse immagini di applicazioni possono condividere un'immagine di base comune.
 
@@ -76,7 +75,7 @@ Individuando dinamicamente le dipendenze dell'immagine di base durante la compil
 Per informazioni sull'applicazione di patch al sistema operativo e al framework, vedere la terza esercitazione su ACR Tasks, [Automatizzare la compilazione di immagini in caso di aggiornamento dell'immagine di base con ACR Tasks](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Gli aggiornamenti delle immagini di base attivano compilazioni solo quando sia l'immagine di base che quella dell'applicazione risiedono nello stesso Registro Azure Container, o la base risiede in un repository dell'hub Docker accessibile pubblicamente.
+> Attualmente l'immagine di base Aggiorna trigger compilazioni solo quando entrambe le immagini di base e dell'applicazione si trovano nella stessa registro contenitori di Azure o di base si trova in un repository pubblico dell'Hub Docker o registro contenitori di Microsoft.
 
 ## <a name="multi-step-tasks"></a>Attività in più passaggi
 

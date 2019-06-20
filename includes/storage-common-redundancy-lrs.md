@@ -9,11 +9,11 @@ ms.date: 02/12/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 124f5c01b7718f729094de1c02391946ff50cef4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113783"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180223"
 ---
 L'archiviazione con ridondanza locale garantisce almeno il 99,999999999% (11 nove) di durabilità degli oggetti nell'arco di un anno specifico. L'archiviazione con ridondanza locale assicura questa durabilità degli oggetti tramite la replica dei dati in un'unità di scala di archiviazione. L'unità di scala di archiviazione è ospitata in un data center nell'area in cui è stato creato l'account di archiviazione. Una richiesta di scrittura in un account di archiviazione con ridondanza locale viene restituita correttamente solo dopo che i dati sono stati scritti in tutte le repliche. Ogni replica risiede in domini di errore e domini di aggiornamento distinti all'interno di un'unità di scala di archiviazione.
 

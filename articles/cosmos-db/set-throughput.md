@@ -4,14 +4,14 @@ description: Informazioni su come impostare la velocità effettiva con provision
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: ce059e542ee7bfa67e899b4923e3410e13e4930e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 61f8e93fd82f7da632e0ab7e16ad6fbf4ca25646
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067513"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165011"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Effettuare il provisioning della velocità effettiva per contenitori e database
 
@@ -72,6 +72,9 @@ L'immagine seguente mostra in che modo una partizione fisica può ospitare una o
 
 * È possibile creare un database Cosmos Azure denominato *Z* con velocità effettiva con provisioning del *"K"* UR. 
 * Successivamente, creare cinque contenitori denominati *un'* , *B*, *C*, *1!d*, e *elettronica* all'interno del database. Quando si crea contenitore B, assicurarsi di abilitare **velocità effettiva dedicata di effettuare il provisioning per questo contenitore** opzione e configurare in modo esplicito *"P"* UR di velocità effettiva con provisioning in questo contenitore. Si noti che è possibile configurare la velocità effettiva condivisa e dedicata solo quando si crea il contenitore e un database. 
+
+   ![Configurazione della velocità effettiva a livello di contenitore](./media/set-throughput/coll-level-throughput.png)
+
 * Il *"K"* velocità effettiva di UR verrà condivisi tra i quattro contenitori *oggetto*, *C*, *1!d*, e *E*. La quantità esatta di velocità effettiva disponibile per *un'* , *C*, *1!d*, oppure *E* varia. Non sono previsti contratti di servizio per la velocità effettiva di ogni singolo contenitore.
 * Il contenitore denominato *B* sarà il *"P"* velocità effettiva di UR continuamente. ed è supportato da contratti di servizio.
 
@@ -93,13 +96,13 @@ Quando si usa .NET SDK, il [DocumentClient.ReadOfferAsync](https://docs.microsof
 
 |**Parametro**  |**Velocità effettiva con provisioning in un database**  |**Velocità effettiva con provisioning in un contenitore**|
 |---------|---------|---------|
-|UR minime |400\. Dopo i primi quattro contenitori, ogni contenitore aggiuntivo richiede almeno 100 UR al secondo. |400|
+|UR minime |400. Dopo i primi quattro contenitori, ogni contenitore aggiuntivo richiede almeno 100 UR al secondo. |400|
 |UR minime per contenitore|100|400|
 |UR minime richieste per usare 1 GB di spazio di archiviazione|40|40|
 |UR massime|Illimitate, nel database.|Illimitate, nel contenitore.|
 |UR assegnate o disponibili per un contenitore specifico|Nessuna garanzia. Le UR assegnate a un determinato contenitore dipendono dalle proprietà. Le proprietà possono essere, a scelta, le chiavi di partizione dei contenitori che condividono la velocità effettiva, la distribuzione del carico di lavoro e il numero di contenitori. |Tutte le UR configurate nel contenitore sono riservate esclusivamente per il contenitore.|
 |Archiviazione massima per un contenitore|Senza limiti.|Senza limiti.|
-|Velocità effettiva massima per partizione logica di un contenitore|10\.000 UR|10\.000 UR|
+|Velocità effettiva massima per partizione logica di un contenitore|10.000 UR|10.000 UR|
 |Spazio di archiviazione massimo (data + indice) per partizione logica di un contenitore|10 GB|10 GB|
 
 ## <a name="next-steps"></a>Passaggi successivi

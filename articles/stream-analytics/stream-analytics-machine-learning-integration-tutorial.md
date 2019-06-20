@@ -7,17 +7,17 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c945f39218f9099d5c304739ca9b567ab9b3325
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61480809"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164701"
 ---
-# <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Analisi del sentiment con Analisi di flusso di Azure e Azure Machine Learning
-Questo articolo descrive come configurare rapidamente un semplice processo di Analisi di flusso di Azure che integra Azure Machine Learning. Verrà usato un modello di Machine Learning per l'analisi del sentiment proveniente dalla raccolta Cortana Intelligence per analizzare il flusso di dati di testo e determinare il punteggio del sentiment in tempo reale. Cortana Intelligence Suite consente di eseguire questa operazione senza doversi preoccupare delle complessità della creazione di un modello di analisi del sentiment.
+# <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning-studio-preview"></a>Analisi del sentiment con Azure Stream Analitica e Azure Machine Learning Studio (anteprima)
+Questo articolo descrive come configurare rapidamente un semplice processo Analitica Stream di Azure che si integra Azure Machine Learning Studio. Verrà usato un modello di Machine Learning per l'analisi del sentiment proveniente dalla raccolta Cortana Intelligence per analizzare il flusso di dati di testo e determinare il punteggio del sentiment in tempo reale. Cortana Intelligence Suite consente di eseguire questa operazione senza doversi preoccupare delle complessità della creazione di un modello di analisi del sentiment.
 
 È possibile applicare le informazioni apprese in questo articolo a scenari come i seguenti:
 
@@ -45,7 +45,7 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 In generale, per completare le attività illustrate in questo articolo, è necessario eseguire le operazioni seguenti:
 
 1. Creare un account di archiviazione di Azure e un contenitore di archiviazione BLOB, quindi caricare un file di input in formato CSV nel contenitore.
-3. Aggiungere un modello di analisi del sentiment dalla raccolta Cortana Intelligence all'area di lavoro di Azure Machine Learning e distribuire questo modello come servizio Web nell'area di lavoro di Machine Learning.
+3. Aggiungere un modello di analitica del sentiment dalla raccolta Cortana Intelligence all'area di lavoro di Azure Machine Learning Studio e distribuire questo modello come servizio web nell'area di lavoro di Machine Learning.
 5. Creare un processo di Analisi di flusso che chiami questo servizio Web come funzione per determinare il sentiment per l'input di testo.
 6. Avviare il processo di Analisi di flusso e controllare l'output.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 067280cdad85f59106bce5ff214e2fa9eddf3b71
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: e6e1014ac20ef70f21344ec6ece5627eccb7ba66
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133359"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148432"
 ---
 Ecco le limitazioni d'utilizzo e altri limiti di servizio per il servizio Azure Active Directory (Azure AD).
 
@@ -29,4 +29,4 @@ Ecco le limitazioni d'utilizzo e altri limiti di servizio per il servizio Azure 
 | Pannello di accesso |<ul><li>Non sono previsti limiti al numero di applicazioni che possono essere visualizzate nel Pannello di accesso per ogni utente. Questo vale per gli utenti a cui sono state assegnate licenze per Azure AD Premium o Enterprise Mobility Suite.</li><li>Nel Pannello di accesso è possibile visualizzare un massimo di 10 riquadri di app per ogni utente. Questo limite si applica agli utenti a cui sono state assegnate licenze per le edizioni Free o Basic di Azure Active Directory. Esempi di riquadri di app includono Box, Salesforce o Dropbox. Questo limite non si applica agli account di amministratore.</li></ul> |
 | Report | È possibile visualizzare o scaricare in qualsiasi report un massimo di 1000 righe. Eventuali dati aggiuntivi vengono troncati. |
 | Unità amministrative | Un oggetto può appartenere al massimo a 30 unità amministrative. |
-| Autorizzazioni e ruoli amministrativi | <ul><li>Un gruppo non può essere aggiunto come un [proprietario](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Un gruppo non può essere assegnato a un [ruolo](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>Capacità degli utenti di leggere le informazioni di directory di altri utenti non può essere limitato di fuori l'opzione a livello di tenant per disabilitare l'accesso degli utenti senza privilegi di amministratore tutti a tutte le informazioni di directory (non consigliate). Altre informazioni sulle autorizzazioni predefinite [qui](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Potrebbero occorrere fino a 15 minuti o firma out/accesso amministratore prima di revoca e le aggiunte di appartenenza al ruolo effettive.</li></ul> |
+| Autorizzazioni e ruoli amministrativi | <ul><li>Un gruppo non può essere aggiunto come un [proprietario](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Un gruppo non può essere assegnato a un [ruolo](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>Capacità degli utenti di leggere le informazioni di directory di altri utenti non può essere limitato di fuori l'opzione a livello di tenant per disabilitare l'accesso degli utenti senza privilegi di amministratore tutti a tutte le informazioni di directory (non consigliate). Altre informazioni sulle autorizzazioni predefinite [qui](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Potrebbero occorrere fino a 15 minuti o firma out/accesso amministratore prima di revoca e le aggiunte di appartenenza al ruolo effettive.</li></ul> |

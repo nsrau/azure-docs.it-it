@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148163"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180136"
 ---
 **Dischi di macchine virtuali non gestiti Premium: Limiti per ogni account**
 
@@ -34,6 +34,6 @@ ms.locfileid: "66148163"
 
 | Resource | Limite predefinito |
 | --- | --- |
-| Numero massimo di IOPS per ogni macchina virtuale |80\.000 IOPS con VM GS5 |
+| Numero massimo di IOPS per ogni macchina virtuale |80.000 IOPS con VM GS5 |
 | Velocità effettiva massima per macchina virtuale |2\.000 MB/sec con VM GS5 |
 

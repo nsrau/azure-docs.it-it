@@ -16,11 +16,11 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127503"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180499"
 ---
 ### <a name="general-requirements"></a>Requisiti generali
 

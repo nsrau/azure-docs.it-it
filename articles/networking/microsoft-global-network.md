@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2019
+ms.date: 06/13/2019
 ms.author: ypitsch,kumud
-ms.openlocfilehash: 99650577b17874e61d1cede979d7ef2f4bfd491b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: ecce41878f7579862bba083f8cecf5db3cbde3e6
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247290"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144145"
 ---
 # <a name="microsoft-global-network"></a>Rete globale Microsoft
 
@@ -33,8 +33,10 @@ Il [rete globale di Microsoft](https://azure.microsoft.com/global-infrastructure
  
 Rifiuto esplicito per il [migliore esperienza possibile](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) è semplice se si usa Microsoft cloud. Dal momento in cui quando il traffico dei clienti entra la nostra rete globale tramite i nodi perimetrali strategici, i dati passa attraverso le route ottimizzate in quasi la velocità della luce. In questo modo ottimale latenza per ottenere prestazioni ottimali. Questi nodi perimetrali, tutti interconnesso a più di 3500 univoco Internet partner (peer) tramite migliaia di connessioni in posizioni più 145, costituiscono la base della nostra strategia di interconnessione. 
  
-Se ci si connette da Londra a Tokyo o Washington DC a Los Angeles, le prestazioni di rete sono quantificata e interessate da operazioni quali la latenza, instabilità, perdita di pacchetti e la velocità effettiva.  Presso Microsoft, è preferibile e uso diretto interconnessioni anziché i collegamenti di transito, in questo modo il traffico di risposta simmetrico e consente di mantenere gli hop, peering entità e i percorsi più breve e semplice possibile. Questo approccio premium, anche detti [routing ad accesso sporadico-potato](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing), assicura che i clienti di rete il traffico resta all'interno della rete di Microsoft, purché possibili prima abbiamo consegnare.  
- 
+Se ci si connette da Londra a Tokyo o Washington DC a Los Angeles, le prestazioni di rete sono quantificata e interessate da operazioni quali la latenza, instabilità, perdita di pacchetti e la velocità effettiva.  Presso Microsoft, è preferibile e uso diretto interconnessioni anziché i collegamenti di transito, in questo modo il traffico di risposta simmetrico e consente di mantenere gli hop, peering entità e i percorsi più breve e semplice possibile. 
+
+Ad esempio, se un utente nell'area londinese tenta di accedere a un servizio Tokyo, quindi il traffico Internet si troverà in uno dei nostri bordi a Londra, passa su WAN Microsoft tramite Francia, i percorsi Trans Saudita tra Europa e India, quindi in Giappone in cui è ospitato il servizio. Il traffico di risposta è simmetrico. Viene talvolta definito come [routing a freddo potato](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) che significa che il traffico resta attivo su Microsoft di rete più a lungo possibile prima abbiamo consegnare.  
+  
 Pertanto, significa che il traffico tutto quando si usa servizi di Microsoft? Sì, tutto il traffico tra data center, all'interno di Microsoft Azure o tra i servizi Microsoft, ad esempio le macchine virtuali, Office 365, XBox, i database SQL, archiviazione, e le reti virtuali vengono indirizzate all'interno la nostra rete globale e non sulla rete Internet pubblica, per garantire ottimale prestazioni e integrità.  
  
 Massicci investimenti in fibra ottica capacità e la diversità tra percorsi terrestre e sottomarino metro, sono fondamentali per noi mantenere coerenza ed elevato a livello di servizio durante alimentando l'aumento delle dimensioni estremo di cloud e servizi online. Sono le aggiunte più recenti per la nostra rete globale nostri [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea) sottomarino cavo, prima aprire riga System (amministrazione del settore) su subsea, tra Bilbao, Spagna e Virginia Beach, Virginia, Stati Uniti, nonché il [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1)tra New York, Stati Uniti e Dublino, Irlanda e [nuove Cross Pacifico (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) tra Tokyo, Giappone e Portland, Oregon, Stati Uniti. 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1c0da1a768b894f543b9089643622c31d6a8758d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34a94a1b9c38070f5c9de22d9a9e4f24183a876c
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730154"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151012"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurare un dispositivo IoT Edge per comunicare tramite un server proxy
 
@@ -52,7 +52,7 @@ Prima di iniziare i passaggi descritti in questo articolo, è necessario conosce
 
 Gli URL proxy hanno il formato seguente: **protocollo**://**host_proxy**:**porta_proxy**.
 
-* Il **protocollo** è HTTP o HTTPS. Il daemon Docker può utilizzare entrambi i protocolli in base alle impostazioni del registro contenitori, mentre il daemon e i contenitori di runtime di IoT Edge devono usare sempre HTTPS.
+* Il **protocollo** è HTTP o HTTPS. Il daemon Docker può utilizzare qualsiasi protocollo, a seconda delle impostazioni del Registro di sistema contenitore, ma i contenitori di daemon e runtime di IoT Edge devono sempre usare HTTP per connettersi al proxy.
 
 * L'**host_proxy** è un indirizzo per il server proxy. Se il server proxy richiede l'autenticazione, è possibile fornire le credenziali come parte dell'host del proxy con il formato seguente: **utente**:**password**\@**host_proxy** .
 
@@ -250,7 +250,7 @@ Con le variabili di ambiente incluse la definizione del modulo sarà simile a qu
     },
     "env": {
         "https_proxy": {
-            "value": "https://proxy.example.com:3128"
+            "value": "http://proxy.example.com:3128"
         }
     },
     "status": "running",
