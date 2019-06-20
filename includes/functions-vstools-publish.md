@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3ac7d8cc4705fe1b6e80f1e0c7e26d847d761cf6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 5c513a76537eb5b28e85e6289a610e318ab790d4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131831"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050727"
 ---
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**.
 
 2. Selezionare **App per le funzioni di Azure**, scegliere **Crea nuova** e quindi selezionare **Pubblica**.
 
-    ![Selezionare una destinazione di pubblicazione](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
+    ![Selezionare una destinazione di pubblicazione](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png) 
 
-    Quando si abilita **Esegui da ZIP**, l'app per le funzioni in Azure passa in modalità di sola lettura e viene eseguita direttamente dal pacchetto di distribuzione. Per altre informazioni, vedere [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md) (Esecuzione di Funzioni di Azure da un file di pacchetto).
-     
+    Quando si fa clic su **Esegui da file di pacchetto (scelta consigliata)** , l'app per le funzioni verrà distribuita usando [ZipDeploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) con la modalità [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) abilitata. Si tratta della modalità consigliata per eseguire le funzioni, che garantisce prestazioni ottimali.
+
     >[!CAUTION]
     >Se si sceglie **Seleziona esistente**, tutti i file nell'app per le funzioni esistente in Azure vengono sovrascritti da file del progetto locale. Usare questa opzione solo quando si ripubblicano gli aggiornamenti a un'app per le funzioni esistente.
 
-3. Se non si è ancora connesso Visual Studio al proprio account di Azure, selezionare **Aggiungi un account...**.
+3. Se non si è ancora connesso Visual Studio al proprio account di Azure, selezionare **Aggiungi un account...** .
 
 4. Nella finestra di dialogo **Crea servizio app** usare le impostazioni di **Hosting** specificate nella tabella sotto l'immagine:
 

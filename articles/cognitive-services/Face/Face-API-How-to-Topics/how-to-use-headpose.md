@@ -1,30 +1,34 @@
 ---
-title: Utilizzare HeadPose per regolare il rettangolo per il viso
+title: Usare l'attributo HeadPose
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come usare l'attributo HeadPose automaticamente ruotare il rettangolo per il viso.
+description: Informazioni su come usare l'attributo HeadPose per ruotare automaticamente il rettangolo del viso o rilevare movimenti della testa in un feed video.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: conceptual
-ms.date: 04/26/2019
+ms.topic: sample
+ms.date: 05/29/2019
 ms.author: pafarley
-ms.openlocfilehash: ddc5bc522c0d3ac258581f2a48a5c3b755302f01
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 168b4fce873206e39a32a83da3dc5509b431d6a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576503"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058586"
 ---
-# <a name="use-the-headpose-attribute-to-adjust-the-face-rectangle"></a>Usare l'attributo HeadPose per regolare il rettangolo per il viso
+# <a name="use-the-headpose-attribute"></a>Usare l'attributo HeadPose
 
-In questa Guida, si utilizzerà un attributo volto rilevato, HeadPose, per ruotare il rettangolo di un oggetto di visi. L'esempio di codice in questa Guida, dal [WPF viso di servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) app di esempio, Usa .NET SDK.
+In questa guida verrà illustrato come usare l'attributo HeadPose di un volto rilevato per abilitare alcuni scenari chiave.
 
-Il rettangolo per il viso, restituito con ogni volto rilevato, contrassegna la posizione e dimensione del viso nell'immagine. Per impostazione predefinita, il rettangolo è sempre allineato con l'immagine (suoi lati sono perfettamente verticale e orizzontale); Ciò può risultare inefficiente per i visi angolari di framing. In situazioni in cui si desidera a livello di programmazione ritagliare visi in un'immagine, è consigliabile essere in grado di ruotare il rettangolo da ritagliare.
+## <a name="rotate-the-face-rectangle"></a>Ruotare il rettangolo del viso
 
-## <a name="explore-the-sample-code"></a>Esplorare il codice di esempio
+Il rettangolo del viso, restituito con ogni viso rilevato, contrassegna la posizione e le dimensioni del viso nell'immagine. Per impostazione predefinita, il rettangolo è sempre allineato all'immagine (i relativi lati sono verticali e orizzontali). Questo comportamento può risultare inefficiente per inquadrare i visi angolati. Nei casi in cui si intende ritagliare i visi in un'immagine a livello di programmazione, è preferibile poter ruotare il rettangolo da ritagliare.
 
-È possibile ruotare il rettangolo per il viso a livello di programmazione utilizzando l'attributo HeadPose. Se si specifica questo attributo quando rileva i volti (vedere [come rilevare i visi](HowtoDetectFacesinImage.md)), sarà possibile eseguire una query in un secondo momento. Il metodo seguente dal [WPF viso di servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) app accetta un elenco dei **DetectedFace** degli oggetti e restituisce un elenco di **[viso](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** oggetti. **Viso** di seguito è una classe personalizzata che archivi di viso dati, inclusi le coordinate del rettangolo aggiornato. Nuovi valori vengono calcolati per **superiore**, **a sinistra**, **larghezza**, e **altezza**e un nuovo campo **FaceAngle**specifica la rotazione.
+L'app di esempio [WPF Viso di Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) usa l'attributo HeadPose per ruotare i rettangoli del viso rilevati.
+
+### <a name="explore-the-sample-code"></a>Esplorare il codice di esempio
+
+Per ruotare il rettangolo del viso a livello di programmazione, è possibile usare l'attributo HeadPose. Se si specifica questo attributo quando si rilevano i visi (vedere [Ottenere i dati di rilevamento viso](HowtoDetectFacesinImage.md)), sarà possibile cercarlo in un secondo momento. Il metodo seguente dell'app [WPF Viso di Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) accetta un elenco di oggetti **DetectedFace** e restituisce un elenco di oggetti **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** . In questo caso, **Face** è una classe personalizzata che archivia i dati del viso, incluse le coordinate aggiornate del rettangolo. Vengono calcolati nuovi valori per **top**, **left**, **width** e **height**, mentre un nuovo campo **FaceAngle** specifica la rotazione.
 
 ```csharp
 /// <summary>
@@ -102,9 +106,9 @@ public static IEnumerable<Face> CalculateFaceRectangleForRendering(IList<Detecte
 }
 ```
 
-## <a name="display-the-updated-rectangle"></a>Visualizzare il rettangolo aggiornato
+### <a name="display-the-updated-rectangle"></a>Visualizzare il rettangolo aggiornato
 
-A questo punto, è possibile usare l'oggetto restituito **viso** gli oggetti nella visualizzazione. Le righe seguenti dal [FaceDetectionPage.xaml](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml) Mostra come il nuovo rettangolo viene eseguito il rendering da questi dati:
+Da qui, è possibile usare gli oggetti **Face** restituiti nella visualizzazione. Le righe seguenti del file [FaceDetectionPage.xaml](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml) mostra il rendering del nuovo rettangolo a partire da questi dati:
 
 ```xaml
  <DataTemplate>
@@ -116,6 +120,17 @@ A questo punto, è possibile usare l'oggetto restituito **viso** gli oggetti nel
 </DataTemplate>
 ```
 
+## <a name="detect-head-gestures"></a>Rilevare i movimenti della testa
+
+È possibile rilevare i movimenti della testa, quando ad esempio si annuisce o si scuote la testa, tenendo traccia in tempo reale delle modifiche di HeadPose. È possibile usare questa funzionalità come rilevatore di vitalità personalizzato.
+
+Per rilevamento della vitalità si intende l'attività che consente di determinare se un soggetto è una persona reale o e non un'immagine o una rappresentazione video. Un rilevatore di movimenti della testa può essere utile per verificare la vitalità, in particolare in contrapposizione alla rappresentazione dell'immagine di una persona.
+
+> [!CAUTION]
+> Per rilevare i movimenti della testa in tempo reale, è necessario chiamare l'API Viso con una frequenza elevata (più di una volta al secondo). Se si dispone di una sottoscrizione con livello gratuito (f0), questa operazione non è possibile. Se si dispone di una sottoscrizione a pagamento, assicurarsi di aver calcolato i costi associati all'esecuzione di chiamate API rapide per il rilevamento dei movimenti della testa.
+
+Per un esempio di utilizzo del rilevamento dei movimenti della testa, vedere l'[esempio HeadPose dell'API Viso](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample) su GitHub.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le [WPF viso di servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) app su GitHub per un esempio pratico di rettangoli ruotata. In alternativa, vedere la [Face API HeadPose esempio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) app, che registra l'attributo HeadPose in tempo reale per rilevare i vari spostamenti head (nodding, agitando).
+Per un esempio di utilizzo dei rettangoli del viso rilevati, vedere l'app [WPF Viso di Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) su GitHub. In alternativa, vedere l'app dell'[esempio HeadPose dell'API Viso](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples), che tiene traccia dell'attributo HeadPose in tempo reale per rilevare i movimenti della testa.

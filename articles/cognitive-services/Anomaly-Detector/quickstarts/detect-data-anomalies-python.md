@@ -1,29 +1,29 @@
 ---
-title: "Avvio rapido: Rilevare le anomalie in batch usando l'API REST di rilevatore di anomalie e Python | Microsoft Docs"
-description: Usare l'API rilevatore di anomalie per rilevare le anomalie nella serie di dati come un batch o nel flusso di dati.
+title: "Guida introduttiva: Rilevare le anomalie come batch con l'API REST Rilevamento anomalie e Python | Microsoft Docs"
+description: Usare l'API Rilevamento anomalie per rilevare le anomalie nelle serie di dati sia come batch che nei dati in streaming.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 6b4ddcadfe63f74d115c155354a276e45c6b53f9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
+ms.openlocfilehash: cd37638b9bac2a1b48f0ef0abb7b18da440049f0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544501"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080736"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST di rilevatore di anomalie e Python
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie e Python
 
-Usare questa Guida introduttiva per iniziare a usare due modalità di rilevamento dell'API di rilevamento delle anomalie per rilevare le anomalie nei dati delle serie temporali. Questa applicazione Python invia due richieste di API che contiene dati delle serie temporali in formato JSON e ottiene le risposte.
+Usare questa guida di avvio rapido per iniziare a usare le due modalità di rilevamento dell'API Rilevamento anomalie per rilevare le anomalie nei dati delle serie temporali. Questa applicazione Python invia due richieste API contenenti i dati delle serie temporali in formato JSON e riceve le risposte.
 
-| Richiesta dell'API                                        | Output dell'applicazione                                                                                                                         |
+| Richiesta API                                        | Output dell'applicazione                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Rilevare le anomalie in batch                        | La risposta JSON che contiene lo stato delle anomalie (e altri dati) per ogni punto dati in dati della serie temporale e le posizioni di tutte le anomalie rilevate. |
-| Rilevare lo stato delle anomalie del punto dati più recente | La risposta JSON che contiene lo stato delle anomalie (e altri dati) per il punto dati più recente nei dati di serie temporali.                                                                                                                                         |
+| Rilevare anomalie come batch                        | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per ogni punto dati nei dati di serie temporali e le posizioni delle anomalie rilevate. |
+| Rilevare lo stato delle anomalie del punto dati più recente | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per il punto dati più recente nei dati di serie temporali.                                                                                                                                         |
 
  L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
@@ -31,9 +31,9 @@ Usare questa Guida introduttiva per iniziare a usare due modalità di rilevament
 
 - [Python 2.x o 3.x](https://www.python.org/downloads/)
 
-- Il [libreria di richieste](http://docs.python-requests.org) per python
+- [Libreria Requests](http://docs.python-requests.org) per Python
 
-- Fa riferimento un JSON file contenitore serie temporale. I dati di esempio per questa Guida introduttiva sono disponibili nella [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+- File JSON contenente i punti dati delle serie temporali. I dati di esempio per questa guida di avvio rapido sono disponibili in [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
@@ -42,19 +42,19 @@ Usare questa Guida introduttiva per iniziare a usare due modalità di rilevament
 
 ## <a name="create-a-new-application"></a>Creare una nuova applicazione
 
-1. L'editor di testo o IDE, creare un nuovo file di python. Aggiungere le istruzioni import seguenti.
+1. Creare un nuovo file Python nell'ambiente di sviluppo integrato o nell'editor preferito. Aggiungere le importazioni seguenti.
 
     ```python
     import requests
     import json
     ```
 
-2. Creare variabili per la chiave di sottoscrizione e l'endpoint. Di seguito sono riportati gli URI è possibile usare per il rilevamento anomalie. Queste verranno aggiunte all'endpoint di servizio in un secondo momento per creare l'API URL delle richieste.
+2. Creare variabili per la chiave di sottoscrizione e per l'endpoint. Di seguito sono riportati gli URI che è possibile usare per il rilevamento anomalie. Questi verranno aggiunti all'endpoint di servizio in un secondo momento per creare gli URL delle richieste API.
 
     |Metodo di rilevamento  |URI  |
     |---------|---------|
-    |Rilevamento di batch    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
-    |Rilevamento sul punto dati più recente     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    |Rilevamento in batch    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
+    |Rilevamento nel punto dati più recente     | `/anomalydetector/v1.0/timeseries/last/detect`        |
 
     ```python
     batch_detection_url = "/anomalydetector/v1.0/timeseries/entire/detect"
@@ -65,20 +65,20 @@ Usare questa Guida introduttiva per iniziare a usare due modalità di rilevament
     data_location = "[PATH_TO_TIME_SERIES_DATA]"
     ```
 
-3. Leggere nel file di dati JSON, aprirlo e usando `json.load()`.
+3. Leggere il file di dati JSON aprendolo e usando `json.load()`.
 
     ```python
     file_handler = open(data_location)
     json_data = json.load(file_handler)
     ```
 
-## <a name="create-a-function-to-send-requests"></a>Creare una funzione per l'invio di richieste
+## <a name="create-a-function-to-send-requests"></a>Creare una funzione per inviare richieste
 
 1. Creare una nuova funzione denominata `send_request()` che accetta le variabili create in precedenza. Quindi, eseguire i passaggi seguenti.
 
-2. Creare un dizionario per le intestazioni della richiesta. Impostare il `Content-Type` al `application/json`e aggiungere la chiave di sottoscrizione per il `Ocp-Apim-Subscription-Key` intestazione.
+2. Creare un dizionario per le intestazioni della richiesta. Impostare `Content-Type` su `application/json` e aggiungere la chiave di sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key`.
 
-3. Inviare la richiesta tramite `requests.post()`. Combinare l'endpoint e URL di rilevamento delle anomalie per l'intero URL della richiesta e includere le intestazioni e i dati della richiesta json. E quindi restituire la risposta.
+3. Inviare la richiesta usando `requests.post()`. Combinare l'endpoint e URL di rilevamento delle anomalie per l'URL completo della richiesta e includere le intestazioni e i dati della richiesta JSON. Restituire quindi la risposta.
 
 ```python
 def send_request(endpoint, url, subscription_key, request_data):
@@ -87,15 +87,15 @@ def send_request(endpoint, url, subscription_key, request_data):
     return json.loads(response.content.decode("utf-8"))
 ```
 
-## <a name="detect-anomalies-as-a-batch"></a>Rilevare le anomalie in batch
+## <a name="detect-anomalies-as-a-batch"></a>Rilevare anomalie come batch
 
-1. Creare un metodo denominato `detect_batch()` per rilevare le anomalie in tutto i dati come batch. Chiamare il `send_request()` metodo creato in precedenza con l'endpoint, url, la chiave di sottoscrizione e i dati json.
+1. Creare un metodo denominato `detect_batch()` per rilevare le anomalie in tutti i dati come batch. Chiamare il metodo `send_request()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati json.
 
-2. Chiamare `json.dumps()` sul risultato formattarla e stamparlo nella console.
+2. Chiamare `json.dumps()` sul risultato per formattarlo e stamparlo nella console.
 
-3. Se la risposta contiene `code` campo, il codice di errore e il messaggio di errore di stampa.
+3. Se la risposta contiene il campo `code`, viene visualizzato il codice errore e il messaggio di errore.
 
-4. In caso contrario, è possibile trovare le posizioni delle anomalie nel set di dati. La risposta `isAnomaly` campo contiene un valore booleano relative al fatto che un punto dati specificato è un'anomalia. Scorrere l'elenco e stampare l'indice di qualsiasi `True` valori. Questi valori corrispondono all'indice di punti dati anomali, se sono stati trovati.
+4. In caso contrario, trovare le posizioni delle anomalie nel set di dati. Il campo `isAnomaly` della risposta contiene un valore booleano che indica se il punto dati specificato è un'anomalia. Scorrere l'elenco e stampare l'indice dei valori `True`. Questi valori corrispondono all'indice dei punti dati anomali, se presenti.
 
 ```python
 def detect_batch(request_data):
@@ -116,9 +116,9 @@ def detect_batch(request_data):
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Rilevare lo stato delle anomalie del punto dati più recente
 
-1. Creare un metodo denominato `detect_latest()` per determinare se l'ultimo punto dati nella serie temporale è un'anomalia. Chiamare il `send_request()` metodo sopra con l'endpoint, url, la chiave di sottoscrizione e i dati json. 
+1. Creare un metodo denominato `detect_latest()` per determinare se l'ultimo punto dati della serie temporale è un'anomalia. Chiamare il metodo `send_request()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati JSON. 
 
-2. Chiamare `json.dumps()` sul risultato formattarla e stamparlo nella console.
+2. Chiamare `json.dumps()` sul risultato per formattarlo e stamparlo nella console.
 
 ```python
 def detect_latest(request_data):
@@ -130,7 +130,7 @@ def detect_latest(request_data):
 
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Caricare i dati delle serie temporali e inviare la richiesta
 
-1. Caricare i dati delle serie temporali JSON aprendo un gestore di file e usando `json.load()` su di esso. Chiamare quindi l'anomalia i metodi di rilevamento creati in precedenza.
+1. Caricare i dati della serie temporale JSON aprendo un gestore di file e usando `json.load()` su di esso. Chiamare quindi i metodi di rilevamento anomalie creati in precedenza.
 
 ```python
 file_handler = open(data_location)
@@ -142,9 +142,9 @@ detect_latest(json_data)
 
 ### <a name="example-response"></a>Risposta di esempio
 
-Una risposta con esito positivo viene restituita in formato JSON. Fare clic sui collegamenti seguenti per visualizzare la risposta JSON in GitHub:
-* [Risposta di rilevamento di batch di esempio](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
-* [Risposta di esempio più recente punto di rilevamento](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+Viene restituita una risposta con esito positivo in formato JSON. Fare clic sui collegamenti seguenti per visualizzare la risposta JSON in GitHub:
+* [Esempio di risposta di rilevamento in batch](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
+* [Esempio di risposta di rilevamento nel punto dati più recente](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

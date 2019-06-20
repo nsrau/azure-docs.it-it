@@ -1,44 +1,44 @@
 ---
-title: "Avvio rapido: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna e Node. js"
-description: Usare l'API di riconoscimento input penna per avviare tratti input penna.
+title: "Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Node.js"
+description: Usare l'API Riconoscimento input penna per avviare il riconoscimento di tratti input penna.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 651474fd538123e760022ac59efbbaf0b9b83d70
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 0dc672f0efc420ab73fd923191c2bd52fb571a4f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519668"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056842"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Avvio rapido: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna e JavaScript
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e JavaScript
 
-Usare questa Guida introduttiva per iniziare a usare l'API di riconoscimento input penna su tratti input penna digitale. Questa applicazione JavaScript invia una richiesta di API che contiene i dati tratti input penna in formato JSON e Visualizza la risposta.
+Usare questa guida di avvio rapido per iniziare a usare l'API Riconoscimento input penna su tratti input penna. Questa applicazione JavaScript # invia una richiesta API contenenti i dati del tratto input penna in formato JSON e visualizza la risposta.
 
-Anche se questa applicazione è scritta in Javascript ed eseguita nel web browser, l'API è un servizio web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+L'applicazione è scritta in JavaScript ed eseguita nel Web browser, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
-In genere è necessario chiamare l'API da un'app di input penna digitale. Questa Guida introduttiva invia i dati di tratti input penna per il seguente codice di esempio scritto a mano da un file JSON.
+In genere è necessario chiamare l'API da un'app di input penna. Questa guida di avvio rapido invia i dati del tratto input penna per l'esempio scritto a mano seguente da un file JSON.
 
-![un'immagine di testo scritto a mano](../media/handwriting-sample.jpg)
+![immagine di testo scritto a mano](../media/handwriting-sample.jpg)
 
 Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go.microsoft.com/fwlink/?linkid=2089905).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un Web browser
-- Dati tratti input penna di esempio per questa Guida introduttiva sono disponibili nella [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
+- I dati di esempio del tratto input penna per questo avvio rapido sono disponibili in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
 
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
 ## <a name="create-a-new-application"></a>Creare una nuova applicazione
 
-1. Nel tuo IDE o editor preferito, creare un nuovo `.html` file. Quindi aggiungervi codice HTML di base per il codice che verrà aggiunto in un secondo momento.
+1. Nell'ambiente di sviluppo integrato o nell'editor preferito creare un nuovo file `.html`. Aggiungere il codice HTML di base per il codice che verrà aggiunto in un secondo momento.
     
     ```html
     <!DOCTYPE html>
@@ -55,9 +55,9 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
     </html>
     ```
 
-2. All'interno di `<body>` tag, aggiungere il codice html seguente:
-    1. Due aree di testo per visualizzare la risposta e una richiesta JSON.
-    2. Un pulsante per la chiamata di `recognizeInk()` funzione che verrà creato in un secondo momento.
+2. All'interno del tag `<body>` aggiungere il codice HTML seguente:
+    1. Due aree di testo per visualizzare la risposta e la richiesta JSON.
+    2. Un pulsante per chiamare la funzione `recognizeInk()` che verrà creato in un secondo momento.
     
     ```HTML
     <!-- <body>-->
@@ -73,11 +73,11 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
 
 ## <a name="load-the-example-json-data"></a>Caricare i dati JSON di esempio
 
-1. All'interno di `<script>` tag, creare una variabile per il sampleJson. Creare quindi una funzione JavaScript denominata `openFile()` che si apre Esplora file in modo che è possibile selezionare il file JSON. Quando il `Recognize ink` si fa clic sul pulsante, chiamare questa funzione e iniziare la lettura del file.
-2. Usare un `FileReader` dell'oggetto `onload()` funzione per elaborare il file in modo asincrono. 
-    1. Sostituire eventuali `\n` o `\r` caratteri nel file con una stringa vuota. 
+1. All'interno del tag `<script>`, creare una variabile per sampleJson. Creare quindi una funzione JavaScript denominata `openFile()` che apre una sessione di Esplora file per consentire la selezione del file JSON. Quando si fa clic sul pulsante `Recognize ink`, verrà chiamata questa funzione e inizierà la lettura del file.
+2. Usare la funzione `onload()` di un oggetto `FileReader` per elaborare il file in modalità asincrona. 
+    1. Sostituire tutti i caratteri `\n` o `\r` presenti nel file con una stringa vuota. 
     2. Usare `JSON.parse()` per convertire il testo in formato JSON valido
-    3. Aggiornamento di `request` casella di testo nell'applicazione. Usare `JSON.stringify()` per formattare la stringa JSON. 
+    3. Aggiornare la casella di testo `request` nell'applicazione. Usare `JSON.stringify()` per formattare la stringa JSON. 
     
     ```javascript
     var sampleJson = "";
@@ -94,9 +94,9 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
     };
     ```
 
-## <a name="send-a-request-to-the-ink-recognizer-api"></a>Inviare una richiesta all'API di riconoscimento di input penna
+## <a name="send-a-request-to-the-ink-recognizer-api"></a>Inviare una richiesta all'API Riconoscimento input penna
 
-1. All'interno di `<script>` tag, creare una funzione denominata `recognizeInk()`. Questa funzione verrà in un secondo momento chiamare l'API e aggiornare la pagina con la risposta. Aggiungere il codice di questa procedura all'interno di questa funzione. 
+1. All'interno del tag `<script>` creare una funzione denominata `recognizeInk()`. Questa funzione chiamerà in un secondo momento l'API e aggiornerà la pagina con la risposta. Aggiungere il codice della procedura seguente all'interno di questa funzione. 
         
     ```javascript
     function recognizeInk() {
@@ -104,7 +104,7 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
     }
     ```
 
-    1. Creare variabili per l'URL dell'endpoint, la chiave di sottoscrizione e il file JSON di esempio. Creare quindi un `XMLHttpRequest` oggetto per inviare la richiesta dell'API. 
+    1. Creare le variabili per l'URL dell'endpoint, la chiave di sottoscrizione e il codice JSON di esempio. Creare quindi un oggetto `XMLHttpRequest` per inviare la richiesta API. 
         
         ```javascript
         // Replace the below URL with the correct one for your subscription. 
@@ -115,7 +115,7 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
         var SUBSCRIPTION_KEY = "YOUR-SUBSCRIPTION-KEY";
         var xhttp = new XMLHttpRequest();
         ```
-    2. Creare la funzione restituita per le `XMLHttpRequest` oggetto. Questa funzione analizzerà la risposta dell'API da una richiesta ha esito positivo e li visualizzi nell'applicazione. 
+    2. Creare la funzione return per l'oggetto `XMLHttpRequest`. Questa funzione analizzerà la risposta API da una richiesta riuscita e la visualizzerà nell'applicazione. 
             
         ```javascript
         function returnFunction(xhttp) {
@@ -124,7 +124,7 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
             document.getElementById('response').innerHTML = JSON.stringify(response, null, 2);
         }
         ```
-    3. Creare la funzione di errore per l'oggetto richiesta. Questa funzione registra l'errore nella console. 
+    3. Creare la funzione error per l'oggetto richiesta. Questa funzione registra l'errore nella console. 
             
         ```javascript
         function errorFunction() {
@@ -132,7 +132,7 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
         }
         ```
 
-    4. Creare una funzione per l'oggetto di richiesta `onreadystatechange` proprietà. Quando viene modificato lo stato di conformità dell'oggetto richiesta, verranno applicate le funzioni rendimento ed errore precedente.
+    4. Creare una funzione per la proprietà `onreadystatechange` dell'oggetto richiesta. Quando lo stato di conformità dell'oggetto richiesta cambia, verranno applicate le funzioni return e error sopra descritte.
             
         ```javascript
         xhttp.onreadystatechange = function () {
@@ -146,7 +146,7 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
         };
         ```
     
-    5. Inviare la richiesta dell'API. Aggiungere la chiave di sottoscrizione per il `Ocp-Apim-Subscription-Key` intestazione e impostare il `content-type` a `application/json`
+    5. Inviare la richiesta API. Aggiungere la chiave di sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key` e impostare `content-type` su `application/json`
     
         ```javascript
         xhttp.open("PUT", ENDPOINT_URL, true);

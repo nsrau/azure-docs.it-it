@@ -1,42 +1,42 @@
 ---
-title: "Avvio rapido: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna e Java"
-description: Usare l'API di riconoscimento input penna per avviare tratti input penna.
+title: "Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Java"
+description: Usare l'API Riconoscimento input penna per avviare il riconoscimento di tratti input penna.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 6237253922544dc47bb11aec4dd58139f99eb0da
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 04f2ac17871bbaf0506fe18122507167b23869a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518621"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060947"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Avvio rapido: Riconoscere l'input penna digitale con l'API REST per il riconoscimento di input penna e Java
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Java
 
-Usare questa Guida introduttiva per iniziare a usare l'API di riconoscimento input penna su tratti input penna digitale. L'applicazione Java invia una richiesta di API che contiene i dati tratti input penna in formato JSON e ottiene la risposta.
+Usare questa guida di avvio rapido per iniziare a usare l'API Riconoscimento input penna su tratti input penna. Questa applicazione Java invia una richiesta API contenenti i dati del tratto input penna in formato JSON e riceve la risposta.
 
 L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
-In genere è necessario chiamare l'API da un'app di input penna digitale. Questa Guida introduttiva invia i dati di tratti input penna per il seguente codice di esempio scritto a mano da un file JSON.
+In genere è necessario chiamare l'API da un'app di input penna. Questa guida di avvio rapido invia i dati del tratto input penna per l'esempio scritto a mano seguente da un file JSON.
 
-![un'immagine di testo scritto a mano](../media/handwriting-sample.jpg)
+![immagine di testo scritto a mano](../media/handwriting-sample.jpg)
 
 Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Il [Java&trade; sviluppo Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) o versione successiva.
+- [Java&trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) versione successiva.
 
-- Queste librerie di importazione dal Repository Maven
-    - [JSON in Java](https://mvnrepository.com/artifact/org.json/json) pacchetto
-    - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) pacchetto
+- Importare queste librerie dal repository Maven
+    - Pacchetto [JSON in Java](https://mvnrepository.com/artifact/org.json/json)
+    - Pacchetto [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
 
-- Dati tratti input penna di esempio per questa Guida introduttiva sono disponibili nella [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
+- I dati di esempio del tratto input penna per questo avvio rapido sono disponibili in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -57,7 +57,7 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
     import java.nio.file.Paths;
     ```
 
-2. Creare variabili per la chiave di sottoscrizione e l'endpoint. Di seguito è l'URI è possibile usare per il riconoscimento di input penna. Si verrà aggiunto all'endpoint di servizio in un secondo momento per creare l'URL della richiesta API.
+2. Creare variabili per la chiave di sottoscrizione e per l'endpoint. Di seguito è riportato l'URI che è possibile usare per il riconoscimento input penna. Questo URI verrà aggiunto all'endpoint di servizio in un secondo momento per creare l'URL della richiesta API.
 
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -69,19 +69,19 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
     static final String inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 
-## <a name="create-a-function-to-send-requests"></a>Creare una funzione per l'invio di richieste
+## <a name="create-a-function-to-send-requests"></a>Creare una funzione per inviare richieste
 
 1. Creare una nuova funzione denominata `sendRequest()` che accetta le variabili create in precedenza. Quindi, eseguire i passaggi seguenti.
 
-2. Creare un `CloseableHttpClient` oggetto che può inviare richieste all'API. Invia la richiesta a un `HttpPut` oggetto richiesta combinando l'endpoint e l'URL per il riconoscimento di input penna.
+2. Creare un oggetto `CloseableHttpClient` che può inviare richieste all'API. Inviare la richiesta a un oggetto richiesta `HttpPut` combinando l'endpoint e l'URL di riconoscimento input penna.
 
-3. Usare la richiesta `setHeader()` funzione per impostare il `Content-Type` intestazione `application/json`e aggiungere la chiave di sottoscrizione per il `Ocp-Apim-Subscription-Key` intestazione.
+3. Usare la funzione `setHeader()` della richiesta per impostare l'intestazione `Content-Type` su `application/json` e aggiungere la chiave di sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key`.
 
-4. Usare la richiesta `setEntity()` funzione per i dati da inviare.   
+4. Usare la funzione `setEntity()` della richiesta per i dati da inviare.   
 
-5. Usare il client `execute()` funzione per inviare la richiesta e salvarlo in un `CloseableHttpResponse` oggetto. 
+5. Usare la funzione `execute()` del client per inviare la richiesta e salvarla in un oggetto `CloseableHttpResponse`. 
 
-6. Creare un `HttpEntity` oggetto usato per archiviare il contenuto della risposta. Ottenere il contenuto con `getEntity()`. Se la risposta non è vuota, restituirlo.
+6. Creare un oggetto `HttpEntity` in cui archiviare il contenuto della risposta. Ottenere il contenuto con `getEntity()`. Viene restituita la risposta se non è vuota.
     
     ```java
     static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
@@ -109,7 +109,7 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
 
 ## <a name="send-an-ink-recognition-request"></a>Inviare una richiesta di riconoscimento input penna
 
-Creare un metodo denominato `recognizeInk()` per riconoscere i dati di traccia di input penna. Chiamare il `sendRequest()` metodo creato in precedenza con l'endpoint, url, la chiave di sottoscrizione e i dati json. Ottenere il risultato ed eseguire la stampa nella console.
+Creare un metodo denominato `recognizeInk()` per riconoscere i dati dell'input penna. Chiamare il metodo `sendRequest()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati JSON. Ottenere il risultato e visualizzarlo nella console.
 
 ```java
 static void recognizeInk(String requestData) {
@@ -119,9 +119,9 @@ static void recognizeInk(String requestData) {
 }
 ```
 
-## <a name="load-your-digital-ink-data-and-send-the-request"></a>Caricare i dati di input penna e inviare la richiesta
+## <a name="load-your-digital-ink-data-and-send-the-request"></a>Caricare i dati dell'input penna e inviare la richiesta
 
-1. Nel metodo main dell'applicazione, leggere il file JSON che contiene i dati che verranno aggiunti alle richieste.
+1. Nel metodo main dell'applicazione leggere il file JSON che contiene i dati che verranno aggiunti alle richieste.
 
 2. Chiamare la funzione di riconoscimento input penna creata in precedenza.
     
@@ -134,7 +134,7 @@ static void recognizeInk(String requestData) {
 
 ## <a name="run-the-application-and-view-the-response"></a>Eseguire l'applicazione e visualizzare la risposta
 
-Eseguire l'applicazione. Una risposta con esito positivo viene restituita in formato JSON. È anche possibile trovare la risposta JSON sul [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
+Eseguire l'applicazione. Viene restituita una risposta con esito positivo in formato JSON. È anche possibile trovare la risposta JSON in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
