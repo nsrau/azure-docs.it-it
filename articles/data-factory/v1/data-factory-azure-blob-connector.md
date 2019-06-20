@@ -130,7 +130,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True (valore predefinito), False |No |
+| recursive |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True (valore predefinito), False |No |
 
 **BlobSink** supporta le proprietà della sezione **typeProperties** seguenti:
 
