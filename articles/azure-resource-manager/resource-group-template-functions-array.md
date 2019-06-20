@@ -58,7 +58,7 @@ Converte il valore in matrice.
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Yes |int, stringa, matrice o oggetto |Valore da convertire in matrice. |
+| convertToArray |Yes |int, string, array o object |Valore da convertire in matrice. |
 
 ### <a name="return-value"></a>Valore restituito
 
