@@ -336,6 +336,18 @@
         - name: Project Acoustics
           tocHref: /azure/cognitive-services/acoustics/
           topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
+        - name: Riconoscimento modulo
+          tocHref: /azure/cognitive-services/form-recognizer/
+          topicHref: /azure/cognitive-services/form-recognizer/
+        - name: Riconoscimento input penna
+          tocHref: /azure/cognitive-services/Ink-Recognizer/
+          topicHref: /azure/cognitive-services/Ink-Recognizer/
+        - name: Personalizza esperienze
+          tocHref: /azure/cognitive-services/personalizer/
+          topicHref: /azure/cognitive-services/personalizer/
+        - name: Strumento di lettura immersiva
+          tocHref: /azure/cognitive-services/immersive-reader/
+          topicHref: /azure/cognitive-services/immersive-reader/
     - name: Connettori
       tocHref: /azure/connectors/
       topicHref: /azure/connectors/

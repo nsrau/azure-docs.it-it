@@ -1,0 +1,27 @@
+- name: Documentazione dello strumento di lettura immersiva
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Cos'è lo strumento di lettura immersiva?
+      href: Overview.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: 'Uso di C#'
+      href: Quickstart.md
+- name: Esercitazioni
+  items:
+    - name: Avviare lo strumento di lettura immersiva (Node.js)
+      href: tutorial.md
+- name: riferimento
+  items:
+    - name: Informazioni di riferimento sugli SDK
+      href: reference.md
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/en-us/updates/?product=cognitive-services'
+    - name: Supporto per le lingue
+      href: 'https://aka.ms/ltlangsupport'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=cognitive-services'

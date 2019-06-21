@@ -17,6 +17,15 @@ metadata:
 ms.custom: seodec18
 abstract:
   description: Riconoscimento modulo di Azure è un servizio cognitivo che usa tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. L'apprendimento non supervisionato consente al modello di riconoscere il layout e le relazioni tra campi e voci senza assegnazione manuale di etichette dati o impegnative attività di creazione di codice e manutenzione.
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: ../media/index/form-recognizer-landing-page-video.png
+      width: 250
+    title: 'Automazione dei processi basata su intelligenza artificiale con Riconoscimento modulo (2:15)'
+    href: 'https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer'
+    width: 250
 sections:
   - items:
       - type: list

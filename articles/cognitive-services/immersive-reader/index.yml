@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione dello strumento di lettura immersiva
+metadata:
+  title: 'Documentazione dello strumento di lettura immersiva - Guide di avvio rapido, esercitazioni, informazioni di riferimento sulle API - Servizi cognitivi di Azure | Microsoft Docs'
+  description: Informazioni su come usare lo strumento di lettura immersiva nelle applicazioni.
+  services: cognitive-services
+  author: metanMSFT
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/20/2019
+  ms.author: metanMSFT
+abstract:
+  description: 'Lo strumento i lettura immersiva implementa tecniche comprovate per migliorare la comprensione della lettura per lettori emergenti, studenti di lingue e persone con differenze nell''apprendimento. È possibile usare lo strumento di lettura immersiva nell''applicazione Web con Immersive Reader SDK.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/immersive-reader/overview
+            html: <p>Informazioni sullo strumento di lettura immersiva e su come integrarlo nelle applicazioni</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Cos'è lo strumento di lettura immersiva?
+          - href: /azure/cognitive-services/immersive-reader/reference
+            html: <p>Informazioni su Immersive Reader Javascript SDK</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Usare Immersive Reader SDK
+  - title: Guide introduttive di 5 minuti
+    items:
+      - type: paragraph
+        text: 'Iniziare a usare lo strumento di lettura immersiva:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            text: 'C&#35;'
+            alt: 'Logo di C#'
+            href: quickstart
+  - title: Esercitazioni dettagliate
+    items:
+      - type: paragraph
+        text: 'Informazioni su come sviluppare applicazioni con lo strumento di lettura immersiva:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial.md">Avviare lo strumento di lettura immersiva con Node.js</a>
+  - title: riferimento
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: SDK
+            html: <p><a href="reference.md">JavaScript</a></p>
