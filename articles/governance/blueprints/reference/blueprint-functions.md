@@ -25,9 +25,9 @@ Sono supportate le funzioni seguenti:
 - [parameters](#parameters)
 - [resourceGroup](#resourcegroup)
 - [resourceGroups](#resourcegroups)
-- [sottoscrizione](#subscription)
+- [subscription](#subscription)
 
-## <a name="artifacts"></a>Artefatti
+## <a name="artifacts"></a>artifacts
 
 `artifacts(artifactName)`
 
@@ -324,7 +324,7 @@ Usare quindi il `resourceGroups()` funzione dal contesto di qualsiasi elemento d
 }
 ```
 
-## <a name="subscription"></a>sottoscrizione
+## <a name="subscription"></a>subscription
 
 `subscription()`
 
