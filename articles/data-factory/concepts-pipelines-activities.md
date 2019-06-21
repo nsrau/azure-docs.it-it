@@ -99,7 +99,7 @@ Tag | Descrizione | Type | Obbligatorio
 name | Nome della pipeline. Specificare un nome che rappresenti l'azione eseguita dalla pipeline. <br/><ul><li>Numero massimo di caratteri: 140</li><li>Deve iniziare con una lettera, numero o un carattere di sottolineatura (\_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\"</li></ul> | String | Yes
 description | Specificare il testo descrittivo che illustra lo scopo della pipeline. | String | No
 activities | Nella sezione delle **attività** possono essere definite una o più attività. Vedere la sezione relativa al formato [JSON delle attività](#activity-json) per informazioni dettagliate sull'elemento JSON delle attività. | Array | Yes
-parameters | La sezione **parameters** può avere uno o più parametri definiti all'interno della pipeline, assicurando la flessibilità per il riutilizzo della pipeline. | Elenco | No
+parameters | La sezione **parameters** può avere uno o più parametri definiti all'interno della pipeline, assicurando la flessibilità per il riutilizzo della pipeline. | List | No
 
 ## <a name="activity-json"></a>Attività JSON
 Nella sezione delle **attività** possono essere definite una o più attività. Esistono due principali tipi di attività: attività di esecuzione e di controllo.
