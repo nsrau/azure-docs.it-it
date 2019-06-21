@@ -50,7 +50,7 @@ Converte il valore in matrice.
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Yes |int, stringa, matrice o oggetto |Valore da convertire in matrice. |
+| convertToArray |Yes |int, string, array, o object |Valore da convertire in matrice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -128,8 +128,8 @@ Restituisce il primo valore non null dai parametri. Stringhe vuote, matrici vuot
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |int, stringa, matrice o oggetto |Il primo valore da controllare per verificare se è null. |
-| argomenti aggiuntivi |No |numero intero, stringa, matrice o oggetto |Valori aggiuntivi da controllare per verificare se sono null. |
+| arg1 |Yes |int, string, array, o object |Il primo valore da controllare per verificare se è null. |
+| argomenti aggiuntivi |No |int, string, array, o object |Valori aggiuntivi da controllare per verificare se sono null. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -424,8 +424,8 @@ Crea una matrice dai parametri.
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |Stringa, numero intero, matrice o oggetto |Primo valore della matrice. |
-| argomenti aggiuntivi |No |Stringa, numero intero, matrice o oggetto |Altri valori della matrice. |
+| arg1 |Yes |String, Integer, Array, o Object |Primo valore della matrice. |
+| argomenti aggiuntivi |No |String, Integer, Array, o Object |Altri valori della matrice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -648,9 +648,9 @@ Restituisce una matrice o un oggetto singoli con gli elementi comuni dei paramet
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matrice o oggetto |Primo valore da usare per cercare elementi comuni. |
-| arg2 |Yes |matrice o oggetto |Secondo valore da usare per cercare elementi comuni. |
-| argomenti aggiuntivi |No |matrice o oggetto |Valori aggiuntivi da usare per cercare elementi comuni. |
+| arg1 |Yes |array o object |Primo valore da usare per cercare elementi comuni. |
+| arg2 |Yes |array o object |Secondo valore da usare per cercare elementi comuni. |
+| argomenti aggiuntivi |No |array o object |Valori aggiuntivi da usare per cercare elementi comuni. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1302,9 +1302,9 @@ Restituisce una matrice o un oggetto singoli con tutti gli elementi dei parametr
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |matrice o oggetto |Primo valore da usare per l'aggiunta di elementi. |
-| arg2 |Yes |matrice o oggetto |Secondo valore da usare per l'aggiunta di elementi. |
-| argomenti aggiuntivi |No |matrice o oggetto |Valori aggiuntivi da usare per l'aggiunta di elementi. |
+| arg1 |Yes |array o object |Primo valore da usare per l'aggiunta di elementi. |
+| arg2 |Yes |array o object |Secondo valore da usare per l'aggiunta di elementi. |
+| argomenti aggiuntivi |No |array o object |Valori aggiuntivi da usare per l'aggiunta di elementi. |
 
 ### <a name="return-value"></a>Valore restituito
 

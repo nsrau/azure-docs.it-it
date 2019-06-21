@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1828cdce66104424cc7845fea89127219e6b77a0
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 45ed0167f5a83fa843a224ada35e96672a6752a1
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137273"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311850"
 ---
 # <a name="why-use-batch-transcription"></a>Perché usare la trascrizione batch?
 
@@ -91,6 +91,7 @@ Usare queste proprietà facoltative per configurare la trascrizione:
 | `PunctuationMode` | Specifica come gestire la punteggiatura nei risultati del riconoscimento. I valori accettati sono `none` che consente di disattivare la punteggiatura, `dictated` che implica la punteggiatura esplicita, `automatic` che permette al decodificatore di occuparsi della punteggiatura, o `dictatedandautomatic` che implica segni di punteggiatura dettata o automatica. |
  | `AddWordLevelTimestamps` | Specifica se i timestamp a livello di parola devono essere aggiunti all'output. I valori accettati sono `true`, che abilita i timestamp a livello di parola, e `false` (valore predefinito), che li disabilita. |
  | `AddSentiment` | Specifica dei sentimenti devono essere aggiunte alle utterance. Valori accettati sono `true` che consente di sentimenti per ogni utterance e `false` (valore predefinito) per disabilitarlo. |
+ | `AddDiarization` | Specifica che alalysis diarization deve essere eseguita sull'input che dovrà essere canale mono contenente due voci. Valori accettati sono `true` consentendo diarization e `false` (valore predefinito) per disabilitarlo. È inoltre necessario `AddWordLevelTimestamps` da impostare su true.|
 
 ### <a name="storage"></a>Archiviazione
 
@@ -128,13 +129,8 @@ L'audio corrispondente conterrà i relatori principali identificati da un numero
 
 Si noti inoltre che Diarization non è disponibile in registrazioni Stereo. Inoltre, tutti i JSON output conterrà il tag del relatore. Se non viene utilizzato diarization, verrà indicato ' relatore: Null' nell'output JSON.
 
-Di seguito sono elencate le impostazioni locali supportate.
-
-| Linguaggio | locale |
-|--------|-------|
-| Inglese | en-US |
-| Cinese | zh-CN |
-| Deutsch | de-DE |
+> [!NOTE]
+> Diarization è disponibile in tutte le aree e per tutte le impostazioni locali.
 
 ## <a name="sentiment"></a>Valutazione
 
