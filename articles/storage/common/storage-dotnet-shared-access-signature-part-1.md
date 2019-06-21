@@ -9,12 +9,12 @@ ms.date: 04/18/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b3c2ed7f2914374ac94783511f2992ae5755967
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65907231"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302312"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Uso delle firme di accesso condiviso
 
@@ -23,7 +23,10 @@ Una firma di accesso condiviso costituisce un potente strumento per concedere ad
 Per altri esempi di codice che usano la firma di accesso condiviso, oltre a quelli già presentati qui, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) e altri esempi disponibili nella libreria [Esempi di codice per Azure](https://azure.microsoft.com/documentation/samples/?service=storage). È possibile scaricare le applicazioni di esempio ed eseguirle oppure esaminare il codice in GitHub.
 
 ## <a name="what-is-a-shared-access-signature"></a>Informazioni sulle firme di accesso condiviso
+
 Una firma di accesso condiviso fornisce accesso delegato controllato alle risorse dell'account di archiviazione. Con una firma di accesso condiviso è possibile concedere ai client l'accesso alle risorse nell'account di archiviazione, senza condividere le chiavi dell'account. Questo è il punto chiave associato all'uso delle firme di accesso condiviso nelle applicazioni: una firma di accesso condiviso rappresenta un metodo sicuro per condividere le risorse di archiviazione senza compromettere le chiavi dell'account.
+
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -35,6 +38,7 @@ Una firma di accesso condiviso assicura un controllo granulare sul tipo di acces
 * Il protocollo su cui Archiviazione di Azure accetterà la firma di accesso condiviso. È possibile usare questo parametro facoltativo per limitare l'accesso ai client tramite HTTPS.
 
 ## <a name="when-should-you-use-a-shared-access-signature"></a>Perché usare una firma di accesso condiviso
+
 È possibile usare una firma di accesso condiviso quando si desidera fornire l'accesso alle risorse dell'account di archiviazione a un client che non possiede le chiavi di accesso dell'account di archiviazione. L'account di archiviazione include una chiave di accesso primaria e una secondaria, che garantiscono entrambe l'accesso amministrativo all'account e a tutte le risorse presenti in esso. Se si espone una di queste chiavi, è possibile che l'account venga usato in modo dannoso o non appropriato. Le firme di accesso condiviso costituiscono un'alternativa sicura per consentire ai client di leggere, scrivere ed eliminare dati nell'account di archiviazione sulla base delle autorizzazioni concesse esplicitamente e senza richiedere la chiave dell'account.
 
 Uno scenario comune in cui la firma di accesso condiviso risulta utile è costituito da un servizio in cui gli utenti leggono e scrivono i propri dati nell'account di archiviazione di un utente specifico. Uno scenario in cui i dati utente vengono archiviati nell'account di archiviazione è caratterizzato da due modelli di progettazione standard:
@@ -56,12 +60,14 @@ Molti servizi reali possono usare una combinazione di questi due approcci. Ad es
 * Quando si copia un BLOB in un file o un file in un BLOB, è necessario usare una firma di accesso condiviso per autorizzare l'accesso all'oggetto di origine, anche se gli oggetti di origine e di destinazione si trovano nello stesso account di archiviazione.
 
 ## <a name="types-of-shared-access-signatures"></a>Tipi di firme di accesso condiviso
+
 È possibile creare due tipi di firme di accesso condiviso:
 
 * **Firma di accesso condiviso del servizio.** La firma di accesso condiviso del servizio delega l'accesso a una risorsa in uno solo dei servizi di archiviazione, ovvero nel servizio BLOB, nel servizio di accodamento, nel servizio tabelle o nel servizio file. Per informazioni approfondite su come creare il token di firma di accesso condiviso del servizio, vedere [Constructing a Service SAS](https://msdn.microsoft.com/library/dn140255.aspx) (Creare una firma di accesso condiviso del servizio) e [Service SAS Examples](https://msdn.microsoft.com/library/dn140256.aspx) (Esempi di firma di accesso condiviso del servizio).
 * **Firma di accesso condiviso dell'account.** La firma di accesso condiviso dell'account delega l'accesso alle risorse in uno o più servizi di archiviazione. Tutte le operazioni disponibili tramite la firma di accesso condiviso del servizio lo sono anche tramite la firma di accesso condiviso dell'account. Con la firma di accesso condiviso dell'account è anche possibile delegare l'accesso a operazioni che si applicano a un servizio specifico, ad esempio **Get/Set Service Properties** e **Get Service Stats**. È anche possibile delegare l'accesso alle operazioni di lettura, scrittura ed eliminazioni in contenitori BLOB, tabelle, code e condivisioni file, che con una firma di accesso condiviso del servizio non è consentito. Per informazioni approfondite su come creare il token di firma di accesso condiviso dell'account, vedere [Creazione di una firma di accesso condiviso dell'account](https://msdn.microsoft.com/library/mt584140.aspx).
 
 ## <a name="how-a-shared-access-signature-works"></a>Funzionamento della firma di accesso condiviso
+
 Una firma di accesso condiviso è un URI con fimra che punta a una o più risorse di archiviazione e include un token che contiene un set di parametri di query speciale. Il token indica la modalità di accesso alla risorsa da parte del client. Uno dei parametri di query, ovvero la firma, viene creato dai parametri della firma di accesso condiviso e viene firmato con la chiave dell'account. Questa firma viene usata da Archiviazione di Azure per autorizzare l'accesso alla risorsa di archiviazione.
 
 Di seguito è riportato un esempio di un URI di firma di accesso condiviso, che mostra il token di firma di accesso condiviso e l'URI della risorsa:
@@ -73,9 +79,11 @@ Il token di firma di accesso condiviso è una stringa generata sul lato *client*
 Quando un client fornisce un URI di firma di accesso condiviso ad Archiviazione di Azure come parte di una richiesta, il servizio controlla i parametri di firma di accesso condiviso e la firma per verificarne la validità per l'autenticazione della richiesta. Se il servizio conferma che la firma è valida, la richiesta viene autorizzata. In caso contrario, la richiesta viene rifiutata con il codice errore 403 (accesso negato).
 
 ## <a name="shared-access-signature-parameters"></a>Parametri della firma di accesso condiviso
+
 I token di firma di accesso condiviso dell'account e del servizio includono parametri comuni e accettano alcuni parametri diversi.
 
 ### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>Parametri comuni per la firma di accesso condiviso dell'account e del servizio
+
 * **Api version** Parametro facoltativo che specifica la versione del servizio di archiviazione da usare per eseguire la richiesta.
 * **Versione del servizio.** Parametro obbligatorio che specifica la versione del servizio di archiviazione da usare per autorizzare la richiesta.
 * **Ora di inizio.** Si riferisce all'ora in cui la firma di accesso condiviso diventa valida. L'ora di inizio di una firma di accesso condiviso è facoltativa. Se l'ora di inizio viene omessa, la firma diventa immediatamente efficace. L'ora di inizio deve essere espressa in UTC (Coordinated Universal Time), con uno speciale designatore UTC ("Z"), ad esempio `1994-11-05T13:15:30Z`.
@@ -86,6 +94,7 @@ I token di firma di accesso condiviso dell'account e del servizio includono para
 * **Signature.** La firma viene creata dagli altri parametri specificati come parte token e quindi crittografati. La firma viene usata per autorizzare l'accesso alle risorse di archiviazione specificate.
 
 ### <a name="parameters-for-a-service-sas-token"></a>Parametri per il token della firma di accesso condiviso del servizio
+
 * **Risorsa di archiviazione.** Le risorse di archiviazione per cui è possibile delegare l'accesso con una firma di accesso condiviso del servizio sono:
   * Contenitori e BLOB
   * Condivisioni di file e file
@@ -93,6 +102,7 @@ I token di firma di accesso condiviso dell'account e del servizio includono para
   * Le tabelle e gli intervalli di entità della tabella.
 
 ### <a name="parameters-for-an-account-sas-token"></a>Parametri per il token della firma di accesso condiviso dell'account
+
 * **Servizio o servizi.** La firma di accesso condiviso può delegare l'accesso a uno o più servizi di archiviazione. Ad esempio, è possibile creare una firma di accesso condiviso dell'account che delega l'accesso al servizio BLOB e al servizio File. Oppure, è possibile creare una firma di accesso condiviso che delega l'accesso a tutti e quattro i servizi (BLOB, Coda, Tabelle e File).
 * **Tipi di risorse di archiviazione.** Una firma di accesso condiviso dell'account si applica a una o più classi di risorse di archiviazione, piuttosto che a una risorsa specifica. È possibile creare una firma di accesso condiviso dell'account per delegare l'accesso a:
   * API a livello di servizio, che vengono chiamate sulla risorsa dell'account di archiviazione. Ad esempio: **Get/Set Service Properties**, **Get Service Stats** e **List Containers/Queues/Tables/Shares**.
@@ -109,7 +119,7 @@ Di seguito è riportato un esempio di URI di firma di accesso condiviso del serv
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| Name | Parte firma di accesso condiviso | Descrizione |
+| NOME | Parte firma di accesso condiviso | Descrizione |
 | --- | --- | --- |
 | URI del BLOB |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Indirizzo del BLOB. Si noti che è vivamente consigliato l'uso di HTTPS. |
 | Versione dei servizi di archiviazione |`sv=2015-04-05` |Per i servizi di archiviazione della versione 2012-02-12 e successive questo parametro indica la versione da usare. |
@@ -129,7 +139,7 @@ Di seguito è riportato un esempio di firma di accesso condiviso dell'account ch
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| NOME | Parte firma di accesso condiviso | Descrizione |
+| Name | Parte firma di accesso condiviso | Descrizione |
 | --- | --- | --- |
 | URI della risorsa |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Endpoint di servizio BLOB con parametri per ottenere le proprietà del servizio (operazione GET) o per impostare le proprietà del servizio (operazione SET). |
 | Servizi |`ss=bf` |La firma di accesso condiviso si applica ai servizi BLOB e File |
@@ -139,6 +149,7 @@ https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015
 Poiché le autorizzazioni sono limitate a livello di servizio, le operazioni accessibili tramite questa firma di accesso condiviso sono **Get Blob Service Properties** (lettura) e **Set Blob Service Properties** (scrittura). Con un URI di risorsa diverso, lo stesso token di firma di accesso condiviso può tuttavia essere usato per delegare l'accesso all'operazione **Get Blob Service Stats** (lettura).
 
 ## <a name="controlling-a-sas-with-a-stored-access-policy"></a>Controllo di una firma di accesso condiviso con criteri di accesso archiviati
+
 Una firma di accesso condiviso può assumere una delle due forme seguenti:
 
 * **Firma di accesso condiviso ad hoc:** quando si crea una firma di accesso condiviso ad hoc, l'ora di inizio, la scadenza e le autorizzazioni vengono tutte specificate nell'URI corrispondente oppure sono implicite, nel caso in cui l'ora di inizio viene omessa. È possibile creare questa firma di accesso condiviso come firma di accesso condiviso dell'account o del servizio.
@@ -158,12 +169,15 @@ La differenza tra le due forme è importante un unico scenario chiave, la revoca
 > L'URI di una firma di accesso condiviso è associato alla chiave dell'account usata per creare la firma e ai relativi criteri di accesso archiviati (se presenti). Se non sono specificati criteri di accesso archiviati, l'unico modo per revocare una firma di accesso condiviso consiste nel modificare la chiave dell'account.
 
 ## <a name="authenticating-from-a-client-application-with-a-sas"></a>Autenticazione da un'applicazione client con una firma di accesso condiviso
+
 Un client che dispone di una firma di accesso condiviso può usare la firma per autorizzare una richiesta a un account di archiviazione per il quale non dispone di chiavi. Una firma di accesso condiviso può essere inclusa in una stringa di connessione o usata direttamente dal metodo o dal costruttore appropriato.
 
 ### <a name="using-a-sas-in-a-connection-string"></a>Uso di una firma di accesso condiviso in una stringa di connessione
+
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ### <a name="using-a-sas-in-a-constructor-or-method"></a>Uso di una firma di accesso condiviso in un costruttore o in un metodo
+
 Diversi costruttori di libreria e overload di metodi di Archiviazione di Azure offrono un parametro di firma di accesso condiviso affinché sia possibile autorizzare una richiesta al servizio con una firma di accesso condiviso.
 
 Ad esempio, in questo caso viene usato un URI di firma di accesso condiviso per creare un riferimento a un BLOB in blocchi. Il provider di firma di accesso condiviso fornisce solo le credenziali necessarie per la richiesta. Il riferimento al BLOB in blocchi viene quindi usato per un'operazione di scrittura:
@@ -208,6 +222,7 @@ catch (StorageException e)
 ```
 
 ## <a name="best-practices-when-using-sas"></a>Procedure consigliate per l'uso di SAS
+
 Quando si utilizzano le firme di accesso condiviso nell'applicazione, è necessario essere consapevoli di due rischi potenziali:
 
 * In caso di diffusione di una firma di accesso condiviso, chiunque la ottiene può usarla e questo potrebbe compromettere l'account di archiviazione.
@@ -227,6 +242,7 @@ Per mitigare questi rischi, è consigliabile attenersi ai consigli seguenti rela
 10. **Usare Analisi archiviazione per monitorare l'applicazione.** È possibile usare la registrazione e la metrica per osservare eventuali picchi di errori di autenticazione causati da un'interruzione del servizio del provider di firme di accesso condiviso oppure dalla rimozione accidentale di criteri di accesso archiviati. Per altre informazioni, vedere il [blog del team del servizio di archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) .
 
 ## <a name="sas-examples"></a>Esempi di firma di accesso condiviso
+
 Di seguito sono riportati alcuni esempi di entrambi i tipi di firma di accesso condiviso, dell'account e del servizio.
 
 Per eseguire questi esempi in C# è necessario fare riferimento ai seguenti pacchetti NuGet nel progetto:
@@ -237,6 +253,7 @@ Per eseguire questi esempi in C# è necessario fare riferimento ai seguenti pacc
 Per altri esempi che illustrano come creare e testare una firma di accesso condiviso, vedere [Esempi di codice per Azure per Archiviazione](https://azure.microsoft.com/documentation/samples/?service=storage).
 
 ### <a name="example-create-and-use-an-account-sas"></a>Esempio: Creare e usare una firma di accesso condiviso dell'account
+
 L'esempio di codice seguente crea una firma di accesso condiviso valida per i servizi BLOB e File e concede al client le autorizzazioni di lettura, scrittura ed elenco per accedere alle API a livello di servizio. Per la firma di accesso condiviso dell'account il protocollo è limitato ad HTTPS, pertanto è necessario creare una richiesta HTTPS.
 
 ```csharp
@@ -304,6 +321,7 @@ static void UseAccountSAS(string sasToken)
 ```
 
 ### <a name="example-create-a-stored-access-policy"></a>Esempio: Creare criteri di accesso archiviati
+
 Il codice seguente crea un criterio di accesso archiviato su un contenitore. È possibile usare i criteri di accesso per specificare i vincoli per una firma di accesso condiviso del servizio sul contenitore o i relativi BLOB.
 
 ```csharp
@@ -330,6 +348,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 ```
 
 ### <a name="example-create-a-service-sas-on-a-container"></a>Esempio: Creare una firma di accesso condiviso del servizio su un contenitore
+
 Il codice seguente crea una firma di accesso condiviso su un contenitore. Se viene specificato il nome di un criterio di accesso archiviato esistente, tale criterio è associato alla firma di accesso condiviso. Se viene specificato alcun criterio di accesso archiviati, il codice crea una firma di accesso condiviso ad hoc sul contenitore.
 
 ```csharp
@@ -373,6 +392,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 ```
 
 ### <a name="example-create-a-service-sas-on-a-blob"></a>Esempio: Creare una firma di accesso condiviso del servizio su un BLOB
+
 Il codice seguente crea una firma di accesso condiviso su un BLOB. Se viene specificato il nome di un criterio di accesso archiviato esistente, tale criterio è associato alla firma di accesso condiviso. Se viene specificato alcun criterio di accesso archiviati, il codice crea una firma di accesso condiviso ad hoc sul blob.
 
 ```csharp
@@ -419,9 +439,11 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 ```
 
 ## <a name="conclusion"></a>Conclusioni
+
 Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all'account di archiviazione ai client ai quali non si desidera fornire la chiave dell'account. In quanto tali, costituiscono una parte essenziale del modello di sicurezza di qualsiasi applicazione che utilizza il servizio di archiviazione di Azure. Il rispetto delle procedure consigliate sopra elencate consente di usare la firma di accesso condiviso per offrire accesso ancor più flessibile alle risorse dell'account di archiviazione senza compromettere la sicurezza dell'applicazione.
 
 ## <a name="next-steps"></a>Fasi successive
+
 * [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md)
 * [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Introduzione alla firma di accesso condiviso per tabelle e code](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
