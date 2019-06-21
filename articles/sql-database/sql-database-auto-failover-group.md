@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/06/2019
-ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 11b3e7724f34a7929d9851dbc8034829f020868b
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522846"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190721"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -42,7 +42,10 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
 - **Gruppo di failover (nebbia)**
 
-  Un gruppo di failover è un gruppo di database gestiti da un singolo server di database SQL o all'interno di una singola istanza gestita che può eseguire il failover come unità in un'altra area nel caso in cui alcuni o tutti i database primari diventino non disponibili a causa di un'interruzione nell'area primaria. Quando creato per le istanze gestite, un gruppo di failover contiene tutti i database utente nell'istanza e pertanto può essere configurato un solo gruppo di failover in un'istanza.
+  Un gruppo di failover è un gruppo denominato di database gestiti da un singolo server di Database SQL o all'interno di una singola istanza gestita che può eseguire il failover come unità in un'altra area nel caso in cui alcuni o tutti i database primari diventino non disponibili a causa di un'interruzione nell'area primaria. Quando creato per le istanze gestite, un gruppo di failover contiene tutti i database utente nell'istanza e pertanto può essere configurato un solo gruppo di failover in un'istanza.
+  
+  > [!IMPORTANT]
+  > Il nome del gruppo di failover deve essere globalmente univoco all'interno di `.database.windows.net` dominio.
 
 - **Server di database SQL**
 

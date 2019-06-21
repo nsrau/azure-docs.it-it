@@ -5,38 +5,36 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/19/2019
+ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f012d3e228a2730423c0d5a6f2cea7a8f2f9eab4
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126365"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190421"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite il portale di Azure
 
-[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
+Creare un **distribuzione automatica di IoT Edge** nel portale di Azure per gestire le distribuzioni in corso per numero di dispositivi in una sola volta. Le distribuzioni automatiche per IoT Edge sono parte del [gestione automatica dei dispositivi](/iot-hub/iot-hub-automatic-device-management.md) funzionalità dell'IoT Hub. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli in più dispositivi, tenere traccia dello stato e integrità dei moduli e apportare modifiche quando necessario. 
 
-Azure IoT Edge consente di spostare le attività di analisi sul perimetro e offre un'interfaccia cloud per gestire e monitorare i dispositivi IoT Edge senza dover accedere fisicamente a ciascuno di essi. La possibilità di gestire in remoto i dispositivi è sempre più importante con il progressivo diffondersi di soluzioni IoT (Internet delle cose) sempre più estese e complesse. Azure IoT Edge è progettato per supportare gli obiettivi aziendali, indipendentemente dal numero di dispositivi aggiunti.
-
-È possibile gestire singoli dispositivi e distribuire i moduli in tali dispositivi uno alla volta. Tuttavia, per apportare modifiche ai dispositivi su larga scala, è possibile creare una **distribuzione automatica IoT Edge**, che rientra nella gestione automatica dei dispositivi nell'hub IoT. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli in più dispositivi contemporaneamente, di tenere traccia dello stato e dell'integrità dei moduli, nonché di apportare modifiche all'occorrenza. 
+Per altre informazioni, vedere [distribuzioni automatiche comprendere IoT Edge per singoli dispositivi o su vasta scala](module-deployment-monitoring.md).
 
 ## <a name="identify-devices-using-tags"></a>Identificare i dispositivi tramite tag
 
-Prima di poter creare una distribuzione, è necessario essere in grado di specificare i dispositivi a cui la si vuole applicare. Azure IoT Edge identifica i dispositivi tramite **tag** nel dispositivo gemello. Ogni dispositivo può avere più tag ed è possibile definirli in qualsiasi modo risulti appropriato per una soluzione specifica. Ad esempio, il responsabile di un complesso di edifici intelligenti potrebbe aggiungere a un dispositivo i tag seguenti:
+Prima di poter creare una distribuzione, è necessario essere in grado di specificare i dispositivi a cui la si vuole applicare. Azure IoT Edge identifica i dispositivi tramite **tag** nel dispositivo gemello. Ogni dispositivo può avere più tag definiti in qualsiasi modo risulti appropriato per una soluzione. Ad esempio, il responsabile di un complesso di edifici intelligenti potrebbe aggiungere a un dispositivo i tag seguenti:
 
 ```json
 "tags":{
-    "location":{
-        "building": "20",
-        "floor": "2"
-    },
-    "roomtype": "conference",
-    "environment": "prod"
+  "location":{
+    "building": "20",
+    "floor": "2"
+  },
+  "roomtype": "conference",
+  "environment": "prod"
 }
 ```
 
@@ -58,24 +56,21 @@ La creazione di una distribuzione prevede cinque passaggi, illustrati nelle sezi
 
 ### <a name="step-2-add-modules-optional"></a>Passaggio 2: Aggiungere moduli (facoltativo)
 
-Esistono due tipi di moduli che è possibile aggiungere a una distribuzione. Il primo è un modulo basato su un servizio di Azure, ad esempio un account di archiviazione o Analisi di flusso. Il secondo è un modulo che usa codice personalizzato. È possibile aggiungere più moduli di entrambi i tipi a una distribuzione. 
+È possibile aggiungere fino a 20 moduli a una distribuzione. 
 
-Se si crea una distribuzione senza moduli, tutti i moduli correnti vengono rimossi dai dispositivi. 
-
->[!NOTE]
->Funzioni di Azure non supporta ancora la distribuzione automatica dei servizi di Azure. Usare la distribuzione dei moduli personalizzata per aggiungere manualmente il servizio alla distribuzione. 
+Se si crea una distribuzione senza moduli, rimuove tutti i moduli correnti dei dispositivi di destinazione. 
 
 Per aggiungere un modulo da Analisi di flusso di Azure, seguire questa procedura:
 
 1. Nella sezione dei **moduli di distribuzione** della pagina fare clic su **Aggiungi**.
 1. Selezionare **Azure Stream Analytics module** (Modulo di Analisi di flusso di Azure).
 1. Scegliere una voce dall'elenco a discesa **Sottoscrizione**.
-1. Scegliere una voce dall'elenco a discesa **Processo Edge**.
+1. Scegliere la IoT **processo Edge** dal menu di riepilogo a discesa.
 1. Selezionare **Save** (Salva) per aggiungere il modulo alla distribuzione. 
 
 Per aggiungere codice personalizzato come modulo o aggiungere manualmente un modulo per un servizio di Azure, seguire questa procedura:
 
-1. Nella sezione **Impostazioni del Registro Container** della pagina specificare i nomi e le credenziali per i registri contenitori privati che contengono le immagini dei moduli per la distribuzione. L'agente di Edge restituisce l'errore 500 se non trova le credenziali del registro contenitori per un'immagine Docker.
+1. Nella sezione **Impostazioni del Registro Container** della pagina specificare i nomi e le credenziali per i registri contenitori privati che contengono le immagini dei moduli per la distribuzione. L'agente di Edge IoT segnalerà l'errore 500 se non riesce a trovare la credenziale del Registro di sistema del contenitore per un'immagine Docker.
 1. Nella sezione dei **moduli di distribuzione** della pagina fare clic su **Aggiungi**.
 1. Selezionare **Modulo IoT Edge**.
 1. Assegnare un nome al modulo in **Name** (Nome).
@@ -83,14 +78,14 @@ Per aggiungere codice personalizzato come modulo o aggiungere manualmente un mod
 1. Specificare le eventuali **Container Create Options** (Opzioni di creazione container) da passare al contenitore. Per altre informazioni, vedere [docker create](https://docs.docker.com/engine/reference/commandline/create/).
 1. Usare il menu a discesa per selezionare **Restart policy** (Criteri di riavvio). È possibile scegliere tra le opzioni seguenti: 
    * **Always** (Sempre): il modulo viene sempre riavviato se viene arrestato per qualsiasi motivo.
-   * **Never** (Mai): il modulo non viene mai riavviato se viene arrestato per qualsiasi motivo.
-   * **On-failed** (In caso di errore): il modulo viene riavviato in caso di arresto anomalo, ma non se viene chiuso normalmente. 
-   * **On-unhealthy** (Se non integro): il modulo viene riavviato in caso di arresto anomalo o se restituisce uno stato non integro. Ogni modulo deve implementare la funzione di stato di integrità. 
+   * **Mai** -mai il modulo viene riavviato se viene arrestato per qualsiasi motivo.
+   * **in caso di errore** -il modulo viene riavviato in caso di arresto anomalo, ma non se viene chiuso normalmente. 
+   * **Su integro** -il modulo viene riavviato se l'arresto anomalo o restituisce uno stato non integro. Ogni modulo deve implementare la funzione di stato di integrità. 
 1. Usare il menu a discesa per selezionare lo **stato desiderato** per il modulo. È possibile scegliere tra le opzioni seguenti:
-   * **Running** (In esecuzione): questa è l'opzione predefinita. Il modulo verrà avviato immediatamente dopo la distribuzione.
-   * **Stopped** (Arrestato): dopo la distribuzione, il modulo resta inattivo fino a quando non viene chiamato per l'avvio dall'utente o da un altro modulo.
+   * **esecuzione** -esecuzione è l'opzione predefinita. Il modulo verrà avviato immediatamente dopo la distribuzione.
+   * **Arrestato** -dopo la distribuzione, il modulo resta inattivo fino a quando non chiamato per l'avvio dall'utente o un altro modulo.
 1. Selezionare **Impostare le proprietà desiderate del modulo gemello** per aggiungere tag o altre proprietà al modulo gemello.
-1. Immettere **Variabili di ambiente** per il modulo. Le variabili di ambiente consentono di inserire informazioni supplementari in un modulo facilitando il processo di configurazione.
+1. Immettere **Variabili di ambiente** per il modulo. Variabili di ambiente contengono informazioni di configurazione per un modulo.
 1. Selezionare **Save** (Salva) per aggiungere il modulo alla distribuzione. 
 
 Dopo aver configurato tutti i moduli per una distribuzione, selezionare **Avanti** per procedere al passaggio tre.
@@ -109,20 +104,20 @@ Le metriche forniscono i conteggi di riepilogo dei diversi stati che un disposit
 
 1. Immettere una query per **Metric Criteria** (Criteri metrica). La query è basata sulle [proprietà segnalate](module-edgeagent-edgehub.md#edgehub-reported-properties) del modulo gemello hub di IoT Edge. La metrica rappresenta il numero di righe restituite dalla query.
 
-Ad esempio:
+   Ad esempio:
 
-```sql
-SELECT deviceId FROM devices
-  WHERE properties.reported.lastDesiredStatus.code = 200
-```
+   ```sql
+   SELECT deviceId FROM devices
+     WHERE properties.reported.lastDesiredStatus.code = 200
+   ```
 
 ### <a name="step-5-target-devices"></a>Passaggio 5: Dispositivi di destinazione
 
 Usare la proprietà tags dai dispositivi per selezionare i dispositivi specifici che devono ricevere la distribuzione. 
 
-Dato che più distribuzioni potrebbero avere come destinazione lo stesso dispositivo, è necessario assegnare a ogni distribuzione un numero di priorità. In caso di conflitto, prevale la distribuzione con la priorità più alta, ovvero con il valore più elevato. Se due distribuzioni hanno lo stesso numero di priorità, prevale quella creata più di recente. 
+Dato che più distribuzioni potrebbero avere come destinazione lo stesso dispositivo, è necessario assegnare a ogni distribuzione un numero di priorità. Se si verifica mai un conflitto, prevale la distribuzione con la priorità più alta (i valori superiori indicano priorità più alta). Se due distribuzioni hanno lo stesso numero di priorità, prevale quella creata più di recente. 
 
-1. Immettere un numero intero positivo in **Priority** (Priorità) per la distribuzione. Nel caso in cui due o più distribuzioni abbiano lo stesso dispositivo di destinazione, verrà applicata quella con valore di priorità più alto.
+1. Immettere un numero intero positivo in **Priority** (Priorità) per la distribuzione.
 1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione. Ad esempio, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`. 
 1. Selezionare **Avanti** per procedere al passaggio finale.
 
@@ -134,7 +129,7 @@ Controllare le informazioni sulla distribuzione e quindi selezionare **Submit** 
 
 Azure Marketplace è un marketplace online di servizi e applicazioni dove è possibile trovare un'ampia gamma di soluzioni e applicazioni aziendali certificate e ottimizzate per l'esecuzione in Azure, tra cui i [moduli IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). È anche possibile accedere ad Azure Marketplace tramite il portale di Azure scegliendo **Crea una risorsa**.
 
-È possibile installare un modulo IoT Edge da Azure Marketplace o dal portale di Azure:
+È possibile distribuire un modulo di IoT Edge da Azure Marketplace o il portale di Azure:
 
 1. Trovare un modulo e iniziare il processo di distribuzione.
 
@@ -168,8 +163,8 @@ Per visualizzare i dettagli di una distribuzione e monitorare i dispositivi che 
    * **Target condition** (Condizione di destinazione): tag usato per definire i dispositivi di destinazione.
    * **Priority** (Priorità): numero di priorità assegnato alla distribuzione.
    * **System metrics** -  (Metriche di sistema): **Targeted** (Assegnati) specifica il numero di dispositivi gemelli nell'hub IoT che corrispondono alla condizione di destinazione, mentre **Applied** (Applicati) specifica il numero di dispositivi il cui contenuto di distribuzione è stato applicato ai rispettivi dispositivi gemelli nell'hub IoT. 
-   * **Metriche del dispositivo**: specifica il numero di dispositivi Edge presenti nella distribuzione che segnalano il completamento dell'operazione o gli errori generati dal runtime del client di IoT Edge.
-   * **Metriche personalizzate**: specifica il numero di dispositivi Edge presenti nella distribuzione che segnalano i dati per le metriche definite per la distribuzione.
+   * **Metriche del dispositivo** -il numero di dispositivi IoT Edge nella distribuzione che segnalano l'esito positivo o errori di runtime client di IoT Edge.
+   * **Metriche personalizzate** -il numero di dispositivi IoT Edge nella distribuzione di dati per le metriche che è definito per la distribuzione di report.
    * **Creation time** (Data/ora di creazione): timestamp di creazione della distribuzione. Questo timestamp viene usato per stabilire la prevalenza quando due distribuzioni hanno la stessa priorità. 
 1. Selezionare la distribuzione che si vuole monitorare.  
 1. Esaminare i dettagli della distribuzione. Per esaminare i dettagli della distribuzione sono disponibili schede.
@@ -217,4 +212,4 @@ Quando si elimina una distribuzione, tutti i dispositivi ricevono la distribuzio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulla [distribuzione di moduli nei dispositivi perimetrali](module-deployment-monitoring.md).
+Altre informazioni sulle [distribuzione di moduli nei dispositivi IoT Edge](module-deployment-monitoring.md).

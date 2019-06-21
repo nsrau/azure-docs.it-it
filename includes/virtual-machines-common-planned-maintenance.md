@@ -9,11 +9,11 @@ ms.date: 4/30/2019
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: c2931fa410cf92755a5df5b7129dcf93de900930
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155918"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180127"
 ---
 Azure Aggiorna periodicamente la piattaforma per migliorare l'affidabilità, prestazioni e sicurezza dell'infrastruttura host per le macchine virtuali. Lo scopo di questi intervalli di aggiornamenti di patch ai componenti software nell'ambiente di hosting per l'aggiornamento dei componenti di rete o rimozione di componenti hardware. 
 

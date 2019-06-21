@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ff20322f1d4f6024d4f41037ca18c327a0cc21f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3be075b78d8388b7146a9a3180ca825fc6476108
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233189"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206040"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiare dati da e in Archiviazione BLOB di Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
@@ -60,7 +60,10 @@ Il connettore BLOB di Azure supporta i seguenti tipi di autenticazione. Vedere l
 - [Autenticazione di identità gestite per le risorse di Azure](#managed-identity)
 
 >[!NOTE]
->HDInsights, Azure Machine Learning e Azure SQL Data Warehouse PolyBase supportano solo l'autenticazione basata sulla chiave dell'account di archiviazione BLOB di Azure.
+>Quando si usa PolyBase per caricare dati in SQL Data Warehouse, se l'origine o un archivio Blob di staging è configurato con endpoint di rete virtuale, è necessario usare l'autenticazione identità gestita come richiesto da PolyBase e usare il Runtime di integrazione Self-Hosted con la versione 3.18 o versione successiva. Vedere le [autenticazione identità gestita](#managed-identity) sezione con ulteriori prerequisiti di configurazione.
+
+>[!NOTE]
+>Le attività di HDInsights e Azure Machine Learning supportano solo l'autenticazione chiave dell'account di archiviazione Blob di Azure.
 
 ### <a name="account-key-authentication"></a>Autenticazione basata sulla chiave dell'account
 
@@ -272,6 +275,9 @@ Fare riferimento a [autenticare l'accesso all'archiviazione di Azure con Azure A
 
     - **Come origine**, in Controllo di accesso (IAM), concedere almeno il ruolo **Lettore dei dati dei BLOB di archiviazione**.
     - **Come sink**, in Controllo di accesso (IAM), concedere almeno il ruolo **Collaboratore dei dati dei BLOB di archiviazione**.
+
+>[!IMPORTANT]
+>Se si usa PolyBase per caricare dati dal Blob (come origine o gestione temporanea) in SQL Data Warehouse, quando si usa l'autenticazione identità gestita per Blob, assicurarsi che è anche seguire i passaggi 1 e 2 nella [questo materiale sussidiario](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) su 1) registrare il Database SQL server con Azure Active Directory (Azure AD) e 2) assegnare il ruolo di collaboratore ai dati Blob di archiviazione al server di Database SQL; il resto sono gestite da Data Factory. Se l'archivio Blob è configurato con un endpoint di rete virtuale di Azure, per usare PolyBase per caricare i dati da esso, è necessario utilizzare l'autenticazione identità gestita come richiesto da PolyBase.
 
 Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste proprietà:
 

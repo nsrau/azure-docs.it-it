@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 764fca8d3cb4cd9c40d7880043637f89ef1a8578
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bf931b19b7490a94f30afde49038cdc7573fab3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755381"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302252"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Come pianificare gli indicizzatori per ricerca di Azure
 L'indicizzatore viene eseguito una volta, in genere subito dopo averlo creato. È possibile eseguirlo nuovamente su richiesta tramite il portale, l'API REST o .NET SDK. È anche possibile configurare un indicizzatore si esegua periodicamente in base a una pianificazione.
@@ -43,6 +43,9 @@ Ecco un esempio per rendere il discorso più concreto. Si supponga che si config
 * La prima esecuzione dell'indicizzatore comincia il 1 giugno 2019 alle ore 8:00 UTC. Si supponga che l'esecuzione richieda 20 minuti (o un tempo qualsiasi inferiore a 1 ora).
 * La seconda esecuzione comincia il 1 giugno 2019 9:00 UTC. Si supponga che l'esecuzione richieda 70 minuti - più di un'ora, e non verrà completata fino a 10:10 AM UTC.
 * La terza esecuzione è pianificata per l'avvio al 10 12:00:00 AM UTC, ma in quel momento dell'esecuzione precedente è ancora in esecuzione. Ciò è pianificata l'esecuzione viene quindi ignorata. Alla successiva esecuzione dell'indicizzatore non verrà avviata fino a 11 12:00:00 AM UTC.
+
+> [!NOTE]
+> Se un indicizzatore è impostato su una determinata pianificazione ma ripetutamente ha esito negativo nella stessa documentarla in modo continuativo ogni volta che viene eseguito, avvierà l'indicizzatore è in esecuzione in un intervallo meno frequente (fino al valore massimo di almeno una volta ogni 24 ore) fino a quando non è stato rende aga lo stato di avanzamento in.  Se si ritiene che qualsiasi elemento è stato risolto il problema che causava l'indicizzatore potrebbe essere bloccato a un certo punto, è possibile eseguire un'esecuzione on demand dell'indicizzatore, e se che esegue correttamente lo stato di avanzamento, l'indicizzatore restituirà al relativo intervallo di pianificazione set nuovamente.
 
 <a name="portal"></a>
 

@@ -1,25 +1,17 @@
 ---
 title: Funzioni numeriche del modello di Azure Resource Manager | Microsoft Docs
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per elaborare i numeri.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f63ce16369fd1ff58d5368b43c3c730008e63d9a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128642"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206410"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funzioni numeriche per i modelli di Azure Resource Manager
 
@@ -47,7 +39,7 @@ Restituisce la somma dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- | 
 |operand1 |Yes |int |Il primo numero da aggiungere. |
 |operand2 |Yes |int |Il secondo numero da aggiungere. |
@@ -93,7 +85,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
@@ -118,7 +110,7 @@ Restituisce l'indice di un ciclo di iterazione.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | loopName | No | string | Nome del ciclo per ottenere l'iterazione. |
 | offset |No |int |Il numero da aggiungere al valore di iterazione in base zero. |
@@ -164,7 +156,7 @@ Restituisce la divisione Integer dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Yes |int |Il numero da dividere. |
 | operand2 |Yes |int |Il numero usato per dividere. Non può essere 0. |
@@ -235,7 +227,7 @@ Converte il valore in un numero a virgola mobile. Usare questa funzione solo qua
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |stringa o numero intero |Il valore da convertire in un numero a virgola mobile. |
 
@@ -269,7 +261,7 @@ Converte il valore specificato in un numero intero.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Yes |stringa o int |Il valore da convertire in numero intero. |
 
@@ -329,7 +321,7 @@ Restituisce il valore massimo da una matrice di numeri interi o da un elenco di 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
 
@@ -393,7 +385,7 @@ Restituisce il valore minimo di una matrice di numeri interi o di un elenco di n
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
 
@@ -457,7 +449,7 @@ Restituisce la parte rimanente della divisione Integer usando i due numeri inter
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Yes |int |Il numero da dividere. |
 | operand2 |Yes |int |Il numero usato per dividere; non può corrispondere a 0. |
@@ -502,7 +494,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
 | modResult | Int | 1 |
 
@@ -527,7 +519,7 @@ Restituisce la moltiplicazione dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Yes |int |Il primo numero da moltiplicare. |
 | operand2 |Yes |int |Il secondo numero da moltiplicare. |
@@ -598,7 +590,7 @@ Restituisce la sottrazione dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Yes |int |Il numero da cui sottrarre. |
 | operand2 |Yes |int |Il numero sottratto. |
@@ -643,7 +635,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Name | Type | Value |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
 | subResult | Int | 4 |
 

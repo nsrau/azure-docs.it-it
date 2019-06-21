@@ -34,10 +34,6 @@
               href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
             - name: Inviare notifiche push a specifici utenti
               href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-    - name: Baidu
-      items:
-        - name: Eseguire il push di notifiche usando il push cloud Baidu
-          href: notification-hubs-baidu-china-android-notifications-get-started.md
     - name: iOS
       items:
         - name: Inviare notifiche push ad app iOS
@@ -143,6 +139,8 @@
       href: notification-hubs-push-notification-http2-token-authentification.md
     - name: Risolvere i problemi delle notifiche eliminate
       href: notification-hubs-push-notification-fixer.md
+    - name: Eseguire il push di notifiche usando il push cloud Baidu
+      href: notification-hubs-baidu-china-android-notifications-get-started.md
 - name: riferimento
   items:
     - name: .NET

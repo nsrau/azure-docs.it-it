@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: d4acc620fb2a4c41615c745516e5ccfafd59d848
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057965"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190606"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapping delle prestazioni di flussi di dati e l'ottimizzazione manuale
 
@@ -59,6 +59,12 @@ Fare clic sull'icona visualizzerà il piano di esecuzione e il profilo di presta
 * Impostazione delle dimensioni batch indicherà a Azure Data factory per archiviare i dati nei set nella memoria anziché row-by-row. È un'impostazione facoltativa e esauriscano le risorse nei nodi di calcolo se non sono configurati correttamente.
 * L'impostazione di una query può consentono di filtrare il diritto di righe nell'origine prima di raggiungere anche per il flusso di dati per l'elaborazione, ciò può complicare l'acquisizione dei dati iniziale più rapido.
 * Se si usa una query, è possibile aggiungere hint per la query facoltativo per il database SQL di Azure, ad esempio READ UNCOMMITTED
+
+### <a name="set-isolation-level-on-source-transformation-settings-for-sql-datasets"></a>Impostare livello di isolamento per le impostazioni di trasformazione di origine per i set di dati SQL
+
+* Read uncommitted fornirà risultati della query più veloci nella trasformazione origine
+
+![Livello di isolamento](media/data-flow/isolationlevel.png "a livello di isolamento")
 
 ### <a name="set-sink-batch-size"></a>Impostare le dimensioni del batch sink
 

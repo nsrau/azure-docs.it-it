@@ -2,17 +2,16 @@
 title: Struttura e sintassi del modello di Azure Resource Manger | Documentazione Microsoft
 description: Descrive la struttura e le proprietà dei modelli di Azure Resource Manager con la sintassi dichiarativa JSON.
 author: tfitzmac
-ms.assetid: 19694cb4-d9ed-499a-a2cc-bcfc4922d7f5
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: e3b8b6b969568fc15558002c268cdc4a16c2fadd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab8e4f5f6506f80b62c112298f73f95bc7fedeaf
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431234"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204368"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendere la struttura e la sintassi dei modelli di Azure Resource Manger
 
@@ -37,7 +36,7 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
 }
 ```
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | $schema |Yes |Percorso del file di schema JSON che descrive la versione del linguaggio del modello.<br><br> Per le distribuzioni del gruppo di risorse, usare: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Per le distribuzioni della sottoscrizione, usare: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Yes |Versione del modello (ad esempio 1.0.0.0). Questo elemento accetta tutti i valori. Usare questo valore per documentare le modifiche significative al modello. Quando si distribuiscono risorse tramite il modello, è possibile usare questo valore per assicurarsi che venga usato il modello corretto. |
@@ -128,7 +127,7 @@ Le proprietà disponibili per un parametro sono:
 }
 ```
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | parameterName |Yes |Nome del parametro. Deve essere un identificatore JavaScript valido. |
 | type |Yes |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. |
@@ -500,7 +499,7 @@ Le risorse vengono definite con la struttura seguente:
 ]
 ```
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | condition | No | Valore booleano che indica se verrà eseguito il provisioning della risorsa durante questa distribuzione. Se `true`, la risorsa viene creata durante la distribuzione. Se `false`, la risorsa viene ignorata per questa distribuzione. Visualizzare [condizione](#condition). |
 | apiVersion |Yes |Versione dell'API REST da utilizzare per la creazione della risorsa. Per determinare i valori disponibili, vedere [riferimento a un modello](/azure/templates/). |
@@ -741,7 +740,7 @@ L'esempio seguente illustra la struttura di una definizione di output:
 }
 ```
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | outputName |Yes |Nome del valore di output. Deve essere un identificatore JavaScript valido. |
 | condition |No | Valore booleano che indica se questo valore di output viene restituito. Quando è `true`, il valore è incluso nell'output per la distribuzione. Quando è `false`, il valore dell'output viene ignorato per questa distribuzione. Quando non è specificato, il valore predefinito è `true`. |

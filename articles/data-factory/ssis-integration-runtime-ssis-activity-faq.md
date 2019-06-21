@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: f17c364d258ef356a98180c9903603d92a6a9245
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7789970b47f0e55adee5bbe9da9f303aee6cdb25
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078521"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190113"
 ---
 # <a name="troubleshooting-package-execution-in-ssis-integration-runtime"></a>Risoluzione dei problemi di esecuzione del pacchetto nel runtime di integrazione SSIS
 
@@ -103,6 +103,13 @@ Questo articolo include gli errori più comuni che si potrebbero raggiunge quand
 ### <a name="error-message-your-integration-runtime-cannot-be-upgraded-and-will-eventually-stop-working-since-we-cannot-access-the-azure-blob-container-you-provided-for-custom-setup"></a>Messaggio di errore: "Il runtime di integrazione non può essere aggiornato e infine smetterà di funzionare, perché non è possibile accedere il contenitore Blob di Azure che è fornito per l'installazione personalizzata."
 
 * Questo errore si verifica quando il Runtime di integrazione SSIS non è possibile accedere all'archiviazione configurato per l'installazione personalizzata. Controllare se l'Uri di firma di accesso condiviso immessa sia valido e non sia scaduto.
+
+### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Messaggio di errore: "Provider Microsoft OLE DB per Analysis Services. ' Hresult: 0x80004005 descrizione:' Errore COM: Errore COM: mscorlib; Eccezione generata dalla destinazione di una chiamata"
+
+* Causa potenziale & azione consigliata:
+  * Una possibile causa è che nome utente/password con autenticazione a più fattori abilitata è configurata per l'autenticazione di Azure Analysis Services, che non è supportato nel runtime di integrazione SSIS con ancora. Provare a usare l'entità servizio per l'autenticazione di Azure Analysis Services:
+    1. Preparazione dell'entità servizio per AAS [https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal)
+    2. Nella console di gestione connessione, configurare "Usa un nome utente specifico e una password": impostare "AppID" come nome utente e "clientSecret" come password
 
 ### <a name="package-takes-unexpected-long-time-to-execute"></a>Pacchetto accetta imprevisto lungo tempo di esecuzione
 

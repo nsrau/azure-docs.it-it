@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 637feb855c7816dfb26229c5a65a069260a58cd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 279660d903b3b0e893c3ccddb89da7c6dc42fa09
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003087"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205066"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurare un'app PHP di Linux per servizio App di Azure
 
@@ -167,7 +167,7 @@ Ridistribuire l'app con le modifiche e riavviarlo. Se lo si distribuisce con Kud
 
 Come alternativa all'uso *. htaccess*, è possibile usare [ini_set ()](https://www.php.net/manual/function.ini-set.php) nell'app per personalizzare queste direttive non PHP_INI_SYSTEM.
 
-### <a name="customize-phpinisystem-directives"></a>Personalizzare le direttive PHP_INI_SYSTEM
+### <a name="customize-php_ini_system-directives"></a>Personalizzare le direttive PHP_INI_SYSTEM
 
 Per personalizzare le direttive PHP_INI_SYSTEM (vedere [PHP. ini](https://www.php.net/manual/ini.list.php)), non è possibile utilizzare il *. htaccess* approccio. Il servizio App fornisce un meccanismo separato utilizzando il `PHP_INI_SCAN_DIR` impostazione dell'app.
 

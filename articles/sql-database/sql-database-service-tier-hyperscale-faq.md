@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 38d9ad007b67756bdca0c6f98267aa16ba38ee9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 535ae91abc04b2fdcebb6a2083db95ec50f61798
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791436"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275597"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Domande frequenti sui database SQL di Azure di livello Hyperscale
 
@@ -79,7 +79,7 @@ Il livello con Iperscalabilità di Database SQL di Azure è attualmente disponib
 
 Sì. Per altre informazioni e per i limiti al numero di database Hyperscale per ogni server logico, vedere [Limiti delle risorse del database SQL per database singoli e in pool in un server logico](sql-database-resource-limits-logical-server.md).
 
-### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>Quali sono le caratteristiche delle prestazioni di un database Hyperscale
+### <a name="what-are-the-performance-characteristics-of-a-hyperscale-database"></a>Quali sono le caratteristiche delle prestazioni di un database con scalabilità elevatissima
 
 L'architettura del database SQL Hyperscale offre livelli elevati di prestazioni e velocità effettiva e supporto per database di grandi dimensioni. 
 
@@ -94,7 +94,7 @@ Il database SQL Hyperscale offre scalabilità rapida in base alle esigenze dei c
 
   Con il livello Hyperscale è anche possibile effettuare il provisioning di uno o più nodi di calcolo aggiuntivi, da usare per rispondere alle richieste di lettura. Ciò significa che è possibile usare questi nodi di calcolo aggiuntivi come nodi di sola lettura per l'offload del carico di lavoro di lettura dalle risorse di calcolo primarie. Questi nodi, oltre a essere di sola lettura, vengono usati anche come hot standby in caso di failover dal nodo primario.
 
-  Il provisioning di ognuno di questi nodi di calcolo aggiuntivi può essere effettuato in un tempo costante ed è un'operazione online. È possibile connettersi a questi nodi di calcolo aggiuntivi di sola lettura impostando l'argomento `ApplicationIntent` nella stringa di connessione su `read_only`. Tutte le connessioni contrassegnate con `read-only` vengono indirizzate automaticamente a uno dei nodi di calcolo di sola lettura aggiuntivi.
+  Il provisioning di ognuno di questi nodi di calcolo aggiuntivi può essere effettuato in un tempo costante ed è un'operazione online. È possibile connettersi a questi nodi di calcolo aggiuntivi di sola lettura impostando l'argomento `ApplicationIntent` nella stringa di connessione su `readonly`. Tutte le connessioni contrassegnate con `readonly` vengono indirizzate automaticamente a uno dei nodi di calcolo di sola lettura aggiuntivi.
 
 ## <a name="deep-dive-questions"></a>Domande di approfondimento
 
@@ -140,7 +140,7 @@ No.
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>Quante repliche con scalabilità in lettura sono supportate
 
-Per impostazione predefinita, i database con scalabilità elevatissima vengono creati con una replica con scalabilità in lettura (due repliche in totale). È possibile aumentare il numero di repliche di sola lettura tra 0 e 4 usando il [portale di Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) oppure [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)...
+Per impostazione predefinita, i database con scalabilità elevatissima vengono creati con una replica con scalabilità in lettura (due repliche in totale). È possibile aumentare il numero di repliche di sola lettura tra 0 e 4 usando il [portale di Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) oppure [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-nodes"></a>Per la disponibilità elevata, è necessario effettuare il provisioning di nodi di calcolo aggiuntivi
 
@@ -361,7 +361,7 @@ Creiamo 2 repliche per i database con scalabilità elevatissima per impostazione
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>Come è possibile stabilire la connessione ai nodi di calcolo secondari
 
-È possibile connettersi a questi nodi di calcolo aggiuntivi di sola lettura impostando l'argomento `ApplicationIntent` nella stringa di connessione su `read_only`. Tutte le connessioni contrassegnate con `read-only` vengono indirizzate automaticamente a uno dei nodi di calcolo di sola lettura aggiuntivi.  
+È possibile connettersi a questi nodi di calcolo aggiuntivi di sola lettura impostando l'argomento `ApplicationIntent` nella stringa di connessione su `readonly`. Tutte le connessioni contrassegnate con `readonly` vengono indirizzate automaticamente a uno dei nodi di calcolo di sola lettura aggiuntivi.  
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>È possibile creare un endpoint dedicato per la replica con scalabilità in lettura
 

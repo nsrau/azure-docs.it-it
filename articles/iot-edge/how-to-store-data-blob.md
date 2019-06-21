@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b88bc8181cbfafa4ef81722d0eee12bae46ed79c
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
-ms.translationtype: HT
+ms.openlocfilehash: f70ca550f1688551abb94bb30ba4f76eb3c36404
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293482"
+ms.locfileid: "67303971"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Archiviare i dati sui dispositivi perimetrali con l'archiviazione BLOB di Azure in IoT Edge (anteprima)
 
@@ -24,6 +24,9 @@ L'archiviazione BLOB di Azure in IoT Edge offre una soluzione di archiviazione [
 Questo modulo viene fornito con **deviceToCloudUpload** e **deviceAutoDelete** funzionalità.
 > [!NOTE]
 > L'archiviazione BLOB di Azure in IoT Edge è in versione di [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Guarda il video di introduzione rapida
+> [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
 
 **deviceToCloudUpload** è una funzionalità configurabile che consente di caricare automaticamente i dati dall'archiviazione di blob locale in Azure con supporto per la connettività internet intermittenti. Consente di:
 

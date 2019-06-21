@@ -9,11 +9,11 @@ ms.date: 09/25/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66131417"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179913"
 ---
 Bundle di estensione per apportare tutte le associazioni pubblicate dal team di funzioni di Azure disponibile tramite un'impostazione nel *host. JSON* file. Per lo sviluppo locale, assicurarsi di aver la versione più recente di [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
 

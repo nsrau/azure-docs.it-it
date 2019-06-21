@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9cd1be26f6832fffb86dfefd0d93d9dbb393c0f0
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65555953"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303883"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -245,17 +245,16 @@ Per visualizzare questi errori, eseguire lo script **FileSyncErrorsReport.ps1** 
 | HRESULT | HRESULT (decimale) | Stringa di errore | Problema | Correzione |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Impossibile sincronizzare una modifica di file o directory al momento poiché una cartella dipendente non è ancora stata sincronizzata. Questo elemento verrà sincronizzato dopo la sincronizzazione delle modifiche dipendenti. | Non è necessaria alcuna azione. |
-| 0x7b | 123 | ERROR_INVALID_NAME | Il nome della directory o dei file non è valido. | Rinominare il file o la directory in questione. Vedere [Gestione dei caratteri non supportati](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) per altre informazioni. |
-| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | Il nome della directory o dei file non è valido. | Rinominare il file o la directory in questione. Vedere [Gestione dei caratteri non supportati](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) per altre informazioni. |
+| 0x8007007b | -2147024773 | ERROR_INVALID_NAME | Il nome della directory o dei file non è valido. | Rinominare il file o la directory in questione. Vedere [Gestione dei caratteri non supportati](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) per altre informazioni. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Impossibile sincronizzare un file poiché in uso. Il file verrà sincronizzato quando non sarà più in uso. | Non è necessaria alcuna azione. Sincronizzazione file di Azure crea uno snapshot VSS temporaneo una volta al giorno nel server per sincronizzare i file con handle aperti. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Un file è stato modificato, ma la modifica non è ancora stata rilevata dalla sincronizzazione. La sincronizzazione verrà ripristinata dopo il rilevamento di questa modifica. | Non è necessaria alcuna azione. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Il file non può essere sincronizzato perché è stato raggiunto il limite di condivisione file di Azure. | Per risolvere questo problema, vedere la sezione [È stato raggiunto il limite di archiviazione di condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) nella Guida alla risoluzione dei problemi. |
 | 0x80070005 | -2147024891 | E_ACCESSDENIED | Questo errore può verificarsi per i motivi seguenti: file è crittografato da una soluzione non supportata (ad esempio NTFS EFS), file ha un'operazione di eliminazione in sospeso-stato o file si trova in una cartella di replica di sola lettura di DFS-R | Se il file è crittografato da una soluzione non supportata, decrittografare il file e usare una soluzione di crittografia supportati. Per un elenco delle soluzioni di supporto, vedere la sezione [Soluzioni di crittografia](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) nella Guida alla pianificazione. Se il file ha un'operazione di eliminazione in sospeso-stato, tale file verrà eliminato dopo che tutti gli handle di file aperti vengono chiusi. Se il file si trova in una cartella di replica di sola lettura di DFS-R, sincronizzazione file di Azure non supporta gli endpoint server per cartelle di replica di sola lettura di DFS-R. Visualizzare [Guida alla pianificazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) per altre informazioni.
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | Impossibile sincronizzare un file poiché in uso. Il file verrà sincronizzato quando non sarà più in uso. | Non è necessaria alcuna azione. |
+| 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | Impossibile sincronizzare un file poiché in uso. Il file verrà sincronizzato quando non sarà più in uso. | Non è necessaria alcuna azione. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Un file è stato modificato durante la sincronizzazione ed è quindi necessario sincronizzarlo di nuovo. | Non è necessaria alcuna azione. |
 
 #### <a name="handling-unsupported-characters"></a>Gestione dei caratteri non supportati
-Se lo script **FileSyncErrorsReport.ps1**di PowerShell mostra errori causati da caratteri non supportati (codici di errore 0x7b e 0x8007007b), è necessario rimuovere o rinominare i caratteri difettosi dai rispettivi nomi di file. PowerShell probabilmente stamperà i caratteri come punti interrogativi o rettangoli vuoti poiché la maggior parte di questi caratteri non ha alcuna codifica visiva standard. È possibile usare lo [strumento di valutazione](storage-sync-files-planning.md#evaluation-tool) per identificare i caratteri non supportati.
+Se il **FileSyncErrorsReport.ps1** script PowerShell Mostra errori causati da caratteri non supportati (codice di errore 0x8007007b), è necessario rimuovere o rinominare i caratteri colpevole dai nomi di file corrispondente. PowerShell probabilmente stamperà i caratteri come punti interrogativi o rettangoli vuoti poiché la maggior parte di questi caratteri non ha alcuna codifica visiva standard. È possibile usare lo [strumento di valutazione](storage-sync-files-planning.md#evaluation-tool) per identificare i caratteri non supportati.
 
 La tabella seguente contiene tutti i caratteri unicode che Sincronizzazione file di Azure non supporta ancora.
 
@@ -863,6 +862,8 @@ Se si verificano problemi con Sincronizzazione file di Azure in un server, per p
 
 Se il problema persiste, eseguire lo strumento AFSDiag:
 1. Creare una directory in cui verranno salvati i risultati di AFSDiag, ad esempio C:\Output.
+    > [!NOTE]
+    >AFSDiag eliminerà tutto il contenuto nella directory di output prima della raccolta di log. Specificare un percorso di output che non contiene dati.
 2. Aprire una finestra di PowerShell con privilegi elevati ed eseguire i comandi seguenti, premendo INVIO dopo ogni comando:
 
     ```powershell

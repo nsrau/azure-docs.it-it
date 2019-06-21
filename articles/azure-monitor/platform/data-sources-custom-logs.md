@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56dd1c29d5606da96bbc6d519b70caf580852446
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996527"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273071"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Log personalizzati in Monitoraggio di Azure
 L'origine dati dei log personalizzati in Monitoraggio di Azure consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog. Al termine della raccolta, è possibile analizzare i dati nei singoli campi nelle query o estrarli durante la raccolta in singoli campi.
@@ -35,11 +35,7 @@ I file di log da raccogliere devono soddisfare i criteri seguenti.
 - Il file di log deve usare la codifica ASCII o UTF-8.  Non sono supportati altri formati, ad esempio UTF-16.
 
 >[!NOTE]
->Se sono presenti voci duplicate nel file di log, Monitoraggio di Azure le raccoglierà.  Tuttavia, i risultati delle query non saranno coerenti se i risultati del filtro mostrano più eventi rispetto al numero di risultati.  È importante convalidare il log per determinare se l'applicazione che lo crea è la causa di questo comportamento e indirizzarlo se possibile prima di creare la definizione della raccolta dei log personalizzati.  
->
-  
->[!NOTE]
-> Se l'applicazione crea un nuovo file di log ogni giorno o quando raggiunge una dimensione specifica, l'agente di Log Analytics per Linux non esegue l'individuazione di questo finché non viene riavviato. Questo avviene perché l'agente esegue l'enumerazione e inizia il monitoraggio dei criteri con i log specificati solo all'avvio. Per questo motivo è necessario pianificare tali operazioni automatizzando il riavvio dell'agente.  Questa limitazione non riguarda l'agente di Log Analytics per Windows.  
+> Se sono presenti voci duplicate nel file di log, Monitoraggio di Azure le raccoglierà. Tuttavia, i risultati delle query non saranno coerenti se i risultati del filtro mostrano più eventi rispetto al numero di risultati. È importante convalidare il log per determinare se l'applicazione che lo crea è la causa di questo comportamento e indirizzarlo se possibile prima di creare la definizione della raccolta dei log personalizzati.  
 >
 
 >[!NOTE]

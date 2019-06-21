@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 05/29/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d9220cd2162b4c8cb77c1e7abd0372052f5454
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5988f4723f1ef73cf0767ef8ac1b9adf3c1435d
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64541616"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190234"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Creare e gestire un catalogo in Gestione dei diritti di Azure AD (anteprima)
 
@@ -60,9 +60,9 @@ Un catalogo è un contenitore di risorse e i pacchetti di accesso. Si crea un ca
 
 ## <a name="add-resources-to-a-catalog"></a>Aggiungere risorse a un catalogo
 
-Per includere le risorse in un pacchetto di accesso, le risorse devono esistere in un catalogo. I tipi di risorse che è possibile aggiungere sono i gruppi, applicazioni e siti di SharePoint Online.
+Per includere le risorse in un pacchetto di accesso, le risorse devono esistere in un catalogo. I tipi di risorse che è possibile aggiungere sono i gruppi, applicazioni e siti di SharePoint Online. I gruppi possono essere cloud creato gruppi di Office 365 o Azure cloud creato gruppi di sicurezza di Active Directory. Le applicazioni possono essere applicazioni enterprise di Azure AD, tra cui le applicazioni SaaS e le proprie applicazioni federati ad Azure AD. I siti possono essere siti di SharePoint Online o SharePoint Online raccolte siti.
 
-**Ruolo prerequisito:** L'utente amministratore o proprietario catalogo
+**Ruolo prerequisito:** Vedere [necessari ruoli per aggiungere risorse a un catalogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -74,9 +74,7 @@ Per includere le risorse in un pacchetto di accesso, le risorse devono esistere 
 
 1. Fare clic su un tipo di risorsa: **I gruppi**, **Applications**, o **siti SharePoint**.
 
-    Se sei un creatore di catalogo, è possibile aggiungere qualsiasi gruppo di Office 365 o il gruppo di sicurezza di Azure AD che si è proprietari per il catalogo. Se è presente un gruppo che si desidera assegnare agli utenti, ma non si è proprietari del gruppo, è necessario avere un utente come amministratore di aggiungere il gruppo al catalogo.
-
-    Se sei un creatore di catalogo, è possibile aggiungere qualsiasi applicazione aziendale di Azure AD si è proprietari, tra cui le applicazioni SaaS e applicazioni personalizzate federato ad Azure AD, al catalogo. Se è presente un'applicazione che si desidera assegnare agli utenti ma non si è proprietari, è necessario avere un utente come amministratore di aggiungere tale applicazione per il catalogo. Dopo l'applicazione fa parte del catalogo, è possibile selezionare uno dei ruoli dell'applicazione in un pacchetto di accesso.
+    Se non viene visualizzata una risorsa che si desidera aggiungere o è in grado di aggiungere una risorsa, assicurarsi di avere la ruolo della directory Azure AD e il ruolo di gestione dei diritti. Si potrebbe essere necessario a un utente con i ruoli richiesti aggiungere la risorsa di catalogo. Per altre informazioni, vedere [necessari ruoli per aggiungere risorse a un catalogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Selezionare una o più risorse del tipo che si desidera aggiungere al catalogo.
 
@@ -88,7 +86,7 @@ Per includere le risorse in un pacchetto di accesso, le risorse devono esistere 
 
 È possibile rimuovere le risorse da un catalogo. Una risorsa può essere rimossa solo da un catalogo se non utilizzato in uno dei pacchetti di accesso del catalogo.
 
-**Ruolo prerequisito:** L'utente amministratore o proprietario catalogo
+**Ruolo prerequisito:** Vedere [necessari ruoli per aggiungere risorse a un catalogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
@@ -99,22 +97,6 @@ Per includere le risorse in un pacchetto di accesso, le risorse devono esistere 
 1. Selezionare le risorse che si desidera rimuovere.
 
 1. Fare clic su **rimuovere** (oppure fare clic sui puntini di sospensione ( **...** ) e quindi fare clic su **rimuovere risorse**).
-
-## <a name="add-catalog-owners-or-access-package-managers"></a>Aggiungere i proprietari del catalogo o accedere a strumenti di gestione pacchetti
-
-Se si desidera delegare la gestione di pacchetti di accesso nel catalogo o il catalogo, i proprietari di catalogo aggiunti o accedere a strumenti di gestione pacchetti. Utente che crea un catalogo diventa il proprietario del catalogo prima.
-
-**Ruolo prerequisito:** L'utente amministratore o proprietario catalogo
-
-1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
-
-1. Nel menu a sinistra, fare clic su **cataloghi** e quindi aprire il catalogo da aggiungere agli amministratori.
-
-1. Nel menu a sinistra, fare clic su **ruoli e gli amministratori**.
-
-1. Fare clic su **Aggiungi proprietari** oppure **aggiungere i gestori di pacchetti di accesso** per selezionare i membri per questi ruoli.
-
-1. Fare clic su **seleziona** per aggiungere questi membri.
 
 ## <a name="edit-a-catalog"></a>Modifica di un catalogo
 
@@ -148,4 +130,5 @@ Se si desidera delegare la gestione di pacchetti di accesso nel catalogo o il ca
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- [Aggiungere un creatore di catalogo](entitlement-management-delegate.md#add-a-catalog-creator)
 - [Creare e gestire un pacchetto di accesso](entitlement-management-access-package-create.md)

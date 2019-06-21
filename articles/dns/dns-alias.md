@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: 0d52e84ba027f902cebf543ae019b5e4b53400b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5dfc00b1193117c22ba1c763bb0e75d9c4712222
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059676"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275749"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Panoramica dei record di alias DNS di Azure
 
@@ -29,7 +29,7 @@ Un set di record alias è supportato per i tipi di record seguenti in una zona D
 
 ## <a name="capabilities"></a>Capabilities
 
-- **Puntare a una risorsa IP pubblica da un set di record DNS A/AAAA**. È possibile creare un set di record A/AAAA e renderlo un set di record alias impostato per puntare a una risorsa IP pubblica. Se l'indirizzo IP pubblico viene modificato o viene eliminato, il set di record DNS è automatico. Vengono evitati i record DNS inesatti che puntano a indirizzi IP non corretti.
+- **Puntare a una risorsa IP pubblica da un set di record DNS A/AAAA**. È possibile creare un set di record A/AAAA e renderlo un set di record alias impostato per puntare a una risorsa IP pubblica. Il record DNS le modifiche al set automaticamente se l'indirizzo IP pubblico viene modificato o viene eliminato. Vengono evitati i record DNS inesatti che puntano a indirizzi IP non corretti.
 
 - **Puntare a un profilo di Gestione traffico da un set di record DNS A/AAAA/CNAME**. È possibile creare un set di record A/AAAA o CNAME e usare i record alias per associarlo a un profilo di Gestione traffico. È particolarmente utile quando è necessario instradare il traffico a un vertice della zona, come i record CNAME tradizionali non sono supportati per un vertice della zona. Ad esempio, il profilo di Gestione traffico è myprofile.trafficmanager.net e la zona DNS aziendale è contoso.com. È possibile creare un set di record alias del tipo A/AAAA per contoso.com (vertice di zona) e scegliere myprofile.trafficmanager.net.
 - **Scegliere un endpoint Content Delivery Network (rete CDN di Azure)** . Ciò è utile quando si creano siti Web statici con archiviazione di Azure e rete CDN di Azure.

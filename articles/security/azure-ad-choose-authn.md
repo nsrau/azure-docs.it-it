@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: cc41581232b331368b44fc7190eadb94516824c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35fb529be28fc985460421c185872c7e35603341
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67119316"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274288"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure AD 
 
@@ -101,7 +101,7 @@ Dettagli relativi alle domande nell'albero delle decisioni:
 * **Considerazioni**. Attualmente, la sincronizzazione dell'hash delle password non applica immediatamente le modifiche apportate allo stato degli account locali. In questo caso, l'utente ha accesso alle applicazioni cloud fino a quando lo stato dell'account utente è sincronizzato con Azure AD. Per superare questa limitazione, le organizzazioni possono eseguire un nuovo ciclo di sincronizzazione dopo gli aggiornamenti in blocco agli stati degli account utente locali effettuati dagli amministratori, come ad esempio la disabilitazione di account.
 
 > [!NOTE]
-> Gli stati Password scaduta e Account bloccato non sono attualmente sincronizzati in Azure AD con Azure AD Connect. 
+> Gli stati Password scaduta e Account bloccato non sono attualmente sincronizzati in Azure AD con Azure AD Connect. Quando si modifica una password dell'utente e impostare il *cambiamento obbligatorio password all'accesso successivo* non flag, l'hash della password verranno sincronizzati con Azure AD con Azure AD Connect, fino a quando l'utente modifica la password.
 
 Per la procedura di implementazione, vedere [Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization).
 

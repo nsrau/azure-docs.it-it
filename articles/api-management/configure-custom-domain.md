@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: a8bfa7c5baa316b4019480bfc146b6cc61eff979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74552f2d4bea495c0278ef6ed4a408188752a7e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141293"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274983"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato 
 
@@ -49,7 +49,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
    + **SCM** (il valore predefinito è: `<apim-service-name>.scm.azure-api.net`).
 
      >[!NOTE]
-     > È possibile aggiornare tutti gli endpoint o alcuni di essi. In genere, i clienti aggiornano **Proxy** (questo URL viene usato per chiamare l'API esposta tramite Gestione API) e **Portale** (l'URL del portale per sviluppatori). Gli endpoint **Gestione** e **SCM** vengono usati internamente dai clienti APIM e pertanto è meno frequente che sia assegnato a essi un nome di dominio personalizzato.
+     > È possibile aggiornare tutti gli endpoint o alcuni di essi. In genere, i clienti aggiornano **Proxy** (questo URL viene usato per chiamare l'API esposta tramite Gestione API) e **Portale** (l'URL del portale per sviluppatori). Gli endpoint **Gestione** e **SCM** vengono usati internamente dai clienti APIM e pertanto è meno frequente che sia assegnato a essi un nome di dominio personalizzato. Nella maggior parte dei casi è possibile impostare solo il nome di un singolo dominio per un determinato endpoint. Tuttavia, il **Premium** livello supporta l'impostazione di più nomi host per il **Proxy** endpoint.  
 
 1. Selezionare l'endpoint che si vuole aggiornare. 
 1. Nella finestra di destra fare clic su **Personalizzato**.

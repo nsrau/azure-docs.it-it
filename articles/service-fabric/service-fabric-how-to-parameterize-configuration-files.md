@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: 3d03ca5cec2cef67862c2678b3b0a8f17b413787
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6ed626dddddb8f2b434d6a7acebc5381607b7d3d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482438"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304245"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Come aggiungere parametri ai file di configurazione in Service Fabric
 
@@ -44,8 +44,8 @@ In questo esempio si esegue l'override di un valore di configurazione definendo 
     <Parameters>
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
-   ```
-1. Nella sezione `ServiceManifestImport` del file ApplicationManifest.xml aggiungere un elemento `ConfigOverride` che fa riferimento al pacchetto di configurazione, alla sezione e al parametro.
+  ```
+1. Nel `ServiceManifestImport` sezione del file ApplicationManifest. XML, aggiungere un' `ConfigOverrides` e `ConfigOverride` elemento, che fa riferimento il pacchetto di configurazione, la sezione e il parametro.
 
    ```xml
     <ConfigOverrides>
