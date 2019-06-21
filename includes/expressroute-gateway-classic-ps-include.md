@@ -9,11 +9,11 @@ ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121284"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179881"
 ---
 > [!NOTE]
 > Questi esempi non sono validi per la configurazione di connessioni con coesistenza S2S/ExpressRoute.

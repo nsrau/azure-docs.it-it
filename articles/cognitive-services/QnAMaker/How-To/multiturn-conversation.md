@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7c7d7c480068b754413fd2309a2251d1e3855106
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e46c935d298f2fe7ebfa4bce471288c9ab8a606
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075182"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271959"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare richieste di follow-up per creare attiva più di una conversazione
 
@@ -229,7 +229,7 @@ La sezione precedente ha richiesto una risposta e tutte le istruzioni follow-up 
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
@@ -254,7 +254,8 @@ La sezione precedente ha richiesto una risposta e tutte le istruzioni follow-up 
                         "qna": null,
                         "displayText": "Create a Windows Account"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -268,14 +269,15 @@ La sezione precedente ha richiesto una risposta e tutte le istruzioni follow-up 
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
                         "qna": null,
                         "displayText": "Turn off the device"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -289,14 +291,21 @@ La sezione precedente ha richiesto una risposta e tutte le istruzioni follow-up 
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         }
     ]
 }
 ```
 
-Il `prompts` array fornisce il testo nel `displayText` proprietà e il `qnaId` valore in modo che è possibile visualizzare queste risposte come le scelte visualizzate successive nella conversazione del flusso, invia quindi il valore selezionato per QnA Maker nella richiesta seguente. 
+Il `promptsToAdd` array fornisce il testo nel `displayText` proprietà e il `qnaId` valore in modo che è possibile visualizzare queste risposte come le scelte visualizzate successive nella conversazione del flusso, invia quindi il valore selezionato per QnA Maker nella richiesta seguente. 
+
+<!--
+
+The `promptsToDelete` array provides the ...
+
+-->
 
 ## <a name="json-request-to-return-non-initial-answer-and-follow-up-prompts"></a>Richiesta JSON per restituire la risposta non iniziale e richieste di follow-up
 
@@ -336,7 +345,8 @@ QnA Maker _GenerateAnswer_ risposta JSON include le istruzioni di follow-up nel 
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         },
         {
@@ -350,14 +360,15 @@ QnA Maker _GenerateAnswer_ risposta JSON include le istruzioni di follow-up nel 
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 4,
                         "qna": null,
                         "displayText": "Ports and connectors"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -371,7 +382,8 @@ QnA Maker _GenerateAnswer_ risposta JSON include le istruzioni di follow-up nel 
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         }
     ]

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: 33682727b84713b515bb68d34aa5cf8b72ce44fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45ac1eb484d5e301a9090ea5a11165ba321b0aaa
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65862483"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274955"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Copertura di rete CDN di Azure con Metro 
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Questo articolo elenca le Metro correnti che contengono le località POP (point 
 | Africa | Città del Capo, Sudafrica<br />Johannesburg, Sudafrica | Johannesburg, Sudafrica | Sud Africa |
 | Medio Oriente | Dubai, Emirati Arabi Uniti | Muscat, Oman<br />Fujirah, Emirati Arabi Uniti | Qatar<br />Emirati Arabi Uniti |
 | India | Chennai, India<br />Hyderabad, India<br />Mumbai, India<br />Nuova Delhi, India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai, India<br />Nuova Delhi, India<br /> | India |
-| Asia | RAS di Hong Kong<br />Osaka, Giappone<br />Tokyo, Giappone<br />Kuala Lumpur, Malaysia<br />Manila, Filippine<br />Singapore<br />Busan, Corea del Sud<br />Seoul, Corea del Sud<br />Taipei, Taiwan<br />Bangkok, Thailandia | RAS di Hong Kong<br />Batam, Indonesia<br />Giacarta, Indonesia<br />Osaka, Giappone<br />Tokyo, Giappone<br />Singapore<br />Busan, Corea del Sud<br />Seoul, Corea del Sud<br />Kaohsiung, Taiwan | RAS di Hong Kong<br />Indonesia<br />Israele<br />Giappone<br />RAS di Macao<br />Malaysia<br />Filippine<br />Singapore<br />Corea del Sud<br />Taiwan<br />Thailandia<br />Turchia<br />Vietnam |
+| Asia | RAS di Hong Kong<br />Osaka, Giappone<br />Tokyo, Giappone<br />Kuala Lumpur, Malaysia<br />Manila, Filippine<br />Singapore<br />Busan, Corea del Sud<br />Seoul, Corea del Sud<br />Taipei, Taiwan<br />Bangkok, Thailandia | RAS di Hong Kong<br />Batam, Indonesia<br />Giacarta, Indonesia<br />Osaka, Giappone<br />Tokyo, Giappone<br />Singapore<br />Seoul, Corea del Sud<br />Kaohsiung, Taiwan | RAS di Hong Kong<br />Indonesia<br />Israele<br />Giappone<br />RAS di Macao<br />Malaysia<br />Filippine<br />Singapore<br />Corea del Sud<br />Taiwan<br />Thailandia<br />Turchia<br />Vietnam |
 | Australia e Nuova Zelanda | Brisbane, Australia<br />Melbourne, Australia<br />Perth, Australia<br />Sydney, Australia<br />Auckland, Nuova Zelanda | Melbourne, Australia<br />Sydney, Australia<br />Auckland, Nuova Zelanda | Australia<br />Nuova Zelanda |
 
 

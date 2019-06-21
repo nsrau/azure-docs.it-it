@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3482b33f4198bf138a9475d4fdb4e3ba4b171445
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: HT
+ms.openlocfilehash: 98acc7f6dd5ec7cf3702bbcbe60e2739732512e2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165269"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294924"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Domande frequenti su Crittografia dischi di Azure per macchine virtuali IaaS
 
@@ -29,44 +29,6 @@ La versione GA di Crittografia dischi di Azure supporta i modelli di Azure Resou
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Quanto costa Crittografia dischi di Azure?
 
 Non è previsto alcun addebito per la crittografia dei dischi delle macchine virtuali con Crittografia dischi di Azure, ma sono previsti addebiti associati all'uso di Azure Key Vault. Per altre informazioni sui costi associati ad Azure Key Vault, vedere la pagina [Prezzi di Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
-
-
-## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Quali livelli di macchine virtuali sono supportati da Crittografia dischi di Azure?
-
-Crittografia dischi di Azure è disponibile nelle VM di livello standard tra cui [A, D, DS, E, G, GS e F](https://azure.microsoft.com/pricing/details/virtual-machines/) serie delle macchine virtuali IaaS. È anche disponibile per le VM con archiviazione Premium. Non è invece disponibile per le VM del livello Basic.
-
-## <a name="bkmk_LinuxOSSupport"></a> Quali distribuzioni di Linux sono supportate da Crittografia dischi di Azure?
-
-Crittografia dischi di Azure è supportata in un subset del [distribuzioni Linux approvate per Azure](../virtual-machines/linux/endorsed-distros.md), che è a sua volta un subset di tutti i server possibili delle distribuzioni di Linux.
-
- ![Diagramma di Venn di server distribuzioni Linux che supportano crittografia dischi di Azure](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
-
-Distribuzioni di server Linux non approvate da Azure non supportano crittografia dischi di Azure e, di tali approvate solo le versioni e le distribuzioni seguenti supportano crittografia dischi di Azure:
-
-| Distribuzione Linux | Version | Tipo di volume supportato per la crittografia|
-| --- | --- |--- |
-| Ubuntu | 18,04| Disco del sistema operativo e dati |
-| Ubuntu | 16.04| Disco del sistema operativo e dati |
-| Ubuntu | 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disco del sistema operativo e dati |
-| RHEL | 7.6 | Disco del sistema operativo e dati (vedere nota sotto) |
-| RHEL | 7.5 | Disco del sistema operativo e dati (vedere nota sotto) |
-| RHEL | 7.4 | Disco del sistema operativo e dati (vedere nota sotto) |
-| RHEL | 7.3 | Disco del sistema operativo e dati (vedere nota sotto) |
-| RHEL | 7.2 | Disco del sistema operativo e dati (vedere nota sotto) |
-| RHEL | 6.8 | Disco dati (vedere nota sotto) |
-| RHEL | 6.7 | Disco dati (vedere nota sotto) |
-| CentOS | 7.6 | Disco del sistema operativo e dati |
-| CentOS | 7.5 | Disco del sistema operativo e dati |
-| CentOS | 7.4 | Disco del sistema operativo e dati |
-| CentOS | 7.3 | Disco del sistema operativo e dati |
-| CentOS | 7.2n | Disco del sistema operativo e dati |
-| CentOS | 6.8 | Disco dati |
-| openSUSE | 42.3 | Disco dati |
-| SLES | 12-SP4 | Disco dati |
-| SLES | 12-SP3 | Disco dati |
-
-> [!NOTE]
-> La nuova implementazione ADE è supportata per RHEL del sistema operativo e dischi dati per le immagini con pagamento a consumo RHEL7. Crittografia dischi di Azure non è attualmente supportata per le immagini RHEL di tipo BYOS (Bring-Your-Own-Subscription). Visualizzare [crittografia dischi di Azure per Linux](azure-security-disk-encryption-linux.md) per altre informazioni.
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Come si può iniziare a usare Crittografia dischi di Azure?
 

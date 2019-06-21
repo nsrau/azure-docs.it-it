@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe163fc2370e884bed58bfffe5baffa5642b6d90
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799117"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148006"
 ---
 # <a name="public-ip-address-prefix"></a>Prefisso dell'indirizzo IP pubblico
 
@@ -32,7 +32,7 @@ Gli indirizzi IP pubblici vengono assegnati da un pool di indirizzi assegnati a 
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Perché creare un prefisso di indirizzo IP pubblico?
 
-Quando si creano risorse di indirizzi IP pubblici, Azure assegna un indirizzo IP pubblico disponibile da tutti gli intervalli usati in un'area. Si conosce l'indirizzo una volta che Azure lo assegna; tuttavia, fino a quando ciò non avviene, non si sa quale indirizzo potrebbe essere assegnato. Ciò può costituire un problema quando, ad esempio, l'utente o i partner commerciali configurano le regole del firewall che consentono indirizzi IP specifici. Ogni volta che si assegna un nuovo indirizzo IP pubblico a una risorsa, l'indirizzo dovrà essere aggiunto alla regola del firewall. Quando si assegnano gli indirizzi alle risorse da un prefisso di indirizzo IP pubblico, non è necessario aggiornare le regole del firewall ogni volta che si assegna uno degli indirizzi, perché l'intero intervallo potrebbe essere aggiunto a una regola.
+Quando si creano risorse indirizzo IP pubblico, Azure assegna un indirizzo IP pubblico disponibile da tutti gli intervalli usati nel paese. Si conosce l'indirizzo una volta che Azure lo assegna; tuttavia, fino a quando ciò non avviene, non si sa quale indirizzo potrebbe essere assegnato. Ciò può costituire un problema quando, ad esempio, l'utente o i partner commerciali configurano le regole del firewall che consentono indirizzi IP specifici. Ogni volta che si assegna un nuovo indirizzo IP pubblico a una risorsa, l'indirizzo dovrà essere aggiunto alla regola del firewall. Quando si assegnano gli indirizzi alle risorse da un prefisso di indirizzo IP pubblico, non è necessario aggiornare le regole del firewall ogni volta che si assegna uno degli indirizzi, perché l'intero intervallo potrebbe essere aggiunto a una regola.
 
 ## <a name="benefits"></a>Vantaggi
 

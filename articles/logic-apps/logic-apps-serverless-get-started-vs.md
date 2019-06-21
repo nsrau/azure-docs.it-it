@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
-ms.date: 04/25/2019
-ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: e51a3f9971006a0b50cec1abdc5e955d06c23466
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65467443"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295857"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Compilare la prima app senza server con App per la logica di Azure e Funzioni di Azure - Visual Studio
 
@@ -34,7 +34,6 @@ Per compilare un'app senza server in Visual Studio, sono necessari questi elemen
 
     > [!IMPORTANT]
     > Quando si installa Visual Studio 2019 o 2017, assicurarsi di selezionare il carico di lavoro **Sviluppo di Azure**.
-    > Per Visual Studio 2019, Cloud Explorer consente di aprire la finestra di progettazione delle app per la logica nel portale di Azure, ma non ancora di aprire quella incorporata.
 
   * [Microsoft Azure SDK per .NET (2.9.1 o versione successiva)](https://azure.microsoft.com/downloads/). 
   Altre informazioni su [Azure SDK per .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
@@ -128,6 +127,9 @@ Ora che la soluzione viene distribuita al gruppo di risorse, aprire l'app per la
 
    ![Aprire "azuredeploy.json" in Progettazione app per la logica](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
+   > [!TIP]
+   > Se non si dispone di questo comando in Visual Studio 2019, verificare di avere gli ultimi aggiornamenti per Visual Studio.
+
 1. Quando viene visualizzata la finestra delle **proprietà dell'app per la logica**, se non è già selezionata, selezionare la propria sottoscrizione di Azure in **Sottoscrizione**. In **Gruppo di risorse** selezionare il gruppo di risorse e il percorso in cui è stata distribuita la soluzione, quindi fare clic su **OK**.
 
    ![Proprietà dell'app per la logica](./media/logic-apps-serverless-get-started-vs/logic-app-properties.png)
@@ -153,6 +155,9 @@ Per le app per la logica già distribuite in Azure è possibile ancora modificar
 1. In **Tutte le sottoscrizioni** selezionare la sottoscrizione di Azure associata alle app per la logica che si vuole gestire e quindi scegliere **Applica**.
 
 1. In **App per la logica** selezionare l'app per la logica. Dal menu di scelta rapida dell'app selezionare **Apri con Editor app per la logica**.
+
+   > [!TIP]
+   > Se non si dispone di questo comando in Visual Studio 2019, verificare di avere gli ultimi aggiornamenti per Visual Studio.
 
 Ora è possibile scaricare l'app per la logica già pubblicata nel progetto Gruppo di risorse. In questo modo, anche se la creazione dell'app per la logica è già stata iniziata nel portale di Azure, è comunque possibile importarla e gestirla in Visual Studio. Per altre informazioni, vedere [Gestire le app per la logica con Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 

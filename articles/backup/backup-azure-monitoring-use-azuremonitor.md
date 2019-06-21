@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 1ac5e77cdda96413db0452fcb13fc48905479419
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
-ms.translationtype: HT
+ms.openlocfilehash: 7c53d8fe0ee5bbfdbe180aa4d18d8c7b7fab29c2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67136277"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295287"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Monitoraggio su larga scala tramite Monitoraggio di Azure
 
@@ -47,6 +47,9 @@ Una risorsa di Azure Resource Manager, ad esempio credenziali dei servizi di rip
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Distribuzione di soluzioni all'area di lavoro di Log Analitica
 
 Una volta che i dati si trova all'interno dell'area di lavoro LA, [distribuire un modello di GitHub](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) nella per visualizzare i dati. Accertarsi di che assegnare lo stesso gruppo di risorse, nome area di lavoro e percorso area di lavoro per identificare in modo corretto l'area di lavoro e quindi installare il modello su di esso.
+
+> [!NOTE]
+> Gli utenti che non hanno gli avvisi o i processi di backup/ripristino nell'area di lavoro LA potrebbe essere visualizzato un errore con codice "BadArgumentError" nel portale. Gli utenti possono ignorare questo errore e continuare a usare la soluzione. Una volta che i dati del tipo pertinente inizino a scorrere nell'area di lavoro, le visualizzazioni rifletteranno che gli stessi oggetti e gli utenti non vedranno l'errore più.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Visualizzare i dati di Backup di Azure con Log Analitica (LA)
 
@@ -109,7 +112,7 @@ L'aspetto principale è la condizione di attivazione dell'avviso. Facendo clic s
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-Modificare la query Kusto, se necessario, selezionare la soglia a destra (che deciderà se verrà generato l'avviso), il periodo di corretto (intervallo di tempo per cui viene eseguita la query) e la relativa frequenza. Ad esempio:  Se la soglia è superiore a 0, il periodo è 5 minuti e la frequenza è 5 minuti, quindi la regola viene convertita come "Eseguire la query ogni 5 minuti negli ultimi 5 minuti e se il numero di risultati è maggiore di 0, invia una notifica tramite il gruppo di azione selezionato"
+Modificare la query Kusto, se necessario, selezionare la soglia a destra (che deciderà se verrà generato l'avviso), il periodo di corretto (intervallo di tempo per cui viene eseguita la query) e la relativa frequenza. Ad esempio: Se la soglia è superiore a 0, il periodo è 5 minuti e la frequenza è 5 minuti, quindi la regola viene convertita come "Eseguire la query ogni 5 minuti negli ultimi 5 minuti e se il numero di risultati è maggiore di 0, invia una notifica tramite il gruppo di azione selezionato"
 
 #### <a name="action-group-integration"></a>Integrazione di gruppo di azione
 

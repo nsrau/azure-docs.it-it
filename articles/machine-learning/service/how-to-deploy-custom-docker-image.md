@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/05/2019
-ms.openlocfilehash: 02bc8835ddb163d81f389e13b21b88adca55cb2f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd0e8099be5422d561541aeb8911c9a1610befcb
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082625"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272774"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>Distribuire un modello usando un'immagine Docker personalizzata
 
@@ -43,6 +43,7 @@ Questo documento è suddiviso in due sezioni:
 * Un gruppo di lavoro del servizio Azure Machine Learning. Per altre informazioni, vedere la [creare un'area di lavoro](setup-create-workspace.md) articolo.
 * Azure Machine Learning SDK. Per altre informazioni, vedere la sezione SDK Python del [creare un'area di lavoro](setup-create-workspace.md#sdk) articolo.
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Il [estensione della riga di comando di Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Un' [registro contenitori di Azure](/azure/container-registry) o altro registro Docker che è accessibile su internet.
 * I passaggi in questo documento presuppongono che abbia familiarità con la creazione e utilizzo un' __configurazione di inferenza__ oggetto come parte della distribuzione del modello. Per altre informazioni, vedere la sezione "prepararsi per la distribuzione" del [dove eseguire la distribuzione e in che modo](how-to-deploy-and-where.md#prepare-to-deploy).
 

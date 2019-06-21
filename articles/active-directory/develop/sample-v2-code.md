@@ -1,6 +1,6 @@
 ---
 title: Esempi di codice di Microsoft identity platform | Microsoft Docs
-description: Fornisce un indice della gestione delle identità Microsoft disponibili esempi di codice di piattaforma (endpoint V2), organizzati per uno scenario.
+description: Fornisce un indice della gestione delle identità Microsoft disponibili esempi di codice di piattaforma (endpoint v2.0), organizzati per uno scenario.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327111182a4ad8958f2d852a88ba0608d8510c51
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 326b69bffa0cd5728b939a91cce4fab3f3a329f7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055917"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272662"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Esempi di codice della piattaforma delle identità di Microsoft (endpoint v2.0)
 
@@ -34,18 +34,18 @@ ms.locfileid: "67055917"
 - Aggiungere l'autenticazione e l'autorizzazione alle applicazioni Web e alle API Web.
 - Richiedere un token di accesso per accedere a un'API Web protetta.
 
-Questo articolo descrive brevemente e vengono forniti collegamenti agli esempi per l'endpoint di piattaforma di identità Microsoft. Questi esempi descrivono la procedura da seguire e riportano frammenti di codice che è possibile usare nelle applicazioni. Nella pagina relativa agli esempi di codice sono disponibili importanti argomenti dettagliati contenenti informazioni sui requisiti e le procedure di installazione e configurazione. I commenti presenti nel codice facilitano la comprensione delle sezioni critiche.
+Questo articolo descrive brevemente e vengono forniti collegamenti agli esempi per l'endpoint di piattaforma di identità Microsoft. Questi esempi illustrano come viene eseguita e anche fornire i frammenti di codice che è possibile usare nelle applicazioni. Nella pagina di esempio di codice, sono disponibili argomenti readme dettagliati utili con requisiti di installazione e il programma di installazione. I commenti all'interno del codice consentono di comprendere le sezioni critiche.
 
 > [!NOTE]
-> Per gli esempi della versione 1.0, vedere [Esempi di codice di Azure AD (endpoint versione 1.0)](sample-v1-code.md).
+> Se è interessati a samples v1.0, vedere [esempi di codice AD Azure (endpoint v1.0)](sample-v1-code.md).
 
 Per comprendere lo scenario di base per ogni tipo di campionamento, vedere [tipi di App per l'endpoint di Microsoft identity platform](v2-app-types.md).
 
 È possibile contribuire agli esempi su GitHub. Per sapere come, vedere [Microsoft Azure Active Directory samples and documentation](https://github.com/Azure-Samples?page=3&query=active-directory) (Esempi e documentazione su Microsoft Azure Active Directory).
 
-## <a name="single-page-applications-spa"></a>Applicazione a pagina singola
+## <a name="single-page-applications"></a>Applicazioni a pagina singola
 
-Questi esempi illustrano come scrivere un'applicazione a singola pagina protetta con la piattaforma delle identità Microsoft. In questi esempi viene usato uno dei tipi di MSAL.js:
+Questi esempi illustrano come scrivere un'applicazione a singola pagina protetta con la piattaforma delle identità Microsoft. Questi esempi viene utilizzato uno dei tipi di msal. js.
 
 | Piattaforma | Descrizione | Collegamento |
 | -------- | --------------------- | -------- |
@@ -68,9 +68,9 @@ Gli esempi seguenti illustrano le applicazioni Web che eseguono l'accesso degli 
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>App client pubbliche per dispositivi mobili e desktop
 
-Gli esempi seguenti mostrano applicazioni client pubbliche, per desktop o dispositivi mobili, che accedono all'API Microsoft Graph o alla propria API Web a nome di un utente. Tutte queste applicazioni client usano Microsoft Authentication Library (MSAL).
+Gli esempi seguenti mostrano client pubblico applicazioni (applicazioni per dispositivi mobili o desktop) che l'API Microsoft Graph o API web proprie il nome di un utente di accesso. Tutte queste applicazioni client utilizzano Microsoft Authentication Library (MSAL).
 
-| Applicazione client | Piattaforma | Flusso/Concessione | Chiama Microsoft Graph | Chiama un'API Web ASP.NET Core 2.0 |
+| Applicazione client | Piattaforma | Flusso/Concessione | Chiama Microsoft Graph | Chiama un'API web ASP.NET Core 2.0 |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
 | Desktop (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | [interactive](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | Desktop (Console)   | ![.NET/C# (Desktop)](media/sample-v2-code/logo_NET.png) | [Autenticazione integrata di Windows](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
@@ -90,7 +90,7 @@ L'esempio seguente mostra un'applicazione che accede all'API Microsoft Graph con
 
 ## <a name="headless-applications"></a>Applicazioni headless
 
-Gli esempi seguenti mostrano un'applicazione client pubblica eseguite in un dispositivo senza un Web browser. L'app può essere uno strumento da riga di comando o eseguita su Linux/Mac oppure un'applicazione IoT. Gli esempi presentano app che accede all'API Microsoft Graph a nome di un utente che esegue l'accesso in modo interattivo in un altro dispositivo, ad esempio un telefono cellulare. Quest'applicazione client usa MicroSoft Authentication Library (MSAL).
+Gli esempi seguenti mostrano un'applicazione client pubblica eseguite in un dispositivo senza un Web browser. L'app può essere uno strumento da riga di comando, un'app in esecuzione su Linux o Mac o un'applicazione IoT. L'esempio include un'app per l'accesso all'API Graph Microsoft, il nome di un utente che accede-in modo interattivo in un altro dispositivo (ad esempio un telefono cellulare). Questa applicazione client utilizza Microsoft Authentication Library (MSAL).
 
 | Applicazione client | Piattaforma | Flusso/Concessione | Chiama Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
@@ -98,11 +98,11 @@ Gli esempi seguenti mostrano un'applicazione client pubblica eseguite in un disp
 
 ## <a name="web-apis"></a>API Web
 
-Gli esempi seguenti viene illustrato come proteggere un'API web con l'endpoint di Microsoft identity platform e come chiamare un'API downstream dall'API Web.
+Gli esempi seguenti illustrano come proteggere un'API web con l'endpoint di Microsoft identity platform e come chiamare un'API downstream dall'API web.
 
 | Piattaforma | Esempio |
 | -------- | ------------------- |
-| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | API Web ASP.NET Core (servizio) di [aspnetcore-v2-dotnet-nativo](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core web API (servizio) [aspnetcore-v2-dotnet-nativo](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API (servizio) di [ms-identity-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 
 ## <a name="other-microsoft-graph-samples"></a>Altri esempi di Microsoft Graph

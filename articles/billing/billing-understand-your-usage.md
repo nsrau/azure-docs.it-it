@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 9ff9b6b5313026d2102b98659183fa97c6a5ef84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2eb9f8e19be2a7b6220bc34bf4ce0c72c4ac0b4f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683994"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275063"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprendere i termini nel file di utilizzo e costi di Azure
 
@@ -72,6 +72,7 @@ InvoiceSection | MCA | Vedere InvoiceSectionName.
 InvoiceSectionId | EA, MCA | Identificatore univoco per il reparto con contratto Enterprise Agreement o di una sezione della fattura MCA.
 InvoiceSectionName | EA, MCA | Nome della sezione della fattura MCA o reparto con contratto Enterprise.
 IsAzureCreditEligible | EA, MCA | Indica se l'addebito è idoneo a essere a pagamento per l'utilizzo di crediti di Azure (i valori: True, False).
+IsEstimated | Tutti | Indica se il periodo di fatturazione è chiuso o completato. I dati di utilizzo è possono modificare in tutto il periodo di fatturazione fino a quando non viene generata la fattura. Questi record vengono contrassegnati come "prevista".
 Località | EA, MCA | Posizione del Data Center in cui la risorsa è in esecuzione.
 meterCategory | Tutti | Nome della categoria di classificazione per il contatore. Ad esempio, *servizi Cloud* e *Networking*.
 ID contatore | Tutti | Identificatore univoco per il contatore.

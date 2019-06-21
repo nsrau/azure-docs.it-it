@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27d54d51a16f4ed94f24f9afa005c63b22778cf9
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473212"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190356"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Scenari comuni nella gestione dei diritti di Azure AD (anteprima)
 
@@ -124,4 +124,4 @@ Esistono diversi modi, che è possibile configurare la gestione dei diritti per 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esercitazione: Creare il pacchetto prima dell'accesso](entitlement-management-access-package-first.md)
-- [Modificare e gestire un pacchetto di accesso esistente](entitlement-management-access-package-edit.md)
+- [Delegare le attività](entitlement-management-delegate.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: f5dfa34760bcef23bf54d65b35e3ad8f48cc2ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49b6b49d908a7426e7cfd1bae5260ff399d9953b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831836"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273223"
 ---
 # <a name="application-gateway-components"></a>Componenti di gateway applicazione
 
@@ -26,7 +26,9 @@ Un indirizzo IP front-end è l'indirizzo IP associato a un gateway applicazione.
 
 ### <a name="static-versus-dynamic-public-ip-address"></a>Statico e indirizzo IP pubblico dinamico
 
-Lo SKU di Gateway applicazione di Azure v2 supporta entrambi interni e statici indirizzi IP pubblici statici, anche se lo SKU di versione 1 supporta solo indirizzi IP interni statici. Se un gateway applicazione viene arrestato e avviato, possibile modificare l'indirizzo IP virtuale (VIP).
+Lo SKU di Azure Application Gateway V2 possono essere configurato per supportare entrambi indirizzo IP interno statico e indirizzo IP pubblico statico o solo indirizzo IP pubblico statico. Non può essere configurato per supportare solo indirizzo IP interno statico.
+
+Lo SKU V1 può essere configurato per supportare l'indirizzo IP interno statico e indirizzo IP pubblico dinamico, solo indirizzo IP interno statico o solo indirizzo IP pubblico dinamico. L'indirizzo IP dinamico del Gateway applicazione non modifica in un gateway in esecuzione. È possibile modificare solo quando si arresta o avvia il Gateway. Non modifica in errori di sistema, gli aggiornamenti, host di Azure gli aggiornamenti e così via. 
 
 Il nome DNS associato a un gateway applicazione non cambia durante il ciclo di vita del gateway. Di conseguenza, è necessario utilizzare un alias CNAME e puntarlo all'indirizzo DNS del gateway applicazione.
 

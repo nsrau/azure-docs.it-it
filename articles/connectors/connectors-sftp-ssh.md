@@ -1,25 +1,25 @@
 ---
-title: Connettersi a un server FTP con SSH - App per la logica di Azure | Microsoft Docs
+title: Connettersi al server SFTP con SSH - App per la logica di Azure
 description: Automatizzare le attività che monitorano, creano, gestiscono, inviano e ricevono file per un server SFTP usando SSH e App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: divswa, LADocs
+ms.reviewer: divswa, klam, LADocs
 ms.topic: article
+ms.date: 06/18/2019
 tags: connectors
-ms.date: 01/15/2019
-ms.openlocfilehash: 5f82c654b443d58c9ce38c2fb0f48c1654daeb34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7479be6a14c7d1ace5d60defad0eda51d2aa814b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922253"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296573"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
-Per automatizzare le attività che monitorano, creano, inviano e ricevono file in un server [SFTP (Secure File Transfer Protocol)](https://www.ssh.com/ssh/sftp/) usando il protocollo [SSH (Secure Shell)](https://www.ssh.com/ssh/protocol/), è possibile creare e automatizzare i flussi di lavoro di integrazione usando App per la logica di Azure e il connettore SFTP-SSH. SFTP è un protocollo di rete che fornisce l'accesso ai file, il trasferimento di file e la gestione di file su qualsiasi flusso di dati affidabile. Ecco alcuni esempi di attività che è possibile automatizzare: 
+Per automatizzare le attività che monitorano, creano, inviano e ricevono file in un server [SFTP (Secure File Transfer Protocol)](https://www.ssh.com/ssh/sftp/) usando il protocollo [SSH (Secure Shell)](https://www.ssh.com/ssh/protocol/), è possibile creare e automatizzare i flussi di lavoro di integrazione usando App per la logica di Azure e il connettore SFTP-SSH. SFTP è un protocollo di rete che fornisce l'accesso ai file, il trasferimento di file e la gestione di file su qualsiasi flusso di dati affidabile. Ecco alcuni esempi di attività che è possibile automatizzare:
 
 * Monitorare quando i file vengono aggiunti o modificati.
 * Ottenere, creare, copiare, rinominare, aggiornare, creare elenchi ed eliminare file.
@@ -27,16 +27,19 @@ Per automatizzare le attività che monitorano, creano, inviano e ricevono file i
 * Leggere contenuti e metadati dei file.
 * Estrarre archivi nella cartella.
 
-È possibile usare trigger che monitorano eventi sul server SFTP e rendere disponibile l'output per altre azioni. È possibile usare azioni che eseguono varie attività sul server SFTP. Si può anche fare in modo che altre azioni dell'app per la logica usino l'output delle azioni SFTP. Se ad esempio si recuperano regolarmente file dal server SFTP, è possibile inviare avvisi su tali file e sul relativo contenuto tramite posta elettronica usando il connettore Outlook di Office 365 o Outlook.com.
-Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+È possibile usare trigger che monitorano eventi sul server SFTP e rendere disponibile l'output per altre azioni. È possibile usare azioni che eseguono varie attività sul server SFTP. Si può anche fare in modo che altre azioni dell'app per la logica usino l'output delle azioni SFTP. Se ad esempio si recuperano regolarmente file dal server SFTP, è possibile inviare avvisi su tali file e sul relativo contenuto tramite posta elettronica usando il connettore Outlook di Office 365 o Outlook.com. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+
+Le differenze tra il connettore SFTP-SSH e il connettore SFTP, rivedere le [confrontare SFTP-SSH e SFTP](#comparison) sezione più avanti in questo argomento.
 
 ## <a name="limits"></a>Limiti
 
-* In grado di leggere o scrivere i file che sono azioni SFTP-SSH *1 GB o inferiore* gestendo i dati come *15 MB parti*, non 1 parti GB.
+* Per impostazione predefinita, le azioni SFTP-SSH possano leggere o scrivere i file che sono *almeno 1 GB o più piccolo* , ma solo in *15 MB* blocchi in un momento. Per gestire file di dimensioni superiori a 15 MB, supporto per le azioni SFTP-SSH [chunking messaggio](../logic-apps/logic-apps-handle-large-messages.md), fatta eccezione per l'azione di copia File, che può gestire solo i file di 15 MB. Il **Ottieni contenuto file** azione utilizza in modo implicito la suddivisione in blocchi di messaggio. 
 
-* Per i file *superano 1 GB*, le azioni possono utilizzare [chunking messaggio](../logic-apps/logic-apps-handle-large-messages.md). Attualmente, i trigger SFTP-SSH non supportano la suddivisione in blocchi.
+* I trigger SFTP-SSH non supportano la suddivisione in blocchi. La richiesta di contenuto del file, i trigger selezionare solo i file che sono 15 MB o inferiore. Per ottenere i file di dimensioni superiori a 15 MB, è invece seguono questo modello:
 
-Per altre differenze, esaminare [confrontare SFTP-SSH e SFTP](#comparison) più avanti nella sezione successiva.
+  * Usare un SFTP-SSH trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
+
+  * Seguire il trigger con il SFTP-SSH **Ottieni contenuto file** azione, che legge il file completo e utilizza in modo implicito la suddivisione in blocchi di messaggio.
 
 <a name="comparison"></a>
 
@@ -54,24 +57,24 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
   > * **Algoritmi di crittografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
   > * **Impronta digitale**: MD5
 
-* Le azioni possano leggere o scrivere i file *fino a 1 GB* confrontato con il connettore SFTP, ma gestisce dati in parti di 15 MB, 1 GB non parti. Per i file di dimensioni superiori a 1 GB, le azioni possono usare anche la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). Attualmente, i trigger SFTP-SSH non supportano la suddivisione in blocchi.
+* Per impostazione predefinita, le azioni SFTP-SSH possano leggere o scrivere i file che sono *almeno 1 GB o più piccolo* , ma solo in *15 MB* blocchi in un momento. Per gestire file di dimensioni superiori a 15 MB, possono usare le azioni SFTP-SSH [chunking messaggio](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, l'azione di copia File supporta solo i file di 15 MB poiché tale azione non supporta la suddivisione in blocchi di messaggio. I trigger SFTP-SSH non supportano la suddivisione in blocchi.
 
 * Fornisce l'azione **Crea cartella** che crea una cartella nel percorso specificato nel server SFTP.
 
 * Fornisce l'azione **Rinomina file** che rinomina un file nel server SFTP.
 
-* Memorizza nella cache la connessione al server SFTP *per un massimo di un'ora*, migliorando così le prestazioni e riducendo il numero di tentativi di connessione al server. Per impostare la durata di questo comportamento di memorizzazione nella cache, modificare la proprietà <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> nella configurazione di SSH sul server SFTP.
+* Memorizza nella cache la connessione al server SFTP *per un massimo di un'ora*, migliorando così le prestazioni e riducendo il numero di tentativi di connessione al server. Per impostare la durata di questo comportamento di memorizzazione nella cache, modificare la proprietà [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) nella configurazione di SSH sul server SFTP.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* L'indirizzo del server SFTP e le credenziali dell'account che consentono all'app per la logica di accedere all'account SFTP. È anche necessario accedere a una chiave privata SSH e alla password della chiave privata SSH. 
+* L'indirizzo del server SFTP e le credenziali dell'account che consentono all'app per la logica di accedere all'account SFTP. È anche necessario accedere a una chiave privata SSH e alla password della chiave privata SSH.
 
   > [!IMPORTANT]
   >
   > Il connettore SFTP-SSH supporta *solo* questi formati di chiave privata, algoritmi e impronte digitali:
-  > 
+  >
   > * **Formati di chiave privata**: chiavi RSA (Rivest Shamir Adleman) e DSA (Digital Signature Algorithm) in entrambi i formati OpenSSH e ssh.com
   > * **Algoritmi di crittografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
   > * **Impronta digitale**: MD5
@@ -84,63 +87,52 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
 
 * L'app per la logica in cui si vuole accedere all'account SFPT. Per iniziare con un trigger SFTP-SSH, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione SFTP-SSH, avviare l'app per la logica con un altro trigger, ad esempio il trigger **Ricorrenza**.
 
+## <a name="how-sftp-ssh-triggers-work"></a>Funzionamento di trigger SFTP-SSH
+
+I trigger SFTP-SSH usare il polling del sistema di file SFTP e cercando tutti i file che è stato modificato dall'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
+
+| Client SFTP | Azione |
+|-------------|--------|
+| Winscp | Passare a **Opzioni** > **Preferenze** > **Trasferimento** > **Modifica** > **Mantieni data/ora** > **Disabilitare l'opzione** |
+| FileZilla | Passare a **Trasferimento** > **Preserva data e ora dei file trasferiti** > **Disabilitare l'opzione** |
+|||
+
+Quando un trigger rileva un nuovo file, controlla che sia completo e non parzialmente scritto. Ad esempio, un file potrebbe avere delle modifiche in corso nel momento in cui il trigger controlla il file server. Per evitare la restituzione di un file scritto parzialmente, il trigger prende nota del timestamp del file che contiene le modifiche recenti ma non restituisce immediatamente il file. Il trigger restituisce il file solo durante il nuovo polling del server. In alcuni casi, questo comportamento potrebbe causare un ritardo fino a un massimo del doppio dell'intervallo di polling del trigger.
+
 ## <a name="connect-to-sftp-with-ssh"></a>Connettersi a SFTP con SSH
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
 
-1. Per le app per la logica vuote, nella casella di ricerca immettere "sftp ssh" come filtro. Nell'elenco dei trigger selezionare il trigger desiderato. 
+1. Per le app per la logica vuote, nella casella di ricerca immettere "sftp ssh" come filtro. Nell'elenco dei trigger selezionare il trigger desiderato.
 
    -oppure-
 
-   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione, scegliere **Nuovo passaggio**. 
-   Nella casella di ricerca immettere "sftp ssh" come filtro. 
-   Nell'elenco delle azioni selezionare l'azione desiderata.
+   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione, scegliere **Nuovo passaggio**. Nella casella di ricerca immettere "sftp ssh" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Specificare le informazioni necessarie per la connessione.
 
-   > [!IMPORTANT] 
+   > [!IMPORTANT]
    >
    > Quando si immette la chiave privata SSH nella proprietà **Chiave privata SSH**, seguire questi passaggi aggiuntivi che consentono di assicurarsi di specificare il valore completo e corretto per questa proprietà. 
    > Una chiave non valida provoca un errore di connessione.
-   
-   Anche se è possibile usare qualsiasi editor di testo, ecco i passaggi esemplificativi che mostrano come copiare e incollare la chiave usando Notepad.exe.
-    
-   1. Aprire il file della chiave privata SSH in un editor di testo. 
-   In questi passaggi viene usato il Blocco note come esempio.
 
-   1. Dal menu **Modifica** del Blocco note scegliere **Seleziona tutto**.
+   Anche se è possibile usare qualsiasi editor di testo, ecco i passaggi esemplificativi che mostrano come copiare e incollare la chiave usando Notepad.exe.
+
+   1. Aprire il file della chiave privata SSH in un editor di testo. In questi passaggi viene usato il Blocco note come esempio.
+
+   1. Nel blocco note **Edit** dal menu **Seleziona tutto**.
 
    1. Selezionare **Modifica** > **Copia**.
 
-   1. Nell'azione o nel trigger SFTP-SSH aggiunto, incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe. 
-   ***Assicurarsi di incollare*** la chiave. ***Non immettere o modificare la chiave manualmente***.
+   1. Nell'azione o nel trigger SFTP-SSH aggiunto, incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe.  ***Assicurarsi di incollare*** la chiave. ***Non immettere o modificare la chiave manualmente***.
 
 1. Dopo avere immesso le informazioni per la connessione, scegliere **Crea**.
 
 1. Specificare ora i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
-
-## <a name="trigger-limits"></a>Limiti dei trigger
-
-I trigger SFTP-SSH eseguono il polling del sistema di file SFTP e ricercano tutti i file modificati dall'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
-
-| Client SFTP | Azione | 
-|-------------|--------| 
-| Winscp | Passare a **Opzioni** > **Preferenze** > **Trasferimento** > **Modifica** > **Mantieni data/ora** > **Disabilitare l'opzione** |
-| FileZilla | Passare a **Trasferimento** > **Preserva data e ora dei file trasferiti** > **Disabilitare l'opzione** | 
-||| 
-
-Quando un trigger rileva un nuovo file, controlla che sia completo e non parzialmente scritto. Ad esempio, un file potrebbe avere delle modifiche in corso nel momento in cui il trigger controlla il file server. Per evitare la restituzione di un file scritto parzialmente, il trigger prende nota del timestamp del file che contiene le modifiche recenti ma non restituisce immediatamente il file. Il trigger restituisce il file solo durante il nuovo polling del server. In alcuni casi, questo comportamento potrebbe causare un ritardo fino a un massimo del doppio dell'intervallo di polling del trigger. 
-
-La richiesta di contenuto del file, i trigger Don ' t get file di dimensioni superiori a 15 MB. Per ottenere i file di dimensioni superiori a 15 MB, seguire questo modello: 
-
-* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
-
-* Fare seguire al trigger un'azione che legga il file completo, ad esempio **Ottieni contenuto di file tramite percorso** e impostare l'azione per l'uso della [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## <a name="examples"></a>Esempi
 
@@ -148,36 +140,19 @@ La richiesta di contenuto del file, i trigger Don ' t get file di dimensioni sup
 
 ### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>Trigger SFTP - SSH: When a file is added or modified (Quando un file viene aggiunto o modificato)
 
-Questo trigger avvia il flusso di lavoro di un'app per la logica quando viene aggiunto o modificato un file in un server SFTP. È ad esempio possibile aggiungere una condizione che controlla il contenuto del file e lo recupera in base al fatto che soddisfi una condizione specificata. Si può quindi aggiungere un'azione che recupera il contenuto del file e lo inserisce in una cartella del server SFTP. 
+Questo trigger avvia il flusso di lavoro di un'app per la logica quando viene aggiunto o modificato un file in un server SFTP. È ad esempio possibile aggiungere una condizione che controlla il contenuto del file e lo recupera in base al fatto che soddisfi una condizione specificata. Si può quindi aggiungere un'azione che recupera il contenuto del file e lo inserisce in una cartella del server SFTP.
 
 **Esempio riguardante un'organizzazione**: usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. Si può quindi usare un'azione SFTP come **Ottieni contenuto file** per recuperare il contenuto dell'ordine, elaborarlo ulteriormente e archiviarlo nel database degli ordini.
-
-La richiesta di contenuto del file, i trigger Don ' t get file di dimensioni superiori a 15 MB. Per ottenere i file di dimensioni superiori a 15 MB, seguire questo modello: 
-
-* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
-
-* Fare seguire al trigger un'azione che legga il file completo, ad esempio **Ottieni contenuto di file tramite percorso** e impostare l'azione per l'uso della [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md).
 
 <a name="get-content"></a>
 
 ### <a name="sftp---ssh-action-get-content-using-path"></a>Azione SFTP - SSH: Ottieni contenuto di file tramite percorso
 
-Questa operazione recupera il contenuto da un file in un server SFTP. Ad esempio, è possibile aggiungere il trigger dell'esempio precedente e una condizione che il contenuto del file deve soddisfare. Se la condizione è true, è possibile eseguire l'azione che recupera il contenuto. 
-
-La richiesta di contenuto del file, i trigger Don ' t get file di dimensioni superiori a 15 MB. Per ottenere i file di dimensioni superiori a 15 MB, seguire questo modello: 
-
-* Usare un trigger che restituisce le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)** .
-
-* Fare seguire al trigger un'azione che legga il file completo, ad esempio **Ottieni contenuto di file tramite percorso** e impostare l'azione per l'uso della [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md).
+Questa operazione recupera il contenuto da un file in un server SFTP. Ad esempio, è possibile aggiungere il trigger dell'esempio precedente e una condizione che il contenuto del file deve soddisfare. Se la condizione è true, è possibile eseguire l'azione che recupera il contenuto.
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/sftpconnector/) del connettore.
-
-## <a name="get-support"></a>Supporto
-
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

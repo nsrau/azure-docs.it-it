@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: d4d2f24a0a7b1f01627ed2cea4a5732ca0e001c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2dc5fab0966c2ead0276cd8b23ea764bd4f9ef59
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068471"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190484"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Distribuzione continua per Funzioni di Azure
 
@@ -44,13 +44,15 @@ Usare la procedura seguente per configurare la distribuzione continua per un'app
 
     ![Per aprire il centro di distribuzione](./media/functions-continuous-deployment/platform-features.png)
 
-2. Nel **Deployment Center**, selezionare **GitHub** per **controllo del codice sorgente** > **Authorize**.
+2. Nel **Deployment Center**, selezionare **GitHub**, quindi selezionare **Authorize**. In alternativa, se già autorizzato GitHub, selezionare **continuazione**. 
 
     ![Centro di distribuzione](./media/functions-continuous-deployment/github.png)
 
-3. Selezionare **autorizzare AzureAppService** > **continuare**.
+3. In GitHub, selezionare **autorizzare AzureAppService**. 
 
     ![Autorizzazione](./media/functions-continuous-deployment/authorize.png)
+    
+    Nel portale di Azure **Deployment Center**, selezionare **continua**.
 
 4. Selezionare uno dei seguenti provider di compilazione:
 

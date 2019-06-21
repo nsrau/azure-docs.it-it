@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f4a1962f90d54001f315827c1243e929344e3d7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297099"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274009"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connettere un'applicazione a Istanza gestita di database SQL di Azure
 
@@ -45,7 +45,7 @@ Sono disponibili due opzioni per connettere reti virtuali:
 L'opzione di peering è quella preferibile perché il peering usa il backbone Microsoft e quindi, dal punto di vista della connettività non vi è alcuna differenza percepibile nella latenza tra le macchine virtuali nelle reti virtuali con peering e nella stessa rete virtuale. Il peering di reti virtuali è limitato alle reti nella stessa area.  
 
 > [!IMPORTANT]
-> Lo scenario di peering di reti virtuali per Istanza gestita è limitato alle reti nella stessa area a causa dei [vincoli del peering di reti virtuali globale](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+> Lo scenario di peering di reti virtuali per Istanza gestita è limitato alle reti nella stessa area a causa dei [vincoli del peering di reti virtuali globale](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Vedere anche la relativa sezione del [Azure Virtual Networks Frequently Asked Questions](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) per altri dettagli vedere l'articolo. 
 
 ## <a name="connect-an-on-premises-application"></a>Connettersi a un'applicazione locale
 

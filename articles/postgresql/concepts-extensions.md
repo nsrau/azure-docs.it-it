@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 962e2b10136cf1cbab7cc5d3d06059922c363b15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: efa4cc070f47174634c8dc67b37f10bc3d112d08
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410263"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293196"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Estensioni di PostgreSQL in Database di Azure per PostgreSQL - Server singolo
 PostgreSQL offre la capacità di estendere le funzionalità del database usando le estensioni. Le estensioni consentono di creare bundle di più oggetti SQL correlati in un singolo pacchetto che può essere caricato o rimosso dal database con un singolo comando. Dopo averle caricate nel database, le estensioni possono operare come funzionalità predefinite. Per altre informazioni sulle estensioni di PostgreSQL, vedere  [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html) (Creare un pacchetto di oggetti correlati formando un'estensione).
@@ -73,6 +73,7 @@ Le tabelle seguenti includono un elenco delle estensioni standard di PostgreSQL 
 > | **Estensione** | **Descrizione** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | Linguaggio procedurale caricabile PL/pgSQL. |
+> | [plv8](https://plv8.github.io/) | Estensione del linguaggio Javascript per PostgreSQL che può essere usata per stored procedure, trigger e così via. |
 
 ### <a name="miscellaneous-extensions"></a>Estensioni varie
 
@@ -124,7 +125,7 @@ TimescaleDB è un database di serie temporali che viene fornito come un'estensio
 [Altre informazioni su TimescaleDB](https://docs.timescale.com/latest), un marchio registrato di [scala cronologica, Inc.](https://www.timescale.com/)
 
 ### <a name="installing-timescaledb"></a>Installazione TimescaleDB
-Per installare TimescaleDB, è necessario includerlo nelle librerie di precaricamento condivisa del server. Una modifica alle librerie di precaricamento condivise di Postgres richiede un **riavviare il server** abbiano effetto.
+Per installare TimescaleDB, è necessario includerlo nelle librerie di precaricamento condivisa del server. Una modifica di Postgres `shared_preload_libraries` parametro è necessario specificare un **riavvio del server** effettive. È possibile modificare i parametri usando il [portale di Azure](howto-configure-server-parameters-using-portal.md) o il [CLI Azure](howto-configure-server-parameters-using-cli.md).
 
 > [!NOTE]
 > TimescaleDB può essere abilitata nel Database di Azure per PostgreSQL versione 9.6 e 10
@@ -137,10 +138,7 @@ Usando il [portale di Azure](https://portal.azure.com/):
 
 3. Cercare il `shared_preload_libraries` parametro.
 
-4. Copiare e incollare quanto segue come valore per `shared_preload_libraries`
-   ```
-   timescaledb
-   ```
+4. Selezionare **TimescaleDB**.
 
 5. Selezionare **salvare** per mantenere le modifiche. Dopo avere salvata la modifica, si riceverà una notifica. 
 
@@ -158,4 +156,4 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Segnalare a Microsoft la mancanza di un'estensione che si desidera usare. Esprimere un voto per le richieste esistenti o creare nuovi commenti e richieste nel [forum dei commenti dei clienti](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+Segnalare a Microsoft la mancanza di un'estensione che si desidera usare. Votare per le richieste esistenti o creare nuove richieste di feedback nel nostro [forum dei commenti](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

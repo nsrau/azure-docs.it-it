@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.custom: rimman
-ms.openlocfilehash: 956f63dd92c82df0998cfaca76c7ecf5b10f053e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cf075c2909b35bb08ca4cb24aaa3b99597f34c6
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953865"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203523"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modellazione dei dati in Azure Cosmos DB
 
@@ -176,9 +176,9 @@ Il titolo *zaza* potrebbe essere scambiato diverse centinaia di volte in un solo
 
 ## <a name="referencing-data"></a>Fare riferimento ai dati
 
-L'incorporamento dei dati quindi funziona senza problemi in molti casi, ma è evidente che in altri scenari la denormalizzazione dei dati è più che altro causa di problemi. Cosa si può fare dunque?
+Incorporamento di dati funziona senza problemi in molti casi, ma esistono scenari quando denormalizzazione dei dati comporterà ulteriori problemi che non vale la pena. Cosa si può fare dunque?
 
-Le relazioni tra entità non devono essere necessariamente create in un database relazionale. In un database di documenti è possibile mantenere in un documento informazioni correlate in realtà ai dati di altri documenti. Non è necessario creare sistemi più appropriati per un database relazionale in Azure Cosmos DB o in qualsiasi altro database di documenti. Relazioni semplici, tuttavia, sono adeguate e possono essere molto utili.
+Le relazioni tra entità non devono essere necessariamente create in un database relazionale. In un database di documenti, è possibile avere informazioni in un documento che si riferisce ai dati in altri documenti. Non è consigliabile creare sistemi che sarebbero più appropriati per un database relazionale in Azure Cosmos DB o qualsiasi altro database di documenti, ma le relazioni semplici vanno bene e possono essere utili.
 
 Nel codice JSON seguente abbiamo scelto di usare l'esempio del portafoglio di azioni di prima, ma questa volta facciamo riferimento all'elemento titolo nel portafoglio invece di incorporarlo. In questo modo, anche se l'elemento titolo cambia più volte nel corso della giornata, il solo documento da aggiornare è il documento del titolo.
 

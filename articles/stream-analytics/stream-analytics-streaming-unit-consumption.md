@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acafd6d8f37edd3e16561a4e588556bb771619f8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65916031"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206717"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -59,7 +59,7 @@ Gli elementi di query temporali costituiscono il set principale degli operatori 
 
 Si noti che un processo con logica di query complessa potrebbe presentare un'elevata percentuale di utilizzo delle unità di streaming anche quando non riceve eventi di input in modo continuo. Questa situazione può verificarsi dopo un picco improvviso negli eventi di input e output. Se la query è complessa, il processo potrebbe continuare a mantenere lo stato in memoria.
 
-La percentuale di utilizzo dell'unità di archiviazione può improvvisamente scendere a 0 per un breve periodo di tempo prima di tornare ai livelli previsti. Ciò si verifica a causa di errori temporanei o dell'avvio di aggiornamenti di sistema.
+La percentuale di utilizzo dell'unità di archiviazione può improvvisamente scendere a 0 per un breve periodo di tempo prima di tornare ai livelli previsti. Ciò si verifica a causa di errori temporanei o dell'avvio di aggiornamenti di sistema. Aumentare il numero di unità di streaming per un processo non può ridurre la percentuale di unità di streaming utilizzo se la query non è [perfettamente parallelo](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Logica di query con stato negli elementi temporali
 Una delle esclusive funzionalità dei processi di Analisi di flusso di Azure è l'esecuzione dell'elaborazione con stato, ad esempio per funzioni di aggregazione finestra, join temporali e funzioni di analisi temporali. Ognuno di questi operatori mantiene le informazioni sullo stato. La dimensione massima della finestra temporale per questi elementi di query è sette giorni. 

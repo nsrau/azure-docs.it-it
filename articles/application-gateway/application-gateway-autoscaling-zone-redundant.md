@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 7cf6b4984f3941da3b2cd0e4eada5eb1d87f2b01
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054736"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205003"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>La scalabilità automatica e il Gateway applicazione ridondanza della zona v2 
 
@@ -24,7 +24,7 @@ Il nuovo SKU di versione 2 include i miglioramenti seguenti:
 - **Ridondanza della zona**: Un Gateway applicazione o distribuzione di Web Application firewall può estendersi su più zone di disponibilità, eliminando la necessità di effettuare il provisioning di istanze del Gateway applicazione separate in ogni zona con gestione traffico. È possibile scegliere una o più zone in cui sono distribuite istanze del Gateway applicazione, che rende più resiliente a errori della zona. Il pool di back-end per le applicazioni può analogamente essere distribuito tra zone di disponibilità.
 
   Ridondanza di zona è disponibile solo in cui sono disponibili aree di Azure. Nelle altre aree sono supportate tutte le altre funzionalità. Per altre informazioni, vedere [quali sono le zone di disponibilità in Azure?](../availability-zones/az-overview.md#services-support-by-region)
-- **Indirizzo VIP statico**: Applicazione gateway v2 SKU supporta l'indirizzo VIP statico il tipo in modo esclusivo. Ciò garantisce che l'indirizzo VIP associato al gateway applicazione non subisca modifiche per il ciclo di vita della distribuzione, anche dopo un riavvio.
+- **Indirizzo VIP statico**: SKU v2 del Gateway applicazione supporta esclusivamente il tipo statico di indirizzi VIP. Ciò garantisce che l'indirizzo VIP associato al gateway applicazione non subisca modifiche per il ciclo di vita della distribuzione, anche dopo un riavvio.  Non c'è un indirizzo VIP statico nella versione 1, pertanto è necessario usare l'URL del gateway applicazione invece dell'indirizzo IP per il dominio nome routing ai servizi di App tramite il gateway applicazione.
 - **Intestazione riscrittura**: Il Gateway applicazione consente di aggiungere, rimuovere o aggiornare le intestazioni della richiesta e risposta HTTP con SKU v2. Per altre informazioni, vedere [intestazioni riscrivere HTTP con il Gateway applicazione](rewrite-http-headers.md)
 - **Integrazione di Key Vault (anteprima)** : Versione 2 di Gateway applicazione supporta l'integrazione con Key Vault (in anteprima pubblica) per i certificati server collegati di listener di traccia abilitato per HTTPS. Per altre informazioni, vedere [terminazione SSL con certificati Key Vault](key-vault-certs.md).
 - **Controller di ingresso di Azure Kubernetes Service (anteprima)** : Il Controller di ingresso di Gateway applicazione v2 consente il Gateway applicazione di Azure da usare come il traffico in ingresso per un Azure Kubernetes Service (AKS) denominato Cluster AKS. Per altre informazioni, vedere la [pagina della documentazione](https://azure.github.io/application-gateway-kubernetes-ingress/).
@@ -42,7 +42,7 @@ Il Standard_v2 e WAF_v2 SKU è disponibile nelle aree seguenti: Stati Uniti cent
 Con lo SKU di versione 2, il modello di determinazione prezzi è dovuto al consumo e non è più collegato al numero totale di istanze o le dimensioni. I prezzi SKU v2 presenta due componenti:
 
 - **Prezzo fisso** -si tratta di ogni ora (o meno di un'ora) prezzo per il provisioning di un Standard_v2 o WAF_v2 Gateway.
-- **Prezzo unitario della capacità** -si tratta dei costi in base al consumo che viene addebitato oltre ai costi fissi. Addebito delle unità di capacità viene inoltre calcolato in ogni ora o parzialmente su base oraria. Sono disponibili tre dimensioni di unità di capacità - compute unit, le connessioni persistenti e velocità effettiva. Unità di calcolo è una misura della capacità del processore utilizzate. Fattori che influiscono sull'unità di calcolo sono connessioni TLS/sec, calcoli di riscrittura dell'URL e l'elaborazione delle regole di WAF. Connessione permanente è una misura di stabilite connessioni TCP per il gateway applicazione in un determinato intervallo di fatturazione. Velocità effettiva è medio megabit al secondo elaborate dal sistema in un determinato intervallo di fatturazione.
+- **Prezzo unitario della capacità** -si tratta dei costi in base al consumo che viene addebitato oltre ai costi fissi. Gli addebiti relativi alle unità di capacità vengono calcolati anche su base oraria o parzialmente oraria. Sono disponibili tre dimensioni per le unità di capacità, ovvero unità di calcolo, connessioni persistenti e unità elaborate. L'unità di calcolo è una misura relativa alla capacità di processore utilizzata. Fattori che influiscono sull'unità di calcolo sono connessioni TLS/sec, calcoli di riscrittura dell'URL e l'elaborazione delle regole di WAF. Connessione permanente è una misura di stabilite connessioni TCP per il gateway applicazione in un determinato intervallo di fatturazione. Velocità effettiva è medio megabit al secondo elaborate dal sistema in un determinato intervallo di fatturazione.
 
 Ogni unità di capacità prevede al massimo: 1 di calcolo unità, o connessioni permanenti 2500 o velocità effettiva 2.22 Mbps.
 

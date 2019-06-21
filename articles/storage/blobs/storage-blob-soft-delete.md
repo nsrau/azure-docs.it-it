@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8c23e429966cf9a1e93ac46ea3ecd11744761872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1c6f8074dab19b18f695763b160e4aeffe3ac44
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148628"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204840"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminazione temporanea per i BLOB di Archiviazione di Azure
 Archiviazione di Azure offre ora l'eliminazione temporanea per gli oggetti BLOB, per consentire di ripristinare più facilmente i dati nel caso in cui vengano erroneamente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione.
@@ -274,13 +274,10 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## <a name="should-i-use-soft-delete"></a>È necessario usare l'eliminazione temporanea?
-Se esiste la possibilità che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione, è consigliabile abilitare l'eliminazione temporanea. L'eliminazione temporanea fa parte di una strategia di protezione dati e può aiutare a evitare la perdita accidentale di dati.
+## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Esistono considerazioni speciali sull'uso dell'eliminazione temporanea?
+Se esiste la possibilità che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione, è consigliabile abilitare l'eliminazione temporanea. Abilitare l'eliminazione temporanea per frequentemente sovrascritti dati può comportare un aumento della latenza e i costi di archiviazione maggiore capacità quando si elencano i BLOB. È possibile risolvere questo problema archiviando dati frequentemente sovrascritti in un account di archiviazione separato con l'eliminazione temporanea disabilitato. 
 
 ## <a name="faq"></a>Domande frequenti
-**Esistono considerazioni speciali sull'uso dell'eliminazione temporanea?**  
-Abilitare l'eliminazione temporanea per frequentemente sovrascritti dati può comportare un aumento della latenza e i costi di archiviazione maggiore capacità quando si elencano i BLOB. È possibile risolvere questo problema archiviando dati frequentemente sovrascritti in un account di archiviazione separato con l'eliminazione temporanea disabilitato. 
-
 **Per quali tipi di risorse di archiviazione è possibile usare l'eliminazione temporanea?**  
 Attualmente l'eliminazione temporanea è disponibile solo per l'archiviazione BLOB (di oggetti).
 

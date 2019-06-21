@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: bd02a95f485f45c223fce4c24a72251481c2aa7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 68d2f126ee32f61d13d170712bf58581101036e8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427886"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206078"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory 
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
@@ -426,7 +426,7 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Autenticazione con chiave account, l'autenticazione identità gestita |
 
     >[!IMPORTANT]
-    >Se l'archiviazione di Azure è configurata con endpoint del servizio rete virtuale, è necessario usare l'autenticazione identità gestita. Fare riferimento a [impatto dell'uso di endpoint del servizio rete virtuale con archiviazione di Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
+    >Se l'archiviazione di Azure è configurata con l'endpoint del servizio rete virtuale, è necessario usare l'autenticazione identità gestita, vedere [impatto dell'uso di endpoint del servizio rete virtuale con archiviazione di Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Scopri le configurazioni necessarie in Data Factory da [Blob di Azure - autenticazione identità gestita](connector-azure-blob-storage.md#managed-identity) e [Gen2 di archiviazione di Azure Data Lake - autenticazione identità gestita](connector-azure-data-lake-storage.md#managed-identity) sezione rispettivamente.
 
 2. Il **formato dei dati di origine** è di **Parquet**, **ORC**, oppure **testo delimitato**, con le configurazioni seguenti:
 
@@ -542,7 +542,7 @@ La soluzione consiste nel deselezionare "**tipo di utilizzo predefinito**" opzio
 
 **Altro**
 
-Per ulteriori problemi di PolyBase knonw, consultare [risoluzione dei problemi di Azure SQL Data Warehouse PolyBase carico](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
+Per problemi di PolyBase più noti, vedere [risoluzione dei problemi di Azure SQL Data Warehouse PolyBase carico](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
 
 ### <a name="sql-data-warehouse-resource-class"></a>Classe di risorse di SQL Data Warehouse
 

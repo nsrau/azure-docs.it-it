@@ -6,24 +6,24 @@ author: qianw211
 manager: MaggiePucciEvans
 ms.service: marketplace
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 06/17/2019
 ms.author: BrianLevenson
-ms.openlocfilehash: 5e20d65160e66937668d9f504245a8c042d58fee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39a0ea2ec173c8e3a2f79fd19dfa35ce2806d442
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751660"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274897"
 ---
 # <a name="azure-marketplace-and-appsource-roadmap"></a>Roadmap di Azure Marketplace e AppSource
 
-Questo documento fornisce una panoramica delle novità relative ad Azure Marketplace, ad AppSource e ai programmi partner correlati. Vengono presentate alcune delle funzionalità significative è stato eseguito il commit, un intervallo di tempo approssimativo per quando è possibile prevedere per visualizzarli e verranno aggiornati ogni mese. Non è un elenco completo di tutte le nuove funzionalità ma è concepito per offrire visibilità nostri investimenti chiave. Questi set di funzionalità e gli intervalli di tempo di distribuzione siano aggiornate ed è soggetta a modifiche.
+Questo documento offre un quadro di ciò che viene successivamente per marketplace commerciale di Microsoft per i server di pubblicazione, i venditori e i clienti. Vengono presentate alcune delle funzionalità significative è stato eseguito il commit, un intervallo di tempo approssimativo per quando è possibile prevedere per visualizzarli e verranno aggiornati ogni mese. Non è un elenco completo di tutte le nuove funzionalità ma è concepito per offrire visibilità nostri investimenti chiave. Questi set di funzionalità e i periodi di tempo per la distribuzione si riferiscono alla data corrente e sono soggetti a variazioni.
 
 I suggerimenti dei clienti sono sempre i benvenuti. Partecipare alla conversazione sul sito Web [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/) per avere gli ultimi aggiornamenti sulle nuove funzionalità e sui prossimi programmi ed eventi.
 
 
 ## <a name="roadmap"></a>Guida di orientamento
-![](./media/marketplace-publishers-guide/roadmap.png)
+![Guida di orientamento di Marketplace per giugno](./media/marketplace-publishers-guide/roadmap-june19.png)
 
 
 ## <a name="recent-releases"></a>Versioni recenti
@@ -41,6 +41,14 @@ Una volta che una funzionalità è attiva, verrà rimosso dal programma. La funz
 * [Valute e aree geografiche di marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
 * [Informazioni dettagliate del venditore](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
 
+### <a name="for-may-2019"></a>Per maggio 2019
+
+* [Blog di Marketplace Microsoft Build](https://azure.microsoft.com/blog/announcing-new-marketplace-revenue-opportunities/)
+* [Marketplace maggio Aggiorna Blog](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
+* Centro per i partner: [Creare Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [gestire Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [migrazione da CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)
+* Centro per i partner: [Creare l'offerta SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) / [lo stato di pubblicazione](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status
+) / [aggiornare l'offerta esistente](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer) / [Analitica dell'offerta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics)
+* [Ottieni il supporto per marketplace nel centro per i Partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

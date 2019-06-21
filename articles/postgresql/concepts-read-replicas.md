@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.date: 06/14/2019
+ms.openlocfilehash: c98247b0ba8b670a59dec9aa3ec87e949f1dda78
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734658"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147935"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leggere le repliche di Database di Azure per PostgreSQL - Server singolo
 
@@ -122,6 +122,9 @@ Una replica viene creata usando la stessa configurazione server del master. Dopo
 PostgreSQL richiede che il valore del parametro`max_connections` sulla replica in lettura sia maggiore o uguale a quello del master; in caso contrario, la replica non si avvia. Nel Database di Azure per PostgreSQL, il valore del parametro `max_connections` è basato sullo SKU. Per altre informazioni, vedere [Limiti in Database di Azure per PostgreSQL](concepts-limits.md). 
 
 Se si tenta di aggiornare i valori del server, ma non si rispettano i limiti, viene visualizzato un errore.
+
+### <a name="maxpreparedtransactions"></a>max_prepared_transactions
+[Richiede di PostgreSQL](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) il valore della `max_prepared_transactions` parametro sulla replica di lettura sia maggiore o uguale a quello master; in caso contrario, non si avvia la replica. Se si desidera modificare `max_prepared_transactions` sul master, prima di tutto modificarla nelle repliche.
 
 ### <a name="stopped-replicas"></a>Repliche arrestate
 Se si arresta la replica tra un server master e una replica in lettura, la replica verrà riavviata per poter applicare tale modifica. La replica arrestata diventa un server autonomo che supporta sia la lettura che la scrittura. Il server autonomo non può essere di nuovo impostato come replica.

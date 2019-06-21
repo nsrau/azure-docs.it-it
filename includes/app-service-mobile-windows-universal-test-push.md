@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 70e0d766fe3c9669912ce9f13f729fb1c757a26f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140445"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180655"
 ---
 1. Fare clic con il pulsante destro del mouse sul progetto di Windows Store, selezionare **Imposta come progetto di avvio**e premere il tasto F5 per eseguire l'app di Windows Store.
 

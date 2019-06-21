@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 1048b4e2ac3a8523d5539ddc1a1bdaca3ec2d912
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 311015aff5ea7020043ad8e43fd987144cdcbf52
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074253"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206741"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
@@ -56,7 +56,7 @@ Modifica del servizio livello o di calcolo delle dimensioni di un database singo
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latenza di modifica delle dimensioni di calcolo ridimensionamento o un livello di servizio
 
-La latenza per modificare il livello di servizio o ridimensionare le dimensioni di calcolo di un database singolo o pool elastico con i parametri come indicato di seguito:
+La latenza prevista per modificare il livello di servizio o ridimensionare le dimensioni di calcolo di un database singolo o pool elastico con i parametri come indicato di seguito:
 
 |Livello di servizio|Database singolo Basic,</br>Standard (S0-S1)|Pool elastici Basic,</br>Standard (S2-S12), </br>Con Iperscalabilità, </br>Database singolo a scopo generale o il pool elastico|Premium o Business Critical database singolo o pool elastico|
 |:---|:---|:---|:---|

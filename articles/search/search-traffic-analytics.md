@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b15ae30151b22509a78b9a39d258991363a05e5b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749615"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295431"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-search"></a>Implementare Analisi del traffico di ricerca in Ricerca di Azure
 Analisi del traffico di ricerca è un modello per l'implementazione di un ciclo di feedback per il servizio di ricerca. Questo modello descrive i dati necessari e come raccoglierli utilizzando Application Insights, uno strumento leader di settore per il monitoraggio dei servizi in più piattaforme.
@@ -79,7 +79,7 @@ Per altre piattaforme e altri linguaggi, vedere l'[elenco](https://docs.microsof
 
     // This sample uses the Azure Search .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
-    var client = new SearchIndexClient(<ServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+    var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
     var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
     var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
     IEnumerable<string> headerValues;
@@ -98,7 +98,7 @@ Per altre piattaforme e altri linguaggi, vedere l'[elenco](https://docs.microsof
 
 Ogni volta che un utente esegue una richiesta di ricerca, è necessario registrarla come evento di ricerca con lo schema seguente in un evento personalizzato di Application Insights:
 
-**ServiceName**: (string) nome del servizio di ricerca **SearchId**: (guid) identificatore univoco della query di ricerca (incluso nella risposta alla ricerca) **IndexName**: (string) indice del servizio di ricerca da sottoporre a query **QueryTerms**: (string) termini di ricerca immessi dall'utente **ResultCount**: (int) numero di documenti restituiti (incluso nella risposta alla ricerca) **ScoringProfile**: (string) nome del profilo di punteggio usato, se disponibile
+**SearchServiceName**: nome del servizio di ricerca (string) **SearchId**: identificatore univoco (guid) della query di ricerca (include nella risposta della ricerca) **IndexName**: (string) servizio indice di ricerca eseguire una query **QueryTerms**: termini di ricerca (string) immessi dall'utente **ResultCount**: (int) numero di documenti restituiti (include nella risposta della ricerca)  **ScoringProfile**: nome (stringa) del profilo di punteggio usato, se presente
 
 > [!NOTE]
 > Richiedere il conteggio nelle query generate dall'utente mediante l'aggiunta di $count=true alla query di ricerca. Ulteriori informazioni sono disponibili [qui](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).

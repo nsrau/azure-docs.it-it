@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 357435b8a4ac396c1548c89206f269730e871f6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce4a57b8c266fe474fc2e6dd8f811fc7440e7ac6
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204487"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190449"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>Connetti i dati da Azure Active Directory
 
@@ -34,6 +34,8 @@ Sentinel Azure consente di raccogliere i dati dai [Azure Active Directory](../ac
 - Se si desidera esportare i dati di accesso da Active Directory, è necessario avere una licenza Azure AD P1 o P2.
 
 - Utente con global admin o della sicurezza le autorizzazioni di amministratore nel tenant di cui che si vuole trasmettere i log dal.
+
+- Per essere in grado di visualizzare lo stato della connessione, è necessario disporre dell'autorizzazione per accedere ai log di diagnostica di Azure AD. 
 
 
 ## <a name="connect-to-azure-ad"></a>Connessione ad Azure AD

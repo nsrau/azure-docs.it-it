@@ -1,6 +1,6 @@
 ---
-title: Errore nella pagina di un'applicazione dopo l'accesso | Microsoft Docs
-description: Come risolvere i problemi di accesso ad Azure AD quando l'applicazione stessa genera un errore
+title: Messaggio di errore viene visualizzato nella pagina dell'app dopo l'accesso | Microsoft Docs
+description: Come risolvere i problemi di accesso ad Azure AD quando l'app restituisce un messaggio di errore.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,150 +16,152 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adfc96d2d7abf38c00f32a5d53615bb7c99c320e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d41ec1f510b028a2ffe2554bfcbd77bc439c4e79
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742376"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272959"
 ---
-# <a name="error-on-an-applications-page-after-signing-in"></a>Errore nella pagina di un'applicazione dopo l'accesso
+# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Una pagina dell'app Visualizza un messaggio di errore dopo l'accesso dell'utente
 
-In questo scenario l'utente ha eseguito l'accesso ad Azure AD, ma l'applicazione visualizza un errore che non consente all'utente di completare correttamente il flusso di accesso. In questo scenario l'applicazione non accetta la risposta di Azure AD.
+In questo scenario, Azure Active Directory (Azure AD) esegue l'accesso all'utente. Tuttavia, l'applicazione viene visualizzato un messaggio di errore e non consente all'utente di completare il flusso di accesso. Il problema è che l'app non ha accettato la risposta che ha rilasciato Azure AD.
 
-Ci sono diversi motivi per cui l'applicazione non ha accettato la risposta di Azure AD. Se l'errore nell'applicazione non è sufficientemente chiaro per capire cosa manca nella risposta, procedere come segue:
+Esistono varie ragioni per cui l'app non ha accettato la risposta da Azure AD. Se il messaggio di errore non viene identificato in modo chiaro cosa manca dalla risposta, procedere come segue:
 
--   Se l'applicazione è la raccolta di Azure AD, verificare di aver seguito tutti i passaggi nell'articolo [Come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+-   Se l'app è una raccolta di Azure AD, verificare di aver seguito i passaggi descritti in [come eseguire il debug basato su SAML single sign-on alle applicazioni in Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler) per acquisire la richiesta SAML, la risposta SAML e il token SAML.
+-   Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler) per acquisire la richiesta, risposta e token SAML.
 
--   Condividere la risposta SAML con il fornitore dell'applicazione per capire cosa manca.
+-   Inviare la risposta SAML il fornitore dell'app e chiedere di cosa manca.
 
-## <a name="missing-attributes-in-the-saml-response"></a>Attributi mancanti nella risposta SAML
+## <a name="attributes-are-missing-from-the-saml-response"></a>Gli attributi non sono presenti la risposta SAML
 
-Per aggiungere un attributo nella configurazione di Azure AD da inviare nella risposta di Azure AD, seguire questa procedura:
+Per aggiungere un attributo nella configurazione di Azure AD che verrà inviata nella risposta di Azure AD, seguire questa procedura:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1. Aprire il [ **portale di Azure** ](https://portal.azure.com/) e accedere come un amministratore globale o un coamministratore.
 
-2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Nella parte superiore del riquadro di spostamento a sinistra, selezionare **tutti i servizi** per aprire l'estensione Azure AD.
 
-3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Tipo di **Azure Active Directory** nella casella di ricerca filtro e quindi selezionare **Azure Active Directory**.
 
-4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+4. Selezionare **applicazioni aziendali** nel riquadro di spostamento di Azure AD.
 
-5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+5. Selezionare **tutte le applicazioni** per visualizzare un elenco delle app.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   > [!NOTE]
+   > Se non viene visualizzata l'app che vuole, usare il **filtro** nella parte superiore del controllo il **elenco tutte le applicazioni**. Impostare il **mostrare** opzione per "Tutte le applicazioni."
 
-6. Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
+6. Selezionare l'applicazione che si desidera configurare per il single sign-on.
 
-7. Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
+7. Una volta caricata l'app, selezionare **l'accesso Single sign-on** nel riquadro di spostamento.
 
-8. Fare clic su **Visualizza e modifica tutti gli altri attributi utente** nella sezione **Attributi utente** per modificare gli attributi da inviare all'applicazione nel token SAML quando gli utenti eseguono l'accesso.
+8. Nel **attributi utente** sezione, selezionare **visualizzazione e modifica tutti gli altri attributi utente**. Qui è possibile modificare gli attributi da inviare all'app nel token SAML all'accesso degli utenti.
 
    Per aggiungere un attributo:
 
-   * Fare clic su **Aggiungi attributo**. Immettere il **Nome** e selezionare il **Valore** nell'elenco a discesa.
+   1. Selezionare **Aggiungi attributo**. Immettere il **Name**e selezionare il **valore** nell'elenco a discesa.
 
-   * Fare clic su **Salva**. Il nuovo attributo verrà visualizzato nella tabella.
+   1.  Selezionare **Salva**. Si noterà il nuovo attributo nella tabella.
 
 9. Salvare la configurazione.
 
-Al successivo accesso dell'utente all'applicazione, Azure AD invia il nuovo attributo nella risposta SAML.
+   La volta successiva che l'utente accede all'app, Azure AD invierà il nuovo attributo nella risposta SAML.
 
-## <a name="the-application-doesnt-identify-the-user"></a>L'applicazione non identifica l'utente
+## <a name="the-app-doesnt-identify-the-user"></a>L'app non identifica l'utente
 
-L'accesso all'applicazione ha esito negativo perché la risposta SAML mancano attributi come i ruoli o perché l'applicazione prevede un formato diverso o un valore per l'attributo EntityID.
+Accesso alle app non riesce perché la risposta SAML manca un attributo, ad esempio un ruolo. O non riesce perché l'app si aspetta un formato diverso o un valore per il **NameID** attributo (identificatore utente).
 
-Se si usa [AD Azure il provisioning utenti automatizzato](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) per creare, gestire e rimuovere gli utenti nell'applicazione. Verificare quindi che l'utente sia stato preparato correttamente per l'applicazione SaaS. Per altre informazioni, vedere [gli utenti non sono in corso il provisioning di un'applicazione della raccolta di Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
+Se si usa [AD Azure il provisioning utenti automatizzato](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) per creare, gestire, rimuovere gli utenti nell'app, verificare che l'utente sia stato predisposto per l'app SaaS. Per altre informazioni, vedere [gli utenti non sono in corso il provisioning di un'applicazione di Azure AD Gallery](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned).
 
-## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Aggiungere un attributo nella configurazione dell'applicazione Azure AD:
+## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Aggiungere un attributo per la configurazione dell'app Azure AD
 
 Per modificare il valore dell'ID utente, seguire questa procedura:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1. Aprire il [ **portale di Azure** ](https://portal.azure.com/) e accedere come un amministratore globale o un coamministratore.
 
-2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Selezionare **tutti i servizi** nella parte superiore del riquadro di spostamento a sinistra per aprire l'estensione Azure AD.
 
-3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Tipo di **Azure Active Directory** nella casella di ricerca filtro e quindi selezionare **Azure Active Directory**.
 
-4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+4. Selezionare **applicazioni aziendali** nel riquadro di spostamento di Azure AD.
 
-5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+5. Selezionare **tutte le applicazioni** per visualizzare un elenco delle app.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   > [!NOTE]
+   > Se non viene visualizzata l'app che vuole, usare il **filtro** nella parte superiore del controllo il **elenco tutte le applicazioni**. Impostare il **mostrare** opzione per "Tutte le applicazioni."
 
-6. Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
+6. Selezionare l'app che si desidera configurare per SSO.
 
-7. Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
+7. Una volta caricata l'app, selezionare **l'accesso Single sign-on** nel riquadro di spostamento.
 
-8. In **Attributi utente** selezionare l'identificatore univoco per gli utenti nel menu a discesa **Identificatore utente**.
+8. Sotto **attributi utente**, selezionare l'identificatore univoco per l'utente dalle **identificatore utente** elenco a discesa.
 
-## <a name="change-entityid-user-identifier-format"></a>Modificare il formato di EntityID (ID utente)
+## <a name="change-the-nameid-format"></a>Modificare il formato NameID
 
-Se l'applicazione prevede un altro formato per l'attributo EntityID, non sarà possibile selezionare il formato di EntityID (ID utente) che Azure AD invia all'applicazione nella risposta dopo l'autenticazione utente.
+Se l'applicazione prevede un altro formato per il **NameID** attributo (identificatore utente), vedere [nameID modifica](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization.md#editing-nameid) per modificare il formato di NameID.
 
-Azure AD seleziona il formato per l'attributo NameID (ID utente) in base al valore selezionato o al formato richiesto dall'applicazione nell'oggetto AuthRequest SAML. Per altre informazioni, vedere la sezione NameIDPolicy dell'articolo [Protocollo SAML per Single Sign-On](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest).
+Azure AD seleziona il formato per il **NameID** attributo (identificatore utente) in base al valore che viene selezionato o il formato richiesto dall'app nell'oggetto AuthRequest SAML. Per altre informazioni, vedere la sezione "NameIDPolicy" del [l'accesso Single sign-on di protocollo SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy).
 
-## <a name="the-application-expects-a-different-signature-method-for-the-saml-response"></a>L'applicazione prevede un metodo di firma diverso per la risposta SAML
+## <a name="the-app-expects-a-different-signature-method-for-the-saml-response"></a>L'app prevede un metodo di firma diverso per la risposta SAML
 
-Per modificare le parti del token SAML con firma digitale di Azure Active Directory. A tale scopo, seguire questa procedura:
+Per modificare le parti del token SAML firmate digitalmente da Azure AD, seguire questa procedura:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1. Aprire il [portale di Azure](https://portal.azure.com/) e accedere come un amministratore globale o un coamministratore.
 
-2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Selezionare **tutti i servizi** nella parte superiore del riquadro di spostamento a sinistra per aprire l'estensione Azure AD.
 
-3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Tipo di **Azure Active Directory** nella casella di ricerca filtro e quindi selezionare **Azure Active Directory**.
 
-4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+4. Selezionare **applicazioni aziendali** nel riquadro di spostamento di Azure AD.
 
-5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+5. Selezionare **tutte le applicazioni** per visualizzare un elenco delle app.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   > [!NOTE]
+   > Se non viene visualizzata l'applicazione che desidera, utilizzare il **filtro** nella parte superiore del controllo il **elenco tutte le applicazioni**. Impostare il **mostrare** opzione per "Tutte le applicazioni."
 
-6. Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
+6. Selezionare l'applicazione che si desidera configurare per il single sign-on.
 
-7. Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
+7. Dopo il caricamento dell'applicazione, selezionare **l'accesso Single sign-on** nel riquadro di spostamento.
 
-8. Fare clic su **Mostra impostazioni avanzate per la firma di certificati** nella sezione **Certificato di firma SAML**.
+8. Sotto **certificato di firma SAML**, selezionare **Mostra impostazioni avanzate certificati firma**.
 
-9. Selezionare un valore appropriato per **Opzione di firma** in base a quanto previsto dall'applicazione:
+9. Selezionare il **opzione di firma** che l'app prevede tra queste opzioni:
 
-   * Firma risposta SAML
+   * **Firma risposta SAML**
+   * **Firma asserzione e risposta SAML**
+   * **Firma asserzione SAML**
 
-   * Firma asserzione e risposta SAML
+   La volta successiva che l'utente accede all'app, Azure AD firmerà la parte della risposta SAML selezionata.
 
-   * Firma asserzione SAML
+## <a name="the-app-expects-the-sha-1-signing-algorithm"></a>L'app si aspetta che l'algoritmo di firma SHA-1
 
-Al successivo accesso dell'utente all'applicazione, Azure AD firma la parte della risposta SAML selezionata.
-
-## <a name="the-application-expects-the-signing-algorithm-to-be-sha-1"></a>L'applicazione prevede che l'algoritmo di firma sia SHA-1
-
-Per impostazione predefinita, Azure AD firma il token SAML usando l'algoritmo più sicuro. Non è consigliabile modificare l'algoritmo di firma scegliendo SHA-1, a meno che non sia richiesto dall'applicazione.
+Per impostazione predefinita, Azure AD firma il token SAML usando l'algoritmo più sicura. È consigliabile non modificare l'algoritmo di firma *SHA-1* , a meno che l'app richiede SHA-1.
 
 Per modificare l'algoritmo di firma, seguire questa procedura:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1. Aprire il [portale di Azure](https://portal.azure.com/) e accedere come un amministratore globale o un coamministratore.
 
-2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Selezionare **tutti i servizi** nella parte superiore del riquadro di spostamento a sinistra per aprire l'estensione Azure AD.
 
-3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Tipo di **Azure Active Directory** nella casella di ricerca filtro e quindi selezionare **Azure Active Directory**.
 
-4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+4. Selezionare **applicazioni aziendali** nel riquadro di spostamento di Azure AD.
 
-5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+5. Selezionare **tutte le applicazioni** per visualizzare un elenco delle applicazioni.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   > [!NOTE]
+   > Se non viene visualizzata l'applicazione che desidera, utilizzare il **filtro** nella parte superiore del controllo il **elenco tutte le applicazioni**. Impostare il **mostrare** opzione per "Tutte le applicazioni."
 
-6. Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
+6. Selezionare l'app che si desidera configurare per il single sign-on.
 
-7. Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
+7. Una volta caricata l'app, selezionare **l'accesso Single sign-on** dal riquadro di spostamento sul lato sinistro dell'app.
 
-8. Fare clic su **Mostra impostazioni avanzate per la firma di certificati** nella sezione **Certificato di firma SAML**.
+8. Sotto **certificato di firma SAML**, selezionare **Mostra impostazioni avanzate certificati firma**.
 
-9. Selezionare SHA-1 in **Algoritmo di firma**.
+9. Selezionare **SHA-1** come la **algoritmo di firma**.
 
-Al successivo accesso dell'utente all'applicazione, Azure AD firma il token SAML usando l'algoritmo SHA-1.
+   La volta successiva che l'utente accede all'app, Azure AD firmerà il token SAML usando l'algoritmo SHA-1.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
+[Come eseguire il debug basato su SAML single sign-on alle applicazioni in Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).

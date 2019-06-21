@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: bc9f8e29a744a3a40d17b3814c7124eb37c1543b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597085"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269429"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -174,6 +174,15 @@ La deduplicazione dei dati è supportata nei volumi con cloud a livelli abilitat
 
 **Agente di Windows Server 2012 R2 o di versioni precedenti**  
 Per i volumi per cui non è abilitata la suddivisione in livelli nel cloud, Sincronizzazione file di Azure supporta l'abilitazione della deduplicazione dei dati di Windows Server per il volume.
+
+**Note**
+- Se la deduplicazione dei dati viene installato prima di installare l'agente sincronizzazione File di Azure, è necessario un riavvio per supportare la deduplicazione dei dati e cloud a livelli nel volume stesso.
+- Se è abilitata la deduplicazione dei dati in un volume dopo il cloud è abilitata la suddivisione in livelli, il processo di ottimizzazione iniziale di deduplicazione ottimizzerà i file nel volume di cui non sono già suddivisi in livelli e avranno le conseguenze seguenti sul cloud la suddivisione in livelli:
+    - Criteri di spazio libero continuerà a file a livelli in base alla spazio libero nel volume utilizzando la mappa termica.
+    - Criteri non aggiornato verranno ignorata la suddivisione in livelli dei file che potrebbero essere stato altrimenti idonei per la suddivisione in livelli a causa il processo di ottimizzazione della deduplicazione di accesso ai file.
+- Per i processi di ottimizzazione in corso la deduplicazione, cloud a livelli con i criteri di data verranno ottenere posticipato da deduplicazione dati [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) impostazione, se il file non è già a livelli. 
+    - Esempio: Se l'impostazione MinimumFileAgeDays è 7 giorni e i criteri Data suddivisione in livelli nel cloud sono di 30 giorni, i criteri di data verranno livello file dopo 37 giorni.
+    - Note: Una volta che un file a livelli da sincronizzazione File di Azure, il processo di ottimizzazione della deduplicazione ignorerà il file.
 
 ### <a name="distributed-file-system-dfs"></a>File system distribuito (DFS)
 Sincronizzazione file di Azure supporta l'interoperabilità con Spazi dei nomi DFS (DFS-N) e Replica DFS (DFS-R).

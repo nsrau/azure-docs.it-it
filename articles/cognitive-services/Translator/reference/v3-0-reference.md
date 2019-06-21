@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-pawal
-ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f58ff566ebb83ed6163637aa3899a925ed06242a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387504"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269209"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -154,6 +154,7 @@ Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 
 | 400075| La combinazione di coppia di lingue e categoria non è valida.|
 | 400077| Le dimensioni massime della richiesta sono state superate. Vista [limiti di richieste](../request-limits.md).|
 | 400079| Il sistema personalizzato richiesto per la traduzione da/verso la lingua non esiste.|
+| 400080| Traslitterazione non è supportata per la lingua o lo script.|
 | 401000| La richiesta non è autorizzata perché le credenziali mancano o non sono valide.|
 | 401015| "Le credenziali specificate si riferiscono a Speech API. Per questa richiesta sono necessarie le credenziali per l'API Testo. Usare una sottoscrizione all'API Traduzione testuale."|
 | 403000| L'operazione non è consentita.|

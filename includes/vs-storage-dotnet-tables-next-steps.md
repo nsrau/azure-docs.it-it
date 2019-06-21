@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: tamram
 ms.openlocfilehash: aff0ac5f2b761047a3e365e8e6702909a673e464
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119654"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180043"
 ---
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle di Azure, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 

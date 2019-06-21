@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 85abc4a50710629d3485d05115698e59a93fc96e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9cff5fdac39be2338305cd37a4b2328a28a48255
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995631"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269269"
 ---
 # <a name="limits-and-quotas"></a>Limiti e quote
 
@@ -39,3 +39,5 @@ Si prevede che nel tempo il numero di immagini di training per progetto di tag p
 |[Altre chiamate API](https://go.microsoft.com/fwlink/?linkid=865446) (transazioni al secondo)|10|10|
 |Dimensioni max dell'immagine (caricamento dell'immagine di training) |6 MB|6 MB|
 |Dimensioni max dell'immagine (stima)|4 MB|4 MB|
+|Aree Max per ogni immagine di training rilevamento oggetti|200|200|
+|Numero massimo di tag per ogni immagine di classificazione|30|30|

@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: d1dcd7895025ea608e5f6c4db5e0967817934f2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141248"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180660"
 ---
 Usare la procedura corrispondente al tipo di progetto di back-end che sia &mdash; [back-end .NET](#dotnet) o [back-end Node.js](#nodejs).
 

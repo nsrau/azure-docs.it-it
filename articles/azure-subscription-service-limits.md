@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 88c40021ff2e974ba16b3b3506ee54b45de90fda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d1043f254d2a2cc2804ab8a4d68770b6d57cbed4
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427585"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295996"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo, l'elenco verrà espanso e aggiornato per illustrare altri servizi.
@@ -45,7 +45,6 @@ Nell'elenco seguente di limiti, una nuova tabella riflette eventuali differenze 
 * [Gestione API](#api-management-limits)
 * [Servizio app](#app-service-limits)
 * [Gateway applicazione](#application-gateway-limits)
-* [Application Insights](#application-insights-limits)
 * [Automazione](#automation-limits)
 * [Cache Redis di Azure](#azure-cache-for-redis-limits)
 * [Servizi cloud di Azure](#azure-cloud-services-limits)
@@ -58,7 +57,7 @@ Nell'elenco seguente di limiti, una nuova tabella riflette eventuali differenze 
 * [Servizio Azure Kubernetes](#azure-kubernetes-service-limits)
 * [Servizio Azure Machine Learning](#azure-machine-learning-service-limits)
 * [Mappe di Azure](#azure-maps-limits)
-* [Monitoraggio di Azure](#monitor-limits)
+* [Monitoraggio di Azure](#azure-monitor-limits)
 * [Criteri di Azure](#azure-policy-limits)
 * [Ricerca di Azure](#azure-search-limits)
 * [Servizio Azure SignalR](#azure-signalr-service-limits)
@@ -79,7 +78,6 @@ Nell'elenco seguente di limiti, una nuova tabella riflette eventuali differenze 
 * [Hub IoT](#iot-hub-limits)
 * [Servizio Device Provisioning in hub IoT](#iot-hub-device-provisioning-service-limits)
 * [Insieme di credenziali di chiave](#key-vault-limits)
-* [Log Analytics](#log-analytics-limits)
 * [Servizi multimediali](#media-services-limits)
 * [Servizi mobili](#mobile-services-limits)
 * [Autenticazione a più fattori](#multi-factor-authentication-limits)
@@ -137,7 +135,7 @@ I limiti seguenti si applicano quando si usa Azure Resource Manager e i gruppi d
 Sono previsti limiti, per ogni sottoscrizione, per la distribuzione di risorse usando raccolte di immagini condivise:
 - 100 raccolte di immagini condivise, per ogni sottoscrizione per area
 - 1\.000 definizioni di immagini, per ogni sottoscrizione per area
-- 10\.000 versioni dell'immagine, per ogni sottoscrizione per area
+- 10.000 versioni dell'immagine, per ogni sottoscrizione per area
 
 ### <a name="virtual-machine-scale-sets-limits"></a>Limiti dei set di scalabilità di macchine virtuali
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
@@ -282,8 +280,26 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 ### <a name="mobile-services-limits"></a>Limiti relativi a Servizi mobili
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### <a name="monitor-limits"></a>Limiti relativi al monitoraggio
-[!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
+### <a name="azure-monitor-limits"></a>Limiti di monitoraggio di Azure
+
+#### <a name="alerts"></a>Avvisi
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-alerts.md)]
+
+#### <a name="action-groups"></a>Gruppi di azioni
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-action-groups.md)]
+
+#### <a name="log-analytics-workspaces"></a>Aree di lavoro di Log Analytics
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-workspaces.md)]
+
+#### <a name="application-insights"></a>Application Insights
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-app-insights.md)]
+
+
+
 
 ### <a name="notification-hubs-limits"></a>Limiti di hub di notifica
 [!INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
@@ -330,9 +346,6 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 ### <a name="storsimple-system-limits"></a>Limiti relativi al sistema StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### <a name="log-analytics-limits"></a>Limiti relativi a Log Analytics
-[!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
-
 ### <a name="backup-limits"></a>Limiti relativi a Backup
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
@@ -341,9 +354,6 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 
 ### <a name="site-recovery-limits"></a>Limiti relativi a Site Recovery
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
-
-### <a name="application-insights-limits"></a>Limiti relativi ad Application Insights
-[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ### <a name="api-management-limits"></a>Limiti relativi a Gestione API
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]

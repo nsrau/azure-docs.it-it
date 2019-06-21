@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22802950c68dc5a3cf0df8ee26ff38ccb937b551
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782812"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295511"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gestire i dati di log e le aree di lavoro in Monitoraggio di Azure
 Monitoraggio di Azure archivia i dati di log in un'area di lavoro Log Analytics, che in pratica è un contenitore che include dati e informazioni di configurazione. Per gestire l'accesso ai dati di log, vengono eseguite diverse attività amministrative relative alle aree di lavoro. Nell'organizzazione è possibile usare più aree di lavoro per gestire diversi set di dati raccolti dall'intera infrastruttura IT o da una parte di essa.
@@ -278,7 +278,7 @@ Visualizzare [definizione di controllo di accesso per ogni tabella](#table-level
 ## <a name="table-level-rbac"></a>RBAC a livello di tabella
 **Tabella a livello di RBAC** consente di fornire un controllo più granulare ai dati in un'area di lavoro di Log Analitica oltre alle altre autorizzazioni. Questo controllo consente di definire tipi di dati specifici che sono accessibili solo a un set specifico di utenti.
 
-Si implementa il controllo degli accessi nella tabella con [Azure ruoli personalizzati](../../role-based-access-control/custom-roles.md) di concedere o negare l'accesso a specifici [tabelle](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) nell'area di lavoro. Questi ruoli vengono applicati alle aree di lavoro con area di lavoro incentrato o risorsa incentrato [modalità di controllo di accesso ai](#access-control-mode) indipendentemente dal fatto l'utente [accessmode](#access-modes).
+Si implementa il controllo degli accessi nella tabella con [Azure ruoli personalizzati](../../role-based-access-control/custom-roles.md) di concedere o negare l'accesso a specifici [tabelle](../log-query/logs-structure.md) nell'area di lavoro. Questi ruoli vengono applicati alle aree di lavoro con area di lavoro incentrato o risorsa incentrato [modalità di controllo di accesso ai](#access-control-mode) indipendentemente dal fatto l'utente [accessmode](#access-modes).
 
 Creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md) con le azioni seguenti per definire l'accesso al controllo degli accessi di tabella.
 

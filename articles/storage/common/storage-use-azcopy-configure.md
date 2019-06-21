@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bf58256b05c6c1260078c0dba547295e08328ef5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1a67846889b43d582a7a7d477a33f0e2168fd760
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073690"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147859"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi di AzCopy
 
@@ -32,7 +32,7 @@ Per configurare le impostazioni proxy per AzCopy, impostare il `https_proxy` var
 
 | Sistema operativo | Comando  |
 |--------|-----------|
-| **Windows** | In un prompt dei comandi usare: `set https_proxy=<proxy IP>:<proxy port>`<br> In PowerShell usare: `$env:https_proxy=<proxy IP>:<proxy port>`|
+| **Windows** | In un prompt dei comandi usare: `set https_proxy=<proxy IP>:<proxy port>`<br> In PowerShell usare: `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 

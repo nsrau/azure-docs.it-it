@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 372922fff600aaa12fddfeeb86ff4522eca3e602
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 40023931b2a0b3788a583a5b5240e7916b187e34
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075091"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190652"
 ---
 # <a name="mapping-data-flow-transformation-optimize-tab"></a>Mapping dei dati di trasformazione del flusso di ottimizzare scheda
 
@@ -45,7 +45,7 @@ Questa opzione usa intervalli dinamici di Spark in base alle colonne o alle espr
 
 ### <a name="fixed-range"></a>Fixed Range (Intervallo fisso)
 
-È necessario creare un'espressione che fornisca un intervallo fisso per i valori all'interno delle colonne di dati partizionati. Prima di usare questa opzione, è bene avere una buona comprensione dei dati, per evitare l'asimmetria delle partizioni. Il valore immesso per l'espressione verrà usato come parte di una funzione di partizione. È possibile impostare il numero di partizioni fisiche.
+È necessario creare un'espressione che fornisca un intervallo fisso per i valori all'interno delle colonne di dati partizionati. Prima di usare questa opzione, è bene avere una buona comprensione dei dati, per evitare l'asimmetria delle partizioni. I valori che immessi per l'espressione da utilizzare come parte di una funzione di partizione. È possibile impostare il numero di partizioni fisiche.
 
 ### <a name="key"></a>Chiave
 

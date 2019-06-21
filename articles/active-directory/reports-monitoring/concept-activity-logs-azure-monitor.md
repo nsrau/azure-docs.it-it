@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cffef4028a684e27c0941c234df551d844f13420
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d38035031c32c512a55293ba125fdcc4535b9833
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65896857"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204370"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>I log attività di Azure AD in Monitoraggio di Azure
 
@@ -79,8 +79,8 @@ La tabella seguente contiene una stima del costo, a seconda delle dimensioni del
 | Categoria di log | Numero di utenti | Eventi al giorno | Volume di dati mensile (stima) | Costo mensile (stima) | Costo annuale (stima) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
 | Audit | 100,000 | 1,5&nbsp;milioni | 90 GB | $1,93 | $23,12 |
-| Audit | 1\.000 | 15\.000 | 900 MB | $0,02 | $0,24 |
-| Accessi | 1\.000 | 34\.800 | 4 GB | $0,13 | $1,56 |
+| Audit | 1\.000 | 15.000 | 900 MB | $0,02 | $0,24 |
+| Accessi | 1\.000 | 34.800 | 4 GB | $0,13 | $1,56 |
 | Accessi | 100,000 | 15&nbsp;milioni | 1,7 TB | $35,41 | $424,92 |
  
 
@@ -102,9 +102,9 @@ La tabella seguente contiene una stima del costo mensile per un hub eventi di ba
 
 | Categoria di log | Numero di utenti | Eventi al secondo | Eventi per intervallo di cinque minuti | Volume per intervallo | Messaggi per intervallo | Messaggi al mese | Costo mensile (stima) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
-| Audit | 100,000 | 18 | 5\.400 | 10,8 MB | 43 | 371\.520 | $10,83 |
+| Audit | 100,000 | 18 | 5\.400 | 10,8 MB | 43 | 371.520 | $10,83 |
 | Audit | 1\.000 | 0,1 | 52 | 104 KB | 1 | 8\.640 | $10,80 |
-| Accessi | 1\.000 | 178 | 53\.400 | 106,8&nbsp;MB | 418 | 3\.611.520 | $11,06 |  
+| Accessi | 1\.000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3\.611.520 | $11,06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Considerazioni sui costi dei log di Monitoraggio di Azure
 
@@ -113,8 +113,8 @@ La tabella seguente contiene una stima del costo mensile per un hub eventi di ba
 | Categoria di log       | Numero di utenti | Eventi al giorno | Eventi al mese (30 giorni) | Costo mensile in dollari USA (est). |
 | :--                | ---             | ---            | ---                        | --:                          |
 | Controllo e accessi | 100,000         | 16,500,000     | 495,000,000                |  $1093.00                       |
-| Audit              | 100,000         | 1,500,000      | 45\.000.000                 |  $246.66                     |
-| Accessi           | 100,000         | 15\.000.000     | 450,000,000                |  $847.28                     |
+| Audit              | 100,000         | 1,500,000      | 45.000.000                 |  $246.66                     |
+| Accessi           | 100,000         | 15.000.000     | 450,000,000                |  $847.28                     |
 
 
 
@@ -135,37 +135,37 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 
 **R**: Sia i log attività di accesso che i log di controllo sono disponibili per l'invio tramite questa funzionalità, tuttavia gli eventi di controllo correlati a B2C non sono attualmente inclusi. Per scoprire quali tipi di log e quali log basati sulle funzionalità sono attualmente supportati, vedere [Schema del log di controllo](reference-azure-monitor-audit-log-schema.md) e [Schema del log di accesso](reference-azure-monitor-sign-ins-log-schema.md). 
 
------
+---
 
 **D: Quanto tempo dopo un'azione i log corrispondenti vengono visualizzati nell'hub eventi?**
 
 **R**: I log verranno visualizzati nell'hub eventi entro 2-5 minuti dall'esecuzione dell'azione. Per altre informazioni su Hub eventi, vedere [Informazioni su Hub eventi di Azure](../../event-hubs/event-hubs-about.md).
 
------
+---
 
 **D: Quanto tempo dopo un'azione i log corrispondenti vengono visualizzati nell'account di archiviazione?**
 
 **R**: Per gli account di archiviazione di Azure, la latenza è compresa tra 5 e 15 minuti dopo l'esecuzione dell'azione.
 
------
+---
 
 **D: Cosa accade se un amministratore modifica il periodo di memorizzazione di un'impostazione di diagnostica?**
 
 **R**: Verrà applicato il nuovo criterio di conservazione ai log raccolti dopo la modifica. I log raccolti prima della modifica dei criteri non saranno interessati.
 
------
+---
 
 **D: Qual è il costo per l'archiviazione dei dati?**
 
 **R**: Il costo per l'archiviazione dipende dalle dimensioni dei log e dal periodo di conservazione selezionato. Per un elenco dei costi stimati per i tenant, che dipendono dal volume dei log generati, vedere la sezione [Dimensioni di archiviazione per i log attività](#storage-size-for-activity-logs).
 
------
+---
 
 **D: Qual è il costo della trasmissione dei dati ad Hub eventi?**
 
 **R**: Il costo per la trasmissione dipende dal numero di messaggi ricevuti al minuto. Questo articolo illustra come vengono calcolati i costi ed elenca le stime dei costi, che si basano sul numero di messaggi. 
 
------
+---
 
 **D: Come è possibile integrare i log attività di Azure AD con il sistema di informazioni di sicurezza e gestione degli eventi?**
 
@@ -175,31 +175,31 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 
 - Usare l'[API Graph per la creazione di report](concept-reporting-api.md) per accedere ai dati e inviarli al sistema di informazioni di sicurezza e gestione degli eventi usando script personalizzati.
 
------
+---
 
 **D: Quali strumenti SIEM sono attualmente supportati?** 
 
 **R**: Attualmente, Monitoraggio di Azure è supportato da [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar e [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Per altre informazioni sul funzionamento dei connettori, vedere [Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
------
+---
 
 **D: Come è possibile integrare i log attività di Azure AD con l'istanza di Splunk?**
 
 **R**: Prima di tutto, [indirizzare i log attività di Azure AD a un hub eventi](quickstart-azure-monitor-stream-logs-to-event-hub.md), quindi seguire i passaggi per [integrare i log attività con Splunk](tutorial-integrate-activity-logs-with-splunk.md).
 
------
+---
 
 **D: Come è possibile integrare i log attività di Azure AD con Sumo Logic?** 
 
 **R**: Prima di tutto, [indirizzare i log attività di Azure AD a un hub eventi](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory), quindi seguire i passaggi per [installare l'applicazione Azure AD e visualizzare i dashboard in SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards).
 
------
+---
 
 **D: È possibile accedere ai dati da un hub eventi senza usare uno strumento di informazioni di sicurezza e gestione degli eventi esterno?** 
 
 **R**: Sì. È possibile usare l'[API di Hub eventi](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) per accedere ai log da un'applicazione personalizzata. 
 
------
+---
 
 
 ## <a name="next-steps"></a>Passaggi successivi

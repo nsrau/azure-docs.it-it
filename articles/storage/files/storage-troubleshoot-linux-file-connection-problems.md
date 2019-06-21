@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9c08cd52bba6391660bc5f28e5db2dbec1126951
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16d1739e01061a90d673e4bd79bba7bfe7ec3a90
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118719"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295061"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
@@ -191,6 +191,40 @@ Usare l'account utente di archiviazione per copiare i file:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
+
+## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Non è possibile connettersi a o montare una condivisione file di Azure
+
+### <a name="cause"></a>Causa
+
+Le cause comuni di questo problema sono le seguenti:
+
+- Si sta usando un client di distribuzione Linux incompatibile. Si consiglia di usare le distribuzioni Linux seguenti per connettersi a una condivisione file di Azure:
+
+    |   | SMB 2.1 <br>(Montaggio in macchine virtuali nella stessa area di Azure) | SMB 3.0 <br>(Montaggio in locale e tra più aree) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+- Le utilità CIFS (cifs-utils) non sono installate nel client.
+- La versione SMB/CIFS minima, ossia la 2.1, non è installata nel client.
+- La crittografia SMB 3.0 non è supportata nel client. La crittografia SMB 3.0 è disponibile in Ubuntu 16.4 e versioni successive, insieme a SUSE 12.3 e versioni successive. Altre distribuzioni richiedono il kernel 4.11 e versioni successive.
+- Si sta tentando di connettersi a un account di archiviazione tramite la porta TCP 445, che non è supportata.
+- Si sta tentando di connettersi a una condivisione file di Azure da una macchina virtuale di Azure e la macchina virtuale non si trova nella stessa area dell'account di archiviazione.
+- Se l'impostazione [Trasferimento sicuro obbligatorio]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) è abilitata nell'account di archiviazione, File di Azure consentirà solo connessioni crittografate con SMB 3.0.
+
+### <a name="solution"></a>Soluzione
+
+Per risolvere il problema, usare lo [strumento di risoluzione dei problemi per gli errori di montaggio di File di Azure in Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Questo strumento:
+
+* Facilita la convalida dell'ambiente di esecuzione del client.
+* Rileva la configurazione client incompatibile che causerebbe errori di accesso per File di Azure.
+* Fornisce indicazioni specifiche per risolvere i problemi autonomamente.
+* Raccoglie le tracce di diagnostica.
+
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: cannot access '&lt;path&gt;': Input/output error (IS: non è possibile accedere a 'percorso': errore di input/output)
 

@@ -8,20 +8,20 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17b5c0b459e70909d9f305beb8bf87b83f1cf65c
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255272"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296506"
 ---
-# <a name="get-started-with-azure-monitor-log-analytics"></a>Introduzione a Azure Monitor Log Analitica
+# <a name="get-started-with-log-analytics-in-azure-monitor"></a>Introduzione a Log Analitica in Monitoraggio di Azure
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In questa esercitazione si apprenderà come usare Azure Monitor Log Analitica nel portale di Azure per scrivere le query di log di monitoraggio di Azure. Si apprenderà come:
+In questa esercitazione si apprenderà come usare Log Analitica nel portale di Azure per scrivere le query di log di monitoraggio di Azure. Si apprenderà come:
 
-- Scrivere query semplici
+- Usare Log Analitica per scrivere una query semplice
 - Comprendere lo schema dei dati
 - Filtrare, ordinare e raggruppare i risultati
 - Applicare un intervallo di tempo
@@ -29,13 +29,22 @@ In questa esercitazione si apprenderà come usare Azure Monitor Log Analitica ne
 - Salvare e caricare query
 - Esportare e condividere query
 
+Per un'esercitazione sulla scrittura di query di log, vedere [Introduzione alle query di log in Monitoraggio di Azure](get-started-queries.md).<br>
+Per altre informazioni sulle query di log, vedere [Panoramica del log di query in Monitoraggio di Azure](log-query-overview.md).
 
 ## <a name="meet-log-analytics"></a>Soddisfare Log Analitica
 Log Analitica è uno strumento web usato per scrivere ed eseguire query di log di monitoraggio di Azure. Per aprirlo, selezionare **Log** nel menu di Monitoraggio di Azure. Viene visualizzata una nuova query vuota.
 
 ![Home page](media/get-started-portal/homepage.png)
 
+## <a name="firewall-requirements"></a>Requisiti del firewall
+Per usare Log Analitica, il browser richiede l'accesso agli indirizzi seguenti. Se il browser accede al portale di Azure attraverso un firewall, è necessario abilitare l'accesso a questi indirizzi.
 
+| Uri | IP | Porte |
+|:---|:---|:---|
+| portal.loganalytics.io | Dynamic | 80,443 |
+| api.loganalytics.io | Dynamic | 80,443 |
+| docs.loganalytics.io | Dynamic | 80,443 |
 
 ## <a name="basic-queries"></a>Query di base
 È possibile usare le query per cercare termini, identificare le tendenze, analizzare i modelli e ottenere molte altre informazioni dettagliate basate sui dati. Iniziare con una query di base:
@@ -44,9 +53,9 @@ Log Analitica è uno strumento web usato per scrivere ed eseguire query di log d
 Event | search "error"
 ```
 
-Questa query cerca nella tabella _Event_ i record che contengono il termine "error" in qualsiasi proprietà.
+Questa query cerca il _evento_ tabella per i record che contengono il termine _errore_ in tutte le proprietà.
 
-Le query possono iniziare con un nome di tabella o un comando **search**. L'esempio precedente inizia con il nome di tabella _Event_, che definisce l'ambito della query. Il carattere di barra verticale (|) consente di separare i comandi, in modo che l'output della prima viene usata come input del comando seguente. È possibile aggiungere qualsiasi numero di comandi a una singola query.
+Le query possono iniziare con un nome di tabella o un comando [search](/kusto/query/searchoperator). Nell'esempio precedente viene avviato con il nome della tabella _evento_, che recupera tutti i record dalla tabella eventi. Il carattere di barra verticale (|) consente di separare i comandi, in modo che l'output della prima viene usata come input del comando seguente. È possibile aggiungere qualsiasi numero di comandi a una singola query.
 
 Un altro modo per scrivere la stessa query è il seguente:
 
@@ -54,18 +63,18 @@ Un altro modo per scrivere la stessa query è il seguente:
 search in (Event) "error"
 ```
 
-In questo esempio l'ambito di **search** è la tabella _Event_ e viene eseguita una ricerca del termine "error" in tutti i record della tabella.
+In questo esempio **ricerca** ha come ambito il _evento_ tabella e tutti i record in tale tabella vengono cercati il termine _errore_.
 
 ## <a name="running-a-query"></a>Esecuzione di una query
 Per eseguire una query, fare clic sul pulsante **Esegui** oppure premere **MAIUSC+INVIO**. Prendere in considerazione i dettagli seguenti che determinano il codice che verrà eseguito e i dati restituiti:
 
-- Interruzioni di riga: una singola interruzione rende più chiara la query. Più interruzioni di riga suddividono la query in query separate.
+- Interruzioni di riga: Una singola interruzione rende più facile da leggere la query. Più interruzioni di riga suddividono la query in query separate.
 - Cursore: posizionare il cursore in un punto qualsiasi all'interno della query per eseguirla. La query corrente viene considerata come codice fino a quando non viene trovata una riga vuota.
 - Intervallo di tempo: per impostazione predefinita, viene usato un intervallo di tempo corrispondente alle _ultime 24 ore_. Per usare un intervallo diverso, usare il controllo di selezione di data e ora o aggiungere alla query un filtro di intervallo di tempo esplicito.
 
 
 ## <a name="understand-the-schema"></a>Informazioni sullo schema
-Lo schema è una raccolta di tabelle raggruppate visivamente in una categoria logica. Diverse categorie provengono dalle soluzioni di monitoraggio. La categoria _LogManagement_ contiene i dati comuni, ad esempio eventi di Windows e Syslog, dati sulle prestazioni ed eventi heartbeat client.
+Lo schema è una raccolta di tabelle raggruppate visivamente in una categoria logica. Diverse categorie provengono dalle soluzioni di monitoraggio. Il _LogManagement_ categoria contiene dati comuni, ad esempio Windows e Syslog, i dati sulle prestazioni ed eventi heartbeat dell'agente.
 
 ![SCHEMA](media/get-started-portal/schema.png)
 
@@ -181,7 +190,7 @@ L'icona Esplora query si trova nell'area in alto a destra. Permette di elencare 
 Log Analitica supporta diversi metodi di esportazione:
 
 - Excel: salvare i risultati come file CSV.
-- Power BI: esportare i risultati in Power BI. Per informazioni dettagliate, vedere [Importare i dati dei log di Monitoraggio di Azure in Power BI](../../azure-monitor/platform/powerbi.md).
+- Power BI: Esportare i risultati in Power BI. Per informazioni dettagliate, vedere [Importare i dati dei log di Monitoraggio di Azure in Power BI](../../azure-monitor/platform/powerbi.md).
 - Condividere un collegamento: la query stessa può essere condivisa come collegamento che altri utenti che hanno accesso alla stessa area di lavoro possono quindi inviare ed eseguire.
 
 ## <a name="next-steps"></a>Passaggi successivi

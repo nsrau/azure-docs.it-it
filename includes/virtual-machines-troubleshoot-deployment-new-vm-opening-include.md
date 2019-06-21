@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 7c4ece64245e4b1eb523296a8f9224138fa36639
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160230"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180149"
 ---
 Quando si crea una nuova macchina virtuale (VM) di Azure, gli errori comuni che si verificano sono errori di provisioning o di allocazione.
 

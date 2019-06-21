@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 29b74aeaaae0bcfd5f6ae4a3c38cc00176292899
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0959be545f541da2f0efd5bd1e8cc209ab5a0996
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386920"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275423"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Guida ai formati dei documenti e alle convenzioni di denominazione
 
@@ -37,7 +37,7 @@ Questa tabella include tutti i formati di file supportati che è possibile usare
 
 ## <a name="dictionary-formats"></a>Formati di dizionario
 
-Per i dizionari, Custom Translator supporta tutti i formati di file supportati per il set di training. Se si usa il dizionario di Excel, assicurarsi che la prima riga del foglio di calcolo contenga i codici della lingua.
+Per i dizionari, Microsoft Translator personalizzato supporta tutti i formati di file supportati per i set di training. Se si usa un dizionario di Excel, la prima riga o della riga del foglio di calcolo deve essere codici lingua.
 
 ## <a name="zip-file-formats"></a>Formati di file ZIP
 

@@ -1,23 +1,17 @@
 ---
 title: 'Funzioni del modello di Azure Resource Manager: logiche | Microsoft Docs'
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per determinare i valori logici.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cf6874512557bc44efe978708c78e3d98db4110b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405660"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205469"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funzioni logiche nei modelli di Azure Resource Manager
 
@@ -37,11 +31,11 @@ Verifica se tutti i valori dei parametri sono true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
-| arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
-| argomenti aggiuntivi |N. |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
+| arg1 |Yes |boolean |Primo valore da controllare per verificare se è true. |
+| arg2 |Yes |boolean |Secondo valore da controllare per verificare se è true. |
+| argomenti aggiuntivi |No |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -75,11 +69,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | True  |
-| notExampleOutput | Bool | Falso |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 ## <a name="bool"></a>bool
 
@@ -89,9 +83,9 @@ Converte il parametro in un valore booleano.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |stringa o numero intero |Valore da convertire in un valore booleano. |
+| arg1 |Yes |stringa o numero intero |Valore da convertire in un valore booleano. |
 
 ### <a name="return-value"></a>Valore restituito
 Valore booleano del valore convertito.
@@ -130,10 +124,10 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | NOME | Type | Value |
 | ---- | ---- | ----- |
-| trueString | Bool | True  |
-| falseString | Bool | Falso |
-| trueInt | Bool | True  |
-| falseInt | Bool | Falso |
+| trueString | Bool | True |
+| falseString | Bool | False |
+| trueInt | Bool | True |
+| falseInt | Bool | False |
 
 ## <a name="if"></a>if
 
@@ -143,11 +137,11 @@ Restituisce un valore in base a un condizione true o false.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| condition |Sì |boolean |Valore da controllare se è true o false. |
-| trueValue |Sì | string, int, object o array |Valore da restituire quando la condizione è true. |
-| falseValue |Sì | string, int, object o array |Valore da restituire quando la condizione è false. |
+| condition |Yes |boolean |Valore da controllare se è true o false. |
+| trueValue |Yes | string, int, object o array |Valore da restituire quando la condizione è true. |
+| falseValue |Yes | string, int, object o array |Valore da restituire quando la condizione è false. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -196,7 +190,7 @@ Quanto segue [modello di esempio](https://github.com/krnese/AzureDeploy/blob/mas
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -248,9 +242,9 @@ Converte il valore booleano nel valore opposto.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |boolean |Valore da convertire. |
+| arg1 |Yes |boolean |Valore da convertire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -286,9 +280,9 @@ L'output dell'esempio precedente è:
 
 | NOME | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | True  |
-| notExampleOutput | Bool | Falso |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) seguente usa **not** con [equals](resource-group-template-functions-comparison.md#equals).
 
@@ -310,9 +304,9 @@ L'output dell'esempio precedente è:
 
 | NOME | Type | Value |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True  |
+| checkNotEquals | Bool | True |
 
-## <a name="or"></a>o
+## <a name="or"></a>oppure
 
 `or(arg1, arg2, ...)`
 
@@ -320,11 +314,11 @@ Verifica se uno qualsiasi dei valori dei parametri è true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
-| arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
-| argomenti aggiuntivi |N. |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
+| arg1 |Yes |boolean |Primo valore da controllare per verificare se è true. |
+| arg2 |Yes |boolean |Secondo valore da controllare per verificare se è true. |
+| argomenti aggiuntivi |No |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -358,11 +352,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| NOME | Type | Value |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | True  |
-| notExampleOutput | Bool | Falso |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

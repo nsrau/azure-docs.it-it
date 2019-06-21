@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 05/13/2019
-ms.openlocfilehash: aa5d3a0555875571276fdf4046ad0e4dd1e69bbd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: 490131d1743b366b5ac51a5a0fdac4b89ffe08f2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596938"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274185"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Riferimento per i tipi di trigger e azione nel linguaggio di definizione del flusso di lavoro per le App per la logica di Azure
 
@@ -338,7 +338,7 @@ Questo trigger verifica o esegue il polling dell'endpoint specificato in base al
 
 Per funzionare correttamente con l'app per la logica, l'endpoint deve essere conforme a un modello o contratto di trigger specifico e riconoscere queste proprietà:  
   
-| Risposta | Obbligatorio | Descrizione | 
+| Risposta | Obbligatoria | Descrizione | 
 |----------|----------|-------------| 
 | Codice di stato | Yes | Il codice di stato "200 OK" avvia un'esecuzione. Nessun altro codice di stato avvia un'esecuzione. | 
 | Intestazione retry-after | No | Il numero di secondi fino a quando l'app per la logica esegue il polling dell'endpoint nuovamente | 
@@ -2624,7 +2624,7 @@ Tuttavia, le richieste hanno un limite di timeout in modo che per le azioni a es
 
 ### <a name="run-in-high-throughput-mode"></a>Esecuzione in modalità velocità effettiva elevata
 
-Per un'esecuzione singola dell'app per la logica, il numero di azioni che vengono eseguite ogni 5 minuti ha un [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Per aumentare questo limite al [massimo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) possibile impostare la proprietà `operationOptions` su `OptimizedForHighThroughput`. Questa impostazione pone l'app per la logica in modalità "velocità effettiva elevata". 
+Per una definizione di app per la logica singolo, il numero di azioni che vengono eseguite ogni 5 minuti è un' [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Per aumentare questo limite al [massimo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) possibile impostare la proprietà `operationOptions` su `OptimizedForHighThroughput`. Questa impostazione pone l'app per la logica in modalità "velocità effettiva elevata". 
 
 > [!NOTE]
 > La modalità di velocità effettiva elevata è in anteprima. È anche possibile distribuire un carico di lavoro tra più app per la logica, se necessario.
