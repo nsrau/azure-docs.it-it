@@ -33,7 +33,7 @@ Per ottenere valori da risorse, gruppi di risorse o sottoscrizioni, vedere [Funz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deployment"></a>distribuzione
+## <a name="deployment"></a>deployment
 `deployment()`
 
 Restituisce informazioni sull'operazione di distribuzione corrente.
