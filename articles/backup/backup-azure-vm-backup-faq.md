@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sogup
-ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fdf8e6c19711f6ce38d430a9dffab185cad961b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966309"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296178"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Back-domande frequenti su backup di macchine virtuali di Azure
 
@@ -89,6 +89,9 @@ Non è possibile creare snapshot nel disco con acceleratore di scrittura. Il ser
 Backup di Azure non può eseguire il backup del disco con acceleratore di scrittura, ma può escluderlo dal processo. Il backup, tuttavia, non assicurerà la coerenza del database perché non viene eseguito il backup delle informazioni presenti sul disco con acceleratore di scrittura. È possibile eseguire il backup di dischi con questa configurazione per ottenere il backup del disco del sistema operativo e il backup di dischi senza acceleratore di scrittura.
 
 Anteprima privata per un backup di SAP HANA è in esecuzione con un RPO pari a 15 minuti. È stata creata in modo simile al backup del database SQL e usa l'interfaccia backInt per soluzioni di terze parti certificate da SAP HANA. Se si è interessati, scrivici all'indirizzo `AskAzureBackupTeam@microsoft.com` con il soggetto **iscriversi per l'anteprima privata per il backup di SAP HANA in macchine virtuali di Azure**.
+
+### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Che cos'è il ritardo massimo che è possibile prevedere nell'ora di inizio backup dal momento del backup pianificato, che ho impostato nella mio criterio di backup della macchina virtuale?
+Il backup pianificato verrà attivato entro 2 ore dal momento del backup pianificato. Per es. Se 100 macchine virtuali dispone ora di inizio backup pianificata alle 2:00 di notte, quindi per max 4:00 am tutti il 100VMs avranno processo di backup in corso. Se i backup pianificati sono stati sospesi a causa dell'interruzione del servizio e ripreso/ripetuti backup può iniziare di fuori di questa finestra di 2 ore pianificate.
 
 
 ## <a name="restore"></a>Restore

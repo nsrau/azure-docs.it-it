@@ -8,14 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9c29837e99d327112e6a9d648a5c56cc35e8555
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60958639"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296626"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Creare e gestire BLOB in Archiviazione BLOB di Azure con App per la logica di Azure
 
@@ -30,12 +30,21 @@ Si supponga di avere uno strumento che viene aggiornato in un sito Web di Azure.
 >
 > * Se si usa già Gestione API, è possibile usare questo servizio in questo scenario. Per altre informazioni, vedere [Architettura di integrazione aziendale semplice](https://aka.ms/aisarch).
 
-Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Per informazioni tecniche specifiche del connettore, vedere le <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">informazioni di riferimento sul connettore di Archiviazione BLOB di Azure</a>.
+Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per informazioni tecniche specifiche del connettore, vedere le [informazioni di riferimento sul connettore di Archiviazione BLOB di Azure](/connectors/azureblobconnector/).
+
+## <a name="limits"></a>Limiti
+
+* Per impostazione predefinita, le azioni di archiviazione Blob di Azure possano leggere o scrivere i file che sono *50 MB o più piccolo*. Per gestire file di dimensioni superiori a 50 MB, ma fino a 1024 MB, le azioni di archiviazione Blob di Azure supportano [chunking messaggio](../logic-apps/logic-apps-handle-large-messages.md). Il **contenuto blob Get** azione utilizza in modo implicito la suddivisione in blocchi.
+
+* Trigger di archiviazione Blob di Azure non supportano la suddivisione in blocchi. La richiesta di contenuto del file, i trigger selezionare solo i file a 50 MB o inferiore. Per recuperare file di dimensione superiore a 50 MB, seguire questo modello:
+
+  * Usare un trigger di archiviazione Blob di Azure che restituisce le proprietà del file, ad esempio **quando un blob viene aggiunto o modificato (solo proprietà)** .
+
+  * Seguire il trigger di archiviazione Blob di Azure **contenuto blob Get** azione, che legge il file completo e utilizza in modo implicito la suddivisione in blocchi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * Un [account di archiviazione di Azure e un contenitore di archiviazione](../storage/blobs/storage-quickstart-blobs-portal.md)
 
@@ -47,13 +56,13 @@ Per informazioni tecniche specifiche del connettore, vedere le <a href="https://
 
 In App per la logica di Azure, ogni app per la logica deve essere avviata con un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), che viene attivato quando si verifica un determinato evento o quando viene soddisfatta una condizione specifica. Ogni volta che il trigger viene attivato, il motore di App per la logica crea un'istanza dell'app per la logica e avvia l'esecuzione del flusso di lavoro dell'app.
 
-Questo esempio illustra come avviare un flusso di lavoro di un'app logica con il trigger **Archiviazione BLOB di Azure - Quando viene aggiunto o modificato un BLOB (solo proprietà)** quando le proprietà di un BLOB vengono aggiunte o aggiornate nel contenitore di archiviazione. 
+Questo esempio viene illustrato come è possibile avviare un flusso di lavoro app per la logica con il **quando un blob viene aggiunto o modificato (solo proprietà)** trigger quando le proprietà del blob Ottiene aggiunti o aggiornati nel contenitore di archiviazione.
 
-1. Nel portale di Azure o in Visual Studio creare un'app per la logica vuota, che apre Progettazione app per la logica. Questo esempio usa il portale di Azure.
+1. Nel [portale di Azure](https://portal.azure.com) o Visual Studio, creare un'app per la logica vuota, che verrà visualizzata la finestra di progettazione App per la logica. Questo esempio usa il portale di Azure.
 
 2. Nella casella di ricerca immettere "BLOB di Azure" come filtro. Nell'elenco di trigger selezionare il trigger desiderato.
 
-   Questo esempio viene usato questo trigger: **Archiviazione Blob di Azure - quando un blob viene aggiunto o modificato (solo proprietà)**
+   Questo esempio viene usato questo trigger: **Quando un blob viene aggiunto o modificato (solo proprietà)**
 
    ![Selezionare il trigger](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
@@ -79,22 +88,22 @@ Questo esempio illustra come avviare un flusso di lavoro di un'app logica con il
 
 In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un passaggio del flusso di lavoro che segue un trigger o un'altra azione. In questo esempio l'app per la logica viene avviata con il [trigger di ricorrenza](../connectors/connectors-native-recurrence.md).
 
-1. Nel portale di Azure o in Visual Studio aprire l'app per la logica in Progettazione app per la logica. Questo esempio usa il portale di Azure.
+1. Nel [portale di Azure](https://portal.azure.com) o in Visual Studio aprire l'app per la logica in Logic App Designer (Progettazione app per la logica). Questo esempio usa il portale di Azure.
 
-2. In Progettazione app per la logica, sotto il trigger o l'azione, scegliere **Nuovo passaggio** > **Aggiungi un'azione**.
+2. In Progettazione App per la logica, sotto il trigger o azione, scegliere **nuovo passaggio**.
 
    ![Aggiungere un'azione](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
-   Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. 
-   Fare clic sul segno più ( **+** ) visualizzato e quindi scegliere **Aggiungi un'azione**.
+   Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. Scegliere il segno più ( **+** ) che viene visualizzato e selezionare **Aggiungi un'azione**.
 
 3. Nella casella di ricerca immettere "BLOB di Azure" come filtro. Nell'elenco delle azioni scegliere l'azione desiderata.
 
-   Questo esempio Usa questa azione: **Archiviazione Blob di Azure - ottenere contenuto di blob**
+   Questo esempio Usa questa azione: **Recupera contenuto blob**
 
-   ![Seleziona azione](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
+   ![Seleziona azione](./media/connectors-create-api-azureblobstorage/azure-blob-action.png)
 
-4. Se vengono chiesti i dati della connessione, [creare la connessione ad Archiviazione BLOB di Azure](#create-connection). Se la connessione è già presente, fornire le informazioni necessarie per l'azione.
+4. Se vengono chiesti i dati della connessione, [creare la connessione ad Archiviazione BLOB di Azure](#create-connection).
+Se la connessione è già presente, fornire le informazioni necessarie per l'azione.
 
    Per questo esempio, selezionare il file desiderato.
 
@@ -120,11 +129,6 @@ Questo esempio ottiene solo i contenuti di un BLOB. Per visualizzare i contenuti
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
 Per informazioni tecniche, ad esempio trigger, azioni e i limiti, come descritto da Openapi del connettore (in precedenza Swagger), vedere la [pagina di riferimento del connettore](/connectors/azureblobconnector/).
-
-## <a name="get-support"></a>Supporto
-
-* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

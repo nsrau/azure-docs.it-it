@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 607da7983cabe4c36c01171ba8d88c752b99ce3d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721079"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303819"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorare e diagnosticare con una latenza di 1 secondo
 
-Usando Live Metrics Stream da [Application Insights](../../azure-monitor/app/app-insights-overview.md) è possibile testare il funzionamento dell'applicazione Web live nell'ambiente di produzione. Selezionare e filtrare le metriche e i contatori delle prestazioni in tempo reale, senza distorsioni del servizio. Esaminare le analisi dello stack da richieste ed eccezioni di esempio non riuscite. Insieme al [Profiler](../../azure-monitor/app/profiler.md), al [debugger di snapshot](../../azure-monitor/app/snapshot-debugger.md) e [al test delle prestazioni](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Live Metrics Stream offre uno strumento di diagnostica non invasivo e potente per il sito Web live.
+Usando Live Metrics Stream da [Application Insights](../../azure-monitor/app/app-insights-overview.md) è possibile testare il funzionamento dell'applicazione Web live nell'ambiente di produzione. Selezionare e filtrare le metriche e i contatori delle prestazioni in tempo reale, senza distorsioni del servizio. Esaminare le analisi dello stack da richieste ed eccezioni di esempio non riuscite. Assieme [Profiler](../../azure-monitor/app/profiler.md), [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md). Stream di metriche in tempo reale fornisce uno strumento di diagnostica non invasivo e potente per il sito web live.
 
 Con Live Metrics Stream, è possibile:
 
@@ -192,15 +192,6 @@ Tuttavia, se l'utente riconosce tutti i server collegati e li ritiene affidabili
 >[!NOTE]
 >È consigliabile configurare il canale autenticato prima di immettere informazioni potenzialmente riservate, ad esempio CustomerID nei criteri di filtro.
 >
-
-## <a name="generating-a-performance-test-load"></a>Generazione di un carico di test delle prestazioni
-
-Se si desidera osservare l'effetto di un aumento del carico, usare il pannello Test delle prestazioni. Simula le richieste da un certo numero di utenti simultanei. Può eseguire "test manuale", ovvero test ping, di un singolo URL o un [test delle prestazioni Web in più passaggi](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) caricato, proprio come un test di disponibilità.
-
-> [!TIP]
-> Dopo aver creato il test delle prestazioni, aprire il test e il pannello Live Stream in finestre distinte. È possibile visualizzare l'avvio del test delle prestazioni in coda e il flusso live nello stesso momento.
->
-
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 

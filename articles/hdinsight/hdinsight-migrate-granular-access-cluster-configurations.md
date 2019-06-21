@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 56ba2dfebeb47f7e12a2693eae443e3c31e2a4dd
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 982c5dcc052f92afe381235db0bf066262fd82c6
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203094"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304293"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Eseguire la migrazione all'accesso granulare in base al ruolo per le configurazioni dei cluster
 
@@ -20,7 +20,7 @@ Sono state introdotte alcune importanti modifiche per supportare ulteriori acces
 
 ## <a name="what-is-changing"></a>Cosa cambierà
 
-In precedenza, i segreti è stato possibile ottenere tramite l'API di HDInsight da parte degli utenti cluster che presenta il proprietario, collaboratore o lettore [ruoli RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), come fossero disponibili per chiunque abbia il `*/read` è necessaria l'autorizzazione.
+In precedenza, i segreti è stato possibile ottenere tramite l'API di HDInsight da parte degli utenti cluster che presenta il proprietario, collaboratore o lettore [ruoli RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), come fossero disponibili per chiunque abbia il `*/read` l'autorizzazione.
 In futuro, l'accesso a questi segreti richiederanno la `Microsoft.HDInsight/clusters/configurations/*` autorizzazione, vale a dire non siano accessibili da parte degli utenti con ruolo di lettore. I segreti siano definiti come devono consentire valori che può essere usati per ottenere l'accesso con privilegi più elevato rispetto a un ruolo utente. Sono inclusi i valori, ad esempio cluster gateway HTTP credenziali, chiavi dell'account di archiviazione e le credenziali del database.
 
 È stato anche introdotto un nuovo [operatore del Cluster HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) ruolo che sarà in grado di recuperare i segreti senza disporre delle autorizzazioni amministrative di proprietario o collaboratore. Per riepilogare:

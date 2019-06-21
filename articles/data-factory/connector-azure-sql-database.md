@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/01/2019
+ms.date: 06/14/2019
 ms.author: jingwang
-ms.openlocfilehash: 6ae1094a6e47d19af97fbbb1ce988d0756f33731
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 90126a607065bdb10e2ff81ce6ab52809ecc3f36
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048572"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273754"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiare dati da o nel database SQL di Azure tramite Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory che è usare:"]
@@ -41,7 +41,8 @@ In particolare, il connettore del database SQL di Azure supporta queste funzioni
 - Come origine, il recupero di dati tramite query SQL o stored procedure.
 - Come sink, aggiungere dati alla tabella di destinazione o richiamare una stored procedure con logica personalizzata durante la copia.
 
-La funzionalità [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) del database SQL di Azure non è attualmente supportata. 
+>[!NOTE]
+>Database SQL di Azure **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current)** non è supportato da questo connettore ora. Soluzione alternativa, è possibile usare [connettore ODBC generico](connector-odbc.md) e il driver ODBC di SQL Server tramite il Runtime di integrazione Self-Hosted. Seguire [questo materiale sussidiario](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) con configurazioni stringa download e connessione ODBC driver.
 
 > [!IMPORTANT]
 > Se si copiano i dati tramite il runtime di integrazione di Azure Data Factory, configurare un [firewall del server SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) per consentire ai servizi di Azure di accedere al server.

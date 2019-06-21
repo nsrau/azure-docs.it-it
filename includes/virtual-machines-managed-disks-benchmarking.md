@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66147904"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180132"
 ---
 *Preparare la cache*  
 Il disco con memorizzazione nella cache dell'host di tipo ReadOnly è in grado di ottenere valori di IOPS più elevati rispetto al limite del disco. Per ottenere queste prestazioni di lettura massime dalla cache dell'host, è prima di tutto necessario preparare la cache del disco. Ciò assicura che le operazioni di I/O di lettura che lo strumento di benchmarking eseguirà sul volume CacheReads raggiungano effettivamente la cache e non direttamente il disco. I riscontri nella cache producono IOPS aggiuntivi da un singolo disco abilitato per la cache.
@@ -68,7 +68,7 @@ Seguire questa procedura per preparare la cache.
    | RandomReads\_1MB |1 MB |100 |100 |
 1. Eseguire il test di Iometer per l'inizializzazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
 
-   | Scenario | Volume di destinazione | Name | Duration |
+   | Scenario | Volume di destinazione | NOME | Duration |
    | --- | --- | --- | --- |
    | Inizializzare il disco della cache |CacheReads |RandomWrites\_1MB |2 ore |
 1. Eseguire il test di Iometer per la preparazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
@@ -81,9 +81,9 @@ Dopo la preparazione del disco della cache, procedere con gli scenari di test el
 
 | Scenario di test | Volume di destinazione | NOME | Risultato |
 | --- | --- | --- | --- |
-| Max. IOPS di lettura |CacheReads |RandomWrites\_8K |50\.000 IOPS |
-| Max. IOPS di scrittura |NoCacheWrites |RandomReads\_8K |64\.000 IOPS |
-| Max. IOPS combinate |CacheReads |RandomWrites\_8K |100\.000 IOPS |
+| Max. IOPS di lettura |CacheReads |RandomWrites\_8K |50.000 IOPS |
+| Max. IOPS di scrittura |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
+| Max. IOPS combinate |CacheReads |RandomWrites\_8K |100.000 IOPS |
 | NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
 | Max. letture MB/sec |CacheReads |RandomWrites\_64K |524 MB/sec |
 | Max. scritture MB/sec |NoCacheWrites |RandomReads\_64K |524 MB/sec |

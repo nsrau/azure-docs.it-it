@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 427c4615fcbb036ffff56a8fc592f258fb98845e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0789ab981590ac1b7531c1f05d85d7ada3a9f56b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755118"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295276"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ruoli predefiniti per le risorse di Azure
 
@@ -2494,7 +2494,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrizione** | La gestione degli account di archiviazione. Non fornisce l'accesso ai dati nell'account di archiviazione. |
+> | **Descrizione** | La gestione degli account di archiviazione. Fornisce l'accesso per la chiave dell'account, che può essere usata per accedere ai dati tramite l'autorizzazione di chiave condivisa. |
 > | **Id** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere tutte le autorizzazioni |

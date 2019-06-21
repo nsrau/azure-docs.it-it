@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 6/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 1c302ef5dfe6a7d287977c6954ea31fe51998a3d
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
-ms.translationtype: HT
+ms.openlocfilehash: d9bbc76fe60a5d363cd05b75df33f6fce00d7e9a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67292844"
+ms.locfileid: "67303411"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -56,7 +56,7 @@ Le note seguenti si riferiscono alla versione 7.0.0.0 dell'agente sincronizzazio
 - Cloud migliorata la suddivisione in livelli di affidabilità di cmdlet di richiamo 
     - Il cloud di suddivisione in livelli nel cmdlet richiamo (Invoke-StorageSyncFileRecall) ora supporta in ogni file con numero di tentativi e intervallo tra tentativi, simile a robocopy.
 - Solo il supporto per TLS 1.2 (1.1 e TLS 1.0 è disabilitato)
-    - Di Azure File Sync supporta ora l'uso di TLS 1.2 solo nei server che hanno 1.1 disabilitato e TLS 1.0. 
+    - Di Azure File Sync supporta ora l'uso di TLS 1.2 solo nei server che hanno 1.1 disabilitato e TLS 1.0. Prima di questo miglioramento, registrazione server avrà esito negativo se TLS 1.0 e 1.1 è stato disabilitato nel server.
 - Vari miglioramenti di prestazioni e affidabilità per la sincronizzazione e la suddivisione in livelli cloud
     - Sono disponibili numerosi miglioramenti di affidabilità e prestazioni in questa versione. Alcune di esse sono destinate per rendere cloud a livelli più efficienti e sincronizzazione File di Azure come un intero lavoro migliore in questi casi quando si dispone di una larghezza di banda della limitazione della pianificazione impostata.
 

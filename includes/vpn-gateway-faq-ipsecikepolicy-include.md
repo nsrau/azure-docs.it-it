@@ -9,11 +9,11 @@ ms.date: 12/14/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 36b3fcfa90b5b1de9c9d3262da1f3e519cc99c19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66151064"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67179970"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>I criteri IPsec/IKE personalizzati sono supportati in tutti gli SKU del gateway VPN di Azure?
 I criteri IPsec/IKE personalizzati sono supportati nei gateway VPN **VpnGw1, VpnGw2, VpnGw3, Standard** e **HighPerformance** di Azure. Lo SKU **Basic** **non** è supportato.

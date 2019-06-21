@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: 6a36770ff623e35c56a972a482e24ebb24849051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ecf7f11074b447e9f093e4fd6677a3d09d213b1d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65467410"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295841"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
 
@@ -36,7 +36,8 @@ Sebbene sia possibile creare, modificare, gestire e distribuire le App per la lo
   Questa guida introduttiva usa Visual Studio Community 2017, disponibile gratuitamente.
 
     > [!IMPORTANT]
-    > Quando si installa Visual Studio 2019 o 2017, assicurarsi di selezionare il carico di lavoro **Sviluppo di Azure**. Per Visual Studio 2019, Cloud Explorer consente di aprire la finestra di progettazione delle app per la logica nel portale di Azure, ma non ancora di aprire quella incorporata. Per altre informazioni, vedere [gestire le risorse associate agli account di Azure in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    > Quando si installa Visual Studio 2019 o 2017, assicurarsi di selezionare il carico di lavoro **Sviluppo di Azure**.
+    > Per altre informazioni, vedere [gestire le risorse associate agli account di Azure in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
     Per installare Cloud Explorer per Visual Studio 2015 [download di Cloud Explorer da Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
     Per altre informazioni, vedere [gestire le risorse associate agli account di Azure in Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
@@ -90,6 +91,9 @@ In Visual Studio è possibile aprire le app per la logica precedentemente create
 
 1. Dal menu di scelta rapida dell'app per la logica selezionare **Open with Logic App Editor** (Apri con Editor app per la logica).
 
+   > [!TIP]
+   > Se non si dispone di questo comando in Visual Studio 2019, verificare di avere gli ultimi aggiornamenti per Visual Studio.
+
    Questo esempio mostra le app per la logica in base al tipo di risorsa, pertanto le app per la logica verranno visualizzate nella sezione **App per la logica**.
 
    ![Aprire l'app per la logica distribuita dal portale di Azure](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
@@ -105,10 +109,10 @@ In Visual Studio è possibile aprire le app per la logica precedentemente create
 
 1. In Visual Studio aprire Cloud Explorer e quindi individuare e selezionare l'app per la logica che si vuole scaricare da Azure.
 
-   > [!NOTE]
-   > Per Visual Studio 2019, Cloud Explorer è possibile aprire la finestra di progettazione di App per la logica nel portale di Azure, ma ancora non è possibile aprire la finestra di progettazione di App per la logica incorporata per il download di app per la logica.
-
 2. Dal menu di scelta rapida dell'app selezionare **Open with Logic App Editor** (Apri con Editor app per la logica).
+
+   > [!TIP]
+   > Se non si dispone di questo comando in Visual Studio 2019, verificare di avere gli ultimi aggiornamenti per Visual Studio.
 
    Si apre Progettazione app per la logica che mostra l'app per la logica. 
    Per esaminare la definizione e la struttura sottostanti dell'app per la logica, nella parte inferiore della finestra di progettazione scegliere **Visualizzazione Codice**. 

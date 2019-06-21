@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478590"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147943"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisiti di sistema per Importazione/Esportazione di Azure
 
@@ -41,7 +41,7 @@ Per preparare i dischi rigidi tramite lo strumento WAImportExport, sono supporta
 
 Il servizio Importazione/Esportazione di Azure supporta i tipi di account di archiviazione seguenti:
 
-- Account di archiviazione per utilizzo generico v2 (scelta consigliata per la maggior parte degli scenari)
+- Account di archiviazione standard per utilizzo generico v2 (scelta consigliati per la maggior parte degli scenari)
 - Account di archiviazione BLOB
 - Account di archiviazione per utilizzo generico v1 (distribuzione classica o di Azure Resource Manager), 
 

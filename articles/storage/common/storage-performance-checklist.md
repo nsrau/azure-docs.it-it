@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 83f202f087d51b7742a74cf5ee5db8bd5fee5385
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c5bbd19969349965ea20fa4cfc09e10119a9a86c
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073714"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295757"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Elenco di controllo delle prestazioni e scalabilità per archiviazione di Microsoft Azure
 
@@ -109,7 +109,7 @@ Se si sta per raggiungere il limite di account di archiviazione consentiti in un
 Se l'applicazione sta raggiungendo gli obiettivi di scalabilità per un singolo account di archiviazione, valutare uno dei seguenti approcci:  
 
 * Esaminare di nuovo il carico di lavoro che causa il raggiungimento o il superamento dell'obiettivo di scalabilità da parte dell'applicazione. È possibile progettarlo in modo diverso in modo che usi una quantità minore di larghezza di banda o capacità o un minor numero di transazioni?
-* Se un'applicazione deve superare uno degli obiettivi di scalabilità, è necessario creare più account di archiviazione e partizionare i dati dell'applicazione tra questi account di archiviazione. Se si usa questo modello, assicurarsi di progettare l'applicazione in modo da aggiungere altri account di archiviazione in futuro per il bilanciamento del carico. Al momento della redazione di questo documento, ogni sottoscrizione di Azure può supportare fino a 100 account di archiviazione.  Gli account di archiviazione, inoltre, non hanno costi aggiuntivi rispetto a quelli per l'uso, ossia associati ai dati archiviati, alle transazioni effettuate o ai dati trasferiti.
+* Se un'applicazione deve superare uno degli obiettivi di scalabilità, è necessario creare più account di archiviazione e partizionare i dati dell'applicazione tra questi account di archiviazione. Se si usa questo modello, assicurarsi di progettare l'applicazione in modo da aggiungere altri account di archiviazione in futuro per il bilanciamento del carico. Al momento della scrittura, ogni sottoscrizione di Azure può avere fino a 250 account di archiviazione per ogni area (quando distribuito con il modello di Azure Resource Manager).  Gli account di archiviazione, inoltre, non hanno costi aggiuntivi rispetto a quelli per l'uso, ossia associati ai dati archiviati, alle transazioni effettuate o ai dati trasferiti.
 * Se l'applicazione raggiunge gli obiettivi di larghezza di banda, valutare la compressione dei dati nel client per ridurre la larghezza di banda necessaria a inviare i dati al servizio di archiviazione.  Questa operazione, che consente di risparmiare larghezza di banda e migliorare le prestazioni di rete, può avere anche degli effettivi negativi.  Valutare gli effetti sulle prestazioni dovuti ai requisiti di elaborazione aggiuntivi per la compressione e la decompressione dei dati nel client. Inoltre, l'archiviazione dei dati compressi può rendere più difficile la risoluzione dei problemi perché ostacola la visualizzazione dei dati archiviati mediante gli strumenti standard.
 * Se l'applicazione raggiunge gli obiettivi di scalabilità, assicurarsi di usare un backoff esponenziale per i nuovi tentativi (vedere [Tentativi](#subheading14)).  È meglio cercare di non raggiungere mai gli obiettivi di scalabilità (usando uno dei modi descritti), tuttavia ciò impedirà all'applicazione di riprendere a eseguire rapidamente nuovi tentativi, peggiorando così la limitazione.  
 

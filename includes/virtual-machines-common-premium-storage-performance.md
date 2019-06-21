@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 7a37c9d51541c279a6b820641b6eb46175aa8413
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67113552"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180118"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: progettata per prestazioni elevate
 
@@ -198,8 +198,8 @@ VM a scalabilità elevata sono disponibili in diverse dimensioni con un numero d
 
 | Dimensioni macchina virtuale | Core CPU | Memoria | Dimensioni di disco della VM | Max. dischi dati | Dimensioni cache | IOPS | Limiti di I/O della cache della larghezza di banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |Sistema operativo = 1023 GB <br> SSD locale = 224 GB |32 |576 GB |50\.000 IOPS <br> 512 MB al secondo |4\.000 IOPS e 33 MB al secondo |
-| Standard_GS5 |32 |448 GB |Sistema operativo = 1023 GB <br> SSD locale = 896 GB |64 |4224 GB |80\.000 IOPS <br> 2\.000 MB al secondo |5\.000 IOPS e 50 MB al secondo |
+| Standard_DS14 |16 |112 GB |Sistema operativo = 1023 GB <br> SSD locale = 224 GB |32 |576 GB |50.000 IOPS <br> 512 MB al secondo |4\.000 IOPS e 33 MB al secondo |
+| Standard_GS5 |32 |448 GB |Sistema operativo = 1023 GB <br> SSD locale = 896 GB |64 |4224 GB |80.000 IOPS <br> 2.000 MB al secondo |5\.000 IOPS e 50 MB al secondo |
 
 Per visualizzare un elenco completo di tutte le dimensioni delle VM di Azure disponibili, vedere [Dimensioni per le macchine virtuali Windows](../articles/virtual-machines/windows/sizes.md) o [Dimensioni per le macchine virtuali Linux](../articles/virtual-machines/linux/sizes.md). Scegliere una dimensione di VM in grado di soddisfare e adeguarsi ai requisiti relativi alle prestazioni dell'applicazione. Quando si scelgono le dimensioni delle VM, è inoltre necessario esaminare le importanti considerazioni seguenti.
 
@@ -235,8 +235,8 @@ Archiviazione Premium di Azure offre tre dimensioni di disco che sono attualment
 
 | Tipo di disco Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Dimensioni disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1\.024 GiB (1 TiB)    | 2\.048 GiB (2 TiB)    | 4\.095 GiB (4 TiB)    | 8\.192 GiB (8 TiB)    | 16\.384 GiB (16 TiB)    | 32\.767 GiB (32 TiB)    |
-| IOPS per disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12\.500              | 15\.000              | 20\.000              |
+| Dimensioni disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1\.024 GiB (1 TiB)    | 2\.048 GiB (2 TiB)    | 4\.095 GiB (4 TiB)    | 8\.192 GiB (8 TiB)    | 16.384 GiB (16 TiB)    | 32.767 GiB (32 TiB)    |
+| IOPS per disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15.000              | 20.000              |
 | Velocità effettiva per disco | 25 MiB al secondo  | 50 MiB al secondo  | 100 MiB al secondo |125 MiB al secondo | 150 MiB al secondo | 200 MiB al secondo | 250 MiB al secondo | 250 MiB al secondo | 480 MiB al secondo | 750 MiB al secondo | 750 MiB al secondo |
 
 Il numero di dischi scelto dipende dalla dimensione scelta per il disco. È possibile usare un singolo disco P50 o più dischi P10 per soddisfare i requisiti dell'applicazione. Valutare le considerazioni elencate di seguito quando si effettua la scelta.

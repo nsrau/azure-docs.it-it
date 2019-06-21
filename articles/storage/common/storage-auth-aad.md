@@ -1,6 +1,6 @@
 ---
-title: Autenticare l'accesso a BLOB di Azure e code con Azure Active Directory | Microsoft Docs
-description: Autenticare l'accesso a BLOB di Azure e code con Azure Active Directory.
+title: Autorizzare l'accesso a BLOB di Azure e code con Azure Active Directory | Microsoft Docs
+description: Autorizzare l'accesso a BLOB di Azure e code con Azure Active Directory.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,30 +9,30 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 5c50bd921c189a7290e2850cb6c03afca39f9fb4
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 8033dda4059a52cea2b775fc8765a9f2a91b96dd
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273847"
+ms.locfileid: "67302422"
 ---
-# <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autenticare l'accesso a BLOB di Azure e code con Azure Active Directory
+# <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autorizzare l'accesso a BLOB di Azure e code con Azure Active Directory
 
-Archiviazione di Azure supporta l'autenticazione e l'autorizzazione con Azure Active Directory (AD) per i servizi BLOB e di accodamento. Azure AD consente di usare il controllo degli accessi in base al ruolo per concedere l'accesso a utenti, gruppi o entità servizio dell'applicazione. 
+Usando Azure Active Directory (AD) per autorizzare le richieste ad archiviazione di accodamento e Blob di Azure supporta l'archiviazione. Con Azure AD, è possibile usare il controllo di accesso basato sui ruoli (RBAC) per concedere autorizzazioni a un'entità di sicurezza, che può essere un utente, gruppo o entità servizio dell'applicazione. L'entità di sicurezza è autenticato da Azure AD potrà restituire un token OAuth 2.0. Il token è utilizzabile per autorizzare una richiesta per accedere a una risorsa in archiviazione di accodamento o Blob.
 
-L'autenticazione degli utenti o delle applicazioni tramite le credenziali di Azure AD offre un livello superiore di sicurezza e facilità d'uso rispetto ad altri metodi di autorizzazione. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token di firma di accesso condiviso o di occuparsi della revoca di una di firma di accesso condiviso compromessa. Microsoft consiglia di usare l'autenticazione di Azure AD per le applicazioni di Archiviazione di Azure, quando possibile.
+Autorizzare gli utenti o applicazioni che utilizzano un token OAuth 2.0 restituito da Azure AD offre la massima sicurezza e facilità di utilizzo rispetto autorizzazione chiave condivisa e condiviso (SAS) delle firme di accesso. Con Azure AD, non è necessario per archiviare la chiave di accesso di account con il codice e i rischi potenziali vulnerabilità della sicurezza. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token di firma di accesso condiviso o di occuparsi della revoca di una di firma di accesso condiviso compromessa. Microsoft consiglia di usare l'autorizzazione di Azure AD con le applicazioni di archiviazione di Azure quando possibile.
 
-L'autenticazione e autorizzazione con le credenziali di Azure AD è disponibile per tutti per utilizzo generico e account di archiviazione in tutte le aree pubbliche e i cloud nazionali Blob. Solo gli account di archiviazione creato con il supporto del modello di distribuzione Azure Resource Manager di autorizzazione di Azure AD.
+Autorizzazione con Azure AD è disponibile per tutti per utilizzo generico e account di archiviazione in tutte le aree pubbliche e i cloud nazionali Blob. Solo gli account di archiviazione creato con il supporto del modello di distribuzione Azure Resource Manager di autorizzazione di Azure AD.
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Panoramica di Azure AD per BLOB e code
 
 Quando un'entità di sicurezza (un utente, gruppo o applicazione) tenta di accedere a una risorsa blob o di accodamento, la richiesta deve essere autorizzata, a meno che non si tratta di un blob disponibile per l'accesso anonimo. Con Azure AD, accesso a una risorsa è un processo in due passaggi. In primo luogo, autenticazione identità dell'entità di sicurezza e viene restituito un token OAuth 2.0. Successivamente, il token viene passato come parte di una richiesta al servizio Blob o una coda e utilizzato dal servizio per autorizzare l'accesso alla risorsa specificata.
 
-Il passaggio di autenticazione richiede che un'applicazione richiedere un token di accesso di OAuth 2.0 in fase di esecuzione. Se un'applicazione è in esecuzione all'interno di un'entità di Azure, ad esempio una VM di Azure, un set di scalabilità di macchine virtuali o un'app per le funzioni di Azure, è possibile utilizzare un [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) per accedere ai BLOB o code. Per informazioni su come autorizzare le richieste effettuate da un'identità gestita per il servizio di accodamento o Blob di Azure, vedere [autenticare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](storage-auth-aad-msi.md).
+Il passaggio di autenticazione richiede che un'applicazione richiedere un token di accesso di OAuth 2.0 in fase di esecuzione. Se un'applicazione è in esecuzione all'interno di un'entità di Azure, ad esempio una VM di Azure, un set di scalabilità di macchine virtuali o un'app per le funzioni di Azure, è possibile utilizzare un [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) per accedere ai BLOB o code. Per informazioni su come autorizzare le richieste effettuate da un'identità gestita per il servizio di accodamento o Blob di Azure, vedere [autorizzare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](storage-auth-aad-msi.md).
 
 Il passaggio di autorizzazione richiede che uno o più ruoli RBAC sia assegnato all'entità di sicurezza. Archiviazione di Azure fornisce i ruoli RBAC che includono set di autorizzazioni per i dati blob e di Accodamento comuni. I ruoli assegnati a un'entità di sicurezza determinano le relative autorizzazioni all'entità. Per altre informazioni sull'assegnazione dei ruoli RBAC per l'archiviazione di Azure, vedere [Gestisci i diritti di accesso ai dati di archiviazione con RBAC](storage-auth-aad-rbac.md).
 
-Le applicazioni native e applicazioni web che inviano richieste al servizio di accodamento o Blob di Azure possono anche eseguire l'autenticazione con Azure AD. Per informazioni su come richiedere un token di accesso e usarlo per autorizzare le richieste per i dati di accodamento o blob, vedere [eseguire l'autenticazione con Azure AD da un'applicazione di archiviazione di Azure](storage-auth-aad-app.md).
+Le applicazioni native e applicazioni web che inviano richieste al servizio di accodamento o Blob di Azure possono anche autorizzano l'accesso con Azure AD. Per informazioni su come richiedere un token di accesso e usarlo per autorizzare le richieste per i dati di accodamento o blob, vedere [autorizzare l'accesso ad archiviazione di Azure con Azure AD da un'applicazione di archiviazione di Azure](storage-auth-aad-app.md).
 
 ## <a name="assigning-rbac-roles-for-access-rights"></a>Assegnazione dei ruoli RBAC per i diritti di accesso
 
@@ -62,7 +62,7 @@ Per informazioni dettagliate sulle autorizzazioni necessarie per chiamare le ope
 
 ## <a name="access-data-with-an-azure-ad-account"></a>Accesso ai dati con un account Azure AD
 
-Accesso ai dati di blob o una coda tramite il portale di Azure, PowerShell o CLI di Azure possono essere autorizzate tramite account di Azure AD dell'utente o tramite le chiavi di accesso (autenticazione chiave condivisa).
+Accesso ai dati di blob o una coda tramite il portale di Azure, PowerShell o CLI di Azure possono essere autorizzate tramite account di Azure AD dell'utente o tramite le chiavi di accesso (autorizzazione chiave condivisa).
 
 ### <a name="data-access-from-the-azure-portal"></a>Accesso ai dati dal portale di Azure
 
@@ -78,12 +78,12 @@ Il portale di Azure indica quale schema di autorizzazione è in uso quando si pa
 
 PowerShell e CLI di Azure supporta l'accesso con credenziali di Azure AD. Dopo l'accesso, la sessione viene eseguita con tali credenziali. Per altre informazioni, vedere [comandi di esecuzione della riga di comando di Azure o PowerShell con credenziali di Azure AD per accedere ai dati di accodamento o blob](storage-auth-aad-script.md).
 
-## <a name="azure-ad-authentication-over-smb-for-azure-files"></a>Autenticazione di Azure AD su SMB per i file di Azure
+## <a name="azure-ad-authorization-over-smb-for-azure-files"></a>Autorizzazione AD Azure tramite SMB per i file di Azure
 
-File di Azure supporta l'autenticazione con Azure AD su SMB solo per le macchine virtuali aggiunte a un dominio (anteprima). Per altre informazioni sull'uso di Azure AD su SMB per i file di Azure, vedere [autenticazione di panoramica di Azure Active Directory su SMB per file di Azure (anteprima)](../files/storage-files-active-directory-overview.md).
+File di Azure supporta l'autorizzazione con Azure AD su SMB per dominio le macchine virtuali solo (anteprima). Per altre informazioni sull'uso di Azure AD su SMB per i file di Azure, vedere [autorizzazione Panoramica di Azure Active Directory su SMB per i file di Azure (anteprima)](../files/storage-files-active-directory-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Autenticare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](storage-auth-aad-msi.md)
+- [Autorizzare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](storage-auth-aad-msi.md)
 - [Eseguire l'autenticazione con Azure Active Directory da un'applicazione per l'accesso ai BLOB e alle code](storage-auth-aad-app.md)
 - [Controllo di accesso disponibile a livello generale in base al supporto di archiviazione di Azure per Azure Active Directory](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)

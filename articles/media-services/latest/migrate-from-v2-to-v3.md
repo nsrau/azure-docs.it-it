@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: da8d1000ebe2695dbc95d475027722962a3305d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9293dc8be4fb50a657093090b0e6d76de5b5d31
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65555886"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303525"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
@@ -80,7 +80,7 @@ L'API v3 include i gap di funzionalità seguenti rispetto all'API v2. È in cors
 
 * Il [codificatore Premium](../previous/media-services-premium-workflow-encoder-formats.md) e i [processori di Analisi Servizi multimediali](../previous/media-services-analytics-overview.md) legacy (Azure Media Services Indexer 2 Preview, lo strumento di offuscamento dei volti e così via) non sono accessibili tramite v3.<br/>I clienti che intendo eseguire la migrazione da Media Indexer 1 o 2 Preview possono usare immediatamente il set di impostazioni di AudioAnalyzer nell'API v3.  Questo nuovo set di impostazioni contiene maggiori funzionalità rispetto a Media Indexer 1 o 2 (meno recente). 
 * Numero dei [avanzate funzionalità di Media Encoder Standard v2](../previous/media-services-advanced-encoding-with-mes.md) API non sono attualmente disponibili nella v3, ad esempio:
-    * Ritaglio (per gli scenari live e on demand)
+  
     * Unione degli asset
     * Sovrimpressioni
     * Ritaglio

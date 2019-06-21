@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd26f7bdf928dcbd2cf841526857dc44623f133
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a2c036265049bf4b87435e96f779482da404caa
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057417"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164809"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Come richiedere la verifica in due passaggi per un utente
 
 Sono disponibili due modi per richiedere la verifica in due passaggi. Per entrambi è necessario un account amministratore globale. Il primo prevede l'abilitazione di ogni utente per Azure Multi-Factor Authentication (MFA). Gli utenti abilitati singolarmente devono eseguire la verifica in due passaggi a ogni accesso, con alcune eccezioni, ad esempio se accedono da indirizzi IP attendibili o quando è attiva la funzionalità relativa ai _dispositivi memorizzati_. La seconda opzione consiste nell'impostare un criterio di accesso condizionale che richiede la verifica in due passaggi in determinate condizioni.
 
 > [!TIP]
-> Scegliere uno dei due metodi per richiedere la verifica in due passaggi, non entrambi. L'abilitazione di un utente per Azure multi-Factor Authentication sostituisce infatti eventuali criteri di accesso condizionale.
+> L'abilitazione di Azure multi-Factor Authentication tramite criteri di accesso condizionale è l'approccio consigliato. La modifica degli stati utente non è più consigliata, a meno che le licenze non includono l'accesso condizionale perché sarà necessario agli utenti di eseguire l'autenticazione a più fattori ogni volta che effettuano l'accesso.
 
 ## <a name="choose-how-to-enable"></a>Scegliere come eseguire l'abilitazione
 

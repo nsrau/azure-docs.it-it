@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 5dd9d8eac7d65815d7c98a28b0d5af55f19cec47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29d56e64f118fe36fb4905dca20d9fba2f210665
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464424"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295918"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creare un dashboard Customer Insights in streaming con App per la logica di Azure e Funzioni di Azure
 
@@ -99,8 +99,8 @@ Per visualizzare le cronologie di esecuzione precedenti in Visual Studio o nel p
 
 * Aprire Visual Studio Cloud Explorer. Individuare l'app per la logica e aprire il menu di scelta rapida dell'app. Selezionare **Apri cronologia di esecuzione**.
 
-  > [!NOTE]
-  > Per Visual Studio 2019, Cloud Explorer può aprire la finestra di progettazione di App per la logica nel portale di Azure, ma non è ancora aprire la finestra di progettazione di App per la logica incorporata o la cronologia di esecuzione.
+  > [!TIP]
+  > Se non si dispone di questo comando in Visual Studio 2019, verificare di avere gli ultimi aggiornamenti per Visual Studio.
 
 * Nel portale di Azure individuare l'app per la logica. Scegliere **Panoramica** dal menu dell'app per la logica. 
 

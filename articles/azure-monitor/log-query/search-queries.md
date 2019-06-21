@@ -13,20 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b118740f3a57e168c5dfb071c199bcf424bd5113
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65560834"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295567"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Query di ricerca nei log di Monitoraggio di Azure
-
-> [!NOTE]
-> Prima di completare questa lezione, è consigliabile leggere [Introduzione alle query di log di Monitoraggio di Azure](get-started-queries.md).
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 Le query di log di Monitoraggio di Azure possono iniziare con un nome di tabella o un comando search. Questa esercitazione illustra le query basate sul comando search. Ogni metodo offre vantaggi specifici.
 
 Le query basate su tabella iniziano definendo l'ambito della query e quindi tendono a essere più efficienti rispetto alle query di ricerca. Le query di ricerca sono meno strutturate, quindi più appropriate per la ricerca di un valore specifico in tabelle o colonne. Il comando **search** consente di analizzare tutte le colonne in una determinata tabella o in tutte le tabelle, per cercare il valore specificato. La quantità di dati elaborati può essere estremamente elevata, quindi queste query possono richiedere più tempo per il completamento e possono restituire set di risultati molto grandi.

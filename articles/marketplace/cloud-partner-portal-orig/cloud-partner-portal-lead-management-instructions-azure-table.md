@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: a1bcab9816627b453ba8b20b7bcd9402c2dfd151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 08f9d794822dfd7879efc7c4813ecc46f92f6a45
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240581"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147889"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Istruzioni di gestione dei lead per tabelle di Azure
 
@@ -97,7 +97,7 @@ Nel successivo set di passaggi, ci si collegherà alla propria tabella Azure e s
 
      ![Scegliere un valore personalizzato come nome della tabella di Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Query di filtro** – fare clic su questo campo e il **Recupera ora precedente** icona viene visualizzata in una finestra popup. Selezionare **Ora precedente** per usarla come timestamp per filtrare la query. In alternativa, è possibile incollare la funzione seguente nel campo: CreatedTime `gt datetime'@{body('Get_past_time')}'` 
+   - **Query di filtro** – fare clic su questo campo e il **Recupera ora precedente** icona viene visualizzata in una finestra popup. Selezionare **Ora precedente** per usarla come timestamp per filtrare la query. In alternativa, è possibile incollare la funzione seguente nel campo: CreatedTime `Timestamp gt datetime'@{body('Get_past_time')}'` 
 
      ![Impostare la funzione di filtraggio delle query](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 

@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a6797c7bd0c6bd8ce8d3f51b42cb4c2b1338fd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1eb5600a9793963a722967e1bbe702cf3b2f670e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65950459"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147122"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Domande frequenti e problemi noti nell'uso di identità gestite per le risorse di Azure
 
@@ -84,8 +84,8 @@ No. Le identità gestite attualmente non supportano gli scenari tra directory.
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Quali sono le autorizzazioni RBAC di Azure sono necessarie per identità gestita in una risorsa? 
 
-- Identità gestita assegnato dal sistema: È necessario scrivere le autorizzazioni sulla risorsa. Ad esempio:  Microsoft.Compute/virtualMachines/write o questa azione è incluso nella risorsa, ad esempio ruoli predefiniti specifici [collaboratore macchina virtuale](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- Identità gestito assegnata dall'utente: È necessario scrivere le autorizzazioni sulla risorsa. Ad esempio:  Microsoft.Compute/virtualMachines/write. Oltre a [Managed Identity Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) un'assegnazione di ruolo per l'identità gestita. 
+- Identità gestita assegnato dal sistema: È necessario scrivere le autorizzazioni sulla risorsa. Ad esempio per le macchine virtuali è necessario Microsoft.Compute/virtualMachines/write. Questa azione è incluso nella risorsa, ad esempio ruoli predefiniti specifici [collaboratore macchina virtuale](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Identità gestito assegnata dall'utente: È necessario scrivere le autorizzazioni sulla risorsa. Ad esempio, per le macchine virtuali è necessario Microsoft.Compute/virtualMachines/write. Oltre a [Managed Identity Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) un'assegnazione di ruolo per l'identità gestita.
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Come riavviare l'estensione relativa alle identità gestite per le risorse di Azure
 In Windows e alcune versioni di Linux, se si arresta l'estensione, è possibile usare il cmdlet seguente per riavviarla manualmente:

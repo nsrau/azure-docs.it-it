@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: c963cb1b6930b41a703b479e0213311d971e6606
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 480cf22491dbbfcb9fe1961b5c9a7aa6fe12a0cb
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082846"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274046"
 ---
 # <a name="azure-private-dns-faq"></a>Domande frequenti su DNS di Azure privato
 
@@ -78,7 +78,7 @@ I seguenti limiti predefiniti si applicano quando si utilizzano zone DNS Private
 | Resource | Limite predefinito |
 | --- | --- |
 |Zone DNS private per ogni sottoscrizione|1000|
-|Set di record per ogni zona DNS privata|25\.000|
+|Set di record per ogni zona DNS privata|25.000|
 |Record per ogni set di record|20|
 |Collegamenti di rete virtuale per ogni zona DNS privata|1000|
 |Collegamenti di reti virtuali per le zone private di DNS con la registrazione automatica abilitata|100|
@@ -88,6 +88,13 @@ I seguenti limiti predefiniti si applicano quando si utilizzano zone DNS Private
 ## <a name="is-there-portal-support-for-private-zones"></a>È disponibile il supporto del portale per le zone private?
 
 Sì e le zone private già create tramite le API, PowerShell, CLI e SDK sono visibili nel portale di Azure.
+
+## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>Il motivo per cui non le zone DNS private esistenti vengono visualizzati nella nuova esperienza del portale?
+
+Come parte della versione di aggiornamento dell'anteprima viene fornito un nuovo modello di risorsa per le zone DNS private. Le zone DNS private esistenti dovranno eseguire la migrazione al nuovo modello di risorse prima che questi compaia nella nuova esperienza del portale. Per istruzioni su come eseguire la migrazione al nuovo modello di risorse, vedere di seguito.
+
+## <a name="how-do-i-migrate-my-existing-private-dns-zones-to-the-new-model"></a>Come eseguire la migrazione le zone DNS private esistente al nuovo modello?
+È consigliabile eseguire la migrazione al nuovo modello di risorse appena possibile. Modello di risorse legacy sarà supportato, tuttavia, ulteriormente sviluppate le funzionalità verranno non all'inizio di questo modello. In futuro si prevede di deprecato a favore di nuovo modello di risorsa. Per indicazioni su come eseguire la migrazione di zone DNS private esistente Vedere zone al nuovo modello di risorse[Guida alla migrazione per le zone private di DNS di Azure](private-dns-migration-guide.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

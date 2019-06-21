@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
 ms.openlocfilehash: cf39baf34096691144181332566cf567ebc02310
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66169974"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180674"
 ---
 1. Stabilire una connessione Desktop remoto nel computer che esegue il server di elaborazione. 
 2. Eseguire cspsconfigtool.exe per avviare lo strumento di configurazione del Server di elaborazione di Azure Site Recovery.

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 865fb2ebf0d02c40a8f7c9e9c818e26432e5734a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510728"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272362"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>.NET SDK di Azure Cosmos DB per l'API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -47,6 +47,12 @@ ms.locfileid: "65510728"
 * Nuovo modello a oggetti con il modulo CosmosClient di livello superiore e metodi suddivisi tra le relative classi CosmosDatabases, CosmosContainers e CosmosItems. 
 * Supporto dei flussi. 
 * Classe CosmosResponseMessage aggiornata a partire dal server per restituire il codice di stato e generare un'eccezione solo se non viene restituita alcuna risposta. 
+
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+
+* Consentire le richieste di scrittura per il fallback su un'area diversa se originale si verifichi un errore
+* Aggiungere criteri di ripetizione dei tentativi di sessione per la richiesta di scrittura
+* Correzioni di analisi di condizione di competizione per le query che ha causato le pagine vuote
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
@@ -375,6 +381,7 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.5.0](#2.5.0) |18 giugno 2019 |--- |
 | [2.4.0](#2.4.0) |05 maggio 2019 |--- |
 | [2.3.0](#2.3.0) |04 aprile 2019 |--- |
 | [2.2.3](#2.2.3) |11 febbraio 2019 |--- |

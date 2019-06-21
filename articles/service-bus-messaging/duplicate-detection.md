@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 286c5850400242224e710a7883d3d3dc175cef12
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413649"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273213"
 ---
 # <a name="duplicate-detection"></a>Rilevamento duplicati
 
@@ -37,7 +37,7 @@ Per un processo di business in cui vengono inviati più messaggi durante la gest
 Il *MessageId* può sempre essere un GUID, ma ancorare l'identificatore al processo di business garantisce una ripetibilità prevedibile, necessaria per sfruttare la funzionalità di rilevamento dei duplicati in modo efficace.
 
 > [!NOTE]
-> Se è abilitato il rilevamento dei duplicati e chiave di partizione o ID di sessione non sono impostate, l'ID del messaggio viene utilizzato come chiave di partizione. Se l'ID del messaggio non è impostata, le librerie .NET e AMQP generano automaticamente un ID di messaggio per il messaggio. Per altre informazioni, vedere [uso delle chiavi di partizione](service-bus-partitioning.md#use-of-partition-keys).
+> Se è abilitato il rilevamento dei duplicati e chiave di partizione o ID di sessione non sono impostate, l'ID del messaggio viene utilizzato come chiave di partizione. Se l'ID del messaggio non è impostata, le librerie .NET e AMQP generano automaticamente un ID di messaggio per il messaggio. Per altre informazioni, vedere [uso di chiavi di partizione](service-bus-partitioning.md#use-of-partition-keys).
 
 ## <a name="enable-duplicate-detection"></a>Abilitare il rilevamento dei duplicati
 

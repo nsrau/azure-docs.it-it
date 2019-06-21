@@ -9,12 +9,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: f0dfed10190685c1d51822b8bec2b3c80cea7bb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fecced844b3580c83fd18d0c14c3a2083f7a4fc
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153934"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165728"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metriche di analitica di archiviazione Azure (versione classica)
 
@@ -90,18 +90,27 @@ I cmdlet che controllano Metriche di archiviazione usano i seguenti parametri:
 * **Servizio**: Raccogliere metriche come ingresso/uscita, disponibilità, latenza e percentuali di successo, aggregate per i blob, coda, tabella e servizi file.
 * **ServiceAndApi**: Oltre alle metriche del servizio, raccoglie lo stesso set di metriche per ogni operazione di archiviazione nell'API del servizio di archiviazione di Azure.
 
-Ad esempio, il seguente comando attiva le metriche al minuto per il servizio BLOB nell'account di archiviazione predefinito con il periodo di memorizzazione impostato su cinque giorni:  
+Ad esempio, il seguente comando attiva le metriche al minuto per il servizio blob nell'account di archiviazione con il periodo di memorizzazione impostato su cinque giorni: 
+
+> [!NOTE]
+> Questo comando dà per scontato che è stato effettuato l'accesso alla propria sottoscrizione di Azure utilizzando il `Connect-AzAccount` comando.
 
 ```  
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute   
--ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5  
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+
+Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
 ```  
+
+* Sostituire il `<resource-group-name>` valore del segnaposto con il nome del gruppo di risorse.
+
+* Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
+
+
 
 Il seguente comando recupera il livello delle metriche orarie corrente e i giorni di memorizzazione per il servizio BLOB nell'account di archiviazione predefinito:  
 
 ```  
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour   
--ServiceType Blob  
+Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
 Per informazioni su come configurare i cmdlet di Azure PowerShell per usare la sottoscrizione di Azure e su come selezionare l'account di archiviazione predefinito da utilizzare, vedere [Come installare e configurare Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

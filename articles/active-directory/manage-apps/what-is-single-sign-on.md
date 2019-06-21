@@ -12,12 +12,12 @@ ms.date: 05/15/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b3066a529183d7a8a13e4673d7879136aa0d7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2576a33e62b370bc2fd91c5d155e9f8d6e52c0f8
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824156"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190276"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Accesso Single Sign-On alle applicazioni in Azure Active Directory
 
@@ -95,7 +95,7 @@ L'accesso Single Sign-On basato su password è supportato per qualunque applicaz
 - Chrome in Windows 7 o versione successiva e in MacOS X o versione successiva
 - Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
 
-Per configurare un'applicazione cloud per l'accesso Single Sign-On basato su password, vedere [Configurare l'applicazione per un accesso Single Sign-On basato su password](application-sign-in-problem-password-sso-gallery.md#configure-the-application-for-password-single-sign-on).
+Per configurare un'applicazione cloud per l'accesso Single Sign-On basato su password, vedere [Configurare l'applicazione per un accesso Single Sign-On basato su password](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso).
 
 Per configurare un'applicazione in locale per l'accesso Single Sign-On tramite Application Proxy, vedere [Insieme di credenziali delle password per l'accesso Single Sign-On con il proxy dell'applicazione](application-proxy-configure-single-sign-on-password-vaulting.md)
 

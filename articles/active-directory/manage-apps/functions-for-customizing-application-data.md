@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12b75c2df7d11b0e90c5dccc3bc2aae4e0fb0c1e
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824634"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204476"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS.
@@ -40,7 +40,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 ## <a name="list-of-functions"></a>Elenco di funzioni
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
-- - -
+---
 ### <a name="append"></a>Append
 **Funzione:**<br> Append(source, suffix)
 
@@ -50,10 +50,10 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |String |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **suffix** |Obbligatorio |String |Stringa da aggiungere alla fine del valore di origine. |
+| **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **suffix** |Obbligatoria |String |Stringa da aggiungere alla fine del valore di origine. |
 
-- - -
+---
 ### <a name="formatdatetime"></a>FormatDateTime
 **Funzione:**<br> FormatDateTime(source, inputFormat, outputFormat)
 
@@ -61,13 +61,13 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | Type | Note |
+| Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |String |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **inputFormat** |Obbligatorio |String |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Obbligatorio |String |Formato della data di output. |
+| **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **inputFormat** |Obbligatoria |String |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Obbligatoria |String |Formato della data di output. |
 
-- - -
+---
 ### <a name="join"></a>Unisci
 **Funzione:**<br> Join(separator, source1, source2, …)
 
@@ -79,10 +79,10 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 | Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **separator** |Obbligatorio |String |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
+| **separator** |Obbligatoria |String |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
 | **source1 … sourceN** |Obbligatorio per un numero variabile di volte |String |Valori stringa da unire. |
 
-- - -
+---
 ### <a name="mid"></a>Mid
 **Funzione:**<br> Mid(source, start, length)
 
@@ -90,13 +90,13 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | Type | Note |
+| Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |String |Corrisponde in genere al nome dell'attributo. |
-| **start** |Obbligatorio |numero intero |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
-| **length** |Obbligatorio |numero intero |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
+| **source** |Obbligatoria |String |Corrisponde in genere al nome dell'attributo. |
+| **start** |Obbligatoria |numero intero |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
+| **length** |Obbligatoria |numero intero |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
 
-- - -
+---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
 **Funzione:**<br> NormalizeDiacritics(source)
 
@@ -106,9 +106,9 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 | Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |String | In genere un attributo nome o cognome. |
+| **source** |Obbligatoria |String | In genere un attributo nome o cognome. |
 
-- - -
+---
 ### <a name="not"></a>not
 **Funzione:**<br> Not(source)
 
@@ -116,11 +116,11 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | Type | Note |
+| Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
+| **source** |Obbligatoria |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
 
-- - -
+---
 ### <a name="replace"></a>Replace
 **Funzione:**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
@@ -145,7 +145,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |String |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **oldValue** |Facoltativo |String |Valore da sostituire in **source** o **template**. |
 | **regexPattern** |Facoltativo |String |Criterio di espressione regolare per il valore da sostituire in **source**. Se invece si usa replacementPropertyName, corrisponde al modello usato per estrarre il valore dalla proprietà di sostituzione. |
 | **regexGroupName** |Facoltativo |String |Nome del gruppo in **regexPattern**. Solo se si usa replacementPropertyName, il valore di questo gruppo verrà estratto come replacementValue dalla proprietà di sostituzione. |
@@ -153,7 +153,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 | **replacementAttributeName** |Facoltativo |String |Nome dell'attributo da usare per il valore di sostituzione, se non sono presenti valori per source. |
 | **template** |Facoltativo |String |Se viene fornito il valore **template**, il valore **oldValue** verrà cercato in template e sostituito con il valore source. |
 
-- - -
+---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
 **Funzione:**<br> SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
 
@@ -166,12 +166,12 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | Type | Note |
+| Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |Sono necessari almeno 2 argomenti, nessun limite superiore |String | Elenco delle regole di generazione di valori univoci da valutare. |
 
 
-- - -
+---
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Funzione:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -179,11 +179,11 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| NOME | Obbligatorio/Ripetuto | Type | Note |
+| Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obbligatorio |String |Oggetto **[appRoleAssignments]** . |
+| **[appRoleAssignments]** |Obbligatoria |String |Oggetto **[appRoleAssignments]** . |
 
-- - -
+---
 ### <a name="split"></a>Split
 **Funzione:**<br> Split(source, delimiter)
 
@@ -193,10 +193,10 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |String |**source** da aggiornare. |
-| **delimiter** |Obbligatorio |String |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
+| **source** |Obbligatoria |String |**source** da aggiornare. |
+| **delimiter** |Obbligatoria |String |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
 
-- - -
+---
 ### <a name="stripspaces"></a>StripSpaces
 **Funzione:**<br> StripSpaces(source)
 
@@ -206,9 +206,9 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 | Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |String |**source** da aggiornare. |
+| **source** |Obbligatoria |String |**source** da aggiornare. |
 
-- - -
+---
 ### <a name="switch"></a>Switch
 **Funzione:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
@@ -218,12 +218,12 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 | Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |String |**Source** da aggiornare. |
+| **source** |Obbligatoria |String |**Source** da aggiornare. |
 | **defaultValue** |Facoltativo |String |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
-| **key** |Obbligatorio |String |Parametro **key** con cui confrontare il valore di **source**. |
-| **value** |Obbligatorio |String |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
+| **key** |Obbligatoria |String |Parametro **key** con cui confrontare il valore di **source**. |
+| **value** |Obbligatoria |String |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
 
-- - -
+---
 ### <a name="tolower"></a>ToLower
 **Funzione:**<br> ToLower (origine, impostazioni cultura)
 
@@ -233,10 +233,10 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |String |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **Impostazioni cultura** |Facoltativo |String |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
-- - -
+---
 ### <a name="toupper"></a>ToUpper
 **Funzione:**<br> ToUpper (origine, impostazioni cultura)
 
@@ -246,7 +246,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 | Name | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |String |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **Impostazioni cultura** |Facoltativo |String |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ## <a name="examples"></a>Esempi

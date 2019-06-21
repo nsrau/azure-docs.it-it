@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bc9f8e29a744a3a40d17b3814c7124eb37c1543b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
-ms.translationtype: HT
+ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269429"
+ms.locfileid: "67303909"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -170,7 +170,7 @@ Il clustering di failover di Windows Server è supportato da Sincronizzazione fi
 
 ### <a name="data-deduplication"></a>Deduplicazione dei dati
 **Agente versione 5.0.2.0**   
-La deduplicazione dei dati è supportata nei volumi con cloud a livelli abilitato in Windows Server 2016 e Windows Server 2019. Abilitando la deduplicazione dei dati in un volume con cloud a livelli abilitato, è possibile memorizzare nella cache un numero maggiore di file in locale senza effettuare il provisioning di altro spazio di archiviazione.
+La deduplicazione dei dati è supportata nei volumi con cloud a livelli abilitato in Windows Server 2016 e Windows Server 2019. Abilitando la deduplicazione dei dati in un volume con cloud a livelli abilitato, è possibile memorizzare nella cache un numero maggiore di file in locale senza effettuare il provisioning di altro spazio di archiviazione. Si noti che questi risparmi volume si applicano solo in locale i dati in file di Azure non saranno essere deduplicati. 
 
 **Agente di Windows Server 2012 R2 o di versioni precedenti**  
 Per i volumi per cui non è abilitata la suddivisione in livelli nel cloud, Sincronizzazione file di Azure supporta l'abilitazione della deduplicazione dei dati di Windows Server per il volume.
@@ -209,9 +209,12 @@ L'esecuzione di sysprep in un server in cui è installato l'agente di Sincronizz
 Se in un endpoint server è abilitata la suddivisione in livelli nel cloud, i file suddivisi in livelli vengono ignorati e non vengono indicizzati dalla ricerca di Windows. I file non suddivisi in livelli vengono indicizzati correttamente.
 
 ### <a name="antivirus-solutions"></a>Soluzioni antivirus
-Un antivirus esegue l'analisi dei file alla ricerca di codice dannoso noto e può quindi causare il richiamo di file archiviati a livelli. Nella versione 4.0 e successive dell'agente di Sincronizzazione file di Azure, per i file archiviati a livelli è impostato l'attributo sicuro di Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. È consigliabile consultare il fornitore del software per ottenere informazioni su come configurare la soluzione in modo che non legga i file per cui è impostato questo attributo (molte lo fanno automaticamente).
+Un antivirus esegue l'analisi dei file alla ricerca di codice dannoso noto e può quindi causare il richiamo di file archiviati a livelli. Nella versione 4.0 e successive dell'agente di Sincronizzazione file di Azure, per i file archiviati a livelli è impostato l'attributo sicuro di Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. È consigliabile consultare il fornitore del software per ottenere informazioni su come configurare la soluzione in modo che non legga i file per cui è impostato questo attributo (molte lo fanno automaticamente). 
 
 Le soluzioni antivirus Microsoft, Windows Defender e System Center Endpoint Protection (SCEP), escludono automaticamente dalla lettura i file con questo attributo. Un test su entrambe le soluzioni ha identificato un problema secondario: quando si aggiunge un server a un gruppo di sincronizzazione esistente, i file di dimensioni inferiori a 800 byte vengono richiamati (scaricati) nel nuovo server. Questi file rimangono nel nuovo server e non vengono suddivisi in livelli, poiché non soddisfano il requisito relativo alle dimensioni della suddivisione in livelli (> 64 KB).
+
+> [!Note]  
+> Fornitori di software antivirus possono verificare la compatibilità tra i prodotti e sincronizzazione File di Azure usando [Azure File Sync Antivirus Compatibility Test Suite] (https://www.microsoft.com/download/details.aspx?id=58322), che è disponibile per il download nel Microsoft Download Center.
 
 ### <a name="backup-solutions"></a>Soluzioni di backup
 Come le soluzioni antivirus, le soluzioni di backup possono causare il richiamo di file archiviati a livelli. È consigliabile usare una soluzione di backup nel cloud per eseguire il backup della condivisione file di Azure anziché usare un prodotto di backup locale.
@@ -265,18 +268,15 @@ Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 | Asia sud-orientale | Singapore |
 | Regno Unito meridionale | Londra |
 | Regno Unito occidentale | Cardiff |
-| US Gov Arizona (anteprima) | Arizona |
-| US Gov Texas (anteprima) | Texas |
-| US Gov Virginia (anteprima) | Virginia |
+| US Gov Arizona | Arizona |
+| US Gov Texas | Texas |
+| US Gov Virginia | Virginia |
 | Europa occidentale | Paesi Bassi |
 | Stati Uniti centro-occidentali | Wyoming |
 | Stati Uniti occidentali | California |
 | Stati Uniti occidentali 2 | Washington |
 
 Sincronizzazione file di Azure supporta solo la sincronizzazione con una condivisione file di Azure nella stessa area del servizio di sincronizzazione archiviazione.
-
-> [!Note]  
-> Sincronizzazione File di Azure è attualmente disponibile solo in anteprima privata per le aree per enti pubblici. Vedere la [note sulla versione](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) per istruzioni su come la registrazione nel programma di anteprima.
 
 ### <a name="azure-disaster-recovery"></a>Ripristino di emergenza di Azure
 Per evitare la perdita di un'area di Azure, Sincronizzazione file di Azure si integra con l'opzione [ di ridondanza dell'archiviazione con ridondanza geografica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). L'archiviazione con ridondanza geografica funziona usando la replica a blocchi asincrona tra l'archiviazione nell'area primaria, con cui in genere interagisce l'utente, e l'archiviazione nell'area secondaria associata. In caso di un'emergenza che provoca la disconnessione temporanea o definitiva di un'area di Azure, Microsoft eseguirà il failover dell'archiviazione nell'area abbinata. 
@@ -311,7 +311,7 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 | Regno Unito occidentale             | Regno Unito meridionale           |
 | US Gov Arizona      | US Gov Texas       |
 | Governo degli Stati Uniti - Iowa         | US Gov Virginia    |
-| US Gov Virgini      | US Gov Texas       |
+| US Gov Virginia      | US Gov Texas       |
 | Europa occidentale         | Europa settentrionale       |
 | Stati Uniti centro-occidentali     | Stati Uniti occidentali 2          |
 | Stati Uniti occidentali             | Stati Uniti orientali            |

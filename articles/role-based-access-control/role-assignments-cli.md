@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1cc3d3eca4063a8120851a9d3de1a85292eacb11
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc5deb614e2ac6e47ff3bf241943df92d97699b2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344564"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295169"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure
 
@@ -192,7 +192,7 @@ Per elencare le assegnazioni di ruolo per un utente specifico, usare [az role as
 az role assignment list --assignee <assignee>
 ```
 
-Per impostazione predefinita, verranno visualizzate solo le assegnazioni che rientrano nell'ambito della sottoscrizione. Per visualizzare le assegnazioni che rientrano nell'ambito della risorsa o del gruppo, usare `--all`.
+Per impostazione predefinita, verranno visualizzate solo le assegnazioni dirette ambite alla sottoscrizione. Per visualizzare le assegnazioni con ambite per risorsa o gruppo, usare `--all` e per visualizzare asisgnments ereditate, utilizzare `--include-inherited`.
 
 L'esempio seguente elenca le assegnazioni di ruolo che vengono assegnate direttamente al *patlong\@contoso.com* utente:
 

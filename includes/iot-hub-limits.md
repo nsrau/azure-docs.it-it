@@ -5,17 +5,17 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238506"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180542"
 ---
 La tabella seguente elenca i limiti associati a diversi livelli di servizio S1, S2, S3 e F1. Per informazioni sui costi della ognuno *unit* in ogni livello, vedere [prezzi dell'IoT Hub di Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Resource | S1 Standard | S2 Standard | S3 Standard | F1 Gratuito |
 | --- | --- | --- | --- | --- |
-| Messaggi al giorno |400,000 |6\.000.000 |300\.000.000 |8\.000 |
+| Messaggi al giorno |400,000 |6\.000.000 |300.000.000 |8\.000 |
 | Unità massime |200 |200 |10 |1 |
 
 > [!NOTE]
@@ -66,7 +66,7 @@ IoT Hub limita le richieste quando vengono superate le quote seguenti.
 | Inoltri dal dispositivo al cloud |6\.000/sec/unità (per S3), 120/sec/unità (per S2), 12/sec/unità (per S1). <br/>Minimo di 100/sec. |
 | Inoltri dal cloud al dispositivo | unità (5000/min/unità) (per S3), 83.33/sec/unit 1.67/sec/unit (100/min/unità) (per S1 e S2). |
 | Ricezioni dal cloud al dispositivo |833.33/sec/unit (50.000/min/unità) (per S3), 16.67/sec/unit (1000/min/unità) (per S1 e S2). |
-| Operazioni di caricamento file |83,33 file caricamento notifiche/sec/unità (5000/min/unità) (per S3), 1,67 file upload notifiche/sec/unità (100/min/unità) (per S1 e S2). <br/> 10\.000 URI di firma di accesso condiviso possono essere generati per un account di archiviazione di Azure in una sola volta.<br/> 10 URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
+| Operazioni di caricamento file |83,33 file caricamento notifiche/sec/unità (5000/min/unità) (per S3), 1,67 file upload notifiche/sec/unità (100/min/unità) (per S1 e S2). <br/> 10.000 URI di firma di accesso condiviso possono essere generati per un account di archiviazione di Azure in una sola volta.<br/> 10 URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
 | Metodi diretti | 24 MB/sec/unit (for S3), 480 KB/sec/unit (for S2), 160 KB/sec/unit (for S1).<br/> Basato su dimensione del contatore della limitazione da 8 KB. |
 | Letture del dispositivo gemello | 500/sec/unità (per S3), numero massimo di 100/sec o 10/sec/unità (per S2), 100/sec (per S1) |
 | Aggiornamenti dei dispositivi gemelli | 250/sec/unità (per S3), numero massimo di 50/sec o 5/sec/unità (per S2), 50/sec (per S1) |

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/16/2019
 ms.author: juliako
-ms.openlocfilehash: 02c359fa7a0da5c7b374e202dc91ceb6489a5352
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
-ms.translationtype: HT
+ms.openlocfilehash: 0abc3eec380cccae2672d0e9aa4a3a4c7199362f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190893"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295672"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -55,13 +55,13 @@ Gli [eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono res
 
 ![pass-through](./media/live-streaming/pass-through.svg)
 
-Quando si usa l'**evento live** pass-through, al codificatore live locale è affidata la generazione di un flusso video con velocità in bit multipla e l'invio come feed di contributi all'evento live (tramite il protocollo RTMP o MP4 frammentato). L'evento live esegue quindi i flussi video in ingresso senza ulteriori elaborazioni. Questo tipo un pass-through evento Live è ottimizzato per gli eventi in tempo reale con esecuzione prolungata o lo streaming live 24 x 365 lineare. 
+Quando si usa il pass-through **evento Live**, affidano il codificatore live locale per generare un flusso video a velocità in bit più e inviare che come il contributo feed all'evento Live (tramite protocollo di input RTMP o MP4 frammentato). I flussi video in ingresso per la creazione dinamica dei pacchetti (Endpoint di Streaming) senza alcun ulteriore transcodifica viene quindi trasferita l'evento Live. Questo tipo un pass-through evento Live è ottimizzato per gli eventi in tempo reale con esecuzione prolungata o lo streaming live 24 x 365 lineare. 
 
 ### <a name="live-encoding"></a>Codifica live  
 
 ![codifica live](./media/live-streaming/live-encoding.svg)
 
-Quando si usa la codifica live con Servizi multimediali, è possibile configurare il codificatore live locale per l'invio di un video a bitrate singolo come feed di contributi all'evento live (tramite il protocollo RTMP o Mp4 frammentato). L'evento live codifica tale flusso a bitrate singolo in ingresso in un [flusso video con velocità in bit multipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) e lo rende disponibile per la distribuzione e la riproduzione in dispositivi tramite protocolli come MPEG-DASH, HLS e Smooth Streaming. 
+Quando si usa cloud codifica con servizi multimediali, si potrebbe configurare il codificatore live locale per l'invio di una velocità in bit singola video come il contributo feed (fino a 32Mbps aggregato) per l'evento Live (tramite protocollo di input RTMP o MP4 frammentato). La transcodifica di eventi Live a bitrate singolo in ingresso con il flusso in una [flussi video a bitrate multipli](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) con risoluzioni diverse per migliorare la distribuzione e lo rende disponibile per il recapito per i dispositivi di riproduzione tramite protocolli standard del settore ad esempio MPEG-DASH, Apple HTTP Live Streaming (HLS) e Microsoft Smooth Streaming. 
 
 ## <a name="live-streaming-workflow"></a>Flusso di lavoro dello streaming live
 

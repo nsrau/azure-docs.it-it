@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b00a5262b1e144aa47cd7fd640906225ff4fecd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 58c5c8321e505fe2c1c7d19c58fe0d031b75b3e4
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068796"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294871"
 ---
 # <a name="azure-disk-encryption-overview"></a>Panoramica di crittografia dischi di Azure
 
@@ -45,7 +45,7 @@ Crittografia dischi di Azure supporta gli scenari cliente seguenti:
 Supporta anche gli scenari seguenti per le macchine virtuali quando sono abilitate in Microsoft Azure:
 
 * Integrazione con Azure Key Vault.
-* [Macchine virtuali di livello standard](https://azure.microsoft.com/pricing/details/virtual-machines/). Le [macchine virtuali Linux](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) all'interno di questi livelli devono soddisfare il requisito di memoria minimo di 7 GB. 
+* [Macchine virtuali di livello standard](https://azure.microsoft.com/pricing/details/virtual-machines/) che soddisfano le [requisito minimo di memoria](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes). 
 * Abilitazione della crittografia in Windows e macchine virtuali Linux, dischi gestiti e di scalabilità macchine virtuali del set di immagini della raccolta di Azure supportate.
 * La disabilitazione della crittografia nel sistema operativo e dati unità per le macchine virtuali Windows, di scalabilità macchine virtuali del set e macchine virtuali con dischi gestiti.
 * La disabilitazione della crittografia nelle unità dati per le macchine virtuali Linux, scalabilità macchine virtuali del set e macchine virtuali con dischi gestiti.
@@ -56,7 +56,7 @@ Supporta anche gli scenari seguenti per le macchine virtuali quando sono abilita
 * Abilitazione della crittografia dei dischi del sistema operativo della macchina virtuale Linux e i dati.
 
    > [!NOTE]
-   > La crittografia dell'unità del sistema operativo per alcune distribuzioni Linux non è supportata. Per altre informazioni, vedere l'articolo [Domande frequenti su Crittografia dischi di Azure](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
+   > La crittografia dell'unità del sistema operativo per alcune distribuzioni Linux non è supportata. Per altre informazioni, vedere il [sistemi operativi supportati per crittografia dischi di Azure: Linux](azure-security-disk-encryption-prerequisites.md#linux).
    
 * Abilitazione della crittografia nelle macchine virtuali configurate con inizio spazi di archiviazione Windows in Windows Server 2016.
 * Eseguire il backup e ripristino di macchine virtuali crittografate per chiave di crittografia della chiave (KEK) e gli scenari non KEK.
@@ -93,8 +93,6 @@ Azure Disk Encryption per le macchine virtuali per Windows e Linux include:
 * [I cmdlet di crittografia dischi di PowerShell](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0).
 * [I cmdlet di crittografia del disco della riga di comando di Azure](/cli/azure/vm/encryption?view=azure-cli-latest).
 * [I modelli di crittografia dischi di Azure Resource Manager](azure-security-disk-encryption-appendix.md#resource-manager-templates).
-
-Crittografia dischi di Azure è supportata nelle macchine virtuali che eseguono Windows o del sistema operativo Linux. Per altre informazioni sui sistemi operativi supportati, vedere [domande frequenti](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 
 > [!NOTE]
 > Non è previsto alcun addebito aggiuntivo per crittografare i dischi delle macchine virtuali con Crittografia dischi di Azure. All'insieme di credenziali delle chiavi usato per archiviare le chiavi di crittografia si applicano i [prezzi di Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) Standard. 

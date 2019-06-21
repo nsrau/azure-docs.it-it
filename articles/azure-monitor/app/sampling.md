@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: c94167929782a2deca7bba19924bfe67dd46bf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7a657f175307e019155e37538021c5aecf5bb068
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388377"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67136887"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -53,7 +53,7 @@ Se è in esecuzione il campionamento adattivo o a frequenza fissa, il campioname
 
 Il campionamento adattivo è disponibile per il SDK di Application Insights per ASP.NET 2.0.0-beta3 e versioni successive, Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1 e versioni successive ed è abilitato per impostazione predefinita.
 
-Il campionamento adattivo riguarda il volume dei dati di telemetria inviati dall'app del server Web all'endpoint del servizio Application Insights. Il volume viene regolato automaticamente affinché rimanga all'interno di una frequenza massima specificata del traffico e viene controllato tramite l'impostazione `MaxTelemetryItemsPerSecond`. Se l'applicazione produce una quantità insufficiente di dati di telemetria, ad esempio durante il debug o a causa di un utilizzo basso, gli elementi non ottenere campionati, purché volume è di sotto `MaxTelemetryItemsPerSecond`. Come il volume di dati di telemetria aumenta, frequenza di campionamento viene regolata in modo da ottenere il volume di destinazione.
+Il campionamento adattivo riguarda il volume dei dati di telemetria inviati dall'app del server Web all'endpoint del servizio Application Insights. Il volume viene regolato automaticamente affinché rimanga all'interno di una frequenza massima specificata del traffico e viene controllato tramite l'impostazione `MaxTelemetryItemsPerSecond`. Se l'applicazione produce una quantità insufficiente di dati di telemetria, ad esempio durante il debug o a causa di un utilizzo basso, gli elementi non verranno eliminati dall'elaboratore di campionamento, purché volume è di sotto `MaxTelemetryItemsPerSecond`. Come il volume di dati di telemetria aumenta, frequenza di campionamento viene regolata in modo da ottenere il volume di destinazione.
 
 Per ottenere il volume di destinazione, alcuni dei dati di telemetria generati vengono eliminati. Tuttavia, come in altri tipi di campionamento, l'algoritmo consente di mantenere gli elementi di telemetria correlati. Ad esempio, quando si controllano i dati di telemetria nella ricerca, sarà possibile trovare la richiesta correlata a una particolare eccezione.
 

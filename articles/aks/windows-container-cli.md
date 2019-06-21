@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/17/2019
 ms.author: twhitney
-ms.openlocfilehash: cdcc1b985c570d1af4bbb33ac29a37e63b1dfa90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9887e923358b5658a365b5cfc88759eca2501e0
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752383"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303563"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Anteprima - creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS) tramite la CLI di Azure
 
@@ -22,7 +22,7 @@ Questa funzionalità è attualmente in anteprima.
 
 ![Immagine del passaggio all'applicazione di esempio ASP.NET](media/windows-container/asp-net-sample-app.png)
 
-Questo articolo presuppone una conoscenza di base dei concetti relativi a Kubernetes. Per altre informazioni, vedere [Concetti di base relativi a Kubernetes per il servizio Azure Kubernetes][kubernetes-concepts].
+Questo articolo presuppone una conoscenza di base dei concetti relativi a Kubernetes. Per altre informazioni, vedere [Kubernetes concetti fondamentali per Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -38,11 +38,11 @@ Dopo aver creato il cluster che può eseguire contenitori Windows Server, è nec
 > Funzionalità di anteprima del servizio contenitore di AZURE sono self-service, fornire il consenso esplicito. Vengono fornite per raccogliere commenti e suggerimenti e bug dalla community. In fase di anteprima, queste funzionalità non sono destinate all'uso di produzione. Le funzionalità in anteprima pubblica rientrano nel supporto "best effort". Assistenza dai team di supporto tecnico di AKS è disponibile durante le ore lavorative Pacifico (PST) solo timezone. Per altre informazioni, vedere i seguenti articoli di supporto:
 >
 > * [Criteri di supporto servizio contenitore di AZURE][aks-support-policies]
-> * [Domande frequenti sul supporto di Azure][aks-faq]
+> * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
     
-I comandi dell'interfaccia della riga per creare e gestire più pool di nodi sono disponibili nel *aks-preview* estensione dell'interfaccia della riga. Installare il *aks-preview* estensione di comando di Azure usando la [Aggiungi estensione az] [ az-extension-add] comando, come illustrato nell'esempio seguente:
+I comandi dell'interfaccia della riga per creare e gestire più pool di nodi sono disponibili nel *aks-preview* estensione dell'interfaccia della riga. Installare il *aks-preview* estensione di comando di Azure usando la [estensione az aggiungere][az-extension-add] comando, come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -53,7 +53,7 @@ az extension add --name aks-preview
 
 ### <a name="register-windows-preview-feature"></a>Registra funzionalità di anteprima di Windows
 
-Per creare un cluster AKS che può usare più pool di nodi ed eseguire contenitori Windows Server, abilitare prima la *WindowsPreview* flag nella sottoscrizione di funzionalità. Il *WindowsPreview* funzionalità Usa anche i cluster a più nodi del pool e per gestire la distribuzione e la configurazione dei nodi Kubernetes set di scalabilità di macchine virtuali. Registrare il *WindowsPreview* flag funzionalità tramite il [register funzionalità az] [ az-feature-register] seguente come mostrato nell'esempio seguente:
+Per creare un cluster AKS che può usare più pool di nodi ed eseguire contenitori Windows Server, abilitare prima la *WindowsPreview* flag nella sottoscrizione di funzionalità. Il *WindowsPreview* funzionalità Usa anche i cluster a più nodi del pool e per gestire la distribuzione e la configurazione dei nodi Kubernetes set di scalabilità di macchine virtuali. Registrare il *WindowsPreview* flag funzionalità tramite il [register funzionalità az][az-feature-register] seguente come mostrato nell'esempio seguente:
 
 ```azurecli-interactive
 az feature register --name WindowsPreview --namespace Microsoft.ContainerService
@@ -62,13 +62,13 @@ az feature register --name WindowsPreview --namespace Microsoft.ContainerService
 > [!NOTE]
 > Tutti i cluster servizio contenitore di AZURE create dopo aver correttamente registrato il *WindowsPreview* flag funzionalità usano questa esperienza di cluster di anteprima. Per continuare a creare i cluster normali, completamente supportato, non abilitare la funzionalità di anteprima nella sottoscrizione di produzione. Usare un test separate o sviluppo sottoscrizione di Azure per verificare le funzionalità di anteprima.
 
-Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato di registrazione usando il comando [az feature list][az-feature-list]:
+Sono necessari alcuni minuti completare la registrazione. Controllare lo stato di registrazione usando il [elenco delle funzionalità az][az-feature-list] comando:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft.ContainerService* usando il comando [az provider register][az-provider-register]:
+Quando lo stato di registrazione è `Registered`, premere Ctrl + C per arrestare il monitoraggio dello stato.  Quindi aggiornare la registrazione dei *containerservice* provider di risorse utilizzando il [register di az provider][az-provider-register] comando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -93,6 +93,10 @@ Un gruppo di risorse di Azure è un gruppo logico in cui le risorse di Azure ven
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
+> [!NOTE]
+> Questo articolo usa la sintassi di Bash per i comandi in questa esercitazione.
+> Se si usa Azure Cloud Shell, assicurarsi che l'elenco a discesa in alto a sinistra della finestra di Cloud Shell sia impostato su **Bash**.
+
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
@@ -113,12 +117,13 @@ L'output di esempio seguente mostra il gruppo di risorse creato correttamente:
 }
 ```
 
-## <a name="create-aks-cluster"></a>Creare un cluster del servizio Azure Container
-Per eseguire un cluster servizio contenitore di AZURE che supportano pool di nodi per i contenitori di Windows Server, il cluster deve utilizzare un criterio di rete che utilizza [Azure CNI] [ azure-cni-about] plug-in rete (avanzate). Per altre informazioni per pianificare gli intervalli di subnet necessarie e considerazioni sulla rete, vedere [configurare la rete di Azure CNI][use-advanced-networking]. Usare la [az aks create] [ az-aks-create] comando per creare un cluster del servizio contenitore di AZURE denominato *myAKSCluster*. Questo comando crea le risorse di rete necessarie se non sono presenti.
+## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
+
+Per eseguire un cluster servizio contenitore di AZURE che supportano pool di nodi per i contenitori di Windows Server, il cluster deve utilizzare un criterio di rete che utilizza [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Usare la [az aks create][az-aks-create] comando per creare un cluster del servizio contenitore di AZURE denominato *myAKSCluster*. Questo comando crea le risorse di rete necessarie se non sono presenti.
   * Il cluster viene configurato con un solo nodo
   * Il *windows-admin-password* e *nome utente amministratore di windows* parametri impostare le credenziali di amministratore per tutti i contenitori Windows Server creati nel cluster.
 
-Fornire il proprio sicure *PASSWORD_WIN*.
+Fornire il proprio sicure *PASSWORD_WIN* (ricordare che i comandi in questo articolo vengano immessi in una shell BASH):
 
 ```azurecli-interactive
 PASSWORD_WIN="P@ssw0rd1234"
@@ -136,6 +141,10 @@ az aks create \
     --network-plugin azure
 ```
 
+> [!Note]
+> Se viene visualizzato un errore di convalida delle password, provare a creare il gruppo di risorse in un'altra area.
+> Quindi provare a creare il cluster con il nuovo gruppo di risorse.
+
 Il comando viene completato dopo pochi minuti e vengono restituite informazioni in formato JSON sul cluster.
 
 ## <a name="add-a-windows-server-node-pool"></a>Aggiungere un pool di nodi di Windows Server
@@ -152,17 +161,17 @@ az aks nodepool add \
     --kubernetes-version 1.14.0
 ```
 
-Il comando precedente crea un nuovo pool di nodi denominato *npwin* e lo aggiunge alle *myAKSCluster*. Quando si crea un pool di nodi per eseguire contenitori Windows Server, il valore predefinito per *nodo-vm-size* viene *Standard_D2s_v3*. Se si sceglie di impostare il *nodo-vm-size* parametro,. controllare l'elenco dei [limitato dimensioni delle macchine Virtuali][restricted-vm-sizes]. È il valore minimo consigliato *Standard_D2s_v3*. Il comando precedente Usa anche la subnet predefinita nella rete virtuale predefinita creata durante l'esecuzione `az aks create`.
+Il comando precedente crea un nuovo pool di nodi denominato *npwin* e lo aggiunge alle *myAKSCluster*. Quando si crea un pool di nodi per eseguire contenitori Windows Server, il valore predefinito per *nodo-vm-size* viene *Standard_D2s_v3*. Se si sceglie di impostare il *nodo-vm-size* parametro,. controllare l'elenco dei [limitato le dimensioni delle VM][restricted-vm-sizes]. È il valore minimo consigliato *Standard_D2s_v3*. Il comando precedente Usa anche la subnet predefinita nella rete virtuale predefinita creata durante l'esecuzione `az aks create`.
 
 ## <a name="connect-to-the-cluster"></a>Connettersi al cluster
 
-Per gestire un cluster Kubernetes, usare [kubectl][kubectl], il client da riga di comando di Kubernetes. Se si usa Azure Cloud Shell, `kubectl` è già installato. Per installare `kubectl` in locale, usare il comando [az aks install-cli][az-aks-install-cli]:
+Per gestire un cluster Kubernetes, si utilizza [kubectl][kubectl], il client della riga di comando di Kubernetes. Se si usa Azure Cloud Shell, `kubectl` è già installato. Per installare `kubectl` in locale, usare il [az aks install-cli][az-aks-install-cli] comando:
 
 ```azurecli
 az aks install-cli
 ```
 
-Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az servizio Azure Kubernetes get-credentials][az-aks-get-credentials]. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
+Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][az-aks-get-credentials]. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -184,9 +193,9 @@ aksnpwin987654                      Ready    agent   108s   v1.14.0
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, ad esempio le immagini del contenitore da eseguire. In questo articolo viene usato un manifesto per creare tutti gli oggetti necessari per eseguire l'applicazione di esempio ASP.NET in un contenitore di Windows Server. Questo manifesto include un' [distribuzione di Kubernetes] [ kubernetes-deployment] per l'applicazione di esempio ASP.NET e un riferimento esterno [servizio Kubernetes] [ kubernetes-service] a accedere all'applicazione da internet.
+Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, ad esempio le immagini del contenitore da eseguire. In questo articolo viene usato un manifesto per creare tutti gli oggetti necessari per eseguire l'applicazione di esempio ASP.NET in un contenitore di Windows Server. Questo manifesto include un' [distribuzione di Kubernetes][kubernetes-deployment] for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service] per accedere all'applicazione da internet.
 
-L'applicazione di esempio ASP.NET viene fornito come parte di [esempi di .NET Framework] [ dotnet-samples] e viene eseguito in un contenitore di Windows Server. Servizio contenitore di AZURE richiede sia basata su immagini di contenitori di Windows Server *Windows Server 2019* o versione successiva. Il Kubernetes file manifesto deve anche definire un [selettore nodo] [ node-selector] per indicare a del cluster servizio contenitore di AZURE per l'esecuzione di pod dell'applicazione di esempio ASP.NET su un nodo che può eseguire contenitori Windows Server.
+L'applicazione di esempio ASP.NET viene fornito come parte di [esempi di .NET Framework][dotnet-samples] e viene eseguito in un contenitore di Windows Server. Servizio contenitore di AZURE richiede sia basata su immagini di contenitori di Windows Server *Windows Server 2019* o versione successiva. Il Kubernetes file manifesto deve anche definire un [selettore nodo][node-selector] per indicare a del cluster servizio contenitore di AZURE per l'esecuzione di pod dell'applicazione di esempio ASP.NET su un nodo che può eseguire contenitori Windows Server.
 
 Creare un file denominato `sample.yaml` e copiarlo nella definizione YAML seguente. Se si usa Azure Cloud Shell, questo file può essere creato usando `vi` o `nano` come se si usasse un sistema virtuale o fisico:
 
@@ -236,7 +245,7 @@ spec:
     app: sample
 ```
 
-Distribuire l'applicazione usando il comando [kubectl apply][kubectl-apply] e specificare il nome del manifesto YAML:
+Distribuire l'applicazione usando il [kubectl applicare][kubectl-apply] comando e specificare il nome del manifesto YAML:
 
 ```azurecli-interactive
 kubectl apply -f sample.yaml
@@ -278,23 +287,23 @@ Per visualizzare l'app di esempio in azione, aprire un web browser all'indirizzo
 
 ## <a name="delete-cluster"></a>Eliminare il cluster
 
-Quando il cluster non è più necessario, usare il comando [az group delete][az-group-delete] per rimuovere il gruppo di risorse, il servizio contenitore e tutte le risorse correlate.
+Quando il cluster non è non è più necessario, usare il [eliminazione gruppo az][az-group-delete] comando per rimuovere il gruppo di risorse, il servizio contenitore e tutte le risorse correlate.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando si elimina il cluster, l'entità servizio di Azure Active Directory utilizzata dal cluster servizio Azure Kubernetes non viene rimossa. Per istruzioni su come rimuovere l'entità servizio, vedere le [considerazioni sull'entità servizio servizio Azure Kubernetes e la sua eliminazione][sp-delete].
+> Quando si elimina il cluster, l'entità servizio di Azure Active Directory utilizzata dal cluster servizio Azure Kubernetes non viene rimossa. Per istruzioni su come rimuovere l'entità servizio, vedere [considerazioni sull'entità e l'eliminazione del servizio AKS][sp-delete].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo, viene distribuito un cluster Kubernetes e distribuita un'applicazione di esempio ASP.NET in un contenitore di Windows Server ad esso. [Accesso al dashboard Web di Kubernetes][kubernetes-dashboard] per il cluster appena creato.
+In questo articolo, viene distribuito un cluster Kubernetes e distribuita un'applicazione di esempio ASP.NET in un contenitore di Windows Server ad esso. [Accedere al dashboard web di Kubernetes][kubernetes-dashboard] per il cluster appena creato.
 
 Per altre informazioni sul servizio Azure Container e l'analisi del codice completo per un esempio di distribuzione, passare all'esercitazione sul cluster Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Esercitazione sul servizio Azure Container][aks-tutorial]
+> [Esercitazione sul servizio contenitore][aks-tutorial]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
