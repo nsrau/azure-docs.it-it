@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c0f19e3ea4f5952ac96b589fa267a2136c85e4f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abf48f3edc090550647b6865e96afeabe3727cf5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711646"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190523"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorare Sincronizzazione file di Azure
 
@@ -69,7 +69,10 @@ Le metriche seguenti per la Sincronizzazione file di Azure sono disponibili in M
 | Nome metrica | Descrizione |
 |-|-|
 | Byte sincronizzati | Dimensioni dei dati trasferiti (caricamento e scaricamento).<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: Nome dell'endopoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
-| Richiamo cloud a livelli | Dimensioni dei dati richiamati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: Server Name |
+| Richiamo cloud a livelli | Dimensioni dei dati richiamati.<br><br>Note: Questa metrica verrà rimossa in futuro. Usare la metrica di dimensioni richiamo suddivisione in livelli nel Cloud per monitorare le dimensioni dei dati richiamati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: Server Name |
+| Dimensioni di richiamo suddivisione in livelli nel cloud | Dimensioni dei dati richiamati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: Server Name, nome gruppo di sincronizzazione |
+| Il cloud di suddivisione in livelli dimensione richiamo dall'applicazione | Dimensioni dei dati richiamati dall'applicazione.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: Application Name, Server Name, nome gruppo di sincronizzazione |
+| Velocità effettiva di richiamo suddivisione in livelli nel cloud | Dimensione della velocità effettiva di richiamo dei dati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: Server Name, nome gruppo di sincronizzazione |
 | File non sincronizzati | Numero di file che non è possibile sincronizzare.<br><br>Unità: Conteggio<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: Nome dell'endopoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
 | File sincronizzati | Numero di file trasferiti (caricamento e scaricamento)<br><br>Unità: Conteggio<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: Nome dell'endopoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
 | Stato online del server | Numero di heartbeat ricevuti dal server.<br><br>Unità: Conteggio<br>Tipo di aggregazione: Massima<br>Dimensioni applicabili: Server Name |
@@ -100,16 +103,16 @@ Cloud di suddivisione in livelli di integrità:
 
 - Per monitorare l'attività di suddivisione in livelli in un server, usare 9003 ID evento, evento 9016 e 9029 nel registro eventi, dati di telemetria che si trova nel Visualizzatore eventi *Applications e services\microsoft\filesync\agent.* .
 
-  - L'ID evento 9003 fornisce inoltre la distribuzione di un errore per un endpoint server. Ad esempio: Numero totale errori e codice di errore. Per ogni codice di errore viene registrato un evento.
-  - L'ID evento 9016 fornisce inoltre risultati di ghosting per un volume. Ad esempio:  Percentuale di spazio libero è, numero di file fantasma nella sessione e numero di file non è stato possibile fantasma.
+  - L'ID evento 9003 fornisce inoltre la distribuzione di un errore per un endpoint server. Ad esempio:  Numero totale errori e codice di errore. Per ogni codice di errore viene registrato un evento.
+  - L'ID evento 9016 fornisce inoltre risultati di ghosting per un volume. Ad esempio: Percentuale di spazio libero è, numero di file fantasma nella sessione e numero di file non è stato possibile fantasma.
   - L'ID evento 9029 fornisce informazioni sulla sessione di ghosting per un endpoint server. Ad esempio:  Numero di file ha tentato nella sessione, numero di file a livelli nella sessione e numero di file già archiviato a livelli.
   
 - Per monitorare l'attività di richiamo su un server, usare 9005 ID evento, 9006, 9009 e nel registro eventi, dati di telemetria che si trova nel Visualizzatore eventi in 9059 *Applications e services\microsoft\filesync\agent.* .
 
-  - L'ID evento 9005 offre affidabilità di richiamo per un endpoint server. Ad esempio: Numero totale di file univoco a cui si accede e totale file univoci con accessi non riusciti.
+  - L'ID evento 9005 offre affidabilità di richiamo per un endpoint server. Ad esempio:  Numero totale di file univoco a cui si accede e totale file univoci con accessi non riusciti.
   - L'ID evento 9006 fornisce inoltre la distribuzione di un errore di richiamo per un endpoint server. Ad esempio:  Totale richieste non riuscite e codice di errore. Per ogni codice di errore viene registrato un evento.
-  - L'ID evento 9009 fornisce informazioni sulla sessione di richiamo per un endpoint server. Ad esempio:  DurationSeconds CountFilesRecallSucceeded e CountFilesRecallFailed.
-  - L'ID evento 9059 fornisce la distribuzione di richiamo delle applicazioni per un endpoint server. Ad esempio: ShareId, nome dell'applicazione e TotalEgressNetworkBytes.
+  - L'ID evento 9009 fornisce informazioni sulla sessione di richiamo per un endpoint server. Ad esempio: DurationSeconds CountFilesRecallSucceeded e CountFilesRecallFailed.
+  - L'ID evento 9059 fornisce la distribuzione di richiamo delle applicazioni per un endpoint server. Ad esempio:  ShareId, nome dell'applicazione e TotalEgressNetworkBytes.
 
 ### <a name="performance-counters"></a>Contatori delle prestazioni
 

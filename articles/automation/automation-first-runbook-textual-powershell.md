@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b08e1489cf337360e838a3b5d5531fa2d4c0073b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 752aca68d1a95734bcefbd0c92d4cfc1e6fade7c
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60694261"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303900"
 ---
 # <a name="my-first-powershell-runbook"></a>Il primo runbook PowerShell
 
@@ -34,6 +34,7 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Account di Automazione](automation-quickstart-create-account.md) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure. Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
 * Macchina virtuale di Azure. La macchina virtuale viene arrestata e avviata, quindi non deve essere una macchina virtuale di produzione.
+* Potresti dover [aggiornare i moduli Azure](automation-update-azure-modules.md) base i cmdlet da usare.
 
 ## <a name="create-new-runbook"></a>Creare un nuovo runbook
 

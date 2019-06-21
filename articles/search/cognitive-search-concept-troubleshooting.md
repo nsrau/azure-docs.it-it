@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c97ccd82a9c09e10572733040e238443cbf777da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0de4d2b9ad0d009b9cd363d19a2de3f29d810d4
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696605"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303459"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Suggerimenti per la risoluzione dei problemi della ricerca cognitiva
 
@@ -94,7 +94,10 @@ L’analisi delle immagini è complessa a livello computazionale anche per i cas
 
 Il tempo di esecuzione massimo varia in base al livello: alcuni minuti per il livello gratuito, indicizzazione di 24 ore per i livelli fatturabili. Se l'elaborazione non viene completata entro un periodo di 24 ore per l'elaborazione a richiesta, passare a una pianificazione per consentire all'indicizzatore di riprendere l'elaborazione dove era stata interrotta. 
 
-Per gli indicizzatori pianificati, l'indicizzazione dell'ultimo documento valido noto viene ripresa nei termini previsti. Tramite una pianificazione ricorrente, l'indicizzatore può concentrarsi sul backlog immagine per svariate ore o giorni, fino a quando è completa l’elaborazione di tutte le immagini. Per altre informazioni sulla sintassi di pianificazione, vedere il [Passaggio 3: Creare un indicizzatore](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+Per gli indicizzatori pianificati, l'indicizzazione dell'ultimo documento valido noto viene ripresa nei termini previsti. Tramite una pianificazione ricorrente, l'indicizzatore può concentrarsi sul backlog immagine per svariate ore o giorni, fino a quando è completa l’elaborazione di tutte le immagini. Per altre informazioni sulla sintassi di pianificazione, vedere il [Passaggio 3: Creare un indicizzatore](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) oppure vedere [come pianificare gli indicizzatori per ricerca di Azure](search-howto-schedule-indexers.md).
+
+> [!NOTE]
+> Se un indicizzatore è impostato su una determinata pianificazione ma ripetutamente ha esito negativo nella stessa documentarla in modo continuativo ogni volta che viene eseguito, avvierà l'indicizzatore è in esecuzione in un intervallo meno frequente (fino al valore massimo di almeno una volta ogni 24 ore) fino a quando non è stato rende aga lo stato di avanzamento in.  Se si ritiene che qualsiasi elemento è stato risolto il problema che causava l'indicizzatore potrebbe essere bloccato a un certo punto, è possibile eseguire un'esecuzione on demand dell'indicizzatore, e se che esegue correttamente lo stato di avanzamento, l'indicizzatore restituirà al relativo intervallo di pianificazione set nuovamente.
 
 Per l’indicizzazione basata sul portale (come descritto nella Guida introduttiva), selezionare l’opzione dell'indicizzatore "Esegui una volta" comporta la limitazione dell’elaborazione a 1 ora (`"maxRunTime": "PT1H"`). È possibile estendere la finestra di elaborazione a un valore maggiore.
 

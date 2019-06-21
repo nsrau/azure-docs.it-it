@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df4f06528d0dd261dd92ab84b07bb705e23f7fd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 523f1adc94870f79d198366059f33ad52f5dad68
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113079"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293079"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
 
@@ -42,7 +42,7 @@ Sì. Gli utenti guest possono reimpostare il metodo di autenticazione a più fat
 L'organizzazione che emette l'invito esegue l'autenticazione a più fattori. L'organizzazione che emette l'invito deve assicurarsi che l'organizzazione abbia un numero sufficiente di licenze per i propri utenti B2B che usano l'autenticazione a più fattori.
 
 ### <a name="what-if-a-partner-organization-already-has-multi-factor-authentication-set-up-can-we-trust-their-multi-factor-authentication-and-not-use-our-own-multi-factor-authentication"></a>Che cosa accade se un'organizzazione partner ha già configurato l'autenticazione a più fattori? È possibile considerare attendibile l'autenticazione a più fattori già presente e non usare la nuova autenticazione a più fattori?
-Questa funzionalità è prevista per una versione futura. Sarà quindi possibile selezionare partner specifici da escludere dall'autenticazione a più fattori dell'organizzazione che emette l'invito.
+Questa funzionalità non è attualmente supportata. Se l'accesso alle risorse dell'organizzazione richiede l'autenticazione a più fattori, l'organizzazione partner dovrà registrarsi per l'autenticazione a più fattori nel (l'invito) dell'organizzazione.
 
 ### <a name="how-can-i-use-delayed-invitations"></a>Come si usano gli inviti posticipati?
 Un'organizzazione può vole aggiungere gli utenti di Collaborazione B2B, effettuarne il provisioning alle applicazioni che richiedono il provisioning e quindi inviare gli inviti. È possibile usare l'API di invito di Collaborazione B2B per personalizzare il flusso di lavoro di onboarding.

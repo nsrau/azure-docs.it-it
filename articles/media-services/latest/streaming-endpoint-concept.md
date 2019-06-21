@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3e1a5d8ba8b6d0ec8e3ec1ba9506a88ee87d8ed1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab74b778757aefc22f66e8b52d1f1d922526f14a
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515734"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296142"
 ---
 # <a name="streaming-endpoints"></a>Endpoint di streaming 
 
@@ -27,7 +27,7 @@ Quando si crea un account di Servizi multimediali viene creato un endpoint di st
 > [!NOTE]
 > Per avviare lo streaming di video, è necessario avviare l **'endpoint di streaming** da cui si vuole trasmettere il video. 
 >  
-> Il costo verrà addebitato solo quando StreamingEndpoint è in stato di esecuzione.
+> Addebitato solo quando Streamingendpoint è nello stato di esecuzione.
 
 ## <a name="naming-convention"></a>Convenzione di denominazione
 
@@ -143,7 +143,7 @@ Quando si aggiunge una rete CDN non è presente alcun valore specifico relativo 
 
 Dopo il provisioning di un Endpoint di Streaming con della rete CDN abilitata vi è un tempo di attesa definita in servizi multimediali prima dell'operazione di aggiornamento del DNS per eseguire il mapping dell'Endpoint di Streaming all'endpoint rete CDN.
 
-Se in seguito si desidera disabilitare o abilitare la rete CDN, l'endpoint di streaming deve essere nello stato **interrotto**. L'abilitazione dell'integrazione della rete CDN di Azure e l'attivazione delle modifiche in tutti i POP della rete CDN potrebbero richiedere fino a due ore. Tuttavia, è possibile avviare l'endpoint di streaming, trasmettere senza interruzioni dall'endpoint di streaming e, dopo aver completato l'integrazione, il flusso viene distribuito dalla rete CDN. Durante il periodo di provisioning l'endpoint di streaming ha stato **avvio in corso** ed è possibile che le prestazioni risultino ridotte.
+Se in seguito si desidera disabilitare o abilitare la rete CDN, l'endpoint di streaming deve essere nello stato **interrotto**. L'abilitazione dell'integrazione della rete CDN di Azure e l'attivazione delle modifiche in tutti i POP della rete CDN potrebbero richiedere fino a due ore. Tuttavia, è possibile avviare l'endpoint di streaming, trasmettere senza interruzioni dall'endpoint di streaming e, dopo aver completato l'integrazione, il flusso viene distribuito dalla rete CDN. Durante il periodo di provisioning sarà l'endpoint di streaming nel **avvio** lo stato e si potrebbe osservare influire negativamente sulle prestazioni.
 
 Quando viene creato l'endpoint di streaming Standard, si è configurato per impostazione predefinita con Verizon Standard. È possibile configurare i provider Premium da Verizon o Akamai Standard usando le API REST. 
 

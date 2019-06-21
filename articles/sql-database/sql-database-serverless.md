@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 06/12/2019
-ms.openlocfilehash: b740b49e2decabd5f104d1db5d38b48f2bc2111c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116193"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275472"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Database SQL di Azure senza server (anteprima)
 
@@ -253,6 +253,8 @@ Il pool di risorse utente è il limite più interno di gestione delle risorse pe
 
 ### <a name="metrics"></a>metrics
 
+Nella tabella seguente sono elencate le metriche per monitorare l'utilizzo delle risorse del pool di utente e del pacchetto di app di un database senza server:
+
 |Entità|Metrica|Descrizione|Unità|
 |---|---|---|---|
 |Pacchetto dell'app|app_cpu_percent|Percentuale del numero di vCore usati dall'app rispetto al numero massimo di vCore consentito per l'app.|Percentuale|
@@ -263,10 +265,6 @@ Il pool di risorse utente è il limite più interno di gestione delle risorse pe
 |Pool di utenti|log_IO_percent|Percentuale di MB/s di log usati dal carico di lavoro utente rispetto al numero massimo di MB/s di log consentiti per il carico di lavoro utente.|Percentuale|
 |Pool di utenti|workers_percent|Percentuale di ruoli di lavoro usati dal carico di lavoro utente rispetto al numero massimo di ruoli di lavoro consentiti per il carico di lavoro utente.|Percentuale|
 |Pool di utenti|sessions_percent|Percentuale di sessioni usate dal carico di lavoro utente rispetto al numero massimo di sessioni consentite per il carico di lavoro utente.|Percentuale|
-____
-
-> [!NOTE]
-> Nel portale di Azure le metriche relative a un database singolo sono disponibili nel riquadro del database in **Monitoraggio**.
 
 ### <a name="pause-and-resume-status"></a>Stato di sospensione e ripresa
 

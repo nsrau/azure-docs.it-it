@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: 01e80748fbca856adfeaaef566093444c425ca6a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: HT
+ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164599"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296201"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventi live e output live
 
@@ -29,7 +29,7 @@ Servizi multimediali di Azure consente di offrire eventi live per i clienti nel 
 
 ## <a name="live-events"></a>Eventi live
 
-Gli [eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'inserimento e dell'elaborazione dei feed video live. Quando si crea un evento live, si genera un endpoint di input che è possibile usare per inviare un segnale in tempo reale da un codificatore remoto. Il codificatore live remoto invia il feed di contributi al suddetto endpoint di input usando il protocollo [RTMP](https://www.adobe.com/devnet/rtmp.html) o [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 frammentato). Per il protocollo di inserimento Smooth Streaming, gli schemi URL supportati sono `http://` o `https://`. Per il protocollo di inserimento RTMP, gli schemi URL supportati sono `rtmp://` o `rtmps://`. 
+Gli [eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'inserimento e dell'elaborazione dei feed video live. Quando si crea un evento Live, viene creato un endpoint di input primario e secondario che è possibile usare per inviare un segnale in tempo reale da un codificatore remoto. Il codificatore live remoto invia il contributo feed a tale input endpoint usando il [RTMP](https://www.adobe.com/devnet/rtmp.html) oppure [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) protocollo di input (MP4 frammentato). Per il protocollo di inserimento RTMP, il contenuto può essere inviato in chiaro (`rtmp://`) o in modo sicuro crittografati in transito (`rtmps://`). Per il protocollo di inserimento Smooth Streaming, gli schemi URL supportati sono `http://` o `https://`.  
 
 ## <a name="live-event-types"></a>Tipi di evento live
 

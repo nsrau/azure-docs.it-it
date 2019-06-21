@@ -5,18 +5,15 @@ services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc3c1a05c64edea260bd177dd7eaefc003db5310
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507220"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296298"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gestire i gruppi di risorse di Azure Resource Manager usando il portale di Azure
 
@@ -109,14 +106,6 @@ Per altre informazioni, vedere [bloccare le risorse per impedire modifiche impre
 ## <a name="export-resource-groups-to-templates"></a>Esportare i gruppi di risorse in modelli
 
 Per informazioni sull'esportazione di modelli, vedere [esportazione singola e a più risorse al modello - portale](export-template-portal.md).
-
-### <a name="fix-export-issues"></a>Risolvere i problemi di esportazione
-
-Non tutti i tipi di risorse supportano la funzione di esportazione del modello. Si verificano problemi di esportazione solo quando si esporta da un gruppo di risorse invece che dalla cronologia della distribuzione. Se la distribuzione più recente rappresenta con precisione lo stato corrente del gruppo di risorse, è consigliabile esportare il modello dalla cronologia della distribuzione invece che dal gruppo di risorse. Eseguire l'esportazione da un gruppo di risorse solo quando sono state apportate al gruppo di risorse modifiche non definite in un singolo modello.
-
-Per risolvere i problemi di esportazione, aggiungere manualmente le risorse mancanti al modello. Il messaggio di errore include i tipi di risorsa che non possono essere esportati. Trovare il tipo di risorsa nelle [informazioni di riferimento sui modelli](/azure/templates/). Per aggiungere manualmente un gateway di rete virtuale, ad esempio, vedere le [informazioni di riferimento sul modello Microsoft.Network/virtualNetworkGateways](/azure/templates/microsoft.network/virtualnetworkgateways). Il riferimento al modello fornisce il formato JSON per aggiungere la risorsa al modello.
-
-Dopo avere ottenuto il formato JSON per la risorsa, è necessario ottenere i valori della risorsa. È possibile ottenere i valori per la risorsa usando l'operazione GET nell'API REST per il tipo di risorsa. Ad esempio, per ottenere i valori per il gateway di rete virtuale, vedere [Gateway di rete virtuale - Get](/rest/api/network-gateway/virtualnetworkgateways/get).
 
 ## <a name="manage-access-to-resource-groups"></a>Gestire l'accesso ai gruppi di risorse
 

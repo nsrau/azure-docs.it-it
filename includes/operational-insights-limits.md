@@ -9,11 +9,11 @@ ms.date: 06/10/2019
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: c5fedc59c80c68fc222693a67664ef60ddd210a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133826"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293461"
 ---
 I limiti seguenti si applicano a ogni area di lavoro di Log Analitica nello corrente in base al consumo al piano tariffario introdotti in aprile 2018:
 
@@ -56,5 +56,5 @@ I limiti seguenti si applicano alle API di Analitica di Log:
 | Category | Limiti | Commenti
 | --- | --- | --- |
 | API dell'Agente di raccolta dati | Dimensioni massime per un singolo post sono di 30 MB.<br>Dimensione massima per i valori dei campi è 32 KB. | Dividere i volumi più grandi in più post.<br>I campi con una lunghezza superiore a 32 KB vengono troncati. |
-| API di ricerca | 5000 record restituiti per i dati non aggregate.<br>500\.000 record per i dati aggregati. | I dati aggregati sono una ricerca che include il `summarize` comando.
+| API di ricerca | 5000 record restituiti per i dati non aggregate.<br>500.000 record per i dati aggregati. | I dati aggregati sono una ricerca che include il `summarize` comando.
  

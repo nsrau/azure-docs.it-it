@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 13eb1a8fcea2f74cda5921a51b8c2e8816be975f
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60237998"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303699"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Log di diagnostica Azure Stream all'area di lavoro di Log Analitica in Monitoraggio di Azure
 
@@ -60,7 +60,7 @@ L'area di lavoro Log Analytics non deve trovarsi nella stessa sottoscrizione del
 
 4. Fare clic su **Save**.
 
-Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e vengono trasmessi i log di diagnostica a tale area di lavoro non appena vengono generati nuovi dati di eventi. Si noti che potrebbero passare fino a quindici minuti tra l'emissione di un evento e la sua apparizione in Log Analytics.
+Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e vengono trasmessi i log di diagnostica a tale area di lavoro non appena vengono generati nuovi dati di eventi. Potrebbero essere presenti fino a 15 minuti tra quando viene generato un evento e la sua apparizione in Log Analitica.
 
 ### <a name="via-powershell-cmdlets"></a>Tramite i cmdlet di PowerShell
 
@@ -99,37 +99,81 @@ L'argomento `--resource-group` è obbligatorio solo se `--workspace` non è un I
 
 Nel pannello del log nel portale di monitoraggio di Azure, è possibile eseguire una query dei log di diagnostica come parte della soluzione gestione dei Log sotto la tabella AzureDiagnostics. Esistono inoltre [diverse soluzioni di monitoraggio per risorse di Azure](../../azure-monitor/insights/solutions.md) è possibile installare per ottenere informazioni dettagliate immediate sui dati di log inviati in Monitoraggio di Azure.
 
+## <a name="azure-diagnostics-vs-resource-specific"></a>Confronto tra Azure Diagnostics e specifici della risorsa  
+Una volta che una destinazione di Log Analitica è abilitata in una configurazione di diagnostica di Azure, esistono due modi distinti che i dati verranno visualizzati nell'area di lavoro:  
+- **Diagnostica di Azure** -si tratta del metodo legacy usato oggi per la maggior parte dei servizi di Azure. In questa modalità, tutti i dati da qualsiasi impostazione di diagnostica a cui un'area di lavoro finirà nel _AzureDiagnostics_ tabella. 
+<br><br>Poiché molte risorse di inviare dati alla stessa tabella (_AzureDiagnostics_), lo schema della tabella è il set degli schemi di tutti i tipi di dati diversi raccolti con privilegi avanzati. Ad esempio, se è stato creato le impostazioni di diagnostica per la raccolta di tipi di dati seguenti, tutti inviati alla stessa area di lavoro:
+    - Controllare i log di 1 risorsa (con un schema costituito da colonne A, B e C)  
+    - Log degli errori di 2 risorse (con un schema costituito da colonne D, E e F)  
+    - Log dei flussi di dati di 3 di risorsa (con un schema costituito da colonne G, H e ho)  
+
+    La tabella AzureDiagnostics apparirà come segue, con alcuni dati di esempio:  
+
+    | ResourceProvider | Categoria | Una | b | C | D | E | F | G | H | I |
+    | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+    | Microsoft.Resource1 | Log di controllo | x1 | y1 | z1 |
+    | Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
+    | Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
+    | Microsoft.Resource1 | Log di controllo | x5 | y5 | z5 |
+    | ... |
+
+- **Risorse specifiche** -In questa modalità, le singole tabelle nell'area di lavoro selezionato vengono create per ogni categoria selezionata nella configurazione di impostazioni di diagnostica. Questo metodo più recente rende molto più semplice trovare esattamente da trovare tramite esplicita separazione dei compiti: una tabella per ogni categoria. Inoltre, offre vantaggi nel supporto per tipi dinamici. Questa modalità per selezionare i tipi di risorse di Azure, si può già osservare ad esempio [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) oppure [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) i log. Infine, si prevede che ogni tipo di dati per eseguire la migrazione alla modalità di specifici della risorsa. 
+
+    Nell'esempio precedente, ciò comporterebbe tre tabelle create: 
+    - Nella tabella _AuditLogs_ come indicato di seguito:
+
+        | ResourceProvider | Categoria | Una | b | C |
+        | -- | -- | -- | -- | -- |
+        | Microsoft.Resource1 | Log di controllo | x1 | y1 | z1 |
+        | Microsoft.Resource1 | Log di controllo | x5 | y5 | z5 |
+        | ... |
+
+    - Nella tabella _ErrorLogs_ come indicato di seguito:  
+
+        | ResourceProvider | Category | D | E | F |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource2 | ErrorLogs | q1 | w1 | e1 |
+        | Microsoft.Resource2 | ErrorLogs | q2 | w2 | e2 |
+        | ... |
+
+    - Nella tabella _DataFlowLogs_ come indicato di seguito:  
+
+        | ResourceProvider | Category | G | H | I |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource3 | DataFlowLogs | j1 | k1 | l1|
+        | Microsoft.Resource3 | DataFlowLogs | j3 | k3 | l3|
+        | ... |
+
+    Altri vantaggi dell'uso della modalità specifiche delle risorse includono prestazioni migliori tra latenza di inserimento e tempi di query, una migliore individuabilità di schemi e la loro struttura, la possibilità di concedere autorizzazioni RBAC a una tabella specifica e altro ancora.
+
+### <a name="selecting-azure-diagnostic-vs-resource-specific-mode"></a>Selezione di diagnostica di Azure modalità specifiche delle risorse di Visual Studio
+Per le risorse di Azure più, non si avrà una scelta se si desidera utilizzare la modalità di diagnostica di Azure o specifici della risorsa; i dati verranno automaticamente instradato attraverso il metodo che la risorsa ha scelto di usare. Vedere la documentazione fornita con la risorsa che è stato abilitato per inviare dati a Log Analitica per informazioni dettagliate in cui viene utilizzata la modalità. 
+
+Come indicato nella sezione precedente, in definitiva è l'obiettivo del monitoraggio di Azure per avere tutti i servizi in Azure, usare la modalità di specifici della risorsa. Per agevolare questa transizione e assicurarsi che nessun dato venga perso come parte di esso, alcuni servizi di Azure durante il caricamento nel Log Analitica fornirà all'utente una selezione della modalità:  
+   ![Selettore di modalità impostazioni diagnostica](media/diagnostic-logs-stream-log-store/diagnostic-settings-mode-selector.png)
+
+Abbiamo **fortemente** consigliabile che, per evitare le migrazioni potenzialmente difficile scegliessimo, qualsiasi appena creati impostazioni di diagnostica utilizzano la modalità incentrato sugli elementi di risorsa.  
+
+Le impostazioni di diagnostica esistenti, una volta abilitato per una particolare risorsa di Azure, sarà in grado di passare in modo retroattivo da diagnostica di Azure per la modalità di specifici della risorsa. I dati inseriti in precedenza continueranno a essere disponibile nel _AzureDiagnostics_ tabella fino a quando non è stato rimosso come configurato nell'impostazione memorizzazione area di lavoro, ma tutti i nuovi dati verranno inviati alla tabella dedicata. Ciò significa che per qualsiasi query che sia necessario eseguire sia i dati vecchi e nuovi (fino a quando non ormai completamente i vecchi dati), un [unione](https://docs.microsoft.com/azure/kusto/query/unionoperator) operatore nella query sarà necessario combinare i due set di dati.
+
+Controllare per i log di supporti nella modalità specifiche delle risorse dei servizi di notizie sul nuovo Azure sul [gli aggiornamenti di Azure](https://azure.microsoft.com/updates/) blog.
+
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Limitazioni note: limite di colonna in AzureDiagnostics
-Poiché molte risorse inviare tutti i tipi di dati vengono inviati alla stessa tabella (_AzureDiagnostics_), lo schema della tabella è il set degli schemi di tutti i tipi di dati diversi raccolti con privilegi avanzati. Ad esempio, se è stato creato le impostazioni di diagnostica per la raccolta di tipi di dati seguenti, tutti inviati alla stessa area di lavoro:
-- Controllare i log di 1 risorsa (con un schema costituito da colonne A, B e C)  
-- Log degli errori di 2 risorse (con un schema costituito da colonne D, E e F)  
-- Log dei flussi di dati di 3 di risorsa (con un schema costituito da colonne G, H e ho)  
- 
-La tabella AzureDiagnostics apparirà come segue, con alcuni dati di esempio:  
- 
-| ResourceProvider | Categoria | Una | b | C | D | E | F | G | H | I |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft.Resource1 | Log di controllo | x1 | y1 | z1 |
-| Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
-| Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
-| Microsoft.Resource1 | Log di controllo | x5 | y5 | z5 |
-| ... |
- 
-È previsto un limite esplicito di ogni singola tabella di Log di Azure non utilizzare le colonne contenenti più di 500. Una volta raggiunto, verranno eliminate tutte le righe contenenti dati con una colonna all'esterno i primi 500 in fase di inserimento. La tabella AzureDiagnostics è particolarmente sensibili per essere interessate questo limite. In genere ciò accade in quanto un'ampia gamma di origini dati vengono inviati alla stessa area di lavoro o diverse origini di dati molto dettagliati inviate alla stessa area di lavoro. 
- 
+È previsto un limite esplicito di ogni singola tabella di Log di Azure non utilizzare le colonne contenenti più di 500. Una volta raggiunto, verranno eliminate tutte le righe contenenti dati con una colonna all'esterno i primi 500 in fase di inserimento. La tabella AzureDiagnostics è particolarmente sensibili per essere interessate questo limite. In genere ciò accade in quanto un'ampia gamma di origini dati vengono inviati alla stessa area di lavoro, o più origini dati dettagliati inviate alla stessa area di lavoro. 
+
 #### <a name="azure-data-factory"></a>Data factory di Azure  
-Azure Data Factory, a causa di un set molto dettagliato dei log, è una risorsa che è noto per essere particolarmente interessate da questo limite. In particolare:  
+Azure Data Factory, a causa di un set molto dettagliato dei log, è una risorsa che è noto per essere particolarmente interessate da questo limite. In particolare, per tutte le impostazioni di diagnostica configurati prima le risorse specifiche modalità è stato abilitato o in modo esplicito sceglie di usare la modalità di risorse specifiche per motivi di compatibilità inverso:  
 - *Parametri dell'utente definiti nei confronti di qualsiasi attività nella pipeline*: esisterà una nuova colonna per ogni parametro denominato in modo univoco utenti su qualsiasi attività creata. 
-- *Attività input e output*: queste variano in un'attività a altra e generare una grande quantità di colonne loro natura dettagliato. 
+- *Attività input e output*: queste variano in un'attività a altra e generare un numero elevato di colonne a causa delle loro natura dettagliato. 
  
-Come con le proposte di soluzione più ampia riportato di seguito, si consiglia di isolare i log di Azure Data Factory nella propria area di lavoro per ridurre al minimo le probabilità di questi log alcun impatto sugli altri tipi di log vengono raccolti in aree di lavoro. Si prevede di avere curata i log per Azure Data Factory è disponibile a breve.
+Come con le proposte di soluzione più ampia riportato di seguito, è consigliabile eseguire la migrazione dei registri per usare la modalità di specifici della risorsa appena possibile. Se è in grado di farlo immediatamente, provvisoria alternativa consiste nell'isolare i log di Azure Data Factory nella propria area di lavoro per ridurre al minimo le probabilità di questi log alcun impatto sugli altri tipi di log vengono raccolti in aree di lavoro. 
  
 #### <a name="workarounds"></a>Soluzioni alternative
-A breve termine, fino a quando non viene ridefinito il limite di 500 colonne, è consigliabile separare i tipi di dati dettagliati in aree di lavoro separate per ridurre la possibilità di raggiungere il limite.
+A breve termine, fino a quando tutti i servizi di Azure sono abilitati nella modalità specifiche delle risorse, per tutti i servizi non è ancora che supportano la modalità di risorse specifiche, è consigliabile separare i tipi di dati dettagliati pubblicati da questi servizi in aree di lavoro separati per ridurre il possibilità di raggiungere il limite.  
  
-Durata, diagnostica di Azure verrà spostati da uno schema unificato, di tipo sparsa in singole tabelle per ogni tipo di dati; combinazione con il supporto per tipi dinamici, ciò migliorerà notevolmente l'usabilità dei dati da inserire i log di Azure tramite il meccanismo di diagnostica di Azure. È possibile già verificarlo per selezionare i tipi di risorse di Azure, ad esempio [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) oppure [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) i log. Per notizie sui nuovi tipi di risorse in Azure che supportano questi log dettagliati su, vedere la [gli aggiornamenti di Azure](https://azure.microsoft.com/updates/) blog!
+Durata, diagnostica di Azure sarà lo spostamento verso tutti i servizi di Azure che supportano la modalità di specifici della risorsa. È consigliabile lo spostamento di questa modalità appena possibile per ridurre le possibilità di essere interessati da questo limite di 500 colonne.  
 
 
 ## <a name="next-steps"></a>Passaggi successivi

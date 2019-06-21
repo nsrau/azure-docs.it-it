@@ -4,14 +4,14 @@ description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: bb7715a7eaa2cb499ed80b78130571f315ef0c95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1cc2f3b1ee657706dba237c86552b1780bc9dd34
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083530"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295436"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -89,14 +89,14 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Machine Learning: i servizi Web di Machine Learning Studio possono essere spostati in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non in un'altra sottoscrizione. Altre risorse di Machine Learning possono essere spostate da una sottoscrizione all'altra.
 * Managed Disks - Managed Disks in zone di disponibilità non è possibile spostare una sottoscrizione diversa
 * Servizi multimediali
-* Monitoraggio: verificare che lo spostamento nella nuova sottoscrizione non comporti il superamento delle [quote di sottoscrizione](../azure-subscription-service-limits.md#monitor-limits).
+* Monitoraggio: verificare che lo spostamento nella nuova sottoscrizione non comporti il superamento delle [quote di sottoscrizione](../azure-subscription-service-limits.md#azure-monitor-limits).
 * Hub di notifica
 * Operational Insights
 * Operations Management
 * Dashboard del portale
 * Power BI - sia Power BI Embedded che Raccolta di aree di lavoro di Power BI
 * IP pubblico: è possibile spostare l'IP pubblico con SKU Basic. L'indirizzo IP pubblico dello SKU Standard non può essere spostato.
-* Insieme di credenziali di Servizi di ripristino: registrarsi in un'[anteprima](#recovery-services-limitations).
+* Servizi di ripristino dell'insieme di credenziali, vedere la [limitazioni](#recovery-services-limitations).
 * SAP HANA in Azure
 * Utilità di pianificazione
 * Ricerca: non è possibile spostare più risorse di Ricerca in aree diverse in un'unica operazione. Al contrario, è possibile spostarle con operazioni separate.
@@ -104,7 +104,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Service Fabric
 * Service Fabric Mesh
 * Servizio SignalR
-* Storage: gli account di archiviazione in aree diverse non possono essere spostati nella stessa operazione. Usare invece operazioni separate per ogni area.
+* Archiviazione
 * Archiviazione (classica): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Servizio di sincronizzazione archiviazione
 * Analisi di flusso: i processi di analisi di flusso non possono essere spostati durante l'esecuzione.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 57eacca75d711c5125a2856a7b6219cd2ec5306b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34f2d11cf4e1fb8e03d037be221e7b18ed4c5ad0
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242039"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303335"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Connessione con SSH ai nodi del cluster del servizio Azure Kubernetes per la risoluzione dei problemi e le attività di manutenzione
 
@@ -22,13 +22,13 @@ Questo articolo mostra come creare una connessione SSH con un nodo servizio Azur
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster del servizio contenitore di AZURE, vedere la Guida introduttiva AKS [tramite la CLI di Azure][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Anche necessario la CLI di Azure versione 2.0.64 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+Anche necessario la CLI di Azure versione 2.0.64 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario installare o eseguire l'aggiornamento, vedere [installare CLI Azure][install-azure-cli].
 
 ## <a name="add-your-public-ssh-key"></a>Aggiungere la chiave SSH pubblica
 
-Per impostazione predefinita, le chiavi SSH sono ottenute, o generate e quindi aggiunti ai nodi quando si crea un cluster AKS. Se è necessario specificare le chiavi SSH diverse rispetto a quelli utilizzati durante la creazione del cluster AKS, aggiungere la chiave pubblica SSH ai nodi Linux AKS. Se necessario, è possibile creare una chiave di SSH usando [macOS o Linux] [ ssh-nix] oppure [Windows][ssh-windows]. Se si usa PuTTY generazione per creare la coppia di chiavi, salvare la coppia di chiavi in un OpenSSH formato anziché il valore predefinito formato chiave privata PuTTy (file con estensione ppk).
+Per impostazione predefinita, le chiavi SSH sono ottenute, o generate e quindi aggiunti ai nodi quando si crea un cluster AKS. Se è necessario specificare le chiavi SSH diverse rispetto a quelli utilizzati durante la creazione del cluster AKS, aggiungere la chiave pubblica SSH ai nodi Linux AKS. Se necessario, è possibile creare una chiave di SSH usando [macOS o Linux][ssh-nix] or [Windows][ssh-windows]. Se si usa PuTTY generazione per creare la coppia di chiavi, salvare la coppia di chiavi in un OpenSSH formato anziché il valore predefinito formato chiave privata PuTTy (file con estensione ppk).
 
 > [!NOTE]
 > Can le chiavi SSH attualmente essere aggiunti solo ai nodi Linux tramite la CLI di Azure. Se si utilizzano i nodi di Windows Server, usare le chiavi SSH fornite durante la creazione del cluster servizio contenitore di AZURE e andare al passaggio sul [come ottenere l'indirizzo del nodo AKS](#get-the-aks-node-address). In alternativa, [connettersi ai nodi Windows Server tramite connessioni remote desktop protocol (RDP)][aks-windows-rdp].
@@ -42,13 +42,13 @@ I passaggi per ottenere l'indirizzo IP privato dei nodi del servizio contenitore
 
 Per aggiungere la chiave SSH a un nodo Linux AKS, completare i passaggi seguenti:
 
-1. Ottenere il nome del gruppo di risorse per le risorse del cluster servizio Azure Kubernetes utilizzando [az servizio Azure Kubernetes show][az-aks-show]. Fornire il proprio gruppo di risorse principale e il nome del cluster servizio contenitore di AZURE. Il nome del cluster è assegnato alla variabile denominata *CLUSTER_RESOURCE_GROUP*:
+1. Ottenere il nome del gruppo di risorse per le risorse del cluster AKS usando [show di az aks][az-aks-show]. Il nome del cluster è assegnato alla variabile denominata *CLUSTER_RESOURCE_GROUP*. Sostituire *myResourceGroup* con il nome del gruppo di risorse in cui si Cluster servizio contenitore di AZURE si trova:
 
     ```azurecli-interactive
     CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
-1. Elencare le macchine virtuali nel gruppo di risorse del cluster servizio Azure Kubernetes utilizzando il comando [az vm list][az-vm-list]. Queste macchine virtuali sono i nodi servizio Azure Kubernetes:
+1. Elencare le macchine virtuali nel servizio contenitore di AZURE del cluster risorsa gruppo usando il [elenco di vm az][az-vm-list] comando. Queste macchine virtuali sono i nodi servizio Azure Kubernetes:
 
     ```azurecli-interactive
     az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
@@ -62,7 +62,7 @@ Per aggiungere la chiave SSH a un nodo Linux AKS, completare i passaggi seguenti
     aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_eastus  eastus
     ```
 
-1. Per aggiungere le chiavi SSH al nodo, utilizzare il comando [az vm user update][az-vm-user-update]. Fornire il nome del gruppo di risorse e quindi uno dei nodi servizio Azure Kubernetes ottenuti nel passaggio precedente. Per impostazione predefinita, il nome utente per i nodi servizio Azure Kubernetes è *azureuser*. Fornire la posizione della propria chiave pubblica SSH, ad esempio *~/.ssh/id_rsa.pub*, oppure incollare il contenuto della chiave pubblica SSH:
+1. Per aggiungere le chiavi SSH al nodo, usare il [aggiornamento di az vm user][az-vm-user-update] comando. Fornire il nome del gruppo di risorse e quindi uno dei nodi servizio Azure Kubernetes ottenuti nel passaggio precedente. Per impostazione predefinita, il nome utente per i nodi servizio Azure Kubernetes è *azureuser*. Fornire la posizione della propria chiave pubblica SSH, ad esempio *~/.ssh/id_rsa.pub*, oppure incollare il contenuto della chiave pubblica SSH:
 
     ```azurecli-interactive
     az vm user update \
@@ -76,19 +76,19 @@ Per aggiungere la chiave SSH a un nodo Linux AKS, completare i passaggi seguenti
 
 Per aggiungere la chiave SSH a un nodo Linux AKS che fa parte di un set di scalabilità di macchine virtuali, completare i passaggi seguenti:
 
-1. Ottenere il nome del gruppo di risorse per le risorse del cluster servizio Azure Kubernetes utilizzando [az servizio Azure Kubernetes show][az-aks-show]. Fornire il proprio gruppo di risorse principale e il nome del cluster servizio contenitore di AZURE. Il nome del cluster è assegnato alla variabile denominata *CLUSTER_RESOURCE_GROUP*:
+1. Ottenere il nome del gruppo di risorse per le risorse del cluster AKS usando [show di az aks][az-aks-show]. Il nome del cluster è assegnato alla variabile denominata *CLUSTER_RESOURCE_GROUP*. Sostituire *myResourceGroup* con il nome del gruppo di risorse in cui si Cluster servizio contenitore di AZURE si trova:
 
     ```azurecli-interactive
     CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
-1. Successivamente, ottenere lo scalabilità di macchine virtuali impostate per il cluster AKS usando il [elenco di az vmss] [ az-vmss-list] comando. Il nome del set di scalabilità di macchina virtuale viene assegnato alla variabile denominata *SCALE_SET_NAME*:
+1. Successivamente, ottenere lo scalabilità di macchine virtuali impostate per il cluster AKS usando il [elenco di az vmss][az-vmss-list] comando. Il nome del set di scalabilità di macchina virtuale viene assegnato alla variabile denominata *SCALE_SET_NAME*:
 
     ```azurecli-interactive
     SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
     ```
 
-1. Per aggiungere le chiavi SSH ai nodi in un set di scalabilità di macchine virtuali, usare il [az vmss estensione set] [ az-vmss-extension-set] comando. Il gruppo di risorse cluster e nome del set di scalabilità di macchine virtuali vengono forniti dai comandi precedenti. Per impostazione predefinita, il nome utente per i nodi servizio Azure Kubernetes è *azureuser*. Se necessario, aggiornare il percorso del proprio percorso della chiave SSH pubblico, ad esempio *~/.ssh/id_rsa.pub*:
+1. Per aggiungere le chiavi SSH ai nodi in un set di scalabilità di macchine virtuali, usare il [az vmss estensione set][az-vmss-extension-set] comando. Il gruppo di risorse cluster e nome del set di scalabilità di macchine virtuali vengono forniti dai comandi precedenti. Per impostazione predefinita, il nome utente per i nodi servizio Azure Kubernetes è *azureuser*. Se necessario, aggiornare il percorso del proprio percorso della chiave SSH pubblico, ad esempio *~/.ssh/id_rsa.pub*:
 
     ```azurecli-interactive
     az vmss extension set  \
@@ -100,7 +100,7 @@ Per aggiungere la chiave SSH a un nodo Linux AKS che fa parte di un set di scala
         --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"$(cat ~/.ssh/id_rsa.pub)\"}"
     ```
 
-1. Applicare la chiave SSH in nodi usando il [az vmss update-instances] [ az-vmss-update-instances] comando:
+1. Applicare la chiave SSH in nodi usando il [az vmss update-instances][az-vmss-update-instances] comando:
 
     ```azurecli-interactive
     az vmss update-instances --instance-ids '*' \
@@ -117,7 +117,7 @@ I nodi servizio Azure Kubernetes non sono pubblicamente esposti in Internet. Per
 
 ### <a name="ssh-to-regular-aks-clusters"></a>SSH per regolare i cluster servizio contenitore di AZURE
 
-Visualizzare l'indirizzo IP privato di un nodo del cluster servizio Azure Kubernetes utilizzando il comando [az vm list-ip-addresses][az-vm-list-ip-addresses]. Fornire il nome del gruppo di risorse del cluster servizio Azure Kubernetes ottenuto in un passaggio [az-servizio Azure Kubernetes-show][az-aks-show] precedente:
+Visualizzare l'indirizzo IP privato di un nodo del cluster AKS usando il [az vm list-ip-addresses][az-vm-list-ip-addresses] command. Provide your own AKS cluster resource group name obtained in a previous [az-aks-show][az-aks-show] passaggio:
 
 ```azurecli-interactive
 az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
@@ -133,7 +133,7 @@ aks-nodepool1-79590246-0  10.240.0.4
 
 ### <a name="ssh-to-virtual-machine-scale-set-based-aks-clusters"></a>SSH al cluster di AKS basata su set di scalabilità macchine virtuali
 
-Elencare l'indirizzo IP interno dei nodi usando il [comando di kubectl get][kubectl-get]:
+Elencare l'indirizzo IP interno dei nodi usando il [kubectl get comando][kubectl-get]:
 
 ```console
 kubectl get nodes -o wide
@@ -172,7 +172,7 @@ Per creare una connessione SSH a un nodo servizio Azure Kubernetes, si esegue un
     apt-get update && apt-get install openssh-client -y
     ```
 
-1. In una nuova finestra del terminale, non connessa al contenitore, elencare i pod sul cluster servizio Azure Kubernetes utilizzando il comando [kubectl get pods][kubectl-get]. Il pod creato nel passaggio precedente inizia con il nome *aks-ssh*, come mostrato nell'esempio seguente:
+1. In una nuova finestra del terminale non è connesso al contenitore, elencare i POD nel cluster AKS usando il [kubectl get pods][kubectl-get] comando. Il pod creato nel passaggio precedente inizia con il nome *aks-ssh*, come mostrato nell'esempio seguente:
 
     ```
     $ kubectl get pods
@@ -224,7 +224,7 @@ Al termine, `exit` la sessione SSH e quindi `exit` la sessione interattiva del c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se sono necessari ulteriori dati per la risoluzione dei problemi, è possibile [visualizzare i log kubelet][view-kubelet-logs] o [visualizzare i log dei nodi master Kubernetes][view-master-logs].
+Se sono necessari dati di risoluzione dei problemi aggiuntivi, è possibile [visualizzare i log di kubelet][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs].
 
 <!-- EXTERNAL LINKS -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

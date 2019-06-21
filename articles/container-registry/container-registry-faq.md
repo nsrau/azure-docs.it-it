@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: sajaya
-ms.openlocfilehash: 1400c023e43179a9c8490334e262711486c75a2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: beeb4986750e398071e3afb6c1f04663f858cec1
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417936"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303582"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su registro contenitori di Azure
 
@@ -440,6 +440,85 @@ Questa impostazione si applica anche al `az acr run` comando.
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [Azioni di GitHub](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
 
+## <a name="error-references-for-az-acr-check-health"></a>Riferimenti a errori per `az acr check-health`
+
+### <a name="dockercommanderror"></a>DOCKER_COMMAND_ERROR
+
+Questo errore indica che il client docker per CLI non è stata trovata, che preclude ricerca versione docker, la valutazione dello stato del daemon docker e assicurando comando docker pull può essere eseguito.
+
+*Possibili soluzioni*: installazione del client docker; percorso docker aggiungendo le variabili di sistema.
+
+### <a name="dockerdaemonerror"></a>DOCKER_DAEMON_ERROR
+
+Questo errore indica che lo stato del daemon docker non è disponibile o che non è raggiungibile tramite la CLI. Ciò significa che le operazioni di docker (ad esempio, account di accesso, pull) sarà disponibile tramite l'interfaccia della riga di comando.
+
+*Possibili soluzioni*: Riavviare il daemon docker, o verificare che sia installato correttamente.
+
+### <a name="dockerversionerror"></a>DOCKER_VERSION_ERROR
+
+Questo errore indica che della riga di comando non è riuscito a eseguire il comando `docker --version`.
+
+*Possibili soluzioni*: provare a eseguire il comando manualmente, assicurarsi di avere la versione più recente dell'interfaccia della riga e provare a utilizzare il messaggio di errore.
+
+### <a name="dockerpullerror"></a>DOCKER_PULL_ERROR
+
+Questo errore indica che l'interfaccia della riga di comando non è in grado di estrarre un'immagine di esempio all'ambiente.
+
+*Possibili soluzioni*: verificare che tutti i componenti necessari per il pull di un'immagine vengano eseguiti correttamente.
+
+### <a name="helmcommanderror"></a>HELM_COMMAND_ERROR
+
+Questo errore indica che il client helm non è stato trovato per l'interfaccia della riga di comando, che preclude altre operazioni di helm.
+
+*Possibili soluzioni*: verificare che helm client viene installato e che il relativo percorso viene aggiunto alle variabili di ambiente di sistema.
+
+### <a name="helmversionerror"></a>HELM_VERSION_ERROR
+
+Questo errore indica che l'interfaccia della riga di comando è riuscito a determinare la versione di Helm installata. Questa situazione può verificarsi se la versione della riga di comando di Azure (o se la versione di helm) in uso è obsoleta.
+
+*Possibili soluzioni*: aggiornamento alla versione più recente della riga di comando di Azure o per la versione di helm consigliato; eseguire il comando manualmente ed esaminare il messaggio di errore.
+
+### <a name="connectivitydnserror"></a>CONNECTIVITY_DNS_ERROR
+
+Questo errore indica che il DNS per il server di accesso del Registro di sistema specificato è stato inviato un ping, ma non ha risposto, ovvero che è disponibile. Questo può indicare problemi di connettività. Questo può anche significare che il Registro di sistema non esiste, che l'utente non dispone di autorizzazioni nel Registro di sistema (per recuperare correttamente il server di accesso) o che nel Registro di sistema di destinazione in un cloud diverso rispetto a quello utilizzato nel comando di Azure.
+
+*Possibili soluzioni*: convalidare la connettività: controllare l'ortografia del Registro di sistema e del Registro di sistema esiste, verificare che l'utente disponga delle autorizzazioni appropriate su di esso e che il cloud del Registro di sistema sia uguale a quello utilizzato nel comando di Azure.
+
+### <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
+
+Ciò significa che l'endpoint di richiesta per il Registro di sistema specificata ha risposto con uno stato 403 HTTP non è consentito. Ciò significa che gli utenti autorizzati ad accedere al Registro di sistema, probabilmente a causa di una configurazione di rete virtuale.
+
+*Possibili soluzioni*: rimuovere le regole della rete virtuale oppure aggiungere l'indirizzo IP client corrente all'elenco consentiti.
+
+### <a name="connectivitychallengeerror"></a>CONNECTIVITY_CHALLENGE_ERROR
+
+Questo errore indica che l'endpoint di richiesta di verifica del Registro di sistema di destinazione non ha emesso una richiesta di verifica.
+
+*Possibili soluzioni*: provare più tardi. Se l'errore persiste, aprire problemi am nel https://aka.ms/acr/issues.
+
+### <a name="connectivityaadloginerror"></a>CONNECTIVITY_AAD_LOGIN_ERROR
+
+Questo errore indica che l'endpoint di richiesta di verifica del Registro di sistema di destinazione rilasciato una sfida, ma il Registro di sistema non supporta account di accesso AAD.
+
+*Possibili soluzioni*: provare un altro modo la registrazione in, ad esempio, le credenziali di amministratore. Nel caso in cui l'utente desidera accedere con il supporto AAD, Apri problema am https://aka.ms/acr/issues.
+
+### <a name="connectivityrefreshtokenerror"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
+
+Ciò significa che il server di accesso del Registro di sistema non ha risposto con un token di aggiornamento, il che significa che è stato negato l'accesso al Registro di sistema di destinazione. Questa situazione può verificarsi se l'utente non ha le autorizzazioni appropriate nel Registro di sistema o se le credenziali dell'utente della riga di comando di Azure sono obsolete.
+
+*Soluzioni potenziali*: verificare se l'utente disponga delle autorizzazioni appropriate nel Registro di sistema; eseguire `az login` per aggiornare le autorizzazioni, i token e le credenziali.
+
+### <a name="connectivityaccesstokenerror"></a>CONNECTIVITY_ACCESS_TOKEN_ERROR
+
+Ciò significa che il server di accesso del Registro di sistema non ha risposto con un token di accesso, il che significa che è stato negato l'accesso al Registro di sistema di destinazione. Questa situazione può verificarsi se l'utente non ha le autorizzazioni appropriate nel Registro di sistema o se le credenziali dell'utente della riga di comando di Azure sono obsolete.
+
+*Soluzioni potenziali*: verificare se l'utente disponga delle autorizzazioni appropriate nel Registro di sistema; eseguire `az login` per aggiornare le autorizzazioni, i token e le credenziali.
+
+### <a name="loginservererror"></a>LOGIN_SERVER_ERROR
+
+Ciò significa che l'interfaccia della riga di comando è riuscito a trovare il server di accesso del Registro di sistema specificato e per il cloud corrente è stato trovato alcun suffisso predefinito. Questa situazione può verificarsi se il Registro di sistema non esiste, se l'utente non dispone delle autorizzazioni appropriate nel Registro di sistema, se non corrispondono a cloud del Registro di sistema e il cloud di Azure dell'interfaccia della riga corrente o se la versione della riga di comando di Azure è obsoleta.
+
+*Possibili soluzioni*: verificare che l'ortografia sia corretta e che il Registro di sistema esiste, verifica se l'utente ha le autorizzazioni appropriate nel Registro di sistema e che i cloud del Registro di sistema e dell'ambiente dell'interfaccia della riga corrispondano; della riga di comando di Azure l'aggiornamento alla versione più recente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

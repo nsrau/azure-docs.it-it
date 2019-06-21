@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 007b6c409dde248a4dde7a15fd16b543add234bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57e66d449b194662bfc03f7e130cf49c02a15793
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64870313"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275704"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gestire i costi AWS e utilizzo in Azure
 
@@ -129,6 +129,8 @@ Usare le informazioni sulla risoluzione dei problemi seguenti per risolvere i pr
 
 ### <a name="no-permission-to-aws-linked-accounts"></a>Nessuna autorizzazione per gli account collegati AWS
 
+**Codice di errore:** _Non autorizzato_
+
 Esistono due modi per ottenere le autorizzazioni per accedere ai costi AWS collegati gli account:
 
 - Ottieni l'accesso al gruppo di gestione che contenga gli account AWS collegato.
@@ -136,7 +138,11 @@ Esistono due modi per ottenere le autorizzazioni per accedere ai costi AWS colle
 
 Per impostazione predefinita, l'autore di connettore AWS è il proprietario di tutti gli oggetti che ha creato il connettore. Tra cui, di AWS account consolidati e AWS collegato l'account.
 
+Per poter essere in grado di verificare le impostazioni del connettore è necessario almeno un ruolo di collaboratore, lettore non può verificare le impostazioni del connettore
+
 ### <a name="collection-failed-with-assumerole"></a>Raccolta non è riuscita con AssumeRole
+
+**Codice di errore:** _FailedToAssumeRole_
 
 Questo errore indica che Gestione costi è in grado di chiamare l'API di AssumeRole AWS. Questo problema può verificarsi a causa di un problema con la definizione di ruolo. Verificare che le condizioni seguenti sono vere:
 
@@ -147,11 +153,23 @@ Questo errore indica che Gestione costi è in grado di chiamare l'API di AssumeR
 
 ### <a name="collection-failed-with-access-denied"></a>Raccolta non è riuscita con accesso negato
 
-Questo messaggio di errore indica che Gestione costi è in grado di accedere ai file CUR archiviati nel bucket Amazon S3. Assicurarsi che i criteri di AWS JSON collegati al ruolo è simile all'esempio illustrato nella parte inferiore della [creare un ruolo e i criteri in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) sezione.
+- **Codice di errore:** _AccessDeniedReportDefinitions_ 
+- **Codice di errore:** _AccessDeniedListReports_ 
+- **Codice di errore:** _AccessDeniedDownloadReport_ 
 
-### <a name="connector-error-with-failedtofindreport"></a>Errore del connettore con FailedToFindReport
+Questo errore messaggi significa che Gestione costi è in grado di accedere ai file CUR archiviati nel bucket Amazon S3. Assicurarsi che i criteri di AWS JSON collegati al ruolo è simile all'esempio illustrato nella parte inferiore della [creare un ruolo e i criteri in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) sezione.
+
+### <a name="collection-failed-since-we-did-not-find-the-cost-and-usage-report"></a>Raccolta non è riuscita perché non è stato trovato il costo e Report di utilizzo
+
+**Codice di errore:** _FailedToFindReport_
 
 Questo errore indica che Gestione costi di impossibilità di trovare il report di utilizzo e costi che è stato definito in connector. Assicurarsi che non viene eliminato e che i criteri di AWS JSON collegati al ruolo è simile all'esempio illustrato nella parte inferiore della [creare un ruolo e i criteri in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) sezione.
+
+### <a name="unable-to-create-or-verify-connector-due-to-cost-and-usage-report-definitions-mismatch"></a>Impossibile creare o verificare connettore causato dalla mancata corrispondenza di definizioni di Report di utilizzo e costi
+
+**Codice di errore:** _ReportIsNotValid_
+
+Questo errore è correlato alla definizione del costo di AWS e i Report di utilizzo, si richiedono le impostazioni specifiche per questo report, vedere i requisiti in [creare un report di utilizzo e costi in AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

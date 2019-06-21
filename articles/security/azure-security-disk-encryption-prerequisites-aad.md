@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 201998168b0709b1608ffad2565518e15d47e52c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70cb7f53032dca2b0fedbf4581b88aea07960515
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234292"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294877"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Prerequisiti di Crittografia dischi di Azure (versione precedente)
 
@@ -24,30 +24,65 @@ Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di 
 
 > [!WARNING]
 > - Alcune indicazioni possono comportare un maggior utilizzo delle risorse di calcolo, rete o dati con un conseguente aumento dei costi di licenza o sottoscrizione. Per creare le risorse in Azure nella aree geografiche supportate, è necessario avere una sottoscrizione di Azure attiva e valida.
-> - Se in precedenza è stata usata la [Crittografia dischi di Azure con l'app Azure AD](azure-security-disk-encryption-prerequisites-aad.md) per crittografare la macchina virtuale, sarà necessario continuare a usare questa opzione per crittografare la macchina virtuale. Non è possibile usare la [Crittografia dischi di Azure](azure-security-disk-encryption-prerequisites.md) in questa macchina virtuale crittografata poiché non è uno scenario supportato ovvero non è ancora supportato il trasferimento dall'applicazione AAD per questa macchina virtuale. 
+> - Se in precedenza è stata usata la [Crittografia dischi di Azure con l'app Azure AD](azure-security-disk-encryption-prerequisites-aad.md) per crittografare la macchina virtuale, sarà necessario continuare a usare questa opzione per crittografare la macchina virtuale. Non è possibile usare [Crittografia dischi di Azure](azure-security-disk-encryption-prerequisites.md) in questa macchina virtuale crittografata perché non è uno scenario supportato, ovvero non è ancora supportato il trasferimento dall'applicazione AAD per questa macchina virtuale. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="bkmk_OSs"></a> Sistemi operativi supportati
-Crittografia dischi di Azure è supportato nei sistemi operativi seguenti:
+## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
-- Versioni di Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016.
-  - Per Windows Server 2008 R2 è necessario che .NET Framework 4.5 sia installato prima dell'abilitazione della crittografia in Azure. Installarlo da Windows Update tramite l'aggiornamento facoltativo Microsoft .NET Framework 4.5.2 per i sistemi Windows Server 2008 R2 basati su x64 ([KB2901983](https://support.microsoft.com/kb/2901983)).    
+### <a name="windows"></a>Windows
+
+- Versioni di Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2012 R2 Server Core e Windows Server 2016 Server core.
+Per Windows Server 2008 R2 è necessario che .NET Framework 4.5 sia installato prima dell'abilitazione della crittografia in Azure. Installarlo da Windows Update con l'aggiornamento facoltativo Microsoft .NET Framework 4.5.2 per sistemi basati su x64 di Windows Server 2008 R2 (KB2901983).
+- Componenti di base di Windows Server 2012 R2 e Windows Server 2016 Core sono supportate da crittografia dischi di Azure dopo la componente bdehdcfg viene installata nella macchina virtuale.
 - Versioni del Client Windows: Client Windows 8 e client Windows 10.
-- Crittografia dischi di Azure è supportato solo in distribuzioni e versioni specifiche della raccolta di Azure basata sul server Linux. Per l'elenco delle versioni attualmente supportate, vedere le [domande frequenti su Crittografia dischi di Azure](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
+
+### <a name="linux"></a>Linux 
+
+Crittografia dischi di Azure è supportata in un subset del [distribuzioni Linux approvate per Azure](../virtual-machines/linux/endorsed-distros.md), che è a sua volta un subset di tutti i server possibili delle distribuzioni di Linux.
+
+![Diagramma di Venn di server distribuzioni Linux che supportano crittografia dischi di Azure](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+
+Distribuzioni di server Linux non approvate da Azure non supportano crittografia dischi di Azure e, di tali approvate solo le versioni e le distribuzioni seguenti supportano crittografia dischi di Azure:
+
+| Distribuzione Linux | Version | Tipo di volume supportato per la crittografia|
+| --- | --- |--- |
+| Ubuntu | 18,04| Disco del sistema operativo e dati |
+| Ubuntu | 16.04| Disco del sistema operativo e dati |
+| Ubuntu | 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disco del sistema operativo e dati |
+| RHEL | 7.6 | Disco del sistema operativo e dati (vedere nota sotto) |
+| RHEL | 7.5 | Disco del sistema operativo e dati (vedere nota sotto) |
+| RHEL | 7.4 | Disco del sistema operativo e dati (vedere nota sotto) |
+| RHEL | 7.3 | Disco del sistema operativo e dati (vedere nota sotto) |
+| RHEL | 7.2 | Disco del sistema operativo e dati (vedere nota sotto) |
+| RHEL | 6.8 | Disco dati (vedere nota sotto) |
+| RHEL | 6.7 | Disco dati (vedere nota sotto) |
+| CentOS | 7.6 | Disco del sistema operativo e dati |
+| CentOS | 7.5 | Disco del sistema operativo e dati |
+| CentOS | 7.4 | Disco del sistema operativo e dati |
+| CentOS | 7.3 | Disco del sistema operativo e dati |
+| CentOS | 7.2n | Disco del sistema operativo e dati |
+| CentOS | 6.8 | Disco dati |
+| openSUSE | 42.3 | Disco dati |
+| SLES | 12-SP4 | Disco dati |
+| SLES | 12-SP3 | Disco dati |
+
+> [!NOTE]
+> La nuova implementazione ADE è supportata per RHEL del sistema operativo e dischi dati per le immagini con pagamento a consumo RHEL7. Crittografia dischi di Azure non è attualmente supportata per le immagini RHEL di tipo BYOS (Bring-Your-Own-Subscription). Visualizzare [crittografia dischi di Azure per Linux](azure-security-disk-encryption-linux.md) per altre informazioni.
+
 - Crittografia dischi di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali si trovino nella stessa area e sottoscrizione di Azure. La configurazione delle risorse in aree separate causa un errore nell'attivazione della funzionalità Crittografia dischi di Azure.
 
-## <a name="bkmk_LinuxPrereq"></a> Prerequisiti aggiuntivi per le macchine virtuali Iaas Linux 
+#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Prerequisiti aggiuntivi per le VM IaaS Linux 
 
-- Crittografia dischi di Azure per Linux richiede 7 GB di RAM nella macchina virtuale per abilitare la crittografia del disco del sistema operativo nelle [immagini supportate](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Una volta completato il processo di crittografia del disco del sistema operativo, la macchina virtuale può essere configurata per essere eseguita con meno memoria.
+- Crittografia dischi di Azure richiede il dm-crypt e moduli vfat sia presentano nel sistema. Rimozione o la disabilitazione vfat dall'immagine predefinita impedirà il sistema di leggere il chiave volume e come ottenere la chiave necessaria per sbloccare i dischi in riavvii successivi. Passaggi di protezione avanzata del sistema che rimuove il modulo vfat dal sistema non sono compatibili con crittografia dischi di Azure. 
 - Prima di abilitare la crittografia, i dischi dati da crittografare devono essere elencati correttamente in /etc/fstab. Usare un nome del dispositivo a blocchi permanente per questa voce, in quanto i nomi di dispositivo nel formato "dev/sdX" non possono essere considerati affidabili per l'associazione con lo stesso disco tra un riavvio e l'altro, in particolare dopo l'applicazione della crittografia. Per altre informazioni su questo comportamento, vedere: [Risolvere il problema dei nomi di dispositivo nelle macchine virtuali Linux](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Verificare che le impostazioni /etc/fstab siano configurate correttamente per il montaggio. Per configurare queste impostazioni, eseguire il comando mount -a o riavviare la macchina virtuale e attivare il rimontaggio in questo modo. Al termine, controllare l'output del comando lsblk per verificare che l'unità desiderata sia ancora montata. 
   - Se il file /etc/fstab non monta l'unità in modo corretto prima di abilitare la crittografia; Crittografia dischi di Azure non sarà in grado di montarla correttamente.
   - Il processo di Crittografia dischi di Azure sposterà le informazioni di montaggio da /etc/fstab e le inserirà in un proprio file di configurazione come parte del processo di crittografia. Non allarmarsi per la mancanza della voce da /etc/fstab dopo il completamento della crittografia dell'unità dati.
-  -  Dopo il riavvio, il processo di Crittografia dischi di Azure avrà bisogno di tempo per montare i dischi appena crittografati. Non saranno disponibili immediatamente dopo un riavvio. Il processo richiede tempo per iniziare, sbloccare e quindi montare le unità crittografate prima che siano disponibili per l'accesso da parte di altri processi. Questo processo potrebbe richiedere più di un minuto dopo il riavvio, a seconda delle caratteristiche di sistema.
+  - Prima di avviare la crittografia, assicurarsi di arrestare tutti i servizi e processi che può essere scritto in dischi dati montati e disabilitarli, in modo che che non si riavviano automaticamente dopo un riavvio. Si potrebbero non chiudere i file in queste partizioni, impedendo la procedura di crittografia per consentire il rimontaggio, causando un errore di crittografia dei dati. 
+  - Dopo il riavvio, il processo di Crittografia dischi di Azure avrà bisogno di tempo per montare i dischi appena crittografati. Non saranno disponibili immediatamente dopo un riavvio. Il processo richiede tempo per iniziare, sbloccare e quindi montare le unità crittografate prima che siano disponibili per l'accesso da parte di altri processi. Questo processo potrebbe richiedere più di un minuto dopo il riavvio, a seconda delle caratteristiche di sistema.
 
-Un esempio dei comandi che è possibile usare per montare i dischi dati e creare le voci /etc/fstab necessarie è disponibile alle [righe 197-205 di questo file di script](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L197-L205). 
-
+Un esempio dei comandi che è possibile usare per montare i dischi dati e creare le voci /etc/fstab necessarie è disponibile alle [righe 244-248 di questo file di script](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
 
 ## <a name="bkmk_GPO"></a> Rete e Criteri di gruppo
 

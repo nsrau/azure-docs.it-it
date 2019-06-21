@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b03109ee5cdb76247bf3be6fda97e0cf6e434f17
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519008"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296097"
 ---
-# <a name="get-started-with-azure-monitor-log-queries"></a>Introduzione alle query di log in Monitoraggio di Azure
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Introduzione alle query di log in Monitoraggio di Azure
 
 
 > [!NOTE]
@@ -28,9 +28,9 @@ ms.locfileid: "65519008"
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In questa esercitazione si apprenderà come scrivere query di log di monitoraggio di Azure. Si apprenderà come:
+In questa esercitazione si apprenderà a scrivere query di log in Monitoraggio di Azure. Si apprenderà come:
 
-- Comprendere la struttura delle query
+- Comprendere la struttura di query
 - Ordinare i risultati di query
 - Filtrare i risultati di query
 - Specificare un intervallo di tempo
@@ -38,6 +38,8 @@ In questa esercitazione si apprenderà come scrivere query di log di monitoraggi
 - Definire e usare campi personalizzati
 - Aggregare e raggruppare i risultati
 
+Per un'esercitazione sull'uso di Log Analitica nel portale di Azure, vedere [Introduzione a Azure Monitor Log Analitica](get-started-portal.md).<br>
+Per altre informazioni sulle ricerche log in Monitoraggio di Azure, vedere [Panoramica del log di query in Monitoraggio di Azure](log-query-overview.md).
 
 ## <a name="writing-a-new-query"></a>Scrittura di una nuova query
 Le query possono iniziare con un nome di tabella o con il comando *search*. È consigliabile iniziare con un nome di tabella, perché definisce un chiaro ambito per la query e consente di migliorare sia le prestazioni di query che la pertinenza dei risultati.
@@ -71,8 +73,8 @@ search in (SecurityEvent) "Cryptographic"
 
 Questa query cerca nella tabella *SecurityEvent* i record che contengono il termine "Cryptographic". Di questi record, ne vengono restituiti e visualizzati 10. Se si omette la parte `in (SecurityEvent)` e si esegue solamente il comando `search "Cryptographic"`, la ricerca viene eseguita in *tutte* le tabelle e quindi richiede più tempo ed è meno efficiente.
 
-> [!NOTE]
-> Per impostazione predefinita, viene usato un intervallo di tempo corrispondente alle _ultime 24 ore_. Per usare un intervallo diverso, usare il controllo di selezione di data e ora (che si trova vicino al pulsante *Vai*) o aggiungere alla query un filtro di intervallo di tempo esplicito.
+> [!WARNING]
+> Le query di ricerca sono in genere più lente rispetto alle query basate su tabelle perché hanno elaborare più dati. 
 
 ## <a name="sort-and-top"></a>Sort e top
 Sebbene **take** sia utile per ottenere pochi record, i risultati vengono selezionati e visualizzati senza alcun ordine particolare. Per ottenere una visualizzazione ordinata, è possibile usare il comando **sort**, per ordinare i risultati in base alla colonna preferita:
