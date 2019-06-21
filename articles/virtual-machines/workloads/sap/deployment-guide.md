@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: c93bca14d9385eaf9f79f69d76e9e704796da7a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82ab400c89cb57f3cf72cfb9196ea7c6402808fe
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66154011"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203923"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Distribuzione di Macchine virtuali di Microsoft Azure per SAP NetWeaver
 
@@ -534,7 +534,7 @@ Dopo aver distribuito la VM in Azure, installare il software SAP nella VM con le
 Poiché le diverse versioni di un sistema operativo o DBMS richiedono patch diverse, le immagini trovare in Azure Marketplace potrebbero non soddisfare tutte le esigenze. È consigliabile invece creare una VM usando la propria immagine di VM del sistema operativo/DBMS, che sarà possibile distribuire di nuovo in un secondo momento.
 La procedura per creare un'immagine privata per Linux è diversa da quella per crearne una per Windows.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Per preparare un'immagine Windows da poter usare per distribuire più macchine virtuali, è necessario eseguire l'astrazione o la generalizzazione delle impostazioni di Windows (come il nome host e il SID di Windows) nella VM locale. A tale scopo, è possibile usare [sysprep](https://msdn.microsoft.com/library/hh825084.aspx).
@@ -545,7 +545,7 @@ La procedura per creare un'immagine privata per Linux è diversa da quella per c
 >
 >
 
-- - -
+---
 È possibile preparare e creare un'immagine personalizzata e quindi usarla per creare più VM nuove, come illustrato in [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide]. Configurare il contenuto del database usando SAP Software Provisioning Manager per installare un nuovo sistema SAP (che ripristina un backup del database da un disco collegato alla macchina virtuale) o ripristinando un backup del database direttamente da Archiviazione di Azure, se l'operazione è supportata dal sistema DBMS. Per altre informazioni, vedere [Distribuzione DBMS di Macchine virtuali di Azure per SAP NetWeaver][dbms-guide]. Se è già stato installato un sistema SAP nella macchina virtuale locale (soprattutto per sistemi a due livelli), è possibile adattare le impostazioni del sistema SAP dopo la distribuzione della macchina virtuale di Azure usando la procedura di ridenominazione del sistema supportata da SAP Software Provisioning Manager (nota SAP [1619720]). In caso contrario, è possibile installare il software SAP dopo la distribuzione della VM di Azure.
 
 Il diagramma di flusso seguente illustra la sequenza di passaggi specifica di SAP per distribuire una VM da un'immagine personalizzata:
@@ -674,7 +674,7 @@ In questo scenario l'agente di macchine virtuali **non** viene installato automa
 
 Per altre informazioni sull'agente di macchine virtuali di Azure, vedere le risorse seguenti.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > [Panoramica dell'agente di macchine virtuali di Azure][virtual-machines-windows-agent-user-guide]
@@ -685,7 +685,7 @@ Per altre informazioni sull'agente di macchine virtuali di Azure, vedere le riso
 >
 >
 
-- - -
+---
 
 Il diagramma di flusso seguente illustra la sequenza di passaggi per spostare una VM locale usando un disco rigido virtuale di Azure non generalizzato:
 

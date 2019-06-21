@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b19c0fd8af2792a4ffb877e5c6a7fc6b3f94511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 975289f338e638ed0209d4f6cf2a163ced996e42
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836120"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202949"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP
 [1114181]: https://launchpad.support.sap.com/#/notes/1114181
@@ -150,7 +150,7 @@ Il posizionamento dei file di database e file di log e rollforward e il tipo di 
 Come già indicato, se i requisiti di IOPS superano a ciò che è possibile fornire un singolo disco rigido virtuale, bilanciare il numero di IOPS necessari per i file di database in un numero di dischi rigidi virtuali. Il modo più semplice per distribuire il carico IOPS nei dischi consiste nella compilazione di una striscia di software nei diversi dischi. Quindi inserire un numero di file di dati del sistema DBMS SAP nei LUN ricavati dallo striping software. Il numero di dischi in striping è basato sulle richieste IOPs, le richieste di velocità effettiva del disco e volume di richieste.
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > È consigliabile l'uso di spazi di archiviazione di Windows per creare set di striping tra più dischi rigidi virtuali di Azure. Usare almeno Windows Server 2012 R2 o Windows Server 2016.
@@ -164,7 +164,7 @@ Come già indicato, se i requisiti di IOPS superano a ciò che è possibile forn
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > Poiché archiviazione di Azure mantiene tre immagini dei dischi rigidi virtuali, può non essere opportuno configurare una ridondanza quando si esegue lo striping. È sufficiente configurare lo striping in modo che i / o vengono distribuiti nei diversi VHD.
@@ -230,7 +230,7 @@ Macchine virtuali di Azure offrono i dischi persistenti dopo aver distribuita un
 
 Per altre informazioni, vedere [comprendere le unità temporanee nelle macchine virtuali Windows in Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > L'unità D in una VM di Azure è un'unità non persistente, che è supportata da alcuni dischi locali nel nodo di calcolo di Azure. Perché è non persistenti, tutte le modifiche apportate al contenuto sull'unità D vengono perse al riavvio della macchina virtuale. Le modifiche includono i file che sono stati archiviati, le directory che sono state create e le applicazioni installate.
@@ -241,7 +241,7 @@ Per altre informazioni, vedere [comprendere le unità temporanee nelle macchine 
 >
 >
 
-- - -
+---
 
 
 
@@ -339,7 +339,7 @@ Per ridurre ulteriormente la latenza di rete tra VM di Azure, è consigliabile c
 > Non tutti i tipi di macchine Virtuali supportano la rete accelerata. L'articolo precedente Elenca i tipi di VM che supportano la funzionalità rete accelerata.
 >
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Per informazioni su come distribuire le VM con Accelerated Networking per Windows, vedere [creare una macchina virtuale Windows con rete accelerata](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
@@ -350,7 +350,7 @@ Per ridurre ulteriormente la latenza di rete tra VM di Azure, è consigliabile c
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > Nel caso di SUSE, Red Hat e Oracle Linux, la funzionalità di Rete accelerata è supportata nelle versioni recenti. Le versioni precedenti, ad esempio SLES 12 SP2 o RHEL 7.2 non supportano la rete accelerata di Azure.

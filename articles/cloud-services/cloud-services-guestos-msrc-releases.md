@@ -11,24 +11,77 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2019
+ms.date: 6/14/2019
 ms.author: raiye
-ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f10290024f9bd46a1de4bdfa6e12f841ddd1c4ed
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743045"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150991"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="june-2019-guest-os"></a>Sistema operativo Guest di giugno 2019
+
+>[!NOTE]
+>Il sistema operativo Guest di giugno è in corso l'implementazione di macchine virtuali del servizio Cloud che vengono configurati gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Sono incluse le seguenti patch del sistema operativo Guest di giugno. L'elenco è soggetto a variazioni.
+
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+|  Rel 19-06   |  [4503327]  |  Sicurezza di Windows 10   |  6.8  |  11 giugno 2019  |
+|  Rel 19-06   |  [4503267]  |  Sicurezza di Windows 10   |  5.32  |  11 giugno 2019  |
+|  Rel 19-06   |  [4503290]  |  Windows Security   |  4.67  |  11 giugno 2019  |
+|  Rel 19-06   |  [4503263]  |  Windows Security   |  3.74  |  11 giugno 2019  |
+|  Rel 19-06   |  [4503269]  |  Windows Security   |  2.87  |  11 giugno 2019  |
+|  Rel 19-06   |  [4494174]  |  Aggiornamento del microcodice   |  6.8  |  11 giugno 2019  |
+|  Rel 19-06   |  [4494175]  |  Aggiornamento del microcodice   |  5.32  |  3 giugno 2019  |
+|  Rel 19-06   |  [4503308]  |  Lampeggiante   |  3.74, 4.67, 5.32, 6.8  |  11 giugno 2019  |
+|  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  13 giugno 2019  |
+|  N/D  |  [4499164]  |  ' 19 maggio Non correlato alla protezione  |  2.87  |  14 maggio 2019  |
+|  N/D  |  [4495606]  |  .NET 3.5 maggio ' 19 non correlato alla sicurezza  |  2.87  |  14 maggio 2019  |
+|  N/D  |  [4495596]  |  Maggio ' 19 .NET 4.5 non correlato alla sicurezza  |  2.87  |  20 maggio 2019  |
+|  N/D  |  [4499171]  |  ' 19 maggio Non correlato alla protezione  |  3.74  |  14 maggio 2019  |
+|  N/D  |  [4495602]  |  .NET 3.5 maggio ' 19 non correlato alla sicurezza  |  3.74  |  14 maggio 2019  |
+|  N/D  |  [4495594]  |  ' 19 maggio .NET 4.x non correlato alla sicurezza  |  4.67  |  14 maggio 2019  |
+|  N/D  |  [4499151]  |  ' 19 maggio Non correlato alla protezione  |  4.67  |  14 maggio 2019  |
+|  N/D  |  [4495608]  |  .NET 3.5 maggio ' 19 non correlato alla sicurezza  |  4.67  |  14 maggio 2019  |
+|  N/D  |  [4495592]  |  Maggio ' 19 .NET 4.5.2 non correlato alla sicurezza  |  4.67  |  14 maggio 2019  |
+|  N/D  |  [4495610]  |  Maggio ' 19 .NET 4.8 cumulativo  |  6.8  |  14 maggio 2019  |
+|  N/D  |  [4495618]  |  Maggio ' 19 .NET 4.8 cumulativo  |  6.8  |  14 maggio 2019  |
+|  N/D  |  [4501226]  |  Aggiornamenti di fuso orario dell'ora legale per Marocco e l'Autorità Palestinese  |  2.87, 3.74, 4.67  |  23 maggio 2019  |
+|  N/D  |  [4490128]  |  Aggiornamenti di fuso orario dell'ora legale per São Tomé e Príncipe e Qyzylorda  |  2.87, 3.74, 4.67  |  17 aprile 2019  |
+
+[4503327]: https://support.microsoft.com/kb/4503327
+[4503267]: https://support.microsoft.com/kb/4503267
+[4503290]: https://support.microsoft.com/kb/4503290
+[4503263]: https://support.microsoft.com/kb/4503263
+[4503269]: https://support.microsoft.com/kb/4503269
+[4494174]: https://support.microsoft.com/kb/4494174
+[4494175]: https://support.microsoft.com/kb/4494175
+[4503308]: https://support.microsoft.com/kb/4503308
+[4503259]: https://support.microsoft.com/kb/4503259
+[4499164]: https://support.microsoft.com/kb/KB4499164
+[4495606]: https://support.microsoft.com/kb/KB4495606
+[4495596]: https://support.microsoft.com/kb/KB4495596
+[4499171]: https://support.microsoft.com/kb/KB4499171
+[4495602]: https://support.microsoft.com/kb/KB4495602
+[4495594]: https://support.microsoft.com/kb/KB4495594
+[4499151]: https://support.microsoft.com/kb/KB4499151
+[4495608]: https://support.microsoft.com/kb/KB4495608
+[4495592]: https://support.microsoft.com/kb/KB4495592
+[4495610]: https://support.microsoft.com/kb/KB4495610
+[4495618]: https://support.microsoft.com/kb/KB4495618
+[4501226]: https://support.microsoft.com/kb/KB4501226
+[4490128]: https://support.microsoft.com/kb/KB4490128
 
 ## <a name="may-2019-guest-os"></a>Sistema operativo Guest di maggio 2019
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206]  |  Potrebbe Rollup di inserimento/espulsione   |  2,86, 3.73, 4.66  |  14 maggio 2019  |
-|  Rel 19-05   |  [4505050]  |  Potrebbe Rollup di inserimento/espulsione   |  2,86, 3.73, 4.66  |  18 maggio 2019  |
+|  Rel 19-05   |  [4498206]  |  Potrebbe Rollup di inserimento/espulsione   |  2.86, 3.73, 4.66  |  14 maggio 2019  |
+|  Rel 19-05   |  [4505050]  |  Potrebbe Rollup di inserimento/espulsione   |  2.86, 3.73, 4.66  |  18 maggio 2019  |
 |  Rel 19-05   |  [4497932]  |  Potrebbe lampeggiare Update   |  3.73, 4.66, 5.31  |  14 maggio 2019  |
 |  Rel 19-05   |  [4499175]  |  Rollup della sicurezza potrebbe   |  2.86  |  14 maggio 2019  |
 |  Rel 19-05   |  [4495612]  |  Potrebbe rollup della sicurezza .NET 3.5   |  2.86  |  14 maggio 2019  |

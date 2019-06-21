@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e983a3f8e29108bd642fd23d5afcb564065d9fc1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409775"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203909"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 
@@ -524,7 +524,7 @@ Le macchine virtuali di Microsoft Azure utilizzano diversi tipi di archiviazione
 
 Le macchine virtuali di Azure offrono dischi non persistenti dopo la distribuzione di una macchina virtuale. In caso di riavvio di una VM, tutto il contenuto delle unità viene cancellato. È di conseguenza importante che i file di dati e i file registro/di rollforward dei database non vengano mai posizionati in tali unità non persistenti. Potrebbero esserci delle eccezioni per alcuni database, dove queste unità non persistenti potrebbero essere adatte per gli spazi di tabella di tempdb e temp. Evitare invece di usare queste unità nelle VM serie A poiché, con questa famiglia di VM, le unità non persistenti sono limitate in termini di velocità effettiva. Per altre informazioni, leggere l'articolo [Understanding the temporary drive on Windows Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/) (Informazioni sull'unità temporanea nelle macchine virtuali Windows di Azure)
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 > 
 > In una VM di Azure, D:\ è un'unità non persistente supportata da alcuni dischi locali nel nodo di calcolo di Azure. Il fatto che sia non persistente implica che tutte le modifiche apportate al contenuto dell'unità D:\ vengono perse al riavvio della macchina virtuale. Per "tutte le modifiche" si intendono i file memorizzati, le directory create, le applicazioni installate, ecc.
@@ -535,7 +535,7 @@ Le macchine virtuali di Azure offrono dischi non persistenti dopo la distribuzio
 > 
 > 
 
-- - -
+---
 
 L'Archiviazione di Microsoft Azure offre archiviazione permanente e i tipici livelli di protezione e ridondanza disponibili nelle soluzioni di archiviazione SAN. I dischi basati su Archiviazione di Azure sono dischi rigidi virtuali (VHD) situati nei servizi di Archiviazione di Azure. Il disco del sistema operativo locale (Windows C:\, Linux /dev/sda1) è archiviato in Archiviazione di Azure, dove sono presenti anche volumi e dischi aggiuntivi montati nella macchina virtuale.
 
@@ -835,7 +835,7 @@ Si può pianificare di spostare un sistema SAP specifico da locale ad Azure. A t
 
 Le immagini disponibili in Azure Marketplace potrebbero non soddisfare le esigenze a causa di specifici requisiti di patch riguardanti la versione del sistema operativo o DBMS in uso. Per questo motivo, potrebbe essere necessario creare una macchina virtuale usando una propria immagine privata di macchina virtuale del sistema operativo o DBMS, che in seguito potrà essere distribuita diverse volte. Per preparare un'immagine privata di questo tipo per la duplicazione, considerare gli elementi seguenti:
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Per informazioni dettagliate, vedere: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> Le impostazioni di Windows, ad esempio il SID e il nome host di Windows, devono essere astratte o generalizzate nella macchina virtuale locale con il comando sysprep.
@@ -847,7 +847,7 @@ Le immagini disponibili in Azure Marketplace potrebbero non soddisfare le esigen
 >
 >
 
-- - -
+---
 Se sono già stati installati contenuti SAP nella VM locale, in particolare per sistemi a 2 livelli, è possibile adattare le impostazioni di sistema SAP dopo la distribuzione della VM di Azure con la procedura di ridenominazione dell'istanza supportata da SAP Software Provisioning Manager (nota SAP [1619720]). Vedere i capitoli [Preparazione per la distribuzione di una VM con un'immagine specifica del cliente per SAP][planning-guide-5.2.2] e [Caricamento di un disco rigido virtuale da locale ad Azure][planning-guide-5.3.2] di questo documento per le operazioni di preparazione locali e il caricamento di una macchina virtuale generalizzata in Azure. Leggere il capitolo [Scenario 2: Distribuzione di una macchina virtuale con un'immagine personalizzata per SAP][deployment-guide-3.3] nella [Guida alla distribuzione][deployment-guide] per i passaggi dettagliati della distribuzione di un'immagine in Azure.
 
 #### <a name="deploying-a-vm-out-of-the-azure-marketplace"></a>Distribuzione di una VM da Azure Marketplace
@@ -870,7 +870,7 @@ I requisiti per la preparazione del disco della VM di Azure sono:
 * Aggiungere un altro account locale con privilegi di amministratore, che può essere usato dal supporto tecnico Microsoft o assegnato come contesto in cui eseguire servizi e applicazioni finché non viene distribuita la macchina virtuale e non possono essere usati utenti più adatti.
 * Aggiungere altri account locali come quelli che potrebbero essere richiesti per lo scenario di distribuzione specifico.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > In questo scenario non è necessaria la generalizzazione (sysprep) della macchina virtuale per caricare e distribuire la macchina virtuale in Azure.
@@ -884,7 +884,7 @@ I requisiti per la preparazione del disco della VM di Azure sono:
 >
 >
 
-- - -
+---
 #### <a name="57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3"></a>Preparazione per la distribuzione di una VM con un'immagine specifica del cliente per SAP
 
 I file dei dischi rigidi virtuali che contengono un sistema operativo generalizzato vengono archiviati in contenitori negli account di archiviazione di Azure o come immagini di dischi gestiti. È possibile distribuire una nuova macchina virtuale da tale immagine facendo riferimento all'immagine del disco rigido virtuale o del disco gestito come origine nei file del modello di distribuzione, come descritto nel capitolo [Scenario 2: Distribuzione di una macchina virtuale con un'immagine personalizzata per SAP][deployment-guide-3.3] della [Guida alla distribuzione][deployment-guide].
@@ -897,7 +897,7 @@ I requisiti per la preparazione dell'immagine di VM di Azure sono:
 * Aggiungere altri account locali come quelli che potrebbero essere richiesti per lo scenario di distribuzione specifico.
 * Se l'immagine contiene un'installazione di SAP NetWeaver ed è probabile che il nome host venga modificato rispetto al nome originale al momento della distribuzione di Azure, si consiglia di copiare le versioni più recenti del DVD di SAP Software Provisioning Manager nel modello. Questo consentirà di usare facilmente la funzionalità di ridenominazione SAP fornita per adattare il nome host modificato e/o per modificare il SID del sistema SAP all'interno dell'immagine di VM distribuita non appena viene avviata una nuova copia.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Verificare che l'unità D:\ non sia usata. Impostare il montaggio automatico dei dischi collegati come descritto nel capitolo [Impostazione del montaggio automatico per dischi collegati][planning-guide-5.5.3] di questo documento.
@@ -908,14 +908,14 @@ I requisiti per la preparazione dell'immagine di VM di Azure sono:
 >
 >
 
-- - -
+---
 * L'interfaccia utente grafica (GUI) SAP può essere preinstallata in questo modello per scopi di amministrazione e installazione.
 * È possibile installare altri software necessari per eseguire correttamente le macchine virtuali in scenari cross-premise purché siano compatibili con la ridenominazione della macchina virtuale.
 
 Se la macchina virtuale è stata preparata in modo sufficiente per essere generica ed eventualmente indipendente da account/utenti non disponibili nello scenario di distribuzione di Azure di destinazione, viene eseguito l'ultimo passaggio di preparazione per la generalizzazione di questa immagine.
 
 ##### <a name="generalizing-a-vm"></a>Generalizzazione di una macchina virtuale
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > L'ultimo passaggio consiste nell'accedere a una macchina virtuale con un account amministratore. Aprire una finestra di comando di Windows come *amministratore*. Accedere a %windir%\windows\system32\sysprep ed eseguire sysprep.exe.
@@ -928,7 +928,7 @@ Se la macchina virtuale è stata preparata in modo sufficiente per essere generi
 >
 >
 
-- - -
+---
 ### <a name="transferring-vms-and-vhds-between-on-premises-to-azure"></a>Trasferimento di macchine virtuali e dischi rigidi virtuali tra il sistema locale e Azure
 Il caricamento di immagini di VM e dischi in Azure con il portale di Azure non è consentito, quindi è necessario usare i cmdlet di Azure PowerShell o l'interfaccia della riga di comando. In alternativa, è possibile usare lo strumento "AzCopy". Lo strumento può copiare i dischi rigidi virtuali tra il sistema locale e Azure, in entrambe le direzioni. Può anche copiare i dischi rigidi virtuali tra le diverse aree di Azure. Per il download e l'uso di AzCopy, vedere [questa documentazione][storage-use-azcopy].
 
@@ -1188,7 +1188,7 @@ In teoria, la gestione della struttura di una macchina virtuale e dei dischi ass
 ![Configurazione di riferimento di una VM IaaS di Azure per SAP][planning-guide-figure-1300]
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Molti clienti hanno adottato configurazioni in cui, ad esempio, i file binari SAP e DBMS non sono stati installati nell'unità c:\ in cui è stato installato il sistema operativo. I motivi alla base di questa configurazione sono diversi, ma, a uno sguardo più attento, questa scelta spesso risale a 10-15 anni fa ed è stata determinata dalle dimensioni ridotte delle unità e dalla necessità di ottenere altro spazio per gli aggiornamenti del sistema operativo. Oggi queste condizioni non si verificano quasi più, perché è possibile eseguire il mapping dell'unità c:\ in macchine virtuali o in dischi con volumi di grandi dimensioni. Per mantenere semplice la struttura delle distribuzioni, è consigliabile seguire il modello di distribuzione seguente per i sistemi SAP NetWeaver in Azure
@@ -1214,14 +1214,14 @@ sudo service waagent restart
 
 Per altre informazioni sulle dimensioni consigliate del file di scambio, leggere la nota SAP [1597355]
 
-- - -
+---
 Il numero di dischi usati per i file di dati DBMS e il tipo di archiviazione di Azure in cui sono ospitati questi dischi devono essere determinati dai requisiti per le operazioni di I/O al secondo e dalla latenza richiesta. Le quote esatte sono descritte in [questo articolo (Linux)][virtual-machines-sizes-linux] e in [questo articolo (Windows)][virtual-machines-sizes-windows].
 
 L'esperienza nelle distribuzioni SAP degli ultimi due anni ha insegnato alcune lezioni, che possono essere riepilogate come segue:
 
 * Il traffico di operazioni di I/O al secondo per i vari file di dati non è sempre lo stesso perché i sistemi esistenti del cliente potrebbero avere file di dati di dimensioni diverse che rappresentano i relativi database SAP. Di conseguenza, è risultato più efficace l'uso di una configurazione RAID in più dischi per posizionare i file di dati definiti dai LUN. In alcune situazioni, in particolare con l'archiviazione standard di Azure, la frequenza di operazioni di I/O al secondo ha raggiunto la quota di un singolo disco nel log delle transazioni DBMS. In questi scenari è consigliabile usare l'archiviazione Premium o, in alternativa, aggregare più dischi dell'archiviazione Standard con una striscia software.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > * [Procedure consigliate per le prestazioni di SQL Server in Macchine virtuali di Azure][virtual-machines-sql-server-performance-best-practices]
@@ -1234,7 +1234,7 @@ L'esperienza nelle distribuzioni SAP degli ultimi due anni ha insegnato alcune l
 >
 >
 
-- - -
+---
 * L'archiviazione Premium mostra prestazioni notevolmente migliori, soprattutto per le scritture del log delle transazioni critiche. Per gli scenari SAP che devono offrire prestazioni paragonabili a quelle di produzione, si consiglia di adottare serie di macchine virtuali in grado di usare l'archiviazione Premium di Azure.
 
 Tenere presente che il disco, che contiene il sistema operativo e, come consigliato, i file binari di SAP e il database (macchina virtuale di base), non è più limitato a 127 GB, ma può raggiungere 1 TB. Questo spazio dovrebbe essere sufficiente per contenere tutti i file necessari, inclusi, ad esempio, i log dei processi batch SAP.
@@ -1255,7 +1255,7 @@ Successivamente, è necessario decidere se creare un nuovo disco vuoto o se sele
 
 **IMPORTANTE**: **NON** usare la memorizzazione nella cache dell'host con l'archiviazione Standard di Azure, ma mantenere l'impostazione predefinita NESSUNA. Con l'archiviazione Premium di Azure, è consigliabile abilitare la memorizzazione nella cache di lettura se la caratteristica I/O è generalmente di lettura, come il normale traffico I/O per i file di dati del database. Nel caso del file di log delle transazioni del database, la memorizzazione nella cache non è consigliata.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > [Come collegare un disco dati nel portale di Azure][virtual-machines-linux-attach-disk-portal]
@@ -1268,7 +1268,7 @@ Successivamente, è necessario decidere se creare un nuovo disco vuoto o se sele
 >
 >
 
-- - -
+---
 Se il nuovo disco è vuoto, è necessario anche formattarlo. Per la formattazione, in particolare per i file di dati e di log DBMS, si applicano le stesse raccomandazioni fornite per le distribuzioni bare metal di DBMS.
 
 Come già menzionato nel capitolo [Concetto di macchina virtuale di Microsoft Azure][planning-guide-3.2], un account di archiviazione di Azure non fornisce risorse infinite in termini di volume I/O, operazioni di I/O al secondo e volume di dati. In genere le macchine virtuali DBMS sono quelle più interessate dal problema. Potrebbe essere preferibile usare un account di archiviazione separato per ogni macchina virtuale se si hanno poche macchine virtuali con volumi I/O elevati da distribuire in modo da rimanere entro il limite del volume per l'account di archiviazione di Azure. In caso contrario, si deve capire come bilanciare queste macchine virtuali tra i diversi account di archiviazione senza raggiungere il limite per ogni singolo account di archiviazione. Altri dettagli sono riportati nella [Guida alla distribuzione di DBMS][dbms-guide]. Tenere presenti queste limitazioni anche per le macchine virtuali pure del server applicazioni SAP o per altre macchine virtuali che potrebbero richiedere altri dischi rigidi virtuali. Queste restrizioni non sono applicabili se si utilizza un disco gestito. Per utilizzare l’archiviazione Premium, è consigliabile utilizzare un disco gestito.
@@ -1278,7 +1278,7 @@ Un altro argomento rilevante per gli account di archiviazione riguarda la replic
 La replica geografica di Azure funziona in locale in ogni disco rigido virtuale di una macchina virtuale e non replica gli I/O in ordine cronologico tra più dischi rigidi virtuali in una macchina virtuale. Di conseguenza, il disco rigido virtuale che rappresenta la macchina virtuale di base ed eventuali altri dischi rigidi virtuali collegati alla macchina virtuale vengono replicati in modo indipendente. Ciò significa che le modifiche nei vari dischi rigidi virtuali non vengono sincronizzate. Il fatto che gli I/O vengano replicati indipendentemente dall'ordine di scrittura implica che la replica geografica non è significativa per i server di database che contengono database distribuiti in più dischi rigidi virtuali. Oltre a DBMS, potrebbero esserci altre applicazioni in cui i processi scrivono o manipolano i dati in dischi rigidi virtuali diversi e in cui è importante mantenere l'ordine delle modifiche. Se questo è un requisito, la replica geografica in Azure non dovrebbe essere abilitata. Se si deve o si vuole usare la replica geografica solo in determinati set di macchine virtuali, è possibile suddividere le macchine virtuali e i dischi rigidi virtuali correlati in account di archiviazione diversi con replica geografica abilitata o disabilitata.
 
 #### <a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Impostazione del montaggio automatico per dischi collegati
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Per le macchine virtuali create da immagini o dischi personali, è necessario verificare ed eventualmente impostare il parametro di montaggio automatico. L'impostazione di questo parametro consente alla macchina virtuale di rimontare automaticamente le unità collegate/montate dopo un riavvio o una ridistribuzione in Azure.
@@ -1300,7 +1300,7 @@ La replica geografica di Azure funziona in locale in ogni disco rigido virtuale 
 >
 >
 
-- - -
+---
 ### <a name="final-deployment"></a>Distribuzione finale
 
 Per la distribuzione finale e la procedura precisa da applicare, in particolare per quanto riguarda la distribuzione di SAP Extended Monitoring, vedere la [Guida alla distribuzione][deployment-guide].
@@ -1328,7 +1328,7 @@ Per informazioni dettagliate su questo argomento, vedere questo articolo: <https
 
 Potrebbe essere necessario configurare il firewall nelle macchine virtuali per consentire il traffico in ingresso verso il sistema SAP.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Per impostazione predefinita, Windows Firewall all'interno di una macchina virtuale distribuita di Azure è attivato. A questo punto è necessario consentire l'apertura della porta SAP, in caso contrario l'interfaccia utente grafica SAP non potrà connettersi.
@@ -1352,7 +1352,7 @@ Potrebbe essere necessario configurare il firewall nelle macchine virtuali per c
 >
 >
 
-- - -
+---
 #### <a name="security-recommendations"></a>Suggerimenti per la sicurezza
 
 L'interfaccia utente grafica SAP non si connette immediatamente alle istanze di SAP (porta 32xx) in esecuzione, ma si connette prima al processo del server dei messaggi SAP (porta 36xx). In passato, la stessa porta era usata dal server dei messaggi per la comunicazione interna verso le istanze dell'applicazione. Per impedire la comunicazione accidentale dei server applicazioni locali con un server dei messaggi in Azure, le porte di comunicazione possono essere modificate. È consigliabile modificare la comunicazione interna tra il server dei messaggi SAP e le relative istanze dell'applicazione e un numero di porta diverso in sistemi clonati da sistemi locali, ad esempio un clone di sviluppo per i test di progetto e così via. Questa operazione può essere eseguita con il parametro di profilo predefinito:
@@ -1655,7 +1655,7 @@ Microsoft ha aggiunto molti più tipi di macchine virtuali che si differenziano 
 
 La configurazione delle stampanti di rete locali basate su TCP/IP in una VM di Azure è complessivamente uguale a quella della rete aziendale, presupponendo che sia disponibile un tunnel VPN da sito a sito o una connessione ExpressRoute.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > A tale scopo, effettuare l'operazione seguente:
@@ -1674,7 +1674,7 @@ La configurazione delle stampanti di rete locali basate su TCP/IP in una VM di A
 >
 >
 
-- - -
+---
 ![Stampa di rete][planning-guide-figure-2200]
 
 ##### <a name="host-based-printer-over-smb-shared-printer-in-cross-premises-scenario"></a>Stampante basata su host su SMB (stampante condivisa) in uno scenario cross-premise
@@ -1690,7 +1690,7 @@ La condivisione della stampante è identificata da un nome univoco nella rete:
 
 Procedura:
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Condividere la stampante locale.
@@ -1706,19 +1706,19 @@ Procedura:
 >
 >
 
-- - -
+---
 ##### <a name="usb-printer-printer-forwarding"></a>Stampante USB (inoltro stampante)
 
 In Azure la possibilità di Servizi Desktop remoto di fornire agli utenti l'accesso ai propri dispositivi stampante locale in una sessione remota non è disponibile.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Altri dettagli sulla stampa con Windows sono disponibili qui: <https://technet.microsoft.com/library/jj590748.aspx>.
 >
 >
 
-- - -
+---
 #### <a name="integration-of-sap-azure-systems-into-correction-and-transport-system-tms-in-cross-premises"></a>Integrazione dei sistemi SAP in Azure in Correction and Transport System (TMS) cross-premise
 
 SAP Change and Transport System (TMS) deve essere configurato per esportare e importare la richiesta di trasporto tra sistemi nel panorama applicativo. Si presuppone che le istanze di sviluppo di un sistema SAP (DEV) si trovino in Azure, mentre il controllo di qualità (QA) e i sistemi di produzione (PRD) siano locali. Inoltre, si presuppone che sia presente una directory di trasporto centrale.
