@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-pawal
-ms.openlocfilehash: f58ff566ebb83ed6163637aa3899a925ed06242a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 4133cec401723ab103b0b3bfff62eee21b653e2b
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269209"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331814"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -31,20 +31,20 @@ La versione 3 dell'API Traduzione testuale fornisce un'API Web moderna basata su
 
 ## <a name="base-urls"></a>URL di base
 
-Microsoft Translator è accessibile da più posizioni di data center. Attualmente tali posizioni si trovano in sei [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator è accessibile da più posizioni di data center. Attualmente si trovano in 6 [aree geografiche di Azure](https://azure.microsoft.com/global-infrastructure/regions):
 
 * **Americhe:** Stati Uniti occidentali 2 e Stati Uniti centro-occidentali 
 * **Asia Pacifico:** Asia sud-orientale e Corea meridionale
 * **Europa:** Europa settentrionale e Europa occidentale
 
-Nella maggior parte dei casi le richieste per l'API Traduzione testuale Microsoft vengono gestite dal data center più vicino all'area di origine della richiesta. In caso di errore del data center la richiesta può essere instradata all'esterno dell'area.
+Nella maggior parte dei casi le richieste per l'API Traduzione testuale Microsoft vengono gestite dal data center più vicino all'area di origine della richiesta. In caso di errore di Data Center, la richiesta può essere instradata di fuori dell'area geografica di Azure.
 
-Per fare in modo che la richiesta venga gestita da un data center specifico, cambiare l'endpoint Globale nella richiesta API nell'endpoint desiderato a livello di area:
+Per forzare la richiesta di essere gestita da una specifica area geografica di Azure, modificare l'endpoint globale nella richiesta di API per l'endpoint a livello di area desiderato:
 
-|Descrizione|Region|URL di base|
+|Descrizione|Area geografica di Azure|URL di base|
 |:--|:--|:--|
-|Azure|Globale|  api.cognitive.microsofttranslator.com|
-|Azure|America del Nord|   api-nam.cognitive.microsofttranslator.com|
+|Azure|Global (non a livello di area)|   api.cognitive.microsofttranslator.com|
+|Azure|Stati Uniti|   api-nam.cognitive.microsofttranslator.com|
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia/Pacifico|    api-apc.cognitive.microsofttranslator.com|
 
