@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5f06ca04b0b6ea48ebb49952df71cb02946777fa
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180434"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67333379"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -26,8 +26,7 @@ Quando viene usata l'intestazione `Ocp-Apim-Subscription-Key`, è sufficiente fo
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-Quando si usa l'intestazione `Authorization: Bearer`, è necessario effettuare una richiesta per l'endpoint `issueToken`. In questa richiesta viene scambiata la chiave di sottoscrizione per un token di accesso che è valido per 10 minuti. Nelle sezioni successive verrà illustrato come ottenere un token, usare un token e aggiornare un token.
-
+Quando si usa l'intestazione `Authorization: Bearer`, è necessario effettuare una richiesta per l'endpoint `issueToken`. In questa richiesta viene scambiata la chiave di sottoscrizione per un token di accesso che è valido per 10 minuti. Nelle sezioni successive verrà illustrato come ottenere un token e usare un token.
 
 ### <a name="how-to-get-an-access-token"></a>Come ottenere un token di accesso
 
