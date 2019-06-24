@@ -330,8 +330,8 @@ Questo trigger verifica o esegue il polling dell'endpoint specificato in base al
 | Elemento | Type | Descrizione |
 |---------|------|-------------| 
 | headers | Oggetto JSON | Intestazioni dalla risposta | 
-| Corpo | Oggetto JSON | Il corpo dalla risposta | 
-| Codice di stato | Integer | Il codice di stato della risposta | 
+| body | Oggetto JSON | Il corpo dalla risposta | 
+| status code | Integer | Il codice di stato della risposta | 
 |||| 
 
 *Requisiti per le richieste in ingresso*
@@ -340,14 +340,14 @@ Per funzionare correttamente con l'app per la logica, l'endpoint deve essere con
   
 | Risposta | Obbligatoria | Descrizione | 
 |----------|----------|-------------| 
-| Codice di stato | Yes | Il codice di stato "200 OK" avvia un'esecuzione. Nessun altro codice di stato avvia un'esecuzione. | 
+| status code | Yes | Il codice di stato "200 OK" avvia un'esecuzione. Nessun altro codice di stato avvia un'esecuzione. | 
 | Intestazione retry-after | No | Il numero di secondi fino a quando l'app per la logica esegue il polling dell'endpoint nuovamente | 
 | Intestazione Location | No | URL da chiamare al successivo intervallo di polling. Se non è specificato, viene usato l'URL originale. | 
 |||| 
 
 *Comportamenti di esempio per diverse richieste*
 
-| Codice di stato | Nuovo tentativo dopo | Comportamento | 
+| status code | Nuovo tentativo dopo | Comportamento | 
 |-------------|-------------|----------|
 | 200 | {none} | Esegue il flusso di lavoro e quindi controlla di nuovo la presenza di altri dati dopo la ricorrenza definita. | 
 | 200 | 10 secondi | Esegue il flusso di lavoro e quindi controlla di nuovo la presenza di altri dati dopo 10 secondi. |  
@@ -425,8 +425,8 @@ Alcuni valori, ad esempio <*method-type*>, sono disponibili per gli oggetti `"su
 | Elemento | Type | Descrizione |
 |---------|------|-------------| 
 | headers | Oggetto JSON | Intestazioni dalla risposta | 
-| Corpo | Oggetto JSON | Il corpo dalla risposta | 
-| Codice di stato | Integer | Il codice di stato della risposta | 
+| body | Oggetto JSON | Il corpo dalla risposta | 
+| status code | Integer | Il codice di stato della risposta | 
 |||| 
 
 *Esempio*

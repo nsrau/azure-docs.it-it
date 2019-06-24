@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: b7b4e25c78ef08bdf9a7c2f3faf96725fc5f5fc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fb4cf119195b3be23dc8f2cb98bd019769583473
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123876"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341845"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Anteprima: Eseguire la migrazione alla versione dell'API 3.x per le app LUIS
 
@@ -54,11 +54,14 @@ Includono le modifiche all'oggetto risposta V3 [entità predefinite](luis-refere
 
 L'API V3 include parametri della stringa di query diversi.
 
-|Nome del parametro|Type|Version|Scopo|
-|--|--|--|--|
-|`query`|string|Solo V3|**Nella versione 2**, si trova il utterance deve essere stimata nel `q` parametro. <br><br>**In V3**, la funzionalità viene passata il `query` parametro.|
-|`show-all-intents`|boolean|Solo V3|Restituire tutti i tipi con il punteggio corrispondente nel **prediction.intents** oggetto. Gli Intent vengono restituiti come oggetti in un elemento padre `intents` oggetto. Ciò consente l'accesso a livello di codice senza la necessità di individuare lo scopo in una matrice: `prediction.intents.give`. Nella versione 2, questi sono stati restituiti in una matrice. |
-|`verbose`|boolean|V2 E V3|**Nella versione V2**, quando impostato su true, tutti stimato Intent sono stati restituiti. Se è necessario stimato tutti gli Intent, usare il parametro V3 di `show-all-intents`.<br><br>**In V3**, questo parametro fornisce solo entità i dettagli della stima di entità dei metadati.  |
+|Nome del parametro|Type|Version|Predefinito|Scopo|
+|--|--|--|--|--|
+|`log`|boolean|V2 E V3|false|Query Store nel file di log.| 
+|`query`|string|Solo V3|Nessuna impostazione predefinita: è obbligatorio nella richiesta GET|**Nella versione 2**, si trova il utterance deve essere stimata nel `q` parametro. <br><br>**In V3**, la funzionalità viene passata il `query` parametro.|
+|`show-all-intents`|boolean|Solo V3|false|Restituire tutti i tipi con il punteggio corrispondente nel **prediction.intents** oggetto. Gli Intent vengono restituiti come oggetti in un elemento padre `intents` oggetto. Ciò consente l'accesso a livello di codice senza la necessità di individuare lo scopo in una matrice: `prediction.intents.give`. Nella versione 2, questi sono stati restituiti in una matrice. |
+|`verbose`|boolean|V2 E V3|false|**Nella versione V2**, quando impostato su true, tutti stimato Intent sono stati restituiti. Se è necessario stimato tutti gli Intent, usare il parametro V3 di `show-all-intents`.<br><br>**In V3**, questo parametro fornisce solo entità i dettagli della stima di entità dei metadati.  |
+
+
 
 <!--
 |`multiple-segments`|boolean|V3 only|Break utterance into segments and predict each segment for intents and entities.|
@@ -71,12 +74,23 @@ L'API V3 include parametri della stringa di query diversi.
 {
     "query":"your utterance here",
     "options":{
-        "timezoneOffset": "-8:00"
+        "datetimeReference": "2019-05-05T12:00:00",
+        "overridePredictions": true
     },
     "externalEntities":[],
     "dynamicLists":[]
 }
 ```
+
+|Proprietà|Type|Version|Predefinito|Scopo|
+|--|--|--|--|--|
+|`dynamicLists`|array|Solo V3|Non obbligatorio.|[Gli elenchi dinamici](#dynamic-lists-passed-in-at-prediction-time) consentono di estendere un'entità sottoposto a training e pubblicato un elenco esistente, già nell'app LUIS.|
+|`externalEntities`|array|Solo V3|Non obbligatorio.|[Le entità esterne](#external-entities-passed-in-at-prediction-time) assegnare all'app LUIS la possibilità di identificare e classificare le entità in fase di esecuzione, che possa essere usate come funzionalità alle entità esistenti. |
+|`options.datetimeReference`|string|Solo V3|Nessun valore predefinito|Consente di determinare [datetimeV2 offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity).|
+|`options.overridePredictions`|boolean|Solo V3|false|Specifica se dell'utente [entità esterne (con stesso nome di entità esistente)](#override-existing-model-predictions) viene usato o l'entità esistente nel modello viene utilizzato per la stima. |
+|`query`|string|Solo V3|Richiesto.|**Nella versione 2**, si trova il utterance deve essere stimata nel `q` parametro. <br><br>**In V3**, la funzionalità viene passata il `query` parametro.|
+
+
 
 ## <a name="response-changes"></a>Modifiche di risposta
 
@@ -275,6 +289,67 @@ In utterance precedente, viene utilizzato il utterance `him` come riferimento a 
 
 La risposta di stima include tale entità esterna, con tutte le altre stimate entità, perché è definito nella richiesta.  
 
+### <a name="override-existing-model-predictions"></a>Eseguire l'override delle stime del modello esistente
+
+Il `overridePredictions` proprietà di opzioni consente di specificare che, se l'utente invia un'entità esterna che si sovrappone con un'entità stimata con lo stesso nome, LUIS sceglie l'entità passata o l'entità esistente nel modello. 
+
+Ad esempio, si consideri la query `today I'm free`. LUIS rileva `today` come un datetimeV2 con la risposta seguente:
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+Se l'utente invia le entità esterne:
+
+```JSON
+{
+    "entityName": "datetimeV2",
+    "startIndex": 0,
+    "entityLength": 5,
+    "resolution": {
+        "date": "2019-06-21"
+    }
+}
+```
+
+Se il `overridePredictions` è impostata su `false`, LUIS restituisce una risposta come se l'entità esterna non sono stati inviati. 
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+Se il `overridePredictions` è impostata su `true`, LUIS restituisce una risposta che include:
+
+```JSON
+"datetimeV2": [
+    {
+        "date": "2019-06-21"
+    }
+]
+```
+
+
+
 #### <a name="resolution"></a>Risoluzione
 
 Il _facoltativi_ `resolution` restituisce proprietà nella risposta stima, consentendo di passare i metadati associati all'entità esterna, quindi lo riceveranno nuovamente nella risposta. 
@@ -287,6 +362,7 @@ Il `resolution` proprietà può essere un numero, stringa, un oggetto o una matr
 * {"text": "value"}
 * 12345 
 * ["a", "b", "c"]
+
 
 
 ## <a name="dynamic-lists-passed-in-at-prediction-time"></a>Gli elenchi dinamici passata in fase di stima

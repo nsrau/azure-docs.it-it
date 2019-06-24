@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
+ms.topic: concept
+ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: ebe7f9307fcfa39d6cb133203a4c17243ad390c5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.openlocfilehash: 2353b8c735602aff0386f44cc29d2be5eb9f90c4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025502"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340882"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Le caratteristiche sono informazioni su azioni e contesto
 
@@ -29,7 +29,7 @@ Ad esempio, una **caratteristica** potrebbe riguardare:
 * Il _contenuto_, ad esempio se un video è di tipo `Documentary`, `Movie` o `TV Series` oppure se un articolo è o meno disponibile per la vendita nel negozio.
 * Il periodo di tempo _corrente_, ad esempio il giorno della settimana.
 
-Personalizza esperienze non stabilisce, limita o corregge le caratteristiche che è possibile inviare per azioni e contesto:
+Non prevede personalizer, limitare o correggere quali funzionalità è possibile inviare per azioni e il contesto:
 
 * È possibile inviare alcune caratteristiche per alcune azioni e non per altre, se non sono disponibili. Ad esempio, una serie TV potrebbe avere attributi non presenti nei film.
 * Alcune caratteristiche potrebbero essere disponibili solo alcune volte. Ad esempio, un'applicazione per dispositivi mobili potrebbe fornire più informazioni rispetto a una pagina Web. 
@@ -40,6 +40,12 @@ Personalizza esperienze non stabilisce, limita o corregge le caratteristiche che
 ## <a name="supported-feature-types"></a>Tipi di caratteristiche supportate
 
 Personalizza esperienze supporta caratteristiche di tipo stringa, numerico e booleano.
+
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Impatto di Machine Learning in Personalizer scelta del tipo di funzionalità
+
+* **Le stringhe**: Per i tipi di stringa, ogni combinazione di chiave e valore Crea nuovo pesi in Personalizer modello di machine learning. 
+* **Numerico**: Quando il numero in proporzione debba alterare il risultato di personalizzazione, è consigliabile usare i valori numerici. Si tratta di uno scenario dipendenti. Un esempio semplificato, ad esempio quando la personalizzazione delle vendite al dettaglio esperienza, NumberOfPetsOwned potrebbe essere una funzionalità che è di tipo numerica quando si considera le persone con 2 o 3 elementi Pet per influenzare il risultato di personalizzazione due volte o thrice quanto più verificati 1 pet. Le funzionalità che si basano sulle unità numeriche, ma in cui il significato non è lineare, ad esempio età, temperatura o persona Height - meglio vengono codificate come stringhe e la qualità di funzionalità in genere possono essere migliorate tramite intervalli. Ad esempio, età potrebbe essere codificato come "Age": "0-5", "Age": "6-10" e così via.
+* **Booleano** inviati con valore "false" agire come se non era stato inviati a tutti i valori.
 
 Le caratteristiche non presenti dovranno essere omesse dalla richiesta. Evitare di inviare caratteristiche con un valore Null, perché verrà elaborato come esistente e con un valore "null" quando si esegue il training del modello.
 
@@ -64,12 +70,15 @@ Di seguito sono riportati esempi di spazi dei nomi di caratteristiche usati dall
 
 Nel codice JSON seguente `user`, `state` e `device` sono spazi dei nomi di caratteristiche.
 
+Gli oggetti JSON annidati e proprietà/valori semplici, possono includere oggetti JSON. Una matrice può essere inclusa solo se gli elementi della matrice sono numeri. 
+
 ```JSON
 {
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug"
+                "name":"Doug",
+                "latlong": [47.6, -122.1]
             }
         },
         {
@@ -115,7 +124,7 @@ Ad esempio, un timestamp misurato in secondi è una caratteristica molto diradat
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Espandere i set di caratteristiche con le informazioni estrapolate
 
-Per aumentare il numero di caratteristiche è anche possibile valutare gli attributi inesplorati derivabili dalle informazioni già disponibili. Ad esempio, nella personalizzazione di un elenco di film di fantasia, è possibile che i weekend generino comportamenti diversi degli utenti rispetto ai giorni feriali? La caratteristica temporale potrebbe essere espansa per includere un attributo "weekend" o "giorno feriale". Le festività nazionali di tipo culturale attirano l'attenzione verso determinati tipi di film? Ad esempio, l'attributo "Halloween" è utile nelle località in cui è pertinente. È possibile che per molte persone la pioggia abbia un impatto significativo sulla scelta del film da guardare? Con una data e un luogo, un servizio meteo potrebbe fornire questa informazione ed è possibile includerla come caratteristica aggiuntiva. 
+Per aumentare il numero di caratteristiche è anche possibile valutare gli attributi inesplorati derivabili dalle informazioni già disponibili. Ad esempio, in una personalizzazione all'elenco fittizia movie, è possibile che un giorno feriale e festivo determinato da un comportamento diverso dagli utenti? La caratteristica temporale potrebbe essere espansa per includere un attributo "weekend" o "giorno feriale". Le festività nazionali di tipo culturale attirano l'attenzione verso determinati tipi di film? Ad esempio, l'attributo "Halloween" è utile nelle località in cui è pertinente. È possibile che per molte persone la pioggia abbia un impatto significativo sulla scelta del film da guardare? Con una data e un luogo, un servizio meteo potrebbe fornire questa informazione ed è possibile includerla come caratteristica aggiuntiva. 
 
 #### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Espandere i set di caratteristiche con l'intelligenza artificiale e i servizi cognitivi
 
@@ -123,7 +132,7 @@ L'intelligenza artificiale e i servizi cognitivi pronti per l'esecuzione possono
 
 Pre-elaborando gli elementi con i servizi di intelligenza artificiale, è possibile estrarre automaticamente le informazioni che saranno probabilmente più pertinenti per la personalizzazione.
 
-Ad esempio: 
+Ad esempio:
 
 * È possibile eseguire il file di un film tramite [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) per estrarre elementi delle scene, testo, sentiment e molti altri attributi. Questi attributi possono quindi essere resi più densi in base a caratteristiche non presenti nei metadati degli elementi originali. 
 * È possibile eseguire immagini tramite rilevamento di oggetti, visi tramite sentiment e così via.
@@ -156,7 +165,7 @@ Non inviare più di 50 azioni per la classificazione delle azioni. Può trattars
 
 Le azioni da inviare all'API Classifica cambiano in base a quello che si prova a personalizzare.
 
-Di seguito sono riportati alcuni esempi:
+Ecco alcuni esempi:
 
 |Scopo|Azione|
 |--|--|
@@ -190,6 +199,8 @@ In alcuni casi, è possibile determinare solo in seguito nella logica di busines
 
 Quando si effettua una chiamata all'API Classifica, si inviano più azioni tra cui scegliere:
 
+Gli oggetti JSON annidati e proprietà/valori semplici, possono includere oggetti JSON. Una matrice può essere inclusa solo se gli elementi della matrice sono numeri. 
+
 ```json
 {
     "actions": [
@@ -198,7 +209,8 @@ Quando si effettua una chiamata all'API Classifica, si inviano più azioni tra c
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "medium"
+          "spiceLevel": "medium",
+          "grams": [400,800]
         },
         {
           "nutritionLevel": 5,
@@ -211,7 +223,8 @@ Quando si effettua una chiamata all'API Classifica, si inviano più azioni tra c
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [150, 300, 450]
         },
         {
           "nutritionalLevel": 2
@@ -223,7 +236,8 @@ Quando si effettua una chiamata all'API Classifica, si inviano più azioni tra c
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [300, 600, 900]
         },
         {
           "nutritionLevel": 5
@@ -238,7 +252,8 @@ Quando si effettua una chiamata all'API Classifica, si inviano più azioni tra c
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "low"
+          "spiceLevel": "low",
+          "grams": [300, 600]
         },
         {
           "nutritionLevel": 8
@@ -265,6 +280,8 @@ L'applicazione è responsabile del caricamento delle informazioni sul contesto d
 
 Il contesto viene espresso come oggetto JSON inviato all'API Classifica:
 
+Gli oggetti JSON annidati e proprietà/valori semplici, possono includere oggetti JSON. Una matrice può essere inclusa solo se gli elementi della matrice sono numeri. 
+
 ```JSON
 {
     "contextFeatures": [
@@ -282,7 +299,9 @@ Il contesto viene espresso come oggetto JSON inviato all'API Classifica:
         {
             "device": {
                 "mobile":true,
-                "Windows":true
+                "Windows":true,
+                "screensize": [1680,1050]
+                }
             }
         }
     ]
