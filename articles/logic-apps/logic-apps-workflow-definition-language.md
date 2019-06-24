@@ -80,7 +80,7 @@ Di seguito è riportata la struttura generale della definizione di un output:
 |-----------|----------|------|-------------|
 | <*key-name*> | Yes | String | Valore chiave del valore di output restituito |
 | <*key-type*> | Yes | int, float, string, securestring, bool, array, JSON object | Tipo di valore di output restituito |
-| <*key-value*> | Yes | Uguale a < *-tipo di chiave*> | Valore di output restituito |
+| <*key-value*> | Yes | Uguale a <*key-type*> | Valore di output restituito |
 |||||
 
 Per ottenere l'output da un flusso di lavoro, esaminare la cronologia di esecuzione dell'app per la logica e i dettagli nel portale di Azure o usare il [API REST del flusso di lavoro](https://docs.microsoft.com/rest/api/logic/workflows). È anche possibile passare l'output a sistemi esterni, ad esempio Power BI, per creare dashboard.
@@ -110,7 +110,7 @@ Di seguito è riportata la struttura generale della definizione di un parametro:
 
 | Attributo | Obbligatorio | Type | Descrizione |
 |-----------|----------|------|-------------|
-| <*tipo di parametro*> | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Per tutte le password, le chiavi e i segreti, usare i tipi `securestring` e `secureobject` perché l'operazione `GET` non restituisce questi tipi. Per altre informazioni sulla protezione dei parametri, vedere [proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Tipo di parametro |
+| <*parameter-type*> | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Per tutte le password, le chiavi e i segreti, usare i tipi `securestring` e `secureobject` perché l'operazione `GET` non restituisce questi tipi. Per altre informazioni sulla protezione dei parametri, vedere [proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Tipo di parametro |
 | <*default-parameter-values*> | Yes | Uguale a `type` | Valore del parametro predefinito quando non viene specificato alcun valore durante la creazione dell'istanza del flusso di lavoro |
 | <*array-with-permitted-parameter-values*> | No | Array | Matrice con valori che il parametro può accettare |
 | `metadata` | No | Oggetto JSON | Qualsiasi altro parametro informazioni dettagliate, ad esempio, il nome o una descrizione leggibile per app per la logica o flusso di dati design-time usati da Visual Studio o altri strumenti |
