@@ -157,8 +157,8 @@ Questo trigger verifica o *esegue il polling* di un endpoint usando le [API gest
 | Elemento | Type | Descrizione |
 |---------|------|-------------|
 | headers | Oggetto JSON | Intestazioni dalla risposta |
-| Corpo | Oggetto JSON | Il corpo dalla risposta |
-| Codice di stato | Integer | Il codice di stato della risposta |
+| body | Oggetto JSON | Il corpo dalla risposta |
+| status code | Integer | Il codice di stato della risposta |
 |||| 
 
 *Esempio*
