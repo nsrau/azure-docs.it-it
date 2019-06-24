@@ -212,7 +212,7 @@
 - name: riferimento
   items:
     - name: Informazioni di riferimento sul modello
-      href: subtoc/toc.yml
+      href: /azure/templates/
     - name: Funzioni di modello
       items:
         - name: Tutte le funzioni
