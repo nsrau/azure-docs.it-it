@@ -613,15 +613,15 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
-| bitrate | numero intero | Velocità in bit della traccia. |
-| incomingBitrate | numero intero | Velocità in bit calcolata in base ai blocchi di dati provenienti dal codificatore. |
+| bitrate | integer | Velocità in bit della traccia. |
+| incomingBitrate | integer | Velocità in bit calcolata in base ai blocchi di dati provenienti dal codificatore. |
 | lastTimestamp | string | Timestamp più recente ricevuto per una traccia negli ultimi 20 secondi. |
 | timescale | string | Scala cronologica in cui sono espressi i timestamp. |
-| overlapCount | numero intero | Numero di blocchi di dati sovrapposti al timestamp negli ultimi 20 secondi. |
-| discontinuityCount | numero intero | Numero di discontinuità osservate negli ultimi 20 secondi. |
-| nonIncreasingCount | numero intero | Numero di blocchi di dati con timestamp ricevuti in passato negli ultimi 20 secondi. |
+| overlapCount | integer | Numero di blocchi di dati sovrapposti al timestamp negli ultimi 20 secondi. |
+| discontinuityCount | integer | Numero di discontinuità osservate negli ultimi 20 secondi. |
+| nonIncreasingCount | integer | Numero di blocchi di dati con timestamp ricevuti in passato negli ultimi 20 secondi. |
 | unexpectedBitrate | bool | Se la velocità in bit prevista e quella effettiva superano il limite consentito negli ultimi 20 secondi. È true se e solo se i valori sono: incomingBitrate >= 2* bitrate O incomingBitrate <= bitrate/2 O incomingBitrate = 0. |
-| stato | string | Stato dell'evento live. |
+| state | string | Stato dell'evento live. |
 | healthy | bool | Indica se l'inserimento è integro in base ai conteggi e ai flag. Healthy è true sei valori sono: overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
