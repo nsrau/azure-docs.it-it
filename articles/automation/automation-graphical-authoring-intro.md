@@ -325,7 +325,7 @@ Ogni parametro di input è definito dalle proprietà descritte nella tabella seg
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | Name |Nome univoco del parametro. Può contenere solo caratteri alfanumerici e non può contenere spazi. |
-| Descrizione |Descrizione facoltativa del parametro di input. |
+| Description |Descrizione facoltativa del parametro di input. |
 | Type |Tipo di dati previsto per il valore del parametro. Il portale di Azure visualizzerà un controllo appropriato per il tipo di dati per ogni parametro quando viene richiesto l'input. |
 | Mandatory |Specifica se è necessario specificare un valore per il parametro. Non è possibile avviare il Runbook se non si specifica un valore per ogni parametro obbligatorio che non dispone di un valore predefinito. |
 | Default Value |Specifica quale valore viene usato per il parametro se non ne viene specificato uno. Può essere Null o un valore specifico. |
