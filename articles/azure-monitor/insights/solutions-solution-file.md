@@ -85,12 +85,12 @@ La tabella seguente elenca i parametri standard per tutte le soluzioni di gestio
 
 | Parametro | Type | DESCRIZIONE |
 |:--- |:--- |:--- |
-| accountName |stringa |Nome dell'account di Automazione di Azure. |
-| pricingTier |stringa |Piano tariffario dell'area di lavoro Log Analytics e dell'account di Automazione di Azure. |
-| regionId |stringa |Area dell'account di Automazione di Azure. |
-| solutionName |stringa |Nome della soluzione.  Se si distribuisce la soluzione tramite modelli di avvio rapido, è necessario definire solutionName come un parametro, in modo da poter definire una stringa anziché richiedere all'utente di specificarne una. |
-| workspaceName |stringa |Nome dell'area di lavoro Log Analytics. |
-| workspaceRegionId |stringa |Area dell'area di lavoro Log Analytics. |
+| accountName |string |Nome dell'account di Automazione di Azure. |
+| pricingTier |string |Piano tariffario dell'area di lavoro Log Analytics e dell'account di Automazione di Azure. |
+| regionId |string |Area dell'account di Automazione di Azure. |
+| solutionName |string |Nome della soluzione.  Se si distribuisce la soluzione tramite modelli di avvio rapido, è necessario definire solutionName come un parametro, in modo da poter definire una stringa anziché richiedere all'utente di specificarne una. |
+| workspaceName |string |Nome dell'area di lavoro Log Analytics. |
+| workspaceRegionId |string |Area dell'area di lavoro Log Analytics. |
 
 
 Di seguito viene mostrata la struttura dei parametri standard, che è possibile copiare e incollare nel file della soluzione.  
