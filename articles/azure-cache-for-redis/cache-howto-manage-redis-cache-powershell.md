@@ -128,9 +128,9 @@ La tabella seguente contiene le proprietà e le descrizioni dei parametri usati 
 | Parametro | Descrizione | Predefinito |
 | --- | --- | --- |
 | Name |Nome della cache | |
-| Località |Percorso della cache | |
+| Location |Percorso della cache | |
 | ResourceGroupName |Nome del gruppo di risorse in cui creare la cache | |
-| Dimensione |Dimensioni della cache. I valori validi sono: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1GB |
+| Size |Dimensioni della cache. I valori validi sono: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1GB |
 | ShardCount |Numero di partizioni da creare quando si crea una cache Premium con clustering abilitato. I valori validi sono: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Specifica gli SKU della cache. I valori validi sono: Basic, Standard, Premium |Standard |
 | RedisConfiguration |Specifica le impostazioni di configurazione di Redis. Per i dettagli di ogni impostazione, vedere la tabella [Proprietà di RedisConfiguration](#redisconfiguration-properties) seguente. | |
