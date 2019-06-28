@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 714283628e1b2ac445d36d0b07fe299b589a1cf0
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989958"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312808"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Creazione e l'esplorazione automatizzati esperimenti di machine learning nel portale di Azure (anteprima)
 
@@ -96,16 +96,16 @@ Selezionare il pulsante Crea esperimento per popolare il modulo seguente.
 
 1. Per la previsione:
     1. Selezionare la colonna di tempo: Questa colonna contiene i dati di ora da utilizzare.
-    1. Selezionare orizzonte di previsione: Indicare il numero di unità di tempo (minuti/ore/giorni o settimane o mesi/anni) il modello sarà in grado di prevedere il futuro. Ogni ulteriore il modello è necessario per prevedere il futuro, meno precisa diventerà. [Informazioni su previsione e previsione orizzonte](https://docs.microsoft.com/azure/machine-learning/service/how-to-auto-train-forecast#configure-experiment).
+    1. Selezionare orizzonte di previsione: Indicare il numero di unità di tempo (minuti/ore/giorni o settimane o mesi/anni) il modello sarà in grado di prevedere il futuro. Ogni ulteriore il modello è necessario per prevedere il futuro, meno precisa diventerà. [Informazioni su previsione e previsione orizzonte](how-to-auto-train-forecast.md).
 
 1. (Facoltativo) Impostazioni avanzate: impostazioni aggiuntive, è possibile usare per controllare meglio il processo di training.
 
     Impostazioni avanzate|Descrizione
     ------|------
-    Metrica primaria| Metrica principale usato per la valutazione del modello. [Altre informazioni sulle metriche del modello](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics).
+    Metrica primaria| Metrica principale usato per la valutazione del modello. [Altre informazioni sulle metriche del modello](how-to-configure-auto-train.md#explore-model-metrics).
     Criteri uscita| Quando uno di questi criteri vengono soddisfatti, il processo di training termina prima del completamento completo. <br> *Ora (minuti) del processo di training*: Il tempo per consentire l'esecuzione del processo di training.  <br> *Numero massimo di iterazioni*: Numero massimo di pipeline (iterazioni) per eseguire il test nel processo di training. Il processo non verrà eseguito maggiore del numero specificato di iterazioni. <br> *Metrica di soglia del punteggio*:  Punteggio minimo delle metriche per tutte le pipeline. Ciò garantisce che se si dispone di una metrica definita destinazione che si vuole raggiungere, non dedicare più tempo nel processo di training più necessario.
     Pre-elaborazione| Selezionare questa opzione per abilitare o disabilitare la pre-elaborazione eseguita per l'apprendimento automatico. Pre-elaborazione include le operazioni di pulizia automatica dei dati, preparazione e la trasformazione per generare funzionalità sintetica. [Altre informazioni sulla pre-elaborazione](#preprocess).
-    Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida incrociata](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#cross-validation-split-options).
+    Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida incrociata](how-to-configure-auto-train.md).
     Concorrenza| Selezionare i limiti di multi-core da usare quando si usa multi-core calcolo.
     Algoritmo bloccata| Selezionare gli algoritmi che si desidera escludere dal processo di training.
 
@@ -180,7 +180,7 @@ I processi di training può richiedere un po' di tempo per ogni termine dell'ese
 
 ### <a name="view-training-run-details"></a>Formazione di visualizzazione Dettagli esecuzione
 
-Eseguire il drill-in uno qualsiasi dei modelli di output per visualizzare i dettagli dell'esecuzione, come i grafici di metriche e la distribuzione delle prestazioni di training. [Altre informazioni sui grafici](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
+Eseguire il drill-in uno qualsiasi dei modelli di output per visualizzare i dettagli dell'esecuzione, come i grafici di metriche e la distribuzione delle prestazioni di training. [Altre informazioni sui grafici](how-to-track-experiments.md#understanding-automated-ml-charts).
 
 ![Dettagli iterazione](media/how-to-create-portal-experiments/iteration-details.png)
 
@@ -220,7 +220,7 @@ ML automatizzata consente di distribuire il modello senza scrivere codice:
 
 1. Selezionare il **esplorare** pulsante accanto alla casella "File Conda" per caricare il file di ambiente (condaEnv.yml) scaricati in precedenza.
 
-    È possibile usare il proprio script di assegnazione dei punteggi e il file conda, nonché caricare i file aggiuntivi. [Altre informazioni su script di assegnazione dei punteggi](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
+    È possibile usare il proprio script di assegnazione dei punteggi e il file conda, nonché caricare i file aggiuntivi. [Altre informazioni su script di assegnazione dei punteggi](how-to-deploy-and-where.md#script).
 
       >[!Important]
       > I nomi di file devono sotto i 32 caratteri e deve iniziare e terminare con caratteri alfanumerici. Può includere trattini, caratteri di sottolineatura, punti e caratteri alfanumerici tra. Non sono consentiti spazi.
@@ -228,7 +228,7 @@ ML automatizzata consente di distribuire il modello senza scrivere codice:
     ![Crea immagine](media/how-to-create-portal-experiments/create-image.png)
 
 1. Selezionare il pulsante "Crea" per avviare la creazione dell'immagine. Questo richiederà alcuni minuti, al termine, verrà visualizzato un messaggio nella barra superiore.
-1. Passare alla scheda "Immagini", selezionare la casella di controllo accanto l'immagine da distribuire e selezionare "Crea distribuzione". [Altre informazioni sulle distribuzioni](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+1. Passare alla scheda "Immagini", selezionare la casella di controllo accanto l'immagine da distribuire e selezionare "Crea distribuzione". [Altre informazioni sulle distribuzioni](how-to-deploy-and-where.md).
 
     Sono disponibili 2 opzioni per la distribuzione.
      + Istanza di contenitore di Azure (ACI) - questa viene usata più di test scopo anziché operational distribuzione su larga scala. Assicurarsi di specificare i valori per almeno una base per _capacità di riserva della CPU_e almeno un gigabyte (GB) per _capacità di riserva della memoria_

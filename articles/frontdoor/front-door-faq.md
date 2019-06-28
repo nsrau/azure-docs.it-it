@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 256435dfd016ebbd86dbbe49f4abbb346fb1cd19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b033f463722ddb3a0b7beabdf659900e7d7188df
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736667"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330878"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Domande frequenti per il servizio di ingresso principale di Azure
 
@@ -75,11 +75,11 @@ Servizio di ingresso principale di Azure ha lo stesso elenco di località POP (P
 
 ### <a name="is-azure-front-door-service-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>È una distribuzione dedicata per l'applicazione di servizio di ingresso principale di Azure o è condivisa tra clienti?
 
-Porta principale di Azure è un servizio multi-tenant distribuito a livello globale. Pertanto, l'infrastruttura per la porta d'ingresso è condivisa tra tutti i clienti. Tuttavia, tramite la creazione di una porta Front è definire la configurazione specifica necessaria per l'applicazione e 
+Porta principale di Azure è un servizio multi-tenant distribuito a livello globale. Pertanto, l'infrastruttura per la porta d'ingresso è condivisa tra tutti i clienti. Tuttavia, creando un profilo di porta principale, si definisce la configurazione specifica necessaria per l'applicazione e nessuna modifica apportata a domicilio influire sulle altre configurazioni di ingresso principale.
 
 ### <a name="is-http-https-redirection-supported"></a>È supportato il reindirizzamento HTTP->HTTPS?
 
-Porta d'ingresso attualmente non supporta il reindirizzamento degli URL.
+Sì. In effetti, il servizio di ingresso principale di Azure supporta host, percorso e query stringa di reindirizzamento, così come parte del reindirizzamento di URL. Altre informazioni sulle [Reindirizzamento URL](front-door-url-redirect.md). 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>In quale ordine vengono elaborate le regole di routing?
 
@@ -141,6 +141,11 @@ Porta d'ingresso supporta TLS versione 1.0, 1.1 e 1.2. TLS 1.3 non è ancora sup
 
 Per abilitare il protocollo HTTPS per distribuire in modo sicuro contenuti in un dominio personalizzato della porta d'ingresso, è possibile scegliere di usare un certificato gestito dal servizio di ingresso principale di Azure oppure usare il proprio certificato.
 L'ingresso principale gestito esegue il provisioning opzione un certificato SSL standard tramite Digicert e archiviata in primo piano Key Vault della porta. Se si sceglie di usare il proprio certificato, quindi è possibile eseguire l'onboarding di un certificato rilasciato da un'autorità di certificazione supportato e può essere un SSL standard, il certificato di convalida estesa o anche un certificato con caratteri jolly. I certificati autofirmati non sono supportati. Scopri [come abilitare HTTPS per un dominio personalizzato](https://aka.ms/FrontDoorCustomDomainHTTPS).
+
+### <a name="does-front-door-support-auto-rotation-of-certificates"></a>Porta d'ingresso supporta rotazione automatica dei certificati?
+
+Per il proprio certificato SSL personalizzato, rotazione automatica non è supportata. Analogamente al modo in cui è stata impostata la prima volta per un determinato dominio personalizzato, verrà necessario al punto di ingresso per la versione di certificazione corretta nell'insieme di credenziali delle chiavi e verificare che l'entità servizio per l'ingresso principale ha ancora accesso a Key Vault. Questa operazione di distribuzione certificato aggiornato da porta principale è completamente atomica e non causi alcun impatto sulla produzione fornito il nome del soggetto o SAN per il certificato non viene modificato.
+</br>Per l'opzione certificato porta d'ingresso gestiti, i certificati vengono ruotate automaticamente di ingresso principale.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>Quali sono i pacchetti di crittografia attualmente supportati dal servizio di ingresso principale di Azure?
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0f513462f1e09718dc18e9ce454b82e8978961f
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65761961"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329605"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Esempi di query per modelli di uso comune di Analisi di flusso
 
@@ -424,7 +424,7 @@ Ad esempio, 2 automobili consecutive della stessa casa automobilistica hanno att
 
 | Utente | Funzionalità | Event | Time |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |Inizia |2015-01-01T00:00:01.0000000Z |
+| user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
 
 **Output**:  
@@ -437,7 +437,12 @@ Ad esempio, 2 automobili consecutive della stessa casa automobilistica hanno att
 
 ```SQL
     SELECT
-        [user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+        [user],
+    feature,
+    DATEDIFF(
+        second,
+        LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'),
+        Time) as duration
     FROM input TIMESTAMP BY Time
     WHERE
         Event = 'end'
@@ -695,6 +700,15 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
 **Spiegazione**: [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics) restituisce il numero di valori distinct della colonna Tempo all'interno di una finestra temporale. È quindi possibile usare l'output di questo passaggio per calcolare la media di ogni dispositivo eliminando i duplicati.
+
+## <a name="geofencing-and-geospatial-queries"></a>Query geospaziali e Geofencing
+Azure Stream Analitica fornisce le funzioni geospaziali predefinite che possono essere utilizzate per implementare scenari come la gestione della flotta, recarsi condivisione, automobili connesse e verifica degli asset. I dati geospaziali possono essere inseriti in formato GeoJSON o WKT come parte del flusso di eventi o dati di riferimento. Per altre informazioni, vedere la [scenari di aggregazione al Geofencing e geospaziale con Azure Stream Analitica](geospatial-scenarios.md) articolo.
+
+## <a name="language-extensibility-through-javascript-and-c"></a>Estendibilità di linguaggio tramite JavaScript eC#
+Azure Stream Ananlytics query langugae può essere esteso con le funzioni personalizzate scritte in JavaScript o C# linguaggi. Per altre informazioni vedere gli articoli gli elementi seguenti:
+* [Funzioni definite dall'utente di Azure Stream Analitica JavaScript](stream-analytics-javascript-user-defined-functions.md)
+* [Aggregazioni definite dall'utente di Azure Stream Analitica JavaScript](stream-analytics-javascript-user-defined-aggregates.md)
+* [Lo sviluppo di .NET Standard funzioni definite dall'utente per i processi Edge di Analitica Stream di Azure](stream-analytics-edge-csharp-udf-methods.md)
 
 ## <a name="get-help"></a>Ottenere aiuto
 

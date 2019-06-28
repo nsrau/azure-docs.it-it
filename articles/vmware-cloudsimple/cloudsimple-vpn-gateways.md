@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c9689a468e8784eb4ec3590011e02a37d92d6b9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a91d0f75b7e27065bd2ee0ea430a859d265afacb
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083391"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332043"
 ---
 # <a name="vpn-gateways-overview"></a>Panoramica del gateway VPN
 
@@ -26,7 +26,7 @@ CloudSimple offre due tipi di gateway VPN:
 
 ## <a name="site-to-site-vpn-gateway"></a>Gateway VPN da sito a sito
 
-Un gateway VPN site-to-site consente di inviare traffico crittografato tra una rete di area CloudSimple e un data center locale. Usare questa connessione per definire l'intervallo di subnet/CIDR, per il traffico di rete tra la rete locale e la rete di area CloudSimple.
+Un gateway VPN site-to-site consente di inviare traffico crittografato tra una rete di area CloudSimple e un data center locale. Usare la connessione per definire l'intervallo di subnet/CIDR, per la comunicazione tra la rete locale e la rete di area CloudSimple.
 
 Il gateway VPN consente di utilizzare i servizi in locale nel cloud privato e dei servizi sul cloud privato, dalla rete locale.  CloudSimple fornisce un server VPN basata su criteri per stabilire una connessione dalla rete locale.
 
@@ -38,6 +38,9 @@ Casi d'uso per la rete VPN site-to-site includono:
 * Accessibilità dei carichi di lavoro in esecuzione sul cloud privato dalla rete locale.
 
 ![Topologia di connessione VPN Site-to-Site](media/cloudsimple-site-to-site-vpn-connection.png)
+
+> [!IMPORTANT]
+> È necessario limitare MSS TCP 1078 byte o inferiore. O se i dispositivi VPN non supportano limitazione di MSS, è inoltre possibile impostare il valore MTU sull'interfaccia del tunnel in byte 1118 invece. 
 
 ### <a name="cryptographic-parameters"></a>Parametri di crittografici
 
@@ -53,7 +56,7 @@ Una connessione VPN site-to-site Usa i parametri di crittografia predefinito seg
 | Crittografia | AES 128 | AES 256 | AES 256 |
 | Algoritmo hash| SHA 256 | SHA 256 | SHA 1 |
 | Gruppo Diffie-Hellman (DH gruppo) | 2 | 2 | 2 |
-| Durata | 28\.800 secondi | 28\.800 secondi | 28\.800 secondi |
+| Durata | 28.800 secondi | 28.800 secondi | 28.800 secondi |
 | Dimensioni dei dati | 4 GB | 4 GB | 4 GB |
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: bf2262d8a222cec6c5d0d7e53ded7b2994481656
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 207fb003eb1fdaafe4f43f7cd41dd4b7662eddf9
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205679"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331970"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Linee guida per la pianificazione della rete per Azure NetApp Files
 
@@ -81,7 +81,7 @@ Se è stato eseguito il peering della rete virtuale con un'altra rete virtuale, 
 
 ### <a name="udrs-and-nsgs"></a>Route definite dall'utente e gli Nsg
 
-Gruppi di sicurezza di rete (Nsg) con un hop successivo non sono utilizzabile come subnet delegata per i file di Azure NetApp. Analogamente, route definite dall'utente (Udr) inoltre non sono supportate. 
+Route definite dall'utente (Udr) e gruppi di sicurezza di rete (Nsg) non sono supportati nella subnet delegata per i file di Azure NetApp.
 
 In alternativa, è possibile applicare gli Nsg ad altre subnet che consentono o negano il traffico da e verso la subnet di Azure i file di NetApp Delegate.  
 

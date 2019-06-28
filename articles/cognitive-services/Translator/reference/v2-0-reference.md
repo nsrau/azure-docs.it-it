@@ -3,19 +3,19 @@ title: API Traduzione testuale v2.0
 titleSuffix: Azure Cognitive Services
 description: Documentazione di riferimento per l'API Traduzione testuale v2.0.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
-ms.author: v-pawal
-ms.openlocfilehash: d2ff61908d7901fc464b58ee1ef9b5605b3026a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 88503c73e2ca9cf04e64ca3a47793e9b10ca325a
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389836"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357827"
 ---
 # <a name="translator-text-api-v20"></a>API Traduzione testuale v2.0
 
@@ -460,7 +460,7 @@ Tipo di contenuto della risposta: application: xml
 |translatedText|(vuoto) |Richiesto. Stringa contenente il testo tradotto nella lingua di destinazione. La stringa può avere una lunghezza massima di 2000 caratteri.|query|string|
 |from|(vuoto)   |Richiesto. Stringa che rappresenta il codice lingua del testo della traduzione, ad esempio en = inglese, de = tedesco e così via.|query|string|
 |to|(vuoto)|Richiesto. Stringa che rappresenta il codice della lingua in cui tradurre il testo.|query|string|
-|rating|(vuoto) |facoltativo. Intero che rappresenta la classificazione di qualità per questa stringa. Il valore è compreso tra -10 e 10. Assume il valore predefinito 1.|query|numero intero|
+|rating|(vuoto) |facoltativo. Intero che rappresenta la classificazione di qualità per questa stringa. Il valore è compreso tra -10 e 10. Assume il valore predefinito 1.|query|integer|
 |contentType|(vuoto)    |facoltativo. Formato del testo da tradurre. I formati supportati sono "text/plain" e "text/html". Qualsiasi codice HTML deve essere un elemento completo ben formato.   |query|string|
 |category|(vuoto)|facoltativo. Stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è "general".|query|string|
 |user|(vuoto)|Richiesto. Stringa usata per rilevare l'iniziatore dell'invio.|query|string|
@@ -557,7 +557,7 @@ L'URI della richiesta è `https://api.microsofttranslator.com/V2/Http.svc/BreakS
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 Matrice di interi che rappresenta le lunghezze delle frasi. La lunghezza della matrice è il numero di frasi e i valori sono la lunghezza di ogni frase.
 
-numero intero
+integer
 
 Tipo di contenuto della risposta: application/xml 
 
@@ -663,7 +663,7 @@ Tipo di contenuto della risposta: application/xml
 |text|(vuoto)|Richiesto. Stringa che rappresenta il testo da tradurre. Le dimensioni del testo non devono superare 10.000 caratteri.|query|string|
 |from|(vuoto)|Richiesto. Stringa che rappresenta il codice lingua del testo della traduzione,|query|string|
 |to |(vuoto)    |Richiesto. Stringa che rappresenta il codice della lingua in cui tradurre il testo.|query|string|
-|maxTranslations|(vuoto)|Richiesto. Intero che rappresenta il numero massimo di traduzioni da restituire.|query|numero intero|
+|maxTranslations|(vuoto)|Richiesto. Intero che rappresenta il numero massimo di traduzioni da restituire.|query|integer|
 |Authorization| (vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|string| intestazione|
 |Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|string|
 

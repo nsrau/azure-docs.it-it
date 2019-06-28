@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 53571fdd7c5a93fef4df0832253542a5a6dfbec5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0379bbc7f26ea30f65c5eac73633ca0371aa283
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058548"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331314"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -414,3 +414,12 @@ Attualmente, gli spazi di sviluppo di Azure è destinato all'esecuzione in Linux
 
 ### <a name="try"></a>Prova
 [Aggiungere un aspetto](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) del cluster servizio contenitore di AZURE per garantire Linux POD non pianificati per l'esecuzione in un nodo di Windows.
+
+## <a name="error-found-no-untainted-linux-nodes-in-ready-state-on-the-cluster-there-needs-to-be-at-least-one-untainted-linux-node-in-ready-state-to-deploy-pods-in-azds-namespace"></a>Errore "non trovato alcun nodo Linux intatta nello stato pronto nel cluster. Deve essere presente almeno un nodo Linux intatta nello stato pronto per distribuire i POD nello spazio dei nomi 'azds'."
+
+### <a name="reason"></a>`Reason`
+
+Spazi di sviluppo Azure Impossibile creare un controller nel cluster AKS perché non è stato trovato un nodo intatta in un *pronti* dello stato per pianificare i POD in. Spazi di sviluppo Azure richiede almeno un nodo Linux in un *pronti* stato che consente di pianificare i POD senza specificare tolerations.
+
+### <a name="try"></a>Prova
+[Aggiornare la configurazione dell'aspetto](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) nel cluster AKS per assicurarsi che almeno un Linux consente a nodo per la pianificazione di POD senza specificare tolerations. Inoltre, verificare che almeno un nodo Linux che consente la programmazione POD senza specificare tolerations sia nel *pronti* dello stato. Se il nodo viene richiesto un tempo per raggiungere la *pronti* lo stato, è possibile provare a riavviare il nodo.

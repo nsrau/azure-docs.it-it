@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: d4e9e26f2c6764cc179826266891d861514e23f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01d6fa30fc781ffe2a9f387f7c9eb4c27eaacc77
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344090"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338231"
 ---
 # <a name="microsoft-azure-documentation"></a>Documentazione di Microsoft Azure
 
@@ -34,10 +34,9 @@ Seguire le istruzioni fornite nella sezione relativa all'[installazione degli st
 
 ## <a name="license"></a>Licenza
 
-Per tutte le informazioni relative alle licenze, vedere le sezioni [LICENSE](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE) e [ThirdPartyNotices](.github/ThirdPartyNotices.md).
+Per tutte le informazioni relative alle licenze, vedere le sezioni [LICENSE](LICENSE), [LICENSE-CODE](LICENSE-CODE) e [ThirdPartyNotices](ThirdPartyNotices.md).
 
 ## <a name="code-of-conduct"></a>Codice di comportamento
 
 Questo progetto ha adottato il [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Codice di comportamento Open Source di Microsoft).
 Per altre informazioni, vedere [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Domande frequenti sul Codice di comportamento Open Source di Microsoft) oppure contattare [opencode@microsoft.com](mailto:opencode@microsoft.com) per eventuali altre domande o commenti.
-

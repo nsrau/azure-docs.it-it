@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/09/2019
 ms.author: raynew
-ms.openlocfilehash: 6a6db30bfe6e4dc1eed04d11b53113c90210a5cf
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2cf9aee498c649cdbf973652a60fb2d1f3feb371
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275213"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312156"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice di supporto per la replica di macchine virtuali di Azure da un'area a un'altra
 
@@ -168,7 +168,7 @@ Estensioni | Non supportate | Le estensioni non vengono replicate per il failove
 **Azione** | **Dettagli**
 -- | ---
 Ridimensionamento del disco nella macchina virtuale replicata | Supportato
-Aggiunta di un disco a una macchina virtuale replicata | Non supportati.<br/><br/> È necessario disabilitare la replica per la macchina virtuale, aggiungere il disco e quindi riabilitare nuovamente la replica.
+Aggiunta di un disco a una macchina virtuale replicata | Supportato
 
 ## <a name="replicated-machines---storage"></a>Computer replicati - Archiviazione
 

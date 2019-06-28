@@ -11,12 +11,12 @@ ms.date: 05/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c493dbc99edc794dd5a261dfc004c2c8c1cb6d52
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387826"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312082"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività Spark in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
@@ -25,8 +25,6 @@ ms.locfileid: "60387826"
 
 L'attività Spark in una [pipeline](concepts-pipelines-activities.md) di Data Factory esegue un programma Spark nel cluster HDInsight [personale](compute-linked-services.md#azure-hdinsight-linked-service) o [on demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](transform-data.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate. Quando si usa un servizio Spark collegato on demand, Data Factory crea automaticamente un cluster Spark JIT per elaborare i dati e quindi elimina il cluster al termine dell'elaborazione. 
 
-> [!IMPORTANT]
-> L'attività Spark non supporta i cluster Spark HDInsight che usano Azure Data Lake Store come risorsa di archiviazione primaria.
 
 ## <a name="spark-activity-properties"></a>Proprietà dell'attività Spark
 Ecco la definizione JSON di esempio di un'attività Spark:    
@@ -45,7 +43,7 @@ Ecco la definizione JSON di esempio di un'attività Spark:
             "referenceName": "MyAzureStorageLinkedService",
             "type": "LinkedServiceReference"
         },
-        "rootPath": "adfspark\\pyFiles",
+        "rootPath": "adfspark",
         "entryFilePath": "test.py",
         "sparkConfig": {
             "ConfigItem1": "Value"

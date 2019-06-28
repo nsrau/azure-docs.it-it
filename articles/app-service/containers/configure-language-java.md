@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 9339d891e8fe895f598e1a2615fcfa66b053b3e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 91368ac3b1d7948257fa9e55debc862567593425
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063860"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341378"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Linux Java per servizio App di Azure
 
@@ -60,6 +60,43 @@ Se l'applicazione usa [Logback](https://logback.qos.ch/) o [Log4j](https://loggi
 ### <a name="troubleshooting-tools"></a>Strumenti di risoluzione dei problemi
 
 Immagini predefinite Java si basano le [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) del sistema operativo. Usare il `apk` package manager di installare qualsiasi risoluzione dei problemi degli strumenti o comandi.
+
+### <a name="flight-recorder"></a>Utilità traccia eventi
+
+Tutte le immagini Linux Java nel servizio App hanno registratore di volo Zulu installata, pertanto è possibile facilmente connettersi a JVM e avviare un profiler di registrazione o generare un dump di heap.
+
+#### <a name="timed-recording"></a>Registrazione programmata
+
+Per ottenere avviato, il servizio App di connettersi tramite SSH ed eseguire il `jcmd` comando per visualizzare un elenco di tutti i processi di Java in esecuzione. Oltre a jcmd stesso, verrà visualizzata l'applicazione Java in esecuzione con un numero ID del processo (pid).
+
+```shell
+078990bbcd11:/home# jcmd
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+147 sun.tools.jcmd.JCmd
+116 /home/site/wwwroot/app.jar
+```
+
+Eseguire il comando seguente per avviare una registrazione di 30 secondi di JVM. Verrà JVM di profilo e creare un file JFR denominato `jfr_example.jfr` nella home directory. (Sostituire 116 con il numero di serie dell'app Java).
+
+```shell
+jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
+```
+
+Durante l'intervallo di 30 secondi, è possibile convalidare la registrazione avviene eseguendo `jcmd 116 JFR.check`. Verranno visualizzate tutte le registrazioni per il processo Java specificato.
+
+#### <a name="continuous-recording"></a>Registrazione continua
+
+È possibile usare utilità traccia eventi Zulu continuamente profilare l'applicazione Java con un impatto minimo sulle prestazioni di runtime ([origine](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). A tale scopo, eseguire il comando di Azure per creare un'impostazione dell'App denominata JAVA_OPTS con la configurazione necessaria. Il contenuto dell'impostazione App JAVA_OPTS viene passato al `java` comando quando viene avviata l'app.
+
+```azurecli
+az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
+```
+
+Per altre informazioni, vedere la [riferimenti ai comandi Jcmd](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
+
+### <a name="analyzing-recordings"></a>Analyzing Recordings
+
+Uso [FTPS](../deploy-ftp.md) per scaricare il file JFR nel computer locale. Per analizzare il file JFR, scaricare e installare [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). Per istruzioni su Zulu Mission Control, vedere la [documentazione di Azul](https://docs.azul.com/zmc/) e il [le istruzioni di installazione](https://docs.microsoft.com/en-us/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
 
 ## <a name="customization-and-tuning"></a>Personalizzazione e ottimizzazione
 

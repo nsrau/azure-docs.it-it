@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f38f6aae11f7bf806b7bad76db8f739fb2823d
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951304"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357067"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Progettazione di applicazioni a disponibilità elevata con RA-GRS
 
@@ -212,6 +212,33 @@ La tabella seguente illustra un esempio di ciò che potrebbe verificarsi quando 
 In questo esempio presupporre che il client passi alla lettura dell'area secondaria in corrispondenza di T5. Può leggere correttamente l'entità **administrator role** in questa fase, ma l'entità contiene un valore di conteggio degli amministratori che non è coerente con il numero di entità **employee** attualmente contrassegnate come amministratori nell'area secondaria. Il client può semplicemente visualizzare questo valore, con il rischio che si tratti di informazioni incoerenti. In alternativa, il client può determinare che **administrator role** si trova in uno stato potenzialmente incoerente perché gli aggiornamenti non hanno seguito l'ordine e informare l'utente.
 
 Per riconoscere la presenza di dati potenzialmente incoerenti, il client può usare il valore di *Ora ultima sincronizzazione* che può essere ottenuto in qualsiasi momento eseguendo una query su un servizio di archiviazione. Questo valore indica l'ora in cui i dati nell'area secondaria sono stati coerenti per l'ultima volta e l'ora in cui il servizio aveva applicato tutte le transazioni prima di quel momento. Nell'esempio illustrato in precedenza, dopo che il servizio ha inserito l'entità **employee** nell'area secondaria l'ora dell'ultima sincronizzazione viene impostata su *T1*. Resta impostata su *T1* finché il servizio non aggiorna l'entità **employee** nell'area secondaria quando viene impostata su *T6*. Se recupera l'ora dell'ultima sincronizzazione quando legge l'entità su *T5*, il client può confrontare questo dato con il timestamp dell'entità. Se il timestamp dell'entità è successivo all'ora dell'ultima sincronizzazione, l'entità si trova in uno stato potenzialmente non coerente ed è possibile intervenire nel modo più idoneo per l'applicazione. Per usare questo campo è necessario sapere quando è stato completato l'ultimo aggiornamento nell'area primaria.
+
+## <a name="getting-the-last-sync-time"></a>Ottenere l'ora dell'ultima sincronizzazione
+
+È possibile usare PowerShell o CLI di Azure per recuperare l'ora dell'ultima sincronizzazione per determinare quando i dati dell'ultima scrittura nel database secondario.
+
+### <a name="powershell"></a>PowerShell
+
+Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione usando PowerShell, verificare l'account di archiviazione **GeoReplicationStats.LastSyncTime** proprietà. Ricordare di sostituire i valori segnaposto con i propri valori:
+
+```powershell
+$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -Name <storage-account> `
+    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
+```
+
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione tramite la CLI di Azure, verificare l'account di archiviazione **geoReplicationStats.lastSyncTime** proprietà. Usare la `--expand` parametro per restituire i valori delle proprietà annidato sotto **geoReplicationStats**. Ricordare di sostituire i valori segnaposto con i propri valori:
+
+```azurecli
+$lastSyncTime=$(az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --expand geoReplicationStats \
+    --query geoReplicationStats.lastSyncTime \
+    --output tsv)
+```
 
 ## <a name="testing"></a>Test
 

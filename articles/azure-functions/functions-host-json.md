@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521386"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310474"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x  
 
@@ -147,7 +147,7 @@ Un elenco di funzioni eseguite dall'host di processo. Una matrice vuota indica l
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica la durata del timeout per tutte le funzioni. In un piano di consumo serverless l'intervallo valido va da 1 secondo a 10 minuti e il valore predefinito è 5 minuti. In un piano di servizio app non è previsto alcun limite complessivo e il valore predefinito varia a seconda della versione del runtime. Nella versione 2.x il valore predefinito per un piano di servizio app è di 30 minuti. Nella versione 1.x il valore è *null*, che indica nessun timeout.
+Indica la durata del timeout per tutte le funzioni. In un piano di consumo serverless l'intervallo valido va da 1 secondo a 10 minuti e il valore predefinito è 5 minuti. In un piano di servizio App dedicato, non è previsto alcun limite complessivo e il valore predefinito è 30 minuti. Un valore di `-1` indica senza vincoli di esecuzione.
 
 ```json
 {

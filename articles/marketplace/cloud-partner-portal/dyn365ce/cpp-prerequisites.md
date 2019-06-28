@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: dd2e68c820a8c9e503a3539fd50bf3fba68e3949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9cfec65843012e781c8a8dd06cbc4d1225b0dd36
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257520"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338903"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Prerequisiti di Dynamics 365 for Customer Engagement
 
@@ -40,7 +40,7 @@ L'applicazione Dynamics 365 for Customer Engagement deve rispettare le [linee gu
 
 I requisiti aziendali includono gli obblighi procedurali, legali e contrattuali riportati di seguito:
 
-* È necessario essere registrati in [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) o essere un editore del Marketplace cloud registrato. Se non si è ancora effettuata la registrazione, seguire la procedura in [Diventare un editore del Marketplace cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Per il terzo passaggio, usare invece il [modulo di candidatura a partner di AppSource](https://appsource.microsoft.com/partners/signup)). 
+* È necessario essere registrati in [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) o essere un editore del Marketplace cloud registrato. Se non si è ancora effettuata la registrazione, seguire la procedura in [Diventare un editore del Marketplace cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Può anche connettersi con il [Dynamics 365 per il team di onboarding di coinvolgimento dei clienti](https://experience.dynamics.com/isvengage/)).
 
     >[!NOTE]
     >Per l'accesso al portale Cloud Partner è consigliabile usare lo stesso account usato per la registrazione a Microsoft Developer Center. È consigliabile utilizzare un solo account Microsoft per le offerte in Azure Marketplace. L’account non deve essere specifico di servizi o offerte singole.

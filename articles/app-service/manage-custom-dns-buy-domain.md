@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bba176a27cc70321915654e3e2e62320f22c16c
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475240"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310150"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acquistare un nome di dominio personalizzato per Servizio app di Azure
 
@@ -147,7 +147,7 @@ I nomi host selezionati vengono visualizzati nella pagina **Domini personalizzat
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> L'etichetta **Non sicuro** indica che il dominio personalizzato non è ancora associato a un certificato SSL e che, a seconda del browser in uso, per qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato verrà restituito un errore o un avviso. Per configurare l'associazione SSL, vedere [acquistare e configurare un certificato SSL per il servizio App di Azure](web-sites-purchase-ssl-web-site.md).
+> Oggetto **non sicuro** assegnare un'etichetta per il dominio personalizzato significa che non è ancora associato a un certificato SSL e qualsiasi richiesta HTTPS da un browser per il dominio personalizzato verrà visualizzato un errore o avviso, in base al browser. Per configurare l'associazione SSL, vedere [acquistare e configurare un certificato SSL per il servizio App di Azure](web-sites-purchase-ssl-web-site.md).
 >
 
 Per verificare i nomi host, navigare nei nomi host elencati dal browser. Nell'esempio nella schermata precedente, provare a passare a _kontoso.net_ e _www\.kontoso.net_.

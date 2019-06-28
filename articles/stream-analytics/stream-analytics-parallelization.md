@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55db909f240756200d758fe89aabb217fb380d16
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478879"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329806"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure
 Questo articolo illustra come sfruttare i vantaggi della parallelizzazione in Analisi di flusso di Azure. Si apprenderà come ridimensionare i processi di Analisi di flusso configurando partizioni di input e ottimizzando la definizione di query.
@@ -60,7 +60,7 @@ Un processo *perfettamente parallelo* è lo scenario più scalabile che può pre
 
 1. Se la logica di query richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è necessario verificare che gli eventi siano diretti alla stessa partizione dell'input. Per gli hub eventi e l'hub IoT, questo significa che per i dati degli eventi deve essere impostata la proprietà **PartitionKey**. In alternativa, è possibile usare mittenti partizionati. Per l'archiviazione BLOB, questo significa che gli eventi vengono inviati alla stessa cartella di partizione. Se la logica di query non richiede che la stessa chiave venga elaborata dalla stessa istanza di query, è possibile ignorare questo requisito. Un esempio di questa logica è offerto da una query semplice select-project-filter.  
 
-2. Quando i dati sono disposti a livello di input, si deve verificare che la query sia partizionata. A questo scopo, è necessario usare la clausola **PARTITION BY** in tutti i passaggi. È possibile eseguire più passaggi, ma tutti devono essere partizionati con la stessa chiave. Per ottenere un processo completamente parallelo, è attualmente necessario impostare la chiave di partizionamento su **PartitionId**.  
+2. Quando i dati sono disposti a livello di input, si deve verificare che la query sia partizionata. A questo scopo, è necessario usare la clausola **PARTITION BY** in tutti i passaggi. È possibile eseguire più passaggi, ma tutti devono essere partizionati con la stessa chiave. Con il livello di compatibilità 1.0 e 1.1, la chiave di partizionamento deve essere impostata su **PartitionId** affinché il processo completamente parallelo. Per i processi con livello di compatibilità dell'1.2 e versioni successiva, colonna personalizzata può essere specificato come chiave di partizione nelle impostazioni di input e il processo sarà automoatically paralellized anche senza clausola PARTITION BY.
 
 3. La maggior parte degli output può sfruttare i vantaggi del partizionamento. Se tuttavia si usa un tipo di output che non supporta il partizionamento, il processo non sarà perfettamente parallelo. Per altri dettagli, vedere la [sezione output](#outputs).
 
@@ -87,7 +87,7 @@ Query:
     WHERE TollBoothId > 100
 ```
 
-Questa query è un filtro semplice. Non è pertanto necessario preoccuparsi del partizionamento dell'input inviato all'hub eventi. Si noti che la query include la clausola **PARTITION BY PartitionId** e quindi il requisito 2 illustrato in precedenza è pienamente soddisfatto. A livello di output, è necessario configurare l'output dell'hub eventi nel processo in modo che la chiave di partizione sia impostata su **PartitionId**. È infine necessario verificare che il numero delle partizioni di input sia uguale a quello delle partizioni di output.
+Questa query è un filtro semplice. Non è pertanto necessario preoccuparsi del partizionamento dell'input inviato all'hub eventi. Si noti che i processi con livello di compatibilità prima 1.2 deve includere **PARTITION BY PartitionId** clausola, quindi il requisito #2 illustrato in precedenza. A livello di output, è necessario configurare l'output dell'hub eventi nel processo in modo che la chiave di partizione sia impostata su **PartitionId**. È infine necessario verificare che il numero delle partizioni di input sia uguale a quello delle partizioni di output.
 
 ### <a name="query-with-a-grouping-key"></a>Query con chiave di raggruppamento
 
@@ -141,6 +141,26 @@ Query:
 Come è possibile osservare, il secondo passaggio usa **TollBoothId** come chiave di partizionamento, a differenza del primo passaggio. È quindi necessario eseguire una riproduzione in ordine casuale. 
 
 Gli esempi precedenti illustrano alcuni processi di Analisi di flusso che sono o non sono conformi a una topologia perfettamente parallela. Se sono conformi, possono raggiungere il livello massimo di scalabilità. Per i processi che non rientrano in nessuno di questi profili, in futuro saranno disponibili aggiornamenti con le linee guida per il ridimensionamento. Per il momento, seguire le indicazioni generali riportate nelle sezioni seguenti.
+
+### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>Livello di compatibilità 1.2 - query a più passaggi con valori diversi per PARTITION BY 
+* Input: hub eventi con 8 partizioni
+* Output: hub eventi con 8 partizioni
+
+Query:
+
+```SQL
+    WITH Step1 AS (
+    SELECT COUNT(*) AS Count, TollBoothId
+    FROM Input1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+    )
+
+    SELECT SUM(Count) AS Count, TollBoothId
+    FROM Step1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
+
+Livello di compatibilità 1.2 consente l'esecuzione di query in parallelo per impostazione predefinita. Ad esempio, query nella sezione precedente sarà parttioned, purché la colonna "TollBoothId" è impostata come chiave di partizione di input. PARTIZIONE da ParttionId clausola non è obbligatorio.
 
 ## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>Calcolare il numero massimo di unità di streaming di un processo
 Il numero totale di unità di streaming che possono essere usate da un processo di Analisi dei flussi dipende dal numero di passaggi nella query definita per il processo e dal numero di partizioni per ogni passaggio.

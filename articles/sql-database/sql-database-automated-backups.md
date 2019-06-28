@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/20/2019
-ms.openlocfilehash: 1c81f5748d1e3edff4902eb462b9beea78acd8bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e56244f074e31672cf77bc74998096e215a4db7
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951683"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357338"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
@@ -32,7 +32,7 @@ Database SQL Usa la tecnologia di SQL Server per creare [i backup completi](http
 È possibile usare questi backup per:
 
 - **Ripristinare un database esistente in un punto nel tempo nel passato** entro il periodo di conservazione usando il portale di Azure, Azure PowerShell, CLI di Azure o l'API REST. In un database singolo e pool elastici, questa operazione creerà un nuovo database nello stesso server del database originale. In istanza gestita, questa operazione può creare una copia del database o uguali o diversi istanza gestita nella stessa sottoscrizione.
-  - **[Modificare il periodo di conservazione dei Backup](#how-to-change-the-pitr-backup-retention-period)**  tra a 35 giorni per configurare i criteri di backup.
+  - **[Modificare il periodo di conservazione dei Backup](#how-to-change-the-pitr-backup-retention-period)**  compreso tra da 7 a 35 giorni per configurare i criteri di backup.
   - **Modificare i criteri di conservazione a lungo termine 10 anni** sul Database singolo e pool elastici usando [portale di Azure](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) oppure [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups).
 - **Ripristinare un database eliminato al momento in cui è stato eliminato** o in qualsiasi momento entro il periodo di conservazione. Il database eliminato può essere ripristinato solo nello stesso server logico o istanza gestita in cui è stato creato il database originale.
 - **Ripristinare un database in un'altra area geografica**. Il ripristino geografico consente di eseguire un ripristino di emergenza geografico quando è impossibile accedere al server e al database. Crea un nuovo database in qualsiasi server esistente ovunque nel mondo.

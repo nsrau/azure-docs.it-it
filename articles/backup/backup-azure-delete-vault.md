@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 8df4f17c9afbf10c6507e505c6540c3f66a42309
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 51de1c4ac17360282877f05d52c3ea8fa2c6d712
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275620"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310761"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminare un insieme di credenziali dei servizi di ripristino
 
@@ -114,7 +114,7 @@ Questa procedura viene fornito un esempio che illustra come rimuovere i dati di 
 1. Nel menu del dashboard dell'insieme di credenziali fare clic su **infrastruttura di Backup**.
 2. Fare clic su **server di gestione Backup** per visualizzare i server.
 
-    ![Selezionare l'insieme di credenziali per aprire il relativo dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+    ![Seleziona insieme di credenziali per aprire il dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. Fare doppio clic su elemento > **Elimina**.
 4. Nel **eliminare** menu, digitare il nome del server e fare clic su **eliminare**.
@@ -124,7 +124,7 @@ Questa procedura viene fornito un esempio che illustra come rimuovere i dati di 
 
 > [!NOTE]
 > Per rimuovere gli elementi, nella console di server di gestione o nella console di MARS in un server protetto, arrestare la protezione dati ed eliminare i backup. Se gli elementi di backup rimangono, verrà visualizzato l'errore seguente quando si prova a eliminare e annullare la registrazione di server:
-> 
+>
 >![eliminazione non riuscita](./media/backup-azure-delete-vault/deletion-failed.png)
 
 6. Per verificare che il processo di eliminazione è stata completata, controllare i messaggi di Azure ![Elimina dati di backup](./media/backup-azure-delete-vault/messages.png).
@@ -159,8 +159,8 @@ Questa procedura viene fornito un esempio che illustra come rimuovere i dati di 
 
 > [!NOTE]
 > Gli elementi di backup associati a un server di Backup del Server di gestione o agente di Backup di Azure devono essere eliminati prima le registrazioni del server, questi vengono eliminate. Per rimuovere gli elementi di Backup, passare a SC DPM, MABS o la console di gestione di MARS nel server come applicabile e selezionare le opzioni rilevanti per arrestare la protezione dati ed eliminare i backup. Se eventuali elementi di backup sono ancora associati, si verrà visualizzato l'errore seguente:
-> 
-> 
+>
+>
 >![eliminazione non riuscita](./media/backup-azure-delete-vault/deletion-failed.png)
 
 8. Per verificare che il processo di eliminazione è stata completata, controllare i messaggi di Azure ![Elimina dati di backup](./media/backup-azure-delete-vault/messages.png).

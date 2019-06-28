@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/18/2019
-ms.openlocfilehash: 4be73554df0b6bddaafe3910c80c855e127d79f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac58bbbc252d66620ad410bffa805b75ec3042d4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771652"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341764"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Output di Analisi di flusso di Azure in Database SQL di Azure
 
@@ -39,7 +39,7 @@ Ecco alcune configurazioni all'interno di ogni servizio che consentono di miglio
 
 - **Tabelle e indici partizionati** – Usare una tabella SQL [partizionata](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) e gli indici partizionati sulla tabella con la stessa colonna come chiave di partizione (ad esempio PartitionId) può ridurre notevolmente le contese tra partizioni durante la scrittura. Per una tabella partizionata, è necessario creare una [funzione di partizione](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) e uno [schema di partizione](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) nel filegroup primario. Questo aumenterà anche la disponibilità dei dati esistenti mentre vengono caricati i dati nuovi. Il limite del log IO potrebbe raggiungere il valore basato sul numero di partizioni che può essere aumentato eseguendo l'aggiornamento dello SKU.
 
-- **Evitare le violazioni della chiave univoca** – Se si verificano [più messaggi di avviso di violazione della chiave](stream-analytics-common-troubleshooting-issues.md#handle-duplicate-records-in-azure-sql-database-output) nel Log di Analisi di flusso di Azure, assicurarsi che il processo non è interessato da violazioni di vincolo uniche che possono verificarsi durante i casi di ripristino. Questo può essere evitato se si imposta sugli indici l'opzione [IGNORE\_CHIAVE\_DUP](stream-analytics-common-troubleshooting-issues.md#handle-duplicate-records-in-azure-sql-database-output).
+- **Evitare le violazioni della chiave univoca** – Se si verificano [più messaggi di avviso di violazione della chiave](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) nel Log di Analisi di flusso di Azure, assicurarsi che il processo non è interessato da violazioni di vincolo uniche che possono verificarsi durante i casi di ripristino. Questo può essere evitato se si imposta sugli indici l'opzione [IGNORE\_CHIAVE\_DUP](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output).
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Data Factory di Azure e tabelle in memoria
 

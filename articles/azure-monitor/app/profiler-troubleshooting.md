@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b57ffbd3cb2b31da3fc2882e941f9788d83fea8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731067"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341665"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Risolvere i problemi di abilitazione o visualizzazione di Application Insights Profiler
 
@@ -88,7 +88,7 @@ Per il corretto funzionamento di Profiler:
 
       ![profiler-webjob-log]
 
-Se non si riesce a capire il motivo per cui Profiler non funziona, è possibile scaricare il log e inviarlo al team Microsoft per ottenere assistenza. 
+Se non è possibile capire il motivo per cui Profiler non funziona per l'utente, è possibile scaricare i log e inviarlo al nostro team per ottenere assistenza, serviceprofilerhelp@microsoft.com. 
     
 ### <a name="manual-installation"></a>Installazione manuale
 

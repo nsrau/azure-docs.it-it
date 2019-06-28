@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 5/10/2019
-ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.openlocfilehash: 964a2931267ad2f1e2842693eadf43f8f629a084
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546461"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357231"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Livelli di servizio nel modello di acquisto basato su DTU
 
-I livelli di servizio nel modello di acquisto basato su DTU si differenziano in base a diverse dimensioni di calcolo con una quantità fissa di risorse di archiviazione, un periodo di conservazione fisso per i backup e un prezzo fisso. Tutti i livelli di servizio nel modello di acquisto basato su DTU assicurano la flessibilità necessaria per modificare le dimensioni di calcolo senza tempi di inattività. La fatturazione per i database singoli e i pool elastici viene effettuata con frequenza oraria in base al livello di servizio e alle dimensioni di calcolo.
+I livelli di servizio nel modello di acquisto basato su DTU si differenziano in base a diverse dimensioni di calcolo con una quantità fissa di risorse di archiviazione, un periodo di conservazione fisso per i backup e un prezzo fisso. Tutti i livelli di servizio nel modello di acquisto basato su DTU assicurano flessibilità necessaria per modificare le dimensioni di calcolo con il minimo [tempi di inattività](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); tuttavia, vi è un'opzione nel periodo in cui la connettività viene interrotta al database per un breve periodo di tempo, che può essere ridotta con la logica di ripetizione dei tentativi. La fatturazione per i database singoli e i pool elastici viene effettuata con frequenza oraria in base al livello di servizio e alle dimensioni di calcolo.
 
 > [!IMPORTANT]
 > L'istanza gestita del database SQL non supporta un modello di acquisto basato su DTU. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md).

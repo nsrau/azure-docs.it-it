@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 212e6b042caec5f24a620dc491dc674417816df7
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734907"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310370"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -30,6 +30,8 @@ Spesso esistono molti scenari in cui sarebbe utile eliminare le notifiche genera
 
 Anche se le regole di avviso consentono di definire il gruppo di azione che viene attivata quando l'avviso viene generato, i clienti spesso tendono a disporre di un gruppo di azioni comuni nel proprio ambito di operazioni. Ad esempio, un team responsabile del gruppo di risorse 'ContosoRG' definirà probabilmente lo stesso gruppo di azione per tutte le regole di avviso definite all'interno di 'ContosoRG'. Regole di azione consentono di semplificare il processo, consentendo di definire le azioni su larga scala, in modo che un gruppo di azioni può essere attivato per qualsiasi avviso generato sull'ambito configurato. Tornando all'esempio precedente, il team può ora definire una regola di azione nel 'ContosoRG' che attiverà lo stesso gruppo di azione per tutti gli avvisi generati in esso contenuti.
 
+> [!NOTE]
+> Regole di azione attualmente non si applicano agli avvisi di integrità del servizio.
 
 ## <a name="configuring-an-action-rule"></a>Configurare una regola di azione
 
@@ -98,7 +100,7 @@ Se si seleziona **gruppo di azioni** nell'interruttore, aggiungere un gruppo di 
 ### <a name="action-rule-details"></a>Dettagli azione regola
 
 Infine, configurare i dettagli seguenti per la regola di azione
-* Name
+* NOME
 * Gruppo di risorse in cui verrà salvato
 * Descrizione 
 

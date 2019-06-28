@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: 5ef653e825a5f1eb0f5df52f9c2544a5224b34cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be141e208016784b689262394798012c2212ba5b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003447"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312242"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Applicazione gestita di Azure con identità gestita
 
@@ -322,7 +322,7 @@ Dopo aver creato il pacchetto di applicazione gestita, l'applicazione gestita po
 Il token dell'applicazione gestita è ora possibile accedere tramite il `listTokens` api dal tenant di server di pubblicazione. Un esempio di richiesta potrebbe essere simile:
 
 ``` HTTP
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}?api-version=2018-09-01-preview HTTP/1.1
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
 ```
 
 Una risposta di esempio potrebbe essere simile:

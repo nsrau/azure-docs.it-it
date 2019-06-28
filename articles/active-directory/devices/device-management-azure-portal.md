@@ -2,29 +2,23 @@
 title: Come gestire dei dispositivi tramite il portale di Azure | Microsoft Docs
 description: Informazioni su come usare il portale di Azure per gestire i dispositivi.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48f162e5e6eb29e4a658000826ccf25389086342
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4a0037d46db67460d507c6e92ab550f7d9c2fbe
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730449"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341423"
 ---
-# <a name="manage-device-identity-using-the-azure-portal"></a>Gestire le identità dispositivo nel portale di Azure
+# <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi nel portale di Azure
 
 Gestione identità dei dispositivi in Azure Active Directory (Azure AD), è possibile garantire che gli utenti sono accedano alle risorse dai dispositivi che soddisfano gli standard di sicurezza e conformità.
 
@@ -65,19 +59,19 @@ La pagina delle impostazioni dei dispositivi consente di configurare:
 
 - **Gli utenti possono aggiungere dispositivi ad Azure AD** -questa impostazione consente di selezionare gli utenti possono registrare i dispositivi come [dispositivi di Azure AD join](overview.md#azure-ad-joined-devices). L'impostazione predefinita è **Tutti**.
 
->[!NOTE]
+> [!NOTE]
 > **Gli utenti possono aggiungere dispositivi ad Azure AD** impostazione è applicabile solo ai aggiunta ad Azure AD in Windows 10.
 
 - **Amministratori locali aggiuntivi su dispositivi aggiunti ad Azure AD**: è possibile selezionare gli utenti a cui vengono concessi i diritti di amministratore locale per un dispositivo. Gli utenti aggiunti in questa posizione vengono aggiunti al ruolo *Amministratori di dispositivi* in Azure AD. Agli amministratori globali di Azure AD e ai proprietari dei dispositivi vengono concessi i diritti di amministratore locale per impostazione predefinita. Questa opzione è una funzionalità dell'edizione Premium disponibile tramite prodotti come Azure AD Premium o Enterprise Mobility Suite (EMS).
-- **Gli utenti possono registrare i propri dispositivi con Azure AD** -è necessario configurare questa impostazione per consentire ai dispositivi personali, iOS, Android e macOs di Windows 10 sia [registrato](overview.md#azure-ad-registered-devices) con Azure AD. Se si seleziona **None**, i dispositivi non sono consentiti da registrare con Azure AD. L'iscrizione a Microsoft Intune o Gestione dispositivi mobili per Office 365 richiede la registrazione. Se è stato configurato uno di questi servizi, è selezionata l'opzione **TUTTI** e l'opzione **NESSUNO** non è disponibile.
-- **Richiedi Multi-factor Auth per aggiungere i dispositivi**: è possibile scegliere se richiedere agli utenti di fornire un secondo fattore di autenticazione per [aggiungere](overview.md#azure-ad-joined-devices) il dispositivo ad Azure AD. Il valore predefinito è **No**. Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per altre informazioni sui diversi servizi di autenticazione a più fattori di Azure, vedere [Introduzione ad Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md). 
+- **Gli utenti possono registrare i propri dispositivi con Azure AD** -è necessario configurare questa impostazione per consentire ai dispositivi personali, iOS, Android e macOs di Windows 10 sia [registrato](overview.md#azure-ad-registered-devices) con Azure AD. Se si seleziona **None**, i dispositivi non sono consentiti da registrare con Azure AD. L'iscrizione a Microsoft Intune o Gestione dispositivi mobili per Office 365 richiede la registrazione. Se è stato configurato uno di questi servizi, è selezionata l'opzione **TUTTI** e l'opzione **NESSUNO** non è disponibile. Se è stata abilitata questa impostazione da Intune quindi le opzioni qui risulterà disattivate.
+- **Richiedi Multi-factor Auth per aggiungere i dispositivi**: è possibile scegliere se richiedere agli utenti di fornire un secondo fattore di autenticazione per [aggiungere](overview.md#azure-ad-joined-devices) il dispositivo ad Azure AD. Il valore predefinito è **No**. Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Prima di abilitare multi-factor authentication per questo servizio, è necessario assicurarsi che sia configurato Azure multi-Factor Authentication per gli utenti che registrano i propri dispositivi. Per altre informazioni, vedere l'articolo [distribuzione di Azure multi-Factor Authentication](../authentication/howto-mfa-getstarted.md). 
 
->[!NOTE]
+> [!NOTE]
 > **Richiedi multi-Factor Auth per aggiungere dispositivi** impostazione non è applicabile ai dispositivi aggiunti ad Azure AD ibrido.
 
 - **Numero massimo di dispositivi per utente**: questa impostazione consente di selezionare il numero massimo di dispositivi che un utente può avere in Azure AD. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non vengono rimossi uno o più dispositivi esistenti. La quota di dispositivi viene conteggiata per tutti i dispositivi aggiunti ad Azure AD o Azure AD registrati oggi stesso. Il valore predefinito è **20**.
 
->[!NOTE]
+> [!NOTE]
 > **Numero massimo di dispositivi** impostazione non è applicabile ai dispositivi aggiunti ad Azure AD ibrido.
 
 - **Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi**: per impostazione predefinita, il valore di questa opzione è **Nessuno**. Se si selezionano utenti o gruppi specifici oppure l'opzione TUTTI, si consente la sincronizzazione delle impostazioni dell'utente e dei dati delle app tra i dispositivi Windows 10. Leggere altre informazioni sul funzionamento della sincronizzazione in Windows 10.

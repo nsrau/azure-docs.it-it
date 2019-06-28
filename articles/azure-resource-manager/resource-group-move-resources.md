@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1cc2f3b1ee657706dba237c86552b1780bc9dd34
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: eb99bec74ae5444320b7098616d4bf2d81b90697
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295436"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332022"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -79,7 +79,6 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * DNS
 * Griglia di eventi
 * Hub eventi
-* Frontdoor
 * Cluster HDInsight - vedere [Limitazioni di HDInsight](#hdinsight-limitations)
 * Iot Central
 * Hub IoT
@@ -138,6 +137,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non po
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
+* Frontdoor
 * Lab Services - lab per le classi non possono essere spostati in un nuovo gruppo di risorse o sottoscrizione. DevTest Labs può essere spostato in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non per tutte le sottoscrizioni.
 * Applicazioni gestite
 * Identità gestita assegnata dall'utente

@@ -1,6 +1,6 @@
 ---
-title: Aggiungere partner commerciali per le integrazioni B2B - App per la logica di Azure | Microsoft Docs
-description: Creare partner commerciali per l'account di integrazione in App per la logica di Azure con Enterprise Integration Pack
+title: Aggiungere partner commerciali per l'integrazione B2B - App per la logica di Azure
+description: Creare i partner commerciali nell'account di integrazione da usare con le App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,88 +8,105 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
-ms.date: 07/08/2016
-ms.openlocfilehash: 137ed89c276338b534cad8fdf81ec31b5e5610b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/22/2019
+ms.openlocfilehash: 681f16132c1de2ec5f3b27f80633d32879b0746c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845986"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330161"
 ---
-# <a name="add-trading-partners-for-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>Aggiungere partner commerciali per gli account di integrazione in App per la logica di Azure con Enterprise Integration Pack
+# <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Aggiungere partner commerciali per gli account di integrazione per le App per la logica di Azure
 
-I partner sono le entità che partecipano alle transazioni e allo scambio di messaggi Business-To-Business (B2B). Prima di poter creare i partner che rappresentano l'utente e l'altra organizzazione nelle transazioni, è necessario che entrambe le parti condividano le informazioni che identificano e convalidano i messaggi inviati. Dopo aver definito questi dettagli e quando si è pronti per avviare una relazione commerciale, è possibile creare i partner nell'account di integrazione che rappresentino entrambe le parti.
+Nelle [Azure Logic Apps](../logic-apps/logic-apps-overview.md), è possibile creare business-to-business (B2B) integrazione flussi di lavoro automatizzati con un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) con App per la logica. Per rappresentare l'organizzazione e altri ancora, creare e aggiungere i partner commerciali come elementi all'account di integrazione. I partner sono le entità che partecipano alle transazioni B2B e lo scambio di messaggi tra loro.
 
-## <a name="what-roles-do-partners-play-in-your-integration-account"></a>Che ruoli hanno i partner nell'account di integrazione?
+Prima di creare i partner, assicurarsi di discutere e condividere informazioni con i partner su come identificare e convalidare i messaggi inviati a altro. Dopo che concordare questi dettagli, si è pronti per creare i partner nell'account di integrazione.
 
-Per definire i dettagli dello scambio di messaggi tra i partner, è necessario creare contratti tra i partner. Tuttavia, prima di creare un contratto è necessario aggiungere almeno due partner all'account di integrazione. L'organizzazione deve far parte del contratto in qualità di **partner host**. L'altro partner, o **partner guest**, rappresenta l'organizzazione che scambia i messaggi con l'organizzazione. Il partner guest può essere un'altra società o anche un reparto all'interno della stessa organizzazione.
+## <a name="partner-roles-in-integration-accounts"></a>Ruoli partner nell'account di integrazione
 
-Dopo aver aggiunto i partner, è possibile creare un contratto.
+Per definire i dettagli relativi ai messaggi scambiati con i partner, creare e aggiungere [contratti](../logic-apps/logic-apps-enterprise-integration-agreements.md) come elementi all'account di integrazione. Contratti richiedono almeno due partner nell'account di integrazione. L'organizzazione è sempre il *partner host* nell'accordo. L'organizzazione che scambia messaggi con l'organizzazione è la *partner guest*. Un partner guest può essere un'altra società o anche un reparto dell'organizzazione. Dopo aver aggiunto i partner, è possibile creare un contratto.
 
-Le impostazioni per la ricezione e l'invio sono configurate dal punto di vista del partner host. Le impostazioni di ricezione del contratto, ad esempio, determinano la modalità con cui il partner ospitato riceve i messaggi inviati da un partner guest. Analogamente, le impostazioni di invio del contratto indicano in che modo il partner ospitato invia messaggi al partner guest.
+In un accordo, specificare i dettagli per la gestione dei messaggi in ingresso e in uscita dal punto di vista del partner host. Per i messaggi in ingresso, il **impostazioni di ricezione** specificare come il partner host riceve messaggi dal partner guest nel contratto. Per i messaggi in uscita, il **impostazioni di invio** specificare come il partner host invia messaggi al partner guest.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* Una sottoscrizione di Azure. Se non si dispone ancora di una sottoscrizione di Azure, [registrarsi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
+
+* Un' [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) per l'archiviazione dei partner, contratti e altri artefatti B2B. Questo account di integrazione deve essere associato alla sottoscrizione di Azure.
 
 ## <a name="create-partner"></a>Creare il partner
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca immettere "integrazione" e quindi selezionare **Account di integrazione**.
+1. Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca immettere "integrazione" e selezionare **account di integrazione**.
 
-   ![Trovare l'account di integrazione](./media/logic-apps-enterprise-integration-partners/account-1.png)
+   ![Selezionare "Account di integrazione"](./media/logic-apps-enterprise-integration-partners/find-integration-accounts.png)
 
-3. In **Account di integrazione** selezionare l'account di integrazione nel quale aggiungere i partner.
+1. In **Account di integrazione** selezionare l'account di integrazione nel quale aggiungere i partner.
 
-   ![Selezionare l'account di integrazione](./media/logic-apps-enterprise-integration-partners/account-2.png)
+   ![Selezionare l'account di integrazione](./media/logic-apps-enterprise-integration-partners/select-integration-account.png)
 
-4. Scegliere il riquadro **Partner**.
+1. Scegliere il riquadro **Partner**.
 
-   ![Scegliere "Partner"](./media/logic-apps-enterprise-integration-partners/partner-1.png)
+   ![Scegliere il riquadro "Partner"](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
 
-5. In **Partner** scegliere **Aggiungi**.
+1. In **Partner** scegliere **Aggiungi**. Sotto **aggiungere Partner**, specificare i dettagli del partner come descritto nella tabella seguente.
 
-   ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-partners/partner-2.png)
+   ![Fare clic su "Aggiungi" e fornire i dettagli del partner](./media/logic-apps-enterprise-integration-partners/add-partners.png)
 
-6. Immettere il nome del partner, quindi selezionare un **Qualificatore**. Immettere un **valore** per identificare i documenti ricevuti dalle app. Al termine dell'operazione, scegliere **OK**.
+   | Proprietà | Obbligatorio | Descrizione |
+   |----------|----------|-------------|
+   | **Nome** | Yes | Nome del partner |
+   | **Qualifier** | Yes | Il corpo di autenticazione che fornisca le identità di business univoche per le organizzazioni, ad esempio, **D-U-N-S (Dun & Bradstreet)** . <p>I partner possono optare per un'identità di business definite si escludono a vicenda. Per questi scenari, selezionare **Mutually Defined** EDIFACT o **Mutually Defined (X12)** per X12. <p>Per RosettaNet, selezionare solo **DUNS**, ovvero lo standard. |
+   | **Valore** | Yes | Un valore che identifica i documenti che App per la logica di ricezione. <p>Per RosettaNet, questo valore deve essere un numero a nove cifre che corrisponde al numero DUNS. |
+   ||||
 
-   ![Aggiungere i dettagli del partner](./media/logic-apps-enterprise-integration-partners/partner-3.png)
+   > [!NOTE]
+   > Per i partner che usano RosettaNet, è possibile specificare informazioni aggiuntive creando innanzitutto questi partner e quindi [modifica di questi elementi in un secondo momento](#edit-partner).
 
-7. Scegliere nuovamente il riquadro **Partner**.
+1. Al termine dell'operazione, scegliere **OK**.
 
-   ![Scegliere il riquadro "Partner"](./media/logic-apps-enterprise-integration-partners/partner-5.png)
+   Il nuovo partner verrà ora visualizzato nei **partner** elenco. Inoltre, il **partner** riquadro aggiorna il numero corrente di partner.
 
-   Viene visualizzato il nuovo partner. 
+   ![Nuovo partner](./media/logic-apps-enterprise-integration-partners/new-partner.png)
 
-   ![Visualizzare il nuovo partner](./media/logic-apps-enterprise-integration-partners/partner-6.png)
+<a name="edit-partner"></a>
 
 ## <a name="edit-partner"></a>Modificare il partner
 
-1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'account di integrazione. Scegliere il riquadro **Partner**.
+1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'account di integrazione.
+Scegliere il riquadro **Partner**.
 
    ![Scegliere il riquadro "Partner"](./media/logic-apps-enterprise-integration-partners/edit.png)
 
-2. In **Partner** selezionare il partner da modificare.
+1. Sotto **partner**, selezionare il partner che si desidera modificare e scegliere **modificare**. Sotto **modifica**, apportare le modifiche.
 
-   ![Selezionare i partner da eliminare](./media/logic-apps-enterprise-integration-partners/edit-1.png)
+   ![Apportare modifiche e salvarle](./media/logic-apps-enterprise-integration-partners/edit-partner.png)
 
-3. In **Aggiorna partner** apportare le modifiche necessarie.
-Al termine dell'operazione, scegliere **Salva**. 
+   Per RosettaNet, sotto **proprietà Partner di RosettaNet**, è possibile specificare queste informazioni aggiuntive:
 
-   ![Apportare modifiche e salvarle](./media/logic-apps-enterprise-integration-partners/edit-2.png)
+   | Proprietà | Obbligatorio | Descrizione |
+   |----------|----------|-------------|
+   | **Classificazione partner** | No | Tipo di organizzazione del partner |
+   | **Supply chain code** | No | Il codice del partner supply chain, ad esempio "IT" o "Electronic Components" |
+   | **Nome del contatto** | No | Nome contatto del partner |
+   | **Indirizzo di posta elettronica** | No | Indirizzo di posta elettronica del partner |
+   | **Fax** | No | Numero di fax del partner |
+   | **telefono** | No | Numero di telefono del partner |
+   ||||
 
-   Per annullare le modifiche, selezionare **Ignora**.
+1. Al termine, scegliere **OK** per salvare le modifiche.
 
 ## <a name="delete-partner"></a>Eliminare il partner
 
 1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'account di integrazione. Scegliere il riquadro **Partner**.
 
-   ![Scegliere il riquadro "Partner"](./media/logic-apps-enterprise-integration-partners/delete.png)
+   ![Scegliere il riquadro "Partner"](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
 
-2. In **Partner** selezionare il partner che si vuole eliminare.
-Scegliere **Elimina**.
+1. In **Partner** selezionare il partner che si vuole eliminare. Scegliere **Elimina**.
 
-   ![Eliminare il partner](./media/logic-apps-enterprise-integration-partners/delete-1.png)
+   ![Eliminare il partner](./media/logic-apps-enterprise-integration-partners/delete-partner.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre informazioni sui contratti](../logic-apps/logic-apps-enterprise-integration-agreements.md "Informazioni sui contratti di Enterprise Integration")  
-
+* Altre informazioni su [contratti](../logic-apps/logic-apps-enterprise-integration-agreements.md)

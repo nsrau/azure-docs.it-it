@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: c7f4b6d8aa614a460772fb7af11f9b83dc3fc979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 4a3ab9094080ab257a885bb7a745fc83948327c2
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65800805"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331689"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Auto-training di un modello di previsione serie temporale
 
@@ -26,6 +26,14 @@ In questo articolo descrive come eseguire il training di un modello di regressio
 * Eseguire le stime con i dati di serie temporali
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
+
+È possibile usare Machine Learning automatizzati per combinare le tecniche e approcci e ottenere una consigliati e di alta qualità serie temporali di previsione. Un esperimento di serie temporali automatizzato viene considerato come un problema di regressione multivariata. Ultimi valori di serie temporali sono "trasformato tramite pivot" per diventare quote aggiuntive per il regressore insieme alle altre variabili predittive. 
+
+Questo approccio, a differenza dei metodi di serie ora classiche, presenta un vantaggio di naturale incorporare più variabili contestuali e sulla loro relazione uno a altro durante il training. Nelle applicazioni di previsione del mondo reale, vari fattori possono influenzare una previsione. Ad esempio, quando previsioni di vendite, le interazioni di tendenze cronologiche, tasso di cambio e prezzi unità congiuntamente il risultato di vendita. Un ulteriore vantaggio è che tutte le innovazioni recenti per i modelli di regressione sono immediatamente valide per la previsione.
+
+È possibile [configurare](#config) fino a quando il futuro della previsione deve estendere (l'orizzonte di previsione), nonché ritardi e altro ancora. Automatizzati di Machine Learning crea un modello singolo, ma spesso internamente sottoposto a branching per tutti gli elementi in orizzonti il set di dati e la stima. In questo modo sono disponibili per stimare i parametri di modello più dati e generalizzazione di serie non visti diventa possibile. 
+
+Funzionalità estratte dai dati di training svolgono un ruolo fondamentale. E, automatizzati di Machine Learning esegue i passaggi di pre-elaborazione standard e genera funzionalità aggiuntive di serie temporali per acquisire gli effetti stagionali e aumentare l'accuratezza predittiva. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -69,6 +77,7 @@ y_test = X_test.pop("sales_quantity").values
 > [!NOTE]
 > Durante il training di un modello per la previsione dei valori futuri, assicurarsi che tutte le funzionalità usate nel training possono essere utilizzate durante l'esecuzione di stime per l'orizzonte desiderata. Ad esempio, durante la creazione di una previsione della domanda, tra cui la funzione di prezzo azionario corrente potrebbe altamente aumentare la precisione di training. Tuttavia, se si prevede di previsione con un orizzonte lungo, potrebbe non riuscire a prevedere con precisione futuri valori azionari corrispondente per i futuri punti di serie temporali e potrebbe soffrirne l'accuratezza del modello.
 
+<a name="config"></a>
 ## <a name="configure-and-run-experiment"></a>Configurare ed eseguire l'esperimento
 
 Per le attività di previsione, automatizzati di machine learning Usa i passaggi di pre-elaborazione e la stima di specifiche di dati delle serie temporali. Verranno eseguiti i passaggi di pre-elaborazione seguenti:
@@ -85,7 +94,7 @@ Il `AutoMLConfig` oggetto definisce le impostazioni e i dati necessari per un'at
 |-------|-------|-------|
 |`time_column_name`|Consente di specificare la colonna Data/ora nei dati di input usati per la compilazione della serie temporale e la frequenza l'inferenza.|✓|
 |`grain_column_names`|Nomi definizione di gruppi di serie singola nei dati di input. Se non viene definito livello di dettaglio, si presuppone che il set di dati da una serie temporale.||
-|`max_horizon`|Valore massimo desiderato orizzonte di previsione in unità di misura della frequenza di serie temporali.|✓|
+|`max_horizon`|Definisce l'orizzonte di previsione desiderato massimo in unità della frequenza di serie temporali. Le unità sono basate su intervallo di tempo dei dati di training, ad esempio, mensili, settimanali che devono prevedere la forecaster out.|✓|
 |`target_lags`|*n* periodi di tempo per forward-intervallo di valori prima del training del modello di destinazione.||
 |`target_rolling_window_size`|*n* cronologici periodi da utilizzare per generare valori previsti, < = dimensione del set di training. Se omesso, *n* è set di training completo delle dimensioni.||
 

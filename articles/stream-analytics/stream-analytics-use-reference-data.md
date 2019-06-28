@@ -7,17 +7,17 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 99917fa01fcdb3faf731e9d0909d67ff41222f22
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/21/2019
+ms.openlocfilehash: e4a6d169b50eff1b0e166bea098e28e65bad8cab
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066776"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329313"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso dei dati di riferimento per le ricerche in Analisi di flusso
 
-I dati di riferimento, noti anche come tabella di ricerca, sono un set di dati limitato di natura statica o soggetti a lenti cambiamenti, usati per eseguire una ricerca o la correlazione con il flusso di dati. Ad esempio, in uno scenario IoT, si potrebbero archiviare i metadati relativi ai sensori, che non cambiano spesso, in dati di riferimento e unirli ai flussi di dati IoT in tempo reale. Analisi di flusso di Azure carica i dati di riferimento nella memoria per ottenere un'elaborazione del flusso a bassa latenza. Per usare i dati di riferimento in un processo di Analisi di flusso di Azure, si usa in genere un [JOIN dei dati di riferimento](https://msdn.microsoft.com/library/azure/dn949258.aspx) nella query. 
+I dati di riferimento (noto anche come una tabella di ricerca) sono un set limitato di dati che sono statici o a modifica lenta in natura, usato per eseguire una ricerca o per aumentare i flussi di dati. Ad esempio, in uno scenario IoT, si potrebbero archiviare i metadati relativi ai sensori, che non cambiano spesso, in dati di riferimento e unirli ai flussi di dati IoT in tempo reale. Analisi di flusso di Azure carica i dati di riferimento nella memoria per ottenere un'elaborazione del flusso a bassa latenza. Per usare i dati di riferimento in un processo di Analisi di flusso di Azure, si usa in genere un [JOIN dei dati di riferimento](https://msdn.microsoft.com/library/azure/dn949258.aspx) nella query. 
 
 Analisi di flusso supporta l'archivio BLOB di Azure e il database SQL di Azure come livello di archiviazione per i dati di riferimento. È anche possibile trasformare e/o copiare i dati di riferimento nell'archiviazione BLOB da Azure Data Factory per usare [qualsiasi numero di archivi dati locali e basati sul cloud](../data-factory/copy-activity-overview.md).
 

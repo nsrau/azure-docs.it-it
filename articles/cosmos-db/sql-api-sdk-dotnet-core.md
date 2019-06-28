@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 91f15f9c19b480d950b2c715e6d9290e01184cf7
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 14350125f88c315a813eb64e3ce2b88dbec2aa24
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272370"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340205"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>.NET Core SDK di Azure Cosmos DB per l'API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -50,10 +50,8 @@ Azure Cosmos DB .NET Core SDK ha le stesse funzionalità della versione più rec
 * Supporto dei flussi.
 * Classe CosmosResponseMessage aggiornata a partire dal server per restituire il codice di stato e generare un'eccezione solo se non viene restituita alcuna risposta.
 
-### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
-* Consentire le richieste di scrittura per il fallback su un'area diversa se originale si verifichi un errore
-* Aggiungere criteri di ripetizione dei tentativi di sessione per la richiesta di scrittura
 * Correzioni di analisi di condizione di competizione per le query che ha causato le pagine vuote
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
@@ -234,7 +232,7 @@ Azure Cosmos DB .NET Core SDK ha le stesse funzionalità della versione più rec
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
-* Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG). Vedere [Supporto dell'aggregazione](how-to-sql-query.md#Aggregates).
+* Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG). Vedere [Supporto dell'aggregazione](sql-query-aggregates.md).
 * Velocità effettiva minima ridotta nelle raccolte partizionate da 10.100 UR/s a 2.500 UR/s.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
@@ -257,7 +255,7 @@ Per domande su questo SDK, pubblicare un post su [StackOverflow](https://stackov
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [2.5.0](#2.5.0) |18 giugno 2019 |--- |
+| [2.4.1](#2.4.1) |20 giugno 2019 |--- |
 | [2.4.0](#2.4.0) |05 maggio 2019 |--- |
 | [2.3.0](#2.3.0) |04 aprile 2019 |--- |
 | [2.2.3](#2.2.3) |11 marzo 2019 |--- |

@@ -8,17 +8,17 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.openlocfilehash: acafd6d8f37edd3e16561a4e588556bb771619f8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.date: 06/21/2019
+ms.openlocfilehash: 54296f0b4aed22457a5218154111a42ad01ec262
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206717"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329346"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
-Le unità di streaming rappresentano le risorse di calcolo allocate per eseguire un processo. Più alto è il numero di unità di streaming, maggiori sono le risorse di memoria e CPU allocate per il processo. Questa capacità consente di concentrarsi sulla logica di query, senza doversi preoccupare di gestire l'hardware, per eseguire il processo di Analisi di flusso nei tempi previsti.
+Le unità di streaming rappresenta le risorse di calcolo allocate per l'esecuzione di un processo di Stream Analitica. Più alto è il numero di unità di streaming, maggiori sono le risorse di memoria e CPU allocate per il processo. Questa capacità consente di concentrarsi sulla logica di query, senza doversi preoccupare di gestire l'hardware, per eseguire il processo di Analisi di flusso nei tempi previsti.
 
 Per ottenere l'elaborazione di flussi a bassa latenza, i processi di Analisi di flusso di Azure eseguono tutta l'elaborazione in memoria. Quando la memoria viene esaurita, il processo di streaming non riesce. Di conseguenza, per un processo di produzione è importante monitorare l'utilizzo delle risorse di un processo di streaming e assicurarsi che siano state allocate risorse sufficienti per mantenere il processo in esecuzione 24 ore su 24, 7 giorni su 7.
 
@@ -85,7 +85,7 @@ Ad esempio, nella query seguente il numero associato a `clusterid` è la cardina
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Per risolvere i problemi causati dalla cardinalità elevata nella query precedente, è possibile inviare a Hub eventi gli eventi partizionati in base a `clusterid` e scalare orizzontalmente la query, consentendo al sistema di elaborare ogni partizione di input separatamente usando **PARTITION BY**, come mostrato nell'esempio seguente:
+Per attenuare eventuali problemi causati dalla cardinalità elevata nella query precedente, è possibile inviare eventi a Hub eventi partizionati in base alla `clusterid`e scalare orizzontalmente la query, consentendo al sistema elaborare ogni partizione di input separatamente usando **partizione DA** come illustrato nell'esempio seguente:
 
    ```sql
    SELECT count(*) 

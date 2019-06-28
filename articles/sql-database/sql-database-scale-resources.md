@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6285348aa8067f356635dfff9ecd4eb34c431f0b
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.date: 06/25/2019
+ms.openlocfilehash: d8949f63dfa9b409cc14fe9c3bbed70f23a73c86
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147689"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357142"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Ridimensionare in modo dinamico le risorse di database con tempo di inattività minimo
 
-Database SQL di Azure consente di aggiungere dinamicamente altre risorse al database con tempi di inattività minimi.
+Database SQL di Azure consente di aggiungere dinamicamente altre risorse al database con il minimo [tempi di inattività](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); tuttavia, vi è un'opzione nel periodo in cui la connettività viene interrotta al database per un breve periodo di tempo, che può essere mitigati utilizzando la logica di ripetizione dei tentativi.
 
 ## <a name="overview"></a>Panoramica
 
