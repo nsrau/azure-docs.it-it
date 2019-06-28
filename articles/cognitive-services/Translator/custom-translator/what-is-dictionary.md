@@ -2,19 +2,19 @@
 title: Cos’è un dizionario? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Un dizionario è un documento allineato che specifica un elenco di espressioni o frasi (e le rispettive traduzioni) che Microsoft Translator deve sempre tradurre allo stesso modo. I dizionari sono detti talvolta anche glossari o termbase.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 4bf112974befd7063b3da8e2b1c1dcbb7ad55608
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c837399778723b0b084c26422b7bea762f0e7709
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66385232"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447370"
 ---
 # <a name="what-is-a-dictionary"></a>Cos’è un dizionario?
 

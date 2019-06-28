@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 8c7476a82df75d8ba653a2a8e6c0f9f557b53c42
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: dd8ed146c507d8d39ba99c6573321ee80bc891c9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341882"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442567"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Aggiungere un'entità in espressioni di esempio 
 
 Le espressioni di esempio sono campioni di testo con domande o commenti degli utenti. Per l'apprendimento di LUIS (Language Understanding), è necessario aggiungere [espressioni di esempio](luis-concept-utterance.md) a una [finalità](luis-concept-intent.md).
 
-In genere, si aggiunta utterance un esempio di un intent prima di tutto e quindi creare le entità e assegnare un'etichetta utterances nella pagina di intent. Se si desidera invece creare prima le entità, vedere [Aggiungere entità](luis-how-to-add-entities.md).
+In genere, si aggiunge un utterance esempio a una prima finalità, e quindi creare le entità o etichetta utterances nel **Intent** pagina. Se si desidera invece creare prima le entità, vedere [Aggiungere entità](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Contrassegnare le entità in espressioni di esempio
 
@@ -32,7 +32,7 @@ Alcuni tipi di entità, ad esempio le entità predefinite e le entità di espres
 
 ## <a name="add-a-simple-entity"></a>Aggiungere un'entità semplice
 
-Nella procedura seguente si crea e tagga un'entità personalizzata all'interno dell'espressione seguente nella pagina della finalità:
+Nella procedura seguente, si crea e un'entità personalizzata all'interno di utterance seguente il tag nel **Intent** pagina:
 
 ```text
 Are there any SQL server jobs?
@@ -65,9 +65,9 @@ Per un elenco dei reparti aziendali è possibile avere valori normalizzati: `Acc
 
     È possibile aggiungere più elementi elenco o più sinonimi di elementi etichettando altre espressioni o modificando l'entità da **Entities** (Entità) nel riquadro di spostamento a sinistra. Con la [modifica](luis-how-to-add-entities.md#add-list-entities) delle entità è possibile aggiungere altri elementi con sinonimi corrispondenti o importare un elenco. 
 
-## <a name="add-composite-entity"></a>Aggiungere un'entità composita
+## <a name="add-a-composite-entity"></a>Aggiungere un'entità composta
 
-Vengono create entità composite da **entità** esistenti in un'entità padre. 
+Vengono create entità composta da esistente **entità** per formare un'entità padre. 
 
 Supponendo che il utterance `Does John Smith work in Seattle?`, un utterance composito può restituire le informazioni sulle entità del nome del dipendente `John Smith`e il percorso `Seattle` in un'entità composta. Le entità figlio devono esistere già nell'app ed essere contrassegnate in utterance l'esempio prima di creare l'entità composta.
 
@@ -131,15 +131,15 @@ Le soluzioni seguenti consentono di risolvere la discrepanza nella previsione de
 
 ### <a name="remove-entity-labels-from-utterances"></a>Rimuovere le etichette di entità dalle espressioni
 
-È possibile rimuovere le etichette di entità con apprendimento automatico da un'espressione nella pagina delle finalità. Se l'entità non è stata appresa automaticamente, non potrà essere rimossa da un'espressione. Se si desidera rimuovere un'entità non appresa automaticamente dall'espressione, sarà necessario eliminare l'entità dall'intera app. 
+È possibile rimuovere etichette di entità apprese macchina da un utterance nella pagina di Intent. Se l'entità non è stata appresa automaticamente, non potrà essere rimossa da un'espressione. Se si desidera rimuovere un'entità non appresa automaticamente dall'espressione, sarà necessario eliminare l'entità dall'intera app. 
 
 Per rimuovere l'etichetta di un'entità appresa automaticamente da un'espressione, selezionare l'entità nell'espressione. Quindi selezionare **Rimuovi etichetta** nella casella di riepilogo a discesa dell'entità che viene visualizzata.
 
-### <a name="add-prebuilt-entity-label"></a>Aggiungere un'etichetta di un'entità predefinita
+### <a name="add-a-prebuilt-entity-label"></a>Aggiungere un'etichetta di entità predefiniti
 
 Quando si aggiungono le entità predefinite all'app LUIS, non è necessario taggare le espressioni con tali entità. Per altre informazioni sulle entità predefinite e su come aggiungerle, vedere [Aggiungere entità](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
-### <a name="add-regular-expression-entity-label"></a>Aggiungere un'etichetta di un'entità di espressione regolare
+### <a name="add-a-regular-expression-entity-label"></a>Aggiungere un'etichetta di entità di espressione regolare
 
 Se si aggiungono le entità di un'espressione regolare all'app LUIS, non sarà necessario taggare le espressioni con tali entità. Per altre informazioni sulle entità di espressioni regolari e su come aggiungerle, vedere [Aggiungere entità](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
@@ -149,7 +149,7 @@ Se si aggiungono le entità di un'espressione regolare all'app LUIS, non sarà n
 Vedi [Aggiungi un criterio da un'espressione esistente nella pagina delle entità o finalità](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 
-### <a name="add-patternany-entity"></a>Aggiungere l'entità pattern.any
+### <a name="add-a-patternany-entity"></a>Aggiungere un'entità pattern.any
 
 Se si aggiungono le entità pattern.any all'app LUIS, non sarà possibile etichettare le espressioni con tali entità. Esse sono valide solo nei modelli. Per altre informazioni sulle entità pattern.any e su come aggiungerle, vedere [Aggiungere entità](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
@@ -159,4 +159,4 @@ Dopo aver aggiunto, modificato o rimosso le espressioni, [eseguire il training](
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo l'aggiunta di etichette alle espressioni nelle finalità, è ora possibile creare un'[entità composita](luis-how-to-add-entities.md).
+Dopo l'assegnazione di etichette utterances nel **Intent**, è ora possibile creare un [entità composta](luis-how-to-add-entities.md).

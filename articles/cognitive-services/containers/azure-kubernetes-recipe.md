@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 61a76412d7619784582e1fddd2a5b60244159ebc
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 5b406f9c7f8c16038561853170896d2cd95dc383
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272931"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444857"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua nel servizio Azure Kubernetes
 
@@ -81,7 +81,7 @@ Per distribuire il contenitore nel servizio Azure Kubernetes, le immagini del co
     Salvare i risultati per ottenere la proprietà **loginServer**. Questa farà parte dell'indirizzo del contenitore ospitato, usato successivamente nel file `language.yml`.
 
     ```console
-    >az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    > az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
     {
         "adminUserEnabled": false,
         "creationDate": "2019-01-02T23:49:53.783549+00:00",
@@ -407,8 +407,8 @@ az group delete --name cogserv-container-rg
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Usare altri [contenitori di Servizi cognitivi](../cognitive-services-container-support.md)
-* Usare il servizio connesso di Analisi del testo](../vs-text-connected-service.md)
+> [!div class="nextstepaction"]
+> [Contenitori di servizi cognitivi](../cognitive-services-container-support.md)
 
 <!--
 kubectl get secrets

@@ -3,20 +3,20 @@ title: Domande frequenti - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: L'elenco dettagliato delle domande più frequenti riguardanti il servizio QnA Maker ti aiuterà a adottare il servizio più velocemente e con risultati migliori.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 06/11/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 896680b38d6861b09b133680487aa90ad11dec77
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d96c5829dfaa57e66b4afec203c27110b8627ac1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064354"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447572"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>Domande frequenti per QnA Maker
 

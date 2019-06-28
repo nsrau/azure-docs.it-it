@@ -3,52 +3,51 @@ title: Creare un account di Servizi cognitivi nel portale di Azure
 titlesuffix: Azure Cognitive Services
 description: Come creare un account API servizi cognitivi di Azure nel portale di Azure.
 services: cognitive-services
-author: garyericson
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.author: garye
-ms.openlocfilehash: 1149cc6bd4fa41514056342a06d31016123eb88c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: aahi
+ms.openlocfilehash: b857ee0395c447c8699b8f6a812853528812a7bd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062150"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445861"
 ---
-# <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Avvio rapido: Creare un account di Servizi cognitivi nel portale di Azure
+# <a name="create-a-cognitive-services-account-using-the-azure-portal"></a>Creare un account servizi cognitivi nel portale di Azure
 
-In questa guida di avvio rapido viene illustrato come effettuare l'iscrizione per Servizi cognitivi di Azure e creare una sottoscrizione di un singolo servizio o multiservizio. Questi servizi sono rappresentati da [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) di Azure che consentono di connettersi a una o più API Servizi cognitivi di Azure.
+In questa Guida introduttiva verrà illustrato come iscriversi per servizi cognitivi di Azure e creare un account che disponga di una sottoscrizione di singoli servizi o multiservizio. Questi servizi sono rappresentati da [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) di Azure che consentono di connettersi a una o più API Servizi cognitivi di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure valida. [Creare un account](https://azure.microsoft.com/free/) gratuitamente.
 
-## <a name="create-and-subscribe-to-an-azure-cognitive-services-resource"></a>Creare e sottoscrivere una risorsa di Servizi cognitivi di Azure
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-Prima di iniziare, è importante sapere che ci sono due tipi di sottoscrizioni di Servizi cognitivi di Azure. La prima è una sottoscrizione di un singolo servizio, ad esempio Visione artificiale o i servizi di riconoscimento vocale. Una sottoscrizione di un singolo servizio è limitata alla risorsa specifica. La seconda è una sottoscrizione multiservizio per Servizi cognitivi di Azure. Questa sottoscrizione consente di usare una sottoscrizione singola per la maggior parte dei Servizi cognitivi di Azure. Questa opzione consente anche il consolidamento della fatturazione. Per altre informazioni, vedere [Prezzi di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/).
+## <a name="create-a-new-azure-cognitive-services-resource"></a>Creare una nuova risorsa di servizi cognitivi di Azure
 
->[!WARNING]
-> Attualmente questi servizi **non** supportano le chiavi multiservizio: QnA Maker, servizi di riconoscimento vocale, visione artificiale personalizzato e rilevatore di anomalie.
-
-Nelle sezioni successive vengono illustrati i passaggi per la creazione di una sottoscrizione di un singolo servizio o multiservizio.
-
-
-### <a name="multi-service-subscription"></a>Sottoscrizione multiservizio
+Prima di creare una risorsa, è necessario disporre di un gruppo di risorse di Azure. Ogni account di servizi cognitivi (e la relativa risorsa di Azure associata) devono appartenere a un gruppo di risorse di Azure. Quando si crea un account, hai la possibilità di creare un nuovo gruppo di risorse o usarne uno esistente. Questo articolo illustra come creare un nuovo gruppo di risorse.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **+Crea una risorsa**.
 
     ![Selezionare API Servizi cognitivi](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 
-2. Individuare la barra di ricerca e immettere: **Servizi cognitivi**.
+2. È possibile trovare servizi cognitivi disponibili con nei modi seguenti:
+    * Usare la barra di ricerca e immettere il nome del servizio che si desidera eseguire la sottoscrizione.
+        * Per creare una risorsa per una sottoscrizione multiservizio, immettere **servizi cognitivi** nella ricerca della barra e selezionare il **servizi cognitivi** risorsa.
 
-    ![Cercare Servizi cognitivi](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
+        ![Cercare Servizi cognitivi](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
 
-3. Selezionare **Servizi cognitivi**.
-
-    ![Selezionare Servizi cognitivi](media/cognitive-services-apis-create-account/azureMarketplaceMulti.png)
+    * Per visualizzare tutti i servizi cognitivi disponibili, selezionare **intelligenza artificiale e Machine Learning**, in **Azure Marketplace**. Se non viene visualizzato il servizio si è interessati, fare clic su **Vedi tutto** e scorrere fino alla **servizi cognitivi**. Fare clic su **altre** per visualizzare l'intero catalogo di API servizi cognitivi.
+    
+        ![Selezionare API Servizi cognitivi](media/cognitive-services-apis-create-account/azureMarketplace.png)
 
 3. Nella pagina **Crea** specificare le informazioni seguenti:
+
+    > [!IMPORTANT]
+    > Ricordare la località di Azure, come si potrebbe essere necessario quando si chiamano i servizi cognitivi di Azure.
 
     |    |    |
     |--|--|
@@ -58,51 +57,28 @@ Nelle sezioni successive vengono illustrati i passaggi per la creazione di una s
     | **Piano tariffario** | Il costo dell'account Servizi cognitivi dipende dalle opzioni scelte e dall'utilizzo. Per altre informazioni, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/) delle API.
     | **Gruppo di risorse** | [Gruppo di risorse Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) che conterrà la risorsa di Servizi cognitivi. È possibile creare un nuovo gruppo o aggiungerla a un gruppo già esistente. |
 
-    ![Schermata di creazione risorsa](media/cognitive-services-apis-create-account/resource_create_screen_multi.png)
-
-### <a name="single-service-subscription"></a>Sottoscrizione di un singolo servizio
-
-1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **+Crea una risorsa**.
-
-    ![Selezionare API Servizi cognitivi](media/cognitive-services-apis-create-account/azurePortalScreen.png)
-
-2. In Azure Marketplace selezionare **Intelligenza artificiale e Machine Learning**. Se il servizio a cui si è interessati non è presente, fare clic su **Visualizza tutto** per vedere l'intero catalogo di API Servizi cognitivi.
-
-    ![Selezionare API Servizi cognitivi](media/cognitive-services-apis-create-account/azureMarketplace.png)
-
-3. Nella pagina **Crea** specificare le informazioni seguenti:
-
-    |    |    |
-    |--|--|
-    | **Nome** | Nome descrittivo per la risorsa di Servizi cognitivi. È consigliabile usare un nome descrittivo, ad esempio *MyNameFaceAPIAccount*. |
-    | **Sottoscrizione** | Selezionare una delle sottoscrizioni di Azure disponibili. |
-    | **Posizione** | Posizione dell'istanza di Servizi cognitivi. Posizioni diverse possono introdurre latenza, ma non hanno alcun impatto sulla disponibilità di runtime della risorsa. |
-    | **Piano tariffario** | Il costo dell'account Servizi cognitivi dipende dalle opzioni scelte e dall'utilizzo. Per altre informazioni, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/) delle API.
-    | **Gruppo di risorse** | [Gruppo di risorse Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) che conterrà la risorsa di Servizi cognitivi. È possibile creare un nuovo gruppo o aggiungerla a un gruppo già esistente. |
-
     ![Schermata di creazione risorsa](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
-## <a name="access-your-resource"></a>Accedere alla risorsa
 
-> [!NOTE]
-> I proprietari delle sottoscrizioni possono disabilitare la creazione di account Servizi cognitivi per gruppi di risorse o sottoscrizioni tramite i [criteri di Azure](https://docs.microsoft.com/azure/governance/policy/overview#policy-definition), assegnando una definizione di criteri "Tipi di risorse non consentiti" e specificando **Microsoft.CognitiveServices/accounts** come tipo di risorsa di destinazione.
+## <a name="get-the-keys-for-your-subscription"></a>Ottenere le chiavi per la sottoscrizione
 
-Dopo aver creato la risorsa, è possibile accedervi dal dashboard di Azure se è stata aggiunta. In caso contrario, è possibile trovarla in **Gruppi di risorse**.
+Dopo aver creato la risorsa, è possibile accedervi dal dashboard di Azure se è stata aggiunta. In caso contrario, è possibile trovarla in **Gruppi di risorse**. Dopo aver selezionato la risorsa, è possibile ottenere le chiavi selezionando **tasti** sotto **gestione delle risorse**.
 
-All'interno della risorsa di Servizi cognitivi è possibile usare l'URL dell'endpoint e le chiavi nella sezione **Panoramica** per iniziare a effettuare chiamate alle API nelle applicazioni.
+[!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
-![Schermata delle risorse](media/cognitive-services-apis-create-account/resourceScreen.png)
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-Prendere nota della posizione e le chiavi. È possibile ottenere le chiavi selezionando **tasti** sotto **gestione delle risorse**.
+Se si desidera pulire e rimuovere una sottoscrizione a servizi cognitivi, è possibile eliminare la risorsa o gruppo di risorse. L'eliminazione del gruppo di risorse elimina anche eventuali altre risorse associate al gruppo di risorse.
 
-## <a name="next-steps"></a>Passaggi successivi
+Per rimuovere un gruppo di risorse usando il portale di Azure:
 
-> [!div class="nextstepaction"]
-> [Autenticare le richieste a Servizi cognitivi di Azure](authentication.md)
+1. Nel portale di Azure espandere il menu a sinistra per aprire il menu dei servizi e scegliere **Gruppi di risorse** per visualizzare l'elenco dei gruppi di risorse.
+2. Individuare il gruppo di risorse da eliminare e fare doppio clic sul pulsante più (...) a destra dell'elenco.
+3. Scegliere **Elimina gruppo di risorse** e confermare.
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Avvio rapido: Estrarre testo scritto a mano da un'immagine](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)
-* [Esercitazione: Creare un'app per rilevare e incorniciare i visi in un'immagine](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial)
-* [Compilare una pagina Web di ricerca personalizzata](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)
-* [Integrare Language Understanding (LUIS) con un bot usando Bot Framework](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-bf-v4)
+* [Autenticare le richieste a Servizi cognitivi di Azure](authentication.md)
+* [Quali sono i servizi cognitivi di Azure?](Welcome.md)
+* [Supporto del linguaggio naturale](language-support.md)
+* [Supporto per i contenitori docker](cognitive-services-container-support.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 0fe30bc6bdd1bba03df349305d8846e78063bd26
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6df40909e2072ac2126344ba5b696c9e520e9955
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342205"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434123"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi di riconoscimento vocale
 
@@ -25,7 +25,7 @@ I contenitori di riconoscimento due vocale siano **per il riconoscimento vocale*
 
 |Funzione|Funzionalità|più recente|
 |-|-|--|
-|Riconoscimento vocale| <li>Trascrive continua in tempo reale vocale o un batch registrazioni audio in testo con i risultati intermedi.|1.1.1|
+|Riconoscimento vocale| <li>Trascrive continua in tempo reale vocale o un batch registrazioni audio in testo con i risultati intermedi.|1.1.2|
 |Sintesi vocale| <li>Converte il testo scritto in un audio che suona naturale. con input di testo normale o linguaggio di Markup sintesi della voce (SSML). |1.1.0|
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -101,10 +101,10 @@ Tutti i tag, ad eccezione di `latest` sono nel formato seguente, dove il `<cultu
 Il tag seguente è riportato un esempio del formato:
 
 ```
-1.0.0-amd64-en-us-preview
+1.1.2-amd64-en-us-preview
 ```
 
-La tabella seguente elenca le impostazioni locali supportate per **vocale-** in 1.1.1 la versione del contenitore:
+La tabella seguente elenca le impostazioni locali supportate per **vocale-** in 1.1.2 la versione del contenitore:
 
 |Impostazioni locali della lingua|`Tags`|
 |--|--|
@@ -129,7 +129,7 @@ Tutti i tag, ad eccezione di `latest` sono nel formato seguente, in cui la `<cul
 Il tag seguente è riportato un esempio del formato:
 
 ```
-1.0.0-amd64-en-us-jessarus-preview
+1.1.0-amd64-en-us-jessarus-preview
 ```
 
 La tabella seguente elenca le impostazioni locali supportate per **sintesi vocale** della versione 1.1.0 versione del contenitore:

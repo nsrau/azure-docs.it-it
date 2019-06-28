@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: fb4cf119195b3be23dc8f2cb98bd019769583473
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4c08c95a05d4f22e2338a7264409aec0f64a4755
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341845"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442510"
 ---
-# <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Anteprima: Eseguire la migrazione alla versione dell'API 3.x per le app LUIS
+# <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Anteprima: Eseguire la migrazione alla versione dell'API 3.x per le app LUIS
 
 L'endpoint di stima di query sono state modificate le API. Usare questa guida per comprendere come eseguire la migrazione alla API dell'endpoint versione 3. 
 
@@ -43,6 +43,27 @@ Sono le seguenti funzionalità di LUIS **non è supportato** nell'API V3:
 * V7 di controllo ortografico Bing
 
 [Documentazione di riferimento](https://aka.ms/luis-api-v3) è disponibile per V3.
+
+## <a name="endpoint-url-changes-by-slot-name"></a>Modifiche all'endpoint URL in base al nome dello slot
+
+Il formato della chiamata dell'endpoint HTTP V3 è cambiato.
+
+|(METODO)|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
+|||
+
+## <a name="endpoint-url-changes-by-version-id"></a>Modifiche all'URL endpoint base all'ID versione
+
+Se si desidera eseguire una query dalla versione, è innanzitutto necessario [pubblicare tramite l'API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) con il `"directVersionPublish":true`. Query sull'endpoint fa riferimento all'ID versione anziché il nome dello slot.
+
+
+|(METODO)|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
+|||
 
 ## <a name="prebuilt-entities-with-new-json"></a>Entità predefinite con nuovo JSON
 

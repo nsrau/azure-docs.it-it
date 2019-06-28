@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: bf87db232484a8ba4fa1e3b8e4de921f152e2345
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42b30b14e561fd3851a41701d2ecb8d98d5a02ed
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110119"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445574"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Uso degli indicatori di effetto per evidenziare il testo
 
@@ -56,7 +56,7 @@ Se il parametro `textDecorations` è impostato su **true**, nelle stringhe visua
 |U+E018|\<sup&gt;|Contrassegna l'inizio di contenuto formattato come apice
 |U+E019|\</sup>|Contrassegna la fine di contenuto formattato come apice
 
-L'esempio seguente illustra una risposta `Computation` contenente i marcatori di pedice per il termine di query log(2). Il campo `expression` contiene i marcatori solo se textDecoration è **true**.
+L'esempio seguente illustra una risposta `Computation` contenente i marcatori di pedice per il termine di query log(2). Il campo `expression` contiene i marcatori solo se `textDecoration` è **true**.
 
 ![Marcatori in computation](./media/bing-markers-computation.PNG) 
 

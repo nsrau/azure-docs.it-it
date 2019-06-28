@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: db73d4e30c960eb09e6b5fbc9411901c69c28b01
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 45a03a0912681b4fc33ef8df88fa00fd5458f720
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272963"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445829"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance-aci"></a>Distribuire ed eseguire contenitori in Azure istanza di contenitore
 
@@ -35,46 +35,7 @@ Questa soluzione funziona con qualsiasi contenitore di servizi cognitivi. La ris
 
 Tutte le variabili di parentesi angolari, `<>`, devono essere sostituiti con i propri valori. Questa sostituzione include le parentesi acute.
 
-## <a name="step-2-launch-your-container-on-azure-container-instances-aci"></a>Passaggio 2: Avviare il contenitore in istanze di contenitore di Azure (ACI)
-
-**Creazione della risorsa di istanza di contenitore di Azure (ACI).**
-
-1. Andare alla [Create](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) pagina per istanze di contenitore.
-
-1. Nel **nozioni di base** , immettere i dettagli seguenti:
-
-    |Page|Impostazione|Value|
-    |--|--|--|
-    |Nozioni di base|Sottoscrizione|Selezionare la propria sottoscrizione.|
-    |Nozioni di base|Gruppo di risorse|Selezionare il gruppo di risorse disponibili oppure crearne uno nuovo, ad esempio `cognitive-services`.|
-    |Nozioni di base|Nome contenitore|Immettere un nome, ad esempio `cognitive-container-instance`. Questo nome deve essere nell'estremità inferiore.|
-    |Nozioni di base|Località|Selezionare un'area per la distribuzione.|
-    |Nozioni di base|Tipo di immagine|`Public`|
-    |Nozioni di base|Nome dell'immagine|Immettere il percorso del contenitore di servizi cognitivi. Può essere usato nella stessa posizione di `docker pull` comando _ad esempio_: <br>`mcr.microsoft.com/azure-cognitive-services/sentiment`|
-    |Nozioni di base|Tipo di sistema operativo|`Linux`|
-    |Nozioni di base|Dimensione|Modificare le dimensioni per le raccomandazioni suggerite per il contenitore di servizi cognitivi specifico.:<br>2 core<br>4 GB
-    ||||
-  
-1. Nel **Networking** , immettere i dettagli seguenti:
-
-    |Page|Impostazione|Value|
-    |--|--|--|
-    |Rete|Porte|Modificare la porta esistente per il protocollo TCP da `80` a `5000`. Ciò significa che si sta esponendo il contenitore sulla porta 5000.|
-    ||||
-
-1. Nel **avanzate** , immettere i dettagli seguenti per passare attraverso il contenitore necessarie impostazioni nella risorsa di istanza di contenitore di fatturazione:
-
-    |Chiave della pagina avanzate|Valore di pagina avanzate|
-    |--|--|
-    |`apikey`|Copiato dal **chiavi** pagina della risorsa. È necessaria solo una delle due chiavi. È una stringa di caratteri alfanumerici 32 senza spazi o trattini, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Copiato dal **Panoramica** pagina della risorsa. |
-    |`eula`|`accept`|
-
-    Se il contenitore dispone di altre impostazioni di configurazione, ad esempio punti di montaggio di input, punti di montaggio di output o la registrazione, tali impostazioni anche devono essere aggiunti.
-
-1. Selezionare **esaminare e creare**.
-1. Dopo la convalida ha esito positivo, selezionare **Create** per completare il processo di creazione.
-1. Selezionare l'icona a forma di campana nella barra di spostamento superiore. Si tratta dell'intervallo di notifica. Verrà visualizzato di colore blu **Vai alla risorsa** dopo che la risorsa viene creata. Selezionare questo pulsante per passare alla nuova risorsa.
+[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances (ACI)](./includes/create-aci-resource.md)]
 
 ## <a name="use-the-container-instance"></a>Usare l'istanza di contenitore
 

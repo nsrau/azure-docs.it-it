@@ -3,19 +3,19 @@ title: Limiti delle richieste - API Traduzione testuale
 titleSuffix: Azure Cognitive Services
 description: Questo articolo elenca i limiti delle richieste per l'API Traduzione testuale. Sono previsti addebiti in base al numero di caratteri, non alla frequenza delle richieste, con un limite di 5000 caratteri per ogni richiesta. I limiti di caratteri sono basati sulla sottoscrizione, con il livello F0 limitato a due milioni di caratteri all'ora.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: d04677362e0ba3ace59d55ede9bd6241f17130e9
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.author: swmachan
+ms.openlocfilehash: a7621cc80a38d9a07872a94d8e5221dc04023b86
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269239"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435038"
 ---
 # <a name="request-limits-for-translator-text"></a>Limiti delle richieste per Traduzione testuale
 
@@ -38,7 +38,11 @@ La seguente tabella elenchi matrice elemento e il carattere i limiti per ogni op
 
 ## <a name="character-limits-per-hour"></a>Limiti di caratteri all'ora
 
-Il limite di caratteri all'ora si basa sul livello della sottoscrizione di Traduzione testuale. La quota oraria deve essere utilizzata in modo uniforme in tutta l'ora. Se si raggiungono o superano questi limiti o troppo grande di una parte della quota di trasmissione in un breve periodo di tempo, probabilmente si riceverà un timeout della risposta di quota. Non sono previsti limiti sulle richieste simultanee.
+Il limite di caratteri all'ora si basa sul livello della sottoscrizione di Traduzione testuale. 
+
+La quota oraria deve essere utilizzata in modo uniforme in tutta l'ora. Ad esempio, raggiunto il limite di livello F0 di 2 milioni di caratteri per ogni ora, caratteri devono essere utilizzati non più velocemente rispetto all'incirca 33,300 caratteri per ogni finestra temporale scorrevole al minuto (2 milioni di caratteri divisi per 60 minuti).
+
+Se si raggiungono o superano questi limiti o troppo grande di una parte della quota di trasmissione in un breve periodo di tempo, probabilmente si riceverà un timeout della risposta di quota. Non sono previsti limiti sulle richieste simultanee.
 
 | Livello | Limite di caratteri |
 |------|-----------------|
