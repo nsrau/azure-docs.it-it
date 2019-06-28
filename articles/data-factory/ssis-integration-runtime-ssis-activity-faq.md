@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 7789970b47f0e55adee5bbe9da9f303aee6cdb25
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: a018a383de855a05b14aa6e1f1c465f8868f672d
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190113"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312158"
 ---
 # <a name="troubleshooting-package-execution-in-ssis-integration-runtime"></a>Risoluzione dei problemi di esecuzione del pacchetto nel runtime di integrazione SSIS
 
@@ -110,6 +110,11 @@ Questo articolo include gli errori più comuni che si potrebbero raggiunge quand
   * Una possibile causa è che nome utente/password con autenticazione a più fattori abilitata è configurata per l'autenticazione di Azure Analysis Services, che non è supportato nel runtime di integrazione SSIS con ancora. Provare a usare l'entità servizio per l'autenticazione di Azure Analysis Services:
     1. Preparazione dell'entità servizio per AAS [https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal)
     2. Nella console di gestione connessione, configurare "Usa un nome utente specifico e una password": impostare "AppID" come nome utente e "clientSecret" come password
+
+### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-managed-identity"></a>Messaggio di errore: "ADONET origine non è riuscita ad acquisire la connessione {GUID} con il messaggio di errore seguente: Accesso non riuscito per l'utente 'NT AUTHORITY\ANONYMOUS LOGON' "quando si usa identità gestite
+
+* Causa potenziale & azione consigliata:
+  * Assicurarsi che non si configura il metodo di autenticazione della gestione connessione come "Active Directory Password Authentication" quando il parametro "ConnectUsingManagedIdentity" è True. È possibile configurarla come "Autenticazione SQL" invece che vengono ignorati se è impostato "ConnectUsingManagedIdentity"
 
 ### <a name="package-takes-unexpected-long-time-to-execute"></a>Pacchetto accetta imprevisto lungo tempo di esecuzione
 

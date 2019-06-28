@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: f5be0b8886500bdce50b95846826e5fdc53b5df1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: ecee1669c29d7b298741f9e5521de03da6dd7e3b
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202670"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331642"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS evasione, API, versione 2 
 
@@ -122,7 +122,7 @@ Consente di risolvere il token opaco a una sottoscrizione di SaaS. Corpo della r
 
 ```json
 {
-    "subscriptionId": "<guid>",  
+    "id": "<guid>",  
     "subscriptionName": "Contoso Cloud Solution",
     "offerId": "offer1",
     "planId": "silver",

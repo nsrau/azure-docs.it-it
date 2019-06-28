@@ -7,17 +7,19 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.openlocfilehash: ff2930fbe0e53c4b3c1223f87919c0913296d07c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: a41c3f60d4b949f78c0755f97c9ef7e6302d78d8
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515930"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329989"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Risoluzione dei problemi di Analisi di flusso di Azure mediante i log di diagnostica
 
 In alcuni casi un processo di Analisi di flusso di Azure arresta l'elaborazione in modo imprevisto. È importante essere in grado di risolvere i problemi di questo tipo di eventi. Gli errori potrebbero essere causati da un risultato imprevisto della query, dalla connettività ai dispositivi o da un'interruzione imprevista del servizio. I log di diagnostica di Analisi di flusso possono essere utili per identificare la causa dei problemi quando si verificano e per ridurre i tempi di ripristino.
+
+Si consiglia di abilitare i log di diagnostica per tutti i processi di produzione.
 
 ## <a name="log-types"></a>Tipi di log
 
@@ -62,7 +64,7 @@ I log attività sono attivati per impostazione predefinita e forniscono informaz
 
     ![Navigazione tra i pannelli per trovare i log di diagnostica](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Creare un **Nome** in **Impostazioni di diagnostica** e selezionare la casella accanto a **Invia a Log Analytics**. Quindi aggiungere o creare una nuova **area di lavoro Log Analytics**. Selezionare le caselle **Esecuzione** e **Creazione** in **LOG**, e **AllMetrics** in **METRICA**. Fare clic su **Save**.
+2.  Creare un **Nome** in **Impostazioni di diagnostica** e selezionare la casella accanto a **Invia a Log Analytics**. Quindi aggiungere o creare una nuova **area di lavoro Log Analytics**. Selezionare le caselle **Esecuzione** e **Creazione** in **LOG**, e **AllMetrics** in **METRICA**. Fare clic su **Save**. È consigliabile usare un'area di lavoro di Log Analitica nella stessa area di Azure del processo di Stream Analitica per evitare costi aggiuntivi.
 
     ![Impostare i log di diagnostica](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
@@ -113,7 +115,7 @@ I log di esecuzione hanno informazioni sugli eventi che si sono verificati duran
 
 ### <a name="data-errors"></a>Errori nei dati
 
-Qualsiasi errore che si verifica durante il processo di elaborazione dei dati è in questa categoria di log. Questi log vengono creati più spesso durante le operazioni di lettura dei dati, serializzazione e scrittura. Questi log non includono errori di connettività. Gli errori di connettività vengono trattati come eventi generici.
+Qualsiasi errore che si verifica durante il processo di elaborazione dei dati è in questa categoria di log. Questi log vengono creati più spesso durante le operazioni di lettura dei dati, serializzazione e scrittura. Questi log non includono errori di connettività. Gli errori di connettività vengono trattati come eventi generici. Altre informazioni sulla causa di varie differenti [gli errori dei dati di input e output](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
 NOME | DESCRIZIONE
 ------- | -------
@@ -149,4 +151,4 @@ ID correlazione | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identi
 * [Introduzione ad Analisi di flusso](stream-analytics-real-time-fraud-detection.md)
 * [Scalabilità dei processi di Analisi di flusso](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Informazioni di riferimento sull'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Errori di Stream Analitica dei dati](https://docs.microsoft.com/azure/stream-analytics/data-errors)

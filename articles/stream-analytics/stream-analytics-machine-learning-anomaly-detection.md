@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: fdf98a0c0c40010bb55955b54dc7b04db8e199f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 88c0aea851bcf70206b5f68d7865c487441905f6
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66493271"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329908"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Rilevamento anomalie in Analisi di flusso di Azure
 
@@ -21,7 +21,7 @@ Analisi di flusso di Azure, disponibile sia nel cloud che in Azure IoT Edge, off
 
 I modelli di Machine Learning presuppongono una serie temporale con campionamento uniforme. Se la serie temporale non è uniforme, è possibile inserire un passaggio di aggregazione con una finestra a cascata prima di chiamare il rilevamento anomalie.
 
-Le operazioni di Machine Learning non supportano le tendenze di stagionalità o le correlazioni con diverse variabili.
+Le operazioni di machine learning non supportano le tendenze di stagionalità o correlazioni con più varianti in questo momento.
 
 ## <a name="model-accuracy-and-performance"></a>Accuratezza e prestazioni del modello
 
@@ -29,9 +29,9 @@ Generalmente l'accuratezza del modello migliora se la finestra temporale scorrev
 
 Le funzioni operano stabilendo un valore normale certo basato su quanto rilevato fino a quel momento. Gli outlier vengono identificati mediante un confronto con il valore normale stabilito, entro il livello di attendibilità. Le dimensioni della finestra devono essere basate sul numero minimo di eventi necessari per eseguire il training del modello per il comportamento normale in modo che, quando si verifica un'anomalia, sia in grado di riconoscerla.
 
-Tenere presente che il tempo di risposta del modello aumenta con le dimensioni della cronologia, in quanto deve eseguire il confronto con un numero elevato di eventi passati. Per assicurare prestazioni migliori, è consigliabile includere solo il numero di eventi necessario.
+Tempo di risposta del modello aumenta con dimensioni cronologia perché è necessario eseguire il confronto con un numero maggiore di eventi passati. Per assicurare prestazioni migliori, è consigliabile includere solo il numero di eventi necessario.
 
-La presenza di interruzioni nella serie temporale può dipendere dal fatto che il modello non riceve eventi in determinati periodi di tempo. Questa situazione viene gestita da Analisi di flusso mediante l'attribuzione. Le dimensioni della cronologia, nonché la durata, per la stessa finestra temporale scorrevole vengono usate per calcolare la frequenza media con cui si prevede che arrivino gli eventi.
+La presenza di interruzioni nella serie temporale può dipendere dal fatto che il modello non riceve eventi in determinati periodi di tempo. Questa situazione viene gestita da Stream Analitica usando imputation logica. Le dimensioni della cronologia, nonché la durata, per la stessa finestra temporale scorrevole vengono usate per calcolare la frequenza media con cui si prevede che arrivino gli eventi.
 
 ## <a name="spike-and-dip"></a>Picchi e flessioni
 
@@ -40,7 +40,7 @@ Le anomalie temporanee in un flusso di eventi di una serie temporale sono note c
 
 ![Esempio di anomalia con picchi e flessioni](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
-Se nella stessa finestra temporale scorrevole un secondo picco è inferiore al primo, il punteggio calcolato del picco inferiore non è probabilmente abbastanza significativo rispetto al punteggio del primo picco all'interno del livello di attendibilità specificato. Per rilevare queste anomalie è possibile provare a ridurre l'impostazione del livello di attendibilità del modello. Se però si inizia a ricevere troppi avvisi, è possibile usare un intervallo di attendibilità più elevato.
+Se nella stessa finestra temporale scorrevole un secondo picco è inferiore al primo, il punteggio calcolato del picco inferiore non è probabilmente abbastanza significativo rispetto al punteggio del primo picco all'interno del livello di attendibilità specificato. È possibile provare a diminuire il livello di confidenza del modello per rilevare queste anomalie. Se però si inizia a ricevere troppi avvisi, è possibile usare un intervallo di attendibilità più elevato.
 
 La query di esempio seguente presuppone una frequenza di input uniforme di un evento al secondo in una finestra temporale scorrevole di 2 minuti con una cronologia di 120 eventi. L'istruzione SELECT finale estrae e restituisce il punteggio e lo stato dell'anomalia con un livello di attendibilità del 95%.
 

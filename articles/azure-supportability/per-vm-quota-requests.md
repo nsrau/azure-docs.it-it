@@ -7,18 +7,27 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: f921b4a95c1b0cfb29d84c0bacc17d268af6e6c5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 79879cd7f5ea5af1b794735f32e6e1367458e124
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082820"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310717"
 ---
-# <a name="vm-series-vcpu-limit-increase"></a>Aumento del limite vCPU serie di macchine Virtuali
+# <a name="vm-series-vcpu-limit-increase"></a>Aumento del limite di vCPU per una serie di VM
+
+Le quote di vCPU per Resource Manager per macchine virtuali e set di scalabilità di macchine virtuali sono imposte a due livelli per ogni sottoscrizione, in ogni area. 
+
+Il primo livello è il **limite di Vcpu regionale totale** (in tutte le serie di VM), e il secondo livello contiene i **per ogni serie di macchine Virtuali Vcpu limitare** (ad esempio i Vcpu serie D). Qualsiasi momento che una nuova macchina virtuale deve essere distribuita, la somma dell'utilizzo di CPU virtuali nuove ed esistenti per tale serie di macchine Virtuali non deve superare la quota di vCPU approvata per quel particolare serie di macchine Virtuali. Inoltre, il conteggio totale vCPU nuovi ed esistenti distribuito in tutte le macchine virtuali della serie non deve superare la quota Vcpu regionale totale approvata per la sottoscrizione. Se una di queste quote viene superata, la distribuzione della macchina virtuale non sarà possibile.
+È possibile richiedere un aumento del limite della quota di Vcpu per la serie di macchine Virtuali dal portale di Azure. Un aumento della quota di macchine virtuali della serie di aumenta automaticamente il limite di Vcpu regionale totale dello stesso importo. 
+
+Quando viene creata una nuova sottoscrizione, i Vcpu regionale totale predefinito potrebbero non essere uguale alla somma delle quote di vCPU predefinito per tutte le serie di macchine Virtuali singole. Ciò può comportare una sottoscrizione con una quota sufficiente per ogni singola serie di VM che si desidera distribuire, ma non sono sufficienti quote di Vcpu regionali totali per tutte le distribuzioni. In questo caso, è necessario inviare una richiesta per aumentare il limite di Vcpu regionali totali in modo esplicito. Limite di Vcpu regionale totale non può superare la somma della quota approvato in tutte le serie VM per l'area.
+
+Altre informazioni sulle quote nel [pagina delle quote vCPU della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) e [sottoscrizione di Azure e limiti dei servizi](https://aka.ms/quotalimits) pagina. 
 
 È ora possibile richiedere un aumento tramite **Guida e supporto** pannello o il **gli utilizzi e quote** pannello nel portale. 
 
-## <a name="request-per-vm-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Richiesta per ogni aumento della quota di vCPU della macchina virtuale a livello di sottoscrizione, utilizzando il **Guida e supporto** pannello
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Richiesta per ogni aumento della quota di vCPU serie di macchine Virtuali a livello di sottoscrizione, utilizzando il **Guida e supporto** pannello
 
 Seguire le istruzioni seguenti per creare una richiesta di supporto tramite Azure 'Guida e supporto' blade disponibile nel portale di Azure. 
 
@@ -59,7 +68,7 @@ Seguire le istruzioni seguenti per creare una richiesta di supporto tramite Azur
 ![Nuovi limiti](./media/resource-manager-core-quotas-request/new-limits.png)
 
 
-## <a name="request-per-vm-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Richiesta per ogni aumento della quota di vCPU della macchina virtuale a livello di sottoscrizione, utilizzando **utilizzi e quote** pannello
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Richiesta per ogni aumento della quota di vCPU serie di macchine Virtuali a livello di sottoscrizione, utilizzando **utilizzi e quote** pannello
 
 Seguire le istruzioni sotto usando per creare una richiesta di supporto tramite di Azure "Utilizzo + quote' blade disponibile nel portale di Azure. 
 

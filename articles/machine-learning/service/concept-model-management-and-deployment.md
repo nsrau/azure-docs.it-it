@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0eaf48f57c3011222b71a63d703e1ccec7aca001
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cbb7f13214a86f528521fdeb1ffa1374ca813ef
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66692828"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331697"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Gestire e distribuire modelli con il servizio Azure Machine Learning
 
@@ -54,11 +54,14 @@ Per altre informazioni su ONNX con il servizio di Azure Machine Learning, vedere
 Con la registrazione dei modelli è possibile archiviare i modelli e creare le relative versioni nel cloud di Azure, all'interno della propria area di lavoro. Il registro dei modelli consente di organizzare i modelli sottoposti a training e tenerne traccia con facilità.
 
 > [!TIP]
-> È anche possibile registrare i modelli sottoposti a training all'esterno del servizio di Azure Machine Learning.
+> Un modello registrato è un contenitore logico per uno o più file che costituiscono il modello. Ad esempio, se si dispone di un modello archiviato in più file, è possibile registrare tali come un singolo modello nell'area di lavoro di Azure Machine Learning. Dopo la registrazione, è possibile scaricare o distribuire il modello registrato e ricevere tutti i file che sono stati registrati.
  
 I modelli registrati sono identificati dal nome e dalla versione. Ogni volta che si registra un modello con lo stesso nome di uno esistente, il registro incrementa la versione. È possibile fornire tag di metadati aggiuntivi durante la registrazione che può essere usata quando si cercano i modelli. Il servizio di Azure Machine Learning supporta qualsiasi modello che può essere caricate usando Python 3.5.2 o versione successiva.
 
-Non è possibile eliminare i modelli utilizzati in una distribuzione attiva.
+> [!TIP]
+> È anche possibile registrare i modelli sottoposti a training all'esterno del servizio di Azure Machine Learning.
+
+Non è possibile eliminare un modello registrato che viene utilizzato in una distribuzione attiva.
 
 Per altre informazioni, vedere la sezione relativa alla registrazione di un modello nell'articolo [Distribuire modelli](how-to-deploy-and-where.md#registermodel).
 

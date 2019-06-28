@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 91cc3f96f9cdd231c38232c972c2628d12b9f4b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ac054bc9750e4297080c4ab64030c9c6a5fb55a
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476160"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312841"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Gestire chiavi di account di archiviazione con Azure Key Vault e l'interfaccia CLI di Azure 
 
@@ -94,7 +94,7 @@ Esistono quattro passaggi di base per usare Key Vault per gestire le chiavi di a
 1. Assegnare il ruolo RBAC "Ruolo servizio operatore della chiave Account archiviazione" in Key Vault. Questo ruolo limita l'ambito di accesso all'account di archiviazione. Per un account di archiviazione classici, usare il ruolo "Classic archiviazione Account ruolo operatore della chiave del servizio".
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
+    az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>"
     ```
     
     `93c27d83-f79b-4cb2-8dd4-4aa716542e74` è l'ID oggetto per Key Vault nel cloud pubblico di Azure. Per ottenere l'ID oggetto per Key Vault nel cloud Azure per enti pubblici, vedere [ID applicazione di un'entità servizio](#service-principal-application-id).

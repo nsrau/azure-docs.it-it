@@ -7,15 +7,15 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: b395b7bccbf93b56e84d5e7b5a4ed7355eaca335
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 7605bf36c41c5b1276d29076173efd52409afaa9
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296349"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310346"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Panoramica delle query di log in Monitoraggio di Azure
-Query di log consentono di sfruttare appieno il valore della i dati raccolti nel [log di monitoraggio di Azure](../platform/data-platform-logs.md). Un linguaggio di query avanzato consente di unire i dati da più tabelle, aggregare grandi set di dati ed eseguire operazioni complesse con quantità minima di codice. È possibile rispondere praticamente a qualsiasi domanda e l'analisi eseguita fino a quando sono stati raccolti i dati di supporti ed importante comprendere come creare query a destra.
+Query di log consentono di sfruttare appieno il valore dei dati raccolti [log di monitoraggio di Azure](../platform/data-platform-logs.md). Un linguaggio di query avanzato consente di unire i dati da più tabelle, aggregare grandi set di dati ed eseguire operazioni complesse con quantità minima di codice. È possibile rispondere praticamente a qualsiasi domanda e l'analisi eseguita fino a quando sono stati raccolti i dati di supporti ed importante comprendere come creare query a destra.
 
 Alcune funzionalità di monitoraggio di Azure, ad esempio [insights](../insights/insights-overview.md) e [soluzioni](../insights/solutions-inventory.md) elaborare i dati di log senza esporre è per la query sottostante. Per avvalersi pienamente altre funzionalità di monitoraggio di Azure, è necessario comprendere come le query vengono costruite e come è possibile usarli per l'analisi interattiva dei dati nei log di monitoraggio di Azure.
 

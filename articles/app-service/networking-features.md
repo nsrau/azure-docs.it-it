@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 666430a11fb95871eb601b2a38eb7b97ad16119f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 362f0b32ea99d0b888ea9f1efa0cd4ea74eb2fa1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66498950"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338502"
 ---
 # <a name="app-service-networking-features"></a>Funzionalità di rete del servizio App
 
@@ -88,7 +88,7 @@ Quando si usa un'app assegnata indirizzo, il traffico passa comunque attraverso 
 * Supportare le esigenze SSL basato su IP per l'app
 * Impostare un indirizzo dedicato per l'app che non viene condivisa con altri elementi
 
-È possibile imparare a impostare un indirizzo nella tua app con l'esercitazione su [SSL basato su configurazione IP][appassignedaddress]. 
+È possibile imparare a impostare un indirizzo nella tua app con l'esercitazione su [SSL basato su IP configurazione][appassignedaddress]. 
 
 ### <a name="access-restrictions"></a>Restrizioni di accesso 
 
@@ -112,7 +112,7 @@ Gli endpoint di servizio consente di bloccare **in ingresso** accedere all'App i
 ![Endpoint del servizio](media/networking-features/service-endpoints.png)
 
 * Configurazione di un Gateway applicazione con l'app per bloccare il traffico in ingresso all'App
-* Viene l'accesso all'App per le risorse nella rete virtuale. Ciò può includere macchine virtuali, ambienti del servizio App o anche altre App che usano l'integrazione rete virtuale 
+* Limitare l'accesso all'App per le risorse nella rete virtuale. Ciò può includere macchine virtuali, ambienti del servizio App o anche altre App che usano l'integrazione rete virtuale 
 
 ![endpoint di servizio con il gateway applicazione](media/networking-features/service-endpoints-appgw.png)
 
@@ -136,7 +136,7 @@ Questa funzionalità viene comunemente usata per:
 
 Poiché la funzionalità consente l'accesso alle risorse locali senza un problema di firewall in entrata, è diffuso tra gli sviluppatori. Le altre in uscita del servizio App funzionalità di rete sono molto virtuale rete di Azure correlate. Connessioni ibride non è una dipendenza da passare attraverso una rete virtuale e può essere usato per un'ampia gamma di esigenze di rete. È importante notare che la funzionalità connessioni ibride del servizio App non occupa o conoscere le operazioni su di esso. Ovvero a dire che è possibile usare per accedere a un database, un servizio web o un socket TCP arbitrario su un mainframe. La funzionalità di tunnel essenzialmente pacchetti TCP. 
 
-Mentre le connessioni ibride è più diffusi per lo sviluppo, si utilizza anche anche numerose applicazioni di produzione. È molto utile per l'accesso a un servizio web o un database, ma non è adatto per situazioni che comportano un grande numero di connessioni viene creato. 
+Mentre le connessioni ibride è più diffusi per lo sviluppo, si utilizza anche anche numerose applicazioni di produzione. È molto utile per l'accesso a un servizio web o un database, ma non è adatto per situazioni che comportano la creazione di un numero di connessioni. 
 
 ### <a name="gateway-required-vnet-integration"></a>Gateway richiesto integrazione rete virtuale 
 

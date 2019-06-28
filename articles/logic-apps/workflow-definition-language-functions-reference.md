@@ -3746,7 +3746,7 @@ triggerOutputs()
 
 <a name="trim"></a>
 
-### <a name="trim"></a>Trim
+### <a name="trim"></a>trim
 
 Rimuove gli spazi iniziali e finali da una stringa e restituisce la stringa aggiornata.
 

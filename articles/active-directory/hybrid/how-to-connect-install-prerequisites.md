@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d17823c4ef4917f9f312b8f2f327e2b0395cfa3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2916c9aba7d404ff4ad380d249bd507fadf71ea
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109427"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310067"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo argomento descrive i prerequisiti e i requisiti hardware per Azure AD Connect.
@@ -52,7 +52,7 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
 >Il server Azure AD Connect contiene dati relativi alle identità critici e devono essere considerato come un componente di livello 0, come documentato in [il modello di livello amministrativo di Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#ADATM_BM)
 
 * Azure AD Connect non può essere installato su Small Business Server o Windows Server Essentials prima del 2019 (Windows Server Essentials 2019 è supportato). Il server deve utilizzare Windows Server Standard o versione successiva.
-* Installare Azure AD Connect in un Controller di dominio non è consigliabile a causa di procedure consigliate e le impostazioni più restrittive che possono impedire l'installazione correttamente Azure AD Connect
+* Installare Azure AD Connect in un Controller di dominio non è consigliata a causa di procedure consigliate e le impostazioni più restrittive che possono impedire l'installazione correttamente Azure AD Connect.
 * Il server Azure AD Connect deve avere un'interfaccia utente grafica completa installata. **Non è supportata** l'installazione su Server Core.
 >[!IMPORTANT]
 >Installa Azure AD Connect nel server di piccole imprese, essentials server o server core non è supportato.
@@ -214,11 +214,11 @@ La tabella seguente indica i requisiti minimi di sincronizzazione di Azure AD Co
 | Numero di oggetti in Active Directory | CPU | Memoria | Dimensioni del disco rigido |
 | --- | --- | --- | --- |
 | Meno di 10.000 |1,6 GHz |4 GB |70 GB |
-| 10\.000-50.000 |1,6 GHz |4 GB |70 GB |
-| 50\.000-100.000 |1,6 GHz |16 GB |100 GB |
+| 10.000-50.000 |1,6 GHz |4 GB |70 GB |
+| 50.000-100.000 |1,6 GHz |16 GB |100 GB |
 | Per 100.000 o più oggetti, è necessaria la versione completa di SQL Server | | | |
-| 100\.000-300.000 |1,6 GHz |32 GB |300 GB |
-| 300\.000-600.000 |1,6 GHz |32 GB |450 GB |
+| 100.000-300.000 |1,6 GHz |32 GB |300 GB |
+| 300.000-600.000 |1,6 GHz |32 GB |450 GB |
 | Più di 600.000 |1,6 GHz |32 GB |500 GB |
 
 I requisiti minimi per i computer che eseguono ADFS o i server applicazioni Web sono i seguenti:
