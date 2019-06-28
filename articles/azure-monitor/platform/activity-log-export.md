@@ -114,7 +114,7 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
     | Name |Sì |Nome del profilo di log. |
     | StorageAccountId |No |ID risorsa dell'Account di archiviazione in cui deve essere salvato il Log attività. |
     | serviceBusRuleId |No |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Questa è una stringa con il formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-    | Località |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
+    | Location |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
     | RetentionInDays |Yes |Numero di giorni per cui gli eventi devono essere conservati nell'account di archiviazione, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono conservati all'infinito. |
     | Category |No |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono _scrivere_, _eliminare_, e _azione_. |
 
@@ -156,10 +156,10 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
     | --- | --- | --- |
     | name |Yes |Nome del profilo di log. |
     | storage-account-id |Yes |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
-    | Località |Yes |Elenco delimitato da spazi di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `az account list-locations --query [].name`. |
+    | locations |Yes |Elenco delimitato da spazi di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `az account list-locations --query [].name`. |
     | days |Yes |Numero di giorni per gli eventi che devono essere mantenuti, compreso tra 1 e 365. Se il valore è zero, i log vengono archiviati per un periodo illimitato.  Se è zero, il parametro abilitato deve essere impostato su true. |
     |enabled | Yes |True o False.  Consente di abilitare o disabilitare i criteri di conservazione.  Se True, il parametro days deve essere un valore maggiore di 0.
-    | Categorie |Yes |Elenco delimitato da spazi di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
+    | categories |Yes |Elenco delimitato da spazi di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 
 
 
