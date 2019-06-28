@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: c4ab5fe4625bce1ed66258a5b9aab597dae17a1a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
-ms.translationtype: MT
+ms.openlocfilehash: b5a08b9b998f8d0b30091af016af564e836d4651
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304007"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331665"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
@@ -39,7 +39,9 @@ Per altre informazioni sui concetti relativi al flusso di lavoro di distribuzion
 
 ## <a id="registermodel"></a> Registrare il modello
 
-Registrare i modelli di machine learning nell'area di lavoro Azure Machine Learning. Il modello può provenire da Azure Machine Learning o può provenire da altrove. Gli esempi seguenti illustrano come registrare un modello dal file:
+Contenitore logico per uno o più file che costituiscono il modello modello registrato. Ad esempio, se si dispone di un modello archiviato in più file, è possibile registrarli come un singolo modello nell'area di lavoro. Dopo la registrazione, è possibile scaricare o distribuire il modello registrato e ricevere tutti i file che sono stati registrati.
+
+Modelli di Machine learning sono registrati nell'area di lavoro Azure Machine Learning. Il modello può provenire da Azure Machine Learning o può provenire da altrove. Gli esempi seguenti illustrano come registrare un modello dal file:
 
 ### <a name="register-a-model-from-an-experiment-run"></a>Registrare un modello da un esperimento eseguito
 
@@ -48,11 +50,18 @@ Registrare i modelli di machine learning nell'area di lavoro Azure Machine Learn
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
+
+  > [!TIP]
+  > Per includere più file nella registrazione di modello, impostare `model_path` alla directory che contiene i file.
+
 + **Usando l'interfaccia della riga di comando**
+
   ```azurecli-interactive
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
   ```
 
+  > [!TIP]
+  > Per includere più file nella registrazione di modello, impostare `--asset-path` alla directory che contiene i file.
 
 + **Usando Visual Studio Code**
 
@@ -77,10 +86,16 @@ Registrare i modelli di machine learning nell'area di lavoro Azure Machine Learn
                          description = "MNIST image classification CNN from ONNX Model Zoo",)
   ```
 
+  > [!TIP]
+  > Per includere più file nella registrazione di modello, impostare `model_path` alla directory che contiene i file.
+
 + **Usando l'interfaccia della riga di comando**
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
+
+  > [!TIP]
+  > Per includere più file nella registrazione di modello, impostare `-p` alla directory che contiene i file.
 
 **Tempo stimato**: circa 10 secondi.
 
@@ -110,12 +125,14 @@ Lo script contiene due funzioni che caricano ed eseguono il modello:
 * `run(input_data)`: questa funzione usa il modello per stimare un valore in base ai dati di input. Per la serializzazione e la deserializzazione, gli input e gli output dell'esecuzione usano in genere JSON. È anche possibile usare dati binari non elaborati. È possibile trasformare i dati prima dell'invio al modello o prima della restituzione al client.
 
 #### <a name="what-is-getmodelpath"></a>Che cos'è get_model_path?
-Quando si registra un modello, è fornire un nome di modello usato per gestire il modello nel Registro di sistema. Questo nome viene usato in get_model_path API che restituisce il percorso dei file modello nel file system locale. Se si registra una cartella o una raccolta di file, questa API restituisce il percorso alla directory che contiene tali file.
 
-Quando si registra un modello, occorre assegnargli un nome che corrisponde per il modello di posizione, in locale o durante la distribuzione del servizio.
+Quando si registra un modello, è fornire un nome di modello usato per gestire il modello nel Registro di sistema. Usare questo nome con il [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) per recuperare il percorso dei file modello nel file system locale. Se si registra una cartella o una raccolta di file, questa API restituisce il percorso della directory che contiene tali file.
 
-L'esempio seguente restituisce un percorso a un singolo file denominato 'sklearn_mnist_model.pkl' (che è stato registrato con il nome 'sklearn_mnist')
-```
+Quando si registra un modello, si assegnargli un nome che corrisponde al modello di posizione, in locale o durante la distribuzione del servizio.
+
+L'esempio seguente restituisce un percorso a un singolo file denominato `sklearn_mnist_model.pkl` (che è stato registrato con il nome `sklearn_mnist`):
+
+```python
 model_path = Model.get_model_path('sklearn_mnist')
 ``` 
 
@@ -293,7 +310,8 @@ Le sezioni seguenti illustrano come creare la configurazione della distribuzione
 
 ### <a name="optional-profile-your-model"></a>Facoltativo: Il modello di profilo
 Prima di distribuire il modello come un servizio, è possibile profilare in modo da determinare i requisiti di memoria e CPU ottima.
-È possibile farlo tramite il SDK o della riga di comando.
+
+È possibile eseguire profilo del modello usando il SDK o della riga di comando.
 
 Per altre informazioni, è possibile estrarre la documentazione di SDK di seguito: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
 
@@ -386,7 +404,7 @@ Se si dispone già di un cluster del servizio contenitore di AZURE collegato, è
 Altre informazioni sulla distribuzione AKS e scalabilità automatica nel [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) riferimento.
 
 #### Creare un nuovo cluster servizio contenitore di AZURE<a id="create-attach-aks"></a>
-**Tempo stimato:** Circa 5 minuti.
+**Tempo stimato**: circa 20 minuti.
 
 Creare o collegare un cluster del servizio contenitore di AZURE è una volta in elaborazione per l'area di lavoro. È possibile riutilizzare questo cluster per più distribuzioni. Se si elimina il cluster o il gruppo di risorse che lo contiene, è necessario creare un nuovo cluster alla successiva che è necessario distribuire. È possibile avere più cluster servizio contenitore di AZURE collegato all'area di lavoro.
 
@@ -425,10 +443,11 @@ Per altre informazioni sul `cluster_purpose` parametro, vedere la [AksCompute.Cl
 
 > [!IMPORTANT]
 > Per [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), se si selezionano valori personalizzati per agent_count e vm_size, è necessario verificare che il valore di agent_count moltiplicato per il valore di vm_size sia maggiore o uguale a 12 CPU virtuali. Ad esempio, se come vm_size si usa "Standard_D3_v2", che dispone di 4 CPU virtuali, per agent_count è consigliabile selezionare 3 o un valore superiore.
-
-**Tempo stimato**: circa 20 minuti.
+>
+> il SDK di Azure Machine Learning non fornisce supporto per il ridimensionamento di un cluster AKS. Per ridimensionare i nodi del cluster, usare l'interfaccia utente per il cluster servizio contenitore di AZURE nel portale di Azure. È possibile modificare solo il conteggio dei nodi, non le dimensioni VM del cluster.
 
 #### <a name="attach-an-existing-aks-cluster"></a>Collegare un cluster servizio contenitore di AZURE esistente
+**Tempo stimato:** Circa 5 minuti.
 
 Se si dispone già del cluster servizio contenitore di AZURE nella sottoscrizione di Azure, ed è versione 1.12. # #, è possibile utilizzarlo per distribuire l'immagine.
 

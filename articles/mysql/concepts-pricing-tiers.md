@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 20fb352e65a570063d9a0f55667db073f8a4ee27
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 726da603b5f583c85f4b7c4262c6e97f565a3678
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062421"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339939"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Piani tariffari di Database di Azure per MySQL
 
@@ -67,7 +67,7 @@ I limiti di archiviazione attualmente stiamo aumentando i livelli di utilizzo ge
 | IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Numero massimo di 20.000 IOPS| 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Numero massimo di 20.000 IOPS |
 
 > [!IMPORTANT]
-> Archiviazione di grandi dimensioni è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti occidentali 2, Europa settentrionale, Europa occidentale, Asia sud-orientale, Giappone orientale, Corea centrale, Australia orientale.
+> Archiviazione di grandi dimensioni è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Europa settentrionale, Europa occidentale, Asia sud-orientale, Giappone orientale, Corea centrale, Australia orientale.
 >
 > L'anteprima di archiviazione di grandi dimensioni attualmente non supporta:
 >
