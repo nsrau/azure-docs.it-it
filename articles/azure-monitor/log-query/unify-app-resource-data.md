@@ -110,10 +110,10 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
 | Browser | client_browser |
-| city | client_city |
+| City | client_city |
 | ClientIP | client_IP |
 | Computer | cloud_RoleInstance | 
-| Paese | client_CountryOrRegion | 
+| Country | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
 | CustomEventName | name | 
@@ -134,9 +134,9 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | RequestDuration | duration | 
 | RequestID | id | 
 | RequestName | name | 
-| RequestSuccess | esito positivo | 
+| RequestSuccess | success | 
 | ResponseCode | resultCode | 
-| Ruolo | cloud_RoleName |
+| Role | cloud_RoleName |
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
