@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
-ms.openlocfilehash: dd4dad2cc3e541d3b6866c02341161dc1d9e1e6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 801516ae2cfad891098c16f8cd6e9a4c7f157a93
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61234972"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342005"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modello di dati di Log Analytics per i dati di Backup di Azure
 
@@ -50,7 +50,7 @@ Questa tabella offre dettagli sui campi relativi agli avvisi.
 | OperationName |Text |Nome dell'operazione corrente, ad esempio, Avviso |
 | Category |Text |Categoria dei dati di diagnostica effettuato il push dei log di monitoraggio di Azure. Sempre AzureBackupReport |
 | Resource |Text |Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
-| ProtectedServerUniqueId_s |Text |Identificatore univoco del server protetto associato all'avviso |
+| ProtectedContainerUniqueId_s |Text |Identificatore univoco del server protetto associato all'avviso (ProtectedServerUniqueId_s era nella versione 1)|
 | VaultUniqueId_s |Text |Identificatore univoco dell'insieme di credenziali protette associato all'avviso |
 | SourceSystem |Text |Sistema di origine dei dati correnti - Azure |
 | ResourceId |Text |Identificatore univoco per la risorsa per ia quale vengono raccolti i dati. Ad esempio, un id risorsa dell'insieme di credenziali di Servizi di ripristino |
@@ -67,10 +67,12 @@ Questa tabella offre dettagli sui campi relativi agli elementi di backup.
 | --- | --- | --- |
 | EventName_s |Text |Nome dell'evento. Sempre AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |Identificatore univoco dell'elemento di backup |
-| BackupItemId_s |Text |Identificatore dell'elemento di backup |
+| BackupItemId_s |Text |Identificatore dell'elemento di backup (in questo campo è solo per lo schema di v1) |
 | BackupItemName_s |Text |Nome dell'elemento di backup |
 | BackupItemFriendlyName_s |Text |Nome descrittivo dell'elemento di backup |
 | BackupItemType_s |Text |Tipo dell'elemento di backup, ad esempio macchina virtuale o FileFolder |
+| BackupItemProtectionState_s |Text |Lo stato di protezione dell'elemento di Backup |
+| BackupItemAppVersion_s |Text |Versione dell'applicazione dell'elemento di backup |
 | ProtectionState_s |Text |Stato della protezione corrente dell'elemento di backup, ad esempio Protected o ProtectionStopped |
 | ProtectionGroupName_s |Text | Nome del gruppo protezione dati di elemento di Backup è protetto, per SC DPM e MABS, se applicabile|
 | SecondaryBackupProtectionState_s |Text |Indica se abilitare la protezione secondaria per l'elemento di backup|
@@ -103,8 +105,7 @@ Questa tabella fornisce dettagli sulle associazioni degli elementi di backup con
 | Category |Text |Questo campo rappresenta la categoria di dati di diagnostica inseriti di Log Analytics, ovvero AzureBackupReport |
 | OperationName |Text |Questo campo rappresenta il nome dell'operazione in corso - BackupItemAssociation |
 | Resource |Text |Si tratta della risorsa per cui sono stati raccolti i dati, verrà visualizzato il nome dell'insieme di credenziali dei servizi di ripristino |
-| PolicyUniqueId_g |Text |Identificatore univoco del criterio associato all'elemento di backup |
-| ProtectedServerUniqueId_s |Text |Identificatore univoco del server protetto associato all'elemento di backup |
+| ProtectedContainerUniqueId_s |Text |Identificatore univoco del server protetto associato con l'elemento di backup (ProtectedServerUniqueId_s era nella versione 1) |
 | VaultUniqueId_s |Text |Identificatore univoco dell'insieme di credenziali contenente l'elemento di backup |
 | SourceSystem |Text |Sistema di origine dei dati correnti - Azure |
 | ResourceId |Text |Identificatore della risorsa per i dati raccolti. Ad esempio, id risorsa dell'insieme di credenziali di Servizi di ripristino |
@@ -249,13 +250,14 @@ Questa tabella presenta i campi di base sui contenitori protetti. (Era Protected
 | ProtectedContainerOSType_s |Text |Tipo del sistema operativo del contenitore protetto |
 | ProtectedContainerOSVersion_s |Text |Versione del sistema operativo del contenitore protetto |
 | AgentVersion_s |Text |Numero di versione dell'agente di Backup o l'agente protezione (in caso di SC DPM e MABS) |
-| BackupManagementType_s |Text |Tipo di provider per l'esecuzione del backup, ad esempio, IaaSVM o FileFolder |
-| EntityState_s |Text |Stato corrente dell'oggetto server protetto, ad esempio, Active o Deleted |
+| BackupManagementType_s |Text |Tipo di provider per l'esecuzione di backup. Ad esempio IaaSVM o FileFolder |
+| EntityState_s |Text |Stato corrente dell'oggetto server protetto. Ad esempio, Active o Deleted |
 | ProtectedContainerFriendlyName_s |Text |Nome descrittivo del server protetto |
 | ProtectedContainerName_s |Text |Nome del contenitore protetto |
-| ProtectedContainerWorkloadType_s |Text |Tipo di contenitore protetto di backup, ad esempio, IaaSVMContainer |
+| ProtectedContainerWorkloadType_s |Text |Tipo di contenitore protetto di backup. Ad esempio, IaaSVMContainer |
 | ProtectedContainerLocation_s |Text |Se il contenitore protetto è in locale o in Azure |
 | ProtectedContainerType_s |Text |Se il contenitore protetto è un server o un contenitore |
+| ProtectedContainerProtectionState_s’  |Text |Lo stato di protezione dati del contenitore protetto |
 
 ### <a name="storage"></a>Archiviazione
 
@@ -263,7 +265,7 @@ Questa tabella offre dettagli sui campi relativi all'archiviazione.
 
 | Campo | Tipo di dati | Descrizione |
 | --- | --- | --- |
-| CloudStorageInBytes_s |Numero decimale |Spazio di archiviazione nel cloud usato dal backup, calcolato in base al valore più recente |
+| CloudStorageInBytes_s |Numero decimale |Archiviazione di backup cloud usata da backup, calcolato basato sul valore più recente (in questo campo è solo per lo schema di v1)|
 | ProtectedInstances_s |Numero decimale |Numero di istanze protette usato per il calcolo dell'archiviazione front-end a scopo di fatturazione, calcolato in base al valore più recente |
 | EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
 | SchemaVersion_s |Text |Questo campo indica la versione corrente dello schema, è **V2** |
@@ -280,6 +282,10 @@ Questa tabella offre dettagli sui campi relativi all'archiviazione.
 | ResourceGroup |Text |Gruppo di risorse della risorsa (ad es. credenziali di Servizi di ripristino) per il quale vengono raccolti i dati |
 | ResourceProvider |Text |Provider di risorse per il quale vengono raccolti i dati. Ad esempio, Microsoft.RecoveryServices |
 | ResourceType |Text |Tipo di risorse per il quale vengono raccolti i dati. Ad esempio, Insieme di credenziali |
+| StorageUniqueId_s |Text |Id univoco utilizzato per identificare l'entità di archiviazione |
+| StorageType_s |Text |Tipo di archiviazione, ad esempio Cloud, volumi, dischi |
+| StorageName_s |Text |Nome dell'entità di archiviazione, ad esempio E:\ |
+| StorageTotalSizeInGBs_s |Text |Dimensioni totali di archiviazione, espresse in GB, utilizzato da entità di archiviazione|
 
 ### <a name="storageassociation"></a>StorageAssociation
 
@@ -342,7 +348,7 @@ Questa tabella specifica il carico di lavoro che è associato a un Volume.
 
 ### <a name="protectedinstance"></a>ProtectedInstance
 
-Questa tabella presenta i campi correlati di base di istanze protette.
+Questa tabella presenta i campi relativi alle istanze protetti base.
 
 | Campo | Tipo di dati |Versioni applicabili | Descrizione |
 | --- | --- | --- | --- |

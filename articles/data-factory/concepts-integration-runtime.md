@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b0b637bdbab8f85c87d28473dda8f2e8f8a086e
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427146"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312068"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
@@ -74,7 +74,7 @@ Per maggiori dettagli, vedere le informazioni su come creare e configurare il ru
 Un runtime di integrazione self-hosted è in grado di eseguire queste operazioni:
 
 - Eseguire attività di copia tra gli archivi dati cloud e un archivio dati in una rete privata.
-- Invio delle seguenti attività di trasformazione a risorse di calcolo in locale o nella rete virtuale di Azure: Attività Hive di HDInsight (BYOC-Bring Your Own Cluster), attività Pig di HDInsight (BYOC), attività MapReduce di HDInsight (BYOC), attività Spark di HDInsight (BYOC), attività Streaming di HDInsight (BYOC), l'attività esecuzione Batch di Machine Learning, Machine Learning Aggiornare l'attività della risorsa, attività Stored Procedure, attività U-SQL di Data Lake Analitica, attività personalizzate .NET, attività di ricerca e attività GetMetadata.
+- Invio delle seguenti attività di trasformazione a risorse di calcolo in locale o nella rete virtuale di Azure: Attività Hive di HDInsight (BYOC-Bring Your Own Cluster), attività Pig di HDInsight (BYOC), attività MapReduce di HDInsight (BYOC), attività Spark di HDInsight (BYOC), attività Streaming di HDInsight (BYOC), l'attività esecuzione Batch di Machine Learning, Machine Learning Aggiornare l'attività della risorsa, attività Stored Procedure, attività U-SQL di Data Lake Analitica, Custom activity (eseguito in Azure Batch), attività di ricerca e attività GetMetadata.
 
 > [!NOTE] 
 > Usare il runtime di integrazione self-hosted per supportare gli archivi dati che necessitano dell'approccio Bring-Your-Own-Driver, ad esempio SAP Hana, MySQL e così via.  Per altre informazioni, vedere [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

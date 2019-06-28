@@ -476,7 +476,7 @@ Il passaggio successivo consiste nell'aggiornare l'applicazione Android creata n
 
 1. Eseguire l'applicazione su un dispositivo o un emulatore tramite Android Studio.
 2. Nell'app per Android immettere un nome utente e una password. Devono avere lo stesso valore di stringa e non devono contenere spazi o caratteri speciali.
-3. Nell'app per Android fare clic su **Accedi**. Attendere che venga visualizzato un avviso popup che indica che sono stati effettuati l'accesso e la registrazione****. Viene abilitato il pulsante **Send Notification** (Invia notifica).
+3. Nell'app per Android fare clic su **Accedi**. Attendere che venga visualizzato un avviso popup che indica che sono stati **effettuati l'accesso e la registrazione**. Viene abilitato il pulsante **Send Notification** (Invia notifica).
 
     ![][A2]
 4. Fare clic sugli interruttori per abilitare tutte le piattaforme in cui è stata eseguita l'app ed è stato registrato un utente.

@@ -76,7 +76,7 @@ Le risorse [ricerca salvata di Log Analytics](../../azure-monitor/log-query/log-
 
 Le singole proprietà di una ricerca salvata sono descritte nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | descrizione |
 |:--- |:--- |
 | category | Categoria della ricerca salvata.  Tutte le ricerche salvate nella stessa soluzione condivideranno in genere una singola categoria in modo da essere raggruppate nella console. |
 | displayname | Nome da visualizzare per la ricerca salvata nel portale. |
@@ -121,7 +121,7 @@ Una ricerca salvata può avere una o più pianificazioni, ognuna delle quali rap
     }
 Le proprietà delle risorse pianificazione sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatorio | descrizione |
 |:--|:--|:--|
 | enabled       | Yes | Specifica se l'avviso viene abilitato al momento della creazione. |
 | interval      | Yes | Frequenza, in minuti, con cui viene eseguita la query. |
@@ -174,18 +174,18 @@ Le azioni di avviso hanno la struttura seguente. Nella struttura sono inclusi pa
 
 Le proprietà delle risorse azione di avviso sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatorio | descrizione |
 |:--|:--|:--|
 | type | Yes | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
 | name | Yes | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
 | descrizione | No | Descrizione facoltativa dell'avviso. |
-| severity | Yes | Gravità del record di avviso tra i valori seguenti:<br><br> **critical**<br>**warning**<br>**informational**
+| Severity | Yes | Gravità del record di avviso tra i valori seguenti:<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Soglia
 Questa sezione è obbligatoria e definisce le proprietà della soglia dell'avviso.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatorio | descrizione |
 |:--|:--|:--|
 | Operator | Yes | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
 | Value | Yes | Valore per il confronto dei risultati. |
@@ -196,7 +196,7 @@ Questa sezione è facoltativa. Includere la sezione per un avviso di misurazione
 > [!NOTE]
 > Gli avvisi di misurazione delle metriche sono attualmente disponibili in anteprima pubblica.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatorio | descrizione |
 |:--|:--|:--|
 | TriggerCondition | Yes | Specifica se la soglia riguarda il numero totale di violazioni o le violazioni consecutive, con i valori seguenti:<br><br>**Total<br>Consecutive** |
 | Operator | Yes | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
@@ -206,7 +206,7 @@ Questa sezione è facoltativa. Includere la sezione per un avviso di misurazione
 #### <a name="throttling"></a>Limitazione
 Questa sezione è facoltativa. Includere la sezione se si vogliono eliminare gli avvisi generati dalla stessa regola per un determinato intervallo di tempo dopo la creazione di un avviso.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatorio | descrizione |
 |:--|:--|:--|
 | DurationInMinutes | Sì, se è incluso l'elemento Throttling | Numero di minuti in cui verranno eliminati gli avvisi dopo che ne è stato creato uno dalla stessa regola di avviso. |
 
@@ -215,7 +215,7 @@ Tutti gli avvisi in Azure usano un gruppo di azioni come meccanismo predefinito 
 
 Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devono ora essere passati i dettagli del gruppo di azioni insieme alla soglia per poter creare un avviso. I dettagli di posta elettronica, gli URL di webhook, i dettagli relativi all'automazione runbook e altre azioni devono essere definiti all'interno di un gruppo di azioni prima di creare un avviso. È possibile creare un [gruppo di azioni da Monitoraggio di Azure](../../azure-monitor/platform/action-groups.md) nel portale o usare il [modello Gruppo di azioni - Risorsa](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatorio | descrizione |
 |:--|:--|:--|
 | AzNsNotification | Yes | ID risorsa del gruppo di azioni di Azure da associare a un avviso per l'esecuzione di azioni necessarie quando viene soddisfatto il criterio di avviso. |
 | CustomEmailSubject | No | Riga dell'oggetto personalizzata del messaggio inviato a tutti gli indirizzi specificati nel gruppo di azioni associato. |
@@ -231,7 +231,7 @@ Ogni pianificazione ha un'azione **Alert**. che definisce i dettagli dell'avviso
 ##### <a name="emailnotification"></a>EmailNotification
  Questa sezione è facoltativa, includerla se si vuole inviare un messaggio di posta elettronica a uno o più destinatari.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatorio | descrizione |
 |:--|:--|:--|
 | Recipients | Yes | Elenco delimitato da virgole di indirizzi di posta elettronica a cui inviare una notifica quando viene creato un avviso, come nell'esempio seguente.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
 | Subject | Yes | Riga dell'oggetto del messaggio di posta elettronica. |
@@ -240,7 +240,7 @@ Ogni pianificazione ha un'azione **Alert**. che definisce i dettagli dell'avviso
 ##### <a name="remediation"></a>Correzione
 Questa sezione è facoltativa, includerla se si vuole avviare un runbook in risposta all'avviso. 
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatorio | descrizione |
 |:--|:--|:--|
 | RunbookName | Yes | Nome del runbook da avviare. |
 | WebhookUri | Yes | URI del webhook per il runbook. |
@@ -269,7 +269,7 @@ Se l'avviso chiamerà un webhook, sarà necessaria una risorsa azione di tipo **
     }
 Le proprietà delle risorse azione webhook sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatorio | descrizione |
 |:--|:--|:--|
 | tipo | Yes | Tipo di azione. Per le azioni webhook, il tipo è **Webhook**. |
 | name | Yes | Nome visualizzato per l'azione. Non viene visualizzato nella console. |

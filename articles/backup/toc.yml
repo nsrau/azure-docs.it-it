@@ -144,8 +144,6 @@
           items:
             - name: Gestire i backup delle macchine virtuali di Azure
               href: backup-azure-manage-vms.md
-            - name: Monitorare gli avvisi per i backup di VM di Azure
-              href: backup-azure-monitor-vms.md
         - name: Ripristinare VM di Azure
           items:
             - name: Ripristinare macchine virtuali di Azure nel portale

@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 6d95e4a0a7aeedef2fc7e635d2e49ea68c3ba0ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b74238ee49fe0d96d218f1800a33a9d60badc6d5
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992041"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341701"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Come usare le code del bus di servizio con Python
 
@@ -36,7 +36,7 @@ In questa esercitazione descrive come creare applicazioni Python per inviare e r
 
         > [!NOTE]
         > Si creerà una **coda** nello spazio dei nomi del Bus di servizio con Python in questa esercitazione. 
-1. Installare Python o il [pacchetto di Python Azure Service Bus][Python Azure Service Bus package], vedere il [Guida all'installazione di Python](../python-how-to-install.md). Vedere la documentazione completa di Service Bus Python SDK [qui](/python/api/overview/azure/servicebus?view=azure-python).
+1. Installare Python o il [pacchetto di Python Azure Service Bus][Python Azure Service Bus package], vedere la [Guida all'installazione di Python](../python-how-to-install.md). Vedere la documentazione completa di Service Bus Python SDK [qui](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="create-a-queue"></a>Creare una coda
 Il **ServiceBusClient** consente di usare le code. Aggiungere il seguente codice all'inizio di ogni file Python da cui si desidera accedere al bus di servizio a livello di codice:
@@ -45,13 +45,13 @@ Il **ServiceBusClient** consente di usare le code. Aggiungere il seguente codice
 from azure.servicebus import ServiceBusClient
 ```
 
-Il codice seguente crea una **ServiceBusClient** oggetto. Sostituire, `mynamespace`, `sharedaccesskeyname` e `sharedaccesskey` con lo spazio dei nomi e il nome e il valore della chiave di firma di accesso condiviso.
+Il codice seguente crea una **ServiceBusClient** oggetto. Sostituire `<CONNECTION STRING>` con la proprietà connectionstring del bus di servizio.
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
 ```
 
-I valori relativi al nome e al valore della chiave di firma di accesso condiviso sono disponibili nelle informazioni di connessione del [portale di Azure][Azure portal] o nel pannello **Proprietà** di Visual Studio quando si seleziona lo spazio dei nomi del bus di servizio in Esplora server, come illustrato nella sezione precedente.
+I valori per il nome della chiave SAS e il valore sono reperibile nel [portale di Azure][Azure portal] informazioni di connessione, o in Visual Studio **proprietà** riquadro quando si seleziona lo spazio dei nomi del Bus di servizio in Esplora Server (come illustrato nella sezione precedente).
 
 ```python
 sb_client.create_queue("taskqueue")

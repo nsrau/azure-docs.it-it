@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a3b4886bc175311e9a0e61f3dfb99b1fe7e1a679
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 757366f1d1f94d11438be4df0772ce1155f71cee
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236770"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310577"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB come archivio di valori chiave: Panoramica dei costi
 
 Azure Cosmos DB è un servizio di database multimodello distribuito a livello globale che consente di compilare con facilità applicazioni su larga scala e a disponibilità elevata. Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutti i dati che inserisce, in modo efficiente. In questo modo è possibile abilitare query [SQL](how-to-sql-query.md) (e [JavaScript](stored-procedures-triggers-udfs.md)) rapide e coerenti su qualsiasi tipo di dati. 
 
-L'articolo descrive il costo di Azure Cosmos DB per semplici operazioni di lettura e scrittura, quando usato come archivio di chiavi/valori. Le operazioni di scrittura includono inserimenti, sostituzioni, eliminazioni e upsert di documenti. Oltre a offrire un contratto di servizio con disponibilità del 99,99% per tutti gli account in una singola area e tutti gli account in più aree con coerenza media e con disponibilità in lettura del 99,999% per tutti gli account di database in più aree, Azure Cosmos DB offre latenza minore di 10 ms per le letture e di 15 ms per le scritture al 99° percentile. 
+L'articolo descrive il costo di Azure Cosmos DB per semplici operazioni di lettura e scrittura, quando usato come archivio di chiavi/valori. Le operazioni di scrittura includono inserimenti, sostituzioni, eliminazioni e upsert di documenti. Oltre a del 99,99% disponibilità contratto di servizio per tutti gli account in una singola area e tutti gli account in più aree con coerenza Media e al 99,999% la disponibilità in lettura tutti gli account di database in più aree, Azure Cosmos DB offre garanzie di < 10 ms di latenza per legge e scrive, rispettivamente, al livello p99 per (indicizzate). 
 
 ## <a name="why-we-use-request-units-rus"></a>Perché usare le unità richiesta (UR)
 

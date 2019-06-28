@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 435e5f2163270672ac5f1f5695ca2fe9be22ee6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f89105abc21f5ef6cce53ea55622a808f947e86
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388755"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357295"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Pianificare un ambiente di anteprima di Azure Time Series Insights
 
@@ -88,5 +88,8 @@ Per altre informazioni, vedere [Shape events](./time-series-insights-send-events
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Revisione [Azure Advisor](../advisor/advisor-overview.md) pianificare le opzioni di configurazione di ripristino di business.
+
 - Altre informazioni, vedere [in ingresso e in archiviazione](./time-series-insights-update-storage-ingress.md) nell'anteprima del tempo Series Insights.
+
 - Scopri [modellazione dei dati](./time-series-insights-update-tsm.md) nell'anteprima del tempo Series Insights.

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 35cbe04380e2113f986d1e7adf3f7fdf89cb9326
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a82afe6f5299609fd6dd57a54f04f49fad5d2268
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078872"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357634"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Log di controllo nel Database di Azure per MySQL
 
@@ -45,7 +45,7 @@ Altri parametri che è possibile modificare includono:
 
 I log di controllo sono integrati con i log di diagnostica di monitoraggio di Azure. Dopo aver abilitato i log di controllo nel proprio server MySQL, è possibile generarli da log di monitoraggio di Azure, hub eventi o archiviazione di Azure. Per altre informazioni su come abilitare i log di diagnostica nel portale di Azure, vedere la [audit log portale articolo](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
-## <a name="schemas"></a>Schemi
+## <a name="diagnostic-logs-schemas"></a>Schemi dei log di diagnostica
 
 Le sezioni seguenti descrivono ciò che è l'output del log di controllo di MySQL in base al tipo di evento. A seconda del metodo di output, è possibile che i campi inclusi e il relativo ordine di visualizzazione siano differenti.
 

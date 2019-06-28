@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: d8012fb75282d64f7d1858e02b842b1c770200f9
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5fbd64d2f001a0fbe91de2d954889816a1819479
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191772"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339442"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Creare un host di Azure Bastion (anteprima)
 
@@ -41,7 +41,7 @@ Per partecipare all'anteprima, è necessario registrare. Usare questi passaggi p
 
 In questa sezione consente di creare una nuova risorsa di Azure Bastion dal portale di Azure.
 
-1. Dalla home page nel [ portale di Azure - anteprima](http://aka.ms/BastionHost), fare clic su **+ crea una risorsa**. Assicurarsi di che usare il collegamento fornito per accedere al portale per questa versione di anteprima, non dal portale di Azure regolare.
+1. Dalla home page nel [ portale di Azure - anteprima](https://aka.ms/BastionHost), fare clic su **+ crea una risorsa**. Assicurarsi di che usare il collegamento fornito per accedere al portale per questa versione di anteprima, non dal portale di Azure regolare.
 
 1. Nel **New** pagina il *Cerca nel Marketplace* digitare **Bastion**, quindi fare clic su **invio** per ottenere i risultati della ricerca.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: cff1bbefc3c54f7f9c02c646bd9eef528fe28c73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73ef5cc00b5154dbdbc92911d17740c7d13038ec
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939560"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341970"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Risoluzione dei problemi di grafici delle metriche
 
@@ -73,7 +73,7 @@ Raccolta di **del sistema operativo Guest** metriche richiedono la configurazion
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Messaggio "Errore durante il recupero dei dati" nel dashboard
 
-Questo problema è comune quando il dashboard è stato creato con una metrica che è stata deprecata e rimosso da Azure in un secondo momento. Per verificare che sia il caso, aprire il **metriche** scheda della finestra di risorse e controllare la metrica disponibile nel selettore di metrica. Se non viene visualizzata la metrica, la metrica è stato rimosso da Azure. In genere, quando una metrica è deprecata, si verifica una migliore nuova metrica che offre una prospettiva simile sull'integrità delle risorse.
+Questo problema può verificarsi quando il dashboard è stato creato con una metrica che è stata deprecata e rimosso da Azure in un secondo momento. Per verificare che sia il caso, aprire il **metriche** scheda della finestra di risorse e controllare la metrica disponibile nel selettore di metrica. Se non viene visualizzata la metrica, la metrica è stato rimosso da Azure. In genere, quando una metrica è deprecata, si verifica una migliore nuova metrica che offre una prospettiva simile sull'integrità delle risorse.
 
 **Soluzione:** Aggiornare il riquadro dell'errore selezionando una metrica alternativa per il grafico nel dashboard. È possibile [esaminare l'elenco delle metriche disponibili per servizi di Azure](metrics-supported.md).
 

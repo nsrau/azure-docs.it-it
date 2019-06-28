@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: 9b762f1b3f1c17e15b051e72f5d2cf98bef446bf
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 0ac50a5f52682c4315b8d08cf5632c4a6fa5242f
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137765"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357577"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Usare le macchine virtuali di analisi scientifica dei dati di Azure
 
@@ -51,9 +51,9 @@ Ottenere questi valori dalla pagina di macchina virtuale data SCIENCE nel portal
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>L'accesso ai file di Azure Notebooks da DSVM
 
-Per mantenere la parità dei percorsi di file con il **calcolo gratuito** livello, si è in grado di aprire solo un unico progetto contemporaneamente in una macchina virtuale data SCIENCE. Per aprire un nuovo progetto, è necessario chiudere il progetto aperto prima di tutto.
+Accesso al file system è supportato per le versioni di macchina virtuale data SCIENCE 19.06.15 o versione successiva. Per controllare la versione, connettersi prima alla DSVM tramite SSH (l'indirizzo IP è disponibile nel portale di Azure). Quindi eseguire il comando seguente usando il `<ip_address>`: `curl -H Metadata:true "http://<ip_address>/metadata/instance?api-version=2018-10-01"`. Il numero di versione viene visualizzato nell'output per "version".
 
-![Pulsante di arresto nel notebook di Azure](media/shutdown.png)
+Per mantenere la parità dei percorsi di file con il **calcolo gratuito** livello, si è in grado di aprire solo un unico progetto contemporaneamente in una macchina virtuale data SCIENCE. Per aprire un nuovo progetto, è necessario chiudere il progetto aperto prima di tutto.
 
 Quando un progetto viene eseguito in una macchina virtuale, i file vengono montati nella directory radice del server di Jupyter (la directory mostrato in JupyterHub), sostituire i file di Azure Notebooks predefinito. Quando si arresta la macchina virtuale usando il **arresto** pulsante del notebook dell'interfaccia utente, i notebook di Azure consente di ripristinare i file predefiniti.
 

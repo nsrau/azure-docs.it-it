@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0ac34f1d1e7fc2a967c7608f31f3b943f9380d01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 622b4ab41162a7858097f717a103878f05917cd3
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786201"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342150"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Asset di tipo variabile in Automazione di Azure
 
@@ -28,7 +28,7 @@ Gli asset di tipo variabile sono valori disponibili per tutti i runbook e le con
 
 Poiché le variabili di automazione sono persistenti, sono disponibili anche se il runbook o configurazione DSC ha esito negativo. Questo comportamento consente un valore da impostare in un runbook che viene quindi usato da un altro, o viene usato da stesso runbook o configurazione DSC alla successiva esecuzione.
 
-Quando si crea una variabile, è possibile specificare che venga archiviata in modalità crittografata. Le variabili crittografate vengono archiviate in modo sicuro in automazione di Azure e il relativo valore non è possibile recuperarne il [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet fornito come parte del modulo Azure PowerShell. L'unico modo in cui è possibile recuperare un valore crittografato è dall'attività **Get-AutomationVariable** in un runbook o configurazione DSC.
+Quando si crea una variabile, è possibile specificare che venga archiviata in modalità crittografata. Le variabili crittografate vengono archiviate in modo sicuro in automazione di Azure e il relativo valore non è possibile recuperarne il [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet fornito come parte del modulo Azure PowerShell. L'unico modo in cui è possibile recuperare un valore crittografato è dall'attività **Get-AutomationVariable** in un runbook o configurazione DSC. Se si desidera modificare una variabile crittografata in non crittografato, è possibile necessario eliminare e ricreare la variabile come non crittografato.
 
 >[!NOTE]
 >Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di automazione. Questa chiave è archiviata in un Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, la chiave viene caricata da Key Vault e quindi usata per crittografare l'asset. Questo processo è gestito da Automazione di Azure.
@@ -41,7 +41,7 @@ Quando si crea una variabile con il portale di Azure, è necessario selezionare 
 
 Di seguito è riportato un elenco dei tipi di variabile disponibili in Automazione:
 
-* String
+* string
 * Integer
 * DateTime
 * Boolean

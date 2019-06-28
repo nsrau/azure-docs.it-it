@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 42f290109ca380464cb07ac9f684cdde25b8fdcd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a92017c462ef62cbfb1aa6c2613a502d1cc5ffc6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063776"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340733"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Piani tariffari in Database di Azure per PostgreSQL - Server singolo
 
@@ -67,7 +67,7 @@ I limiti di archiviazione attualmente stiamo aumentando i livelli di utilizzo ge
 | IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Numero massimo di 20.000 IOPS| 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Numero massimo di 20.000 IOPS |
 
 > [!IMPORTANT]
-> Archiviazione di grandi dimensioni è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti occidentali 2, Europa settentrionale, Europa occidentale, Asia sud-orientale, Giappone orientale, Corea centrale, Australia orientale.
+> Archiviazione di grandi dimensioni è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Europa settentrionale, Europa occidentale, Asia sud-orientale, Giappone orientale, Corea centrale, Australia orientale.
 >
 >L'anteprima di archiviazione di grandi dimensioni attualmente non supporta:
 >

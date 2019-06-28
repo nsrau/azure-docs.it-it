@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 00fa1128df03befda8b15be2d7f2c527f65f9973
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075813"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341083"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Ripristinare un database SQL di Azure o eseguire il failover in un database secondario
 
@@ -34,7 +34,7 @@ Per informazioni sugli scenari di continuità aziendale e sulle funzionalità ch
 > Se si usano database o pool premium o business critical con ridondanza della zona, il processo di ripristino viene automatizzato e la parte restante di questo articolo non è applicabile.
 
 > [!NOTE]
-> I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile che il database secondario viene creato con le stesse dimensioni di calcolo (Dtu o Vcore) del database primario. Per altre informazioni, vedere [l'aggiornamento o downgrade come database primario](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+> I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile che il database secondario viene creato con le stesse dimensioni di calcolo (Dtu o Vcore) del database primario. Per altre informazioni, vedere [l'aggiornamento o downgrade come database primario](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
 
 > [!NOTE]
 > Usare uno o più gruppi di failover per gestire il failover di più database.

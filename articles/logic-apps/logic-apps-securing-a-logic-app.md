@@ -1,5 +1,5 @@
 ---
-title: Proteggere l'accesso alle app per la logica di Azure | Documentazione Microsoft
+title: Proteggere l'accesso alle App per la logica di Azure
 description: Aggiungere sicurezza alle App per la logica di Azure, inclusi trigger, input e output, parametri e altri servizi
 services: logic-apps
 ms.service: logic-apps
@@ -7,15 +7,14 @@ ms.suite: integration
 author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 31b18e2dfbad1f572b5c9b0ae59f5e076db7cde2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 65369e5747f17c0e420d5775f1c5704cac9ca21b
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995689"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341095"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Proteggere l'accesso alle App per la logica di Azure
 
@@ -156,9 +155,9 @@ Per aggiungere altri protocolli di autorizzazione all'app per la logica,consider
 
 Per consentire solo a utenti o gruppi specifici di eseguire operazioni sull'app per la logica è possibile limitare l'accesso alle attività, ad esempio la gestione, la modifica e la visualizzazione. App per la logica supporta il [controllo degli accessi in base al ruolo di Azure (RBAC)](../role-based-access-control/role-assignments-portal.md), che è possibile personalizzare o assegnare ruoli predefiniti a membri nella sottoscrizione, ad esempio:
 
-* [Collaboratore per app per la logica](../role-based-access-control/built-in-roles.md#logic-app-contributor): Gli utenti possono visualizzare, modificare e aggiornare l'app per la logica. 
+* [Collaboratore per app per la logica](../role-based-access-control/built-in-roles.md#logic-app-contributor): Consente gestire le App per la logica, ma non è possibile modificare l'accesso a tali.
 
-* [Operatore per app per la logica](../role-based-access-control/built-in-roles.md#logic-app-operator): Gli utenti possono visualizzare l'app per la logica e la cronologia di esecuzione e abilitare o disabilitare l'app per la logica. Questo ruolo non può modificare o aggiornare l'app per la logica.
+* [Operatore per app per la logica](../role-based-access-control/built-in-roles.md#logic-app-operator): Consente di leggere, abilitare e disabilitare l'App per la logica, ma è possibile modificare o aggiornarli.
 
 Per impedire la modifica o l'eliminazione delle app per la logica da parte di altri utenti è inoltre possibile usare i [blocchi per le risorse di Azure](../azure-resource-manager/resource-group-lock-resources.md). Questa funzionalità consente di impedire ad altri utenti di modificare o eliminare le risorse di produzione.
 

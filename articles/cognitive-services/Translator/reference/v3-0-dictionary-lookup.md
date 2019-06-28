@@ -3,19 +3,19 @@ title: Metodo Dictionary Lookup dell'API Traduzione testuale
 titlesuffix: Azure Cognitive Services
 description: Usare il metodo Dictionary Lookup dell'API Traduzione testuale.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-pawal
-ms.openlocfilehash: 10ccdcf0fda424e67b993c7c9300f0b84c56121f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 8cc37c9edd5679158f8454e00bd27a53e4491004
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389797"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357704"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>API Traduzione testuale 3.0: Ricerca nel dizionario
 

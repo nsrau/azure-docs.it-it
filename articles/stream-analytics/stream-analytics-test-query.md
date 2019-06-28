@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: fca76b632e9bcc27ed762886eaea696a5696ad3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0a76ecd12143e0bbaa9997bfc6d7295df9c4ec7
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761908"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340870"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Testare una query di Analisi di flusso con dati di esempio
 
-Analisi di flusso di Azure consente di caricare i dati di esempio e testare le query nel portale di Azure senza dover avviare o arrestare un processo.
+Usando Azure Stream Analitica, è possibile campionare dati di input o caricare i dati di esempio per testare le query nel portale di Azure senza dover avviare o arrestare un processo.
 
 ## <a name="upload-sample-data-and-test-the-query"></a>Caricare i dati di esempio e testare la query
 
@@ -28,11 +28,15 @@ Analisi di flusso di Azure consente di caricare i dati di esempio e testare le q
 
 3. Nella pagina del processo di Analisi di flusso selezionare **Query** nell'intestazione **Topologia processo** per aprire la finestra dell'editor Query. 
 
-4. Per eseguire il test della query con dati di input di esempio, fare clic con il pulsante destro del mouse su uno degli input.  Selezionare quindi **Upload sample data from file** (Carica dati di esempio da file). I dati devono essere serializzati in JSON, CSV o AVRO. L'esempio di input deve essere codificato in UTF-8 e non compresso. Solo i delimitatori di virgola (,) sono supportati per testare gli input CSV nel portale.
+4. Per testare la query si possono quindi essere Campiona dati da un input in tempo reale o caricamento da un file. I dati devono essere serializzati in JSON, CSV o AVRO. L'esempio di input deve essere codificato in UTF-8 e non compresso. Solo i delimitatori di virgola (,) sono supportati per testare gli input CSV nel portale.
+
+    1. Utilizzando l'input in tempo reale: pulsante destro del mouse su uno degli input. Quindi selezionare **Campiona dati da input**. Nella schermata successiva, è possibile impostare la durata dell'esempio.
+
+    1. Utilizzo di file: fare clic su uno degli input. Selezionare quindi **Upload sample data from file** (Carica dati di esempio da file). 
 
     ![Pulsante per il testo delle query nell'editor query della funzione di analisi di flusso](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
-5. Dopo avere completato il caricamento selezione **Test** per testare la query usando i dati di esempio indicati.
+5. Dopo aver completato il campionamento o caricamento, selezionare **testare** per testare la query usando i dati di esempio è stato specificato.
 
     ![dati di esempio per il test nell'editor query della funzione di analisi di flusso](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8b7e6d234984e84f5b238d657281dd8b1b9ec423
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4f1bc1415fbb875120d7b64128cae69e1e3f442c
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056876"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339850"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-using-tags.md). La colonna con etichettata **supporta i tag** indica se il tipo di risorsa dispone di una proprietà per il tag. La colonna con etichettata **Tag nel report dei costi** indica se il tipo di risorsa passa al tag per il report dei costi.
@@ -864,8 +864,8 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | dnszones/TXT | No |  No |
 | expressRouteCircuits | Yes  | No |
 | expressRouteServiceProviders | No |  No |
-| frontdoors | Yes | Yes |
-| frontdoorWebApplicationFirewallPolicies | Yes | Yes |
+| frontdoors | Sì, ma limitato (vedere [nota sotto](#frontdoor)) | Yes |
+| frontdoorWebApplicationFirewallPolicies | Sì, ma limitato (vedere [nota sotto](#frontdoor)) | Yes |
 | getDnsResourceReference | No |  No |
 | interfaceEndpoints | Yes | Yes |
 | internalNotify | No |  No |
@@ -898,6 +898,10 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | vpnGateways | Yes | No |
 | vpnSites | Yes | Yes |
 | webApplicationFirewallPolicies | Yes | Yes |
+
+<a id="frontdoor" />
+
+Per il servizio di ingresso principale di Azure, è possibile applicare tag quando si crea la risorsa, ma l'aggiornamento o l'aggiunta di tag non è attualmente supportato.
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |

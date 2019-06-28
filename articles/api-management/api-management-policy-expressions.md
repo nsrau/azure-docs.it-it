@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a19165f9ac15f7a40aea0501f960b06efbd63a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6446919c80e7e3fd379e6e39eb51712f9736ea7e
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304367"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341220"
 ---
 # <a name="api-management-policy-expressions"></a>Espressioni di criteri di Gestione API
 Questo articolo illustra la sintassi delle espressioni di criteri, che è C# 7. Ogni espressione ha accesso alla variabile [context](api-management-policy-expressions.md#ContextVariables) fornita implicitamente e a un [subset](api-management-policy-expressions.md#CLRTypes) autorizzato di tipi di .NET Framework.
@@ -94,19 +94,19 @@ Nella tabella seguente sono elencati i tipi di .NET Framework e i relativi membr
 |System.Byte|Tutti|
 |System.Char|Tutti|
 |System.Collections.Generic.Dictionary<TKey, TValue>|Tutti|
-|System.Collections.Generic.HashSet<T>|Tutti|
-|System.Collections.Generic.ICollection<T>|Tutti|
+|System.Collections.Generic.HashSet\<T>|Tutti|
+|System.Collections.Generic.ICollection\<T>|Tutti|
 |System.Collections.Generic.IDictionary<TKey, TValue>|Tutti|
-|System.Collections.Generic.IEnumerable<T>|Tutti|
-|System.Collections.Generic.IEnumerator<T>|Tutti|
-|System.Collections.Generic.IList<T>|Tutti|
-|System.Collections.Generic.IReadOnlyCollection<T>|Tutti|
+|System.Collections.Generic.IEnumerable\<T>|Tutti|
+|System.Collections.Generic.IEnumerator\<T>|Tutti|
+|System.Collections.Generic.IList\<T>|Tutti|
+|System.Collections.Generic.IReadOnlyCollection\<T>|Tutti|
 |System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|Tutti|
-|System.Collections.Generic.ISet<T>|Tutti|
+|System.Collections.Generic.ISet\<T>|Tutti|
 |System.Collections.Generic.KeyValuePair<TKey, TValue>|Tutti|
-|System.Collections.Generic.List<T>|Tutti|
-|System.Collections.Generic.Queue<T>|Tutti|
-|System.Collections.Generic.Stack<T>|Tutti|
+|System.Collections.Generic.List\<T>|Tutti|
+|System.Collections.Generic.Queue\<T>|Tutti|
+|System.Collections.Generic.Stack\<T>|Tutti|
 |System.Convert|Tutti|
 |System.DateTime|(Costruttore), aggiungere, AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, AddSeconds, AddTicks, AddYears, data, giorno, DayOfWeek, DayOfYear, DaysInMonth, ora, IsDaylightSavingTime, IsLeapYear, MaxValue, relativo ai millisecondi, minuto, MinValue, mese, a questo punto , Analisi, in secondo luogo, sottrarre, segni di graduazione, TimeOfDay, oggi, ToString, UtcNow, anno|
 |System.DateTimeKind|UTC|
@@ -156,7 +156,7 @@ Nella tabella seguente sono elencati i tipi di .NET Framework e i relativi membr
 |System.Security.Cryptography.SymmetricAlgorithm|Tutti|
 |System.Security.Cryptography.X509Certificates.PublicKey|Tutti|
 |System.Security.Cryptography.X509Certificates.RSACertificateExtensions|Tutti|
-|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Name|
+|System.Security.Cryptography.X509Certificates.X500DistinguishedName|NOME|
 |System.Security.Cryptography.X509Certificates.X509Certificate|Tutti|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|Tutti|
 |System.Security.Cryptography.X509Certificates.X509ContentType|Tutti|

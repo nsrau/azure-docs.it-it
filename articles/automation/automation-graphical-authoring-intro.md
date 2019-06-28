@@ -44,7 +44,7 @@ Il canvas è l'area in cui vengono progettati i Runbook. È possibile aggiungere
 
 Il controllo Library consente di selezionare [attività](#activities) da aggiungere al Runbook. È possibile aggiungerle al canvas, dove vengono connesse ad altre attività. Il canvas include quattro sezioni descritte nella tabella seguente:
 
-| `Section` | Descrizione |
+| `Section` | Description |
 |:--- |:--- |
 | Cmdlets |Include tutti i cmdlet che possono essere usati nel Runbook. I cmdlet sono organizzati per modulo. Saranno disponibili tutti i moduli installati nell'account di Automazione. |
 | Runbook |Include i runbook dell'account di Automazione. Questi runbook possono essere aggiunti al canvas per essere usati come runbook figlio. Vengono visualizzati solo i runbook dello stesso tipo di memoria centrale come il runbook in corso di modifica; per i runbook grafici vengono visualizzati solo i runbook basati su PowerShell, mentre per i runbook grafici del flusso di lavoro PowerShell vengono visualizzati solo i runbook basati sul flusso di lavoro PowerShell. |
@@ -109,7 +109,7 @@ Nell'esempio seguente il cmdlet Get-AzureRmVM dispone di tre set di parametri. N
 
 Quando si specifica un valore per un parametro, è necessario selezionare un'origine dati per determinare come verrà specificato il valore. Le origini dati disponibili per un determinato parametro dipenderanno dai valori validi per il parametro. Ad esempio, Null non sarà disponibile come opzione di un parametro che non consente valori Null.
 
-| origine dati | Descrizione |
+| origine dati | Description |
 |:--- |:--- |
 | Constant Value |Digitare un valore per il parametro. Disponibile solo per i tipi di dati seguenti: Int32, Int64, String, Boolean, DateTime, Switch. |
 | Activity Output |Output di un'attività che precede l'attività corrente nel flusso di lavoro. Verranno elencate tutte le attività valide. Selezionare l'attività per usare il relativo output per il valore del parametro. Se l'attività restituisce un oggetto con più proprietà, è possibile digitare il nome della proprietà dopo aver selezionato l'attività. |
@@ -139,7 +139,7 @@ La condizione di ripetizione dei tentativi è un'espressione di PowerShell che v
 
 La condizione di ripetizione dei tentativi può usare una variabile denominata $RetryData che fornisce l'accesso alle informazioni sulla ripetizione dei tentativi dell'attività. Questa variabile include le proprietà elencate nella tabella seguente:
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 |:--- |:--- |
 | NumberOfAttempts |Numero di volte in cui l'attività è stata eseguita. |
 | Output |Output dell'ultima esecuzione dell'attività. |
@@ -191,7 +191,7 @@ Creare un collegamento tra due attività selezionando l'attività di origine e f
 
 Selezionare il collegamento per configurare le relative proprietà nel pannello Configuration, incluso il tipo di collegamento, che viene descritto nella tabella seguente:
 
-| Tipo di collegamento | Descrizione |
+| Tipo di collegamento | Description |
 |:--- |:--- |
 | Pipeline |L'attività di destinazione viene eseguita una volta per ogni oggetto restituito dall'attività di origine. L'attività di destinazione non viene eseguita se l'attività di origine non genera alcun output. L'output dell'attività di origine è disponibile come oggetto. |
 | Sequenza |L'attività di destinazione viene eseguita una sola volta. Riceve una matrice di oggetti dall'attività di origine. L'output dell'attività di origine è disponibile come matrice di oggetti. |

@@ -131,7 +131,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | previousState | string | Stato del processo prima dell'evento. |
-| stato | string | Nuovo stato del processo notificato in questo evento. Ad esempio: "Scheduled: il processo sta per iniziare" o "Finished: il processo è terminato".|
+| state | string | Nuovo stato del processo notificato in questo evento. Ad esempio: "Scheduled: il processo sta per iniziare" o "Finished: il processo è terminato".|
 
 Dove lo stato del processo può essere uno dei valori: *Queued*, *Scheduled*, *Processing*, *Finished*, *Error*, *Canceled*, *Canceling*
 
@@ -456,7 +456,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia. |
-| bitrate | numero intero | Velocità in bit della traccia. |
+| bitrate | integer | Velocità in bit della traccia. |
 | timestamp | string | Timestamp del blocco di dati eliminato. |
 | timescale | string | Scala cronologica del timestamp. |
 | resultCode | string | Motivo dell'eliminazione del blocco di dati. **FragmentDrop_OverlapTimestamp** o **FragmentDrop_NonIncreasingTimestamp**. |
@@ -496,7 +496,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
-| bitrate | numero intero | Velocità in bit della traccia. |
+| bitrate | integer | Velocità in bit della traccia. |
 | ingestUrl | string | URL di inserimento fornito dall'evento live. |
 | encoderIp | string  | Indirizzo IP del codificatore. |
 | encoderPort | string | Porta del codificatore da cui proviene il flusso. |
@@ -657,7 +657,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
-| bitrate | numero intero | Velocità in bit della traccia. |
+| bitrate | integer | Velocità in bit della traccia. |
 | previousTimestamp | string | Timestamp del frammento precedente. |
 | newTimestamp | string | Timestamp del frammento corrente. |
 | discontinuityGap | string | Spazio tra i due timestamp precedenti. |
