@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ad4a67d7737733e4c910d3495be29860769f27e
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692205"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477817"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Le procedure consigliate per l'API rilevatore di anomalie
 
@@ -51,7 +51,7 @@ Di seguito è lo stesso set di dati tramite il rilevamento anomalie di batch. Il
 
 ## <a name="data-preparation"></a>Preparazione dei dati
 
-L'API rilevatore di anomalie accetta serie temporale dei dati formattati in un oggetto della richiesta JSON. Una serie temporale può essere qualsiasi dati numerici registrati nel corso del tempo in ordine sequenziale. È possibile inviare windows dei dati delle serie temporali per l'endpoint API rilevatore di anomalie per migliorare le prestazioni dell'API. Il numero minimo di punti dati, che è possibile inviare è 12, mentre quello massimo è 8640 punti. 
+L'API rilevatore di anomalie accetta serie temporale dei dati formattati in un oggetto della richiesta JSON. Una serie temporale può essere qualsiasi dati numerici registrati nel corso del tempo in ordine sequenziale. È possibile inviare windows dei dati delle serie temporali per l'endpoint API rilevatore di anomalie per migliorare le prestazioni dell'API. Il numero minimo di punti dati, che è possibile inviare è 12, mentre quello massimo è 8640 punti. [Granularità](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) è definito come la frequenza con cui i dati vengono campionati. 
 
 Punti dati inviati per l'API rilevatore di anomalie devono avere un timestamp valido Coordinated Universal Time (UTC) e valore numerico. 
 
@@ -68,6 +68,15 @@ Punti dati inviati per l'API rilevatore di anomalie devono avere un timestamp va
         "value": 29615278
       },
     ]
+}
+```
+
+Se i dati verranno campionati con un intervallo di tempo non standard, è possibile specificare mediante l'aggiunta di `customInterval` attributo nella richiesta. Ad esempio, se le serie vengono campionati ogni 5 minuti, è possibile aggiungere quanto segue per la richiesta JSON:
+
+```json
+{
+    "granularity" : "minutely", 
+    "customInterval" : 5
 }
 ```
 
