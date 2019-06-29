@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 518f1048224a97943756c5b51b83cd509f82e11e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1ad618e9eb70fd75f433030584c0f6538532928f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072505"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466980"
 ---
 # <a name="speech-service-supported-regions"></a>Aree supportate dal servizio Voce
 
@@ -37,13 +37,13 @@ Speech SDK è disponibile nelle aree seguenti per **riconoscimento vocale**, **s
  Stati Uniti occidentali | `westus` | https://westus.cris.ai
  Stati Uniti occidentali 2 | `westus2` | https://westus2.cris.ai
  Stati Uniti orientali | `eastus` | https://eastus.cris.ai
- Stati Uniti Orientali 2 | `eastus2` | https://eastus2.cris.ai
+ Stati Uniti orientali 2 | `eastus2` | https://eastus2.cris.ai
  Stati Uniti centrali | `centralus` | https://centralus.cris.ai
  Stati Uniti centro-settentrionali | `northcentralus` | https://northcentralus.cris.ai
  Stati Uniti centro-meridionali | `southcentralus` | https://southcentralus.cris.ai
  India centrale | `centralindia` | https://centralindia.cris.ai
  Asia orientale | `eastasia` | https://eastasia.cris.ai
- Asia sudorientale | `southeastasia` | https://southeastasia.cris.ai
+ Asia sud-orientale | `southeastasia` | https://southeastasia.cris.ai
  Giappone orientale | `japaneast` | https://japaneast.cris.ai
  Corea del Sud centrale | `koreacentral` | https://koreacentral.cris.ai
  Australia orientale | `australiaeast` | https://australiaeast.cris.ai
@@ -73,6 +73,20 @@ Le aree disponibili per il **riconoscimento finalità** tramite Speech SDK sono 
  America del Sud | Brasile meridionale | `brazilsouth`
 
 Questo è un sottoinsieme delle aree di pubblicazione supportate per il [servizio Language Understanding (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+
+### <a name="voice-first-virtual-assistants"></a>Assistenti virtuali voice-first
+
+Il [Speech SDK](speech-sdk.md) supporta **assistenti virtuali voice-first** funzionalità nelle aree seguenti:
+
+Region | Parametro Speech SDK
+-------|---------------------
+Stati Uniti occidentali | `westus`
+Stati Uniti occidentali 2 | `westus2`
+Stati Uniti orientali | `eastus`
+Stati Uniti orientali 2 | `eastus2`
+Europa occidentale | `westeurope`
+Europa settentrionale | `northeurope`
+Asia sud-orientale | `southeastasia`
 
 ## <a name="rest-apis"></a>API REST
 

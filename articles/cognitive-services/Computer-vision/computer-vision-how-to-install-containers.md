@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.author: IEvangelist
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 7a85ac72dfa428bfeddd1fc1ce74ae0af7b4e9af
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 8a5a66c720c0a591fe9d6c9864286d80f68ba599
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275168"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449359"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installare ed eseguire contenitori di riconoscimento del testo
 
@@ -30,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di usare i contenitori Riconoscimento del testo, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatoria|Scopo|
+|Obbligatorio|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
@@ -125,7 +125,7 @@ Sono disponibili altri [esempi](./computer-vision-resource-container-config.md#e
 
 Il contenitore fornisce API dell'endpoint di stima di query basate su REST. 
 
-Usare l'host, `https://localhost:5000`, per le API del contenitore.
+Usare l'host, `http://localhost:5000`, per le API del contenitore.
 
 ### <a name="asynchronous-text-recognition"></a>Riconoscimento del testo asincrono
 

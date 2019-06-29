@@ -8,17 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 09296585ab0ab61f39c18cae6c533c0bbd91926a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606362"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449255"
 ---
 # <a name="release-notes"></a>Note sulla versione
+
+## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0: Versione di giugno 2019
+**Esempi**
+*   Esempi di avvio rapido per sintesi vocale in Unity e UWP
+*   Esempio di avvio rapido per Swift in iOS
+*   Esempi di Unity per il riconoscimento vocale & riconoscimento finalità e traduzione
+*   Esempi di avvio rapido aggiornato per DialogServiceConnector
+
+**Miglioramenti/modifiche**
+* Finestra di dialogo dello spazio dei nomi:
+    * È stata rinominata SpeechBotConnector DialogServiceConnector
+    * È stata rinominata BotConfig DialogServiceConfig
+    * È stato modificato il mapping BotConfig::FromChannelSecret() a DialogServiceConfig::FromBotSecret()
+    * Tutti i client di Direct Line vocale esistenti continuano a essere supportate dopo la ridenominazione
+* Aggiorna scheda di sintesi vocale REST per supportare i proxy, connessione permanente
+* Migliorare il messaggio di errore quando viene passata un'area non è valida
+
+**Correzioni di bug**
+*   Correzione di sintesi vocale: in futuro SpeakTextAsync restituito senza tempi di attesa fino a quando l'audio è stata completata per il rendering
+*   Correzione per il marshalling di stringhe in C# per abilitare il supporto di lingue completo
+*   Correzione di problemi di app .NET core caricare la libreria di base con framework di destinazione net461 negli esempi
+*   Correzione di problemi occasionali distribuire le librerie native per la cartella di output negli esempi
+*   Correzione per web socket chiudendo in modo affidabile
+*   Correzione per possibile arresto anomalo durante l'apertura di una connessione con un carico molto pesante in Linux
+
 
 ## <a name="speech-sdk-151"></a>Speech SDK 1.5.1
 

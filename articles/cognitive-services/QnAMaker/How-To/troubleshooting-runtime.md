@@ -3,26 +3,27 @@ title: Risoluzione dei problemi - QnA Maker
 titlesuffix: Azure Cognitive Services
 description: QnA Maker è costituito da componenti ospitati nell'account Azure dell'utente. Ai fini del debug, può essere necessario che gli utenti modifichino le proprie risorse di Azure per QnA Maker o forniscano al team di supporto di QnA Maker informazioni aggiuntive sulla configurazione.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6a84ecff04381b6dcc9706105df92ecc96dc8b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b65a121e895b4855c7c69d2b67e7055c88ddd08
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61389482"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466050"
 ---
 # <a name="troubleshooting-tips-to-support-the-qna-maker-service-and-runtime"></a>Suggerimenti per la risoluzione dei problemi a supporto del servizio e del runtime di QnA Maker
 QnA Maker è costituito da componenti ospitati nell'account Azure dell'utente. Ai fini del debug, può essere necessario che gli utenti modifichino le proprie risorse di Azure per QnA Maker o forniscano al team di supporto di QnA Maker informazioni aggiuntive sulla configurazione.
 
 ## <a name="how-to-get-latest-qnamaker-runtime-updates"></a>Come ottenere gli aggiornamenti del runtime di QnA Maker più recenti
-Il runtime di QnA Maker fa parte di Servizio app di Azure, distribuito durante la [creazione di un servizio QnA Maker](./set-up-qnamaker-service-azure.md) nel portale di Azure. Vengono applicati aggiornamenti periodici al runtime. Per applicare gli aggiornamenti più recenti alla configurazione di QnA Maker, è necessario riavviare il servizio app.
+Il runtime di QnA Maker fa parte di Servizio app di Azure, distribuito durante la [creazione di un servizio QnA Maker](./set-up-qnamaker-service-azure.md) nel portale di Azure. Vengono applicati aggiornamenti periodici al runtime. Servizio App di QnA Maker è su auto aggiornamento modalità post la versione di estensione del sito di aprile 2019 (versione 5 o successive). Ciò è già progettato per occuparsi di tempi di inattività durante gli aggiornamenti. È possibile controllare la versione corrente in https://www.qnamaker.ai/UserSettings. Se la versione è precedente alla versione 5.x, è necessario riavviare il servizio App per applicare gli aggiornamenti più recenti da applicare alla propria configurazione QnAMaker.
+
 1. Passare al servizio QnA Maker (gruppo di risorse) nel [portale di Azure](https://portal.azure.com)
 
     ![Gruppo di risorse di Azure per QnA Maker](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
