@@ -14,9 +14,6 @@
       href: apache-hadoop-linux-tutorial-get-started.md
 - name: Esercitazioni
   items:
-    - name: Eseguire operazioni ETL
-      href: ../hdinsight-analyze-flight-delay-data-linux.md
-      maintainContext: true
     - name: Creare cluster su richiesta
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
@@ -141,6 +138,10 @@
         - name: Strumenti per VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Strumenti per IntelliJ
+          href: ../spark/apache-spark-intellij-tool-plugin.md
+        - name: Strumenti per Eclipse
+          href: ../spark/apache-spark-eclipse-tool-plugin.md
         - name: Data Lake Tools con Hortonworks Sandbox
           href: ../hdinsight-hadoop-emulator-visual-studio.md
           maintainContext: true
@@ -186,9 +187,6 @@
           maintainContext: true
         - name: Sviluppare azioni di script
           href: ../hdinsight-hadoop-script-actions-linux.md
-          maintainContext: true
-        - name: Installare e usare Presto
-          href: ../hdinsight-hadoop-install-presto.md
           maintainContext: true
         - name: Aggiungere librerie Apache Hive
           href: ../hdinsight-hadoop-add-hive-libraries.md
@@ -467,15 +465,11 @@
     - name: Modello di Resource Manager
       displayName: 'resource manager template, arm template, resource manager group'
       href: /azure/templates/microsoft.hdinsight/allversions
-- name: Risorse correlate
-  items:
-    - name: Cluster Windows
-      items:
-        - name: Eseguire la migrazione di soluzioni .NET a cluster Linux
-          href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
-          maintainContext: true
 - name: Risorse
   items:
+    - name: Eseguire la migrazione di soluzioni .NET a cluster Linux
+      href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
+      maintainContext: true
     - name: Note sulla versione
       items:
         - name: Note sulla versione correnti

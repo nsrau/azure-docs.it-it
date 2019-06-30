@@ -8,11 +8,13 @@
       href: iot-services-and-technologies.md
 - name: Security
   items:
-    - name: Architettura di sicurezza
-      href: iot-security-architecture.md
-    - name: Procedure di sicurezza consigliate
-      href: iot-security-best-practices.md
-    - name: Distribuzione sicura
-      href: iot-security-deployment.md
+    - name: Consigli
+      href: security-recommendations.md
     - name: Sicurezza sin dall'inizio
       href: iot-security-ground-up.md
+    - name: Procedure di sicurezza consigliate
+      href: iot-security-best-practices.md
+    - name: Architettura di sicurezza
+      href: iot-security-architecture.md
+    - name: Distribuzione sicura
+      href: iot-security-deployment.md

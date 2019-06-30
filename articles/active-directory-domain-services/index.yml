@@ -5,8 +5,8 @@ metadata:
   title: Documentazione di Azure AD Domain Services
   description: Informazioni su come usare i servizi di dominio di Active Directory per aggiungere le macchine virtuali di Azure a un dominio senza usare i controller di dominio. Esercitazioni e altri documenti mostrano come gestire le macchine virtuali usando criteri di gruppo.
   keywords: 'Azure AD, Azure, aggiunta al dominio, criteri di gruppo, LDAP, Kerberos, controller di dominio, DC, lift-and-shift'
-  author: MikeStephens-MS
-  ms.author: mstephen
+  author: iainfoulds
+  ms.author: iainfou
   manager: daveba
   ms.date: 05/22/2019
   ms.topic: landing-page

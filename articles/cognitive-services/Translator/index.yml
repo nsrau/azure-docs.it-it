@@ -5,14 +5,14 @@ metadata:
   title: 'Documentazione di Traduzione testuale - Guide introduttive, esercitazioni, informazioni di riferimento per le API- Servizi cognitivi di Azure | Microsoft Docs'
   description: Informazioni su come usare Traduzione testuale per tradurre il testo in più lingue.
   services: cognitive-services
-  author: v-pawal
+  author: swmachan
   manager: Chris.Wendt
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 06/04/2019
-  ms.author: v-jansko
+  ms.author: swmachan
 abstract:
   description: 'Traduzione testuale è un servizio di traduzione automatica basato su cloud che può essere usato per tradurre il testo quasi in tempo reale tramite una semplice chiamata API REST. L''API usa la moderna tecnologia di traduzione automatica neurale, oltre a offrire tecnologia per la traduzione automatica basata su statistiche. Custom Translator è un''estensione dell''API Traduzione testuale che consente di creare sistemi di traduzione neurali. Il sistema di traduzione personalizzato può essere usato per tradurre il testo con l''API Traduzione testuale o con i <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">servizi Voce Microsoft</a>. Per l''elenco di lingue supportate per la traduzione automatica neurale e statistica, vedere <a href="languages.md">Lingue supportate</a>.'
 sections:

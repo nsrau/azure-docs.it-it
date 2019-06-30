@@ -56,7 +56,7 @@ sections:
           - image:
               src: media/index/ml-server_r.svg
             text: ML Services
-            href: /azure/hdinsight/r-server/r-server-get-started
+            href: /azure/hdinsight/r-server/ml-services-quickstart-job-rstudio
   - title: Esercitazioni dettagliate
     items:
       - type: paragraph
@@ -64,7 +64,6 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: 'Apache Hadoop &#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">Eseguire operazioni ETL</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">Creare cluster su richiesta</a>'
           - html: 'Apache Spark &#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">Eseguire query interattive</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">Visualizzare i dati</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">Machine learning</a>'
           - html: 'Apache Kafka &#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Streaming strutturato con Kafka</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">Usare con Storm in HDInsight</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Usare API Kafka per producer e consumer</a>'
           - html: 'Apache HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Creare cluster HBase in una rete virtuale</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Usare Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Connettersi a Spark</a>'

@@ -14,14 +14,17 @@
     - name: Usare l'API Video Indexer
       href: video-indexer-use-apis.md
 - name: Concetti
-  href: video-indexer-concepts.md
   items:
+    - name: Panoramica
+      href: video-indexer-concepts.md
     - name: Confrontare i set di impostazioni di Video Indexer e Servizi multimediali
       href: compare-video-indexer-with-media-services-presets.md
     - name: Gestire più tenant
       href: manage-multiple-tenants.md
     - name: Personalizzazione dei modelli di contenuto
       items:
+        - name: Panoramica
+          href: customize-content-models-overview.md
         - name: Marchi
           href: customize-brands-model-overview.md
         - name: Linguaggio
@@ -86,3 +89,5 @@
       href: faq.md
     - name: Conformità
       href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'
+    - name: Note sulla versione
+      href: release-notes.md
