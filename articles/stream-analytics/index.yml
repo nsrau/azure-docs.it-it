@@ -9,17 +9,17 @@ metadata:
   ms.author: mamccrea
   ms.service: stream-analytics
   ms.topic: landing-page
-  ms.date: 05/08/2019
+  ms.date: 06/21/2019
 abstract:
-  description: 'Analisi di flusso è un motore di elaborazione di eventi serverless, completamente gestito, che consente di analizzare flussi di dati di applicazioni e dispositivi IoT in tempo reale. Leggere informazioni su come usare Analisi di flusso di Azure con guide di avvio rapido, esercitazioni ed esempi.'
+  description: 'Analisi di flusso è un servizio PaaS completamente gestito che consente di analizzare ed elaborare in tempo reale flussi di dati veloci provenienti da dispositivi IoT, applicazioni, clickstream e così via, oltre che di attivare avvisi e azioni secondo necessità. Leggere informazioni su come usare Analisi di flusso di Azure con guide di avvio rapido, esercitazioni ed esempi.'
   aside:
     image:
       alt: null
       height: 110
       src: ./media/index/streaming-analytics-thumbnail.png
       width: 250
-    title: 'Analisi in tempo reale e Machine Learning con Analisi di flusso di Azure. (1:15:05)'
-    href: 'https://myignite.techcommunity.microsoft.com/sessions/65358?source=sessions#ignite-html-anchor'
+    title: 'Dal cloud alla rete perimetrale intelligente: prendere decisioni in tempo reale con Analisi di flusso di Azure. (1:02:11)'
+    href: 'https://azure.microsoft.com/resources/videos/build-2019-from-cloud-to-the-intelligent-edge-drive-real-time-decisions-with-azure-stream-analytics/'
     width: 250
 sections:
   - title: Guide introduttive di 5 minuti

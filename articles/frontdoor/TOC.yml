@@ -46,6 +46,8 @@
       href: front-door-routing-methods.md
     - name: Riscrittura URL
       href: front-door-url-rewrite.md
+    - name: Reindirizzamento URL
+      href: front-door-url-redirect.md
     - name: WAF
       items:
         - name: Panoramica
@@ -58,6 +60,14 @@
           href: waf-front-door-monitor.md
 - name: Guide alle procedure
   items:
+    - name: Reindirizzare il traffico
+      items:
+        - name: Configurare una frontdoor con il reindirizzamento da HTTP a HTTPS
+          href: front-door-how-to-redirect-https.md
+    - name: Onboarding di domini personalizzati
+      items:
+        - name: Onboarding di un dominio radice o apex
+          href: front-door-how-to-onboard-apex-domain.md
     - name: Risolvere problemi
       items:
         - name: Risolvere i problemi di routing

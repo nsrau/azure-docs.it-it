@@ -45,24 +45,22 @@
           href: application-proxy-network-topology.md
         - name: Confronto tra soluzioni di accesso remoto
           href: application-proxy-migration.md
+    - name: Single sign-on
+      items:
+        - name: Informazioni sull'accesso Single Sign-On
+          href: what-is-single-sign-on.md
+        - name: Pianificare una distribuzione di Single Sign-On
+          href: plan-sso-deployment.md
+    - name: Accesso SSO con un clic
+      items:
+        - name: Cos'è l'accesso SSO con un clic
+          href: one-click-sso-tutorial.md
     - name: Effettuare il provisioning di utenti e gruppi
       items:
         - name: Provisioning utenti automatico
-          href: configure-automatic-user-provisioning-portal.md
-        - name: App SaaS
           href: user-provisioning.md
-        - name: App abilitate per SCIM
+        - name: Provisioning automatico nelle app abilitate per SCIM
           href: use-scim-to-provision-users-and-groups.md
-        - name: Personalizzare gli attributi dell'applicazione
-          href: Customize-application-attributes.md
-        - name: Scrivere espressioni per il mapping degli attributi
-          href: functions-for-customizing-application-data.md
-        - name: Filtri per la definizione dell'ambito
-          href: define-conditional-rules-for-provisioning-user-accounts.md
-        - name: Creare report sul provisioning utenti automatico
-          href: check-status-user-account-provisioning.md
-        - name: Risolvere i problemi del provisioning utenti
-          href: application-provisioning-config-problem.md
     - name: 'Sicurezza delle applicazioni:'
       items:
         - name: Opzioni di accesso alle app
@@ -75,18 +73,8 @@
           href: tenant-restrictions.md
         - name: Configurare la crittografia dei token SAML (anteprima)
           href: howto-saml-token-encryption.md
-    - name: Single sign-on
-      items:
-        - name: Informazioni sull'accesso Single Sign-On
-          href: what-is-single-sign-on.md
-        - name: Pianificare una distribuzione di Single Sign-On
-          href: plan-sso-deployment.md
     - name: Portali degli utenti finali
       href: end-user-experiences.md
-    - name: Accesso SSO con un clic
-      items:
-        - name: Cos'è l'accesso SSO con un clic
-          href: one-click-sso-tutorial.md
 - name: Guide alle procedure
   items:
     - name: Aggiungere un'app cloud
@@ -157,12 +145,20 @@
               href: application-proxy-configure-single-sign-on-on-premises-apps.md
     - name: Configura provisioning utenti
       items:
-        - name: Tempo richiesto per il provisioning
-          href: application-provisioning-when-will-provisioning-finish-specific-user.md
-        - name: Configurare il provisioning utenti - App della raccolta
+        - name: Provisioning utenti per le app della raccolta
           href: application-provisioning-config-how-to.md
-        - name: Sincronizzare un attributo per il mapping - App della raccolta
-          href: user-provisioning-sync-attributes-for-mapping.md
+        - name: Configurare il provisioning automatico degli utenti
+          href: configure-automatic-user-provisioning-portal.md
+        - name: Personalizzare gli attributi dell'applicazione
+          href: Customize-application-attributes.md
+        - name: Scrivere espressioni per il mapping degli attributi
+          href: functions-for-customizing-application-data.md
+        - name: Filtri per la definizione dell'ambito
+          href: define-conditional-rules-for-provisioning-user-accounts.md
+        - name: Verificare lo stato del provisioning
+          href: application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Creare report sul provisioning utenti automatico
+          href: check-status-user-account-provisioning.md
     - name: Assegnare utenti e gestire l'accesso alle app
       items:
         - name: Configurare il consenso utente
@@ -235,10 +231,12 @@
               href: configure-password-single-sign-on-non-gallery-applications-problems.md
         - name: Risolvere i problemi del provisioning utenti
           items:
+            - name: Risolvere i problemi del provisioning utenti
+              href: application-provisioning-config-problem.md
+            - name: Sincronizzare un attributo per il mapping - App della raccolta
+              href: user-provisioning-sync-attributes-for-mapping.md
             - name: Tempo necessario eccessivo - App della raccolta
               href: application-provisioning-when-will-provisioning-finish.md
-            - name: Problema durante la configurazione del provisioning utenti - App della raccolta
-              href: application-provisioning-config-problem.md
             - name: Problema di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti nell'app della raccolta
               href: application-provisioning-config-problem-storage-limit.md
             - name: Utenti senza provisioning - App della raccolta

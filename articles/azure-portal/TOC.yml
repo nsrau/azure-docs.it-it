@@ -30,6 +30,8 @@
   items:
     - name: Tasti di scelta rapida
       href: azure-portal-keyboard-shortcuts.md
+    - name: Aggiungere gli URL del portale di Azure nell'elenco di indirizzi attendibili
+      href: azure-portal-safelist-urls.md
     - name: Struttura dei dashboard di Azure
       href: azure-portal-dashboards-structure.md
 - name: Risorse

@@ -120,6 +120,8 @@
               href: logic-apps-enterprise-integration-edifact-decode.md
             - name: Gestire file EDIFACT con un segmento UNH2.5
               href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
+        - name: Scambiare messaggi di RosettaNet
+          href: logic-apps-enterprise-integration-rosettanet.md
         - name: Scambiare messaggi X12
           href: logic-apps-enterprise-integration-x12.md
           items:
@@ -243,6 +245,8 @@
           href: ../connectors/connectors-native-recurrence.md
         - name: Richiesta/Risposta
           href: ../connectors/connectors-native-reqres.md
+        - name: RosettaNet
+          href: logic-apps-enterprise-integration-rosettanet.md
         - name: RSS
           href: ../connectors/connectors-create-api-rss.md
         - name: Salesforce

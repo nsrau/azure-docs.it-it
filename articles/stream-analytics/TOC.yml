@@ -88,7 +88,7 @@
           href: stream-analytics-test-query.md
         - name: Visualizzare i risultati in un dashboard
           href: stream-analytics-power-bi-dashboard.md
-        - name: Pulire un processo
+        - name: Arrestare o eliminare un processo
           href: stream-analytics-clean-up-your-job.md
         - name: Associare processi per l'affidabilità
           href: stream-analytics-job-reliability.md

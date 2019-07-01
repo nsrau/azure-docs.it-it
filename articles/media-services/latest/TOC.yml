@@ -223,6 +223,14 @@
             - name: Con REST
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
+        - name: Creare una clip video secondaria
+          items:
+            - name: Con .NET
+              href: subclip-video-dotnet-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
+            - name: Con REST
+              href: subclip-video-rest-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
     - name: Usare Griglia di eventi
       items:
         - name: Monitorare gli eventi - Portale
