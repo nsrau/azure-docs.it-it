@@ -66,7 +66,7 @@ Quando si usa l'API REST o il modello di Resource Manager, includere l'elemento 
 | sendToSubscriptionAdministrator |sì |Il valore deve essere "true" o "false" |
 | sendToSubscriptionCoAdministrators |sì |Il valore deve essere "true" o "false" |
 | customEmails |sì |Il valore può essere null [] o la matrice di stringhe di messaggi di posta elettronica |
-| Webhook |sì |Il valore può essere null o un URI valido |
+| webhooks |sì |Il valore può essere null o un URI valido |
 | serviceUri |sì |Un URI HTTPS valido |
 | properties |sì |Il valore deve essere vuoto {} o può contenere coppie chiave-valore |
 
@@ -111,7 +111,7 @@ Quando viene generata la notifica di scalabilità automatica, nel payload del we
 | timestamp |sì |Timestamp in cui è stata attivata l'azione di scalabilità automatica |
 | id |Yes |ID di Resource Manager dell'impostazione di scalabilità automatica |
 | name |Yes |Nome dell'impostazione di scalabilità automatica |
-| dettagli |Yes |Spiegazione dell'azione eseguita dal servizio di scalabilità automatica e della modifica al conteggio delle istanze |
+| details |Yes |Spiegazione dell'azione eseguita dal servizio di scalabilità automatica e della modifica al conteggio delle istanze |
 | subscriptionId |Yes |ID sottoscrizione della risorsa di destinazione da ridimensionare |
 | resourceGroupName |Yes |Nome del gruppo di risorse della risorsa di destinazione da ridimensionare |
 | resourceName |Yes |Nome della risorsa di destinazione da ridimensionare |
