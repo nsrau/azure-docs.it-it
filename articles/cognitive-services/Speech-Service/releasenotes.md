@@ -11,16 +11,17 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 09296585ab0ab61f39c18cae6c533c0bbd91926a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 609443a4926fabd991846faee4a0a7dffe3a696b
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449255"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490184"
 ---
 # <a name="release-notes"></a>Note sulla versione
 
 ## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0: Versione di giugno 2019
+
 **Esempi**
 *   Esempi di avvio rapido per sintesi vocale in Unity e UWP
 *   Esempio di avvio rapido per Swift in iOS
@@ -35,6 +36,9 @@ ms.locfileid: "67449255"
     * Tutti i client di Direct Line vocale esistenti continuano a essere supportate dopo la ridenominazione
 * Aggiorna scheda di sintesi vocale REST per supportare i proxy, connessione permanente
 * Migliorare il messaggio di errore quando viene passata un'area non è valida
+* Swift/Objective-C:
+    * Segnalazione errori migliorata: I metodi che possono comportare un errore sono ora presenti nelle due versioni: Uno che espone un `NSError` oggetto per la gestione degli errori e uno che genera un'eccezione. Nel primo caso viene esposti a Swift. Questa modifica richiede modifiche al codice Swift esistente.
+    * Gestione degli eventi migliorata
 
 **Correzioni di bug**
 *   Correzione di sintesi vocale: in futuro SpeakTextAsync restituito senza tempi di attesa fino a quando l'audio è stata completata per il rendering
@@ -43,6 +47,8 @@ ms.locfileid: "67449255"
 *   Correzione di problemi occasionali distribuire le librerie native per la cartella di output negli esempi
 *   Correzione per web socket chiudendo in modo affidabile
 *   Correzione per possibile arresto anomalo durante l'apertura di una connessione con un carico molto pesante in Linux
+*   Correzione per i metadati mancanti nel bundle di framework per macOS
+*   Risolvere i problemi di `pip install --user` su Windows
 
 
 ## <a name="speech-sdk-151"></a>Speech SDK 1.5.1

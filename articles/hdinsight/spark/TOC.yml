@@ -40,8 +40,6 @@
       href: ../hdinsight-sdk-python-samples.md
 - name: Concetti
   items:
-    - name: Usare IntelliJ per eseguire query Apache Spark
-      href: apache-spark-intellij-tool-plugin.md
     - name: Usare VSCode per eseguire query Apache Spark
       href: ../hdinsight-for-vscode.md
     - name: Componenti Apache Hadoop in HDInsight

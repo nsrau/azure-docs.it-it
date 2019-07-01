@@ -179,7 +179,7 @@ Le proprietà delle risorse azione di avviso sono descritte nella tabella seguen
 | type | Yes | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
 | name | Yes | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
 | descrizione | No | Descrizione facoltativa dell'avviso. |
-| Severity | Yes | Gravità del record di avviso tra i valori seguenti:<br><br> **critical**<br>**warning**<br>**informational**
+| severity | Yes | Gravità del record di avviso tra i valori seguenti:<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Soglia

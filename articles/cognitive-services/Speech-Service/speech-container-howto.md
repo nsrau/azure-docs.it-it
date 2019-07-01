@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 6df40909e2072ac2126344ba5b696c9e520e9955
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8f395788d4dd3c845155a52bd6b4666998838fcd
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434123"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490226"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi di riconoscimento vocale
 
@@ -25,7 +25,7 @@ I contenitori di riconoscimento due vocale siano **per il riconoscimento vocale*
 
 |Funzione|Funzionalità|più recente|
 |-|-|--|
-|Riconoscimento vocale| <li>Trascrive continua in tempo reale vocale o un batch registrazioni audio in testo con i risultati intermedi.|1.1.2|
+|Riconoscimento vocale| <li>Trascrive continua in tempo reale vocale o un batch registrazioni audio in testo con i risultati intermedi.|1.1.3|
 |Sintesi vocale| <li>Converte il testo scritto in un audio che suona naturale. con input di testo normale o linguaggio di Markup sintesi della voce (SSML). |1.1.0|
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -101,10 +101,10 @@ Tutti i tag, ad eccezione di `latest` sono nel formato seguente, dove il `<cultu
 Il tag seguente è riportato un esempio del formato:
 
 ```
-1.1.2-amd64-en-us-preview
+1.1.3-amd64-en-us-preview
 ```
 
-La tabella seguente elenca le impostazioni locali supportate per **vocale-** in 1.1.2 la versione del contenitore:
+La tabella seguente elenca le impostazioni locali supportate per **vocale-** in 1.1.3 la versione del contenitore:
 
 |Impostazioni locali della lingua|`Tags`|
 |--|--|
