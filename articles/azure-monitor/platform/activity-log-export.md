@@ -156,7 +156,7 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
     | --- | --- | --- |
     | name |Yes |Nome del profilo di log. |
     | storage-account-id |Yes |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
-    | Location |Yes |Elenco delimitato da spazi di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `az account list-locations --query [].name`. |
+    | locations |Yes |Elenco delimitato da spazi di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `az account list-locations --query [].name`. |
     | days |Yes |Numero di giorni per gli eventi che devono essere mantenuti, compreso tra 1 e 365. Se il valore è zero, i log vengono archiviati per un periodo illimitato.  Se è zero, il parametro abilitato deve essere impostato su true. |
     |enabled | Yes |True o False.  Consente di abilitare o disabilitare i criteri di conservazione.  Se True, il parametro days deve essere un valore maggiore di 0.
     | categories |Yes |Elenco delimitato da spazi di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
