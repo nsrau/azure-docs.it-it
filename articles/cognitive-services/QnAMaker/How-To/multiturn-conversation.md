@@ -1,7 +1,7 @@
 ---
 title: Conversazioni di multi-attiva
 titleSuffix: Azure Cognitive Services
-description: Usare le richieste e contesto per gestire la più attiva, noto come multi-turni, per il bot da una domanda a un altro. Multi-attiva consiste nella possibilità di avere un backup in entrata e in conversazione in cui il contesto della domanda precedente influenza la domanda e la risposta successiva.
+description: Usare le richieste e contesto per gestire la più attiva, noto come multi-turni, per il bot da una domanda a un altro. Multi-attiva è la possibilità di avviare una conversazione avanti e indietro in cui il contesto della domanda precedente influenza la domanda successiva e la risposta.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,193 +11,189 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: diberry
-ms.openlocfilehash: a126456159776254408df8325f97fcee967835e2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 10249375922b47a40f71a60938cdd12ffe0f9b54
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442732"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508147"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare richieste di follow-up per creare attiva più di una conversazione
 
 Usare richieste di follow-up e il contesto per gestire la più attiva, detta _multi-turni_, per il bot da una domanda a un altro.
 
-Guarda il video dimostrativo seguente per vedere come farlo.
+Per verificare il funzionamento di multi-turni, guardare il video dimostrativo seguente:
 
-[![](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample).
+[![Conversazione multi-attiva QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
 
 ## <a name="what-is-a-multi-turn-conversation"></a>Che cos'è una conversazione multi attiva?
 
-Non è possibile ricevere una risposta di alcune delle domande in un unico turno. Quando si progettano le conversazioni di client dell'applicazione (chatbot), un utente può porre una domanda che deve essere filtrato o ridefinito per determinare la risposta corretta. Questo flusso attraverso le domande è possibile, presentando l'utente con **richiede un completamento**.
+Non è possibile ricevere una risposta di alcune delle domande in un unico turno. Quando si progettano le conversazioni di client dell'applicazione (chatbot), un utente potrebbe porre una domanda che deve essere filtrato o ridefinito in modo da determinare la risposta corretta. Si rendono possibile questa flow attraverso domande presentando l'utente con *richiede un completamento*.
 
-Quando l'utente richiede la domanda, QnA Maker restituisce la risposta _e_ alcuna richiesta di follow-up. Ciò consente di presentare le domande di follow-up come scelte. 
+Quando un utente chiede una domanda, QnA Maker restituisce la risposta _e_ alcuna richiesta di follow-up. Questa risposta consente di presentare le domande di follow-up come scelte. 
 
 ## <a name="example-multi-turn-conversation-with-chat-bot"></a>Conversazione multi-attiva esempio con chatbot
 
-Un chat bot gestisce la conversazione con l'utente, domanda dalla domanda, per determinare la risposta finale.
+Con multi-turni, un chat bot gestisce una conversazione con un utente di determinare la risposta finale, come illustrato nell'immagine seguente:
 
-![All'interno del flusso discorsiva, gestire lo stato della conversazione in un sistema multi-Attiva finestra di dialogo, fornendo istruzioni entro le risposte presentate come opzioni per continuare la conversazione.](../media/conversational-context/conversation-in-bot.png)
+![Una finestra di dialogo Multi-turn con messaggi di richiesta che guidano l'utente attraverso una conversazione](../media/conversational-context/conversation-in-bot.png)
 
-Nell'immagine precedente, l'utente ha immesso `My account`. La knowledge base dispone di 3 collegate coppie di domande e risposte. L'utente deve selezionare una delle tre opzioni per perfezionare la risposta. Nella knowledge base, la domanda (n. 1), dispone di tre richieste di follow-up, presentate al bot di chat come tre scelte (n. 2). 
+Nell'immagine precedente, un utente ha avviato una conversazione immettendo **il mio account**. La knowledge base presenta tre coppie di domande e risposte collegate. Per perfezionare la risposta, l'utente seleziona una delle tre scelte nella knowledge base. La domanda (n. 1), dispone di tre richieste di follow-up, che vengono presentate in al bot di chat come tre opzioni (n. 2). 
 
-Quando l'utente seleziona una scelta (n. 3), quindi viene presentato il successivo elenco di ottimizzazione di scelte (4). Questa operazione può continuare (5) fino a quando non viene determinata la risposta finale e con correzione (6).
+Quando l'utente seleziona un'opzione (n. 3), viene presentato il successivo elenco di ottimizzazione di opzioni (4). Questa sequenza continua (5) fino a quando l'utente determina la risposta corretta, finale (6).
 
-L'immagine precedente ha **abilitare multi-turni** selezionato per visualizzare istruzioni. 
+> [!NOTE]
+> Nell'immagine precedente, il **abilitare multi-turni** casella di controllo è stata selezionata per assicurarsi che siano visualizzate le istruzioni visualizzate. 
 
-### <a name="using-multi-turn-in-a-bot"></a>Usando più attiva in un bot
+### <a name="use-multi-turn-in-a-bot"></a>Usare multi-mano in un bot
 
-È necessario modificare l'applicazione client per gestire la conversazione contesto. È necessario aggiungere [codice al tuo bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-prompting) per vedere le istruzioni visualizzate.  
+Per gestire la conversazione contestuale, modificare l'applicazione client dalla [aggiunta di codice al tuo bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-prompting). Aggiungere il codice consente agli utenti di vedere le istruzioni visualizzate.  
 
 ## <a name="create-a-multi-turn-conversation-from-a-documents-structure"></a>Creare una conversazione attiva più dalla struttura del documento
 
-Quando si crea una knowledge base, si noterà una casella di controllo facoltativa per abilitare multi-turni estrazione. 
+Quando si crea una knowledge base, il **popolare la KB** sezione consente di visualizzare un **abilitare multi-turni estrazione dagli URL, i file con estensione docx o PDF** casella di controllo. 
 
-![Quando si crea una knowledge base, si noterà una casella di controllo facoltativa per abilitare multi-turni estrazione.](../media/conversational-context/enable-multi-turn.png)
+![Casella di controllo per l'abilitazione di multi-turni estrazione](../media/conversational-context/enable-multi-turn.png)
 
-Se si seleziona questa opzione, quando si importa un documento, la conversazione multi-attiva può essere implicita dalla struttura di. Se non esiste tale struttura, QnA Maker crea le coppie di domande e risposte follow-up dei messaggi di richiesta. 
+Quando si seleziona questa opzione per un documento importato, la conversazione multi-attiva può essere implicita dalla struttura del documento. Se non esiste tale struttura, QnA Maker crea la richiesta di follow-up che coppie domande frequenti come parte del processo di importazione. 
 
-Struttura multi-attiva può essere dedotto solo da PDF, DOCX o URL di file. 
+Multi-attiva struttura può essere dedotto solo da URL, i file PDF, o i file DOCX. Per un esempio di struttura, visualizzare un'immagine di una [file con estensione PDF di Microsoft Surface utente manuali](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). A causa della dimensione di questo file PDF, la risorsa di QnA Maker richiede un **Cerca piano tariffario** dei **B** (15 indici) o versione successiva. 
 
-L'immagine seguente di un Microsoft Surface [file con estensione PDF](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf) deve essere usata come un manuale. A causa della dimensione di questo file PDF, la risorsa di QnA Maker di Azure richiede la ricerca piano tariffario di B (15 indici) o versione successiva. 
+![! [Esempio di struttura in un manuale dell'utente] (.. / media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-![! [Se si importa un documento, conversazioni contestuali possano implicita dalla struttura. Se non esiste tale struttura, QnA Maker crea le coppie di domande e risposte dei messaggi di richiesta follow-up, come parte dell'importazione del documento.] (.. / media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+Quando si importa il documento PDF, QnA Maker determina il completamento richiede dalla struttura di creare il flusso colloquiale. 
 
-Quando si importa il documento PDF, QnA Maker determina le richieste di follow-up dalla struttura di creare il flusso colloquiale. 
-
-1. Nelle **passaggio 1**, selezionare **creare una knowledge base** dal riquadro di spostamento superiore.
-1. Nelle **passaggio 2**, creare o usare un servizio QnA esistente. Assicurarsi di usare un servizio di domande e risposte con un servizio di ricerca di B (15 indici) o versione successiva perché il file con estensione PDF manuale area è troppo grande per un livello inferiore.
-1. Nelle **passaggio 3**, immettere un nome per la knowledge base, ad esempio `Surface manual`.
-1. Nelle **passaggio 4**, selezionare **abilitare multi-turni estrazione dagli URL, i file con estensione docx o PDF.** Selezionare l'URL per la superficie manuale
-
-    ```text
-    https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf
-    ```
+1. QnA Maker, selezionare **creare una knowledge base**.
+1. Creare o usare un servizio QnA Maker esistente. Nell'esempio precedente di Microsoft Surface, poiché il file con estensione PDF è troppo grande per un livello inferiore, usare un servizio QnA Maker con un **servizio di ricerca** dei **B** (15 indici) o versione successiva.
+1. Immettere un nome per la knowledge base, ad esempio **manuale superficie**.
+1. Selezionare il **abilitare multi-turni estrazione dagli URL, i file con estensione docx o PDF** casella di controllo. 
+1. Seleziona l'URL, manuale, Surface **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf** .
 
 1. Selezionare il **creare la Knowledge Base** pulsante. 
 
-    Dopo aver creata la Knowledge Base, consente di visualizzare una visualizzazione delle coppie di domande e risposte.
+    Dopo aver creata la knowledge base, verrà aperta una visualizzazione delle coppie di domande e risposte.
 
 ## <a name="show-questions-and-answers-with-context"></a>Visualizzare domande e risposte con contesto
 
 Ridurre le coppie di domande e risposte visualizzate solo a quelli delle conversazioni contestuali. 
 
-1. Selezionare **visualizzare le opzioni**, quindi selezionare **Show contesto (anteprima)** . L'elenco Mostra coppie di domande e risposte contenenti istruzioni follow-up. 
+Selezionare **visualizzare le opzioni**, quindi selezionare **Show contesto (anteprima)** . L'elenco Visualizza le coppie di domande e risposte che contengono istruzioni follow-up. 
 
-    ![Filtrare domande e risposte coppie da conversazioni contestuali](../media/conversational-context/filter-question-and-answers-by-context.png)
+![Filtra le coppie di domande e risposte per le conversazioni contestuali](../media/conversational-context/filter-question-and-answers-by-context.png)
 
-2. Il contesto di multi-attivazione di vengono visualizzati nella prima colonna.
+Il contesto di multi-attivazione di viene visualizzato nella prima colonna.
 
-    ![! [Quando si importa il documento PDF, QnA Maker determina le richieste di follow-up dalla struttura di creare il flusso colloquiale. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+![! [La colonna "contesto (anteprima)"] (.. / media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-    Nell'immagine precedente, #1 indica un testo in grassetto nella colonna, che indica la domanda corrente. La domanda principale è il primo elemento nella riga. Le domande riportate di seguito sono le coppie di domande e risposte collegate. Questi elementi sono selezionabili in modo che è possibile passare immediatamente agli altri elementi di contesto. 
+Nella figura precedente **#1** indica il testo in grassetto nella colonna, che indica la domanda corrente. La domanda principale è il primo elemento nella riga. Eventuali domande sotto di essa sono le coppie di domande e risposte collegate. Questi elementi sono selezionabili, in modo che è possibile passare immediatamente agli altri elementi di contesto. 
 
-## <a name="add-existing-qna-pair-as-follow-up-prompt"></a>Aggiungere la coppia di QnA esistente come prompt follow-up
+## <a name="add-an-existing-question-and-answer-pair-as-a-follow-up-prompt"></a>Aggiungere una coppia di domande e risposte esistente come una richiesta di follow-up
 
-La domanda originale di `My account` include ad esempio richieste di follow-up `Accounts and signing in`. 
+La domanda originale **il mio account**, con richieste di follow-up, ad esempio **account ed effettuato l'accesso**. 
 
-![La domanda originale di "My account" restituisce correttamente il 'Account ed effettuato l'accesso' rispondere e le istruzioni di follow-up collegate esiste già.](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
+![il "Account ed effettuato l'accesso" follow-up richieste e risposte](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
 
-Aggiungere un messaggio di follow-up per una coppia di QnA esistente che non è attualmente collegata. Perché la domanda non è collegata a qualsiasi coppia di domande e risposte, deve modificare l'impostazione di visualizzazione corrente.
+Aggiungere un messaggio di follow-up per una coppia di domande e risposte esistente che non è attualmente collegata. Perché la domanda non è collegata a qualsiasi coppia di domande e risposte, è necessario modificare l'impostazione di visualizzazione corrente.
 
-1. Per collegare una coppia di QnA esistente come richiesta follow-up, selezionare la riga per la coppia di domanda e risposta. Per il superficie manuale, eseguire una ricerca `Sign out` per ridurre l'elenco.
-1. Nella riga relativa `Signout`, selezionare **Add follow-up prompt** dal **risposta** colonna.
-1. Nel **prompt dei comandi di follow-up (anteprima)** finestra popup, immettere quanto segue:
+1. Per collegare una coppia di domande e risposte esistente come richiesta follow-up, selezionare la riga per la coppia di domande e risposte. Per il superficie manuale, cercare **disconnettersi** per ridurre l'elenco.
+1. Nella riga relativa **Signout**, nella **risposte** colonna, selezionare **prompt di follow-up Aggiungi**.
+1. I campi nella **prompt dei comandi di follow-up (anteprima)** finestra popup, immettere i valori seguenti:
 
     |Campo|Value|
     |--|--|
-    |Testo visualizzato|`Turn off the device`. Si tratta del testo personalizzato che si sceglie di visualizzare nella finestra di richiesta di follow-up.|
-    |Contesto di sola lettura|Selezionato. Questa risposta verrà restituita solo se la domanda specifica contesto.|
-    |Collegamento alla risposta|Immettere `Use the sign-in screen` per trovare la coppia di QnA esistente.|
+    |Testo visualizzato|Immettere **spegnere il dispositivo**. Questo è un testo personalizzato da visualizzare nel prompt di completamento.|
+    |Contesto di sola lettura| Selezionare questa casella di controllo. Una risposta viene restituita solo se la domanda specifica contesto.|
+    |Collegamento di rispondere a|Immettere **usare la schermata di accesso** per trovare la coppia di domanda e risposta esistente.|
 
 
-1.  Viene restituita una corrispondenza. Selezionare questa risposta come il completamento, quindi selezionare **salvare**. 
+1.  Viene restituita una corrispondenza. Selezionare questa risposta come il completamento e quindi selezionare **salvare**. 
 
-    ![Collegamento del prompt di completamento alla finestra di dialogo di risposta per una risposta esistente, utilizzando il testo della risposta di ricerca.](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
+    ![La pagina "Prompt di completamento (anteprima)"](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
 
-1. Dopo aver aggiunto la richiesta di follow-up, ricordarsi di selezionare **salvare ed eseguire il training** nel riquadro di spostamento superiore.
+1. Dopo aver aggiunto la richiesta di follow-up, selezionare **salvare ed eseguire il training** nel riquadro di spostamento superiore.
   
 ### <a name="edit-the-display-text"></a>Modificare il testo visualizzato 
 
-Quando viene creata una richiesta di follow-up e una coppia di QnA esistente viene selezionata come il **Collega a risposte**, è possibile immettere i nuovi **visualizzare testo**. Questo testo non sostituirà quello esistente e non aggiunge una nuova domanda alternativa. È separata da tali valori. 
+Quando viene creata una richiesta di follow-up e una coppia di domande e risposte esistente viene inserita come il **Collega a risposte**, è possibile immettere i nuovi **visualizzare testo**. Questo testo non sostituisce la domanda esistente e non aggiunge una nuova domanda alternativa. È separata da tali valori. 
 
 1. Per modificare il testo visualizzato, cercare e selezionare la domanda nel **contesto** campo.
-1. Nella riga della domanda, selezionare il prompt di completamento nella colonna di risposta. 
-1. Selezionare il testo visualizzato da modificare, quindi selezionare **modifica**.
+1. Nella riga per quella domanda, selezionare il prompt dei comandi di follow-up nella colonna di risposta. 
+1. Selezionare il testo visualizzato si desidera modificare e quindi selezionare **modifica**.
 
-    ![Selezionare il testo visualizzato da modificare, quindi scegliere Modifica.](../media/conversational-context/edit-existing-display-text.png)
+    ![Il comando di modifica per il testo visualizzato](../media/conversational-context/edit-existing-display-text.png)
 
-1. Il **prompt dei comandi di follow-up** popup consente di modificare il testo visualizzato esistente. 
-1. Una volta completata la modifica del testo visualizzato, selezionare **salvare**. 
-1. Ricordarsi di selezionare **salvare ed eseguire il training** nel riquadro di spostamento superiore.
+1. Nel **prompt dei comandi di follow-up** finestra popup, modificare il testo visualizzato esistente. 
+1. Dopo aver completato la modifica del testo visualizzato, selezionare **salvare**. 
+1. Nella barra di spostamento superiore **salvare ed eseguire il training**.
 
 
 <!--
 
-## To find best prompt answer, add metadata to follow-up prompts 
+## To find the best prompt answer, add metadata to follow-up prompts 
 
-If you have several follow-up prompts for a given QnA pair, but you know as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base, then send the metadata from the client application as part of the GenerateAnswer request.
+If you have several follow-up prompts for a specific question-and-answer pair but you know, as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base. You can then send the metadata from the client application as part of the GenerateAnswer request.
 
-In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
+In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, and then the follow-ups are returned.
 
-1. For the two follow-up QnA pairs, add metadata to each one:
+1. Add metadata to each of the two follow-up question-and-answer pairs:
 
     |Question|Add metadata|
     |--|--|
-    |`Feedback on an QnA Maker service`|"Feature":"all"|
-    |`Feedback on an existing feature`|"Feature":"one"|
+    |*Feedback on a QnA Maker service*|"Feature":"all"|
+    |*Feedback on an existing feature*|"Feature":"one"|
     
-    ![Add metadata to follow-up prompt so it can be filtered in conversation response from service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
+    ![The "Metadata tags" column for adding metadata to a follow-up prompt](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
 
-1. Save and train. 
+1. Select **Save and train**. 
 
-    When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
+    When you send the question **Give feedback** with the metadata filter **Feature** with a value of **all**, only the question-and-answer pair with that metadata is returned. QnA Maker doesn't return both question-and-answer pairs, because both don't match the filter. 
 
 -->
 
-## <a name="add-new-qna-pair-as-follow-up-prompt"></a>Aggiungi nuova coppia di QnA come prompt follow-up
+## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>Aggiungere una nuova coppia di domanda e risposta come un prompt dei comandi di follow-up
 
-Aggiungere una nuova coppia di domande e risposte per la knowledge base. La coppia di QnA deve essere collegata a una domanda esistente come richiesta follow-up.
+Quando si aggiunge una nuova coppia di domande e risposte per la knowledge base, ogni coppia deve essere collegata a una domanda esistente come richiesta follow-up.
 
-1. Dalla barra degli strumenti della knowledge base, cercare e selezionare la coppia di QnA esistente per `Accounts and Signing In`. 
+1. Sulla barra degli strumenti della knowledge base, cercare e selezionare la coppia di domande e risposte esistente per **account ed effettuato l'accesso**. 
 
 1. Nel **risposte** colonna per questa domanda, seleziona **prompt dei comandi follow-up Aggiungi**. 
-1. Il **prompt dei comandi di follow-up (anteprima)** , immettere i valori seguenti per creare una nuova richiesta di follow-up: 
+1. Sotto **prompt dei comandi di follow-up (anteprima)** , immettere i valori seguenti per creare una nuova richiesta di follow-up: 
 
-    |Campo di testo|Value|
+    |Campo|Value|
     |--|--|
-    |**Testo da visualizzare**|`Create a Windows Account`. Si tratta del testo personalizzato che si sceglie di visualizzare nella finestra di richiesta di follow-up.|
-    |**Contesto di sola lettura**|Selezionato. Questa risposta verrà restituita solo se la domanda specifica contesto.|
-    |**Collegamento di rispondere a**|Immettere il testo seguente come risposta:<br>`[Create](https://account.microsoft.com/) a Windows account with a new or existing email account.`<br>Quando si salva e il training del database, questo testo verrà convertito in |
+    |Testo visualizzato|*Creare un Account di Windows*. Il testo personalizzato da visualizzare nella finestra di richiesta di follow-up.|
+    |Contesto di sola lettura|Selezionare questa casella di controllo. Questa risposta viene restituita solo se la domanda specifica contesto.|
+    |Collegamento di rispondere a|Immettere il testo seguente come risposta:<br>*[Creare](https://account.microsoft.com/) un account di Windows con un account di posta elettronica nuovi o esistenti*.<br>Quando si salva e il training del database, questo testo verrà convertito. |
     |||
 
-    ![Creare nuove domande e risposte dei messaggi di richiesta](../media/conversational-context/create-child-prompt-from-parent.png)
+    ![Creare una nuova domanda dei messaggi di richiesta e risposta](../media/conversational-context/create-child-prompt-from-parent.png)
 
 
-1. Selezionare **Crea nuovo** quindi selezionare **salvare**. 
+1. Selezionare **Crea nuovo**, quindi selezionare **salvare**. 
 
-    Questo ha creato una nuova coppia di domande e risposte e collegato alla domanda selezionata come richiesta follow-up. Il **contesto** colonna, per entrambe le domande, indica una relazione di follow-up dei messaggi di richiesta. 
+    Questa azione crea una nuova coppia di domande e risposte e i collegamenti della domanda selezionata come richiesta follow-up. Il **contesto** colonna, per entrambe le domande, indica una relazione di follow-up dei messaggi di richiesta. 
 
-1. Modifica il **visualizzare le opzioni** al [Visualizza contesto](#show-questions-and-answers-with-context).
+1. Selezionare **visualizzare le opzioni**, quindi selezionare [ **Show contesto (anteprima)** ](#show-questions-and-answers-with-context).
 
     Nuova domanda viene illustrato come è collegato.
 
-    ![Creare una nuova richiesta di follow-up ](../media/conversational-context/new-qna-follow-up-prompt.png)
+    ![Creare una nuova richiesta di follow-up](../media/conversational-context/new-qna-follow-up-prompt.png)
 
-    La domanda principale Mostra la nuova domanda come una delle scelte.
+    La domanda padre consente di visualizzare una nuova domanda come una delle scelte.
 
-    ![! [La colonna di contesto, per entrambe le domande, indica una relazione di follow-up dei messaggi di richiesta.] (.. / media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    ![! [La colonna di contesto, per entrambe le domande, indica una relazione di follow-up dei messaggi di richiesta] (.. / media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. Dopo aver aggiunto la richiesta di follow-up, ricordarsi di selezionare **salvare ed eseguire il training** nel riquadro di spostamento superiore.
+1. Dopo aver aggiunto la richiesta di follow-up, selezionare **salvare ed eseguire il training** nella barra di spostamento superiore.
 
-## <a name="enable-multi-turn-when-testing-follow-up-prompts"></a>Abilitare multi-mano quando viene richiesto un completamento test
+## <a name="enable-multi-turn-during-testing-of-follow-up-prompts"></a>Abilitare multi-attiva durante il test di richieste di follow-up
 
-Quando la domanda con completamento test richiesto nel **Test** riquadro, selezionare **abilitare multi-turni**e immettere la domanda. La risposta include le istruzioni di follow-up.
+Quando si testa la domanda con completamento richiesto nel **testare** riquadro, selezionare **abilitare multi-turni**, quindi immettere la domanda. La risposta include le istruzioni di follow-up.
 
-![Quando si testa la domanda nel riquadro di Test, la risposta include le istruzioni di follow-up.](../media/conversational-context/test-pane-with-question-having-follow-up-prompts.png)
+![La risposta include le istruzioni di follow-up](../media/conversational-context/test-pane-with-question-having-follow-up-prompts.png)
 
-Se non si abilita multi-turni, verrà restituita la risposta ma non vengono restituite richieste di follow-up.
+Se non si abilita multi-turni, viene restituita la risposta ma non vengono restituite richieste di follow-up.
 
-## <a name="json-request-to-return-initial-answer-and-follow-up-prompts"></a>Richiesta JSON per restituire una risposta iniziale e richieste di follow-up
+## <a name="a-json-request-to-return-an-initial-answer-and-follow-up-prompts"></a>Una richiesta JSON per restituire una risposta iniziale e il completamento istruzioni
 
 Usare vuoto `context` oggetto per richiedere la risposta alla domanda dell'utente e includere istruzioni di follow-up. 
 
@@ -211,9 +207,9 @@ Usare vuoto `context` oggetto per richiedere la risposta alla domanda dell'utent
 }
 ```
 
-## <a name="json-response-to-return-initial-answer-and-follow-up-prompts"></a>Risposta JSON per restituire una risposta iniziale e richieste di follow-up
+## <a name="a-json-response-to-return-an-initial-answer-and-follow-up-prompts"></a>Una risposta JSON per restituire una risposta iniziale e il completamento istruzioni
 
-La sezione precedente ha richiesto una risposta e tutte le istruzioni follow-up per `Accounts and signing in`. La risposta include le informazioni dei messaggi di richiesta, disponibile all'indirizzo `answers[0].context`, includere il testo da visualizzare all'utente. 
+Nella sezione precedente ha richiesto una risposta e tutte le istruzioni per follow-up **account ed effettuato l'accesso**. La risposta include le informazioni dei messaggi di richiesta, che si trova in *risposte [0] Context*e il testo da visualizzare all'utente. 
 
 ```JSON
 {
@@ -243,7 +239,7 @@ La sezione precedente ha richiesto una risposta e tutte le istruzioni follow-up 
             "questions": [
                 "Sign out"
             ],
-            "answer": "**Sign out**\n\nHere's how to sign out: \n\n Go to Start , and right-click your name. Then select Sign out. ",
+            "answer": "**Sign out**\n\nHere's how to sign out: \n\n Go to Start, and right-click your name. Then select Sign out. ",
             "score": 38.01,
             "id": 18,
             "source": "product-manual.pdf",
@@ -278,7 +274,7 @@ La sezione precedente ha richiesto una risposta e tutte le istruzioni follow-up 
 }
 ```
 
-Il `prompts` array fornisce il testo nel `displayText` proprietà e il `qnaId` flusso di valore in modo che è possibile visualizzare queste risposte come le scelte visualizzate successive nella conversazione, quindi invia selezionato `qnaId` a QnA Maker nella richiesta seguente . 
+Il `prompts` array fornisce il testo nel `displayText` proprietà e il `qnaId` valore. È possibile visualizzare queste risposte come le scelte visualizzate successive nella conversazione flow e inviargli selezionato `qnaId` a QnA Maker nella richiesta seguente. 
 
 <!--
 
@@ -286,11 +282,11 @@ The `promptsToDelete` array provides the ...
 
 -->
 
-## <a name="json-request-to-return-non-initial-answer-and-follow-up-prompts"></a>Richiesta JSON per restituire la risposta non iniziale e richieste di follow-up
+## <a name="a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Una richiesta JSON per restituire una risposta non iniziale e il completamento istruzioni
 
-Compilare il `context` oggetto da includere contesto precedente.
+Compilare il `context` oggetto da includere il contesto precedente.
 
-Nella richiesta JSON seguente, la domanda corrente è `Use Windows Hello to sign in` e la domanda precedente era `Accounts and signing in`. 
+Nella richiesta JSON seguente, la domanda corrente è *usare Windows Hello per accedere* e la domanda precedente era *account ed effettuato l'accesso*. 
 
 ```JSON
 {
@@ -306,7 +302,7 @@ Nella richiesta JSON seguente, la domanda corrente è `Use Windows Hello to sign
 }
 ``` 
 
-##  <a name="json-response-to-return-non-initial-answer-and-follow-up-prompts"></a>Risposta JSON per restituire la risposta non iniziale e richieste di follow-up
+##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Una risposta JSON per restituire una risposta non iniziale e il completamento istruzioni
 
 QnA Maker _GenerateAnswer_ risposta JSON include le istruzioni di follow-up nel `context` del primo elemento nella proprietà di `answers` oggetto:
 
@@ -366,15 +362,15 @@ QnA Maker _GenerateAnswer_ risposta JSON include le istruzioni di follow-up nel 
 }
 ```
 
-## <a name="query-the-knowledge-base-with-the-qna-id"></a>Ricerche nella knowledge base con l'ID di domande e risposte
+## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Ricerche nella knowledge base con l'ID di QnA Maker
 
-Nella risposta della domanda iniziale, eventuali richieste di follow-up e l'identificatore associato `qnaId` viene restituito. Dopo aver creato l'ID, è possibile passare questo nel corpo della richiesta del prompt dei comandi follow-up. Se il corpo della richiesta contiene il `qnaId`, l'oggetto di contesto, che contiene le proprietà di domande e risposte precedenti, e quindi GenerateAnswer restituirà la domanda esatta dall'ID, invece di usare l'algoritmo di classificazione per trovare la risposta per il testo della domanda. 
+Nella risposta della domanda iniziale, eventuali richieste di follow-up e l'identificatore associato `qnaId` viene restituito. Dopo aver creato l'ID, è possibile passare questo nel corpo della richiesta del prompt dei comandi follow-up. Se il corpo della richiesta contiene il `qnaId`e l'oggetto di contesto (che contiene le proprietà di QnA Maker precedente), quindi GenerateAnswer restituirà la domanda esatta dall'ID, invece di usare l'algoritmo di classificazione per trovare la risposta per il testo della domanda. 
 
-## <a name="displaying-prompts-and-sending-context-in-the-client-application"></a>Visualizzazione di richieste e l'invio di contesto nell'applicazione client 
+## <a name="display-prompts-and-send-context-in-the-client-application"></a>Visualizzare richieste e inviare il contesto nell'applicazione client 
 
-L'aggiunta di istruzioni nella tua knowledge base e testare il flusso nel riquadro di test. A questo punto è necessario usare queste richieste nell'applicazione client. Per Bot Framework, le istruzioni non avvierà automaticamente visualizzati nelle applicazioni client. È possibile visualizzare le istruzioni come pulsanti o le azioni consigliate come parte della risposta alla query dell'utente nel client applicazioni includendo ciò [esempio di Bot Framework](https://aka.ms/qnamakermultiturnsample) nel codice. L'applicazione client deve archiviare l'ID di QnA corrente e la query dell'utente e passarli nel [oggetto di contesto dell'API GenerateAnswer](#json-request-to-return-non-initial-answer-and-follow-up-prompts) per le query utente successiva. 
+L'aggiunta di istruzioni nella tua knowledge base e testare il flusso nel riquadro di test. A questo punto è necessario usare queste richieste nell'applicazione client. Per Bot Framework, le istruzioni non vengono automaticamente visualizzate nelle applicazioni client. È possibile visualizzare le istruzioni visualizzate come pulsanti o le azioni consigliate come parte della risposta alla query dell'utente nelle applicazioni client includendo ciò [esempio di Bot Framework](https://aka.ms/qnamakermultiturnsample) nel codice. L'applicazione client deve archiviare ID QnA Maker corrente e la query dell'utente e passarli nel [oggetto di contesto dell'API GenerateAnswer](#a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts) per le query utente successiva. 
 
-## <a name="display-order-supported-in-api"></a>Ordine di visualizzazione supportate nell'API
+## <a name="display-order-is-supported-in-the-update-api"></a>Ordine di visualizzazione è supportata nell'API di aggiornamento
 
 Il [visualizzare il testo e visualizzare l'ordine](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), restituiti nella risposta JSON, è supportato per la modifica dal [API Aggiorna](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
 
@@ -396,7 +392,7 @@ FIX - Need to go to parent, then answer column, then edit answer.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle conversazioni contestuali dal [esempio di finestra di dialogo](https://aka.ms/qnamakermultiturnsample) o Scopri di più [bot concettuale di progettazione per le conversazioni di attivare più](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
+Altre informazioni sulle conversazioni contestuali da questo [esempio di finestra di dialogo](https://aka.ms/qnamakermultiturnsample) o altre informazioni sui [bot concettuale di progettazione per le conversazioni di attivare più](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
 
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione di una knowledge base](../Tutorials/migrate-knowledge-base.md)

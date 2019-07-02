@@ -80,7 +80,7 @@ Di seguito è riportata la struttura generale della definizione di un output:
 |-----------|----------|------|-------------|
 | <*key-name*> | Yes | String | Valore chiave del valore di output restituito |
 | <*key-type*> | Yes | int, float, string, securestring, bool, array, JSON object | Tipo di valore di output restituito |
-| <*key-value*> | Yes | Uguale a < *-tipo di chiave*> | Valore di output restituito |
+| <*key-value*> | Yes | Uguale a <*key-type*> | Valore di output restituito |
 |||||
 
 Per ottenere l'output da un flusso di lavoro, esaminare la cronologia di esecuzione dell'app per la logica e i dettagli nel portale di Azure o usare il [API REST del flusso di lavoro](https://docs.microsoft.com/rest/api/logic/workflows). È anche possibile passare l'output a sistemi esterni, ad esempio Power BI, per creare dashboard.
