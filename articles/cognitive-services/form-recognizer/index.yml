@@ -43,6 +43,11 @@ sections:
             image:
               src: ../media/index/i_get-started.svg
             title: Installare ed eseguire i contenitori
+          - href: /azure/cognitive-services/form-recognizer/build-training-data-set
+            html: <p>Creare un set di dati ottimizzato per il training di un modello personalizzato.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Creare un set di dati di training
   - title: Guide introduttive di 5 minuti
     items:
       - type: paragraph

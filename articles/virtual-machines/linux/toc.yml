@@ -274,13 +274,13 @@
           items:
             - name: Panoramica
               href: image-builder-overview.md
-            - name: Usare l'interfaccia della riga di comando
+            - name: Utilizzare l'interfaccia della riga di comando di Azure
               href: image-builder.md
             - name: Informazioni di riferimento sul modello
               href: image-builder-json.md
-            - name: Uso con le raccolte
+            - name: Creare immagini per le raccolte
               href: image-builder-gallery.md
-            - name: Aggiornare una versione di immagine
+            - name: Aggiornare un'immagine esistente
               href: image-builder-gallery-update-image-version.md
             - name: Risolvere problemi
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'

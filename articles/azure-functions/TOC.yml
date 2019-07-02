@@ -45,6 +45,8 @@
           href: functions-add-output-binding-storage-queue-python.md
         - name: Archiviazione - Portale
           href: functions-integrate-storage-queue-output-binding.md
+        - name: Archiviazione - Visual Studio Code
+          href: functions-add-output-binding-storage-queue-vs-code.md
 - name: Esercitazioni
   items:
     - name: Funzioni con App per la logica
@@ -136,6 +138,8 @@
           href: functions-test-a-function.md
         - name: Sviluppare ed eseguire il debug in locale
           href: functions-develop-local.md
+        - name: Sviluppo di Visual Studio Code
+          href: functions-develop-vs-code.md
         - name: Sviluppo di Visual Studio
           href: functions-develop-vs.md
         - name: Sviluppo di strumenti di base
@@ -282,13 +286,10 @@
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md
-    - name: Informazioni di riferimento su host.json
+    - name: Informazioni di riferimento su host.json 2.x
       href: functions-host-json.md
-      items:
-        - name: Funzioni 2.x
-          href: functions-host-json.md
-        - name: Funzioni 1.x
-          href: functions-host-json-v1.md
+    - name: Informazioni di riferimento su host.json 1.x
+      href: functions-host-json-v1.md
     - name: Domande frequenti sulla rete
       href: functions-networking-faq.md
     - name: Informazioni di riferimento su OpenAPI

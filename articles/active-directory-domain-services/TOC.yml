@@ -53,7 +53,7 @@
           href: create-gmsa.md
         - name: Gestire i Criteri di gruppo per Azure Active Directory Domain Services
           href: manage-group-policy.md
-        - name: Configurare i criteri password in un dominio gestito
+        - name: Configurare i criteri delle password in un dominio gestito
           href: password-policy.md
         - name: Eliminare un dominio gestito
           href: delete-aadds.md

@@ -66,6 +66,8 @@
           href: how-to-navigate-apis.md
         - name: Modelli di query comuni
           href: how-to-query-common-apis.md
+    - name: Registrare l'app con AAD legacy
+      href: how-to-use-legacy-aad.md
 - name: riferimento
   items:
     - name: Libreria client di funzioni definite dall'utente

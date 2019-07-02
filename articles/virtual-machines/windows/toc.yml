@@ -267,13 +267,13 @@
           items:
             - name: Panoramica
               href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-            - name: Usare l'interfaccia della riga di comando
+            - name: Utilizzare l'interfaccia della riga di comando di Azure
               href: image-builder.md
-            - name: Uso con le raccolte
+            - name: Creare immagini per le raccolte
               href: image-builder-gallery.md
-            - name: Aggiornare una versione di immagine
+            - name: Aggiornare un'immagine esistente
               href: image-builder-gallery-update-image-version.md
-            - name: Usare script in Archiviazione di Azure
+            - name: Script per l'archiviazione
               href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Informazioni di riferimento sul modello
               href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json

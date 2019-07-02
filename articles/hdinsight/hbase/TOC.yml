@@ -11,16 +11,16 @@
       href: apache-hbase-phoenix-squirrel-linux.md
     - name: Eseguire query su Apache HBase - Shell HBase
       href: ./query-hbase-with-hbase-shell.md
-- name: Attività iniziali
+- name: Esercitazioni
   items:
-    - name: Iniziare a usare Apache HBase e NoSQL
+    - name: Usare Apache HBase in HDInsight
       href: apache-hbase-tutorial-get-started-linux.md
+- name: Concetti
+  items:
     - name: Installare app HDInsight
       href: ../hdinsight-apps-install-applications.md
     - name: Pianificazione della capacità dei cluster
       href: ../hdinsight-capacity-planning.md
-- name: Concetti
-  items:
     - name: Componenti Apache Hadoop in HDInsight
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0

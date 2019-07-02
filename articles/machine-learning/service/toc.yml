@@ -106,6 +106,8 @@
       href: concept-accelerate-with-fpgas.md
     - name: ONNX e ONNX Runtime
       href: concept-onnx.md
+    - name: Monitoraggio della deriva dei dati
+      href: concept-data-drift.md
     - name: Security
       items:
         - name: Enterprise Security Package
@@ -151,12 +153,6 @@
         - name: Esplorazione dei dati
           displayName: 'data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
           href: how-to-explore-prepare-data.md
-        - name: Controllare la versione e gestire le definizioni dei dati
-          displayName: 'data, etl, dataset, data preparation, dataprep, version'
-          href: how-to-manage-dataset-definitions.md
-        - name: Creare snapshot dei dati
-          displayName: 'snapshots, profile, summary statistics, data copy'
-          href: how-to-create-dataset-snapshots.md
         - name: Recuperare dati da un archivio dati
           displayName: blob get fileshare access storage
           href: how-to-access-data.md
@@ -178,12 +174,16 @@
           href: how-to-set-up-training-targets.md
         - name: Creare oggetti estimator durante il training
           href: how-to-train-ml-models.md
+        - name: Usare Scikit-learn
+          href: how-to-train-scikit-learn.md
         - name: Usare TensorFlow
           href: how-to-train-tensorflow.md
         - name: Usare Keras
           href: how-to-train-keras.md
         - name: Usare PyTorch
           href: how-to-train-pytorch.md
+        - name: Usare Chainer
+          href: how-to-train-chainer.md
         - name: Ottimizzare gli iperparametri
           displayName: parameter
           href: how-to-tune-hyperparameters.md
@@ -211,6 +211,8 @@
         - name: Eseguire il training automatico di un modello previsionale
           displayName: time series
           href: how-to-auto-train-forecast.md
+        - name: Visualizzare le metriche di accuratezza
+          href: how-to-understand-accuracy-metrics.md
     - name: Distribuire e gestire modelli
       items:
         - name: Dove e come eseguire la distribuzione
@@ -224,6 +226,9 @@
           href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
         - name: Immagine Docker personalizzata
           href: how-to-deploy-custom-docker-image.md
+        - name: Distribuire i modelli esistenti
+          displayName: publish existing model
+          href: how-to-deploy-existing-model.md
         - name: Risolvere problemi
           href: how-to-troubleshoot-deployment.md
     - name: Utilizzare i servizi Web
@@ -239,6 +244,8 @@
         - name: Raccogliere e valutare i dati dei modelli
           displayName: track production
           href: how-to-enable-data-collection.md
+        - name: Rilevare la deriva dei dati
+          href: how-to-monitor-data-drift.md
         - name: Monitorare con Application Insights
           href: how-to-enable-app-insights.md
     - name: Creare flussi di lavoro riutilizzabili

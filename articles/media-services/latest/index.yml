@@ -55,34 +55,22 @@ sections:
         className: cardsM
         columns: 1
         items:
-          - image:
-              src: media/index/dotnet.svg
-            html: '<p>L''esercitazione descrive come caricare un file video locale, codificare il file caricato e trasmettere il contenuto codificato in streaming.<p/>'
+          - html: '<p>L''esercitazione descrive come caricare un file video locale, codificare il file caricato e trasmettere il contenuto codificato in streaming.<p/>'
             href: /azure/media-services/latest/stream-files-tutorial-with-api
             title: Codificare il file caricato e trasmettere il video in streaming
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>L'esercitazione illustra come eseguire la configurazione per un evento live. Spiega quindi come usare .NET per creare un evento live di tipo pass-through.</p>
+          - html: <p>L'esercitazione illustra come eseguire la configurazione per un evento live. Descrive quindi come creare un tipo pass-through di un evento live.</p>
             href: /azure/media-services/latest/stream-live-tutorial-with-api
             title: Trasmettere live
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>Questa esercitazione illustra come analizzare i video usando l'API di Servizi multimediali di Azure.</p>
+          - html: <p>Questa esercitazione illustra come analizzare i video usando l'API di Servizi multimediali di Azure.</p>
             href: /azure/media-services/latest/analyze-videos-tutorial-with-api
             title: Analizzare i video
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>Informazioni su come configurare e usare le API di Servizi multimediali per crittografare in modo dinamico il contenuto con AES-128.</p>
+          - html: <p>Informazioni su come configurare e usare le API di Servizi multimediali per crittografare in modo dinamico il contenuto con AES-128.</p>
             href: /azure/media-services/latest/protect-with-aes128
             title: Crittografare in modo dinamico il contenuto con AES-128
-          - image:
-              src: media/index/dotnet.svg
-            html: '<p>Informazioni su come configurare e usare le API di Servizi multimediali per crittografare in modo dinamico il contenuto con più tecnologie DRM (PlayReady, Widevine e FairPlay).</p>'
+          - html: '<p>Informazioni su come configurare e usare le API di Servizi multimediali per crittografare in modo dinamico il contenuto con più tecnologie DRM (PlayReady, Widevine e FairPlay).</p>'
             href: /azure/media-services/latest/protect-with-drm
             title: Crittografare in modo dinamico il contenuto con più tecnologie DRM
-          - image:
-              src: media/index/rest.svg
-            html: <p>L'esercitazione mostra come codificare un file remoto basato su URL e trasmettere il video in streaming.</p>
+          - html: <p>L'esercitazione mostra come codificare un file remoto basato su URL e trasmettere il video in streaming.</p>
             href: /azure/media-services/latest/stream-files-tutorial-with-rest
             title: Codificare il file remoto e trasmettere il video in streaming
   - title: Esempi

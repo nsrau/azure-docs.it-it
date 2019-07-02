@@ -26,6 +26,10 @@
       href: oracle-backup-recovery.md
     - name: Opzioni di ripristino di emergenza di Oracle
       href: oracle-disaster-recovery.md
+- name: Guide alle procedure
+  items:
+    - name: Interconnettere Azure e OCI - Anteprima
+      href: configure-azure-oci-networking.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

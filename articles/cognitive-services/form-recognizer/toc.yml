@@ -17,6 +17,8 @@
               href: quickstarts/python-train-extract.md
 - name: Guide alle procedure
   items:
+    - name: Creare un set di dati di training
+      href: build-training-data-set.md
     - name: Usare i contenitori
       items:
         - name: Installare ed eseguire i contenitori

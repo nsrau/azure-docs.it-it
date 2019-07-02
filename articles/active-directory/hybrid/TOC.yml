@@ -22,6 +22,8 @@
       items:
         - name: Gestione regolamentata sul cloud per carichi di lavoro locali
           href: cloud-governed-management-for-on-premises.md
+        - name: Quattro passaggi per definire una soluzione avanzata di Identity Foundation
+          href: four-steps.md
     - name: Azure AD Connect e Connect Health
       items:
         - name: Informazioni su Azure AD Connect e Connect Health
@@ -68,6 +70,8 @@
       items:
         - name: Cos'è il Servizio di sincronizzazione Azure AD Connect?
           href: how-to-connect-sync-whatis.md
+        - name: Account del servizio ADSync
+          href: concept-adsync-service-account.md
         - name: Funzionalità del servizio di sincronizzazione di Azure AD Connect
           href: how-to-connect-syncservice-features.md
         - name: Informazioni su Synchronization Service Manager di Azure AD Connect

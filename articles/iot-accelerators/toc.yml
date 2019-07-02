@@ -137,6 +137,8 @@
           href: overview-opc-twin.md
         - name: Informazioni su OPC Vault
           href: overview-opc-vault.md
+        - name: Informazioni su OPC Publisher
+          href: overview-opc-publisher.md
         - name: Informazioni su Connected Factory
           href: iot-accelerators-connected-factory-features.md
     - name: Guide introduttive
@@ -153,8 +155,6 @@
           items:
             - name: Usare il dashboard
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: Usare il modulo di pubblicazione OPC
-              href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: Configurare l'acceleratore di soluzioni
               href: iot-accelerators-connected-factory-configure.md
             - name: Personalizzare l'acceleratore di soluzioni
@@ -177,6 +177,12 @@
                   href: howto-opc-vault-deploy-existing-client-server-communication.md
             - name: Distribuire OPC Vault da zero
               href: howto-opc-vault-deploy-scratch.md
+        - name: OPC Publisher
+          items:
+            - name: Configurare OPC Publisher
+              href: howto-opc-publisher-configure.md
+            - name: Eseguire OPC Publisher
+              href: howto-opc-publisher-run.md
     - name: Risorse
       items:
         - name: Repository GitHub

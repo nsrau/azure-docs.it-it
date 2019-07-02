@@ -260,6 +260,9 @@
     - name: Informazioni sugli effetti di Criteri
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Criteri di Azure per Kubernetes
+      displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper'
+      href: ./concepts/rego-for-aks.md
     - name: Controllare le VM con la configurazione guest
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md

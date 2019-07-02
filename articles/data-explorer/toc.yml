@@ -2,7 +2,7 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni su Esplora dati
+    - name: Informazioni su Esplora dati di Azure
       href: data-explorer-overview.md
 - name: Guide introduttive
   expanded: true
@@ -15,8 +15,6 @@
       items:
         - name: Interfaccia utente Web
           href: web-query-data.md
-        - name: Python
-          href: python-query-data.md
 - name: Esercitazioni
   items:
     - name: Inserire dati senza usare codice
@@ -68,12 +66,18 @@
       items:
         - name: Scrivere query
           href: write-queries.md
-        - name: Analisi di serie temporali
-          href: time-series-analysis.md
-        - name: Rilevamento anomalie e previsioni
-          href: anomaly-detection.md
-        - name: Machine learning
-          href: machine-learning-clustering.md
+        - name: Eseguire query sui dati in Azure Data Lake
+          href: data-lake-query-data.md
+        - name: Python
+          href: python-query-data.md
+        - name: Analisi delle serie temporali e Machine Learning
+          items:
+            - name: Analisi di serie temporali
+              href: time-series-analysis.md
+            - name: Rilevamento anomalie e previsioni
+              href: anomaly-detection.md
+            - name: Machine learning
+              href: machine-learning-clustering.md
     - name: Visualizzare i dati
       items:
         - name: Power BI
