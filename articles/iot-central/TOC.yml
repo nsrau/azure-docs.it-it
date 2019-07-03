@@ -62,7 +62,7 @@
         - name: Usare i set di dispositivi
           href: howto-use-device-sets.md
         - name: Creare una versione del modello del dispositivo
-          href: howto-version-devicetemplate.md
+          href: howto-version-device-template.md
     - name: Monitoraggio e analisi
       items:
         - name: Creare una regola di telemetria
@@ -105,6 +105,8 @@
           href: howto-prepare-images.md
         - name: Configurare il dashboard dell'applicazione
           href: howto-configure-homepage.md
+        - name: Usare i riquadri del dashboard
+          href: howto-use-tiles.md
         - name: Personalizzare l'interfaccia utente dell'applicazione
           href: howto-customize-ui.md
         - name: Usare i modelli di applicazione

@@ -7,7 +7,7 @@
 - name: Guide introduttive
   expaned: true
   items:
-    - name: Eseguire il training del modello ed estrarre i dati
+    - name: Eseguire il training del modello personalizzato ed estrarre i dati
       items:
         - name: Utilizzo dell'API REST
           items:
@@ -15,6 +15,14 @@
               href: quickstarts/curl-train-extract.md
             - name: Python
               href: quickstarts/python-train-extract.md
+    - name: Usare un modello di ricevute predefinito
+      items:
+        - name: Utilizzo dell'API REST
+          items:
+            - name: cURL
+              href: quickstarts/curl-receipts.md
+            - name: Python
+              href: quickstarts/python-receipts.md
 - name: Guide alle procedure
   items:
     - name: Creare un set di dati di training

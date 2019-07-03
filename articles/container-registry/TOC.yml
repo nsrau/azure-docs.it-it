@@ -93,6 +93,8 @@
       items:
         - name: Panoramica delle Attività del Registro Azure Container
           href: container-registry-tasks-overview.md
+        - name: Attività pianificate
+          href: container-registry-tasks-scheduled.md
         - name: Attività in più passaggi
           href: container-registry-tasks-multi-step.md
         - name: Uso con Identità gestita

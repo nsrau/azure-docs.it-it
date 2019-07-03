@@ -36,6 +36,8 @@
   items:
     - name: Scegliere una tecnologia di analisi del flusso
       href: streaming-technologies.md
+    - name: Scegliere uno strumento di sviluppo di processi
+      href: feature-comparison.md
     - name: Tipi di input per un processo
       items:
         - name: Panoramica degli input

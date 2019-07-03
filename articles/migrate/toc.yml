@@ -42,6 +42,8 @@
   items:
     - name: Domande frequenti
       href: resources-faq.md
+    - name: Migrazione a Cloud Adoption Framework
+      href: 'https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index'
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/migrate/'
     - name: Modello di Resource Manager
