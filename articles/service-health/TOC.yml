@@ -7,7 +7,7 @@
 - name: Guide introduttive
   items:
     - name: Configurare gli avvisi per gli eventi di Integrità dei servizi
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
 - name: Concetti
   items:
     - name: Pagina relativa allo stato di Azure
@@ -19,9 +19,9 @@
 - name: Procedure
   items:
     - name: Configurare gli avvisi per gli eventi di Integrità dei servizi
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+      href: alerts-activity-log-service-notifications.md
     - name: Visualizzare le notifiche sull'integrità del servizio tramite il portale di Azure
-      href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+      href: service-notifications.md
     - name: Inviare avvisi a sistemi esterni tramite webhook
       href: service-health-alert-webhook-guide.md
     - name: Inviare avvisi a ServiceNow

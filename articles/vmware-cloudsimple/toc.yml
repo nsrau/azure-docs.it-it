@@ -72,6 +72,8 @@
               href: manage-private-cloud.md
             - name: Espandere un cloud privato
               href: expand-private-cloud.md
+            - name: Ridurre un cloud privato
+              href: shrink-private-cloud.md
             - name: Eseguire il mapping della sottoscrizione di Azure
               href: azure-subscription-mapping.md
             - name: Riassegnare i privilegi

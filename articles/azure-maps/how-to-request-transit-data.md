@@ -25,7 +25,7 @@ In questo articolo si apprenderà come:
 * Ottenere un ID area metropolitana con il [Get Metro Area API](https://aka.ms/AzureMapsMobilityMetro)
 * Richiesta nelle vicinanze transito interrompe mediante [ottenere nelle vicinanze transito](https://aka.ms/AzureMapsMobilityNearbyTransit) servizio.
 * Query [API per ottenere gli itinerari transito](https://aka.ms/AzureMapsMobilityTransitRoute) per pianificare una route mediante trasporto pubblico.
-* Richiesta transito route geometria e la pianificazione dettagliata per la route usando il [API di itinerario transito Get](https://aka.ms/ https://azure.microsoft.com/services/azure-maps/).
+* Richiesta transito route geometria e la pianificazione dettagliata per la route usando il [API di itinerario transito Get](https://aka.ms/https://azure.microsoft.com/services/azure-maps/).
 
 
 ## <a name="prerequisites"></a>Prerequisiti

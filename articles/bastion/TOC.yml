@@ -22,10 +22,6 @@
           href: bastion-vm-full-screen.md
     - name: Uso dei gruppi di sicurezza di rete
       href: bastion-nsg.md
-- name: riferimento
-  items:
-    - name: REST
-      href: 'https://docs.microsoft.com/rest/api/network-gateway'
 - name: Risorse
   items:
     - name: Domande frequenti su Bastion

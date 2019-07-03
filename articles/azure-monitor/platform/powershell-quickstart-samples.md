@@ -156,7 +156,7 @@ La tabella seguente descrive i parametri e valori usati per creare un avviso tra
 | Posizione di questa regola di avviso |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName dell'avviso creato |\PhysicalDisk(_Total)\Disk Writes/sec. Vedere il cmdlet `Get-MetricDefinitions` per il recupero dei nomi esatti delle metriche |
+| MetricName dell'avviso creato |\PhysicalDisk(_Total)\Disk Writes/sec. See the`Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
 | operator |GreaterThan |
 | Valore soglia (conteggio al secondo per questa metrica) |1 |
 | WindowSize (formato hh:mm:ss) |00:05:00 |
