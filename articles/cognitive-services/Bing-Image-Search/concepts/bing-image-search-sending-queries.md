@@ -1,5 +1,5 @@
 ---
-title: Inviare query di immagini - API Ricerca immagini Bing
+title: Personalizzare e suggerimenti per le query di ricerca immagini, API ricerca immagini Bing
 titleSuffix: Azure Cognitive Services
 description: Informazioni sulla personalizzazione delle query di ricerca inviate all'API Ricerca immagini Bing.
 services: cognitive-services
@@ -9,22 +9,20 @@ ms.assetid: C2862E98-8BCC-423B-9C4A-AC79A287BE38
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 32ced1d06a10f33e9d71ef09ba51d22e9e406f73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384408"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542753"
 ---
-# <a name="send-queries-to-the-bing-image-search-api"></a>Inviare query all'API Ricerca immagini Bing
+# <a name="customize-and-suggest-image-search-queries"></a>Personalizzare e suggerimenti per le query di ricerca di immagini
 
-L'API Ricerca immagini Bing offre un'esperienza simile a Bing.com/Images. È possibile usarla per inviare una query di ricerca a Bing e ottenere l'elenco di immagini pertinenti.
+Usare questo articolo per informazioni su come personalizzare le query e si suggerisce termini di ricerca per inviare all'API ricerca immagini Bing.
 
-## <a name="use-and-suggest-search-terms"></a>Usare e suggerire termini di ricerca
-
-Dopo avere immesso un termine di ricerca, codificare il termine come URL prima di impostare il parametro di query [**q**](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query). Se ad esempio si immette *sailing dinghies*, impostare `q` su `sailing+dinghies` o `sailing%20dinghies`.
+## <a name="suggest-search-terms"></a>Suggerire i termini di ricerca
 
 Se l'app ha una casella di ricerca in cui immettere i termini di ricerca, è possibile usare l'[API Suggerimenti automatici Bing](../../bing-autosuggest/get-suggested-search-terms.md) per migliorare l'esperienza. L'API può visualizzare i termini di ricerca suggeriti in tempo reale. L'API restituisce le stringhe di query suggerite in base a termini di ricerca parziali e a Servizi cognitivi.
 

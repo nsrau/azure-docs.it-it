@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 07/02/2019
 ms.author: dapine
-ms.openlocfilehash: fff876de41e0069573b73779a16ebf06a3dd58c8
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 86b23c5f69fd96fe5c5614d99483e1936895ad9e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295259"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537094"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per eseguire il contenitore LUIS, è necessario quanto segue: 
 
-|Obbligatoria|Scopo|
+|Obbligatorio|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
@@ -175,16 +175,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{AUTHORING_KEY} | Chiave di creazione dell'account LUIS per l'app LUIS pubblicata.<br/>È possibile ottenere la chiave di creazione nella pagina **User Settings** (Impostazioni utente) nel portale di LUIS. |
 |{AZURE_REGION} | Area di Azure appropriata:<br/><br/>```westus``` - Stati Uniti occidentali<br/>```westeurope``` - Europa occidentale<br/>```australiaeast``` - Australia orientale |
 
-Usare il comando CURL seguente per scaricare il pacchetto pubblicato, sostituendo i valori con quelli personalizzati:
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_{APPLICATION_ENVIRONMENT}.gz
-```
-
-In caso di esito positivo, la risposta è un file di pacchetto LUIS. Salvare il file nella posizione di archiviazione specificata per il punto di montaggio di input del contenitore. 
+Per scaricare il pacchetto pubblicato, consultare il [documentazione dell'API qui][download-published-package]. Se è stato scaricato, la risposta è un file di pacchetto LUIS. Salvare il file nella posizione di archiviazione specificata per il punto di montaggio di input del contenitore. 
 
 ### <a name="export-trained-apps-package-from-api"></a>Esportare il pacchetto dell'app sottoposta a training dall'API
 
@@ -203,16 +194,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{AUTHORING_KEY} | Chiave di creazione dell'account LUIS per l'app LUIS pubblicata.<br/>È possibile ottenere la chiave di creazione nella pagina **User Settings** (Impostazioni utente) nel portale di LUIS.  |
 |{AZURE_REGION} | Area di Azure appropriata:<br/><br/>```westus``` - Stati Uniti occidentali<br/>```westeurope``` - Europa occidentale<br/>```australiaeast``` - Australia orientale |
 
-Usare il comando CURL seguente per scaricare il pacchetto sottoposto a training:
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_v{APPLICATION_VERSION}.gz
-```
-
-In caso di esito positivo, la risposta è un file di pacchetto LUIS. Salvare il file nella posizione di archiviazione specificata per il punto di montaggio di input del contenitore. 
+Per scaricare il pacchetto con training, consultare il [documentazione dell'API qui][download-trained-package]. Se è stato scaricato, la risposta è un file di pacchetto LUIS. Salvare il file nella posizione di archiviazione specificata per il punto di montaggio di input del contenitore. 
 
 ## <a name="run-the-container-with-docker-run"></a>Eseguire il contenitore con `docker run`
 
@@ -237,11 +219,9 @@ Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-* Questo esempio viene utilizzata la directory di disattivare il `c:` unità per evitare eventuali conflitti di autorizzazione su Windows. Se è necessario usare una directory specifica come directory di input, potrebbe essere necessario concedere l'autorizzazione per il servizio Docker. 
+* Questo esempio viene utilizzata la directory di disattivare il `C:` unità per evitare eventuali conflitti di autorizzazione su Windows. Se è necessario usare una directory specifica come directory di input, potrebbe essere necessario concedere l'autorizzazione per il servizio Docker. 
 * Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori Docker.
 * Se si usa un sistema operativo diverso, usare la console/terminal corretto, sintassi cartella per punti di montaggio e il carattere di continuazione di riga per il sistema. Questi esempi presuppongono una console di Windows con un carattere di continuazione riga `^`. Poiché il contenitore è un sistema operativo Linux, il montaggio di destinazione utilizza una sintassi di cartella basato su Linux.
-
-
 
 Questo comando:
 
@@ -324,7 +304,6 @@ Dal portale di LUIS selezionare l'app, quindi selezionare **Import endpoint logs
 
 Dopo il caricamento del log, [esaminare le espressioni dell'endpoint](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) nel portale di LUIS.
 
-
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -362,14 +341,13 @@ Se l'app LUIS ha supportato le dipendenze, non sarà in grado [esportazione per 
 
 Configurazioni dell'app non supportate|Dettagli|
 |--|--|
-|Impostazioni cultura del contenitore non supportate| Olandese (nl-NL)<br>Giapponese (ja-JP)<br>Tedesco è supportato solo con il [1.0.1 tokenizer o versione successiva](luis-language-support.md#custom-tokenizer-versions).|
+|Impostazioni cultura del contenitore non supportate| Olandese (nl-NL)<br>Giapponese (ja-JP)<br>Tedesco è supportato solo con il [1.0.2 tokenizer](luis-language-support.md#custom-tokenizer-versions).|
 |Entità non supportate per tutte le impostazioni cultura|Entità [KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) predefinita per tutte le impostazioni cultura|
 |Entità non supportate per le impostazioni cultura Inglese (en-US)|Entità [GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) predefinite|
 |Priming del riconoscimento vocale|Le dipendenze esterne non sono supportate nel contenitore.|
 |Analisi del sentiment|Le dipendenze esterne non sono supportate nel contenitore.|
 
-<!--blogs/samples/video coures -->
-
+<!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Riepilogo
@@ -390,3 +368,7 @@ In questo articolo sono stati descritti i concetti e il flusso di lavoro per sca
 * Rivedere [Configurare i contenitori](luis-container-configuration.md) per informazioni sulle impostazioni di configurazione.
 * Per risolvere i problemi correlati alle funzionalità di LUIS, vedere [Risoluzione dei problemi](troubleshooting.md).
 * Usare altri [contenitori di Servizi cognitivi](../cognitive-services-container-support.md)
+
+<!-- Links - external -->
+[download-published-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip
+[download-trained-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c796114d124c64ac1c373baacabe00c7dcd70aa7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: dd4f85822a5e6615e7ea6e31b4231c04c9d4e88c
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447640"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542843"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 
@@ -97,7 +97,7 @@ Assicurarsi di usare al meglio le funzionalità di classificazione supportate da
 
 ### <a name="choosing-a-threshold"></a>Scelta della soglia
 
-Il valore predefinito [punteggio di confidenza](confidence-score.md#) che viene usato come una soglia è 50, ma è possibile [modificare la soglia](confidence-score.md#set-threshold) per la Knowledge base in base alle esigenze. Poiché ogni KB è diversa, occorre testare e scegliere la soglia più adatta alla propria KB. 
+Il valore predefinito [punteggio di confidenza](confidence-score.md) che viene usato come una soglia è 50, ma è possibile [modificare la soglia](confidence-score.md#set-threshold) per la Knowledge base in base alle esigenze. Poiché ogni KB è diversa, occorre testare e scegliere la soglia più adatta alla propria KB. 
 
 ### <a name="choosing-ranker-type"></a>Scelta del tipo permettendoti
 Per impostazione predefinita, QnA Maker di Cerca con domande e risposte. Se si desidera cercare solo le domande, per generare una risposta, utilizzare il `RankerType=QuestionOnly` nel corpo del POST della richiesta GenerateAnswer.
