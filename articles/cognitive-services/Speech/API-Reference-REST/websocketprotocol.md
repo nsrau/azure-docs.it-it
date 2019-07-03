@@ -153,7 +153,7 @@ Le intestazioni seguenti sono obbligatorie per tutti i messaggi generati dal cli
 | Intestazione | Value |
 |----|----|
 | `Path` | Percorso del messaggio come specificato in questo documento |
-| X-RequestId | UUID nel formato senza trattini |
+| X-RequestId | UUID nel formato "no-dash" |
 | X-Timestamp | Timestamp UTC dell'orologio del client in formato ISO 8601 |
 
 #### <a name="x-requestid-header"></a>Intestazione X-RequestId
