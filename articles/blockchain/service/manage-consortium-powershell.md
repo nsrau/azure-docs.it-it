@@ -146,7 +146,7 @@ Utilizzare questo cmdlet per ottenere i dettagli relativi ai membri o elencare i
 | Parametro | DESCRIZIONE | Obbligatorio |
 |-----------|-------------|:--------:|
 | Name | Il nome del membro che si desidera recuperare i dettagli sulle Blockchain Service. Quando viene immesso un nome, restituisce i dettagli del membro. Quando un nome viene omesso, restituisce un elenco di tutti i membri consortium. | No |
-| Membri | Oggetto membri ottenuto dall'importazione ConsortiumManagementContracts | Yes |
+| Members | Oggetto membri ottenuto dall'importazione ConsortiumManagementContracts | Yes |
 | Web3Client | Oggetto Web3Client ottenuto da New-Web3Connection | Yes |
 
 #### <a name="example"></a>Esempio
@@ -175,7 +175,7 @@ Utilizzare questo cmdlet per rimuovere un membro di blockchain.
 | Parametro | DESCRIZIONE | Obbligatorio |
 |-----------|-------------|:--------:|
 | Name | Nome del membro da rimuovere | Yes |
-| Membri | Oggetto membri ottenuto dall'importazione ConsortiumManagementContracts | Yes |
+| Members | Oggetto membri ottenuto dall'importazione ConsortiumManagementContracts | Yes |
 | Web3Account | Oggetto Web3Account ottenuto dall'importazione Web3Account | Yes |
 | Web3Client | Oggetto Web3Client ottenuto da New-Web3Connection | Yes |
 
@@ -199,7 +199,7 @@ Consortium gli amministratori possono impostare **DisplayName** e **ruolo** per 
 | Name | Nome del membro blockchain | Yes |
 | DisplayName | Nuovo nome visualizzato | No |
 | AccountAddress | Indirizzo dell'account | No |
-| Membri | Oggetto membri ottenuto dall'importazione ConsortiumManagementContracts | Yes |
+| Members | Oggetto membri ottenuto dall'importazione ConsortiumManagementContracts | Yes |
 | Web3Account | Oggetto Web3Account ottenuto dall'importazione Web3Account | Yes |
 | Web3Client |  Oggetto Web3Client ottenuto da New-Web3Connection| Yes |
 
@@ -223,8 +223,8 @@ Usare questo cmdlet per invitare nuovi membri per il consorzio.
 | Parametro | DESCRIZIONE | Obbligatorio |
 |-----------|-------------|:--------:|
 | SubscriptionId | ID sottoscrizione di Azure del membro da invitare | Yes |
-| Ruolo | Il ruolo consortium. Valori possono essere amministratore o utente. AMMINISTRATORE è il ruolo di amministratore consortium. UTENTE è il ruolo di membro consortium. | Yes |
-| Membri | Oggetto membri ottenuto dall'importazione ConsortiumManagementContracts | Yes |
+| Role | Il ruolo consortium. Valori possono essere amministratore o utente. AMMINISTRATORE è il ruolo di amministratore consortium. UTENTE è il ruolo di membro consortium. | Yes |
+| Members | Oggetto membri ottenuto dall'importazione ConsortiumManagementContracts | Yes |
 | Web3Account | Oggetto Web3Account ottenuto dall'importazione Web3Account | Yes |
 | Web3Client | Oggetto Web3Client ottenuto da New-Web3Connection | Yes |
 
@@ -243,7 +243,7 @@ Utilizzare questo cmdlet per recuperare o visualizzare lo stato dell'invito di u
 | Parametro | DESCRIZIONE | Obbligatorio |
 |-----------|-------------|:--------:|
 | SubscriptionId | L'ID sottoscrizione di Azure del membro da invitare. Se l'ID della sottoscrizione è fornito, restituisce la sottoscrizione dell'ID dettagli dell'invito. Se l'ID sottoscrizione viene omesso, restituisce un elenco di tutti gli inviti di membro. | No |
-| Membri | Oggetto membri ottenuto dall'importazione ConsortiumManagementContracts | Yes |
+| Members | Oggetto membri ottenuto dall'importazione ConsortiumManagementContracts | Yes |
 | Web3Client | Oggetto Web3Client ottenuto da New-Web3Connection | Yes |
 
 #### <a name="example"></a>Esempio
@@ -270,7 +270,7 @@ Utilizzare questo cmdlet per revocare l'invito di un membro consortium.
 | Parametro | DESCRIZIONE | Obbligatorio |
 |-----------|-------------|:--------:|
 | SubscriptionId | ID sottoscrizione di Azure del membro da revocare | Yes |
-| Membri | Oggetto membri ottenuto dall'importazione ConsortiumManagementContracts | Yes |
+| Members | Oggetto membri ottenuto dall'importazione ConsortiumManagementContracts | Yes |
 | Web3Account | Oggetto Web3Account ottenuto dall'importazione Web3Account | Yes |
 | Web3Client | Oggetto Web3Client ottenuto da New-Web3Connection | Yes |
 
@@ -290,8 +290,8 @@ Utilizzare questo cmdlet per impostare il **ruolo** per un invito esistente. Sol
 | Parametro | DESCRIZIONE | Obbligatorio |
 |-----------|-------------|:--------:|
 | SubscriptionId | ID sottoscrizione di Azure del membro da invitare | Yes |
-| Ruolo | Nuovo ruolo consortium per invito. I possibili valori sono **utente** oppure **ADMIN**. | Yes |
-| Membri |  Oggetto membri ottenuto dall'importazione ConsortiumManagementContracts | Yes |
+| Role | Nuovo ruolo consortium per invito. I possibili valori sono **utente** oppure **ADMIN**. | Yes |
+| Members |  Oggetto membri ottenuto dall'importazione ConsortiumManagementContracts | Yes |
 | Web3Account | Oggetto Web3Account ottenuto dall'importazione Web3Account | Yes |
 | Web3Client | Oggetto Web3Client ottenuto da New-Web3Connection | Yes |
 
