@@ -43,9 +43,9 @@ Un'applicazione blockchain contiene metadati di configurazione, flussi di lavoro
 |-------|-------------|:--------:|
 | ApplicationName | Nome applicazione univoco. Il contratto intelligente corrispondente deve usare lo stesso valore di **ApplicationName** per la classe di contratto applicabile.  | Yes |
 | DisplayName | Nome visualizzato descrittivo dell'applicazione. | Yes |
-| Descrizione | Descrizione dell'applicazione. | No |
+| Description | Descrizione dell'applicazione. | No |
 | ApplicationRoles | Raccolta di [ruoli applicazione](#application-roles). Ruoli utente che possono operare o partecipare all'interno dell'applicazione.  | Yes |
-| Flussi di lavoro | Raccolta di [flussi di lavoro](#workflows). Ogni flusso di lavoro opera come macchina a stati per controllare il flusso della logica di business. | Yes |
+| Workflows | Raccolta di [flussi di lavoro](#workflows). Ogni flusso di lavoro opera come macchina a stati per controllare il flusso della logica di business. | Yes |
 
 Per un esempio, vedere il [file di configurazione di esempio](#configuration-file-example).
 
