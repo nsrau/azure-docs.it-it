@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: eeb932123e57dcb10fce3baf9670d8c1ae961fb8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/25/2019
+ms.openlocfilehash: 9da848e9aa093b4e918ed961d58f946b2298954c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66151662"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447185"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Usare l'interfaccia della riga di comando per monitorare e ridimensionare un singolo database SQL
 
@@ -41,7 +41,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 Usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse correlate.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Spiegazione dello script

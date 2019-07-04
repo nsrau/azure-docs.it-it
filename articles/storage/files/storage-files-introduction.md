@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6e8e2843ad8e00b1fe334200b9b1a5c8a7c2c5df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 075a3cea426fd5f54ef142648754fa9a9e2810b4
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706963"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508331"
 ---
 # <a name="what-is-azure-files"></a>Informazioni su File di Azure
 File di Azure offre condivisioni file completamente gestite sul cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. Le condivisioni file di Azure possono essere montate simultaneamente da distribuzioni cloud o locali di Windows, macOS e Linux. Le condivisioni file di Azure possono essere anche memorizzate nella cache in Windows Server con Sincronizzazione file di Azure per l'accesso rapido nelle vicinanze del punto in cui vengono usati i dati.
@@ -21,7 +21,7 @@ File di Azure offre condivisioni file completamente gestite sul cloud, accessibi
 ## <a name="videos"></a>Video
 | Introduzione a Sincronizzazione file di Azure (2 minuti) | File di Azure con sincronizzazione (Ignite 2017, 85 minuti)  |
 |-|-|
-| [![Screencast del video di introduzione a Sincronizzazione file di Azure (fare clic per riprodurre)](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast della presentazione su File di Azure e la sincronizzazione (fare clic per riprodurre)](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
+| [![Screencast del video di introduzione a Sincronizzazione file di Azure (fare clic per riprodurre)](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast della presentazione su File di Azure e la sincronizzazione (fare clic per riprodurre)](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/watch?v=GMzh2M66E9o) |
 
 ## <a name="why-azure-files-is-useful"></a>Vantaggi offerti da File di Azure
 Le condivisioni file di Azure possono essere usate per:
@@ -29,11 +29,11 @@ Le condivisioni file di Azure possono essere usate per:
 * **Sostituire o integrare file server locali**:  
     È possibile usare File di Azure per sostituire completamente o integrare i dispositivi NAS o i file server locali tradizionali. I sistemi operativi più diffusi, come Windows, macOS e Linux, possono montare direttamente condivisioni file di Azure ovunque nel mondo. Le condivisioni file di Azure possono anche essere replicate nei server Windows con Sincronizzazione file di Azure, in locale o nel cloud, per ottenere prestazioni elevate e per un caching efficiente e distribuito dei dati nella posizione in cui vengono usati.
 
-* **Applicazioni "lift-and-shift"**:  
+* **Applicazioni "lift-and-shift"** :  
     File di Azure semplifica il trasferimento nel cloud in modalità lift-and-shift di applicazioni che prevedono una condivisione file per archiviare i dati delle applicazioni o degli utenti. File di Azure consente sia lo scenario lift-and-shift "classico", in cui l'applicazione e i dati vengono trasferiti in Azure, che lo scenario lift-and-shift "ibrido", in cui i dati dell'applicazione vengono trasferiti in File di Azure e l'applicazione continua a essere eseguita in locale. 
 
 * **Semplificare lo sviluppo per il cloud**:  
-    È possibile usare File di Azure in molti modi per semplificare i nuovi progetti di sviluppo per il cloud. Ad esempio: 
+    È possibile usare File di Azure in molti modi per semplificare i nuovi progetti di sviluppo per il cloud. Ad esempio:
     * **Impostazioni delle applicazioni condivise**:  
         Un modello comune per le applicazioni distribuite consiste nell'inserire i file di configurazione in una posizione centralizzata in cui siano accessibili da numerose istanze dell'applicazione. Le istanze dell'applicazione possono caricare la propria configurazione tramite l'API REST di File e gli utenti possono accedere alle istanze in base alle esigenze mondando la condivisione SMB in locale.
 

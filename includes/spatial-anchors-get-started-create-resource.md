@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
 ms.openlocfilehash: 32f4545a45eda8acddd7c93cc4917dbadca9ad4d
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632915"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67135011"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Creare una risorsa di Ancoraggi nello spazio
 

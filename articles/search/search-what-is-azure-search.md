@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 23754a1184f89d1fb563b2d73109f3a10c48920c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 7ba653795791f0e6a2c3d3c73ff574a3ed31f314
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65539330"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485225"
 ---
 # <a name="what-is-azure-search"></a>Che cos'è la Ricerca di Azure?
 Ricerca di Azure è una soluzione cloud di ricerca distribuita come servizio che offre agli sviluppatori le API e gli strumenti per ottenere un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali. Le query vengono eseguite su un indice definito dall'utente.
@@ -134,7 +134,7 @@ In alternativa, è possibile [attivare i vantaggi della sottoscrizione MSDN](htt
 3. Procedere con il codice usando l'API REST o .NET:
 
    + [Come usare .NET SDK](search-howto-dotnet-sdk.md) illustra il flusso di lavoro principale nel codice gestito.  
-   + [Introduzione all'API REST](https://github.com/Azure-Samples/search-rest-api-getting-started) mostra gli stessi passaggi con l'API REST. È anche possibile usare questa guida introduttiva per chiamare le API REST da Postman o Fiddler: [Esplorare le API REST di Ricerca di Azure](search-fiddler.md).
+   + [Introduzione all'API REST](https://github.com/Azure-Samples/search-rest-api-getting-started) mostra gli stessi passaggi con l'API REST. È anche possibile usare questa guida introduttiva per chiamare le API REST da Postman o Fiddler: [Esplorare le API REST di Ricerca di Azure](search-get-started-postman.md).
 
 ## <a name="watch-this-video"></a>Guardare questo video
 

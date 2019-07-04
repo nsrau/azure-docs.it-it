@@ -2,20 +2,20 @@
 title: Eseguire il backup di Windows Server in Azure
 description: Questa esercitazione descrive nel dettaglio l’esecuzione di backup di istanze locali di Windows Server in un insieme di credenziali dei servizi di ripristino.
 services: backup
-author: saurabhsensharma
-manager: shivamg
+author: dcurwin
+manager: carmonm
 keywords: eseguire il backup di windows server; eseguire il backup di windows server; eseguire il backup e il ripristino di emergenza
 ms.service: backup
 ms.topic: tutorial
 ms.date: 8/22/2018
-ms.author: saurse
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: f5cfa3de962c51ac7ff43d9b83bdea9f408f5bcf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 907a10314f27428d4d4b867abb71e2046208650b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097424"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273952"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Eseguire il backup di Windows Server in Azure
 

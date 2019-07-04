@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7d405c1e4ac5de7591f92b391071cfd66371c088
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 023bb95eb55c88c7da548af003132bb391fdb7ce
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003139"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484970"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in Objective-C in iOS con Speech SDK
 
@@ -35,7 +35,7 @@ Prima di iniziare, ecco un elenco di prerequisiti:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.5.1`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.6.0`.
 
 Speech SDK di Servizi cognitivi per iOS viene attualmente distribuito come un Framework di Cocoa.
 Può essere scaricato da [questa pagina](https://aka.ms/csspeech/iosbinary). Scaricare il file nella home directory.
@@ -90,9 +90,8 @@ Sostituire il codice XML generato automaticamente con questo codice:
 ## <a name="building-and-running-the-sample"></a>Compilazione ed esecuzione dell'esempio
 
 1. Rendere visibile l'output di debug (**Visualizza** > **Area di debug** > **Attivare Console**).
-1. Scegliere il simulatore iOS o un dispositivo iOS connesso al computer di sviluppo come destinazione per l'app dall'elenco nel menu **Prodotto** -> **Destinazione**.
-1. Compilare ed eseguire l'esempio di codice nel simulatore iOS selezionando **Prodotto** -> **Esegui** dal menu o facendo clic sul pulsante **Riproduci**.
-   Speech SDK attualmente supporta solo le piattaforme iOS a 64 bit.
+1. Scegliere il simulatore iOS o un dispositivo iOS connesso al computer di sviluppo come destinazione per l'app dall'elenco nel menu **Prodotto** > **Destinazione**.
+1. Compilare ed eseguire l'esempio di codice nel simulatore iOS selezionando **Prodotto** > **Esegui** dal menu o facendo clic sul pulsante **Riproduci**.
 1. Dopo avere fatto clic sul pulsante "Riconosci (file)" nell'app, verrà visualizzato il contenuto del file audio "Che tempo fa?" nella parte inferiore dello schermo.
 
    ![App iOS simulata](media/sdk/qs-objectivec-simulated-app.png)

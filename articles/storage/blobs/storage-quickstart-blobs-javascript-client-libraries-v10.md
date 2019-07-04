@@ -11,12 +11,12 @@ ms.reviewer: seguler
 ms.date: 05/20/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: b16bbeee299f4879c14856a8041e6517968efebf
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a971f2b4b63b3fd35777d1d890da8451b84bb086
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481112"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544038"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -222,7 +222,7 @@ const sasString = "<Add the SAS you generated earlier>";
 const containerName = "testcontainer";
 const containerURL = new azblob.ContainerURL(
     `https://${accountName}.blob.core.windows.net/${containerName}?${sasString}`,
-    azblob.StorageURL.newPipeline(new azblob.AnonymousCredential)));
+    azblob.StorageURL.newPipeline(new azblob.AnonymousCredential));
 ```
 
 Questo codice usa le informazioni sull'account e la firma di accesso condiviso per creare un'istanza di [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL), utile per creare e modificare un contenitore di archiviazione.
@@ -317,7 +317,7 @@ const uploadFiles = async () => {
 }
 
 selectButton.addEventListener("click", () => fileInput.click());
-fileInput.addEventListener("input", uploadFiles);
+fileInput.addEventListener("change", uploadFiles);
 ```
 
 Questo codice connette il pulsante **Select and upload files** (Seleziona e carica file) all'elemento `file-input` nascosto. In questo modo l'evento `click` del pulsante attiva l'evento `click` dell'input file e visualizza la selezione file. Dopo aver selezionato i file e chiuso la finestra di dialogo, si verifica l'evento `input` e viene chiamata la funzione `uploadFiles`. Questa funzione chiama la funzione specifica del browser [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) per ogni file selezionato. Ogni chiamata restituisce una promessa, che viene aggiunta a un elenco in modo che si possa attendere tutte le promesse in una volta sola, causando il caricamento dei file in parallelo.

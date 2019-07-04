@@ -8,16 +8,16 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 12/17/2018
+ms.date: 06/26/2019
 ms.author: alinast
-ms.openlocfilehash: 4c41fbaa00dc3460df3f94433428c448a7b41250
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f88eccf1e488d52fbbbd064cc5d7f54c2eec32b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089701"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459131"
 ---
-# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Avvio rapido: Trovare le stanze disponibili usando Gemelli digitali di Azure
+# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Guida introduttiva: Trovare le stanze disponibili usando Gemelli digitali di Azure
 
 Il servizio Gemelli digitali di Azure consente di ricreare un'immagine digitale dell'ambiente fisico. È quindi possibile ricevere notifiche in base agli eventi che si verificano nell'ambiente e personalizzare le risposte agli eventi.
 

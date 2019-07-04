@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 650dfa7284b41407e9b128a2096548d7acfc1567
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: fd81115f4e811366b6b115d1c73a9be7ca26698b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393785"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485629"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creare un servizio di Ricerca di Azure nel portale
 
@@ -94,7 +94,7 @@ Ricordarsi di aggiungere il servizio al dashboard per semplificare l'accesso.
 
 ## <a name="get-a-key-and-url-endpoint"></a>Ottenere una chiave e un endpoint dell'URL
 
-Con poche eccezioni, per usare il nuovo servizio è necessario specificare l'endpoint dell'URL e una chiave API di autorizzazione. Per eseguire guide introduttive, esercitazioni come [Esplorare le API REST di Ricerca di Azure (Postman)](search-fiddler.md) e [Come usare Ricerca di Azure da un'applicazione .NET](search-howto-dotnet-sdk.md), esempi e codice personalizzato con una specifica risorsa, è necessario fornire un endpoint e una chiave.
+Con poche eccezioni, per usare il nuovo servizio è necessario specificare l'endpoint dell'URL e una chiave API di autorizzazione. Per eseguire guide introduttive, esercitazioni come [Esplorare le API REST di Ricerca di Azure (Postman)](search-get-started-postman.md) e [Come usare Ricerca di Azure da un'applicazione .NET](search-howto-dotnet-sdk.md), esempi e codice personalizzato con una specifica risorsa, è necessario fornire un endpoint e una chiave.
 
 1. Nella pagina di panoramica del servizio individuare e copiare l'endpoint dell'URL visualizzato a destra.
 

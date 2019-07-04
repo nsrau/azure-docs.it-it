@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: f426ee10017533c21021d618d613dc0931767988
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e2deda6bc9a5d13a631e9917f3020cfa68ee1e10
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149443"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536169"
 ---
-# <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Avvio rapido: Caricare, scaricare, elencare ed eliminare BLOB usando Archiviazione di Azure v10 SDK per JavaScript
+# <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Guida introduttiva: Caricare, scaricare, elencare ed eliminare BLOB usando Archiviazione di Azure v10 SDK per JavaScript
 
-In questa guida introduttiva verrà illustrato l'uso di [Azure Storage v10 SDK per JavaScript](https://github.com/Azure/azure-storage-js) in Node.js per caricare, scaricare, elencare ed eliminare i BLOB e gestire i contenitori.
+In questa guida introduttiva verrà illustrato l'uso di [Azure Storage v10 SDK per JavaScript](https://github.com/Azure/azure-sdk-for-js) in Node.js per caricare, scaricare, elencare ed eliminare i BLOB e gestire i contenitori.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -99,7 +99,7 @@ Le credenziali vengono lette dalle variabili di ambiente in base al contesto app
 
 ```javascript
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').load();
+    require('dotenv').config();
 }
 ```
 
@@ -238,7 +238,7 @@ Per creare un contenitore, viene usato il metodo *create* di *ContainerURL*.
 await containerURL.create(aborter);
 console.log(`Container: "${containerName}" is created`);
 ```
-Poiché il nome del contenitore viene definito quando si chiama *ContainerURL.fromServiceURL(serviceURL, containerName)*, per creare il contenitore è sufficiente chiamare il metodo *create*.
+Poiché il nome del contenitore viene definito quando si chiama *ContainerURL.fromServiceURL(serviceURL, containerName)* , per creare il contenitore è sufficiente chiamare il metodo *create*.
 
 ### <a name="upload-text"></a>Caricare un file di testo
 Per caricare il testo nel BLOB, usare il metodo *upload*.

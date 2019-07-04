@@ -4,19 +4,19 @@ description: Creare una funzione che si integra con le app per la logica di Azur
 services: functions, logic-apps, cognitive-services
 keywords: flusso di lavoro, app cloud, servizi cloud, processi aziendali, integrazione di sistemi, enterprise application integration, EAI
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 11e0170464d8ed901253925eb62cce12d42c0008
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087092"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480023"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creare una funzione che si integra con le app per la logica di Azure
 
@@ -125,7 +125,7 @@ Funzioni permette di ripartire il carico di lavoro delle attività di elaborazio
     ```
     Questo codice di funzione restituisce una categoria colore in base al punteggio del sentiment ricevuto nella richiesta. 
 
-4. Per testare la funzione, fare clic su **Test** a destra per espandere la scheda Test. Digitare un valore di  per il Corpo della richiesta`0.2` e quindi fare clic su **Esegui**. Nel corpo della risposta verrà restituito il valore **RED**. 
+4. Per testare la funzione, fare clic su **Test** a destra per espandere la scheda Test. Digitare un valore di `0.2` per il **Corpo della richiesta** e quindi fare clic su **Esegui**. Nel corpo della risposta verrà restituito il valore **RED**. 
 
     ![Testare la funzione nel portale di Azure](./media/functions-twitter-email/07-function-test.png)
 

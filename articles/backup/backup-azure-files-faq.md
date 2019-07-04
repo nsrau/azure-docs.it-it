@@ -2,18 +2,18 @@
 title: Domande frequenti sul backup di file di Azure
 description: Questo articolo fornisce informazioni dettagliate su come proteggere le condivisioni file di Azure.
 services: backup
-author: rayne-wiselman
-ms.author: raynew
+author: dcurwin
+ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0c9e68a14aa18726a751709e99953d494c62308e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426614"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275546"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 Questo articolo risponde a domande comuni sul backup di file di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -74,7 +74,7 @@ Inviare un messaggio a [AskAzureBackupTeam@microsoft.com](email:askazurebackupte
 Durante l'anteprima è possibile proteggere condivisioni file di Azure di un massimo di 50 account di archiviazione per ogni insieme di credenziali. È possibile proteggere fino a 200 condivisioni file di Azure in un singolo insieme di credenziali.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>È possibile proteggere due condivisioni file diverse dallo stesso account di archiviazione in insiemi di credenziali diversi?
- No. Tutte le condivisioni file di un account di archiviazione possono essere protette solo dallo stesso insieme di credenziali.
+No. Tutte le condivisioni file di un account di archiviazione possono essere protette solo dallo stesso insieme di credenziali.
 
 ## <a name="backup"></a>Backup
 
@@ -110,7 +110,7 @@ Il backup delle condivisioni file di Azure consente di configurare criteri di co
 ### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share-br"></a>Cosa accade quando si modificano i criteri di backup per una condivisione file di Azure? <br/>
 Quando vengono applicati nuovi criteri a una o più condivisioni file, vengono seguite la pianificazione e la conservazione stabilite dai nuovi criteri. Se il periodo di conservazione viene esteso, i punti di ripristino esistenti vengono contrassegnati in modo che vengano mantenuti in base ai nuovi criteri. Se il periodo di conservazione viene ridotto, vengono contrassegnati per l'eliminazione nel processo di pulizia successivo e vengono eliminati.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 Queste informazioni riguardano solo il backup di file di Azure. Per informazioni su altre aree di Backup di Azure, vedere queste domande frequenti sul backup:
 -  [Domande frequenti sull'insieme di credenziali di Servizi di ripristino](backup-azure-backup-faq.md)
 -  [Domande frequenti sul backup delle macchine virtuali di Azure](backup-azure-vm-backup-faq.md)

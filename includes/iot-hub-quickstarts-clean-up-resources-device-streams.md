@@ -2,22 +2,22 @@
 title: File di inclusione (flussi dispositivo)
 description: File di inclusione
 services: iot-hub
-author: rezas
+author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 01/15/2019
-ms.author: rezas
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 155e36bf4198eb18f5505483ea13a287f88a5022
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 46ab75f161692dd048c19698af7027d0e0622b37
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733233"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445993"
 ---
 Se si prevede di continuare con il prossimo articolo consigliato, è possibile conservare le risorse già create e riutilizzarle.
 
-In caso contrario, per evitare addebiti, è possibile eliminare le risorse di Azure create in questo articolo. 
+In caso contrario, per evitare addebiti, è possibile eliminare le risorse di Azure create in questo articolo.
 
 > [!IMPORTANT]
 > L'eliminazione di un gruppo di risorse è irreversibile. Il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati in modo permanente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. Se l'hub IoT è stato creato all'interno di un gruppo di risorse esistente che contiene risorse che si vogliono conservare, eliminare solo la risorsa hub IoT invece dell'intero gruppo.
@@ -27,7 +27,7 @@ Per eliminare un gruppo di risorse per nome:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Gruppi di risorse**.
 
-1. Nella casella di testo **Filtra per nome** immettere il nome del gruppo di risorse che contiene l'hub IoT. 
+1. Nella casella di testo **Filtra per nome** immettere il nome del gruppo di risorse che contiene l'hub IoT.
 
 1. Nell'elenco dei risultati, a destra del gruppo di risorse, selezionare i puntini di sospensione ( **...** ) e quindi **Elimina gruppo di risorse**.
 

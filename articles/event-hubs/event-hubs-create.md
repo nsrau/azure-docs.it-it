@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: 83e33ffa2854b92718828ae870b82431993fac24
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 15b2b5863f5b78bd24ffd8cbd55b9914f52e32a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603524"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072801"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Guida introduttiva: Creare un hub eventi con il portale di Azure
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
@@ -57,13 +57,13 @@ Uno spazio dei nomi di Hub eventi specifica un contenitore di ambito univoco, a 
    ![Cercare Hub eventi](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
 3. Selezionare **Hub eventi** sotto **PREFERITI** nel menu di spostamento a sinistra e scegliere **Aggiungi** sulla barra degli strumenti.
 
-   ![Pulsante Aggiungi della barra degli strumenti](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+   ![Pulsante Aggiungi](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. Nella pagina **Crea spazio dei nomi** seguire questa procedura:
     1. Immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
     2. Scegliere il piano tariffario (Basic o Standard).
     3. Selezionare la **sottoscrizione** in cui creare lo spazio dei nomi.
     4. Selezionare una **località** per lo spazio dei nomi.
-    5. Selezionare **Create**. Per il provisioning completo delle risorse da parte del sistema, potrebbero essere necessari alcuni minuti.
+    5. Selezionare **Create** (Crea). Per il provisioning completo delle risorse da parte del sistema, potrebbero essere necessari alcuni minuti.
 
        ![Creare uno spazio dei nomi dell'hub eventi](./media/event-hubs-quickstart-portal/create-event-hub1.png)
 5. Aggiornare la pagina **Hub eventi** per visualizzare lo spazio dei nomi dell'hub eventi. È possibile controllare lo stato della creazione dell'hub eventi negli avvisi. 
