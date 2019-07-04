@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: f54cea75e6f7866f1be41d3b0f82393af2235a0a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 27439758c9e2b909bb7179b69c7aade81429f502
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949884"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070482"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Guida introduttiva: Creare un'istanza gestita di database SQL di Azure
 
@@ -38,7 +38,7 @@ I passaggi seguenti mostrano come creare un'istanza gestita.
 
 1. Selezionare **Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
 2. Individuare **Istanza gestita** e quindi selezionare **Istanza gestita di SQL di Azure**.
-3. Selezionare **Create**.
+3. Selezionare **Create** (Crea).
 
    ![Creare un'istanza gestita](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
@@ -73,7 +73,7 @@ I passaggi seguenti mostrano come creare un'istanza gestita.
 11. Selezionare **Distribuzione in corso** per aprire la finestra dell'istanza gestita e monitorare ulteriormente lo stato di avanzamento della distribuzione. 
 
 > [!IMPORTANT]
-> Per la prima istanza in una subnet, i tempi di distribuzione sono in genere molto più lunghi rispetto alle istanze successive. Non annullare l'operazione di distribuzione perché la durata è superiore al previsto. La creazione della seconda istanza gestita nella subnet richiederà solo qualche minuto.
+> Per la prima istanza in una subnet, i tempi di distribuzione sono in genere molto più lunghi rispetto alle istanze successive. Non annullare l'operazione di distribuzione perché la durata è superiore al previsto.
 
 ## <a name="review-resources-and-retrieve-your-fully-qualified-server-name"></a>Esaminare le risorse e recuperare il nome completo del server
 
