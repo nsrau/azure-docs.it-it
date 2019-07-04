@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: b9fa54a24c5d96f0d3ad48034907f2c6fe5cb385
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 714c2be7265a41a7791ce39bfaa1bdc12fa58cac
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006931"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340755"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche alle app della piattaforma UWP (Universal Windows Platform) con Hub di notifica di Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "60006931"
 Questa esercitazione illustra come creare un hub di notifica per inviare notifiche push a un'app della piattaforma UWP (Universal Windows Platform). Si crea un'app di Windows Store vuota che riceve notifiche push tramite Windows Push Notification Service (WNS). Sarà quindi possibile usare l'hub di notifica per trasmettere notifiche push a tutti i dispositivi che eseguono l'app.
 
 > [!NOTE]
-> Il codice completo per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
+> Il codice completo per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/UwpSample).
 
 Seguire questa procedura:
 
@@ -90,7 +90,7 @@ L'hub di notifica è ora configurato per l'uso di WNS. Sono disponibili le strin
 1. In Visual Studio scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
 2. Nella finestra di dialogo **Nuovo progetto** completare questa procedura:
 
-    1. Espandere **Visual C#**.
+    1. Espandere **Visual C#** .
     2. Selezionare **Windows Universal**.
     3. Selezionare **Blank App (Universal Windows)** (App vuota (Windows universale)).
     4. Immettere un **nome** per il progetto.
