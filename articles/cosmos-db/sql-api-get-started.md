@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 60c7e6b32f60d6f42d706489c41dbeea4af0d15d
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596099"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342131"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Compilare un'app console .NET per gestire i dati in un account API SQL di Azure Cosmos DB
 
@@ -130,11 +130,11 @@ Si inizierà ora a scrivere il codice. Il file *Project.cs* completo per questa 
       
       ![Visualizzare e copiare le chiavi di accesso nel portale di Azure](./media/sql-api-get-started/nosql-tutorial-keys.png)
       
-   1. In **Chiavi di lettura/scrittura** copiare il valore **URI** usando il pulsante di copia a destra e incollarlo in `<your endpoint URL>` in *Program.cs*. Ad esempio:  
+   1. In **Chiavi di lettura/scrittura** copiare il valore **URI** usando il pulsante di copia a destra e incollarlo in `<your endpoint URL>` in *Program.cs*. Ad esempio: 
       
       `private const string EndpointUrl = "https://mysqlapicosmosdb.documents.azure.com:443/";`
       
-   1. Copiare il valore **CHIAVE PRIMARIA** e incollarlo in `<your primary key>` in *Program.cs*. Ad esempio:  
+   1. Copiare il valore **CHIAVE PRIMARIA** e incollarlo in `<your primary key>` in *Program.cs*. Ad esempio: 
       
       `private const string PrimaryKey = "19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==";`
    
@@ -450,7 +450,7 @@ Il diagramma seguente illustra il modo in cui la sintassi di query SQL di Azure 
 
 ![Diagramma che illustra l'ambito e il significato della query usata nell'esercitazione su NoSQL per creare un'applicazione console C#](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-La parola chiave [FROM](how-to-sql-query.md#FromClause) nella query SQL è facoltativa perché le query di Azure Cosmos DB sono già limitate a una singola raccolta. È possibile effettuare lo swapping di `FROM Families f` con `FROM root r` o qualsiasi altro nome di variabile scelto. Azure Cosmos DB dedurrà che `Families`, `root` o il nome della variabile scelto, si riferisce alla raccolta attuale.
+La parola chiave [FROM](sql-query-from.md) nella query SQL è facoltativa perché le query di Azure Cosmos DB sono già limitate a una singola raccolta. È possibile effettuare lo swapping di `FROM Families f` con `FROM root r` o qualsiasi altro nome di variabile scelto. Azure Cosmos DB dedurrà che `Families`, `root` o il nome della variabile scelto, si riferisce alla raccolta attuale.
 
 ## <a id="ReplaceDocument"></a>Aggiornare un documento JSON
 

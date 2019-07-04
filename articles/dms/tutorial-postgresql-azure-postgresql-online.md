@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: d7bd2555753df4c12404844c86be8f0339d88e23
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 06/28/2019
+ms.openlocfilehash: 96bfb80602efe8e63f814fc9bf6cff3ae52e5983
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415696"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461542"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di PostgreSQL in Database di Azure per PostgreSQL online mediante il Servizio Migrazione del database di Azure
 
@@ -24,6 +24,7 @@ ms.locfileid: "65415696"
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
+>
 > * Eseguire la migrazione dello schema di esempio con l'utilità pg_dump.
 > * Creare un'istanza del Servizio Migrazione del database di Azure.
 > * Creare un progetto di migrazione tramite il Servizio Migrazione del database di Azure.
@@ -48,7 +49,7 @@ Per completare questa esercitazione, è necessario:
     > Per PostgreSQL versione 10, il Servizio Migrazione del database supporta attualmente solo la migrazione della versione 10.3 a Database di Azure per PostgreSQL.
 
 * [Creare un'istanza nel Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
-* Creare una rete virtuale di Azure per il Servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per altre informazioni sulla creazione di una rete virtuale, vedere [Documentazione sulla rete virtuale](https://docs.microsoft.com/azure/virtual-network/), in particolare gli articoli di avvio rapido con istruzioni dettagliate.
+* Creare una rete virtuale di Azure per il Servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per altre informazioni sulla creazione di una rete virtuale, vedere [Documentazione sulla rete virtuale](https://docs.microsoft.com/azure/virtual-network/) e in particolare gli articoli di avvio rapido con istruzioni dettagliate.
 
     > [!NOTE]
     > Durante la configurazione della rete virtuale, se si usa ExpressRoute con peering di rete per Microsoft, aggiungere gli [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) di servizio seguenti alla subnet in cui verrà effettuato il provisioning del servizio:
@@ -65,11 +66,11 @@ Per completare questa esercitazione, è necessario:
 * Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per Database di Azure per PostgreSQL per consentire a Servizio Migrazione del database di Azure di accedere ai database di destinazione. Specificare l'intervallo di subnet della rete virtuale usato per il Servizio Migrazione del database di Azure.
 * Esistono due metodi per richiamare l'interfaccia della riga di comando:
 
-    * Nel menu nell'angolo superiore destro del portale di Azure selezionare il pulsante Cloud Shell:
+  * Nel menu nell'angolo superiore destro del portale di Azure selezionare il pulsante Cloud Shell:
 
        ![Pulsante Cloud Shell nel portale di Azure](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
 
-    * Installare ed eseguire l'interfaccia della riga di comando. L'interfaccia della riga di comando 2.0 è uno strumento da riga di comando per la gestione delle risorse di Azure.
+  * Installare ed eseguire l'interfaccia della riga di comando. L'interfaccia della riga di comando 2.0 è uno strumento da riga di comando per la gestione delle risorse di Azure.
 
        Per scaricare l'interfaccia della riga di comando, seguire le istruzioni riportate nell'articolo [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). L'articolo elenca anche le piattaforme che supportano l'interfaccia della riga di comando 2.0.
 
@@ -77,9 +78,9 @@ Per completare questa esercitazione, è necessario:
 
 * Abilitare la replica logica nel file postgresql.config e impostare i parametri seguenti:
 
-    * wal_level = **logical**
-    * max_replication_slots = [numero di slot], si consiglia di impostare il valore su **5 slot**
-    * max_wal_senders = [numero di attività simultanee]: il parametro max_wal_senders imposta il numero di attività simultanee che è possibile eseguire, si consiglia di impostare il valore su **10 attività**
+  * wal_level = **logical**
+  * max_replication_slots = [numero di slot], si consiglia di impostare il valore su **5 slot**
+  * max_wal_senders = [numero di attività simultanee]: il parametro max_wal_senders imposta il numero di attività simultanee che è possibile eseguire, si consiglia di impostare il valore su **10 attività**
 
 ## <a name="migrate-the-sample-schema"></a>Eseguire la migrazione dello schema di esempio
 
@@ -108,15 +109,14 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
     psql -h hostname -U db_username -d db_name < your_schema.sql 
     ```
 
-    Ad esempio: 
+    Ad esempio:
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
     ```
 
 4. Se nello schema sono presenti chiavi esterne, il caricamento iniziale e la sincronizzazione continua della migrazione avrà esito negativo. Eseguire lo script seguente in PgAdmin o psql per estrarre lo script di eliminazione della chiave esterna e aggiungere lo script della chiave esterna nella destinazione (Database di Azure per PostgreSQL).
-
-    
+  
     ```
     SELECT Queries.tablename
            ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
@@ -141,7 +141,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
           AND ccu.table_schema = tc.table_schema
     WHERE constraint_type = 'FOREIGN KEY') Queries
       GROUP BY Queries.tablename;
-     ```
+    ```
 
     Eseguire drop foreign key, ovvero la seconda colonna, sul risultato della query.
 
@@ -228,7 +228,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
     az network nic list -g <ResourceGroupName>--query '[].ipConfigurations | [].privateIpAddress'
     ```
 
-    Ad esempio: 
+    Ad esempio:
 
     ```
     az network nic list -g PostgresDemo --query '[].ipConfigurations | [].privateIpAddress'
@@ -474,7 +474,7 @@ Per assicurarsi che tutti i dati siano aggiornati, verificare i conteggi delle r
     az dms project task cutover -h
     ```
 
-    Ad esempio: 
+    Ad esempio:
 
     ```
     az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --database-name Inventory
