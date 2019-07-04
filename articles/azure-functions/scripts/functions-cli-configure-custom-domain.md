@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 790d095cfb1b59aed1b9014fc474f9ad6e1b3328
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 19fd73dff045d6d784dd70d1f3ad539a22faf413
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131298"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075474"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Esegue il mapping di un dominio personalizzato a un'app per le funzioni
 
-Questo script di esempio crea un'app per le funzioni in un piano di servizio app e quindi ne esegue il mapping a un dominio personalizzato specificato. Quando l'app per le funzioni è ospitata in un [piano Premium](../functions-scale.md#premium-plan-public-preview) o un [piano di servizio app](../functions-scale.md#app-service-plan), è possibile eseguire il mapping di un dominio personalizzato tramite un record CNAME o A. Per le app per le funzioni in un [piano a consumo](../functions-scale.md#consumption-plan), è supportata solo l'opzione CNAME. Questo esempio crea un piano di servizio app e richiede un record A per il mapping del dominio. 
+Questo script di esempio crea un'app per le funzioni in un piano di servizio app e quindi ne esegue il mapping a un dominio personalizzato specificato. Quando l'app per le funzioni è ospitata in un [piano Premium](../functions-scale.md#premium-plan) o un [piano di servizio app](../functions-scale.md#app-service-plan), è possibile eseguire il mapping di un dominio personalizzato tramite un record CNAME o A. Per le app per le funzioni in un [piano a consumo](../functions-scale.md#consumption-plan), è supportata solo l'opzione CNAME. Questo esempio crea un piano di servizio app e richiede un record A per il mapping del dominio. 
 
 Per eseguire questo script di esempio, è necessario che nel dominio personalizzato sia già configurato un record A che punta al nome di dominio predefinito dell'app Web. Per altre informazioni, vedere le [istruzioni per il mapping di un dominio personalizzato per il servizio app di Azure](https://aka.ms/appservicecustomdns). 
 

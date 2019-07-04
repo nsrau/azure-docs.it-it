@@ -1,18 +1,18 @@
 ---
 title: Implementare Azure Databricks con un endpoint di Cosmos DB
 description: Questa esercitazione descrive come implementare Azure Databricks in una rete virtuale con un endpoint di servizio abilitato per Cosmos DB.
-services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
+ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 0d5442a63680227f3a6186330502666c92dc3129
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: d1268ea2cfc22e6350edb32230588a497be8bc79
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054608"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Esercitazione: Implementare Azure Databricks con un endpoint di Cosmos DB
 
