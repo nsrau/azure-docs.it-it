@@ -153,7 +153,7 @@ Le intestazioni seguenti sono obbligatorie per tutti i messaggi generati dal cli
 | Intestazione | Value |
 |----|----|
 | `Path` | Percorso del messaggio come specificato in questo documento |
-| X-RequestId | UUID nel formato "no-dash" |
+| X-RequestId | UUID in "no-dash" format |
 | X-Timestamp | Timestamp UTC dell'orologio del client in formato ISO 8601 |
 
 #### <a name="x-requestid-header"></a>Intestazione X-RequestId
@@ -253,7 +253,7 @@ Le intestazioni seguenti sono obbligatorie per tutti i messaggi `audio`.
 | Intestazione         |  Value     |
 | ------------- | ---------------- |
 | `Path` | `audio` |
-| X-RequestId | UUID nel formato senza trattini |
+| X-RequestId | UUID in "no-dash" format |
 | X-Timestamp | Timestamp UTC dell'orologio del client in formato ISO 8601 |
 | Content-Type | Tipo di contenuto audio. Deve essere *audio/x-wav* (PCM) o *audio/silk* (SILK). |
 
@@ -356,7 +356,7 @@ Durante il riconoscimento vocale, il servizio genera periodicamente ipotesi rela
 | ------------- | ---------------- |
 | Codifica del messaggio WebSocket | Text |
 | `Path` | `speech.hypothesis` |
-| X-RequestId | UUID nel formato senza trattini |
+| X-RequestId | UUID in "no-dash" format |
 | Content-Type | application/json |
 | Body | Struttura JSON contenente ipotesi di riconoscimento vocale |
 

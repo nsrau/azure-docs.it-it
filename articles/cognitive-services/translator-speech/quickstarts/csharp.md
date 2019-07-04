@@ -3,20 +3,20 @@ title: 'Guida introduttiva: API Traduzione vocale C#'
 titlesuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare a usare rapidamente l'API Traduzione vocale.
 services: cognitive-services
-author: v-jaswel
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 04/26/2019
-ms.author: v-jaswel
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b4fe4f651340ef54c2907192f3a96e9a017ab1dd
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 5cca3d5d02f9618e99f122bf3fc2a7d2874e1cdf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65910522"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444515"
 ---
 # <a name="quickstart-translator-speech-api-with-c"></a>Guida introduttiva: API Traduzione vocale con C#
 <a name="HOLTop"></a>
@@ -158,7 +158,7 @@ Se il risultato è positivo, viene creato un file denominato "speak2.wav" conten
 > [!div class="nextstepaction"]
 > [Esercitazione su Traduzione vocale](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 [Panoramica di Traduzione vocale](../overview.md)
 [Informazioni di riferimento sull'API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

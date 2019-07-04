@@ -11,10 +11,8 @@
       href: create-cluster-database-portal.md
     - name: Inserire dati di esempio
       href: ingest-sample-data.md
-    - name: Eseguire query sui dati
-      items:
-        - name: Interfaccia utente Web
-          href: web-query-data.md
+    - name: Eseguire query sui dati con l'interfaccia utente Web
+      href: web-query-data.md
 - name: Esercitazioni
   items:
     - name: Inserire dati senza usare codice
@@ -88,14 +86,14 @@
               href: power-bi-imported-query.md
             - name: Query SQL
               href: power-bi-sql-query.md
-        - name: Connettore ODBC
-          href: connect-odbc.md
-        - name: Sisense
-          href: sisense.md
         - name: Grafana
           href: grafana.md
+        - name: Connettore ODBC
+          href: connect-odbc.md
         - name: Tableau
           href: tableau.md
+        - name: Sisense
+          href: sisense.md
     - name: Gestisci
       items:
         - name: Gestire le autorizzazioni per i database

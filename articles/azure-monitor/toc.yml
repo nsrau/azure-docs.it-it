@@ -122,8 +122,6 @@
       href: visualizations.md
     - name: Integrazioni di partner
       href: platform/partners.md
-    - name: Deprecazione del portale OMS
-      href: platform/oms-portal-transition.md
     - name: Domande frequenti
       items:
         - name: Log Analytics
@@ -837,10 +835,12 @@
               items:
                 - name: Avviso in un evento del log attività
                   href: platform/alerts-activity-log.md
-                - name: Eseguire la migrazione di eventi di gestione negli avvisi del log attività
-                  href: platform/migrate-management-alerts.md
-                - name: Avviso nelle notifiche sull'integrità del servizio
-                  href: platform/alerts-activity-log-service-notifications.md
+            - name: Notifiche sull'integrità del servizio nel log attività
+              items:
+                - name: Visualizzare notifiche sull'integrità dei servizi
+                  href: ../service-health/service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+                - name: Configurare la regola di avviso per l'integrità dei servizi
+                  href: ../service-health/alerts-activity-log-service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
             - name: Usare i gruppi di azioni
               items:
                 - name: Creare un gruppo di azioni
@@ -885,12 +885,6 @@
                   href: platform/alerts-enable-template.md
                 - name: Avviso per le metriche (versione classica) tramite chiamata a un webhook
                   href: platform/alerts-webhooks.md
-        - name: Notifiche sull'integrità del servizio nel log attività
-          items:
-            - name: Visualizzare le notifiche
-              href: platform/service-notifications.md
-            - name: Configurare gli avvisi per eventi di notifica
-              href: platform/alerts-activity-log-service-notifications.md
         - name: Autoscale
           items:
             - name: Procedura dettagliata
@@ -1076,12 +1070,10 @@
           href: ./platform/classic-api-retirement-metrics-autoscale.md
         - name: Funzionalità classiche per avvisi e monitoraggio
           href: platform/monitoring-classic-retirement.md
-        - name: Estendere avvisi da Log Analytics ad Azure
-          href: platform/alerts-extend.md
-        - name: Copiare avvisi dal portale OMS al portale di Azure
-          href: platform/alerts-extend-tool.md
         - name: Cambiare le preferenze dell'API per gli avvisi del log
           href: platform/alerts-log-api-switch.md
+        - name: Deprecazione del portale OMS
+          href: platform/oms-portal-transition.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

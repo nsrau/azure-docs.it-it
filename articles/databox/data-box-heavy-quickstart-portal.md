@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 930da7367b3f5d7e20617afedef007efea97c51a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3467b25c085fb86d4aed3918d5446d118f76ffb8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515940"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446725"
 ---
 # <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>Guida introduttiva: Distribuire Azure Data Box Heavy usando il portale di Azure
 
@@ -57,7 +57,7 @@ Prima di iniziare, verificare che:
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://portal.azure.com).
+Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="order"></a>Ordine
 
@@ -95,7 +95,7 @@ Questa operazione richiede circa 10-15 minuti.
 
 Questa operazione richiede circa 5-7 minuti.
 
-1. Per ottenere la password del dispositivo, passare a **Generale > Dettagli dispositivo** nel [portale di Azure](http://portal.azure.com). Per entrambi i nodi del dispositivo si usa la stessa password.
+1. Per ottenere la password del dispositivo, passare a **Generale > Dettagli dispositivo** nel [portale di Azure](https://portal.azure.com). Per entrambi i nodi del dispositivo si usa la stessa password.
 2. Assegnare un indirizzo IP statico 192.168.100.5 e la subnet 255.255.255.0 alla scheda Ethernet nel computer usato per connettersi a Data Box Heavy. Accedere all'interfaccia utente Web locale del dispositivo all'indirizzo `https://192.168.100.10`. La connessione potrebbe richiedere fino a 5 minuti dopo l'accensione del dispositivo.
 3. Eseguire l'accesso usando la password dal portale di Azure. Viene visualizzato un errore in cui si indica che si è verificato un problema con il certificato di sicurezza del sito Web. Seguire le istruzioni specifiche del browser per passare alla pagina Web.
 4. Per impostazione predefinita, le impostazioni di rete per le interfacce, ad esclusione di MGMT, sono configurate come DHCP. Se necessario, è possibile configurare queste interfacce come statiche e specificare un indirizzo IP.

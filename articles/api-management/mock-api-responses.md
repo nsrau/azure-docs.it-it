@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 9b9a691cb2bce2357d184420912ab340aee534e8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412741"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205310"
 ---
 # <a name="mock-api-responses"></a>Simulare le risposte di un'API
 
@@ -42,7 +42,7 @@ In questa esercitazione si apprenderà come:
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
 + Comprendere il [concetto di criteri in Gestione API di Azure](api-management-howto-policies.md).
-+ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Creare un'API di test 
 
@@ -55,7 +55,7 @@ I passaggi descritti in questa sezione illustrano come creare un'API vuota senza
 3. Selezionare **API vuota** dall'elenco.
 4. Immettere "*Test API*" in **Nome visualizzato**.
 5. Immettere "*Unlimited*" in **Prodotti**.
-6. Selezionare **Create**.
+6. Selezionare **Create** (Crea).
 
 ## <a name="add-an-operation-to-the-test-api"></a>Aggiungere un'operazione all'API di test
 
@@ -80,7 +80,7 @@ I passaggi descritti in questa sezione illustrano come creare un'API vuota senza
 6. Sotto l'intestazione **Rappresentazioni** a destra selezionare **+ Aggiungi rappresentazione**.
 7. Immettere "*application/json*" nella casella di ricerca e selezionare il tipo di contenuto **application/json**.
 8. Nella casella di testo **Sample** (Esempio) immettere `{ 'sampleField' : 'test' }`.
-9. Selezionare **Create**.
+9. Selezionare **Create** (Crea).
 
 ## <a name="enable-response-mocking"></a>Abilitare la simulazione della risposta
 

@@ -144,6 +144,8 @@
               href: active-directory-certificate-based-authentication-ios.md
     - name: Creazione di report
       items:
+        - name: Utilizzo e informazioni dettagliate
+          href: howto-authentication-methods-usage-insights.md
         - name: Report della reimpostazione della password self-service
           href: howto-sspr-reporting.md
         - name: Report MFA
