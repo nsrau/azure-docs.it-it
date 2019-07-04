@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 4e62ae47de95f95600faa3dc27f6867b065e117b
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 17214bb4904cc540de0a7d6f753b7e70abfa564c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329985"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443638"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 
@@ -170,7 +170,7 @@ Indietro/corrente | Int64 | string | DateTime | Double
 Int64 | Int64 | string | string | Double
 Double | Double | string | string | Double
 string | String | String | String | string 
-DateTime | string | string |  DateTime | String
+DateTime | string | string |  DateTime | string
 
 ## <a name="table-storage"></a>Archiviazione tabelle
 
@@ -229,7 +229,7 @@ La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per
 Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore di tipo integer univoco per ogni partizione.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) è un servizio di database distribuito a livello globale che offre scalabilità elastica illimitata in tutto il mondo, query avanzate e indicizzazione automatica su modelli di dati indipendenti dallo schema. Per altre informazioni sulle opzioni di raccolta di Azure Cosmos DB per Stream Analitica, vedere la [Analitica Stream con Azure Cosmos DB come output](stream-analytics-documentdb-output.md) articolo.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) è un servizio di database distribuito a livello globale che offre scalabilità elastica illimitata in tutto il mondo, query avanzate e indicizzazione automatica su modelli di dati indipendenti dallo schema. Per altre informazioni sulle opzioni di contenitore di Azure Cosmos DB per Stream Analitica, vedere la [Analitica Stream con Azure Cosmos DB come output](stream-analytics-documentdb-output.md) articolo.
 
 Azure Cosmos DB output Stream Analitica non è attualmente disponibile nelle aree di Azure Germania (T-Systems International) e Azure Cina 21Vianet.
 
@@ -247,7 +247,7 @@ Nella tabella seguente sono descritte le proprietà per la creazione di un outpu
 | Account ID | Nome o URI endpoint dell'account Azure Cosmos DB. |
 | Chiave account | Chiave di accesso condiviso per l'account Azure Cosmos DB. |
 | Database | Nome del database Azure Cosmos DB. |
-| Nome raccolta | Nome della raccolta in Azure Cosmos DB. Azure Cosmos DB i contenitori senza limiti sono l'approccio consigliato per il partizionamento dei dati, come Azure Cosmos DB automaticamente ridimensiona le partizioni in base al carico di lavoro. |
+| Nome contenitore | Il nome del contenitore da usare, che deve essere presenti in Cosmos DB. Esempio:  <br /><ul><li> _MyContainer_: Deve essere presente un contenitore denominato "MyContainer".</li>|
 | Document ID |facoltativo. Il nome del campo negli eventi di output che viene usato per specificare la chiave primaria in cui insert o update si basano le operazioni.
 
 ## <a name="azure-functions"></a>Funzioni di Azure
@@ -302,10 +302,10 @@ Nella tabella seguente viene riepilogato il supporto della partizione e il numer
 | Archiviazione tabelle di Azure | Yes | Qualsiasi colonna di output.  | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
 | Argomento del bus di servizio di Azure | Yes | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore di tipo integer univoco per ogni partizione.| Corrisponde al numero di partizioni nell'argomento di output.  |
 | Coda del bus di servizio di Azure | Yes | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore di tipo integer univoco per ogni partizione.| Corrisponde al numero di partizioni nella coda di output. |
-| Azure Cosmos DB | Yes | Usare il token {partition} nel modello di nome di raccolta. Il valore di {partition} è basato sulla clausola PARTITION BY nella query. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
+| Azure Cosmos DB | Yes | Basato sulla clausola PARTITION BY nella query. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
 | Funzioni di Azure | No | Nessuna | Non applicabile |
 
-Se l'adattatore di output non è partizionato, la mancanza di dati in una partizione di input causerà un ritardo fino alla quantità di tempo di arrivo in ritardo. In questi casi, l'output è unito a un unico scrittore, che potrebbe causare colli di bottiglia nella pipeline. Per altre informazioni sui criteri di arrivo in ritardo, vedere [considerazioni sull'ordine degli eventi di Azure Stream Analitica](stream-analytics-out-of-order-and-late-events.md).
+Il numero di writer di output può anche essere controllato usando `INTO <partition count>` (vedere [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) clausola della query, che può essere utile per ottenere una topologia processo desiderato. Se l'adattatore di output non è partizionato, la mancanza di dati in una partizione di input causerà un ritardo fino alla quantità di tempo di arrivo in ritardo. In questi casi, l'output è unito a un unico scrittore, che potrebbe causare colli di bottiglia nella pipeline. Per altre informazioni sui criteri di arrivo in ritardo, vedere [considerazioni sull'ordine degli eventi di Azure Stream Analitica](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Dimensione del batch di output
 Azure Stream Analitica utilizza batch di dimensioni variabili per elaborare gli eventi e scrivere in output. In genere il motore di Stream Analitica non scrive un messaggio alla volta e utilizza batch per migliorare l'efficienza. Quando la frequenza degli eventi in ingresso e in uscita è elevata, Analitica Stream utilizza batch di dimensioni maggiori. Quando la frequenza in uscita è bassa, usa batch di dimensioni minori per mantenere bassa la latenza.

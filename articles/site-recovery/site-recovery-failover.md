@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.author: raynew
-ms.openlocfilehash: a02a2be7fb3ed942b1359949e18ba7d3dee824ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d1471188999182623a57db50d3205a859c160a2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399961"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491804"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Failover di macchine virtuali e server fisici 
 
@@ -70,9 +70,9 @@ Le macchine virtuali e i server fisici protetti con Site Recovery supportano anc
 
 > [!NOTE]
 > Durante il failover di macchine virtuali Hyper-V da un sito locale a un altro sito locale, per tornare al sito locale primario è prima necessario **eseguire la replica inversa** della macchina virtuale nel sito primario e quindi attivare il failover. Se la macchina virtuale primaria non è disponibile, prima di avviare la **replica inversa** è necessario ripristinare la macchina virtuale da un backup.   
-> 
-> 
-> ## <a name="failover-job"></a>Processo di failover
+ 
+ 
+## <a name="failover-job"></a>Processo di failover
 
 ![Failover](./media/site-recovery-failover/FailoverJob.png)
 
@@ -111,7 +111,7 @@ In tutti gli altri casi questo passaggio intermedio non è necessario e il tempo
 ## <a name="post-failover-considerations"></a>Considerazioni successive al failover
 Dopo il failover è consigliabile tenere presente quanto segue:
 ### <a name="retaining-drive-letter-after-failover"></a>Mantenimento della lettera di unità dopo il failover
-Per mantenere la lettera di unità nelle macchine virtuali dopo il failover, è possibile impostare il **criterio SAN** per la macchina virtuale su **OnlineAll**. [Altre informazioni](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Azure Site Recovery coordina la conservazione delle lettere di unità. [Scopri di più](vmware-azure-exclude-disk.md#example-1-exclude-the-sql-server-tempdb-disk) nella procedura da seguire quando si sceglie di escludere alcuni dischi.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparare la connessione alle macchine virtuali di Azure dopo il failover
 

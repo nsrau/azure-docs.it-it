@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b9fe8ff710cbfe7fbb4a4d8bd351028bb50efcb0
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 137ef1ad78548053f3c5b8f30b7d83f2370f62da
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331745"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442427"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -120,7 +120,7 @@ Automatizzati di Machine Learning è disponibile anche in altre soluzioni Micros
 
 Vedere gli esempi e informazioni su come creare modelli di uso dell'apprendimento automatico:
 
-+ Seguire il [esercitazione: Eseguire il training automatico di un modello di classificazione con Azure Automated Machine Learning](tutorial-auto-train-models.md)
++ Seguire il [esercitazione: Eseguire automaticamente il training di un modello di regressione con Azure automatizzati di Machine Learning](tutorial-auto-train-models.md)
 
 + Configurare le impostazioni per l'esperimento di training automatico:
   + Nell'interfaccia del portale Azure [seguire questa procedura](how-to-create-portal-experiments.md).

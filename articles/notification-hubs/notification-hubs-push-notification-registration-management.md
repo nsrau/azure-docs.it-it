@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fffa6784702f239e0af0e9e88a4b9937d20b86ed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685384"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488637"
 ---
 # <a name="registration-management"></a>Gestione delle registrazioni
 
@@ -90,6 +90,9 @@ Un'installazione può contenere le proprietà seguenti. Per un elenco completo d
 > Per impostazione predefinita, le registrazioni e le installazioni non scadono.
 
 Le registrazioni e le installazioni devono contenere un handle PNS valido per ogni dispositivo/canale. Poiché gli handle PNS possono essere ottenuti solo in un'app client sul dispositivo, un modello consiste nell'eseguire la registrazione direttamente sul dispositivo con l'app client. D'altra parte, le considerazioni sulla sicurezza e la logica di business relativa ai tag potrebbero richiedere di gestire la registrazione del dispositivo nel back-end dell'app.
+
+> [!NOTE]
+> L'API di installazioni non supporta il servizio di Baidu (sebbene l'API di registrazioni non). 
 
 ### <a name="templates"></a>Modelli
 

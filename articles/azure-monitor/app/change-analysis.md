@@ -10,16 +10,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cawa
-ms.openlocfilehash: 2a31131b662d01f9841a3f1c5b0a6c459a117e77
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 45df8f9e57223ea60a11c6af2187d362184cae2b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075376"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443355"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare analisi applicazione di modifiche (anteprima) in Monitoraggio di Azure
 
-Quando si verifica un'interruzione o un problema del sito live, è fondamentale stabilire velocemente la causa radice. Soluzioni di monitoraggio standard potrebbero segnala un problema. Potrebbero anche indicare quale componente ha esito negativo. Ma questo avviso non verrà spiegato sempre immediatamente la causa dell'errore. Si conosce il sito ha lavorato cinque minuti fa, e a questo punto è rotto. Le modifiche apportate negli ultimi cinque minuti? Questa è la domanda che analisi di modifica dell'applicazione è progettata per rispondere in Monitoraggio di Azure. 
+Quando si verifica un'interruzione o un problema del sito live, è fondamentale stabilire velocemente la causa radice. Soluzioni di monitoraggio standard potrebbero segnala un problema. Potrebbero anche indicare quale componente ha esito negativo. Ma questo avviso non verrà spiegato sempre immediatamente la causa dell'errore. Si conosce il sito ha lavorato cinque minuti fa, e a questo punto è rotto. Le modifiche apportate negli ultimi cinque minuti? Questa è la domanda che analisi di modifica dell'applicazione è progettata per rispondere in Monitoraggio di Azure.
 
 Compilazione la potenza delle [Graph di Azure Resource](https://docs.microsoft.com/azure/governance/resource-graph/overview), analisi di modifica fornisce informazioni approfondite le modifiche dell'applicazione di Azure per aumentare l'osservabilità e ridurre il MTTR (tempo medio di ripristino).
 
@@ -62,21 +62,18 @@ In Monitoraggio di Azure, analisi di modifica attualmente è incorporata nel Sel
 
     ![Screenshot di "Disponibilità e prestazioni" Opzioni di risoluzione dei problemi](./media/change-analysis/availability-and-performance.png)
 
-1. Selezionare **arresti anomali delle applicazioni**.
+1. Selezionare **le modifiche all'applicazione**. Non che la funzionalità è anche disponibile in **blocchi applicazione**.
 
-   ![Screenshot del pulsante "Blocchi applicazione"](./media/change-analysis/application-crashes-tile.png)
+   ![Screenshot del pulsante "Blocchi applicazione"](./media/change-analysis/application-changes.png)
 
 1. Per abilitare l'analisi della modifica, selezionare **Abilita adesso**.
 
-   ![Screenshot delle opzioni "Blocchi applicazione"](./media/change-analysis/application-crashes.png)
+   ![Screenshot delle opzioni "Blocchi applicazione"](./media/change-analysis/enable-changeanalysis.png)
 
-1. Per poter usufruire di tutte le funzionalità di analisi della modifica, attivare **modifica Analysis**, **rileva modifiche di codice**, e **Always on**. Selezionare quindi **Salva**.
+1. Accendere **modifica Analysis** e selezionare **salvare**.
 
     ![Screenshot dell'interfaccia utente "Attiva analisi modifica"](./media/change-analysis/change-analysis-on.png)
 
-    - Abilitare **analisi modifica** per rilevare le modifiche a livello di risorsa. 
-    - Abilitare **rileva modifiche di codice** per vedere i file di distribuzione e le modifiche alla configurazione del sito. 
-    - Abilitare **Always on** per ottimizzare le prestazioni di analisi di modifica. Tuttavia, tenere presente che questa impostazione potrebbe comportare ulteriori addebiti nella fatturazione.
 
 1. Per accedere alle analisi della modifica, selezionare **diagnosi e risoluzione dei problemi** > **disponibilità e prestazioni** > **blocchi applicazione**. Verrà visualizzato un grafico che viene riepilogato il tipo di modifiche nel corso del tempo con i dettagli su queste modifiche:
 
@@ -106,7 +103,7 @@ Se la sottoscrizione include numerose App web, l'abilitazione del servizio a liv
         Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
         Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
         ```
-    
+
 1. Registrare il provider di risorse di analisi di modifica per la sottoscrizione.
 
    - Passare a **sottoscrizioni**, quindi selezionare la sottoscrizione che si desidera abilitare il servizio di modifica. Quindi selezionare i provider di risorse:
@@ -121,12 +118,12 @@ Se la sottoscrizione include numerose App web, l'abilitazione del servizio a liv
 
         ```PowerShell
         Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
-    
+
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
         ```
 
         Per usare PowerShell per impostare un tag nascosto in un'app web, eseguire il comando seguente:
-    
+
         ```powershell
         $webapp=Get-AzWebApp -Name <name_of_your_webapp>
         $tags = $webapp.Tags

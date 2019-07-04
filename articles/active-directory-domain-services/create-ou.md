@@ -3,7 +3,7 @@ title: "Azure Active Directory Domain Services: Guida all'amministrazione | Micr
 description: Creare un'unità organizzativa (OU) nei domini gestiti di Servizi di dominio Azure AD
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.author: mstephen
-ms.openlocfilehash: e7ff91a87377deed06fa4214cc1e5764e8b2da92
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: b2bdad25d676d65494fdd5b6a314f8c3381254de
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246270"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473674"
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Creare un'unità organizzativa (OU) in un dominio gestito di Servizi di dominio Azure AD
 I domini gestiti di Servizi di dominio Azure AD includono due contenitori predefiniti denominati rispettivamente "AADDC Computers" e "AADDC Users". Il contenitore "AADDC Computers" include oggetti computer per tutti i computer aggiunti al dominio gestito. Il contenitore "AADDC Users" include utenti e gruppi nel tenant Azure AD. In alcuni casi può essere necessario creare account del servizio nel dominio gestito per distribuire i carichi di lavoro. A questo scopo, è possibile creare un'unità organizzativa (OU) personalizzata nel dominio gestito e creare gli account del servizio nell'unità organizzativa. Questo articolo descrive come creare una OU nel dominio gestito.

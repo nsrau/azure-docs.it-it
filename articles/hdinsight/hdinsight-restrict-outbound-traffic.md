@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 542813e0f82a1a52142a2b82bea3fdb101fdec28
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af5ddd50556b493cddf27d1ebb766d9bf6105107
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077166"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433441"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurare il traffico di rete in uscita per i cluster HDInsight di Azure con Firewall (anteprima)
 
@@ -89,7 +89,7 @@ Creare le regole di rete per configurare correttamente il cluster HDInsight.
 
    | **Nome** | **Protocollo** | **Indirizzo di origine** | **Tag di servizio** | **Porta di destinazione** | **Note** |
    | --- | --- | --- | --- | --- | --- |
-   | Rule_7 | TCP | * | * | `1433,11000-11999,14000-14999` | Configurare una regola di rete nella sezione tag di servizio per SQL che ti permetterà di accedere e controllare il traffico SQL, a meno che non è configurato gli endpoint di servizio per SQL Server sulla subnet HDInsight che possono ignorare il firewall. |
+   | Rule_7 | TCP | * | SQL | `1433` | Configurare una regola di rete nella sezione tag di servizio per SQL che ti permetterà di accedere e controllare il traffico SQL, a meno che non è configurato gli endpoint di servizio per SQL Server sulla subnet HDInsight che possono ignorare il firewall. |
 
 1. Fare clic su **Add** per completare la creazione della raccolta di regole di rete.
 
@@ -114,12 +114,12 @@ Ad esempio, per configurare la tabella di route per un cluster creato nell'area 
 
 | Nome route | Prefisso indirizzo | Tipo hop successivo | Indirizzo hop successivo |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | Internet | NA |
-| 23.99.5.239 | 23.99.5.239/32 | Internet | NA |
-| 168.61.48.131 | 168.61.48.131/32 | Internet | NA |
-| 138.91.141.162 | 138.91.141.162/32 | Internet | NA |
-| 13.67.223.215 | 13.67.223.215/32 | Internet | NA |
-| 40.86.83.253 | 40.86.83.253/32 | Internet | NA |
+| 168.61.49.99 | 168.61.49.99/32 | Internet | ND |
+| 23.99.5.239 | 23.99.5.239/32 | Internet | ND |
+| 168.61.48.131 | 168.61.48.131/32 | Internet | ND |
+| 138.91.141.162 | 138.91.141.162/32 | Internet | ND |
+| 13.67.223.215 | 13.67.223.215/32 | Internet | ND |
+| 40.86.83.253 | 40.86.83.253/32 | Internet | ND |
 | 0.0.0.0 | 0.0.0.0/0 | Appliance virtuale | 10.1.1.4 |
 
 Completare la configurazione della tabella di route:

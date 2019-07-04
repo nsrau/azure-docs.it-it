@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa4fd850ac2116dc7f353eea87845501fff020bb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286931"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476230"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Procedura guidata relativa alla sicurezza per i ruoli di Azure AD in PIM
 
@@ -43,27 +43,27 @@ Il secondo passaggio della procedura guidata offre la possibilità di modificare
 
 1. Fare clic su **Ruoli di Azure AD** e quindi su **Procedura guidata**.
 
-    ![Ruoli di Azure AD - Procedura guidata](./media/pim-security-wizard/wizard-start.png)
+    ![Ruoli di Azure AD - pagina della procedura guidata che mostra i 3 passaggi per eseguire la procedura guidata](./media/pim-security-wizard/wizard-start.png)
 
 1. Fare clic su **1 Individua i ruoli con privilegi**.
 
 1. Esaminare l'elenco di ruoli con privilegi per verificare quali utenti sono permanenti o idonei.
 
-    ![Individuare gli utenti con ruoli con privilegi](./media/pim-security-wizard/discover-privileged-roles-users.png)
+    ![Individuare i ruoli con privilegi - ruolo nel riquadro membri permanenti e idonei](./media/pim-security-wizard/discover-privileged-roles-users.png)
 
 1. Fare clic su **Avanti** per selezionare i membri da rendere idonei.
 
-    ![Convertire i membri in idonei](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Converti membri idonei pagina con le opzioni per selezionare i membri che si desidera rendere idonei per i ruoli](./media/pim-security-wizard/convert-members-eligible.png)
 
 1. Dopo avere selezionato i membri, fare clic su **Avanti**.
 
-    ![Verificare le modifiche](./media/pim-security-wizard/review-changes.png)
+    ![Pagina di revisione delle modifiche che mostra i membri con assegnazioni di ruolo permanenti che verranno convertite](./media/pim-security-wizard/review-changes.png)
 
 1. Fare clic su **OK** per convertire le assegnazioni permanenti in idonee.
 
     Al termine della conversione, verrà visualizzata una notifica.
 
-    ![Notifiche](./media/pim-security-wizard/notification-completion.png)
+    ![Notifica che indica che lo stato di conversione](./media/pim-security-wizard/notification-completion.png)
 
 Se è necessario convertire altre assegnazioni di ruolo con privilegi in idonee, è possibile eseguire nuovamente la procedura guidata. Se si vuole usare l'interfaccia PIM invece la procedura guidata, vedere [assegnare i ruoli di Azure AD in PIM](pim-how-to-add-role-to-user.md).
 

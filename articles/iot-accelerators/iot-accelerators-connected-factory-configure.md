@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 042277899ff22066cfa890e64f5c6c0f2e0134f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3ddbf5832424cdafad2c29254f51754203c7f079
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080465"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428308"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurare l'acceleratore di soluzioni Fabbrica connessa
 
@@ -29,7 +29,7 @@ Ogni fabbrica Contoso ha linee di produzione costituite da tre stazioni ognuna. 
 * Stazione di test
 * Stazione di imballaggio
 
-Questi server OPC UA hanno nodi OPC UA e il [server di pubblicazione OPC](https://github.com/Azure/iot-edge-opc-publisher) invia i valori di questi nodi a Fabbrica connessa. Sono inclusi:
+Questi server OPC UA hanno nodi OPC UA e il [server di pubblicazione OPC](overview-opc-publisher.md) invia i valori di questi nodi a Fabbrica connessa. Sono inclusi:
 
 * Stato operativo corrente, ad esempio il consumo di energia corrente.
 * Informazioni relative alla produzione, ad esempio il numero di articoli prodotti.
@@ -264,10 +264,10 @@ Tutte le proprietà usate nel file di configurazione possono essere raggruppate 
 
 Le proprietà in questa categoria definiscono l'aspetto visivo del dashboard di Fabbrica connessa. Tra gli esempi sono inclusi:
 
-* Name
+* NOME
 * Descrizione
 * Image
-* Località
+* Location
 * Unità
 * Visible
 
@@ -307,7 +307,7 @@ Per alcune operazioni, ad esempio la visualizzazione dell'ultimo valore o la cre
 
   Identifica il valore del nodo nel server OPC UA. Il formato della proprietà deve essere quello indicato nella specifica OPC UA. Nei messaggi inseriti questa proprietà viene inviata come **NodeId**.
 
-Vedere [questa](https://github.com/Azure/iot-edge-opc-publisher) pagina di GitHub per altre informazioni sulla modalità di inserimento dei dati di telemetria in Fabbrica connessa tramite il server di pubblicazione OPC.
+Visualizzare [What ' s server di pubblicazione OPC](overview-opc-publisher.md) per altre informazioni sul modo in cui i dati di telemetria vengono inseriti per Connected Factory.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Esempio: modalità di calcolo dell'indicatore KPI1
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 906024ecb3e95c75c45efddafbbf76944c6aea29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 80739fac8317014c74c6a86cef9aa23696cfb42e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058076"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442991"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale
 
@@ -72,7 +72,8 @@ Per eseguire il backup di macchine virtuali di Azure, Backup di Azure installa u
 
 
 > [!NOTE]
-> Servizio Backup di Azure consente di creare un gruppo di risorse separato (diverso dal gruppo di risorse della macchina virtuale) per archiviare lo snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (esempio: AzureBackupRG_northeurope_1). I dati nel gruppo di risorse verranno mantenuti per la durata in giorni come specificato nella sezione "Snapshot di ripristino istantaneo Mantieni" del criterio di Backup di macchine virtuali di Azure. Applicare un blocco a questo gruppo di risorse può causare errori di backup.
+> Servizio Backup di Azure consente di creare un gruppo di risorse separato (diverso dal gruppo di risorse della macchina virtuale) per archiviare lo snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (esempio: AzureBackupRG_northeurope_1). I dati nel gruppo di risorse verranno mantenuti per la durata in giorni come specificato nella sezione "Snapshot di ripristino istantaneo Mantieni" del criterio di Backup di macchine virtuali di Azure. Applicare un blocco a questo gruppo di risorse può causare errori di backup.<br>
+Questo gruppo di risorse deve essere esclusi anche dalla eventuali restrizioni/tag del nome come un criterio di restrizione bloccherà la creazione di raccolte di punti di risorse in esso nuovamente causando errori di backup.
 
 
 ## <a name="run-a-backup-immediately"></a>Eseguire immediatamente un backup

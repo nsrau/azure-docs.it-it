@@ -6,14 +6,14 @@ author: trinadhk
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 06/24/2019
 ms.author: trinadhk
-ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 6ca4de7dfb948f49ebf1c91e29cc0537e67a3c21
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253718"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436212"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure
 Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione specifica degli accessi per Azure. Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
@@ -23,7 +23,7 @@ Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione
 
 Backup di Azure offre tre ruoli predefiniti per controllare le operazioni di gestione di backup. Maggiori informazioni sui [ruoli predefiniti del Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md)
 
-* [Collaboratore di backup](../role-based-access-control/built-in-roles.md#backup-contributor): questo ruolo dispone di tutte le autorizzazioni per creare e gestire il backup, ad eccezione delle autorizzazioni per la creazione dell'insieme di credenziali di Servizi di ripristino e della possibilità di fornire l'accesso ad altri utenti. Si immagini questo ruolo come amministratore della gestione di backup autorizzato a eseguire ogni operazione in tale ambito.
+* [Collaboratore di backup](../role-based-access-control/built-in-roles.md#backup-contributor) -questo ruolo ha tutte le autorizzazioni per creare e gestire il backup, ad eccezione di eliminazione dell'insieme di credenziali di servizi di ripristino e l'accesso ad altri utenti. Si immagini questo ruolo come amministratore della gestione di backup autorizzato a eseguire ogni operazione in tale ambito.
 * [Operatore di backup](../role-based-access-control/built-in-roles.md#backup-operator): questo ruolo dispone delle autorizzazioni per tutte le operazioni svolte da un collaboratore, tranne per la rimozione di backup e la gestione dei criteri di backup. Questo ruolo è equivalente al collaboratore, ma non può eseguire operazioni distruttive, ad esempio interrompere il backup con eliminazione dei dati o rimuovere la registrazione di risorse locali.
 * [Lettore di backup](../role-based-access-control/built-in-roles.md#backup-reader): questo ruolo dispone delle autorizzazioni per visualizzare tutte le operazioni di gestione di backup. Si immagini questo ruolo come una persona addetta al monitoraggio.
 
@@ -36,7 +36,7 @@ La tabella seguente riporta le azioni di gestione di Backup e il ruolo Controllo
 
 | Operazione di gestione | Ruolo RBAC minimo richiesto | Ambito necessario |
 | --- | --- | --- |
-| Creare un insieme di credenziali di Servizi di ripristino | Collaboratore | Gruppo di risorse contenente l'insieme di credenziali |
+| Creare un insieme di credenziali di Servizi di ripristino | Collaboratore di backup | Gruppo di risorse contenente l'insieme di credenziali |
 | Abilitare il backup di VM di Azure | Operatore di backup | Gruppo di risorse contenente l'insieme di credenziali |
 | | Collaboratore macchine virtuali | Risorsa della VM |
 | Backup su richiesta della VM | Operatore di backup | Risorsa dell'insieme di credenziali di ripristino |

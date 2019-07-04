@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 6/13/2019
+ms.date: 6/27/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: d9bbc76fe60a5d363cd05b75df33f6fce00d7e9a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 2399fcaa683e5807d2a5cd69d3dd3357d804fd28
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303411"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449964"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -26,7 +26,8 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 | Attività cardine | Numero di versione dell'agente | Data di rilascio | Stato |
 |----|----------------------|--------------|------------------|
 | V7 Rilascio - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 giugno 2019 | [Versioni di anteprima](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
-| Giugno 2019 aggiornamento cumulativo - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 giugno 2019 | Supportato (versione consigliata) |
+| Giugno 2019 aggiornamento cumulativo - [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 giugno 2019 | Supportato (versione consigliata) |
+| Giugno 2019 aggiornamento cumulativo - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 giugno 2019 | Supportato |
 | Maggio 2019 aggiornamento cumulativo - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 maggio 2019 | Supportato |
 | V6 Rilascio - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 aprile 2019 | Supportato |
 | Aprile 2019 aggiornamento cumulativo - [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 aprile 2019 | Supportato |
@@ -113,6 +114,14 @@ Gli elementi seguenti non vengono sincronizzati, ma il resto del sistema continu
 ### <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud
 - Se un file a più livelli viene copiato in un'altra posizione usando Robocopy, il file risultante non è suddiviso in livelli. L'attributo offline potrebbe essere impostato perché Robocopy include erroneamente tale attributo nelle operazioni di copia.
 - Quando si copiano file tramite robocopy, usare l'opzione /MIR per conservare i timestamp dei file. In questo modo i file meno recenti verranno archiviati a livelli prima dei file aperti più di recente.
+
+## <a name="agent-version-6300"></a>Versione dell'agente 6.3.0.0
+Le note seguenti si riferiscono alla versione 6.3.0.0 dell'agente sincronizzazione File di Azure dal 27 giugno 2019. Queste note si aggiungono le note sulla versione elencate per la versione 6.0.0.0.
+
+Elenco dei problemi risolti in questa versione:  
+- L'accesso o l'esplorazione di un percorso dell'endpoint server su SMB è lento in Windows Server 2012 R2 
+- Utilizzo della CPU maggiore dopo l'installazione dell'agente di sincronizzazione File di Azure v6
+- Miglioramenti della telemetria suddivisione in livelli nel cloud
 
 ## <a name="agent-version-6200"></a>Versione dell'agente 6.2.0.0
 Le note sulla versione seguenti sono per la versione 6.2.0.0 dell'agente sincronizzazione File di Azure rilasciata il 13 giugno 2019. Queste note si aggiungono le note sulla versione elencate per la versione 6.0.0.0.

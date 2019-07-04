@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f98b72d9b5e59155bb7215181fd1ecd336126ee6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60359059"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440961"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -114,7 +114,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D:  In che modo è possibile spiegare agli utenti come fare per reimpostare le proprie password?**
 
-  > **R:** Provare alcuni dei suggerimenti contenuti nell'articolo relativo alla [distribuzione della reimpostazione della password self-service](howto-sspr-deployment.md#sample-communication).
+  > **R:** Provare alcuni dei suggerimenti contenuti nell'articolo relativo alla [distribuzione della reimpostazione della password self-service](howto-sspr-deployment.md#communications-plan).
   >
   >
 * **D:  Questa pagina può essere usata da un dispositivo mobile?**

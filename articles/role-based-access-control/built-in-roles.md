@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 06/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5a63053cc7fa1c1c86669ce2cea56b68f1a7b4b6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b92bc0a6c5d51ad26e069a363619edbdf0daa7c0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341499"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442878"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ruoli predefiniti per le risorse di Azure
 
@@ -54,11 +54,17 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 | [Operatore runbook di automazione](#automation-runbook-operator) | Consente di leggere le proprietà del runbook per permettere di creare processi del runbook. |
 | [Collaboratore di avere](#avere-contributor) | Creare e gestire un cluster di vFXT Avere. |
 | [Operatore di avere](#avere-operator) | Usato dal cluster vFXT Avere per gestire il cluster |
+| [Proprietario dei dati di hub eventi di Azure (anteprima)](#azure-event-hubs-data-owner-preview) | Consente l'accesso completo alle risorse di hub eventi di Azure. |
+| [Ricevitore di dati di hub eventi di Azure (anteprima)](#azure-event-hubs-data-receiver-preview) | Consente di ricevere l'accesso alle risorse di hub eventi di Azure. |
+| [Mittente dei dati di hub eventi di Azure (anteprima)](#azure-event-hubs-data-sender-preview) | Consente l'accesso di trasmissione alle risorse di hub eventi di Azure. |
 | [Ruolo di amministratore del cluster del servizio Azure Kubernetes](#azure-kubernetes-service-cluster-admin-role) | Elencare l'azione delle credenziali di amministratore del cluster. |
 | [Ruolo di utente del cluster del servizio Azure Kubernetes](#azure-kubernetes-service-cluster-user-role) | Elencare l'azione delle credenziali di utente del cluster. |
 | [Lettore di dati di mappe di Azure (anteprima)](#azure-maps-data-reader-preview) | Concede l'accesso per la lettura eseguire il mapping di dati correlati tratti da un account mappe di Azure. |
+| [Proprietario dei dati del Bus di servizio di Azure (anteprima)](#azure-service-bus-data-owner-preview) | Consente l'accesso completo alle risorse del Bus di servizio di Azure. |
+| [Ricevitore di dati del Bus di servizio di Azure (anteprima)](#azure-service-bus-data-receiver-preview) | Consente di ricevere l'accesso alle risorse del Bus di servizio di Azure. |
+| [Mittente di dati del Bus di servizio di Azure (anteprima)](#azure-service-bus-data-sender-preview) | Consente l'accesso di trasmissione alle risorse del Bus di servizio di Azure. |
 | [Proprietario della registrazione di Azure Stack](#azure-stack-registration-owner) | Consente di gestire le registrazioni di Azure Stack. |
-| [Collaboratore di backup](#backup-contributor) | Consente di gestire il servizio di backup, ma non di creare insiemi di credenziali e concedere l'accesso ad altri utenti. |
+| [Collaboratore di backup](#backup-contributor) | Consente di che gestire servizio di backup, ma non è possibile creare insiemi di credenziali e concedere l'accesso ad altri utenti |
 | [Operatore di backup](#backup-operator) | Consente di gestire i servizi di backup, ma non di rimuovere il backup, creare insiemi di credenziali e concedere l'accesso ad altri utenti. |
 | [Lettore di backup](#backup-reader) | Può visualizzare i servizi di backup, ma non può apportare modifiche. |
 | [Lettore per la fatturazione](#billing-reader) | Consente l'accesso in lettura ai dati di fatturazione. |
@@ -88,7 +94,6 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 | [Utente DevTest Labs](#devtest-labs-user) | Consente di connettere, avviare, riavviare e arrestare le macchine virtuali in Azure DevTest Labs. |
 | [Collaboratore zona DNS](#dns-zone-contributor) | Consente di gestire le zone DNS e i set di record in DNS di Azure, ma non di controllare chi è autorizzato ad accedervi. |
 | [Collaboratore account DocumentDB](#documentdb-account-contributor) | È in grado di gestire account Azure Cosmos DB. Azure Cosmos DB era precedentemente noto come DocumentDB. |
-| [Proprietario dei dati di hub eventi](#event-hubs-data-owner) | Consente di accedere alle risorse di hub eventi di Azure | 
 | [Collaboratore per sottoscrizioni di eventi di Griglia di eventi](#eventgrid-eventsubscription-contributor) | Consente di gestire le operazioni di sottoscrizione di eventi EventGrid. |
 | [Ruolo con autorizzazioni di lettura per sottoscrizioni di eventi di Griglia di eventi](#eventgrid-eventsubscription-reader) | Consente di leggere le sottoscrizioni di eventi EventGrid. |
 | [Operatore del Cluster HDInsight](#hdinsight-cluster-operator) | Consente di leggere e modificare le configurazioni dei cluster HDInsight. |
@@ -119,7 +124,6 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 | [Amministrazione della protezione](#security-admin) | Solo in Centro sicurezza: è possibile visualizzare i criteri di sicurezza e gli stati di sicurezza, modificare i criteri di sicurezza, visualizzare gli avvisi e le raccomandazioni, ignorare gli avvisi e le raccomandazioni |
 | [Gestore sicurezza (legacy)](#security-manager-legacy) | Questo è un ruolo legacy. Usare invece Amministratore della protezione |
 | [Ruolo con autorizzazioni di lettura per la sicurezza](#security-reader) | Solo in Centro sicurezza: è possibile visualizzare raccomandazioni, avvisi, criteri di sicurezza e stati di sicurezza, ma non è possibile apportare modifiche |
-| [Proprietario dei dati del Bus di servizio](#service-bus-data-owner) | Consente l'accesso completo alle risorse del Bus di servizio di Azure |
 | [Collaboratore al ripristino sito](#site-recovery-contributor) | Consente di gestire il servizio Site Recovery ad eccezione della creazione dell'insieme di credenziali e dell'assegnazione di ruolo. |
 | [Operatore del ripristino sito](#site-recovery-operator) | Consente di eseguire il failover e il failback ma non di eseguire altre operazioni di gestione di Site Recovery. |
 | [Reader di ripristino sito](#site-recovery-reader) | Consente di visualizzare lo stato di Site Recovery ma non di eseguire altre operazioni di gestione. |
@@ -130,15 +134,15 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 | [Collaboratore di istanza gestita di SQL](#sql-managed-instance-contributor) | Consente di gestire le istanze gestite di SQL e necessaria la configurazione di rete, ma non è possibile concedere l'accesso ad altri utenti. |
 | [Gestione della sicurezza SQL](#sql-security-manager) | Consente di gestire i criteri relativi alla sicurezza di server e database SQL, ma non di accedervi. |
 | [Collaboratore SQL Server](#sql-server-contributor) | Consente di gestire i server e i database SQL, ma non di accedervi né di gestirne i criteri relativi alla sicurezza. |
-| [Collaboratore account di archiviazione](#storage-account-contributor) | Consente di gestire gli account di archiviazione, ma non di accedervi. |
-| [Ruolo del servizio dell'operatore della chiave dell'account di archiviazione](#storage-account-key-operator-service-role) | Gli operatori della chiave dell'account di archiviazione sono autorizzati a elencare e rigenerare le chiavi negli account di archiviazione |
-| [Collaboratore ai dati del BLOB di archiviazione](#storage-blob-data-contributor) | Consente l'accesso in lettura, scrittura ed eliminazione ai contenitori BLOB e ai dati di Archiviazione di Azure |
-| [Proprietario dei dati del BLOB di archiviazione](#storage-blob-data-owner) | Consente di ottenere l'accesso completo ai contenitori e ai dati dei BLOB di Archiviazione di Azure, inclusa l'assegnazione del controllo di accesso POSIX. |
-| [Lettore dei dati del BLOB di archiviazione](#storage-blob-data-reader) | Consente l'accesso in lettura ai contenitori BLOB e ai dati di Archiviazione di Azure |
-| [Collaboratore ai dati della coda di archiviazione](#storage-queue-data-contributor) | Consente l'accesso in lettura, scrittura ed eliminazione alle code e ai messaggi delle code di Archiviazione di Azure |
-| [Processore di messaggi dati della coda di archiviazione](#storage-queue-data-message-processor) | Consente di visualizzare l'anteprima, ricevere ed eliminare l'accesso ai messaggi della coda di Archiviazione di Azure |
-| [Mittente del messaggio di dati di archiviazione coda](#storage-queue-data-message-sender) | Consente l'invio di messaggi della coda di Archiviazione di Azure |
-| [Lettore di dati della coda di archiviazione](#storage-queue-data-reader) | Consente l'accesso in lettura alle code e ai messaggi delle code di Archiviazione di Azure |
+| [Collaboratore account di archiviazione](#storage-account-contributor) | La gestione degli account di archiviazione. Non fornisce l'accesso ai dati nell'account di archiviazione. |
+| [Ruolo del servizio dell'operatore della chiave dell'account di archiviazione](#storage-account-key-operator-service-role) | Consente di elencare e rigenerare chiavi di accesso di account di archiviazione. |
+| [Collaboratore ai dati del BLOB di archiviazione](#storage-blob-data-contributor) | Leggere, scrivere ed eliminare i BLOB e contenitori di archiviazione di Azure. Per informazioni su quali azioni sono necessari per una determinata operazione sui dati, vedere [le autorizzazioni per la chiamata di operazioni sui dati blob e coda](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Proprietario dei dati del BLOB di archiviazione](#storage-blob-data-owner) | Fornisce accesso completo ai contenitori blob di archiviazione di Azure e i dati, inclusa l'assegnazione di controllo di accesso POSIX. Per informazioni su quali azioni sono necessari per una determinata operazione sui dati, vedere [le autorizzazioni per la chiamata di operazioni sui dati blob e coda](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Lettore dei dati del BLOB di archiviazione](#storage-blob-data-reader) | Leggere ed elencare i BLOB e contenitori di archiviazione di Azure. Per informazioni su quali azioni sono necessari per una determinata operazione sui dati, vedere [le autorizzazioni per la chiamata di operazioni sui dati blob e coda](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Collaboratore ai dati della coda di archiviazione](#storage-queue-data-contributor) | Leggere, scrivere ed eliminare le code di archiviazione di Azure e i messaggi in coda. Per informazioni su quali azioni sono necessari per una determinata operazione sui dati, vedere [le autorizzazioni per la chiamata di operazioni sui dati blob e coda](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Processore di messaggi dati della coda di archiviazione](#storage-queue-data-message-processor) | Visualizza, recuperare ed eliminare un messaggio da una coda di archiviazione di Azure. Per informazioni su quali azioni sono necessari per una determinata operazione sui dati, vedere [le autorizzazioni per la chiamata di operazioni sui dati blob e coda](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Mittente del messaggio di dati di archiviazione coda](#storage-queue-data-message-sender) | Aggiungere messaggi a una coda di archiviazione di Azure. Per informazioni su quali azioni sono necessari per una determinata operazione sui dati, vedere [le autorizzazioni per la chiamata di operazioni sui dati blob e coda](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Lettore di dati della coda di archiviazione](#storage-queue-data-reader) | Leggere ed elencare le code di archiviazione di Azure e i messaggi in coda. Per informazioni su quali azioni sono necessari per una determinata operazione sui dati, vedere [le autorizzazioni per la chiamata di operazioni sui dati blob e coda](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Collaboratore alla richiesta di supporto](#support-request-contributor) | Consente di creare e gestire le richieste di supporto. |
 | [Collaboratore Gestione traffico](#traffic-manager-contributor) | Consente di gestire i profili di Gestione traffico, ma non di controllare chi è autorizzato ad accedervi. |
 | [Amministratore accessi utente](#user-access-administrator) | Consente di gestire gli accessi utente alle risorse di Azure. |
@@ -548,6 +552,51 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
+## <a name="azure-event-hubs-data-owner-preview"></a>Proprietario dei dati di hub eventi di Azure (anteprima)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente l'accesso completo alle risorse di hub eventi di Azure. |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **Actions** |  |
+> | Microsoft.EventHub/* |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
+## <a name="azure-event-hubs-data-receiver-preview"></a>Ricevitore di dati di hub eventi di Azure (anteprima)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente di ricevere l'accesso alle risorse di hub eventi di Azure. |
+> | **Id** | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
+> | **Actions** |  |
+> | Microsoft.EventHub/*/eventhubs/consumergroups/read |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/*/receive/action |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
+## <a name="azure-event-hubs-data-sender-preview"></a>Mittente dei dati di hub eventi di Azure (anteprima)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente l'accesso di trasmissione alle risorse di hub eventi di Azure. |
+> | **Id** | 2b629674-e913-4c01-ae53-ef4638d8f975 |
+> | **Actions** |  |
+> | Microsoft.EventHub/*/eventhubs/read |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/*/send/action |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
 ## <a name="azure-kubernetes-service-cluster-admin-role"></a>Ruolo di amministratore del cluster del servizio Azure Kubernetes
 > [!div class="mx-tableFixed"]
 > | | |
@@ -593,6 +642,55 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
+## <a name="azure-service-bus-data-owner-preview"></a>Proprietario dei dati del Bus di servizio di Azure (anteprima)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente l'accesso completo alle risorse del Bus di servizio di Azure. |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **Actions** |  |
+> | Microsoft.ServiceBus/* |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
+## <a name="azure-service-bus-data-receiver-preview"></a>Ricevitore di dati del Bus di servizio di Azure (anteprima)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente di ricevere l'accesso alle risorse del Bus di servizio di Azure. |
+> | **Id** | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
+> | **Actions** |  |
+> | Microsoft.ServiceBus/*/queues/read |  |
+> | Microsoft.ServiceBus/*/topics/read |  |
+> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/*/receive/action |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
+## <a name="azure-service-bus-data-sender-preview"></a>Mittente di dati del Bus di servizio di Azure (anteprima)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente l'accesso di trasmissione alle risorse del Bus di servizio di Azure. |
+> | **Id** | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
+> | **Actions** |  |
+> | Microsoft.ServiceBus/*/queues/read |  |
+> | Microsoft.ServiceBus/*/topics/read |  |
+> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/*/send/action |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
 ## <a name="azure-stack-registration-owner"></a>Proprietario della registrazione di Azure Stack
 > [!div class="mx-tableFixed"]
 > | | |
@@ -625,7 +723,6 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Aggiorna l'elenco di contenitori |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Consente di creare e gestire i processi di backup |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Esporta processi |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Consente di creare e gestire i metadati relativi alla gestione di backup |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Consente di creare e gestire i risultati delle operazioni di gestione di backup |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Consente di creare e gestire i criteri di backup |
@@ -691,7 +788,6 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Aggiorna l'elenco di contenitori |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Consente di creare e gestire i processi di backup |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Esporta processi |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Consente di creare e gestire i risultati delle operazioni di gestione di backup |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Ottiene i risultati dell'operazione sui criteri. |
@@ -758,7 +854,6 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Restituisce il risultato dell'operazione di processo. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Restituisce tutti gli oggetti processo |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Esporta processi |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Restituisce il risultato dell'operazione di backup di un insieme di credenziali di Servizi di ripristino. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Ottiene i risultati dell'operazione sui criteri. |
@@ -1409,22 +1504,6 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
-## <a name="event-hubs-data-owner"></a>Proprietario dei dati di hub eventi
-
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Descrizione** | Consente l'accesso completo alle risorse di hub eventi di Azure. |
-> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
-> | **Actions** |  |
-> | Microsoft.EventHubs/* | Consente l'accesso di gestione completa per lo spazio dei nomi di hub eventi |
-> | **NotActions** |  |
-> | *nessuna* |  |
-> | **DataActions** |  |
-> | Microsoft.EventHubs/* | Consente l'accesso completo a nomi di hub eventi |
-> | **NotDataActions** |  |
-> | *nessuna* |  |
-
 ## <a name="eventgrid-eventsubscription-contributor"></a>Collaboratore per sottoscrizioni di eventi di Griglia di eventi
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1721,9 +1800,9 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **Descrizione** | Crea, legge, aggiorna ed elimina l'identità assegnata all'utente |
 > | **Id** | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | **Actions** |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/write |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/delete |  |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/read | Ottiene l'identità assegnata a un utente esistente |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/write | Crea una nuova identità assegnata a un utente esistente o aggiorna i tag associati a un'identità assegnata a un utente esistente |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/delete | Elimina l'identità assegnata a un utente esistente |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
@@ -2073,22 +2152,6 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | *nessuna* |  |
 > | **DataActions** |  |
 > | *nessuna* |  |
-> | **NotDataActions** |  |
-> | *nessuna* |  |
-
-## <a name="service-bus-data-owner"></a>Proprietario dei dati del Bus di servizio
-
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Descrizione** | Consente l'accesso completo alle risorse del Bus di servizio di Azure. |
-> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
-> | **Actions** |  |
-> | Microsoft.ServiceBus/* | Consente l'accesso di gestione completa per lo spazio dei nomi del Bus di servizio |
-> | **NotActions** |  |
-> | *nessuna* |  |
-> | **DataActions** |  |
-> | Microsoft.ServiceBus/* | Consente l'accesso completo ai dati allo spazio dei nomi del Bus di servizio |
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 

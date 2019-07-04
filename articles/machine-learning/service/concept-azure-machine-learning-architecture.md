@@ -10,36 +10,44 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0181eea2895dbc2b3db3367c850140e3fad21d4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 2196e375db582202997b838d05c902db95b3a3ad
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331716"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461482"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Come funziona il servizio Azure Machine Learning: Architettura e concetti
 
 Informazioni sui concetti, architettura e flusso di lavoro per il servizio di Azure Machine Learning. Il diagramma seguente illustra i componenti principali del servizio e il flusso di lavoro generale durante il suo uso:
 
-[![Architettura e flusso di lavoro del servizio Azure Machine Learning](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+![Flusso di lavoro e l'architettura del servizio azure Machine Learning](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 ## <a name="workflow"></a>Flusso di lavoro
 
-Il flusso di lavoro di machine learning in genere segue questa sequenza:
+Il machine learning a livello generale del flusso di lavoro modello segue questa sequenza:
 
-1. Sviluppare script di training di apprendimento **Python** o con l'interfaccia visiva.
-1. Creare e configurare una **destinazione di calcolo**.
-1. **Inviare gli script** alla destinazione di calcolo configurata per l'esecuzione in tale ambiente. Durante il training, gli script possono leggere o scrivere nell'**archivio dati**. I record di esecuzione inoltre vengono salvati come **esecuzioni** nell'**area di lavoro** e raggruppati negli **esperimenti**.
-1. **Eseguire una query sull'esperimento** per le metriche registrate dalle esecuzioni correnti e precedenti. Se le metriche non indicano un risultato desiderato, tornare al passaggio 1 ed eseguire l'iterazione sugli script.
-1. Una volta trovata un'esecuzione soddisfacente, registrare il modello persistente nel **registro di modello**.
-1. Sviluppare uno script di assegnazione dei punteggi che utilizza il modello e **distribuire il modello** come una **servizio web** in Azure o in un **dispositivo IoT Edge**.
+1. **eseguire il training**
+    + Sviluppare script di training di apprendimento **Python** o con l'interfaccia visiva.
+    + Creare e configurare una **destinazione di calcolo**.
+    + **Inviare gli script** alla destinazione di calcolo configurata per l'esecuzione in tale ambiente. Durante il training, gli script possono leggere o scrivere nell'**archivio dati**. I record di esecuzione inoltre vengono salvati come **esecuzioni** nell'**area di lavoro** e raggruppati negli **esperimenti**.
 
-Eseguire questi passaggi con una qualsiasi delle operazioni seguenti:
-+ [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-+ [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
-+ [Estensione di Azure Machine Learning Visual Studio Code](how-to-vscode-tools.md)
-+  Il [interfaccia visiva (anteprima) per il servizio di Azure Machine Learning](ui-concept-visual-interface.md)
+1. **Pacchetto** : quando viene trovata un'esecuzione soddisfacente, registrare il modello persistente nel **registro modello**.
 
+1. **Convalidare** - **eseguire una Query dell'esperimento** per metriche registrate dalle esecuzioni correnti e precedenti. Se le metriche non indicano un risultato desiderato, tornare al passaggio 1 ed eseguire l'iterazione sugli script.
+
+1. **Deploy** -sviluppare uno script di assegnazione dei punteggi che utilizza il modello e **distribuire il modello** come un **servizio web** in Azure o a un **dispositivo IoT Edge**.
+
+1. **Monitorare** -esegue il monitoraggio **dati sfasamento** tra i dati di training set di dati e l'inferenza di un modello distribuito. Quando necessario, un ciclo per eseguire il passaggio 1 per ripetere il training del modello con nuovi dati di training.
+
+## <a name="tools-for-azure-machine-learning"></a>Strumenti per Azure Machine Learning 
+
+Usare questi strumenti per Azure Machine Learning:
+
++  Interagire con il servizio in qualsiasi ambiente di Python con il [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++ Automatizzare il machine learning le attività con il [di Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
++ Scrivere codice in Visual Studio Code con [estensione di Visual Studio Code di Azure Machine Learning](how-to-vscode-tools.md) 
++ Usare la [interfaccia visiva (anteprima) per il servizio di Azure Machine Learning](ui-concept-visual-interface.md) per eseguire i passaggi del flusso di lavoro senza scrivere codice.
 
 ## <a name="glossary-of-concepts"></a>Glossario dei concetti
 

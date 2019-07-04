@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 579d50a95ad0e478f401b7db012e7c743ce58491
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a434101a806a810218927cbf0bc24fa0d22c5628
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730453"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488657"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push con Hub di notifica di Azure: Domande frequenti
 
@@ -69,7 +69,7 @@ Gli SDK server sono disponibili per .NET, Java, Node.js, PHP e Python. Le API di
 
 ### <a name="which-client-platforms-do-you-support"></a>Quali piattaforme client sono supportate?
 
-Le notifiche push sono supportate per [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e Android, e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Per altre informazioni, vedere la pagina [Esercitazioni introduttive si Hub di notifica].
+Le notifiche push sono supportate per [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China ( via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e Android, e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Per altre informazioni, vedere la pagina [Esercitazioni introduttive si Hub di notifica].
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Sono supportate le notifiche via SMS, messaggi di posta elettronica o Web?
 
@@ -85,7 +85,7 @@ Se si ha già un back-end dell'app per dispositivi mobili e si vuole solo aggiun
 
 Per informazioni dettagliate sul numero di dispositivi supportati, vedere la pagina [Prezzi di Hub di notifica].
 
-Se è necessario il supporto per più di 10 milioni di dispositivi registrati, [contattare direttamente il supporto di Azure](https://azure.microsoft.com/overview/contact-us/) per informazioni su come ridimensionare la soluzione.
+Se ti serve supporto per più di 10 milioni di dispositivi registrati, è necessario partizionare i dispositivi in più istanze di hub.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>Quante notifiche push si può inviare?
 

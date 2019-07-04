@@ -10,17 +10,20 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: cynthn
-ms.openlocfilehash: 56c0e906203a010a1356beae4b6e5d66e34cfc2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b3c4e5380c65b2ab6c736e7fabe1813fe32afc2
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159841"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466492"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Condividere le immagini di macchina virtuale di raccolta tra i tenant di Azure
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
+
+> [!IMPORTANT]
+> È possibile usare il portale per distribuire una macchina virtuale da un'immagine in un altro tenant di azure. Per creare una macchina virtuale da un'immagine condivise tra i tenant, è necessario usare il [CLI Azure](../linux/share-images-across-tenants.md) o Powershell.
 
 ## <a name="create-a-vm-using-powershell"></a>Creare una VM usando PowerShell
 

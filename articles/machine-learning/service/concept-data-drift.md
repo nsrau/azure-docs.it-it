@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cody-dkdc
 ms.author: copeters
 ms.date: 06/20/2019
-ms.openlocfilehash: 56761c32484d4f5b27800e56143c62d3731da852
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: a03e3124647869e7148f271810bb523986a851c6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332541"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442376"
 ---
 # <a name="what-is-data-drift-monitoring-preview"></a>Che cos'è data deviano monitoring (anteprima)?
 
@@ -37,7 +37,7 @@ Se si ritiene che i dati di input per il modello distribuito potrebbero cambiare
 
 ## <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Modo in cui viene monitorato lo sfasamento di dati nel servizio Azure Machine Learning
 
-Usando **servizio di Azure Machine Learning**, lo sfasamento di dati viene monitorato tramite i set di dati o le distribuzioni. Per il monitoraggio sfasamento di dati, viene specificato un set di dati della linea di base - generalmente il training set di dati per un modello. Un secondo set di dati - in genere i dati di input modello raccolti da una distribuzione - è testata con il set di dati della linea di base. Entrambi i set di dati [profilate](how-to-create-dataset-snapshots.md) e servizio di monitoraggio dello sfasamento di input per i dati. Viene eseguito il training di un modello di machine learning per rilevare le differenze tra due set di dati. Le prestazioni del modello viene convertita nel coefficiente di deviazione, che misura la grandezza di deviazione tra due set di dati. Usando [interpretazione del modello](machine-learning-interpretability-explainability.md) vengono calcolate le funzionalità che hanno contribuito al coefficiente di deviazione. Dal profilo del set di dati, vengano tenuta traccia informazioni statistiche su ognuna delle funzionalità. 
+Usando **servizio di Azure Machine Learning**, lo sfasamento di dati viene monitorato tramite i set di dati o le distribuzioni. Per il monitoraggio sfasamento di dati, viene specificato un set di dati della linea di base - generalmente il training set di dati per un modello. Un secondo set di dati - in genere i dati di input modello raccolti da una distribuzione - è testata con il set di dati della linea di base. Entrambi i set di dati [profilate](how-to-explore-prepare-data.md#explore-with-summary-statistics) e servizio di monitoraggio dello sfasamento di input per i dati. Viene eseguito il training di un modello di machine learning per rilevare le differenze tra due set di dati. Le prestazioni del modello viene convertita nel coefficiente di deviazione, che misura la grandezza di deviazione tra due set di dati. Usando [interpretazione del modello](machine-learning-interpretability-explainability.md) vengono calcolate le funzionalità che hanno contribuito al coefficiente di deviazione. Dal profilo del set di dati, vengano tenuta traccia informazioni statistiche su ognuna delle funzionalità. 
 
 ## <a name="data-drift-metric-output"></a>Output lo sfasamento dei dati di metrica
 

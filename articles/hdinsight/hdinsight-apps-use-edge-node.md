@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: hrasheed
-ms.openlocfilehash: ee9b5b651f440bc7d179b1a06c7ddbd3f9137a0d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 41313c7d484df5568fbf729b683a0e9df5325abc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165909"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433742"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Usare i nodi perimetrali vuoti sui cluster Apache Hadoop in HDInsight
 
@@ -108,7 +108,7 @@ In questa sezione si userà un modello di Resource Manager per creare un cluster
    * **Password dell'account di accesso del cluster**: immettere la password utente HTTP di Hadoop.
    * **Nome utente SSH**: immettere il nome utente SSH. Il nome predefinito è **sshuser**.
    * **Password SSH**: immettere la password utente SSH.
-   * **Install Script Action** (Installa azione script): per eseguire questa esercitazione mantenere il valore predefinito.
+   * **Install Script Action** (Installa azione script): Mantenere il valore predefinito per completare questo articolo.
      
      Alcune proprietà sono state impostate come hardcoded nel modello: il tipo di cluster, il numero di nodi di ruolo di lavoro del cluster, le dimensioni e il nome del nodo perimetrale.
 4. Selezionare **Accetto le condizioni riportate sopra** e quindi fare clic su **Acquista** per creare il cluster con il nodo perimetrale.

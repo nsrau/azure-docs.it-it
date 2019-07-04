@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: fa82725174645a0e5f1d957d8423c97547682542
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 489c94f37b6c88db001dee437cc6ed89383e6053
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065491"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442171"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per sviluppatori di Azure PowerShell di funzioni
 
@@ -58,7 +58,7 @@ PSFunctionApp
 
 Nella radice del progetto, vi è condivisa [ `host.json` ](functions-host-json.md) file che può essere usato per configurare l'app per le funzioni. Ogni funzione dispone di una cartella con il proprio file di codice (con estensione ps1) e file di configurazione di associazione (`function.json`). Il nome della directory padre del file Function. JSON è sempre il nome della funzione.
 
-Alcune associazioni richiedono la presenza di un `extensions.csproj` file. Associazione di estensioni, obbligatorio in [versione 2.x](functions-versions.md) del runtime di funzioni, definite nel `extensions.csproj` file, con i file di libreria effettivo nel `bin` cartella. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
+Alcune associazioni richiedono la presenza di un `extensions.csproj` file. Associazione di estensioni, obbligatorio in [versione 2.x](functions-versions.md) del runtime di funzioni, definite nel `extensions.csproj` file, con i file di libreria effettivo nel `bin` cartella. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
 
 Nelle app di funzione di PowerShell, potrebbe essere facoltativamente un `profile.ps1` che viene eseguita all'avvio di un'app per le funzioni per l'esecuzione (in caso contrario, conosciuto come un  *[avvio a freddo](#cold-start)* . Per altre informazioni, vedere [profilo PowerShell](#powershell-profile).
 
@@ -133,9 +133,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Di seguito sono i parametri validi per la chiamata `Push-OutputBinding`:
 
-| Name | Type | Posizione | Descrizione |
+| NOME | Type | Posizione | Descrizione |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | Il nome dell'associazione di output a cui si desidera impostare. |
+| **`-Name`** | string | 1 | Il nome dell'associazione di output a cui si desidera impostare. |
 | **`-Value`** | Object | 2 | Il valore dell'associazione di output si desidera impostare, che è accettato dalla pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | denominata | (Facoltativo) Quando specificato, se ne determina il valore da impostare per un'associazione di output specificato. | 
 

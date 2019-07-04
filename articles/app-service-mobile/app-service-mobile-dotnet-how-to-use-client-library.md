@@ -3,7 +3,7 @@ title: Uso della libreria client gestita di app per dispositivi mobili del servi
 description: Informazioni su come usare una libreria client .NET per App per dispositivi mobili del servizio app di Azure con le app Windows e Xamarin.
 services: app-service\mobile
 documentationcenter: ''
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
@@ -12,23 +12,28 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: crdun
-ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: af0a4af2bec29e68175d2e15203a02507f08bfeb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119304"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446349"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Come usare il client gestito per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-dotnet-how-to-use-client-library) oggi stesso.
+>
+
 ## <a name="overview"></a>Panoramica
-Questa guida illustra come eseguire scenari comuni usando la libreria client gestita per App per dispositivi mobili del servizio app di Azure in app Windows e Xamarin. Se non si conosce App per dispositivi mobili, è consigliabile completare prima l'esercitazione sull'[introduzione ad App per dispositivi mobili di Azure][1]. In questa Guida, l'attenzione è posta sull'SDK gestito sul lato client. Per altre informazioni sugli SDK lato server per le app per dispositivi mobili, vedere la documentazione per [.NET Server SDK][2] o [Node.js Server SDK][3].
+Questa guida illustra come eseguire scenari comuni usando la libreria client gestita per App per dispositivi mobili del servizio app di Azure in app Windows e Xamarin. Se non si ha familiarità con le app per dispositivi mobili, si consiglia di completare prima l'esercitazione di [introduzione alle app per dispositivi mobili][1] . In questa Guida, l'attenzione è posta sull'SDK gestito sul lato client. Per altre informazioni sugli SDK lato server per App per dispositivi mobili, vedere la documentazione per il [.NET Server SDK][2] or the
+[Node.js Server SDK][3].
 
 ## <a name="reference-documentation"></a>Documentazione di riferimento
-La documentazione di riferimento per l'SDK del client è disponibile qui: [riferimento al client .NET di app per dispositivi mobili di Azure][4].
+La documentazione di riferimento per l'SDK del client è disponibile qui: [Guida di riferimento di Azure .NET per App per dispositivi mobili client][4].
 È anche possibile trovare alcuni esempi per client nel [repository GitHub degli esempi di Azure][5].
 
 ## <a name="supported-platforms"></a>Piattaforme supportate
@@ -43,7 +48,7 @@ La piattaforma .NET supporta le seguenti piattaforme:
 L'autenticazione "flusso server" usa una visualizzazione Web per l'interfaccia utente presentata.  Se il dispositivo non è in grado di presentare una interfaccia utente con visualizzazione Web, sono necessari altri metodi di autenticazione.  Questo SDK non è quindi adatto per i dispositivi di tipo controllo o con restrizioni simili.
 
 ## <a name="setup"></a>Installazione e prerequisiti
-Si presuppone che si sia già creato e pubblicato il progetto di back-end di App per dispositivi mobili, che include almeno una tabella.  Nel codice usato in questo argomento la tabella è denominata `TodoItem` e si presenta con le colonne seguenti: `Id`, `Text` e `Complete`. Si tratta della stessa tabella creata durante l'[esercitazione introduttiva ad App per dispositivi mobili di Azure][1].
+Si presuppone che si sia già creato e pubblicato il progetto di back-end di App per dispositivi mobili, che include almeno una tabella.  Nel codice usato in questo argomento la tabella è denominata `TodoItem` e si presenta con le colonne seguenti: `Id`, `Text` e `Complete`. Si tratta della stessa tabella creata durante l' [esercitazione introduttiva alle App per dispositivi mobili][1].
 
 Il tipo sul lato client tipizzato in C# è la classe seguente:
 
@@ -60,12 +65,13 @@ public class TodoItem
 }
 ```
 
-Il valore di [JsonPropertyAttribute][6] viene usato per definire il mapping di *PropertyName* tra il campo del client e il campo della tabella.
+Il [JsonPropertyAttribute][6] viene usato per definire le *PropertyName* il mapping tra il campo del client e il campo della tabella.
 
-Per informazioni su come creare le tabelle nel back-end di App per dispositivi mobili, vedere l'argomento [.NET Server SDK][7] o [Node.js Server SDK][8]. Se il back-end delle app per dispositivi mobili è stato creato nel portale di Azure mediante l'esercitazione introduttiva, è anche possibile usare l'impostazione **Tabelle semplici** del [portale di Azure].
+Per informazioni su come creare le tabelle nel back-end dell'App per dispositivi mobili, vedere la [argomento .NET Server SDK][7]
+or the [Node.js Server SDK topic][8]. Se il back-end delle app per dispositivi mobili è stato creato nel portale di Azure mediante l'esercitazione introduttiva, è anche possibile usare l'impostazione **Tabelle semplici** del [portale di Azure].
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>Procedura: Installare il pacchetto SDK client gestito
-Per installare il pacchetto SDK gestito da client per App per dispositivi mobili da [NuGet][9] attenersi a uno dei metodi seguenti:
+Attenersi a uno dei metodi seguenti per installare il pacchetto SDK per le App per dispositivi mobili da [NuGet][9]:
 
 * **Visual Studio** Fare clic sul progetto con il pulsante destro del mouse, scegliere **Gestisci pacchetti NuGet**, cercare il pacchetto `Microsoft.Azure.Mobile.Client` e fare clic su **Installa**.
 * **Xamarin Studio** mouse sul progetto, fare clic su **Add** > **Aggiungi pacchetti NuGet**, cercare il `Microsoft.Azure.Mobile.Client` del pacchetto e quindi fare clic su **Aggiungi pacchetto** .
@@ -80,10 +86,11 @@ using Microsoft.WindowsAzure.MobileServices;
 > Si noti che tutti i pacchetti di supporto a cui fa riferimento il progetto Android devono avere la stessa versione. L'SDK presenta la dipendenza `Xamarin.Android.Support.CustomTabs` per la piattaforma Android, perciò se il progetto usa pacchetti di supporto più recenti è necessario installare questo pacchetto con la versione richiesta direttamente per evitare conflitti.
 
 ### <a name="symbolsource"></a>Procedura: Usare i simboli di debug in Visual Studio
-I simboli per lo spazio dei nomi di Microsoft.Azure.Mobile sono disponibili in [SymbolSource][10].  Per l'integrazione di SymbolSource in Visual Studio, vedere le [istruzioni di SymbolSource][11].
+I simboli per lo spazio dei nomi Microsoft sono disponibili nel [SymbolSource][10] .  Refer to the
+[SymbolSource instructions][11] per integrazione di SymbolSource in Visual Studio.
 
 ## <a name="create-client"></a>Creare il client di App per dispositivi mobili
-Il codice seguente crea l'oggetto [MobileServiceClient][12] che viene usato per accedere al back-end di App per dispositivi mobili.
+Il codice seguente consente di creare l'oggetto [MobileServiceClient][12] usato per accedere al back-end delle app per dispositivi mobili.
 
 ```csharp
 var client = new MobileServiceClient("MOBILE_APP_URL");
@@ -522,7 +529,7 @@ Le tabelle offline usano un archivio SQLite locale per archiviare dati da usare 
 
    * **Runtime di Windows 8.1:** Installare [SQLite per Windows 8.1][3].
    * **Windows Phone 8.1:** Installare [SQLite per Windows Phone 8.1][4].
-   * **Piattaforma UWP (Universal Windows Platform):** installare [SQLite per Universal Windows Platform][5].
+   * **Piattaforma Windows Universal** installare [SQLite per la Universal Windows][5].
 3. (Facoltativo). Per i dispositivi Windows fare clic su **Riferimenti** > **Aggiungi riferimento**, espandere la cartella **Windows** > **Estensioni**, quindi abilitare **SQLite for Windows Runtime** SDK con **Visual C++ 2013 Runtime for Windows** SDK.
     I nomi degli SDK di SQLite sono leggermente diversi per ogni piattaforma Windows.
 

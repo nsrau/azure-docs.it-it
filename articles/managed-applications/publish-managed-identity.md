@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: be141e208016784b689262394798012c2212ba5b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 9fb5f7a4a62c2d323059f7c0b879482e93feef2f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312242"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434856"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Applicazione gestita di Azure con identità gestita
 
@@ -323,7 +323,22 @@ Il token dell'applicazione gestita è ora possibile accedere tramite il `listTok
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
+
+{
+    "authorizationAudience": "https://management.azure.com/",
+    "userAssignedIdentities": [
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}"
+    ]
+}
 ```
+
+Parametri del corpo della richiesta:
+
+Parametro | Obbligatorio | Descrizione
+---|---|---
+authorizationAudience | *no* | L'URI ID App della risorsa di destinazione. È anche il `aud` attestazione (audience) del token emesso. Il valore predefinito è "https://management.azure.com/"
+userAssignedIdentities | *no* | L'elenco delle identità gestita assegnata dall'utente per cui recuperare un token. Se non specificato, `listTokens` restituirà i token per l'identità gestita assegnato dal sistema.
+
 
 Una risposta di esempio potrebbe essere simile:
 
@@ -345,6 +360,18 @@ Content-Type: application/json
     ]
 }
 ```
+
+La risposta conterrà una matrice dei token sotto il `value` proprietà:
+
+Parametro | Descrizione
+---|---
+access_token | Token di accesso richiesto.
+expires_in | Il numero di secondi che il token di accesso saranno valido.
+expires_on | Intervallo di tempo in cui il token di accesso scade. Ciò è rappresentato come numero di secondi dal periodo.
+not_before | Intervallo di tempo quando il token di accesso verrà applicata. Ciò è rappresentato come numero di secondi dal periodo.
+authorizationAudience | Il `aud` (audience) il token di accesso è stata richiesta per. Questo è lo stesso come quello fornito nella `listTokens` richiesta.
+resourceId | L'ID di risorsa di Azure per il token emesso. Questo è l'ID dell'applicazione gestita o l'ID identità assegnata dall'utente.
+token_type | Il tipo del token.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

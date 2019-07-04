@@ -7,12 +7,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8227ff0c56e147db66c4cdc93083d671b08d1d98
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142818"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433410"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux
 
@@ -26,7 +26,7 @@ Informazioni su come usare Apache Oozie con Apache Hadoop in Azure HDInsight. Oo
 Oozie può anche essere usato per pianificare processi specifici di un sistema, come programmi Java o script della shell.
 
 > [!NOTE]  
-> Per definire i flussi di lavoro con HDInsight, è anche possibile usare Azure Data Factory. Per altre informazioni su Azure Data Factory, vedere [Trasformare i dati in Azure Data Factory][azure-data-factory-pig-hive]. Per usare Oozie nei cluster con Enterprise Security Package, vedere [Eseguire Apache Oozie nei cluster HDInsight Hadoop con Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
+> Per definire i flussi di lavoro con HDInsight, è anche possibile usare Azure Data Factory. Per altre informazioni su Data Factory, vedere [usare Apache Pig e Apache Hive con Data Factory][azure-data-factory-pig-hive]. Per usare Oozie nei cluster con Enterprise Security Package, vedere [Eseguire Apache Oozie nei cluster HDInsight Hadoop con Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -54,12 +54,12 @@ Il flusso di lavoro usato in questo documento prevede due azioni. Le azioni sono
 
     Lo script Hive usato in questo documento conta le visite totali per ogni piattaforma (ad esempio Android o iPhone) e archivia i conteggi in una nuova tabella Hive.
 
-    Per altre informazioni su Hive, vedere [Cosa sono Apache Hive e HiveQL in Azure HDInsight][hdinsight-use-hive].
+    Per altre informazioni su Hive, vedere [Usare Apache Hive con HDInsight][hdinsight-use-hive].
 
-2. Un'azione di Sqoop esporta il contenuto della nuova tabella Hive in una tabella creata nel database SQL di Azure. Per altre informazioni su Sqoop, vedere [Usare Apache Sqoop per importare ed esportare dati tra Apache Hadoop su HDInsight e un database SQL][hdinsight-use-sqoop].
+2. Un'azione di Sqoop esporta il contenuto della nuova tabella Hive in una tabella creata nel database SQL di Azure. Per altre informazioni su Sqoop, vedere [usare Apache Sqoop con HDInsight][hdinsight-use-sqoop].
 
 > [!NOTE]  
-> Per informazioni sulle versioni di Oozie supportate nei cluster HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight][hdinsight-versions].
+> Per le versioni di Oozie supportate nei cluster HDInsight, vedere [nuove funzionalità di versioni di cluster di Hadoop fornite da HDInsight][hdinsight-versions].
 
 ## <a name="create-the-working-directory"></a>Creare la directory di lavoro
 
@@ -127,7 +127,7 @@ Usare la procedura seguente per creare uno script HiveQL (linguaggio di query Hi
 
    * `${hiveDataFolder}`: contiene il percorso in cui archiviare i file di dati per la tabella.
 
-     Il file di definizione del flusso di lavoro, in questa esercitazione workflow.xml, passa questi valori allo script HiveQL in fase di esecuzione.
+     Il file di definizione del flusso di lavoro, workflow. XML in questo articolo, passa questi valori allo script HiveQL in fase di esecuzione.
 
 4. Per salvare il file, selezionare CTRL+X, immettere `Y` e quindi selezionare **INVIO**.  
 
@@ -708,7 +708,7 @@ Ad esempio, per il processo in questo documento si useranno i passaggi seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie e come eseguire un processo Oozie. Per altre informazioni sull'uso di HDInsight, vedere gli articoli seguenti:
+In questo articolo si è appreso come definire un flusso di lavoro di Oozie e come eseguire un processo Oozie. Per altre informazioni sull'uso di HDInsight, vedere gli articoli seguenti:
 
 * [Caricare dati per processi Apache Hadoop in HDInsight][hdinsight-upload-data]
 * [Usare Apache Sqoop con Apache Hadoop in HDInsight][hdinsight-use-sqoop]

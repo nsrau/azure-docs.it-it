@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 88c0aea851bcf70206b5f68d7865c487441905f6
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 706311e2895f311c228b55db971eb88a859530f5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329908"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441687"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Rilevamento anomalie in Analisi di flusso di Azure
 
@@ -23,7 +23,7 @@ I modelli di Machine Learning presuppongono una serie temporale con campionament
 
 Le operazioni di machine learning non supportano le tendenze di stagionalità o correlazioni con più varianti in questo momento.
 
-## <a name="model-accuracy-and-performance"></a>Accuratezza e prestazioni del modello
+## <a name="model-behavior"></a>Comportamento del modello
 
 Generalmente l'accuratezza del modello migliora se la finestra temporale scorrevole contiene più dati. I dati nella finestra temporale scorrevole specificata vengono trattati come parte del normale intervallo di valori per quell'intervallo di tempo. Il modello considera solo la cronologia eventi sulla finestra temporale scorrevole per verificare se l'evento corrente è anomalo. Man mano che la finestra temporale scorrevole scorre, i vecchi valori vengono rimossi dal training del modello.
 
@@ -32,6 +32,8 @@ Le funzioni operano stabilendo un valore normale certo basato su quanto rilevato
 Tempo di risposta del modello aumenta con dimensioni cronologia perché è necessario eseguire il confronto con un numero maggiore di eventi passati. Per assicurare prestazioni migliori, è consigliabile includere solo il numero di eventi necessario.
 
 La presenza di interruzioni nella serie temporale può dipendere dal fatto che il modello non riceve eventi in determinati periodi di tempo. Questa situazione viene gestita da Stream Analitica usando imputation logica. Le dimensioni della cronologia, nonché la durata, per la stessa finestra temporale scorrevole vengono usate per calcolare la frequenza media con cui si prevede che arrivino gli eventi.
+
+Un generatore di anomalie disponibile [qui](https://aka.ms/asaanomalygenerator) può essere utilizzato per feed un Iot Hub con i dati con i modelli di anomalie diversi. Un processo ASA può essere impostato con queste funzioni di rilevamento delle anomalie per leggere da questo Iot Hub e rilevare le anomalie.
 
 ## <a name="spike-and-dip"></a>Picchi e flessioni
 
@@ -102,6 +104,50 @@ INTO output
 FROM AnomalyDetectionStep
 
 ```
+
+## <a name="performance-characteristics"></a>Caratteristiche delle prestazioni
+
+Le prestazioni di questi modelli dipende dalla dimensione della cronologia della durata della finestra, il caricamento di eventi, e se viene utilizzato il partizionamento a livello di funzione. In questa sezione vengono illustrate queste configurazioni e fornisce esempi su come supportare le frequenze di inserimento di 1 KB, pari a 5 KB e 10 k rpm eventi al secondo.
+
+* **Dimensioni della cronologia** -questi modelli di eseguono in modo lineare con **dimensioni cronologia**. Più a lungo la dimensione della cronologia, la forma estesa i modelli accettano per assegnare un punteggio un nuovo evento. Questo avviene perché i modelli di confrontare il nuovo evento con ognuno degli ultimi eventi nel buffer.
+* **Durata della finestra** - il **durata intervallo di** deve riflettere il tempo necessario per ricevere tutti gli eventi come specificato dalle dimensioni della cronologia. Senza che molti eventi nella finestra di, Azure Stream Analitica sarebbe attribuire valori mancanti. Di conseguenza, il consumo della CPU è una funzione delle dimensioni della cronologia.
+* **Caricamento di eventi** : maggiore di **caricamento di eventi**, più lavoro che viene eseguita dai modelli, che influisce sul consumo di CPU. Il processo può essere aumentato, rendendo perfettamente parallela, presupponendo che è opportuno per la logica di business da utilizzare le partizioni di input.
+* **Partizionamento a livello di funzione** - **partizionamento a livello di funzione** viene eseguita usando ```PARTITION BY``` entro la chiamata di funzione di rilevamento delle anomalie. Questo tipo di partizionamento aggiunge un sovraccarico, come lo stato deve essere mantenuto per più modelli nello stesso momento. Partizionamento a livello di funzione viene usato in scenari come il partizionamento a livello di dispositivo.
+
+### <a name="relationship"></a>Relazione
+Le dimensioni della cronologia, durata della finestra e carico totale di eventi sono correlati nel modo seguente:
+
+windowDuration (in ms) = 1000 * historySize / (totale eventi al secondo / numero di partizioni di Input)
+
+Quando la funzione di partizionamento da ID dispositivo, aggiungere "PARTITION BY deviceId" alla chiamata di funzione di rilevamento delle anomalie.
+
+### <a name="observations"></a>Osservazioni
+Nella tabella seguente include le osservazioni di velocità effettiva per un singolo nodo (6 unità di ricerca) per il caso senza partizionamento:
+
+| Dimensioni della cronologia (eventi) | Durata finestra (ms) | Eventi di Input totali / Sec |
+| --------------------- | -------------------- | -------------------------- |
+| 60 | 55 | 2,200 |
+| 600 | 728 | 1,650 |
+| 6000 | 10,910 | 1,100 |
+
+Nella tabella seguente include le osservazioni di velocità effettiva per un singolo nodo (6 unità di ricerca) per il case partizionato:
+
+| Dimensioni della cronologia (eventi) | Durata finestra (ms) | Eventi di Input totali / Sec | Numero di dispositivi |
+| --------------------- | -------------------- | -------------------------- | ------------ |
+| 60 | 1,091 | 1,100 | 10 |
+| 600 | 10,910 | 1,100 | 10 |
+| 6000 | 218,182 | <550 | 10 |
+| 60 | 21,819 | 550 | 100 |
+| 600 | 218,182 | 550 | 100 |
+| 6000 | 2,181,819 | <550 | 100 |
+
+Codice di esempio per eseguire le configurazioni sopra non partizionata si trova nella [repository di Streaming a scalabilità](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) degli esempi di Azure. Il codice crea un processo di analitica di flusso con nessuna funzione a livello di partizionamento, che usa Hub eventi come input e output. Viene generato il carico di input tramite client di test. Ogni evento di input è un documento json da 1KB. Gli eventi di simulano un dispositivo IoT l'invio di dati JSON (per i dispositivi K fino a 1). Le dimensioni della cronologia, durata della finestra e carico totale di eventi sono diversi in 2 partizioni di input.
+
+> [!Note]
+> Per una stima più accurata, personalizzare gli esempi per adattarlo allo scenario.
+
+### <a name="identifying-bottlenecks"></a>Identificare i colli di bottiglia
+Utilizzare il riquadro metriche nel processo di Azure Stream Analitica per identificare i colli di bottiglia nella pipeline. Revisione **eventi di Input/Output** per la velocità effettiva e ["Ritardo della filigrana"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) oppure **eventi backlog sta** per vedere se il processo è stato aggiornato con la frequenza di input. Per le metriche di Hub eventi, cercare **richieste limitate** e modificare di conseguenza le unità di soglia. Per le metriche di Cosmos DB, esaminare **numero massimo di unità richiesta al secondo utilizzate per ogni intervallo di chiavi di partizione** sotto la velocità effettiva per verificare gli intervalli di chiavi di partizione vengono utilizzati in modo uniforme. Per il database SQL di Azure, monitorare **i/o Log** e **CPU**.
 
 ## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Rilevamento delle anomalie con machine learning in Azure Stream Analitica
 

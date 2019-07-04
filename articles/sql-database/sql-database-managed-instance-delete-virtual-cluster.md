@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
-ms.date: 05/07/2019
-ms.openlocfilehash: ec5d99e160e739f59e2bf2ea369fe83e9900a1f1
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.date: 06/26/2019
+ms.openlocfilehash: 4679ecda210fa78aad4315bc6602b67dd1795ce9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295305"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427982"
 ---
 # <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>Eliminare una subnet dopo l'eliminazione di un Database SQL di Azure di istanza gestita
 
@@ -41,6 +41,9 @@ Dopo aver individuato il cluster virtuale che si desidera eliminare, selezionare
 ![Screenshot del portale di Azure Virtual cluster dashboard, con l'opzione Elimina evidenziata](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
 
 L'area delle notifiche del portale Azure illustra conferma che è stato eliminato il cluster virtuale. Completamento dell'eliminazione del cluster virtuale rilascia immediatamente le subnet per il riutilizzo.
+
+> [!TIP]
+> Se non sono presenti istanze gestite illustrate del cluster virtuale, e non si riesce a eliminare il cluster virtuale, assicurarsi che non è una distribuzione di istanze in corso in corso. Ciò include avviate ed è state annullate distribuzioni ancora in corso. Esaminare le distribuzioni della scheda del gruppo di risorse, l'istanza è stata distribuita in indicherà eventuali distribuzioni in corso. In questo caso, await per la distribuzione per il completamento, eliminare l'istanza gestita e quindi il cluster virtuale.
 
 ## <a name="delete-virtual-cluster-by-using-the-api"></a>Eliminare il cluster virtuale usando l'API
 

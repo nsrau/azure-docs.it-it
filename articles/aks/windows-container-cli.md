@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: twhitney
-ms.openlocfilehash: a9887e923358b5658a365b5cfc88759eca2501e0
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b753d643b4651cd6665b5b85dcb8b7c5f0b3583d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303563"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444135"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Anteprima - creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS) tramite la CLI di Azure
 
@@ -41,15 +41,16 @@ Dopo aver creato il cluster che può eseguire contenitori Windows Server, è nec
 > * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
-    
-I comandi dell'interfaccia della riga per creare e gestire più pool di nodi sono disponibili nel *aks-preview* estensione dell'interfaccia della riga. Installare il *aks-preview* estensione di comando di Azure usando la [estensione az aggiungere][az-extension-add] comando, come illustrato nell'esempio seguente:
+
+Per usare i contenitori di Windows Server, è necessario il *aks-preview* CLI versione dell'estensione 0.4.1 o versione successiva. Installare il *aks-preview* estensione di comando di Azure usando la [Aggiungi estensione az][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] comando::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Se in precedenza sono stati installati il *aks-preview* estensione, installare le aggiorna usando il `az extension update --name aks-preview` comando.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-windows-preview-feature"></a>Registra funzionalità di anteprima di Windows
 
@@ -222,10 +223,10 @@ spec:
         resources:
           limits:
             cpu: 1
-            memory: 800m
+            memory: 800M
           requests:
             cpu: .1
-            memory: 300m
+            memory: 300M
         ports:
           - containerPort: 80
   selector:
@@ -338,3 +339,5 @@ Per altre informazioni sul servizio Azure Container e l'analisi del codice compl
 [use-advanced-networking]: configure-advanced-networking.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

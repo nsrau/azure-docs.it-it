@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3141f3a1d6a9f09261dee4113276af72168e35e8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596106"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444696"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Aggiornare il data warehouse a Gen2
 
@@ -43,7 +43,7 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 | Cina settentrionale |\* |\* |
 | Cina settentrionale 2 |Disponibile |Solo Gen2 |
 | Asia orientale |Disponibile |1 giugno 2019 |
-| Stati Uniti orientali |Disponibile |1 giugno 2019 |
+| East US |Disponibile |1 giugno 2019 |
 | Stati Uniti orientali 2 |Disponibile |1 giugno 2019 |
 | Francia centrale |\* |1 giugno 2019 |
 | Germania centrale |\* |\* |
@@ -67,7 +67,7 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 
 ## <a name="automatic-upgrade-process"></a>Processo di aggiornamento automatico
 
-Base sopra il grafico della disponibilità, si saranno essere pianificazione aggiornamenti automatici per le istanze di Gen1. Per evitare interruzioni impreviste della disponibilità del data warehouse, gli aggiornamenti automatici verranno pianificati durante la pianificazione della manutenzione del cliente. La possibilità di creare una nuova istanza di Gen1 verrà disabilitata nelle aree in fase di aggiornamento automatico a Gen2. Per altre informazioni sulle pianificazioni, vedere [Visualizzare una pianificazione della manutenzione](viewing-maintenance-schedule.md).
+Base sopra il grafico della disponibilità, si saranno essere pianificazione aggiornamenti automatici per le istanze di Gen1. Per evitare interruzioni impreviste della disponibilità del data warehouse, gli aggiornamenti automatici verranno pianificati durante la pianificazione della manutenzione del cliente. La possibilità di creare una nuova istanza di Gen1 verrà disabilitata nelle aree in fase di aggiornamento automatico a Gen2. Una volta completati gli aggiornamenti automatici, verrà deprecato Gen1. Per altre informazioni sulle pianificazioni, vedere [Visualizzare una pianificazione della manutenzione](viewing-maintenance-schedule.md).
 
 Come si riavvia il data warehouse, il processo di aggiornamento comporterà una breve interruzione della connettività (circa 5 minuti).  Dopo il riavvio, il data warehouse sarà completamente disponibile per l'uso. Tuttavia, potrebbe verificarsi una riduzione delle prestazioni durante il processo di aggiornamento continua ad aggiornare i file di dati in background. La durata totale di questa riduzione del livello delle prestazioni dipende dalle dimensioni dei file di dati.
 

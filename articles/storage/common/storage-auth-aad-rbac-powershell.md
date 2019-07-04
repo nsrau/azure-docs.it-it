@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e850b915cd01b6bacd70d6df7752eeb83f7101d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf888b72cca806822ca7a37542e71a5be0c8d5c3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153849"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443731"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>Concedere l'accesso a dati blob e di Accodamento di Azure con RBAC tramite PowerShell
 
@@ -30,7 +30,7 @@ Questo articolo descrive come usare Azure PowerShell per elencare i ruoli RBAC p
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Determinare l'ambito di risorse 
+## <a name="determine-resource-scope"></a>Determinare l'ambito di risorse
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
@@ -54,9 +54,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-user"></a>Assegnare un ruolo RBAC a un utente
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>Assegnare un ruolo RBAC a un'entità di sicurezza
 
-Per assegnare un ruolo RBAC a un utente, usare il [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) comando. Il formato del comando può differire a seconda dell'ambito di assegnazione. Gli esempi seguenti illustrano come assegnare un ruolo a un utente a vari ambiti.
+Per assegnare un ruolo RBAC a un'entità di sicurezza, usare il [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) comando. Il formato del comando può differire a seconda dell'ambito di assegnazione. Gli esempi seguenti illustrano come assegnare un ruolo a un utente a vari ambiti, ma è possibile usare lo stesso comando per assegnare un ruolo a qualsiasi entità di sicurezza.
 
 ### <a name="container-scope"></a>Ambito del contenitore
 

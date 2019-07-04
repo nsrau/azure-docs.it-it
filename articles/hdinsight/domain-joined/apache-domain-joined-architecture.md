@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 46eb90d2ec9902a9b5b7830063d0a6164ae948dd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/24/2019
+ms.openlocfilehash: c227abce5adcefd16a41c5590e3ff490d138c424
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061137"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441445"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Uso di Enterprise Security Package in HDInsight
 
@@ -66,10 +66,14 @@ Se è in uso la federazione e gli hash delle password vengono sincronizzati corr
 1. Installare l'anteprima [modulo di Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
    ```powershell
-   Install-Module AzureADPreview
+   Install-Module AzureAD
    ```
 
-2. Accedere a `Connect-AzureAD` usando le credenziali di amministratore globale (amministratore del tenant).
+2. Connettersi usando le credenziali di amministratore globale (amministratore tenant).
+   
+   ```powershell
+   Connect-AzureAD
+   ```
 
 3. Controllare se è già stata creata l'entità servizio Microsoft Azure PowerShell.
 

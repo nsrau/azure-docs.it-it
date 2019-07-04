@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: eb7cbb80be12498242363eb8141a468e08cba73a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64995ad0560efd06bfa0084c948527e8a01e1890
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478320"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443343"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
-[Application Insights][start] può monitorare le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) in termini di disponibilità, prestazioni, errori e utilizzo combinando i dati degli SDK di Application Insights con i dati di [Diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) provenienti dai servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
+[Application Insights][start] monitorabili [App del servizio cloud di Azure](https://azure.microsoft.com/services/cloud-services/) disponibilità, prestazioni, errori e utilizzo combinando i dati di Application Insights SDK con [diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)i dati dai servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
 
 ![Dashboard panoramica](./media/cloudservices/overview-graphs.png)
 
@@ -80,7 +80,7 @@ Per inviare i dati di telemetria alle risorse appropriate, è possibile configur
 
 Se si è deciso di creare una risorsa separata per ogni ruolo, ed eventualmente un set separato per ogni configurazione della build, il modo più semplice è crearle tutte insieme nel portale di Application Insights. Se si creano molte risorse, è possibile [automatizzare il processo](../../azure-monitor/app/powershell.md).
 
-1. Nel [portale di Azure][portal] selezionare **Nuovo** > **Servizi per gli sviluppatori** > **Application Insights**.  
+1. Nel [portale di Azure][portal], selezionare **New** > **servizi per gli sviluppatori** > **Application Insights**.  
 
     ![Riquadro di Application Insights](./media/cloudservices/01-new.png)
 
@@ -136,7 +136,38 @@ In Visual Studio configurare Application Insights SDK per ogni progetto di app c
 1. Impostare il file *ApplicationInsights.config* da copiare sempre nella directory di output.  
     Un messaggio nel file *CONFIG* chiede di inserire la chiave di strumentazione. Tuttavia, per le app cloud è preferibile che venga impostata dal file *CSCFG*. Questo approccio assicura che il ruolo venga identificato correttamente nel portale.
 
-#### <a name="run-and-publish-the-app"></a>Eseguire e pubblicare l'app
+## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>Configurare Status Monitor per raccogliere completa le query SQL (facoltativo)
+
+Questo passaggio è necessario solo se si vogliono acquisire le query SQL complete su .NET Framework. 
+
+1. Nelle `\*.csdef` Aggiungi file [attività di avvio](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) per ogni ruolo simile a 
+
+    ```xml
+    <Startup>
+      <Task commandLine="AppInsightsAgent\InstallAgent.bat" executionContext="elevated" taskType="simple">
+        <Environment>
+          <Variable name="ApplicationInsightsAgent.DownloadLink" value="http://go.microsoft.com/fwlink/?LinkID=522371" />
+          <Variable name="RoleEnvironment.IsEmulated">
+            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+          </Variable>
+        </Environment>
+      </Task>
+    </Startup>
+    ```
+    
+2. Scaricare [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) e [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), inserirlo nella `AppInsightsAgent` cartella su ogni progetto di ruolo. Assicurarsi di copiarli nella directory di output tramite le proprietà di file di Visual Studio o gli script di compilazione.
+
+3. In tutti i ruoli di lavoro, aggiungere le variabili di ambiente: 
+
+    ```xml
+      <Environment>
+        <Variable name="COR_ENABLE_PROFILING" value="1" />
+        <Variable name="COR_PROFILER" value="{324F817A-7420-4E6D-B3C1-143FBED6D855}" />
+        <Variable name="MicrosoftInstrumentationEngine_Host" value="{CA487940-57D2-10BF-11B2-A3AD5A13CBC0}" />
+      </Environment>
+    ```
+    
+## <a name="run-and-publish-the-app"></a>Eseguire e pubblicare l'app
 
 1. Eseguire l'app e accedere ad Azure. 
 
@@ -146,7 +177,7 @@ In Visual Studio configurare Application Insights SDK per ogni progetto di app c
 1. Aggiungere altri dati di telemetria (vedere le sezioni successive) e quindi pubblicare l'app per ottenere commenti e suggerimenti in diretta sull'utilizzo e la diagnostica. 
 
 Se non sono presenti dati, eseguire le operazioni seguenti:
-1. Aprire il riquadro [Ricerca][diagnostic] per visualizzare i singoli eventi.
+1. Per visualizzare i singoli eventi, aprire il [ricerca][diagnostic] riquadro.
 1. Aprire pagine diverse nell'app in modo da generare alcuni dati di telemetria.
 1. Attendere alcuni secondi e fare clic su **Aggiorna**.  
     Per altre informazioni, vedere [Risoluzione dei problemi][qna].
@@ -223,10 +254,10 @@ Ecco come:
 * Aggiungere l'inizializzatore di telemetria personalizzato. È possibile eseguire questa operazione nel file *ApplicationInsights.config* o nel codice [come illustrato in questo esempio](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## <a name="client-telemetry"></a>Telemetria client
-Per ottenere dati di telemetria basati su browser, quali conteggi delle visualizzazioni delle pagine, tempi di caricamento delle pagine ed eccezioni di script, e per scrivere i dati di telemetria negli script delle pagine, vedere [Aggiungere l'SDK per JavaScript alle pagine Web][client].
+Per ottenere la telemetria basati su browser, ad esempio conteggi delle visualizzazioni di pagina, tempi di caricamento pagina o le eccezioni di script e per scrivere telemetria personalizzata negli script delle pagine, vedere [aggiungere il SDK JavaScript alle pagine Web][client].
 
 ## <a name="availability-tests"></a>Test della disponibilità
-Per assicurarsi che l'applicazione sia disponibile e reattiva, [Configurare i test Web][availability].
+Per assicurarsi che l'app rimanga disponibile e reattiva, [configurare i test web][availability].
 
 ## <a name="display-everything-together"></a>Visualizzare tutti gli elementi contemporaneamente
 Per una panoramica del sistema, è possibile riunire i grafici di monitoraggio principali in un unico [dashboard](../../azure-monitor/app/overview-dashboard.md). Ad esempio, è possibile aggiungere i conteggi delle richieste e degli errori di ogni ruolo. 

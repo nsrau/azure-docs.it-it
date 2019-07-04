@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 44f1953d01f827db1cbb65f9029c62569425745e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59995715ab42b4682befa7d1512b14427740dea2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077031"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446847"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introduzione all'archiviazione code di Azure con .NET
 
@@ -82,7 +82,7 @@ Tutti gli esempi di codice in questa esercitazione possono essere aggiunti al **
 > [!NOTE]
 > I pacchetti di librerie client di archiviazione sono inclusi anche i [Azure SDK per .NET](https://azure.microsoft.com/downloads/). Tuttavia, è consigliabile installare anche librerie client di archiviazione da NuGet per assicurarsi di avere sempre le versioni più recenti.
 >
-> Le dipendenze ODataLib nelle librerie client di archiviazione per .NET vengono risolte dai pacchetti ODataLib disponibili in NuGet, non da WCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici usati da parte delle librerie client di archiviazione vengono [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/), e [spaziale](http://nuget.org/packages/System.Spatial/). Queste librerie vengono utilizzate dalle classi di archiviazione tabelle di Azure, ma sono dipendenze necessarie per la programmazione con librerie client di archiviazione.
+> Le dipendenze ODataLib nelle librerie client di archiviazione per .NET vengono risolte dai pacchetti ODataLib disponibili in NuGet, non da WCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici usati da parte delle librerie client di archiviazione vengono [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/), e [spaziale](https://nuget.org/packages/System.Spatial/). Queste librerie vengono utilizzate dalle classi di archiviazione tabelle di Azure, ma sono dipendenze necessarie per la programmazione con librerie client di archiviazione.
 
 ### <a name="determine-your-target-environment"></a>Determinare l'ambiente di destinazione
 

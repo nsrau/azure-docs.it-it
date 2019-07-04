@@ -4,18 +4,18 @@ description: Usare il portale di Azure per distribuire i moduli in un dispositiv
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/19/2019
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8337c8672eb886d79b38b2a38a74037f88604497
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595232"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448555"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
 
@@ -43,9 +43,9 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 
 ### <a name="add-modules"></a>Aggiungere moduli
 
-1. Nella sezione **Impostazioni registro** della pagina specificare le credenziali per accedere ai registri contenitori privati che contengono le immagini di modulo.
+1. Nel **impostazioni del Registro di sistema del contenitore** sezione della pagina, fornire le credenziali per accedere a qualsiasi registri contenitori privati che contengono le immagini del modulo.
 
-1. Nella sezione dei **moduli di distribuzione** della pagina fare clic su **Aggiungi**.
+1. Nel **moduli di distribuzione** sezione della pagina, seleziona **Add**.
 
 1. Scorrere i tipi di modulo dall'elenco a discesa:
 

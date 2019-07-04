@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f72a59aac448796cf15220e15a3c8a4f12803bb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a61291e547021077341a5f1b3db7422afa5b9440
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079730"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449977"
 ---
 # <a name="odata-searchin-function-in-azure-search"></a>OData `search.in` in ricerca di Azure (funzione)
 
@@ -40,7 +40,7 @@ Tuttavia, è più breve consente di scrivere, utilizzando il `search.in` funzion
 > Oltre a essere più breve e facile da leggere, tramite `search.in` fornisce inoltre [vantaggi nelle prestazioni](#bkmk_performance) ed è possibile evitare alcuni [limite dei filtri di dimensioni](search-query-odata-filter.md#bkmk_limits) quando sono presenti centinaia o anche migliaia di valori Per includere nel filtro. Per questo motivo, è consigliabile usare `search.in` anziché una disgiunzione più complessa di espressioni di uguaglianza.
 
 > [!NOTE]
-> Versione 4.01 dello standard OData ha recentemente introdotto il [ `in` operator](http://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), che presenta un comportamento simile come il `search.in` funzione in ricerca di Azure. Tuttavia, ricerca di Azure non supporta questo operatore, pertanto è necessario usare il `search.in` funzione.
+> Versione 4.01 dello standard OData ha recentemente introdotto il [ `in` operator](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), che presenta un comportamento simile come il `search.in` funzione in ricerca di Azure. Tuttavia, ricerca di Azure non supporta questo operatore, pertanto è necessario usare il `search.in` funzione.
 
 ## <a name="syntax"></a>Sintassi
 

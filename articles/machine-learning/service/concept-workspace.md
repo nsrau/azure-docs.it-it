@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 2f3d9eeca1404fcae121ae5fead222cbde4037b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 912c064fb5ca4e7ca311f60ed04a0122809cb0ff
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059255"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442362"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>Che cos'è un'area di lavoro del servizio di Azure Machine Learning?
 
@@ -83,7 +83,7 @@ Introduzione al servizio [creazione di un'area di lavoro](setup-create-workspace
 Quando si crea una nuova area di lavoro, vengono create automaticamente diverse risorse di Azure usate dall'area di lavoro:
 
 + [Registro Azure Container](https://azure.microsoft.com/services/container-registry/): Registra i contenitori docker usati durante il training e quando si distribuisce un modello. Per ridurre al minimo i costi, registro contenitori di AZURE viene **lazy caricato** finché non vengono create le immagini di distribuzione.
-+ [Account di archiviazione di Azure](https://azure.microsoft.com/services/storage/): usato come archivio dati predefinito per l'area di lavoro.
++ [Account di archiviazione di Azure](https://azure.microsoft.com/services/storage/): usato come archivio dati predefinito per l'area di lavoro.  I notebook di Jupyter che vengono usati con le macchine virtuali notebook vengono archiviati qui anche.
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): archivia le informazioni di monitoraggio sui modelli.
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): conserva segreti usati dalle destinazioni di calcolo e altre informazioni riservate richieste dall'area di lavoro.
 

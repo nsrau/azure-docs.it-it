@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8937f4c47f0fa84d4ec371e951cff8a2fdaa8481
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2426ecd9c480b0cc236295384ae04c60051f37ce
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476908"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442963"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Gestire l'accesso, potenza e la modalità di connettività per il bordo casella dati di Azure
 
@@ -66,7 +66,7 @@ Quando si genera la chiave di attivazione per il dispositivo perimetrale casella
 -  Creazione di una condivisione con un account di archiviazione associato.
 -  Creazione di un utente che può accedere le condivisioni nel dispositivo.
 
-È necessario disporre di un `User` accedere nel tenant di Active Directory che è necessario essere in grado di `Read all directory objects`. È non può essere un utente Guest che dispongano delle autorizzazioni per `Read all directory objects`. Se sei un utente guest, quindi le operazioni, ad esempio la generazione di una chiave di attivazione, la creazione di una condivisione nel dispositivo Edge casella dei dati, la creazione di un utente avrà tutti esito negativo.
+È necessario disporre di un `User` accedere nel tenant di Active Directory che è necessario essere in grado di `Read all directory objects`. È non può essere un utente Guest che dispongano delle autorizzazioni per `Read all directory objects`. Se sei un utente guest, quindi le operazioni, ad esempio la generazione di un'attivazione delle chiavi, la creazione di una condivisione in cui il dispositivo perimetrale casella dei dati, la creazione di un utente, la configurazione del bordo ruolo di calcolo, la reimpostazione della password del dispositivo avrà esito negativo.
 
 Per altre informazioni su come fornire accesso agli utenti di Azure Active Directory Graph API, vedere [predefinito di accesso per gli amministratori, utenti e gli utenti guest](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 

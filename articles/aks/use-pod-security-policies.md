@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 881a16501574dc7309eede6b58e270a97bed977a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9da722006651cfc9e9f2a175d5c330ba5df08123
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235740"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447076"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Anteprima - proteggere il cluster usando criteri di sicurezza pod in Azure Kubernetes Service (AKS)
 
@@ -22,40 +22,44 @@ Per migliorare la sicurezza del cluster servizio contenitore di AZURE, è possib
 > Funzionalità di anteprima del servizio contenitore di AZURE sono self-service, fornire il consenso esplicito. Vengono fornite per raccogliere commenti e suggerimenti e bug dalla community. In fase di anteprima, queste funzionalità non sono destinate all'uso di produzione. Le funzionalità in anteprima pubblica rientrano nel supporto "best effort". Assistenza dai team di supporto tecnico di AKS è disponibile durante le ore lavorative Pacifico (PST) solo timezone. Per altre informazioni, vedere i seguenti articoli di supporto:
 >
 > * [Criteri di supporto servizio contenitore di AZURE][aks-support-policies]
-> * [Domande frequenti sul supporto di Azure][aks-faq]
+> * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster del servizio contenitore di AZURE, vedere la Guida introduttiva AKS [tramite la CLI di Azure][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-È necessario la CLI di Azure versione 2.0.61 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È necessario la CLI di Azure versione 2.0.61 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario installare o eseguire l'aggiornamento, vedere [installare CLI Azure][install-azure-cli].
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
 
-I cluster servizio contenitore di AZURE sono stati aggiornati per abilitare i criteri di sicurezza pod usando il *aks-preview* estensione dell'interfaccia della riga. Installare il *aks-preview* estensione di comando di Azure usando la [Aggiungi estensione az] [ az-extension-add] comando, come illustrato nell'esempio seguente:
+Per usare i criteri di sicurezza pod, è necessario il *aks-preview* CLI versione dell'estensione 0.4.1 o versione successiva. Installare il *aks-preview* estensione di comando di Azure usando la [Aggiungi estensione az][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] comando::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Se è già stata installata il *aks-preview* estensione, installare le aggiorna usando il `az extension update --name aks-preview` comando.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-pod-security-policy-feature-provider"></a>Registra provider di funzionalità dei criteri di sicurezza pod
 
-Per creare o aggiornare un cluster servizio contenitore di AZURE per usare i criteri di sicurezza pod, è necessario attivare un flag funzionalità per la sottoscrizione. Per registrare il *PodSecurityPolicyPreview* flag delle funzionalità, utilizzare il [register funzionalità az] [ az-feature-register] seguente come mostrato nell'esempio seguente:
+Per creare o aggiornare un cluster servizio contenitore di AZURE per usare i criteri di sicurezza pod, è necessario attivare un flag funzionalità per la sottoscrizione. Per registrare il *PodSecurityPolicyPreview* flag delle funzionalità, utilizzare il [register funzionalità az][az-feature-register] seguente come mostrato nell'esempio seguente:
+
+> [!CAUTION]
+> Quando si registra una funzionalità in una sottoscrizione, attualmente non è possibile annullare la registrazione tale funzionalità. Dopo aver abilitato alcune funzionalità di anteprima, potrebbero essere utilizzati i valori predefiniti per tutti i cluster AKS quindi creati nella sottoscrizione. Non abilitare la funzionalità di anteprima nella sottoscrizione di produzione. Usare una sottoscrizione separata per le funzionalità di anteprima di test e raccogliere commenti e suggerimenti.
 
 ```azurecli-interactive
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
 ```
 
-Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato di registrazione usando il comando [az feature list][az-feature-list]:
+Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllarne lo stato di registrazione usando il [elenco delle funzionalità az][az-feature-list] comando:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft.ContainerService* usando il comando [az provider register][az-provider-register]:
+Quando si è pronti, aggiornare la registrazione dei *containerservice* provider di risorse usando la [register di az provider][az-provider-register] comando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -77,7 +81,7 @@ Per mostrare come criteri predefiniti di limitano le distribuzioni di pod, in qu
 
 ## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>Abilitare i criteri di sicurezza pod in un cluster servizio contenitore di AZURE
 
-È possibile abilitare o disabilitare i criteri di sicurezza pod tramite il [aggiornare az aks] [ az-aks-update] comando. I seguenti esempio abilita pod criteri di sicurezza sul nome del cluster *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*.
+È possibile abilitare o disabilitare i criteri di sicurezza pod tramite il [az aks aggiornare][az-aks-update] comando. I seguenti esempio abilita pod criteri di sicurezza sul nome del cluster *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*.
 
 > [!NOTE]
 > Per l'uso di scenari reali, non abilitare i criteri di sicurezza pod fino a quando non sono stati definiti criteri personalizzati. In questo articolo, si abilitano criteri di sicurezza pod come primo passaggio per visualizzare come criteri predefiniti di limitano i pod le distribuzioni.
@@ -93,7 +97,7 @@ az aks update \
 
 Quando si abilitano criteri di sicurezza pod, servizio contenitore di AZURE crea due criteri predefinito denominati *con privilegi* e *limitato*. Non modificare o rimuovere questi criteri predefiniti. In alternativa, creare i propri criteri che definiscono le impostazioni desiderate al controllo. È possibile iniziare a esaminare quali questi criteri predefiniti sono impatto che hanno le distribuzioni di pod.
 
-Per visualizzare i criteri disponibili, usare il [kubectl get psp] [ kubectl-get] comando, come illustrato nell'esempio seguente. Come parte del valore predefinito *limitato* dei criteri, all'utente viene negato *PRIV* usare per l'escalation dei privilegi pod e l'utente *MustRunAsNonRoot*.
+Per visualizzare i criteri disponibili, usare il [kubectl get psp][kubectl-get] comando, come illustrato nell'esempio seguente. Come parte del valore predefinito *limitato* dei criteri, all'utente viene negato *PRIV* usare per l'escalation dei privilegi pod e l'utente *MustRunAsNonRoot*.
 
 ```console
 $ kubectl get psp
@@ -103,7 +107,7 @@ privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny  
 restricted   false          RunAsAny   MustRunAsNonRoot   MustRunAs   MustRunAs   false            configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-Il *limitato* criteri di sicurezza pod viene applicato a qualsiasi utente autenticato nel cluster AKS. Questa assegnazione è controllata dalla ClusterRoles e ClusterRoleBindings. Usare la [kubectl get clusterrolebindings] [ kubectl-get] comandi e cercare il *predefinito: limitate:* associazione:
+Il *limitato* criteri di sicurezza pod viene applicato a qualsiasi utente autenticato nel cluster AKS. Questa assegnazione è controllata dalla ClusterRoles e ClusterRoleBindings. Usare la [kubectl get clusterrolebindings][kubectl-get] comandi e cercare il *predefinito: limitate:* associazione:
 
 ```console
 kubectl get clusterrolebindings default:restricted -o yaml
@@ -132,16 +136,16 @@ subjects:
 
 ## <a name="create-a-test-user-in-an-aks-cluster"></a>Creare un utente test in un cluster AKS
 
-Per impostazione predefinita, quando si usa la [az aks get-credentials] [ az-aks-get-credentials] comando, il *admin* le credenziali per il cluster AKS e aggiunto al `kubectl` config. L'utente amministratore consente di ignorare l'imposizione dei criteri di sicurezza pod. Se si utilizza l'integrazione di Azure Active Directory per i cluster servizio contenitore di AZURE, è possibile accedere con le credenziali di un utente senza privilegi di amministratore per visualizzare l'applicazione dei criteri in azione. In questo articolo, è possibile creare un account utente di test nel cluster AKS che è possibile usare.
+Per impostazione predefinita, quando si usa la [az aks get-credentials][az-aks-get-credentials] comando, il *admin* le credenziali per il cluster AKS e aggiunto al `kubectl` config. L'utente amministratore consente di ignorare l'imposizione dei criteri di sicurezza pod. Se si utilizza l'integrazione di Azure Active Directory per i cluster servizio contenitore di AZURE, è possibile accedere con le credenziali di un utente senza privilegi di amministratore per visualizzare l'applicazione dei criteri in azione. In questo articolo, è possibile creare un account utente di test nel cluster AKS che è possibile usare.
 
-Creare uno spazio dei nomi di campione denominato *punto di servizio PXE-aks* per le risorse di test usando la [kubectl creare lo spazio dei nomi] [ kubectl-create] comando. Quindi, creare un account di servizio denominato *utente nonadmin* usando la [kubectl create serviceaccount] [ kubectl-create] comando:
+Creare uno spazio dei nomi di campione denominato *punto di servizio PXE-aks* per le risorse di test usando la [kubectl creare lo spazio dei nomi][kubectl-create] comando. Quindi, creare un account di servizio denominato *utente nonadmin* usando la [kubectl create serviceaccount][kubectl-create] comando:
 
 ```console
 kubectl create namespace psp-aks
 kubectl create serviceaccount --namespace psp-aks nonadmin-user
 ```
 
-Creare quindi un RoleBinding per il *nonadmin-utente* per eseguire le azioni di base dello spazio dei nomi usando la [kubectl create rolebinding] [ kubectl-create] comando:
+Creare quindi un RoleBinding per il *nonadmin-utente* per eseguire le azioni di base dello spazio dei nomi usando la [kubectl create rolebinding][kubectl-create] comando:
 
 ```console
 kubectl create rolebinding \
@@ -184,7 +188,7 @@ spec:
         privileged: true
 ```
 
-Creare il pod usando il [kubectl applicare] [ kubectl-apply] comando e specificare il nome del manifesto YAML:
+Creare il pod usando il [kubectl applicare][kubectl-apply] comando e specificare il nome del manifesto YAML:
 
 ```console
 kubectl-nonadminuser apply -f nginx-privileged.yaml
@@ -217,7 +221,7 @@ spec:
       image: nginx:1.14.2
 ```
 
-Creare il pod usando il [kubectl applicare] [ kubectl-apply] comando e specificare il nome del manifesto YAML:
+Creare il pod usando il [kubectl applicare][kubectl-apply] comando e specificare il nome del manifesto YAML:
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
@@ -232,7 +236,7 @@ NAME                 READY   STATUS                       RESTARTS   AGE
 nginx-unprivileged   0/1     CreateContainerConfigError   0          26s
 ```
 
-Usare la [kubectl descrivono pod] [ kubectl-describe] comando per esaminare gli eventi per i pod. Esempio sintetico seguente mostra che il contenitore e l'immagine richiedono autorizzazioni root, anche se è non ne fanno richiesta:
+Usare la [kubectl descrivono pod][kubectl-describe] comando per esaminare gli eventi per i pod. Esempio sintetico seguente mostra che il contenitore e l'immagine richiedono autorizzazioni root, anche se è non ne fanno richiesta:
 
 ```console
 $ kubectl-nonadminuser describe pod nginx-unprivileged
@@ -256,7 +260,7 @@ Anche se non richiediamo alcun accesso con privilegi, è necessario creare un'as
 
 In questo esempio mostra che i criteri di sicurezza pod predefinito creati dal servizio contenitore di AZURE sono attive e limitano le azioni che eseguibili dagli utenti. È importante comprendere il comportamento di questi criteri predefiniti, come si potrebbe non riconoscere un pod NGINX di base a cui viene negato.
 
-Prima di passare al passaggio successivo, eliminare il pod di test usando il [kubectl eliminare pod] [ kubectl-delete] comando:
+Prima di passare al passaggio successivo, eliminare il pod di test usando il [kubectl eliminare pod][kubectl-delete] comando:
 
 ```console
 kubectl-nonadminuser delete -f nginx-unprivileged.yaml
@@ -281,7 +285,7 @@ spec:
         runAsUser: 2000
 ```
 
-Creare il pod usando il [kubectl applicare] [ kubectl-apply] comando e specificare il nome del manifesto YAML:
+Creare il pod usando il [kubectl applicare][kubectl-apply] comando e specificare il nome del manifesto YAML:
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged-nonroot.yaml
@@ -296,7 +300,7 @@ NAME                         READY   STATUS              RESTARTS   AGE
 nginx-unprivileged-nonroot   0/1     CrashLoopBackOff    1          3s
 ```
 
-Usare la [kubectl descrivono pod] [ kubectl-describe] comando per esaminare gli eventi per i pod. Esempio sintetico seguente mostra gli eventi di pod:
+Usare la [kubectl descrivono pod][kubectl-describe] comando per esaminare gli eventi per i pod. Esempio sintetico seguente mostra gli eventi di pod:
 
 ```console
 $ kubectl-nonadminuser describe pods nginx-unprivileged
@@ -318,7 +322,7 @@ Events:
   Warning  BackOff    105s (x5 over 2m11s)  kubelet, aks-agentpool-34777077-0  Back-off restarting failed container
 ```
 
-Gli eventi indicano che il contenitore è stato creato e avviato. Non è immediatamente evidente per quanto riguarda il motivo per cui il pod è in stato di errore. Diamo un'occhiata ai log del pod usando il [registri di kubectl] [ kubectl-logs] comando:
+Gli eventi indicano che il contenitore è stato creato e avviato. Non è immediatamente evidente per quanto riguarda il motivo per cui il pod è in stato di errore. Diamo un'occhiata ai log del pod usando il [kubectl log][kubectl-logs] comando:
 
 ```console
 kubectl-nonadminuser logs nginx-unprivileged-nonroot --previous
@@ -337,7 +341,7 @@ nginx: [emerg] mkdir() "/var/cache/nginx/client_temp" failed (13: Permission den
 
 Anche in questo caso, è importante comprendere il comportamento dei criteri di sicurezza pod predefinito. Questo errore è stato un po' più difficile da rilevare, e anche in questo caso, si potrebbe non riconoscere un pod NGINX di base a cui viene negato.
 
-Prima di passare al passaggio successivo, eliminare il pod di test usando il [kubectl eliminare pod] [ kubectl-delete] comando:
+Prima di passare al passaggio successivo, eliminare il pod di test usando il [kubectl eliminare pod][kubectl-delete] comando:
 
 ```console
 kubectl-nonadminuser delete -f nginx-unprivileged-nonroot.yaml
@@ -370,13 +374,13 @@ spec:
   - '*'
 ```
 
-Creare il criterio tramite il [kubectl applicare] [ kubectl-apply] comando e specificare il nome del manifesto YAML:
+Creare il criterio tramite il [kubectl applicare][kubectl-apply] comando e specificare il nome del manifesto YAML:
 
 ```console
 kubectl apply -f psp-deny-privileged.yaml
 ```
 
-Per visualizzare i criteri disponibili, usare il [kubectl get psp] [ kubectl-get] comando, come illustrato nell'esempio seguente. Confrontare le *punto di servizio PXE-deny-con privilegi* dei criteri con il valore predefinito *limitato* criteri che è stato applicato negli esempi precedenti per creare un pod. Solo l'uso di *PRIV* negato dai criteri di escalation dei blocchi. Non esistono restrizioni in cui l'utente o gruppo per il *punto di servizio PXE-deny-privilegi* criteri.
+Per visualizzare i criteri disponibili, usare il [kubectl get psp][kubectl-get] comando, come illustrato nell'esempio seguente. Confrontare le *punto di servizio PXE-deny-con privilegi* dei criteri con il valore predefinito *limitato* criteri che è stato applicato negli esempi precedenti per creare un pod. Solo l'uso di *PRIV* negato dai criteri di escalation dei blocchi. Non esistono restrizioni in cui l'utente o gruppo per il *punto di servizio PXE-deny-privilegi* criteri.
 
 ```console
 $ kubectl get psp
@@ -409,7 +413,7 @@ rules:
   - use
 ```
 
-Creare il ClusterRole usando il [kubectl applicare] [ kubectl-apply] comando e specificare il nome del manifesto YAML:
+Creare il ClusterRole usando il [kubectl applicare][kubectl-apply] comando e specificare il nome del manifesto YAML:
 
 ```console
 kubectl apply -f psp-deny-privileged-clusterrole.yaml
@@ -432,7 +436,7 @@ subjects:
   name: system:serviceaccounts
 ```
 
-Creare un ClusterRoleBinding usando il [kubectl applicare] [ kubectl-apply] comando e specificare il nome del manifesto YAML:
+Creare un ClusterRoleBinding usando il [kubectl applicare][kubectl-apply] comando e specificare il nome del manifesto YAML:
 
 ```console
 kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
@@ -443,13 +447,13 @@ kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 
 ## <a name="test-the-creation-of-an-unprivileged-pod-again"></a>Testare nuovamente la creazione di un pod senza privilegi
 
-Con i criteri di sicurezza pod personalizzato applicato e un'associazione per l'account utente a usare i criteri, è possibile tentare nuovamente di creare un pod senza privilegi. Usare lo stesso `nginx-privileged.yaml` manifesto per creare il pod usando la [kubectl applicare] [ kubectl-apply] comando:
+Con i criteri di sicurezza pod personalizzato applicato e un'associazione per l'account utente a usare i criteri, è possibile tentare nuovamente di creare un pod senza privilegi. Usare lo stesso `nginx-privileged.yaml` manifesto per creare il pod usando la [kubectl applicare][kubectl-apply] comando:
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-I pod è stato pianificato. Quando si seleziona lo stato del pod tramite il [kubectl get pods] [ kubectl-get] comando, il pod viene *esegue*:
+I pod è stato pianificato. Quando si seleziona lo stato del pod tramite il [kubectl get pods][kubectl-get] comando, il pod viene *esecuzione*:
 
 ```
 $ kubectl-nonadminuser get pods
@@ -460,7 +464,7 @@ nginx-unprivileged   1/1     Running   0          7m14s
 
 Questo esempio illustra come creare i criteri di sicurezza pod personalizzato per definire l'accesso al cluster servizio contenitore di AZURE per diversi utenti o gruppi. L'impostazione predefinita i criteri di servizio contenitore di AZURE forniscono controlli rigorosi sugli quali i POD possono eseguire, quindi creare criteri personalizzati per definire correttamente le restrizioni che è necessario.
 
-Eliminare il pod NGINX senza privilegi usando il [kubectl eliminare] [ kubectl-delete] comando e specificare il nome del manifesto YAML:
+Eliminare il pod NGINX senza privilegi usando il [kubectl eliminare][kubectl-delete] comando e specificare il nome del manifesto YAML:
 
 ```console
 kubectl-nonadminuser delete -f nginx-unprivileged.yaml
@@ -468,7 +472,7 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per disabilitare i criteri di sicurezza pod, utilizzare il [aggiornare az aks] [ az-aks-update] nuovo il comando. I seguenti esempio disabilita pod criteri di sicurezza sul nome del cluster *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*:
+Per disabilitare i criteri di sicurezza pod, utilizzare il [aggiornare az aks][az-aks-update] nuovo il comando. I seguenti esempio disabilita pod criteri di sicurezza sul nome del cluster *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*:
 
 ```azurecli-interactive
 az aks update \
@@ -484,7 +488,7 @@ kubectl delete -f psp-deny-privileged-clusterrolebinding.yaml
 kubectl delete -f psp-deny-privileged-clusterrole.yaml
 ```
 
-Eliminare il criterio di rete tramite [kubectl eliminare] [ kubectl-delete] comando e specificare il nome del manifesto YAML:
+Eliminare il criterio di rete tramite [kubectl eliminare][kubectl-delete] comando e specificare il nome del manifesto YAML:
 
 ```console
 kubectl delete -f psp-deny-privileged.yaml
@@ -525,3 +529,5 @@ Per altre informazioni su come limitare il traffico di rete di pod, vedere [prot
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

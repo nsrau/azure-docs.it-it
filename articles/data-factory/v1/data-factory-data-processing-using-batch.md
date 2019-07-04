@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67829b6245fe4fea8da88c97fa8d5aeedccc90a0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204030"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446617"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -124,7 +124,7 @@ Creare un pool di Batch con almeno 2 nodi di calcolo.
    f. Fare clic su **OK** per creare il pool.
 
 #### <a name="azure-storage-explorer"></a>Esplora archivi Azure
-Usare [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) o [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (di ClumsyLeaf Software) per controllare e modificare i dati nei progetti di Archiviazione. È anche possibile esaminare e modificare i dati nei log delle applicazioni ospitate nel cloud.
+Usare [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) o [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (di ClumsyLeaf Software) per controllare e modificare i dati nei progetti di Archiviazione. È anche possibile esaminare e modificare i dati nei log delle applicazioni ospitate nel cloud.
 
 1. Creare un contenitore denominato **mycontainer** con accesso privato (nessun accesso anonimo).
 

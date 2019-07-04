@@ -1,20 +1,19 @@
 ---
 title: Analisi di flusso di Azure in IoT Edge
 description: Creare processi Edge in Analisi di flusso di Azure e distribuirli in dispositivi che eseguono Azure IoT Edge.
-services: stream-analytics
+ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/2/2019
+ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17b9d11b75e2677e22fa2e38c21a69f018a4bee8
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804045"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508350"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Analisi di flusso di Azure in IoT Edge
  
@@ -111,7 +110,7 @@ Questi passaggi sono descritti nella documentazione di IoT Edge per [Windows](ht
 
 > [!Note]
 > Durante questo passaggio Analisi di flusso di Azure crea una cartella denominata "EdgeJobs" nel contenitore di archiviazione (se non esiste già). Per ogni distribuzione, viene creata una nuova sottocartella nella cartella "EdgeJobs".
-> Per distribuire il processo ai dispositivi Edge, Analisi di flusso di Azure crea una firma di accesso condiviso per il file di definizione del processo. La chiave della firma di accesso condiviso viene trasmessa in modo sicuro ai dispositivi IoT Edge tramite dispositivo gemello. Questa chiave ha una scadenza di tre anni dalla data di creazione.
+> Quando si distribuisce il lavoro nei dispositivi IoT Edge, ASA crea una firma di accesso condiviso (SAS) per il file di definizione del processo. La chiave della firma di accesso condiviso viene trasmessa in modo sicuro ai dispositivi IoT Edge tramite dispositivo gemello. Questa chiave ha una scadenza di tre anni dalla data di creazione. Quando si aggiorna un processo di IoT Edge, verrà modificata la firma di accesso condiviso, ma la versione dell'immagine non verrà modificato. Dopo aver **aggiornare**, seguire il flusso di lavoro di distribuzione e una notifica di aggiornamento viene registrata nel dispositivo.
 
 
 Per altre informazioni sulle distribuzioni IoT Edge, vedere [questa pagina](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
@@ -203,9 +202,31 @@ L'aggiornamento dei dati di riferimento in IoT Edge viene attivato da una distri
 * [Licenza di Analisi di flusso di Azure in IoT Edge](https://go.microsoft.com/fwlink/?linkid=862827). 
 * [Comunicazioni di terze parti per Analisi di flusso di Azure in IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
+## <a name="azure-stream-analytics-module-image-information"></a>Informazioni sulle immagini di Azure Stream Analitica modulo 
+
+2019-06-27 relativo all'ultimo aggiornamento di queste informazioni sulla versione:
+
+- Immagine: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+   - immagine di base: microsoft/dotnet:2.1.6-runtime-alpine3.7
+   - Piattaforma:
+      - architettura: amd64
+      - sistema operativo: linux
+  
+- Immagine: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+   - immagine di base: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+   - Piattaforma:
+      - architettura: Azure Resource Manager
+      - sistema operativo: linux
+  
+- Immagine: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+   - immagine di base: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+   - Piattaforma:
+      - architettura: amd64
+      - sistema operativo: windows
+      
+      
 ## <a name="get-help"></a>Ottenere aiuto
 Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

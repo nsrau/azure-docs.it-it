@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3e9885466d422a0428311ed3013e2ab34341cd25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24c2bfa4aae94642d3ed66f2cfa6e31ba1e6b19a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391313"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457396"
 ---
 I dischi del sistema operativo temporanei vengono creati nello spazio di archiviazione macchina virtuale (VM) locali e non persistenti nella risorsa di archiviazione di Azure remoto. I dischi del sistema operativo temporanei funzionano anche per carichi di lavoro senza stati, in cui le applicazioni sono a tolleranza di singoli errori di macchina virtuale, ma sono più interessati a tempo per ricreare l'immagine di singole istanze di VM o il tempo che necessario per le distribuzioni su larga scala. È anche adatto per le applicazioni, distribuite usando il modello di distribuzione classica, spostare il modello di distribuzione Resource Manager. Il disco del sistema operativo temporaneo offre latenza minore per operazioni di lettura/scrittura nel disco del sistema operativo e una ricreazione più rapida delle immagini delle VM. Inoltre, il disco del sistema operativo temporaneo è gratuito, si dovranno sostenere alcun costi di archiviazione per il disco del sistema operativo. 
  

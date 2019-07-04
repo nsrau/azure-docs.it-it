@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/21/2019
-ms.openlocfilehash: b4c22caae86e20b8379db2b7feffb1ca82001239
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a879fa17244977277dab3e2e66c5888a44759764
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753164"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444041"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Creare e accedere ai set di dati (anteprima) in Azure Machine Learning
 
@@ -150,5 +150,4 @@ dataset = workspace.datasets['dataset_crime']
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Esplorare e preparare i set di dati](how-to-explore-prepare-data.md).
-* [Gestire il ciclo di vita delle definizioni di set di dati](how-to-manage-dataset-definitions.md).
 * Per un esempio dell'uso di set di dati, vedere la [notebook di esempio](https://aka.ms/dataset-tutorial).

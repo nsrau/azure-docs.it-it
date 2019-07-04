@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8611338acf7a1299e9c3a4f5347fb633604254e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 880593773ca7801da2874dc2a09a4bddf910a503
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110404"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471846"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Verifiche di accesso di Usa Azure AD per gestire gli utenti esclusi dai criteri di accesso condizionale
 
@@ -36,7 +36,7 @@ Un amministratore IT, è possibile usare [accesso condizionale di Azure AD](../c
 
 Come ulteriore esempio, è possibile usare [località denominate](../conditional-access/location-condition.md) nell'accesso condizionale per configurare un insieme di regioni e aree geografiche da cui si vuole consentire agli utenti di accedere ai loro tenant.
 
-![Posizioni specifiche](./media/conditional-access-exclusion/named-locations.png)
+![Località denominate nell'accesso condizionale](./media/conditional-access-exclusion/named-locations.png)
 
 In alcuni casi, tuttavia, utenti potrebbero avere un motivo legittimo che eseguire l'accesso da questi paesi/aree bloccate. Ad esempio, potrebbero essere in viaggio in uno di questi paesi per motivi di lavoro o personali. In questo esempio, i criteri di accesso condizionale per bloccare questi paesi/aree geografiche può avere un gruppo di sicurezza cloud dedicato per gli utenti che sono esclusi dai criteri. Gli utenti che devono avere l'accesso anche in viaggio, possono aggiungersi al gruppo usando la [gestione gruppi self-service di Azure AD](../users-groups-roles/groups-self-service-management.md).
 
@@ -68,7 +68,7 @@ Seguire questi passaggi per creare un nuovo gruppo di Azure AD e un criterio di 
 
 1. Selezionare gli utenti che devono far parte di questo gruppo di esclusione e quindi fare clic su **Crea**.
 
-    ![Riquadro Nuovo gruppo](./media/conditional-access-exclusion/new-group.png)
+    ![Nuovo riquadro di gruppo in Azure Active Directory](./media/conditional-access-exclusion/new-group.png)
 
 ### <a name="create-a-conditional-access-policy-that-excludes-the-group"></a>Creare un criterio di accesso condizionale che esclude il gruppo
 
@@ -93,7 +93,7 @@ A questo punto è possibile creare un criterio di accesso condizionale che utili
 
 1. Continuare con l'impostazione di criteri di accesso condizionale in base alle esigenze dell'organizzazione.
 
-    ![Selezionare gli utenti esclusi](./media/conditional-access-exclusion/select-excluded-users.png)
+    ![Selezionare il riquadro di utenti esclusi nell'accesso condizionale](./media/conditional-access-exclusion/select-excluded-users.png)
 
 Questo articolo verranno illustrati due esempi in cui è possibile usare le verifiche di accesso per gestire l'esclusione di criteri di accesso condizionale.
 
@@ -116,7 +116,7 @@ Supponiamo di che avere un criterio di accesso condizionale che blocca l'accesso
 
 6. Abilitare le notifiche tramite posta elettronica, in modo che gli utenti ricevano notifica dell'inizio e del completamento della verifica di accesso.
 
-    ![Crea una verifica di accesso](./media/conditional-access-exclusion/create-access-review-1.png)
+    ![Creare un riquadro di revisione di accesso, ad esempio 1](./media/conditional-access-exclusion/create-access-review-1.png)
 
 ## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Esempio 2 Verifica di accesso per gli utenti che accedono con l'autenticazione legacy
 
@@ -134,7 +134,7 @@ Supponiamo di che avere un criterio di accesso condizionale che blocca l'accesso
 
 6. Abilitare le notifiche tramite posta elettronica, in modo che gli utenti ricevano notifica dell'inizio e del completamento della verifica di accesso.
 
-    ![Crea una verifica di accesso](./media/conditional-access-exclusion/create-access-review-2.png)
+    ![Creare un riquadro di revisione di accesso, ad esempio 2](./media/conditional-access-exclusion/create-access-review-2.png)
 
 **Suggerimento avanzato**: se esistono molti gruppi di esclusione e pertanto è necessario creare più verifiche di accesso, è ora disponibile un'API nell'endpoint beta di Microsoft Graph che consente di crearli e gestirli a livello di codice. Per iniziare, vedere le [informazioni di riferimento per l'API delle verifiche di accesso di Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) e [Example of retrieving Azure AD access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096) (Esempio di recupero delle verifiche di accesso di Azure AD tramite Microsoft Graph).
 
@@ -148,11 +148,11 @@ Ora che hai tutti gli elementi sul posto, gruppi, criteri di accesso condizional
 
 1. Fare clic su **Risultati** per vedere chi è stato approvato per rimanere nell'elenco e chi è stato rimosso.
 
-    ![Risultati delle verifiche di accesso](./media/conditional-access-exclusion/access-reviews-results.png)
+    ![Verifiche di accesso Mostra i risultati che è stata approvata](./media/conditional-access-exclusion/access-reviews-results.png)
 
 1. Fare quindi clic su **Log di controllo** per visualizzare le azioni eseguite durante la verifica.
 
-    ![Log di controllo delle verifiche di accesso](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
+    ![I log di controllo elenco di azioni delle verifiche di accesso](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
 
 Gli amministratori IT sanno che gestire gruppi di esclusione per i criteri è talvolta inevitabile. Tuttavia, la manutenzione di questi gruppi, la loro verifica a intervalli regolari da parte del titolare dell'azienda o degli utenti stessi, così come il controllo di queste modifiche possono essere semplificati grazie alle verifiche di accesso di Azure AD.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 157a421ce2cb4442597bfb0f75ae042a10a8ee03
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754996"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443769"
 ---
 # <a name="azure-storage-account-overview"></a>Panoramica dell'account di archiviazione di Azure
 
@@ -68,7 +68,7 @@ Rispetto a per utilizzo generico v2 e account di archiviazione blob, account di 
 
 Account di archiviazione blob di blocco attualmente non supportano la suddivisione in livelli per accesso frequente, sporadico o archivio i livelli di accesso.
 
-### <a name="filestorage-preview-storage-accounts"></a>Account di archiviazione FileStorage (anteprima)
+### <a name="filestorage-storage-accounts"></a>Account di archiviazione FileStorage
 
 Un account di archiviazione FileStorage è un account di archiviazione specializzato usato per archiviare e creare le condivisioni file di premium. Gli account di archiviazione FileStorage offrono caratteristiche di prestazioni univoco dedicata, ad esempio l'espansione nel numero di IOPS. Per altre informazioni su queste caratteristiche, vedere la [livelli di prestazioni di condivisione File](../files/storage-files-planning.md#file-share-performance-tiers) sezione del file di Guida alla pianificazione.
 
@@ -88,7 +88,7 @@ Gli account di archiviazione per utilizzo generico possono essere configurati pe
 
 Account di archiviazione blob di blocco forniscono un livello di prestazioni premium per l'archiviazione BLOB in blocchi e BLOB di Accodamento.
 
-Gli account di archiviazione FileStorage (anteprima) offrono un livello di prestazioni premium per le condivisioni file di Azure.
+Gli account di archiviazione FileStorage offrono un livello di prestazioni premium per le condivisioni file di Azure.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Livelli di accesso per i dati BLOB in blocchi
 

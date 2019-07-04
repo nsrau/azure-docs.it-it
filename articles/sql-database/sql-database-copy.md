@@ -12,16 +12,16 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: ba787ccd51bf5ea9ec8e06e341a0f698afb5a7e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a4d3fd0f7b670bbb0b01385252b405829a91baa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688079"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442321"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creare una copia coerente a livello transazionale di un database SQL di Azure
 
-Il Database SQL di Azure fornisce diversi metodi per la creazione di una copia coerente a livello transazionale di un database SQL di Azure esistente nello stesso server o un altro server. È possibile copiare un database SQL tramite il portale di Azure, PowerShell o T-SQL. 
+Database SQL di Azure fornisce diversi metodi per la creazione di una copia coerenza a livello transazionale di un database SQL di Azure esistente ([singolo database](sql-database-single-database.md)) nello stesso server o un altro server. È possibile copiare un database SQL tramite il portale di Azure, PowerShell o T-SQL. 
 
 ## <a name="overview"></a>Panoramica
 
@@ -94,7 +94,7 @@ Questo comando copia Database1 sul server1 in un nuovo database denominato Datab
 
 ### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiare un database SQL in un'altra sottoscrizione
 
-È possibile utilizzare il descrbed passaggi nella sezione precedente per copiare il database in un server di Database SQL in una sottoscrizione diversa. Assicurarsi di usare un account di accesso con lo stesso nome e la password del proprietario del database di origine ed è un membro del ruolo dbmanager o l'account di accesso dell'entità a livello di server. 
+È possibile utilizzare la procedura descritta nella sezione precedente per copiare il database in un server di Database SQL in una sottoscrizione diversa. Assicurarsi di usare un account di accesso con lo stesso nome e la password del proprietario del database di origine ed è un membro del ruolo dbmanager o l'account di accesso dell'entità a livello di server. 
 
 > [!NOTE]
 > Il [portale di Azure](https://portal.azure.com) nepodporuje copia in una sottoscrizione diversa perché portale chiama l'API di ARM e Usa i certificati di sottoscrizione per accedere a entrambi i server coinvolti nella replica geografica.  

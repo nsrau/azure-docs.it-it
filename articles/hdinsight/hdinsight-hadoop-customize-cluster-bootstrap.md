@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50db9a588cd953bbd0e912ec942194a8deeffe4c
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203714"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484046"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizzare cluster HDInsight tramite Bootstrap
 
@@ -133,9 +133,9 @@ Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-
 ![HDInsight Hadoop personalizzare cluster bootstrap modello di Azure Resource Manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>Vedere anche
-* [Creare cluster Apache Hadoop in HDInsight][hdinsight-provision-cluster] fornisce istruzioni relative alla creazione di un cluster HDInsight tramite l'uso di altre opzioni personalizzate.
-* [Sviluppare script di Azione script per HDInsight][hdinsight-write-script]
-* [Installare e usare Apache Spark in cluster HDInsight][hdinsight-install-spark]
+* [Creare cluster Apache Hadoop in HDInsight][hdinsight-provision-cluster] vengono fornite istruzioni su come creare un cluster HDInsight con altre opzioni personalizzate.
+* [Sviluppare script di Azione di script per HDInsight][hdinsight-write-script]
+* [Installare e usare Apache Spark nei cluster HDInsight][hdinsight-install-spark]
 * [Installare e usare Apache Giraph in cluster Hadoop di HDInsight](hdinsight-hadoop-giraph-install.md)
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
@@ -149,9 +149,6 @@ Vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](hdinsight-
 ## <a name="appendix-powershell-sample"></a>Appendice: Esempio PowerShell
 
 Questo script di PowerShell crea un cluster HDInsight e Personalizza un'impostazione Hive. Assicurarsi di immettere i valori relativi `$nameToken`, `$httpPassword`, e `$sshPassword`.
-
-> [!IMPORTANT]  
-> I valori per `DefaultStorageAccount`, e `DefaultStorageContainer` non vengono restituite dal [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) quando [trasferimento sicuro](../storage/common/storage-require-secure-transfer.md) è abilitata nell'account di archiviazione.
 
 > [!WARNING]  
 > Tipologia di account di archiviazione `BlobStorage` non può essere usato per i cluster HDInsight.

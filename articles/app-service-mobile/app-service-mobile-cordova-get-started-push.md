@@ -5,31 +5,35 @@ services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
 editor: ''
-author: conceptdev
+author: elamalani
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: e6755c3fb1fca342d94fdaa96c0dce614d762172
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62114337"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443560"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Aggiungere notifiche push all'app Apache Cordova
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
+> [!NOTE]
+> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-push) oggi stesso.
+>
+
 ## <a name="overview"></a>Panoramica
 
-In questa esercitazione vengono aggiunte notifiche push al progetto di [avvio rapido di Apache Cordova][5], in modo che una notifica push venga inviata al dispositivo a ogni inserimento di record.
+In questa esercitazione vengono aggiunte notifiche push per il [avvio rapido di Apache Cordova][5] del progetto in modo che una notifica push venga inviata al dispositivo ogni volta che viene inserito un record.
 
-Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push. Per altre informazioni, vedere [Usare l'SDK del server back-end .NET per App per dispositivi mobili][1].
+Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push. Per altre informazioni, vedere [funziona con il SDK del server back-end .NET per App per dispositivi mobili][1].
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,19 +41,19 @@ Per questa esercitazione si presuppone che sia disponibile un'applicazione Apach
 
 Per completare questa esercitazione, sono necessari:
 
-* Un PC in cui è installato [Visual Studio Community 2015][2] o versione successiva
-* [Visual Studio Tools per Apache Cordova][4]
+* Un PC con installato [Visual Studio Community 2015][2] o versione successiva
+* [Strumenti di Visual Studio per Apache Cordova][4]
 * Un [account Azure attivo][3]
-* Un progetto di [avvio rapido di Apache Cordova][5] completato
-* (Android) Un [account Google][6] con un indirizzo di posta elettronica verificato
-* (iOS) [Iscrizione all'Apple Developer Program][7] e un dispositivo iOS (il simulatore iOS non supporta le notifiche push)
-* (Windows) Un [account per sviluppatore di Microsoft Store][8] e un dispositivo Windows 10
+* Una completato [avvio rapido di Apache Cordova][5] progetto
+* (Android) Oggetto [account Google][6] con un indirizzo di posta elettronica verificato
+* (iOS) Un' [appartenenza all'Apple Developer Program][7] e un dispositivo iOS (iOS Simulator non supporta le notifiche push)
+* (Windows) Oggetto [Account di Microsoft Store per sviluppatori][8] e un dispositivo Windows 10
 
 ## <a name="configure-hub"></a>Configurare un hub di notifica
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-[Guardare un video che illustra la procedura disponibile in questa sezione][9].
+[Guardare un video che illustra la procedura in questa sezione][9].
 
 ## <a name="update-the-server-project"></a>Aggiornare il progetto server
 
@@ -177,7 +181,7 @@ Viene inizialmente incluso un codice minimo per Android. In un secondo momento �
     pushRegistration.on('error', handleError);
     }
     ```
-3. (Android) Nel codice precedente sostituire `Your_Project_ID` con l'ID progetto numerico dell'app indicato nella [Console per gli sviluppatori di Google][18].
+3. (Android) Nel codice precedente, sostituire `Your_Project_ID` con l'ID progetto numerico dell'App indicato il [Google Developer Console][18].
 
 ## <a name="optional-configure-and-run-the-app-on-android"></a>(Facoltativo) Configurare ed eseguire l'app in Android
 
@@ -195,7 +199,7 @@ Dal momento che la destinazione è inizialmente la piattaforma di Google Android
 
 #### <a name="configure-your-cordova-app-for-android"></a>Configurare l'app Cordova per Android
 
-Nell'app Cordova aprire il file **config.xml**. Sostituire quindi `Your_Project_ID` con l'ID progetto numerico dell'app indicato nella [Console per gli sviluppatori di Google][18].
+Nell'app Cordova aprire il file **config.xml**. Quindi sostituire `Your_Project_ID` con l'ID progetto numerico dell'App indicato il [Google Developer Console][18].
 
 ```xml
 <plugin name="phonegap-plugin-push" version="1.7.1" src="https://github.com/phonegap/phonegap-plugin-push.git">
@@ -242,7 +246,7 @@ A questo punto è possibile testare le notifiche push. È possibile eseguire il 
 
 * *In un dispositivo fisico:*  collegare il dispositivo Android al computer di sviluppo con un cavo USB.  Invece di selezionare **Emulatore Android di Google**, selezionare **Dispositivo**. Visual Studio distribuisce l'applicazione nel dispositivo e quindi la esegue. Sarà quindi possibile interagire con l'applicazione dal dispositivo.
 
-  Le applicazioni per la condivisione dello schermo come [Mobizen][20] possono facilitare lo sviluppo di applicazioni Android. Mobizen proietta lo schermo Android su un Web browser sul PC.
+  Le applicazioni di condivisione dello schermo, ad esempio [Mobizen][20] possono facilitare lo sviluppo di applicazioni Android. Mobizen proietta lo schermo Android su un Web browser sul PC.
 
 * *In un emulatore Android:* quando si usa un emulatore, sono previsti ulteriori passaggi di configurazione.
 
@@ -250,7 +254,7 @@ A questo punto è possibile testare le notifiche push. È possibile eseguire il 
 
     ![Android Virtual Device Manager](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-    Se si vuole usare un emulatore x86 più veloce, [installare il driver HAXM][11] e quindi configurare l'emulatore per usarlo.
+    Se si desidera utilizzare un x86 più veloce, emulatore [installare il driver HAXM][11]e quindi configurare l'emulatore per usarlo.
 
     Aggiungere un account Google al dispositivo Android selezionando **App** > **Impostazioni** > **Aggiungi account**. Seguire quindi le istruzioni.
 
@@ -266,9 +270,9 @@ Questa sezione illustra l'esecuzione del progetto Cordova in dispositivi iOS. Se
 
 #### <a name="install-and-run-the-ios-remote-build-agent-on-a-mac-or-cloud-service"></a>Installare ed eseguire l'agente remotebuild per iOS in un computer Mac o un servizio cloud
 
-Prima di eseguire un'app Cordova in iOS usando Visual Studio, seguire i passaggi nella [guida alla configurazione per iOS][12] per installare ed eseguire l'agente remotebuild.
+Prima di poter eseguire un'app Cordova in iOS usando Visual Studio, seguire i passaggi nel [Guida alla configurazione di iOS][12] per installare ed eseguire l'agente remotebuild.
 
-Verificare che sia possibile compilare l'app per iOS. I passaggi indicati nella guida alla configurazione sono necessari per compilare l'app per iOS da Visual Studio. Se non è disponibile un computer Mac, è possibile eseguire la compilazione per iOS usando l'agente remotebuild in un servizio come MacInCloud. Per altre informazioni, vedere [Eseguire l'app iOS nel cloud][21].
+Verificare che sia possibile compilare l'app per iOS. I passaggi indicati nella guida alla configurazione sono necessari per compilare l'app per iOS da Visual Studio. Se non è disponibile un computer Mac, è possibile eseguire la compilazione per iOS usando l'agente remotebuild in un servizio come MacInCloud. Per altre informazioni, vedere [eseguire l'app iOS nel cloud][21].
 
 > [!NOTE]
 > Xcode 7 o versione successiva è necessario per usare il plug-in di push in iOS.
@@ -379,8 +383,8 @@ Assicurarsi di ricevere una notifica quando viene aggiunto l'elemento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulle notifiche push, vedere [Hub di notifica di Azure][17].
-* Se non è già stato fatto, proseguire con l'esercitazione [aggiungendo l'autenticazione][14] all'app Apache Cordova.
+* Per informazioni sulle notifiche push, vedere [Hub di notifica di Azure][17] .
+* Se non è già stato fatto, proseguire con l'esercitazione [aggiungendo l'autenticazione][14] all'App Apache Cordova.
 
 Informazioni su come usare gli SDK seguenti:
 

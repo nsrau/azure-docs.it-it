@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979541"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428750"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -72,6 +72,10 @@ Tutti gli esempi di criteri di Azure sono alla [esempi di criteri di Azure](../s
 
 ## <a name="mode"></a>Modalità
 
+**Modalità** è configurato, a seconda se il criterio è destinato a una proprietà di Azure Resource Manager o un Provider di risorse.
+
+### <a name="resource-manager-modes"></a>Modalità di Resource Manager
+
 Il parametro **mode** (modalità) determina quali tipi di risorse verranno valutate per l'assegnazione dei criteri. Le modalità supportate sono:
 
 - `all`: vengono valutati i gruppi di risorse e tutti i tipi di risorse
@@ -80,6 +84,13 @@ Il parametro **mode** (modalità) determina quali tipi di risorse verranno valut
 Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure è necessario specificare il parametro **mode** manualmente. Se la definizione dei criteri non include un valore **mode**, assume il valore predefinito `all` in Azure PowerShell e `null` nell'interfaccia della riga di comando di Azure. Un valore mode `null` equivale all'utilizzo di `indexed` per supportare la compatibilità con le versioni precedenti.
 
 `indexed` deve essere usato durante la creazione di criteri che applicano tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroups`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md). Per un elenco di risorse che supportano i tag, vedere [supporto per le risorse di Azure Tag](../../../azure-resource-manager/tag-support.md).
+
+### <a name="resource-provider-modes"></a>Modalità Provider di risorse
+
+L'unica modalità Provider di risorse attualmente supportata è `Microsoft.ContainerService.Data` per la gestione delle regole di controller di ammissione sul [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Criteri di Azure per Kubernetes](rego-for-aks.md) è disponibile in anteprima pubblica e supporta solo definizioni di criteri predefiniti.
 
 ## <a name="parameters"></a>Parametri
 
@@ -389,6 +400,7 @@ Criteri di Azure supportano i tipi di effetto seguenti:
 - **AuditIfNotExists**: abilita il controllo se una risorsa non esiste
 - **DeployIfNotExists**: distribuisce una risorsa se non esiste già
 - **Disabled**: non valuta le risorse per garantire la conformità alla regola dei criteri
+- **EnforceRegoPolicy**: consente di configurare il controller di ricovero Open Agente criteri in Azure Kubernetes Service (anteprima)
 
 In caso di **aggiunta**, è necessario specificare questi dettagli:
 

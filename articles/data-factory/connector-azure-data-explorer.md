@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 06/24/2019
 ms.author: orspodek
-ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 438adcd70c1be308c2b5779de0442486b303cfdd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394507"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449643"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copiare dati in o da Esplora dati di Azure usando Azure Data Factory
 
@@ -140,6 +140,7 @@ Per copiare dati da Esplora dati di Azure, impostare la proprietà **type** nell
 | type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su: **AzureDataExplorerSource** | Sì |
 | query | Richiesta di sola lettura in [formato KQL](/azure/kusto/query/). Usare la query KQL personalizzata come riferimento. | Sì |
 | queryTimeout | Il tempo di attesa prima del timeout della richiesta di query. Il valore predefinito è 10 minuti (00:10:00); il valore massimo consentito è 1 ora (01:00:00). | No |
+| noTruncation | Indica se troncare il set di risultati restituito. Per impostazione predefinita, risultato viene troncato dopo 500.000 record o da 64MB. Il troncamento è fortemente consigliato per un corretto comportamento dell'attività. |No |
 
 >[!NOTE]
 >Codice sorgente di Esplora dati di Azure per impostazione predefinita prevede un limite di dimensioni di 500.000 record oppure 64 MB. Per recuperare tutti i record senza troncamento, è possibile specificare `set notruncation;` all'inizio della query. Fare riferimento a [eseguire una Query dei limiti](https://docs.microsoft.com/azure/kusto/concepts/querylimits) altri dettagli.

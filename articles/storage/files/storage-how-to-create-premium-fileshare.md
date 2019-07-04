@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 265a1cf0a8a5e1e099a4ec7a9f0d674e0c474dd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63caf9a08acb04bab3712891701d32c21c22e9fc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190107"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449875"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Come creare una condivisione di file di Azure premium
-Le condivisioni file Premium (anteprima) sono disponibili sul supporto di archiviazione disco stato solido (SSD) e sono utili per carichi di lavoro a elevato utilizzo dei / o, tra cui calcolo ad alte prestazioni (HPC) e database di hosting. Le condivisioni file Premium sono ospitate in un tipo di account archiviazione scopo speciale, denominato account FileStorage. Le condivisioni file Premium sono progettate per prestazioni elevate e applicazioni su scala enterprise, che fornisce bassa latenza costante, numero elevato di IOPS e velocità effettiva elevata condivisioni.
+Le condivisioni file Premium sono disponibili sul supporto di archiviazione disco stato solido (SSD) e sono utili per carichi di lavoro a elevato utilizzo dei / o, tra cui calcolo ad alte prestazioni (HPC) e database di hosting. Le condivisioni file Premium sono ospitate in un tipo di account archiviazione scopo speciale, denominato account FileStorage. Le condivisioni file Premium sono progettate per prestazioni elevate e applicazioni su scala enterprise, che fornisce bassa latenza costante, numero elevato di IOPS e velocità effettiva elevata condivisioni.
 
 Questo articolo illustra come creare questo nuovo tipo di account usando [portale di Azure](https://portal.azure.com/), Azure PowerShell e CLI di Azure.
 
@@ -30,7 +30,7 @@ Per accedere a risorse di Azure tra cui condivisioni di file di Azure premium, �
 
 Accedere al [portale di Azure](https://portal.azure.com/).
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Creare un account di archiviazione filestorage (anteprima)
+### <a name="create-a-filestorage-storage-account"></a>Creare un account di archiviazione filestorage
 
 A questo punto si è pronti per creare l'account di archiviazione.
 
@@ -47,10 +47,10 @@ Ogni account di archiviazione deve appartenere a un gruppo di risorse di Azure. 
 1. Immettere quindi un nome per l'account di archiviazione. Il nome scelto deve essere univoco in Azure. Deve avere inoltre una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole.
 1. Selezionare la località per l'account di archiviazione o usare la località predefinita.
 1. Per la **Performance** selezionate **Premium**.
-1. Selezionare **tipologia Account** e scegliere **FileStorage (anteprima)** .
+1. Selezionare **tipologia Account** e scegliere **FileStorage**.
 1. Lasciare **replica** impostata sul valore predefinito **l'archiviazione con ridondanza locale (LRS)** .
 
-    ![Come creare un account di archiviazione per una condivisione di file premium](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
+    ![Come creare un account di archiviazione per una condivisione di file premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. Selezionare **Rivedi e crea** per esaminare le impostazioni dell'account di archiviazione e creare l'account.
 1. Selezionare **Create**.
@@ -59,7 +59,7 @@ Dopo aver creata la risorsa dell'account di archiviazione, passare ad esso.
 
 ### <a name="create-a-premium-file-share"></a>Creare una condivisione file premium
 
-1. Nel menu a sinistra per l'account di archiviazione, scorrere fino al **per il servizio File** sezione e quindi selezionare **i file (anteprima)** .
+1. Nel menu a sinistra per l'account di archiviazione, scorrere fino al **per il servizio File** sezione e quindi selezionare **file**.
 1. Selezionare **+ condivisione File** per creare una condivisione di file premium.
 1. Immettere un nome e una quota desiderata per la condivisione file e quindi selezionare **Create**.
 
@@ -82,14 +82,14 @@ Quindi, aggiornare il modulo di PowerShell, accedere alla sottoscrizione di Azur
 
 ### <a name="upgrade-your-powershell-module"></a>Aggiornare il modulo di PowerShell
 
-Per interagire con una condivisione di file premium da con PowerShell, è necessario installare il modulo Az.Storage più recente.
+Per interagire con una condivisione di file premium da con PowerShell, è necessario installare una versione del modulo Az.Storage versione 1.4.0 o il modulo Az.Storage più recente.
 
 Iniziare aprendo una sessione di PowerShell con autorizzazioni elevate.
 
 Installare il modulo Az.Storage:
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure
@@ -112,9 +112,9 @@ $location = "westus2"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Creare un account di archiviazione FileStorage (anteprima)
+### <a name="create-a-filestorage-storage-account"></a>Creare un account di archiviazione FileStorage
 
-Per creare un account di archiviazione filestorage (anteprima) da PowerShell, usare il [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) comando:
+Per creare un account di archiviazione filestorage da PowerShell, usare il [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) comando:
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -145,15 +145,11 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 Per avviare Azure Cloud Shell, accedere al [portale di Azure](https://portal.azure.com).
 
-Per accedere all'installazione locale dell'interfaccia della riga di comando, eseguire il comando di accesso:
+Se si desidera accedere all'installazione locale della riga di comando, assicurarsi prima di tutto che avere la versione più recente, quindi eseguire il comando di accesso:
 
 ```cli
 az login
 ```
-
-### <a name="add-the-preview-storage-cli-extension"></a>Aggiungere l'estensione dell'interfaccia della riga di archiviazione di anteprima
-
-Poiché le condivisioni di file premium sono una funzionalità in anteprima, è possibile aggiungere l'estensione di anteprima alla shell. A tale scopo, usando Cloud Shell o una shell locale, immettere il comando seguente: `az extension add --name storage-preview`
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

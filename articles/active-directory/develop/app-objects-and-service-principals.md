@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47626cbd8d5b8a5ddf7cc5c6ea42fb9453e5bfb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 822990ebc2eb5edbdbc6611a4f3729bc5cfadc55
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540677"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482890"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Oggetti applicazione e oggetti entità servizio in Azure Active Directory
 
@@ -52,7 +52,7 @@ Quando si registra un'applicazione di Azure AD nel [portale di Azure][AZURE-Port
 
 ### <a name="application-object"></a>Oggetto applicazione
 
-Un'applicazione di Azure AD è definita da un solo oggetto applicazione che risiede nel tenant di Azure AD in cui l'applicazione è stata registrata, noto come tenant "home" dell'applicazione. Microsoft Graph [entità applicativa] [ MS-Graph-App-Entity] definisce lo schema per le proprietà di un oggetto applicazione.
+Un'applicazione di Azure AD è definita da un solo oggetto applicazione che risiede nel tenant di Azure AD in cui l'applicazione è stata registrata, noto come tenant "home" dell'applicazione. Microsoft Graph [entità applicazione][MS-Graph-App-Entity] definisce lo schema per le proprietà di un oggetto applicazione.
 
 ### <a name="service-principal-object"></a>Oggetto entità servizio
 
@@ -60,7 +60,7 @@ Per accedere alle risorse protette da un tenant di Azure AD, l'entità che richi
 
 L'entità di sicurezza definisce i criteri di accesso e le autorizzazioni per l'utente/applicazione nel tenant di Azure AD. Ciò abilita le funzionalità di base, ad esempio l'autenticazione dell'utente/applicazione durante l'accesso e l'autorizzazione durante l'accesso alle risorse.
 
-Quando a un'applicazione viene concesso di accedere alle risorse in un tenant (al momento della registrazione o del [consenso](developer-glossary.md#consent)), viene creato un oggetto entità servizio. Microsoft Graph [entità ServicePrincipal] [ MS-Graph-Sp-Entity] definisce lo schema per le proprietà di un oggetto entità servizio.
+Quando a un'applicazione viene concesso di accedere alle risorse in un tenant (al momento della registrazione o del [consenso](developer-glossary.md#consent)), viene creato un oggetto entità servizio. Microsoft Graph [entità ServicePrincipal][MS-Graph-Sp-Entity] definisce lo schema per le proprietà di un oggetto entità servizio.
 
 ### <a name="application-and-service-principal-relationship"></a>Relazione tra applicazione e entità servizio
 
@@ -83,7 +83,7 @@ Il diagramma seguente illustra la relazione tra l'oggetto applicazione e i corri
 - **Contoso**, il tenant usato dall'organizzazione Contoso, che utilizza l'**app HR**
 - **Fabrikam**, il tenant usato dall'organizzazione Fabrikam, che utilizza anche in questo caso l'**app HR**
 
-![Relazione tra un oggetto applicazione e un oggetto entità servizio](./media/app-objects-and-service-principals/application-objects-relationship.svg)
+![Relazione tra oggetti applicazione e oggetto entità servizio](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
 In questo scenario di esempio:
 
@@ -96,8 +96,8 @@ In questo scenario di esempio:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - È possibile usare la [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) per eseguire una query l'applicazione e oggetti entità servizio.
-- È possibile accedere a un oggetto dell'applicazione dell'applicazione usando l'API Microsoft Graph, il [del portale di Azure] [ AZURE-Portal] editor del manifesto dell'applicazione, o [cmdlet Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) , come rappresentate da OData [entità applicativa][MS-Graph-App-Entity].
-- Oggetto entità servizio dell'applicazione è possibile accedere tramite l'API Microsoft Graph o [i cmdlet di PowerShell per Azure AD](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), come rappresentato da OData [entità ServicePrincipal] [ MS-Graph-Sp-Entity].
+- È possibile accedere a un oggetto dell'applicazione dell'applicazione usando l'API Microsoft Graph, il [del portale di Azure][AZURE-Portal] editor del manifesto dell'applicazione, o [cmdlet di Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), come rappresentato OData[ Entità applicazione][MS-Graph-App-Entity].
+- Oggetto entità servizio dell'applicazione è possibile accedere tramite l'API Microsoft Graph o [i cmdlet di PowerShell per Azure AD](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), come rappresentato da OData [entità ServicePrincipal][MS-Graph-Sp-Entity].
 
 <!--Image references-->
 

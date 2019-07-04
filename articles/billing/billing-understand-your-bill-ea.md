@@ -1,25 +1,22 @@
 ---
-title: Comprendere la fattura di Azure enterprise | Microsoft Docs
-description: Informazioni su come leggere e comprendere l'utilizzo e la fattura per i contratti Enterprise di Azure
-services: ''
-documentationcenter: ''
+title: Comprendere la fattura di Azure enterprise
+description: Informazioni su come leggere e comprendere l'utilizzo e la fattura per i contratti Enterprise di Azure.
 author: adpick
 manager: dougeby
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571201"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490279"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Comprendere la fattura di Azure Enterprise Agreement
 
@@ -57,9 +54,9 @@ La fattura Mostra tutto l'utilizzo di Azure, seguito da eventuali addebiti di Ma
 
 Confrontare l'importo totale combinato visualizzata nel portale aziendale nel **Reports** > **riepilogo utilizzo** con la fattura di Azure. Gli importi nel **riepilogo utilizzo** non includono l'IVA.
 
-1. Accedere al [Portale Enterprise](https://ea.azure.com).
+1. Accedi per il [Enterprise portal](https://ea.azure.com).
 1. Selezionare **Report**.
-1. Nell'angolo superiore destro della scheda, passare dalla vista **M** alla **C** e abbinare il periodo alla fattura.  
+1. Nell'angolo superiore destro della scheda, passare dalla visualizzazione **M** al **C** e corrispondono al periodo nella fattura.  
     ![Screenshot che mostra M + opzione C nel riepilogo di utilizzo.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 1. La quantità combinata di **utilizzo totale** e **Azure Marketplace** deve corrispondere il **Total Amount estesi** nella fattura.
 1. Per altre informazioni sugli addebiti, passare a **Scarica utilizzo**.  
@@ -98,9 +95,9 @@ Per rivedere e verificare gli addebiti sulla propria fattura, bisogna essere l'a
 
 Confrontare la quantità di utilizzo totale in Enterprise portal nella **Reports** > **riepilogo utilizzo** e la fattura in eccedenza del servizio. La fattura di eccedenza del servizio include l'uso che supera il credito della propria organizzazione e/o i servizi che non sono coperti dal credito. Gli importi nel **Riepilogo uso** non includono l'imposta.
 
-1. Accedere al [Portale Enterprise](https://ea.azure.com).
+1. Accedi per il [Enterprise portal](https://ea.azure.com).
 1. Selezionare **Report**.
-1. Nell'angolo superiore destro della scheda, passare dalla vista **M** alla **C** e abbinare il periodo alla fattura.  
+1. Nell'angolo superiore destro della scheda, passare dalla visualizzazione **M** al **C** e corrispondono al periodo nella fattura.  
     ![Screenshot che mostra M + opzione C nel riepilogo di utilizzo.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 1. L'importo dell'**Uso totale** deve corrispondere all'**Importo totale** esteso nella fattura di eccedenza del servizio.  
 1. Per ottenere altre informazioni sui propri addebiti, visitare **Scarica uso** > **Download del report avanzato**. Il report non include le imposte o gli addebiti per le prenotazioni o gli addebiti di marketplace.  
@@ -122,9 +119,9 @@ In questa sezione si applica solo se si è in Australia, Giappone o Singapore.
 
 Confrontare il totale di Azure Marketplace in **Report** > **Riepilogo uso** nel portale Enterprise con la fattura di marketplace. La fattura di marketplace è solo per gli acquisti e l'uso di Azure Marketplace. Gli importi nel **Riepilogo uso** non includono l'imposta.
 
-1. Accedere al [Portale Enterprise](https://ea.azure.com).
+1. Accedi per il [Enterprise portal](https://ea.azure.com).
 1. Selezionare **Report**.
-1. Nell'angolo superiore destro della scheda, passare dalla vista **M** alla **C** e abbinare il periodo alla fattura.  
+1. Nell'angolo superiore destro della scheda, passare dalla visualizzazione **M** al **C** e corrispondono al periodo nella fattura.  
      ![Screenshot che mostra M + opzione C nel riepilogo di utilizzo.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)  
 1. Il totale **Azure Marketplace** deve corrispondere alla **Vendita totale** nella fattura di marketplace.
 1. Per ottenere altre informazioni sui propri addebiti basati sull'uso, visitare **Scarica uso**. Sotto **Addebiti Marketplace**, selezionare **Download**. Questo report non include le imposte né mostra gli acquisti una tantum.  

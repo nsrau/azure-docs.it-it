@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38d3c61acee9dca18ab1f863d878e02f7437a600
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707984"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433730"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster Apache HBase nelle reti virtuali di Azure
 
@@ -21,7 +21,7 @@ Informazioni su come configurare la replica [Apache HBase](https://hbase.apache.
 
 La replica di cluster usa una metodologia con push dell'origine. Un cluster HBase può essere un'origine o una destinazione o può soddisfare entrambi i ruoli in una sola volta. La replica è asincrona. L'obiettivo della replica è la coerenza finale. Quando l'origine riceve una modifica a una famiglia di colonne con la replica abilitata, tale modifica viene propagata in tutti i cluster di destinazione. Quando i dati vengono replicati da un cluster a un altro, viene tenuta traccia del cluster di origine e di tutti i cluster che hanno già usato i dati, per evitare cicli di replica.
 
-In questa esercitazione si configura una replica origine-destinazione. Per altre topologie di cluster, vedere la [guida di riferimento di Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
+In questo articolo configurare una replica origine-destinazione. Per altre topologie di cluster, vedere la [guida di riferimento di Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
 
 Di seguito sono illustrati i casi d'uso della replica HBase per una singola rete virtuale:
 
@@ -39,7 +39,7 @@ Di seguito sono illustrati i casi d'uso della replica HBase per due reti virtual
 È possibile replicare i cluster tramite gli script di [azione script](../hdinsight-hadoop-customize-cluster-linux.md) di [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare questa esercitazione, è necessario disporre di un abbonamento ad Azure. Vedere [Get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Ottenere una versione di valutazione gratuita di Azure).
+Prima di iniziare questo articolo, è necessario disporre di una sottoscrizione di Azure. Vedere [Get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Ottenere una versione di valutazione gratuita di Azure).
 
 ## <a name="set-up-the-environments"></a>Configurare gli ambienti
 
@@ -68,7 +68,7 @@ Alcuni valori hardcoded nel modello:
 
 | Proprietà | Value |
 |----------|-------|
-| Località | Stati Uniti occidentali |
+| Location | Stati Uniti occidentali |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet1 |
 | Prefisso dello spazio degli indirizzi | 10.1.0.0/16 |
 | Nome della subnet | subnet 1 |
@@ -85,7 +85,7 @@ Alcuni valori hardcoded nel modello:
 
 | Proprietà | Value |
 |----------|-------|
-| Località | Stati Uniti orientali |
+| Location | East US |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet2 |
 | Prefisso dello spazio degli indirizzi | 10.2.0.0/16 |
 | Nome della subnet | subnet 1 |
@@ -301,7 +301,7 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
 
 Argomenti obbligatori:
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |----|-----------|
 |-s, --src-cluster | Specifica il nome DNS del cluster HBase di origine. Ad esempio: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, - dst-cluster | Specifica il nome DNS del cluster HBase di destinazione (replica). Ad esempio: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -310,7 +310,7 @@ Argomenti obbligatori:
 
 Argomenti facoltativi:
 
-|Name|Descrizione|
+|NOME|Descrizione|
 |----|-----------|
 |-su, --src-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di origine. Il valore predefinito è **admin**. |
 |-du, --dst-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di destinazione. Il valore predefinito è **admin**. |
@@ -396,7 +396,7 @@ La sezione `print_usage()` dello [script](https://raw.githubusercontent.com/Azur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come configurare la replica Apache HBase in una rete virtuale o tra due reti virtuali. Per altre informazioni su HDInsight e Apache HBase, vedere questi articoli:
+In questo articolo è stato descritto come configurare la replica di Apache HBase in una rete virtuale o tra due reti virtuali. Per altre informazioni su HDInsight e Apache HBase, vedere questi articoli:
 
 * [Introduzione ad Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Panoramica di Apache HBase di HDInsight](./apache-hbase-overview.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 5/30/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: f4f10191ea28f73732f81eb9dc25321f82683652
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 796ae0e3be3a2e43d7f27d5932cdba0cf660f36b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416983"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441898"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 ## <a name="overview"></a>Panoramica ##
@@ -56,6 +56,8 @@ Per informazioni sull'uso dei modelli di Azure Resource Manager per configurare 
     b. **Tipo di azione**: selezionare Messaggio di posta elettronica/SMS/Push/Voce, App per la logica, Webhook, ITSM o Runbook di Automazione.
 
     c. **Dettagli**: in base al tipo di azione, immettere un numero di telefono, un indirizzo di posta elettronica, l'URI del webhook, l'app Azure, la connessione ITSM o il runbook di Automazione. Per l'azione ITSM, specificare anche **Elemento di lavoro** e altri campi richiesti dallo strumento ITSM.
+    
+    d. **Schema di avviso comune**: È possibile scegliere di abilitare la [common schema avviso](https://aka.ms/commonAlertSchemaDocs), che offre il vantaggio di una singola estensibile e di servizi di payload avviso unificato in tutto l'avviso in Monitoraggio di Azure.
 
 1. Fare clic su **OK** per creare il gruppo di azione.
 

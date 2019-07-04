@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 07/02/2019
 ms.author: raynew
-ms.openlocfilehash: 51de1c4ac17360282877f05d52c3ea8fa2c6d712
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: e195d9a4b9d2bbe21848e083dbccf864188e0790
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310761"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508399"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminare un insieme di credenziali dei servizi di ripristino
 
@@ -51,10 +51,10 @@ Se si riceve un errore, rimuovere [elementi di backup](#remove-backup-items), [s
 
 1. Installazione di chocolatey dal [qui](https://chocolatey.org/) e per installare ARMClient eseguire il comando seguente:
 
-   ` choco install armclient --source=https://chocolatey.org/api/v2/ `
+   `choco install armclient --source=https://chocolatey.org/api/v2/`
 2. Accedi al tuo account Azure ed eseguire questo comando:
 
-    ` ARMClient.exe login [environment name] `
+    `ARMClient.exe login [environment name]`
 
 3. Nel portale di Azure, raccogliere il nome del gruppo risorse e l'ID sottoscrizione dell'insieme di credenziali che si desidera eliminare.
 
@@ -78,7 +78,7 @@ Per altre informazioni sul comando ARMClient, fare riferimento a questo [documen
 
 ## <a name="remove-vault-items-and-delete-the-vault"></a>Rimuovere gli elementi dell'insieme di credenziali ed eliminare l'insieme di credenziali
 
-Queste procedure forniscono alcuni esempi per la rimozione dei dati di backup e i server di infrastruttura. Dopo che tutto ciò che viene rimosso da un insieme di credenziali, è possibile eliminarlo.
+Rimuovere tutte le dipendenze prima che venga eliminato l'insieme di credenziali di servizi di ripristino.
 
 ### <a name="remove-backup-items"></a>Rimuovere gli elementi di backup
 
@@ -108,8 +108,72 @@ Questa procedura viene fornito un esempio che illustra come rimuovere i dati di 
 
       ![Elimina dati di backup](./media/backup-azure-delete-vault/empty-items-list.png)
 
+## <a name="deleting-backup-items-from-management-console"></a>L'eliminazione degli elementi di backup dalla console di gestione
+
+Per eliminare gli elementi di backup dall'infrastruttura di Backup, passare al server locale Management Console (MARS, Server di Backup di Azure o SC DPM a seconda di dove sono protetti gli elementi di back-).
+
+### <a name="for-mars-agent"></a>Per l'agente di MARS
+
+- Avviare la console di gestione di MARS, visitare il **azioni** riquadro, quindi scegliere **pianifica Backup**.
+- Dal **modificare o interrompere un Backup pianificato** procedura guidata, scegliere l'opzione **Interrompi questa pianificazione di backup ed Elimina tutti i backup archiviati** e fare clic su **Next**.
+
+    ![Modifica o interrompi un backup pianificato](./media/backup-azure-delete-vault/modify-schedule-backup.png)
+
+- Dal **interrompe un Backup pianificato** procedura guidata, fare clic su **fine**.
+
+    ![Interrompi un Backup pianificato](./media/backup-azure-delete-vault/stop-schedule-backup.png)
+- Viene chiesto di immettere un Pin di sicurezza. Per generare il PIN, eseguire i passaggi seguenti:
+  - Accedere al portale di Azure.
+  - Passare a **Insiemi di credenziali dei servizi di ripristino** > **Impostazioni** > **Proprietà**.
+  - Fare clic su **Genera** in **PIN di sicurezza**. Copiare questo PIN. (Questo PIN è valido solo per cinque minuti)
+- Nella Console di gestione (app client) incollare il codice PIN e fare clic su **accettabile**.
+
+  ![Pin di sicurezza](./media/backup-azure-delete-vault/security-pin.png)
+
+- Nel **modifica stato Backup** procedura guidata verrà visualizzato *i dati di backup eliminati verranno mantenuti per 14 giorni. Dopo tale periodo, i dati di backup verranno eliminati definitivamente.*  
+
+    ![Eliminare un'infrastruttura di Backup](./media/backup-azure-delete-vault/deleted-backup-data.png)
+
+Dopo avere eliminato gli elementi di backup in locale, completare i passaggi dal portale di seguenti:
+- Per MARS seguire i passaggi descritti in [i punti di ripristino di Backup di Azure rimuovere agente](#remove-azure-backup-agent-recovery-points)
+
+### <a name="for-mabs-agent"></a>Per l'agente di backup di Microsoft AZURE
+
+Esistono diversi metodi per arrestare o eliminare la protezione online, eseguire uno dei metodi seguenti:
+
+**Metodo 1**
+
+Avviare il **MABS gestione** console. Nel **Seleziona metodo protezione dati** sezione deselezionate **protezione dati online**.
+
+  ![Seleziona metodo protezione dati](./media/backup-azure-delete-vault/data-protection-method.png)
+
+**Metodo 2**
+
+Per eliminare un gruppo protezione dati, è necessario innanzitutto arrestare la protezione del gruppo. Utilizzare la procedura seguente per arrestare la protezione dati e consentire l'eliminazione di un gruppo protezione dati.
+
+1.  Nella Console amministrazione DPM fare clic su **Protection** sulla barra di spostamento.
+2.  Nel riquadro informazioni selezionare il membro del gruppo protezione dati che si desidera rimuovere. Pulsante destro del mouse per scegliere **Arresta protezione dati dei membri del gruppo** opzione.
+3.  Dal **Arresta protezione** finestra di dialogo **Elimina dati protetti** > **eliminare l'archivio online** casella di controllo e quindi fare clic su **arrestare Protezione**.
+
+    ![Eliminare l'archivio online](./media/backup-azure-delete-vault/delete-storage-online.png)
+
+Lo stato di membro protetto è ora diventato **replica inattiva disponibile**.
+
+5. Il gruppo protezione dati inattiva e scegliere **Rimuovi protezione dati inattiva**.
+
+    ![Rimuovi protezione dati inattiva](./media/backup-azure-delete-vault/remove-inactive-protection.png)
+
+6. Dal **Elimina protezione dati inattiva** finestra, seleziona **eliminare l'archivio online** e fare clic su **Ok**.
+
+    ![Rimuovere le repliche su disco e non in linea](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
+
+Dopo avere eliminato gli elementi di backup in locale, completare i passaggi dal portale di seguenti:
+- Per DPM e MABS seguire i passaggi descritti in [server di gestione di Backup di Azure rimuovere](#remove-azure-backup-management-servers).
+
 
 ### <a name="remove-azure-backup-management-servers"></a>Rimuovere il server di gestione di Backup di Azure
+
+Prima di rimuovere il server di gestione di backup di Azure, assicurarsi di eseguire i passaggi indicati [l'eliminazione degli elementi di backup dalla console di gestione](#deleting-backup-items-from-management-console).
 
 1. Nel menu del dashboard dell'insieme di credenziali fare clic su **infrastruttura di Backup**.
 2. Fare clic su **server di gestione Backup** per visualizzare i server.
@@ -123,9 +187,11 @@ Questa procedura viene fornito un esempio che illustra come rimuovere i dati di 
 5.  Facoltativamente, specificare un motivo per cui si vuole eliminare i dati e aggiungere commenti.
 
 > [!NOTE]
-> Per rimuovere gli elementi, nella console di server di gestione o nella console di MARS in un server protetto, arrestare la protezione dati ed eliminare i backup. Se gli elementi di backup rimangono, verrà visualizzato l'errore seguente quando si prova a eliminare e annullare la registrazione di server:
+> Se viene visualizzato l'errore riportato di seguito, quindi prima di eseguire i passaggi indicati [l'eliminazione degli elementi di backup dalla console di gestione](#deleting-backup-items-from-management-console).
 >
 >![eliminazione non riuscita](./media/backup-azure-delete-vault/deletion-failed.png)
+>
+> Se non si riesce a eseguire la procedura per eliminare i backup dalla console di gestione, ad esempio, a causa dell'indisponibilità del server con la console di gestione, contattare il supporto tecnico Microsoft.
 
 6. Per verificare che il processo di eliminazione è stata completata, controllare i messaggi di Azure ![Elimina dati di backup](./media/backup-azure-delete-vault/messages.png).
 7. Dopo il completamento del processo, il servizio invia un messaggio: **è stato arrestato il processo di backup e i dati di backup sono stati eliminati**.
@@ -133,6 +199,8 @@ Questa procedura viene fornito un esempio che illustra come rimuovere i dati di 
 
 
 ### <a name="remove-azure-backup-agent-recovery-points"></a>Rimuovere i punti di ripristino dell'agente di Backup di Azure
+
+Prima di rimuovere il punto di ripristino di backup di Azure, assicurarsi di eseguire i passaggi indicati [l'eliminazione degli elementi di backup dalla console di gestione](#deleting-backup-items-from-management-console).
 
 1. Nel menu del dashboard dell'insieme di credenziali fare clic su **infrastruttura di Backup**.
 2. Fare clic su **Protected Servers** per visualizzare i server dell'infrastruttura.
@@ -158,13 +226,15 @@ Questa procedura viene fornito un esempio che illustra come rimuovere i dati di 
 7. Facoltativamente, specificare un motivo per cui si vuole eliminare i dati e aggiungere commenti.
 
 > [!NOTE]
-> Gli elementi di backup associati a un server di Backup del Server di gestione o agente di Backup di Azure devono essere eliminati prima le registrazioni del server, questi vengono eliminate. Per rimuovere gli elementi di Backup, passare a SC DPM, MABS o la console di gestione di MARS nel server come applicabile e selezionare le opzioni rilevanti per arrestare la protezione dati ed eliminare i backup. Se eventuali elementi di backup sono ancora associati, si verrà visualizzato l'errore seguente:
->
+> Se viene visualizzato l'errore riportato di seguito, quindi prima di eseguire i passaggi indicati [l'eliminazione degli elementi di backup dalla console di gestione](#deleting-backup-items-from-management-console).
 >
 >![eliminazione non riuscita](./media/backup-azure-delete-vault/deletion-failed.png)
+>
+> Se non si riesce a eseguire la procedura per eliminare i backup dalla console di gestione, ad esempio, a causa dell'indisponibilità del server con la console di gestione, contattare il supporto tecnico Microsoft. 
 
 8. Per verificare che il processo di eliminazione è stata completata, controllare i messaggi di Azure ![Elimina dati di backup](./media/backup-azure-delete-vault/messages.png).
 9. Dopo l'eliminazione di un elemento nell'elenco, nella **infrastruttura di Backup** menu, fare clic su **aggiornare** per visualizzare gli elementi nell'insieme di credenziali.
+
 
 ### <a name="delete-the-vault-after-removing-dependencies"></a>Eliminare l'insieme di credenziali dopo la rimozione delle dipendenze
 

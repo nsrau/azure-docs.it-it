@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be38f5d3bbf4fe3d90fc78feab8774595b5338f2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776578"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447661"
 ---
 # <a name="common-alert-schema"></a>Schema di avviso comune
 
@@ -125,6 +125,7 @@ Ad esempio, la richiesta seguente corpo tentato il [crea o aggiorna](https://doc
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Definizioni di avviso dello schema comuni per i runbook di funzioni o dell'automazione di Webhook/logica o app di Azure.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Informazioni su come creare un'app per la logica che utilizza lo schema comune degli avvisi per gestire tutti gli avvisi.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 
 
 

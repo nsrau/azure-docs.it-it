@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c02daef31b29e9a95ddfdedea497604ad0777aa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563435"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442630"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Backup e ripristino per SQL Server in Macchine virtuali di Azure
 
@@ -35,7 +35,7 @@ Nella tabella seguente sono disponibili informazioni sulle varie opzioni di back
 | Strategia | Versioni di SQL Server | Descrizione |
 |---|---|---|
 | [Backup automatico](#automated) | 2014<br/> 2016<br/> 2017 | La funzionalità Backup automatizzato consente di pianificare backup regolari per tutti i database in una macchina virtuale di SQL Server. I backup vengono archiviati nell'archivio di Azure per un massimo di 30 giorni. A partire da SQL Server 2016, la versione 2 di Backup automatizzato offre opzioni aggiuntive, ad esempio la configurazione di una pianificazione manuale e la frequenza di backup completi e del log. |
-| [Backup di Azure per le macchine virtuali di SQL Server](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Backup di Azure offre una funzionalità di backup adatta alle grandi aziende per SQL Server in esecuzione in macchine virtuali di Azure. Con questo servizio, è possibile gestire centralmente i backup per più server e migliaia di database. I database possono essere ripristinati in un punto specifico nel tempo nel portale. Il servizio offre criteri di conservazione personalizzabili che consentono di mantenere i backup per anni. Questa funzionalità è attualmente in anteprima pubblica. |
+| [Backup di Azure per le macchine virtuali di SQL Server](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | Backup di Azure offre una funzionalità di backup adatta alle grandi aziende per SQL Server in esecuzione in macchine virtuali di Azure. Con questo servizio, è possibile gestire centralmente i backup per più server e migliaia di database. I database possono essere ripristinati in un punto specifico nel tempo nel portale. Il servizio offre criteri di conservazione personalizzabili che consentono di mantenere i backup per anni. |
 | [Backup manuale](#manual) | Tutti | A seconda della versione di SQL Server, esistono diverse tecniche per eseguire manualmente il backup e il ripristino di SQL Server in esecuzione in una macchina virtuale di Azure. In questo scenario, si è responsabili della modalità di backup dei database, nonché della posizione di archiviazione e della gestione di questi backup. |
 
 Le sezioni seguenti descrivono ogni opzione in modo più dettagliato. La sezione finale di questo articolo offre un riepilogo sotto forma di matrice di funzionalità.

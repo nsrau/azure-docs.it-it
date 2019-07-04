@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: 0ac50a5f52682c4315b8d08cf5632c4a6fa5242f
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: fe9886429a5e894f40c04b1f65094e412c1dc9e2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357577"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441194"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Usare le macchine virtuali di analisi scientifica dei dati di Azure
 
@@ -51,7 +51,7 @@ Ottenere questi valori dalla pagina di macchina virtuale data SCIENCE nel portal
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>L'accesso ai file di Azure Notebooks da DSVM
 
-Accesso al file system è supportato per le versioni di macchina virtuale data SCIENCE 19.06.15 o versione successiva. Per controllare la versione, connettersi prima alla DSVM tramite SSH (l'indirizzo IP è disponibile nel portale di Azure). Quindi eseguire il comando seguente usando il `<ip_address>`: `curl -H Metadata:true "http://<ip_address>/metadata/instance?api-version=2018-10-01"`. Il numero di versione viene visualizzato nell'output per "version".
+Accesso al file system è supportato per le versioni di macchina virtuale data SCIENCE 19.06.15 o versione successiva. Per controllare la versione, prima di tutto connettersi tramite SSH nella dsvm, quindi eseguire il comando seguente: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` (è necessario usare l'indirizzo IP esatto illustrato di seguito). Il numero di versione viene visualizzato nell'output per "version".
 
 Per mantenere la parità dei percorsi di file con il **calcolo gratuito** livello, si è in grado di aprire solo un unico progetto contemporaneamente in una macchina virtuale data SCIENCE. Per aprire un nuovo progetto, è necessario chiudere il progetto aperto prima di tutto.
 

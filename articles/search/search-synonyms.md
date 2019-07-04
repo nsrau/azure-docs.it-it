@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99abcc70a81622e4efbe85722d457bd1846b6e15
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024297"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485223"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinonimi in Ricerca di Azure
 
@@ -25,7 +25,7 @@ In Ricerca di Azure l'espansione sinonimica viene eseguita in fase di query. È 
 
 ## <a name="create-synonyms"></a>Creare sinonimi
 
-Nessun supporto del portale per la creazione di sinonimi, ma è possibile usare l'API REST o .NET SDK. Per iniziare a usare REST, è consigliabile [usando Postman](search-fiddler.md) e di formulazione delle richieste effettuate utilizzando questa API: [Creare le mappe Sinonimiche](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Per C# gli sviluppatori, è possibile iniziare a usare [aggiungere sinonimi in ricerca di Azure utilizzando C# ](search-synonyms-tutorial-sdk.md).
+Nessun supporto del portale per la creazione di sinonimi, ma è possibile usare l'API REST o .NET SDK. Per iniziare a usare REST, è consigliabile [usando Postman](search-get-started-postman.md) e di formulazione delle richieste effettuate utilizzando questa API: [Creare le mappe Sinonimiche](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Per C# gli sviluppatori, è possibile iniziare a usare [aggiungere sinonimi in ricerca di Azure utilizzando C# ](search-synonyms-tutorial-sdk.md).
 
 Facoltativamente, se si usa [le chiavi gestite dal cliente](search-security-manage-encryption-keys.md) per lato servizio di crittografia inattivi, è possibile applicare tale protezione per il contenuto della mappa del sinonimo.
 

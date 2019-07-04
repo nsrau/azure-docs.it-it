@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0afec1d6eded25a2d9b2389c950e2e21e06e0d54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07476c9f5db64a5d107a493022fa3548fe0dae4c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66307071"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476351"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Invitare utenti guest e assegnare i ruoli delle risorse di Azure in PIM
 
@@ -47,7 +47,7 @@ Ecco alcuni scenari di esempio quando è possibile invitare utenti guest nell'or
 
 Quando si usa collaborazione B2B, è possibile invitare un utente esterno all'organizzazione come guest. Il guest viene visualizzato sia nella propria organizzazione, ma il guest non dispone di credenziali è associate. Ogni volta che un utente guest deve essere autenticato, devono essere autenticate nella propria organizzazione e non all'interno dell'organizzazione. Ciò significa che se il guest non ha più accesso alla propria organizzazione, sono anche perdere l'accesso all'organizzazione. Ad esempio, se il guest lascia l'organizzazione, vengono automaticamente perdere l'accesso a tutte le risorse che è condiviso con loro in Azure AD senza dover eseguire alcuna operazione. Per altre informazioni su B2B, vedere [Che cos'è l'accesso utente guest in Azure Active Directory B2B?](../b2b/what-is-b2b.md).
 
-![B2B e guest](./media/pim-resource-roles-external-users/b2b-external-user.png)
+![Diagramma che mostra come un utente guest viene visualizzato nella directory, ma viene autenticato nella relativa home directory.](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
 ## <a name="check-guest-collaboration-settings"></a>Controllare le impostazioni di collaborazione di guest
 
@@ -59,7 +59,7 @@ Per assicurarsi che si possono invitare utenti guest nella propria organizzazion
 
 1. Fare clic su **Gestisci le impostazioni di collaborazione esterna**.
 
-    ![Impostazioni di collaborazione esterna](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
+    ![Pagina delle impostazioni di collaborazione esterna che mostra le impostazioni di restrizione di autorizzazione, invito e la collaborazione](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
 
 1. Assicurarsi che l'opzione **Amministratori e utenti nel ruolo mittente dell'invito guest possono invitare** sia impostata su **Sì**.
 
@@ -81,21 +81,21 @@ Usare PIM, è possibile invitare un utente guest e renderli idonei per un ruolo 
 
 1. In Gestione fare clic su **Ruoli** per visualizzare l'elenco di ruoli per le risorse di Azure.
 
-    ![Ruoli delle risorse di Azure](./media/pim-resource-roles-external-users/resources-roles.png)
+    ![Elenco di ruoli di risorse di Azure che mostra il numero di utenti che sono attive e idonee](./media/pim-resource-roles-external-users/resources-roles.png)
 
 1. Fare clic sul ruolo minimo di cui l'utente ha bisogno.
 
-    ![Ruolo selezionato](./media/pim-resource-roles-external-users/selected-role.png)
+    ![Pagina ruolo che elenca i membri correnti di tale ruolo selezionato](./media/pim-resource-roles-external-users/selected-role.png)
 
 1. Nella pagina del ruolo, fare clic su **Aggiungi membro** per aprire il riquadro Nuova assegnazione.
 
 1. Fare clic su **Selezionare un membro o un gruppo**.
 
-    ![Selezionare un membro o un gruppo](./media/pim-resource-roles-external-users/select-member-group.png)
+    ![Nuova assegnazione - selezionare un membro o il gruppo riquadro elenco di utenti e gruppi con un'opzione di invito](./media/pim-resource-roles-external-users/select-member-group.png)
 
 1. Per invitare un utente guest, fare clic su **invitare**.
 
-    ![Invitare un utente guest](./media/pim-resource-roles-external-users/invite-guest.png)
+    ![Invita una pagina guest con le caselle per immettere un indirizzo di posta elettronica e specificare un messaggio personale](./media/pim-resource-roles-external-users/invite-guest.png)
 
 1. Dopo aver selezionato un utente guest, fare clic su **invitare**.
 
@@ -105,13 +105,13 @@ Usare PIM, è possibile invitare un utente guest e renderli idonei per un ruolo 
 
 1. Nel **delle impostazioni di appartenenza** riquadro, selezionare il tipo di assegnazione e la durata.
 
-    ![Impostazioni di appartenenza](./media/pim-resource-roles-external-users/membership-settings.png)
+    ![Nuova assegnazione - pagina Impostazioni di appartenenza con le opzioni per specificare il tipo di assegnazione, la data di inizio e data di fine](./media/pim-resource-roles-external-users/membership-settings.png)
 
 1. Per completare l'assegnazione, fare clic su **Fine** e quindi su **Aggiungi**.
 
     L'assegnazione di ruolo guest verrà visualizzato nell'elenco dei ruoli.
 
-    ![Assegnazione di ruolo per utente guest](./media/pim-resource-roles-external-users/role-assignment.png)
+    ![Pagina ruolo che elenca i guest come idoneo](./media/pim-resource-roles-external-users/role-assignment.png)
 
 ## <a name="activate-role-as-a-guest"></a>Attivazione del ruolo come guest
 
@@ -119,13 +119,13 @@ Come utente esterno, è necessario accettare l'invito all'organizzazione di Azur
 
 1. Aprire il messaggio di posta elettronica con l'invito. Il messaggio di posta elettronica sarà simile al seguente:
 
-    ![Invito tramite posta elettronica](./media/pim-resource-roles-external-users/email-invite.png)
+    ![Invito tramite posta elettronica con nome di directory, il messaggio personale e un collegamento per iniziare](./media/pim-resource-roles-external-users/email-invite.png)
 
 1. Fare clic sul collegamento **Configurazione iniziale** nel messaggio di posta elettronica.
 
 1. Dopo aver verificato le autorizzazioni, fare clic su **Accetta**.
 
-    ![Verifica le autorizzazioni](./media/pim-resource-roles-external-users/invite-accept.png)
+    ![Pagina di verifica delle autorizzazioni in un browser con un elenco di autorizzazioni che l'organizzazione vorrebbe per consentirne la revisione](./media/pim-resource-roles-external-users/invite-accept.png)
 
 1. Potrebbe essere richiesto di accettare le condizioni d'uso e specificare se si vuole restare connessi in.
 
@@ -133,11 +133,11 @@ Come utente esterno, è necessario accettare l'invito all'organizzazione di Azur
 
 1. Per attivare il ruolo, aprire il messaggio di posta elettronica con il collegamento di attivazione del ruolo. Il messaggio di posta elettronica sarà simile al seguente:
 
-    ![Invito tramite posta elettronica](./media/pim-resource-roles-external-users/email-role-assignment.png)
+    ![Messaggio di posta elettronica da PIM che indica che è idoneo per un ruolo con un collegamento di ruolo attiva](./media/pim-resource-roles-external-users/email-role-assignment.png)
 
 1. Fare clic su **Attiva il ruolo** per aprire i ruoli idonei in PIM.
 
-    ![Ruoli personali - idonei](./media/pim-resource-roles-external-users/my-roles-eligible.png)
+    ![La pagina ruoli in PIM elenco dei ruoli idonei](./media/pim-resource-roles-external-users/my-roles-eligible.png)
 
 1. In Azione, fare clic sul collegamento **Attiva**.
 
@@ -145,7 +145,7 @@ Come utente esterno, è necessario accettare l'invito all'organizzazione di Azur
 
 1. Dopo aver specificato le impostazioni per il ruolo, fare clic su **Attiva** per attivare il ruolo.
 
-    ![Attiva il ruolo](./media/pim-resource-roles-external-users/activate-role.png)
+    ![Attiva ambito elenco della pagina e le opzioni per specificare l'ora di inizio, la durata e motivo](./media/pim-resource-roles-external-users/activate-role.png)
 
     A meno che l'amministratore non debba approvare la richiesta, si ottiene accesso alle risorse specificate.
 
@@ -157,13 +157,13 @@ Esattamente come un utente membro, è possibile visualizzare i log di controllo 
 
 1. Fare clic su **Controllo delle risorse** per visualizzare l'attività per tale risorsa. Di seguito viene riportato un esempio di attività per un gruppo di risorse.
 
-    ![Controllo delle risorse](./media/pim-resource-roles-external-users/audit-resource.png)
+    ![Le risorse di Azure - risorse di controllo pagina che elenca l'ora, il richiedente e azione](./media/pim-resource-roles-external-users/audit-resource.png)
 
 1. Per visualizzare l'attività per l'utente guest, fare clic su **Azure Active Directory** > **utenti** > nome guest.
 
 1. Fare clic su **log di controllo** per visualizzare i log di controllo per l'organizzazione. Se necessario, è possibile specificare i filtri.
 
-    ![controllo dell'organizzazione](./media/pim-resource-roles-external-users/audit-directory.png)
+    ![Log di controllo di directory Data listato, destinazione, avviato da e attività](./media/pim-resource-roles-external-users/audit-directory.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

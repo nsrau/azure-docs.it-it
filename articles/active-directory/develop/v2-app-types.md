@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7055794860398ecc6296d0174a691e7fac4450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac3dbd3f2148c14780c380cc0c7f2fab2a41e165
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235241"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482396"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipi di applicazioni per la piattaforma delle identità Microsoft
 
@@ -55,7 +55,7 @@ Molte app moderne hanno un front-end dell'app a singola pagina scritto principal
 
 In questo flusso, l'app riceve i token direttamente da piattaforma delle identità Microsoft autorizza un endpoint, senza eventuali scambi server-to-server. In questo modo, tutta la logica di autenticazione e gestione della sessione avviene interamente nel client JavaScript, senza eseguire reindirizzamenti a pagine aggiuntive.
 
-![Flusso di autenticazione implicita](./media/v2-app-types/convergence-scenarios-implicit.svg)
+![Viene illustrato il flusso di autenticazione implicita](./media/v2-app-types/convergence-scenarios-implicit.svg)
 
 Per visualizzare questo scenario, provare uno degli esempi di codice app a pagina singola di [piattaforma delle identità Microsoft introduttiva](v2-overview.md#getting-started) sezione.
 
@@ -80,7 +80,7 @@ Sono disponibili in altri dettagli sui diversi tipi di token usati nell'endpoint
 
 Nelle app del server Web, il flusso di autenticazione dell'accesso esegue i passaggi generali seguenti:
 
-![Flusso di autenticazione dell'app Web](./media/v2-app-types/convergence-scenarios-webapp.svg)
+![Viene illustrato il flusso di autenticazione di app web](./media/v2-app-types/convergence-scenarios-webapp.svg)
 
 È possibile verificare l'identità dell'utente convalidando il token ID con una chiave di firma pubblica ricevuta dall'endpoint di Microsoft identity platform. Viene anche impostato un cookie di sessione che può essere usato per identificare l'utente nelle richieste di pagina successive.
 
@@ -106,7 +106,7 @@ Un'API Web può consentire agli utenti di fornire il consenso o rifiutare esplic
 
 Un'API Web può ricevere token di accesso da tutti i tipi di app, tra cui app per server Web, desktop, per dispositivi mobili, a singola pagina, daemon sul lato server e anche altre API Web. Il flusso generale per un'API Web è simile al seguente:
 
-![Flusso di autenticazione dell'API Web](./media/v2-app-types/convergence-scenarios-webapi.svg)
+![Viene illustrato il flusso di autenticazione di API web](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
 Per informazioni su come proteggere un'API Web usando token di accesso OAuth2, consultare gli esempi di codice API Web nel [piattaforma delle identità Microsoft introduttiva](v2-overview.md#getting-started) sezione.
 
@@ -118,7 +118,7 @@ Le app installate in un dispositivo, ad esempio app desktop e per dispositivi mo
 
 In questo flusso, l'app riceve un codice di autorizzazione dall'endpoint di Microsoft identity platform quando l'utente esegue l'accesso. Questo codice rappresenta l'autorizzazione dell'app a chiamare servizi back-end per conto dell'utente che ha eseguito l'accesso. L'app può scambiare il codice di autorizzazione in background con un token di accesso OAuth 2.0 e un token di aggiornamento. L'app può usare il token di accesso per l'autenticazione all'API Web nelle richieste HTTP e il token di aggiornamento per ottenere nuovi token di accesso quando i precedenti scadono.
 
-![Flusso di autenticazione dell'app nativa](./media/v2-app-types/convergence-scenarios-native.svg)
+![Viene illustrato il flusso di autenticazione app nativa](./media/v2-app-types/convergence-scenarios-native.svg)
 
 ## <a name="daemons-and-server-side-apps"></a>App daemon e lato server
 
@@ -126,6 +126,6 @@ Anche le app che contengono processi a esecuzione prolungata o che non prevedono
 
 In questo flusso, l'app interagisce direttamente con il `/token` endpoint per ottenere l'accesso:
 
-![Flusso di autenticazione dell'app daemon](./media/v2-app-types/convergence-scenarios-daemon.svg)
+![Viene illustrato il flusso di autenticazione app daemon](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 Per compilare un'app daemon, vedere la [documentazione sulle credenziali client](v2-oauth2-client-creds-grant-flow.md) oppure provare un'[app .NET di esempio](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

@@ -5,20 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: dc2beda1ae017b5e81fddf08d0c7e88c785bcdf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e29b8e23927ef2ff70416d1adc76e2b2b3f2d8a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153889"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443703"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Concedere l'accesso a dati blob e di Accodamento di Azure con RBAC tramite la CLI di Azure
 
-Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md). Archiviazione di Azure definisce un set di ruoli RBAC predefiniti che includono set di autorizzazioni utilizzate per accedere ai dati blob o di Accodamento comuni. 
+Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md). Archiviazione di Azure definisce un set di ruoli RBAC predefiniti che includono set di autorizzazioni utilizzate per accedere ai dati blob o di Accodamento comuni.
 
 Quando viene assegnato un ruolo RBAC a un'entità di sicurezza di Azure AD, Azure concede l'accesso a tali risorse per tale entità di sicurezza. È possibile definire l'ambito dell'accesso a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda. Un'entità di sicurezza di Azure AD può essere un utente, un gruppo, un'entità servizio dell'applicazione, o un [identità per le risorse di Azure gestito](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -52,9 +52,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-user"></a>Assegnare un ruolo RBAC a un utente
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>Assegnare un ruolo RBAC a un'entità di sicurezza
 
-Per assegnare un ruolo RBAC a un utente, usare il [assegnazione di ruolo az creare](/cli/azure/role/assignment#az-role-assignment-create) comando. Il formato del comando può differire a seconda dell'ambito di assegnazione. Gli esempi seguenti illustrano come assegnare un ruolo a un utente a vari ambiti.
+Per assegnare un ruolo RBAC a un'entità di sicurezza, usare il [assegnazione di ruolo az creare](/cli/azure/role/assignment#az-role-assignment-create) comando. Il formato del comando può differire a seconda dell'ambito di assegnazione. Gli esempi seguenti illustrano come assegnare un ruolo a un utente a vari ambiti, ma è possibile usare lo stesso comando per assegnare un ruolo a qualsiasi entità di sicurezza.
 
 ### <a name="container-scope"></a>Ambito del contenitore
 

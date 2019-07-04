@@ -3,7 +3,7 @@ title: Introduzione alle app per dispositivi mobili in Xamarin.Forms
 description: Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili per lo sviluppo per Xamarin.Forms.
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
 ms.service: app-service-mobile
@@ -11,19 +11,24 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: crdun
-ms.openlocfilehash: b47e498754bad6917efca5b7f19f8ebce9cf0330
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: bca0f0de7de321060635459c4435525f650c7467
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062219"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446327"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Creare un'app Xamarin.Forms con Azure
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
+> [!NOTE]
+> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started) oggi stesso.
+>
+
+## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per dispositivi mobili Xamarin.Forms mediante la funzionalità App per dispositivi mobili del Servizio app di Azure come back-end. Vengono creati un nuovo back-end di app per dispositivi mobili e una semplice app Xamarin.Forms di tipo elenco attività che archivia dati delle app in Azure.
 
 Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni relative alle app per dispositivi mobili per Xamarin.Forms.
@@ -34,7 +39,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per altre informazioni, vedere [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Visual Studio Tools per Xamarin, in Visual Studio 2017 o versione successiva o Visual Studio per Mac. Vedere la [pagina di installazione di Xamarin][Install Xamarin] per le istruzioni.
+* Visual Studio Tools per Xamarin, in Visual Studio 2017 o versione successiva o Visual Studio per Mac. Vedere le [pagina di installazione di Xamarin][Install Xamarin] per le istruzioni.
 
 * (facoltativo) Per compilare un'app iOS, è necessario un Mac con Xcode 9.0 o versione successiva. Visual Studio per Mac può essere utilizzato per sviluppare le app iOS o Visual Studio 2017 o versione successiva è utilizzabile (purché il Mac sia disponibile in rete).
 
@@ -46,7 +51,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ## <a name="run-the-xamarinforms-solution"></a>Eseguire la soluzione xamarin. Forms
 
-Per aprire la soluzione sono necessari gli Strumenti di Visual Studio per Xamarin. Vedere le [istruzioni di installazione di Xamarin][Install Xamarin]. Se gli strumenti sono già installati, seguire questa procedura per scaricare e aprire la soluzione:
+Visual Studio Tools per Xamarin sono necessarie per aprire la soluzione, vedere la [istruzioni di installazione di Xamarin][Install Xamarin]. Se gli strumenti sono già installati, seguire questa procedura per scaricare e aprire la soluzione:
 
 ### <a name="visual-studio-windows-and-mac"></a>Visual Studio (Windows e Mac)
 
