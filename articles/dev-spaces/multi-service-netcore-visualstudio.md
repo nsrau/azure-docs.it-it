@@ -10,13 +10,13 @@ ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 487ad5c4f68f2fd965384a33aa9f6c0e8da351a4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
+ms.openlocfilehash: dd90dee2f973bb26a43706eb77f15778cb9116a0
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800737"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502971"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Sviluppo multiservizio con Azure Dev Spaces
 
@@ -77,35 +77,6 @@ L'esempio di codice precedente inoltra l'intestazione `azds-route-as` dalla rich
 1. Premere F10 per continuare. Il punto di interruzione nel progetto `mywebapi` viene attivato.
 1. Premere F5 per continuare e tornare al codice nel progetto `webfrontend`.
 1. Se si preme F5 ancora una volta la richiesta viene completata e si torna a una pagina nel browser. Nell'app Web la pagina delle informazioni visualizza un messaggio concatenato dai due servizi: "Salve da webfrontend e Salve da mywebapi."
-
-Ecco fatto! È ora disponibile un'applicazione multicontenitore in cui ogni contenitore può essere sviluppato e distribuito separatamente.
-
-### <a name="automatic-tracing-for-http-messages"></a>Traccia automatica per i messaggi HTTP
-Come si sarà notato, nonostante *webfrontend* non contenga codice speciale per stampare la chiamata HTTP effettuata a *mywebapi*, nella finestra di output vengono visualizzati messaggi di traccia HTTP:
-```
-// The request from your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io --gyk-> webfrontend:
-   GET /Home/About HTTP/1.1
-
-// *webfrontend* reaching out to *mywebapi*
-webfrontend-668b7ddb9f-n5rhj --pu5-> mywebapi:
-   GET /api/values/1 HTTP/1.1
-
-// Response from *mywebapi*
-webfrontend-668b7ddb9f-n5rhj <-pu5-- mywebapi:
-   HTTP/1.1 200 OK
-   Hello from mywebapi
-
-// Response from *webfrontend* to your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io <-gyk-- webfrontend:
-   HTTP/1.1 200 OK
-   <!DOCTYPE html>
-   <html>
-   <head>
-       <meta charset="utf-8" />
-       <meta name="viewport" content="width=device-width, initial-sc...<[TRUNCATED]>
-```
-Questo è uno dei vantaggi collaterali offerti dalla strumentazione di Dev Spaces. Vengono inseriti componenti che monitorano l'esecuzione delle richieste HTTP nel sistema per facilitare il monitoraggio di chiamate multiservizio complesse durante lo sviluppo.
 
 ### <a name="well-done"></a>Ecco fatto!
 È ora disponibile un'applicazione multicontenitore in cui ogni contenitore può essere sviluppato e distribuito separatamente.

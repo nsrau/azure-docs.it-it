@@ -2,19 +2,20 @@
 title: Etica e uso responsabile - Personalizza esperienze
 titleSuffix: Azure Cognitive Services
 description: Queste linee guida hanno lo scopo di consentire un'implementazione della personalizzazione che generi fiducia nell'azienda e nel servizio. Assicurarsi di dedicare tempo alla ricerca, all'apprendimento e alla valutazione dell'impatto della personalizzazione sulla vita delle persone. In caso di dubbi, chiedere indicazioni.
+services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 06/12/2019
 ms.author: edjez
-ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 783bfcd5ad9e114a5329892449f35f6ed8316948
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239872"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428440"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Linee guida per l'implementazione responsabile di Personalizza esperienze
 
@@ -196,7 +197,7 @@ Microsoft si impegna continuamente per offrire strumenti e documenti che consent
 * [Ethics and Data Science](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) (Etica e data science) di DJ Patil, Hilary Mason, Mike Loukides
 * [Codice deontologico di ACM (Association for Computing Machinery)](https://www.acm.org/code-of-ethics)
 * [Genetic Information Nondiscrimination Act (GINA)](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [Principi FAT/ML per algoritmi responsabili](http://www.fatml.org/resources/principles-for-accountable-algorithms)
+* [Principi FAT/ML per algoritmi responsabili](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

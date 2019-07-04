@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.openlocfilehash: e6d153ff0e4f32c352694f51953c6955fae7f12f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: d27f89b5a6f6da0732b98fe7b15793e80d491038
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949679"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357486"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Guida introduttiva: Analizzare i dati in Azure Data Lake Storage Gen2 con Azure Databricks
 
@@ -102,7 +102,7 @@ In questa sezione viene creato un notebook nell'area di lavoro di Azure Databric
 
     ![Creare un blocco appunti in Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-details.png "Creare un blocco appunti in Databricks")
 
-    Selezionare **Create**.
+    Selezionare **Create** (Crea).
 
 4. Copiare e incollare il blocco di codice seguente nella prima cella, ma non eseguirlo ancora.
 
@@ -156,7 +156,7 @@ Eseguire le attività seguenti per eseguire un processo Spark SQL sui dati.
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/<PATH>/small_radio_json.json"
+     path  "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json"
     )
     ```
 

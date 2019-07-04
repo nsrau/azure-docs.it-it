@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: ff3dde8ac95b678866ba6f5216ba23357b067765
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415883"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203534"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Eseguire il debug delle API con la traccia delle richieste
 
@@ -35,8 +35,8 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
-+ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
-+ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
++ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md)
 
 ## <a name="trace-a-call"></a>Tenere traccia di una chiamata
 
