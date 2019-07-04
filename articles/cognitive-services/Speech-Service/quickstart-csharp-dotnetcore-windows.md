@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, C# (.NET Core) - Servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, C# (.NET Core) - Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in C# per .NET Core in Windows o macOS con Speech SDK
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: f3dd4d20c6455e97b566ed435b14437d614e25b4
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 873145cf9d418433ba241ce06d7d594fb3e6322b
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466439"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465728"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per .NET Core
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per .NET Core
 
-Sono disponibili guide di avvio rapido anche per la [traduzione vocale](quickstart-translate-speech-dotnetcore-windows.md).
+Sono disponibili guide di avvio rapido anche per la [sintesi vocale](quickstart-text-to-speech-dotnetcore.md) e la [traduzione vocale](quickstart-translate-speech-dotnetcore-windows.md).
 
 Se si vuole, è possibile scegliere un linguaggio di programmazione e/o un ambiente diverso:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
@@ -76,7 +76,7 @@ Esempi aggiuntivi, ad esempio per eseguire il riconoscimento vocale da un file a
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C# su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)

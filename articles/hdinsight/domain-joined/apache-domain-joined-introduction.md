@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: b7228fdf1bb67ff8029412174a883a3a0b123cfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 266d6160562d5a97bde75597216338214f3d988d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67126193"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441434"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>Informazioni su Enterprise Security Package in Azure HDInsight
 
@@ -49,7 +49,7 @@ Controllare tutti gli accessi per le risorse del cluster e i dati, è necessario
 
 L'amministratore può visualizzare e segnalare tutti gli accessi ai dati e alle risorse del cluster HDInsight. L'amministratore può anche visualizzare e segnalare tutte le modifiche ai criteri di controllo degli accessi creati negli endpoint supportati da Apache Ranger. 
 
-Un cluster HDInsight con ESP usa la già nota interfaccia utente di Apache Ranger per effettuare ricerche nei log di controllo. Ranger usa [Apache Solr](http://lucene.apache.org/solr/) per l'archiviazione e la ricerca dei log nel back-end.
+Un cluster HDInsight con ESP usa la già nota interfaccia utente di Apache Ranger per effettuare ricerche nei log di controllo. Ranger usa [Apache Solr](https://lucene.apache.org/solr/) per l'archiviazione e la ricerca dei log nel back-end.
 
 ## <a name="encryption"></a>Crittografia
 La protezione dei dati è importante per rispettare i requisiti di sicurezza e conformità dell'organizzazione. Oltre a limitare l'accesso ai dati da parte di dipendenti non autorizzati, è necessario crittografarli. 
