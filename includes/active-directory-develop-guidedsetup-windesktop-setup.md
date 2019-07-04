@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: ae6d590cdada24638ec2d24c83609b8e6addfaf0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121587"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180322"
 ---
 ## <a name="set-up-your-project"></a>Configurare il progetto
 
@@ -34,8 +34,8 @@ L'applicazione creata in questa Guida consente di visualizzare un pulsante usato
 Per creare l'applicazione, eseguire le operazioni seguenti:
 
 1. In Visual Studio selezionare **File** > **Nuovo** > **Progetto**.
-2. In **Modelli** selezionare **Visual C#**.
-3. Selezionare **App WPF (.NET Framework)**, a seconda della versione di Visual Studio in uso.
+2. In **Modelli** selezionare **Visual C#** .
+3. Selezionare **App WPF (.NET Framework)** , a seconda della versione di Visual Studio in uso.
 
 ## <a name="add-msal-to-your-project"></a>Aggiungere MSAL al progetto
 

@@ -15,11 +15,11 @@ ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121707"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180756"
 ---
 ## <a name="test-your-code"></a>Testare il codice
 
@@ -33,7 +33,7 @@ Quando si è pronti per eseguire il test, usare un account Microsoft Azure Activ
 
 #### <a name="view-application-results"></a>Visualizzare i risultati dell'applicazione
 
-Dopo l'accesso, l'utente viene reindirizzato alla home page del sito Web. La home page è l'URL HTTPS specificato nelle informazioni di registrazione dell'applicazione nel portale di registrazione delle applicazioni Microsoft. La home page include un messaggio di benvenuto di tipo *"Hello \<Utente>"*, un collegamento per la disconnessione e un collegamento per la visualizzazione delle attestazioni dell'utente. Il collegamento per le attestazioni dell'utente porta al controller *Attestazioni* creato in precedenza.
+Dopo l'accesso, l'utente viene reindirizzato alla home page del sito Web. La home page è l'URL HTTPS specificato nelle informazioni di registrazione dell'applicazione nel portale di registrazione delle applicazioni Microsoft. La home page include un messaggio di benvenuto di tipo *"Hello \<Utente>"* , un collegamento per la disconnessione e un collegamento per la visualizzazione delle attestazioni dell'utente. Il collegamento per le attestazioni dell'utente porta al controller *Attestazioni* creato in precedenza.
 
 ### <a name="browse-to-see-the-users-claims"></a>Esplorare per visualizzare le attestazioni dell'utente
 

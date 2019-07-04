@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 0386482d7b46eb93c867b019abbf02231de1ddfe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 5add68902b23d41c9e3031839508418a81086e6b
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051967"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342180"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>Come usare l'API REST QnA Maker con Python
 <a name="HOLTop"></a>
@@ -60,7 +60,10 @@ Il codice seguente crea una nuova knowledge base usando il metodo [Create](https
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -73,77 +76,81 @@ host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/knowledgebases/create'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def create_kb (path, content):
-    print ('Calling ' + host + path + '.')
+
+def create_kb(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("POST", path, content, headers)
-    response = conn.getresponse ()
+    conn.request("POST", path, content, headers)
+    response = conn.getresponse()
 # /knowledgebases/create returns an HTTP header named Location that contains a URL
 # to check the status of the operation to create the knowledgebase.
-    return response.getheader('Location'), response.read ()
+    return response.getheader('Location'), response.read()
 
-def check_status (path):
-    print ('Calling ' + host + path + '.')
+
+def check_status(path):
+    print('Calling ' + host + path + '.')
     headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
     conn = http.client.HTTPSConnection(host)
-    conn.request ("GET", path, None, headers)
-    response = conn.getresponse ()
+    conn.request("GET", path, None, headers)
+    response = conn.getresponse()
 # If the operation is not finished, /operations returns an HTTP header named Retry-After
 # that contains the number of seconds to wait before we query the operation again.
-    return response.getheader('Retry-After'), response.read ()
+    return response.getheader('Retry-After'), response.read()
+
 
 req = {
-  "name": "QnA Maker FAQ",
-  "qnaList": [
-    {
-      "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
-      "source": "Custom Editorial",
-      "questions": [
-        "How do I programmatically update my Knowledge Base?"
-      ],
-      "metadata": [
-        {
-          "name": "category",
-          "value": "api"
-        }
-      ]
-    }
-  ],
-  "urls": [
-    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
-  ],
-  "files": []
+    "name": "QnA Maker FAQ",
+    "qnaList": [
+      {
+          "id": 0,
+          "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
+          "source": "Custom Editorial",
+          "questions": [
+              "How do I programmatically update my Knowledge Base?"
+          ],
+          "metadata": [
+              {
+                  "name": "category",
+                  "value": "api"
+              }
+          ]
+      }
+    ],
+    "urls": [
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
+    ],
+    "files": []
 }
 
 path = service + method
 # Convert the request to a string.
 content = json.dumps(req)
-operation, result = create_kb (path, content)
-print (pretty_print(result))
+operation, result = create_kb(path, content)
+print(pretty_print(result))
 
 done = False
 while False == done:
     path = service + operation
-    wait, status = check_status (path)
-    print (pretty_print(status))
+    wait, status = check_status(path)
+    print(pretty_print(status))
 
 # Convert the JSON response into an object and get the value of the operationState field.
     state = json.loads(status)['operationState']
 # If the operation isn't finished, wait and query again.
     if state == 'Running' or state == 'NotStarted':
-        print ('Waiting ' + wait + ' seconds...')
-        time.sleep (int(wait))
+        print('Waiting ' + wait + ' seconds...')
+        time.sleep(int(wait))
     else:
         done = True
 ```
@@ -195,7 +202,10 @@ Il codice seguente aggiorna una knowledge base esistente usando il metodo [Updat
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -205,85 +215,89 @@ import http.client, urllib.parse, json, time
 subscriptionKey = 'ENTER KEY HERE'
 
 # Replace this with a valid knowledge base ID.
-kb = 'ENTER ID HERE';
+kb = 'ENTER ID HERE'
 
 host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/knowledgebases/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def update_kb (path, content):
-    print ('Calling ' + host + path + '.')
+
+def update_kb(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("PATCH", path, content, headers)
-    response = conn.getresponse ()
+    conn.request("PATCH", path, content, headers)
+    response = conn.getresponse()
 # PATCH /knowledgebases returns an HTTP header named Location that contains a URL
 # to check the status of the operation to create the knowledgebase.
-    return response.getheader('Location'), response.read ()
+    return response.getheader('Location'), response.read()
 
-def check_status (path):
-    print ('Calling ' + host + path + '.')
+
+def check_status(path):
+    print('Calling ' + host + path + '.')
     headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
     conn = http.client.HTTPSConnection(host)
-    conn.request ("GET", path, None, headers)
-    response = conn.getresponse ()
+    conn.request("GET", path, None, headers)
+    response = conn.getresponse()
 # If the operation is not finished, /operations returns an HTTP header named Retry-After
 # that contains the number of seconds to wait before we query the operation again.
-    return response.getheader('Retry-After'), response.read ()
+    return response.getheader('Retry-After'), response.read()
+
 
 req = {
-  'add': {
-    'qnaList': [
-      {
-        'id': 1,
-        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/azure-bot-service/templates/qnamaker/#navtitle',
-        'source': 'Custom Editorial',
-        'questions': [
-          'How can I change the default message from QnA Maker?'
+    'add': {
+        'qnaList': [
+            {
+                'id': 1,
+                'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/azure-bot-service/templates/qnamaker/#navtitle',
+                'source': 'Custom Editorial',
+                'questions': [
+                    'How can I change the default message from QnA Maker?'
+                ],
+                'metadata': []
+            }
         ],
-        'metadata': []
-      }
-    ],
-    'urls': [
-      'https://docs.microsoft.com/azure/cognitive-services/Emotion/FAQ'
-    ]
-  },
-  'update' : {
-    'name' : 'New KB Name'
-  },
-  'delete': {
-    'ids': [
-      0
-    ]
-  }
+        'urls': [
+            'https://docs.microsoft.com/azure/cognitive-services/Emotion/FAQ'
+        ]
+    },
+    'update': {
+        'name': 'New KB Name'
+    },
+    'delete': {
+        'ids': [
+            0
+        ]
+    }
 }
 
 path = service + method + kb
 # Convert the request to a string.
 content = json.dumps(req)
-operation, result = update_kb (path, content)
-print (pretty_print(result))
+operation, result = update_kb(path, content)
+print(pretty_print(result))
 
 done = False
 while False == done:
     path = service + operation
-    wait, status = check_status (path)
-    print (pretty_print(status))
+    wait, status = check_status(path)
+    print(pretty_print(status))
 
 # Convert the JSON response into an object and get the value of the operationState field.
     state = json.loads(status)['operationState']
 # If the operation isn't finished, wait and query again.
     if state == 'Running' or state == 'NotStarted':
-        print ('Waiting ' + wait + ' seconds...')
-        time.sleep (int(wait))
+        print('Waiting ' + wait + ' seconds...')
+        time.sleep(int(wait))
     else:
         done = True
 ```
@@ -336,7 +350,10 @@ Il codice seguente pubblica una knowledge base esistente usando il metodo [Publi
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -346,35 +363,38 @@ import http.client, urllib.parse, json, time
 subscriptionKey = 'ENTER KEY HERE'
 
 # Replace this with a valid knowledge base ID.
-kb = 'ENTER ID HERE';
+kb = 'ENTER ID HERE'
 
 host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/knowledgebases/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def publish_kb (path, content):
-    print ('Calling ' + host + path + '.')
+
+def publish_kb(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("POST", path, content, headers)
-    response = conn.getresponse ()
+    conn.request("POST", path, content, headers)
+    response = conn.getresponse()
 
     if response.status == 204:
-        return json.dumps({'result' : 'Success.'})
+        return json.dumps({'result': 'Success.'})
     else:
-        return response.read ()
+        return response.read()
+
 
 path = service + method + kb
-result = publish_kb (path, '')
-print (pretty_print(result))
+result = publish_kb(path, '')
+print(pretty_print(result))
 ```
 
 **Risposta alla richiesta di pubblicazione della knowledge base**
@@ -403,7 +423,10 @@ Il codice seguente sostituisce il contenuto della knowledge base specificata usa
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -413,56 +436,59 @@ import http.client, urllib.parse, json, time
 subscriptionKey = 'ENTER KEY HERE'
 
 # Replace this with a valid knowledge base ID.
-kb = 'ENTER ID HERE';
+kb = 'ENTER ID HERE'
 
 host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/knowledgebases/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def replace_kb (path, content):
-    print ('Calling ' + host + path + '.')
+
+def replace_kb(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("PUT", path, content, headers)
-    response = conn.getresponse ()
+    conn.request("PUT", path, content, headers)
+    response = conn.getresponse()
 
     if response.status == 204:
-        return json.dumps({'result' : 'Success.'})
+        return json.dumps({'result': 'Success.'})
     else:
-        return response.read ()
+        return response.read()
+
 
 req = {
-  'qnaList': [
-    {
-      'id': 0,
-      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update',
-      'source': 'Custom Editorial',
-      'questions': [
-        'How do I programmatically update my Knowledge Base?'
-      ],
-      'metadata': [
-        {
-          'name': 'category',
-          'value': 'api'
-        }
-      ]
-    }
-  ]
+    'qnaList': [
+      {
+          'id': 0,
+          'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update',
+          'source': 'Custom Editorial',
+          'questions': [
+              'How do I programmatically update my Knowledge Base?'
+          ],
+          'metadata': [
+              {
+                  'name': 'category',
+                  'value': 'api'
+              }
+          ]
+      }
+    ]
 }
 
 path = service + method + kb
 # Convert the request to a string.
 content = json.dumps(req)
-result = replace_kb (path, content)
-print (pretty_print(result))
+result = replace_kb(path, content)
+print(pretty_print(result))
 ```
 
 **Risposta alla richiesta di sostituzione della knowledge base**
@@ -491,7 +517,10 @@ Il codice seguente scarica il contenuto della knowledge base specificata usando 
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -504,29 +533,32 @@ subscriptionKey = 'ENTER KEY HERE'
 kb = 'ENTER ID HERE'
 
 # Replace this with "test" or "prod".
-env = 'test';
+env = 'test'
 
 host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
-method = '/knowledgebases/{0}/{1}/qna/'.format(kb, env);
+method = '/knowledgebases/{0}/{1}/qna/'.format(kb, env)
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def get_qna (path):
-    print ('Calling ' + host + path + '.')
+
+def get_qna(path):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("GET", path, '', headers)
-    response = conn.getresponse ()
-    return response.read ()
+    conn.request("GET", path, '', headers)
+    response = conn.getresponse()
+    return response.read()
+
 
 path = service + method
-result = get_qna (path)
-print (pretty_print(result))
+result = get_qna(path)
+print(pretty_print(result))
 ```
 
 **Risposta alla richiesta di download della knowledge base**
@@ -582,7 +614,10 @@ Il codice seguente ottiene le risposte a una domanda usando la knowledge base sp
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -608,26 +643,29 @@ question = {
     'top': 3
 }
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def get_answers (path, content):
-    print ('Calling ' + host + path + '.')
+
+def get_answers(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Authorization': 'EndpointKey ' + endpoint_key,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("POST", path, content, headers)
-    response = conn.getresponse ()
-    return response.read ()
+    conn.request("POST", path, content, headers)
+    response = conn.getresponse()
+    return response.read()
+
 
 # Convert the request to a string.
 content = json.dumps(question)
-result = get_answers (method, content)
-print (pretty_print(result))
+result = get_answers(method, content)
+print(pretty_print(result))
 ```
 
 **Risposta alla richiesta di ottenere risposte**
@@ -668,7 +706,10 @@ Il codice seguente ottiene informazioni sulla knowledge base specificata usando 
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -678,29 +719,32 @@ import http.client, urllib.parse, json, time
 subscriptionKey = 'ENTER KEY HERE'
 
 # Replace this with a valid knowledge base ID.
-kb = 'ENTER ID HERE';
+kb = 'ENTER ID HERE'
 
 host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/knowledgebases/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def get_kb (path):
-    print ('Calling ' + host + path + '.')
+
+def get_kb(path):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("GET", path, '', headers)
-    response = conn.getresponse ()
-    return response.read ()
+    conn.request("GET", path, '', headers)
+    response = conn.getresponse()
+    return response.read()
+
 
 path = service + method + kb
-result = get_kb (path)
-print (pretty_print(result))
+result = get_kb(path)
+print(pretty_print(result))
 ```
 
 **Risposta alla richiesta di dettagli sulla knowledge base**
@@ -741,7 +785,10 @@ Il codice seguente ottiene informazioni su tutte le knowledge base di un utente 
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -754,23 +801,26 @@ host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/knowledgebases/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def get_kbs (path):
-    print ('Calling ' + host + path + '.')
+
+def get_kbs(path):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("GET", path, '', headers)
-    response = conn.getresponse ()
-    return response.read ()
+    conn.request("GET", path, '', headers)
+    response = conn.getresponse()
+    return response.read()
+
 
 path = service + method
-result = get_kbs (path)
-print (pretty_print(result))
+result = get_kbs(path)
+print(pretty_print(result))
 ```
 
 **Risposta alla richiesta di ottenere le knowledge base per l'utente**
@@ -827,7 +877,10 @@ Il codice seguente elimina la knowledge base specificata usando il metodo [Delet
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -837,35 +890,38 @@ import http.client, urllib.parse, json, time
 subscriptionKey = 'ENTER KEY HERE'
 
 # Replace this with a valid knowledge base ID.
-kb = 'ENTER ID HERE';
+kb = 'ENTER ID HERE'
 
 host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/knowledgebases/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def delete_kb (path, content):
-    print ('Calling ' + host + path + '.')
+
+def delete_kb(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("DELETE", path, content, headers)
-    response = conn.getresponse ()
+    conn.request("DELETE", path, content, headers)
+    response = conn.getresponse()
 
     if response.status == 204:
-        return json.dumps({'result' : 'Success.'})
+        return json.dumps({'result': 'Success.'})
     else:
-        return response.read ()
+        return response.read()
+
 
 path = service + method + kb
-result = delete_kb (path, '')
-print (pretty_print(result))
+result = delete_kb(path, '')
+print(pretty_print(result))
 ```
 
 **Risposta alla richiesta di eliminazione della knowledge base**
@@ -894,7 +950,10 @@ Il codice seguente ottiene le chiavi dell'endpoint correnti usando il metodo [Ge
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -907,23 +966,26 @@ host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/endpointkeys/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def get_keys (path):
-    print ('Calling ' + host + path + '.')
+
+def get_keys(path):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("GET", path, '', headers)
-    response = conn.getresponse ()
-    return response.read ()
+    conn.request("GET", path, '', headers)
+    response = conn.getresponse()
+    return response.read()
+
 
 path = service + method
-result = get_keys (path)
-print (pretty_print(result))
+result = get_keys(path)
+print(pretty_print(result))
 ```
 
 **Risposta alla richiesta di ottenere le chiavi dell'endpoint**
@@ -953,7 +1015,10 @@ Il codice seguente rigenera le chiavi dell'endpoint correnti usando il metodo [R
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -963,35 +1028,38 @@ import http.client, urllib.parse, json, time
 subscriptionKey = 'ENTER KEY HERE'
 
 # Replace this with "PrimaryKey" or "SecondaryKey."
-key_type = "PrimaryKey";
+key_type = "PrimaryKey"
 
 host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/endpointkeys/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def refresh_keys (path, content):
-    print ('Calling ' + host + path + '.')
+
+def refresh_keys(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("PATCH", path, content, headers)
-    response = conn.getresponse ()
+    conn.request("PATCH", path, content, headers)
+    response = conn.getresponse()
 
     if response.status == 204:
-        return json.dumps({'result' : 'Success.'})
+        return json.dumps({'result': 'Success.'})
     else:
-        return response.read ()
+        return response.read()
+
 
 path = service + method + key_type
-result = refresh_keys (path, '')
-print (pretty_print(result))
+result = refresh_keys(path, '')
+print(pretty_print(result))
 ```
 
 **Risposta alla richiesta di aggiornamento delle chiavi dell'endpoint**
@@ -1021,7 +1089,10 @@ Il codice seguente ottiene le variazioni delle parole correnti usando il metodo 
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -1034,23 +1105,26 @@ host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/alterations/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def get_alterations (path):
-    print ('Calling ' + host + path + '.')
+
+def get_alterations(path):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("GET", path, '', headers)
-    response = conn.getresponse ()
-    return response.read ()
+    conn.request("GET", path, '', headers)
+    response = conn.getresponse()
+    return response.read()
+
 
 path = service + method
-result = get_alterations (path)
-print (pretty_print(result))
+result = get_alterations(path)
+print(pretty_print(result))
 ```
 
 **Risposta alla richiesta di ottenere le variazioni delle parole**
@@ -1086,7 +1160,10 @@ Il codice seguente sostituisce le variazioni delle parole correnti usando il met
 ```python
 # -*- coding: utf-8 -*-
 
-import http.client, urllib.parse, json, time
+import http.client
+import urllib.parse
+import json
+import time
 
 # **********************************************
 # *** Update or verify the following values. ***
@@ -1099,42 +1176,45 @@ host = 'westus.api.cognitive.microsoft.com'
 service = '/qnamaker/v4.0'
 method = '/alterations/'
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
+
+def pretty_print(content):
+    # Note: We convert content to and from an object so we can pretty-print it.
     return json.dumps(json.loads(content), indent=4)
 
-def put_alterations (path, content):
-    print ('Calling ' + host + path + '.')
+
+def put_alterations(path, content):
+    print('Calling ' + host + path + '.')
     headers = {
         'Ocp-Apim-Subscription-Key': subscriptionKey,
         'Content-Type': 'application/json',
-        'Content-Length': len (content)
+        'Content-Length': len(content)
     }
     conn = http.client.HTTPSConnection(host)
-    conn.request ("PUT", path, content, headers)
-    response = conn.getresponse ()
+    conn.request("PUT", path, content, headers)
+    response = conn.getresponse()
 
     if response.status == 204:
-        return json.dumps({'result' : 'Success.'})
+        return json.dumps({'result': 'Success.'})
     else:
-        return response.read ()
+        return response.read()
+
 
 req = {
-  'wordAlterations': [
-    {
-      'alterations': [
-        'botframework',
-        'bot frame work'
-      ]
-    }
-  ]
+    'wordAlterations': [
+      {
+          'alterations': [
+              'botframework',
+              'bot frame work'
+          ]
+      }
+    ]
 }
 
 path = service + method
 # Convert the request to a string.
 content = json.dumps(req)
-result = put_alterations (path, content)
-print (pretty_print(result))
+result = put_alterations(path, content)
+print(pretty_print(result))
 ```
 
 **Risposta alla richiesta di sostituire le variazioni delle parole**

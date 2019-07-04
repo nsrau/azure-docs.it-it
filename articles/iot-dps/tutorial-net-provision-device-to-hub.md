@@ -10,16 +10,16 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 6e1681e4eca923e8e4ce541570b4ed4b3ba9d567
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 4a6a074c3f677023928fefa5c09eb305b5441dfe
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834366"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303984"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Registrare il dispositivo in un hub IoT usando il client del servizio Device Provisioning in hub IoT di Azure (.NET)
 
-Nell'esercitazione precedente abbiamo appreso come configurare un dispositivo per la connessione al servizio Device Provisioning. In questa esercitazione viene illustrato come usare questo servizio per eseguire il provisioning del dispositivo a un singolo hub IoT, usando la **_registrazione singola_** e i **_gruppi di registrazioni_**. Questa esercitazione illustra come:
+Nell'esercitazione precedente abbiamo appreso come configurare un dispositivo per la connessione al servizio Device Provisioning. In questa esercitazione viene illustrato come usare questo servizio per eseguire il provisioning del dispositivo a un singolo hub IoT, usando la **_registrazione singola_** e i **_gruppi di registrazioni_** . Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Registrare il dispositivo
@@ -121,16 +121,16 @@ Questo passaggio prevede l'aggiunta di elementi di sicurezza esclusivi del dispo
         SetRegistrationDataAsync().GetAwaiter().GetResult();
             
         Console.WriteLine("Done, hit enter to exit.");
-        Console.ReadLine();
     }
     catch (Exception ex)
     {
         Console.WriteLine();
         Console.WriteLine("Error in sample: {0}", ex.Message);
     }
+    Console.ReadLine();
     ```
         
-1. In Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Imposta progetti di avvio...**. Selezionare **Progetto di avvio singolo**, quindi selezionare il progetto **DeviceProvisioning** nel menu a discesa.  
+1. In Esplora soluzioni in Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Imposta progetti di avvio...** . Selezionare **Progetto di avvio singolo**, quindi selezionare il progetto **DeviceProvisioning** nel menu a discesa.  
 
 1. Eseguire l'app **DeviceProvisiong** del dispositivo .NET. Dovrebbe configurare il provisioning per il dispositivo: 
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: b41c34d4dcbfa4107383318cd9665a41edee79f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e48a0c69dc04325c3f3c2ff7b73a26c6366816c9
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67120456"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137450"
 ---
 # <a name="what-is-apache-hbase-in-azure-hdinsight"></a>Informazioni su Apache HBase in Azure HDInsight
 

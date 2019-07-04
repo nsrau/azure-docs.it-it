@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: kgremban
 ms.openlocfilehash: 485a76cb91e5146f59e6be592ffd9cbba68e585a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146697"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67180264"
 ---
 ## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
@@ -32,7 +32,7 @@ Se non è ancora disponibile alcun registro contenitori, seguire questa procedur
    | Utente amministratore | Impostare su **Abilita**. |
    | SKU | Selezionare **Basic**. |
 
-5. Selezionare **Create**.
+5. Selezionare **Create** (Crea).
 
 6. Dopo aver creato il registro contenitori, passare al registro e quindi selezionare **Chiavi di accesso**.
 
