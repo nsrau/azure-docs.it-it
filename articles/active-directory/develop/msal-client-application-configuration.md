@@ -38,10 +38,10 @@ Nel codice, si inizializza un nuovo client pubblici o riservati (o user-agent pe
 ## <a name="authority"></a>Authority
 L'autorità è un URL che indica una directory che MSAL può richiedere token da. Autorità comuni sono:
 
-- https://login.microsoftonline.com/&lt ; tenant&gt; /, dove &lt; tenant&gt; è l'ID tenant del tenant di Azure Active Directory (Azure AD) o in un dominio associati al tenant Azure AD. Usato solo per consentire agli utenti di un'organizzazione specifica.
-- https://login.microsoftonline.com/common/. Utilizzato per consentire agli utenti con lavoro e dell'istituto di istruzione o account Microsoft personali.
-- https://login.microsoftonline.com/organizations/. Utilizzato per consentire agli utenti con account aziendali e dell'istituto di istruzione.
-- https://login.microsoftonline.com/consumers/. Utilizzato per consentire agli utenti con un solo account Microsoft personale (precedentemente noto come account Windows Live ID).
+- [https://login.microsoftonline.com/&amp;lt](https://login.microsoftonline.com/&lt ); tenant&gt; /, dove &lt; tenant&gt; è l'ID tenant del tenant di Azure Active Directory (Azure AD) o in un dominio associati al tenant Azure AD. Usato solo per consentire agli utenti di un'organizzazione specifica.
+- [https://login.microsoftonline.com/common/](https://login.microsoftonline.com/common/ ). Utilizzato per consentire agli utenti con lavoro e dell'istituto di istruzione o account Microsoft personali.
+- [https://login.microsoftonline.com/organizations/](https://login.microsoftonline.com/organizations/ ). Utilizzato per consentire agli utenti con account aziendali e dell'istituto di istruzione.
+- [https://login.microsoftonline.com/consumers/](https://login.microsoftonline.com/consumers/ ). Utilizzato per consentire agli utenti con un solo account Microsoft personale (precedentemente noto come account Windows Live ID).
 
 L'impostazione dell'autorità deve essere coerente con ciò che viene dichiarata nel portale di registrazione dell'applicazione.
 
