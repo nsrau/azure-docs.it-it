@@ -40,7 +40,7 @@ Connettore Spark di Esplora dati per Azure è un' [progetto open source](https:/
 Connettore Spark può essere creato da [origini](https://github.com/Azure/azure-kusto-spark) come descritto di seguito.
 
 > [!NOTE]
-> Questo passaggio è facoltativo. Se si utilizzano librerie predefinite http://aka.ms/extensionpointscommands [la configurazione del cluster Spark](#spark-cluster-setup).
+> Questo passaggio è facoltativo. Se si utilizzano librerie predefinite [la configurazione del cluster Spark](#spark-cluster-setup).
 
 ### <a name="build-prerequisites"></a>Prerequisiti di compilazione
 

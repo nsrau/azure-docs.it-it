@@ -37,10 +37,12 @@
       items:
         - name: Scenari
           href: scenarios.md
-        - name: Selezionare una rete virtuale
+        - name: Pianificare una rete virtuale
           href: network-considerations.md
     - name: Gestire Azure Active Directory Domain Services
       items:
+        - name: Abilitare gli eventi di controllo di sicurezza (anteprima)
+          href: security-audit-events.md
         - name: Verificare l'integrità di un dominio gestito
           href: check-health.md
         - name: Configurare la sincronizzazione con ambito da Azure AD a un dominio gestito

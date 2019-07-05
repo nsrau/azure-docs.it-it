@@ -30,7 +30,7 @@ Esistono due tipi di richieste CORS, le *richieste semplici* e le *richieste com
 
 ### <a name="for-simple-requests"></a>Per le richieste semplici:
 
-1. Il browser invia la richiesta CORS con un'ulteriore intestazione della richiesta HTTP **Origin**. Il valore di questa intestazione è l'origine che ha gestito la pagina padre, definita come la combinazione di *protocollo*, *dominio* e *porta*.  Quando una pagina da https\:/ / www.contoso.com tenta di accedere ai dati dell'utente nell'origine fabrikam.com, l'intestazione della richiesta seguente potrebbe essere inviata a tale sito:
+1. Il browser invia la richiesta CORS con un'ulteriore intestazione della richiesta HTTP **Origin**. Il valore di questa intestazione è l'origine che ha gestito la pagina padre, definita come la combinazione di *protocollo*, *dominio* e *porta*.  Quando una pagina da https\://www.contoso.com tenta di accedere ai dati dell'utente nell'origine fabrikam.com, l'intestazione della richiesta seguente potrebbe essere inviata a tale sito:
 
    `Origin: https://www.contoso.com`
 
