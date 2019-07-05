@@ -12,6 +12,6 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 03/19/2018
-  ms.author: 'rosh, v-gedod'
+  ms.author: rosh
 abstract:
   description: 'L''API Anteprima URL Bing consente di ottenere informazioni sintetiche su un URL di destinazione, inclusa la descrizione, il flag isFamilyFamilyFriendly, l''immagine rappresentativa e il collegamento alla pagina.'

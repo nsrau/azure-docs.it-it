@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1393d0bd1c31a2c9c24652e260ef7f3182d91367
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e990ebe89f4446a0226aa0e0f73ffd900e5b021a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476495"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592948"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>Quando usare azioni di SET di entità ed entità di ENUM
 
@@ -85,7 +85,7 @@ Le entità ENUM vengono create esattamente come altre entità. Analogamente alle
 
 ### <a name="set-entity-actions"></a>Impostare le azioni di entità
 
-Come indicato in precedenza, le azioni di "Set di entità" è sufficiente impostare un'entità in un valore enum noti. È possibile ottenere gli stessi risultati tramite la creazione di un'azione di callback di API e Usa il gestore della memoria per impostare l'entità su un valore. ad esempio `memory.Set(entityName, entityValue)`. La necessità di scrivere il codice e creare queste azioni diventerebbe noioso e difficile da gestire, in modo da strumento di apprendimento di conversazioni sono azioni speciali per facilitare il lavoro e generare automaticamente queste azioni quando vengono usati. Con queste azioni indipendenti consente di mantenere la capacità di comporre questi senza essere accoppiati con altre azioni o il codice nel tuo bot.
+Come indicato in precedenza, le azioni di "Set di entità" è sufficiente impostare un'entità in un valore enum noti. È possibile ottenere gli stessi risultati tramite la creazione di un'azione di callback di API e Usa il gestore della memoria per impostare l'entità su un valore. ad esempio [https://login.microsoftonline.com/consumers/](`memory.Set(entityName, entityValue)`). La necessità di scrivere il codice e creare queste azioni diventerebbe noioso e difficile da gestire, in modo da strumento di apprendimento di conversazioni sono azioni speciali per facilitare il lavoro e generare automaticamente queste azioni quando vengono usati. Con queste azioni indipendenti consente di mantenere la capacità di comporre questi senza essere accoppiati con altre azioni o il codice nel tuo bot.
 
 - Impostare le azioni possono essere create solo quando si fa riferimento a un valore di un'entità di enumerazione è quindi necessario creare un'entità di enumerazione prima entità.
 - Impostare le azioni di entità sono anche "non-await" poiché non dispongono di alcun output visibile e devono essere seguiti da un'azione "attendere" l'utente può visualizzare.

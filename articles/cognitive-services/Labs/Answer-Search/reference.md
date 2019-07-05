@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rosh
+ms.openlocfilehash: 4384bf658024f89664c5202ba10d793d7ad734e0
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721012"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592919"
 ---
 # <a name="project-answer-search-v7-reference"></a>Riferimento per il progetto Ricerca di risposte v7
 
@@ -86,10 +86,10 @@ La richiesta può includere i parametri di query seguenti. Vedere i parametri ob
 |NOME|Value|Type|Obbligatorio|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, consultare Market Codes (Codici di mercato).<br /><br /> **NOTA:** attualmente l'API Anteprima URL supporta solo la lingua o il mercato en-us.<br /><br />|String|Yes|  
-|<a name="query" />q|URL per l'anteprima|String|Yes|  
+|<a name="query" />q|URL per l'anteprima|string|Yes|  
 |<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />  Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](https://json-ld.org/).|String|No|  
-|<a name="safesearch" />safeSearch|Filtro usato per filtrare il contenuto per adulti. Di seguito sono riportati i possibili valori di filtro con distinzione tra maiuscole e minuscole.<br /><ul><li>Disattivata: vengono restituite le pagine Web con testo, immagini o video per adulti.<br /><br/></li><li>Moderata: vengono restituite le pagine Web con testo per adulti, ma non le immagini o i video per adulti.<br /><br/></li><li>Completa: non vengono restituite le pagine Web con testo, immagini o video per adulti.</li></ul><br /> Il valore predefinito è Moderate.<br /><br /> **NOTA:** se la richiesta proviene da un mercato in cui il criterio per adulti di Bing richiede che `safeSearch` sia impostata su Completa, Bing ignora il valore di `safeSearch` e usa Completa.<br/><br/>**NOTA:** se si usa l'operatore di query `site:`, esiste la possibilità che la risposta possa includere contenuti per adulti indipendentemente dall'impostazione del parametro di query `safeSearch`. Usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti. |String|No|  
-|<a name="setlang" />setLang|Lingua da usare per le stringhe dell'interfaccia utente. Specificare la lingua tramite il codice lingua a due lettere ISO 639-1. Ad esempio, il codice lingua per l'inglese è EN. L'impostazione predefinita è EN (inglese).<br /><br /> Sebbene sia facoltativo, è opportuno specificare sempre la lingua. In genere, si imposta `setLang` sulla stessa lingua specificata da `mkt`, a meno che non si intenda visualizzare le stringhe dell'interfaccia utente in un'altra lingua.<br /><br /> Questo parametro e l'intestazione [Accept-Language](#acceptlanguage) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti risposta si applicano anche alla lingua specificata.|String|No| 
+|<a name="safesearch" />safeSearch|Filtro usato per filtrare il contenuto per adulti. Di seguito sono riportati i possibili valori di filtro con distinzione tra maiuscole e minuscole.<br /><ul><li>Disattivata: vengono restituite le pagine Web con testo, immagini o video per adulti.<br /><br/></li><li>Moderata: vengono restituite le pagine Web con testo per adulti, ma non le immagini o i video per adulti.<br /><br/></li><li>Completa: non vengono restituite le pagine Web con testo, immagini o video per adulti.</li></ul><br /> Il valore predefinito è Moderate.<br /><br /> **NOTA:** se la richiesta proviene da un mercato in cui il criterio per adulti di Bing richiede che `safeSearch` sia impostata su Completa, Bing ignora il valore di `safeSearch` e usa Completa.<br/><br/>**NOTA:** se si usa l'operatore di query `site:`, esiste la possibilità che la risposta possa includere contenuti per adulti indipendentemente dall'impostazione del parametro di query `safeSearch`. Usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti. |string|No|  
+|<a name="setlang" />setLang|Lingua da usare per le stringhe dell'interfaccia utente. Specificare la lingua tramite il codice lingua a due lettere ISO 639-1. Ad esempio, il codice lingua per l'inglese è EN. L'impostazione predefinita è EN (inglese).<br /><br /> Sebbene sia facoltativo, è opportuno specificare sempre la lingua. In genere, si imposta `setLang` sulla stessa lingua specificata da `mkt`, a meno che non si intenda visualizzare le stringhe dell'interfaccia utente in un'altra lingua.<br /><br /> Questo parametro e l'intestazione [Accept-Language](#acceptlanguage) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti risposta si applicano anche alla lingua specificata.|string|No| 
 
 
 ## <a name="response-objects"></a>Oggetti della risposta  
@@ -109,19 +109,19 @@ Definisce l'errore che si è verificato.
 |Elemento|Descrizione|Type|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />code|Codice di errore che identifica la categoria di errore. Per un elenco di codici possibili, vedere [Codici di errore ](#error-codes).|String|  
-|<a name="error-message" />message|Descrizione dell'errore.|String|  
+|<a name="error-message" />message|Descrizione dell'errore.|string|  
 |<a name="error-moredetails" />moreDetails|Descrizione che fornisce altre informazioni sull'errore.|String|  
-|<a name="error-parameter" />parameter|Parametro di query nella richiesta che ha causato l'errore.|String|  
+|<a name="error-parameter" />parameter|Parametro di query nella richiesta che ha causato l'errore.|string|  
 |<a name="error-subcode" />subCode|Codice di errore che identifica l'errore. Se ad esempio `code` è InvalidRequest, `subCode` potrebbe essere ParameterInvalid o ParameterInvalidValue. |String|  
-|<a name="error-value" />value|Valore del parametro di query che non è valido.|String|  
+|<a name="error-value" />value|Valore del parametro di query che non è valido.|string|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
 Oggetto di livello superiore incluso nella risposta in caso di richiesta con esito negativo.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
-|_type|Hint per il tipo.|String|  
+|_type|Hint per il tipo.|string|  
 |<a name="errors" />errors|Un elenco di errori che descrivono i motivi per cui la richiesta non ha avuto esito positivo.|[Error (Errore) (Error (Errore)e)](#error)|  
 
   
@@ -129,55 +129,55 @@ Oggetto di livello superiore incluso nella risposta in caso di richiesta con esi
 ### <a name="license"></a>Licenza  
 Definisce la licenza ai sensi della quale è possibile usare il testo o la foto.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
-|name|Il nome della licenza.|String|  
-|url|L'URL di un sito Web in cui l'utente può ottenere ulteriori informazioni sulla licenza.<br /><br /> Usare il nome e l'URL per creare un collegamento ipertestuale.|String|  
+|name|Il nome della licenza.|string|  
+|url|L'URL di un sito Web in cui l'utente può ottenere ulteriori informazioni sulla licenza.<br /><br /> Usare il nome e l'URL per creare un collegamento ipertestuale.|string|  
   
 
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Definisce una regola contrattuale per l'attribuzione di licenze.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
-|_type|Hint per il tipo, che è impostato su LicenseAttribution.|String|  
+|_type|Hint per il tipo, che è impostato su LicenseAttribution.|string|  
 |license|Licenza ai sensi della quale è possibile usare il contenuto.|[License](#license)|  
 |licenseNotice|La licenza da visualizzare accanto al campo di destinazione. Ad esempio, "Testo ai sensi della licenza CC-BY-SA".<br /><br /> Usare il nome e l'URL della licenza nel campo `license` per creare un collegamento ipertestuale al sito Web che ne descrive i dettagli. Sostituire quindi il nome di licenza nella stringa `licenseNotice`, ad esempio CC-BY-SA, con il collegamento ipertestuale appena creato.|String|  
 |mustBeCloseToContent|Valore booleano che determina se il contenuto della regola deve essere posizionato in stretta prossimità al campo a cui si applica la regola. Se il valore è **true**, il contenuto deve essere posizionato in stretta prossimità. Se il valore è **false** o questo campo non esiste, il contenuto può essere posizionato a discrezione del chiamante.|Boolean|  
-|targetPropertyName|Il nome del campo a cui si applica la regola.|String|  
+|targetPropertyName|Il nome del campo a cui si applica la regola.|string|  
   
 
 ### <a name="link"></a>Collegamento  
 Definisce i componenti di un collegamento ipertestuale.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
-|_type|Hint per il tipo.|String|  
+|_type|Hint per il tipo.|string|  
 |text|Testo visualizzato.|String|  
-|url|Uniform Resource Locator. Usare l'URL e il testo visualizzato per creare un collegamento ipertestuale.|String|  
+|url|Uniform Resource Locator. Usare l'URL e il testo visualizzato per creare un collegamento ipertestuale.|string|  
   
 
 ### <a name="linkattribution"></a>LinkAttribution  
 Definisce una regola contrattuale per l'attribuzione di collegamenti.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
-|_type|Hint per il tipo, che è impostato su LinkAttribution.|String|  
+|_type|Hint per il tipo, che è impostato su LinkAttribution.|string|  
 |mustBeCloseToContent|Valore booleano che determina se il contenuto della regola deve essere posizionato in stretta prossimità al campo a cui si applica la regola. Se il valore è **true**, il contenuto deve essere posizionato in stretta prossimità. Se il valore è **false** o questo campo non esiste, il contenuto può essere posizionato a discrezione del chiamante.|Boolean|  
-|targetPropertyName|Il nome del campo a cui si applica la regola.<br /><br /> Se non si specifica una destinazione, l'attribuzione si applica all'entità nel suo complesso e deve essere visualizzata immediatamente dopo la presentazione dell'entità. Se esistono più regole di attribuzione di testo e collegamenti che non specificano una destinazione, è necessario concatenarle e visualizzarle usando un'etichetta "Dati di:". Ad esempio, "Dati di < nome provider1\> &#124; < nome provider2\>".|String|  
-|text|Testo dell'attribuzione.|String|  
-|url|L'URL del sito Web del provider. Usare `text` e l'URL per creare un collegamento ipertestuale.|String|  
+|targetPropertyName|Il nome del campo a cui si applica la regola.<br /><br /> Se non si specifica una destinazione, l'attribuzione si applica all'entità nel suo complesso e deve essere visualizzata immediatamente dopo la presentazione dell'entità. Se esistono più regole di attribuzione di testo e collegamenti che non specificano una destinazione, è necessario concatenarle e visualizzarle usando un'etichetta "Dati di:". Ad esempio, "Dati di < nome provider1\> &#124; < nome provider2\>".|string|  
+|text|Testo dell'attribuzione.|string|  
+|url|L'URL del sito Web del provider. Usare `text` e l'URL per creare un collegamento ipertestuale.|string|  
   
   
 ### <a name="mediaattribution"></a>MediaAttribution  
 Definisce una regola contrattuale per l'attribuzione di contenuti multimediali.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo, che è impostato su MediaAttribution.|String|  
 |mustBeCloseToContent|Valore booleano che determina se il contenuto della regola deve essere posizionato in stretta prossimità al campo a cui si applica la regola. Se il valore è **true**, il contenuto deve essere posizionato in stretta prossimità. Se il valore è **false** o questo campo non esiste, il contenuto può essere posizionato a discrezione del chiamante.|Boolean|  
-|targetPropertyName|Il nome del campo a cui si applica la regola.|String|  
-|url|URL usato per creare un collegamento ipertestuale del contenuto mediale. Ad esempio, se la destinazione è un'immagine, si usa l'URL per rendere l'immagine selezionabile.|String|  
+|targetPropertyName|Il nome del campo a cui si applica la regola.|string|  
+|url|URL usato per creare un collegamento ipertestuale del contenuto mediale. Ad esempio, se la destinazione è un'immagine, si usa l'URL per rendere l'immagine selezionabile.|string|  
   
   
   
@@ -186,21 +186,21 @@ Definisce un editore.
   
 Si noti che un editore può fornire il proprio nome e/o il sito Web.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
-|name|Nome dell'editore.|String|  
-|url|L'URL del sito Web dell'editore.<br /><br /> Si noti che l'editore potrebbe non fornire un sito Web.|String|  
+|name|Nome dell'editore.|string|  
+|url|L'URL del sito Web dell'editore.<br /><br /> Si noti che l'editore potrebbe non fornire un sito Web.|string|  
   
   
 
 ### <a name="webpage"></a>WebPage  
 Definisce le informazioni su una pagina Web in anteprima.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|
 |name|Titolo della pagina, non necessariamente il titolo HTML|String|
 |url|L'URL per cui è stata effettivamente eseguita la ricerca per indicizzazione; la richiesta potrebbe avere seguito reindirizzamenti|String|  
-|description|Breve descrizione della pagina e del contenuto|String|  
+|description|Breve descrizione della pagina e del contenuto|string|  
 |isFamilyFriendly|Più preciso per gli elementi nell'indice Web; i recuperi in tempo reale eseguono questo rilevamento esclusivamente in base all'URL e non al contenuto della pagina|boolean|
 |primaryImageOfPage/contentUrl|URL di un'immagine rappresentativa da includere nell'anteprima|String| 
   
@@ -212,13 +212,13 @@ Definisce il contesto di query usato da Bing per la richiesta.
 |-------------|-----------------|----------|  
 |adultIntent|Valore booleano che indica se la query specificata ha finalità per adulti. Il valore è **true** se la query ha finalità per adulti; in caso contrario, è **false** .|Boolean|  
 |alterationOverrideQuery|Stringa di query da usare per forzare l'utilizzo della stringa originale in Bing. Ad esempio, se la stringa di query è *saling downwind*, questa stringa di query sarà *+saling downwind*. Ricordarsi di codificare la stringa di query che risulta in *%2Bsaling+downwind*.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|String|  
-|alteredQuery|La stringa di query usata da Bing per eseguire la query. Bing usa la stringa di query modificata se la stringa di query originale conteneva errori di ortografia. Ad esempio, se la stringa di query è `saling downwind`, la stringa di query modificata sarà `sailing downwind`.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|String|  
+|alteredQuery|La stringa di query usata da Bing per eseguire la query. Bing usa la stringa di query modificata se la stringa di query originale conteneva errori di ortografia. Ad esempio, se la stringa di query è `saling downwind`, la stringa di query modificata sarà `sailing downwind`.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|string|  
 |askUserForLocation|Valore booleano che indica se Bing richiede la posizione dell'utente per fornire risultati accurati. Se è stata specificata la posizione dell'utente usando le intestazioni [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), è possibile ignorare questo campo.<br /><br /> Per le query in grado di riconoscere la posizione, ad esempio "meteo di oggi " o "ristoranti vicino a me" che richiedono la posizione dell'utente per fornire risultati accurati, questo campo è impostato su **true**.<br /><br /> Per le query in grado di riconoscere la posizione che includono la posizione, ad esempio "meteo di Seattle", questo campo è impostato su **false**. Questo campo viene impostato su **false** anche per le query che non riconoscono la posizione, ad esempio "best seller".|Boolean|  
-|originalQuery|La stringa di query come è stata specificata nella richiesta.|String|  
+|originalQuery|La stringa di query come è stata specificata nella richiesta.|string|  
 
 ### <a name="identifiable"></a>Identifiable
 
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |-------------|-----------------|----------|
 |id|Identificatore di risorsa|String|
  
@@ -235,14 +235,14 @@ Definisce un elemento dei risultati della ricerca da visualizzare.
 |NOME|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Indice in base zero dell'elemento nella risposta da visualizzare. Se l'elemento non include questo campo, visualizzare tutti gli elementi nella risposta. Ad esempio, visualizzare tutti gli articoli sulle notizie nella risposta di Ricerca notizie.|Integer|
-|answerType|Risposta che contiene l'elemento da visualizzare, ad esempio, Ricerca notizie.<br /><br />Usare il tipo per trovare la risposta nell'oggetto SearchResponse. Il tipo è il nome di un campo SearchResponse.<br /><br /> Tuttavia, usare il tipo di risposta solo se questo oggetto include il campo del valore; in caso contrario, ignorarlo.|String|
+|answerType|Risposta che contiene l'elemento da visualizzare, ad esempio, Ricerca notizie.<br /><br />Usare il tipo per trovare la risposta nell'oggetto SearchResponse. Il tipo è il nome di un campo SearchResponse.<br /><br /> Tuttavia, usare il tipo di risposta solo se questo oggetto include il campo del valore; in caso contrario, ignorarlo.|string|
 |textualIndex|Indice della risposta in textualAnswers da visualizzare.| Unsigned Integer|
 |value|ID che identifica una risposta o un elemento di una risposta da visualizzare. Se l'ID identifica una risposta, visualizzare tutti gli elementi della risposta.|Identifiable|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Definisce il punto in cui il contenuto della pagina dei risultati della ricerca deve essere posizionato e in quale ordine.  
   
-|Name|Value|  
+|NOME|Value|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|I risultati della ricerca da visualizzare nella riga principale.|  
 |<a name="ranking-pole" />pole|I risultati della ricerca che devono ottenere il trattamento più visibile, ad esempio la visualizzazione sopra la riga principale e la barra laterale.|  
@@ -254,19 +254,19 @@ Definisce l'oggetto di livello superiore incluso nella risposta quando la richie
   
 Si noti che se il servizio sospetta un attacco Denial of Service, la richiesta avrà esito positivo (con codice di stato HTTP 200 OK), ma il corpo della risposta sarà vuoto.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
-|_type|Hint per il tipo, che è impostato su SearchResponse.|String|  
+|_type|Hint per il tipo, che è impostato su SearchResponse.|string|  
 |WebPage|Oggetto JSON che definisce l'anteprima|string|  
   
   
 ### <a name="textattribution"></a>TextAttribution  
 Definisce una regola contrattuale per l'attribuzione di testo normale.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
-|_type|Hint per il tipo, che è impostato su TextAttribution.|String|  
-|text|Testo dell'attribuzione.<br /><br /> L'attribuzione di testo si applica all'entità nel suo complesso e deve essere visualizzata immediatamente dopo la presentazione dell'entità. Se esistono più regole di attribuzione di testo o collegamenti che non specificano una destinazione, è necessario concatenarle e visualizzarle usando un'etichetta "Dati di:".|String| 
+|_type|Hint per il tipo, che è impostato su TextAttribution.|string|  
+|text|Testo dell'attribuzione.<br /><br /> L'attribuzione di testo si applica all'entità nel suo complesso e deve essere visualizzata immediatamente dopo la presentazione dell'entità. Se esistono più regole di attribuzione di testo o collegamenti che non specificano una destinazione, è necessario concatenarle e visualizzarle usando un'etichetta "Dati di:".|string| 
 
 
 ## <a name="error-codes"></a>Codici di errore

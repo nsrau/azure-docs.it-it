@@ -1,0 +1,48 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione su API di Azure per FHIR - Anteprima
+metadata:
+  title: Documentazione su API di Azure per FHIR - Anteprima
+  meta.description: Learn how Azure API for FHIR can power healthcare iteroperability in Azure.
+  services: healthcare-apis
+  author: hansenms
+  manager: dougseven
+  ms.author: mihansen
+  ms.service: healthcare-apis
+  ms.subservice: fhir
+  ms.topic: landing-page
+  ms.date: 02/07/2019
+abstract:
+  description: 'L''anteprima dell''API di Azure per FHIR® è un''API conforme, basata su standard e completamente gestita per i dati sanitari clinici, che consente di creare nuovi sistemi di engagement per analisi, Machine Learning e intelligence fruibile con i dati sanitari.'
+sections:
+  - title: null
+    items:
+      - type: paragraph
+        text: 'FHIR&reg; è il marchio registrato di HL7, usato con l''autorizzazione di HL7.'
+  - title: Guide introduttive di 5 minuti
+    items:
+      - type: paragraph
+        text: Selezionare un collegamento a forma di freccia per informazioni su come usare l'API di Azure per FHIR per ottimizzare l'interoperabilità delle risorse sanitarie in Azure <img src="media/index/link.jpg" height="15" width="15"></img>.
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/portal.svg
+            title: Portale di Azure
+          - image:
+              src: media/index/powershell.svg
+            title: Azure PowerShell
+          - image:
+              src: media/index/cli.svg
+            title: Interfaccia della riga di comando di Azure
+        rows:
+          - title: Distribuire l'API di Azure per FHIR
+            values:
+              - href: fhir-paas-portal-quickstart.md
+              - href: fhir-paas-powershell-quickstart.md
+              - href: fhir-paas-cli-quickstart.md
+          - title: Distribuire il server FHIR open source
+            values:
+              - href: fhir-oss-portal-quickstart.md
+              - href: fhir-oss-powershell-quickstart.md
+              - href: fhir-oss-cli-quickstart.md

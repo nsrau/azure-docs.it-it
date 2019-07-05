@@ -143,6 +143,14 @@
               items:
                 - name: Tramite SMB
                   href: data-box-heavy-deploy-copy-data.md
+                - name: Tramite NFS
+                  href: data-box-heavy-deploy-copy-data-via-nfs.md
+                - name: Tramite REST
+                  href: data-box-heavy-deploy-copy-data-via-rest.md
+                - name: Tramite il servizio di copia dei dati
+                  href: data-box-heavy-deploy-copy-data-via-copy-service.md
+                - name: In dischi gestiti
+                  href: data-box-heavy-deploy-copy-data-from-vhds.md
             - name: '4 - Restituire, caricare, verificare'
               href: data-box-heavy-deploy-picked-up.md
         - name: Concetti
