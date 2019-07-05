@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82aa566c5bcd6347a6f62b2f693a7ad796347438
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eac6cff0f0f12daaf772549f547aafd670600d61
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055991"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536985"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integrazione di directory tra il server Azure MFA e Active Directory
 
@@ -31,6 +31,9 @@ Usare la sezione Integrazione directory del server Azure MFA per l'integrazione 
 Per impostazione predefinita, il server Azure Multi-Factor Authentication (MFA) è configurato per importare o sincronizzare utenti da Active Directory.  La scheda Integrazione directory permette di eseguire l'override del comportamento predefinito e di eseguire il binding a una directory LDAP diversa, a una directory ADAM oppure a un controller di dominio di Active Directory specifico.  Permette anche di usare l'autenticazione LDAP per il proxy LDAP o per binding LDAP come destinazione RADIUS, la preautenticazione per l'autenticazione IIS oppure l'autenticazione primaria per il portale utenti.  La tabella seguente illustra le singole impostazioni.
 
 ![Modifica configurazione LDAP nel Server MFA](./media/howto-mfaserver-dir-ad/dirint.png)
+
+> [!NOTE]
+> Integrazione di directory non è garantito per lavorare con le directory diversi da Active Directory Domain Services.
 
 | Funzionalità | Descrizione |
 | --- | --- |

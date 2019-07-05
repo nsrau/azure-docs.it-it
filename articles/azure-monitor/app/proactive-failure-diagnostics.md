@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46944603fdf45a2a7a14641086959bf61b3f773e
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61299112"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465875"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Rilevamento intelligente - Anomalie degli errori
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) avvisa automaticamente l'utente quasi in tempo reale se si verifica un incremento anomalo della frequenza di richieste non riuscite nell'app Web, rilevando un aumento insolito della percentuale di richieste HTTP o di chiamate alle dipendenze segnalate come non riuscite. Per quanto riguarda le richieste, quelle non riuscite hanno in genere un codice di risposta 400 o superiore. Per poter valutare e diagnosticare il problema, la notifica include un'analisi delle caratteristiche degli errori e i dati di telemetria correlati. Sono disponibili anche collegamenti al portale di Application Insights per un'ulteriore diagnosi. La funzionalità non necessita di alcuna installazione o configurazione, perché usa algoritmi di Machine Learning per stimare la normale frequenza degli errori.
 
-Questa funzionalità funziona per le app Web Java e ASP.NET ospitate nel cloud o nei server aziendali. Funziona anche per qualsiasi app che genera dati di telemetria di richiesta o di dipendenza, ad esempio, un ruolo di lavoro che chiama [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) o [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+Questa funzionalità funziona per qualsiasi app web, ospitata nel cloud o nei tuoi server, che genera dati di telemetria richieste o delle dipendenze: ad esempio, se si dispone di un ruolo di lavoro che chiama [trackrequest ()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) o [trackdependency ()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 Al termine della configurazione di [Application Insights per il progetto](../../azure-monitor/app/app-insights-overview.md), non appena l'app genera una quantità minima di dati di telemetria la funzionalità di rilevamento intelligente delle anomalie degli errori impiega 24 ore per apprendere il comportamento normale dell'app prima di essere attivato e inviare avvisi.
 
@@ -43,6 +43,26 @@ Le informazioni fornite includono:
 * Un modello caratteristico associato agli errori. In questo esempio sono presenti un codice di risposta, un nome di richiesta (operazione) e una versione dell'applicazione specifici. che indica immediatamente in quale punto del codice cercare. In alternativa si può usare un browser o un sistema operativo client specifico.
 * Eccezioni, tracce di log ed errori di dipendenza (database o altri componenti esterni) che sembrano associati ai particolari errori.
 * Collegamenti diretti alle ricerche rilevanti nei dati di telemetria in Application Insights.
+
+## <a name="failure-anomalies-v2"></a>Errore anomalie v2
+È ora disponibile una nuova versione della regola di avviso anomalie degli errori. Questa nuova versione è in esecuzione nella nuova piattaforma avvisi Azure e introduce numerosi miglioramenti rispetto alla versione esistente.
+
+### <a name="whats-new-in-this-version"></a>Novità in questa versione?
+- Rilevamento più veloce dei problemi
+- Viene creata un set più completo di azioni - la regola di avviso con un oggetto associato [gruppo di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) denominato "Application Insights rilevamento intelligente" che contiene le azioni webhook e posta elettronica e possono essere estese per attivare azioni aggiuntive quando l'avviso viene attivato.
+- Più incentrato notifiche - notifiche tramite posta elettronica inviate da questa regola di avviso vengono ora inviate per impostazione predefinita per gli utenti associati ai ruoli di monitoraggio di lettore e collaboratore al monitoraggio della sottoscrizione. Per ulteriori informazioni su questo [qui](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
+- Configurazione semplificata tramite modelli ARM, vedere l'esempio [qui](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config).
+- Seguono le notifiche inviate da questa regola di avviso di supporto dello schema di avviso comuni - i [schema comune degli avvisi](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+- Unified modello di posta elettronica - messaggio di posta elettronica delle notifiche da questa regola di avviso hanno un aspetto coerente & sentono con altri tipi di avviso. Con questa modifica, la possibilità di ricevere avvisi di anomalie degli errori con le informazioni di diagnostica dettagliate non è più disponibile.
+
+### <a name="how-do-i-get-the-new-version"></a>Come ottenere la nuova versione?
+- Vengono ora effettuato il provisioning di risorse di Application Insights appena create con la nuova versione della regola di avviso anomalie degli errori.
+- Le risorse con la versione classica delle anomalie degli errori di avviso regola otterrà la nuova versione di una volta la sottoscrizione di hosting esistente di Application Insights viene eseguita la migrazione alla nuova piattaforma avvisi come parte di [processo di ritiro degli avvisi classici ](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).
+
+> [!NOTE]
+> La nuova versione della regola di avviso anomalie degli errori rimane disponibile. Inoltre, le azioni webhook e posta elettronica attivata da associato "Rilevamento intelligente di Application Insights" gruppo di azione è gratuita.
+> 
+> 
 
 ## <a name="benefits-of-smart-detection"></a>Vantaggi del rilevamento intelligente
 I normali [avvisi relativi alla metrica](../../azure-monitor/app/alerts.md) indicano che potrebbe essersi verificato un problema. Tuttavia, la funzionalità di rilevamento intelligente avvia automaticamente i processi di diagnostica ed esegue diverse analisi che altrimenti l'utente dovrebbe eseguire manualmente. Si ottengono risultati ben strutturati che consentono individuare rapidamente le cause del problema.

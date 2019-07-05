@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 5cd88eeb2016a90a95f0e54a334eb3c88cb75744
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: a24bba0786201f4ea1d1be431107f7bfe26a2a8f
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078742"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461730"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Esegue il monitoraggio delle prestazioni di MySQL con Query Store nel Database di Azure
 
 **Si applica a:**  per Database di Azure per MySQL 5.7
 
 > [!NOTE]
-> Query Store è disponibile in anteprima. Supporto per Query Store nel portale di Azure viene implementato e potrebbe non essere ancora disponibile nella propria area.
+> Query Store è disponibile in anteprima.
 
 La funzionalità di Query Store nel Database di Azure per MySQL offre un modo per tenere traccia delle prestazioni delle query nel tempo. Query Store semplifica la risoluzione dei problemi di prestazioni consentendo di trovare rapidamente le query con il tempo di esecuzione più lungo e il più elevato utilizzo di risorse. Query Store acquisisce automaticamente una cronologia delle query e le statistiche di runtime e le conserva a scopo di verifica. I dati vengono separati per intervalli di tempo per consentire l'individuazione dei modelli di utilizzo dei database. Dati per tutti gli utenti, database e le query vengono archiviati nel **mysql** database con schema nel Database di Azure per l'istanza di MySQL.
 
@@ -29,10 +29,6 @@ Archivio query può essere usato in diversi scenari, inclusi i seguenti:
 - Rilevare le query regredite
 - Determinazione del numero di volte in cui una query è stata eseguita in un determinato intervallo di tempo
 - Confronto del tempo di esecuzione di una query nei diversi intervalli di tempo per identificare differenze significative
-- Identificazione delle query con il tempo di esecuzione più lungo nelle ultime X ore
-- Identificazione delle prime N query in attesa delle risorse
-- Natura di attesa comprensione per una query
-- Informazioni sulle tendenze per attese risorse e in cui è presente contesa delle risorse
 
 ## <a name="enabling-query-store"></a>Abilitazione di Query Store
 

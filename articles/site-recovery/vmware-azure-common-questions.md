@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 05/30/2019
+ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 59be8e0585f0bedcafc868ee42f5113509c9c4ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79118fb053c7064fa29730680feb0434f45f031a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417767"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491702"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Domande frequenti su VMware per la replica di Azure
 
@@ -85,6 +85,10 @@ Per una stima dettagliata dei costi, eseguire lo strumento deployment planner pe
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>È disponibile alcuna differenza nel costo tra la replica di archiviazione o direttamente al servizio managed disks?
 
 I dischi gestiti vengono addebitati in modo leggermente diverso dall'account di archiviazione. [Altre informazioni](https://azure.microsoft.com/pricing/details/managed-disks/) sui prezzi di disco gestito.
+
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>È disponibile alcuna differenza nel costo durante la replica in account di archiviazione di utilizzo generico v2?
+
+In genere, si noterà un aumento del costo di transazioni sostenute per gli account di archiviazione per utilizzo generico v2, poiché Azure Site Recovery è transazioni pesanti. [Scopri di più](../storage/common/storage-account-upgrade.md#pricing-and-billing) per stimare la modifica.
 
 ## <a name="mobility-service"></a>Servizio Mobility
 
@@ -293,7 +297,7 @@ Gli aggiornamenti in versioni 9,24 e versioni successive ora visualizza i [integ
 
 ### <a name="how-do-i-update-the-process-server-to-version-924-or-later-for-accurate-health-information"></a>Come si aggiorna il server di elaborazione alla versione 9.24 o versione successiva per informazioni sull'integrità accurati?
 
-A partire [versione 9,24](service-updates-how-to.md#links-to-currently-supported-update-rollups), più avvisi sono stati aggiunti per indicare l'integrità del server di elaborazione. [Aggiornare i componenti di Site Recovery per 9.24 o versioni successive] (service-updates-how-to.md#links-to-currently-supported-update-rollups) in modo che tutti gli avvisi vengono generati.
+A partire [versione 9,24](service-updates-how-to.md#links-to-currently-supported-update-rollups), più avvisi sono stati aggiunti per indicare l'integrità del server di elaborazione. [Aggiornare i componenti di Site Recovery per 9.24 o versione successiva](service-updates-how-to.md#links-to-currently-supported-update-rollups) in modo che tutti gli avvisi vengono generati.
 
 ## <a name="failover-and-failback"></a>Failover e failback
 

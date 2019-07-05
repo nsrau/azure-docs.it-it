@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck;amverma
-ms.openlocfilehash: e1eeabf66411117d700a558a2938fb8c1df0080b
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
-ms.translationtype: HT
+ms.openlocfilehash: 5fc5b5a287a421f93d3184ded3e429c5cff8fa3c
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538012"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566284"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Dimensioni delle VM High Performance Computing (HPC)
 
@@ -31,11 +31,10 @@ ms.locfileid: "67538012"
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 
-* **Sistema operativo**: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+* **Sistema operativo** -Windows Server 2016 in tutte le precedenti HPC serie di macchine virtuali. Windows Server 2012 R2, Windows Server 2012 sono supportate anche nelle macchine virtuali abilitate SR-IOV (ad eccezione di conseguenza HB e connessione ibrida).
 
-* **MPI** : Microsoft MPI (MS-MPI) 2012 R2 o versione successiva, Intel MPI Library 5.x
-
-  Nelle macchine virtuali abilitate SR-IOV, implementazioni MPI supportate usano l'interfaccia Microsoft Network Direct (ND) per la comunicazione tra istanze. SR-IOV abilitate dimensioni delle macchine Virtuali (HB e connessione ibrida-series) in Azure consentono di quasi tutte le versioni di MPI da usare con OFED Mellanox. 
+* **MPI** -The SR-IOV abilitate dimensioni delle macchine Virtuali in Azure (HB, HC) consentire qualsiasi versione di MPI da usare con OFED Mellanox.
+Nelle macchine virtuali abilitate SR-IOV, implementazioni MPI supportate usano l'interfaccia Microsoft Network Direct (ND) per la comunicazione tra istanze. Di conseguenza, solo Microsoft MPI (MS-MPI) 2012 R2 o versioni successive e sono supportate le versioni di Intel MPI 5.x. Nelle versioni successive (2017, 2018) del runtime di Intel MPI library può o potrebbe non essere compatibile con i driver RDMA di Azure.
 
 * **Estensione di VM InfiniBandDriverWindows** : nelle VM con supporto per RDMA, aggiungere l'estensione InfiniBandDriverWindows per abilitare InfiniBand. Questa estensione della macchina virtuale Windows installa driver Windows Network Direct (nelle VM di SR-IOV) o i driver Mellanox OFED (nelle VM di SR-IOV) per la connettività RDMA.
 In alcune distribuzioni di istanze A8 e A9, l'estensione HpcVmDrivers viene aggiunta automaticamente. Si noti che l'estensione di VM HpcVmDrivers è deprecato; quindi non essere aggiornata. Per aggiungere l'estensione macchina virtuale a una macchina virtuale, è possibile usare i cmdlet di [Azure PowerShell](/powershell/azure/overview). 

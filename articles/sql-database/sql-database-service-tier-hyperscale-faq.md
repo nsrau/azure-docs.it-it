@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 535ae91abc04b2fdcebb6a2083db95ec50f61798
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 49d1e171d4d4b2210a98c59332f4842e23a2f2b9
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275597"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537843"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Domande frequenti sui database SQL di Azure di livello Hyperscale
 
@@ -38,7 +38,7 @@ Il livello di servizio Hyperscale è disponibile solo per i database singoli che
 
 ### <a name="how-does-the-hyperscale-service-tier-differ-from-the-general-purpose-and-business-critical-service-tiers"></a>Quali sono le differenze tra il livello di servizio Hyperscale e i livelli di servizio per utilizzo generico e business critical
 
-I livelli di servizio basati su vCore si differenziano principalmente in base a disponibilità, tipo di archiviazione e operazioni di I/O al secondo.
+Il servizio basato su vCore livelli si differenziano principalmente in base al tipo di archiviazione, disponibilità e IOPs.
 
 - Il livello di servizio per utilizzo generico è appropriato per la maggior parte dei carichi di lavoro aziendali e offre un set bilanciato di opzioni di calcolo e di archiviazione in cui la latenza di I/O o i tempi di failover non rappresentano una priorità.
 - Il livello di servizio Hyperscale è ottimizzato per i carichi di lavoro di database di dimensioni molto grandi.
@@ -53,7 +53,7 @@ I livelli di servizio basati su vCore si differenziano principalmente in base a 
 | **Tipo di archiviazione** | Tutti |Archiviazione remota Premium (per istanza) | Archiviazione disaccoppiata con cache SSD locale (per istanza) | Archiviazione SSD locale estremamente veloce (per istanza) |
 | **Dimensioni archiviazione** | Database singolo/pool elastico | 5 GB - 4 TB | Fino a 100 TB | 5 GB - 4 TB |
 | | Istanza gestita  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
-| **Velocità effettiva di I/O** | Database singolo** | 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000 | Ancora sconosciuta | 5000 operazioni di I/O al secondo fino a un massimo di 200.000|
+| **Velocità effettiva di I/O** | Database singolo** | 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000 | Su scala molto vasta è un'architettura a più livelli con più livelli di memorizzazione nella cache. IOPs effettivo varia in base al carico di lavoro. | 5000 operazioni di I/O al secondo fino a un massimo di 200.000|
 | | Istanza gestita | Dipende dalle dimensioni del file | N/D | Istanza gestita: Dipende dalle dimensioni del file|
 |**Disponibilità**|Tutti|1 replica, senza scalabilità in lettura, senza cache locale | Più repliche, fino a 15 repliche con scalabilità in lettura, cache locale parziale | 3 repliche, 1 replica con scalabilità in lettura, disponibilità elevata con ridondanza della zona, cache locale completa |
 |**Backup**|Tutti|RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita)| RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita), il ripristino temporizzato in tempo costante (PITR) | RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita) |
@@ -92,7 +92,7 @@ Il database SQL Hyperscale offre scalabilità rapida in base alle esigenze dei c
   Con il livello Hyperscale, è possibile aumentare le dimensioni di calcolo primarie in termini di risorse come CPU e memoria e quindi ridurle, in un tempo costante. Poiché l'archiviazione è condivisa, la scalabilità verticale non è un'operazione di ridimensionamento dei dati.  
 - **Scalabilità orizzontale**
 
-  Con il livello Hyperscale è anche possibile effettuare il provisioning di uno o più nodi di calcolo aggiuntivi, da usare per rispondere alle richieste di lettura. Ciò significa che è possibile usare questi nodi di calcolo aggiuntivi come nodi di sola lettura per l'offload del carico di lavoro di lettura dalle risorse di calcolo primarie. Questi nodi, oltre a essere di sola lettura, vengono usati anche come hot standby in caso di failover dal nodo primario.
+  Con il livello Hyperscale è anche possibile effettuare il provisioning di uno o più nodi di calcolo aggiuntivi, da usare per rispondere alle richieste di lettura. Ciò significa che è possibile usare questi nodi di calcolo aggiuntivi come nodi di sola lettura per l'offload del carico di lavoro di lettura dalle risorse di calcolo primarie. In oltre per fare in sola lettura, che questi nodi fungono anche come hot standby in caso di failover dal database primario.
 
   Il provisioning di ognuno di questi nodi di calcolo aggiuntivi può essere effettuato in un tempo costante ed è un'operazione online. È possibile connettersi a questi nodi di calcolo aggiuntivi di sola lettura impostando l'argomento `ApplicationIntent` nella stringa di connessione su `readonly`. Tutte le connessioni contrassegnate con `readonly` vengono indirizzate automaticamente a uno dei nodi di calcolo di sola lettura aggiuntivi.
 
@@ -120,7 +120,7 @@ Il database SQL Hyperscale supporta tutti i carichi di lavoro di SQL Server ma �
 
 ### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-sql-database-hyperscale"></a>Come è possibile scegliere tra Azure SQL Data Warehouse e il database SQL Hyperscale
 
-Se attualmente si eseguono query di analisi interattive usando SQL Server come data warehouse, un database SQL Hyperscale è ideale perché permette di ospitare data warehouse di dimensioni relativamente ridotte (ad esempio da pochi TB fino a decine di TB) a un costo inferiore ed è possibile eseguire la migrazione del carico di lavoro di data warehouse al database SQL Hyperscale senza modifiche al codice T-SQL.
+Se attualmente si eseguono query analitica interattiva usando SQL Server come un data warehouse, con Iperscalabilità di Database SQL è un'ottima opzione perché è possibile ospitare relativamente ridotto di data warehouse (ad esempio, alcuni TB fino a 10 secondi TB) a un costo inferiore ed è possibile migrare i dati w arehouse carico di lavoro con Iperscalabilità di Database SQL senza modifiche al codice T-SQL.
 
 Se si eseguono analisi dei dati su vasta scala con query complesse e si usano Parallel Data Warehouse (PDW), Teradata o altri data warehouse MPP (Massively Parallel Processor, elaborazione parallela elevata), SQL Data Warehouse può essere la scelta migliore.
   
@@ -349,7 +349,7 @@ Attivata dall'utente finale. Non è un'operazione automatica.
 
 Sì. Il database temporaneo viene ridimensionato automaticamente quando aumentano le risorse di calcolo.  
 
-### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>È possibile effettuare il provisioning di più risorse di calcolo primarie, ad esempio un sistema multimaster in cui più nodi head di calcolo primari possono consentire un livello più elevato di concorrenza
+### <a name="can-i-provision-multiple-primary-compute-nodes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>È possibile eseguire il provisioning più nodi di calcolo principale, ad esempio un sistema multi-master in cui più testine di calcolo primario possibile richiedere un livello superiore di concorrenza
 
 No. Solo il nodo di calcolo primario accetta le richieste di lettura/scrittura. I nodi di calcolo secondari accettano solo le richieste di sola lettura.
 
@@ -369,11 +369,11 @@ No. È possibile connettersi solo alla scalabilità in lettura replica specifica
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>Il sistema esegue il bilanciamento del carico intelligente per il carico di lavoro di lettura
 
-No. Il carico di lavoro di sola lettura sia reindirizzato a una replica casuale di scalabilità in lettura.
+No. Il carico di lavoro di sola lettura viene reindirizzato a una replica casuale di scalabilità in lettura.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>È possibile ridimensionare i nodi di calcolo secondari indipendentemente dal nodo di calcolo primario
 
-No. I nodi di calcolo secondario vengono utilizzati anche per la disponibilità elevata, in modo che devono essere la stessa configurazione del database primario, in caso di failover.
+No. I nodi di calcolo secondario vengono utilizzati anche per la disponibilità elevata, in modo che devono essere la stessa configurazione del database primario, nel caso di un failover.
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>Il database temporaneo viene ridimensionato in modo diverso per il nodo di calcolo primario e i nodi di calcolo secondari aggiuntivi
 

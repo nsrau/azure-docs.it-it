@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c32d9954b3c90a5f7e9c5475acdb141f7154cf76
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190058"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540364"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -73,10 +73,10 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="tier-options"></a>
   **Quali livelli di archiviazione sono supportati in File di Azure?**  
-    File di Azure supporta attualmente solo il livello di archiviazione Standard. Al momento non sono disponibili indicazioni precise sui tempi di attuazione per il supporto dell'archiviazione Premium e dell'archiviazione ad accesso sporadico. 
+    File di Azure supporta due livelli di archiviazione: standard e premium. Le condivisioni di file standard in genere vengono create gli account di archiviazione (per utilizzo generico v1 o v2) scopo e le condivisioni file premium vengono create negli account di archiviazione FileStorage. Altre informazioni su come creare [condivisioni di file standard](storage-how-to-create-file-share.md) e [condivisioni file premium](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
-    > Non è possibile creare condivisioni file di Azure dagli account di archiviazione solo BLOB o dagli account di archiviazione Premium.
+    > Non è possibile creare condivisioni file di Azure dagli account di archiviazione Blob o *premium* gli account di archiviazione (per utilizzo generico v1 o v2) generico. File di Azure standard condivide deve creato nella *standard* è necessario creare condivisioni file di Azure premium e solo negli account di archiviazione FileStorage solo account di uso generale. *Premium* account di archiviazione (per utilizzo generico v1 e per utilizzo generico v2) di uso generale sono per solo i BLOB di pagine premium. 
 
 * <a id="give-us-feedback"></a>
   **È possibile aggiungere una funzionalità specifica a File di Azure?**  
@@ -356,8 +356,8 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     Per informazioni sugli obiettivi di scalabilità e prestazioni di File per Azure, vedere [Obiettivi di scalabilità e prestazioni di File di Azure](storage-files-scale-targets.md).
 
 * <a id="need-larger-share"></a>
-**Se serve una condivisione file più grande di quella attualmente offerta da File di Azure è possibile aumentare le dimensioni della condivisione file di Azure?**  
-    No. La dimensione massima di una condivisione file di Azure è 5 TiB. Attualmente non è possibile modificare questo limite. Microsoft sta lavorando a una soluzione per aumentare la dimensione della condivisione a 100 TiB, ma non sono ancora disponibili indicazioni precise sui tempi di attuazione.
+**Quali dimensioni sono disponibili per le condivisioni file di Azure?**  
+    Le dimensioni di condivisione file di Azure (standard e premium) consente la scalabilità fino a 100 TiB. Le dimensioni di condivisioni file Premium fino a 100 TiB sono disponibili come un'offerta disponibile a livello generale. Dimensioni delle condivisioni di file standard fino a 5 TiB sono disponibili come un'offerta disponibile a livello generale, mentre le dimensioni fino a 100 TiB sono disponibili in anteprima. Vedere le [l'Onboarding in condivisioni di file più grandi (livello standard)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) sezione della Guida alla pianificazione di istruzioni per l'onboarding per il file di dimensioni maggiori condivide anteprima per il livello standard.
 
 * <a id="open-handles-quota"></a>
 **Quanti client possono accedere allo stesso file contemporaneamente?**    

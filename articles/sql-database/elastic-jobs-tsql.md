@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 683297e32c40f73c64dc40b18f279d92e2396e8d
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475814"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568282"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico
 
@@ -426,7 +426,7 @@ Le stored procedure seguenti sono disponibili nel [database dei processi](sql-da
 
 
 
-### <a name="spaddjob"></a>sp_add_job
+### <a name="sp_add_job"></a>sp_add_job
 
 Aggiunge un nuovo processo. 
   
@@ -492,7 +492,7 @@ Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin
 
 Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sezione Autorizzazioni di questo documento. Solo i membri del ruolo sysadmin possono usare questa stored procedure per modificare gli attributi dei processi di proprietà di altri utenti.
 
-### <a name="spupdatejob"></a>sp_update_job
+### <a name="sp_update_job"></a>sp_update_job
 
 Aggiorna un processo esistente.
 
@@ -555,7 +555,7 @@ Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sez
 
 
 
-### <a name="spdeletejob"></a>sp_delete_job
+### <a name="sp_delete_job"></a>sp_delete_job
 
 Elimina il processo esistente.
 
@@ -587,7 +587,7 @@ Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sez
 
 
 
-### <a name="spaddjobstep"></a>sp_add_jobstep
+### <a name="sp_add_jobstep"></a>sp_add_jobstep
 
 Aggiunge un passaggio a un processo.
 
@@ -713,7 +713,7 @@ Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sez
 
 
 
-### <a name="spupdatejobstep"></a>sp_update_jobstep
+### <a name="sp_update_jobstep"></a>sp_update_jobstep
 
 Aggiorna un passaggio di un processo.
 
@@ -838,7 +838,7 @@ Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sez
 
 
 
-### <a name="spdeletejobstep"></a>sp_delete_jobstep
+### <a name="sp_delete_jobstep"></a>sp_delete_jobstep
 
 Rimuove un passaggio da un processo.
 
@@ -884,7 +884,7 @@ Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sez
 
 
 
-### <a name="spstartjob"></a>sp_start_job
+### <a name="sp_start_job"></a>sp_start_job
 
 Avvia l'esecuzione di un processo.
 
@@ -915,7 +915,7 @@ Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin
 
 Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sezione Autorizzazioni di questo documento. Solo i membri del ruolo sysadmin possono usare questa stored procedure per modificare gli attributi dei processi di proprietà di altri utenti.
 
-### <a name="spstopjob"></a>sp_stop_job
+### <a name="sp_stop_job"></a>sp_stop_job
 
 Arresta l'esecuzione di un processo.
 
@@ -944,7 +944,7 @@ Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin
 Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sezione Autorizzazioni di questo documento. Solo i membri del ruolo sysadmin possono usare questa stored procedure per modificare gli attributi dei processi di proprietà di altri utenti.
 
 
-### <a name="spaddtargetgroup"></a>sp_add_target_group
+### <a name="sp_add_target_group"></a>sp_add_target_group
 
 Aggiunge un gruppo di destinazione.
 
@@ -975,7 +975,7 @@ Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin
 
 Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sezione Autorizzazioni di questo documento. Solo i membri del ruolo sysadmin possono usare questa stored procedure per modificare gli attributi dei processi di proprietà di altri utenti.
 
-### <a name="spdeletetargetgroup"></a>sp_delete_target_group
+### <a name="sp_delete_target_group"></a>sp_delete_target_group
 
 Elimina un gruppo di destinazione.
 
@@ -1003,7 +1003,7 @@ Per impostazione predefinita, i membri del ruolo predefinito del server sysadmin
 
 Per informazioni dettagliate sulle autorizzazioni di questi ruoli, vedere la sezione Autorizzazioni di questo documento. Solo i membri del ruolo sysadmin possono usare questa stored procedure per modificare gli attributi dei processi di proprietà di altri utenti.
 
-### <a name="spaddtargetgroupmember"></a>sp_add_target_group_member
+### <a name="sp_add_target_group_member"></a>sp_add_target_group_member
 
 Aggiunge un database o un gruppo di database a un gruppo di destinazione.
 
@@ -1092,7 +1092,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name= N'Servers Mai
 GO
 ```
 
-### <a name="spdeletetargetgroupmember"></a>sp_delete_target_group_member
+### <a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
 
 Rimuove un membro del gruppo di destinazione da un gruppo di destinazione.
 
@@ -1143,7 +1143,7 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-### <a name="sppurgejobhistory"></a>sp_purge_jobhistory
+### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
 Rimuove i record della cronologia per un processo.
 
@@ -1204,7 +1204,7 @@ Le viste seguenti sono disponibili nel [database dei processi](sql-database-job-
 |[target_group_members](#target_groups_members-view)     |   Mostra tutti i membri di tutti i gruppi di destinazione.      |
 
 
-### <a name="jobsexecutions-view"></a>jobs_executions view
+### <a name="jobs_executions-view"></a>visualizzazione jobs_executions
 
 [jobs].[jobs_executions]
 
@@ -1251,7 +1251,7 @@ Mostra tutti i processi.
 |**schedule_end_time**| datetime2(7)|   Data e ora di completamento dell'ultima esecuzione del processo.|
 
 
-### <a name="jobversions-view"></a>Vista job_versions
+### <a name="job_versions-view"></a>visualizzazione job_versions
 
 [jobs].[job_versions]
 
@@ -1299,13 +1299,13 @@ Mostra tutti i passaggi nella versione corrente di ogni processo.
 |**max_parallelism**|   int|    Numero massimo di database per ogni pool elastico in cui il passaggio del processo verrà eseguito contemporaneamente. Il valore predefinito è NULL, che indica nessun limite. |
 
 
-### <a name="jobstepversions-view"></a>Vista jobstep_versions
+### <a name="jobstep_versions-view"></a>visualizzazione jobstep_versions
 
 [jobs].[jobstep_versions]
 
 Mostra tutti i passaggi in tutte le versioni di ogni processo. Lo schema è identico a [jobsteps](#jobsteps-view).
 
-### <a name="targetgroups-view"></a>Vista target_groups
+### <a name="target_groups-view"></a>visualizzazione target_groups
 
 [jobs].[target_groups]
 
@@ -1316,7 +1316,7 @@ Elenca tutti i gruppi di destinazione.
 |**target_group_name**| nvarchar(128)   |Nome del gruppo di destinazione, una raccolta di database. 
 |**target_group_id**    |uniqueidentifier   |ID univoco del gruppo di destinazione.
 
-### <a name="targetgroupsmembers-view"></a>Vista target_groups_members
+### <a name="target_groups_members-view"></a>visualizzazione target_groups_members
 
 [jobs].[target_groups_members]
 

@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 07/01/2019
-ms.openlocfilehash: 9e0caa8b98133dad3af083e8910d0603bbd2563b
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: HT
+ms.date: 07/03/2019
+ms.openlocfilehash: 31c6521ca77d9d85fc8388d7ebc5d25defc69bd0
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67489924"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568340"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Pagare in anticipo le macchine virtuali con istanze di macchina virtuale riservate di Azure (RI)
 
@@ -66,20 +66,19 @@ Istanze di VM riservate sono disponibili per la maggior parte delle dimensioni d
 ## <a name="buy-a-reserved-vm-instance"></a>Acquistare un'istanza di macchina virtuale riservata
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Tutti i servizi** > **Prenotazioni**.
-3. Selezionare **Aggiungi** per acquistare una nuova prenotazione.
-4. Immettere i campi obbligatori. Lo sconto relativo alla prenotazione viene applicato alle istanze di macchine virtuali in esecuzione che corrispondono agli attributi. Il numero di istanze di macchine virtuali a cui viene applicato lo sconto dipende dall'ambito e dalla quantità selezionati.
+1. Selezionare **Tutti i servizi** > **Prenotazioni**.
+1. Selezionare **Add** acquistare una nuova prenotazione e quindi fare clic su **macchina virtuale**.
+1. Immettere i campi obbligatori. Lo sconto relativo alla prenotazione viene applicato alle istanze di macchine virtuali in esecuzione che corrispondono agli attributi. Il numero di istanze di macchine virtuali a cui viene applicato lo sconto dipende dall'ambito e dalla quantità selezionati.
 
-    | Campo      | Descrizione|
-    |------------|--------------|
-    |NOME        |Il nome della prenotazione.|
-    |Sottoscrizione|La sottoscrizione usata per pagare la prenotazione. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR - 0148p) o una singola sottoscrizione con tariffe a consumo (numeri dell'offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una sottoscrizione con tariffe a consumo, il costo viene addebitato al metodo di pagamento della fattura o carta di credito alla sottoscrizione.|    
-    |`Scope`       |L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>Sottoscrizione singola: lo sconto relativo alla prenotazione viene applicato alle macchine virtuali in questa sottoscrizione. </li><li>Condivisa: lo sconto relativo alla prenotazione viene applicato alle macchine virtuali in tutte le sottoscrizione all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con le sottoscrizioni con tariffe a consumo, l'ambito condiviso è tutte le sottoscrizioni con tariffe a consumo create dall'amministratore dell'account.</li></ul>|
-    |Region    |L'area di Azure coperta dalla prenotazione.|    
-    |Dimensioni macchina virtuale     |Le dimensioni delle istanze della macchina virtuale.|
-    |Ottimizza per     |La flessibilità dell'istanza di macchina virtuale applicherà lo sconto di prenotazione ad altre macchine virtuali dello stesso [gruppo di macchine virtuali](https://aka.ms/RIVMGroups). La priorità di capacità assegna la capacità del data center dando priorità alle distribuzioni. Aumenta così la certezza di avere la possibilità di avviare le istanze di macchina virtuale quando servono. La priorità di capacità è disponibile solo quando l'ambito della prenotazione è sottoscrizione singola. |
-    |Nome        |Un anno o tre anni.|
-    |Quantità    |Il numero di istanze acquistate all'interno della prenotazione. La quantità è il numero di istanze di macchina virtuale in esecuzione che possono ottenere lo sconto sulla fatturazione. Ad esempio, se si eseguono 10 macchine virtuali Standard_D2 negli Stati Uniti orientali, si specificherà 10 come quantità per ottimizzare lo sconto per tutte le macchine in esecuzione. |
+| Campo      | Descrizione|
+|------------|--------------|
+|Sottoscrizione|La sottoscrizione usata per pagare la prenotazione. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR - 0148p) o una singola sottoscrizione con tariffe a consumo (numeri dell'offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una sottoscrizione con tariffe a consumo, il costo viene addebitato al metodo di pagamento della fattura o carta di credito alla sottoscrizione.|    
+|`Scope`       |L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>**Singolo ambito di gruppo di risorse** , applica lo sconto di prenotazione per le risorse corrispondente nel solo il gruppo di risorse selezionato.</li><li>**Ambito della sottoscrizione singola** , applica lo sconto di prenotazione per le risorse corrispondente nella sottoscrizione selezionata.</li><li>**Ambito condiviso** : si applica lo sconto di prenotazione per le risorse nelle sottoscrizioni idonee che sono nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni con tariffe a consumo, l'ambito di fatturazione è tutte le sottoscrizioni idonee create dall'amministratore dell'account.</li></ul>|
+|Region    |L'area di Azure coperta dalla prenotazione.|    
+|Dimensioni macchina virtuale     |Le dimensioni delle istanze della macchina virtuale.|
+|Ottimizza per     |Flessibilità delle dimensioni dell'istanza della macchina virtuale è selezionata per impostazione predefinita. Fare clic su impostazioni avanzate per modificare il valore di flessibilità delle dimensioni di istanza per applicare lo sconto di prenotazione ad altre macchine virtuali nella stessa [gruppo di dimensioni di macchina virtuale](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). La priorità di capacità assegna la capacità del data center dando priorità alle distribuzioni. Aumenta così la certezza di avere la possibilità di avviare le istanze di macchina virtuale quando servono. La priorità di capacità è disponibile solo quando l'ambito della prenotazione è sottoscrizione singola. |
+|Nome        |Un anno o tre anni.|
+|Quantità    |Il numero di istanze acquistate all'interno della prenotazione. La quantità è il numero di istanze di macchina virtuale in esecuzione che possono ottenere lo sconto sulla fatturazione. Ad esempio, se si eseguono 10 macchine virtuali Standard_D2 negli Stati Uniti orientali, si specificherà 10 come quantità per ottimizzare lo sconto per tutte le macchine in esecuzione. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 

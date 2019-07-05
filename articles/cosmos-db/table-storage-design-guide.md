@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966102"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447289"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guida alla progettazione di tabelle di Archiviazione di Azure: progettazione di tabelle scalabili ed efficienti
 
@@ -200,12 +200,12 @@ I seguenti esempi presuppongono che nel servizio tabelle vengano archiviate enti
 
 | *Nome colonna* | *Tipo di dati* |
 | --- | --- |
-| **PartitionKey** (nome del reparto) |String |
+| **PartitionKey** (nome del reparto) |string |
 | **RowKey** (ID dipendente) |String |
 | **FirstName** |String |
 | **LastName** |String |
 | **Age** |Integer |
-| **EmailAddress** |String |
+| **EmailAddress** |string |
 
 La sezione precedente Panoramica del servizio tabelle di Azure descrive alcune funzionalità chiave del servizio tabelle di Azure che influiscono direttamente sulla progettazione della query. Se ne possono ricavare le seguenti linee guida generali per la progettazione di query del servizio tabelle. La sintassi del filtro usata negli esempi riportati sotto proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx) (Query su entità).  
 
@@ -255,7 +255,7 @@ Molte progettazioni devono soddisfare alcuni requisiti per abilitare la ricerca 
 I risultati della query restituiti dal servizio tabelle sono disposti in ordine crescente per **PartitionKey** e poi per **RowKey**.
 
 > [!NOTE]
-> Risultati della query restituiti dall'API Table di Azure nel database di Azure non sono ordinati per chiave di riga o chiave di partizione. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Risultati della query restituiti dall'API Table di Azure in Azure Cosmos DB non sono ordinati per chiave di riga o chiave di partizione. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Le chiavi della tabella di Archiviazione di Azure sono valori stringa e, per essere certi che i valori numerici siano ordinati correttamente, è consigliabile convertirli in una lunghezza fissa aggiungendo degli zeri se necessario. Se, ad esempio, il valore dell'ID dipendente usato come **RowKey** è un valore intero, è consigliabile convertire l'ID dipendente **123** in **00000123**. 
 
@@ -723,7 +723,7 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 recupera le *e* ntità aggiunte più di recente a una partizione in base a un valore **RowKey** che usa un ordinamento inverso di data e ora.  
 
 > [!NOTE]
-> Risultati della query restituiti dall'API Table di Azure nel database di Azure non sono ordinati per chiave di partizione o chiave di riga. Di conseguenza, questo modello è adatto per l'archiviazione tabelle di Azure e non per Azure Cosmos DB. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Risultati della query restituiti dall'API Table di Azure in Azure Cosmos DB non sono ordinati per chiave di partizione o chiave di riga. Di conseguenza, questo modello è adatto per l'archiviazione tabelle di Azure e non per Azure Cosmos DB. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Contesto e problema
 Un requisito comune è poter recuperare le entità create più di recente, ad esempio le ultime dieci note di rimborso spese inviate da un dipendente. Le query sulle tabelle supportano un'operazione di query **$top** per restituire le prime *n* entità di un set. Non esiste un'operazione di query equivalente per la restituzione delle ultime n entità di un set.  

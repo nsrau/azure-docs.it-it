@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 6/27/2019
 ms.author: raynew
-ms.openlocfilehash: f2d64e0a081ff483be84053c442f48e7d145ca50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9c7aa2be945e4fbaa65bdd2a145d576422c5539
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66396492"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491761"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: domande frequenti
 Questo articolo riepiloga le domande frequenti su Azure Site Recovery.</br>
@@ -150,7 +150,7 @@ Azure Site Recovery replica i dati a un account di archiviazione di Azure o i di
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Perché non è possibile eseguire la replica su VPN?
 
-Quando esegue la replica in Azure, il traffico di replica raggiunge gli endpoint pubblici di una risorsa di archiviazione di Azure. In questo modo è possibile solo eseguire la replica sulla rete internet pubblica con ExpressRoute (peering pubblico) e VPN non è supportata.
+Quando esegue la replica in Azure, il traffico di replica raggiunge gli endpoint pubblici di una risorsa di archiviazione di Azure. In questo modo è possibile solo eseguire la replica sulla rete internet pubblica con ExpressRoute (peering Microsoft o un peering pubblico esistente) e VPN non è supportata.
 
 ### <a name="can-i-use-riverbed-steelheads-for-replication"></a>È possibile usare Riverbed SteelHeads per la replica?
 
@@ -159,12 +159,11 @@ Il nostro partner, Riverbed, include indicazioni dettagliate sull'uso di Azure S
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>È possibile usare ExpressRoute per replicare macchine virtuali in Azure?
 Sì, [è possibile](concepts-expressroute-with-site-recovery.md).
 
-- Azure Site Recovery replica i dati a una risorsa di archiviazione di Azure su un endpoint pubblico. Per usare ExpressRoute per la replica con Site Recovery, è necessario configurare il [peering pubblico](../expressroute/expressroute-circuit-peerings.md#publicpeering) o il [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering).
+- Azure Site Recovery replica i dati a una risorsa di archiviazione di Azure su un endpoint pubblico. È necessario configurare [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) oppure usare un oggetto esistente [peering pubblico di](../expressroute/expressroute-circuit-peerings.md#publicpeering) (deprecato per i circuiti nuovo) per usare ExpressRoute per la replica di Site Recovery.
 - Il peering Microsoft è il dominio di routing consigliato per la replica.
-- Dopo che è stato eseguito il failover delle macchine virtuali su una rete virtuale di Azure, è possibile accedere alle macchine virtuali usando la configurazione di [peering privato](../expressroute/expressroute-circuit-peerings.md#privatepeering) con la rete virtuale di Azure.
 - La replica non è supportata su peering privato.
-- Se si proteggono macchine VMware o computer fisici, assicurarsi che il server di configurazione conforme [requisiti di rete](vmware-azure-configuration-server-requirements.md#network-requirements) per la replica. 
-
+- Se si proteggono macchine VMware o computer fisici, assicurarsi che il [requisiti di rete](vmware-azure-configuration-server-requirements.md#network-requirements) per Server di configurazione vengono soddisfatte. Dal Server di configurazione è necessaria una connessione a URL specifici per l'orchestrazione della replica di Site Recovery. Non è possibile usare ExpressRoute per la connettività.
+- Dopo che è stato eseguito il failover delle macchine virtuali su una rete virtuale di Azure, è possibile accedere alle macchine virtuali usando la configurazione di [peering privato](../expressroute/expressroute-circuit-peerings.md#privatepeering) con la rete virtuale di Azure.
 
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Se si esegue la replica in Azure, il tipo di account di archiviazione o un disco gestito è necessario?

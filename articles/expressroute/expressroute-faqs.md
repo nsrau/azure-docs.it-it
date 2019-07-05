@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 06/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: adffb18272d10c579f8b28bef055813b1074a237
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02f772d02f5cc6f188d69b5e79debc0013cf1faa
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754736"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488492"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -123,9 +123,13 @@ In caso di errore di una delle connessioni incrociate, la connettività non verr
 
 Più circuiti ExpressRoute dalla località di peering diverse possono essere connesse alla stessa rete virtuale per fornire la disponibilità elevata nel caso che un singolo circuito non è più disponibile. È quindi possibile [assegnare un peso maggiore](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) per la connessione locale al Ottimizza per preferire un circuito specifico. È consigliabile che i clienti di configurare almeno due circuiti ExpressRoute per evitare singoli punti di errore. 
 
+Visualizzare [Ecco](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) per la progettazione per la disponibilità elevata e [qui](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) per la progettazione per il ripristino di emergenza.  
+
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Come implementare la ridondanza nel peering Microsoft?
 
 È consigliabile quando i clienti usano peering per accedere a servizi pubblici di Azure, ad esempio archiviazione di Azure o SQL di Azure, nonché i clienti che usano peering Microsoft per Office 365 che implementano più circuiti in diversi peering Microsoft posizioni per evitare singoli punti di faiure. I clienti possono pubblicizzare il medesimo prefisso in entrambi i circuiti e utilizzare [anteposizione di As Path](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) o annunciare i prefissi diversi per determinare percorso locale.
+
+Visualizzare [qui](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) per la progettazione per la disponibilità elevata.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Come è possibile garantire la disponibilità elevata in una rete virtuale connessa a ExpressRoute?
 

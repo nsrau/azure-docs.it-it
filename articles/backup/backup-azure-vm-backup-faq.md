@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/28/2019
 ms.author: sogup
-ms.openlocfilehash: 5fdf8e6c19711f6ce38d430a9dffab185cad961b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 0248e169f5d502cce8723f594f438b87ab088f3a
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296178"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551603"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Back-domande frequenti su backup di macchine virtuali di Azure
 
@@ -46,10 +46,6 @@ Se si ha un collaboratore macchina virtuale, è possibile abilitare il backup de
 Se l'insieme di credenziali di servizi di ripristino e della macchina virtuale dispone di diversi gruppi di risorse, verificare di che disporre delle autorizzazioni di scrittura nel gruppo di risorse per l'insieme di credenziali di servizi di ripristino.  
 
 
-### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Quali macchine virtuali di Azure è possibile sottoporre a backup con Backup di Azure?
-
-Rivedere le [matrice di supporto](backup-support-matrix-iaas.md) per dettagli sul supporto e le limitazioni.
-
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Un processo di backup su richiesta si basa sulla stessa pianificazione di conservazione dei backup pianificati?
 No. Specificare l'intervallo di conservazione per un processo di backup su richiesta. Per impostazione predefinita, un backup attivato dal portale viene conservato per 30 giorni.
 
@@ -73,17 +69,12 @@ Se si blocca il gruppo di risorse creato dal servizio Backup di Azure, i backup 
 
 È necessario rimuovere il blocco e cancellare la raccolta di punti di ripristino da tale gruppo di risorse per poter raggiungere il risultato, i backup futuri [seguire questa procedura](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) per rimuovere la raccolta di punti di ripristino.
 
-### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>L'ora legale viene presa in considerazione dai criteri di backup?
-No. La data e l'ora del computer locale si adeguano all'ora legale corrente applicata. L'ora impostata per i backup pianificati potrebbe essere diversa dall'ora locale dal momento che è in vigore l'ora legale.
-
-### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Quanti dischi dati è possibile collegare a una macchina virtuale sottoposta a backup tramite Backup di Azure?
-Backup di Azure è in grado di eseguire il backup di macchine virtuali con un massimo di 16 dischi. Il supporto per 16 dischi è offerto nel [Ripristino istantaneo](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Backup di Azure supporta Managed Disks SSD Standard?
 Backup di Azure supporta [Managed Disks SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), Unità SSD, managed disks offre un nuovo tipo di risorsa di archiviazione durevole per macchine virtuali di Azure. Il supporto per dischi gestiti SSD è offerto nel [Ripristino istantaneo](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>È possibile eseguire il backup di una macchina virtuale con un disco con acceleratore di scrittura?
-Non è possibile creare snapshot nel disco con acceleratore di scrittura. Il servizio Backup di Azure, tuttavia, può escludere questo disco dal backup. L'esclusione del disco per le macchine virtuali con dischi con acceleratore di scrittura è supportata solo per gli abbonamenti aggiornati a Ripristino istantaneo.
+Non è possibile creare snapshot nel disco con acceleratore di scrittura. Il servizio Backup di Azure, tuttavia, può escludere questo disco dal backup.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>In una macchina virtuale sono presenti dischi con acceleratore di scrittura ed è installato SAP HANA. In che modo è possibile eseguire il backup?
 Backup di Azure non può eseguire il backup del disco con acceleratore di scrittura, ma può escluderlo dal processo. Il backup, tuttavia, non assicurerà la coerenza del database perché non viene eseguito il backup delle informazioni presenti sul disco con acceleratore di scrittura. È possibile eseguire il backup di dischi con questa configurazione per ottenere il backup del disco del sistema operativo e il backup di dischi senza acceleratore di scrittura.
@@ -93,6 +84,8 @@ Anteprima privata per un backup di SAP HANA è in esecuzione con un RPO pari a 1
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Che cos'è il ritardo massimo che è possibile prevedere nell'ora di inizio backup dal momento del backup pianificato, che ho impostato nella mio criterio di backup della macchina virtuale?
 Il backup pianificato verrà attivato entro 2 ore dal momento del backup pianificato. Per es. Se 100 macchine virtuali dispone ora di inizio backup pianificata alle 2:00 di notte, quindi per max 4:00 am tutti il 100VMs avranno processo di backup in corso. Se i backup pianificati sono stati sospesi a causa dell'interruzione del servizio e ripreso/ripetuti backup può iniziare di fuori di questa finestra di 2 ore pianificate.
 
+### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>Che cos'è l'intervallo di conservazione minimo consentito per punto di backup giornaliero?
+Criteri di backup di macchine virtuali Azure supportano un intervallo minimo di conservazione di 7 giorni fino a 9999 giorni. Eventuali modifiche apportate a un criterio di backup della macchina virtuale esistente con meno di 7 giorni verranno richiesto un aggiornamento per soddisfare l'intervallo minimo di conservazione di 7 giorni.
 
 ## <a name="restore"></a>Restore
 

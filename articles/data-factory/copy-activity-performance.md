@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 3ea89e9f6a6bb8a4c377c70bbe1b5540d3b74d44
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: face3719f32ccb44e7479150e94417496141f90b
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341238"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509570"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copiare attività Guida alle prestazioni e ottimizzazione
 > [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory in cui in uso:"]
@@ -86,6 +86,7 @@ Il minimo DIUs per consentire l'esecuzione di un'attività di copia è due. Se n
 | Scenario di copia | Numero di unità di integrazione dati predefinite determinato dal servizio |
 |:--- |:--- |
 | Copiare dati tra archivi basati su file | Tra 4 e 32 a seconda del numero e dimensioni dei file |
+| Copiare i dati in Database SQL di Azure o Azure Cosmos DB |Tra 4 e 16 in base al sink di livello del Database SQL di Azure o Cosmos DB (numero di Dtu/UR) |
 | Tutti gli altri scenari di copia | 4 |
 
 Per ignorare l'impostazione predefinita, è possibile specificare un valore per la proprietà **dataIntegrationUnits** procedendo come segue. Il *i valori consentiti* per il **dataIntegrationUnits** proprietà è fino a 256. Il *numero effettivo di unità di integrazione dati* usate dall'operazione di copia in fase di esecuzione è minore o uguale al valore configurato, a seconda del modello di dati. Per informazioni sul livello di miglioramento delle prestazioni che è possibile ottenere quando si configurano più unità per un sink e un'origine della copia specifici, vedere la sezione [Informazioni di riferimento sulle prestazioni](#performance-reference).
@@ -131,11 +132,11 @@ Per ogni esecuzione attività di copia, Data Factory di Azure determina il numer
 | Scenario di copia | Numero predefinito di copie parallele determinato dal servizio |
 | --- | --- |
 | Copiare dati tra archivi basati su file |Dipende dalle dimensioni dei file e il numero di DIUs utilizzate per copiare dati tra due archivi dati cloud oppure dalla configurazione fisica del computer del runtime di integrazione self-hosted. |
-| Copiare dati da qualsiasi archivio dati di origine in un'archiviazione tabelle di Azure |4 |
+| Copiare dati da qualsiasi archivio di origine in archiviazione tabelle di Azure |4 |
 | Tutti gli altri scenari di copia |1 |
 
 > [!TIP]
-> Quando si copiano dati tra archivi basati su file, il comportamento predefinito in genere offre la massima velocità effettiva. Il comportamento predefinito viene determinato automaticamente.
+> Quando si copiano dati tra archivi basati su file, il comportamento predefinito in genere offre la massima velocità effettiva. Il comportamento predefinito viene determinato automaticamente base al modello di file di origine.
 
 Per controllare il carico sui computer che ospitano i dati vengono archiviati, o per ottimizzare le prestazioni di copia, è possibile sostituire il valore predefinito e specificare un valore per il **parallelCopies** proprietà. Il valore deve essere un numero intero maggiore o uguale a 1. In fase di esecuzione per ottenere prestazioni ottimali, l'attività di copia Usa un valore che è minore o uguale al valore impostato.
 
@@ -162,9 +163,9 @@ Per controllare il carico sui computer che ospitano i dati vengono archiviati, o
 **Punti da notare:**
 
 * Quando si copiano dati tra archivi basati su file, **parallelCopies** determina il parallelismo a livello di file. La suddivisione in blocchi all'interno di un singolo file succede dietro le quinte automatico e trasparente. È progettato per usare il più adatto blocco dimensione per un tipo di archivio dati di origine specificato caricare i dati in parallelo e ortogonale a **parallelCopies**. Il numero effettivo di copie parallele usate dal servizio di spostamento dati per l'operazione di copia in fase di esecuzione non è maggiore del numero di file disponibili. Se è il comportamento di copia **mergeFile**, l'attività di copia non può trarre vantaggio dal parallelismo a livello di file.
-* Quando si specifica un valore per il **parallelCopies** proprietà, prendere in considerazione l'aumento del carico nell'origine e archivi dati sink. Anche prendere in considerazione l'aumento del carico per il runtime di integrazione self-hosted se l'attività di copia viene ottimizzata da quest, ad esempio, per la copia ibrida. Questo aumento del carico si verifica in particolare quando sono presenti più attività o esecuzioni simultanee delle stesse attività che vengono eseguiti a fronte dell'archivio dati stesso. Se si nota un sovraccarico quando il carico è l'archivio dati o il runtime di integrazione self-hosted, diminuire la **parallelCopies** valore per alleggerirlo.
-* Quando si copiano dati da archivi non basati su file in archivi basati su file, il servizio di spostamento dati ignora la **parallelCopies** proprietà. Anche se viene specificato, in questo caso il parallelismo non viene applicato.
+* Quando si copiano dati da archivi non basati su file (ad eccezione di database Oracle come origine dati il partizionamento abilitato) in archivi basati su file, il servizio di spostamento dati ignora la **parallelCopies** proprietà. Anche se viene specificato, in questo caso il parallelismo non viene applicato.
 * Il **parallelCopies** proprietà è ortogonale a **dataIntegrationUnits**. La prima viene conteggiata su tutte le unità di integrazione dati.
+* Quando si specifica un valore per il **parallelCopies** proprietà, prendere in considerazione l'aumento del carico nell'origine e archivi dati sink. Anche prendere in considerazione l'aumento del carico per il runtime di integrazione self-hosted se l'attività di copia viene ottimizzata da quest, ad esempio, per la copia ibrida. Questo aumento del carico si verifica in particolare quando sono presenti più attività o esecuzioni simultanee delle stesse attività che vengono eseguiti a fronte dell'archivio dati stesso. Se si nota un sovraccarico quando il carico è l'archivio dati o il runtime di integrazione self-hosted, diminuire la **parallelCopies** valore per alleggerirlo.
 
 ## <a name="staged-copy"></a>copia di staging
 
@@ -182,7 +183,7 @@ Quando si attiva la funzionalità di staging, i dati vengono prima copiati dall'
 
 Quando si attiva lo spostamento dei dati tramite un archivio di staging, è possibile specificare se si desidera archiviano i dati deve essere compresso prima di spostare i dati dall'origine dati per un provvisorio o archivio dati di staging e poi decompressi prima dello spostamento dei dati da un dat staging o provvisorio un archivio all'archivio dati sink.
 
-Attualmente non è possibile copiare dati tra due archivi dati locali usando un archivio di staging.
+Attualmente, è possibile copiare dati tra due archivi dati che sono connessi tramite Self-Hosted runtime di integrazione diversi, con né senza una copia di staging. Per questo scenario, è possibile configurare due attività di copia in modo esplicito concatenate per copiare dall'origine alla gestione temporanea, quindi da quello di gestione temporanea per effettuare il sink.
 
 ### <a name="configuration"></a>Configurazione
 

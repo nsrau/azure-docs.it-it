@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a6a5b0e3957141b9ea17a378a7cbeff33a0124e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024436"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485196"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Creare un indice di base in Ricerca di Azure
 
@@ -36,7 +36,7 @@ Il raggiungimento di una corretta progettazione degli indici si ottiene in gener
   
    Facendo clic su **Crea**, si creano nel servizio di ricerca tutte le strutture fisiche che supportano l'indice.
 
-3. Scaricare lo schema dell'indice mediante [Get Index REST API (Ottenere un indice API REST)](https://docs.microsoft.com/rest/api/searchservice/get-index) e uno strumento di test Web come [Postman](search-fiddler.md). Si ottiene così una rappresentazione JSON dell'indice creato nel portale. 
+3. Scaricare lo schema dell'indice mediante [Get Index REST API (Ottenere un indice API REST)](https://docs.microsoft.com/rest/api/searchservice/get-index) e uno strumento di test Web come [Postman](search-get-started-postman.md). Si ottiene così una rappresentazione JSON dell'indice creato nel portale. 
 
    A questo punto si passa a un approccio basato sul codice. Poiché non è possibile modificare un indice creato in precedenza, il portale non è particolarmente adatto per l'iterazione. È tuttavia possibile usare Postman e REST per le attività rimanenti.
 
@@ -48,7 +48,7 @@ Il raggiungimento di una corretta progettazione degli indici si ottiene in gener
 
 Poiché nel servizio, vengono create strutture fisiche [eliminando e ricreando gli indici](search-howto-reindex.md) è necessaria ogni volta che si apportano modifiche sostanziali modifiche a una definizione di campo esistente. Ciò significa che durante lo sviluppo, è necessario pianificare ricompilazioni frequenti. È possibile prendere in considerazione l'uso di un subset di dati per velocizzare le ricompilazioni. 
 
-Per la progettazione iterativa è consigliabile un codice anziché un approccio basato sul portale. Se ci si affida al portale per la definizione dell'indice, è necessario compilare la definizione dell'indice a ogni ricompilazione. In alternativa, strumenti come [Postman e API REST](search-fiddler.md) sono utili per eseguire test dei modelli di verifica quando i progetti di sviluppo sono ancora in fase iniziale. È possibile apportare modifiche incrementali a una definizione di indice nel corpo della richiesta e quindi inviare la richiesta al servizio per ricreare un indice usando uno schema aggiornato.
+Per la progettazione iterativa è consigliabile un codice anziché un approccio basato sul portale. Se ci si affida al portale per la definizione dell'indice, è necessario compilare la definizione dell'indice a ogni ricompilazione. In alternativa, strumenti come [Postman e API REST](search-get-started-postman.md) sono utili per eseguire test dei modelli di verifica quando i progetti di sviluppo sono ancora in fase iniziale. È possibile apportare modifiche incrementali a una definizione di indice nel corpo della richiesta e quindi inviare la richiesta al servizio per ricreare un indice usando uno schema aggiornato.
 
 ## <a name="components-of-an-index"></a>Componenti di un indice
 
@@ -160,16 +160,22 @@ Quando si definisce lo schema, è necessario specificare il nome, tipo e gli att
 È possibile trovare altre informazioni sui [tipi di dati supportati di Ricerca di Azure qui](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="index-attributes"></a>Attributi dell'indice
+
+Esattamente un campo nell'indice deve essere designato come un **chiave** campo che identifica in modo univoco ogni documento.
+
+Altri attributi determinano come un campo viene usato in un'applicazione. Ad esempio, il **ricercabili** attributo viene assegnato a tutti i campi che devono essere inclusi nella ricerca full-text. 
+
+Le API usate per compilare un indice sono diversi comportamenti predefiniti. Per il [le API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), la maggior parte degli attributi sono abilitati per impostazione predefinita (ad esempio, **ricercabile** e **recuperabile** sono true per i campi stringa) ed è spesso sufficiente impostarli se si vuole disattivarli. Per .NET SDK, è vero il contrario. In qualsiasi proprietà che non viene impostato in modo esplicito, il valore predefinito consiste nel disabilitare il comportamento di ricerca corrispondenti a meno che non è abilitata specificamente.
+
 | Attributo | Descrizione |
 | --- | --- |
-| *Chiave* |Stringa che fornisce l'ID univoco di ogni documento, usata per la ricerca di documenti. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostata su Edm.String. |
-| *Recuperabile* |Specifica se il campo può essere restituito nel risultato di una ricerca. |
-| *Filtrabile* |Consente di usare il campo nelle query di filtro. |
-| *Ordinabile* |Consente a una query ordinare i risultati della ricerca usando questo campo. |
-| *Con facet* |Consente di usare un campo in una struttura di [esplorazione in base a facet](search-faceted-navigation.md) per i filtri autoindirizzati. In genere, i campi che contengono valori ricorrenti che è possibile usare per raggruppare più documenti, ad esempio, più documenti che rientrano in una categoria di servizi o una singola marca, funzionano meglio come facet. |
-| *Ricercabile* |Contrassegna il campo come disponibile per la ricerca full-text. |
+| `key` |Stringa che fornisce l'ID univoco di ogni documento, usata per la ricerca di documenti. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostata su Edm.String. |
+| `retrievable` |Specifica se il campo può essere restituito nel risultato di una ricerca. |
+| `filterable` |Consente di usare il campo nelle query di filtro. |
+| `Sortable` |Consente a una query ordinare i risultati della ricerca usando questo campo. |
+| `facetable` |Consente di usare un campo in una struttura di [esplorazione in base a facet](search-faceted-navigation.md) per i filtri autoindirizzati. In genere, i campi che contengono valori ricorrenti che è possibile usare per raggruppare più documenti, ad esempio, più documenti che rientrano in una categoria di servizi o una singola marca, funzionano meglio come facet. |
+| `searchable` |Contrassegna il campo come disponibile per la ricerca full-text. |
 
-È possibile trovare altre informazioni sugli [attributi di indice di Ricerca di Azure qui](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
 ## <a name="storage-implications"></a>Implicazioni relative all'archiviazione
 

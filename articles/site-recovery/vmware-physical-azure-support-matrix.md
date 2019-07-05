@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 06/27/2019
 ms.author: raynew
-ms.openlocfilehash: 3ff6a1a52048e805f9236349d4fc8d45a14b78ea
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5dc98048099264942552862498b5137b4954c200
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341442"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491638"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -186,8 +186,8 @@ Guest/server iSCSI | No
 SMB 3.0 guest/server | No
 RDM guest/server | Yes<br/><br/> N/D per server fisici
 Disco guest/server > 1 TB | Yes<br/><br/>Fino a 4.095 GB<br/><br/> Le dimensioni del disco non devono superare i 1024 MB.
-Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | Yes
-Disco guest/server con logico di 4 KB e dimensioni fisiche di settore di 512 byte | Yes
+Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | No
+Disco guest/server con logico di 4 KB e dimensioni fisiche di settore di 512 byte | No
 Volume con disco con striping > 4 TB guest/server <br/><br/>Gestione volumi logici (LVM)| Yes
 Guest/server - Spazi di archiviazione | No
 Disco di aggiunta/rimozione a caldo guest/server | No
@@ -218,7 +218,7 @@ Crittografia dei dati inattivi (SSE)| Yes
 Archiviazione Premium | Yes
 Servizio di importazione/esportazione | No
 Firewall di archiviazione di Azure per le reti virtuali | Sì.<br/> Configurato in un account di archiviazione/cache di archiviazione di destinazione (usato per archiviare i dati della replica).
-Account di archiviazione per utilizzo generico v2 (livelli ad accesso frequente e sporadico) | No
+Account di archiviazione per utilizzo generico v2 (livelli ad accesso frequente e sporadico) | Sì (transazione i costi sono decisamente più elevati per la versione V2 rispetto alla versione 1)
 
 ## <a name="azure-compute"></a>Calcolo di Azure
 
