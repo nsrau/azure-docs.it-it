@@ -122,7 +122,7 @@ Il tempo per completare questa operazione dipende dalla dimensione dei dati e da
 Il tempo per completare questa operazione dipende dalla dimensione dei dati.
 
 1. Dopo che la copia dei dati è stata completata senza errori, passare alla pagina **Prepara per la spedizione** nell'interfaccia utente Web locale e avviare la preparazione della spedizione.
-2. Una volta completata correttamente la **** preparazione per la spedizione su entrambi i nodi, disattivare il dispositivo dall'interfaccia utente Web locale.
+2. Una volta completata correttamente la **preparazione per la spedizione** su entrambi i nodi, disattivare il dispositivo dall'interfaccia utente Web locale.
 
 ## <a name="ship-to-azure"></a>Spedire ad Azure
 
