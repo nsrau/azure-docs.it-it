@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 005e5c92a16760d8eec5dc37526f4b1f2dbd751c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41b407b4343db4f594049c4b1027fe4279dab840
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540541"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482961"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedura: Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
@@ -117,21 +117,21 @@ Per aggiornare o rimuovere un'applicazione esistente nella raccolta di app di Az
 
 I clienti possono inviare la richiesta di inserire un'applicazione facendo clic **App richiede da parte dei clienti** -> **Invia nuova richiesta**.
 
-![Riquadro App richieste dei clienti](./media/howto-app-gallery-listing/customer-submit-request.png)
+![Viene illustrato il cliente ha richiesto il riquadro App](./media/howto-app-gallery-listing/customer-submit-request.png)
 
 Di seguito è riportato che il flusso del cliente ha richiesto le applicazioni-
 
-![Flusso di App richieste dal cliente](./media/howto-app-gallery-listing/customer-request.png)
+![Viene illustrato il cliente ha richiesto il flusso delle App](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>Tempistica
 
 La tempistica del processo di inserimento di un'applicazione SAML 2.0 o WS-Fed nella raccolta è di 7-10 giorni lavorativi.
 
-   ![Tempistica per la presentazione di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/timeline.png)
+   ![Sequenza temporale di inserimento di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/timeline.png)
 
 La tempistica del processo di inserimento di un'applicazione OpenID Connect nella raccolta è di 2-5 giorni lavorativi.
 
-   ![Tempistica per la presentazione di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/timeline2.png)
+   ![Sequenza temporale di inserimento di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>Escalation
 

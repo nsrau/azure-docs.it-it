@@ -1,30 +1,28 @@
 ---
-title: Risolvere i problemi delle visualizzazioni dei costi aziendali di Azure | Microsoft Docs
+title: Risolvere i problemi di visualizzazione dei costi aziendali di Azure
 description: Informazioni su come risolvere i problemi con le visualizzazioni dei costi aziendali nel portale di Azure.
-author: rthorn17
-manager: adpick
-editor: ''
-ms.assetid: ''
+author: bandersmsft
+manager: amberb
 ms.service: billing
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 07/01/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: d35996b16d615a198b9a6039386f6b295172f388
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 83f7f424b265582a3830c02973cbbb9962ddfbfb
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615736"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491267"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Risolvere i problemi delle visualizzazioni dei costi aziendali
 
 Nelle registrazioni Enterprise sono disponibili varie impostazioni che potrebbero impedire agli utenti di visualizzare i costi all'interno della registrazione.  Queste impostazioni vengono gestite dall'amministratore delle registrazioni. In alternativa, se la registrazione non è stata acquistata direttamente tramite Microsoft, le impostazioni vengono gestite dal partner.  Questo articolo illustra queste impostazioni e l'impatto che hanno sulla registrazione. Queste impostazioni sono indipendenti dai ruoli di controllo degli accessi in base al ruolo di Azure.
 
-## <a name="enabling-access-to-costs"></a>Abilitazione dell'accesso ai costi
+## <a name="enable-access-to-costs"></a>Abilitare l'accesso ai costi
 
 Viene visualizzato un messaggio Non autorizzato o in cui è indicato che *le visualizzazioni dei costi sono disabilitate nella registrazione* quando si cercano le informazioni sui costi?
 ![Screenshot che mostra il messaggio "non autorizzato" nel campo del costo corrente per la sottoscrizione.](media/billing-enterprise-mgmt-groups/unauthorized.png)
@@ -41,8 +39,11 @@ Il problema può dipendere da una delle cause seguenti:
 
 ## <a name="asset-is-unavailable"></a>La risorsa non è disponibile.
 
-Se si riceve un messaggio di errore del tipo "Questa risorsa non è disponibile" quando si tenta di accedere a una sottoscrizione o a un gruppo di gestione, significa che non si dispone del ruolo necessario per visualizzare questo elemento.  
+Se viene visualizzato un messaggio di errore indicante **questo asset non è disponibile** quando è stato effettuato un tentativo di accedere a una sottoscrizione o gruppo di gestione, quindi non è necessario il ruolo appropriato per visualizzare questo elemento.  
 
 ![Screenshot con il messaggio indicante che la risorsa non è disponibile.](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Chiedere l'accesso all'amministratore del gruppo di gestione o della sottoscrizione di Azure. Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
+
+## <a name="next-steps"></a>Passaggi successivi
+- In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

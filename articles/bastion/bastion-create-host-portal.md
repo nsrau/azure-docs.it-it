@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5fbd64d2f001a0fbe91de2d954889816a1819479
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339442"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477872"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Creare un host di Azure Bastion (anteprima)
 
@@ -33,15 +33,11 @@ L'anteprima pubblica è limitato per le aree pubbliche di Azure seguenti:
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-Per partecipare all'anteprima, è necessario registrare. Usare questi passaggi per registrarsi per l'anteprima:
-
-[!INCLUDE [register](../../includes/bastion-preview-register-include.md)]
-
 ## <a name="createhost"></a>Creare un bastion host
 
 In questa sezione consente di creare una nuova risorsa di Azure Bastion dal portale di Azure.
 
-1. Dalla home page nel [ portale di Azure - anteprima](https://aka.ms/BastionHost), fare clic su **+ crea una risorsa**. Assicurarsi di che usare il collegamento fornito per accedere al portale per questa versione di anteprima, non dal portale di Azure regolare.
+1. Dalla home page nel [portale di Azure - anteprima Bastion](https://aka.ms/BastionHost), fare clic su **+ crea una risorsa**. Assicurarsi di che usare il collegamento fornito per accedere al portale per questa versione di anteprima, non dal portale di Azure regolare.
 
 1. Nel **New** pagina il *Cerca nel Marketplace* digitare **Bastion**, quindi fare clic su **invio** per ottenere i risultati della ricerca.
 
@@ -72,7 +68,7 @@ In questa sezione consente di creare una nuova risorsa di Azure Bastion dal port
 
 Se si crea un bastion host nel portale usando una macchina virtuale esistente, le varie impostazioni imposterà automaticamente corrispondente per la macchina virtuale e/o rete virtuale.
 
-1. Nel [portale di anteprima](https://aka.ms/BastionHost), passare alla macchina virtuale, quindi fare clic su **Connect**.
+1. Nel [portale di Azure - anteprima Bastion](https://aka.ms/BastionHost), passare alla macchina virtuale, quindi fare clic su **Connect**.
 
     ![Connessione macchina virtuale](./media/bastion-create-host-portal/vmsettings.png)
 

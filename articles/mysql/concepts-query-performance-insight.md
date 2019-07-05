@@ -5,22 +5,34 @@ author: ajlam
 ms.author: andrela
 ms.service: MySQL
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 1243ae8ae20d08ea643661606639abedbc56ab9c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: fe6dce58714f8221625d13af1f8458662a19eaf6
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078781"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461749"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Informazioni dettagliate prestazioni query nel Database di Azure per MySQL
 
 **Si applica a:**  per Database di Azure per MySQL 5.7
 
 > [!NOTE]
-> Query Performance Insight è disponibile in anteprima. Supporto per informazioni dettagliate prestazioni Query nel portale di Azure viene implementato e potrebbe non essere ancora disponibile nella propria area.
+> Query Performance Insight è disponibile in anteprima.
 
 Informazioni dettagliate prestazioni query consente di identificare rapidamente quali sono le query a esecuzione più lunga, come cambiano nel corso del tempo e le attese che ne compromettono le prestazioni.
+
+## <a name="common-scenarios"></a>Scenari comuni
+
+### <a name="long-running-queries"></a>Query con esecuzione prolungata
+
+- Identificazione delle query con il tempo di esecuzione più lungo nelle ultime X ore
+- Identificazione delle prime N query in attesa delle risorse
+ 
+### <a name="wait-statistics"></a>Le statistiche di attesa
+
+- Natura di attesa comprensione per una query
+- Informazioni sulle tendenze per attese risorse e in cui è presente contesa delle risorse
 
 ## <a name="permissions"></a>Autorizzazioni
 
@@ -36,11 +48,20 @@ La visualizzazione [Informazioni dettagliate prestazioni query](concepts-query-p
 
 Nella pagina del portale del Database di Azure per il server MySQL, selezionare **informazioni dettagliate prestazioni Query** sotto il **prestazioni intelligenti** sezione della barra dei menu.
 
-![Informazioni dettagliate sulle prestazioni delle query a esecuzione prolungata](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+### <a name="long-running-queries"></a>Query con esecuzione prolungata
 
 Il **query a esecuzione prolungata** scheda Mostra le prime 5 query per durata media per l'esecuzione, aggregati in intervalli di 15 minuti. È possibile visualizzare altre query selezionando il **numero di query** elenco a discesa. I colori del grafico possono cambiare per un ID di query specifico quando si esegue questa operazione.
 
 È possibile fare clic e trascinare nel grafico per limitare l'elenco a un intervallo di tempo specifico. In alternativa, usare lo zoom e indietro le icone per visualizzare rispettivamente un periodo di tempo maggiori o minori.
+
+![Informazioni dettagliate sulle prestazioni delle query a esecuzione prolungata](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+
+### <a name="wait-statistics"></a>Le statistiche di attesa
+
+> [!NOTE]
+> Le statistiche di attesa sono pensate per risoluzione dei problemi di prestazioni di query. È consigliabile attivare solo per scopi diagnostici.
+
+Le statistiche di attesa forniscono una visualizzazione degli eventi di attesa che si verificano durante l'esecuzione di una query specifica. Altre informazioni sui tipi di eventi di attesa nel [documentazione del motore di MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 
 Selezionare il **statistiche attesa** pressione di tab per visualizzare le visualizzazioni corrispondenti in attesa nel server.
 

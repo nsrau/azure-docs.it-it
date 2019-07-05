@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: ad3e2157e7b8748174cc8b81d1debd5de0ba77b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: a2f9b7597022822272692d20976e1da654b9d524
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079483"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462062"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Raccomandazioni sulle prestazioni nel Database di Azure per MariaDB
 
-**Si applica a:** Database di Azure per MariaDB 10.2s
+**Si applica a:** Database di Azure per MariaDB 10.2
 
 > [!NOTE]
-> Raccomandazioni sulle prestazioni è disponibile in anteprima. Supporto per suggerimenti relativi alle prestazioni nel portale di Azure viene implementato e potrebbe non essere ancora disponibile nella propria area.
+> Raccomandazioni sulle prestazioni è disponibile in anteprima.
 
 La funzionalità suggerimenti relativi alle prestazioni analizza i database per creare i suggerimenti personalizzati per migliorare le prestazioni. Per produrre i suggerimenti, l'analisi vengono esaminati vari dalle caratteristiche del database incluso lo schema. Abilitare [Query Store](concepts-query-store.md) sul server per sfruttare appieno la funzionalità di raccomandazioni per le prestazioni. Se lo schema di prestazioni è impostata su OFF, l'attivazione in Query Store Abilita performance_schema e un subset di strumenti di prestazioni dello schema necessario per la funzionalità. Dopo avere implementato qualsiasi raccomandazione per le prestazioni, è consigliabile testare le prestazioni per valutare l'impatto di tali modifiche.
 

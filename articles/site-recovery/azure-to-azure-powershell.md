@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: c585b300a65091bee3320a21b7bce7ba94d269ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 766b004217d6679dcba00c581ade4fe911b5f8b9
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258792"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491858"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure usando Azure PowerShell
 
@@ -600,6 +600,14 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 ```
 
 Dopo aver completata la riprotezione, è possibile avviare il failover nella direzione inversa (Stati Uniti occidentali negli Stati Uniti orientali) ed eseguire il failback all'area di origine.
+
+## <a name="disable-replication"></a>Disabilitare la replica
+
+È possibile disabilitare la replica usando il cmdlet Remove-ASRReplicationProtectedItem.
+
+```azurepowershell
+Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Visualizza i [riferimento di PowerShell per Azure Site Recovery](https://docs.microsoft.com/powershell/module/az.RecoveryServices) per informazioni su come è possibile eseguire altre attività, ad esempio la creazione di piani di ripristino e test del failover dei piani di ripristino tramite PowerShell.

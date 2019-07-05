@@ -4,14 +4,14 @@ description: Viene descritto come specificare se usare una modalità di distribu
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ff098bf329979d0702c41f83d8e5f8ee7cceca1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8a53ed1eea66c976c46a21378a9c48a1ad5ce902
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206555"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508212"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modelli di distribuzione Azure Resource Manager
 
@@ -22,6 +22,8 @@ Per entrambe le modalità, Resource Manager prova a creare tutte le risorse spec
 ## <a name="complete-mode"></a>Modalità completa
 
 Nella modalità di completamento, Resource Manager **elimina** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello. Le risorse specificate nel modello, ma non distribuite in quanto una [condizione](resource-group-authoring-templates.md#condition) restituisce false, non vengono eliminate.
+
+Utilizzare la modalità completa con cautela [copiare i cicli](resource-group-create-multiple.md). Vengono eliminate tutte le risorse che non sono specificate nel modello dopo aver risolto il ciclo di copia.
 
 Esistono alcune differenze nel modo in cui i tipi di risorsa gestiscono la modalità completa le operazioni di eliminazione. Le risorse padre vengono eliminate automaticamente quando non sono specificate in un modello distribuito in modalità completa. Alcune risorse figlio non vengono eliminate automaticamente quando non sono specificate nel modello. Tuttavia, queste risorse figlio vengono eliminate se viene eliminata la risorsa padre. 
 

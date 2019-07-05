@@ -4,12 +4,12 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: cf39baf34096691144181332566cf567ebc02310
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 088cd5447b1f96dbf172b5918c29e4f3293289a6
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180674"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67534646"
 ---
 1. Stabilire una connessione Desktop remoto nel computer che esegue il server di elaborazione. 
 2. Eseguire cspsconfigtool.exe per avviare lo strumento di configurazione del Server di elaborazione di Azure Site Recovery.
@@ -19,8 +19,14 @@ ms.locfileid: "67180674"
 3. Nelle **server di configurazione IP o FQDN**, specificare il nome o indirizzo IP del server di configurazione con cui registrare il server di elaborazione.
 4. Nelle **porta Server di configurazione**, verificare che sia specificato 443. Questa è la porta su cui è in ascolto il server di configurazione per le richieste.
 5. Nelle **Passphrase di connessione**, specificare la passphrase specificata quando si configura il server di configurazione. Per trovare la passphrase:
-    -  Nel server di configurazione, passare alla cartella di installazione di Site Recovery * *\home\svssystems\bin\** . 
-    - Eseguire questo comando: **genpassphrase.exe.n**. Vengono mostrati il percorso della passphrase, che può quindi prendere nota.
+    -  Nel server di configurazione, passare alla cartella di installazione di Site Recovery * *\home\svssystems\bin\** :
+    ```
+    cd %ProgramData%\ASR\home\svsystems\bin
+    ```
+    - Eseguire il comando seguente per stampare la passphrase corrente:
+    ```
+    genpassphrase.exe -n
+    ```
 
 6. Nelle **porta per il trasferimento dati**, lasciare il valore predefinito a meno che non è stata specificata una porta personalizzata.
 

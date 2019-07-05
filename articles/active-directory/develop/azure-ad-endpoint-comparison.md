@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ccac719c78ce2844a8dd37a80445e11baa4a488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22f3e4cde892a70ec331523524508a50008a4073
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962870"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483012"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Il motivo per cui aggiornare alla piattaforma delle identità di Microsoft (v2.0)?
 
@@ -46,7 +46,7 @@ Per endpoint di piattaforma delle identità di Microsoft, è possibile usare Mic
 
 Le app che usano l'endpoint v1.0 di Azure AD devono specificare in anticipo le autorizzazioni OAuth 2.0 richieste, ad esempio:
 
-![Interfaccia utente della registrazione delle autorizzazioni](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
+![Esempio che illustra l'interfaccia utente di registrazione delle autorizzazioni](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
 Le autorizzazioni impostate direttamente nella registrazione dell'applicazione sono di tipo **statico**. Nonostante la definizione delle autorizzazioni statiche dell'app nel portale di Azure consenta di mantenere il codice chiaro e semplice, questa opzione può presentare problemi per gli sviluppatori:
 

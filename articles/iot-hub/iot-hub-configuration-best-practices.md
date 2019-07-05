@@ -3,16 +3,16 @@ title: Procedure consigliate per la configurazione di dispositivi per l'hub IoT 
 description: Informazioni sulle procedure consigliate per configurare i dispositivi IoT su larga scala
 author: chrisgre
 ms.author: chrisgre
-ms.date: 06/24/2018
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: c97395981ea3af90c7b0c590cb049fccc7392304
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33e77d63b958df292ee9b4ac8ded41f3693cb6bc
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734831"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485818"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Procedure consigliate per la configurazione di dispositivi in una soluzione IoT
 
@@ -64,9 +64,11 @@ Di seguito sono presentate le procedure consigliate per gli sviluppatori di solu
 
 * **Organizzare i dispositivi tramite tag del dispositivo gemello:** La soluzione deve consentire l'operatore da definire gli anelli di qualità o altri set di dispositivi in base a varie strategie di distribuzione, ad esempio canary. L'organizzazione dei dispositivi può essere implementata all'interno della soluzione usando tag dei dispositivi gemelli e [query](iot-hub-devguide-query-language.md). Questa organizzazione è necessaria per un'implementazione precisa e sicura delle configurazioni.
 
-* **Implementare [configurazioni del dispositivo automatica](iot-hub-auto-device-config.md):** Distribuire le configurazioni del dispositivo automatica e modifiche di configurazione di monitoraggio per grandi set di dispositivi IoT tramite i dispositivi gemelli. Le configurazioni automatiche dei dispositivi vengono assegnate a set di dispositivi gemelli tramite la **condizione di destinazione**, che consiste in una query sulle proprietà segnalate o sui tag dei dispositivi gemelli. Il **contenuto di destinazione** è il set di proprietà desiderate che verrà impostato all'interno dei dispositivi gemelli di destinazione. Il contenuto di destinazione deve essere allineato con la struttura dei dispositivi gemelli definita dal produttore/integratore dell'hardware IoT.
+* **Implementare [configurazioni del dispositivo automatica](iot-hub-auto-device-config.md):** Distribuire le configurazioni del dispositivo automatica e modifiche di configurazione di monitoraggio per grandi set di dispositivi IoT tramite i dispositivi gemelli.
 
-   Le **metriche** sono query sulle proprietà segnalate dei dispositivi gemelli e devono anch'esse essere allineate con la struttura dei dispositivi gemelli definita dal produttore/integratore dell'hardware IoT. Le configurazioni automatiche dei dispositivi offrono anche il vantaggio di configurare l'hub IoT in modo da eseguire operazioni sui dispositivi gemelli a una velocità che non superi mai le [limitazioni](iot-hub-devguide-quotas-throttling.md) relative alle letture e agli aggiornamenti di tali dispositivi.
+   Le configurazioni automatiche dei dispositivi vengono assegnate a set di dispositivi gemelli tramite la **condizione di destinazione**, che consiste in una query sulle proprietà segnalate o sui tag dei dispositivi gemelli. Il **contenuto di destinazione** è il set di proprietà desiderate che verrà impostato all'interno dei dispositivi gemelli di destinazione. Il contenuto di destinazione deve essere allineato con la struttura dei dispositivi gemelli definita dal produttore/integratore dell'hardware IoT. Il **metriche** sono query nel dispositivo gemello le proprietà segnalate e inoltre deve essere allineato al dispositivo gemello struttura definita dal produttore/integratore di hardware IoT.
+
+   Le configurazioni del dispositivo automatica eseguono per la prima volta subito dopo la configurazione viene creata e quindi a intervalli di cinque minuti. Sono anche trarre vantaggio dall'IoT Hub esegue operazioni di dispositivo gemello con una frequenza che non supererà mai la [soglie di limitazione](iot-hub-devguide-quotas-throttling.md) per letture del dispositivo gemello e gli aggiornamenti.
 
 * **Usare la [il servizio Device Provisioning](../iot-dps/how-to-manage-enrollments.md):** Gli sviluppatori di soluzioni devono usare il servizio Device Provisioning per assegnare tag del dispositivo gemello a nuovi dispositivi, in modo che verranno configurati automaticamente da **configurazioni del dispositivo automatica** che sono destinate ai dispositivi gemelli con tale tag. 
 

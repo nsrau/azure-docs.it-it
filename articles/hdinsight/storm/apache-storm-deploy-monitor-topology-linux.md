@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: c8b05886ae338bb73b0f4ddce4d02a1f1a926a45
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ac1a4c77589f4ef88c9ee862cb871b376ca8a0fe
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078233"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483845"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuire e gestire le topologie Apache Storm su Azure HDInsight 
 
@@ -21,11 +21,12 @@ In questo documento sono illustrati i concetti di gestione e monitoraggio delle 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Storm basato su Linux in cluster HDInsight**: per i passaggi relativi alla creazione di un cluster, vedere [Introduzione ad Apache Storm in HDInsight](apache-storm-tutorial-get-started-linux.md) .
+* Un cluster di Apache Storm in HDInsight. Visualizzare [creare Apache cluster Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **Storm** per **tipo di Cluster**.
 
-* (Facoltativo) **Familiarità con SSH e SCP**: Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* (Facoltativo) **Visual Studio**: Azure SDK 2.5.1 o versione successiva e Data Lake Tools per Visual Studio. Per altre informazioni, vedere [Introduzione all'uso di Data Lake Tools per Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* (Facoltativo) Familiarità con SSH e SCP: Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* (Facoltativo) Visual Studio: Azure SDK 2.5.1 o versione successiva e Data Lake Tools per Visual Studio. Per altre informazioni, vedere [Introduzione all'uso di Data Lake Tools per Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
     Una delle seguenti versioni di Visual Studio:
 

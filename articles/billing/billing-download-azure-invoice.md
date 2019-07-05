@@ -1,26 +1,23 @@
 ---
-title: Visualizzare e scaricare la fattura di Microsoft Azure | Microsoft Docs
-description: Viene descritto come visualizzare e scaricare la fattura di Microsoft Azure
+title: Visualizzare e scaricare la fattura di Microsoft Azure
+description: Viene descritto come visualizzare e scaricare la fattura di Microsoft Azure.
 keywords: fatturazione, scaricare la fatture, fattura di Azure, uso di Azure
-services: billing
-documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 052232f922abf16a2690dcbe64c1b59999aedeab
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617939"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491377"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visualizzare e scaricare la fattura di Microsoft Azure
 
@@ -32,11 +29,11 @@ Se si dispone di un [contratto di Microsoft dal cliente](#check-your-access-to-a
 
 ## <a name="download-your-azure-invoices-pdf"></a>Scaricare le fatture di Azure (PDF)
 
-Per la maggior parte delle sottoscrizioni, è possibile scaricare la fattura dal portale di Azure. Se hai un contratto di clienti Microsoft, vedere il Download delle fatture per un profilo di fatturazione.
+Per la maggior parte delle sottoscrizioni, è possibile scaricare la fattura dal portale di Azure. Se hai un contratto di clienti Microsoft, vedere [scaricare le fatture per un contratto di Microsoft dal cliente](#download-invoices-for-a-microsoft-customer-agreement).
 
 ### <a name="download-invoices-for-an-individual-subscription"></a>Scaricare le fatture per una singola sottoscrizione
 
-1. Selezionare la sottoscrizione di [pagina sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) nel portale di Azure come [un utente con accesso alle fatture](billing-manage-access.md).
+1. Selezionare la sottoscrizione nel [pagina sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) nel portale di Azure come [un utente con accesso alle fatture](billing-manage-access.md).
 
 2. Selezionare **Fatture**.
 
@@ -52,10 +49,10 @@ Per altre informazioni sulla fattura, vedere [Comprendere la fattura per Microso
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Scaricare le fatture per un contratto di Microsoft dal cliente
 
-Le fatture vengono generate per ogni [profilo di fatturazione](billing-mca-overview.md#understand-billing-profiles) contratto in Microsoft dal cliente. È necessario essere un profilo di fatturazione proprietario, collaboratore, lettore, o fatturerà manager per scaricare le fatture dal portale di Azure.
+Le fatture vengono generate per ogni [profilo di fatturazione](billing-mca-overview.md#billing-profiles) contratto in Microsoft dal cliente. È necessario essere un profilo di fatturazione proprietario, collaboratore, lettore, o fatturerà manager per scaricare le fatture dal portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+1. Cercare *costi di gestione e fatturazione*.
 1. Selezionare un profilo di fatturazione. In base all'accesso, occorre prima selezionare un account di fatturazione.
 1. Selezionare **Fatture**.
 1. Nella griglia della fattura, individuare la riga della fattura da scaricare.
@@ -69,36 +66,36 @@ Se non trovi una fattura per l'ultimo periodo di fatturazione, vedere [perché n
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Ottenere la fattura tramite posta elettronica (formato PDF)
 
-Per ricevere una fattura di Azure tramite posta elettronica, è possibile fornire il consenso esplicito e configurare altri destinatari. Questa funzionalità potrebbe non essere disponibile per alcune sottoscrizioni, ad esempio offerte di supporto, contratti Enterprise o Azure in Open. Se si dispone di un contratto di Microsoft Customer, vedere Get il profilo di fatturazione fatture tramite posta elettronica.
+Per ricevere una fattura di Azure tramite posta elettronica, è possibile fornire il consenso esplicito e configurare altri destinatari. Questa funzionalità potrebbe non essere disponibile per alcune sottoscrizioni, ad esempio offerte di supporto, contratti Enterprise o Azure in Open. Se si dispone di un contratto di Microsoft Customer, vedere la sezione successiva [ottenere le fatture profilo fatturazione tramite posta elettronica](#get-your-subscriptions-invoices-in-email).
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>Ottenere le fatture della sottoscrizione tramite posta elettronica
 
-1. Selezionare la sottoscrizione nella [pagina delle sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Dare il consenso esplicito per ogni sottoscrizione posseduta. Fare clic su **Invoices** (Fatture) quindi su **Email my invoice** (Invia fattura tramite posta elettronica).
+1. Selezionare la sottoscrizione nel [pagina sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Dare il consenso esplicito per ogni sottoscrizione posseduta. Fare clic su **Invoices** (Fatture) quindi su **Email my invoice** (Invia fattura tramite posta elettronica).
 
-    ![Schermata che mostra il flusso per il consenso esplicito](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
+    ![Screenshot che mostra il consenso esplicito nel flusso](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
 
 2. Fare clic su **Acconsenti esplicitamente** e accettare i termini.
 
-    ![Schermata che illustra il passaggio 2 del flusso per il consenso esplicito](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
- 
-3. Dopo l'accettazione del contratto, sarà possibile configurare altri destinatari. Dopo che un destinatario è stato rimosso, l'indirizzo di posta elettronica non è più archiviato. Se si cambia idea, è necessario aggiungerlo di nuovo.
+    ![Screenshot che mostra il consenso esplicito nel passaggio di flow 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
 
-    ![Schermata che illustra il passaggio 3 del flusso per il consenso esplicito](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
+3. Quando si accettazione del contratto, è possibile configurare altri destinatari. Dopo che un destinatario è stato rimosso, l'indirizzo di posta elettronica non è più archiviato. Se si cambia idea, è necessario aggiungerlo di nuovo.
+
+    ![Screenshot che mostra il consenso esplicito nel passaggio di flow 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
 
 Se non si riceve un'email dopo aver eseguito i passaggi seguenti, assicurarsi che l'indirizzo email sia corretto nelle [preferenze di comunicazione del proprio profilo](https://account.windowsazure.com/profile).
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>Rifiutare esplicitamente recupero fatture della tua sottoscrizione nel messaggio di posta elettronica
 
-È possibile rifiutare esplicitamente di ottenere la fattura tramite posta elettronica seguendo i passaggi precedenti e facendo clic su **rifiutare esplicitamente la fatture tramite posta elettronica**. Questa opzione rimuove tutti gli indirizzi di posta elettronica impostati per la ricezione di fatture tramite posta elettronica. Se si decide di nuovo, è possibile riconfigurare i destinatari.
+Per rifiutare esplicitamente di ottenere la fattura tramite posta elettronica, seguire i passaggi precedenti e fare clic su **rifiutare esplicitamente la fatture tramite posta elettronica**. Questa opzione rimuove tutti gli indirizzi di posta elettronica impostati per la ricezione di fatture tramite posta elettronica. Se si decide di nuovo, è possibile riconfigurare i destinatari.
 
- ![Schermata che illustra il flusso del rifiuto esplicito](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
+ ![Screenshot che mostra il rifiuto esplicito del flusso](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Ottenere le fatture di contratto di Microsoft dal cliente tramite posta elettronica
 
 Se hai un contratto di Microsoft dal cliente, è possibile acconsentire esplicitamente a ottenere la fattura tramite posta elettronica. Tutti i fatturazione profilo proprietari, collaboratori, i lettori e fattura Manager otterrà la fattura tramite posta elettronica. I lettori non è possibile aggiornare la preferenza di fattura tramite posta elettronica.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+1. Cercare **costi di gestione e fatturazione**.
 1. Selezionare un profilo di fatturazione. In base all'accesso, occorre prima selezionare un account di fatturazione.
 1. In **Impostazioni** selezionare **Proprietà**.
 1. Sotto **fattura tramite posta elettronica**, selezionare **la preferenza di fattura tramite posta elettronica di aggiornamento**.
@@ -110,7 +107,7 @@ Se hai un contratto di Microsoft dal cliente, è possibile acconsentire esplicit
 
 ### <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Rifiutare esplicitamente recupero le fatture di contratto di Microsoft dal cliente nel messaggio di posta elettronica
 
-È possibile rifiutare esplicitamente di ottenere la fattura tramite posta elettronica seguendo i passaggi precedenti e facendo clic su **Opt out**. Tutti i proprietari, collaboratori, i lettori e fattura verranno esclusi dal recupero troppo la fattura tramite posta elettronica, i responsabili. Se sei un lettore, è possibile modificare la preferenza di fattura tramite posta elettronica.
+Per rifiutare esplicitamente di ottenere la fattura tramite posta elettronica, seguire i passaggi precedenti e fare clic su **Opt out**. Tutti i proprietari, collaboratori, i lettori e fattura responsabili sono esclusi dal recupero fattura tramite posta elettronica, troppo. Se si ha un lettore, è possibile modificare la preferenza di fattura tramite posta elettronica.
 
 ### <a name="noinvoice"></a> Perché non viene visualizzata una fattura per l'ultimo periodo di fatturazione?
 
@@ -127,9 +124,9 @@ Potrebbero esserci diversi motivi per cui non è visualizzata alcuna fattura:
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Controllare l'accesso a un contratto di Microsoft dal cliente
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

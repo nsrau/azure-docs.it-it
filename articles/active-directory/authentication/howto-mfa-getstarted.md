@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ca69fc23d580b61e74fe56b3d0c3524fdfad747
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 296486755f0935e4eb8dcdb663da46ef60ef38bc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235542"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441022"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Pianificazione di una distribuzione di Azure multi-Factor Authentication basato sul cloud
 
@@ -182,7 +182,7 @@ Get-MsolUser -All | Set-MfaState -State Enforced
 
 # Wrapper to disable MFA with the option to keep the MFA
 # methods (to avoid having to proof-up again later)
-function Disable-Mfa {
+function Disable-MFA {
 
     [CmdletBinding()]
     param(
@@ -368,7 +368,7 @@ Report per Azure MFA
 
 Azure multi-Factor Authentication fornisce report tramite il portale di Azure:
 
-| Report | Località | Descrizione |
+| Report | Location | Descrizione |
 | --- | --- | --- |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
 

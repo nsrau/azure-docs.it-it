@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/02/2019
 ms.author: raynew
-ms.openlocfilehash: ef522785d5074187871c25c54deae84b156d69b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e395b10d9a99fdb454f3f02c7027e7acff64b434
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743186"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508189"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 È possibile usare la [servizio Backup di Azure](backup-overview.md) per eseguire il backup di macchine virtuali locali e i carichi di lavoro e macchine virtuali di Azure (VM). Questo articolo riepiloga le impostazioni del supporto e le limitazioni quando si esegue il backup di macchine virtuali di Azure con Backup di Azure.
@@ -164,7 +164,7 @@ Dimensioni del disco dati | Ogni singolo disco può avere dimensioni fino a 4095
 Tipo di archiviazione | Premium a standard HDD, SSD standard, SSD. <br/><br/> SSD standard è supportata se gli insiemi di credenziali vengono aggiornati alla versione più recente di backup di macchine Virtuali di Azure (noto come ripristino immediato). [Altre informazioni](backup-instant-restore-capability.md)
 Dischi gestiti | Supportato.
 Dischi crittografati | Supportato.<br/><br/> Macchine virtuali di Azure abilitate con crittografia dischi di Azure possono eseguire il backup (con o senza l'app Azure AD).<br/><br/> Le macchine virtuali crittografate non possono essere ripristinate a livello di file/cartella. È necessario ripristinare l'intera macchina virtuale.<br/><br/> È possibile abilitare la crittografia nelle macchine virtuali che sono già protette dal servizio Backup di Azure.
-Dischi con l'acceleratore di scrittura abilitato | Non supportati.<br/><br/> Se si esegue la versione più recente del backup delle macchine virtuali di Azure (procedura nota come [ripristino istantaneo](backup-instant-restore-capability.md)), è possibile escludere dal backup i dischi con l'acceleratore di scrittura abilitato.
+Dischi con l'acceleratore di scrittura abilitato | Non supportati.<br/><br/> Backup di Azure esclude automaticamente i dischi con acceleratore di scrittura abilitato durante il backup. Dal momento che non viene eseguito il backup, non sarà in grado di ripristinare i dischi dai punti di ripristino della macchina virtuale.
 Backup di dischi deduplicati | Non supportati.
 Aggiunta di un disco a una macchina virtuale protetta | Supportato.
 Ridimensionamento di un disco in una macchina virtuale protetta | Supportato.

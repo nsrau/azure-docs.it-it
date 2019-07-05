@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: a021ed2be3a94add7500a98d71a962bb580078e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a7c186f7c5fb46078eaa5729e79fdcc256ecc6d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729473"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460206"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -52,7 +52,7 @@ FunctionsProject
 
 Nella radice del progetto è presente un file [host.json](functions-host-json.md) condiviso che può essere usato per configurare l'app per le funzioni. Per ogni funzione è presente una cartella con il file di codice (JS) e il file di configurazione delle associazioni (function.json) correlati. Il nome della directory padre di `function.json` è sempre il nome della funzione.
 
-Le estensioni di associazione richieste nella [versione 2.x](functions-versions.md) del runtime di Funzioni sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
+Le estensioni di associazione richieste nella [versione 2.x](functions-versions.md) del runtime di Funzioni sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
 
 ## <a name="exporting-a-function"></a>Esportazione di una funzione
 
@@ -60,7 +60,7 @@ Le funzioni JavaScript devono essere esportate tramite [`module.exports`](https:
 
 Per impostazione predefinita, il runtime di Funzioni cerca la funzione in `index.js`, dove `index.js` condivide la stessa directory padre del file `function.json` corrispondente. Nel caso predefinito la funzione esportata deve essere l'unica esportazione dal relativo file, ovvero l'esportazione denominata `run` o `index`. Per configurare il percorso del file e il nome di esportazione della funzione, vedere [Configurare il punto di ingresso della funzione](functions-reference-node.md#configure-function-entry-point) più avanti.
 
-Alla funzione esportata vengono passati vari di argomenti per l'esecuzione. Il primo argomento accettato è sempre un oggetto `context`. Se la funzione è sincrona (non restituisce un oggetto Promise), è necessario passare l'oggetto `context`, perché la chiamata di `context.done` è richiesta per un uso corretto.
+Alla funzione esportata vengono passati vari di argomenti per l'esecuzione. Il primo argomento accettato è sempre un oggetto `context`. Se la funzione è sincrona (non restituisce una promessa), è necessario passare il `context` dell'oggetto, alla chiamata al metodo `context.done` è obbligatorio per l'uso corretto.
 
 ```javascript
 // You should include context, other arguments are optional
@@ -399,7 +399,7 @@ Quando si usano trigger HTTP, è possibile accedere agli oggetti richiesta e ris
     ```
 + ** _[Solo risposta]_ Chiamando `context.res.send(body?: any)`.** Viene creata una risposta HTTP con input `body` come corpo della risposta. Viene chiamato `context.done()` in modo implicito.
 
-+ ** _[Solo risposta]_ Chiamando `context.done()`.** Un tipo speciale di associazione HTTP restituisce la risposta che viene passata al metodo `context.done()`. L'associazione di output HTTP seguente definisce un parametro di output `$return`:
++ ** _[Solo risposta]_ Chiamando `context.done()`.** Un tipo speciale di associazione HTTP restituisce la risposta che viene passata per il `context.done()` (metodo). L'associazione di output HTTP seguente definisce un parametro di output `$return`:
 
     ```json
     {
@@ -421,7 +421,7 @@ La tabella seguente mostra la versione di Node.js usata da ogni versione princip
 | Versione di Funzioni | Versione di Node.js | 
 |---|---|
 | 1.x | 6.11.2 (bloccata dal runtime) |
-| 2.x  | Versioni di Node.js _Active LTS_ e _correnti_ con numero pari (8.11.1 e 10.14.1 consigliate). Impostare la versione usando l'[impostazione dell'app](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION.|
+| 2.x  | _LTS Active_ e _LTS manutenzione_ le versioni di Node. js (8.11.1 e 10.14.1 consigliato). Impostare la versione usando l'[impostazione dell'app](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION.|
 
 È possibile visualizzare la versione corrente usata dal runtime controllando l'impostazione dell'app seguente o stampando `process.version` da qualsiasi funzione.
 
@@ -576,7 +576,7 @@ Il modo in cui in locale sviluppa e Distribuisci da un progetto TypeScript dipen
 
 Il [funzioni di Azure per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) estensione consente di sviluppare le funzioni con TypeScript. Gli strumenti di base è un requisito dell'estensione di funzioni di Azure.
 
-Per creare un'app per le funzioni TypeScript in Visual Studio Code, è sufficiente scegliere `TypeScript` quando si crea un'app per le funzioni e viene richiesto di scegliere la lingua.
+Per creare un'app per le funzioni TypeScript in Visual Studio Code scegliere `TypeScript` come linguaggio quando si crea un'app per le funzioni.
 
 Quando si preme **F5** per eseguire l'app in locale, volta viene eseguito prima che venga inizializzato l'host (func.exe). 
 
@@ -584,7 +584,7 @@ Quando si distribuisce l'app per le funzioni in Azure usando il **Distribuisci i
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Per creare un progetto di app di funzione di TypeScript usando strumenti di base, è necessario specificare l'opzione di linguaggio typescript quando crei app per le funzioni. È possibile eseguire questa operazione in uno dei modi seguenti:
+Per creare un progetto di app di funzione di TypeScript usando strumenti di base, è necessario specificare l'opzione di linguaggio TypeScript quando crei app per le funzioni. È possibile eseguire questa operazione in uno dei modi seguenti:
 
 - Eseguire la `func init` comando, seleziona `node` come lo stack di linguaggio e quindi selezionare `typescript`.
 
@@ -614,6 +614,55 @@ Quando si sviluppano funzioni di Azure in un modello di hosting serverless, gli 
 ### <a name="connection-limits"></a>Limiti di connessione
 
 Quando si usa un client specifico del servizio in un'applicazione di funzioni di Azure, non creare un nuovo client con ogni chiamata alla funzione. Creare invece un client singolo e statico nell'ambito globale. Per altre informazioni, vedere [la gestione delle connessioni in funzioni di Azure](manage-connections.md).
+
+### <a name="use-async-and-await"></a>Usare `async` e `await`
+
+Quando si scrivono funzioni di Azure in JavaScript, è necessario scrivere codice usando il `async` e `await` parole chiave. La scrittura di codice usando `async` e `await` invece di callback o `.then` e `.catch` con promesse aiuta a evitare due problemi comuni:
+ - Generazione di eccezioni non rilevate che [arresto anomalo del processo Node. js](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), con il rischio che interessano l'esecuzione di altre funzioni.
+ - Comportamento imprevisto, ad esempio i log mancanti da Context, dovuta a chiamate asincrone che non siano correttamente impostata l'attesa.
+
+Nell'esempio seguente, il metodo asincrono `fs.readFile` viene richiamato con una funzione di callback di errore-first come secondo parametro. Questo codice fa in modo che entrambi i problemi indicati in precedenza. Un'eccezione non rilevata in modo esplicito nell'ambito corretto di arresto anomalo dell'intero processo (problema di #1). La chiamata a `context.done()` all'esterno dell'ambito del callback della funzione significa che la chiamata alla funzione potrebbe terminare prima che il file viene letto (stesso problema #2). In questo esempio, la chiamata `context.done()` inizia con voci del log abbastanza recente risultati manchino `Data from file:`.
+
+```javascript
+// NOT RECOMMENDED PATTERN
+const fs = require('fs');
+
+module.exports = function (context) {
+    fs.readFile('./hello.txt', (err, data) => {
+        if (err) {
+            context.log.error('ERROR', err);
+            // BUG #1: This will result in an uncaught exception that crashes the entire process
+            throw err;
+        }
+        context.log(`Data from file: ${data}`);
+        // context.done() should be called here
+    });
+    // BUG #2: Data is not guaranteed to be read before the Azure Function's invocation ends
+    context.done();
+}
+```
+
+Usando il `async` e `await` parole chiave consente di evitare entrambi questi errori. È consigliabile usare la funzione di utilità di Node. js [ `util.promisify` ](https://nodejs.org/api/util.html#util_util_promisify_original) per trasformare le funzioni di callback di errore-primo-style in funzioni awaitable.
+
+Nell'esempio seguente, tutte le eccezioni non gestite generate durante l'esecuzione della funzione eseguire solo la singola chiamata che ha generato un'eccezione. Il `await` parola chiave indica che la procedura seguente `readFileAsync` eseguiti solo dopo aver `readFile` è stata completata. Con `async` e `await`, anche non è necessario chiamare il `context.done()` callback.
+
+```javascript
+// Recommended pattern
+const fs = require('fs');
+const util = require('util');
+const readFileAsync = util.promisify(fs.readFile);
+
+module.exports = async function (context) {
+    try {
+        const data = await readFileAsync('./hello.txt');
+    } catch (err) {
+        context.log.error('ERROR', err);
+        // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation
+        throw err;
+    }
+    context.log(`Data from file: ${data}`);
+}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

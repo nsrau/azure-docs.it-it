@@ -14,27 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: ab7165c3315e3a53f90900be8eaf1b9c614a2b07
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 984bd4d5db210679884655721be0cbcdac8c1705
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341120"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485289"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regole di avviso personalizzate nel Centro sicurezza di Azure (anteprima)
 Questo documento consente di creare regole di avviso personalizzate nel Centro sicurezza di Azure.
 
 > [!NOTE]
-> Avvisi personalizzati verranno ritirati il 30 giugno 2019.
+> Avvisi personalizzati è stata ritirata dal Centro sicurezza. 
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Le regole di ritiro di avviso personalizzate nel Centro sicurezza di Azure
 
-L'esperienza avvisi personalizzati verrà ritirata il 30 giugno 2019, a causa di ritiro dell'infrastruttura sottostante di che cui si basa. Nell'intervallo di tempo fino a elementi deprecati, gli utenti saranno in grado di modificare le regole di avviso personalizzate esistenti ma non sarà in grado di aggiungere quelli nuovi. In seguito funzionalità deprecate, gli avvisi personalizzati definiti non avrà effetto e non verranno generati avvisi di sicurezza basati su tali regole avvisi personalizzati.
+L'esperienza avvisi personalizzati è stata ritirata il 30 giugno 2019, a causa di ritiro dell'infrastruttura sottostante che affidamento. gli avvisi personalizzati definiti prima retriement non hanno effetto e non verranno generati avvisi di sicurezza basati su tali regole avvisi personalizzati. È ancora possibile visualizzare le query delle regole di avviso personalizzate nel Centro sicurezza per crearli di nuovo nelle alternative indicate di seguito:
+
 Gli utenti sono invitati a uno:
 - Abilitare [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) e usare relativo predefinito [analitica](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) funzionalità per ricreare le regole di avviso
 - Ricreare gli avvisi con avvisi di log di monitoraggio di Azure
                                      
-Per mantenere gli avvisi esistenti e ne esegue la migrazione a Azure Sentinel, please [avviare Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Come primo passaggio, selezionare l'area di lavoro in cui sono archiviati gli avvisi personalizzati e quindi selezionare la voce di menu 'Analitica' per configurare le regole di avvisi personalizzati. Visitare il [documentazione](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) per altre informazioni.
+Per mantenere gli avvisi esistenti e ricrearli in Azure Sentinel, please [avviare Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Come primo passaggio, selezionare l'area di lavoro in cui sono archiviati gli avvisi personalizzati e quindi selezionare la voce di menu 'Analitica' per configurare le regole di avvisi personalizzati. Visitare il [documentazione](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) per altre informazioni.
 
 > [!NOTE]
 > Avvisi personalizzati usando [ricerca](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) oppure [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) istruzioni query non sono supportate in Azure Sentinel. Modificare questi avvisi prima di eseguire la migrazione.

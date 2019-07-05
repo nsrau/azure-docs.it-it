@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 4df65819256e6a81a07927d463d130fbfdf9317a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85e7b40778305395bb0f4a9403b4aeafc4607654
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255019"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565693"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e ripristino di macchine virtuali di Azure con PowerShell
 
@@ -61,7 +61,7 @@ Per iniziare:
 3. Accedere all'account Azure tramite **Connect-AzAccount**. Questo cmdlet visualizza una pagina Web che richiede le credenziali dell'account:
 
     * In alternativa, è possibile includere le credenziali dell'account come parametro nel cmdlet **Connect-AzAccount**, usando il parametro **-Credential**.
-    * Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Ad esempio: **Connect-AzAccount -Tenant "fabrikam.com"**
+    * Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Ad esempio:  **Connect-AzAccount -Tenant "fabrikam.com"**
 
 4. Associare la sottoscrizione che si vuole usare all'account perché un account può avere molte sottoscrizioni:
 
@@ -447,7 +447,7 @@ $restorejob
 >
 >
 
-Indicare un parametro aggiuntivo **TargetResourceGroupName** per specificare il gruppo di risorse in cui verranno ripristinati i dischi gestiti. 
+Indicare un parametro aggiuntivo **TargetResourceGroupName** per specificare il gruppo di risorse in cui verranno ripristinati i dischi gestiti.
 
 > [!NOTE]
 > È consigliabile usare il parametro **TargetResourceGroupName** per il ripristino dei dischi gestiti poiché consente di ottenere miglioramenti significativi in termini di prestazioni. Inoltre, a partire dal modulo AZ 1.0 di Azure PowerShell, questo parametro è obbligatorio in caso di ripristino con dischi gestiti
@@ -483,6 +483,15 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
 ```
 
 Dopo aver ripristinato i dischi, passare alla sezione successiva per creare la macchina virtuale.
+
+## <a name="replace-disks-in-azure-vm"></a>Sostituire i dischi nella macchina virtuale di Azure
+
+Per sostituire i dischi e le informazioni di configurazione, eseguire i passaggi seguenti:
+
+- Passaggio 1: [Ripristinare i dischi](backup-azure-vms-automation.md#restore-the-disks)
+- Passaggio 2: [Scollegare il disco dati usando PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
+- Passaggio 3: [Collegare un disco dati alla macchina virtuale Windows con PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
+
 
 ## <a name="create-a-vm-from-restored-disks"></a>Creare una macchina virtuale da dischi ripristinati
 
@@ -718,6 +727,7 @@ La sezione seguente elenca i passaggi necessari per creare una macchina virtuale
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Ripristinare file da un backup della macchina virtuale di Azure
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 765db8461465b74ac068782c1b91d3c68b73f7d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/26/2019
+ms.openlocfilehash: 13ea60c62283db35ce4bf9fde6c3b36ba7f88013
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079522"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439209"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Log di controllo nel Database di Azure per MariaDB
 
@@ -44,7 +44,7 @@ Altri parametri che è possibile modificare includono:
 
 I log di controllo sono integrati con i log di diagnostica di monitoraggio di Azure. Dopo aver abilitato i log di controllo nel server di MariaDB, è possibile generarli da log di monitoraggio di Azure, hub eventi o archiviazione di Azure. Per altre informazioni su come abilitare i log di diagnostica nel portale di Azure, vedere la [audit log portale articolo](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
-## <a name="schemas"></a>Schemi
+## <a name="diagnostic-logs-schemas"></a>Schemi dei log di diagnostica
 
 Le sezioni seguenti descrivono ciò che è l'output del log di controllo di MariaDB in base al tipo di evento. A seconda del metodo di output, è possibile che i campi inclusi e il relativo ordine di visualizzazione siano differenti.
 
@@ -54,7 +54,7 @@ Le sezioni seguenti descrivono ciò che è l'output del log di controllo di Mari
 |---|---|
 | `TenantId` | ID del tenant. |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
+| `TimeGenerated [UTC]` | Timestamp in cui il log è stato registrato in formato UTC. |
 | `Type` | Tipo di log. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID per la sottoscrizione a cui appartiene il server. |
 | `ResourceGroup` | Nome del gruppo di risorse a cui appartiene il server. |
@@ -64,13 +64,13 @@ Le sezioni seguenti descrivono ciò che è l'output del log di controllo di Mari
 | `Resource` | Nome del server |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `connection_log` |
-| `event_subclass` | `CONNECT`, `DISCONNECT` |
-| `connection_id` | ID connessione univoco generato da MariaDB |
-| `host` | Vuoto |
-| `ip` | Indirizzo IP del client che si connette a MariaDB |
-| `user` | Nome dell'utente che esegue la query |
-| `db` | Nome del database connesso a |
+| `event_class_s` | `connection_log` |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT` |
+| `connection_id_d` | ID connessione univoco generato da MariaDB |
+| `host_s` | Vuoto |
+| `ip_s` | Indirizzo IP del client che si connette a MariaDB |
+| `user_s` | Nome dell'utente che esegue la query |
+| `db_s` | Nome del database connesso a |
 | `\_ResourceId` | URI della risorsa |
 
 ### <a name="general"></a>Generale
@@ -81,7 +81,7 @@ Schema seguente si applica ai tipi di evento generale, DML_SELECT, DML_NONSELECT
 |---|---|
 | `TenantId` | ID del tenant. |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Timestamp quando è stato registrato tshe log in formato UTC |
+| `TimeGenerated [UTC]` | Timestamp in cui il log è stato registrato in formato UTC. |
 | `Type` | Tipo di log. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID per la sottoscrizione a cui appartiene il server. |
 | `ResourceGroup` | Nome del gruppo di risorse a cui appartiene il server. |
@@ -91,15 +91,16 @@ Schema seguente si applica ai tipi di evento generale, DML_SELECT, DML_NONSELECT
 | `Resource` | Nome del server |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `general_log` |
-| `event_subclass` | `LOG`, `ERROR`, `RESULT` |
+| `LogicalServerName_s` | Nome del server |
+| `event_class_s` | `general_log` |
+| `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
 | `event_time` | Query avviare secondi in timestamp UNIX dell'ora |
-| `error_code` | Codice di errore se query non è riuscita. `0` indica che nessun errore |
-| `thread_id` | ID del thread che ha eseguito la query |
-| `host` | Vuoto |
-| `ip` | Indirizzo IP del client che si connette a MariaDB |
-| `user` | Nome dell'utente che esegue la query |
-| `sql_text` | Testo query completo |
+| `error_code_d` | Codice di errore se query non è riuscita. `0` indica che nessun errore |
+| `thread_id_d` | ID del thread che ha eseguito la query |
+| `host_s` | Vuoto |
+| `ip_s` | Indirizzo IP del client che si connette a MariaDB |
+| `user_s` | Nome dell'utente che esegue la query |
+| `sql_text_s` | Testo query completo |
 | `\_ResourceId` | URI della risorsa |
 
 ### <a name="table-access"></a>Accesso alle tabelle
@@ -108,7 +109,7 @@ Schema seguente si applica ai tipi di evento generale, DML_SELECT, DML_NONSELECT
 |---|---|
 | `TenantId` | ID del tenant. |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
+| `TimeGenerated [UTC]` | Timestamp in cui il log è stato registrato in formato UTC. |
 | `Type` | Tipo di log. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID per la sottoscrizione a cui appartiene il server. |
 | `ResourceGroup` | Nome del gruppo di risorse a cui appartiene il server. |
@@ -118,12 +119,13 @@ Schema seguente si applica ai tipi di evento generale, DML_SELECT, DML_NONSELECT
 | `Resource` | Nome del server |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `table_access_log` |
-| `event_subclass` | `READ`, `INSERT`, `UPDATE`, o `DELETE` |
-| `connection_id` | ID connessione univoco generato da MariaDB |
-| `db` | Nome di accesso al database |
-| `table` | Nome della tabella accessibile |
-| `sql_text` | Testo query completo |
+| `LogicalServerName_s` | Nome del server |
+| `event_class_s` | `table_access_log` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`, o `DELETE` |
+| `connection_id_d` | ID connessione univoco generato da MariaDB |
+| `db_s` | Nome di accesso al database |
+| `table_s` | Nome della tabella accessibile |
+| `sql_text_s` | Testo query completo |
 | `\_ResourceId` | URI della risorsa |
 
 ## <a name="next-steps"></a>Passaggi successivi

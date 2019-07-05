@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ebb67ff295a934b4e125e298018c27a095adc590
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 959d96a9bc1dd9f28e62d904248cd1f18d73c27d
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153875"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67563920"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Concedere l'accesso a Azure blob e Accodamento dei dati con accessi nel portale di Azure
 
@@ -42,6 +42,11 @@ Dopo aver determinato l'ambito appropriato per un'assegnazione di ruolo, passare
 
 Le sezioni seguenti descrivono ognuno di questi passaggi in modo più dettagliato.
 
+> [!NOTE]
+> In quanto proprietario dell'account di archiviazione di Azure, non si ricevono automaticamente le autorizzazioni per l'accesso ai dati. È invece necessario assegnare in modo esplicito a se stessi un ruolo di controllo degli accessi in base al ruolo per Archiviazione di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
+> 
+> È possibile assegnare un ruolo con ambito limitato a un contenitore o coda se l'account di archiviazione ha uno spazio dei nomi gerarchico abilitata.
+
 ### <a name="assign-a-built-in-rbac-role"></a>Assegnare un ruolo RBAC predefinito
 
 Prima di assegnare un ruolo a un'entità di sicurezza, assicurarsi di prendere in considerazione l'ambito delle autorizzazioni che si stanno concedendo. Rivedere le [determinano l'ambito di risorse](#determine-resource-scope) sezione per decidere l'ambito appropriato.
@@ -65,11 +70,6 @@ La procedura descritta qui assegna un ruolo con ambito a livello di singolo cont
     ![Screenshot che illustra l'elenco di utenti assegnati a un ruolo](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
 È possibile seguire la procedura per assegnare un ruolo con ambito per l'account di archiviazione, gruppo di risorse o sottoscrizione.
-
-> [!NOTE]
-> In quanto proprietario dell'account di archiviazione di Azure, non si ricevono automaticamente le autorizzazioni per l'accesso ai dati. È invece necessario assegnare in modo esplicito a se stessi un ruolo di controllo degli accessi in base al ruolo per Archiviazione di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
-> 
-> È possibile assegnare un ruolo con ambito limitato a un contenitore o coda se l'account di archiviazione ha uno spazio dei nomi gerarchico abilitata.
 
 ### <a name="assign-the-reader-role-for-portal-access"></a>Assegnare il ruolo lettore per l'accesso al portale
 

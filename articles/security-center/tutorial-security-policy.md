@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ff05421222ff0f4312d703366cfd443eee06450
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967887"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551706"
 ---
 # <a name="working-with-security-policies"></a>Utilizzo dei criteri di sicurezza
 
@@ -32,7 +32,7 @@ Per istruzioni su come impostare i criteri con PowerShell, vedere [Guida introdu
 > Il Centro sicurezza ha avviato l'integrazione con i Criteri di Azure. I clienti esistenti verranno automaticamente migrati alla nuova iniziativa incorporata in Criteri di Azure, anziché ai precedenti criteri di sicurezza in Centro sicurezza. Questa modifica non influirà su risorse o ambiente, ad eccezione della presenza di una nuova iniziativa in Criteri di Azure.
 
 ## <a name="what-are-security-policies"></a>Informazioni sui criteri di sicurezza
-Un criterio di sicurezza definisce la configurazione specifica dei carichi di lavoro e contribuisce ad assicurare la conformità ai requisiti aziendali o normativi per la sicurezza. In Criteri di Azure è possibile definire criteri per le sottoscrizioni di Azure e adattarli al tipo di carico di lavoro o alla riservatezza dei dati. Ad esempio, le applicazioni che usano dati regolamentati come le informazioni personali possono richiedere un livello di sicurezza maggiore di quello degli altri carichi di lavoro. Per impostare un criterio nelle sottoscrizioni o nei gruppi di gestione, impostarle nei [Criteri di Azure](../governance/policy/overview.md).
+Un criterio di sicurezza definisce la configurazione specifica dei carichi di lavoro e contribuisce ad assicurare la conformità ai requisiti aziendali o normativi per la sicurezza. In Criteri di Azure è possibile definire criteri per le sottoscrizioni di Azure e adattarli al tipo di carico di lavoro o alla riservatezza dei dati. Applicazioni che usano dati regolamentati, come i dati personali o dati del cliente, ad esempio, potrebbero richiedere un livello di sicurezza superiore rispetto altri carichi di lavoro. Per impostare un criterio nelle sottoscrizioni o nei gruppi di gestione, impostarle nei [Criteri di Azure](../governance/policy/overview.md).
 
 I criteri di sicurezza determinano i suggerimenti per la sicurezza ottenuti nel Centro sicurezza di Azure. È possibile monitorare la conformità a tali criteri per identificare potenziali vulnerabilità e attenuare le minacce. Per altre informazioni su come determinare l'opzione più appropriata, vedere l'elenco di [criteri di sicurezza predefiniti](security-center-policy-definitions.md).
 
@@ -73,13 +73,6 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
    > [!NOTE]
    > - Il dashboard Centro sicurezza potrebbe mostrare in **Copertura della sottoscrizione** un numero di sottoscrizioni maggiore rispetto a quello indicato in **Gestione dei criteri**. In Copertura della sottoscrizione è riportato il numero di sottoscrizioni di tipo Standard, Gratuito e “senza copertura”. Le sottoscrizioni "senza copertura" non hanno abilitato il Centro sicurezza e non vengono visualizzate in **Gestione dei criteri**.
    >
-
-   Le colonne nella tabella mostrano:
-
-   - **Assegnazione dell'iniziativa relativa ai criteri**: iniziative e [criteri predefiniti](security-center-policy-definitions.md) del Centro sicurezza assegnati a una sottoscrizione o a un gruppo di gestione.
-   - **Copertura**: identifica il piano tariffario, Gratuito o Standard, in cui viene eseguito il gruppo di gestione, la sottoscrizione o l'area di lavoro.  Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
-   - **Impostazioni**: per le sottoscrizioni è disponibile il collegamento **Modifica impostazioni**. Selezionando **Modifica impostazioni**, è possibile aggiornare le [impostazioni del Centro sicurezza](security-center-policies-overview.md) per ogni sottoscrizione o gruppo di gestione.
-   - **Punteggio di sicurezza**: il [Punteggio di sicurezza](security-center-secure-score.md) fornisce un'indicazione sul comportamento di sicurezza del carico di lavoro e aiuta a dare priorità alle raccomandazioni per il miglioramento.
 
 2. Selezionare la sottoscrizione o il gruppo di gestione di cui si vogliono visualizzare i criteri.
 
@@ -132,11 +125,11 @@ Nell'ambito dell'integrazione nativa con Criteri di Azure, Centro sicurezza di A
 
 Concetti importanti in Criteri di Azure 
 
-- Una  **definizione di criteri** è una regola 
+- Oggetto **definizione di criteri** è una regola 
 
-- Un' **iniziativa** è una raccolta di definizioni di criteri (regole) 
+- Un' **iniziativa** è una raccolta di definizioni di criteri (regole) 
 
-- Un' **assegnazione** è un'applicazione di un'iniziativa o di criteri a un ambito specifico (gruppo di gestione, sottoscrizione e così via) 
+- Un' **assegnazione** è un'applicazione di un'iniziativa o un criterio a un ambito specifico (gruppo di gestione, sottoscrizione e così via) 
 
 In Centro sicurezza è presente un'iniziativa integrata che include tutti i criteri di sicurezza relativi. Per valutare i criteri del Centro sicurezza nelle risorse di Azure, è necessario creare un'assegnazione nel gruppo di gestione o la sottoscrizione da valutare.  
 

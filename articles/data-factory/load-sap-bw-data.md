@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 4cd61db3ec0e8d88c9b1c6d6ba427b120b3f1af1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c846ab3e81e7ab8a4948aa4ed96cfa75e8eb3f4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152410"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449692"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
 
@@ -125,7 +125,7 @@ Nel portale di Azure, passare alla data factory. Selezionare **crea e monitora**
 
     ![Visualizzazione dettagli di output attività](media/load-sap-bw-data/activity-output-details.png)
 
-## <a name="do-an-incremental-copy-from-sap-bw-open-hub"></a>Eseguire una copia incrementale da SAP BW Open Hub
+## <a name="incremental-copy-from-sap-bw-open-hub"></a>Copia incrementale di Hub aperto di SAP BW
 
 > [!TIP]
 > Visualizzare [flusso di Hub aperto di SAP BW connector delta estrazione](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) per informazioni su come il connettore SAP BW Open Hub in Data Factory copia incrementale dei dati da SAP BW. Questo articolo consentono inoltre di comprendere la configurazione connettore di base.

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7ffef5c3a7c8dd21654b6364013b1718bea1292
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417659"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482996"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocolli di Microsoft identity platform
 
@@ -36,7 +36,7 @@ L'endpoint di piattaforma di identità Microsoft per identity-as-a-service con p
 
 In quasi tutti i flussi di OAuth 2.0 e OpenID Connect, sono coinvolte nello scambio quattro parti:
 
-![Ruoli di OAuth 2.0](./media/active-directory-v2-flows/protocols-roles.svg)
+![Diagramma che mostra i ruoli di OAuth 2.0](./media/active-directory-v2-flows/protocols-roles.svg)
 
 * Il **Server di autorizzazione** è l'endpoint di Microsoft identity platform e responsabile di assicurarsi che l'identità dell'utente, concede e revoca l'accesso alle risorse ed emissione dei token. Il server di autorizzazione agisce anche come provider di identità: gestisce in modo sicuro le informazioni dell'utente, l'accesso e le relazioni di trust tra le parti di un flusso.
 * Il **proprietario della risorsa** è in genere l'utente finale. È l'entità che possiede i dati e consente a terze parti di accedere a tali dati o risorse.

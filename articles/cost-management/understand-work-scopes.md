@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 699707953ae06afa9cbf3cc7286f94917ba0efca
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991389"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490120"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
@@ -100,19 +100,19 @@ Le sottoscrizioni di Azure vengono nidificate sotto gli account di registrazione
 
 La fatturazione utenti autorizzati ad accedere ai gruppi di gestione perché non rientrano in modo esplicito con un account di fatturazione specifico. L'accesso deve essere concessa esplicitamente ai gruppi di gestione. Gruppi di gestione costi di rollup da nidificata tutte le sottoscrizioni. Tuttavia, solo includono gli acquisti e basata sull'utilizzo. Non includono gli acquisti, ad esempio le prenotazioni e le offerte di Marketplace di terze parti. Per visualizzare questi costi, utilizzare l'account di fatturazione EA.
 
-## <a name="individual-agreement-pay-as-you-go-scopes"></a>Ambiti di contratto singolo (pagamento a consumo)
+## <a name="individual-agreement-scopes"></a>Ambiti di contratto singolo
 
-Le sottoscrizioni con pagamento a consumo (PAYG), inclusi i tipi correlati, ad esempio liberare/versione di valutazione e offerte per sviluppo/test, non hanno un ambito di account di fatturazione esplicito. Al contrario, ogni sottoscrizione ha un proprietario dell'account o l'amministratore dell'account, ad esempio il proprietario dell'account EA.
+Le sottoscrizioni di Azure create da singole offerte come tipi di pagamento a consumo e correlati, ad esempio versione di valutazione gratuita e offerte per sviluppo/test, non hanno un ambito di account di fatturazione esplicito. Al contrario, ogni sottoscrizione ha un proprietario dell'account o l'amministratore dell'account, ad esempio il proprietario dell'account EA.
 
 - [**Account di fatturazione** ](../billing/billing-view-all-accounts.md) -rappresenta il proprietario di un singolo account per uno o più sottoscrizioni di Azure. Non supporta attualmente la concessione dell'accesso a più persone o accedere alle visualizzazioni di costo aggregato.
 
     Tipo di risorsa: Non applicabile
 
-Gli amministratori degli account di sottoscrizione in base al consumo è possibile visualizzare e gestire i dati di fatturazione, ad esempio le fatture e pagamenti, dai [centro Account Azure](https://account.azure.com/subscriptions). Però non è possibile visualizzare i dati di costo o gestire le risorse nel portale di Azure. Per concedere l'accesso per l'amministratore dell'account, usare i ruoli di gestione dei costi indicati in precedenza.
+Gli amministratori degli account singola sottoscrizione di Azure è possibile visualizzare e gestire i dati di fatturazione, ad esempio le fatture e pagamenti, dai [centro Account Azure](https://account.azure.com/subscriptions). Però non è possibile visualizzare i dati di costo o gestire le risorse nel portale di Azure. Per concedere l'accesso per l'amministratore dell'account, usare i ruoli di gestione dei costi indicati in precedenza.
 
-A differenza di EA, gli amministratori degli account di sottoscrizione in base al consumo possono vedere le fatture nel portale di Azure. Tenere presente che i ruoli Cost Management lettore e collaboratore gestione costi non forniscono accesso alle fatture. Per altre informazioni, vedere [come concedere l'accesso alle fatture in base al consumo](../billing/billing-manage-access.md#give-access-to-billing).
+A differenza di EA, gli amministratori degli account di sottoscrizione di Azure singoli possibile visualizzare le fatture nel portale di Azure. Tenere presente che i ruoli Cost Management lettore e collaboratore gestione costi non forniscono accesso alle fatture. Per altre informazioni, vedere [come concedere l'accesso alle fatture](../billing/billing-manage-access.md##give-read-only-access-to-billing).
 
-## <a name="customer-agreement-scopes"></a>Ambiti di contratto dei clienti
+## <a name="microsoft-customer-agreement-scopes"></a>Ambiti di contratto di Microsoft dal cliente
 
 Gli account di fatturazione di contratto dei clienti Microsoft hanno i seguenti ambiti:
 
@@ -148,7 +148,7 @@ I partner cloud Solution Provider (CSP) non sono supportati in Gestione costi di
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Spostarsi tra ambiti in Gestione costi
 
-Tutte le viste a gestione costi nel portale di Azure includono una **ambito** partite in alto a sinistra della visualizzazione. Usarlo per modificare rapidamente l'ambito. Scegliere il **ambito** partite per aprire il selettore di ambito. Mostra gli account di fatturazione, il gruppo di gestione radice e tutte le sottoscrizioni che non sono nidificate sotto il gruppo di gestione radice. Per selezionare un ambito, fare clic sull'icona per evidenziarlo e quindi fare clic su **seleziona** nella parte inferiore. Per eseguire il drill-in per gli ambiti annidati, ad esempio i gruppi di risorse in una sottoscrizione, fare clic sul collegamento di nome di ambito. Per selezionare l'ambito padre a qualsiasi livello nidificata, fare clic su **selezionare questa opzione &lt;ambito&gt;**  all'inizio del selettore di ambito.
+Tutte le viste a gestione costi nel portale di Azure includono una **ambito** partite di selezione in alto a sinistra della visualizzazione. Usarlo per modificare rapidamente l'ambito. Scegliere il **ambito** partite per aprire il selettore di ambito. Mostra gli account di fatturazione, il gruppo di gestione radice e tutte le sottoscrizioni che non sono nidificate sotto il gruppo di gestione radice. Per selezionare un ambito, fare clic sull'icona per evidenziarlo e quindi fare clic su **seleziona** nella parte inferiore. Per eseguire il drill-in per gli ambiti annidati, ad esempio i gruppi di risorse in una sottoscrizione, fare clic sul collegamento di nome di ambito. Per selezionare l'ambito padre a qualsiasi livello nidificata, fare clic su **selezionare questa opzione &lt;ambito&gt;**  all'inizio del selettore di ambito.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identificare l'ID risorsa per un ambito
 

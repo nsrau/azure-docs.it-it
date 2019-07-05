@@ -1,6 +1,6 @@
 ---
 title: Prestazioni dei file di Azure Guida risoluzione dei problemi
-description: Problemi di prestazioni con le condivisioni file di Azure premium (anteprima) e soluzioni alternative associate noti.
+description: Problemi di prestazioni con condivisioni file di Azure e soluzioni alternative associate noti.
 services: storage
 author: gunjanj
 ms.service: storage
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c35501f3afbeed519fb5304229f25be1cbd5f9b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190044"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445664"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Risolvere i problemi relativi alle prestazioni di file di Azure
 
-Questo articolo elenca alcuni problemi comuni correlati a condivisioni file di Azure premium (anteprima). Possibili cause e soluzioni alternative fornisce quando si verificano questi problemi.
+Questo articolo elenca alcuni problemi comuni correlati a condivisioni file di Azure. Possibili cause e soluzioni alternative fornisce quando si verificano questi problemi.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Una latenza elevata, bassa velocità effettiva e problemi generali relativi alle prestazioni
 
 ### <a name="cause-1-share-experiencing-throttling"></a>Causa 1: Condividere la limitazione delle richieste di cui si è verificato
 
-La quota predefinita su una condivisione è 100 GiB, che offre IOPS della linea di base 100 (con un potenziale per il burst fino a 300 per un'ora). Per altre informazioni sul provisioning e la relativa relazione per IOPS, vedere la [effettuato il provisioning di condivisioni](storage-files-planning.md#provisioned-shares) sezione della Guida alla pianificazione.
+La quota predefinita in una condivisione di premium è 100 GiB, che offre IOPS della linea di base 100 (con un potenziale per il burst fino a 300 per un'ora). Per altre informazioni sul provisioning e la relativa relazione per IOPS, vedere la [effettuato il provisioning di condivisioni](storage-files-planning.md#provisioned-shares) sezione della Guida alla pianificazione.
 
 Per verificare se la condivisione è limitata, è possibile sfruttare le metriche di Azure nel portale.
 
@@ -39,7 +39,7 @@ Per verificare se la condivisione è limitata, è possibile sfruttare le metrich
 
 1. Selezionare **transazioni** come metrica.
 
-1. Aggiungere un filtro per **ResponseType** e verificare se le richieste hanno un codice di risposta **SuccessWithThrottling**.
+1. Aggiungere un filtro per **ResponseType** e verificare se le richieste hanno un codice di risposta **SuccessWithThrottling** (per SMB) o **ClientThrottlingError** (per REST).
 
 ![Opzioni di metriche per condivisioni file premium](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -72,11 +72,11 @@ Se l'applicazione in uso da parte del cliente è a thread singolo, ciò può com
 
 ### <a name="cause"></a>Causa
 
-Il macchina virtuale client potrebbe trovarsi in un'area diversa rispetto alla condivisione di file premium.
+Il macchina virtuale client potrebbe trovarsi in un'area diversa rispetto alla condivisione file.
 
 ### <a name="solution"></a>Soluzione
 
-- Eseguire l'applicazione da una macchina virtuale che si trova nella stessa area della condivisione di file premium.
+- Eseguire l'applicazione da una macchina virtuale che si trova nella stessa area della condivisione file.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Client non è possibile ottenere la velocità effettiva massima supportata dalla rete
 
@@ -121,6 +121,10 @@ Profondità dei / o maggiore di uno non è supportata in CentOS/RHEL.
 
 - Eseguire l'aggiornamento a 8 CentOS / RHEL 8.
 - Impostare su Ubuntu.
+
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Rallentamento della copia del file da e verso File di Azure in Linux
+
+Se si verificano copia del file lenta da e verso file di Azure, esaminiamo il [rallentamento della copia del file da e verso file di Azure in Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) Guida alla sezione la risoluzione dei problemi di Linux.
 
 ## <a name="jitterysaw-tooth-pattern-for-iops"></a>Modello di instabilità/sega per IOPS
 

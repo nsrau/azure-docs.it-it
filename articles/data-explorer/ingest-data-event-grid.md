@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5854a8974a4d2a9dbc1aa690dc2340fd806f4219
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494737"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490123"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Inserire BLOB in Esplora dati di Azure tramite la sottoscrizione delle notifiche di Griglia di eventi
 
@@ -38,7 +38,7 @@ In questo articolo descrive come impostare un' [griglia di eventi di Azure](/azu
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Name | *test-grid-connection* | Il nome della griglia di eventi da creare.|
+    | NOME | *test-grid-connection* | Il nome della griglia di eventi da creare.|
     | Schema di eventi | *Schema griglia di eventi* | Lo schema da usare per la griglia di eventi. |
     | Tipo di argomento | *Account di archiviazione* | Il tipo di argomento della griglia di eventi. |
     | Risorsa argomento | *gridteststorage* | nome dell'account di archiviazione. |
@@ -112,10 +112,10 @@ A questo punto, connettersi alla griglia di eventi da Esplora dati di Azure per 
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
-    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. |
+    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opzioni di compressione supportati: File zip e GZip |
     | Mapping di colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**.|
     | | |
-
+    
 ## <a name="generate-sample-data"></a>Generare i dati di esempio
 
 Dopo aver connesso Esplora dati di Azure e l'account di archiviazione, è possibile creare i dati di esempio e caricarli nella risorsa di archiviazione BLOB.

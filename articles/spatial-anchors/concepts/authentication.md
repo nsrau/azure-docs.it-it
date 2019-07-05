@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2b3f4cf4099459b655fc0e370935ddc8079de810
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c7ffa432c9311ba9d4ecf4ba82c375e2dad988d0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073933"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478538"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticazione e autorizzazione per gli ancoraggi spaziale di Azure
 
@@ -45,9 +45,45 @@ Due chiavi vengono resi disponibili, che sono entrambi contemporaneamente valide
 
 il SDK include il supporto incorporato per l'autenticazione con le chiavi dell'account; è sufficiente impostare la proprietà AccountKey per l'oggetto cloudSession. 
 
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
 ```csharp
 this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
 ```
+
+# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+
+```objc
+_cloudSession.configuration.accountKey = @"MyAccountKey";
+```
+
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
+
+```swift
+_cloudSession!.configuration.accountKey = "MyAccountKey"
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```java
+mCloudSession.getConfiguration().setAccountKey("MyAccountKey");
+```
+
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+
+```cpp
+auto configuration = cloudSession_->Configuration();
+configuration->AccountKey(R"(MyAccountKey)");
+```
+
+# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+
+```cpp
+auto configuration = m_cloudSession.Configuration();
+configuration.AccountKey(LR"(MyAccountKey)");
+```
+
+***
 
 Al termine dell'operazione, il SDK gestisce lo scambio di chiave dell'account per un token di accesso e la necessaria memorizzazione nella cache dei token per l'app. 
 
@@ -77,9 +113,45 @@ Per le applicazioni destinate a utenti di Azure Active Directory, l'approccio co
 
 Con questo, l'applicazione deve essere in grado di ottenere da ADAL un token di Azure AD. è possibile impostare tale token di Azure AD come la **authenticationToken** nell'oggetto configurazione di sessione del cloud. 
 
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
 ```csharp
 this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
 ```
+
+# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+
+```objc
+_cloudSession.configuration.authenticationToken = @"MyAuthenticationToken";
+```
+
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
+
+```swift
+_cloudSession!.configuration.authenticationToken = "MyAuthenticationToken"
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```java
+mCloudSession.getConfiguration().setAuthenticationToken("MyAuthenticationToken");
+```
+
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+
+```cpp
+auto configuration = cloudSession_->Configuration();
+configuration->AuthenticationToken(R"(MyAuthenticationToken)");
+```
+
+# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+
+```cpp
+auto configuration = m_cloudSession.Configuration();
+configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
+```
+
+***
 
 ## <a name="azure-ad-service-authentication"></a>Autenticazione del servizio Azure AD
 
@@ -132,9 +204,45 @@ E la risposta contiene il token MR in testo normale.
  
 Token MR viene quindi restituito al client. L'app client può quindi impostarlo come relativo token di accesso nel file di configurazione di sessione di cloud.
 
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
 ```csharp
 this.cloudSession.Configuration.AccessToken = @"MyAccessToken";
 ```
+
+# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+
+```objc
+_cloudSession.configuration.accessToken = @"MyAccessToken";
+```
+
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
+
+```swift
+_cloudSession!.configuration.accessToken = "MyAccessToken"
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```java
+mCloudSession.getConfiguration().setAccessToken("MyAccessToken");
+```
+
+# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+
+```cpp
+auto configuration = cloudSession_->Configuration();
+configuration->AccessToken(R"(MyAccessToken)");
+```
+
+# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+
+```cpp
+auto configuration = m_cloudSession.Configuration();
+configuration.AccessToken(LR"(MyAccessToken)");
+```
+
+***
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 

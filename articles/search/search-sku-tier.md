@@ -7,31 +7,31 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 892a79f898e2448096ad4b252a18e0713bb32e52
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539259"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485300"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Scegliere un piano tariffario per Ricerca di Azure
 
-Quando si crea un servizio di ricerca di Azure, un [risorsa viene creata](search-create-service-portal.md) in un piano tariffario o SKU che è fissa per la durata del servizio. I livelli includono Free, Basic, Standard e ottimizzate per l'archiviazione. Standard e ottimizzate per l'archiviazione sono disponibili con diverse configurazioni e capacità.
+Quando si crea un servizio di ricerca di Azure, un [risorsa viene creata](search-create-service-portal.md) in un piano tariffario (o dello SKU) che viene risolto per la durata del servizio. I livelli includono Free, Basic, Standard e ottimizzate per l'archiviazione. Standard e ottimizzate per l'archiviazione sono disponibili con diverse configurazioni e capacità.
 
-La maggior parte dei clienti iniziano con il livello gratuito in modo che è possibile valutare il servizio. È quindi l'aggiornamento a uno dei livelli superiori per le distribuzioni di sviluppo e produzione. È possibile completare tutte le guide introduttive ed esercitazioni usando il livello gratuito, inclusi quelli per la ricerca cognitiva a elevato utilizzo di risorse.
+La maggior parte dei clienti iniziano con il livello gratuito in modo che è possibile valutare il servizio. Post-valutazione, è comune per creare un secondo servizio in uno dei livelli superiori per le distribuzioni di sviluppo e produzione. È possibile completare tutte le guide introduttive ed esercitazioni usando il livello gratuito, inclusi quelli per la ricerca cognitiva a elevato utilizzo di risorse.
 
 > [!NOTE]
-> Microsoft offre attualmente l'ottimizzazione dell'archiviazione i livelli di servizio in una versione di anteprima al prezzo scontato per i test e sperimentazione, allo scopo di raccogliere commenti e suggerimenti. I prezzi finali verranno annunciati in un secondo momento quando questi livelli sono disponibili a livello generale. È consigliabile evitare di utilizzare questi livelli per le applicazioni di produzione.
+> Dal 1 ° luglio, tutti i livelli sono disponibili a livello generale, incluso il livello di ottimizzazione dell'archiviazione. Tutti i prezzi sono reperibili nella [dettagli prezzi-](https://azure.microsoft.com/pricing/details/search/) pagina.
 
 I livelli rispecchiano le caratteristiche dell'hardware che ospita il servizio (anziché le funzionalità) e si differenziano per:
 
 + Il numero di indici che è possibile creare.
 + Le dimensioni e velocità di partizioni (archiviazione fisica).
 
-Anche se tutti i livelli, tra cui il livello gratuito, in genere offrono parità delle funzionalità, i carichi di lavoro più grande possibile dettare necessità di livelli superiori. Ad esempio, [indicizzazione di intelligenza artificiale con servizi cognitivi](cognitive-search-concept-intro.md) ha competenze con esecuzione prolungata che raggiungono timeout su un servizio gratuito, a meno che il set di dati è di piccole dimensioni.
+Anche se tutti i livelli, tra cui il livello gratuito, in genere offrono parità delle funzionalità, i carichi di lavoro più grande possibile dettare necessità di livelli superiori. Ad esempio, [arricchimento di intelligenza artificiale con servizi cognitivi](cognitive-search-concept-intro.md) ha competenze con esecuzione prolungata che raggiungono timeout su un servizio gratuito, a meno che il set di dati è di piccole dimensioni.
 
 > [!NOTE] 
 > L'eccezione a parità di funzionalità [indicizzatori](search-indexer-overview.md), che non sono disponibili in S3 HD.
@@ -60,7 +60,11 @@ La tabella seguente elenca i piani disponibili. È possibile trovare ulteriori i
 
 ## <a name="how-billing-works"></a>Modalità di funzionamento della fatturazione
 
-Esistono tre modi di sostenere i costi in ricerca di Azure e sono presenti componenti fissi e variabili. In questa sezione vengono descritti i tre componenti di fatturazione: i costi dei servizi, i costi di uscita dei dati e migliorato per intelligenza artificiale di indicizzazione di base.
+Esistono tre modi di sostenere i costi in ricerca di Azure. Questa sezione descrive i tre componenti di fatturazione: 
+
++ costo del servizio core
++ addebiti di dati in uscita (o larghezza di banda)
++ Miglioramenti di intelligenza artificiale
 
 ### <a name="core-service-costs-fixed-and-variable"></a>Costi dei servizi principali (fisse e variabile)
 
@@ -98,9 +102,9 @@ Usando [indicizzatori di ricerca di Azure](search-indexer-overview.md) potrebbe 
 
 Gli addebiti vengono applicati per i dati in uscita se servizi si trovano in aree diverse. Questi addebiti non fanno parte della fattura di ricerca di Azure. Si sta sopra indicate perché se si usa i dati o indicizzatori migliorato per intelligenza artificiale per estrarre i dati da aree diverse, si noterà i costi riflessi la fattura complessiva.
 
-### <a name="ai-enriched-indexing-with-cognitive-services"></a>Migliorato per intelligenza artificiale indicizzazione con servizi cognitivi
+### <a name="ai-enrichments-with-cognitive-services"></a>Miglioramenti di intelligenza artificiale con servizi cognitivi
 
-Per la [indicizzazione di intelligenza artificiale con servizi cognitivi](cognitive-search-concept-intro.md), sarà possibile collegare una risorsa di servizi cognitivi di Azure fatturabile, nella stessa area come ricerca di Azure al livello S0 sui prezzi per l'elaborazione con pagamento a consumo. Non sono previsti costi fissi associati al collegamento di servizi cognitivi. Si paga solo per l'elaborazione che è necessario.
+Per la [arricchimento di intelligenza artificiale con servizi cognitivi](cognitive-search-concept-intro.md), sarà possibile collegare una risorsa di servizi cognitivi di Azure fatturabile, nella stessa area come ricerca di Azure al livello S0 sui prezzi per l'elaborazione con pagamento a consumo. Non sono previsti costi fissi associati al collegamento di servizi cognitivi. Si paga solo per l'elaborazione che è necessario.
 
 Estrazione di immagini durante decifrazione del documento è previsto un addebito di ricerca di Azure. Viene fatturata in base al numero di immagini estratti dai tuoi documenti. L'estrazione di testo è attualmente gratuita.
 

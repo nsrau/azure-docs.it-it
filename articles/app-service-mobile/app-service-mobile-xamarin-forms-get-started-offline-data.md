@@ -2,7 +2,7 @@
 title: Abilitare la sincronizzazione offline per l'app per dispositivi mobili di Azure (Xamarin.Forms) | Documentazione Microsoft
 description: Informazioni su come usare le app per dispositivi mobili del servizio app per memorizzare nella cache e sincronizzare i dati offline in un'applicazione Xamarin.Forms
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: yochayk
 editor: ''
 services: app-service\mobile
@@ -12,22 +12,26 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/04/2016
-ms.author: crdun
-ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 53f339d5450965c992f6528ff294e0d37ec2f7f6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127880"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446289"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
+> [!NOTE]
+> Visual Studio App Center investe in nuovi e integrati servizi fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono utilizzare **compilare**, **Test** e **Distribuisci** servizi per impostare le pipeline di integrazione continua e recapito. Dopo aver distribuito l'app, gli sviluppatori possono monitorare lo stato e sull'utilizzo di app using il **Analitica** e **diagnostica** servizi e Coinvolgi gli utenti utilizzando il **Push** servizio. Gli sviluppatori possono inoltre sfruttare **Auth** di autenticare gli utenti e **dati** service per rendere persistente e sincronizzare i dati dell'app nel cloud. Consulta [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-offline-data) oggi stesso.
+>
+
 ## <a name="overview"></a>Panoramica
 Questa esercitazione descrive la funzionalità di sincronizzazione offline di App per dispositivi mobili di Azure per Xamarin.Forms. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete. Le modifiche vengono archiviate in un database locale. Quando il dispositivo torna online, vengono sincronizzate con il servizio remoto.
 
-Questa esercitazione si basa sulla soluzione di avvio rapido per Xamarin.Forms per le app per dispositivi mobili create quando si completa l'esercitazione [Creare un'app per Xamarin.iOS]. La soluzione di avvio rapido per Xamarin.Forms contiene il codice per supportare la sincronizzazione offline, che deve solo essere abilitata. In questa esercitazione viene aggiornata la soluzione di avvio rapido per attivare le funzionalità offline delle app per dispositivi mobili. Viene anche evidenziato il codice specifico per le funzionalità offline nell'app. Se non si usa la soluzione di avvio rapido scaricata, è necessario aggiungere al progetto il pacchetto di estensione per l'accesso ai dati. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure][1].
+Questa esercitazione si basa sulla soluzione di avvio rapido per Xamarin.Forms per le app per dispositivi mobili create quando si completa l'esercitazione [Creare un'app per Xamarin.iOS]. La soluzione di avvio rapido per Xamarin.Forms contiene il codice per supportare la sincronizzazione offline, che deve solo essere abilitata. In questa esercitazione viene aggiornata la soluzione di avvio rapido per attivare le funzionalità offline delle app per dispositivi mobili. Viene anche evidenziato il codice specifico per le funzionalità offline nell'app. Se non si usa la soluzione di avvio rapido scaricata, è necessario aggiungere al progetto il pacchetto di estensione per l'accesso ai dati. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all' [utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure][1].
 
 Per altre informazioni sulla funzionalità di sincronizzazione offline, vedere l'argomento [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure][2].
 
@@ -41,7 +45,7 @@ Il codice per la sincronizzazione offline viene incluso nel progetto usando le d
 3. (Facoltativo) Per supportare i dispositivi Windows, installare uno dei pacchetti di runtime SQLite seguenti:
 
    * **Runtime di Windows 8.1:** Installare [SQLite per Windows 8.1][3].
-   * **Windows Phone 8.1:** installare [SQLite per Windows Phone 8.1][4].
+   * **Windows Phone 8.1:** Installare [SQLite per Windows Phone 8.1][4].
    * **Piattaforma UWP (Universal Windows Platform)** Installare [SQLite per la piattaforma UWP (Universal Windows Platform)][5].
 
      Anche se la Guida introduttiva non contiene un Windows universale, la piattaforma UWP (Universal Windows Platform) è supportata con Xamarin Forms.
@@ -146,13 +150,13 @@ In questa sezione viene riconnessa l'app al back-end mobile, azione che consente
 
 1. Riaprire il file Constants.cs. Correggere il valore `applicationURL` in modo che faccia riferimento all'URL corretto.
 2. Ricompilare ed eseguire l'app client. L'app prova a eseguire la sincronizzazione con il back-end dell'app per dispositivi mobili dopo l'avvio. Verificare che non vengano registrate eccezioni nella console di debug.
-3. (Facoltativo) Visualizzare i dati aggiornati usando Esplora oggetti di SQL Server o uno strumento REST come Fiddler o [Postman][6]. Si noti che i dati sono stati sincronizzati tra il database di back-end e l'archivio locale.
+3. (Facoltativo) Visualizzare i dati aggiornati usando Esplora oggetti di SQL Server o uno strumento REST come Fiddler oppure [Postman][6]. Si noti che i dati sono stati sincronizzati tra il database di back-end e l'archivio locale.
 
     Si noti che i dati sono stati sincronizzati tra il database e l'archivio locale e includono gli elementi aggiunti mentre l'app era disconnessa.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure][2]
-* [Procedura per .NET SDK di App per dispositivi mobili di Azure][8]
+* [PROCEDURA per le App per dispositivi mobili di Azure .NET SDK][8]
 
 <!-- URLs. -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7413fcf7992195753cba86a50b7d53a144b36023
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60440621"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476431"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuire Azure AD Privileged Identity Management (PIM)
 
@@ -143,7 +143,7 @@ Per applicare il principio di accesso con privilegi minimi per i ruoli di Azure 
 
 1. Visualizzare l'elenco degli utenti che dispongono di ruoli con privilegi all'interno dell'organizzazione. Per visualizzare una pagina simile alla seguente è possibile usare la [procedura guidata di PIM](pim-security-wizard.md#run-the-wizard).
 
-    ![Individuare i ruoli con privilegi](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Individuare i ruoli con privilegi nel riquadro ruoli è che con privilegi](./media/pim-deployment-plan/discover-privileged-roles-users.png)
 
 1. Per tutti gli amministratori globali all'interno dell'organizzazione, individuare il motivo per cui devono avere tale ruolo. In base alle indicazioni riportate nella documentazione di riferimento precedente, se il lavoro di una persona può essere eseguito da uno o più ruoli di amministratore specifici, è necessario rimuoverla dal ruolo Amministratore globale ed eseguire le opportune assegnazioni di ruolo all'interno di Azure Active Directory. A titolo informativo: Microsoft attualmente ha solo circa 10 amministratori con il ruolo Amministratore globale. Per altre informazioni, vedere [come Microsoft usa PIM](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access).
 
@@ -151,7 +151,7 @@ Per applicare il principio di accesso con privilegi minimi per i ruoli di Azure 
 
 Per automatizzare i passaggi 3 e 4, è possibile usare la funzione per la verifica di accesso disponibile in PIM. Seguendo la procedura descritta in [Avviare una verifica di accesso per i ruoli della directory di Azure AD in PIM](pim-how-to-start-security-review.md), è possibile configurare una verifica di accesso per ogni ruolo di Azure AD che include uno o più membri.
 
-![Crea una verifica di accesso](./media/pim-deployment-plan/create-access-review.png)
+![Creare un riquadro di revisione di accesso per i ruoli di Azure AD](./media/pim-deployment-plan/create-access-review.png)
 
 È necessario impostare i revisori su **Membri (autonomo)** . In questo modo verrà inviato un messaggio di posta elettronica a tutti i membri del ruolo per chiedere loro di confermare se hanno bisogno dell'accesso. È anche necessario attivare **Richiedi il motivo all'approvazione** nelle impostazioni avanzate in modo che gli utenti possano indicare il motivo per cui devono disporre del ruolo. In base alle informazioni raccolte, sarà possibile rimuovere gli utenti dai ruoli non necessari e, nel caso di amministratori globali, delegare più ruoli di amministratore specifici.
 

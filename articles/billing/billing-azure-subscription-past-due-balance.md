@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 45b5d2c94a72cb23ef2b4a8db100623b0c58b0a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f58969b167b6c0f0a66d46731ad76c1f6e9acc41
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66023392"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491462"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Risolvere problemi relativi a un saldo dovuto non pagato per la sottoscrizione di Azure
 
@@ -34,7 +34,7 @@ Se si è il [amministratore dell'Account](billing-subscription-transfer.md#whois
 ## <a name="resolve-past-due-balance-in-the-azure-portal"></a>Risolvere scaduto saldo nel portale di Azure
 
 1. Accedi per il [portale di Azure](https://portal.azure.com) come amministratore dell'Account.
-1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+1. Cercare **costi di gestione e fatturazione**.
 1. Nella pagina Panoramica, si verrà visualizzato un elenco delle sottoscrizioni. Se lo stato della sottoscrizione è scaduto, fare clic sui **finalizzazione saldo** collegamento.
     ![Screenshot che mostra stabilizzarsi collegamento saldo](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
 1. Il saldo totale riflette gli addebiti in sospeso in tutti i servizi di Microsoft usando il metodo di pagamento non riuscito.

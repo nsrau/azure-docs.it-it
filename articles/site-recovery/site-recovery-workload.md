@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 6/27/2019
 ms.author: raynew
-ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a0e07f338da039be1660e59510b24bcd44eed0c
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417845"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491749"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?
 
@@ -35,7 +35,7 @@ Site Recovery contribuisce alla protezione e al ripristino a livello di applicaz
 * Indipendente dall'app, fornendo la replica per carichi di lavoro in esecuzione in una macchina supportata.
 * Replica quasi sincrona con RPO di 30 secondi per soddisfare le esigenze delle app aziendali più critiche.
 * Snapshot coerenti con l'app per le applicazioni a uno o più livelli.
-* Integrazione con SQL Server AlwaysOn e interazione con altre tecnologie di replica a livello di applicazione, tra cui la replica di AD, SQL AlwaysOn, i gruppi di disponibilità dei database di Exchange e Oracle Data Guard.
+* Integrazione con SQL Server AlwaysOn e interazione con altre tecnologie di replica a livello di applicazione, inclusi gruppi di disponibilità del Database Exchange SQL AlwaysOn, replica AD (DAG).
 * Piani di ripristino flessibili che consentono di ripristinare un intero stack di applicazioni con un solo clic e includono script esterni o azioni manuali.
 * Gestione di rete avanzata in Site Recovery e in Azure per semplificare i requisiti di rete per le app, incluse la prenotazione di indirizzi IP, la configurazione del servizio di bilanciamento del carico o l'integrazione di Gestione traffico di Azure per transizioni di rete con RTO ridotto.
 * Una libreria di automazione avanzata che fornisce script pronti per la produzione e specifici per ogni applicazione, che possono essere scaricati e integrati nei piani di ripristino.

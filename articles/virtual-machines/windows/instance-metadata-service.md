@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 160d494eea4bd597725a4e7c21ad9b763502bee6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96c1223cf15f1022e9e0a27180bd9cdeebcf8505
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65792105"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449799"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -37,11 +37,11 @@ L'endpoint è disponibile a un indirizzo IP non instradabile noto (`169.254.169.
 
 Il servizio è disponibile a livello generale nelle aree di Azure. Le versioni API potrebbero non essere tutte disponibili in tutte le aree di Azure.
 
-Regioni                                        | Disponibilità                                 | Versioni supportate
+Regions                                        | Disponibilità                                 | Versioni supportate
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure per la Cina](https://www.azure.cn/)                                                     | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure per la Cina](https://azure.microsoft.com/global-infrastructure/china)                                                     | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Cloud pubblico Stati Uniti centro-occidentali](https://azure.microsoft.com/regions/)                           | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01
 
@@ -205,7 +205,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "westus",
     "name": "jubilee",
     "offer": "Windows-10",
@@ -283,7 +283,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "westus",
     "name": "SQLTest",
     "offer": "SQL2016SP1-WS2016",
@@ -340,7 +340,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 #### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>Le API seguenti sono disponibili tramite l'endpoint dei metadati:
 
-Dati | Descrizione | Versione introdotta
+Data | Descrizione | Versione introdotta
 -----|-------------|-----------------------
 attested | Vedere [Dati con attestazione](#attested-data) | 2018-10-01
 identity | Identità gestite per le risorse di Azure. Vedere [Acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
@@ -353,7 +353,7 @@ scheduledevents | Vedere [Eventi pianificati](scheduled-events.md) | 2017-08-01
 > [!NOTE]
 > Tramite l'endpoint di metadati, le categorie seguenti sono accessibili tramite istanza o il calcolo
 
-Dati | Descrizione | Versione introdotta
+Data | Descrizione | Versione introdotta
 -----|-------------|-----------------------
 azEnvironment | Ambiente di Azure in cui la macchina virtuale è in esecuzione in | 2018-10-01
 customData | Vedere [dati personalizzati](#custom-data) | 2019-02-01
@@ -383,7 +383,7 @@ zona | [Zona di disponibilità](../../availability-zones/az-overview.md) della m
 > [!NOTE]
 > Tramite l'endpoint di metadati, le categorie seguenti sono accessibili tramite interfaccia/rete/istanza
 
-Dati | Descrizione | Versione introdotta
+Data | Descrizione | Versione introdotta
 -----|-------------|-----------------------
 ipv4/privateIpAddress | Indirizzo IPv4 locale della macchina virtuale | 2017-04-02
 ipv4/publicIpAddress | Indirizzo IPv4 pubblico della macchina virtuale | 2017-04-02
@@ -537,8 +537,17 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 
 **Risposta**
 ```bash
-AZUREPUBLICCLOUD
+AzurePublicCloud
 ```
+
+Le aree e i valori dell'ambiente di Azure sono elencati di seguito.
+
+ Regions | Ambiente Azure
+---------|-----------------
+[Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
+[Azure per la Cina](https://azure.microsoft.com/global-infrastructure/china)                   | AzureChinaCloud
+[Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### <a name="getting-the-tags-for-the-vm"></a>Ottenere i tag per la macchina virtuale
 
@@ -604,7 +613,7 @@ Verification successful
 }
 ```
 
-Dati | Descrizione
+Data | Descrizione
 -----|------------
 nonce | Stringa facoltativa fornita dall'utente con la richiesta. Se nella richiesta non è presente l'elemento nonce, viene restituito il timestamp UTC corrente
 piano | [Piano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) per una macchina virtuale in un'immagine di Azure Marketplace, che contiene nome, prodotto ed editore
@@ -619,11 +628,11 @@ Dopo aver ottenuto la firma sopra indicata, è possibile verificare che provenga
 > [!NOTE]
 > Il certificato per il cloud pubblico e il cloud sovrano sarà diverso.
 
- Regioni | Certificate
+ Cloud | Certificate
 ---------|-----------------
 [Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure per la Cina](https://www.azure.cn/)                                                           | metadata.azure.cn
+[Azure per la Cina](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
 [Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash
@@ -654,7 +663,7 @@ Per alcuni scenari, quando si eseguono query sul servizio metadati dell'istanza 
 route print
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > L'output di esempio seguente da una macchina virtuale Windows Server con il cluster di failover abilitato contiene solo la tabella di route IPv4 per motivi di semplicità.
 
 ```bat

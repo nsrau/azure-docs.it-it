@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: d844b171ff99dc97e5d1107bcb745f9e8d5b3e9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aa2c72a01f1887ea9680f8d5706b825a49039a1
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519834"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561277"
 ---
 # <a name="scenario-availability"></a>Disponibilità di uno scenario
 
@@ -25,7 +25,7 @@ il SDK del servizio di riconoscimento vocale offre molti scenari tra un'ampia ga
   - Tutti i linguaggi di programmazione/ambienti in cui è presente un collegamento freccia <img src="media/index/link.jpg" height="15" width="15"></img> Nella tabella di avvio rapido [qui](https://aka.ms/csspeech).
 - **Text-to-Speech (TTS)**
   - C++/ Windows e Linux
-  - C#/Windows
+  - C#/ Windows & UWP con Unity
   - API REST di sintesi vocale può essere usata in tutte le altre situazioni.
 - **Word (parola chiave Spotter/KWS) di riattivazione**
   - C++/ Windows e Linux

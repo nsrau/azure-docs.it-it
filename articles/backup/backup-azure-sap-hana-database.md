@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65237808"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481132"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Eseguire il backup di un database SAP HANA
 
@@ -22,15 +22,13 @@ ms.locfileid: "65237808"
 > [!NOTE]
 > Questa funzionalità è attualmente in anteprima pubblica. Non è attualmente pronte per la produzione e non ha un contratto di servizio garantito. 
 
-
 ## <a name="scenario-support"></a>Supporto degli scenari
 
 **Supporto** | **Dettagli**
 --- | ---
 **Aree geografiche supportate** | Australia sud-orientale, Australia orientale <br> Brasile meridionale <br> Canada Central, Canada East <br> Asia sud-orientale, Asia orientale <br> Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro occidentali, Stati Uniti occidentali, Stati Uniti occidentali 2, North Central US, Stati Uniti centrali, Stati Uniti centro-meridionali<br> India centrale, India meridionale <br> Giappone orientale, Giappone occidentale<br> Corea del Sud centrale, Corea del Sud meridionale <br> Europa settentrionale, Europa occidentale <br> Regno Unito meridionale, Regno Unito occidentale
 **Sistemi operativi della macchina virtuale** | SLES 12 SP2 o SP3.
-**Versioni supportate di HANA** | SSDC on HANA 1.x, MDC on HANA 2.x <= SPS03
-
+**Versioni supportate di HANA** | SDC on HANA 1.x, MDC on HANA 2.x <= SPS03
 
 ### <a name="current-limitations"></a>Limitazioni correnti
 
@@ -39,12 +37,9 @@ ms.locfileid: "65237808"
 - È possibile solo eseguire il backup dei database in modalità di scalabilità verticale.
 - È possibile eseguire il backup dei log di database ogni 15 minuti. I backup del log solo iniziano il flusso dopo un backup completo per il database è stata completata.
 - È possibile eseguire backup completi e differenziali. Backup incrementale non è attualmente supportato.
-- Dopo averlo applicato per i backup di SAP HANA non è possibile modificare i criteri di backup. Se si desidera eseguire il backup con impostazioni diverse, creare un nuovo criterio o assegnare un criterio diverso. 
-    - Per creare un nuovo criterio, nell'insieme di credenziali fare clic su **politiche** > **criteri di Backup** >  **+ Aggiungi** > **SAP HANA in Macchina virtuale di Azure**e specificare le impostazioni dei criteri.
-    - Per assegnare un criterio diverso, nelle proprietà della macchina virtuale che esegue il database, fare clic sul nome del criterio corrente. Scegliere il **criterio di Backup** pagina è possibile selezionare un criterio diverso da utilizzare per il backup.
-
-
-
+- Dopo averlo applicato per i backup di SAP HANA non è possibile modificare i criteri di backup. Se si desidera eseguire il backup con impostazioni diverse, creare un nuovo criterio o assegnare un criterio diverso.
+  - Per creare un nuovo criterio, nell'insieme di credenziali fare clic su **politiche** > **criteri di Backup** >  **+ Aggiungi** > **SAP HANA in Macchina virtuale di Azure**e specificare le impostazioni dei criteri.
+  - Per assegnare un criterio diverso, nelle proprietà della macchina virtuale che esegue il database, fare clic sul nome del criterio corrente. Scegliere il **criterio di Backup** pagina è possibile selezionare un criterio diverso da utilizzare per il backup.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -57,14 +52,16 @@ Assicurarsi che eseguire le operazioni seguenti prima di configurare i backup:
 
         ![Opzione di installazione pacchetto](./media/backup-azure-sap-hana-database/hana-package.png)
 
-2.  Nella macchina virtuale, installare e abilitare i pacchetti di driver ODBC dall'ufficiale SLES pacchetto/file multimediali usando zypper, come indicato di seguito:
+2. Nella macchina virtuale, installare e abilitare i pacchetti di driver ODBC dall'ufficiale SLES pacchetto/file multimediali usando zypper, come indicato di seguito:
 
-    ``` 
+    ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
-4.  Consentire la connettività da VM a internet, in modo da poter raggiungere Azure, come descritto nella procedura riportata di seguito.
 
+3. Consentire la connettività da VM a internet, in modo da poter raggiungere Azure, come descritto nella procedura [seguito](#set-up-network-connectivity).
+
+4. Eseguire lo script di pre-registrazione nella macchina virtuale in cui HANA viene installato come un utente root. Lo script viene fornito [nel portale](#discover-the-databases) nel flusso ed è necessario configurare il [autorizzazioni con il pulsante destro](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
 
 ### <a name="set-up-network-connectivity"></a>Configurare la connettività di rete
 
@@ -80,7 +77,7 @@ Eseguire l'onboarding per l'anteprima pubblica come indicato di seguito:
 - Nel portale, registrare l'ID sottoscrizione per il provider di servizi di ripristino Services dalla [seguendo questo articolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal). 
 - Per PowerShell, eseguire questo cmdlet. L'operazione dovrebbe completarsi come "Registrato".
 
-    ```
+    ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
@@ -89,7 +86,6 @@ Eseguire l'onboarding per l'anteprima pubblica come indicato di seguito:
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>Individuazione di database
-
 
 1. Nell'insieme di credenziali, in **Guida introduttiva**, fare clic su **Backup**. Nelle **in cui viene eseguito il carico di lavoro?** , selezionare **SAP HANA in macchine Virtuali di Azure**.
 2. Fare clic su **avvia individuazione**. Verrà avviata l'individuazione delle VM di Linux non protetto nell'area dell'insieme di credenziali.
@@ -104,7 +100,7 @@ Eseguire l'onboarding per l'anteprima pubblica come indicato di seguito:
 6. Backup di Azure consente di individuare tutti i database di SAP HANA nella macchina virtuale. Durante l'individuazione, Backup di Azure regista la VM con l'insieme di credenziali e consente di installare un'estensione nella macchina virtuale. Nessun agente installato nel database.
 
     ![Individuazione database di SAP HANA](./media/backup-azure-sap-hana-database/hana-discover.png)
-    
+
 ## <a name="configure-backup"></a>Configurare il backup  
 
 A questo punto abilitare il backup.
@@ -116,6 +112,7 @@ A questo punto abilitare il backup.
 5. Tenere traccia dello stato di configurazione del backup nel **notifiche** area del portale.
 
 ### <a name="create-a-backup-policy"></a>Creare un criterio di backup
+
 Un criterio di backup definisce quando i backup vengono eseguiti e per quanto tempo si sta conservati.
 
 - Un criterio viene creato a livello di insieme di credenziali.
@@ -189,6 +186,5 @@ Se si desidera eseguire un backup locale (tramite HANA Studio) di un database ch
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+[Informazioni su](backup-azure-sap-hana-database-troubleshoot.md) come risolvere gli errori comuni quando si usa backup di SAP HANA in macchine virtuali di Azure.
 [Informazioni su](backup-azure-arm-vms-prepare.md) backup di macchine virtuali di Azure.
-
-

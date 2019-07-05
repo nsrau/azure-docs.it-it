@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f9df42725e41fb514370dbdb828ad5b1305ea78
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753990"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485460"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indicizzazione di Cosmos DB usando un indicizzatore di ricerca di Azure
 
@@ -133,7 +133,7 @@ Nell'account Cosmos DB è possibile specificare se la raccolta deve indicizzare 
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - assemblare gli input per la richiesta
 
-Per ogni richiesta, è necessario fornire il nome del servizio e chiave di amministrazione per ricerca di Azure (nell'intestazione POST) e il nome di account di archiviazione e la chiave per l'archiviazione blob. È possibile usare [Postman](search-fiddler.md) per inviare richieste HTTP in ricerca di Azure.
+Per ogni richiesta, è necessario fornire il nome del servizio e chiave di amministrazione per ricerca di Azure (nell'intestazione POST) e il nome di account di archiviazione e la chiave per l'archiviazione blob. È possibile usare [Postman](search-get-started-postman.md) per inviare richieste HTTP in ricerca di Azure.
 
 Copiare i quattro valori seguenti nel blocco note, in modo da poterli incollare in una richiesta:
 
@@ -258,7 +258,7 @@ Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo sch
 | Bool |Edm.Boolean, Edm.String |
 | Numeri che rappresentano numeri interi |Edm.Int32, Edm.Int64, Edm.String |
 | Numeri che rappresentano numeri a virgola mobile |Edm.Double, Edm.String |
-| String |Edm.String |
+| string |Edm.String |
 | Matrici di tipi primitivi, ad esempio ["a", "b", "c"] |Collection(Edm.String) |
 | Stringhe che rappresentano date |Edm.DateTimeOffset, Edm.String |
 | Oggetti GeoJSON, ad esempio { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |

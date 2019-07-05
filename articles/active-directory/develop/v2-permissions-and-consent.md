@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73b832002d1c15505e8ae845ac2585548c8e080f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544876"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482152"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Le autorizzazioni e consenso nell'endpoint di Microsoft identity platform
 
@@ -89,7 +89,7 @@ Se un'app esegue l'accesso usando [OpenID Connect](active-directory-v2-protocols
 
 L'ambito `email` può essere usato con l'ambito `openid` e con tutti gli altri. Consente all'applicazione di accedere all'indirizzo di posta elettronica primario dell'utente sotto forma di attestazione `email`. Il `email` attestazione è inclusa nei token solo se un indirizzo di posta elettronica è associato l'account utente, che non sempre avveniva. Se si usa l'ambito `email`, l'applicazione deve essere pronta per gestire il caso in cui l'attestazione `email` non esiste nel token.
 
-### <a name="profile"></a>Profilo
+### <a name="profile"></a>profile
 
 L'ambito `profile` può essere usato con l'ambito `openid` e con tutti gli altri. Consente all'applicazione di accedere a numerose informazioni sull'utente, Includono le informazioni che può accedere, ma non sono limitate al nome specificato dell'utente, cognome, nome utente preferito e ID di oggetto. Per un elenco completo delle attestazioni profilo disponibili nel parametro id_tokens per un determinato utente, vedere le [informazioni di riferimento su `id_tokens`](id-tokens.md).
 
@@ -124,7 +124,7 @@ Dopo che l'utente immette le proprie credenziali, l'endpoint di Microsoft identi
 > [!NOTE]
 > Attualmente, le autorizzazioni `offline_access` ("Mantieni l'accesso ai dati per cui hai concesso l'accesso a") e `user.read` ("Accedi e visualizza il profilo personale") vengono automaticamente incluse nel consenso iniziale per un'applicazione.  Queste autorizzazioni sono in genere necessarie per il corretto funzionamento dell'app: `offline_access` consente all'app di accedere a token di aggiornamento, essenziali per le app Web e native, mentre `user.read` consente di accedere all'attestazione `sub`, permettendo al client o all'app di identificare correttamente l'utente nel tempo e accedere a informazioni utente elementari.  
 
-![Consenso dell'account aziendale](./media/v2-permissions-and-consent/work_account_consent.png)
+![Screenshot di esempio che illustra il consenso dell'account di lavoro](./media/v2-permissions-and-consent/work_account_consent.png)
 
 Quando l'utente approva la richiesta di autorizzazione, il consenso viene registrato e l'utente non deve fornirlo nuovamente agli accessi successivi all'applicazione.
 

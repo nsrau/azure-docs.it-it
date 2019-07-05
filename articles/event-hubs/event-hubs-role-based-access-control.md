@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978302"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448151"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controllo degli accessi in base al ruolo di Active Directory (anteprima)
 
@@ -29,10 +29,10 @@ Per un'applicazione che usa Controllo degli accessi in base al ruolo di Azure AD
 ## <a name="event-hubs-roles-and-permissions"></a>Ruoli e autorizzazioni di Hub eventi
 Azure offre i seguenti ruoli RBAC predefiniti per autorizzare l'accesso a uno spazio dei nomi di hub eventi:
 
-Il [proprietario dei dati di hub eventi (anteprima)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) ruolo consente l'accesso a uno spazio dei nomi di hub eventi e le sue entità (code, argomenti, sottoscrizioni e i filtri)
+Il [proprietario dei dati di hub eventi Azure (anteprima)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) ruolo consente l'accesso a uno spazio dei nomi di hub eventi e le sue entità (code, argomenti, sottoscrizioni e i filtri)
 
 >[!IMPORTANT]
-> È supportato in precedenza aggiungendo identità gestita per il **proprietario** oppure **collaboratore** ruolo. Accesso ai dati, tuttavia, i privilegi per **Owner** e **collaboratore** ruolo non vengono rispettate. Se si usa la **proprietario** o **collaboratore** ruolo, passare all'uso di **proprietario dei dati di hub eventi** ruolo.
+> È supportato in precedenza aggiungendo identità gestita per il **proprietario** oppure **collaboratore** ruolo. Accesso ai dati, tuttavia, i privilegi per **Owner** e **collaboratore** ruolo non vengono rispettate. Se si usa la **proprietario** o **collaboratore** ruolo, passare all'uso di **proprietario dei dati di hub eventi Azure (anteprima)** ruolo.
 
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Usare Hub eventi con un account utente di dominio di Azure AD

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: kumud
-ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0820285555110e8e85bff814f4774d6da6443f69
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734457"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491976"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e zone di disponibilità
 
@@ -186,7 +186,7 @@ Load Balancer è intenzionalmente flessibile nel contesto delle zone di disponib
 
 Con Load Balancer è più semplice avere un singolo IP come front-end con ridondanza della zona. Un indirizzo IP con ridondanza della zona può rendere disponibile in modo sicuro una risorsa di zona in qualsiasi zona e può non risentire di uno o più errori a livello di zona fintanto che una zona rimane integra all'interno dell'area. Al contrario, un front-end di zona è una riduzione del servizio a una singola zona e la sua durata è legata alla rispettiva zona.
 
-La ridondanza della zona non implica un percorso dati privo di passaggi o un piano di controllo; si tratta espressamente di un piano dati. I flussi con ridondanza della zona possono usare qualsiasi zona e i flussi di un cliente useranno tutte le zone integre in un'area. In caso di errore di una zona, i flussi di traffico che usano le zone integre in quel dato momento non sono interessati.  I flussi di traffico che usano una zona nel momento in cui si verifica un errore della zona possono risultare interessati, ma le applicazioni possono essere ripristinate e questi flussi possono continuare nelle zone integre rimanenti all'interno dell'area in seguito alla ritrasmissione o al ripristino dopo che Azure ha eseguito la convergenza sull'errore della zona.
+La ridondanza della zona non implica un percorso dati privo di passaggi o un piano di controllo; si tratta espressamente di un piano dati. I flussi con ridondanza della zona possono usare qualsiasi zona e i flussi di un cliente useranno tutte le zone integre in un'area. In caso di errore di una zona, i flussi di traffico che usano le zone integre in quel dato momento non sono interessati.  I flussi di traffico usano una zona al momento dell'errore della zona potrebbero risultare peggiorati ma supportano il ripristino. Questi flussi possono continuare nelle zone integre rimanenti all'interno dell'area seguito alla ritrasmissione o ridefinizione, dopo che ha eseguito la convergenza di Azure per l'errore della zona.
 
 ### <a name="xzonedesign"></a> Limiti tra zone
 

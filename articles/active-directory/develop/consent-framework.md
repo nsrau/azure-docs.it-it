@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edbf5548f5e230986f0a1786d67fb4580e574e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b9d272c8a01eeed58278a6e7f0cec147b01a10e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235460"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482929"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Framework di consenso di Azure Active Directory
 
@@ -50,7 +50,7 @@ I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per 
 
 1. Dopo che l'utente ha effettuato l'accesso, Azure AD determinerà se l'utente deve essere reindirizzato a una pagina di consenso. Questa decisione dipende dal fatto che l'utente o l'amministratore dell'organizzazione abbia o meno già concesso il consenso dell'applicazione. Se il consenso non è già stato concesso, Azure AD lo richiede all'utente e visualizza le autorizzazioni necessarie per il funzionamento. Il set di autorizzazioni visualizzate nella finestra di dialogo di consenso corrisponde a quelle selezionate in **Autorizzazioni delegate** nel portale di Azure.
 
-    ![Esperienza di autorizzazione utente](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Viene illustrato un esempio di autorizzazioni visualizzato nella finestra di dialogo di consenso](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. Dopo che l'utente ha concesso il consenso, all'applicazione viene restituito un codice di autorizzazione, che viene riscattato per acquisire un token di accesso e di aggiornamento. Per altre informazioni su questo flusso, vedere [Tipo di app API Web](web-api.md).
 

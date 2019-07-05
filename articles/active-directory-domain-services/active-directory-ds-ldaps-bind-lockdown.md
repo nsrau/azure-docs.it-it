@@ -3,7 +3,7 @@ title: Eseguire il binding a un dominio gestito di Azure Active Directory Domain
 description: Eseguire il binding a un dominio gestito di Azure Active Directory Domain Services tramite l'accesso LDAP sicuro (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/28/2019
+ms.author: iainfou
+ms.openlocfilehash: df0b3d27eec478280a33be831a2431eccdf05a74
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234862"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483375"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Eseguire il binding a un dominio gestito di Azure Active Directory Domain Services tramite l'accesso LDAP sicuro (LDAPS)
 
@@ -35,6 +35,11 @@ Innanzitutto, aprire LDP e connettersi al dominio gestito. Fare clic su **Connes
 
 Eseguire quindi il binding al dominio gestito. Fare clic su **Connessione**, quindi fare clic su **Associazione...** nel menu. Fornire le credenziali di un account utente appartenente al gruppo "AAD DC Administrators".
 
+> [!IMPORTANT]
+> Gli utenti (e gli account del servizio) non possono eseguire binding LDAP semplice se è stata disabilitata sincronizzazione dell'hash delle password NTLM nell'istanza di Azure AD Domain Services.  Per altre informazioni sulla disabilitazione della sincronizzazione dell'hash delle password NTLM, leggere [proteggere il dominio gestito di Azure AD DOmain Services](secure-your-domain.md).
+>
+>
+
 Selezionare **Visualizza**, quindi selezionare **Albero** nel menu. Lasciare vuoto il campo Nome distinto di base e fare clic su OK. Passare al contenitore in cui si desidera eseguire la ricerca, fare clic su di esso con il pulsante destro, quindi selezionare Cerca.
 
 > [!TIP]
@@ -43,7 +48,7 @@ Selezionare **Visualizza**, quindi selezionare **Albero** nel menu. Lasciare vuo
 >
 >
 
-Altre informazioni - [Nozioni di base sulle query LDAP](https://technet.microsoft.com/library/aa996205.aspx)
+Altre informazioni - [Nozioni di base sulle query LDAP](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
 
 
 ## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Attività 6: Bloccare l'accesso LDAP sicuro al dominio gestito su Internet
@@ -66,7 +71,7 @@ Il gruppo di sicurezza di rete di esempio, nella tabella seguente, blocca l'acce
 ## <a name="related-content"></a>Contenuti correlati
 * [Servizi di dominio Azure AD: introduzione](create-instance.md)
 * [Gestire un dominio di Azure AD Domain Services](manage-domain.md)
-* [Nozioni di base sulle query LDAP](https://technet.microsoft.com/library/aa996205.aspx)
+* [Nozioni di base sulle query LDAP](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
 * [Gestire i criteri di gruppo per Azure Active Directory Domain Services](manage-group-policy.md)
 * [Gruppi di sicurezza di rete](../virtual-network/security-overview.md)
 * [Creare un gruppo di sicurezza di rete](../virtual-network/tutorial-filter-network-traffic.md)

@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5955b21ae405f15960974fcbc81b8383f3322509
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60308729"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485710"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Ridimensionare le partizioni e repliche di query e indicizzazione dei carichi di lavoro in ricerca di Azure
 Dopo aver [scelto un piano tariffario](search-sku-tier.md) ed [eseguito il provisioning di un servizio di ricerca](search-create-service-portal.md), il passaggio successivo consente di aumentare il numero di repliche o partizioni usate dal servizio. Ogni livello offre un numero fisso di unità di fatturazione. Questo articolo illustra come assegnare le unità per ottenere una configurazione ottimale che bilanci i requisiti per l'esecuzione di query, indicizzazione e archiviazione.
@@ -47,6 +47,7 @@ Per aumentare o modificare l'allocazione delle repliche e delle partizioni, è c
 In generale le applicazioni di ricerca richiedono più repliche che partizioni, in particolare quando fra le operazioni del servizio prevalgono i carichi di lavoro di query. La sezione relativa alla [disponibilità elevata](#HA) spiega perché.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e selezionare il servizio di ricerca.
+
 2. Nella **le impostazioni**, aprire il **scalabilità** pagina per modificare le repliche e partizioni. 
 
    Lo screenshot seguente illustra un servizio standard con provisioning di una replica e partizione. La formula nella parte inferiore indica il numero di unità di ricerca vengono usate (1). Se il prezzo unitario era 100 dollari (non un prezzo reale), il costo mensile dell'esecuzione di questo servizio sarebbe medio 100 dollari.
@@ -108,6 +109,7 @@ Poiché è facile e relativamente veloce eseguire la scalabilità verticale, è 
 Le indicazioni generali per la disponibilità elevata sono:
 
 * Due repliche per la disponibilità elevata di carichi di lavoro di sola lettura, vale a dire query.
+
 * Tre o più repliche per la disponibilità elevata dei carichi di lavoro di lettura e scrittura, vale a dire query e indicizzazione man mano che singoli documenti vengono aggiunti, aggiornati o eliminati.
 
 I contratti di servizio per Ricerca di Azure sono associati a operazioni di query e aggiornamenti di indici che consistono nell'aggiunta, l'aggiornamento o l'eliminazione di documenti.

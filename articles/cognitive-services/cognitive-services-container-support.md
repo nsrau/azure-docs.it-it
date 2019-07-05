@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 8ebc3d9f3339e2f703a1f374363b72b86f63d903
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 263a67f885615941624befcb52c408158e680062
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204031"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566102"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Supporto dei contenitori in Servizi cognitivi di Azure
 
@@ -107,7 +107,7 @@ Singoli contenitori possono prevedere anche requisiti specifici, tra cui quelli 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri [recipe contenitore](/containers/container-reuse-recipe.md) è possibile usare con i servizi cognitivi.
+Scopri [recipe contenitore](/azure/cognitive-services/containers/container-reuse-recipe) è possibile usare con i servizi cognitivi.
 
 Installare ed esplorare le funzionalità fornite dai contenitori in Servizi cognitivi di Azure:
 

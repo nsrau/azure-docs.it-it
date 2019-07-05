@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/29/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: c402b82b91b02f8d9619c851d09c689fd103c9fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b8c2b50e00c8e9727b09a454504d214a3060fe4
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116443"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502700"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentazione di riferimento di Swagger per Gemelli digitali di Azure
 
@@ -92,45 +92,37 @@ Gli esempi includono anche i codici di errore per facilitare il debug o migliora
 
 ## <a name="swagger-oauth-20-authorization"></a>Autorizzazione OAuth 2.0 di Swagger
 
-Per altre informazioni sul test interattivo delle richieste protette tramite OAuth 2.0, vedere la [documentazione ufficiale](https://swagger.io/docs/specification/authentication/oauth2/).
-
 > [!NOTE]
-> L'entità utente che ha creato la risorsa di Azure digitale gemelli disporrà di un'assegnazione di ruolo di amministratore di spazio e sarà possibile creare assegnazioni di ruolo aggiuntive per gli altri utenti.
+> * L'entità utente che ha creato la risorsa di Azure digitale gemelli disporrà di un'assegnazione di ruolo di amministratore di spazio e sarà possibile creare assegnazioni di ruolo aggiuntive per gli altri utenti. Tali utenti e i relativi ruoli possono essere autorizzati a chiamare le API.
 
-1. Seguire i passaggi descritti in [questa Guida introduttiva](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) per creare un'applicazione di Azure AD di tipo ***app Web / API***. Oppure è possibile riutilizzare una registrazione di app esistente.
+1. Seguire i passaggi descritti in [questa Guida introduttiva](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) oppure [Zaregistrovat aplikaci Azure digitale gemelli legacy di Azure Active Directory](./how-to-use-legacy-aad.md) per creare e configurare un'applicazione Azure AD. In alternativa, è possibile riutilizzare una registrazione di app esistente.
 
-2. Aggiungere il seguente url di risposta per la registrazione dell'app:
+1. Aggiungere il seguente url di risposta per la registrazione dell'app:
 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | Name  | Sostituire con | Esempio |
+    | NOME  | Sostituire con | Esempio |
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | L'URL della documentazione API REST di gestione disponibili nel portale di  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
-3. Concedere le autorizzazioni per l'app accedere ai dispositivi gemelli digitale di Azure. In **Autorizzazioni necessarie** immettere `Azure Digital Twins` e selezionare **Autorizzazioni delegate**. Selezionare quindi **Grant Permissions** (Concedi autorizzazioni).
-
-    ![API di aggiunta in registrazioni di app di Azure AD](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
-
-4. Configurare il manifesto dell'applicazione per Consenti flusso implicito OAuth 2.0. Selezionare **manifesto** per aprire il manifesto dell'applicazione per l'app. Impostare *oauth2AllowImplicitFlow* su `true`.
-
-    ![Flusso implicito di Azure AD](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
-
-5. Copiare l'ID dell'app Azure AD.
+1. Copiare l'ID dell'app Azure AD.
 
 Dopo aver completato la registrazione di Azure Active Directory:
 
-6. Selezionare il **Authorize** su pulsante della pagina di swagger.
+1. Selezionare il **Authorize** su pulsante della pagina di swagger.
 
     [![Selezionare il file Swagger pulsante Autorizza](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-7. Incollare l'ID applicazione nella **client_id** campo.
+1. Incollare l'ID applicazione nella **client_id** campo.
 
     [![Campo client_id swagger](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-8. Si verrà quindi reindirizzati al successo seguente modale.
+1. Si verrà quindi reindirizzati al successo seguente modale.
 
-    [![Finestra modale di reindirizzamento di swagger](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
+    [![Finestra modale di reindirizzamento di swagger](media/how-to-use-swagger/swagger_auth_redirect.png)](media/how-to-use-swagger/swagger_auth_redirect.png#lightbox)
+
+Per altre informazioni sul test interattivo delle richieste protette tramite OAuth 2.0, vedere la [documentazione ufficiale](https://swagger.io/docs/specification/authentication/oauth2/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

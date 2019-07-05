@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e95569ba3fe65ea5bce7d6a95a24324235e9a7f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584871"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447746"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Scegliere l'opzione SQL Server più adatta in Azure
 
@@ -167,3 +167,4 @@ L'**istanza gestita di database SQL** semplifica notevolmente la migrazione dell
 - Per un'introduzione asi database SQL, vedere [Il primo database SQL di Azure](sql-database-single-database-get-started.md).
 - Vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 - Per un'introduzione a SQL Server nelle macchine virtuali di Azure, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) .
+- [Identificare lo a destra SKU istanza gestita/Database di SQL Azure per il database locale](/sql/dma/dma-sku-recommend-sql-db/).

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 06/28/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa820d6c140251fce6b09110e65b45005b53afcc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7b3e02222580da67a4eeb4159e4fc5dc3b9a98f
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289621"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501683"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Attiva il mio ruolo di Azure AD in PIM
 
@@ -41,25 +41,25 @@ Quando è necessario usare un ruolo di Azure AD, è possibile richiedere l'attiv
 
 1. Fare clic su **ruoli personali** per visualizzare un elenco di idonei per i ruoli di Azure AD.
 
-    ![Ruoli di Azure AD - ruoli personali](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Ruoli di Azure AD - ruoli personali con elenco di ruoli idoneo o attivo](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. Individuare un ruolo che si desidera attivare.
 
-    ![Ruoli di Azure AD - mio elenco di ruoli](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Ruoli di Azure AD - il collegamento attiva che Mostra elenco di ruoli idonei](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
 1. Fare clic su **Attiva** per aprire il riquadro dei dettagli di attivazione del ruolo.
 
 1. Se il ruolo richiede l'autenticazione a più fattori (MFA), fare clic su **Verificare la propria identità prima di procedere**. È sufficiente eseguire l'autenticazione una volta per sessione.
 
-    ![Verifica con MFA prima dell'attivazione del ruolo](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
+    ![Verificare il riquadro di identità con MFA prima dell'attivazione del ruolo](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
 
 1. Fare clic su **Verifica la mia identità** e seguire le istruzioni per fornire la verifica aggiuntiva di sicurezza.
 
-    ![Verifica aggiuntiva di sicurezza](./media/pim-how-to-activate-role/additional-security-verification.png)
+    ![Pagina verifica aggiuntiva di sicurezza che chiede come contattarti](./media/pim-how-to-activate-role/additional-security-verification.png)
 
 1. Fare clic su **Attiva** per aprire il riquadro di attivazione.
 
-    ![Riquadro di attivazione](./media/pim-how-to-activate-role/directory-roles-activate.png)
+    ![Riquadro di attivazione per specificare l'ora di inizio, durata, ticket e motivo](./media/pim-how-to-activate-role/directory-roles-activate.png)
 
 1. Se necessario, specificare un'ora di inizio di attivazione personalizzata.
 
@@ -67,19 +67,19 @@ Quando è necessario usare un ruolo di Azure AD, è possibile richiedere l'attiv
 
 1. Nella casella **Motivo dell'attivazione**, immettere il motivo della richiesta di attivazione. Alcuni ruoli richiedono di specificare un numero di ticket.
 
-    ![Riquadro di attivazione completato](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
+    ![Riquadro Attivazione completata con un'ora di avvio personalizzate, durata, ticket e motivo](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
 
 1. Fare clic su **Attiva**.
 
     Se il ruolo non richiede l'approvazione, un' **lo stato di attivazione** viene visualizzato il riquadro che visualizza lo stato di attivazione.
 
-    ![Stato di attivazione](./media/pim-how-to-activate-role/activation-status.png)
+    ![Pagina di stato di attivazione che mostra le tre fasi di attivazione](./media/pim-how-to-activate-role/activation-status.png)
 
     Dopo aver complete tutte le fasi, scegliere il **disconnettersi** collegamento disconnettersi dal portale di Azure. Quando si accede nuovamente al portale, è ora possibile usare il ruolo.
 
     Se il [ruolo richiede l'approvazione](./azure-ad-pim-approval-workflow.md) per l'attivazione, nell'angolo superiore destro del browser verrà visualizzata una notifica che informa che la richiesta è in attesa di approvazione.
 
-    ![Notifica di richiesta in attesa](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
+    ![Richiesta di attivazione è la notifica di approvazione in sospeso](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
 
 ## <a name="view-the-status-of-your-requests"></a>Visualizzare lo stato della richiesta da attivare
 
@@ -91,7 +91,7 @@ Quando è necessario usare un ruolo di Azure AD, è possibile richiedere l'attiv
 
 1. Fare clic su **Richieste personali** per visualizzare un elenco delle richieste.
 
-    ![Ruoli di Azure AD - richieste personali](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Ruoli di Azure AD - mio elenco richieste](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## <a name="deactivate-a-role"></a>Disattivare un ruolo
 
@@ -123,15 +123,19 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
 
     Quando si sceglie Annulla, la richiesta verrà annullata. Per attivare nuovamente il ruolo, è necessario inviare una nuova richiesta per l'attivazione.
 
-   ![Annullare una richiesta in sospeso](./media/pim-how-to-activate-role/directory-role-cancel.png)
+   ![L'elenco delle richieste con il pulsante Annulla evidenziato](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-### <a name="permissions-not-granted-after-activating-a-role"></a>Autorizzazioni non concesse dopo l'attivazione di un ruolo
+### <a name="permissions-are-not-granted-after-activating-a-role"></a>Non sono concesse autorizzazioni dopo aver attivato un ruolo
 
-Quando si attiva un ruolo in PIM, sono necessari almeno 10 minuti prima di poter accedere al portale di amministrazione desiderato o eseguire funzioni all'interno di un carico di lavoro amministrativo specifico. Una volta completata l'attivazione, disconnettersi dal portale Azure e accedere nuovamente per iniziare a usare il ruolo appena attivato.
+Quando si attiva un ruolo in PIM, l'attivazione non vengono immediatamente propagate a tutti i portali che richiedono il ruolo con privilegi. In alcuni casi, anche se la modifica viene propagata, memorizzazione nella cache web in un portale può comportare la modifica non hanno effetto immediatamente. Se l'attivazione è stata ritardata, ecco le operazioni da eseguire.
 
-Per altri passaggi per la risoluzione dei problemi, vedere [Troubleshooting Elevated Permissions](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx) (Risoluzione dei problemi relativi alle autorizzazioni elevate).
+1. Disconnettersi dal portale Azure e quindi eseguire nuovamente l'accesso.
+
+    Quando si attiva un ruolo di Azure AD, si noterà le fasi dell'attivazione. Dopo aver complete tutte le fasi, si noterà una **disconnettersi** collegamento. È possibile utilizzare questo collegamento per la disconnessione. Questa operazione risolverà la maggior parte dei casi per il ritardo di attivazione.
+
+1. In PIM, verificare che si sia elencati come membro del ruolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

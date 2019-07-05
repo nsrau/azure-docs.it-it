@@ -8,18 +8,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
-ms.openlocfilehash: 7457c06f9f151cb310704a985c79572c7b770859
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e9cb9a902cf60fbd3b297a72a7dfa836ee18c835
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166220"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484594"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Creare e configurare i cluster Enterprise Security Package in Azure HDInsight
 
 Enterprise Security Package per HDInsight di Azure consente di accedere per l'autenticazione basata su Active Directory, supporto multiutente e controllo degli accessi in base al ruolo per i cluster Apache Hadoop in Azure. I cluster HDInsight ESP consentono alle organizzazioni, che rispettano i criteri di sicurezza aziendali rigidi, per elaborare in modo sicuro dati sensibili.
 
-L'obiettivo di questa guida è configurato correttamente le risorse necessarie in modo che in locale gli utenti possono accedere a una ESP abilitato cluster HDInsight. Questo articolo descrive i passaggi necessari per creare un Cluster HDInsight di Azure Enterprise Security Package abilitata. La procedura illustra la creazione di una macchina virtuale IaaS di Windows con Active Directory e i servizi DNS (Domain Name) abilitato. Questo server deve agire come una sostituzione per il **effettivi** nell'ambiente locale e ti permetterà di continuare la procedura di installazione e configurazione in modo che è possibile ripetere questa operazione in un secondo momento nel proprio ambiente. Questa Guida aiuterà anche a creare un ambiente di identità ibrida con sincronizzazione degli hash delle password con Azure Active Directory.
+L'obiettivo di questa guida è configurare correttamente le risorse necessarie in modo che gli utenti in locale possono accedere a una ESP abilitato cluster HDInsight. Questo articolo descrive i passaggi necessari per creare un Cluster HDInsight di Azure Enterprise Security Package abilitata. La procedura illustra la creazione di una macchina virtuale IaaS di Windows con Active Directory e i servizi DNS (Domain Name) abilitato. Questo server deve agire come una sostituzione per il **effettivi** nell'ambiente locale e ti permetterà di continuare la procedura di installazione e configurazione in modo che è possibile ripetere questa operazione in un secondo momento nel proprio ambiente. Questa Guida aiuterà anche a creare un ambiente di identità ibrida con sincronizzazione degli hash delle password con Azure Active Directory.
 
 Questa guida è progettata per integrare [usare Enterprise Security Package in HDInsight](apache-domain-joined-architecture.md)
 
@@ -208,7 +208,7 @@ Per altre informazioni vedere [Abilitare Azure Active Directory Domain Services 
 1. Accedere al portale di Azure.
 1. Fare clic su **Crea risorsa**, immettere **servizi di dominio** e selezionare **Azure AD Domain Services**.
 1. Nel **nozioni di base** schermata completare i passaggi seguenti:
-    1. Sotto **nome della Directory** selezionare Azure Active Directory creata per questa esercitazione **HDIFabrikam**.
+    1. Sotto **nome della Directory** selezionare Azure Active Directory creato in questo articolo **HDIFabrikam**.
     1. Immettere un **nome di dominio DNS** dei **HDIFabrikam.com**.
     1. Selezionare la propria sottoscrizione.
     1. Specificare il gruppo di risorse **HDIFabrikam-CentralUS** e il **posizione** dei **Stati Uniti centrali**.
@@ -219,7 +219,7 @@ Per altre informazioni vedere [Abilitare Azure Active Directory Domain Services 
 
     ![Selezionare rete](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
 
-1. Nel **gruppo di amministratori** dello schermo, viene visualizzata una notifica che un gruppo denominato **AAD DC Administrators** è già stato creato per amministrare questo gruppo. È possibile modificare l'appartenenza di questo gruppo, ma non obbligatorio per i passaggi di questa esercitazione. Fare clic su **OK**.
+1. Nel **gruppo di amministratori** dello schermo, viene visualizzata una notifica che un gruppo denominato **AAD DC Administrators** è già stato creato per amministrare questo gruppo. È possibile modificare l'appartenenza di questo gruppo, ma non obbligatorio per i passaggi di questo articolo. Fare clic su **OK**.
 
     ![gruppo di amministratori di visualizzazione](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
 
@@ -311,7 +311,7 @@ Verificare che il certificato sia installato nel computer\'archivio personale s.
         | Protocol | Qualsiasi |
         | Azione | CONSENTI |
         | Priorità | <Desired Number> |
-        | Name | Port_LDAP_636 |
+        | NOME | Port_LDAP_636 |
 
     ![regola di sicurezza in ingresso](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 

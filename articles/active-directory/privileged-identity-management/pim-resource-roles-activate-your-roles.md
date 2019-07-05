@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 06/28/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e8615cc5534255308c35fa1f675ef3a85aa84e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bdce060006f65f2b0fb08023066ee504578bc552
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60438454"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501655"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Attivare i ruoli di risorse di Azure in PIM
 
@@ -38,37 +38,37 @@ Quando è necessario usare un ruolo delle risorse di Azure è possibile richiede
 
 1. Fare clic su **Ruoli personali**.
 
-    ![Ruoli di Azure AD e i ruoli delle risorse di Azure - ruoli personali](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+    ![La pagina dei ruoli che mostra i ruoli è possibile attivare](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. Fare clic su **ruoli delle risorse di Azure** per visualizzare un elenco dei ruoli idonei risorse di Azure.
 
-   ![Ruoli delle risorse di Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
+   ![Ruoli personali - pagina ruoli di risorse di Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
 
 1. Nell'elenco dei **ruoli delle risorse di Azure** trovare il ruolo da attivare.
 
-    ![Ruoli delle risorse di Azure - Elenco dei ruoli personali](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
+    ![Ruoli delle risorse di Azure - mio elenco di ruoli idonei](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
 1. Fare clic su **Attiva** per aprire il riquadro di attivazione.
 
 1. Se il ruolo richiede l'autenticazione a più fattori (MFA), fare clic su **Verificare la propria identità prima di procedere**. È sufficiente eseguire l'autenticazione una volta per sessione.
 
-    ![Verifica con MFA prima dell'attivazione del ruolo](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
+    ![Verificare la mia identità con MFA prima dell'attivazione del ruolo](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
 
 1. Fare clic su **Verifica la mia identità** e seguire le istruzioni per fornire la verifica aggiuntiva di sicurezza.
 
-    ![Verifica aggiuntiva di sicurezza](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
+    ![Schermata per fornire la verifica di sicurezza, ad esempio un codice PIN](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
 1. Se si vuole specificare un ambito ridotto, fare clic su **Ambito** per aprire il riquadro Filtro della risorsa.
 
     È consigliabile richiedere solo l'accesso alle risorse necessarie. Nel riquadro Filtro della risorsa, è possibile specificare i gruppi di risorse o le risorse a cui è necessario accedere.
 
-    ![Attivazione - Filtro della risorsa](./media/pim-resource-roles-activate-your-roles/resources-my-roles-resource-filter.png)
+    ![Attivare - riquadro filtro risorse per specificare l'ambito](./media/pim-resource-roles-activate-your-roles/resources-my-roles-resource-filter.png)
 
 1. Se necessario, specificare un'ora di inizio di attivazione personalizzata. Il membro verrà attivato dopo l'ora selezionata.
 
 1. Nella casella **Motivo** immettere il motivo della richiesta di attivazione.
 
-    ![Riquadro Completed Activate (Attivazione completata)](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
+    ![Riquadro "Attiva completate" con ambito, ora di inizio, durata e motivo](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
 
 1. Fare clic su **Attiva**.
 
@@ -76,7 +76,7 @@ Quando è necessario usare un ruolo delle risorse di Azure è possibile richiede
 
     Se il [ruolo richiede l'approvazione](pim-resource-roles-approval-workflow.md) per l'attivazione, nell'angolo superiore destro del browser verrà visualizzata una notifica che informa che la richiesta è in attesa di approvazione.
 
-    ![Notifica di richiesta in attesa](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+    ![Richiesta di attivazione è la notifica di approvazione in sospeso](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
 ## <a name="use-a-role-immediately-after-activation"></a>Usare un ruolo immediatamente dopo l'attivazione
 
@@ -102,7 +102,7 @@ In caso di qualsiasi ritardo dopo l'attivazione, seguire questi passaggi dopo av
 
 1. Fare clic su **richieste personali** per visualizzare un elenco dei ruoli delle risorse di Azure e ruolo di Azure AD le richieste.
 
-    ![Ruoli di Azure AD e i ruoli delle risorse di Azure - richieste personali](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+    ![Richieste personali - pagina delle risorse di Azure che mostra le richieste in sospeso](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Scorrere verso destra per visualizzare la colonna **Stato richiesta**.
 
@@ -118,22 +118,19 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
 
     Quando si sceglie Annulla, la richiesta verrà annullata. Per attivare nuovamente il ruolo, è necessario inviare una nuova richiesta per l'attivazione.
 
-   ![Annullare una richiesta in sospeso](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+   ![L'elenco di richieste con azione di annullamento evidenziato](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-### <a name="permissions-not-granted-after-activating-a-role"></a>Autorizzazioni non concesse dopo l'attivazione di un ruolo
+### <a name="permissions-are-not-granted-after-activating-a-role"></a>Non sono concesse autorizzazioni dopo aver attivato un ruolo
 
-Quando si attiva un ruolo in PIM, sono necessari almeno 10 minuti prima di poter accedere al portale di amministrazione desiderato o eseguire funzioni all'interno di un carico di lavoro amministrativo specifico. Una volta completata l'attivazione, disconnettersi dal portale Azure e accedere nuovamente per iniziare a usare il ruolo appena attivato.
+Quando si attiva un ruolo in PIM, l'attivazione non vengono immediatamente propagate a tutti i portali che richiedono il ruolo con privilegi. In alcuni casi, anche se la modifica viene propagata, memorizzazione nella cache web in un portale può comportare la modifica non hanno effetto immediatamente. Se l'attivazione è stata ritardata, ecco le operazioni da eseguire.
 
-Per altri passaggi per la risoluzione dei problemi, vedere [Troubleshooting Elevated Permissions](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx) (Risoluzione dei problemi relativi alle autorizzazioni elevate).
+1. Disconnettersi dal portale Azure e quindi eseguire nuovamente l'accesso.
 
-### <a name="cannot-activate-a-role-due-to-a-resource-lock"></a>Impossibile attivare un ruolo a causa di un blocco delle risorse
+    Quando si attiva un ruolo di risorse di Azure, si noterà le fasi dell'attivazione. Dopo aver complete tutte le fasi, si noterà una **disconnettersi** collegamento. È possibile utilizzare questo collegamento per la disconnessione. Questa operazione risolverà la maggior parte dei casi per il ritardo di attivazione.
 
-Se si riceve un messaggio che indica che una risorsa di Azure è bloccata quando si prova ad attivare un ruolo, è possibile che una risorsa inclusa nell'ambito di un'assegnazione di ruolo abbia un blocco. I blocchi proteggono le risorse dall'eliminazione accidentale o da modifiche impreviste. Un blocco impedisce inoltre a PIM di rimuovere un'assegnazione di ruolo nella risorsa alla fine del periodo di attivazione. Poiché PIM non può funzionare correttamente quando c'è un blocco applicato, viene impedito agli utenti di attivare ruoli nella risorsa. Ci sono due modi per risolvere questo problema:
-
-- Eliminare il blocco come descritto in [Bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/resource-group-lock-resources.md).
-- Se si vuole mantenere il blocco, rendere permanente l'assegnazione di ruolo o usare un account di emergenza.
+1. In PIM, verificare che si sia elencati come membro del ruolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

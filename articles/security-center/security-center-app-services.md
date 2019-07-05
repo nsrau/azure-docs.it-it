@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b18267b1443b257a575bf2e1199b9f8fa8c419fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a6b5b6e247bd7c105286b86257a6ae11c1d1c60
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966834"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551868"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Proteggere il servizio app con il Centro sicurezza di Azure
 Questo articolo illustra come usare il Centro sicurezza di Azure per monitorare e proteggere le applicazioni in esecuzione sul servizio app.
@@ -47,9 +47,8 @@ Il Centro sicurezza è integrato in modo nativo con il servizio app, eliminando 
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>Abilitazione del monitoraggio e della protezione del servizio app
 
 1. In Azure scegliere Centro sicurezza.
-2. Passare a **Criteri di sicurezza** e scegliere una sottoscrizione.
-3. Alla fine della riga della sottoscrizione fare clic su **Modifica impostazioni**.
-4. In **Piano tariffario**, nella riga **Servizio app** attivare/disattivare il piano su **Abilitato**.
+2. Passare a **Pricing Impo & stazioni** e scegliere una sottoscrizione.
+3. In **Piano tariffario**, nella riga **Servizio app** attivare/disattivare il piano su **Abilitato**.
 
 ![attivazione/disattivazione del servizio app](./media/security-center-app-services/app-services-toggle.png)
 

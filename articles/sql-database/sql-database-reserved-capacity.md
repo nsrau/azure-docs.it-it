@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 74a52df4eab8a3e471e541889cde74846af00fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/01/2019
+ms.openlocfilehash: 8c4fd3d49b4df3b3d18802e49d51aa54c0b58333
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574198"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566174"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pagare in anticipo risorse di calcolo del database SQL con capacità di riserva del database SQL di Azure
 
@@ -28,7 +28,7 @@ Non è necessario assegnare la prenotazione a istanze del database SQL specifich
 
 È possibile acquistare capacità di riserva del database SQL di Azure nel [portale di Azure](https://portal.azure.com). Per acquistare capacità di riserva del database SQL:
 
-- È necessario avere il ruolo di proprietario per almeno una sottoscrizione Enterprise o con pagamento in base al consumo.
+- È necessario essere il ruolo di proprietario per almeno un Enterprise o singola sottoscrizione con tariffe a consumo.
 - Per le sottoscrizioni Enterprise, **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com). In alternativa, se tale impostazione è disabilitata, è necessario essere un amministratore della sottoscrizione con contratto Enterprise.
 - Per il programma Cloud Solution Provider (CSP), solo gli agenti di amministrazione o di vendita possono acquistare capacità di riserva del database SQL.
 
@@ -44,26 +44,25 @@ Si supponga, ad esempio, che siano in esecuzione un pool elastico di quinta gene
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** > **Prenotazioni**.
-3. Per acquistare una nuova prenotazione per il database SQL, selezionare **Aggiungi** e quindi nel riquadro Selezionare il tipo di prodotto selezionare **Database SQL**.
-4. Compilare i campi obbligatori. Possono usufruire dello sconto per la capacità di riserva i database singoli, le istanze gestite o i pool elastici nuovi o esistenti che soddisfano gli attributi selezionati. Il numero di istanze di database SQL a cui viene applicato lo sconto dipende dall'ambito e dalla quantità selezionati.
+3. Selezionare **Add** e quindi nel riquadro di prenotazioni di acquisto, selezionare **Database SQL** per acquistare una nuova prenotazione per il Database SQL.
+4. Digitare i campi obbligatori. Possono usufruire dello sconto per la capacità di riserva i database singoli, le istanze gestite o i pool elastici nuovi o esistenti che soddisfano gli attributi selezionati. Il numero di istanze di database SQL a cui viene applicato lo sconto dipende dall'ambito e dalla quantità selezionati.
+    ![Schermata prima di inviare il Database SQL riservati acquisto della capacità](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
 
-   ![Screenshot subito prima dell'acquisto della capacità di riserva del database SQL](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
+Nella tabella seguente vengono descritti i campi obbligatori.
 
-    | Campo      | Descrizione|
-    |:------------|:--------------|
-    |Name        |Il nome della prenotazione.|
-    |Sottoscrizione|Sottoscrizione usata per pagare la prenotazione della capacità di riserva del database SQL. L'acquisto della prenotazione di capacità di riserva del database SQL viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un Contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (numeri offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.|
-    |`Scope`       |L'ambito della prenotazione di vCore può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: <br/><br/>**Sottoscrizione singola**: lo sconto per la prenotazione di vCore viene applicato alle istanze di database SQL in questa sottoscrizione. <br/><br/>**Sottoscrizione condivisa**: lo sconto sulla prenotazione di vCore viene applicato alle istanze di database SQL in esecuzione in tutte le sottoscrizioni nel contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.|
-    |Region      |Area di Azure coperta dalla prenotazione di capacità di riserva del database SQL.|
-    |Deployment Type|Tipo di risorsa di SQL per cui si vuole acquistare la prenotazione.|
-    |Livello di prestazioni|Livello di servizio per le istanze di database SQL.
-    |Nome        |Un anno o tre anni.|
-    |Quantità    |Numero di istanze in corso di acquisto all'interno della prenotazione di capacità di riserva del database SQL. La quantità è il numero di istanze di database SQL in esecuzione che possono ottenere lo sconto sulla fatturazione. Se ad esempio si eseguono 10 istanze di database SQL negli Stati Uniti orientali, si specificherà 10 come quantità per ottimizzare lo sconto per tutti i computer in esecuzione. |
-    |||
+| Campo      | Descrizione|
+|------------|--------------|
+|Sottoscrizione|Sottoscrizione usata per pagare la prenotazione della capacità di riserva del database SQL. L'acquisto della prenotazione di capacità di riserva del database SQL viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR - 0148p) o un singolo contratto con prezzi con pagamento a consumo (numeri dell'offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Un singolo abbonamento con prezzi con pagamento a consumo, il costo viene addebitato al metodo di pagamento della fattura o carta di credito alla sottoscrizione.|
+|`Scope`       |L'ambito della prenotazione di vCore può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: <br/><br/>**Condiviso**, i vCore lo sconto della prenotazione viene applicato a istanze del Database SQL in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.<br/><br/>**Singola sottoscrizione**, i vCore lo sconto della prenotazione viene applicato a istanze del Database SQL in questa sottoscrizione. <br/><br/>**Singolo gruppo di risorse**, lo sconto della prenotazione viene applicato a istanze del Database SQL nella sottoscrizione selezionata e il gruppo di risorse selezionato all'interno della sottoscrizione.|
+|Region      |Area di Azure coperta dalla prenotazione di capacità di riserva del database SQL.|
+|Deployment Type|Tipo di risorsa di SQL per cui si vuole acquistare la prenotazione.|
+|Livello di prestazioni|Livello di servizio per le istanze di database SQL.
+|Nome        |Un anno o tre anni.|
+|Quantità    |Numero di istanze in corso di acquisto all'interno della prenotazione di capacità di riserva del database SQL. La quantità è il numero di istanze di database SQL in esecuzione che possono ottenere lo sconto sulla fatturazione. Se ad esempio si eseguono 10 istanze di database SQL negli Stati Uniti orientali, si specificherà 10 come quantità per ottimizzare lo sconto per tutti i computer in esecuzione. |
 
-5. Rivedere il costo della prenotazione di capacità di riserva del database SQL nella sezione **Costi**.
-6. Selezionare **Acquisto**.
-7. Selezionare **Visualizza questa prenotazione** per vedere lo stato dell'acquisto.
+1. Rivedere il costo della prenotazione di capacità di riserva del database SQL nella sezione **Costi**.
+1. Selezionare **Acquisto**.
+1. Selezionare **Visualizza questa prenotazione** per vedere lo stato dell'acquisto.
 
 ## <a name="cancellations-and-exchanges"></a>Annullamenti e scambi
 
@@ -76,6 +75,10 @@ Per altre informazioni su come le prenotazioni di exchange o un rimborso, vedere
 ## <a name="vcore-size-flexibility"></a>Flessibilità delle dimensioni vCore
 
 La flessibilità delle dimensioni vCore consente di aumentare o ridurre la quantità di risorse all'interno di un livello di prestazioni e di un'area, senza perdere il vantaggio della capacità riservata. La capacità riservata del database SQL offre anche la possibilità di spostare temporaneamente i database ad accesso frequente tra pool e database singoli come parte delle normali operazioni (entro la stessa area e lo stesso livello di prestazioni) senza perdere il vantaggio della capacità riservata. Mantenendo un buffer di risorse non applicate nella prenotazione, è possibile gestire in modo efficace i picchi di prestazioni senza superare il budget.
+
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
+
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -91,7 +94,3 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](../billing/billing-understand-reserved-instance-usage.md)
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [Prenotazioni di Azure nel programma Cloud Solution Provider (CSP) del Centro per i partner](https://docs.microsoft.com/partner-center/azure-reservations)
-
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
-
-In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

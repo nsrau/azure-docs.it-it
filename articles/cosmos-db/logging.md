@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: b0a5c9fc5cac441a6680f9f72e3223ace95399f3
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 41fa5a859e738c2bb70e4885aa856f247e922492
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296556"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448988"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registrazione diagnostica in Azure Cosmos DB 
 
@@ -251,7 +251,7 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 ```
 
 ### <a id="access"></a>Accedere ai log
-I log di Azure Cosmos DB per la categoria **DataPlaneRequests** vengono archiviati nel contenitore **insights-logs-data-plane-requests** nell'account di archiviazione specificato. 
+I log di Azure Cosmos DB per il **DataPlaneRequests** categoria vengono archiviati nel **insights-log-dataplanerequests** contenitore nell'account di archiviazione fornito dall'utente. 
 
 Creare prima una variabile per il nome contenitore. Questa variabile verrà usata in tutta la procedura dettagliata.
 

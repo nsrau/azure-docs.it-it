@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 44de565b8c94369c5751938b5df939f0af6e7f36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c745fceca5efa66b1b23661001d93ddb287fe37b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068909"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460638"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Apache Hadoop in HDInsight tramite il portale di Azure
 
@@ -152,7 +152,7 @@ Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Po
 Questo processo può essere programmato in molti modi:
 
 * Usare Data factory di Azure. Per la creazione di servizi collegati di HDInsight, vedere [Creare cluster Apache Hadoop on demand basati su Linux in HDInsight con Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md).
-* Usare Azure PowerShell.  Vedere [Analizzare i dati relativi ai ritardi dei voli](hdinsight-analyze-flight-delay-data-linux.md).
+* Usare Azure PowerShell.  Vedere [Analizzare i dati relativi ai ritardi dei voli](./interactive-query/interactive-query-tutorial-analyze-flight-data.md).
 * Usare l'interfaccia della riga di comando di Azure. Visualizzare [gestire Azure HDInsight cluster usando Azure CLI](hdinsight-administer-use-command-line.md).
 * Usare HDInsight .NET SDK. Vedere [Inviare processi Apache Hadoop](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
@@ -214,7 +214,7 @@ La password viene modificata in tutti i nodi del cluster.
    | Campo | Value |
    | --- | --- |
    | Tipo di script | Selezionare **- Custom** dall'elenco a discesa.|
-   | Name |"Change ssh password" |
+   | NOME |"Change ssh password" |
    | URI script Bash |L'URI per il file changepassword.sh |
    | Tipi di nodo: (Head, Worker, Nimbus, Supervisor, Zookeeper e così via) |✓ per tutti i tipi di nodo elencati |
    | Parametri |Immettere il nome utente SSH e la nuova password. Deve essere presente uno spazio tra il nome utente e la password. |

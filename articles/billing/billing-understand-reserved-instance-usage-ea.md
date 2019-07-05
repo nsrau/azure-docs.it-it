@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/07/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37d43dbdd8de66a10a94827e313679dc6ffd220d
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66126852"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490394"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Ottenere informazioni sull'utilizzo e costi di prenotazione contratto Enterprise Agreement
 
@@ -40,7 +40,7 @@ I dati sono suddivisa in due set di dati separati: _Costo effettivo_ e _Amortize
 
 Confronto tra due set di dati:
 
-| Dati | Set di dati di costo effettivo | Set di dati di costo ammortizzato |
+| Data | Set di dati di costo effettivo | Set di dati di costo ammortizzato |
 | --- | --- | --- |
 | Acquisto di istanze riservate | Disponibili in questa vista.<br><br>  Per ottenere questo filtro dei dati su ChargeType = &quot;acquisto&quot;. <br><br> Fare riferimento a ReservationID o ReservationName sapere quali prenotazione l'addebito è relativo.  | Non applicabile a questa visualizzazione. <br><br> I costi di acquisto non sono incluse nei dati ammortizzati. |
 | EffectivePrice | Il valore è zero per l'utilizzo che consente di ottenere lo sconto della prenotazione. | Il valore è applicata la ripartizione proporzionale per ogni ora costo della prenotazione per l'utilizzo con lo sconto di prenotazione. |

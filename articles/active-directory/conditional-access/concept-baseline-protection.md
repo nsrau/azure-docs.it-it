@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39a591a335d022ef7b2b99fdec930ddf0496cd47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 970fdaba1870097e253b51c70e523e399bc88dfc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112579"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440788"
 ---
 # <a name="what-are-baseline-policies"></a>Quali sono i criteri di base?
 
@@ -30,18 +30,18 @@ La gestione di criteri di accesso condizionale personalizzati richiede una licen
 
 Esistono quattro criteri di base che le organizzazioni possono abilitare:
 
-* [Richiedere l'autenticazione MFA per gli amministratori](howto-baseline-protect-administrators.md)
+* [Richiedere l'autenticazione MFA per gli amministratori (anteprima)](howto-baseline-protect-administrators.md)
 * [Protezione dell'utente finale (anteprima)](howto-baseline-protect-end-users.md)
 * [Autenticazione legacy di blocco (anteprima)](howto-baseline-protect-legacy-auth.md)
 * [Richiedere l'autenticazione MFA per la gestione dei servizi (anteprima)](howto-baseline-protect-azure.md)
 
 Tutti e quattro di questi criteri interesserà i flussi di autenticazione legacy come POP, IMAP e client desktop di Office meno recenti.
 
-### <a name="require-mfa-for-admins"></a>Richiedere l'autenticazione a più fattori per gli amministratori
+### <a name="require-mfa-for-admins-preview"></a>Richiedere l'autenticazione MFA per gli amministratori (anteprima)
 
 A causa la potenza e l'accesso degli account amministratore, è necessario considerarle con particolare attenzione. Un metodo comune per migliorare la protezione degli account con privilegi consiste nel richiedere una forma più avanzata di verifica dell'account quando vengono usati per accedere. In Azure Active Directory, è possibile ottenere una maggiore verifica dell'account, richiedendo agli amministratori di richiedere e usare Azure multi-Factor Authentication.
 
-[Richiedere l'autenticazione MFA per gli amministratori](howto-baseline-protect-administrators.md) è un criterio di base che richiede l'autenticazione a più fattori (MFA) per i ruoli della directory seguenti, considerati i ruoli di Azure AD con più privilegi:
+[Richiedere l'autenticazione MFA per gli amministratori (anteprima)](howto-baseline-protect-administrators.md) è un criterio di base che richiede l'autenticazione a più fattori (MFA) per i ruoli della directory seguenti, considerati i ruoli di Azure AD con più privilegi:
 
 * Amministratore globale
 * Amministratore di SharePoint
@@ -52,7 +52,7 @@ A causa la potenza e l'accesso degli account amministratore, è necessario consi
 * Amministratore fatturazione
 * Amministratore utenti
 
-Se l'organizzazione dispone di questi account in uso nel codice o gli script, è consigliabile sostituirli con [gestito identità](../managed-identities-azure-resources/overview.md). Come soluzione alternativa temporanea, è possibile escludere account utente specifici dai criteri di base.
+Se l'organizzazione dispone di questi account in uso nel codice o gli script, è consigliabile sostituirli con [gestito identità](../managed-identities-azure-resources/overview.md).
 
 ### <a name="end-user-protection-preview"></a>Protezione dell'utente finale (anteprima)
 
@@ -96,7 +96,7 @@ Per altre informazioni, vedere:
 
 * [Cinque passaggi per proteggere l'infrastruttura di identità](../../security/azure-ad-secure-steps.md)
 * [Che cos'è l'accesso condizionale in Azure Active Directory?](overview.md)
-* [Richiedere l'autenticazione MFA per gli amministratori](howto-baseline-protect-administrators.md)
+* [Richiedere l'autenticazione MFA per gli amministratori (anteprima)](howto-baseline-protect-administrators.md)
 * [Protezione dell'utente finale (anteprima)](howto-baseline-protect-end-users.md)
 * [Autenticazione legacy di blocco (anteprima)](howto-baseline-protect-legacy-auth.md)
 * [Richiedere l'autenticazione MFA per la gestione dei servizi (anteprima)](howto-baseline-protect-azure.md)

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: f63b705f7967eeddaf522941d6db9be5d9f2719d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93734045cd06f279f37d7725aa573a59c4ec0be9
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245006"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465705"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Creare una raccolta di immagini condivise nel portale di Azure
 
@@ -53,6 +53,9 @@ Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e dell
 ## <a name="create-vms-from-an-image"></a>Creare macchine virtuali da un'immagine
 
 Dopo aver completato la versione dell'immagine, è possibile creare una o più nuove macchine virtuali. 
+
+> [!IMPORTANT]
+> È possibile usare il portale per distribuire una macchina virtuale da un'immagine in un altro tenant di azure. Per creare una macchina virtuale da un'immagine condivise tra i tenant, è necessario usare il [Azure CLI](../linux/shared-images.md#create-a-vm) oppure [Powershell](shared-images.md#create-vms-from-an-image).
 
 Questo esempio crea una VM denominata *myVMfromImage* in *myResourceGroup* nel datacenter *Stati Uniti orientali*.
 

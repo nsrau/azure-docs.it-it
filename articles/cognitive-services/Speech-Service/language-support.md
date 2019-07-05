@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9b8e12220f220bd8183675d13e25bdcab02707fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3596f230ace2d19df28d0b43af45c74aaa87836
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65020849"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561305"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Supporto lingua e area geografica per i servizi di riconoscimento vocale
 
@@ -24,7 +24,7 @@ Le diverse funzioni dei servizi di riconoscimento vocale supportano lingue diver
 
 ## <a name="speech-to-text"></a>Riconoscimento vocale
 
-L'API Riconoscimento vocale Microsoft supporta le lingue seguenti. Livelli diversi di personalizzazione sono disponibili per ogni lingua.
+Il riconoscimento vocale di Microsoft SDK sia l'API REST supportano i linguaggi seguenti (le impostazioni locali). Livelli diversi di personalizzazione sono disponibili per ogni lingua.
 
   Codice | Linguaggio | [Adattamento acustico](how-to-customize-acoustic-models.md) | [Adattamento linguistico](how-to-customize-language-model.md) | [Adattamento della pronuncia](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------

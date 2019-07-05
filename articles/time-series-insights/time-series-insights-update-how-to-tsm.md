@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 73384868deb8f0e33b233e363c42a12adbcbe402
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05faf77d22f77da87e7c22d47473e6debf0f77c8
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237556"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461042"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modellazione dei dati in Anteprima di Azure Time Series Insights
 
@@ -29,12 +29,12 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 
 1. Passare al pannello di selezione dei modelli di serie temporali e scegliere **Tipi** dal menu. Comprimere il pannello per esaminare i tipi di modelli di serie temporali.
 
-    [![Creare un singolo tipo](media/v2-update-how-to-tsm/portal_one.png)](media/v2-update-how-to-tsm/portal_one.png#lightbox)
+    [![Creare un singolo tipo](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
 
 1. Selezionare **Aggiungi**.
 1. Immettere tutti i dettagli relativi ai tipi e selezionare **Crea**. Questa azione crea i tipi nell'ambiente.
 
-    [![Aggiungere un tipo](media/v2-update-how-to-tsm/portal_two.png)](media/v2-update-how-to-tsm/portal_two.png#lightbox)
+    [![Aggiungere un tipo](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-types"></a>Caricamento in blocco di uno o più tipi
 
@@ -42,21 +42,21 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 1. Selezionare il file che contiene il payload del tipo.
 1. Selezionare **Carica**.
 
-    [![Carica JSON](media/v2-update-how-to-tsm/portal_three.png)](media/v2-update-how-to-tsm/portal_three.png#lightbox)
+    [![Carica JSON](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
 
 ### <a name="edit-a-single-type"></a>Modificare un singolo tipo
 
 1. Selezionare il tipo e quindi selezionare **Modifica**. 
 1. Apportare le modifiche necessarie e quindi selezionare **Salva**.
 
-    [![Modificare un tipo](media/v2-update-how-to-tsm/portal_four.png)](media/v2-update-how-to-tsm/portal_four.png#lightbox)
+    [![Modificare un tipo](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
 
 ### <a name="delete-a-type"></a>Eliminare un tipo
 
 1. Selezionare il tipo e quindi selezionare **Elimina**.
 1. Se nessuna istanza è associata i tipi, viene eliminato.
 
-    [![Eliminare un tipo](media/v2-update-how-to-tsm/portal_five.png)](media/v2-update-how-to-tsm/portal_five.png#lightbox)
+    [![Eliminare un tipo](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
 
 ## <a name="hierarchies"></a>Gerarchie
 
@@ -64,19 +64,19 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 
 1. Passare al pannello di selezione dei modelli di serie temporali e scegliere **Gerarchie** dal menu. Comprimere il pannello per esaminare i tipi di gerarchie di serie temporali.
 
-    [![Selezionare le gerarchie](media/v2-update-how-to-tsm/portal_six.png)](media/v2-update-how-to-tsm/portal_six.png#lightbox)
+    [![Selezionare le gerarchie](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
 
 1. Selezionare **Aggiungi**.
 
-    [![Aggiungere una gerarchia](media/v2-update-how-to-tsm/portal_seven.png)](media/v2-update-how-to-tsm/portal_seven.png#lightbox)
+    [![Aggiungere una gerarchia](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
 
 1. Selezionare **Aggiungi livello** nel riquadro a destra.
 
-    [![Aggiungere un livello](media/v2-update-how-to-tsm/portal_eight.png)](media/v2-update-how-to-tsm/portal_eight.png#lightbox)
+    [![Aggiungere un livello](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
 
 1. Immettere i dettagli della gerarchia e selezionare **Crea**.
 
-    [![Creare un livello](media/v2-update-how-to-tsm/portal_nine.png)](media/v2-update-how-to-tsm/portal_nine.png#lightbox)
+    [![Creare un livello](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>Caricamento in blocco di una o più gerarchie
 
@@ -84,21 +84,21 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 1. Selezionare il file che contiene il payload della gerarchia.
 1. Selezionare **Carica**.
 
-    [![Gerarchie di caricamento BULK](media/v2-update-how-to-tsm/portal_ten.png)](media/v2-update-how-to-tsm/portal_ten.png#lightbox)
+    [![Gerarchie di caricamento BULK](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
 
 ### <a name="edit-a-single-hierarchy"></a>Modificare una singola gerarchia
 
 1. Selezionare la gerarchia e quindi selezionare **Modifica**.
 1. Apportare le modifiche necessarie e quindi selezionare **Salva**.
 
-    [![Modificare una singola gerarchia](media/v2-update-how-to-tsm/portal_eleven.png)](media/v2-update-how-to-tsm/portal_eleven.png#lightbox)
+    [![Modificare una singola gerarchia](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
 
 ### <a name="delete-a-hierarchy"></a>Eliminare una gerarchia
 
 1. Selezionare la gerarchia e quindi selezionare **Elimina**. 
 1. Se nessuna istanza è associata alla gerarchia, viene eliminata.
 
-    [![Eliminare una gerarchia](media/v2-update-how-to-tsm/portal_twelve.png)](media/v2-update-how-to-tsm/portal_twelve.png#lightbox)
+    [![Eliminare una gerarchia](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
 
 ## <a name="instances"></a>Istanze
 
@@ -106,11 +106,11 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 
 1. Passare al pannello di selezione dei modelli di serie temporali e scegliere **Istanze** dal menu. Comprimere il pannello per esaminare le istanze di modelli di serie temporali.
 
-    [![Creare una singola istanza](media/v2-update-how-to-tsm/portal_thirteen.png)](media/v2-update-how-to-tsm/portal_thirteen.png#lightbox)
+    [![Creare una singola istanza](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
 
 1. Selezionare **Aggiungi**.
 
-    [![Aggiungere un'istanza](media/v2-update-how-to-tsm/portal_fourteen.png)](media/v2-update-how-to-tsm/portal_fourteen.png#lightbox)
+    [![Aggiungere un'istanza](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
 
 1. Immettere i dettagli dell'istanza, selezionare l'associazione con il tipo e la gerarchia e selezionare **Crea**.
 
@@ -119,7 +119,7 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 1. Selezionare **Carica JSON**.
 1. Selezionare il file che contiene il payload delle istanze.
 
-    [![Una o più istanze il caricamento in blocco](media/v2-update-how-to-tsm/portal_fifteen.png)](media/v2-update-how-to-tsm/portal_fifteen.png#lightbox)
+    [![Una o più istanze il caricamento in blocco](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
 
 1. Selezionare **Carica**.
 
@@ -128,7 +128,7 @@ Per altre informazioni su come usare l'aggiornamento, vedere [Strumento di esplo
 1. Selezionare l'istanza e quindi selezionare **Modifica**. 
 1. Apportare le modifiche necessarie e quindi selezionare **Salva**.
 
-    [![Modificare una singola istanza](media/v2-update-how-to-tsm/portal_sixteen.png)](media/v2-update-how-to-tsm/portal_sixteen.png#lightbox)
+    [![Modificare una singola istanza](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

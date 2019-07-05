@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 06/26/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bb89eec0b4905e101bed87d3d3fc617dec589e0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61461562"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477870"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gestire le regole di rilevamento intelligente di Application Insights usando modelli di Azure Resource Manager
 
@@ -29,12 +29,14 @@ Questo metodo può essere usato durante la distribuzione di nuove risorse di App
 
 Per una regola di rilevamento intelligente è possibile configurare le impostazioni seguenti:
 - Se la regola è abilitata (il valore predefinito è **true**.)
-- Se devono essere inviati messaggi di posta elettronica ai proprietari della sottoscrizione, collaboratori e lettori quando si ha un rilevamento (il valore predefinito è **true**.)
+- Se è necessario inviare messaggi di posta elettronica per gli utenti associati alla sottoscrizione [lettore di monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [collaboratore al monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) ruoli quando viene trovato un rilevamento (il valore predefinito è **true**.)
 - Eventuali destinatari di posta elettronica aggiuntivi che devono ricevere una notifica quando si ha un rilevamento.
-- * La configurazione della posta elettronica non è disponibile per le regole di Rilevamento intelligente contrassegnate come _Anteprima_.
+    -  Configurazione della posta elettronica non è disponibile per le regole di rilevamento intelligente contrassegnate come _preview_.
 
 Per consentire la configurazione delle impostazioni delle regole tramite Azure Resource Manager, la configurazione delle regole di rilevamento intelligente è ora disponibile come risorsa interna alla risorsa di Application Insights denominata **ProactiveDetectionConfigs**.
 Per la massima flessibilità, ogni regola di rilevamento intelligente può essere configurata con impostazioni di notifica univoche.
+
+## 
 
 ## <a name="examples"></a>Esempi
 
@@ -136,12 +138,46 @@ Assicurarsi di sostituire il nome della risorsa di Application Insights e di spe
 
 ```
 
+### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>Regola avviso di errore anomalie v2 (non classico)
+
+Questo modello di Azure Resource Manager illustra la configurazione di una regola di avviso v2 anomalie degli errori con gravità pari a 2. Questa nuova versione della regola di avviso anomalie degli errori fa parte di Azure nuova piattaforma di avviso e sostituisce la versione classica che è in fase di ritiro come parte del [processo di ritiro degli avvisi classici](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "microsoft.alertsmanagement/smartdetectoralertrules",
+            "apiVersion": "2019-03-01",
+            "name": "Failure Anomalies - my-app",
+            "properties": {
+                  "description": "Detects a spike in the failure rate of requests or dependencies",
+                  "state": "Enabled",
+                  "severity": "2",
+                  "frequency": "PT1M",
+                  "detector": {
+                  "id": "FailureAnomaliesDetector"
+                  },
+                  "scope": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/microsoft.insights/components/my-app"],
+                  "actionGroups": {
+                        "groupIds": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/MyResourceGroup/providers/microsoft.insights/actiongroups/MyActionGroup"]
+                  }
+            }
+        }
+    ]
+}
+```
+
+> [!NOTE]
+> Questo modello di Azure Resource Manager è univoco per la regola di avviso v2 anomalie degli errori ed è diversa dalle altre regole di rilevamento intelligente classiche descritta in questo articolo.   
+
 ## <a name="smart-detection-rule-names"></a>Nomi delle regole di rilevamento intelligente
 
 Di seguito è riportata una tabella dei nomi delle regole di rilevamento intelligente come appaiono nel portale, insieme ai rispettivi nomi interni che devono essere usati nel modello di Azure Resource Manager.
 
 > [!NOTE]
-> Le regole di rilevamento intelligente contrassegnate come anteprima non supportano le notifiche via posta elettronica. Pertanto è possibile impostare solo la proprietà abilitata per queste regole. 
+> Regole di rilevamento intelligente è contrassegnato come _preview_ non supporta le notifiche di posta elettronica. Pertanto, è possibile impostare solo le _abilitato_ proprietà per queste regole. 
 
 | Nome della regola nel portale di Azure | Nome interno
 |:---|:---|
@@ -154,18 +190,7 @@ Di seguito è riportata una tabella dei nomi delle regole di rilevamento intelli
 | Aumento anomalo nel volume delle eccezioni (anteprima) | extension_exceptionchangeextension |
 | Potenziale perdita di memoria rilevata (anteprima) | extension_memoryleakextension |
 | Potenziale problema di sicurezza rilevato (anteprima) | extension_securityextensionspackage |
-| Problema di utilizzo delle risorse rilevato (anteprima) | extension_resourceutilizationextensionspackage |
-
-## <a name="who-receives-the-classic-alert-notifications"></a>Chi riceve le notifiche di avviso (classiche)?
-
-Questa sezione si applica esclusivamente agli avvisi classici di rilevamento intelligente e facilita l'ottimizzazione delle notifiche di avviso per garantire che solo i destinatari desiderati ricevano le notifiche. Per comprendere meglio la differenza tra [avvisi classici](../platform/alerts-classic.overview.md) e la nuova esperienza di avvisi, fare riferimento all'[articolo di panoramica sugli avvisi](../platform/alerts-overview.md). Attualmente gli avvisi di rilevamento intelligente supportano solo l'esperienza di avvisi classici. L'unica eccezione sono gli [avvisi di rilevamento intelligente nei servizi cloud di Azure](./proactive-cloud-services.md). Per controllare la notifica di avviso degli avvisi di rilevamento intelligente nei servizi cloud di Azure, usare [gruppi di azioni](../platform/action-groups.md).
-
-* È consigliabile l'uso di destinatari specifici per le notifiche di avviso classiche o di rilevamento intelligente.
-
-* Per gli avvisi di rilevamento intelligente, l'opzione **in blocco/gruppo** della casella di controllo, se abilitata, invia notifiche agli utenti con i ruoli proprietario, collaboratore o lettore nella sottoscrizione. _Tutti_ gli utenti con accesso alla sottoscrizione della risorsa di Application Insights si trovano nell'ambito e riceveranno le notifiche. 
-
-> [!NOTE]
-> Se attualmente si usa l'opzione **in blocco/gruppo** della casella di controllo e la si disabilita, sarà impossibile annullare le modifiche.
+| Aumento anomalo nel volume di dati giornaliero (anteprima) | extension_billingdatavolumedailyspikeextension |
 
 ## <a name="next-steps"></a>Fasi successive
 

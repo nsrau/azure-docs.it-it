@@ -6,14 +6,14 @@ manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 06/28/2019
 ms.author: chrisgre
-ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff4e236569cc728b7011ffa26554277f281397fd
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61333642"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485849"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Gestione automatica dei dispositivi IoT su larga scala usando il portale di Azure
 
@@ -29,7 +29,9 @@ Funzionamento della gestione automatica dei dispositivi l'aggiornamento di un se
 
 * Il **contenuto di destinazione** definisce le proprietà desiderate da aggiungere o aggiornare nei dispositivi gemelli di destinazione. Il contenuto include un percorso della sezione delle proprietà desiderate da modificare.
 
-* Le **metriche** definiscono i conteggi di riepilogo dei vari stati di configurazione, ad esempio **Success**, **In progress** ed **Error**. Le metriche personalizzate vengono specificate come query sulle proprietà segnalate dei dispositivi gemelli.  Le metriche di sistema sono le metriche predefinite che consentono di misurare lo stato di aggiornamento dei dispositivi gemelli, ad esempio il numero di dispositivi gemelli che vengono considerati come destinazione e il numero di dispositivi gemelli che sono stati aggiornati. 
+* Le **metriche** definiscono i conteggi di riepilogo dei vari stati di configurazione, ad esempio **Success**, **In progress** ed **Error**. Le metriche personalizzate vengono specificate come query sulle proprietà segnalate dei dispositivi gemelli.  Le metriche di sistema sono le metriche predefinite che consentono di misurare lo stato di aggiornamento dei dispositivi gemelli, ad esempio il numero di dispositivi gemelli che vengono considerati come destinazione e il numero di dispositivi gemelli che sono stati aggiornati.
+
+Le configurazioni del dispositivo automatica eseguono per la prima volta subito dopo la configurazione viene creata e quindi a intervalli di cinque minuti. Le metriche query eseguite ogni volta che viene eseguita la configurazione automatica dei dispositivi.
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Implementare i dispositivi gemelli per configurare i dispositivi
 

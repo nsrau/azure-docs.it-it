@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 21bf96866c14615009a17279ff2fdd04bf4116ad
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60369168"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490275"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Visualizzare le prenotazioni di Azure nel portale di Azure
 
@@ -32,7 +32,7 @@ Per altre informazioni vedere [Aggiungere o modificare gli utenti che possono ge
 Per visualizzare una prenotazione come proprietario o lettore,
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Cercare **Prenotazioni**.
+2. Cercare **prenotazioni**.
     ![Screenshot che mostra una ricerca del portale di Azure](./media/billing-view-reservation/portal-reservation-search.png)  
 3. L'elenco Mostra tutte le prenotazioni in cui si dispone del ruolo di proprietario o lettore. Ogni prenotazione Mostra la percentuale di utilizzo noti ultimo.  
     ![Esempio che mostra un elenco delle prenotazioni](./media/billing-view-reservation/view-reservations.png)
@@ -49,7 +49,7 @@ Se è necessario modificare l'ambito di una prenotazione, dividere una prenotazi
 Per visualizzare le transazioni di prenotazione nel portale di Azure,
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+1. Cercare **costi di gestione e fatturazione**.
 
     ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-view-reservation/portal-cm-billing-search.png)
 

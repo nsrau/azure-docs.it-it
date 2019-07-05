@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0534613a9df3177290e9b4b57e9830fe62f9741a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f891642761a2f692158efbd9111ff96444c4269d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112121"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476195"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Condizioni d'uso per Azure Active Directory
 
@@ -74,11 +74,11 @@ Dopo avere completato le condizioni per usare documenti, utilizzare la procedura
 1. Accedere ad Azure come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
 1. Passare a **Condizioni per l'utilizzo** all'indirizzo [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Pannello di Condizioni per l'utilizzo](./media/terms-of-use/tou-blade.png)
+   ![Accesso condizionale - condizioni per l'uso pannello](./media/terms-of-use/tou-blade.png)
 
 1. Fare clic su **Nuove condizioni**.
 
-   ![Aggiungere le condizioni per l'utilizzo](./media/terms-of-use/new-tou.png)
+   ![Nuovo termine del riquadro utilizzo per specificare le condizioni per le impostazioni di utilizzo](./media/terms-of-use/new-tou.png)
 
 1. Nel **nome** immettere un nome per le condizioni d'uso che verrà usato nel portale di Azure.
 1. Nella casella **Nome visualizzato** immettere un titolo visualizzato dagli utenti quando eseguono l'accesso.
@@ -88,7 +88,7 @@ Dopo avere completato le condizioni per usare documenti, utilizzare la procedura
 1. Per richiedere agli utenti finali di accettare le condizioni d'uso in ogni dispositivo si accede, impostare **richiedere agli utenti di fornire il consenso in tutti i dispositivi** al **su**. Per altre informazioni, vedere [condizioni per ogni dispositivo per l'utilizzo](#per-device-terms-of-use).
 1. Se si desidera impostare come scaduti condizioni d'uso consensi in una pianificazione, impostare **scadono consensi** al **su**. Se si imposta su On, vengono visualizzate due impostazioni aggiuntive di pianificazione.
 
-   ![Scadenza consensi](./media/terms-of-use/expire-consents.png)
+   ![Le impostazioni di consensi per impostare la data di inizio, la frequenza e durata di scadenza](./media/terms-of-use/expire-consents.png)
 
 1. Usare la **Expire a partire** e **frequenza** impostazioni per specificare la pianificazione per le condizioni per usano le scadenze. La tabella seguente illustra il risultato di un paio di impostazioni di esempio:
 
@@ -115,7 +115,7 @@ Dopo avere completato le condizioni per usare documenti, utilizzare la procedura
 
 1. Sotto **accesso condizionale**, utilizzare il **Imponi con modello di criteri di accesso condizionale** elenco per selezionare il modello per applicare le condizioni d'uso.
 
-   ![Modelli di accesso condizionali](./media/terms-of-use/conditional-access-templates.png)
+   ![Elenco a discesa accesso condizionale per selezionare un modello di criteri](./media/terms-of-use/conditional-access-templates.png)
 
    | Modello | Descrizione |
    | --- | --- |
@@ -133,11 +133,11 @@ Dopo avere completato le condizioni per usare documenti, utilizzare la procedura
 
    Se si seleziona un modello personalizzato di accesso condizionale, quindi una nuova schermata viene visualizzato che consente di creare i criteri di accesso condizionale personalizzati.
 
-   ![Criteri personalizzati](./media/terms-of-use/custom-policy.png)
+   ![Nuovo riquadro di accesso condizionale, se si sceglie il modello di criteri di accesso condizionale personalizzato](./media/terms-of-use/custom-policy.png)
 
    Si noterà ora le nuove condizioni d'uso.
 
-   ![Aggiungere le condizioni per l'utilizzo](./media/terms-of-use/create-tou.png)
+   ![Nuove condizioni d'uso elencati nei termini del pannello utilizzo](./media/terms-of-use/create-tou.png)
 
 ## <a name="view-report-of-who-has-accepted-and-declined"></a>Visualizzare il report degli utenti che hanno accettato e rifiutato
 
@@ -145,19 +145,19 @@ Nel pannello delle condizioni per l'utilizzo è visualizzato il numero di utenti
 
 1. Accedere ad Azure e passare a **Condizioni per l'utilizzo** all'indirizzo [ https://aka.ms/catou ](https://aka.ms/catou).
 
-   ![Pannello di Condizioni per l'utilizzo](./media/terms-of-use/view-tou.png)
+   ![Condizioni per l'uso pannello elenca il numero di show utente hanno accettato o rifiutato](./media/terms-of-use/view-tou.png)
 
 1. Per le condizioni d'uso, fare clic su numeri sotto **Accepted** oppure **rifiutato** per visualizzare lo stato corrente per gli utenti.
 
-   ![Accettazione delle condizioni per l'utilizzo](./media/terms-of-use/accepted-tou.png)
+   ![Condizioni d'uso consensi riquadro con l'elenco degli utenti che hanno accettato](./media/terms-of-use/accepted-tou.png)
 
 1. Per visualizzare la cronologia per un singolo utente, fare clic sui puntini di sospensione ( **...** ) e quindi **Visualizza cronologia**.
 
-   ![Visualizza il menu cronologia](./media/terms-of-use/view-history-menu.png)
+   ![Menu di scelta rapida della cronologia di visualizzazione per un utente](./media/terms-of-use/view-history-menu.png)
 
    Nel riquadro di visualizzazione della cronologia, si visualizza una cronologia di tutte le accettazioni, i rifiuti e le scadenze.
 
-   ![Riquadro di visualizzazione della cronologia](./media/terms-of-use/view-history-pane.png)
+   ![Visualizzazione cronologia riquadro Elenca la cronologia consente di accettare, Rifiuta e le scadenze per un utente](./media/terms-of-use/view-history-pane.png)
 
 ## <a name="view-azure-ad-audit-logs"></a>Visualizzare i log di controllo di Azure AD
 
@@ -169,31 +169,31 @@ Per iniziare a usare i log di controllo di Azure AD, seguire questa procedura:
 1. Selezionare le condizioni d'uso.
 1. Fare clic su **Visualizza log di controllo**.
 
-   ![Pannello di Condizioni per l'utilizzo](./media/terms-of-use/audit-tou.png)
+   ![Condizioni per l'uso pannello con la vista di controllo opzione log evidenziato](./media/terms-of-use/audit-tou.png)
 
 1. Nella schermata dei log di controllo di Azure AD è possibile filtrare le informazioni usando i menu a discesa per visualizzare informazioni specifiche dei log di controllo.
 
    È inoltre possibile fare clic su **Download** per scaricare le informazioni in un file con estensione CSV per l'uso in locale.
 
-   ![Log di controllo](./media/terms-of-use/audit-logs-tou.png)
+   ![Schermata di elenco di date, criteri di destinazione, avviato da e attività dei log di controllo di AD Azure](./media/terms-of-use/audit-logs-tou.png)
 
    Se si fa clic su un log, viene visualizzato un riquadro con i dettagli delle attività aggiuntive.
 
-   ![Dettagli dell'attività](./media/terms-of-use/audit-log-activity-details.png)
+   ![Dettagli dell'attività per un log che mostra l'attività, lo stato dell'attività, avviata da, criteri di destinazione](./media/terms-of-use/audit-log-activity-details.png)
 
 ## <a name="what-terms-of-use-looks-like-for-users"></a>Le condizioni d'uso è simile per gli utenti
 
 Dopo aver creato e applicate condizioni d'uso, gli utenti, che sono nell'ambito, verranno visualizzata la schermata seguente durante l'accesso.
 
-![Accesso web dell'utente](./media/terms-of-use/user-tou.png)
+![Esempio condizioni d'uso che viene visualizzato quando un utente accede](./media/terms-of-use/user-tou.png)
 
 Gli utenti possono visualizzare le condizioni d'uso e, se necessario, usare i pulsanti per eseguire lo zoom avanti e indietro.
 
-![Visualizza le condizioni d'uso con i pulsanti dello zoom](./media/terms-of-use/zoom-buttons.png)
+![Visualizzazione delle condizioni di utilizzo con i pulsanti dello zoom](./media/terms-of-use/zoom-buttons.png)
 
 La schermata seguente mostra l'aspetto delle condizioni d'uso nei dispositivi mobili.
 
-![Accesso da dispositivo mobile dell'utente](./media/terms-of-use/mobile-tou.png)
+![Esempio condizioni d'uso che viene visualizzato quando un utente accede in un dispositivo mobile](./media/terms-of-use/mobile-tou.png)
 
 Gli utenti sono necessarie solo per accettare le condizioni d'uso una sola volta e non potrà vedere le condizioni d'uso nuovamente su accessi successivi.
 
@@ -204,11 +204,11 @@ Gli utenti possono esaminare e vedere le condizioni d'uso che invece hanno accet
 1. Accedere a [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. Nell'angolo superiore destro fare clic sul proprio nome e selezionare **Profilo**.
 
-   ![Profilo](./media/terms-of-use/tou14.png)
+   ![Sito MyApps con riquadro dell'utente aperta](./media/terms-of-use/tou14.png)
 
 1. Nella pagina Profilo fare clic su **Verificare le condizioni d'uso**.
 
-   ![Profilo - Verificare le condizioni d'uso](./media/terms-of-use/tou13a.png)
+   ![Pagina del profilo per un utente che mostra i termini di revisione del collegamento per l'utilizzo](./media/terms-of-use/tou13a.png)
 
 1. Sarà quindi possibile verificare le condizioni per l'utilizzo accettate.
 
@@ -223,7 +223,7 @@ Gli utenti possono esaminare e vedere le condizioni d'uso che invece hanno accet
 
    Se sono presenti altre impostazioni che si desidera modificare, ad esempio documenti PDF, richiedere agli utenti di fornire il consenso in tutti i dispositivi, di scadenza consensi, durata prima reacceptance o criteri di accesso condizionale, è necessario creare nuove condizioni d'uso.
 
-   ![Modificare le condizioni per l'utilizzo](./media/terms-of-use/edit-tou.png)
+   ![Modifica le condizioni di Usa il nome della visualizzazione riquadro ed espandere le opzioni](./media/terms-of-use/edit-tou.png)
 
 1. Fare clic su **Salva** per salvare le modifiche.
 
@@ -237,12 +237,12 @@ La procedura seguente viene descritto come aggiungere le condizioni per l'uso la
 1. Selezionare le condizioni d'uso che si desidera modificare.
 1. Nel riquadro dei dettagli fare clic sulla scheda **Lingue**.
 
-   ![Aggiungere le condizioni per l'utilizzo](./media/terms-of-use/languages-tou.png)
+   ![Condizioni d'uso selezionata e che mostra la scheda lingue nel riquadro dei dettagli](./media/terms-of-use/languages-tou.png)
 
 1. Fare clic su **Aggiungi lingua**.
 1. Nel riquadro Aggiungi la lingua delle condizioni per l'utilizzo caricare il PDF localizzato e selezionare la lingua.
 
-   ![Aggiungere le condizioni per l'utilizzo](./media/terms-of-use/language-add-tou.png)
+   ![Aggiungere condizioni per l'uso riquadro lingua con le opzioni per caricare i documenti PDF localizzato](./media/terms-of-use/language-add-tou.png)
 
 1. Fare clic su **Aggiungi** per aggiungere la lingua.
 
@@ -273,7 +273,7 @@ Se il dispositivo dell'utente non è stato aggiunto, riceveranno un messaggio ch
 
 Se un utente sta usando Windows 10 e Microsoft Edge, riceverà un messaggio simile al seguente per [aggiungere il dispositivo](../user-help/user-help-join-device-on-network.md#to-join-an-already-configured-windows-10-device).
 
-![Windows 10 e Microsoft Edge - prompt di aggiunta del dispositivo](./media/terms-of-use/per-device-win10-edge.png)
+![Windows 10 e Microsoft Edge - messaggio che indica che il dispositivo deve essere registrato.](./media/terms-of-use/per-device-win10-edge.png)
 
 Se si usa Chrome, verrà richiesto di installare l'[estensione account di Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
@@ -281,7 +281,7 @@ Se si usa Chrome, verrà richiesto di installare l'[estensione account di Window
 
 Se un utente sta usando un browser che non è supportato, si dovrà usare un browser diverso.
 
-![Browser non supportato](./media/terms-of-use/per-device-browser-unsupported.png)
+![Messaggio che indica che il dispositivo deve essere registrato, ma i browser non è supportato](./media/terms-of-use/per-device-browser-unsupported.png)
 
 ## <a name="delete-terms-of-use"></a>Eliminare le condizioni per l'utilizzo
 
@@ -292,7 +292,7 @@ Se un utente sta usando un browser che non è supportato, si dovrà usare un bro
 1. Fare clic su **Elimina le condizioni**.
 1. Nel messaggio visualizzato in cui viene chiesto se si vuole continuare fare clic su **Sì**.
 
-   ![Eliminare le condizioni per l'utilizzo](./media/terms-of-use/delete-tou.png)
+   ![Messaggio di conferma eliminare le condizioni d'uso](./media/terms-of-use/delete-tou.png)
 
    Non si dovrebbe le condizioni d'uso.
 
@@ -316,7 +316,7 @@ La maggior parte delle organizzazioni prevede un processo per i propri dipendent
 
 Le Condizioni per l'utilizzo verranno visualizzate solo quando l'utente dispone di un account guest in Azure AD. SharePoint Online è attualmente un' [esperienza di destinatario condivisione esterna ad hoc](/sharepoint/what-s-new-in-sharing-in-targeted-release) per condividere un documento o una cartella che non richiede all'utente di disporre di un account guest. In questo caso, le condizioni per l'uso non viene visualizzato.
 
-![Tutti gli utenti guest](./media/terms-of-use/b2b-guests.png)
+![Includere gli utenti e gruppi - scheda con l'opzione di utenti guest tutti selezionata](./media/terms-of-use/b2b-guests.png)
 
 ## <a name="support-for-cloud-apps-preview"></a>Supporto per le app cloud (anteprima)
 
@@ -326,13 +326,13 @@ Le Condizioni per l'utilizzo possono essere usate per diverse app cloud, ad esem
 
 È possibile configurare un criterio di accesso condizionale per l'app Azure Information Protection e richiedere le condizioni per l'uso quando un utente accede a un documento protetto. Questo attiverà le condizioni per l'utilizzo prima di un utente che accede a un documento protetto per la prima volta.
 
-![App cloud di Azure Information Protection](./media/terms-of-use/cloud-app-info-protection.png)
+![Riquadro delle App cloud con Microsoft Azure Information Protection app selezionata](./media/terms-of-use/cloud-app-info-protection.png)
 
 ### <a name="microsoft-intune-enrollment"></a>Registrazione di Microsoft Intune
 
 È possibile configurare un criterio di accesso condizionale per l'app di registrazione di Microsoft Intune e richiedere le condizioni d'uso prima della registrazione di un dispositivo in Intune. Per altre informazioni, vedere il Leggi il [post di blog sulla scelta della soluzione di Condizioni di utilizzo più adatta per l'organizzazione](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
-![App cloud di Microsoft Intune](./media/terms-of-use/cloud-app-intune.png)
+![Riquadro delle App cloud con Microsoft Intune app selezionata](./media/terms-of-use/cloud-app-intune.png)
 
 > [!NOTE]
 > L'app di registrazione di Intune non è supportata per [condizioni per ogni dispositivo per l'utilizzo](#per-device-terms-of-use).

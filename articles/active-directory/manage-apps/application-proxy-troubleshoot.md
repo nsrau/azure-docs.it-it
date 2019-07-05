@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 06/24/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 315aba8ac8617f8bf2db71784ec0f9a8dec66cf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cac7e3ba458caad9c373160be1b66e2a665088a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108354"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440462"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Risolvere i problemi e i messaggi di errore del proxy dell'applicazione
 Se si verificano errori durante l'accesso a un'applicazione pubblicata o durante la pubblicazione di applicazioni, controllare le opzioni seguenti per verificare se il Proxy applicazione di Microsoft Azure AD funziona correttamente:
@@ -31,7 +31,7 @@ Se si verificano errori durante l'accesso a un'applicazione pubblicata o durante
 * Aprire il Visualizzatore eventi e cercare gli eventi correlati al connettore del proxy di applicazione in **Registri applicazioni e servizi** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
 * Se necessario, [attivando i log di sessione dei connettore proxy di applicazione](application-proxy-connectors.md#under-the-hood) sono disponibili log più dettagliati.
 
-Per altre informazioni sullo strumento di risoluzione dei problemi di Azure AD, vedere [Troubleshooting tool to validate connector networking prerequisites](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites) (Strumento di risoluzione dei problemi per convalidare i prerequisiti di rete del connettore).
+Risolvere i problemi di Proxy dell'applicazione, è consigliabile iniziare con il flusso di risoluzione dei problemi, esaminare [problemi di Debug Application Proxy Connector](application-proxy-debug-connectors.md), per determinare se i connettori del Proxy di applicazione siano configurati correttamente. Se si verificano ancora problemi di connessione per l'applicazione, seguire il flusso di risoluzione dei problemi nelle [problemi di applicazioni Proxy di applicazione di eseguire il Debug](application-proxy-debug-apps.md).
 
 ## <a name="the-page-is-not-rendered-correctly"></a>La pagina non viene visualizzata correttamente
 È possibile che si verifichino problemi di rendering o di funzionamento dell'applicazione, ma che non vengano visualizzati messaggi di errore specifici. Ciò può verificarsi se è stato pubblicato il percorso dell'articolo, ma l'applicazione richiede contenuto esistente al di fuori di tale percorso.
@@ -50,12 +50,13 @@ Dopo aver individuato l'errore del connettore nel log eventi, usare questa tabel
 
 | Tipi di errore | Procedure consigliate |
 | ----- | ----------------- |
-| La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il proxy di applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "Si sono verificati uno o più errori". | Se si è chiusa la finestra di registrazione senza aver eseguito l'accesso ad Azure AD, eseguire di nuovo la creazione guidata del connettore e registrarlo. <br><br> Se la finestra di registrazione si apre e poi si chiude immediatamente senza consentire all'utente di accedere, è probabile che venga visualizzato questo errore. L'errore si verifica quando viene rilevato un errore di rete nel sistema. Assicurarsi che sia possibile connettersi da un browser a un sito Web pubblico e che le porte siano aperte come specificato in [Prerequisiti del Proxy dell’applicazione](application-proxy-add-on-premises-application.md). |
+| La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il proxy di applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "Si sono verificati uno o più errori". | Se si è chiusa la finestra di registrazione senza aver eseguito l'accesso ad Azure AD, eseguire di nuovo la creazione guidata del connettore e registrarlo. <br><br> Se la finestra di registrazione si apre e poi si chiude immediatamente senza consentire all'utente di accedere, è probabile che venga visualizzato questo errore. L'errore si verifica quando viene rilevato un errore di rete nel sistema. Assicurarsi che sia possibile connettersi da un browser a un sito Web pubblico e che le porte siano aperte come specificato in [Prerequisiti del Proxy dell’applicazione](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 | Viene visualizzato un errore di cancellazione nella finestra di registrazione. Impossibile proseguire | Se viene visualizzato questo errore e la finestra si chiude, è stato commesso un errore durante l'immissione di nome utente o password. Riprovare. |
 | La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il proxy di applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "AADSTS50059: non sono state trovate informazioni di identificazione del tenant nella richiesta o incluse in modo implicito nelle credenziali fornite e la ricerca in base all'URI dell'entità servizio non è riuscita. | Si sta provando ad accedere con un account Microsoft e non con un dominio che fa parte dell'ID organizzazione della directory a cui si vuole accedere. Assicurarsi che l'amministratore faccia parte dello stesso nome di dominio del dominio tenant. Ad esempio, se il dominio di Azure AD è contoso.com, l'amministratore dovrà essere admin@contoso.com. |
 | Non è possibile recuperare i criteri di esecuzione correnti per l'esecuzione degli script PowerShell. | Se l'installazione del connettore non riesce, verificare che il criterio di esecuzione di PowerShell non sia disabilitato. <br><br>1. Aprire l'Editor Criteri di gruppo.<br>2. Passare a **Configurazione computer** > **Modelli amministrativi** > **Componenti di Windows** > **Windows PowerShell** e fare doppio clic su **Attiva l'esecuzione di script**.<br>3. L'esecuzione di questo criterio può essere impostata su **Non configurato** o **Abilitato**. Se l'impostazione è **Abilitato**, verificare che in Opzioni la voce Criteri di esecuzione sia impostata su **Consenti script locali e script remoti firmati** o su **Consenti tutti gli script**. |
 | Non è stato possibile configurare il connettore. | Il certificato client del connettore usato per l'autenticazione è scaduto. Questo errore può essere visualizzato anche se l'installazione del connettore è protetta da un proxy. In questo caso il connettore non può accedere a Internet e non riuscirà a fornire applicazioni agli utenti remoti. Rinnovare manualmente l'attendibilità con il cmdlet `Register-AppProxyConnector` in Windows PowerShell. Se il connettore è protetto da un proxy, è necessario concedere l'accesso a Internet agli account del connettore "servizi di rete" e "sistema locale". A questo scopo, è possibile concedere agli account l'accesso al proxy o impostarli perché ignorino il proxy. |
 | La registrazione del connettore non è riuscita: per registrare il connettore, è necessario essere un amministratore applicazione di Active Directory. Errore: "La richiesta di registrazione è stata negata". | L'alias con cui si sta provando ad accedere non è un amministratore nel dominio. Il connettore viene sempre installato per la directory a cui appartiene il dominio dell'utente. Assicurarsi che l'account amministratore con cui si sta provando ad accedere disponga almeno delle autorizzazioni di amministratore applicazione per il tenant di Azure AD. |
+| Il connettore non è riuscito a connettersi al servizio a causa di problemi di rete. Il connettore ha provato ad accedere all'URL seguente. | Il connettore non riesce a connettersi al servizio cloud Proxy dell'applicazione. Ciò può accadere se si dispone di una regola del firewall blocchi la connessione. Assicurarsi di aver abilitato l'accesso alle porte corrette e agli URL elencati [prerequisiti del Proxy di applicazione](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 
 ## <a name="kerberos-errors"></a>Errori di Kerberos
 

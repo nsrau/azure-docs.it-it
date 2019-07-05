@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97866a1f1299c028cdc8f86245308ae4a8b5db88
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694216"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502672"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
 
-I partner possono tener traccia dell'impatto sugli engagement dei clienti. È possibile collegare l'ID partner agli account usati per gestire le risorse di un cliente.
+I partner Microsoft offrono servizi che aiutano i clienti di ottenere business e gli obiettivi di importanza usando prodotti Microsoft. Quando agisce per conto del cliente la gestione, configurazione e il supporto di servizi di Azure, gli utenti partner dovranno accedere all'ambiente del cliente. Usando il collegamento di amministrazione Partner, i partner possono associare rispettivo ID di rete di partner con le credenziali utilizzate per la distribuzione dei servizi.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -141,11 +141,11 @@ Il collegamento è associato a livello di account utente. Solo il titolare dell'
 
 **L'ID MPN usare se l'azienda dispone di più?**
 
-È possibile usare qualsiasi ID MPN validi tranne organization(v-org) virtuale ID MPN. La maggior parte dei partner scegliere di usare l'ID MPN per l'area geografica in cui si basa il cliente o i servizi vengono forniti.
+Gli account dei partner percorso e gli ID MPN associato deve essere utilizzati per il collegamento ID partner.  Altre informazioni su [agli account Partner](https://docs.microsoft.com/partner-center/account-structure)
 
 **Dove trovare influenzato dei ricavi per l'ID partner collegato?**
 
-È possibile trovare i ricavi influenzato reporting indicata in [dashboard degli approfondimenti sulla My](https://partner.microsoft.com/membership/reports/myinsights). È necessario selezionare il collegamento di amministrazione Partner come il tipo di associazione di partner.
+Report sulle prestazioni prodotto di cloud è disponibile per i partner in Partner Center all'indirizzo [dashboard degli approfondimenti sulla My](https://partner.microsoft.com/membership/reports/myinsights). È necessario selezionare il collegamento di amministrazione Partner come il tipo di associazione di partner.
 
 **Il motivo per cui non vengono visualizzati il cliente nei report?**
 

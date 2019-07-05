@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d2be76072866da2b21718f60fd0c9a5923b15b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da111311de7b873be6453862ffcbd56fe546ea7f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545118"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482390"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Piattaforma delle identità Microsoft e le credenziali di password proprietario risorsa OAuth 2.0
 
@@ -39,7 +39,7 @@ Sono supportati sulla piattaforma Microsoft identity il [concedere le credenzial
 
 Il diagramma seguente mostra il flusso ROPC.
 
-![Flusso ROPC](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
+![Diagramma che mostra un flusso di credenziali password del proprietario delle risorse](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## <a name="authorization-request"></a>Authorization request (Richiesta di autorizzazione)
 
@@ -47,7 +47,7 @@ Il flusso ROPC è una richiesta singola: invia l'identificazione del client e le
 
 > [!TIP]
 > Provare a eseguire la richiesta in Postman.
-> [![Eseguire in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Provare a eseguire questa richiesta in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
 ```
@@ -89,7 +89,7 @@ Nell'esempio seguente mostra una risposta token con esito positivo:
 
 | Parametro | Format | Descrizione |
 | --------- | ------ | ----------- |
-| `token_type` | String | Sempre impostato su `Bearer`. |
+| `token_type` | string | Sempre impostato su `Bearer`. |
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, questo parametro elenca gli ambiti per cui è valido. |
 | `expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 | `access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti. |

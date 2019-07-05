@@ -1,23 +1,21 @@
 ---
-title: Gestire le prenotazioni di Azure | Microsoft Docs
+title: Gestire le prenotazioni di Azure
 description: Informazioni su come è possibile modificare l'ambito della sottoscrizione e gestire l'accesso per le prenotazioni di Azure.
 ms.service: billing
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89279387b3630ea654070eef671f131ec757d55f
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127123"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491187"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 
@@ -54,7 +52,7 @@ Per aggiornare l'ambito di una prenotazione:
 
 Se si passa da un ambito condiviso a un ambito singolo, è possibile selezionare solo le sottoscrizioni di cui l'utente è proprietario. È possibile selezionare solo le sottoscrizioni all'interno dello stesso contesto di fatturazione della prenotazione.
 
-L'ambito è valido solo per le sottoscrizioni con pagamento in base al consumo MS-AZR-0003P o MS-AZR-0023P, MS-AZR-0017P o MS-AZR-0148P di tipo Enterprise o CSP.
+L'ambito si applica solo alle sottoscrizioni singole con tariffe a consumo (offerte MS-AZR - 0003p o MS-AZR - 0023P), offerta Enterprise MS-AZR - 0017p o MS-AZR - 0148p o tipi di sottoscrizione CSP.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Aggiungere o modificare gli utenti che possono gestire una prenotazione
 

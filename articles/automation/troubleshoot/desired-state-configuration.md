@@ -4,17 +4,17 @@ description: Questo articolo contiene informazioni sulla risoluzione dei problem
 services: automation
 ms.service: automation
 ms.subservice: ''
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53fef426c927c690a3b697055f467f6cd35c532c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514458"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477515"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Risolvere i problemi della configurazione dello stato desiderato (DSC)
 
@@ -164,6 +164,24 @@ In genere questo errore si verifica quando il nodo viene assegnato un nome di co
 
 * Assicurarsi che si sta assegnando il nodo con un nome di configurazione nodo che corrisponda esattamente al nome del servizio.
 * È possibile scegliere di non includere il nome di configurazione nodo, che provocheranno onboarding il nodo ma non assegnare una configurazione nodo
+
+### <a name="failure-linux-temp-noexec"></a>Scenario: Applicazione di una configurazione in Linux, si verifica un errore con un errore generale
+
+#### <a name="issue"></a>Problema
+
+Quando si applica una configurazione in Linux, si verifica un errore che contiene l'errore:
+
+```error
+This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
+```
+
+#### <a name="cause"></a>Causa
+
+I clienti hanno identificato che se il percorso /tmp è impostato su noexec, la versione corrente di DSC avrà esito negativo applicare le configurazioni.
+
+#### <a name="resolution"></a>Risoluzione
+
+* Rimuovere l'opzione noexec dal percorso /tmp.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 5c6ad222110081cd8f8838208da407e0e1d50f75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8be34a85cb1a1863ee8a78c7b97af66627612fea
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "54851267"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444755"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola usando un modello di Azure Resource Manager
 
@@ -27,7 +27,7 @@ Questo articolo illustra come usare un modello di Azure Resource Manager per cre
 
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Per altre informazioni su procedure e modelli relativi alle convenzioni di denominazione delle risorse di Azure, vedere [Recommended naming conventions for Azure resources][Recommended naming conventions for Azure resources] (Convenzioni di denominazione consigliate per le risorse di Azure).
+Per altre informazioni sulle procedure consigliate e modelli sulle convenzioni di denominazione risorse di Azure, vedere [convenzioni di denominazione per le risorse di Azure consigliate][Recommended naming conventions for Azure resources].
 
 Per il modello completo, vedere il [modello dello spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola][Service Bus namespace with topic, subscription, and rule] su GitHub.
 
@@ -39,7 +39,7 @@ Per il modello completo, vedere il [modello dello spazio dei nomi del bus di ser
 > * [Creare uno spazio dei nomi del bus di servizio](service-bus-resource-manager-namespace.md)
 > * [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
 > 
-> Per verificare la disponibilità di nuovi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare "service bus".
+> Per verificare gli ultimi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare "service bus".
 > 
 > 
 
@@ -179,7 +179,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibile imparare a gestire queste risorse. Leggere gli articoli seguenti:
+Vedere l'argomento seguente viene illustrato come creare un filtro di sottoscrizione: [Creare uno spazio dei nomi del Bus di servizio con argomento, sottoscrizione e regola usando un modello di Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)
+
+Informazioni su come gestire queste risorse, visualizzare i seguenti articoli:
 
 * [Gestire i bus di servizio di Azure](service-bus-management-libraries.md)
 * [Gestire Bus di servizio con PowerShell](service-bus-manage-with-ps.md)

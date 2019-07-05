@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 982c5dcc052f92afe381235db0bf066262fd82c6
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 357be801914017aceb7e827a3b49960cf7c3e386
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304293"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565416"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Eseguire la migrazione all'accesso granulare in base al ruolo per le configurazioni dei cluster
 
@@ -25,7 +25,7 @@ In futuro, l'accesso a questi segreti richiederanno la `Microsoft.HDInsight/clus
 
 È stato anche introdotto un nuovo [operatore del Cluster HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) ruolo che sarà in grado di recuperare i segreti senza disporre delle autorizzazioni amministrative di proprietario o collaboratore. Per riepilogare:
 
-| Ruolo                                  | In precedenza                                                                                       | In futuro       |
+| Role                                  | In precedenza                                                                                       | In futuro       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | Reader                                | -Accesso in lettura, inclusi i segreti                                                                   | -Accesso in lettura, **esclusione** segreti |           |   |   |
 | Operatore del Cluster HDInsight<br>(Nuovo ruolo) | N/D                                                                                              | : Accesso lettura/scrittura, inclusi i segreti         |   |   |
@@ -121,10 +121,10 @@ Aggiornamento a [versione 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.
 
 Aggiornamento a [versione 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0.0/) o versione successiva di HDInsight SDK per Python. Modifiche al codice minimo potrebbe essere necessari se si usa un metodo interessato da queste modifiche:
 
-- [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurations_operations.configurationsoperations?view=azure-python#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) verrà **non venga più restituito parametri sensibili** come chiavi di archiviazione (core-site) o credenziali HTTP (gateway).
-    - Per recuperare tutte le configurazioni, inclusi i parametri sensibili, utilizzare [ `ConfigurationsOperations.list` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurations_operations.configurationsoperations?view=azure-python#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) in futuro.  Si noti che gli utenti con il ruolo "Lettore" non saranno in grado di utilizzare questo metodo. Ciò consente un controllo granulare su cui gli utenti possono accedere ai dati sensibili per un cluster. 
-    - Per recuperare solo le credenziali del gateway HTTP, usare [ `ConfigurationsOperations.get_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-).
-- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-resource-group-name--cluster-name--tags-none--custom-headers-none--raw-false----operation-config-) è ora deprecata ed è stata sostituita da [ `ClusterOperations.update_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-).
+- [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) verrà **non venga più restituito parametri sensibili** come chiavi di archiviazione (core-site) o credenziali HTTP (gateway).
+    - Per recuperare tutte le configurazioni, inclusi i parametri sensibili, utilizzare [ `ConfigurationsOperations.list` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) in futuro.  Si noti che gli utenti con il ruolo "Lettore" non saranno in grado di utilizzare questo metodo. Ciò consente un controllo granulare su cui gli utenti possono accedere ai dati sensibili per un cluster. 
+    - Per recuperare solo le credenziali del gateway HTTP, usare [ `ClusterOperations.get_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-).
+- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#update-resource-group-name--cluster-name--configuration-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) è ora deprecata ed è stata sostituita da [ `ClusterOperations.update_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-).
 
 ### <a name="sdk-for-java"></a>SDK per Java
 

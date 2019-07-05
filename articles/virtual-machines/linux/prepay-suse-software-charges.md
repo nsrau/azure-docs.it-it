@@ -1,23 +1,21 @@
 ---
-title: Pagare in anticipo per i piani software - prenotazioni di Azure | Microsoft Docs
+title: Pagare in anticipo per i piani software - prenotazioni di Azure
 description: Informazioni su come è possibile pagare in anticipo per i piani software a risparmiare denaro rispetto ai costi con pagamento a consumo.
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8e9d07bf01536d7865bd79f667a937037d96837
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771244"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67489891"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pagare in anticipo i piani software di Azure
 
@@ -25,22 +23,22 @@ Quando il pagamento anticipato per l'utilizzo del software SUSE e RedHat in Azur
 
 È possibile acquistare piani software SUSE e RedHat nel portale di Azure. Per acquistare un piano:
 
-- È necessario disporre del ruolo di proprietario per almeno un Enterprise o una sottoscrizione con pagamento a consumo.
+- È necessario il ruolo di proprietario per almeno un Enterprise o singola sottoscrizione con pagamento a consumo.
 - Per le sottoscrizioni Enterprise, il **aggiungere le istanze riservate** opzione deve essere abilitata nel [portale EA](https://ea.azure.com/). Se l'impostazione è disabilitata, è necessario essere un amministratore EA per la sottoscrizione.
 - Per il programma Cloud Solution Provider (CSP), è possono acquistare i piani di software di agenti di amministrazione o gli agenti di vendita.
 
 ## <a name="buy-a-software-plan"></a>Acquista un piano software
 
-1. Accedi al portale di Azure e passare a [prenotazioni](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+1. Accedere al portale di Azure e passare a [prenotazioni](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 2. Fare clic su **Add** e quindi selezionare il piano software che si vuole acquistare.
 Compilare i campi obbligatori. Qualsiasi VM SUSE Linux o VM RedHat che corrisponde agli attributi dei quali si acquistano Ottiene lo sconto. Il numero effettivo di distribuzioni a cui viene applicato lo sconto dipende dall'ambito e dalla quantità selezionati.
 3. Selezionare una sottoscrizione. Si è usato per pagare il piano.
-Il metodo di pagamento della sottoscrizione viene addebitato il costo iniziale per la prenotazione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri dell'offerta: MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (numeri offerta: MS-AZR-0003P o MS-AZR-0023P).
+Il metodo di pagamento della sottoscrizione viene addebitato il costo iniziale per la prenotazione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri dell'offerta: MS-AZR-0017P o MS-AZR - 0148p) o un singolo contratto prezzi con pagamento a consumo (numeri dell'offerta: MS-AZR-0003P o MS-AZR-0023P).
     - Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto.
-    - Per una sottoscrizione con pagamento a consumo, il costo viene addebitato al metodo di pagamento della fattura o carta di credito della sottoscrizione.
+    - Un singolo abbonamento con prezzi con pagamento a consumo, il costo viene addebitato al metodo di pagamento della fattura o carta di credito della sottoscrizione.
 4. Selezionare un ambito. L'ambito può coprire una o più sottoscrizioni (ambito condiviso).
     - Sottoscrizione singola: lo sconto di piano viene applicata ai corrispondenti sull'utilizzo della sottoscrizione.
-    - Condiviso - viene applicato lo sconto di piano per far corrispondere le istanze in tutte le sottoscrizioni nel contesto di fatturazione. Per i clienti aziendali, il contesto di fatturazione è la registrazione e include tutte le sottoscrizioni nell'ambito della registrazione. Per i clienti con pagamento a consumo, il contesto di fatturazione è tutte le sottoscrizioni con pagamento a consumo create dall'amministratore dell'account.
+    - Condiviso - viene applicato lo sconto di piano per far corrispondere le istanze in tutte le sottoscrizioni nel contesto di fatturazione. Per i clienti aziendali, il contesto di fatturazione è la registrazione e include tutte le sottoscrizioni nell'ambito della registrazione. Per i clienti dei prezzi con pagamento a consumo per singolo piano, il contesto di fatturazione è tutti i piani di singole con le sottoscrizioni di prezzi con pagamento a consumo create dall'amministratore dell'account.
 5. Selezionare un prodotto per scegliere le dimensioni VM e il tipo di immagine. Lo sconto si applica solo le dimensioni della macchina virtuale selezionata.
 6. Selezionare un termine di un anno o tre anni.
 7. Scegliere una quantità, ovvero il numero di istanze di macchina virtuale prepagate che è possibile ottenere lo sconto sulla fatturazione.

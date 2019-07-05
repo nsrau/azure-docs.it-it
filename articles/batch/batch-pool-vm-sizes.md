@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 07/01/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 033e0865f23034b94e3133e0ba5890eca4e746ea
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1848891a0a37235c9769b3cee18262239e19df5a
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080880"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502658"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch
 
@@ -51,8 +51,8 @@ Qualsiasi promozionali o dimensioni delle macchine Virtuali di anteprima non ele
 | [Dimensioni ottimizzate per la memoria](../virtual-machines/linux/sizes-memory.md) | Nessuna | Non disponibile |
 | Serie Fsv2 | Tutte le dimensioni | Qualsiasi |
 | Serie H | Tutte le dimensioni | Qualsiasi |
-| Serie HB | Tutte le dimensioni | Modalità di sottoscrizione utente |
-| Serie HC | Tutte le dimensioni | Modalità di sottoscrizione utente |
+| Serie HB<sup>2</sup> | Tutte le dimensioni | Qualsiasi |
+| Connessione ibrida-series<sup>2</sup> | Tutte le dimensioni | Qualsiasi |
 | Serie Ls | Tutte le dimensioni | Qualsiasi |
 | Serie Lsv2 | Nessuna | Non disponibile |
 | Serie M | Standard_M64ms Standard_M128s (con priorità bassa solo), (con priorità bassa solo) | Qualsiasi |  

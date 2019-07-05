@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 54449d9ea14fef6b2373aa8e0ea3341417c2d3fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a19653f7ae3900fd7999f347ef4d3ef710be1430
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057995"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436343"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Abilitare il backup quando si crea una macchina virtuale di Azure
 
@@ -54,7 +54,8 @@ Se si non sono già connessi al proprio account, accedere al [portale di Azure](
 
 
 > [!NOTE]
-> Servizio Backup di Azure consente di creare un gruppo di risorse separato (diverso dal gruppo di risorse della macchina virtuale) per archiviare lo snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (esempio: AzureBackupRG_northeurope_1). Verranno conservati i dati nel gruppo di risorse per la durata in giorni come specificato nella *snapshot di ripristino istantaneo Mantieni* sezione del criterio di Backup di macchine virtuali di Azure.  Applicare un blocco a questo gruppo di risorse può causare errori di backup.
+> Servizio Backup di Azure consente di creare un gruppo di risorse separato (diverso dal gruppo di risorse della macchina virtuale) per archiviare lo snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (esempio: AzureBackupRG_northeurope_1). Verranno conservati i dati nel gruppo di risorse per la durata in giorni come specificato nella *snapshot di ripristino istantaneo Mantieni* sezione del criterio di Backup di macchine virtuali di Azure.  Applicare un blocco a questo gruppo di risorse può causare errori di backup.<br>
+Questo gruppo di risorse deve essere esclusi anche dalla eventuali restrizioni/tag del nome come un criterio di restrizione bloccherà la creazione di raccolte di punti di risorse in esso nuovamente causando errori di backup.
 
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Avviare un backup dopo aver creato la macchina virtuale

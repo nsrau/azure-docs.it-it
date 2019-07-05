@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fe1517cce8a1f9b1024085340ffb927b282f0fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1cb17109d53c6e08c8607959207e367086032f6d
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540291"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482700"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedura: Riattivare spazi dei nomi del Servizio di controllo di accesso disabilitati
 
@@ -90,7 +90,7 @@ Ulteriori estensioni non verranno più approvate automaticamente. Se è necessar
 
 ### <a name="to-request-an-extension"></a>Per richiedere un'estensione
 
-1. Accedere al portale di Azure e creare una [nuova richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support).
+1. Accedere al portale di Azure e creare un [nuova richiesta di supporto](https://portal.azure.com/#create/Microsoft.Support).
 1. Compilare il nuovo modulo di richiesta di supporto, come illustrato nell'esempio seguente.
 
     | Campo della richiesta di supporto | Value |
@@ -102,7 +102,7 @@ Ulteriori estensioni non verranno più approvate automaticamente. Se è necessar
     | **Tipo di problema** | `ACS to SAS Migration` |
     | **Oggetto** | Descrivere il problema |
 
-   ![Nuova richiesta di supporto tecnico](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![Viene illustrato un esempio di una nuova richiesta di supporto tecnico](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 

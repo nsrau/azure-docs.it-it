@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 722097f1a61a10cd45c0c330e998021cd1abf0c8
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 94aca33b2f12c1c39297221a856296dcca052b0f
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147973"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565791"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
@@ -61,16 +61,21 @@ Usare questa tabella come guida:
 | Tipo di archiviazione | Metodo attualmente supportato di autorizzazione |
 |--|--|
 |**Archiviazione BLOB** | Azure AD & firma di accesso condiviso |
-|**Archiviazione BLOB (spazio dei nomi gerarchico)** | Solo Azure AD |
+|**Archiviazione BLOB (spazio dei nomi gerarchico)** | Azure AD & firma di accesso condiviso |
 |**Archiviazione file** | Firma di accesso condiviso solo |
 
 ### <a name="option-1-use-azure-ad"></a>Opzione 1: Usare Azure AD
 
+Con Azure AD, è possibile fornire le credenziali una sola volta invece di dover aggiungere un token di firma di accesso condiviso per ogni comando.  
+
 Il livello di autorizzazione che è necessario dipende se si prevede di caricare i file o semplicemente eseguirne il download.
 
-Se si desidera solo scaricare i file, quindi verificare che il [lettore di dati Blob di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) assegnato alla propria identità.
+Se si desidera solo scaricare i file, quindi verificare che il [lettore di dati Blob di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) assegnato per l'identità dell'utente o entità servizio. 
 
-Se si desidera caricare i file, quindi verificare che uno di questi ruoli è stato assegnato alla propria identità:
+> [!NOTE]
+> Le identità degli utenti ed entità servizio sono ognuno un tipo di *entità di sicurezza*, quindi verrà usato il termine *entità di sicurezza* nella parte restante di questo articolo.
+
+Se si desidera caricare i file, quindi verificare che uno di questi ruoli è stato assegnato all'entità di sicurezza:
 
 - [Collaboratore ai dati del BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Proprietario dei dati del BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
@@ -84,13 +89,16 @@ Questi ruoli possono essere assegnati alla propria identità in uno di questi am
 
 Per informazioni su come verificare e assegnare ruoli, vedere [concedere l'accesso a Azure blob e Accodamento dei dati con accessi nel portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Non è necessario avere uno di questi ruoli assegnati alla propria identità se l'identità viene aggiunto all'elenco di controllo di accesso (ACL) del contenitore di destinazione o della directory. Nell'elenco ACL, la tua identità richiede l'autorizzazione di scrittura nella directory di destinazione e l'autorizzazione di esecuzione nel contenitore e per ogni directory padre.
+> [!NOTE] 
+> Tenere presente che le assegnazioni di ruolo RBAC possono richiedere fino a cinque minuti per propagare.
+
+Non è necessario avere uno di questi ruoli assegnati all'entità di sicurezza se l'entità di sicurezza viene aggiunto all'elenco di controllo di accesso (ACL) del contenitore di destinazione o della directory. Nell'elenco ACL, l'entità di sicurezza richiede l'autorizzazione di scrittura nella directory di destinazione e l'autorizzazione di esecuzione nel contenitore e per ogni directory padre.
 
 Per altre informazioni, vedere [controllo degli accessi in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-#### <a name="authenticate-your-identity"></a>Eseguire l'autenticazione dell'identità
+#### <a name="authenticate-a-user-identity"></a>Autenticare un'identità utente
 
-Dopo aver verificato che l'identità è stata assegnata il livello di autorizzazione necessari, aprire un prompt dei comandi, digitare il comando seguente e quindi premere INVIO.
+Dopo aver verificato che l'identità dell'utente è stato assegnato il livello di autorizzazione necessari, aprire un prompt dei comandi, digitare il comando seguente e quindi premere INVIO.
 
 ```azcopy
 azcopy login
@@ -109,6 +117,72 @@ Questo comando restituisce un codice di autenticazione e l'URL di un sito Web. A
 ![Creare un contenitore](media/storage-use-azcopy-v10/azcopy-login.png)
 
 Verrà visualizzata una finestra di accesso. In tale finestra accedere al proprio account Azure usando le relative credenziali. Dopo aver completato l'accesso, è possibile chiudere la finestra del browser e iniziare a usare AzCopy.
+
+<a id="service-principal" />
+
+#### <a name="authenticate-a-service-principal"></a>Autenticare un'entità servizio
+
+Questa è un'opzione utilissima se si prevede di usare AzCopy all'interno di uno script che viene eseguito senza l'intervento dell'utente. 
+
+Prima di eseguire lo script, è necessario Accedi in modo interattivo almeno una volta in modo che AzCopy è possibile fornire le credenziali dell'entità servizio.  Tali credenziali vengono archiviate in un file protetto e crittografato in modo che lo script senza dover fornire le informazioni sensibili.
+
+È possibile accedere all'account tramite un segreto client o utilizzando la password di un certificato di registrazione dell'app dell'entità servizio associata. 
+
+Per altre informazioni sulla creazione dell'entità servizio, vedere [come: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+Per altre informazioni sulle entità servizio in generale, vedere [dell'applicazione e oggetti entità servizio in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+
+##### <a name="using-a-client-secret"></a>Tramite un segreto client
+
+Iniziare impostando il `AZCOPY_SPA_CLIENT_SECRET` variabile di ambiente per il segreto client dell'entità servizio di registrazione dell'app. 
+
+> [!NOTE]
+> Assicurarsi di impostare questo valore dal prompt dei comandi e non nell'ambiente di variabili delle impostazioni del sistema operativo. In questo modo, il valore è disponibile solo per la sessione corrente.
+
+Questo esempio viene illustrato come è possibile eseguire questa operazione in PowerShell.
+
+```azcopy
+$env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
+```
+
+> [!NOTE]
+> È consigliabile usare un prompt dei comandi, come illustrato in questo esempio. In questo modo, il segreto client non sarà visualizzati nella cronologia dei comandi della console. 
+
+Successivamente, digitare il comando seguente e quindi premere INVIO.
+
+```azcopy
+azcopy login --service-principal --application-id <application-id>
+```
+
+Sostituire il `<application-id>` segnaposto con l'ID applicazione dell'entità servizio di registrazione dell'app.
+
+##### <a name="using-a-certificate"></a>Utilizzo di un certificato
+
+Se si preferisce usare le proprie credenziali per l'autorizzazione, è possibile caricare un certificato di registrazione dell'app e quindi usare tale certificato per account di accesso.
+
+Oltre a caricare il certificato per la registrazione dell'app, è necessario anche disporre di una copia del certificato salvato per il computer o macchina virtuale in cui verranno eseguiti AzCopy. Questa copia del certificato deve essere. File PFX o. PEM formattare e deve includere la chiave privata. La chiave privata deve essere protetto da password. Se si usa Windows e il certificato esiste solo in un archivio certificati, assicurarsi di esportare il certificato in un file PFX (tra cui la chiave privata). Per istruzioni, vedere [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
+
+Impostare quindi il `AZCOPY_SPA_CERT_PASSWORD` variabile di ambiente per la password del certificato.
+
+> [!NOTE]
+> Assicurarsi di impostare questo valore dal prompt dei comandi e non nell'ambiente di variabili delle impostazioni del sistema operativo. In questo modo, il valore è disponibile solo per la sessione corrente.
+
+Questo esempio viene illustrato come è possibile eseguire questa operazione in PowerShell.
+
+```azcopy
+$env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
+```
+
+Successivamente, digitare il comando seguente e quindi premere INVIO.
+
+```azcopy
+azcopy login --service-principal --certificate-path <path-to-certificate-file>
+```
+
+Sostituire il `<path-to-certificate-file>` segnaposto con il percorso relativo o completo del file di certificato. AzCopy Salva il percorso per questo certificato, ma non salva una copia del certificato, assicurarsi quindi di mantenere tale certificato.
+
+> [!NOTE]
+> È consigliabile usare un prompt dei comandi, come illustrato in questo esempio. In questo modo, la password non sarà più visualizzato nella cronologia dei comandi della console. 
 
 ### <a name="option-2-use-a-sas-token"></a>Opzione 2: Usare un token di firma di accesso condiviso
 
@@ -134,7 +208,11 @@ Per trovare i comandi di esempio, vedere questi articoli.
 
 - [Trasferire dati con AzCopy e bucket Amazon S3](storage-use-azcopy-s3.md)
 
+- [Trasferire dati con AzCopy e Azure Stack di archiviazione](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
+
 ## <a name="use-azcopy-in-a-script"></a>Uso di AzCopy in uno script
+
+Prima di eseguire lo script, è necessario Accedi in modo interattivo almeno una volta in modo che AzCopy è possibile fornire le credenziali dell'entità servizio.  Tali credenziali vengono archiviate in un file protetto e crittografato in modo che lo script senza dover fornire le informazioni sensibili. Per esempi, vedere la [autenticare l'entità servizio](#service-principal) sezione di questo articolo.
 
 Nel corso del tempo, AzCopy [collegamento di download](#download-and-install-azcopy) punterà a nuove versioni di AzCopy. Se lo script esegue il download di AzCopy, lo script potrebbe smettere di funzionare se una versione più recente di AzCopy che lo script varia a seconda della funzionalità di modifica. 
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 48365d8fcb5e95fc9b9fa605321baf28e07eee66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 617eb8c8cfcdc7af5e91d0ed122ccdd21e7b86ff
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720811"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508088"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Inviare processi Apache Hadoop in HDInsight
 
@@ -25,21 +25,18 @@ ms.locfileid: "64720811"
 
   - [Creare applicazioni .NET di autenticazione non interattive](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [Eseguire query Apache Hive con HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md)
-  - [Eseguire processi Apache Pig con .NET SDK per Apache Hadoop in HDInsight](apache-hadoop-use-pig-dotnet-sdk.md)
   - [Eseguire processi Apache Sqoop con .NET SDK per Apache Hadoop in HDInsight](apache-hadoop-use-sqoop-dotnet-sdk.md)
   - [Eseguire processi MapReduce con HDInsight .NET SDK](apache-hadoop-use-mapreduce-dotnet-sdk.md)
 
 - **Curl**:
 
   - [Eseguire query Apache Hive con Apache Hadoop in HDInsight tramite curl](apache-hadoop-use-hive-curl.md)
-  - [Eseguire processi Apache Pig con Apache Hadoop in HDInsight tramite curl](apache-hadoop-use-pig-curl.md)
   - [Eseguire processi Apache Sqoop con Apache Hadoop in HDInsight tramite curl](apache-hadoop-use-sqoop-curl.md)
   - [Eseguire processi MapReduce con Apache Hadoop in HDInsight tramite curl](apache-hadoop-use-mapreduce-curl.md)
 
 - **PowerShell**:
 
   - [Eseguire query Apache Hive usando PowerShell](apache-hadoop-use-hive-powershell.md)
-  - [Eseguire processi Apache Pig mediante PowerShell](apache-hadoop-use-pig-powershell.md)
   - [Usare Apache Sqoop con Apache Hadoop in HDInsight](apache-hadoop-use-sqoop-powershell.md)
   - [Eseguire processi MapReduce con Apache Hadoop in HDInsight mediante PowerShell](apache-hadoop-use-mapreduce-powershell.md)
 

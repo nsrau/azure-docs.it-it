@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6f44005080bbd8583ae2e2fdad31ef2c823c7ca
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 61c3d37f365034984231c780199e181872c010c6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154518"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544121"
 ---
 # <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>L'accesso alla soluzione VMware dal portale CloudSimple dal portale di Azure
 
@@ -21,7 +21,16 @@ Accesso Single sign-on è supportato per l'accesso al portale CloudSimple. Dopo 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Solo gli utenti con builtin **Owner** e **collaboratore** ruoli è possono accedere al portale CloudSimple.  I ruoli devono essere configurati per la sottoscrizione.  Per altre informazioni sul controllo del proprio ruolo, vedere [visualizzare le assegnazioni di ruolo](https://docs.microsoft.com/azure/role-based-access-control/check-access) articolo.
+Gli utenti con builtin **Owner** e **collaboratore** ruoli è possono accedere al portale CloudSimple.  I ruoli devono essere configurati nel gruppo di risorse in cui viene distribuito il servizio CloudSimple.  I ruoli possono essere configurati anche nell'oggetto del servizio CloudSimple.  Per altre informazioni sul controllo del proprio ruolo, vedere [visualizzare le assegnazioni di ruolo](https://docs.microsoft.com/azure/role-based-access-control/check-access) articolo.
+
+Se si usa i ruoli personalizzati, il ruolo dovrebbe disporre una delle operazioni seguenti in ```Actions```.  Per altre informazioni sui ruoli personalizzati, vedere [ruoli personalizzati per le risorse di Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  Se una delle operazioni è una parte di ```NotActions```, l'utente non può accedere CloudSimple portale. 
+
+```
+Microsoft.VMwareCloudSimple/*
+Microsoft.VMwareCloudSimple/*/write
+Microsoft.VMwareCloudSimple/dedicatedCloudServices/*
+Microsoft.VMwareCloudSimple/dedicatedCloudServices/*/write
+```
 
 ## <a name="sign-in-to-azure"></a>Accedi ad Azure
 

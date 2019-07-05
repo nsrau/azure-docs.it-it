@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b1c68d9254b0da2e5296c83d8dd4c95091fde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd9ff2360fce26b77ba0f5be4d5f70103504ec05
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111813"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67564435"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durate dei token configurabili in Azure Active Directory (anteprima)
 
 È possibile specificare la durata di un token rilasciato da Azure Active Directory (Azure AD). La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione.
 
 > [!IMPORTANT]
-> Dopo udito dei clienti durante l'anteprima, abbiamo abbiamo sostituito con la funzionalità di durata dei token configurabili [funzionalità di gestione della sessione di autenticazione](https://go.microsoft.com/fwlink/?linkid=2083106) nell'accesso condizionale di Azure AD. Questa funzionalità verrà dichiarata deprecata il 1 novembre 2019. Se si usa i criteri di durata dei token configurabili, passare alla nuova funzionalità di accesso condizionale. 
+> Dopo l'ascolto da parte dei clienti durante l'anteprima, abbiamo implementato [funzionalità di gestione della sessione di autenticazione](https://go.microsoft.com/fwlink/?linkid=2083106) nell'accesso condizionale di Azure AD. È possibile utilizzare questa nuova funzionalità per configurare durate dei token di aggiornamento tramite l'impostazione di accesso nella frequenza. Dopo il 1 novembre 2019 non sarà in grado di utilizzare criteri di durata dei Token configurabili per configurare i token di aggiornamento, ma è comunque possibile usarlo per configurare i token di accesso.
 
 In Azure AD, un oggetto criteri rappresenta un set di regole applicate a singole applicazioni o a tutte le applicazioni di un'organizzazione. Ogni tipo di criteri ha una struttura univoca con un set di proprietà che vengono applicate agli oggetti a cui sono assegnate.
 

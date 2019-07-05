@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd84b44c89c856036640757b7760d7c10bd36173
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4951984d05e75b0271cf6592c77c54ad13678994
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824837"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476549"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Configurare il consenso utente in un'applicazione Azure Active Directory
 Informazioni su come configurare il modo in cui gli utenti forniscono il consenso alle autorizzazioni dell'applicazione. È possibile semplificare l'esperienza utente concedendo il consenso dell'amministratore. Questo articolo illustra i diversi modi con cui è possibile configurare il consenso dell'utente. Questi metodi si applicano a tutti gli utenti finali nel tenant di Azure Active Directory (Azure AD). 
@@ -38,9 +38,10 @@ Per concedere il consenso dell'amministratore a un'app aziendale:
 2. Fare clic su **Tutti i servizi** nella parte superiore del menu di spostamento a sinistra. Aprire l'estensione **Azure Active Directory**.
 3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 4. Scegliere **Applicazioni aziendali** dal menu di spostamento.
-5. Fare clic su **Concedi consenso amministratore**. Verrà richiesto l'accesso per amministrare l'applicazione.
-6. Accedere con un account che disponga delle autorizzazioni per concedere il consenso dell'amministratore per l'applicazione. 
-7. Fornire il consenso alle autorizzazioni dell'applicazione.
+5. Selezionare l'app per il consenso.
+6. Selezionare **le autorizzazioni** e quindi fare clic su **concedere il consenso dell'amministratore**. Verrà richiesto l'accesso per amministrare l'applicazione.
+7. Accedere con un account che disponga delle autorizzazioni per concedere il consenso dell'amministratore per l'applicazione. 
+8. Fornire il consenso alle autorizzazioni dell'applicazione.
 
 Questa opzione funziona solo se l'applicazione è: 
 
@@ -54,8 +55,8 @@ Per concedere il consenso dell'amministratore quando si registra un'app:
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale.
 2. Passare al pannello **Registrazioni per l'App**.
 3. Selezionare l'applicazione per il consenso.
-4. Selezionare **Autorizzazioni necessarie**.
-5. Fare clic su **Concedi autorizzazioni** nella parte superiore del pannello.
+4. Selezionare **Autorizzazioni API**.
+5. Fare clic su **concedere il consenso dell'amministratore**.
 
 
 ## <a name="grant-admin-consent-through-a-url-request"></a>Concedere il consenso dell'amministratore tramite una richiesta URL

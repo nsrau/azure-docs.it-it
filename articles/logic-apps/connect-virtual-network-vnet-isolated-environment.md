@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b48257cc8e10deb1ec922806f62a6c435069f66f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65961444"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467085"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -64,7 +64,7 @@ Per altre informazioni sugli ambienti del servizio di integrazione, vedere [Acce
 
 Quando si usa un ambiente del servizio di integrazione (ISE) con una rete virtuale, un problema di configurazione comune è la presenza di uno o più porte bloccate. I connettori utilizzabili per la creazione di connessioni tra l'ISE e il sistema di destinazione potrebbero essere anche i propri requisiti delle porte. Ad esempio, se si comunica con un sistema FTP usando il connettore FTP, assicurarsi che la porta utilizzata nel sistema FTP, ad esempio la porta 21 per l'invio di comandi, sia disponibile.
 
-Per controllare il traffico tra subnet della rete virtuale in cui si distribuisce ISE, è possibile configurare [gruppi di sicurezza di rete](../virtual-network/security-overview.md) dal [filtraggio del traffico di rete tra subnet](../virtual-network/tutorial-filter-network-traffic.md). Tuttavia, l'ISE deve avere porte specifiche aperto nella rete virtuale che usa gruppi di sicurezza di rete. In questo modo, l'ISE rimane accessibile e può funzionare correttamente in modo da non perdere l'accesso per l'ISE. In caso contrario, se tutte le porte richieste siano disponibili, l'ISE smette di funzionare.
+Per controllare il traffico tra subnet della rete virtuale in cui si distribuisce l'ISE, è possibile facoltativamente configurare [(Nsg) di gruppi di sicurezza di rete](../virtual-network/security-overview.md) in una rete virtuale da [filtraggio del traffico di rete tra subnet](../virtual-network/tutorial-filter-network-traffic.md). Se si sceglie questa route, assicurarsi che l'ISE consente di aprire determinate porte, come descritto nella tabella seguente, nella rete virtuale che usa il Nsg. Se si dispone di firewall o Nsg esistenti in una rete virtuale, assicurarsi che aprono queste porte. In questo modo, l'ISE rimane accessibile e può funzionare correttamente in modo da non perdere l'accesso per l'ISE. In caso contrario, se tutte le porte richieste siano disponibili, l'ISE smette di funzionare.
 
 Le tabelle seguenti descrivono le porte usate dall'ISE nella rete virtuale e dove tali porte vengono usate. Il [tag di servizio di gestione risorse](../virtual-network/security-overview.md#service-tags) rappresenta un gruppo di prefissi di indirizzo IP che consentono di ridurre la complessità durante la creazione di regole di sicurezza.
 

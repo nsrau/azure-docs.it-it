@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.openlocfilehash: efa4cc070f47174634c8dc67b37f10bc3d112d08
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.date: 06/26/2019
+ms.openlocfilehash: 412ce3c5245f3f22bfb03740a0451670dc6a90a7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293196"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448114"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Estensioni di PostgreSQL in Database di Azure per PostgreSQL - Server singolo
 PostgreSQL offre la capacità di estendere le funzionalità del database usando le estensioni. Le estensioni consentono di creare bundle di più oggetti SQL correlati in un singolo pacchetto che può essere caricato o rimosso dal database con un singolo comando. Dopo averle caricate nel database, le estensioni possono operare come funzionalità predefinite. Per altre informazioni sulle estensioni di PostgreSQL, vedere  [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html) (Creare un pacchetto di oggetti correlati formando un'estensione).
@@ -48,7 +48,7 @@ Le tabelle seguenti includono un elenco delle estensioni standard di PostgreSQL 
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Gestisce le tabelle partizionate per ora o ID. |
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Fornisce funzioni e operatori per determinare la somiglianza del testo alfanumerico in base alla corrispondenza trigramma. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Fornisce funzioni che consentono di modificare intere tabelle, compresi i campi incrociati. |
-> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genera identificatori universalmente univoci (UUID). |
+> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genera identificatori universalmente univoci (UUID). Per una nota relativa a questa estensione, vedere di seguito. |
 > | [orafce](https://github.com/orafce/orafce) | Fornisce un subset di funzioni e i pacchetti emulati dai database commerciali. |
 
 ### <a name="full-text-search-extensions"></a>Estensioni di ricerca full-text
@@ -118,6 +118,10 @@ L'impostazione `pg_stat_statements.track`, che controlla le istruzioni conteggia
 dblink e postgres_fdw consentono di connettersi da un server PostgreSQL a un altro oppure a un altro database nello stesso server. Il server di destinazione deve consentire le connessioni dal server di origine attraverso il firewall. Quando si usano queste estensioni per la connessione tra server Database di Azure per PostgreSQL, questa operazione può essere eseguita attivando l'impostazione "Consenti l'accesso a Servizi di Azure". Questo è necessario anche quando si vogliono usare le estensioni per il loopback allo stesso server. L'impostazione "Consenti l'accesso a Servizi di Azure" è disponibile nella pagina del portale di Azure per il server Postgres, nell'area Sicurezza connessione. Quando si attiva "Consenti l'accesso a Servizi di Azure", tutti gli indirizzi IP di Azure vengono inclusi nell'elenco elementi consentiti.
 
 Attualmente, le connessioni in uscita dal Database di Azure per PostgreSQL non sono supportate, ad eccezione delle connessioni da altri Database di Azure per i server PostgreSQL.
+
+## <a name="uuid"></a>uuid
+Se si prevede di usare `uuid_generate_v4()` dall'estensione per l'uuid ossp, prendere in considerazione il confronto con `gen_random_uuid()` dall'estensione pgcrypto per i vantaggi delle prestazioni.
+
 
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB è un database di serie temporali che viene fornito come un'estensione per PostgreSQL. TimescaleDB fornisce basati sul tempo funzioni analitiche, le ottimizzazioni e offre la scalabilità Postgres per carichi di lavoro di serie temporali.

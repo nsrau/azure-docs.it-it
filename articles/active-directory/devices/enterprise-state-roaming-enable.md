@@ -1,28 +1,22 @@
 ---
 title: Abilitare Enterprise State Roaming in Azure Active Directory | Microsoft Docs
-description: Domande frequenti sulle impostazioni del servizio Enterprise State Roaming nei dispositivi Windows. Enterprise State Roaming offre agli utenti un'esperienza unificata in tutti i dispositivi Windows e riduce il tempo necessario per la configurazione di un nuovo dispositivo.
+description: Domande frequenti sulle impostazioni del servizio Enterprise State Roaming nei dispositivi Windows.
 services: active-directory
-keywords: enterprise state roaming, cloud windows, come abilitare il servizio enterprise state roaming
-documentationcenter: ''
-author: tanning
-manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
+ms.subservice: devices
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88e825ebc08b4bfbd65f81b7b2480ead9be314b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45c1fc6340df6a5400864b2e1222a2c65e586232
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954941"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482022"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Abilitare Enterprise State Roaming in Azure Active Directory
 Enterprise State Roaming è disponibile per qualsiasi organizzazione con una licenza Azure AD Premium o Enterprise Mobility + Security (EMS). Per altre informazioni su come ottenere una sottoscrizione di Azure AD, vedere la [pagina del prodotto Azure AD](https://azure.microsoft.com/services/active-directory) .
@@ -32,9 +26,7 @@ Quando si abilita il servizio Enterprise State Roaming, all'organizzazione viene
 ## <a name="to-enable-enterprise-state-roaming"></a>Per abilitare Enterprise State Roaming
 
 1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com/).
-
 1. Selezionare **Azure Active Directory** &gt; **Dispositivi** &gt; **Enterprise State Roaming**.
-
 1. Selezionare **Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi**. Per altre informazioni, vedere [Configurare le impostazioni dei dispositivi](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
    ![Immagine dell'impostazione del dispositivo Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi](./media/enterprise-state-roaming-enable/device-settings.png)
@@ -44,12 +36,12 @@ Per consentire a un dispositivo Windows 10 di usare il servizio Enterprise State
 ## <a name="data-storage"></a>Archiviazione dei dati
 I dati del servizio Enterprise State Roaming sono ospitati in una o più [aree di Azure](https://azure.microsoft.com/regions/) ottimali per il valore relativo al paese/all'area geografica impostati nell'istanza di Azure Active Directory. I dati del servizio Enterprise State Roaming vengono partizionati in base alle tre principali aree geografiche: America del Nord, EMEA e Asia Pacifico. I dati del servizio Enterprise State Roaming per il tenant si trovano in locale con l'area geografica e non vengono replicati tra le aree.  Ad esempio:
 
-Valore di paese/area geografica | dati ospitati in
----------------------|-------------------------
-Un paese/regione EMEA, ad esempio Francia o Zambia | Una o più aree di Azure in Europa 
-Un paese/regione Nord americano, ad esempio Stati Uniti o Canada | Una o più aree di Azure negli Stati Uniti
-Un paese/regione Asia Pacifico, ad esempio Australia o Nuova Zelanda | Una o più aree di Azure in Asia
-Aree America del Sud e Antartide | Una o più aree di Azure negli Stati Uniti
+| Valore di paese/area geografica | dati ospitati in |
+| -------------------- | ------------------------ |
+| Un paese/regione EMEA, ad esempio Francia o Zambia | Una o più aree di Azure in Europa |
+| Un paese/regione Nord americano, ad esempio Stati Uniti o Canada | Una o più aree di Azure negli Stati Uniti |
+| Un paese/regione Asia Pacifico, ad esempio Australia o Nuova Zelanda | Una o più aree di Azure in Asia |
+| Aree America del Sud e Antartide | Una o più aree di Azure negli Stati Uniti |
 
 Il valore relativo al paese/all'area geografica viene impostato come parte del processo di creazione della directory Azure AD e non può essere modificato successivamente. Se sono necessarie altre informazioni sulla posizione di archiviazione dei dati, inviare un ticket al [supporto tecnico Azure](https://azure.microsoft.com/support/options/).
 
@@ -57,11 +49,8 @@ Il valore relativo al paese/all'area geografica viene impostato come parte del p
 Seguire questi passaggi per visualizzare un report di stato della sincronizzazione dei dispositivi per ogni utente.
 
 1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com/).
-
 1. Selezionare **Azure Active Directory** &gt; **Utenti** &gt; **Tutti gli utenti**.
-
 1. Selezionare l'utente e quindi selezionare **Dispositivi**.
-
 1. In **Mostra** selezionare **Impostazioni di sincronizzazione dispositivi e dati dell'app aziendali** per mostrare lo stato della sincronizzazione.
   
    ![Immagine dell'impostazione per la sincronizzazione di dispositivi e dati](./media/enterprise-state-roaming-enable/sync-status.png)

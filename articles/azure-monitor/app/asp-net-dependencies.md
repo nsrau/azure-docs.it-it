@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3c0c670cf9d6ea9ff8ada292777211c69b3edb2a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: HT
+ms.openlocfilehash: d8ba5b19ad5d8f03203e9a028fbc5aec84e5ec06
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445894"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565382"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Monitoraggio delle dipendenze in Azure Application Insights 
 
@@ -104,7 +104,7 @@ Per le applicazioni ASP.NET, query SQL completa viene raccolto con l'aiuto di st
 | --- | --- |
 | App Web di Azure |Nel Pannello di controllo per l'app web, [aprire il pannello di Application Insights](../../azure-monitor/app/azure-web-apps.md) e abilitare i comandi SQL in .NET |
 | Server IIS (macchina virtuale di Azure, in locale e così via). | [Installare Status Monitor nel server in cui sono in esecuzione applicazioni](../../azure-monitor/app/monitor-performance-live-website-now.md) e riavviare IIS.
-| Servizio cloud di Azure | Aggiungere [attività di avvio per installare StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> L'app deve essere caricata in ApplicationInsights SDK in fase di compilazione tramite l'installazione di pacchetti NuGet per la [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) o [applicazioni ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core.) |
+| Servizio cloud di Azure | Aggiungere [attività di avvio per installare StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> L'app deve essere caricata in ApplicationInsights SDK in fase di compilazione tramite l'installazione di pacchetti NuGet per la [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) o [applicazioni ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | Non supportate
 
 Nei casi precedenti, il modo corretto di convalida che il motore di strumentazione è installato correttamente è necessario convalidare che la versione del SDK raccolti `DependencyTelemetry` è 'rddp'. 'rdddsd' o 'rddf' indica che le dipendenze vengono raccolti tramite i callback di DiagnosticSource o EventSource e pertanto non sarà possibile acquisire query SQL completa.

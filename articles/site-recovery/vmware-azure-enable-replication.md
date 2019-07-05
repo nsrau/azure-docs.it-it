@@ -3,15 +3,15 @@ title: Abilitare la replica di macchine virtuali VMware per il ripristino di eme
 description: Questo articolo descrive come abilitare le macchine virtuali VMware per la replica per il ripristino di emergenza in Azure usando Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 05/10/2019
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f4e4afb4d94a7b2e2a6b246a371cf6234577463
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540776"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491726"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
 
@@ -37,11 +37,13 @@ Quando si esegue la replica di macchine virtuali VMware, tenere presente queste 
 ## <a name="enable-replication"></a>Abilitare la replica
 
 Prima di seguire i passaggi descritti in questa sezione, tenere presente quanto segue:
-* Azure Site Recovery replica ora direttamente al servizio managed disks per tutte le nuove repliche. Il server di elaborazione scrive i log di replica in un account di archiviazione della cache nell'area di destinazione. Questi log vengono utilizzati per creare i punti di ripristino in dischi gestiti di replica.
+* Azure Site Recovery replica ora direttamente al servizio managed disks per tutte le nuove repliche. Il server di elaborazione scrive i log di replica in un account di archiviazione della cache nell'area di destinazione. Questi log vengono utilizzati per creare i punti di ripristino in dischi gestiti di replica con convenzione di denominazione di asrseeddisk.
+* Supporto di PowerShell per replicare al servizio managed disks è disponibile da [Az.RecoveryServices versione del modulo 2.0.0 o versione successiva](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 
 * Al momento del failover, il punto di ripristino selezionato viene usato per creare il disco gestito di destinazione.
 * Le macchine virtuali configurati in precedenza per la replica in account di archiviazione di destinazione non sono interessate.
 * La replica in account di archiviazione per una nuova macchina virtuale è disponibile solo tramite un Representational State Transfer (REST) API e Powershell. Usare l'API REST di Azure versione 2016-08-10 o 2018-01-10 per la replica in account di archiviazione.
 
+Seguire i passaggi seguenti per consentire la replica:
 1. Passare a **passaggio 2: Eseguire la replica dell'applicazione** > **Origine**. Dopo aver abilitato la replica per la prima volta, selezionare **+ replica** nell'insieme di credenziali per abilitare la replica per le macchine virtuali aggiuntive.
 2. Nella pagina **Origine** > **Origine** selezionare il server di configurazione.
 3. Per la **tipo di computer**, selezionare **macchine virtuali** oppure **macchine fisiche**.

@@ -7,23 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 33d86ab8c88b45c7787620773f0df6e7fe888cf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7c234e181e10499e532436bfde05ed89bdc7d28
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850406"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465699"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installare e utilizzare Istio nel servizio Azure Kubernetes
 
-[Istio][istio-github] è una rete mesh di servizi open source che offre un set di funzionalità chiave per i microservizi in un cluster Kubernetes. Queste funzionalità includono la gestione del traffico, l'identità e la sicurezza del servizio, l'applicazione dei criteri e l'osservabilità. Per maggiori informazioni su Istio, vedere la documentazione ufficiale [Cos'è Istio?][istio-docs-concepts].
+[Istio][istio-github] is an open-source service mesh that provides a key set of functionality across the microservices in a Kubernetes cluster. These features include traffic management, service identity and security, policy enforcement, and observability. For more information about Istio, see the official [What is Istio?][istio-docs-concepts] documentazione.
 
 Questo articolo illustra come installare Istio. Il Istio `istioctl` binario client viene installato nel computer client e i componenti di Istio vengono installati in un cluster Kubernetes nel servizio contenitore di AZURE.
 
 > [!NOTE]
 > Queste istruzioni fanno riferimento a versione Istio `1.1.3`.
 >
-> Il Istio `1.1.x` rilasci sono stati testati dal team con le versioni di Kubernetes Istio `1.11`, `1.12`, `1.13`. È possibile trovare versioni Istio aggiuntive alla [GitHub - rilascia Istio] [ istio-github-releases] e informazioni su ognuna delle versioni in [Istio - note sulla versione] [ istio-release-notes].
+> Il Istio `1.1.x` rilasci sono stati testati dal team con le versioni di Kubernetes Istio `1.11`, `1.12`, `1.13`. È possibile trovare versioni Istio aggiuntive alla [GitHub - versioni Istio][istio-github-releases] and information about each of the releases at [Istio - Release Notes][istio-release-notes].
 
 In questo articolo viene spiegato come:
 
@@ -38,11 +38,11 @@ In questo articolo viene spiegato come:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-La procedura descritta in questo articolo si presuppone di aver creato un cluster del servizio contenitore di AZURE (Kubernetes `1.11` e versioni successive, con RBAC abilitato) e aver stabilito un `kubectl` connessione con il cluster. Se occorre assistenza con uno di questi elementi, vedere la [Guida introduttiva al servizio Azure Kubernetes][aks-quickstart].
+La procedura descritta in questo articolo si presuppone di aver creato un cluster del servizio contenitore di AZURE (Kubernetes `1.11` e versioni successive, con RBAC abilitato) e aver stabilito un `kubectl` connessione con il cluster. Se occorre assistenza con uno di questi elementi, vedere la [Guida introduttiva AKS][aks-quickstart].
 
-È necessario [Helm] [ helm] seguire queste istruzioni e installare Istio. Si consiglia di avere la versione `2.12.2` o in un secondo momento correttamente installato e configurato nel cluster. Se occorre assistenza con l'installazione di Helm, vedere la [informazioni aggiuntive sull'installazione di Helm AKS][helm-install]. Tutti i POD Istio devono essere pianificati anche per l'esecuzione nei nodi Linux.
+È necessario [Helm][helm] seguire queste istruzioni e installare Istio. Si consiglia di avere la versione `2.12.2` o in un secondo momento correttamente installato e configurato nel cluster. Se occorre assistenza con l'installazione di Helm, vedere la [informazioni aggiuntive sull'installazione di Helm AKS][helm-install]. Tutti i POD Istio devono essere pianificati anche per l'esecuzione nei nodi Linux.
 
-Questo articolo suddivide il materiale sussidiario per l'installazione di Istio in diversi passaggi. Il risultato finale presenta una struttura identica al [materiale sussidiario][istio-install-helm] ufficiale per l'installazione di Istio.
+Questo articolo suddivide il materiale sussidiario per l'installazione di Istio in diversi passaggi. Il risultato finale è lo stesso nella struttura dell'installazione Istio ufficiale [materiale sussidiario][istio-install-helm].
 
 ## <a name="download-istio"></a>Scaricare Istio
 
@@ -83,6 +83,8 @@ In PowerShell, usare `Invoke-WebRequest` per scaricare la versione più recente 
 $ISTIO_VERSION="1.1.3"
 
 # Windows
+# Use TLS 1.2
+[Net.ServicePointManager]::SecurityProtocol = "tls12"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-win.zip" -OutFile "istio-$ISTIO_VERSION.zip"
 Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 ```
@@ -126,7 +128,7 @@ Ora passare alla sezione successiva relativa alle [installarvi il CRD Istio AKS]
 
 ### <a name="linux-or-windows-subsystem-for-linux"></a>Linux o sottosistema di Windows per Linux
 
-Per installare il file binario del client `istioctl` di Istio in una shell basata su bash in Linux o in un [sottosistema di Windows per Linux][install-wsl], usare i comandi indicati di seguito. Questi comandi copiano il file binario del client `istioctl` nel percorso del programma dell'utente standard in `PATH`.
+Usare i comandi seguenti per installare il Istio `istioctl` client binari in una shell basata su bash in Linux o [sottosistema Windows per Linux][install-wsl]. Questi comandi copiano il file binario del client `istioctl` nel percorso del programma dell'utente standard in `PATH`.
 
 ```bash
 cd istio-$ISTIO_VERSION
@@ -167,13 +169,13 @@ Ora passare alla sezione successiva relativa alle [installarvi il CRD Istio AKS]
 > [!IMPORTANT]
 > Assicurarsi di eseguire i passaggi descritti in questa sezione, dalla cartella di primo livello della versione Istio che è stato scaricato ed estratto.
 
-Usa Istio [definizioni delle risorse personalizzate (i crd)] [ kubernetes-crd] per gestire la configurazione di runtime. È necessario installare le CRD Istio in primo luogo, poiché i componenti di Istio presentano una dipendenza su di essi. Usare Helm e il `istio-init` per installare le CRD Istio nel grafico il `istio-system` dello spazio dei nomi nel cluster AKS:
+Usa Istio [definizioni delle risorse personalizzate (i crd)][kubernetes-crd] per gestire la configurazione di runtime. È necessario installare le CRD Istio in primo luogo, poiché i componenti di Istio presentano una dipendenza su di essi. Usare Helm e il `istio-init` per installare le CRD Istio nel grafico il `istio-system` dello spazio dei nomi nel cluster AKS:
 
 ```azurecli
 helm install install/kubernetes/helm/istio-init --name istio-init --namespace istio-system
 ```
 
-[I processi] [ kubernetes-jobs] distribuite come parte di `istio-init` grafico Helm per installare le CRD. Questi processi dovrebbero richiedere tra 1 e 2 minuti, a seconda dell'ambiente cluster. È possibile verificare che i processi completati correttamente come indicato di seguito:
+[I processi][kubernetes-jobs] distribuite come parte di `istio-init` grafico Helm per installare le CRD. Questi processi dovrebbero richiedere tra 1 e 2 minuti, a seconda dell'ambiente cluster. È possibile verificare che i processi completati correttamente come indicato di seguito:
 
 ```azurecli
 kubectl get jobs -n istio-system
@@ -208,7 +210,7 @@ Se hai a questo punto, significa che è stato installato correttamente il Istio 
 > [!IMPORTANT]
 > Assicurarsi di eseguire i passaggi descritti in questa sezione, dalla cartella di primo livello della versione Istio che è stato scaricato ed estratto.
 
-Abbiamo installerai [Grafana] [ grafana] e [Kiali] [ kiali] come parte del nostro installazione Istio. Grafana fornisce analitica e dashboard di monitoraggio e Kiali fornisce un dashboard l'osservabilità mesh del servizio. Nel nostro programma di installazione, ognuno di questi componenti richiede le credenziali che devono essere specificate come un [segreto][kubernetes-secrets].
+Abbiamo installerai [Grafana][grafana] and [Kiali][kiali] come parte del nostro installazione Istio. Grafana fornisce analitica e dashboard di monitoraggio e Kiali fornisce un dashboard l'osservabilità mesh del servizio. Nel nostro programma di installazione, ognuno di questi componenti richiede le credenziali che devono essere specificate come un [segreto][kubernetes-secrets].
 
 Prima di poter installare i componenti di Istio, è necessario creare i segreti per Grafana sia Kiali. Creare questi segreti eseguendo i comandi appropriati per l'ambiente.
 
@@ -344,7 +346,7 @@ A questo punto, è stata distribuita Istio nel cluster AKS. Per garantire che ab
 
 ## <a name="validate-the-istio-installation"></a>Convalidare l'installazione di Istio
 
-Verificare innanzitutto che siano stati creati i servizi previsti. Usare il comando [kubectl get svc][kubectl-get] per visualizzare i servizi in esecuzione. Query di `istio-system` dello spazio dei nomi, in cui sono stati installati i componenti Istio e componente aggiuntivo dal `istio` grafico Helm:
+Verificare innanzitutto che siano stati creati i servizi previsti. Usare la [kubectl get svc][kubectl-get] comando per visualizzare i servizi in esecuzione. Query di `istio-system` dello spazio dei nomi, in cui sono stati installati i componenti Istio e componente aggiuntivo dal `istio` grafico Helm:
 
 ```console
 kubectl get svc --namespace istio-system --output wide
@@ -379,7 +381,7 @@ tracing                  ClusterIP      10.0.165.210   <none>          80/TCP   
 zipkin                   ClusterIP      10.0.126.211   <none>          9411/TCP                                                                                                                                     118s      app=jaeger
 ```
 
-Successivamente, verificare che siano stati creati i pod richiesti. Usare la [kubectl get pods] [ kubectl-get] comando ed eseguire nuovamente una query di `istio-system` dello spazio dei nomi:
+Successivamente, verificare che siano stati creati i pod richiesti. Usare la [kubectl get pods][kubectl-get] comando ed eseguire nuovamente una query di `istio-system` dello spazio dei nomi:
 
 ```console
 kubectl get pods --namespace istio-system
@@ -409,11 +411,11 @@ kiali-5c4cdbb869-s28dv                   1/1       Running     0          6m26s
 prometheus-67599bf55b-pgxd8              1/1       Running     0          6m26s
 ```
 
-Dovrebbero essere presenti due `istio-init-crd-*` POD con un `Completed` dello stato. I POD erano responsabile dell'esecuzione dei processi che ha creato i CRD in un passaggio precedente. Tutti gli altri POD deve mostrare lo stato `Running`. Se i pod non presentano questo stato, attendere uno o due minuti fino a quando non viene visualizzato. Se per uno dei pod viene segnalato un problema, usare il comando [kubectl describe pod][kubectl-describe] per esaminare l'output e lo stato.
+Dovrebbero essere presenti due `istio-init-crd-*` POD con un `Completed` dello stato. I POD erano responsabile dell'esecuzione dei processi che ha creato i CRD in un passaggio precedente. Tutti gli altri POD deve mostrare lo stato `Running`. Se i pod non presentano questo stato, attendere uno o due minuti fino a quando non viene visualizzato. Se tutti i POD segnalano un problema, usare il [kubectl descrivono pod][kubectl-describe] comando per esaminare i relativi output e lo stato.
 
 ## <a name="accessing-the-add-ons"></a>Accesso ai componenti aggiuntivi
 
-Nella configurazione precedente di Istio sono stati installati diversi componenti aggiuntivi che forniscono funzionalità supplementari. Le interfacce utente per i componenti aggiuntivi non sono esposte pubblicamente tramite un indirizzo IP esterno. Per accedere alle interfacce utente dei componenti aggiuntivi, usare il comando [kubectl port-forward][kubectl-port-forward]. Questo comando crea una connessione sicura tra il computer client e il pod rilevante nel cluster AKS.
+Nella configurazione precedente di Istio sono stati installati diversi componenti aggiuntivi che forniscono funzionalità supplementari. Le interfacce utente per i componenti aggiuntivi non sono esposte pubblicamente tramite un indirizzo IP esterno. Per accedere alle interfacce utente di componente aggiuntivo, usare il [kubectl porta feedforward][kubectl-port-forward] comando. Questo comando crea una connessione sicura tra il computer client e il pod rilevante nel cluster AKS.
 
 Abbiamo aggiunto un ulteriore livello di sicurezza per Grafana e Kiali specificando le credenziali per loro più indietro in questo articolo.
 
@@ -470,7 +472,7 @@ Forwarding from [::1]:16686 -> 16686
 
 ### <a name="kiali"></a>Kiali
 
-La dashboard di osservabilità della rete mesh di servizi è fornita da [Kiali][kiali]. Inoltrare la porta locale `20001` nel computer client alla porta `20001` nel pod in esecuzione nel cluster AKS Kiali:
+Un dashboard l'osservabilità mesh del servizio viene fornito da [Kiali][kiali]. Inoltrare la porta locale `20001` nel computer client alla porta `20001` nel pod in esecuzione nel cluster AKS Kiali:
 
 ```console
 kubectl port-forward -n istio-system $(kubectl get pod -n istio-system -l app=kiali -o jsonpath='{.items[0].metadata.name}') 20001:20001
@@ -527,14 +529,14 @@ kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete
 La documentazione seguente descrive come è possibile usare Istio per fornire il routing intelligente per distribuire una versione canary:
 
 > [!div class="nextstepaction"]
-> [Scenario di routing intelligente di Istio - servizio Azure Kubernetes][istio-scenario-routing]
+> [Scenario di routing intelligente Istio AKS][istio-scenario-routing]
 
 Per esplorare altre opzioni di installazione e configurazione per Istio, vedere i seguenti articoli ufficiali di Istio:
 
-- [Istio - Guida all'installazione di Helm][istio-install-helm]
-- [Istio - Opzioni per l'installazione di Helm][istio-install-helm-options]
+- [Istio: Guida all'installazione di Helm][istio-install-helm]
+- [Istio - opzioni di installazione di Helm][istio-install-helm-options]
 
-Inoltre è possibile esplorare altri scenari usando l'[esempio di applicazione Bookinfo di Istio][istio-bookinfo-example].
+È anche possibile seguire scenari aggiuntivi utilizzando la [esempio di applicazione Bookinfo Istio][istio-bookinfo-example].
 
 Per informazioni su come monitorare l'applicazione del servizio contenitore di AZURE con Application Insights e Istio, vedere la documentazione di monitoraggio di Azure seguente:
 - [Zero monitoraggio strumentazione dell'applicazione per Kubernetes ospitato applicazioni][app-insights]

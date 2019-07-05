@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 399f72c7819378ddc1566c2bdde94801b2c71687
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0a01b50573405964b09339d03e84c62dbdd8582
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235310"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482857"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedura: Configurare le condizioni del servizio e informativa sulla privacy per un'app
 
@@ -69,7 +69,7 @@ Seguire questi passaggi nel portale di Azure.
 4. Completare i campi **URL delle condizioni d'uso** e **URL dell'informativa sulla privacy**.
 5. Salvare le modifiche.
 
-    ![Sezione delle proprietà dell'app con gli URL delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![Proprietà dell'App contiene termini di servizio e la privacy URL di istruzione](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Con il codice JSON dell'oggetto app
 

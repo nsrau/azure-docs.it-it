@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e87bfad11eee5b86d35e6b4f2846b094c467e0ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0d5363e253e89b32b5eca14366504f0ace39043
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734177"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479634"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v021-alpha"></a>API v2 di Status Monitor: Enable-ApplicationInsightsMonitoring (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v031-alpha"></a>API v2 di Status Monitor: Enable-ApplicationInsightsMonitoring (v0.3.1-alpha)
 
 Questo articolo descrive un cmdlet che è un membro del [modulo di Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -68,9 +68,9 @@ Esempio:
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
     @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
-      @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'},
-      @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'},
-      @{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'})
+      @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
+      @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
+      @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 
 ```
 
@@ -88,7 +88,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 > Le app corrisponderanno rispetto alle regole nell'ordine in cui vengono fornite le regole. Pertanto, è necessario specificare le regole più specifiche prima e ultima le regole più generiche.
 
 #### <a name="schema"></a>SCHEMA
-`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
+`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
 - **MachineFilter** è necessario un C# regex del computer o del nome della macchina virtuale.
     - '. * "corrisponderanno a tutti
@@ -107,6 +107,12 @@ Il motore di strumentazione comporta un overhead aggiuntivo ed è disattivata pe
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
 **Facoltativo.** Utilizzare questa opzione per accettare la licenza e informativa sulla privacy in installazioni headless.
+
+### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
+Quando si dispone di un cluster di server web, è possibile utilizzare un [configurazione condivisa](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+Il modulo HTTP non possono essere inseriti in questa configurazione condivisa.
+Questo script avrà esito negativo con il messaggio che sono necessari passaggi di installazione aggiuntivi.
+Usare questa opzione per ignorare questo controllo e continuare l'installazione dei prerequisiti. Per altre informazioni, vedere [noto conflitto-con--configurazione condivisa di iis:](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
 
 ### <a name="-verbose"></a>-Verbose
 **Parametro comune.** Usare questa opzione per visualizzare i log dettagliati.

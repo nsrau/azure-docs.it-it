@@ -1,5 +1,5 @@
 ---
-title: Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure (anteprima)
+title: Usare i dati di riferimento da un Database SQL per un processo Azure Stream Analitica
 description: Questo articolo descrive come usare un database SQL come input dei dati di riferimento per un processo di Analisi di flusso di Azure nel portale di Azure e in Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f0e62c27885e2f6d5097194e1b9d869e167c4a4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae1954b99e268e8bc44c4ba29bbc79d7734fda6e
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304980"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461743"
 ---
-# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure (anteprima)
+# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Usare i dati di riferimento da un Database SQL per un processo Azure Stream Analitica
 
 Analisi di flusso di Azure supporta il database SQL di Azure come origine di input per i dati di riferimento. È possibile usare i dati contenuti in un database SQL come dati di riferimento per il processo di Analisi di flusso nel portale di Azure e in Visual Studio con gli strumenti di Analisi di flusso. Questo articolo illustra come fare con entrambi i metodi.
 

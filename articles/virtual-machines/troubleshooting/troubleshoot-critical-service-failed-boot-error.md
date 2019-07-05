@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca3fe83d7072ba774c8124c5108652ab7223041d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593233"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449806"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Visualizzazione dell'errore "CRITICAL SERVICE FAILED" su schermata blu all'avvio di una macchina virtuale di Azure
 Questo articolo descrive l'errore "CRITICAL SERVICE FAILED", dovuto alla mancata esecuzione di un servizio critico, che può verificarsi all'avvio di una macchina virtuale Windows in Microsoft Azure. Illustra inoltre i passaggi da seguire per risolvere i problemi. 
@@ -30,7 +30,7 @@ Questo articolo descrive l'errore "CRITICAL SERVICE FAILED", dovuto alla mancata
 
 La macchina virtuale Windows non si avvia. Quando si controllano gli screenshot di avvio in [Diagnostica di avvio](./boot-diagnostics.md), viene visualizzato un messaggio di errore simile ai seguenti su una schermata blu:
 
-- "Si è verificato un problema ed è necessario riavviare il PC. È possibile riavviare. Per altre informazioni su questo problema e sulle possibili correzioni, visitare http://windows.com/stopcode. Se si chiama un addetto del supporto tecnico, fornire queste informazioni: Codice di arresto: CRITICAL SERVICE FAILED" 
+- "Si è verificato un problema ed è necessario riavviare il PC. È possibile riavviare. Per altre informazioni su questo problema e sulle possibili correzioni, visitare https://windows.com/stopcode. Se si chiama un addetto del supporto tecnico, fornire queste informazioni: Codice di arresto: CRITICAL SERVICE FAILED" 
 - "Si è verificato un problema ed è necessario riavviare il PC. È in corso la raccolta di alcune informazioni sull'errore, quindi il riavvio verrà eseguito automaticamente. Per saperne di più, è possibile cercare online informazioni su questo errore in un secondo momento: CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>Causa

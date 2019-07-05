@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05b3d749eb3e2bc767889831b4c1ff01833a3f39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2ae83b655bfe607b1061168649ec74f02ab4064
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544673"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483172"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Procedura: Usare l'API Graph di Azure AD
 
@@ -65,7 +65,7 @@ In alternativa, `https://graph.windows.net/contoso.com/users?api-version=1.6` el
 
 Lo screenshot seguente mostra l'output che viene visualizzato se si passa ad Azure AD Graph Explorer, si esegue l'accesso e si immette `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` per visualizzare tutti gli utenti nella directory dell'utente connesso:
 
-![API Graph di Azure AD explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
+![Output di esempio in Azure AD Graph API Explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **Caricare Azure AD Graph Explorer**: Per caricare lo strumento, passare a [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Fare clic su **Login** (Accedi) e accedere con le credenziali dell'account Azure AD per eseguire Azure AD Graph Explorer sul tenant personale. Se un utente esegue Azure AD Graph Explorer sul tenant personale, l'utente o il relativo amministratore deve fornire il proprio consenso in fase di accesso. Se si ha una sottoscrizione di Office 365, si ha automaticamente un tenant di Azure AD. Le credenziali usate per accedere a Office 365 corrispondono in realtà a un account Azure AD ed è possibile usare queste credenziali con Azure AD Graph Explorer.
 

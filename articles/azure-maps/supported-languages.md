@@ -3,17 +3,17 @@ title: Supporto per la localizzazione nelle mappe di Azure | Microsoft Docs
 description: Informazioni sulle lingue supportate per i servizi disponibili in Mappe di Azure
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/25/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: ''
-ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: philmea
+ms.openlocfilehash: a9446301cc4bb46c989223ad020c7a8e8b353ad3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686774"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446177"
 ---
 # <a name="localization-support-in-azure-maps"></a>Supporto per la localizzazione nelle mappe di Azure
 
@@ -25,7 +25,7 @@ Mappe di Azure supporta diversi linguaggi e le viste basate su paese/area geogra
 I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. Nella tabella seguente sono elencati i codici della lingua supportata per ogni servizio.  
   
 
-| ID         | NOME                   |  Mappe | Ricerca | Routing. | Eventi imprevisti del traffico | Controllo mappa JS | Fuso orario |
+| id         | NOME                   |  Mappe | Ricerca | Routing. | Eventi imprevisti del traffico | Controllo mappa JS | Fuso orario |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | Arabo                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -85,7 +85,51 @@ I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. 
 
 ## <a name="azure-maps-supported-views"></a>Mappe di Azure supportati viste
 
-Parametro di visualizzazione esegue il mapping di Azure (detta anche "parametro di area utente") è un codice paese ISO 3166 2 lettere che verranno visualizzati i mapping corretti per tale paese/area geografica che specifica il set di geopoliticamente conteso bordi e le etichette vengono visualizzate sulla mappa.  Per impostazione predefinita vista parametro è impostato su **"Unified"** .  Paesi/aree geografiche non incluse nell'elenco della visualizzazione predefinita sarà la visualizzazione di "Unified". È responsabilità dell'utente per determinare la posizione degli utenti e quindi impostare il parametro View correttamente per quel percorso. Il parametro View in Azure viene eseguito il mapping deve essere utilizzato in conformità alle leggi applicabili, comprese quelle relative alle mapping del paese in cui mappe, immagini e altri contenuti i dati e di terze parti a cui sei autorizzato ad per accedere tramite Azure viene eseguito il mapping viene reso disponibile.
+> [!Note]
+> 1 agosto 2019 verrà rilasciato le mappe di Azure in paesi/aree geografiche seguenti:
+>  * Argentina
+>  * India
+>  * Marocco
+>  * Pakistan
+>
+> Dopo il 1 agosto 2019 **vista** impostazione parametro consente di definire il contenuto della mappa restituita per le nuove aree/paesi elencati in precedenza. È consigliabile assicurarsi di aver impostato il parametro View come richiesto per le API REST e SDK che usano i servizi.
+>  
+>
+>  **API REST:**
+>  
+>  Assicurarsi di che avere configurato il parametro View in base alle esigenze. Parametro View consente di specificare quale set di contenuti geopoliticamente contestato vengono restituite tramite servizi di mappe di Azure. 
+>
+>  Servizi REST di mappe di Azure interessato:
+>    
+>    * Ottenere tessera mappa
+>    * Ottieni immagine mappa 
+>    * Ecco la ricerca Fuzzy
+>    * Introduzione a ricerca di punto di interesse
+>    * Ottenere la categoria di punto di interesse ricerca
+>    * Ecco la ricerca nelle vicinanze
+>    * Ottenere l'indirizzo di ricerca
+>    * Ottenere l'indirizzo di ricerca strutturata
+>    * Ottenere l'indirizzo di ricerca inversa
+>    * Ottieni ricerca indirizzi inversa Cross Street
+>    * Ricerca di post all'interno della geometria
+>    * Anteprima di Batch indirizzo ricerca post
+>    * Post ricerca indirizzi inversa Batch Preview
+>    * Ricerca di post lungo la Route
+>    * Anteprima di Batch Fuzzy Search post
+>
+>    
+>  **SDK:**
+>
+>  Assicurarsi che è stato impostato il parametro View in base alle esigenze e avere la versione più recente di Web SDK e Android SDK. SDK interessati:
+>
+>    * Azure Maps Web SDK
+>    * Azure Maps Android SDK
+
+
+Mappe di Azure **vista** parametro (detta anche "parametro di area utente") è una lettera due codice paese ISO 3166 che mostra le mappe corrette per tale paese/area geografica che specifica il set di geopoliticamente conteso contenuto è restituito tramite servizi di mappe di Azure, inclusi i bordi e le etichette visualizzate sulla mappa. 
+
+Per impostazione predefinita vista parametro è impostato su **unificato**, anche se è non stata definita nella richiesta. È responsabilità dell'utente per determinare la posizione degli utenti e quindi impostare il parametro View correttamente per quel percorso. In alternativa, è possibile impostare ' View = Auto', che verranno restituiti i dati della mappa in base all'indirizzo IP della richiesta.  Il parametro View in Azure viene eseguito il mapping deve essere utilizzato in conformità alle leggi applicabili, comprese quelle relative alle mapping del paese in cui mappe, immagini e altri contenuti i dati e di terze parti a cui sei autorizzato ad per accedere tramite Azure viene eseguito il mapping viene reso disponibile.
+
 
 Nella tabella seguente fornisce visualizzazioni supportate.
 
@@ -107,4 +151,5 @@ Nella tabella seguente fornisce visualizzazioni supportate.
 | SA           | Arabia Saudita (visualizzazione arabo)            |   ✓   |        |     ✓          |
 | SY           | (Visualizzazione arabo) Siria                   |   ✓   |        |     ✓          |
 | YE           | Yemen (visualizzazione arabo)                   |   ✓   |        |     ✓          |
+| Auto         | Restituire i dati della mappa in base all'indirizzo IP della richiesta.|   ✓   |    ✓   |     ✓          |
 | Unificato      | Visualizzazione unificata (altri)                  |   ✓   |   ✓     |     ✓          |

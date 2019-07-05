@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 160799917fb2802689f23d57d6daa9ad0a92c37a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2e6ac72a91ae14b6f9c513c84da6f1f06508caef
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273085"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482216"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Flusso di concessione implicita e piattaforma delle identità Microsoft
 
@@ -48,7 +48,7 @@ Se, tuttavia, si preferisce non usare una libreria nell'app a pagina singola e i
 
 Il diagramma seguente mostra come appare l'intero flusso di accesso implicito e le sezioni seguenti descrivono ogni passaggio in modo più dettagliato.
 
-![Corsie di OpenID Connect](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
+![Diagramma che mostra il flusso implicito Accedi](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
 
 ## <a name="send-the-sign-in-request"></a>Inviare la richiesta di accesso
 

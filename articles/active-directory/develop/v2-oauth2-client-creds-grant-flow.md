@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 485f79f79c52067e89fa0a606e76a533c312fb84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85a32244a9aff9319343fd7d3961941973aa9d9a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545102"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482243"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Piattaforma delle identità Microsoft e il flusso di credenziali client OAuth 2.0
 
@@ -42,7 +42,7 @@ Nel più comune *OAuth a tre vie*, a un'applicazione client viene concessa l'aut
 
 L'intero flusso di credenziali client ha un aspetto simile a quello illustrato nel diagramma seguente. Tutti i passaggi vengono descritti in seguito nell'articolo.
 
-![Flusso di credenziali client](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
+![Diagramma che illustra il flusso delle credenziali client](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
 
 ## <a name="get-direct-authorization"></a>Ottenere l'autorizzazione diretta
 
@@ -92,7 +92,7 @@ Se si accede all'utente nell'app, è possibile identificare l'organizzazione a c
 Quando si è pronti per richiedere le autorizzazioni dall'amministratore dell'organizzazione, è possibile reindirizzare l'utente alla piattaforma delle identità Microsoft *endpoint di consenso dell'amministratore*.
 
 > [!TIP]
-> Provare a eseguire la richiesta in Postman. (Usare il proprio ID app per ottenere risultati ottimali, l'applicazione di esercitazione non richiesta le autorizzazioni utile). [![Eseguire in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Provare a eseguire la richiesta in Postman. (Usare il proprio ID app per ottenere risultati ottimali, l'applicazione di esercitazione non richiesta le autorizzazioni utile). [![Provare a eseguire questa richiesta in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -154,7 +154,7 @@ Dopo aver ricevuto una risposta con esito positivo dall'endpoint di provisioning
 Dopo aver acquisito l'autorizzazione necessaria per l'applicazione, è possibile procedere con l'acquisizione dei token di accesso per le API. Per ottenere un token tramite il client di concessione delle credenziali, inviare una richiesta POST per il `/token` endpoint piattaforma di identità Microsoft:
 
 > [!TIP]
-> Provare a eseguire la richiesta in Postman. (Usare il proprio ID app per ottenere risultati ottimali, l'applicazione di esercitazione non richiesta le autorizzazioni utile). [![Eseguire in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Provare a eseguire la richiesta in Postman. (Usare il proprio ID app per ottenere risultati ottimali, l'applicazione di esercitazione non richiesta le autorizzazioni utile). [![Provare a eseguire questa richiesta in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primo caso: richiesta del token di accesso con un segreto condiviso
 

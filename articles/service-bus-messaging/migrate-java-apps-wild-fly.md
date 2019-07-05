@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: asirveda
-ms.openlocfilehash: 60f4e410c7c4e3854235029acade550c9279c981
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f09f6ac1cb4442657694937e7dd5e5eb109bad05
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158702"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444146"
 ---
 # <a name="migrate-java-enterprise-edition-ee-apps-to-azure"></a>Eseguire la migrazione di App di Java enterprise edition (EE) in Azure
 Questo articolo illustra il processo di migrazione dei carichi di lavoro Java EE esistenti in Azure:
@@ -73,7 +73,7 @@ Inoltre, è necessario che i prerequisiti seguenti:
 
 - [Interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli) 
 - [Java 8](https://www.azul.com/downloads/azure-only/zulu/) 
-- [Maven 3](http://maven.apache.org/) 
+- [Maven 3](https://maven.apache.org/) 
 - [Git](https://github.com/)
 
 ## <a name="get-started"></a>Attività iniziali
@@ -344,7 +344,7 @@ mvn clean compile exec:java -Dexec.cleanupDaemonThreads=false
 [INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ helloworld-jms ---
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 Feb 10, 2019 9:28:31 AM org.jboss.as.quickstarts.jms.HelloWorldJMSClient main
 INFO: Attempting to acquire connection factory "SBCF"
 Feb 10, 2019 9:28:31 AM org.jboss.as.quickstarts.jms.HelloWorldJMSClient main
@@ -801,7 +801,7 @@ Aprire una connessione FTP nel servizio App in Linux per caricare artefatti:
             \/      \/                  \/ 
     A P P   S E R V I C E   O N   L I N U X
     
-    Documentation: http://aka.ms/webapp-linux
+    Documentation: https://aka.ms/webapp-linux
     
     54cfe2dfa970:/home# ls -al
     total 12
@@ -836,7 +836,7 @@ Aprire una connessione FTP nel servizio App in Linux per caricare artefatti:
     cp /home/site/deployments/tools/jndi.properties /opt/jboss/wildfly/standalone/configuration/^M
     /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/home/site/deployments/tools/commands.cli^M
     ```
-    Rimuovere quelle ' ^ M' finale dei caratteri a capo e salvare il file. Sono disponibili modi alternativi per rimuovere i caratteri di fine riga. Vedere ([questo articolo](http://marcelog.github.io/articles/mac_newline_to_unix_eol.html)).
+    Rimuovere quelle ' ^ M' finale dei caratteri a capo e salvare il file. Sono disponibili modi alternativi per rimuovere i caratteri di fine riga. Vedere ([questo articolo](https://marcelog.github.io/articles/mac_newline_to_unix_eol.html)).
 
 ##### <a name="test-the-startupsh-script"></a>Testare lo script startup.sh
 

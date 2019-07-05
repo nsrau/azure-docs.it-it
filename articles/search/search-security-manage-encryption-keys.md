@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 567f32cba76aaf2d1657b2476c4d11596d44dec5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 949628fa52b4b020d70b75f4a0e7895f1e0f8bba
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753910"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485326"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia di ricerca di Azure con chiavi gestite dal cliente in Azure Key Vault
 
@@ -41,7 +41,7 @@ In questo esempio vengono usati i servizi seguenti.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) oppure [CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) viene usato per attività di configurazione.
 
-+ [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) e [Azure Search SDK](https://aka.ms/search-sdk-preview) può essere utilizzato per chiamare l'API REST in anteprima. Non vi è alcun supporto per .NET SDK per la crittografia gestite dal cliente al momento o il portale.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) e [Azure Search SDK](https://aka.ms/search-sdk-preview) può essere utilizzato per chiamare l'API REST in anteprima. Non vi è alcun supporto per .NET SDK per la crittografia gestite dal cliente al momento o il portale.
 
 ## <a name="1---enable-key-recovery"></a>1 - abilitare recupero chiavi
 

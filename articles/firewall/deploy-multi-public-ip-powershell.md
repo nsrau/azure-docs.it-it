@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/21/2019
+ms.date: 7/2/2019
 ms.author: victorh
-ms.openlocfilehash: 9ec37197376c815c4fb9072164520a707b02be2b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: a5a53766df3338bb36913b589ebda970de55ec94
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312731"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491926"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Distribuire un Firewall di Azure con più indirizzi IP pubblici usando Azure PowerShell
 
@@ -21,7 +21,7 @@ ms.locfileid: "67312731"
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-È possibile distribuire un Firewall di Azure con indirizzi IP pubblici fino a 600.
+È possibile distribuire un Firewall di Azure con fino a 100 indirizzi IP pubblici.
 
 Questa funzionalità consente gli scenari seguenti:
 

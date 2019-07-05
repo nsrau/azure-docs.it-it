@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 06/13/2019
+ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: bb13ecb2d9014dbf56823734ac28703df9755b4b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3e66bf61caf786473d89eab9a6567bb05aff0d19
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277305"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457398"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limiti relativi alle reti - Azure Resource Manager, i limiti seguenti si applicano solo per le risorse gestite tramite sulla rete **Azure Resource Manager** per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
@@ -75,7 +75,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 
 | Resource | Limite predefinito | Limite massimo |
 | --- | --- | --- |
-| Reti virtuali |50 |100 |
+| Reti virtuali |100 |100 |
 | Siti di rete locale |20 |Contattare il supporto tecnico. |
 | Server DNS per rete virtuale |20 |20 |
 | Indirizzi IP privati per ogni rete virtuale |4\.096 |4\.096 |
@@ -84,8 +84,8 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Regole NSG per NSG |1\.000 |1\.000 |
 | Tabelle di route definite dall'utente |200 |200 |
 | Route definite dall'utente per ogni tabella di route |400 |400 |
-| Indirizzi IP pubblici (dinamici) |5 |Contattare il supporto tecnico |
-| Indirizzi IP pubblici riservati. |20 |Contattare il supporto tecnico |
+| Indirizzi IP pubblici (dinamici) |500 |500 |
+| Indirizzi IP pubblici riservati. |500 |500 |
 | VIP pubblico per ogni distribuzione |5 |Contattare il supporto tecnico |
 | VIP privato (bilanciamento del carico interno) per ogni distribuzione |1 |1 |
 | Elenchi di controllo di accesso di endpoint (ACL) |50 |50 |

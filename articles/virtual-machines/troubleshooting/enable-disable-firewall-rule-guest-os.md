@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7a547efb7af69c58f8e04615d24dd7c230f0c8b0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505558"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444639"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Abilitare o disabilitare una regola del firewall in un sistema operativo Guest della macchina virtuale di Azure
 
@@ -99,7 +99,7 @@ Se la macchina virtuale è online ed è accessibile su un'altra macchina virtual
 
 1.  Nella macchina virtuale per la risoluzione dei problemi avviare l'editor del Registro di sistema (regedit.exe) e quindi selezionare **File** > **Connetti a Registro di sistema in rete**.
 
-2.  Aprire il ramo  *COMPUTER DI DESTINAZIONE*\SYSTEM e quindi specificare i valori seguenti:
+2.  Aprire il *INVIALA*\SYSTEM ramo e quindi specificare i valori seguenti:
 
     * Per abilitare una regola, aprire il valore del Registro di sistema seguente:
     
@@ -123,30 +123,30 @@ Se la macchina virtuale è online ed è accessibile su un'altra macchina virtual
 
 Se non è possibile accedere alla macchina virtuale con uno di questi metodi, l'uso dell'estensione dello script personalizzata avrà esito negativo e sarà necessario passare in modalità OFFLINE lavorando direttamente sul disco di sistema.
 
-Prima di seguire questa procedura, creare uno snapshot del disco di sistema della macchina virtuale interessata come backup. Per altre informazioni, vedere  [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
+Prima di seguire questa procedura, creare uno snapshot del disco di sistema della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
 
 1.  [Collegare il disco di sistema a una macchina virtuale di ripristino](troubleshoot-recovery-disks-portal-windows.md).
 
 2.  Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
 
-3.  Verificare che il disco sia contrassegnato come  **Online**  nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco di sistema collegato.
+3.  Verificare che il disco sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco di sistema collegato.
 
-4.  Prima di apportare qualsiasi modifica, creare una copia della cartella \windows\system32\config nel caso in cui sia necessario un ripristino dello stato precedente.
+4.  Prima di apportare eventuali modifiche, creare una copia della cartella \windows\system32\config nel caso in cui è necessario il rollback delle modifiche.
 
-5.  Nella macchina virtuale per la risoluzione dei problemi avviare l'editor del Registro di sistema (regedit.exe).
+5.  Nella macchina virtuale sulla risoluzione dei problemi, avviare l'Editor del Registro di sistema (regedit.exe).
 
-6.  Evidenziare la chiave **HKEY_LOCAL_MACHINE**  e quindi scegliere  **File** > **Carica hive**  dal menu.
+6.  Evidenziare la **HKEY_LOCAL_MACHINE** chiave e quindi selezionare **File** > **carica Hive** dal menu di scelta.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  Individuare e aprire il file \windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > Viene chiesto di immettere un nome. Immettere  **BROKENSYSTEM** e quindi espandere  **HKEY_LOCAL_MACHINE**. Si vedrà una chiave aggiuntiva denominata  **BROKENSYSTEM**. Per la risoluzione di questo problema si monteranno gli hive problematici come  **BROKENSYSTEM**.
+    > Viene chiesto di immettere un nome. Immettere **BROKENSYSTEM**, quindi espandere **HKEY_LOCAL_MACHINE**. Si vedrà ora una chiave aggiuntiva denominata **BROKENSYSTEM**. Per la risoluzione dei problemi, si sta montaggio tali hive problema come **BROKENSYSTEM**.
 
 8.  Apportare le modifiche seguenti al ramo BROKENSYSTEM:
 
-    1.  Verificare da quale chiave del Registro di sistema **ControlSet** viene avviata la macchina virtuale. Il numero di chiave è disponibile in HKLM\BROKENSYSTEM\Select\Current.
+    1.  Verificare da quale chiave del Registro di sistema **ControlSet** viene avviata la macchina virtuale. Verrà visualizzato il numero di chiavi in hklm\brokensystem\select\current.
 
     2.  Per abilitare una regola, aprire il valore del Registro di sistema seguente:
     
@@ -164,7 +164,7 @@ Prima di seguire questa procedura, creare uno snapshot del disco di sistema dell
         
         **v2.22 | Azione = consentire | Attiva = FALSE | Dir = In | Protocollo = 6 | Profilo = Domain | Profilo = privata | Profilo = Public | LPort = 3389 | App=%Systemroot%\System32\Svchost.exe| SVC = termservice | Nome =\@FirewallAPI. dll,-28775 | Desc =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
 
-9.  Evidenziare  **BROKENSYSTEM** e quindi scegliere  **File** > **Scarica hive**  dal menu.
+9.  Evidenziare **BROKENSYSTEM**, quindi selezionare **File** > **Scarica Hive** dal menu di scelta.
 
 10. [Scollegare il disco di sistema e creare di nuovo la macchina virtuale](troubleshoot-recovery-disks-portal-windows.md).
 

@@ -1,23 +1,23 @@
 ---
-title: Indirizzamento del traffico di Azure al database SQL di Azure e ad Azure SQL Data Warehouse | Microsoft Docs
-description: Questo documento illustra l'architettura onnectivity Azcure SQL per le connessioni di database dall'interno o dall'esterno di Azure.
+title: Database SQL di Azure e SQL Data Warehouse architettura della connettività | Microsoft Docs
+description: Questo documento illustra l'architettura della connettività SQL di Azure per le connessioni di database dall'interno o dall'esterno di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: srdan-bozovic-msft
-ms.author: srbozovi
-ms.reviewer: carlrab
+author: rohitnayakmsft
+ms.author: rohitna
+ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 04/03/2019
-ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/02/2019
+ms.openlocfilehash: 8441e64981b7157e91a56124a08c0aa02a9b1db0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66164481"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537935"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
@@ -57,48 +57,47 @@ Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di con
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Indirizzi IP del gateway del database SQL di Azure
 
-Per connettersi a un database SQL di Azure da risorse locali, è necessario consentire il traffico di rete in uscita verso il gateway del database SQL di Azure per la propria area di Azure. Le connessioni passano solo attraverso il gateway quando ci si connette in modalità `Proxy`, ovvero l'impostazione predefinita per la connessione da risorse locali.
+La tabella seguente elenca gli indirizzi IP del gateway dall'area. Per connettersi a un Database SQL di Azure, è necessario consentire il traffico di rete a & dal **tutti** gateway per l'area.
 
-La tabella seguente elenca gli indirizzi IP primario e secondario del gateway del database SQL di Azure per tutte le aree dati. Per alcune aree sono disponibili due indirizzi IP. In queste aree, l'indirizzo IP primario è l'indirizzo IP corrente del gateway e il secondo indirizzo IP è un indirizzo IP di failover. L'indirizzo di failover è l'indirizzo verso cui potrebbe essere spostato il server per mantenere l'alta disponibilità del servizio. Per queste aree, è consigliabile consentire il traffico in uscita verso entrambi gli indirizzi IP. Il secondo indirizzo IP è di proprietà di Microsoft e non è in ascolto su alcun servizio fino a quando non viene attivato dal database SQL di Azure per accettare connessioni.
+In futuro verrà aggiunta più gateway in ogni area e ritirare i gateway nella colonna indirizzo IP del Gateway messo fuori servizio della tabella sottostante. Altre informazioni sulla disabilitazione di processo fornito nell'articolo seguente: [Migrazione ad Azure SQL Database il traffico al gateway più recente](sql-database-gateway-migration.md)
 
-| Nome area | Indirizzo IP primario | Indirizzo IP secondario |
-| --- | --- |--- |
-| Australia orientale | 13.75.149.87 | 40.79.161.1 |
-| Australia sud-orientale | 191.239.192.109 | 13.73.109.251 |
-| Brasile meridionale | 104.41.11.5 | |
-| Canada centrale | 40.85.224.249 | |
-| Canada orientale | 40.86.226.166 | |
-| Stati Uniti centrali | 23.99.160.139 | 13.67.215.62 |
-| Cina orientale 1 | 139.219.130.35 | |
-| Cina orientale 2 | 40.73.82.1 | |
-| Cina settentrionale 1 | 139.219.15.17 | |
-| Cina settentrionale 2 | 40.73.50.0 | |
-| Asia orientale | 191.234.2.139 | 52.175.33.150 |
-| Stati Uniti orientali 1 | 191.238.6.43 | 40.121.158.30 |
-| Stati Uniti orientali 2 | 191.239.224.107 | 40.79.84.180 * |
-| Francia centrale | 40.79.137.0 | 40.79.129.1 |
-| Germania centrale | 51.4.144.100 | |
-| Germania nord-orientale | 51.5.144.179 | |
-| India centrale | 104.211.96.159 | |
-| India meridionale | 104.211.224.146 | |
-| India occidentale | 104.211.160.80 | |
-| Giappone orientale | 191.237.240.43 | 13.78.61.196 |
-| Giappone occidentale | 191.238.68.11 | 104.214.148.156 |
-| Corea del Sud centrale | 52.231.32.42 | |
-| Corea del Sud meridionale | 52.231.200.86 |  |
-| Stati Uniti centro-settentrionali | 23.98.55.75 | 23.96.178.199 |
-| Europa settentrionale | 191.235.193.75 | 40.113.93.91 |
-| Stati Uniti centro-meridionali | 23.98.162.75 | 13.66.62.124 |
-| Asia sudorientale | 23.100.117.95 | 104.43.15.0 |
-| Regno Unito meridionale | 51.140.184.11 | |
-| Regno Unito occidentale | 51.141.8.11| |
-| Stati Uniti centro-occidentali | 13.78.145.25 | |
-| Europa occidentale | 191.237.232.75 | 40.68.37.158 |
-| Stati Uniti occidentali 1 | 23.99.34.75 | 104.42.238.205 |
-| Stati Uniti occidentali 2 | 13.66.226.202 | |
-||||
 
-\* **NOTA:** *Stati Uniti orientali 2* ha anche l'indirizzo IP terziario `52.167.104.0`.
+| Nome area          | Indirizzo IP del gateway | Gateway necessario rimuovere le autorizzazioni </br> Indirizzo IP| Note sulla rimozione delle autorizzazioni | 
+| --- | --- | --- | --- |
+| Australia orientale       | 13.75.149.87, 40.79.161.1 | | |
+| Australia sud-orientale | 191.239.192.109, 13.73.109.251 | | |
+| Brasile meridionale         | 104.41.11.5        |                 | |
+| Canada centrale       | 40.85.224.249      |                 | |
+| Canada orientale          | 40.86.226.166      |                 | |
+| Stati Uniti centrali           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | Nessuna connessione dopo il 1 settembre 2019 |
+| Cina orientale 1         | 139.219.130.35     |                 | |
+| Cina orientale 2         | 40.73.82.1         |                 | |
+| Cina settentrionale 1        | 139.219.15.17      |                 | |
+| Cina settentrionale 2        | 40.73.50.0         |                 | |
+| Asia orientale            | 191.234.2.139, 52.175.33.150 |       | |
+| Stati Uniti orientali 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Nessuna connessione dopo il 1 settembre 2019 |
+| Stati Uniti orientali 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Nessuna connessione dopo il 1 settembre 2019 |
+| Francia centrale       | 40.79.137.0, 40.79.129.1 |           | |
+| Germania centrale      | 51.4.144.100       |                 | |
+| Germania nord-orientale   | 51.5.144.179       |                 | |
+| India centrale        | 104.211.96.159     |                 | |
+| India meridionale          | 104.211.224.146    |                 | |
+| India occidentale           | 104.211.160.80     |                 | |
+| Giappone orientale           | 13.78.61.196, 40.79.184.8, 13.78.106.224 | 191.237.240.43 | Nessuna connessione dopo il 1 settembre 2019 |
+| Giappone occidentale           | 104.214.148.156, 40.74.100.192 | 191.238.68.11 | Nessuna connessione dopo il 1 settembre 2019 |
+| Corea del Sud centrale        | 52.231.32.42       |                 | |
+| Corea del Sud meridionale          | 52.231.200.86      |                 | |
+| Stati Uniti centro-settentrionali     | 23.96.178.199      | 23.98.55.75     | Nessuna connessione dopo il 1 settembre 2019 |
+| Europa settentrionale         | 40.113.93.91       | 191.235.193.75  | Nessuna connessione dopo il 1 settembre 2019 |
+| Stati Uniti centro-meridionali     | 13.66.62.124       | 23.98.162.75    | Nessuna connessione dopo il 1 settembre 2019 |
+| Asia sudorientale      | 104.43.15.0        | 23.100.117.95   | Nessuna connessione dopo il 1 settembre 2019 |
+| Regno Unito meridionale             | 51.140.184.11      |                 | |
+| Regno Unito occidentale              | 51.141.8.11        |                 | |
+| Stati Uniti centro-occidentali      | 13.78.145.25       |                 | |
+| Europa occidentale          | 191.237.232.75, 40.68.37.158 |       | |
+| Stati Uniti occidentali 1            | 23.99.34.75, 104.42.238.205 |        | |
+| Stati Uniti occidentali 2            | 13.66.226.202      |                 | |
+|                      |                    |                 | |
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Modificare il criterio di connessione del database SQL di Azure
 
@@ -111,10 +110,7 @@ Per modificare il criterio di connessione del database SQL di Azure per un serve
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
-
-> [!IMPORTANT]
-> Per questo script è necessario il [modulo Azure PowerShell](/powershell/azure/install-az-ps).
+> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici. Lo script seguente richiede la [modulo di Azure PowerShell](/powershell/azure/install-az-ps).
 
 Lo script di PowerShell seguente mostra come modificare il criterio di connessione.
 
@@ -137,20 +133,43 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 > [!IMPORTANT]
 > Per questo script è necessaria l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Lo script dell'interfaccia della riga di comando seguente mostra come modificare il criterio di connessione.
+### <a name="azure-cli-in-a-bash-shell"></a>Comando di Azure in una shell bash
+
+> [!IMPORTANT]
+> Per questo script è necessaria l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+Lo script dell'interfaccia della riga seguente viene illustrato come modificare i criteri di connessione in una shell bash.
 
 ```azurecli-interactive
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
 
 # Set URI
-id="$sqlserverid/connectionPolicies/Default"
+ids="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-az resource show --ids $id
+az resource show --ids $ids
 
 # Update connection policy
-az resource update --ids $id --set properties.connectionType=Proxy
+az resource update --ids $ids --set properties.connectionType=Proxy
+```
+
+### <a name="azure-cli-from-a-windows-command-prompt"></a>Comando di Azure da un prompt dei comandi di Windows
+
+> [!IMPORTANT]
+> Per questo script è necessaria l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+Lo script dell'interfaccia della riga seguente viene illustrato come modificare il criterio di connessione da un prompt dei comandi di Windows (con Azure CLI installata).
+
+```azurecli
+# Get SQL Server ID and set URI
+FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
+
+# Get current connection policy
+az resource show --ids %sqlserverid%
+
+# Update connection policy
+az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

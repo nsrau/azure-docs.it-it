@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: spelluru
-ms.openlocfilehash: d8892b2d00008c9d67f8bc28d1abb7d562dfd95c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ffc8ed3f84284ff69e9515cba0982790b823a37
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079886"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543776"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Le procedure consigliate per lo sviluppo distribuito e collaborazione delle risorse di Azure DevTest Labs
 Sviluppo collaborativo distribuito consente diversi team o alle persone per sviluppare e gestire un codice di base. Per avere esito positivo, il processo di sviluppo dipende la possibilità di creare, condividere e integrazione delle informazioni. Questo principio allo sviluppo delle chiavi può essere utilizzato all'interno di Azure DevTest Labs. Esistono diversi tipi di risorse all'interno di un lab in genere distribuiti tra labs diversi all'interno dell'organizzazione. I diversi tipi di risorse sono incentrati in due aree:
@@ -37,7 +37,7 @@ Questo documento descrive alcune procedure consigliate che consentono la collabo
 [Le formule](devtest-lab-manage-formulas.md) sono specifici del laboratorio e non dispone di un meccanismo di distribuzione. I membri lab eseguire tutto lo sviluppo delle formule. 
 
 ## <a name="code-repository-based-resources"></a>Risorse basate su repository codice
-Esistono due diverse funzionalità basate su ambienti, gli elementi e i repository di codice. Questo articolo illustra le funzionalità e su come impostare in modo più efficace i repository e del flusso di lavoro per consentire la possibilità di personalizzare gli elementi disponibili e ambienti a livello di organizzazione oppure a livello di team.  Questo flusso di lavoro si basa sullo standard [strategia di creazione rami di controllo del codice sorgente](/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops). 
+Esistono due diverse funzionalità basate su ambienti, gli elementi e i repository di codice. Questo articolo illustra le funzionalità e su come impostare in modo più efficace i repository e del flusso di lavoro per consentire la possibilità di personalizzare gli elementi disponibili e ambienti a livello di organizzazione oppure a livello di team.  Questo flusso di lavoro si basa sullo standard [strategia di creazione rami di controllo del codice sorgente](/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops). 
 
 ### <a name="key-concepts"></a>Concetti chiave
 Le informazioni di origine per gli elementi sono inclusi metadati, gli script. Le informazioni di origine per gli ambienti includono i metadati e i modelli di Resource Manager con i file di supporto, ad esempio gli script di PowerShell, gli script DSC, con estensione zip e così via.  
@@ -49,7 +49,7 @@ La configurazione più comune per il controllo codice sorgente (SCC) consiste ne
 - Risorse di livello di unità/divisione di Business
 - Risorse specifiche del team.
 
-Ognuno di questi livelli di collegamento a un altro repository in cui il ramo master deve essere di qualità di produzione. Il [rami](/devops/repos/git/git-branching-guidance?view=azure-devops) in ciascun repository sarà per lo sviluppo di tali risorse specifiche (elementi o i modelli). Questa struttura sia perfettamente allineata con DevTest Labs come è possibile connettersi facilmente più repository e più rami contemporaneamente a laboratori dell'organizzazione. Il nome del repository è incluso nell'interfaccia utente (UI) per evitare confusione quando sono presenti nomi identici, descrizione e server di pubblicazione.
+Ognuno di questi livelli di collegamento a un altro repository in cui il ramo master deve essere di qualità di produzione. Il [rami](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) in ciascun repository sarà per lo sviluppo di tali risorse specifiche (elementi o i modelli). Questa struttura sia perfettamente allineata con DevTest Labs come è possibile connettersi facilmente più repository e più rami contemporaneamente a laboratori dell'organizzazione. Il nome del repository è incluso nell'interfaccia utente (UI) per evitare confusione quando sono presenti nomi identici, descrizione e server di pubblicazione.
      
 Il diagramma seguente mostra due archivi: un repository aziendale che viene mantenuto per la divisione IT e un repository di divisione mantenuta per la divisione di R & D.
 

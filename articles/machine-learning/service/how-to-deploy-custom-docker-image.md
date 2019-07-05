@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/05/2019
-ms.openlocfilehash: bd0e8099be5422d561541aeb8911c9a1610befcb
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 29fdb200075a5b5843944a7a890cc2f8ad61f1ee
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272774"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543846"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>Distribuire un modello usando un'immagine Docker personalizzata
 
@@ -55,14 +55,14 @@ Le informazioni contenute in questa sezione si presuppongono che si usa registro
 
     Quando l'utilizzo di immagini archiviate nel __Registro di contenitori per l'area di lavoro__, non è necessario eseguire l'autenticazione al Registro di sistema. L'autenticazione è gestita dall'area di lavoro.
 
-    > [!TIP]
-    > Il Registro di contenitori per l'area di lavoro viene creato alla prima di eseguire il training o distribuire un modello usando l'area di lavoro. Se è stata creata una nuova area di lavoro, ma non sottoposto a training o creato un modello, non sarà presente alcun registro contenitori di Azure per l'area di lavoro.
+    > [!WARNING]
+    > Rzegistry di contenitore di Azure per l'area di lavoro viene __creato alla prima di eseguire il training o distribuire un modello__ utilizzando l'area di lavoro. Se è stata creata una nuova area di lavoro, ma non sottoposto a training o creato un modello, non sarà presente alcun registro contenitori di Azure per l'area di lavoro.
 
     Per informazioni su come recuperare il nome del registro contenitori di Azure per l'area di lavoro, vedere la [nome del registro contenitori di Get](#getname) sezione di questo articolo.
 
     Quando l'utilizzo di immagini archiviate un __registro contenitori di autonomo__, sarà necessario configurare un'entità servizio che ha almeno l'accesso in lettura. È quindi fornire l'ID dell'entità servizio (nome utente) e la password per tutti gli utenti che usano immagini dal Registro di sistema. L'eccezione è se si rendono il registro contenitori pubblicamente accessibile.
 
-    Per informazioni sulla creazione di un registro contenitori privato di Azure, vedere [creare un registro contenitori privato](/azure/container-registry/container-registery-get-started-azure-cli).
+    Per informazioni sulla creazione di un registro contenitori privato di Azure, vedere [creare un registro contenitori privato](/azure/container-registry/container-registry-get-started-azure-cli).
 
     Per informazioni sull'uso delle entità servizio con registro contenitori di Azure, vedere [autenticazione al registro contenitori di Azure con entità servizio](/azure/container-registry/container-registry-auth-service-principal).
 
@@ -80,8 +80,8 @@ Le informazioni contenute in questa sezione si presuppongono che si usa registro
 
 In questa sezione, informazioni su come ottenere il nome del registro contenitori di Azure per l'area di lavoro del servizio di Azure Machine Learning.
 
-> [!TIP]
-> Il Registro di contenitori per l'area di lavoro viene creato alla prima di eseguire il training o distribuire un modello usando l'area di lavoro. Se è stata creata una nuova area di lavoro, ma non sottoposto a training o creato un modello, non sarà presente alcun registro contenitori di Azure per l'area di lavoro.
+> [!WARNING]
+> Registro contenitori di Azure per l'area di lavoro viene __creato alla prima di eseguire il training o distribuire un modello__ utilizzando l'area di lavoro. Se è stata creata una nuova area di lavoro, ma non sottoposto a training o creato un modello, non sarà presente alcun registro contenitori di Azure per l'area di lavoro.
 
 Se è già stato sottoposto a training o distribuiti i modelli usando il servizio di Azure Machine Learning, dell'area di lavoro è stato creato un registro contenitori. Per trovare il nome del registro contenitori, procedere come segue:
 
@@ -153,9 +153,9 @@ I passaggi descritti in questa procedura dettagliata sezione Creazione di un'imm
     Run ID: cda was successful after 2m56s
     ```
 
-Per altre informazioni sulla creazione di immagini con un registro contenitori di Azure, vedere [compilare ed eseguire un'immagine del contenitore usando le attività del Registro di sistema di contenitore di Azure](/docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli.md)
+Per altre informazioni sulla creazione di immagini con un registro contenitori di Azure, vedere [compilare ed eseguire un'immagine del contenitore usando le attività del Registro di sistema di contenitore di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli)
 
-Per altre informazioni sul caricamento di immagini esistenti a un registro contenitori di Azure, vedere [Push la prima immagine in un registro contenitori Docker privati](/azure/container-registry/container-registry-get-started-docker-cli.md).
+Per altre informazioni sul caricamento di immagini esistenti a un registro contenitori di Azure, vedere [Push la prima immagine in un registro contenitori Docker privati](/azure/container-registry/container-registry-get-started-docker-cli).
 
 ## <a name="use-a-custom-image"></a>Usare un'immagine personalizzata
 

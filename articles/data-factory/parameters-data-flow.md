@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: ef97f17bf159511ce94f90cd00623e05489acb92
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0a7140f70db78c8511f3c4da00b2f9c11c368163
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274697"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477671"
 ---
 # <a name="mapping-data-flow-parameters"></a>Mapping di parametri del flusso di dati
 
@@ -37,6 +37,12 @@ Per aggiungere parametri al flusso di dati, fare clic sulla parte vuota dell'are
 I parametri possono essere utilizzati in qualsiasi espressione di flusso di dati. I parametri iniziano con $ e non sono modificabili. Si noterà l'elenco dei parametri disponibili all'interno del generatore di espressioni nella scheda 'Parameters'.
 
 ![Espressione per i parametri del flusso di dati](media/data-flow/parameter-expression.png "espressione per i parametri del flusso di dati")
+
+## <a name="use-parameters-in-your-data-flow"></a>Usare i parametri nel flusso di dati
+
+* È possibile usare i valori dei parametri all'interno di espressioni di trasformazione. Si noterà l'elenco di parametri nella scheda parametri del generatore di espressioni. ![Usare i parametri del flusso di dati](media/data-flow/params9.png "parametri flusso di dati di utilizzo")
+
+* I parametri consentono inoltre di configurare i valori dinamici per l'origine e Sink le impostazioni di trasformazione. Quando si fa clic all'interno di campi configurabili, verrà visualizzato il collegamento "Aggiungi essendo dinamico". Facendo clic si passerà a un generatore di espressioni in cui è possibile usare i parametri per utilizzare valori dinamici. ![Flusso di dati contenuto dinamico](media/data-flow/params6.png "contenuto dinamico del flusso di dati")
 
 ## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>Impostare i parametri di Mapping del flusso di dati da pipeline
 

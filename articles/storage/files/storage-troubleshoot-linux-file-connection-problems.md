@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 16d1739e01061a90d673e4bd79bba7bfe7ec3a90
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 97f737c8d1228bd03baf59f2ebe830f715241299
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295061"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449852"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
@@ -103,7 +103,7 @@ Ridurre il numero di handle aperti simultaneamente chiudendone alcuni e quindi r
     - Usare [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per i trasferimenti tra due condivisioni file.
     - Con cp parallelo potrebbe migliorare la velocità di copia, il numero di thread dipende il caso d'uso e del carico di lavoro. Questo esempio Usa sei: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
     - Strumenti open source terze parti, ad esempio:
-        - [Parallelo GNU](http://www.gnu.org/software/parallel/).
+        - [Parallelo GNU](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) : Ordina i file e le inserisce in partizioni.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -Usa Fpart e uno strumento di copia per generare più istanze per migrare i dati da src_dir a dst_url.
         - [Con più](https://github.com/pkolano/mutil) -cp multithread e md5sum basato su GNU coreutils.

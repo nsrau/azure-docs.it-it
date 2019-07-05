@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: e8e11ffd4260c2956c6bb4740973eb77abfdc7b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 26a5baf07ee31bdf155629139e12ef1977ddca1d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055234"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457399"
 ---
 Le dimensioni delle macchine virtuali ottimizzate per la GPU sono macchine virtuali specializzate disponibili con una o più GPU NVIDIA. Queste dimensioni sono progettate per carichi di lavoro di visualizzazione oppure a elevato utilizzo di calcolo o di grafica. Questo articolo fornisce informazioni relative a numero e tipo di GPU, vCPU, dischi dati e schede di rete. Anche velocità effettiva di archiviazione e larghezza di banda della rete sono incluse per ogni dimensione di questo raggruppamento.
 
@@ -103,9 +103,9 @@ Le macchine virtuali della serie NDv2 sono una novità della famiglia di GPU e s
 [Iscriviti e ottieni l'accesso a queste macchine virtuali durante l'anteprima](https://aka.ms/ndv2signup).
 <br>
 
-| Dimensione | vCPU | GPU | Memoria | NIC (Max) | Max. Dimensioni disco | Max. dischi dati | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Larghezza di banda di rete massima | 
+| Dimensione | vCPU | GPU | Memoria | NIC (Max) | GiB di archiviazione temporaneo (SSD) | Max. dischi dati | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Larghezza di banda di rete massima | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672 GiB | 8 | Temporanea 1344 / 2948XIO | 32 | 80000 / 800 | 24000 Mbps |
+| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672 GiB | 8 | 2948 | 32 | 80000 / 800 | 24000 Mbps |
 
 ## <a name="nd-series"></a>Serie ND
 

@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e34e6257b4800387470cdc1b7d624bf3ebd1d3e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95b7cbcf4e485dc93d49b9559dcb7d0d4f597ebe
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989160"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550343"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Configurare single sign-on alle applicazioni non incluse nella raccolta nella piattaforma delle identità Microsoft
 
@@ -186,7 +186,7 @@ Per assegnare un nuovo utente o gruppo all'applicazione:
 3. Selezionare **utenti e gruppi (\<numero > selezionati)** . Il **utenti e gruppi** viene visualizzata la pagina che mostra un elenco di utenti e gruppi disponibili.
 4. Tipo o scorrere per trovare l'utente o gruppo che si desidera assegnare dall'elenco.
 5. Selezionare ogni utente o gruppo che si desidera aggiungere e quindi selezionare il **seleziona** pulsante. Il **utenti e gruppi** pagina scompare.
-6. Nel **aggiungere assegnazioni** pagina, selezionare **assegnare**. Il  **<application name> -utenti e gruppi** verrà visualizzata la pagina con gli altri utenti visualizzati nell'elenco.
+6. Nel **aggiungere assegnazioni** pagina, selezionare **assegnare**. Il  **\<nome applicazione >-gli utenti e gruppi** verrà visualizzata la pagina con gli altri utenti visualizzati nell'elenco.
 
    ![I gruppi e utenti applicazione](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 

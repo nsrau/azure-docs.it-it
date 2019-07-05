@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: c6104a977a02211dcab17a5f232991d0d9cbb852
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ed3b42c61456f110925e34473dbb326dafc1b80
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050745"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447721"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Sviluppare Funzioni di Azure con Visual Studio  
 
-Azure Functions Tools for Visual Studio 2019 è un'estensione per Visual Studio che consente di sviluppare, testare e distribuire C# funzioni di Azure. Se questa è la prima esperienza con Funzioni di Azure, è consigliabile leggere altre informazioni in [Introduzione a Funzioni di Azure](functions-overview.md).
+Strumenti di funzioni di Azure è un'estensione per Visual Studio che consente di sviluppare, testare e distribuire C# funzioni di Azure. Se questa è la prima esperienza con Funzioni di Azure, è consigliabile leggere altre informazioni in [Introduzione a Funzioni di Azure](functions-overview.md).
 
 Azure Functions Tools offre i vantaggi seguenti: 
 
@@ -42,13 +42,11 @@ Strumenti di funzioni di Azure è incluso nel carico di lavoro di sviluppo di Az
 
 Assicurarsi che Visual Studio sia aggiornato e di usare la [versione più recente](#check-your-tools-version) degli strumenti di Funzioni di Azure.
 
-### <a name="other-requirements"></a>Altri requisiti
+### <a name="azure-resources"></a>Risorse di Azure
 
-Per creare e distribuire funzioni, è necessario disporre anche di quanto segue:
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* Una sottoscrizione di Azure attiva. Se non si possiede una sottoscrizione di Azure, sono disponibili [account gratuiti](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-* Un account dell'Archiviazione di Azure. Per creare un account di archiviazione, vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
+Altre risorse necessarie, ad esempio un account di archiviazione di Azure, vengono create nella sottoscrizione durante il processo di pubblicazione.
 
 ### <a name="check-your-tools-version"></a>Controllare la versione degli strumenti
 
@@ -80,12 +78,20 @@ Il modello di progetto crea un progetto C#, installa il pacchetto NuGet `Microso
 
 * **host.json**: consente di configurare l'host di Funzioni. Queste impostazioni si applicano sia durante l'esecuzione in locale che nell'esecuzione in Azure. Per altre informazioni, vedere il [riferimento su host.json](functions-host-json.md).
 
-* **local.settings.json**: mantiene le impostazioni usate quando si esegue Funzioni in locale. Queste impostazioni non vengono usate da Azure, bensì dagli [strumenti di base di Funzioni di Azure](functions-run-local.md). Usare questo file per specificare le impostazioni dell'app per le variabili di ambiente richieste dalle funzioni. Aggiungere un nuovo elemento alla matrice **Values** per ogni connessione richiesta dalle associazioni delle funzioni nel progetto. Per altre informazioni, vedere [File di impostazioni locali](functions-run-local.md#local-settings-file) nell'argomento sugli strumenti di base di Funzioni di Azure.
+* **local.settings.json**: mantiene le impostazioni usate quando si esegue Funzioni in locale. Queste impostazioni non vengono usate durante l'esecuzione in Azure. Per altre informazioni, vedere [file di impostazioni locali](#local-settings-file).
 
     >[!IMPORTANT]
     >Poiché il file local.settings.json può contenere segreti, è necessario escluderlo dal controllo del codice sorgente del progetto. L'impostazione **Copia nella directory di output** per questo file dovrebbe essere sempre **Copia se più recente**. 
 
 Per altre informazioni, vedere [Progetto di libreria di classi per Funzioni](functions-dotnet-class-library.md#functions-class-library-project).
+
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
+
+Le impostazioni in Local non vengono caricate automaticamente quando si pubblica il progetto. Per assicurarsi che queste impostazioni si trovano anche nell'app per le funzioni in Azure, è necessario caricarli dopo aver pubblicato il progetto. Per altre informazioni, vedere [impostazioni di app per le funzioni](#function-app-settings).
+
+I valori in **ConnectionStrings** non vengono mai pubblicati.
+
+I valori delle impostazioni dell'app di funzione possono anche essere letti nel codice come variabili di ambiente. Per altre informazioni, vedere [variabili di ambiente](functions-dotnet-class-library.md#environment-variables).
 
 ## <a name="configure-the-project-for-local-development"></a>Configurare il progetto per lo sviluppo locale
 
@@ -133,8 +139,9 @@ Nelle funzioni precompilate le associazioni usate dalla funzione sono definite t
         }
     }
     ```
+
     Un attributo specifico dell'associazione viene applicato a ogni parametro di associazione fornito al metodo del punto di ingresso. L'attributo accetta le informazioni di associazione come parametri. Nell'esempio precedente il primo parametro dispone di un attributo **QueueTrigger**, che indica la funzione attivata dalla coda. Il nome della coda e il nome di impostazione della stringa di connessione vengono passati come parametri all'attributo **QueueTrigger**. Per altre informazioni, vedere [Associazioni di archiviazione code in Funzioni di Azure](functions-bindings-storage-queue.md#trigger---c-example).
-    
+
 È possibile usare la procedura descritta in precedenza per aggiungere altre funzioni al progetto di app per le funzioni. Ogni funzione nel progetto può avere un trigger diverso, ma una funzione deve avere esattamente un trigger. Per altre informazioni, vedere [Concetti relativi a trigger e associazioni in Funzioni di Azure](functions-triggers-bindings.md).
 
 ## <a name="add-bindings"></a>Aggiungere associazioni
@@ -183,11 +190,14 @@ Per altre informazioni sull'utilizzo degli strumenti di base di Funzioni di Azur
 
 ## <a name="publish-to-azure"></a>Pubblicazione in Azure
 
+Durante la pubblicazione da Visual Studio, vengono utilizzati uno dei due metodi di distribuzione:
+
+* [Distribuzione Web](functions-deployment-technologies.md#web-deploy-msdeploy): i pacchetti e distribuisce le app di Windows in un server IIS.
+* [Distribuisci con abilitato eseguire da pacchetto zip](functions-deployment-technologies.md#zip-deploy): consigliato per distribuzioni di funzioni di Azure.
+
+Usare la procedura seguente per pubblicare il progetto di app per le funzioni in Azure.
+
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
-
-### <a name="deployment-technology"></a>Tecnologia di distribuzione
-
-Durante la pubblicazione da Visual Studio, una delle due tecnologie viene usata per eseguire la distribuzione: [Distribuzione Web](functions-deployment-technologies.md#web-deploy-msdeploy) e [Zipdeploy con abilitato eseguire dal pacchetto (scelta consigliata)](functions-deployment-technologies.md#zip-deploy).
 
 ## <a name="function-app-settings"></a>Impostazioni dell'app per le funzioni
 

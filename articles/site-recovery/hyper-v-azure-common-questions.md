@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 9979cb97ec578a59ba8263f2eb1fe53d41db862f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36c109e083873e9c4ec63ebe34f5c5c0cfb6eeb1
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399452"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491817"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Domande frequenti - Ripristino di emergenza da Hyper-V ad Azure
 
@@ -26,6 +26,10 @@ Vedere [Dettagli relativi ai prezzi di Azure Site Recovery](https://azure.micros
 
 ### <a name="how-do-i-pay-for-azure-vms"></a>Come vengono addebitati i costi per le macchine virtuali di Azure?
 Durante la replica, i dati vengono replicati in Archiviazione di Azure e non viene addebitato alcun costo per le modifiche alle macchine virtuali. Quando si esegue un failover in Azure, Site Recovery crea automaticamente le macchine virtuali IaaS di Azure. In seguito vengono fatturate le risorse di calcolo utilizzate in Azure.
+
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>È disponibile alcuna differenza nel costo durante la replica in account di archiviazione di utilizzo generico v2?
+
+In genere, si noterà un aumento del costo di transazioni sostenute per gli account di archiviazione per utilizzo generico v2, poiché Azure Site Recovery è transazioni pesanti. [Scopri di più](../storage/common/storage-account-upgrade.md#pricing-and-billing) per stimare la modifica.
 
 ## <a name="azure"></a>Azure
 

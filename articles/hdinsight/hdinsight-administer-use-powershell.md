@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: tylerfox
-ms.openlocfilehash: a7e129f43b957b271c77f451ab198a9068bb0797
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7c894bcb3183714a76578a6750c8e85493e3094
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718990"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508068"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestire cluster Apache Hadoop in HDInsight usando Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -150,10 +150,6 @@ La concessione e la revoca dell'accesso possono essere eseguite anche tramite il
 ## <a name="find-the-default-storage-account"></a>Trovare l'account di archiviazione predefinito
 Lo script di PowerShell seguente dimostra come ottenere il nome dell'account di archiviazione predefinito e le informazioni correlate:
 
-> [!IMPORTANT]  
-> I valori per `DefaultStorageAccount`, e `DefaultStorageContainer` non vengono restituite dal [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) quando [trasferimento sicuro](../storage/common/storage-require-secure-transfer.md) è abilitata nell'account di archiviazione.
-
-
 ```powershell
 #Connect-AzAccount
 $clusterName = "<HDInsight Cluster Name>"
@@ -197,10 +193,6 @@ Vedere [Eseguire gli esempi di MapReduce inclusi in HDInsight](hadoop/apache-had
 **Inviare i processi Apache Hive**
 
 Vedere [Eseguire query Apache Hive usando PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
-
-**Inviare i processi Apache Pig**
-
-Vedere [Eseguire processi Apache Pig mediante PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
 **Inviare i processi Apache Sqoop**
 

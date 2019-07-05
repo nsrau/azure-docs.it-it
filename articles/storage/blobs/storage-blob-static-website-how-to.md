@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 61477767c59dd521e3f46db4445238a5a1ea759e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ab24a99b22fae172b5308ba7477953f27ecfd44
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071444"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435946"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Ospitare un sito Web statico in archiviazione di Azure
 
@@ -44,13 +44,7 @@ Nel riquadro visualizzato accanto alla pagina di panoramica account dell'account
 
 1. Prima di tutto, aprire il [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), o se è già [installato](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) la CLI di Azure in locale, aprire un'applicazione console dei comandi, ad esempio Windows PowerShell.
 
-2. Dalla finestra di comando che è già aperta, installare l'estensione di anteprima di archiviazione.
-
-   ```azurecli-interactive
-   az extension add --name storage-preview
-   ```
-
-3. Se l'identità è associata a più di una sottoscrizione, quindi impostare attive sottoscrizione a sottoscrizione dell'account di archiviazione che ospiterà il sito Web statico.
+2. Se l'identità è associata a più di una sottoscrizione, quindi impostare attive sottoscrizione a sottoscrizione dell'account di archiviazione che ospiterà il sito Web statico.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
@@ -58,7 +52,7 @@ Nel riquadro visualizzato accanto alla pagina di panoramica account dell'account
 
    Sostituire il `<subscription-id>` valore del segnaposto con l'ID della sottoscrizione.
 
-4. Abilitare l'hosting di siti Web statici.
+3. Abilitare l'hosting di siti Web statici.
 
    ```azurecli-interactive
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
@@ -70,7 +64,7 @@ Nel riquadro visualizzato accanto alla pagina di panoramica account dell'account
 
    * Sostituire il `<index-document-name>` segnaposto con il nome del documento di indice. Questo documento è in genere "index. HTML".
 
-5. Caricare gli oggetti nel contenitore *$web* da una directory di origine.
+4. Caricare gli oggetti nel contenitore *$web* da una directory di origine.
 
    > [!NOTE]
    > Se si usa Azure Cloud Shell, assicurarsi di aggiungere un `\` carattere di escape quando si fa riferimento per il `$web` contenitore (ad esempio: `\$web`). Se si usa un'installazione locale della riga di comando di Azure, non sarà necessario usare il carattere di escape.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97bad4d9cd599890dd5e26cbc77f81156c0f1070
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4dbe3039845b1c9160e4f4fa3007cad1f588f71e
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204664"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560749"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -76,14 +76,14 @@ Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le cr
 
 Il server NPS deve essere in grado di comunicare con gli URL seguenti sulle porte 80 e 443.
 
-* https:\//adnotifications.windowsazure.com  
-* https:\//login.microsoftonline.com
+- [https://adnotifications.windowsazure.com](https://adnotifications.windowsazure.com)
+- [https://login.microsoftonline.com](https://login.microsoftonline.com)
 
 Inoltre, la connettività agli URL seguenti è necessario per completare il [il programma di installazione dell'adapter utilizzando lo script di PowerShell fornito](#run-the-powershell-script)
 
-- https:\//login.microsoftonline.com
-- https:\//provisioningapi.microsoftonline.com
-- https:\//aadcdn.msauth.net
+- [https://login.microsoftonline.com](https://login.microsoftonline.com)
+- [https://provisioningapi.microsoftonline.com](https://provisioningapi.microsoftonline.com)
+- [https://aadcdn.msauth.net](https://aadcdn.msauth.net)
 
 ## <a name="prepare-your-environment"></a>Preparare l'ambiente
 
@@ -121,9 +121,14 @@ Sono due i fattori che determinano i metodi di autenticazione disponibili con un
 1. L'algoritmo di crittografia della password usato tra il client RADIUS (VPN, server Netscaler o altri) e i Server dei criteri di rete.
    - **PAP** supporta tutti i metodi di autenticazione di Azure MFA nel cloud: chiamata telefonica, SMS unidirezionale, notifica dell'app per dispositivi mobili e codice di verifica dell'app per dispositivi mobili.
    - **CHAPV2** e **EAP** supportano la chiamata telefonica e la notifica dell'app per dispositivi mobili.
-2. I metodi di input che l'applicazione client (VPN, server Netscaler o altra) può gestire. Ad esempio, gli strumenti usati dal client VPN per consentire all'utente di digitare un codice di verifica da un testo o da un'app per dispositivi mobili.
 
-Quando si distribuisce l'estensione di Server dei criteri di rete, usare questi fattori per valutare i metodi disponibili per gli utenti. Se il client RADIUS supporta PAP, ma nel client non esistono campi di input per un codice di verifica, la chiamata telefonica e la notifica dell'app per dispositivi mobili sono le due opzioni supportate.
+      > [!NOTE]
+      > Quando si distribuisce l'estensione di Server dei criteri di rete, usare questi fattori per valutare i metodi disponibili per gli utenti. Se il client RADIUS supporta PAP, ma nel client non esistono campi di input per un codice di verifica, la chiamata telefonica e la notifica dell'app per dispositivi mobili sono le due opzioni supportate.
+      >
+      > Inoltre, se il client VPN che UX supportano l'input archiviato e configurati criteri di accesso di rete - l'autenticazione potrebbe riuscire, tuttavia nessuno degli attributi RADIUS configurati nei criteri di rete, verrà applicato a né l'accesso dispositivo di rete, ad esempio il server RRAS, né il client VPN. Di conseguenza, il client VPN potrebbe avere accesso maggiore o minore per non consentire l'accesso desiderato.
+      >
+
+2. I metodi di input che l'applicazione client (VPN, server Netscaler o altra) può gestire. Ad esempio, gli strumenti usati dal client VPN per consentire all'utente di digitare un codice di verifica da un testo o da un'app per dispositivi mobili.
 
 È possibile [disabilitare i metodi di autenticazione non supportati](howto-mfa-mfasettings.md#verification-methods) in Azure.
 
@@ -132,11 +137,10 @@ Quando si distribuisce l'estensione di Server dei criteri di rete, usare questi 
 Prima di distribuire e usare l'estensione NPS, gli utenti che devono eseguire la verifica in due passaggi devono essere registrati per l'MFA. Per testare l'estensione in modo più immediato mentre viene distribuita, è necessario almeno un account di test completamente registrato per l'MFA.
 
 Seguire questa procedura per avviare un account di test:
-1. Accedere a [https://aka.ms/mfasetup](https://aka.ms/mfasetup) con un account di prova. 
-2. Seguire le richieste per configurare un metodo di verifica.
-3. Creare un criterio di accesso condizionale o [modificare lo stato utente](howto-mfa-userstates.md) per richiedere la verifica in due passaggi per l'account di test. 
 
-Gli utenti devono inoltre eseguire la procedura per la registrazione prima di potersi autenticare con l'estensione del server dei criteri di rete.
+1. Accedere a [https://aka.ms/mfasetup](https://aka.ms/mfasetup) con un account di prova.
+2. Seguire le richieste per configurare un metodo di verifica.
+3. [Creare un criterio di accesso condizionale](howto-mfa-getstarted.md#create-conditional-access-policy) per richiedere l'autenticazione a più fattori per l'account di test.
 
 ## <a name="install-the-nps-extension"></a>Installare l'estensione di Server dei criteri di rete
 
@@ -188,6 +192,14 @@ Se è scaduto il certificato del computer precedente e un nuovo certificato è s
 
 > [!NOTE]
 > Se si usano i propri certificati invece di generare certificati con lo script di PowerShell, verificare che rispettino la convenzione di denominazione di Server dei criteri di rete. Il nome oggetto deve essere **CN=\<TenantID\>,OU=Estensione di Server dei criteri di rete Microsoft**. 
+
+### <a name="certificate-rollover"></a>Rollover dei certificati
+
+Con versione 1.0.1.32 dell'estensione NPS, la lettura di più certificati è ora supportato. Questa funzionalità consentirà di semplificare in sequenza gli aggiornamenti del certificato prima della loro scadenza. Se l'organizzazione è in esecuzione una versione precedente dell'estensione NPS, è consigliabile aggiornare alla versione 1.0.1.32 o versione successiva.
+
+I certificati creati dal `AzureMfaNpsExtnConfigSetup.ps1` script sono valide per 2 anni. Le organizzazioni IT devono monitorare i certificati per la scadenza. I certificati per l'estensione NPS vengono inseriti nell'archivio certificati Computer locale in personale e vengono emessi per l'ID tenant specificato per lo script.
+
+Quando un certificato sta per raggiungere la data di scadenza, un nuovo certificato deve essere creato per sostituirlo.  Questo processo viene eseguito tramite l'esecuzione di `AzureMfaNpsExtnConfigSetup.ps1` nuovamente mantenendo lo stesso ID tenant quando richiesto. Questo processo deve essere ripetuto in ogni server dei criteri di rete nell'ambiente in uso.
 
 ## <a name="configure-your-nps-extension"></a>Configurare l'estensione di Server dei criteri di rete
 
@@ -291,6 +303,10 @@ Per controllare se si dispone di un certificato valido, controllare Store certif
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gestione dei protocolli TLS/SSL e dei pacchetti di crittografia
 
 È consigliabile disabilitare o rimuovere i pacchetti di crittografia meno recenti e meno sicuri, a meno che non siano richiesti dall'organizzazione. Altre informazioni sul completamento di questa attività sono disponibili nell'articolo [Gestione dei protocolli SSL/TLS e dei pacchetti di crittografia per AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs).
+
+### <a name="additional-troubleshooting"></a>Risoluzione dei problemi aggiuntiva
+
+Soluzioni possibili e indicazioni sulla risoluzione dei problemi aggiuntive sono reperibili nell'articolo [risolvere i messaggi di errore dall'estensione NPS per Azure multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

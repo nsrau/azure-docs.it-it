@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 86e30c465a605681519565261beec75d88ccd472
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 4f77eafd3309d7c1d679c126b1a5eb1ff0e9a28d
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190795"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490101"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Trasformazione di origine per il Mapping del flusso di dati 
 
@@ -146,6 +146,12 @@ Se il file di testo non ha uno schema definito, selezionare **rileva tipo di dat
 È possibile modificare i tipi di dati di colonna in una trasformazione colonna derivata in un secondo momento. Utilizzare una trasformazione Seleziona per modificare i nomi delle colonne.
 
 ![Le impostazioni per i formati di dati predefiniti](media/data-flow/source2.png "i formati predefiniti")
+
+### <a name="add-dynamic-content"></a>Aggiungere contenuto dinamico
+
+Quando si fa clic all'interno di campi nel Pannello di impostazione, verrà visualizzato un collegamento ipertestuale per "Aggiungi contenuto dinamico". Quando si fa clic di seguito, si avvierà il generatore di espressioni. Si tratta in cui è possibile impostare i valori per le impostazioni in modo dinamico utilizzando espressioni, i valori letterali statici o parametri.
+
+![I parametri](media/data-flow/params6.png "parametri")
 
 ## <a name="next-steps"></a>Passaggi successivi
 

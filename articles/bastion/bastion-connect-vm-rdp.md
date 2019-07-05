@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: c8a4b09a27325f31e548d1b345b2932c6ab6315c
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 376b7042a513dd50647dc8f88bf1de70f65bb21c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191889"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478410"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion-preview"></a>Connettersi a una macchina virtuale Windows tramite Azure Bastion (anteprima)
 
@@ -26,15 +26,15 @@ Questo articolo illustra come in modo sicuro e senza problemi RDP alle macchine 
 
 Assicurarsi che è stato impostato in un host di Azure Bastion per la rete virtuale in cui risiede la macchina virtuale. Per altre informazioni, vedere [creare un host di Azure Bastion](bastion-create-host-portal.md). Una volta che il servizio Bastion è stato effettuato il provisioning e distribuito nella rete virtuale, è possibile usarlo per connettersi a qualsiasi macchina virtuale in questa rete virtuale. In questa versione di anteprima Bastion presuppone che si usa il protocollo RDP per connettersi a una macchina virtuale Windows e SSH per connettersi alle VM Linux. Per informazioni sulla connessione a una VM Linux, vedere [Connetti a una macchina virtuale - Linux](bastion-connect-vm-ssh.md).
 
-Per stabilire una connessione, sono necessari i seguenti ruoli:
+Per stabilire una connessione, sono necessari i ruoli seguenti:
 
-* Ruolo di lettore nella macchina virtuale
-* Ruolo di lettore nella NIC con indirizzo IP privato della macchina virtuale
-* Ruolo lettore per la risorsa di Azure Bastion
+* Ruolo Lettore nella macchina virtuale
+* Ruolo Lettore nella scheda di interfaccia di rete con l'indirizzo IP privato della macchina virtuale
+* Ruolo Lettore nella risorsa Azure Bastion
 
 ## <a name="rdp"></a>Connettersi tramite RDP
 
-1. Nel [portale di Azure](https://aka.ms/BastionHost) per l'anteprima Bastion, passare alla macchina virtuale che si desidera connettersi, quindi fare clic su **Connect**. La macchina virtuale deve essere una macchina virtuale di Windows quando si usa una connessione RDP.
+1. Uso [questo collegamento](https://aka.ms/BastionHost) per aprire la pagina del portale di anteprima di Azure Bastion. Passare alla macchina virtuale che si desidera connettersi, quindi fare clic su **Connect**. La macchina virtuale deve essere una macchina virtuale di Windows quando si usa una connessione RDP.
 
     ![Connessione macchina virtuale](./media/bastion-connect-vm-rdp/connect.png)
 

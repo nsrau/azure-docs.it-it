@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 25cf3914274e73e0789aa87e9288649d1b0cb1eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f985260175e5f54a17799ef07b3a280f42b716e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399583"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491878"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Azure ad Azure
 
@@ -31,7 +31,7 @@ La tabella seguente riepiloga i componenti coinvolti nel ripristino di emergenza
 **Macchine virtuali nell'area di origine** | Una o più macchine virtuali di Azure in un'[area di origine supportata](azure-to-azure-support-matrix.md#region-support).<br/><br/> Le macchine virtuali possono eseguire qualsiasi [sistema operativo supportato](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Archiviazione macchine virtuali di origine** | Le macchine virtuali di Azure possono essere gestite o avere dischi non gestiti distribuiti fra gli account di archiviazione.<br/><br/>[Informazioni](azure-to-azure-support-matrix.md#replicated-machines---storage) sull'archiviazione di Azure supportata.
 **Reti macchine virtuali di origine** | Le macchine virtuali possono essere collocate in una o più subnet di una rete virtuale nell'area di origine. [Altre informazioni](azure-to-azure-support-matrix.md#replicated-machines---networking) sui requisiti di rete.
-**Account di archiviazione della cache** | È necessario un account di archiviazione della cache nella rete di origine. Durante la replica, le modifiche alle macchine virtuali vengono memorizzate nella cache prima di essere inviate all'archivio di destinazione.<br/><br/> L'uso di una cache assicura un impatto minimo sulle applicazioni di produzione in esecuzione in una macchina virtuale.<br/><br/> [Altre informazioni](azure-to-azure-support-matrix.md#cache-storage) sui requisiti di archiviazione nella cache. 
+**Account di archiviazione della cache** | È necessario un account di archiviazione della cache nella rete di origine. Durante la replica, le modifiche alle macchine virtuali vengono memorizzate nella cache prima di essere inviate all'archivio di destinazione.  Gli account di archiviazione della cache devono essere Standard.<br/><br/> L'uso di una cache assicura un impatto minimo sulle applicazioni di produzione in esecuzione in una macchina virtuale.<br/><br/> [Altre informazioni](azure-to-azure-support-matrix.md#cache-storage) sui requisiti di archiviazione nella cache. 
 **Risorse di destinazione** | Le risorse di destinazione vengono usate durante la replica e in caso di failover. Site Recovery può configurare le risorse di destinazione per impostazione predefinita oppure è possibile crearle o personalizzarle.<br/><br/> Nell'area di destinazione verificare che sia possibile creare macchine virtuali e che la sottoscrizione disponga di risorse sufficienti per supportare le dimensioni di macchina virtuale che saranno necessarie nell'area di destinazione. 
 
 ![Replica delle risorse di origine e di destinazione](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)

@@ -9,12 +9,12 @@ ms.date: 09/06/2017
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: d7debbc760e103046ce9bb1a8bdf25a954d9891c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d80bc71c01d0f1c887d9161edee5516d6b0925b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138567"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443691"
 ---
 # <a name="azure-storage-client-tools"></a>Strumento client di Archiviazione di Azure
 Gli utenti dell'Archiviazione di Azure possono visualizzare o interagire con i propri dati utilizzando lo strumento client di Archiviazione di Azure. Nelle tabelle seguenti sono elencati numerosi strumenti che consentono di eseguire questa operazione. Con una "X" in ogni blocco viene indicata la possibilità di enumerare e/o accedere all'astrazione dei dati. Viene inoltre specificato se lo strumento è gratuito o meno. "Prova" indica che esiste una versione di valutazione gratuita, ma il prodotto completo non è gratuito. "S/N" indica che è disponibile una versione gratuita, mentre è possibile acquistare una versione diversa.
@@ -178,7 +178,7 @@ La funzionalità o la qualità dichiarate per i seguenti strumenti di terze part
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://clumsyleaf.com">ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer</a></td>
+    <td><a href="https://clumsyleaf.com">ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>

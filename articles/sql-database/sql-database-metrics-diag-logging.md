@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/21/2019
+ms.openlocfilehash: 6824a7151a0c007d6fe4ba021f274886a3cf0dcb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791950"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447815"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica
 
-In questo argomento si apprenderà come configurare la registrazione dei dati di telemetria di diagnostica per il Database SQL di Azure tramite il portale di Azure, PowerShell, CLI di Azure, API REST di monitoraggio di Azure e il modello di Azure Resource Manager. Questi dati diagnostici sono utilizzabile per valutare l'utilizzo delle risorse e le statistiche di esecuzione di query. 
+In questo argomento si apprenderà come configurare la registrazione dei dati di telemetria di diagnostica per il Database SQL di Azure tramite il portale di Azure, PowerShell, CLI di Azure, API REST di monitoraggio di Azure e il modello di Azure Resource Manager. Questi dati diagnostici sono utilizzabile per valutare l'utilizzo delle risorse e le statistiche di esecuzione di query.
 
 I database singoli, i database in pool di pool elastici e i database dell'istanza in un'istanza gestita possono trasmettere log di diagnostica e metriche per facilitare il monitoraggio delle prestazioni. È possibile configurare un database per trasmettere l'utilizzo delle risorse, i ruoli di lavoro e le sessioni e connettività ad una delle seguenti risorse di Azure:
 
@@ -119,7 +119,7 @@ Per abilitare il flusso di dati di telemetria della diagnostica per una risorsa 
 1. Inoltre, configurare il flusso di dati di telemetria di diagnostica per ogni database all'interno del pool elastico che si desidera monitorare, seguendo i passaggi descritti nella sezione successiva.
 
 > [!IMPORTANT]
-> Oltre alla configurazione della telemetria di diagnostica per un pool elastico, è anche necessario configurare i dati di telemetria di diagnostica per ogni database nel pool elastico, come descritto di seguito. 
+> Oltre alla configurazione della telemetria di diagnostica per un pool elastico, è anche necessario configurare i dati di telemetria di diagnostica per ogni database nel pool elastico, come descritto di seguito.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Configurare il flusso di dati di telemetria di diagnostica per singolo database o database nel pool elastico
 
@@ -181,7 +181,7 @@ Per abilitare la trasmissione del flusso di dati di telemetria della diagnostica
 1. Inoltre, configurare il flusso di dati di telemetria di diagnostica per ogni database dell'istanza all'interno dell'istanza gestita che si desidera monitorare seguendo i passaggi descritti nella sezione successiva.
 
 > [!IMPORTANT]
-> Oltre alla configurazione della telemetria di diagnostica per un'istanza gestita, è anche necessario configurare i dati di telemetria di diagnostica per ogni database dell'istanza, come descritto di seguito. 
+> Oltre alla configurazione della telemetria di diagnostica per un'istanza gestita, è anche necessario configurare i dati di telemetria di diagnostica per ogni database dell'istanza, come descritto di seguito.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Configurare il flusso di dati di telemetria di diagnostica, ad esempio i database
 
@@ -261,6 +261,7 @@ Specificare l'ID risorsa dell'area di lavoro \<$WSID\> come parametro quando si 
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
+
    Sostituire \<subID\> con l'ID abbonamento, \<RG_NAME\> con il nome del gruppo di risorse e \<WS_NAME\> con il nome dell'area di lavoro.
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
@@ -396,10 +397,6 @@ Un nome di BLOB per archiviare i dati da un pool elastico è simile a:
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
-
-### <a name="download-metrics-and-logs-from-storage"></a>Scaricare le metriche e i log da Archiviazione
-
-Informazioni su come [scaricare le metriche e i log di diagnostica da Archiviazione](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
 
 ## <a name="data-retention-policy-and-pricing"></a>Criteri di conservazione dei dati e prezzi
 
@@ -719,5 +716,3 @@ Per informazioni su Hub eventi, leggere:
 
 - [Che cos'è l'hub di eventi di Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-Per informazioni su Archiviazione di Azure, leggere come [scaricare le metriche e i log di diagnostica da Archiviazione](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

@@ -5,14 +5,14 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 06/25/2019
 ms.author: vinagara
-ms.openlocfilehash: f25321fa5a13ed5a39a62a4115bb0bc10306d36f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8183c7070b5d42e1c7a96fc0d64974658b2ec7d0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244950"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448932"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività in Monitoraggio di Azure  
 
@@ -24,16 +24,17 @@ Si tratta di avvisi per le risorse di Azure e possono essere creati usando un mo
 > [!IMPORTANT]
 > Non è possibile creare avvisi di notifica sull'integrità dei servizi tramite l'interfaccia per la creazione degli avvisi del log attività. Per altre informazioni relative alla creazione e all'uso delle notifiche sull'integrità dei servizi, vedere [Creare gli avvisi del log attività per le notifiche del servizio](alerts-activity-log-service-notifications.md).
 
+Quando si creano le regole di avviso, verificare quanto segue:
+
+- La sottoscrizione nell'ambito non deve essere diversa dalla sottoscrizione in cui viene creato l'avviso.
+- I criteri devono essere livello/stato/chiamante/gruppo di risorse/id risorsa/tipo di risorsa o categoria di eventi in cui è stato configurato l'avviso.
+- Non sono presenti condizioni "anyOf" o condizioni nidificate nella configurazione degli avvisi JSON (in pratica, è consentito un solo allOf senza ulteriori allOf/anyOf).
+- Quando la categoria è "administrative" (amministrativa). È necessario specificare nell'avviso almeno uno dei criteri precedenti. Non è possibile creare un avviso che viene attivato ogni volta che si crea un evento nei log attività.
+
+
 ## <a name="azure-portal"></a>Portale di Azure
 
-> [!NOTE]
-> 
->  Quando si creano le regole di avviso, verificare quanto segue:
-> 
-> - La sottoscrizione nell'ambito non deve essere diversa dalla sottoscrizione in cui viene creato l'avviso.
-> - I criteri devono essere livello/stato/chiamante/gruppo di risorse/id risorsa/tipo di risorsa o categoria di eventi in cui è stato configurato l'avviso.
-> - Non sono presenti condizioni "anyOf" o condizioni nidificate nella configurazione degli avvisi JSON (in pratica, è consentito un solo allOf senza ulteriori allOf/anyOf).
-> - Quando la categoria è "administrative" (amministrativa). È necessario specificare nell'avviso almeno uno dei criteri precedenti. Non è possibile creare un avviso che viene attivato ogni volta che si crea un evento nei log attività.
+Tramite il portale di Azure, utente può creare e modificare le regole di avviso del log attività. E l'esperienza è integrato con log attività di Azure - per garantire facile la creazione dell'avviso per eventi specifici di interesse.
 
 ### <a name="create-with-azure-portal"></a>Creare con il portale di Azure
 
@@ -220,11 +221,11 @@ in cui il sampleActivityLogAlert.parameters.json contiene i valori specificati p
 
 Per gli avvisi del log attività sono disponibili cmdlet di PowerShell dedicati:
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) : Crea un nuovo o aggiornare un avviso esistente del log attività.
-- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) : Ottiene uno o più attività risorse degli avvisi del log.
-- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) : Abilita un avviso del log attività esistenti e imposta i tag.
-- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : Disabilita un avviso del log attività esistenti e imposta i tag.
-- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0)    : Rimuove un avviso del log attività.
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert) : Crea un nuovo o aggiornare un avviso esistente del log attività.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert) : Ottiene uno o più attività risorse degli avvisi del log.
+- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert) : Abilita un avviso del log attività esistenti e imposta i tag.
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert) : Disabilita un avviso del log attività esistenti e imposta i tag.
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert)    : Rimuove un avviso del log attività.
 
 ## <a name="cli"></a>CLI
 

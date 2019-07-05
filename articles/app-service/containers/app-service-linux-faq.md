@@ -4,7 +4,7 @@ description: Domande frequenti sul Servizio app di Azure in Linux.
 keywords: Servizio app di Azure, app Web, domande frequenti, linux, oss, app Web per contenitori, multi-contenitore, più contenitori
 services: app-service
 documentationCenter: ''
-author: yili
+author: msangapu-msft
 manager: stefsch
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: yili
+ms.author: msangapu-msft
 ms.custom: seodec18
-ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d465a93a23b7f0098471e0074240dfcbe9658736
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65594272"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448429"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
@@ -119,10 +119,7 @@ Sì, durante una distribuzione Git, Kudu rileverà che si sta distribuendo un'ap
 
 **Uso un contenitore personalizzato. Desidero che la piattaforma monti una condivisione SMB nella directory `/home/`.**
 
-È possibile specificare l'impostazione di app `WEBSITES_ENABLE_APP_SERVICE_STORAGE` su *true*. Si tenga presente che questo causerà il riavvio del contenitore quando lo spazio di archiviazione della piattaforma subisce una modifica.
-
->[!NOTE]
->Se l'impostazione `WEBSITES_ENABLE_APP_SERVICE_STORAGE` non è specificata o è *false*, la directory `/home/` non verrà condivisa tra istanze scalabili e i file scritti non verranno mantenuti tra i riavvii.
+Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` impostazione è **non specificato** o impostata su *true*, la `/home/` directory **verranno condivise** tra istanze scalabili e i file scritti **persisterà** tra i riavvii. Impostare in modo esplicito `WEBSITES_ENABLE_APP_SERVICE_STORAGE` al *false* disabiliterà il montaggio.
 
 **L'avvio del contenitore personalizzato richiede molto tempo e la piattaforma riavvia il contenitore prima del completamento di questa operazione. Come si risolve il problema?**
 

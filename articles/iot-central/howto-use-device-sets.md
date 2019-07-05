@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 68599a539b3d79b759142d2178aa753f895ea37f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1e7b91e0808b9e23e653acd43b95f24a46c7d27
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052932"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503201"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Usare i set di dispositivi nell'applicazione Azure IoT Central
 
 L'articolo descrive come un operatore può usare i set di dispositivi nell'applicazione Azure IoT Central.
 
-Un set di dispositivi è un elenco di dispositivi raggruppati in base ad alcuni criteri specificati. I set di dispositivi consentono di gestire, visualizzare e analizzare grandi quantità di dispositivi raggruppando i dispositivi in gruppi logici più piccoli. Ad esempio è possibile creare un elenco di tutti i dispositivi condizionatore di Seattle per consentire al tecnico di Seattle di trovare tutti i dispositivi di cui il tecnico è responsabile. Questo articolo descrive come creare e configurare i set di dispositivi.
+Un set di dispositivi è un elenco di dispositivi che sono raggruppati perché rispettavano alcuni criteri specificati. I set di dispositivi consentono di gestire, visualizzare e analizzare grandi quantità di dispositivi raggruppando i dispositivi in gruppi logici più piccoli. Ad esempio, è possibile creare un set di elencare tutti i dispositivi condizionatore d'aria di Seattle per attivare un tecnico individuare i dispositivi di cui si è responsabili di dispositivi. Questo articolo descrive come creare e configurare i set di dispositivi.
 
 ## <a name="create-a-device-set"></a>Creare un set di dispositivi
 
@@ -42,9 +42,9 @@ Per creare un set di dispositivi:
 
 1. Scegliere **Salva**.
 
-## <a name="configure-the-dashboard-for-your-device-set"></a>Configurare il Dashboard per il set di dispositivi
+## <a name="configure-the-dashboard-for-your-device-set"></a>Configurare il dashboard per il set di dispositivi
 
-Dopo aver creato il set di dispositivi è possibile configurare il relativo **Dashboard**. Il **Dashboard** è la home page dove è possibile inserire immagini e collegamenti. È anche possibile aggiungere griglie in cui sono elencati i dispositivi del set di dispositivi.
+Dopo aver creato il set di dispositivi è possibile configurare il relativo **Dashboard**. Il **Dashboard** è la home page in cui posizionare i collegamenti e immagini. È anche possibile aggiungere griglie in cui sono elencati i dispositivi del set di dispositivi.
 
 1. Scegliere **Device Sets** (Set di dispositivi) nel menu di spostamento a sinistra.
 
@@ -85,19 +85,20 @@ Dopo aver creato il set di dispositivi è possibile configurare il relativo **Da
   
     1. Selezionare **Operazione completata**.
 
-### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configurazione della mappa delle località nel dashboard per il set di dispositivi
+Per altre informazioni su come usare i riquadri in Azure IoT Central, vedere [usare i riquadri del dashboard](howto-use-tiles.md).
 
-È possibile aggiungere una mappa delle località per visualizzare la posizione del set di dispositivi in una mappa.
+### <a name="configure-a-location-map-in-your-device-sets-dashboard"></a>Configurare la mappa delle località nel set di dashboard dispositivo
 
-Per aggiungere una mappa delle località al dashboard per il set di dispositivi è necessario aver configurato la proprietà in Modello di dispositivo, vedere [Creare una proprietà Location con Mappe di Azure](howto-set-up-template.md).
+È possibile aggiungere una mappa per visualizzare l'ubicazione dei dispositivi nel set di dispositivi.
 
-1. Nel dashboard set di dispositivi selezionare Mappa nella libreria.
-2. Assegnare un titolo e scegliere la proprietà Location configurata in precedenza come parte della proprietà del dispositivo.
-3. Salvare e nel riquadro della mappa verrà visualizzata la posizione dei dispositivi nel Set di dispositivi.
-4. Quando un operatore visualizza il dashboard per il set di dispositivi, verranno visualizzati tutti i riquadri configurati inclusa la mappa delle località per visualizzare il riepilogo delle posizioni di tutti i dispositivi.
+Per aggiungere che una mappa al dispositivo imposta dashboard, è necessario aver configurato una misurazione di posizione o una proprietà della posizione nel modello di dispositivo. Per altre informazioni, vedere [creare una misura della posizione](howto-set-up-template.md) oppure [creare una proprietà Location](howto-set-up-template.md).
 
-> [!NOTE]
-> Sarà possibile ridimensionare la mappa alle dimensioni desiderate. Selezione di un pin nella mappa Visualizza le informazioni sul dispositivo, nome e percorso. È possibile selezionare la finestra popup passare alla pagina delle proprietà del dispositivo.
+1. Nel dispositivo impostato **Dashboard**, selezionare **mappa** dalla libreria.
+2. Aggiungere un titolo e scegliere la misurazione di posizione o la proprietà che è configurata in precedenza.
+3. Selezionare **salvare** e tessera mappa vengono visualizzate le posizioni note ultimo dei dispositivi nel set di dispositivi.
+4. Quando un operatore Visualizza il dashboard dei set di dispositivi, l'operatore Visualizza tutte le sezioni di cui che è stato configurato, inclusi la mappa delle località.
+
+È possibile ridimensionare il mappa nel riquadro del dashboard. Selezione di un pin sulla mappa Visualizza le informazioni sul dispositivo, nome e percorso. Selezionare la finestra popup passare alla pagina delle proprietà del dispositivo.
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurare l'elenco per il set di dispositivi
 

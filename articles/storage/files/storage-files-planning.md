@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d720f60bff1aa4510ac26ac092c42eb98871c851
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
-ms.translationtype: HT
+ms.openlocfilehash: 6506a93914cfbc10f37980c4b916a93aa9aad75d
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540345"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67564409"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -227,7 +227,7 @@ Per verificare lo stato della registrazione, è possibile eseguire il comando se
 Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
 ```
 
-Potrebbero occorrere fino a 15 minuti per il tuo stato di eseguire l'aggiornamento a "registrato", tuttavia, dovrebbe essere possibile usare la funzionalità nonostante che.
+Potrebbero occorrere fino a 15 minuti per il tuo stato di eseguire l'aggiornamento a **registrato**. Al termine lo stato **registrato**, dovrebbe essere possibile usare la funzionalità.
 
 ### <a name="use-larger-file-shares"></a>Usare le condivisioni di file più grandi
 

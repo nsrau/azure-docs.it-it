@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78e4de5bbc56f95c0e903b1dac4e8481373716f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0067bd6dc2f47c5460220295d486910d9195782d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143483"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476248"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-pim"></a>Creare una verifica di accesso dei ruoli delle risorse di Azure in PIM
 
@@ -44,7 +44,7 @@ Questo articolo descrive come creare uno o più verifiche di accesso per i ruoli
 
 1. In Gestisci, fare clic su **verifiche di accesso**.
 
-    ![Le risorse di Azure - verifiche di accesso](./media/pim-resource-roles-start-access-review/access-reviews.png)
+    ![Le risorse di Azure - elenco che mostra lo stato di tutte le verifiche di verifiche di accesso](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
 
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
@@ -54,7 +54,7 @@ Questo articolo descrive come creare uno o più verifiche di accesso per i ruoli
 
 Una volta specificate le impostazioni per una verifica di accesso, fare clic su **Avvia**. La verifica di accesso verrà visualizzato nell'elenco con un indicatore di stato.
 
-![Elenco delle verifiche di accesso](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
+![Elenco che mostra lo stato della revisione introduttiva delle verifiche di accesso](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
 
 Per impostazione predefinita, Azure AD invia un messaggio di posta elettronica ai revisori poco tempo dopo l'inizio della verifica. Se si imposta Azure AD in modo che non invii un messaggio di posta elettronica, assicurarsi di informare i revisori che vi è una verifica di accesso in attesa di completamento. È possibile mostrare ai membri le istruzioni per la procedura [verificare l'accesso ai ruoli delle risorse Azure](pim-resource-roles-perform-access-review.md).
 
@@ -62,7 +62,7 @@ Per impostazione predefinita, Azure AD invia un messaggio di posta elettronica a
 
 È possibile tenere traccia dello stato di avanzamento i revisori delle verifiche nel **Panoramica** pagina della verifica di accesso. Nessun diritto di accesso viene modificato nella directory finché il [revisione è stata completata](pim-resource-roles-complete-access-review.md).
 
-![Lo stato di avanzamento delle verifiche di accesso](./media/pim-resource-roles-start-access-review/access-review-overview.png)
+![Pagina di panoramica che mostra i dettagli della verifica delle verifiche di accesso](./media/pim-resource-roles-start-access-review/access-review-overview.png)
 
 Se si tratta di una singola revisione, dopo il periodo della verifica l'accesso o l'amministratore ha interrotto la verifica di accesso, seguire i passaggi descritti in [completare una verifica di accesso dei ruoli delle risorse di Azure](pim-resource-roles-complete-access-review.md) per esaminare e applicare i risultati.  
 

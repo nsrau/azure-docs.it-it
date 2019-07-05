@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Scenari di distribuzione | Micro
 description: Scenari di distribuzione per i Servizi di dominio Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/21/2017
-ms.author: ergreenl
-ms.openlocfilehash: 0659586512b36c51c5058271fa5e1bdb46efbc3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 9e8ac5e83fa3cc9b1e266a9009bad86f41233ed8
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246825"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472658"
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Scenari di distribuzione e casi d'uso
 Questa sezione illustra alcuni scenari e casi d'uso che traggono vantaggio dall'utilizzo di Servizi di dominio Azure Active Directory (AD).

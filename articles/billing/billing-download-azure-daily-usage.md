@@ -1,26 +1,23 @@
 ---
-title: Utilizzo di visualizzazione e Download di Azure e negli addebiti | Microsoft Docs
+title: I costi e utilizzo di visualizzazione e Download di Azure
 description: Viene descritto come scaricare o visualizzare i dati di utilizzo giornalieri Azure e gli addebiti.
 keywords: utilizzo della fatturazione, costi di utilizzo, utilizzo scaricare, visualizzare l'utilizzo, utilizzo la fattura di azure, azure
-services: billing
-documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d2d7be562eaaa7dd21e63735f5697ffe5a62f8a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60918987"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491435"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visualizzare e scaricare l'utilizzo di Azure e i costi
 
@@ -32,7 +29,7 @@ Se si dispone di un [contratto di Microsoft dal cliente](#check-your-access-to-a
 
 ## <a name="download-usage-from-the-account-center-csv"></a>Scaricare i dati di utilizzo dal Centro account (CSV)
 
-1. Accedere al [Centro account di Azure](https://account.windowsazure.com/subscriptions) come amministratore account.
+1. Accedere al [Centro account di Azure](https://account.windowsazure.com/subscriptions) come Amministratore account.
 
 2. Selezionare la sottoscrizione per cui si desiderano le informazioni delle fatture e degli utilizzi.
 
@@ -77,7 +74,7 @@ Se hai un contratto di Microsoft dal cliente, è possibile scaricare l'utilizzo 
 ### <a name="download-usage-for-billed-charges"></a>Scarica utilizzo per gli addebiti fatturati
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+2. Cercare *costi di gestione e fatturazione*.
 3. Selezionare un profilo di fatturazione. In base all'accesso, occorre prima selezionare un account di fatturazione.
 4. Selezionare **Fatture**.
 5. Nella griglia della fattura, individuare la riga della fattura corrispondente per l'utilizzo da scaricare.
@@ -94,9 +91,9 @@ Se hai un contratto di Microsoft dal cliente, è possibile scaricare l'utilizzo 
 È anche possibile scaricare l'utilizzo di month-to-date per il periodo di fatturazione corrente. Questi addebiti di utilizzo che non hanno ancora fatturati.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+2. Cercare *costi di gestione e fatturazione*.
 3. Selezionare un profilo di fatturazione. In base all'accesso, occorre prima selezionare un account di fatturazione.
-4. Nel **Panoramica** pannello trovare i collegamenti di download sotto gli addebiti month-to-date.
+4. Nel **Panoramica** area, fare clic sui collegamenti di download sotto gli addebiti month-to-date.
 5. Selezionare **utilizzo di Azure e gli addebiti**.
 
     ![Screenshot che mostra il download dal dashboard Panoramica](./media/billing-download-azure-usage/open-usage.png)
@@ -104,9 +101,9 @@ Se hai un contratto di Microsoft dal cliente, è possibile scaricare l'utilizzo 
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Controllare l'accesso a un contratto di Microsoft dal cliente
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

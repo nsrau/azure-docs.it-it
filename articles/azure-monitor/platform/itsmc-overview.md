@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f2574cc64e157ff0f8a6cb875a832db88cf13dd6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395806"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479805"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -62,7 +62,9 @@ Prima di creare una connessione, è necessario aggiungere la soluzione Connettor
 
 3. Nella sezione **Area di lavoro di OMS** selezionare l'area di lavoro Azure Log Analytics dove si vuole installare la soluzione.
    >[!NOTE]
-   >In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
+   > * In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
+   > * Il connettore di gestione dei servizi IT può essere installato solo nelle aree di lavoro di Log Analitica nelle aree seguenti: Stati Uniti orientali, Europa occidentale, Asia sudorientale, Australia sudorientale, occidentale Stati Uniti centrali, Giappone orientale, Regno Unito meridionale, India centrale, Canada centrale.
+
 4. Nella sezione **Impostazioni dell'area di lavoro OMS** selezionare il gruppo di risorse in cui si vuole creare la risorsa soluzione.
 
    ![Area di lavoro di Connettore di Gestione dei servizi IT](media/itsmc-overview/itsmc-solution-workspace.png)

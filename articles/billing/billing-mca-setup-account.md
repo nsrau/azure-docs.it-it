@@ -1,8 +1,6 @@
 ---
-title: Configurare l'account di fatturazione per un contratto del cliente di Microsoft - Azure | Microsoft Docs
+title: Configurare l'account di fatturazione per un contratto del cliente di Microsoft - Azure
 description: Informazioni su come configurare l'account di fatturazione per un contratto di clienti Microsoft.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -12,23 +10,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 947bfe85d94a5d11eeb54bd6b24c4c515af024d4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64919158"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490684"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurare l'account di fatturazione per un contratto di Microsoft dal cliente
 
-Se l'iscrizione con contratto Enterprise è scaduto o sta per scadere, è possibile firmare un contratto di Microsoft dei clienti a rinnovare la registrazione. Il rinnovo include i passaggi seguenti:
+Se l'iscrizione con contratto Enterprise è scaduto o sta per scadere, è possibile firmare un contratto di Microsoft dei clienti a rinnovare la registrazione. Questo articolo vengono descritte le modifiche nella fatturazione esistente dopo l'installazione e illustra la configurazione del tuo nuovo account di fatturazione. Il rinnovo include i passaggi seguenti:
 
 1. Accettare il nuovo contratto dei clienti Microsoft. Funziona con il rappresentante di campo di Microsoft per comprendere i dettagli e accettare il contratto di nuovo.
 2. Configurare il nuovo account di fatturazione che viene creato per il nuovo contratto dei clienti Microsoft.
-
-Questo articolo vengono descritte le modifiche nella fatturazione esistente dopo l'installazione e illustra la configurazione del tuo nuovo account di fatturazione.
 
 Per configurare l'account di fatturazione, è necessario passare la fatturazione delle sottoscrizioni di Azure dall'iscrizione con contratto Enterprise per il nuovo account. Il programma di installazione non inciderà sui servizi di Azure che sono in esecuzione nelle proprie sottoscrizioni. Tuttavia, cambia il modo in cui si intende gestire la fatturazione per le sottoscrizioni.
 
@@ -45,7 +41,7 @@ Prima di avviare il programma di installazione, è consigliabile che procedere n
 - **Comprendere le modifiche alla gerarchia di fatturazione**
   - Nuovi account di fatturazione è organizzata in modo diverso rispetto alla registrazione del contratto Enterprise Agreement. [Comprendere le modifiche alla gerarchia di fatturazione nell'account di nuovo](#understand-changes-to-your-billing-hierarchy).
 - **Comprendere le modifiche per l'accesso degli amministratori fatturazione**
-  - Gli amministratori dall'iscrizione con contratto Enterprise Ottieni l'accesso per gli ambiti di fatturazione nell'account di nuovo. [Comprendere le modifiche per il loro accesso](#understand-changes-to-your-billing-administrators-access).
+  - Gli amministratori dall'iscrizione con contratto Enterprise Ottieni l'accesso per gli ambiti di fatturazione nell'account di nuovo. [Comprendere le modifiche per il loro accesso](#changes-to-billing-administrator-access).
 - **Funzionalità di Enterprise Agreement View che vengono sostituite dal nuovo account**
   - Visualizzare le funzionalità del contratto Enterprise che vengono sostituite da funzionalità nel nuovo account.
 - **Visualizzare le risposte alle domande più comuni**
@@ -55,7 +51,7 @@ Prima di avviare il programma di installazione, è consigliabile che procedere n
 
 Per completare l'installazione, è necessario l'accesso seguente:
 
-- Proprietario del profilo di fatturazione è stato creato quando è stato firmato il contratto di Microsoft dal cliente. Per altre informazioni sui profili di fatturazione, vedere [comprendere i profili di fatturazione](billing-mca-overview.md#understand-billing-profiles).
+- Proprietario del profilo di fatturazione è stato creato quando è stato firmato il contratto di Microsoft dal cliente. Per altre informazioni sui profili di fatturazione, vedere [comprendere i profili di fatturazione](billing-mca-overview.md#billing-profiles).
 
 - Amministratore dell'organizzazione della registrazione da rinnovare.
 
@@ -87,12 +83,12 @@ Il nuovo account di fatturazione semplifica la fatturazione per l'organizzazione
 
 ![Immagine di ea mca-post-transizione-gerarchia](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
 
-1. Si usa l'account di fatturazione per gestire la fatturazione per il contratto di Microsoft dal cliente. Per altre informazioni sull'account di fatturazione, vedere [comprendere l'account di fatturazione](billing-mca-overview.md#understand-billing-account).
-2. Utilizzare il profilo di fatturazione per gestire la fatturazione per l'organizzazione, simile all'iscrizione con contratto Enterprise. Gli amministratori dell'organizzazione diventano proprietari di tale profilo di fatturazione. Per altre informazioni sui profili di fatturazione, vedere [comprendere i profili di fatturazione](billing-mca-overview.md#understand-billing-profiles).
-3. Si usa una sezione della fattura per organizzare i costi in base alle esigenze, simile a reparti dell'iscrizione con contratto Enterprise. Reparto diventa sezioni della fattura e gli amministratori di reparto diventano i proprietari delle sezioni della fattura corrispondente. Per altre informazioni sulle sezioni della fattura, vedere [informazioni sulle sezioni della fattura](billing-mca-overview.md#understand-invoice-sections).
+1. Si usa l'account di fatturazione per gestire la fatturazione per il contratto di Microsoft dal cliente. Per altre informazioni sull'account di fatturazione, vedere [comprendere l'account di fatturazione](billing-mca-overview.md#your-billing-account).
+2. Utilizzare il profilo di fatturazione per gestire la fatturazione per l'organizzazione, simile all'iscrizione con contratto Enterprise. Gli amministratori dell'organizzazione diventano proprietari di tale profilo di fatturazione. Per altre informazioni sui profili di fatturazione, vedere [comprendere i profili di fatturazione](billing-mca-overview.md#billing-profiles).
+3. Si usa una sezione della fattura per organizzare i costi in base alle esigenze, simile a reparti dell'iscrizione con contratto Enterprise. Reparto diventa sezioni della fattura e gli amministratori di reparto diventano i proprietari delle sezioni della fattura corrispondente. Per altre informazioni sulle sezioni della fattura, vedere [informazioni sulle sezioni della fattura](billing-mca-overview.md#invoice-sections).
 4. Gli account che sono stati creati nel contratto Enterprise non sono supportati nel nuovo account di fatturazione. Le sottoscrizioni dell'account appartengono alla sezione della fattura corrispondente per il dipartimento. I proprietari di account possono creare e gestire sottoscrizioni per le sezioni della fattura.
 
-## <a name="understand-changes-to-your-billing-administrators-access"></a>Comprendere le modifiche per l'accesso degli amministratori fatturazione
+## <a name="changes-to-billing-administrator-access"></a>Modifiche per l'accesso come amministratore di fatturazione
 
 A seconda della loro l'accesso, gli amministratori fatturazione al momento dell'iscrizione di contratto Enterprise hanno accesso agli ambiti di fatturazione per il nuovo account. La tabella seguente illustra la modifica nell'accesso durante l'installazione:
 
@@ -110,7 +106,7 @@ Il nuovo account supporta solo gli utenti dal tenant a cui è stata selezionata 
 
 Quando si invitano gli utenti, essi vengono aggiunti come utenti guest nel tenant e ottenere l'accesso all'account di fatturazione. Per invitare gli utenti, l'accesso guest deve essere attivata per il tenant. Per altre informazioni, vedere [controllare l'accesso guest in Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Se l'accesso guest è disattivato, contattare gli amministratori globali del tenant per attivarla. <!-- Todo - How can they find their global administrator -->
 
-## <a name="view-features-replaced-by-the-new-billing-account"></a>Visualizzare le funzionalità sostituite dal nuovo account di fatturazione
+## <a name="view-replaced-features"></a>Funzionalità della visualizzazione sostituito
 
 Le funzionalità seguenti del contratto Enterprise vengono sostituite con nuove funzionalità nell'account di fatturazione per un contratto di clienti Microsoft.
 
@@ -197,7 +193,7 @@ Per completare l'installazione, è necessario accedere al nuovo account di fattu
 
    ![Screenshot che mostra lo stato di transizione](./media/billing-mca-setup-account/ea-mca-set-up-status.png)
 
-## <a name="validate-the-billing-account-is-set-up-properly"></a>Convalidare la fatturazione account sia configurato correttamente
+## <a name="validate-billing-account-set-up"></a>Convalidare configurare account di fatturazione
 
  Convalidare gli elementi seguenti per assicurarsi che il nuovo account di fatturazione sia configurato correttamente:
 
@@ -205,7 +201,7 @@ Per completare l'installazione, è necessario accedere al nuovo account di fattu
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+2. Cercare **costi di gestione e fatturazione**.
 
    ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -221,7 +217,7 @@ Le sottoscrizioni di Azure che vengono eseguita la transizione dall'iscrizione c
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+2. Cercare **costi di gestione e fatturazione**.
 
    ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -241,7 +237,7 @@ Le prenotazioni di Azure che vengono spostate dall'iscrizione con contratto Ente
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+2. Cercare **costi di gestione e fatturazione**.
 
    ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -257,7 +253,7 @@ Gli amministratori dell'organizzazione sono elencati come proprietari profilo du
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+2. Cercare **costi di gestione e fatturazione**.
 
    ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png).
 

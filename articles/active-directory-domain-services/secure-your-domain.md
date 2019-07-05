@@ -3,7 +3,7 @@ title: Proteggere il dominio gestito di Azure Active Directory Domain Services |
 description: Proteggere il dominio gestito
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: ab371553a96f3a8d393c8b773c4024d04fd171a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/28/2019
+ms.author: iainfou
+ms.openlocfilehash: e94cd9ca049cfdfd2321ce046714506ed1f23390
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246735"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483271"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Proteggere il dominio gestito di Azure Active Directory Domain Services
 Questo articolo indica come proteggere il dominio gestito. È possibile disattivare l'utilizzo dei pacchetti di crittografia vulnerabili e disabilitare la sincronizzazione del codice hash delle credenziali NTLM.
@@ -56,6 +56,11 @@ $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPa
 // Apply the settings to the managed domain.
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
+
+> [!IMPORTANT]
+> Gli utenti (e gli account del servizio) non possono eseguire binding LDAP semplice se è stata disabilitata sincronizzazione dell'hash delle password NTLM nell'istanza di Azure AD Domain Services.  Per altre informazioni sulla disabilitazione della sincronizzazione dell'hash delle password NTLM, leggere [proteggere il dominio gestito di Azure AD DOmain Services](secure-your-domain.md).
+>
+>
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni sulla sincronizzazione in Azure AD Domain Services](synchronization.md)

@@ -5,14 +5,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/03/2019
 ms.author: banders
-ms.openlocfilehash: 7ffb575d7f962232604a4ad6930b804d2619b488
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: HT
+ms.openlocfilehash: cd0a70aa0fb5096c5b0157ae078c961da03109bc
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490590"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565343"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -42,17 +42,53 @@ I clienti con contratto Enterprise Agreement possono limitare gli acquisti al co
 
 Uno sconto di prenotazione si applica solo alle risorse associate alle sottoscrizioni acquistate tramite Enterprise, CSP e i piani di singole con tariffe a consumo.
 
-## <a name="reservation-scope"></a>Ambito della prenotazione
+## <a name="scope-reservations"></a>Prenotazioni di ambito
 
-Un ambito della prenotazione determina le risorse a cui si applica lo sconto di prenotazione. Un ambito della prenotazione può avere i valori seguenti:
+È possibile definire l'ambito di una prenotazione per un gruppo di risorse o sottoscrizione. Impostazione dell'ambito di una prenotazione istruzioni SELECT in cui applica il risparmio di prenotazione. Quando si definisce l'ambito della prenotazione a un gruppo di risorse, gli sconti di prenotazione si applicano solo al gruppo di risorse, non l'intera sottoscrizione.
 
-**Ambito condiviso** -lo sconto della prenotazione viene applicato alle risorse corrispondente nelle sottoscrizioni idonee all'interno del contesto di fatturazione.
+### <a name="reservation-scoping-options"></a>Opzioni di ambito di prenotazione
 
-- Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per i clienti che hanno i piani di singole con tariffe a consumo, l'ambito di fatturazione è tutte le sottoscrizioni idonee create dall'amministratore dell'account.
+Con la risorsa gruppo di ambito è disponibili tre opzioni per definire l'ambito di una prenotazione, a seconda delle esigenze:
 
-**Singola sottoscrizione** -lo sconto della prenotazione viene applicato alle risorse corrispondente nella sottoscrizione selezionata.
+- **Singolo ambito di gruppo di risorse** , applica lo sconto di prenotazione per le risorse corrispondente nel solo il gruppo di risorse selezionato.
+- **Ambito della sottoscrizione singola** , applica lo sconto di prenotazione per le risorse corrispondente nella sottoscrizione selezionata.
+- **Ambito condiviso** : si applica lo sconto di prenotazione per le risorse nelle sottoscrizioni idonee che sono nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni con tariffe a consumo, l'ambito di fatturazione è tutte le sottoscrizioni idonee create dall'amministratore dell'account.
 
-È possibile [aggiornare l'ambito dopo l'acquisto di una prenotazione](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+Applicando gli sconti di prenotazione sull'utilizzo di Azure elabora la prenotazione nell'ordine seguente:
+
+1. Prenotazioni sono limitate a un gruppo di risorse
+2. Prenotazioni di ambito singolo
+3. Prenotazioni di ambito condiviso
+
+Un singolo gruppo di risorse può ottenere sconti prenotazione da più prenotazioni, a seconda del modo in cui si definisce l'ambito di prenotazioni.
+
+### <a name="scope-a-reservation-to-a-resource-group"></a>Definire l'ambito di una prenotazione per un gruppo di risorse
+
+È possibile definire l'ambito della prenotazione a un gruppo di risorse quando si acquista la prenotazione o si imposta l'ambito dopo l'acquisto. È necessario essere un proprietario della sottoscrizione per definire l'ambito della prenotazione a un gruppo di risorse.
+
+Per impostare l'ambito, vedere la [acquistare la prenotazione](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) pagina nel portale di Azure. Quindi, selezionare il tipo di prenotazione che si vuole acquistare. Nel **selezionare il prodotto che si desidera acquistare** modulo di selezione, modifica il **ambito** valore **singolo gruppo di risorse** e selezionare un gruppo di risorse.
+
+![Esempio di selezione di acquisto di prenotazione della macchina virtuale](./media/billing-save-compute-costs-reservations/select-product-to-purchase.png)
+
+Vengono visualizzate raccomandazioni di acquisto per il gruppo di risorse nella prenotazione macchina virtuale. Le raccomandazioni vengono calcolate in base all'analisi dell'utilizzo negli ultimi 30 giorni. Se il costo delle risorse con le istanze riservate è più economico rispetto al costo dell'esecuzione di risorse con tariffe a consumo, viene generata una raccomandazione di acquisto. Per altre informazioni sulle indicazioni relative agli acquisti di prenotazione, vedere la [consigli per gli acquisti ottenere istanze riservate basano sul modello di utilizzo](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations) post di blog.
+
+È sempre possibile aggiornare l'ambito dopo che si acquista una prenotazione. A tale scopo, passare alla prenotazione, fare clic su **configurazione** e oltretutto la prenotazione. Modifica dell'ambito di una prenotazione non è una transazione commerciale. Il periodo di prenotazione non è stato modificato. Per altre informazioni sull'aggiornamento dell'ambito, vedere [aggiornare l'ambito dopo l'acquisto di una prenotazione](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+
+![Esempio che illustra una modifica dell'ambito prenotazione](./media/billing-save-compute-costs-reservations/rescope-reservation-resource-group.png)
+
+### <a name="monitor-and-optimize-reservation-usage"></a>Monitorare e ottimizzare l'utilizzo della prenotazione
+
+È possibile monitorare l'utilizzo della prenotazione in diversi modi: tramite il portale di Azure, tramite le API o tramite i dati di utilizzo. Per visualizzare tutte le prenotazioni che è necessario accedere a, passare a **prenotazioni** nel portale di Azure. Nella griglia le prenotazioni vengono visualizzate l'ultima percentuale di utilizzo registrati per la prenotazione. Fare clic sulla prenotazione per visualizzare l'utilizzo a lungo termine della prenotazione.
+
+È anche possibile ottenere con utilizzo della prenotazione [API](billing-reservation-apis.md#see-reservation-usage) e dai [i dati di utilizzo](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) se sei un cliente con contratto enterprise.
+
+Se si nota che l'utilizzo del gruppo di risorse con ambito prenotazione è basso, quindi è possibile aggiornare l'ambito della prenotazione per singola sottoscrizione o condividerlo tra il contesto di fatturazione. È inoltre possibile dividere la prenotazione e applicare le prenotazioni risultante a diversi gruppi di risorse.
+
+### <a name="other-considerations"></a>Altre considerazioni
+
+Se non hai le risorse necessarie in un gruppo di risorse, quindi la prenotazione sarà sottoutilizzata. La prenotazione non applica automaticamente in un altro gruppo di risorse o sottoscrizione in cui è presente un utilizzo ridotto.
+
+Un ambito della prenotazione non viene aggiornata automaticamente se si sposta il gruppo di risorse da una sottoscrizione a un altro. Dovrai oltretutto la prenotazione. In caso contrario, la prenotazione verrà sottoutilizzata.
 
 ## <a name="discounted-subscription-and-offer-types"></a>Tipi di sottoscrizione e dell'offerta scontati
 

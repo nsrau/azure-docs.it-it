@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 17b5c0b459e70909d9f305beb8bf87b83f1cf65c
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2e2d13e6923535a8993a6477cbbfb921f6092d66
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296506"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565597"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Introduzione a Log Analitica in Monitoraggio di Azure
 
@@ -55,7 +55,7 @@ Event | search "error"
 
 Questa query cerca il _evento_ tabella per i record che contengono il termine _errore_ in tutte le proprietà.
 
-Le query possono iniziare con un nome di tabella o un comando [search](/kusto/query/searchoperator). Nell'esempio precedente viene avviato con il nome della tabella _evento_, che recupera tutti i record dalla tabella eventi. Il carattere di barra verticale (|) consente di separare i comandi, in modo che l'output della prima viene usata come input del comando seguente. È possibile aggiungere qualsiasi numero di comandi a una singola query.
+Le query possono iniziare con un nome di tabella o un comando [search](/azure/kusto/query/searchoperator). Nell'esempio precedente viene avviato con il nome della tabella _evento_, che recupera tutti i record dalla tabella eventi. Il carattere di barra verticale (|) consente di separare i comandi, in modo che l'output della prima viene usata come input del comando seguente. È possibile aggiungere qualsiasi numero di comandi a una singola query.
 
 Un altro modo per scrivere la stessa query è il seguente:
 

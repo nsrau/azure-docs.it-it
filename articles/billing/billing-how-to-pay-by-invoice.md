@@ -1,7 +1,6 @@
 ---
-title: Pagare le sottoscrizioni di Azure tramite fattura| Microsoft Docs
-description: L'articolo descrive come pagare le sottoscrizioni di Azure tramite fattura
-documentationcenter: ''
+title: Addebito con fattura per le sottoscrizioni di Azure
+description: Descrive come pagare le sottoscrizioni di Azure tramite fattura.
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -10,23 +9,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 7af8789d61069f37d34d07653177e839caf35304
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ca726ef737ce4750018d2461bc4bcd6c7ebb5f5
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076499"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491253"
 ---
-# <a name="pay-azure-subscription-by-invoice"></a>Sottoscrizione di Azure di addebito con fattura
+# <a name="pay-for-your-azure-subscription-by-invoice"></a>Addebito con fattura per la sottoscrizione di Azure
 
-Se si passa al pagamento con fattura, significa che si paga la fattura entro 30 giorni dalla data della fattura. Per usufruire di addebito con fattura per la sottoscrizione di Azure, inviare una richiesta di supporto tecnico di Azure. Una volta approvata la richiesta, è possibile passare una sottoscrizione per il pagamento con fattura nel [portale di Azure](https://portal.azure.com).
+Se si passa al pagamento con fattura, significa che si paga la fattura entro 30 giorni dalla data della fattura dal controllo/bonifico. Per usufruire di addebito con fattura per la sottoscrizione di Azure, inviare una richiesta di supporto tecnico di Azure. Una volta approvata la richiesta, è possibile passare al pagamento con (controllo/bonifico) fattura nel [portale di Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> * Il pagamento con fattura è disponibile solo per gli account aziendali.
+> * Il pagamento con fattura (controllo/bonifico bancario) è disponibile solo per gli account aziendali.
 > * È necessario sostenere tutti gli addebiti in sospeso prima del passaggio al pagamento con fattura.
-> * Dopo il passaggio al pagamento con fattura, non è possibile tornare al pagamento con carta di credito o di debito.
 
 ## <a name="request-to-pay-by-invoice"></a>Richiesta di addebito con fattura
 
@@ -70,12 +68,18 @@ Se si passa al pagamento con fattura, significa che si paga la fattura entro 30 
 
 Se è necessario eseguire una verifica del credito considerata la quantità di credito necessario, ti invieremo che una carta di credito è controllare dell'applicazione.
 
-## <a name="switch-to-invoice-pay"></a>Passa a pagamento con fattura
+## <a name="switch-to-invoice-pay-checkwire-transfer"></a>Opzione di fatturazione con pagamento (controllo/bonifico)
 
-Una volta che sono approvate per pagare tramite fattura, è possibile passare alla sottoscrizione di Azure per il metodo di pagamento della fattura nel [portale di Azure](https://portal.azure.com).
+Una volta che sono approvate per pagare tramite fattura, è possibile passare alla fatturazione con pagamento (controllo/bonifico) nel portale di Azure.
 
-1. Accedi per il [portale di Azure](https://portal.azure.com) come amministratore Account.
-1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+Se hai un account del programma Microsoft Online Services, è possibile passare la sottoscrizione di Azure per archiviazione/rete trasferimento. Se hai un contratto di Microsoft dal cliente, è possibile passare il profilo di fatturazione per archiviazione/rete trasferimento. [Informazioni su come verificare il tipo di account](#check-access-to-a-microsoft-customer-agreement).
+
+### <a name="switch-azure-subscription-to-checkwire-transfer"></a>Opzione di sottoscrizione di Azure per archiviazione/rete trasferimento
+
+Attenersi alla procedura seguente per cambiare la sottoscrizione di Azure per (controllo/bonifico) pagamento con fattura. **Dopo il passaggio al pagamento con (controllo/bonifico) fattura non è possibile passare nuovamente alla carta di credito**.
+
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
+1. Cercare **costi di gestione e fatturazione**.
 
     ![Screenshot che mostra Cerca](./media/billing-how-to-pay-by-invoice/search.png)
 
@@ -85,9 +89,32 @@ Una volta che sono approvate per pagare tramite fattura, è possibile passare al
 
     ![Screenshot che mostra il pagamento tramite pulsante fattura](./media/billing-how-to-pay-by-invoice/pay-by-invoice.png)
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
+### <a name="switch-billing-profile-to-checkwire-transfer"></a>Commutatore profilo di fatturazione per archiviazione/rete trasferimento
 
-In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+Attenersi alla procedura seguente per passare un profilo di fatturazione per archiviazione/rete trasferimento. Si noti che solo la persona che ha effettuato l'iscrizione per Azure è possibile modificare il metodo di pagamento predefinito di un profilo di fatturazione.
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+1. Nel menu a sinistra, fare clic su **fatturazione profili**.
+
+    ![screenshot che mostra il profilo di fatturazione nel menu di scelta](./media/billing-how-to-pay-by-invoice/billing-profile.png)
+
+1. Selezionare un profilo di fatturazione.
+1. Nel menu a sinistra, selezionare **metodi di pagamento**.
+
+   ![Screenshot che mostra i metodi di pagamento nel menu di scelta](./media/billing-how-to-pay-by-invoice/billing-profile-payment-methods.png)
+
+1. Selezionare il banner blu che indica che sei idoneo per il pagamento tramite controllo/bonifico.
+
+    ![Screenshot che mostra un banner blu per passare alla verifica/transito](./media/billing-how-to-pay-by-invoice/customer-led-switch-to-invoice.png)
+
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un contratto di Microsoft dal cliente
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
+
+Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - Se necessario, aggiornare le informazioni di contatto fatturazione per il [centro Account Azure](https://account.azure.com/Profile).

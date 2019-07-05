@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616452"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491413"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure
 
@@ -56,9 +56,9 @@ Per altre informazioni sulla fattura, vedere [Comprendere la fattura per Microso
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Scaricare le fatture per un contratto di Microsoft dal cliente
 
-Le fatture vengono generate per ogni [profilo di fatturazione](billing-mca-overview.md#understand-billing-profiles) contratto in Microsoft dal cliente. È necessario essere un profilo di fatturazione proprietario, collaboratore, lettore, o fatturerà manager per scaricare le fatture dal portale di Azure.
+Le fatture vengono generate per ogni [profilo di fatturazione](billing-mca-overview.md#billing-profiles) contratto in Microsoft dal cliente. È necessario essere un profilo di fatturazione proprietario, collaboratore, lettore, o fatturerà manager per scaricare le fatture dal portale di Azure.
 
-1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+1. Cercare **costi di gestione e fatturazione**.
 2. Selezionare un profilo di fatturazione.
 3. Selezionare **Fatture**.
 4. Nella griglia della fattura, individuare la riga della fattura da scaricare.
@@ -108,7 +108,7 @@ Se non si riceve un'email dopo aver eseguito i passaggi seguenti, assicurarsi ch
 
 Se hai un contratto di Microsoft dal cliente, è possibile acconsentire esplicitamente a ottenere la fattura tramite posta elettronica. Tutti i fatturazione profilo proprietari, collaboratori, i lettori e fattura Manager otterrà la fattura tramite posta elettronica. I lettori non è possibile aggiornare la preferenza di fattura tramite posta elettronica.
 
-1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+1. Cercare **costi di gestione e fatturazione**.
 1. Selezionare un profilo di fatturazione.
 1. In **Impostazioni** selezionare **Proprietà**.
 1. Sotto **fattura tramite posta elettronica**, selezionare **la preferenza di fattura tramite posta elettronica di aggiornamento**.
@@ -169,7 +169,7 @@ Per visualizzare e scaricare i dati di utilizzo per un profilo di fatturazione, 
 
 #### <a name="download-usage-for-billed-charges"></a>Scarica utilizzo per gli addebiti fatturati
 
-1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+1. Cercare **costi di gestione e fatturazione**.
 2. Selezionare un profilo di fatturazione.
 3. Selezionare **Fatture**.
 4. Nella griglia della fattura, individuare la riga della fattura corrispondente per l'utilizzo da scaricare.
@@ -180,7 +180,7 @@ Per visualizzare e scaricare i dati di utilizzo per un profilo di fatturazione, 
 
 È anche possibile scaricare utilizzo month-to-date per il periodo di fatturazione corrente, vale a dire che gli addebiti non hanno ancora fatturati.
 
-1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+1. Cercare **costi di gestione e fatturazione**.
 2. Selezionare un profilo di fatturazione.
 3. Nel **Overview** pannello, fare clic su **utilizzo di Download di Azure e negli addebiti**.
 

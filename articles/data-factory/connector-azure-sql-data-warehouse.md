@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 68d2f126ee32f61d13d170712bf58581101036e8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 24ee419e5c6eb4b8c148c61c232d2ab7ab07c74b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206078"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449584"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory 
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
@@ -472,7 +472,10 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
 
 Quando i dati di origine non soddisfano i criteri della sezione precedente, abilitare la copia dei dati tramite un'istanza di Archiviazione BLOB di Azure di staging provvisoria. Non può essere Archiviazione Premium di Azure. In questo caso, Azure Data Factory esegue automaticamente trasformazioni sui dati in modo che soddisfino i requisiti di formato dei dati di PolyBase. Quindi usa PolyBase per caricare i dati in SQL Data Warehouse. Infine, pulisce i dati temporanei dall'archiviazione BLOB. Per informazioni dettagliate sulla copia dei dati tramite un'istanza di Archiviazione BLOB di Azure di staging, vedere [Copia di staging](copy-activity-performance.md#staged-copy).
 
-Per usare questa funzionalità, creare un [servizio collegato Archiviazione di Azure](connector-azure-blob-storage.md#linked-service-properties) che faccia riferimento all'account di archiviazione di Azure con l'archivio BLOB provvisorio. Quindi specificare le proprietà `enableStaging` e `stagingSettings` per l'attività di copia come illustrato nel codice seguente:
+Per usare questa funzionalità, creare un [servizio collegato di archiviazione Blob di Azure](connector-azure-blob-storage.md#linked-service-properties) che fa riferimento all'account di archiviazione di Azure con l'archivio blob provvisorio. Quindi specificare il `enableStaging` e `stagingSettings` le proprietà dell'attività di copia come illustrato nel codice seguente.
+
+>[!IMPORTANT]
+>Se l'archiviazione di Azure di staging è configurato con l'endpoint del servizio rete virtuale, è necessario usare l'autenticazione identità gestita, vedere [impatto dell'uso di endpoint del servizio rete virtuale con archiviazione di Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Scopri le configurazioni necessarie in Data Factory da [Blob di Azure - autenticazione identità gestita](connector-azure-blob-storage.md#managed-identity).
 
 ```json
 "activities":[

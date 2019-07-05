@@ -4,14 +4,14 @@ description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 06/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: eb99bec74ae5444320b7098616d4bf2d81b90697
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 6cb2f49113a67a8dc6cea70ae58bd440f420a1d2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332022"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442787"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -49,6 +49,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Gestione API
 * App del servizio app (app Web): vedere [Limitazioni del servizio app](#app-service-limitations)
 * Certificati del servizio app - vedere [Limitazioni del certificato del servizio app](#app-service-certificate-limitations)
+* Dominio del servizio app
 * Automazione - i runbook devono esistere nello stesso gruppo di risorse dell'account di automazione.
 * Azure Active Directory B2C
 * Cache Redis di Azure: se l'istanza di Cache Redis di Azure è configurata con una rete virtuale, l'istanza non può essere spostata in una sottoscrizione diversa. Vedere [Limitazioni delle reti virtuali](#virtual-networks-limitations).

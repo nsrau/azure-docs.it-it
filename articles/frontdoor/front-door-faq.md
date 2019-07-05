@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: b033f463722ddb3a0b7beabdf659900e7d7188df
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 37ec8a611f94b869c8277c135f8e6dc5d2108392
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330878"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442889"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Domande frequenti per il servizio di ingresso principale di Azure
 
@@ -79,25 +79,34 @@ Porta principale di Azure è un servizio multi-tenant distribuito a livello glob
 
 ### <a name="is-http-https-redirection-supported"></a>È supportato il reindirizzamento HTTP->HTTPS?
 
-Sì. In effetti, il servizio di ingresso principale di Azure supporta host, percorso e query stringa di reindirizzamento, così come parte del reindirizzamento di URL. Altre informazioni sulle [Reindirizzamento URL](front-door-url-redirect.md). 
+Sì. Servizio di ingresso principale di Azure supporta in effetti, host, percorso e il reindirizzamento della stringa di query così come parte del reindirizzamento di URL. Altre informazioni sulle [Reindirizzamento URL](front-door-url-redirect.md). 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>In quale ordine vengono elaborate le regole di routing?
 
 Le route per l'ingresso principale non sono ordinate e una route specifica è selezionata in base alla corrispondenza migliore. Altre informazioni sulle [come porta principale corrisponde richieste a una regola di routing](front-door-route-matching.md).
 
-### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-service"></a>Come bloccare l'accesso per il back-end solo porta d'ingresso nel servizio di Azure?
+### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Come bloccare l'accesso per il back-end per solo Azure porta d'ingresso?
 
-È possibile configurare ACL di IP per il back-end per accettare il traffico solo dal servizio di ingresso principale di Azure. È possibile limitare l'applicazione accetti le connessioni in ingresso solo dallo spazio di IP back-end porta d'ingresso del servizio di Azure. Microsoft sta lavorando per l'integrazione con [intervalli di IP di Azure e i tag di servizio](https://www.microsoft.com/download/details.aspx?id=56519) ma per ora, è possibile consultare gli intervalli IP come indicato di seguito:
+Per bloccare l'applicazione accetti il traffico solo dalla porta di ingresso specifico, è necessario impostare gli ACL di IP per il back-end e quindi limitare il set di valori accettati per l'intestazione 'X-inoltrati dall'Host' inviato dalla porta di ingresso di Azure. Questi passaggi vengono descritti in dettaglio come indicato di seguito:
+
+- Configurare ACL di IP per il back-end per accettare il traffico da spazio di indirizzi IP back-end di ingresso principale di Azure e solo i servizi di infrastruttura di Azure. Microsoft sta lavorando per l'integrazione con [intervalli di IP di Azure e i tag di servizio](https://www.microsoft.com/download/details.aspx?id=56519) ma per ora, è possibile consultare gli intervalli IP come indicato di seguito:
  
-- **IPv4** - `147.243.0.0/16`
-- **IPv6** - `2a01:111:2050::/44`
+    - Porta di ingresso **IPv4** spazio IP back-end: `147.243.0.0/16`
+    - Porta di ingresso **IPv6** spazio IP back-end: `2a01:111:2050::/44`
+    - Di Azure [servizi di infrastruttura di base](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) tramite indirizzi IP host virtualizzato: `168.63.129.16` e `169.254.169.254`
 
-> [!WARNING]
-> Lo spazio di IP back-end può cambiare in un secondo momento, tuttavia, si garantirà che prima che questo accada, che si sarebbe stato integrato con [intervalli IP di Azure e i tag di servizio](https://www.microsoft.com/download/details.aspx?id=56519). È consigliabile sottoscrivere [intervalli IP di Azure e i tag di servizio](https://www.microsoft.com/download/details.aspx?id=56519) di eventuali modifiche o aggiornamenti. 
+    > [!WARNING]
+    > Lo spazio degli IP back-end di ingresso principale potrebbe cambiare in un secondo momento, tuttavia, si garantirà che prima che questo accada, che si sarebbe stato integrato con [intervalli IP di Azure e i tag di servizio](https://www.microsoft.com/download/details.aspx?id=56519). È consigliabile sottoscrivere [intervalli IP di Azure e i tag di servizio](https://www.microsoft.com/download/details.aspx?id=56519) di eventuali modifiche o aggiornamenti.
+
+-   Filtro in base ai valori per l'intestazione in ingresso '**X-inoltrati-Host**' inviato da porta principale. Gli unici valori consentiti per l'intestazione devono essere tutti gli host front-end, come definito nel file di configurazione di ingresso principale. In realtà anche in particolare, solo i nomi host per il quale si desidera accettare il traffico da, in questo particolare back-end del tuo.
+    - Esempio: è possibile ad esempio la configurazione di ingresso principale include i seguenti host front-end _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _ (C), e _`notifications.contoso.com`_ (D). Si supponga di avere due back-end X e Y. 
+    - Back-end X dovrebbe richiedere solo il traffico proveniente da nomi host A e B. Y di back-end può richiedere il traffico da A, C e D.
+    - Quindi, nel back-end X concedere l'autorizzazione solo il traffico con l'intestazione '**X-inoltrati-Host**' è impostata né _`contoso.azurefd.net`_ oppure _`www.contoso.com`_ . Per tutto il resto, back-end X deve rifiutare il traffico.
+    - Analogamente, nel back-end Y concedere l'autorizzazione solo il traffico con l'intestazione "**X-inoltrati-Host**" è impostata né _`contoso.azurefd.net`_ , _`api.contoso.com`_ o _`notifications.contoso.com`_ . Per tutto il resto, back-end Y deve rifiutare il traffico.
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>L'indirizzo IP anycast è possibile modificare in base alla durata del mio porta d'ingresso?
 
-L'indirizzo IP anycast front-end per l'ingresso principale in genere non deve cambiare e potrebbe rimanere statico per la durata di ingresso principale. Tuttavia, esistono **offre alcuna garanzia** per lo stesso. Hanno dipendenze dirette sull'indirizzo IP.  
+L'indirizzo IP anycast front-end per l'ingresso principale in genere non deve cambiare e potrebbe rimanere statico per la durata di ingresso principale. Tuttavia, esistono **offre alcuna garanzia** per lo stesso. Hanno dipendenze dirette sull'indirizzo IP.
 
 ### <a name="does-azure-front-door-service-support-static-or-dedicated-ips"></a>Il servizio di ingresso principale di Azure supporta gli indirizzi IP statici o dedicato?
 
@@ -142,10 +151,10 @@ Porta d'ingresso supporta TLS versione 1.0, 1.1 e 1.2. TLS 1.3 non è ancora sup
 Per abilitare il protocollo HTTPS per distribuire in modo sicuro contenuti in un dominio personalizzato della porta d'ingresso, è possibile scegliere di usare un certificato gestito dal servizio di ingresso principale di Azure oppure usare il proprio certificato.
 L'ingresso principale gestito esegue il provisioning opzione un certificato SSL standard tramite Digicert e archiviata in primo piano Key Vault della porta. Se si sceglie di usare il proprio certificato, quindi è possibile eseguire l'onboarding di un certificato rilasciato da un'autorità di certificazione supportato e può essere un SSL standard, il certificato di convalida estesa o anche un certificato con caratteri jolly. I certificati autofirmati non sono supportati. Scopri [come abilitare HTTPS per un dominio personalizzato](https://aka.ms/FrontDoorCustomDomainHTTPS).
 
-### <a name="does-front-door-support-auto-rotation-of-certificates"></a>Porta d'ingresso supporta rotazione automatica dei certificati?
+### <a name="does-front-door-support-autorotation-of-certificates"></a>Porta d'ingresso supporta rotazione automatica dei certificati?
 
-Per il proprio certificato SSL personalizzato, rotazione automatica non è supportata. Analogamente al modo in cui è stata impostata la prima volta per un determinato dominio personalizzato, verrà necessario al punto di ingresso per la versione di certificazione corretta nell'insieme di credenziali delle chiavi e verificare che l'entità servizio per l'ingresso principale ha ancora accesso a Key Vault. Questa operazione di distribuzione certificato aggiornato da porta principale è completamente atomica e non causi alcun impatto sulla produzione fornito il nome del soggetto o SAN per il certificato non viene modificato.
-</br>Per l'opzione certificato porta d'ingresso gestiti, i certificati vengono ruotate automaticamente di ingresso principale.
+Per l'opzione certificato porta d'ingresso gestiti, i certificati sono autorotated da porta principale. Se si usa un certificato gestito porta d'ingresso e osservare che la data di scadenza del certificato è minore di 60 giorni, file di un ticket di supporto.
+</br>Per il proprio certificato SSL personalizzato, rotazione automatica non è supportato. Analogamente al modo in cui è stato configurato la prima volta per un determinato dominio personalizzato, verrà necessario al punto di ingresso per la versione di certificazione corretta nell'insieme di credenziali delle chiavi e verificare che l'entità servizio per l'ingresso principale ha ancora accesso a Key Vault. Questa operazione di distribuzione certificato aggiornato da porta principale è di tipo atomica e non causi alcun impatto sulla produzione fornito il nome del soggetto o SAN per il certificato non viene modificato.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>Quali sono i pacchetti di crittografia attualmente supportati dal servizio di ingresso principale di Azure?
 
@@ -176,7 +185,7 @@ Sì, servizio di ingresso principale di Azure supporta l'offload SSL e SSL end-t
 
 ### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>È possibile configurare i criteri SSL per gestire le versioni del protocollo SSL?
 
-No, attualmente non supporta ingresso principale per negare a specifiche versioni TLS né è possibile impostare le versioni TLS minimo. 
+No, attualmente non supporta ingresso principale per negare a specifiche versioni TLS né è possibile impostare la versione minima di TLS. 
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>È possibile configurare la porta di ingresso per supportare solo pacchetti di crittografia specifici?
 

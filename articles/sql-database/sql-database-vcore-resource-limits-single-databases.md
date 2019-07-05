@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c89aa3b4ecf0c07cfbb579cdc18fac6e822bc047
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118061"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536223"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limiti delle risorse per database singoli con il modello di acquisto basato su vCore
 
@@ -34,6 +34,9 @@ Per i limiti del modello di acquisto basato su DTU per i singoli database in un 
 > Per la scalabilità indicazioni e considerazioni, vedere [ridimensionare un singolo database](sql-database-single-database-scale.md).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Livello di servizio Utilizzo generico: dimensioni di archiviazione e di calcolo
+
+> [!IMPORTANT]
+> I nuovi database Gen4 non sono più supportati nell'area AustraliaEast.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Livello di servizio Utilizzo generico: Piattaforma di calcolo Generazione 4 (parte 1)
 
@@ -157,6 +160,9 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile 
 
 ## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>Livello di servizio critici di business per il livello di calcolo sottoposte a provisioning
 
+> [!IMPORTANT]
+> I nuovi database Gen4 non sono più supportati nell'area AustraliaEast.
+
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Livello di servizio business critical: Piattaforma di calcolo Generazione 4 (parte 1)
 
 |Dimensioni di calcolo|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
@@ -268,7 +274,7 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile 
 |Dimensioni massime del log (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |Dimensioni di TempDB (GB)|64|128|256|384|384|384|384|384|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
-|Target IOPS (64 KB)|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|
+|Target IOPS (64 KB)| [Nota 1](#note-1) |[Nota 1](#note-1)|[Nota 1](#note-1) |[Nota 1](#note-1) |[Nota 1](#note-1) |[Nota 1](#note-1) |[Nota 1](#note-1) | [Nota 1](#note-1) |
 |Latenza di I/O (approssimativa)|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|Deve essere determinato|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|2400|3200|4000|8000|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -278,7 +284,11 @@ Il [livello di calcolo senza server](sql-database-serverless.md) è disponibile 
 |Archivio di backup incluso |7|7|7|7|7|7|7|7|
 |||
 
-## <a name="next-steps"></a>Passaggi successivi
+### <a name="note-1"></a>Nota 1
+
+Su scala molto vasta è un'architettura a più livelli con più livelli di memorizzazione nella cache. IOPS effettivo varia in base al carico di lavoro.
+
+### <a name="next-steps"></a>Passaggi successivi
 
 - Per i limiti delle risorse DTU per un database singolo, vedere [Limiti delle risorse per database singoli usando il modello di acquisto basato su DTU](sql-database-dtu-resource-limits-single-databases.md)
 - Per i limiti delle risorse vCore per i pool elastici, vedere [Limiti delle risorse per pool elastici usando il modello di acquisto basato su vCore](sql-database-vcore-resource-limits-elastic-pools.md)

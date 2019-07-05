@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a0037d46db67460d507c6e92ab550f7d9c2fbe
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6f33b52255b1401e3595687612610a4688ad026d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341423"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461451"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi nel portale di Azure
 
@@ -57,14 +57,14 @@ La pagina delle impostazioni dei dispositivi consente di configurare:
 
 ![Gestire un dispositivo Intune](./media/device-management-azure-portal/21.png)
 
-- **Gli utenti possono aggiungere dispositivi ad Azure AD** -questa impostazione consente di selezionare gli utenti possono registrare i dispositivi come [dispositivi di Azure AD join](overview.md#azure-ad-joined-devices). L'impostazione predefinita è **Tutti**.
+- **Gli utenti possono aggiungere dispositivi ad Azure AD** -questa impostazione consente di selezionare gli utenti possono registrare i dispositivi come dispositivi aggiunti ad Azure AD. L'impostazione predefinita è **Tutti**.
 
 > [!NOTE]
 > **Gli utenti possono aggiungere dispositivi ad Azure AD** impostazione è applicabile solo ai aggiunta ad Azure AD in Windows 10.
 
 - **Amministratori locali aggiuntivi su dispositivi aggiunti ad Azure AD**: è possibile selezionare gli utenti a cui vengono concessi i diritti di amministratore locale per un dispositivo. Gli utenti aggiunti in questa posizione vengono aggiunti al ruolo *Amministratori di dispositivi* in Azure AD. Agli amministratori globali di Azure AD e ai proprietari dei dispositivi vengono concessi i diritti di amministratore locale per impostazione predefinita. Questa opzione è una funzionalità dell'edizione Premium disponibile tramite prodotti come Azure AD Premium o Enterprise Mobility Suite (EMS).
-- **Gli utenti possono registrare i propri dispositivi con Azure AD** -è necessario configurare questa impostazione per consentire ai dispositivi personali, iOS, Android e macOs di Windows 10 sia [registrato](overview.md#azure-ad-registered-devices) con Azure AD. Se si seleziona **None**, i dispositivi non sono consentiti da registrare con Azure AD. L'iscrizione a Microsoft Intune o Gestione dispositivi mobili per Office 365 richiede la registrazione. Se è stato configurato uno di questi servizi, è selezionata l'opzione **TUTTI** e l'opzione **NESSUNO** non è disponibile. Se è stata abilitata questa impostazione da Intune quindi le opzioni qui risulterà disattivate.
-- **Richiedi Multi-factor Auth per aggiungere i dispositivi**: è possibile scegliere se richiedere agli utenti di fornire un secondo fattore di autenticazione per [aggiungere](overview.md#azure-ad-joined-devices) il dispositivo ad Azure AD. Il valore predefinito è **No**. Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Prima di abilitare multi-factor authentication per questo servizio, è necessario assicurarsi che sia configurato Azure multi-Factor Authentication per gli utenti che registrano i propri dispositivi. Per altre informazioni, vedere l'articolo [distribuzione di Azure multi-Factor Authentication](../authentication/howto-mfa-getstarted.md). 
+- **Gli utenti possono registrare i propri dispositivi con Azure AD** -è necessario configurare questa impostazione per consentire ai dispositivi personali, iOS, Android e macOs di Windows 10 da registrare con Azure AD. Se si seleziona **None**, i dispositivi non sono consentiti da registrare con Azure AD. L'iscrizione a Microsoft Intune o Gestione dispositivi mobili per Office 365 richiede la registrazione. Se è stato configurato uno di questi servizi, è selezionata l'opzione **TUTTI** e l'opzione **NESSUNO** non è disponibile.
+- **Richiedi multi-Factor Auth per aggiungere dispositivi** -è possibile scegliere se gli utenti devono fornire un fattore di autenticazione aggiuntivi per aggiungere il dispositivo ad Azure AD. Il valore predefinito è **No**. Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per altre informazioni sui diversi servizi di autenticazione a più fattori di Azure, vedere [Introduzione ad Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md). 
 
 > [!NOTE]
 > **Richiedi multi-Factor Auth per aggiungere dispositivi** impostazione non è applicabile ai dispositivi aggiunti ad Azure AD ibrido.

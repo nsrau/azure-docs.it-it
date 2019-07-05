@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
 ms.custom: ''
-ms.openlocfilehash: ce57aae1119261c0545b59a037226fdc12ec115f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9806a982982971b1b3ac9c28454e17813b2ad2a5
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050690"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479877"
 ---
 # <a name="continuous-delivery-using-azure-devops"></a>Distribuzione continua tramite Azure DevOps
 
@@ -158,6 +158,10 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionApp
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 #### <a name="linux-function-app"></a>App per le funzioni Linux
@@ -171,6 +175,11 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionAppLinux
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #Note that deployment slots is not supported for Linux Dynamic SKU
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 ## <a name="template-based-pipeline"></a>In base al modello di pipeline
@@ -206,9 +215,11 @@ Quando si crea una nuova pipeline di rilascio, cercare il modello di rilascio di
 
 ![](media/functions-how-to-azure-devops/release-template.png)
 
+Distribuzione in uno slot di distribuzione non è supportata nel modello di rilascio.
+
 ## <a name="creating-an-azure-pipeline-using-the-azure-cli"></a>Creazione di una Pipeline di Azure tramite la CLI di Azure
 
-Usando il `az functionapp devops-pipeline create` [comando](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create), verrà creata una pipeline di Azure per compilare e rilasciare modifiche al codice nel repository. Il comando genererà un nuovo file YAML che definisce la pipeline di compilazione e rilascio ed eseguirne il commit nel repository.
+Usando il `az functionapp devops-pipeline create` [comando](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create), verrà creata una pipeline di Azure per compilare e rilasciare modifiche al codice nel repository. Il comando genererà un nuovo file YAML che definisce la pipeline di compilazione e rilascio ed eseguirne il commit nel repository. Distribuzione in uno slot di distribuzione non è supportata per il comando di Azure.
 I prerequisiti per questo comando dipendono dal percorso del codice:
 
 - Se il codice in GitHub:

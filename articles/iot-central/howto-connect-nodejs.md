@@ -3,17 +3,17 @@ title: Connettere un'applicazione client Node.js generica ad Azure IoT Central |
 description: Gli sviluppatori di dispositivo come connettere un dispositivo di Node. js generico per l'applicazione Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/05/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 90e4a061e38fdd3a13a640363069fae3a18e0b49
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888942"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444229"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connettere un'applicazione client generica all'applicazione Azure IoT Central (Node.js)
 
@@ -62,12 +62,24 @@ Immettere nel modello di dispositivo i nomi dei campi esattamente come sono visu
 
 Aggiungere il seguente evento nel **misurazioni** pagina:
 
-| Nome visualizzato | Nome campo  | Severity |
+| Nome visualizzato | Nome campo  | severity |
 | ------------ | ----------- | -------- |
 | Surriscaldamento  | overheat    | Tipi di errore    |
 
 > [!NOTE]
 > Il tipo di dati della misura dell'evento è di tipo stringa.
+
+### <a name="location-measurements"></a>Misurazioni di posizione
+
+Aggiungere la misura di percorso seguente nel **misurazioni** pagina:
+
+| Nome visualizzato | Nome campo  |
+| ------------ | ----------- |
+| Location     | location    |
+
+Numeri a virgola per latitudine e longitudine e un numero a virgola mobile facoltativo per altitudine, la misurazione di posizione, tipo di dati è costituito da due a virgola mobile.
+
+Immettere nel modello di dispositivo i nomi dei campi esattamente come sono visualizzati nella tabella. Se i nomi dei campi non corrispondono ai nomi di proprietà nel codice del dispositivo corrispondente, il percorso non può essere visualizzato nell'applicazione.
 
 ### <a name="device-properties"></a>Proprietà dei dispositivi
 
@@ -144,12 +156,14 @@ I passaggi seguenti illustrano come creare un'applicazione client che implementa
     ```javascript
     var connectionString = '{your device connection string}';
     var targetTemperature = 0;
+    var locLong = -122.1215;
+    var locLat = 47.6740;
     var client = clientFromConnectionString(connectionString);
     ```
 
     Aggiornare il segnaposto `{your device connection string}` con il [stringa di connessione del dispositivo](tutorial-add-device.md#generate-connection-string). In questo esempio, si inizializza `targetTemperature` a zero, è possibile usare un valore da un dispositivo gemello o lettura corrente dal dispositivo.
 
-1. Per inviare dati di telemetria, stato e le misurazioni di eventi per l'applicazione Azure IoT Central, aggiungere la funzione seguente al file:
+1. Per inviare dati di telemetria, stato, eventi e le misurazioni di percorso per l'applicazione Azure IoT Central, aggiungere la funzione seguente al file:
 
     ```javascript
     // Send device measurements.
@@ -158,12 +172,18 @@ I passaggi seguenti illustrano come creare un'applicazione client che implementa
       var humidity = 70 + (Math.random() * 10);
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
+      var locationLong = locLong - (Math.random() / 100);
+      var locationLat = locLat - (Math.random() / 100);
       var data = JSON.stringify({
         temperature: temperature,
         humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
-        overheat: (temperature > 35) ? "ER123" : undefined });
+        overheat: (temperature > 35) ? "ER123" : undefined,
+        location: {
+            lon: locationLong,
+            lat: locationLat }
+        });
       var message = new Message(data);
       client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
@@ -320,6 +340,10 @@ Per il dispositivo reale, un operatore nell'applicazione Azure IoT Central può:
 * Visualizzare i dati di telemetria nella pagina **Measurements** (Misure):
 
     ![Visualizzare i dati di telemetria](media/howto-connect-nodejs/viewtelemetry.png)
+
+* Consente di visualizzare il percorso nel **misurazioni** pagina:
+
+    ![Visualizzazione delle misurazioni di posizione](media/howto-connect-nodejs/viewlocation.png)
 
 * Visualizzare i valori delle proprietà del dispositivo inviati dal dispositivo nella pagina **Proprietà**. La proprietà riquadri aggiornamento del dispositivo quando si connette il dispositivo:
 

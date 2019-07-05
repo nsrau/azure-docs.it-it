@@ -18,21 +18,21 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6a5ecd704aabb4994337cb7b7df9e84677348d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d53ed0c9a8ae63c2cb0ced635c6f0a8e8a3222fd
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235288"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482736"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
 
 Se si offre un'applicazione Software as a Service (SaaS) a molte organizzazioni, è possibile configurare l'applicazione per poter consentire accessi da qualsiasi tenant di Azure Active Directory (Azure AD). Questa configurazione viene definita *impostazione dell'applicazione multi-tenant*. Gli utenti in qualsiasi tenant Azure AD saranno in grado di accedere all'applicazione dopo il consenso ad usare il loro account con l'applicazione.
 
-Se è disponibile un'applicazione esistente con un proprio sistema di account o che supporta altri tipi di accesso da altri provider di cloud, l'aggiunta dell'accesso di Azure AD da qualsiasi tenant è semplice. Registrare l'app, aggiungere il codice di accesso tramite OAuth2, OpenID Connect o SAML e inserire un [pulsante "Accedi con Microsoft"][AAD-App-Branding] nell'applicazione.
+Se è disponibile un'applicazione esistente con un proprio sistema di account o che supporta altri tipi di accesso da altri provider di cloud, l'aggiunta dell'accesso di Azure AD da qualsiasi tenant è semplice. Registrare l'app, aggiungere codice di accesso tramite OAuth2, OpenID Connect o SAML e inserire solo un [sul pulsante "Accedi con Microsoft"][AAD-App-Branding] nell'applicazione.
 
 > [!NOTE]
-> Questo articolo presuppone che l'utente abbia già familiarità con la creazione di un'applicazione single-tenant per Azure AD. In caso contrario, iniziare con una delle guide introduttive elencate nella [home page della guida per gli sviluppatori][AAD-Dev-Guide].
+> Questo articolo presuppone che l'utente abbia già familiarità con la creazione di un'applicazione single-tenant per Azure AD. Se non si ha, iniziare con una delle guide introduttive sul [home page della Guida per sviluppatori][AAD-Dev-Guide].
 
 Quattro semplici passaggi consentono di convertire l'applicazione in un'applicazione multi-tenant di Azure AD:
 
@@ -41,11 +41,11 @@ Quattro semplici passaggi consentono di convertire l'applicazione in un'applicaz
 3. [Aggiornare il codice per gestire più valori dell'autorità di certificazione](#update-your-code-to-handle-multiple-issuer-values)
 4. [Informarsi sul consenso dell'utente e dell'amministratore e apportare le modifiche appropriate al codice](#understand-user-and-admin-consent)
 
-Esaminiamo in dettaglio ogni passaggio. È anche possibile passare direttamente a [questo elenco di esempi multi-tenant][AAD-Samples-MT].
+Esaminiamo in dettaglio ogni passaggio. È anche possibile passare direttamente alla sezione [questo elenco di esempi multi-tenant][AAD-Samples-MT].
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Aggiornare la registrazione in modo che sia multi-tenant
 
-Per impostazione predefinita, le registrazioni di API o app Web in Azure AD sono single-tenant. È possibile rendere la registrazione multi-tenant individuando il **tipi di account supportati** attivare il **autenticazione** riquadro della registrazione dell'applicazione nel [il portale di Azure] [ AZURE-portal] e impostandola su **gli account in qualsiasi directory dell'organizzazione**.
+Per impostazione predefinita, le registrazioni di API o app Web in Azure AD sono single-tenant. È possibile rendere la registrazione multi-tenant individuando il **tipi di account supportati** attivare il **autenticazione** riquadro della registrazione dell'applicazione nel [il portale di Azure][AZURE-portal] e impostarlo su **gli account in qualsiasi directory dell'organizzazione**.
 
 Un'applicazione può diventare multi-tenant se l'URI dell'ID app dell'applicazione è univoco a livello globale. L'URI dell'ID App è uno dei modi in cui un'applicazione viene identificata nei messaggi di protocollo. Per un'applicazione single-tenant, è sufficiente che l'URI dell'ID App sia univoco all'interno del tenant. Per un'applicazione multi-tenant, è necessario che sia univoco a livello globale in modo da Azure AD possa trovare l'applicazione in tutti i tenant. L'univocità globale viene applicata richiedendo che l'URI dell'ID App abbia un nome host corrispondente a un dominio verificato del tenant di Azure AD.
 
@@ -98,15 +98,15 @@ Un'applicazione multi-tenant non può quindi convalidare i token semplicemente c
 
 Se ad esempio un'applicazione multi-tenant consente l'accesso solo da tenant specifici che hanno eseguito l'accesso ai servizi, è necessario verificare il valore dell'autorità di certificazione o il valore di attestazione `tid` nel token per assicurarsi che sia incluso nel relativo elenco di sottoscrittori. Se un'applicazione multi-tenant gestisce solo persone e non adotta decisioni di accesso basate su tenant, è possibile ignorare il valore dell'autorità di certificazione.
 
-Negli [esempi multi-tenant][AAD-Samples-MT] la convalida dell'autorità di certificazione è disabilitata per consentire l'accesso a qualsiasi tenant di Azure AD.
+Nel [esempi multi-tenant][AAD-Samples-MT], la convalida dell'autorità di certificazione è disattivata per consentire qualsiasi tenant Azure AD di accedere.
 
 ## <a name="understand-user-and-admin-consent"></a>Informazioni sul consenso dell'utente e dell'amministratore
 
-Per fare in modo che un utente possa accedere a un'applicazione in Azure AD, l'applicazione deve essere rappresentata nel tenant dell'utente. Ciò consente alle organizzazioni di eseguire operazioni come applicare criteri univoci quando gli utenti dal tenant accedono all'applicazione. Per un'applicazione single-tenant questa registrazione è semplice. È l'azione che viene eseguita quando si registra l'applicazione nel [portale di Azure][AZURE-portal].
+Per fare in modo che un utente possa accedere a un'applicazione in Azure AD, l'applicazione deve essere rappresentata nel tenant dell'utente. Ciò consente alle organizzazioni di eseguire operazioni come applicare criteri univoci quando gli utenti dal tenant accedono all'applicazione. Per un'applicazione single-tenant questa registrazione è semplice. è quello che accade quando si registra l'applicazione nel [portale di Azure][AZURE-portal].
 
-Per un'applicazione multi-tenant, la registrazione iniziale per l'applicazione si trova nel tenant di Azure AD usato dallo sviluppatore. Quando un utente di un tenant diverso accede all'applicazione per la prima volta, Azure AD richiede il consenso alle autorizzazioni richieste dall'applicazione. Se fornisce il consenso, viene creata una rappresentazione dell'applicazione denominata *entità servizio* nel tenant dell'utente ed è possibile procedere con l'accesso. Viene anche creata una delega nella directory che registra il consenso dell'utente all'applicazione. Per informazioni dettagliate sugli oggetti applicazione ed entità servizio dell'applicazione e su come interagiscono tra loro, vedere [Oggetti applicazione e oggetti entità servizio][AAD-App-SP-Objects].
+Per un'applicazione multi-tenant, la registrazione iniziale per l'applicazione si trova nel tenant di Azure AD usato dallo sviluppatore. Quando un utente di un tenant diverso accede all'applicazione per la prima volta, Azure AD richiede il consenso alle autorizzazioni richieste dall'applicazione. Se fornisce il consenso, viene creata una rappresentazione dell'applicazione denominata *entità servizio* nel tenant dell'utente ed è possibile procedere con l'accesso. Viene anche creata una delega nella directory che registra il consenso dell'utente all'applicazione. Per informazioni dettagliate su oggetti applicazione ed entità servizio dell'applicazione e come interagiscono tra loro, vedere [oggetti applicazione e oggetti entità servizio][AAD-App-SP-Objects].
 
-![Consenso per l'app a livello singolo][Consent-Single-Tier]
+![Viene illustrato il consenso per l'app a livello singolo][Consent-Single-Tier]
 
 Questa esperienza di consenso è interessata dalle autorizzazioni richieste dall'applicazione. Piattaforma delle identità Microsoft supporta due tipi di autorizzazioni, delegate e solo app.
 
@@ -119,11 +119,11 @@ Alcune autorizzazioni possono essere concesse da un utente normale, mentre altre
 
 Le autorizzazioni solo app richiedono il consenso dell'amministratore tenant. Se l'applicazione richiede un'autorizzazione solo per app e un utente tenta di accedere all'applicazione, viene visualizzato un messaggio di errore che informa che l'utente non è in grado di fornire il consenso.
 
-Alcune autorizzazioni delegate richiedono anche il consenso dell'amministratore tenant. Ad esempio, il writeback in Azure AD come utente connesso richiede il consenso dell'amministratore tenant. Come le autorizzazioni solo app, se un utente comune tenta di accedere a un'applicazione che richiede un'autorizzazione delegata per la quale è necessario il consenso dell'amministratore, viene visualizzato un errore nell'applicazione. La richiesta del consenso di amministratore da parte di un'applicazione è determinata dallo sviluppatore che ha pubblicato la risorsa ed è presente nella documentazione per la risorsa. La documentazione sulle autorizzazioni per l'[API Graph di Azure AD][AAD-Graph-Perm-Scopes] e l'[API Microsoft Graph][MSFT-Graph-permission-scopes] indica quali autorizzazioni richiedono il consenso dell'amministratore.
+Alcune autorizzazioni delegate richiedono anche il consenso dell'amministratore tenant. Ad esempio, il writeback in Azure AD come utente connesso richiede il consenso dell'amministratore tenant. Come le autorizzazioni solo app, se un utente comune tenta di accedere a un'applicazione che richiede un'autorizzazione delegata per la quale è necessario il consenso dell'amministratore, viene visualizzato un errore nell'applicazione. La richiesta del consenso di amministratore da parte di un'applicazione è determinata dallo sviluppatore che ha pubblicato la risorsa ed è presente nella documentazione per la risorsa. La documentazione di autorizzazioni per il [API Graph di Azure AD][AAD-Graph-Perm-Scopes] and [Microsoft Graph API][MSFT-Graph-permission-scopes] indicano quali autorizzazioni richiedono il consenso dell'amministratore.
 
 Se l'applicazione usa autorizzazioni che richiedono il consenso dell'amministratore, è necessario che sia presente un movimento, ad esempio un pulsante o un collegamento, con cui l'amministratore può avviare l'azione. La richiesta inviata dall'applicazione per questa azione è la richiesta di autorizzazione OAuth2/OpenID Connect standard, che include anche il parametro `prompt=admin_consent` della stringa di query. Dopo che l'amministratore ha fornito il consenso e l'entità servizio è stata creata nel tenant del cliente, le successive richieste di accesso non richiedono il parametro `prompt=admin_consent`. Poiché l'amministratore ha deciso che le autorizzazioni richieste sono accettabili, a nessun altro utente nel tenant viene richiesto il consenso da questo punto in poi.
 
-Un amministratore tenant può disabilitare la possibilità che gli utenti normali possano il consenso alle applicazioni. Se questa funzionalità è disabilitata, è necessario usare il consenso dell'amministratore come obbligatorio sempre per l'applicazione nel tenant. Se si desidera testare l'applicazione con il consenso dell'utente finale disabilitato, è possibile trovare l'opzione di configurazione nel [portale di Azure] [ AZURE-portal] nel **[impostazioni utente](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** sezione sotto **applicazioni aziendali**.
+Un amministratore tenant può disabilitare la possibilità che gli utenti normali possano il consenso alle applicazioni. Se questa funzionalità è disabilitata, è necessario usare il consenso dell'amministratore come obbligatorio sempre per l'applicazione nel tenant. Se si desidera testare l'applicazione con il consenso dell'utente finale disabilitato, è possibile trovare l'opzione di configurazione nel [portale di Azure][AZURE-portal] nel **[impostazioni utente](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** sezione **Applicazioni aziendali**.
 
 Il parametro `prompt=admin_consent` può essere usato anche dalle applicazioni che richiedono autorizzazioni che non necessitano del consenso dell'amministratore. Questo parametro viene usato, ad esempio, quando l'applicazione richiede un'esperienza in cui il tenant amministratore "si iscrive" una volta e a nessun altro utente viene richiesto il consenso da tale punto in poi.
 
@@ -138,13 +138,13 @@ L'applicazione può avere più livelli, ognuno rappresentato dalla propria regis
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Più livelli in un singolo tenant
 
-Può trattarsi di un problema se l'applicazione logica è costituita da due o più registrazioni di applicazioni, ad esempio un client e una risorsa separati. Come ottenere prima la risorsa nel tenant del cliente? Azure AD si occupa di questo caso, concedendo al client e alla risorsa l'autorizzazione in un unico passaggio. L'utente visualizza la somma totale delle autorizzazioni richieste dal client e dalla risorsa nella pagina del consenso. Per abilitare questo comportamento, la registrazione dell'applicazione della risorsa deve includere l'ID app del client come `knownClientApplications` nel [manifesto dell'applicazione][AAD-App-Manifest]. Ad esempio:
+Può trattarsi di un problema se l'applicazione logica è costituita da due o più registrazioni di applicazioni, ad esempio un client e una risorsa separati. Come ottenere prima la risorsa nel tenant del cliente? Azure AD si occupa di questo caso, concedendo al client e alla risorsa l'autorizzazione in un unico passaggio. L'utente visualizza la somma totale delle autorizzazioni richieste dal client e dalla risorsa nella pagina del consenso. Per abilitare questo comportamento, registrazione dell'applicazione della risorsa deve includere l'ID del client App come un `knownClientApplications` nel relativo [manifesto dell'applicazione][AAD-App-Manifest]. Ad esempio:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
 Ciò viene illustrato in un client nativo multilivello che esegue la chiamata all'esempio di API Web nella sezione [Contenuti correlati](#related-content) alla fine di questo articolo. Il diagramma seguente fornisce una panoramica del consenso per un'app multilivello registrata in un singolo tenant.
 
-![Consenso per l'app client nota multilivello][Consent-Multi-Tier-Known-Client]
+![Viene illustrato il consenso per l'app client Nota multilivello][Consent-Multi-Tier-Known-Client]
 
 #### <a name="multiple-tiers-in-multiple-tenants"></a>Più livelli in più tenant
 
@@ -159,13 +159,13 @@ Se si tratta di un'API creata da un'organizzazione diversa da Microsoft, lo svil
 
 Il diagramma seguente fornisce una panoramica del consenso per un'app multilivello registrata in diversi tenant.
 
-![Consenso per l'app di terze parti multilivello][Consent-Multi-Tier-Multi-Party]
+![Viene illustrato il consenso all'app di terze parti multilivello][Consent-Multi-Tier-Multi-Party]
 
 ### <a name="revoking-consent"></a>Revoca del consenso
 
 Gli utenti e gli amministratori possono revocare il consenso all'applicazione in qualsiasi momento:
 
-* Gli utenti revocano l'accesso alle singole applicazioni rimuovendole dall'elenco [Applicazioni riquadro di accesso][AAD-Access-Panel].
+* Gli utenti revocano l'accesso alle singole applicazioni rimuovendole da loro [applicazioni del Pannello di accesso][AAD-Access-Panel] elenco.
 * Gli amministratori revocano l'accesso alle applicazioni rimuovendole usando il [applicazioni aziendali](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) sezione il [portale di Azure][AZURE-portal].
 
 Se un amministratore fornisce il consenso a un'applicazione per tutti gli utenti in un tenant, gli utenti non possono revocare l'accesso singolarmente. Solo l'amministratore può revocare l'accesso e soltanto per l'intera applicazione.
@@ -176,7 +176,7 @@ Le applicazioni multi-tenant possono anche ottenere i token di accesso per esegu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato come compilare un'applicazione che consente a un utente di accedere da qualsiasi tenant di Azure AD. Dopo aver abilitato l'accesso Single Sign-On (SSO) tra l'app e Azure AD, è anche possibile aggiornare l'applicazione per accedere alle API esposte dalle risorse di Microsoft, come Office 365. In questo modo è possibile offrire un'esperienza personalizzata nell'applicazione, ad esempio mostrando informazioni contestuali per gli utenti, come l'immagine del profilo o il successivo appuntamento nel calendario. Per altre informazioni sulle chiamate API ai servizi di Azure AD e Office 365 come Exchange, SharePoint, OneDrive, OneNote e altri ancora, vedere [API di Microsoft Graph][MSFT-Graph-overview].
+Questo articolo ha illustrato come compilare un'applicazione che consente a un utente di accedere da qualsiasi tenant di Azure AD. Dopo aver abilitato l'accesso Single Sign-On (SSO) tra l'app e Azure AD, è anche possibile aggiornare l'applicazione per accedere alle API esposte dalle risorse di Microsoft, come Office 365. In questo modo è possibile offrire un'esperienza personalizzata nell'applicazione, ad esempio mostrando informazioni contestuali per gli utenti, come l'immagine del profilo o il successivo appuntamento nel calendario. Per altre informazioni su come rendere API chiamate ad Azure AD e Office 365 services come Exchange, SharePoint, OneDrive, OneNote e altre informazioni, visitare [API Microsoft Graph][MSFT-Graph-overview].
 
 ## <a name="related-content"></a>Contenuti correlati
 
@@ -184,9 +184,9 @@ Questo articolo ha illustrato come compilare un'applicazione che consente a un u
 * [Linee guida sulla personalizzazione per le applicazioni][AAD-App-Branding]
 * [Oggetti applicazione e oggetti entità servizio][AAD-App-SP-Objects]
 * [Integrazione di applicazioni con Azure Active Directory][AAD-Integrating-Apps]
-* [Panoramica del framework di consenso][AAD-Consent-Overview]
-* [Microsoft Graph API permission scopes][MSFT-Graph-permission-scopes] (Ambiti di autorizzazione dell'API Microsoft Graph)
-* [Ambiti di autorizzazione dell'API Graph di Azure AD][AAD-Graph-Perm-Scopes]
+* [Panoramica del Framework di consenso][AAD-Consent-Overview]
+* [Ambiti di autorizzazione dell'API Microsoft Graph][MSFT-Graph-permission-scopes]
+* [Ambiti di autorizzazione dell'API Graph di AD Azure][AAD-Graph-Perm-Scopes]
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com

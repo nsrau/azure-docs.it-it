@@ -1,5 +1,5 @@
 ---
-title: Asset in Servizi multimediali - Azure | Microsoft Docs
+title: Gli asset in servizi multimediali di Azure | Microsoft Docs
 description: Questo articolo descrive le caratteristiche degli asset e come vengono usati da Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bd9774cf045d9ed7f16a637fcb2eb1378b48686
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551768"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565823"
 ---
 # <a name="assets"></a>Asset
 
@@ -87,9 +87,22 @@ curl -X PUT \
 
 Per un esempio completo, vedere [Creare un input del processo da un file locale](job-input-from-local-file-how-to.md). In Servizi multimediali v3 l'input di un processo può essere creato anche da URL HTTPS. Vedere [Creare un input del processo da un URL HTTPS](job-input-from-http-how-to.md).
 
-## <a name="filtering-ordering-paging"></a>Filtro, ordinamento, paging
+## <a name="map-v3-asset-properties-to-v2"></a>Eseguire il mapping delle proprietà degli asset v3 a v2
 
-Consultare [Filtering, ordering, paging of Media Services entities](entities-overview.md) (Filtrare, ordinare ed eseguire il paging delle entità di Servizi multimediali).
+La tabella seguente illustra come il [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)della proprietà in v3 sono mappate alle proprietà dell'Asset nella versione 2.
+
+|proprietà v3|proprietà v2|
+|---|---|
+|ID - (univoci) il percorso completo di Azure Resource Manager, vedere alcuni esempi in [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|nome: (univoci) vedere [convenzioni di denominazione](media-services-apis-overview.md#naming-conventions) ||
+|alternateId|AlternateId|
+|assetId|ID - valore (univoci) inizia con la `nb:cid:UUID:` prefisso.|
+|created|Data di creazione|
+|description|NOME|
+|LastModified|LastModified|
+|storageAccountName|StorageAccountName|
+|storageEncryptionFormat| Opzioni - opzioni di creazione|
+|type||
 
 ## <a name="storage-side-encryption"></a>Crittografia lato archiviazione
 
@@ -104,6 +117,10 @@ Per proteggere gli asset inattivi, è necessario crittografarli tramite crittogr
 <sup>1</sup> Servizi multimediali supporta la gestione di contenuto non crittografato/senza alcuna forma di crittografia, ma tale modalità non è consigliata.
 
 <sup>2</sup> In Servizi multimediali versione 3, la crittografia di archiviazione (crittografia AES-256) è supportata per la compatibilità con le versioni precedenti solo se gli asset sono stati creati con Servizi multimediali versione 2. In altre parole, la versione 3 funziona con asset con crittografia di archiviazione esistenti, ma non consente la creazione di nuovi asset di questo tipo.
+
+## <a name="filtering-ordering-paging"></a>Filtro, ordinamento, paging
+
+Vedere [Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali](entities-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

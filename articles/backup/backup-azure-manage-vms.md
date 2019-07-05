@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add2c72535b5be0edcbc00c077dfe20a6deaa3e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61219310"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434224"
 ---
 # <a name="manage-azure-vm-backups"></a>Gestire i backup delle macchine virtuali di Azure
 
@@ -103,25 +103,36 @@ Per tenere traccia dello stato del processo, nel dashboard dell'insieme di crede
 
 Esistono due modi per interrompere la protezione di una macchina virtuale:
 
-- Interrompere tutti i processi di backup futuri ed eliminare tutti i punti di recupero. In questo caso, sarà possibile ripristinare la macchina virtuale.
-- Arrestare tutti i processi di backup futuri e mantenere i punti di ripristino. Anche se è necessario pagare per mantenere i punti di ripristino nell'insieme di credenziali, sarà possibile ripristinare la macchina virtuale, se necessario. Per altre informazioni, vedere [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
+* **Arrestare la protezione dati e conservare i dati di backup**. Questa opzione interromperà tutti i processi di backup futuri di proteggere la macchina virtuale; Tuttavia, il servizio Backup di Azure manterrà i punti di ripristino che sono stato eseguito il backup.  Dovrai pagare per mantenere i punti di ripristino nell'insieme di credenziali (vedere [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/) per informazioni dettagliate). Sarà in grado di ripristinare la macchina virtuale, se necessario. Se si decide di riprendere la protezione della macchina virtuale, quindi è possibile usare *Riprendi backup* opzione.
+* **Arrestare la protezione dati ed eliminare i dati di backup**. Questa opzione consente di arrestare tutti i processi di backup futuri di proteggere la macchina virtuale e di eliminare tutti i punti di ripristino. Non sarà in grado di ripristinare la macchina virtuale né utilizzare *Riprendi backup* opzione.
 
 >[!NOTE]
 >Se si elimina un'origine dati senza interrompere i backup, i nuovi backup non riuscirà. Scadranno tra vecchi punti di ripristino in base ai criteri, ma un ultimo punto di ripristino verrà conservato sempre fino a quando non si arresta il backup ed eliminare i dati.
 >
 
-Arrestare la protezione per una macchina virtuale:
+### <a name="stop-protection-and-retain-backup-data"></a>Arrestare la protezione dati e conservare i dati di backup
+
+Per arrestare la protezione dati e conservare i dati di una macchina virtuale:
 
 1. Nel [del dashboard dell'elemento dell'insieme di credenziali](#view-vms-on-the-dashboard), selezionare **Interrompi backup**.
-2. Scegliere se conservare o eliminare i dati di backup e confermare la selezione in base alle esigenze. Se si desidera, aggiungere un commento. Se non si è certi del nome dell'elemento, passare il puntatore sul punto esclamativo per visualizzare il nome.
+2. Scegli **conserva i dati di Backup**e confermare la selezione in base alle esigenze. Se si desidera, aggiungere un commento. Se non si è certi del nome dell'elemento, passare il puntatore sul punto esclamativo per visualizzare il nome.
 
-    ![Arresta protezione](./media/backup-azure-manage-vms/retain-or-delete-option.png)
+    ![Mantenere i dati di Backup](./media/backup-azure-manage-vms/retain-backup-data.png)
 
-     Una notifica informa l'utente che sono stati arrestati i processi di backup.
+Una notifica informa l'utente che sono stati arrestati i processi di backup.
+
+### <a name="stop-protection-and-delete-backup-data"></a>Arrestare la protezione dati ed eliminare i dati di backup
+
+Arrestare la protezione dati ed eliminare i dati di una macchina virtuale:
+
+1. Nel [del dashboard dell'elemento dell'insieme di credenziali](#view-vms-on-the-dashboard), selezionare **Interrompi backup**.
+2. Scegli **Elimina dati di Backup**e confermare la selezione in base alle esigenze. Immettere il nome dell'elemento di backup e, se necessario, aggiungere un commento.
+
+    ![Elimina dati di backup](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 ## <a name="resume-protection-of-a-vm"></a>Riprendere la protezione di una macchina virtuale
 
-Se si mantengono i dati di backup quando si arresta la macchina virtuale, è possibile riprendere la protezione in un secondo momento. Se si eliminano i dati di backup, è Impossibile riprendere la protezione.
+Se si è scelto [arrestare la protezione dati e conservare i dati di backup](#stop-protection-and-retain-backup-data) opzione durante l'arresto della protezione della macchina virtuale, è possibile usare **Riprendi backup**. Questa opzione non è disponibile se si sceglie [arrestare la protezione dati ed eliminare i dati di backup](#stop-protection-and-delete-backup-data) opzione oppure [Elimina dati di backup](#delete-backup-data).
 
 Per riprendere la protezione per una macchina virtuale:
 
@@ -134,23 +145,25 @@ Per riprendere la protezione per una macchina virtuale:
 
 ## <a name="delete-backup-data"></a>Elimina dati di backup
 
-È possibile eliminare i dati di backup della macchina virtuale durante la **Interrompi backup** processo o al termine del processo di backup. Prima di eliminare i dati di backup, tenere presente questi dettagli:
+Esistono due modi per eliminare i dati di backup della macchina virtuale:
 
-- Potrebbe essere una buona idea ad attendere giorni o settimane prima di eliminare i punti di ripristino.
-- A differenza del processo per il ripristino dei punti di ripristino, quando si eliminano dati di backup, non è possibile scegliere di eliminare i punti di ripristino specifico. Se si eliminano i dati di backup, eliminare tutti i punti di ripristino associati.
+- Il dashboard dell'elemento dell'insieme di credenziali, selezionare Interrompi backup e seguire le istruzioni relative [arrestare la protezione dati ed eliminare i dati di backup](#stop-protection-and-delete-backup-data) opzione.
 
-Dopo che si arresta o disabilita il processo di backup della macchina virtuale, è possibile eliminare i dati di backup:
+  ![Selezionare Interrompi backup](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
+- Dal dashboard dell'elemento dell'insieme di credenziali, selezionare Elimina dati di backup. Questa opzione è abilitata se si sceglie [arrestare la protezione dati e conservare i dati di backup](#stop-protection-and-retain-backup-data) opzione durante l'arresto della protezione della macchina virtuale
 
-1. Nel [dashboard dell'elemento dell'insieme di credenziali](#view-vms-on-the-dashboard), selezionare **Elimina dati di backup**.
+  ![Selezionare Elimina dati di backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    ![Selezionare Elimina dati di backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  - Nel [dashboard dell'elemento dell'insieme di credenziali](#view-vms-on-the-dashboard), selezionare **Elimina dati di backup**.
+  - Digitare il nome dell'elemento di backup per confermare che si desidera eliminare i punti di ripristino.
 
-1. Digitare il nome dell'elemento di backup per confermare che si desidera eliminare i punti di ripristino.
+    ![Elimina dati di backup](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-    ![Confermare che si desidera eliminare i punti di ripristino](./media/backup-azure-manage-vms/item-verification-box.png)
+  - Per eliminare i dati di backup per l'elemento, selezionare **Elimina**. Un messaggio di notifica consente di scoprire che i dati di backup sono stati eliminati.
 
-1. Per eliminare i dati di backup per l'elemento, selezionare **Elimina**. Un messaggio di notifica consente di scoprire che i dati di backup sono stati eliminati.
+  > [!NOTE]
+  > Quando si eliminano i dati di backup vengono eliminati tutti i punti di ripristino associati. Non è possibile scegliere di eliminare i punti di ripristino specifico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [eseguire il backup di macchine virtuali di Azure dalle impostazioni della macchina virtuale](backup-azure-vms-first-look-arm.md).

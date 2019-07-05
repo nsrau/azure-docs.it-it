@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f73d3bf5e502a758dd46561059c15a2970d9b6
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113248"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471835"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Verificare l'accesso a gruppi o applicazioni in Azure AD le verifiche di accesso
 
@@ -40,7 +40,7 @@ Il primo passaggio per eseguire una verifica di accesso è per trovare e aprire 
 
 1. Cercare un messaggio di posta elettronica da Microsoft in cui viene chiesto di verificare l'accesso. Di seguito è riportato un messaggio di esempio per verificare l'accesso per un gruppo.
 
-    ![Messaggio di posta elettronica di verifica di accesso](./media/perform-access-review/access-review-email.png)
+    ![Posta elettronica di esempio da Microsoft per verificare l'accesso a un gruppo](./media/perform-access-review/access-review-email.png)
 
 1. Scegliere il **avviare verifica** collegamento per aprire la verifica di accesso.
 
@@ -48,7 +48,7 @@ Se non si ha l'indirizzo di posta elettronica, è possibile trovare che l'access
 
 1. Accedere al portale di MyApps all'indirizzo [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-    ![Portale MyApps](./media/perform-access-review/myapps-access-panel.png)
+    ![Elencati si dispone delle autorizzazioni per le app nel portale MyApps](./media/perform-access-review/myapps-access-panel.png)
 
 1. Fare clic sul simbolo utente nell'angolo superiore destro della pagina, che indica il proprio nome e l'organizzazione predefinita. Se sono elencate più organizzazioni, selezionare l'organizzazione che ha richiesto una verifica di accesso.
 
@@ -56,7 +56,7 @@ Se non si ha l'indirizzo di posta elettronica, è possibile trovare che l'access
 
     Se il riquadro non è visibile, non esistono verifiche di accesso da eseguire per tale organizzazione e al momento non è necessaria alcuna azione.
 
-    ![Elenco delle verifiche di accesso](./media/perform-access-review/access-reviews-list.png)
+    ![Elenco di verifiche di accesso in sospeso per le App e i gruppi](./media/perform-access-review/access-reviews-list.png)
 
 1. Scegliere il **inizia la verifica** collegamento per la verifica di accesso da eseguire.
 
@@ -66,7 +66,7 @@ Dopo aver aperto la verifica di accesso, verranno visualizzati i nomi degli uten
 
 Se la richiesta di verifica del proprio accesso, la pagina avrà un aspetto diversa. Per altre informazioni, vedere [verifica di accesso personali a gruppi o applicazioni](review-your-access.md).
 
-![Eseguire una verifica di accesso](./media/perform-access-review/perform-access-review.png)
+![Verifica di accesso Open Elenca gli utenti che devono essere esaminati](./media/perform-access-review/perform-access-review.png)
 
 Esistono due modi, che è possibile approvare o negare l'accesso:
 
@@ -81,7 +81,7 @@ Esistono due modi, che è possibile approvare o negare l'accesso:
 
 1. Fare clic su **approvare** oppure **negare**. Se si è certi, è possibile fare clic su **Don ' t know**. Questa operazione comporterà l'utente di mantenere l'accesso, ma la selezione si rifletteranno nel log di controllo.
 
-    ![Eseguire una verifica di accesso](./media/perform-access-review/approve-deny.png)
+    ![Finestra di azione che include Approva, Deny, e non si conosce opzioni](./media/perform-access-review/approve-deny.png)
 
 1. Se necessario, immettere un motivo nel **motivo** casella.
 
@@ -102,11 +102,11 @@ Per rendere più facile e veloce le verifiche di accesso per te, offriamo anche 
 
 1. Nella barra blu nella parte inferiore della pagina, fare clic su **accettare le raccomandazioni**.
 
-    ![Accettare le raccomandazioni](./media/perform-access-review/accept-recommendations.png)
+    ![Verifica di accesso Apri visualizzazione di un elenco che mostra il pulsante di raccomandazioni Accept](./media/perform-access-review/accept-recommendations.png)
 
     Viene visualizzato un riepilogo delle azioni consigliate.
 
-    ![Accettare le raccomandazioni riepilogo](./media/perform-access-review/accept-recommendations-summary.png)
+    ![Finestra che visualizza un riepilogo delle azioni consigliate](./media/perform-access-review/accept-recommendations-summary.png)
 
 1. Fare clic su **accettabile** per accettare i suggerimenti.
 

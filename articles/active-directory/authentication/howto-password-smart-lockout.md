@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 150ecbdfcc21ee7ec0bf54fd5b824bc93e0c76ce
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358141"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483311"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Blocco intelligente di Azure Active Directory
 
@@ -41,7 +41,9 @@ Il blocco intelligente può essere integrato con distribuzioni ibride, tramite l
 Quando si usa l'[autenticazione pass-through](../hybrid/how-to-connect-pta.md), è necessario verificare quanto segue:
 
 * La soglia di blocco di Azure AD è **inferiore** alla soglia di blocco dell'account Active Directory. Configurare i valori in modo che la soglia di blocco dell'account Active Directory sia almeno due o tre volte superiore rispetto alla soglia di blocco di Azure AD. 
-* La durata del blocco di Azure AD **in secondi** è **superiore** al tempo **in minuti** definito per la reimpostazione del contatore dei blocchi di account in Active Directory.
+* La durata del blocco di Azure AD deve essere impostata più di Active Directory Reimposta contatore blocchi account dopo la durata. Tenere presente che Azure AD durata viene impostato in secondi, durante l'annuncio durata viene impostata in pochi minuti. 
+
+Ad esempio, se si desidera che il contatore AD Azure oltre AD, Azure AD sarà 120 secondi (2 minuti) durante l'accensione prem che ad viene impostato su 1 minuto (60 secondi).
 
 > [!IMPORTANT]
 > Attualmente un amministratore non può sbloccare gli account cloud degli utenti se questi sono stati bloccati dalla funzionalità di blocco smart. L'amministratore deve attendere la scadenza della durata del blocco.

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6f3140f412f9d36ca36cef440bd4e60f1a9197d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74c40264e8ed535d250e938487885a848ba6b47
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702232"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484189"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usare le funzioni definite dall'utente di Python con Apache Hive e Apache Pig in HDInsight
 
@@ -161,9 +161,6 @@ I comandi seguenti, sostituire `sshuser` con il nome utente effettivo se diverso
     ```
 
 ### <a name="upload-file-powershell"></a>Caricare il file (PowerShell)
-
-> [!IMPORTANT]  
-> Questi script di PowerShell non funzioneranno se [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md) è abilitata.  Usare i comandi della shell o disabilitare il trasferimento sicuro.
 
 PowerShell può essere usato anche per eseguire in remoto le query Hive. Verificare che nella directory di lavoro in cui è `hiveudf.py` si trova.  Usare lo script di PowerShell seguente per eseguire una query Hive che usa il `hiveudf.py` script:
 
@@ -433,9 +430,6 @@ I comandi seguenti, sostituire `sshuser` con il nome utente effettivo se diverso
 
 
 ### <a name="upload-file-powershell"></a>Caricare il file (PowerShell)
-
-> [!IMPORTANT]  
-> Questi script di PowerShell non funzioneranno se [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md) è abilitata.  Usare i comandi della shell o disabilitare il trasferimento sicuro.
 
 PowerShell può essere usato anche per eseguire in remoto le query Hive. Verificare che nella directory di lavoro in cui è `pigudf.py` si trova.  Usare lo script di PowerShell seguente per eseguire una query Hive che usa il `pigudf.py` script:
 

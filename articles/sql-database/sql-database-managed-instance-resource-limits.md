@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
-ms.date: 06/13/2019
-ms.openlocfilehash: 89df33f453217585e8f0b8ff13d06ee223474fae
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/26/2019
+ms.openlocfilehash: a0846a7d03cc2f63af6747c8b8514b563c1d4a5d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272235"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447810"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Cenni preliminari su Azure SQL Database managed i limiti delle risorse di istanza
 
@@ -42,6 +42,9 @@ Istanza gestita di Database SQL Azure può essere distribuito in due generazioni
 | Memoria di OLTP In memoria max | Limite di istanze: 3 GB per vCore<br/>Limiti del database:<br/> -8 core: 8 GB per ogni database<br/> -16 core: 20 GB per ogni database<br/> -24 core: 36 GB per ogni database | Limite di istanze: 2,5 GB per vCore<br/>Limiti del database:<br/> -8 core: 13 GB per ogni database<br/> -16 core: 32 GB per ogni database |
 | Archiviazione istanza massimo (generico) |  8 TB | 8 TB |
 | Istanza spazio di archiviazione massimo (Business Critical) | 1 TB | 1 TB, 2 TB o 4 TB in base al numero di core |
+
+> [!IMPORTANT]
+> I nuovi database Gen4 non sono più supportati nell'area AustraliaEast.
 
 ### <a name="service-tier-characteristics"></a>Caratteristiche del livello di servizio
 

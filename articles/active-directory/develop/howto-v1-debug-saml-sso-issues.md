@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0273a0d35d2b4d69f74b1acd8bc2b1d7174810cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4331acf639af90448b5508e3487f4979e9b82c45
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111479"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482717"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Eseguire il debug dell'accesso Single Sign-On basato su SAML su applicazioni in Azure Active Directory
 
@@ -37,7 +37,6 @@ Per scaricare e installare l'estensione My Apps Secure Sign-in, usare uno dei co
 - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
-
 ## <a name="test-saml-based-single-sign-on"></a>Testare l'accesso Single Sign-On basato su SAML
 
 Per eseguire il test basato su SAML single sign-on tra Azure AD e un'applicazione di destinazione:
@@ -48,26 +47,24 @@ Per eseguire il test basato su SAML single sign-on tra Azure AD e un'applicazion
 1. Per aprire basato su SAML single sign-on di esperienza di test, passare a **testare single sign-on** (passaggio 5). Se il **Test** pulsante è disabilitato, è necessario compilare prima di tutto e salvare gli attributi richiesti **base di configurazione SAML** sezione.
 1. Nel pannello **Test dell'accesso Single Sign-On** usare le credenziali aziendali per accedere all'applicazione di destinazione. È possibile accedere come utente corrente o come altro utente. Se si accede come altro utente, verrà chiesto di eseguire l'autenticazione.
 
-    ![Pagina Test SAML](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
-
+    ![Screenshot che mostra il test pagina SAML SSO](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
 
 Se è stato effettuato l'accesso, è stato superato il test. In questo caso, Azure AD ha rilasciato un token di risposta SAML all'applicazione. L'applicazione ha usato il token SAML per consentire l'accesso.
 
 Se si verifica un errore nella pagina di accesso aziendale o nella pagina dell'applicazione, usare una delle sezioni seguenti per correggere l'errore.
 
-
 ## <a name="resolve-a-sign-in-error-on-your-company-sign-in-page"></a>Risolvere un errore di accesso nella pagina di accesso aziendale
 
 Quando si tenta di eseguire l'accesso, si potrebbe essere visualizzato un errore sulla pagina di accesso società che è simile all'esempio seguente.
 
-![Errore di accesso](./media/howto-v1-debug-saml-sso-issues/error.png)
+![Esempio che mostra un errore nella pagina di accesso aziendale](./media/howto-v1-debug-saml-sso-issues/error.png)
 
-Per eseguire il debug di questo errore, sono necessari il messaggio di errore e la richiesta SAML. L'estensione My Apps Secure Sign-in raccoglie automaticamente queste informazioni e visualizza le istruzioni per risolvere il problema in Azure AD. 
+Per eseguire il debug di questo errore, sono necessari il messaggio di errore e la richiesta SAML. L'estensione My Apps Secure Sign-in raccoglie automaticamente queste informazioni e visualizza le istruzioni per risolvere il problema in Azure AD.
 
 ### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>Per risolvere l'errore di accesso con l'estensione accesso sicuro alle App personali installato
 
-1. Quando si verifica un errore, l'estensione reindirizza l'utente ad Azure AD **testare single sign-on** pannello. 
-1. Nel **testare single sign-on** blade, selezionare **scaricare la richiesta SAML**. 
+1. Quando si verifica un errore, l'estensione reindirizza l'utente ad Azure AD **testare single sign-on** pannello.
+1. Nel **testare single sign-on** blade, selezionare **scaricare la richiesta SAML**.
 1. Vengono visualizzate le istruzioni di risoluzione specifiche basate sull'errore e sui valori presenti nella richiesta SAML.
 1. Si noterà una **risolverlo** pulsante per aggiornare automaticamente la configurazione in Azure AD per risolvere il problema. Se questo pulsante non è visualizzato, quindi il problema di accesso non è a causa di un errore di configurazione in Azure AD.
 
@@ -88,25 +85,24 @@ Se non è disponibile alcuna soluzione per l'errore di accesso, si consiglia di 
 
 ## <a name="resolve-a-sign-in-error-on-the-application-page"></a>Risolvere un errore di accesso nella pagina dell'applicazione
 
-Capita talvolta che si riesca a eseguire l'accesso correttamente ma che successivamente venga visualizzato un errore nella pagina dell'applicazione. Questa situazione si verifica quando Azure AD ha emesso un token per l'applicazione, ma questa non accetta la risposta.   
+Capita talvolta che si riesca a eseguire l'accesso correttamente ma che successivamente venga visualizzato un errore nella pagina dell'applicazione. Questa situazione si verifica quando Azure AD ha emesso un token per l'applicazione, ma questa non accetta la risposta.
 
 Per risolvere l'errore, seguire questa procedura:
 
 1. Se l'applicazione è nella raccolta di Azure AD, verificare di aver seguito tutti i passaggi per l'integrazione dell'applicazione con Azure AD. Per trovare le istruzioni di integrazione per l'applicazione, vedere l'[elenco di esercitazioni sull'integrazione di applicazioni SaaS](../saas-apps/tutorial-list.md).
 1. Recuperare la risposta SAML.
     - Se l'estensione My Apps Secure Sign-in è installata, nel pannello **Test dell'accesso Single Sign-On** fare clic su **Scaricare la richiesta SAML**.
-    - Se l'estensione non è installata, usare uno strumento quale [Fiddler](https://www.telerik.com/fiddler) per recuperare la risposta SAML. 
+    - Se l'estensione non è installata, usare uno strumento quale [Fiddler](https://www.telerik.com/fiddler) per recuperare la risposta SAML.
 1. Nel token della risposta SAML sono presenti gli elementi seguenti:
    - Identificatore univoco di utente del valore NameID e formato
    - Attestazioni rilasciate nel token
-   - Certificato usato per firmare il token. 
+   - Certificato usato per firmare il token.
 
      Per altre informazioni sulla risposta SAML, vedere [Protocollo SAML per Single Sign-On](single-sign-on-saml-protocol.md).
 
 1. Dopo aver esaminato la risposta SAML, vedere [errore nella pagina di un'applicazione dopo l'accesso](../manage-apps/application-sign-in-problem-application-error.md) per indicazioni su come risolvere il problema. 
 1. Se non si riesce ad accedere correttamente, è possibile chiedere al fornitore dell'applicazione che cos'è mancante dalla risposta SAML.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che l'accesso single sign-on funziona all'applicazione, è Impossibile [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS](../manage-apps/user-provisioning.md) oppure [Introduzione all'accesso condizionale](../conditional-access/app-based-conditional-access.md).
+Ora che l'accesso single sign-on funziona all'applicazione, è Impossibile [automatizzare il provisioning e deprovisioning di applicazioni SaaS](../manage-apps/user-provisioning.md) oppure [Introduzione all'accesso condizionale](../conditional-access/app-based-conditional-access.md).

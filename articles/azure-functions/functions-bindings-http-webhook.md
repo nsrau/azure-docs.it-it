@@ -4,19 +4,19 @@ description: Informazioni su come usare i trigger e le associazioni HTTP in Funz
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: funzioni di Azure, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server, HTTP, API, REST
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: f9f43720ff36b6dfac51a1626413ff7c2e590cd0
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 53626c1d8fe0b9301883280a9f0925eb38ad1d99
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342267"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480459"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Trigger e associazioni HTTP di Funzioni di Azure
 
@@ -757,7 +757,7 @@ Per proteggere completamente gli endpoint di funzione nell'ambiente di produzion
 
 Quando si usa uno di questi metodi di sicurezza a livello di app per le funzioni, è necessario impostare il livello di autenticazione delle funzioni attivate da HTTP su `anonymous`.
 
-### <a name="webhooks"></a>Webhook
+### <a name="webhooks"></a>webhooks
 
 > [!NOTE]
 > La modalità webhook è disponibile solo per il runtime di funzioni versione 1.x. Questa modifica è stata apportata per migliorare le prestazioni dei trigger HTTP nella versione 2.x.

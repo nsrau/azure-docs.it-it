@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/16/2019
-ms.openlocfilehash: c09dd990bb377672cb34ebd73a5aa9e59bbc067f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/26/2019
+ms.openlocfilehash: b03f546b992bd9de6092dc0da8ef72aa69aa1da2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070411"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447779"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Usare la sicurezza dei dati avanzata di database SQL con le reti virtuali e una compatibilità quasi del 100%
 
@@ -81,6 +81,9 @@ Nel modello vCore è possibile scegliere tra diverse generazioni di hardware.
 - **Gen5** CPU logiche sono basate su Intel E5-2673 v4 processori 2,3 GHz (Broadwell), veloce SSD NVMe, hyperthreading core logico e dimensioni tra 4 e 80 core di calcolo.
 
 Per altre informazioni sulle differenze tra le generazioni di hardware, vedere [Limiti delle risorse per le istanze gestite](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+
+> [!IMPORTANT]
+> I nuovi database Gen4 non sono più supportati nell'area AustraliaEast.
 
 ## <a name="managed-instance-service-tiers"></a>Livelli di servizio dell'istanza gestita
 

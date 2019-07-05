@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b784cafce08634f1026a908e8ccdaaed41b62a42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1b92b174d48c710a763857951d66d00956fa0f9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111622"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483079"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Come vengono aggiunte le applicazioni in Azure AD e perché
 
@@ -79,8 +79,10 @@ Come gli oggetti applicazione, anche gli oggetti entità servizio possono essere
 * A livello di codice tramite l'API Graph di Azure AD o PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Qual è la relazione tra oggetti applicazione ed entità servizio?
+
 Un'applicazione ha un oggetto applicazione nella relativa home directory a cui fanno riferimento una o più entità di servizio in ognuna delle directory in cui è in funzione (inclusa la home directory dell'applicazione).
-![Diagramma che illustra l'interazione tra oggetti applicazione ed entità servizio nelle istanze di Azure AD.][apps_service_principals_directory]
+
+![Mostra la relazione tra oggetti applicazione ed entità servizio][apps_service_principals_directory]
 
 Nel diagramma precedente Microsoft mantiene internamente due directory (visualizzate a sinistra) usate per pubblicare le applicazioni:
 
@@ -96,6 +98,7 @@ Le applicazioni aggiunte dall'utente (indicate come **app dell'utente** al centr
 * App pubblicate tramite Azure AD Application Proxy
 
 ### <a name="notes-and-exceptions"></a>Note ed eccezioni
+
 * Non tutte le entità servizio fanno riferimento a un oggetto applicazione. Al momento dello sviluppo inziale di Azure AD, i servizi forniti alle applicazioni erano più limitati e l'entità servizio era sufficiente per stabilire l'identità di un'applicazione. L'entità servizio originale assomigliava più all'account del servizio di Windows Server Active Directory. Per questo motivo, è ancora possibile creare entità servizio in modi diversi, ad esempio usando Azure AD PowerShell, senza dover prima creare un oggetto applicazione. L'API Graph di Azure AD richiede che sia disponibile un oggetto applicazione prima di creare un'entità servizio.
 * Non tutte le informazioni riportate sopra sono al momento esposte a livello di codice. Le funzionalità seguenti sono disponibili solo nell'interfaccia utente:
   * Regole di trasformazione delle attestazioni
@@ -105,6 +108,7 @@ Le applicazioni aggiunte dall'utente (indicate come **app dell'utente** al centr
   * [Entità servizio](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Perché le applicazioni vengono integrate con Azure AD?
+
 Le applicazioni vengono aggiunte ad Azure AD per sfruttare uno o più dei servizi offerti, tra cui:
 
 * Autenticazione e autorizzazione delle applicazioni.
@@ -116,6 +120,7 @@ Le applicazioni vengono aggiunte ad Azure AD per sfruttare uno o più dei serviz
 * Proxy e pubblicazione dell'applicazione. È possibile pubblicare un'applicazione in Internet da una rete privata.
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Chi è autorizzato ad aggiungere applicazioni alla mia istanza di Azure AD?
+
 Mentre ci sono alcune attività che solo gli amministratori globali possono svolgere (ad esempio l'aggiunta di applicazioni dalla raccolta di app e la configurazione di un'applicazione per usare il proxy di applicazione), per impostazione predefinita tutti gli utenti nella directory hanno i diritti per registrare gli oggetti applicazione che stanno sviluppando, oltre che la possibilità di scegliere quali applicazioni condividere e a quali consentire l'accesso ai dati aziendali tramite consenso. Se l'utente della directory che accede per la prima volta a un'applicazione concede il consenso, verrà creata un'entità servizio nel tenant. In caso contrario, le informazioni di concessione del consenso verranno archiviate nell'entità servizio esistente.
 
 Anche se il fatto di concedere agli utenti di registrarsi e dare il consenso alle applicazioni può inizialmente destare qualche preoccupazione, tenere presente quanto segue:
@@ -132,10 +137,11 @@ Se si vuole comunque impedire agli utenti nella directory di registrare le appli
 
 * Per impedire agli utenti di dare il consenso alle applicazioni per proprio conto:
   1. Nel portale di Azure passare alla sezione [Impostazioni utente](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) in Applicazioni aziendali.
-  2. Impostare l'opzione **Gli utenti possono fornire il consenso alle app che accedono ai dati aziendali per loro conto** su **No**. 
+  2. Impostare l'opzione **Gli utenti possono fornire il consenso alle app che accedono ai dati aziendali per loro conto** su **No**.
      
      > [!NOTE]
-     > Se si decide di disattivare il consenso dell'utente, un amministratore dovrà fornire il consenso per qualsiasi nuova applicazione che un utente deve usare.    
+     > Se si decide di disattivare il consenso dell'utente, un amministratore dovrà fornire il consenso per qualsiasi nuova applicazione che un utente deve usare.
+
 * Per impedire agli utenti di registrare le proprie applicazioni:
   1. Nel portale di Azure passare alla sezione [Impostazioni utente](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) in Azure Active Directory
   2. Impostare l'opzione **Gli utenti possono registrare applicazioni** su **No**.
@@ -145,4 +151,3 @@ Se si vuole comunque impedire agli utenti nella directory di registrare le appli
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-

@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ef72f1649c3f3e0af7fba53b2e8dbcee49d4b59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c83a38b68fcc2e70b4e17bd62e11ac429dd32950
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734574"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471912"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi o applicazioni in Azure AD le verifiche di accesso
 
@@ -43,7 +43,7 @@ Per altre informazioni, vedere [quali gli utenti devono avere le licenze?](acces
 
 1. Fare clic su **Nuova verifica di accesso** per creare una nuova verifica di accesso.
 
-    ![Verifica di accesso - Controlli](./media/create-access-review/access-reviews.png)
+    ![Riquadro di governance delle identità delle verifiche di accesso](./media/create-access-review/access-reviews.png)
 
 1. Assegnare un nome alla verifica di accesso. Facoltativamente è possibile assegnare una descrizione alla verifica. Il nome e la descrizione vengono visualizzati dai revisori.
 
@@ -91,7 +91,7 @@ Per altre informazioni, vedere [quali gli utenti devono avere le licenze?](acces
 
 1. Per specificare cosa succede dopo il completamento di una verifica, espandere la sezione **Impostazioni al completamento**.
 
-    ![Impostazioni al completamento](./media/create-access-review/upon-completion-settings.png)
+    ![Creare una verifica di accesso - impostazioni al completamento](./media/create-access-review/upon-completion-settings.png)
 
 1. Se si vuole rimuovere automaticamente l'accesso per gli utenti rifiutati, impostare l'opzione **Applica automaticamente i risultati alla risorsa** su **Abilita**. Per applicare manualmente i risultati al termine della verifica, impostare l'opzione su **Disabilita**.
 
@@ -106,7 +106,7 @@ Per altre informazioni, vedere [quali gli utenti devono avere le licenze?](acces
 
 1. Per specificare impostazioni aggiuntive, espandere la sezione **Impostazioni avanzate**.
 
-    ![Impostazioni avanzate](./media/create-access-review/advanced-settings.png)
+    ![Creare una verifica di accesso - impostazioni avanzata](./media/create-access-review/advanced-settings.png)
 
 1. Impostare **Mostra i consigli** su **Abilita** per mostrare ai revisori i consigli del sistema basati sulle informazioni di accesso dell'utente.
 
@@ -122,7 +122,7 @@ Per altre informazioni, vedere [quali gli utenti devono avere le licenze?](acces
 
 Una volta specificate le impostazioni per una verifica di accesso, fare clic su **Avvia**. La verifica di accesso verrà visualizzato nell'elenco con un indicatore di stato.
 
-![Elenco delle verifiche di accesso](./media/create-access-review/access-reviews-list.png)
+![Elenco delle verifiche di accesso e il relativo stato](./media/create-access-review/access-reviews-list.png)
 
 Per impostazione predefinita, Azure AD invia un messaggio di posta elettronica ai revisori poco tempo dopo l'inizio della verifica. Se si imposta Azure AD in modo che non invii un messaggio di posta elettronica, assicurarsi di informare i revisori che vi è una verifica di accesso in attesa di completamento. È possibile mostrare ai membri le istruzioni per la procedura [verificare l'accesso a gruppi o applicazioni](perform-access-review.md). Se la verifica prevede che i guest a verificare il proprio accesso, mostrare le istruzioni per la procedura [verifica di accesso personali a gruppi o applicazioni](review-your-access.md).
 

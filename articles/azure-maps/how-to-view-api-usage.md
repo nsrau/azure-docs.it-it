@@ -1,19 +1,19 @@
 ---
 title: Come visualizzare l'utilizzo dell'API di Mappe di Azure | Microsoft Docs
 description: Informazioni su come visualizzare le metriche per le chiamate all'API di Mappe di Azure nel portale.
-author: dsk-2015
-ms.author: dkshir
+author: walsehgal
+ms.author: v-musehg
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 31522436de97062432af2afe101f85d376243a38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 716f9fbc02905a8981771c2fd9dd2be0baeb8196
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957261"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460186"
 ---
 # <a name="view-azure-maps-api-usage"></a>Visualizzare l'utilizzo dell'API di Mappe di Azure
 

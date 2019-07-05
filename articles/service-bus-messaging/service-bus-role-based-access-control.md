@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f5390162ce56a0e77ef41740d7e88f3546c5530
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979635"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444740"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controllo degli accessi in base al ruolo di Active Directory (anteprima)
 
@@ -33,12 +33,12 @@ Per un'applicazione che usa Controllo degli accessi in base al ruolo di Azure AD
 
 Azure offre i seguenti ruoli RBAC predefiniti per autorizzare l'accesso a uno spazio dei nomi del Bus di servizio:
 
-* [Proprietario dei dati del Bus di servizio (anteprima)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Consente l'accesso alle relative entità (code, argomenti, sottoscrizioni e i filtri) e dello spazio dei nomi del Bus di servizio
+* [Proprietario dei dati del Bus di servizio di Azure (anteprima)](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner-preview): Consente l'accesso alle relative entità (code, argomenti, sottoscrizioni e i filtri) e dello spazio dei nomi del Bus di servizio
 
 >[!IMPORTANT]
 > È supportato in precedenza aggiungendo identità gestita per il **"Proprietario"** oppure **"Collaboratore"** ruolo.
 >
-> Accesso ai dati, tuttavia, i privilegi per **"Proprietario"** e **"Collaboratore"** non verranno rispettato non è più ruoli. Se si usa il **"Proprietario"** oppure **"Collaboratore"** ruolo, quindi quelli dovrà essere adattate per utilizzare il **"Proprietario del servizio del Bus di dati"** ruolo.
+> Accesso ai dati, tuttavia, i privilegi per **"Proprietario"** e **"Collaboratore"** non verranno rispettato non è più ruoli. Se si usa il **"Proprietario"** oppure **"Collaboratore"** ruolo, quindi quelli dovrà essere adattate per utilizzare il **"Azure Service Bus dati proprietario (anteprima)"** ruolo.
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Usare il bus di servizio con un account utente di dominio di Azure AD
 

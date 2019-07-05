@@ -6,14 +6,14 @@ manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 06/28/2019
 ms.author: chrisgre
-ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d57dbbdd7614d09d52fef0f613c43d4ca1d08136
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61321188"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485860"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Gestione automatica dei dispositivi IoT su larga scala tramite la CLI di Azure
 
@@ -29,7 +29,9 @@ Funzionamento della gestione automatica dei dispositivi l'aggiornamento di un se
 
 * Il **contenuto di destinazione** definisce le proprietà desiderate da aggiungere o aggiornare nei dispositivi gemelli di destinazione. Il contenuto include un percorso della sezione delle proprietà desiderate da modificare.
 
-* Le **metriche** definiscono i conteggi di riepilogo dei vari stati di configurazione, ad esempio **Success**, **In progress** ed **Error**. Le metriche personalizzate vengono specificate come query sulle proprietà segnalate dei dispositivi gemelli.  Le metriche di sistema sono le metriche predefinite che consentono di misurare lo stato di aggiornamento dei dispositivi gemelli, ad esempio il numero di dispositivi gemelli che vengono considerati come destinazione e il numero di dispositivi gemelli che sono stati aggiornati. 
+* Le **metriche** definiscono i conteggi di riepilogo dei vari stati di configurazione, ad esempio **Success**, **In progress** ed **Error**. Le metriche personalizzate vengono specificate come query sulle proprietà segnalate dei dispositivi gemelli.  Le metriche di sistema sono le metriche predefinite che consentono di misurare lo stato di aggiornamento dei dispositivi gemelli, ad esempio il numero di dispositivi gemelli che vengono considerati come destinazione e il numero di dispositivi gemelli che sono stati aggiornati.
+
+Le configurazioni del dispositivo automatica eseguono per la prima volta subito dopo la configurazione viene creata e quindi a intervalli di cinque minuti. Le metriche query eseguite ogni volta che viene eseguita la configurazione automatica dei dispositivi.
 
 ## <a name="cli-prerequisites"></a>Prerequisiti dell'interfaccia della riga di comando
 
@@ -56,7 +58,7 @@ Prima di creare una configurazione, è necessario specificare i dispositivi che 
 
 ## <a name="define-the-target-content-and-metrics"></a>Definire il contenuto di destinazione e le metriche
 
-Il contenuto di destinazione e la metrica query vengono specificate come documenti JSON che descrivono il device twin le proprietà desiderate al set e le proprietà segnalate per misurare.  Per creare una configurazione automatica del dispositivo con l'interfaccia della riga di comando di Azure, salvare il contenuto di destinazione e le metriche in locale come file con estensione txt. È consigliabile usare i percorsi dei file in una sezione successiva quando si esegue il comando per applicare la configurazione al dispositivo. 
+Il contenuto di destinazione e la metrica query vengono specificate come documenti JSON che descrivono il device twin le proprietà desiderate al set e le proprietà segnalate per misurare.  Per creare una configurazione automatica del dispositivo con l'interfaccia della riga di comando di Azure, salvare il contenuto di destinazione e le metriche in locale come file con estensione txt. È consigliabile usare i percorsi dei file in una sezione successiva quando si esegue il comando per applicare la configurazione al dispositivo.
 
 Ecco un esempio di contenuto di destinazione di base:
 

@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f645b7077ef43dc7eb4d70261b6b601b5e4af1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9d2e8b4ae1a01cd299d910c4e88655885c7d00dc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288480"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476375"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Approvare o rifiutare le richieste per i ruoli delle risorse di Azure in PIM
 
@@ -38,15 +38,15 @@ In qualità di responsabile approvazione con delega si riceverà una notifica di
 
 1. Fare clic su **Approva richieste**.
 
-    ![Risorse di Azure - Approvare le richieste](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![Approvare le richieste - pagina delle risorse di Azure con richiesta di revisione](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
     Nella sezione **Requests for role activations** (Richieste di attivazioni di ruoli) verrà visualizzato un elenco di richieste in attesa di approvazione.
 
 ## <a name="approve-requests"></a>Approvare le richieste
 
-1. Trovare e fare clic sulla richiesta che si intende approvare. Viene visualizzato un riquadro di approvazione.
+1. Trovare e fare clic sulla richiesta che si intende approvare. Un approva o Nega viene visualizzato il riquadro.
 
-    ![Riquadro Approva richieste](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Approvare le richieste - approvare o rifiutare riquadro con i dettagli e finestra di giustificazione](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. Nel riquadro **Giustificazione** digitare un motivo.
 
@@ -54,13 +54,13 @@ In qualità di responsabile approvazione con delega si riceverà una notifica di
 
     Viene visualizzata una notifica con l'approvazione.
 
-    ![Approvare la notifica](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![Approvare la notifica che mostra richiesta è stata approvata](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 
-## <a name="deny-requests"></a>Negare le richieste
+## <a name="deny-requests"></a>Rifiutare le richieste
 
-1. Trovare e fare clic sulla richiesta che si intende negare. Viene visualizzato un riquadro di approvazione.
+1. Trovare e fare clic sulla richiesta che si intende negare. Un approva o Nega viene visualizzato il riquadro.
 
-    ![Riquadro Approva richieste](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Approvare le richieste - approvare o rifiutare riquadro con i dettagli e finestra di giustificazione](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. Nel riquadro **Giustificazione** digitare un motivo.
 

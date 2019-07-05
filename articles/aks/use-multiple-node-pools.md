@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 679d91da774b3e4d2c53c70cdc0abfd4da9c6953
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48fdb251fa0302c2755281644a804c74ae80a63e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059627"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491537"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Visualizzare in anteprima: creare e gestire più pool di nodi per un cluster Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Questo articolo illustra come creare e gestire più pool di nodi in un cluster A
 > Funzionalità di anteprima del servizio contenitore di AZURE sono self-service, fornire il consenso esplicito. Vengono fornite per raccogliere commenti e suggerimenti e bug dalla community. In fase di anteprima, queste funzionalità non sono destinate all'uso di produzione. Le funzionalità in anteprima pubblica rientrano nel supporto "best effort". Assistenza dai team di supporto tecnico di AKS è disponibile durante le ore lavorative Pacifico (PST) solo timezone. Per altre informazioni, vedere i seguenti articoli di supporto:
 >
 > * [Criteri di supporto servizio contenitore di AZURE][aks-support-policies]
-> * [Domande frequenti sul supporto di Azure][aks-faq]
+> * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -32,18 +32,22 @@ Questo articolo illustra come creare e gestire più pool di nodi in un cluster A
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
 
-I comandi dell'interfaccia della riga per creare e gestire più pool di nodi sono disponibili nel *aks-preview* estensione dell'interfaccia della riga. Installare il *aks-preview* estensione di comando di Azure usando la [Aggiungi estensione az] [ az-extension-add] comando, come illustrato nell'esempio seguente:
+Per usare più nodepools, è necessario il *aks-preview* CLI versione dell'estensione 0.4.1 o versione successiva. Installare il *aks-preview* estensione di comando di Azure usando la [Aggiungi estensione az][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] comando::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Se in precedenza sono stati installati il *aks-preview* estensione, installare le aggiorna usando il `az extension update --name aks-preview` comando.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-multiple-node-pool-feature-provider"></a>Registrare più provider di funzionalità del pool di nodi
 
-Per creare un cluster AKS che è possibile usare più pool di nodi, è necessario abilitare innanzitutto due flag funzionalità per la sottoscrizione. I cluster a nodi multipli pool usano un set di scalabilità di macchine virtuali (VMSS) per gestire la distribuzione e la configurazione dei nodi Kubernetes. Registrare il *MultiAgentpoolPreview* e *VMSSPreview* i flag funzionalità tramite il [register funzionalità az] [ az-feature-register] seguente come mostrato nel esempio seguente:
+Per creare un cluster AKS che è possibile usare più pool di nodi, è necessario abilitare innanzitutto due flag funzionalità per la sottoscrizione. I cluster a nodi multipli pool usano un set di scalabilità di macchine virtuali (VMSS) per gestire la distribuzione e la configurazione dei nodi Kubernetes. Registrare il *MultiAgentpoolPreview* e *VMSSPreview* i flag funzionalità tramite il [register funzionalità az][az-feature-register] seguente come mostrato nell'esempio seguente:
+
+> [!CAUTION]
+> Quando si registra una funzionalità in una sottoscrizione, attualmente non è possibile annullare la registrazione tale funzionalità. Dopo aver abilitato alcune funzionalità di anteprima, potrebbero essere utilizzati i valori predefiniti per tutti i cluster AKS quindi creati nella sottoscrizione. Non abilitare la funzionalità di anteprima nella sottoscrizione di produzione. Usare una sottoscrizione separata per le funzionalità di anteprima di test e raccogliere commenti e suggerimenti.
 
 ```azurecli-interactive
 az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
@@ -53,14 +57,14 @@ az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 > [!NOTE]
 > Tutti i cluster servizio contenitore di AZURE create dopo aver correttamente registrato il *MultiAgentpoolPreview* usano questa esperienza di cluster di anteprima. Per continuare a creare i cluster normali, completamente supportato, non abilitare la funzionalità di anteprima nella sottoscrizione di produzione. Usare un test separate o sviluppo sottoscrizione di Azure per verificare le funzionalità di anteprima.
 
-Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato di registrazione usando il comando [az feature list][az-feature-list]:
+Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllarne lo stato di registrazione usando il [elenco delle funzionalità az][az-feature-list] comando:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft.ContainerService* usando il comando [az provider register][az-provider-register]:
+Quando si è pronti, aggiornare la registrazione dei *containerservice* provider di risorse usando la [register di az provider][az-provider-register] comando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -74,16 +78,16 @@ Le limitazioni seguenti si applicano quando si creano e gestire i cluster serviz
 * È possibile eliminare il primo pool di nodi.
 * Impossibile utilizzare il componente di routing aggiuntivo dell'applicazione HTTP.
 * Non è possibile pool di nodi di aggiunta/aggiornamento/eliminazione usando un modello di Resource Manager esistente come con la maggior parte delle operazioni. Al contrario, [usare un modello di Resource Manager separato](#manage-node-pools-using-a-resource-manager-template) apportare modifiche al pool di nodi in un cluster AKS.
-* Impossibile utilizzare il ridimensionamento automatico del cluster (attualmente in anteprima nel servizio contenitore di AZURE).
 
 Quando questa funzionalità è disponibile in anteprima, si applicano le limitazioni aggiuntive seguenti:
 
 * Il cluster AKS può avere un massimo di otto pool di nodi.
 * Il cluster AKS può avere un massimo di 400 nodi tra tali pool di otto nodi.
+* Tutti i pool di nodi deve risiedere nella stessa subnet
 
 ## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
-Per iniziare, creare un cluster AKS con pool un singolo nodo. L'esempio seguente usa il [creare il gruppo di az] [ az-group-create] comando per creare un gruppo di risorse denominato *myResourceGroup* nel *eastus* area geografica. Un cluster del servizio contenitore di AZURE denominato *myAKSCluster* viene creato utilizzando il [az aks create] [ az-aks-create] comando. Oggetto *kubernetes--version* dei *1.12.6* viene usata per mostrare come aggiornare un pool di nodi in un passaggio successivo. È possibile specificare qualsiasi [Kubernetes versione supportata][supported-versions].
+Per iniziare, creare un cluster AKS con pool un singolo nodo. L'esempio seguente usa il [creare il gruppo di az][az-group-create] comando per creare un gruppo di risorse denominato *myResourceGroup* nel *eastus* area. Un cluster del servizio contenitore di AZURE denominato *myAKSCluster* viene creato utilizzando il [az aks create][az-aks-create] comando. Oggetto *kubernetes--version* dei *1.12.6* viene usata per mostrare come aggiornare un pool di nodi in un passaggio successivo. È possibile specificare qualsiasi [Kubernetes versione supportata][supported-versions].
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -101,7 +105,7 @@ az aks create \
 
 La creazione del cluster richiede alcuni minuti.
 
-Quando il cluster è pronto, usare il [az aks get-credentials] [ az-aks-get-credentials] comando per ottenere le credenziali del cluster per l'uso con `kubectl`:
+Quando il cluster è pronto, usare il [az aks get-credentials][az-aks-get-credentials] comando per ottenere le credenziali del cluster per l'uso con `kubectl`:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -109,7 +113,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="add-a-node-pool"></a>Aggiungere un pool di nodi
 
-Il cluster creato nel passaggio precedente dispone di un pool singolo nodo. È possibile aggiungere un secondo nodo del pool usando il [Aggiungi pool di nodi di az aks] [ az-aks-nodepool-add] comando. L'esempio seguente crea un pool di nodi denominato *mynodepool* che esegue *3* nodi:
+Il cluster creato nel passaggio precedente dispone di un pool singolo nodo. È possibile aggiungere un secondo nodo del pool usando il [pool di nodi di az aks aggiungere][az-aks-nodepool-add] comando. L'esempio seguente crea un pool di nodi denominato *mynodepool* che esegue *3* nodi:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -119,7 +123,7 @@ az aks nodepool add \
     --node-count 3
 ```
 
-Per visualizzare lo stato dei tuoi pool di nodi, usare il [elenco dei pool di nodi di az aks] [ az-aks-nodepool-list] comando e specificare il nome del cluster e gruppo di risorse:
+Per visualizzare lo stato dei tuoi pool di nodi, usare il [elenco dei pool di nodi di az aks][az-aks-nodepool-list] comando e specificare il nome del cluster e gruppo di risorse:
 
 ```azurecli-interactive
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster -o table
@@ -141,7 +145,7 @@ VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 
 
 ## <a name="upgrade-a-node-pool"></a>Eseguire l'aggiornamento di un pool di nodi
 
-Quando il cluster AKS è stato creato nel primo passaggio, un `--kubernetes-version` dei *1.12.6* è stato specificato. È possibile aggiornare il *mynodepool* in Kubernetes *1.12.7*. Usare la [aggiornamento del pool nodo az aks] [ az-aks-nodepool-upgrade] comando per aggiornare il pool di nodi, come illustrato nell'esempio seguente:
+Quando il cluster AKS è stato creato nel primo passaggio, un `--kubernetes-version` dei *1.12.6* è stato specificato. È possibile aggiornare il *mynodepool* in Kubernetes *1.12.7*. Usare la [aggiornamento del pool az aks nodo][az-aks-nodepool-upgrade] comando per aggiornare il pool di nodi, come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -152,7 +156,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-Elenca lo stato del pool di nodi usando il [elenco dei pool di nodi di az aks] [ az-aks-nodepool-list] comando. Nell'esempio seguente mostra che *mynodepool* è la *Upgrading* torni allo stato *1.12.7*:
+Elenca lo stato del pool di nodi usando il [elenco dei pool di nodi di az aks][az-aks-nodepool-list] comando. Nell'esempio seguente mostra che *mynodepool* è la *Upgrading* torni allo stato *1.12.7*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
@@ -173,7 +177,7 @@ L'applicazione alle esigenze legate del carico di lavoro, potrebbe essere necess
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-Per ridimensionare il numero di nodi in un pool di nodi, usare il [scalabilità del pool nodo az aks] [ az-aks-nodepool-scale] comando. L'esempio seguente ridimensiona il numero di nodi *mynodepool* al *5*:
+Per ridimensionare il numero di nodi in un pool di nodi, usare il [scalabilità del pool az aks nodo][az-aks-nodepool-scale] comando. L'esempio seguente ridimensiona il numero di nodi *mynodepool* al *5*:
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -184,7 +188,7 @@ az aks nodepool scale \
     --no-wait
 ```
 
-Elenca lo stato del pool di nodi usando il [elenco dei pool di nodi di az aks] [ az-aks-nodepool-list] comando. L'esempio seguente mostra che *mynodepool* è nel *Scaling* dello stato con un nuovo conteggio dei *5* nodi:
+Elenca lo stato del pool di nodi usando il [elenco dei pool di nodi di az aks][az-aks-nodepool-list] comando. L'esempio seguente mostra che *mynodepool* è nel *Scaling* dello stato con un nuovo conteggio dei *5* nodi:
 
 ```console
 $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster -o table
@@ -199,7 +203,7 @@ Sono necessari alcuni minuti per completare l'operazione di scalabilità.
 
 ## <a name="delete-a-node-pool"></a>Eliminare un pool di nodi
 
-Se non è più necessario un pool, è possibile eliminarlo e rimuovere i nodi della macchina virtuale sottostanti. Per eliminare un pool di nodi, usare il [pool di nodi di az aks delete] [ az-aks-nodepool-delete] comando e specificare il nome del pool di nodi. L'esempio seguente elimina il *mynoodepool* creato nei passaggi precedenti:
+Se non è più necessario un pool, è possibile eliminarlo e rimuovere i nodi della macchina virtuale sottostanti. Per eliminare un pool di nodi, usare il [pool di nodi di az aks delete][az-aks-nodepool-delete] comando e specificare il nome del pool di nodi. L'esempio seguente elimina il *mynoodepool* creato nei passaggi precedenti:
 
 > [!CAUTION]
 > Non sono disponibili opzioni di ripristino per perdita di dati che possono verificarsi quando si elimina un pool di nodi. Se non è possibile pianificare i POD in altri pool di nodi, tali applicazioni non sono disponibili. Assicurarsi di che non eliminare un pool di nodi quando le applicazioni in uso non dispongono di backup dei dati o la possibilità di eseguire in altri pool di nodi nel cluster.
@@ -208,7 +212,7 @@ Se non è più necessario un pool, è possibile eliminarlo e rimuovere i nodi de
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
 ```
 
-Il seguente output di esempio dal [elenco dei pool di nodi di az aks] [ az-aks-nodepool-list] comando Mostra che *mynodepool* nel *eliminazione* stato:
+Il seguente output di esempio dal [elenco dei pool di nodi di az aks][az-aks-nodepool-list] comando Mostra che *mynodepool* è nel *eliminazione* stato:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
@@ -227,7 +231,7 @@ Negli esempi precedenti per creare un pool di nodi, una dimensione di macchina v
 
 Nell'esempio seguente, creare un pool di nodi basate su GPU che usa il *Standard_NC6* dimensioni della macchina virtuale. Queste VM sono basate sulla scheda NVIDIA Tesla K80. Per informazioni sulle dimensioni VM disponibili, vedere [dimensioni delle macchine virtuali Linux in Azure][vm-sizes].
 
-Creare un pool di nodi usando il [Aggiungi pool di nodi di az aks] [ az-aks-nodepool-add] nuovo il comando. Questa volta specificare il nome *gpunodepool*e utilizzare il `--node-vm-size` parametro per specificare il *Standard_NC6* dimensioni:
+Creare un pool di nodi usando il [Aggiungi pool di nodi di az aks][az-aks-nodepool-add] nuovo il comando. Questa volta specificare il nome *gpunodepool*e utilizzare il `--node-vm-size` parametro per specificare il *Standard_NC6* dimensioni:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -239,7 +243,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-Il seguente output di esempio dal [elenco dei pool di nodi di az aks] [ az-aks-nodepool-list] comando Mostra che *gpunodepool* è *creazione* nodi con di specificato *VmSize*:
+Il seguente output di esempio dal [elenco dei pool di nodi di az aks][az-aks-nodepool-list] comando Mostra che *gpunodepool* viene *Creating* nodi con la proprietà specificata *VmSize*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
@@ -254,7 +258,7 @@ Sono necessari alcuni minuti il *gpunodepool* venga creata correttamente.
 
 ## <a name="schedule-pods-using-taints-and-tolerations"></a>Pianificare i POD usando taints e tolerations
 
-Sono ora due pool di nodi nel cluster - inizialmente creato il pool di nodo predefinito e il pool di nodi basate su GPU. Usare la [kubectl ottenere i nodi] [ kubectl-get] comando per visualizzare i nodi nel cluster. L'output di esempio seguente mostra un nodo in ogni pool di nodi:
+Sono ora due pool di nodi nel cluster - inizialmente creato il pool di nodo predefinito e il pool di nodi basate su GPU. Usare la [kubectl ottenere nodi][kubectl-get] comando per visualizzare i nodi nel cluster. L'output di esempio seguente mostra un nodo in ogni pool di nodi:
 
 ```console
 $ kubectl get nodes
@@ -271,13 +275,13 @@ L'utilità di pianificazione di Kubernetes può usare taint e tolleranze per lim
 
 Per altre informazioni su come usare avanzate funzionalità di Kubernetes pianificata, vedere [procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio contenitore di AZURE][taints-tolerations]
 
-In questo esempio, applicare un aspetto al basate su GPU a nodo usando il [nodo aspetto kubectl] [ kubectl-taint] comando. Specificare il nome del nodo basate su GPU dall'output del precedente `kubectl get nodes` comando. L'aspetto viene applicato come un *chiave: valore* e quindi un'opzione di pianificazione. L'esempio seguente usa il *sku = gpu* associare e definisce i POD in caso contrario, disporre la *NoSchedule* possibilità:
+In questo esempio, applicare un aspetto al basate su GPU a nodo usando il [kubectl aspetto nodo][kubectl-taint] comando. Specificare il nome del nodo basate su GPU dall'output del precedente `kubectl get nodes` comando. L'aspetto viene applicato come un *chiave: valore* e quindi un'opzione di pianificazione. L'esempio seguente usa il *sku = gpu* associare e definisce i POD in caso contrario, disporre la *NoSchedule* possibilità:
 
 ```console
 kubectl taint node aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
 ```
 
-Il manifesto YAML seguente esempio di base Usa Tolerance a un livello per consentire l'utilità di pianificazione di Kubernetes eseguire un pod NGINX nel nodo basate su GPU. Per un esempio più appropriato, ma richiede molto tempo eseguire un processo Tensorflow sul set di dati MNIST, vedere [utilizzo GPU per carichi di lavoro a elevato utilizzo di calcolo in AKS][gpu-cluster].
+Il manifesto YAML seguente esempio di base Usa Tolerance a un livello per consentire l'utilità di pianificazione di Kubernetes eseguire un pod NGINX nel nodo basate su GPU. Per un esempio più appropriato, ma richiede molto tempo eseguire un processo Tensorflow sul set di dati MNIST, vedere [utilizzo GPU per carichi di lavoro a elevato utilizzo di calcolo nel servizio contenitore di AZURE][gpu-cluster].
 
 Creare un file denominato `gpu-toleration.yaml` e copiarlo nell'esempio YAML seguente:
 
@@ -310,7 +314,7 @@ Pianificare il pod usando il `kubectl apply -f gpu-toleration.yaml` comando:
 kubectl apply -f gpu-toleration.yaml
 ```
 
-Bastano pochi secondi per pianificare il pod e il pull dell'immagine di NGINX. Usare la [kubectl descrivono pod] [ kubectl-describe] comando per visualizzare lo stato di pod. Esempio sintetico seguente output viene visualizzato il *sku = gpu:NoSchedule* Tolerance a livello applicazione. Nella sezione degli eventi, l'utilità di pianificazione è assegnato il pod per il *aks-gpunodepool-28993262-vmss000000* basate su GPU a nodo:
+Bastano pochi secondi per pianificare il pod e il pull dell'immagine di NGINX. Usare la [kubectl descrivono pod][kubectl-describe] comando per visualizzare lo stato di pod. Esempio sintetico seguente output viene visualizzato il *sku = gpu:NoSchedule* Tolerance a livello applicazione. Nella sezione degli eventi, l'utilità di pianificazione è assegnato il pod per il *aks-gpunodepool-28993262-vmss000000* basate su GPU a nodo:
 
 ```console
 $ kubectl describe pod mypod
@@ -410,7 +414,7 @@ Modificare questi valori come necessario per l'aggiornamento, aggiunta o elimina
 }
 ```
 
-Distribuire questo modello usando il [Crea distribuzione del gruppo di az] [ az-group-deployment-create] comando, come illustrato nell'esempio seguente. Richiesto per il nome del cluster servizio contenitore di AZURE e il percorso esistente:
+Distribuire questo modello usando il [distribuzione gruppo di az creare][az-group-deployment-create] comando, come illustrato nell'esempio seguente. Richiesto per il nome del cluster servizio contenitore di AZURE e il percorso esistente:
 
 ```azurecli-interactive
 az group deployment create \
@@ -424,13 +428,13 @@ Potrebbero occorrere alcuni minuti per aggiornare il cluster AKS a seconda le im
 
 In questo articolo è stato creato un cluster AKS che include i nodi basati su GPU. Per ridurre i costi non necessari, è possibile eliminare il *gpunodepool*, o l'intero cluster AKS.
 
-Per eliminare il pool di nodi basate su GPU, usare il [eliminare az aks nodepool] [ az-aks-nodepool-delete] seguente come mostrato nell'esempio seguente:
+Per eliminare il pool di nodi basate su GPU, usare il [nodepool di az aks delete][az-aks-nodepool-delete] seguente come mostrato nell'esempio seguente:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
 ```
 
-Per eliminare il cluster stesso, usare il [eliminazione gruppo az] [ az-group-delete] comando per eliminare il gruppo di risorse del servizio contenitore di AZURE:
+Per eliminare il cluster stesso, usare il [eliminazione gruppo az][az-group-delete] comando per eliminare il gruppo di risorse del servizio contenitore di AZURE:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -473,3 +477,5 @@ Per creare e usare pool di nodi contenitore di Windows Server, vedere [creare un
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
