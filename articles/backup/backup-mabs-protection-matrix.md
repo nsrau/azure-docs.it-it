@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 83cfd2b7ccdf8ec14e828baec1031e11b28c988c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21c832235eeb86dcea94e70f34abaf4ec3489c3c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427358"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509612"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matrice di protezione del server di Backup di Azure
 
@@ -79,8 +79,8 @@ Questo articolo elenca i vari server e carichi di lavoro che è possibile proteg
 |Host Hyper-V - Agente protezione DPM su server host Hyper-V, cluster o macchina virtuale|Windows Server 2012 - Datacenter e Standard|Server fisico<br /><br />Macchina virtuale Hyper-V locale|S|S|Protezione: computer Hyper-V, volumi condivisi cluster (CSV)<br /><br />Recupero: macchina virtuale, ripristino di file e cartelle a livello di elemento, volumi, dischi rigidi virtuali|
 |Host Hyper-V - Agente protezione DPM su server host Hyper-V, cluster o macchina virtuale|Windows Server 2008 R2 SP1 - Enterprise e Standard|Server fisico<br /><br />Macchina virtuale Hyper-V locale|S|S|Protezione: computer Hyper-V, volumi condivisi cluster (CSV)<br /><br />Recupero: macchina virtuale, ripristino di file e cartelle a livello di elemento, volumi, dischi rigidi virtuali|
 |Host Hyper-V - Agente protezione DPM su server host Hyper-V, cluster o macchina virtuale|Windows Server 2008 SP2|Server fisico<br /><br />Macchina virtuale Hyper-V locale|N|N|Protezione: computer Hyper-V, volumi condivisi cluster (CSV)<br /><br />Recupero: macchina virtuale, ripristino di file e cartelle a livello di elemento, volumi, dischi rigidi virtuali|
-|VM VMware|VMware vCenter/vSphere ESX/ESXi concesso in licenza versione 5.5/6.0/6.5 |Server fisico, <br/>Macchina virtuale Hyper-V locale, <br/> Macchina virtuale Windows in VMWare|S|S|Macchine virtuali VMware in volumi condivisi cluster (CSV), NFS e archiviazione SAN<br /> Il ripristino a livello di elemento di file e cartelle è disponibile solo per macchine virtuali Windows, mentre VMware vApps non sono supportate.|
-|VM VMware|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Server fisico, <br/>Macchina virtuale Hyper-V locale, <br/> Macchina virtuale Windows in VMWare|S|N|Macchine virtuali VMware in volumi condivisi cluster (CSV), NFS e archiviazione SAN<br /> Il ripristino a livello di elemento di file e cartelle è disponibile solo per macchine virtuali Windows, mentre VMware vApps non sono supportate.|
+|VM VMware|VMware vCenter/vSphere ESX/ESXi versione corredata di licenza 5.5/6.0/6.5 |Server fisico, <br/>Macchina virtuale Hyper-V locale, <br/> Macchina virtuale Windows in VMWare|S|S|Macchine virtuali VMware in volumi condivisi cluster (CSV), NFS e archiviazione SAN<br /> Il ripristino a livello di elemento di file e cartelle è disponibile solo per macchine virtuali Windows, mentre VMware vApps non sono supportate.|
+|VM VMware|[VMware vSphere 6.7 versione con licenza](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Server fisico, <br/>Macchina virtuale Hyper-V locale, <br/> Macchina virtuale Windows in VMWare|S|N|Macchine virtuali VMware in volumi condivisi cluster (CSV), NFS e archiviazione SAN<br /> Il ripristino a livello di elemento di file e cartelle è disponibile solo per macchine virtuali Windows, mentre VMware vApps non sono supportate.|
 |Linux|Linux in esecuzione come guest Hyper-V o VMware|Server fisico, <br/>Macchina virtuale Hyper-V locale, <br/> Macchina virtuale Windows in VMWare|S|S|Hyper-V deve essere in esecuzione in Windows Server 2012 R2 o Windows Server 2016. Protezione: intera macchina virtuale<br /><br />Recupero: intera macchina virtuale <br/><br/> Per un elenco completo delle distribuzioni e versioni Linux supportate, vedere l'articolo [Linux in distribuzioni approvate da Azure](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="azure-expressroute-support"></a>Supporto per Azure ExpressRoute

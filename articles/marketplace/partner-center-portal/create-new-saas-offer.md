@@ -6,13 +6,13 @@ manager: evansma
 ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f2787cd74525e7676befb133a6106ce83d9c2a20
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: dc086bc1252c084b717807213b5ba4c7f9d7bb97
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072621"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514061"
 ---
 # <a name="create-a-new-saas-offer"></a>Creare una nuova offerta SaaS
 
@@ -42,7 +42,9 @@ Esempio: test-offerta di-1
 
 Selezionare **Create**.  Un' **panoramica dell'offerta** pagina viene creata per questa offerta.  
 
-![Panoramica di offerta nel centro per i Partner](./media/commercial-marketplace-offer-overview.png)
+<!---
+![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
+-->
 
 ## <a name="offer-overview"></a>Panoramica dell'offerta
 
@@ -260,11 +262,11 @@ Aggiungere manualmente gli indirizzi di posta elettronica fino a dieci (10) o ve
 
 ## <a name="technical-configuration"></a>Configurazione tecnica
 
-Il **configurazione tecnica** scheda definisce i dettagli tecnici (percorso dell'URL webhook, ID tenant e ID app) utilizzati per la connessione per l'offerta. Questa connessione consente di eseguire il provisioning dell'offerta come una risorsa nella sottoscrizione di Azure del cliente se scelgono di acquisirlo.
+Il **configurazione tecnica** scheda definisce i dettagli tecnici (percorso dell'URL webhook, ID tenant e ID app) utilizzati per la connessione per l'offerta. Questa connessione consente di eseguire il provisioning dell'offerta per gli utenti finali se scelgono di acquisirlo. Sono disponibili nella documentazione per i diagrammi che descrive l'utilizzo dei campi raccolti [SaaS evasione API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
-- **URL della pagina di destinazione** (obbligatorio): Definire il sito URL a cui i clienti saranno indirizzate a visualizzata dopo aver acquisito l'offerta dal marketplace. Questo URL sarà anche l'endpoint che riceverà le API di connessione che agevolano l'attività commerciale con Microsoft.
+- **URL della pagina di destinazione** (obbligatorio): Definire l'URL del sito che i clienti verranno visualizzata dopo aver acquisito l'offerta dal marketplace. Questo URL sarà l'endpoint che riceve un token quando un cliente viene instradato alla pagina. Per informazioni dettagliate sull'uso di risoluzione per la realizzazione le API di provisioning, è possibile scambiare tale token. Tali dettagli e tutti gli altri che è raccogliere utilizzabile come parte di una pagina web interattive cliente compilato durante l'utilizzo per completare la registrazione e attivare l'acquisto.
 
-- **Webhook di connessione** (obbligatorio): Per tutti gli eventi asincroni che Microsoft deve inviare all'utente per conto del cliente (ad esempio, Sottoscrizione di Azure ha verificato non valida), viene richiesto di fornire un webhook di connessione. Se si ha già un sistema di webhook posto, la configurazione più semplice è disporre di un'App per la logica di Endpoint HTTP che sarà in ascolto per tutti gli eventi da inviare ad esso e quindi gestirle adeguatamente (ad esempio https:\//prod-1westus.logic.azure.com:443/work). Per altre informazioni, vedere [Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Webhook di connessione** (obbligatorio): Per tutti gli eventi asincroni che Microsoft deve inviare all'utente per conto del cliente (ad esempio, SaaS sottoscrizione entri non valida), viene richiesto di fornire un webhook di connessione. Se si ha già un sistema di webhook posto, la configurazione più semplice è disporre di un'App per la logica di Endpoint HTTP che sarà in ascolto per tutti gli eventi da inviare ad esso e quindi gestirle adeguatamente (ad esempio https:\//prod-1westus.logic.azure.com:443/work). Per altre informazioni, vedere [Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **ID tenant di Azure AD** (obbligatorio): Nel portale di Azure, è necessario che si [creare un'app di Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) in modo che possa essere convalidato la connessione tra i due servizi si trova dietro una comunicazioni autenticate. Per trovare le [ID tenant](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), passare ad Azure Active Directory e selezionare **delle proprietà**, quindi cercare il **ID Directory** numero indicato (ad esempio, 50c464d3-4930-494c-963c-1e951d15360e).
 
@@ -438,7 +440,7 @@ Per distribuire i Test Drive per tuo conto, creare e fornire una sottoscrizione 
 
 - **ID app Azure AD** (obbligatorio): Immettere la Azure Active Directory (AD) [ID applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Per trovare questo ID, accedere al [portale di Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu di sinistra, selezionare **registrazioni per l'App**, quindi cercare il **ID applicazione** numero elencati (ad esempio 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Chiave dell'app Azure AD** (obbligatorio): Immettere la Azure Active Directory (AD) [chiave dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Per trovare questo ID, accedere al [portale di Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu di sinistra, selezionare **registrazioni per l'App** , quindi selezionare **impostazioni**  >  **Chiavi**.
+- **Segreto client di Azure AD app** (obbligatorio): Immettere l'applicazione Azure AD [segreto client](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Per trovare questo valore, accedi per il [portale di Azure](https://portal.azure.com/). Selezionare il **Azure Active Directory** della scheda nel menu a sinistra, seleziona **registrazioni per l'App**, quindi selezionare l'app di test unità. Successivamente, selezionare **certificati e i segreti**, selezionare **nuovo segreto client**, immettere una descrizione, selezionare **Never** sotto **Expires**, quindi Scegli **Add**. Assicurarsi di copiare il valore. (Non uscire dalla pagina prima che si esegue questa operazione, altrimenti non sarà necessario accedere al valore.)
 
 Ricordarsi di **salvare** prima di passare alla sezione successiva.
 

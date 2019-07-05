@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 794a99481d9394229e77168e75c48f4110735578
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357538"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536931"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -175,6 +175,7 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Utilizzo di SSPR e autenticazione a più fattori e report di insights](howto-authentication-methods-usage-insights.md)
 * [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
 * [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md).

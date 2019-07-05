@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: ff65f3937069be87e922dad9287ba22380632329
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a41155b90257f7eaec85c3adbd975a0a37e24d91
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66810038"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560409"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Problemi noti relativi alle macchine virtuali delle serie HB e HC
 
@@ -31,13 +31,13 @@ Macchine virtuali della serie HB possono esporre solo 228 GB di RAM per le macch
 
 Rete accelerata di Azure non è abilitata in questo momento, ma verrà man mano che progrediamo attraverso il periodo di anteprima. I clienti Microsoft informerà quando questa funzionalità è supportata.
 
+## <a name="qp0-access-restriction"></a>Limitazione dell'accesso qp0
+
+Per impedire l'accesso hardware a basso livello che può comportare vulnerabilità di sicurezza, coppie di code 0 non è accessibile alle macchine virtuali guest. Questo dovrebbe interessano solo le azioni in genere associata con l'amministrazione dell'interfaccia di rete ConnectX-5 e l'esecuzione di alcune funzionalità di diagnostica InfiniBand, ad esempio ibdiagnet, ma non le applicazioni degli utenti finali stessi.
+
 ## <a name="ud-transport"></a>Trasporto di dominio di aggiornamento
 
-Al momento del lancio, HB serie non supporta in modo dinamico connesso trasporto (DCT). Supporto per DCT verrà implementato nel corso del tempo. Sono supportati i trasporti di connessione (RC) e Datagram inaffidabili (UD) affidabile.
-
-## <a name="azure-batch"></a>Azure Batch
-
-Mentre le macchine virtuali serie HB sono disponibili in anteprima, usare un account Batch in modalità sottoscrizione utente non in modalità di servizio.
+Al momento del lancio, le serie HB e connessione ibrida non supportano in modo dinamico connesso trasporto (DCT). Supporto per DCT verrà implementato nel corso del tempo. Sono supportati i trasporti di connessione (RC) e Datagram inaffidabili (UD) affidabile.
 
 ## <a name="gss-proxy"></a>GSS Proxy
 

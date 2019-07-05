@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 9bfd6c34d81e193fe31610f840474f1e4c91170d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02231f86d4ceddd6cde53fd242c2c91158d744a9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430920"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480757"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurare un contenitore Linux personalizzato per il servizio App di Azure
 
@@ -50,10 +50,10 @@ Questo metodo funziona sia per le app di singolo contenitore o multi-contenitore
 
 Quando un archivio permanente è disabilitato e quindi scrive il `/home` directory non sono persistenti nei riavvii dell'app o tra più istanze. L'unica eccezione è il `/home/LogFiles` directory, che viene usato per archiviare i log di Docker e un contenitore. Quando è abilitato nell'archivio permanente, tutte le operazioni di scrittura di `/home` directory vengono rese persistenti e sono accessibili da tutte le istanze di un'app con scalabilità orizzontale.
 
-Per impostazione predefinita, è un archivio permanente *disabilitato*. Per abilitarlo o disabilitarlo, impostare il `WEBSITES_ENABLE_APP_SERVICE_STORAGE` impostazione dell'app eseguendo [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando in Cloud Shell. Ad esempio:
+Per impostazione predefinita, è un archivio permanente *abilitato* e l'impostazione non è esposta nelle impostazioni dell'applicazione. Per disabilitarlo, impostare il `WEBSITES_ENABLE_APP_SERVICE_STORAGE` impostazione dell'app eseguendo [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando in Cloud Shell. Ad esempio:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
 ```
 
 > [!NOTE]

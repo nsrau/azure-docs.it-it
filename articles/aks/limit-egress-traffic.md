@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 43ba7593336372bbbd7a3a4bb9821665a42bbf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a9ba20b60e8ef6cdb743546cd842e4ee24b3fd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752188"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441929"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Anteprima - limitare il traffico in uscita per i nodi del cluster e controllare l'accesso alle porte necessarie e i servizi in Azure Kubernetes Service (AKS)
 
@@ -24,25 +24,28 @@ Questo articolo illustra in dettaglio quali porte di rete e i nomi di dominio co
 > Funzionalità di anteprima del servizio contenitore di AZURE sono self-service, fornire il consenso esplicito. Vengono fornite per raccogliere commenti e suggerimenti e bug dalla community. In fase di anteprima, queste funzionalità non sono destinate all'uso di produzione. Le funzionalità in anteprima pubblica rientrano nel supporto "best effort". Assistenza dai team di supporto tecnico di AKS è disponibile durante le ore lavorative Pacifico (PST) solo timezone. Per altre informazioni, vedere i seguenti articoli di supporto:
 >
 > * [Criteri di supporto servizio contenitore di AZURE][aks-support-policies]
-> * [Domande frequenti sul supporto di Azure][aks-faq]
+> * [Domande frequenti relative al supporto tecnico Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 È necessario la CLI di Azure versione 2.0.66 o versione successiva installato e configurato. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
-Per creare un cluster AKS che può limitare il traffico in uscita, è necessario attivare un flag funzionalità per la sottoscrizione. Questa registrazione della funzionalità consente di configurare tutti i cluster servizio contenitore di AZURE create per usare le immagini contenitore di sistema di base da MCR o registro contenitori di AZURE. Per registrare il *AKSLockingDownEgressPreview* flag delle funzionalità, utilizzare il [register funzionalità az] [ az-feature-register] seguente come mostrato nell'esempio seguente:
+Per creare un cluster AKS che può limitare il traffico in uscita, è necessario attivare un flag funzionalità per la sottoscrizione. Questa registrazione della funzionalità consente di configurare tutti i cluster servizio contenitore di AZURE create per usare le immagini contenitore di sistema di base da MCR o registro contenitori di AZURE. Per registrare il *AKSLockingDownEgressPreview* flag delle funzionalità, utilizzare il [register funzionalità az][az-feature-register] seguente come mostrato nell'esempio seguente:
+
+> [!CAUTION]
+> Quando si registra una funzionalità in una sottoscrizione, attualmente non è possibile annullare la registrazione tale funzionalità. Dopo aver abilitato alcune funzionalità di anteprima, potrebbero essere utilizzati i valori predefiniti per tutti i cluster AKS quindi creati nella sottoscrizione. Non abilitare la funzionalità di anteprima nella sottoscrizione di produzione. Usare una sottoscrizione separata per le funzionalità di anteprima di test e raccogliere commenti e suggerimenti.
 
 ```azurecli-interactive
 az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
 ```
 
-Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato di registrazione usando il [elenco delle funzionalità az] [ az-feature-list] comando:
+Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato di registrazione usando il [elenco delle funzionalità az][az-feature-list] comando:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSLockingDownEgressPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando si è pronti, aggiornare la registrazione dei *containerservice* provider di risorse usando la [register di az provider] [ az-provider-register] comando:
+Quando si è pronti, aggiornare la registrazione dei *containerservice* provider di risorse usando la [register di az provider][az-provider-register] comando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -54,7 +57,7 @@ Per la gestione e scopi operativi, i nodi in un cluster del servizio contenitore
 
 Per aumentare la sicurezza del cluster servizio contenitore di AZURE, è possibile limitare il traffico in uscita. Il cluster è configurato per estrarre le immagini del contenitore da registro contenitori di AZURE o MCR sistema di base. Se si blocca il traffico in uscita in questo modo, è necessario definire specifiche porte e i nomi di dominio completi per consentire ai nodi AKS comunicare correttamente con i servizi esterni necessari. Senza queste porte autorizzate e un FQDN, i nodi del servizio contenitore di AZURE non possono comunicare con il server API o installare i componenti di base.
 
-È possibile usare [Firewall di Azure] [ azure-firewall] o un'appliance firewall di terze parti 3rd per proteggere il traffico in uscita e definire queste necessarie porte e indirizzi. Servizio contenitore di AZURE non crea automaticamente queste regole per l'utente. Le seguenti porte e gli indirizzi sono per riferimento quando si creano le regole appropriate nel firewall della rete.
+È possibile usare [Firewall Azure][azure-firewall] o un'appliance firewall di terze parti 3rd per proteggere il traffico in uscita e definire queste necessarie porte e indirizzi. Servizio contenitore di AZURE non crea automaticamente queste regole per l'utente. Le seguenti porte e gli indirizzi sono per riferimento quando si creano le regole appropriate nel firewall della rete.
 
 Nel servizio contenitore di AZURE, sono disponibili due set di porte e indirizzi:
 
@@ -62,7 +65,7 @@ Nel servizio contenitore di AZURE, sono disponibili due set di porte e indirizzi
 * Il [facoltativi consigliati indirizzi e porte per i cluster AKS](#optional-recommended-addresses-and-ports-for-aks-clusters) non sono necessarie per tutti gli scenari, ma l'integrazione con altri servizi, ad esempio monitoraggio di Azure non funzionerà correttamente. Esaminare l'elenco di FQDN e le porte facoltative e autorizzare tutti i servizi e componenti utilizzati nel cluster AKS.
 
 > [!NOTE]
-> Limitare il traffico in uscita funziona solo su nuovi cluster servizio contenitore di AZURE create dopo aver abilitato la registrazione di flag funzionalità. Per i cluster esistenti [eseguire un'operazione di aggiornamento del cluster] [ aks-upgrade] usando il `az aks upgrade` comando prima di limitare il traffico in uscita.
+> Limitare il traffico in uscita funziona solo su nuovi cluster servizio contenitore di AZURE create dopo aver abilitato la registrazione di flag funzionalità. Per i cluster esistenti [eseguire un'operazione di aggiornamento del cluster][aks-upgrade] usando il `az aks upgrade` comando prima di limitare il traffico in uscita.
 
 ## <a name="required-ports-and-addresses-for-aks-clusters"></a>Porte necessarie e gli indirizzi per i cluster servizio contenitore di AZURE
 

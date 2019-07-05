@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: 06a7623fed0205d927fca9406469737faeda3a4b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0835c3af52a16e7549698e35b3fded0f64c71dc4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076800"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447699"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
@@ -72,7 +72,9 @@ Inoltre, esistono un paio di cose che potrebbe essere necessario eseguire operaz
 ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
 > [!NOTE]
-> Servizio Backup di Azure consente di creare un gruppo di risorse separato (diverso dal gruppo di risorse della macchina virtuale) per archiviare lo snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (esempio: AzureBackupRG_northeurope_1). Verranno conservati i dati nel gruppo di risorse per la durata in giorni come specificato nella *snapshot di ripristino istantaneo Mantieni* sezione del criterio di Backup di macchine virtuali di Azure.  Applicare un blocco a questo gruppo di risorse può causare errori di backup.
+> Servizio Backup di Azure consente di creare un gruppo di risorse separato (diverso dal gruppo di risorse della macchina virtuale) per archiviare lo snapshot, con il formato di denominazione **AzureBackupRG_geography_number** (esempio: AzureBackupRG_northeurope_1). Verranno conservati i dati nel gruppo di risorse per la durata in giorni come specificato nella *snapshot di ripristino istantaneo Mantieni* sezione del criterio di Backup di macchine virtuali di Azure.  Applicare un blocco a questo gruppo di risorse può causare errori di backup.<br>
+Questo gruppo di risorse deve essere esclusi anche dalla eventuali restrizioni/tag del nome come un criterio di restrizione bloccherà la creazione di raccolte di punti di risorse in esso nuovamente causando errori di backup.
+
 
 ### <a name="modify-storage-replication"></a>Modificare la replica di archiviazione
 

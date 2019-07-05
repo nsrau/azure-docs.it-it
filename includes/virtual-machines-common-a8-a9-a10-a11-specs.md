@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep;amverma
 ms.custom: include file
-ms.openlocfilehash: 5cbc19d5aade2bbcc8b8dca277352d1b17d1d35a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88d9491bae1fcc6acb7ab631514aa4f6244f593d
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755208"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538039"
 ---
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 * **Sottoscrizione di Azure**: per distribuire numerose istanze a elevato utilizzo di calcolo, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto. Con un [account gratuito di Azure](https://azure.microsoft.com/free/)è possibile usare solo un numero limitato di core di calcolo di Azure.
@@ -34,6 +34,6 @@ Un subset delle istanze a elevato utilizzo di calcolo (A8, A9, H16r, H16mr, HB e
 Questa interfaccia consente le istanze con supporto per RDMA di comunicare attraverso una rete InfiniBand (IB) operano in base alle tariffe EDR per HB, la connessione ibrida, FDR tariffe per le macchine virtuali H16r, H16mr e serie N con supporto per RDMA e a velocità QDR per macchine virtuali A8 e A9. Queste funzionalità RDMA possono migliorare la scalabilità e le prestazioni di determinate applicazioni di interfaccia MPI (Message Passing Interface). Per altre informazioni su velocità, vedere i dettagli nelle tabelle in questa pagina.
 
 > [!NOTE]
-> In Azure, IP over IB è supportato solo in macchine virtuali (attualmente HB e connessione ibrida) abilitate SR-IOV. RDMA over IB è supportato per tutte le istanze con supporto per RDMA.
+> In Azure, IP over IB è supportato solo su SR-IOV è abilitato le macchine virtuali (SR-IOV per InfiniBand, attualmente HB e connessione ibrida). RDMA over IB è supportato per tutte le istanze con supporto per RDMA.
 >
 

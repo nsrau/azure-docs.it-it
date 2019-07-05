@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0672f25b30bfb34a6ee99b0f4710d01cf0871300
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
-ms.translationtype: MT
+ms.openlocfilehash: d720f60bff1aa4510ac26ac092c42eb98871c851
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150333"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540345"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -83,29 +83,24 @@ Le condivisioni di file standard sono supportate da unità disco rigido (HDD). C
 Le condivisioni di file standard fino a 5 TiB di dimensioni sono disponibili come un'offerta disponibile a livello generale. Mentre le condivisioni di file più grandi, sono presenti condivisioni dimensioni superiori a 5 TiB e un massimo di 100 TiB, sono attualmente disponibili come un'offerta di anteprima.
 
 > [!IMPORTANT]
-> - È necessario creare un nuovo account di archiviazione di uso generale (non è possibile espandere gli account di archiviazione esistente).
-> - Sono disponibili solo con archiviazione con ridondanza locale.
-> - Disponibile in tre aree: Stati Uniti occidentali 2, Europa occidentale e aree Asia sud-orientale.
-> - Archiviazione con ridondanza locale per la conversione di account di archiviazione con ridondanza geografica non sarà possibile in qualsiasi nuovo account di archiviazione creati dopo la sottoscrizione viene accettata per l'anteprima di condivisioni di file più grande.
+> Vedere le [l'Onboarding in condivisioni di file più grandi (livello standard)](#onboard-to-larger-file-shares-standard-tier) sezione per i passaggi per eseguire l'onboarding, nonché l'ambito e restrizioni della fase di anteprima.
 
-Se desidera eseguire l'onboarding per l'anteprima di queste dimensioni di condivisione file più grandi, inviare ciò [form](https://aka.ms/azurefilesatscalesurvey). 
+### <a name="premium-file-shares"></a>Condivisioni file Premium
 
-### <a name="premium-file-shares-preview"></a>Condivisioni file Premium (anteprima)
-
-Le condivisioni file Premium (anteprima) sono supportate da dischi SSD (Solid State Drive). Condivisioni di file Premium offrono prestazioni elevate omogenee e bassa latenza, in millisecondi a cifra singola per la maggior parte delle operazioni dei / o, per carichi di lavoro a elevato utilizzo dei / o. Queste condivisioni sono quindi idonee per una vasta gamma di carichi di lavoro, ad esempio database, hosting di siti Web, ambienti di sviluppo e così via. Le condivisioni file premium sono disponibili solo in un modello di fatturazione con provisioning. Le condivisioni file Premium usano un modello di distribuzione separato dalle condivisioni file standard.
+Le condivisioni file Premium sono supportate da unità SSD (Solid State Drive). Condivisioni di file Premium offrono prestazioni elevate omogenee e bassa latenza, in millisecondi a cifra singola per la maggior parte delle operazioni dei / o, per carichi di lavoro a elevato utilizzo dei / o. Ciò li rende idonei per una vasta gamma di carichi di lavoro, ad esempio database, l'hosting di siti web e gli ambienti di sviluppo. Le condivisioni file premium sono disponibili solo in un modello di fatturazione con provisioning. Le condivisioni file Premium usano un modello di distribuzione separato dalle condivisioni file standard.
 
 Backup di Azure è disponibile per le condivisioni file premium e Azure Kubernetes Service supporta le condivisioni file premium in versione 1.13 e versioni successive.
 
 Se si desidera imparare a creare una condivisione di file premium, vedere l'articolo sull'argomento: [Come creare un account di archiviazione file di Azure premium](storage-how-to-create-premium-fileshare.md).
 
-Attualmente, è possibile convertire direttamente tra una condivisione file standard e una condivisione di file premium. Se si desidera passare a un livello, è necessario creare una nuova condivisione file in tale livello e copiare manualmente i dati dalla condivisione originale alla nuova condivisione creata. È possibile farlo usando uno degli strumenti di copia i file di Azure supportati, ad esempio AzCopy.
+Attualmente, è possibile convertire direttamente tra una condivisione file standard e una condivisione di file premium. Se si desidera passare a un livello, è necessario creare una nuova condivisione file in tale livello e copiare manualmente i dati dalla condivisione originale alla nuova condivisione creata. È possibile farlo usando uno degli strumenti di copia i file di Azure supportati, ad esempio Robocopy o AzCopy.
 
 > [!IMPORTANT]
-> Le condivisioni file Premium sono ancora in anteprima, sono disponibili solo con archiviazione con ridondanza locale e sono disponibili nella maggior parte delle aree che offrono gli account di archiviazione. Per scoprire se le condivisioni file premium sono attualmente disponibili nella propria area, vedere la [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pagina per Azure.
+> Le condivisioni file Premium sono disponibili solo con archiviazione con ridondanza locale e sono disponibili nella maggior parte delle aree che offrono gli account di archiviazione. Per scoprire se le condivisioni file premium sono attualmente disponibili nella propria area, vedere la [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pagina per Azure.
 
 ### <a name="provisioned-shares"></a>Condivisioni con provisioning
 
-Le condivisioni file Premium (anteprima) vengono effettuato il provisioning basato su un rapporto fisso di GiB/IOPS/velocità effettiva. Per ogni GiB di cui viene effettuato il provisioning, alla condivisione viene assegnata un'operazione di I/O al secondo con 0,1 MiB/s di velocità effettiva fino ai limiti massimi per singola condivisione. Il valore minimo di provisioning consentito è 100 GiB con il minimo di operazioni di I/O al secondo e velocità effettiva.
+Il provisioning delle condivisioni file premium viene effettuato in base a un rapporto fisso tra GiB, operazioni di I/O al secondo e velocità effettiva. Per ogni GiB di cui viene effettuato il provisioning, alla condivisione viene assegnata un'operazione di I/O al secondo con 0,1 MiB/s di velocità effettiva fino ai limiti massimi per singola condivisione. Il valore minimo di provisioning consentito è 100 GiB con il minimo di operazioni di I/O al secondo e velocità effettiva.
 
 In base ad approssimazioni ottimali, tutte le condivisioni possono essere potenziate fino a tre operazioni di I/O al secondo per ogni GiB di archiviazione di cui viene effettuato il provisioning per 60 minuti o più, a seconda della dimensione della condivisione. Le nuove condivisioni iniziano con il credito di burst totale in base alla capacità sottoposta a provisioning.
 
@@ -137,6 +132,9 @@ Nella tabella seguente illustra alcuni esempi di queste formule per le dimension
 |51,200      | 51,200  | Fino a 100.000 | 3\.132 | 2,088   |
 |102,400     | 100,000 | Fino a 100.000 | 6,204 | 4,136   |
 
+> [!NOTE]
+> Le prestazioni delle condivisioni file sono soggette a limiti di rete di macchina, larghezza di banda disponibile, le dimensioni dei / o, il parallelismo, tra molti altri fattori. Per ottenere una scalabilità le massime prestazioni, dividere il carico tra più macchine virtuali. Consultare [Guida alla risoluzione dei](storage-troubleshooting-files-performance.md) per alcuni problemi di prestazioni comuni e soluzioni alternative.
+
 ### <a name="bursting"></a>Burst
 
 Le condivisioni file Premium possono eseguire il burst fino a un fattore pari a tre loro IOPS. La suddivisione viene automatizzata e opera in base a un sistema di carta di credito. Espansione funziona in base ad approssimazioni ottimali e il limite di burst non garantisce, le condivisioni di file possono eseguire il burst *fino a* il limite.
@@ -158,9 +156,9 @@ Inizio nuovo condivisioni di file con il numero completo di crediti in relativi 
 
 ## <a name="file-share-redundancy"></a>Ridondanza delle condivisioni file
 
-Condivisioni standard di file di Azure supporta tre opzioni di ridondanza dei dati: archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS) e archiviazione con ridondanza geografica (GRS).
+Condivisioni standard di file di Azure supportano tre opzioni di ridondanza dei dati: archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS) e archiviazione con ridondanza geografica (GRS).
 
-Premium di Azure i file condivide solo supporta l'archiviazione con ridondanza locale (LRS).
+Le condivisioni premium di Azure i file supportano solo l'archiviazione con ridondanza locale (LRS).
 
 Le sezioni seguenti descrivono le differenze tra le diverse opzioni di ridondanza:
 
@@ -192,6 +190,48 @@ Nella scelta dell'opzione di replica da usare, tenere presenti queste consideraz
 * Archiviazione con ridondanza della zona (ZRS) fornisce elevata disponibilità con replica sincrona e può essere una scelta migliore per alcuni scenari di archiviazione con ridondanza geografica. Per altre informazioni sull'archiviazione con ridondanza della zona, vedere [Archiviazione con ridondanza della zona](../common/storage-redundancy-zrs.md).
 * La replica asincrona implica un ritardo dal momento in cui i dati vengono scritti nell'area primaria a quello in cui vengono replicati nell'area secondaria. Nel caso in cui si verifichi un'emergenza a livello di area, è possibile che le modifiche non ancora replicate nell'area secondaria vadano perse se non è possibile recuperare i dati dall'area primaria.
 * Con l'archiviazione con ridondanza geografica, la replica non è disponibile per la lettura o la scrittura a meno che Microsoft non avvii un failover nell'area secondaria. In caso di failover, si avrà accesso in lettura e scrittura a tali dati al termine del failover. Per altre informazioni, vedere le [indicazioni sul ripristino di emergenza](../common/storage-disaster-recovery-guidance.md).
+
+## <a name="onboard-to-larger-file-shares-standard-tier"></a>Condivisioni file eseguire l'onboarding di dimensioni maggiori (livello standard)
+
+In questa sezione si applica solo alle condivisioni di file standard. Tutte le condivisioni di file premium sono disponibili con 100 TiB come un'offerta disponibile a livello generale.
+
+### <a name="restrictions"></a>Restrizioni
+
+- È necessario creare un nuovo account di archiviazione di uso generale (non è possibile espandere gli account di archiviazione esistente).
+- Archiviazione con ridondanza locale per la conversione di account di archiviazione con ridondanza geografica non sarà possibile in qualsiasi nuovo account di archiviazione creati dopo la sottoscrizione viene accettata per l'anteprima di condivisioni di file più grande.
+
+### <a name="regional-availability"></a>Disponibilità internazionale
+
+Le condivisioni di file standard sono disponibili in tutte le aree fino a 5 TiB. In determinate aree geografiche, è disponibile con un limite di 100 TiB, tali aree sono elencate nella tabella seguente:
+
+|Region  |Ridondanza supportata  |Supporta gli account di archiviazione esistenti  |
+|---------|---------|---------|
+|Asia sudorientale     |Archiviazione con ridondanza locale|No         |
+|Europa occidentale     |Archiviazione con ridondanza locale|No         |
+|Stati Uniti occidentali 2     |LRS, ZRS|No         |
+
+
+### <a name="steps-to-onboard"></a>Passaggi per eseguire l'onboarding
+
+Per registrare la sottoscrizione all'anteprima di condivisioni file di dimensioni maggiori, eseguire i comandi di PowerShell seguenti:
+
+```powershell
+Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+La sottoscrizione viene approvata automaticamente dopo che entrambi i comandi vengono eseguiti.
+
+Per verificare lo stato della registrazione, è possibile eseguire il comando seguente:
+
+```powershell
+Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+```
+
+Potrebbero occorrere fino a 15 minuti per il tuo stato di eseguire l'aggiornamento a "registrato", tuttavia, dovrebbe essere possibile usare la funzionalità nonostante che.
+
+### <a name="use-larger-file-shares"></a>Usare le condivisioni di file più grandi
+
+Per iniziare a usare le condivisioni di file più grandi, creare un nuovo account di archiviazione v2 generico e una nuova condivisione file.
 
 ## <a name="data-growth-pattern"></a>Modello di crescita dei dati
 

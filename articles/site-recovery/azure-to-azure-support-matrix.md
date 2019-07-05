@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/09/2019
+ms.date: 06/27/2019
 ms.author: raynew
-ms.openlocfilehash: 2cf9aee498c649cdbf973652a60fb2d1f3feb371
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 55275144746dbc1a3ead7c7c12a6901ab6f9269e
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312156"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514123"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice di supporto per la replica di macchine virtuali di Azure da un'area a un'altra
 
@@ -70,7 +70,7 @@ Questa tabella riepiloga il supporto per l'account di archiviazione della cache 
 
 **Impostazione** | **Supporto** | **Dettagli**
 --- | --- | ---
-Account di archiviazione V2 di utilizzo generico (livelli di accesso frequente e sporadico) | Non supportati. | La limitazione sussiste per l'archiviazione della cache, poiché i costi di transazione per V2 sono molto più elevati rispetto agli account di archiviazione V1.
+Account di archiviazione V2 di utilizzo generico (livelli di accesso frequente e sporadico) | Supportato | Utilizzo di per utilizzo generico v2 non è consigliato perché i costi di transazione per la versione V2 sono decisamente più elevati rispetto agli account di archiviazione V1.
 Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si usano account di archiviazione cache o di archiviazione di destinazione abilitati per il firewall, assicurarsi di selezionare ["Consenti ai servizi Microsoft attendibili"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
@@ -82,7 +82,7 @@ Site Recovery supporta la replica di macchine virtuali di Azure che eseguono i s
 
 **Sistema operativo** | **Dettagli**
 --- | ---
-Windows Server 2019 |
+Windows Server 2019 | Server Core, Server con Esperienza Desktop
 Windows Server 2016  | Server Core, Server con Esperienza Desktop
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -208,7 +208,7 @@ RA-GRS | Supportato |
 ZRS | Non supportate |
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
 Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se limitare l'accesso alla rete virtuale per gli account di archiviazione, abilitare [Consenti attendibili Microsoft services](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
-Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | No | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
+Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | Yes | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
 
 >[!IMPORTANT]
 > Per evitare problemi di prestazioni, assicurarsi di seguire obiettivi della macchina virtuale del disco scalabilità e prestazioni per [Linux](../virtual-machines/linux/disk-scalability-targets.md) oppure [Windows](../virtual-machines/windows/disk-scalability-targets.md) macchine virtuali. Se si usano le impostazioni predefinite, Site Recovery crea l'account di archiviazione, in base alla configurazione di origine e i dischi necessari. Se si personalizzano e si selezionano impostazioni specifiche, seguire gli obiettivi di scalabilità e prestazioni del disco per le VM di origine.
@@ -246,7 +246,7 @@ Più indirizzi IP | Non supportate | Quando esegue il failover una macchina virt
 Gestione traffico     | Supportato | È possibile preconfigurare Gestione traffico in modo che il traffico venga regolarmente indirizzato all'endpoint nell'area di origine e all'endpoint nell'area di destinazione in caso di failover.
 DNS di Azure | Supportato |
 DNS personalizzato  | Supportato |
-Proxy non autenticato | Supportato | [Learn more].(site-recovery-azure-to-azure-networking-guidance.md)   
+Proxy non autenticato | Supportato | [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)    
 Proxy autenticato | Non supportate | Se la macchina virtuale utilizza un proxy autenticato per la connettività in uscita, non può essere replicata tramite Azure Site Recovery.    
 Connessione site-to-site VPN da sito locale<br/><br/>(con o senza ExpressRoute)| Supportato | Assicurarsi che le route definite dall'utente e gli Nsg sono configurati in modo che il traffico di Site Recovery non viene instradato in locale. [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)    
 Connessione da rete virtuale a rete virtuale | Supportato | [Altre informazioni](site-recovery-azure-to-azure-networking-guidance.md)  

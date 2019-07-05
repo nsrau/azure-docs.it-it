@@ -14,18 +14,18 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 47cd0621a601e3f1ef53572bc7bb8bc1c7ea76ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd75ba9d407399703a382596019d5f370808b20a
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991989"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543673"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in Python e usano il [pacchetto Azure SDK per Python][Azure Python package]. Gli scenari trattati includono:
+Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di servizio. Gli esempi sono scritti in Python e usano il [pacchetto di Azure Python SDK][Azure Python package]. Gli scenari trattati includono:
 
 - Creazione di argomenti e sottoscrizioni 
 - Creazione di filtri di sottoscrizione 
@@ -39,7 +39,7 @@ Questo articolo descrive come usare gli argomenti e le sottoscrizioni del bus di
 
     > [!NOTE]
     > Si creerà una **argomento** e una **sottoscrizione** all'argomento usando **Python** in questa Guida introduttiva. 
-3. Installare [pacchetto Azure per Python][Azure Python package]. Vedere le [Guida all'installazione di Python](../python-how-to-install.md).
+3. Installare [pacchetto Python di Azure][Azure Python package]. Vedere le [Guida all'installazione di Python](../python-how-to-install.md).
 
 ## <a name="create-a-topic"></a>Creare un argomento
 
@@ -58,7 +58,7 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-È possibile ottenere i valori per il nome e il valore della chiave di firma di accesso condiviso nel [portale di Azure][Azure portal].
+È possibile ottenere i valori per il nome e il valore della chiave di firma di accesso condiviso dal [portale di Azure][Azure portal].
 
 ```python
 bus_service.create_topic('mytopic')
@@ -79,9 +79,9 @@ bus_service.create_topic('mytopic', topic_options)
 È possibile creare sottoscrizioni ad argomenti anche con l'oggetto **ServiceBusService**. Le sottoscrizioni sono denominate e possono includere un filtro facoltativo che limita il set di messaggi recapitati alla coda virtuale della sottoscrizione.
 
 > [!NOTE]
-> Le sottoscrizioni sono persistenti e continueranno a esistere fintanto che esse o l'argomento che hanno sottoscritto non viene eliminato.
+> Per impostazione predefinita, le sottoscrizioni sono persistenti e continueranno a esistere fintanto oppure l'argomento a cui hanno effettuato l'iscrizione, vengono eliminati.
 > 
-> 
+> È possibile avere sottoscrizioni eliminate automaticamente impostando il [auto_delete_on_idle proprietà](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
 
@@ -95,7 +95,7 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 È anche possibile definire i filtri che consentono di specificare quali messaggi inviati a un argomento devono essere presenti in una specifica sottoscrizione dell'argomento.
 
-Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è **SqlFilter**, che implementa un subset di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altre informazioni sulle espressioni che possono essere usate con un filtro SQL, vedere la sintassi di [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+Il tipo di filtro più flessibile tra quelli supportati dalle sottoscrizioni è **SqlFilter**, che implementa un subset di SQL92. I filtri SQL agiscono sulle proprietà dei messaggi pubblicati nell'argomento. Per altre informazioni sulle espressioni che possono essere usate con un filtro SQL, vedere la sintassi [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 È possibile aggiungere filtri a una sottoscrizione usando il metodo **create\_rule** dell'oggetto **ServiceBusService**. Questo metodo consente di aggiungere nuovi filtri a una sottoscrizione esistente.
 
@@ -178,7 +178,7 @@ In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio m
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminare argomenti e sottoscrizioni
 
-Gli argomenti e le sottoscrizioni sono persistenti e devono essere eliminati in modo esplicito nel [portale di Azure][Azure portal] oppure a livello di codice. L'esempio seguente illustra come eliminare l'argomento denominato `mytopic`:
+Argomenti e sottoscrizioni sono persistenti, a meno che il [auto_delete_on_idle proprietà](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) è impostata. Possono essere eliminati tramite il [portale di Azure][Azure portal] o a livello di codice. L'esempio seguente illustra come eliminare l'argomento denominato `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')

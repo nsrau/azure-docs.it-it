@@ -12,12 +12,12 @@ ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3d0aaee624bdba169f13313bb57a3ebe8075592
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65593793"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490063"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Abilitare l'autenticazione di Azure Active Directory per Azure-SSIS Integration Runtime
 
@@ -146,17 +146,7 @@ L'istanza gestita di database SQL di Azure supporta la creazione di un database 
 
 ### <a name="configure-azure-ad-authentication-for-azure-sql-database-managed-instance"></a>Configurare l'autenticazione di Azure AD per l'istanza gestita di database SQL di Azure
 
-1.   Nel portale di Azure selezionare **Tutti i servizi** -> **SQL Server** dal menu a sinistra.
-
-2.   Selezionare l'istanza gestita da configurare con l'autenticazione di Azure AD.
-
-3.   Nella sezione **Impostazioni** del pannello selezionare **Amministratore di Active Directory**.
-
-4.   Sulla barra dei comandi selezionare **Imposta amministratore**.
-
-5.   Selezionare un account utente di Azure AD da rendere amministratore del server e quindi scegliere **Seleziona**.
-
-6.   Sulla barra dei comandi selezionare **Salva**.
+Seguire i passaggi descritti in [effettuare il provisioning di un amministratore di Azure Active Directory per l'istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>Aggiungere l'identità gestita per ADF come utente nell'istanza gestita di database SQL di Azure
 
@@ -164,7 +154,7 @@ Per il passaggio successivo è necessario  [Microsoft SQL Server Management Stu
 
 1.  Avviare SSMS.
 
-2.  Connettersi all'istanza gestita usando l'account amministratore di SQL/Active Directory.
+2.  Connettersi all'istanza gestita usando un account di SQL Server che è un **sysadmin**. Si tratta di una limitazione temporanea che verrà rimossa quando l'entità del server Azure AD (accessi) per istanza gestita di Azure SQL Database diventa GA. Se si prova a usare un account amministratore di Azure AD per creare l'account di accesso, viene visualizzato l'errore seguente: Msg 15247, livello 16, stato 1, riga 1 utente non è autorizzato a eseguire questa azione.
 
 3.  In **Esplora oggetti** espandere la cartella **Database** -> **Database di sistema**.
 

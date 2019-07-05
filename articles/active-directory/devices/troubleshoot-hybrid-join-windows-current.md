@@ -2,26 +2,21 @@
 title: Risoluzione dei problemi relativi a dispositivi Windows 10 e Windows Server 2016 aggiunti all'identità ibrida di Azure Active Directory | Microsoft Docs
 description: Risoluzione dei problemi relativi a dispositivi Windows 10 e Windows Server 2016 aggiunti all'identità ibrida di Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/08/2017
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3671623312f0da00c8f6172a101529a5cd12be1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfb4b03fb57efecff587a91dfc2ad293be96d9ba
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110550"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481616"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Risoluzione dei problemi relativi a dispositivi Windows 10 e Windows Server 2016 aggiunti all'identità ibrida di Azure Active Directory 
 
@@ -35,14 +30,10 @@ Per altri client Windows, vedere [Risoluzione dei problemi relativi a dispositiv
 Questo articolo presuppone che siano stati [configurati dispositivi aggiunti all'identità ibrida di Azure Active Directory](hybrid-azuread-join-plan.md) per supportare gli scenari seguenti:
 
 - Accesso condizionale basato su dispositivo
-
 - [Roaming aziendale delle impostazioni](../active-directory-windows-enterprise-state-roaming-overview.md)
-
 - [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md) (Configurare Windows Hello for Business)
 
-
 Questo documento fornisce indicazioni sulla risoluzione di potenziali problemi. 
-
 
 Per Windows 10 e Windows Server 2016, l'aggiunta all'identità ibrida di Azure Active Directory supporta l'aggiornamento di Windows del 10 novembre 2015 e versioni successive. È consigliabile usare l'aggiornamento dell'anniversario.
 
@@ -53,8 +44,6 @@ Per Windows 10 e Windows Server 2016, l'aggiunta all'identità ibrida di Azure A
 1. Aprire il prompt dei comandi come amministratore
 
 2. Digitare **dsregcmd /status**
-
-
 
 ```
 +----------------------------------------------------------------------+
@@ -101,8 +90,6 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-
-
 ## <a name="step-2-evaluate-the-join-status"></a>Passaggio 2: Valutare lo stato delle aggiunte 
 
 Esaminare i campi seguenti e assicurarsi che siano presenti i valori previsti:
@@ -114,22 +101,14 @@ Questo campo mostra se il dispositivo è aggiunto ad Azure AD. Se il valore è *
 **Possibili cause:**
 
 - L'autenticazione del computer per un'aggiunta non è riuscita.
-
 - È presente un proxy HTTP nell'organizzazione che non può essere individuato dal computer
-
 - Il computer non riesce a raggiungere Azure AD per l'autenticazione o il servizio Registrazione dispositivo Azure per la registrazione
-
 - Il computer non è presente nella rete interna dell'organizzazione o nella VPN con connessione diretta a un controller di dominio locale AD.
-
 - Se il computer dispone di TPM, potrebbe essere in uno stato non valido.
-
 - Verificare nuovamente le configurazioni precedentemente indicate per assicurarsi che non ci siano errori. Esempi comuni:
-
-    - Il server federativo non dispone di endpoint WS-Trust abilitati
-
-    - Il server federativo non consente l'autenticazione in ingresso dai computer nella rete con l'autenticazione integrata di Windows.
-
-    - Non è presente alcun oggetto Punto di connessione del servizio che punti al nome di dominio verificato in Azure AD nella foresta AD a cui appartiene il computer
+   - Il server federativo non dispone di endpoint WS-Trust abilitati
+   - Il server federativo non consente l'autenticazione in ingresso dai computer nella rete con l'autenticazione integrata di Windows.
+   - Non è presente alcun oggetto Punto di connessione del servizio che punti al nome di dominio verificato in Azure AD nella foresta AD a cui appartiene il computer
 
 ---
 
@@ -150,9 +129,7 @@ Questo campo mostra se il dispositivo è registrato con Azure AD come dispositiv
 Questi campi indicano se l'utente è autenticato correttamente in Azure AD durante l'accesso al dispositivo. Se i valori sono **NO**, il motivo potrebbe essere:
 
 - Chiave di archiviazione STK non valida in TPM e associata al dispositivo al momento della registrazione. Verificare KeySignTest durante l'esecuzione con privilegi elevati.
-
 - ID di accesso alternativo
-
 - Proxy HTTP non trovato
 
 ## <a name="next-steps"></a>Passaggi successivi

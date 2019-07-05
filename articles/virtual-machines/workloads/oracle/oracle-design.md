@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 1f808161087dff614ef83aacc606501bce96d3eb
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 039b1628571b786a4997c08f96cc9aa0f347c7f7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155126"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446706"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Progettare e implementare un database Oracle in Azure
 
@@ -147,7 +147,7 @@ In base ai requisiti di larghezza di banda della rete, sono disponibili diversi 
 - Usare le macchine virtuali con [rete accelerata](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) per migliorare le prestazioni di rete.
 - Per alcuni distrubutions Linux, provare ad abilitare [supporto per TRIM/UNMAP](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Installare [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) su una macchina virtuale separata.
-- Huge Page sono attivate non in linux per impostazione predefinita. Prendere in considerazione l'abilitazione di enorme pagine e impostare `use_large_pages = ONLY ` nel database Oracle. Ciò può migliorare le prestazioni. Ulteriori informazioni sono disponibili [qui](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
+- Huge Page sono attivate non in linux per impostazione predefinita. Prendere in considerazione l'abilitazione di enorme pagine e impostare `use_large_pages = ONLY` nel database Oracle. Ciò può migliorare le prestazioni. Ulteriori informazioni sono disponibili [qui](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### <a name="disk-types-and-configurations"></a>Tipi di disco e configurazioni
 

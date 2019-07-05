@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: d34da8928e06f04756e24f5cc3e4c430c2892f79
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4f502984a09f81b5aaf0568c84b75832f8164151
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341594"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541043"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>.NET SDK di Azure Cosmos DB per l'API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -48,13 +48,18 @@ ms.locfileid: "67341594"
 * Supporto dei flussi. 
 * Classe CosmosResponseMessage aggiornata a partire dal server per restituire il codice di stato e generare un'eccezione solo se non viene restituita alcuna risposta. 
 
+### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
+
+* Versione di System.NET. HTTP del SDK ora corrisponde a quello definito nel pacchetto NuGet.
+* Consentire le richieste di scrittura per il fallback su un'area diversa se originale si verifichi un errore.
+* Aggiungere criteri di ripetizione dei tentativi di sessione per la richiesta di scrittura.
+
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
 * Correzioni di analisi di condizione di competizione per le query che ha causato le pagine vuote
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* Versione del SDK System.NET. http corrisponde a quello definito nel pacchetto NuGet
 * Aumento delle dimensioni di precisione decimale per le query LINQ.
 * Aggiuntive nuove classi CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType e PartitionKeyDefinitionVersion
 * Aggiunta TimeToLivePropertyPath a DocumentCollection
@@ -379,6 +384,7 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |02 luglio 2019 |--- |
 | [2.4.1](#2.4.1) |20 giugno 2019 |--- |
 | [2.4.0](#2.4.0) |05 maggio 2019 |--- |
 | [2.3.0](#2.3.0) |04 aprile 2019 |--- |

@@ -2,26 +2,21 @@
 title: Domande frequenti sull'accesso condizionale di Azure Active Directory | Microsoft Docs
 description: Risposte alle domande frequenti sull'accesso condizionale in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 111daef3448533cd863d45197d45c87d8d21264b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad0494868c494b488a238a81e504c58552813907
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112402"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508981"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Domande frequenti sull'accesso condizionale di Azure Active Directory
 
@@ -33,12 +28,9 @@ Per informazioni sulle applicazioni che funzionano con i criteri di accesso cond
 
 I criteri vengono applicati agli utenti di Collaborazione business-to-business (B2B). In alcuni casi, tuttavia, è possibile che un utente non sia in grado di soddisfare i requisiti dei criteri. È possibile, ad esempio, che l'organizzazione di un utente guest non supporti l'autenticazione a più fattori. 
 
-
-
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>I criteri di SharePoint Online si applicano anche a OneDrive for Business?
 
 Sì. I criteri di SharePoint Online si applicano anche a OneDrive for Business.
-
 
 ## <a name="why-cant-i-set-a-policy-on-client-apps-like-word-or-outlook"></a>Perché non è possibile impostare criteri nelle app client, ad esempio Word o Outlook?
 
@@ -56,7 +48,6 @@ Attualmente no.
 
 Attualmente, i criteri di accesso condizionale vengono applicati in modo selettivo gli utenti di dispositivi iOS e Android. Le applicazioni in altre piattaforme, per impostazione predefinita, non sono interessate dal criterio di accesso condizionale per dispositivi iOS e Android. Un amministratore tenant può decidere di ignorare i criteri globali per disabilitare l'accesso per gli utenti su piattaforme non supportate.
 
-
 ## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>Come funzionano i criteri di accesso condizionale per Microsoft Teams?
 
 Microsoft Teams si basa principalmente su Exchange Online e SharePoint Online per gli scenari di produttività di base, come riunioni, calendari e condivisione di file. Criteri di accesso condizionale impostati per queste App cloud si applicano a Microsoft Teams quando un utente accede direttamente in Microsoft Teams.
@@ -64,3 +55,7 @@ Microsoft Teams si basa principalmente su Exchange Online e SharePoint Online pe
 Microsoft Teams è supportato anche separatamente come app cloud nei criteri di Active Directory accesso condizionale di Azure. Criteri di accesso condizionale impostati per un'app cloud si applicano a Microsoft Teams quando un utente esegue l'accesso. Senza i criteri corretti in altre app come Exchange Online e SharePoint Online, gli utenti possono tuttavia essere comunque in grado di accedere direttamente a tali risorse.
 
 I client desktop di Microsoft Teams per Windows e Mac supportano l'autenticazione moderna. Con l'autenticazione moderna, l'accesso basato su Azure Active Directory Authentication Library (ADAL) viene integrato in applicazioni client Microsoft Office su più piattaforme.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Per configurare i criteri di accesso condizionale per l'ambiente, vedere la [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md). 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c3c97e786e2147f043a63b90b886e01eb5944cb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a051b0e853b60dfc1f5b6c3453d9ed8361f1748
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507682"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67438829"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -79,18 +79,19 @@ Per ospitare il contenuto HTML nell'archivio Blob, seguire questa procedura:
 
 Per creare un contenitore pubblico nell'archivio BLOB seguire questa procedura:
 
-1. Fare clic sulla scheda **Panoramica**.
-2. Fare clic su **Contenitore**.
-3. Per **Nome** digitare **$root**.
-4. Impostare **Tipo di accesso** su **BLOB**.
-5. Fare clic su **$root** per aprire il nuovo contenitore.
+1. Sotto **servizio Blob** nel menu a sinistra, selezionare **BLOB**.
+2. Fare clic su **+ contenitore**.
+3. Per la **Name**, immettere *radice*. Può trattarsi di un nome a scelta, ad esempio *wingtiptoys*, ma si utilizza *radice* in questo esempio per motivi di semplicità.
+4. Per la **livello di accesso pubblico**, selezionare **Blob**, quindi **OK**.
+5. Fare clic su **radice** per aprire il nuovo contenitore.
 6. Fare clic su **Carica**.
 7. Fare clic sull'icona della cartella accanto a **Selezionare un file**.
-8. Passare al file **customize-ui.html** creato in precedenza nella sezione Personalizzazione dell'interfaccia utente della pagina.
-9. Fare clic su **Carica**.
-10. Selezionare il BLOB customize-ui.html caricato.
-11. Accanto a **URL** fare clic su **Copia**.
-12. Incollare l'URL copiato in un browser e andare al sito. Se il sito non è accessibile, assicurarsi che il tipo di accesso del contenitore sia impostato su **BLOB**.
+8. Individuare e selezionare **UI personalizzare** creato in precedenza nella sezione Personalizzazione Page UI.
+9. Se si desidera caricare in una sottocartella, espandere **avanzate** e immettere un nome di cartella nella **carica nella cartella**.
+10. Selezionare **Carica**.
+11. Selezionare il **UI personalizzare** blob caricato.
+12. A destra del **URL** casella di testo, seleziona la **copia negli Appunti** icona per copiare l'URL negli Appunti.
+13. Nel web browser passare all'URL copiato per verificare che il blob caricato sia accessibile. Se non è accessibile, ad esempio se si verifica una `ResourceNotFound` errore, verificare che il tipo di accesso del contenitore è impostato su **blob**.
 
 ## <a name="configure-cors"></a>Configurare CORS
 
@@ -159,6 +160,7 @@ Per configurare la personalizzazione dell'interfaccia utente, si copia **Content
 
 ## <a name="reference"></a>Riferimenti
 
+### <a name="sample-templates"></a>Modelli di esempio
 È possibile trovare modelli di esempio per la personalizzazione dell'interfaccia utente qui:
 
 ```
@@ -174,6 +176,16 @@ La cartella sample_templates/wingtip contiene i file HTML seguenti:
 | *selfasserted.html* | Usare questo file come modello per una pagina di iscrizione all'account di social networking, una pagina di iscrizione dell'account locale o una pagina di accesso dell'account locale. |
 | *unified.html* | Usare questo file come modello per una pagina unificata per l'iscrizione o l'accesso. |
 | *updateprofile.html* | Usare questo file come modello per una pagina di aggiornamento del profilo. |
+
+Ecco i passaggi su come usare l'esempio. 
+1. Clonare il repository nel computer locale. Scegliere una cartella di modello in sample_templates. È possibile usare `wingtip` o `contoso`.
+2. Caricare tutti i file con il `css`, `fonts`, e `images` cartelle nell'archivio Blob come descritto nelle sezioni precedenti. 
+3. Successivamente, aprire ciascuna \*file con estensione HTML nella radice di uno `wingtip` oppure `contoso` (a seconda del valore selezionato nel primo passaggio) e sostituire tutte le istanze di "http://localhost" con gli URL dei file css, immagini e i tipi di carattere è stato caricato nel passaggio 2.
+4. Salvare il \*. HTML, file e caricarli in archiviazione Blob.
+5. A questo punto modificare il file delle estensioni come indicato in precedenza [modificare il file delle estensioni](#modify-the-extensions-file).
+6. Se viene visualizzato di tipi di carattere, immagini o css mancanti, verificare i riferimenti nei criteri di estensioni e \*file HTML.
+
+### <a name="content-defintion-ids"></a>ID della definizione del contenuto
 
 Nella sezione Modificare i criteri personalizzati di iscrizione o di accesso è stata configurata la definizione del contenuto per `api.idpselections`. Il set completo di ID di definizione del contenuto riconosciuti dal framework dell'esperienza di gestione delle identità di AD B2C e le relative descrizioni sono disponibili nella tabella seguente:
 

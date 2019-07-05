@@ -7,12 +7,12 @@ ms.service: cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 3dcce64d86574a3e898531b2e2587b81d04f098d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e75a6ffe28aa74ea2fad30bbe2728317712d86b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080778"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443487"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Rete CDN di Azure dalla funzionalità del motore regole di Verizon Premium
 
@@ -36,7 +36,7 @@ NOME | Scopo
 
 Queste funzionalità sono progettate per personalizzare come e quando il contenuto viene memorizzato nella cache.
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Bandwidth Parameters](#bandwidth-parameters) (Parametri larghezza di banda) | Determina se i parametri di limitazione della larghezza di banda, ad esempio ec_rate ed ec_prebuf, sono attivi.
 [Bandwidth Throttling](#bandwidth-throttling) (Limitazione larghezza di banda) | Limita la larghezza di banda per la risposta fornita dal POP (Point-Of-Presence).
@@ -66,7 +66,7 @@ Name | Scopo
 
 Questa funzionalità è progettata per fornire informazioni aggiuntive all'interno di una regola.
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Comment](#comment) | Consente di aggiungere una nota all'interno di una regola.
 
@@ -86,7 +86,7 @@ NOME | Scopo
 
 Queste funzionalità sono progettate per personalizzare i dati archiviati nei file di log non elaborati.
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Custom Log Field 1](#custom-log-field-1) (Campo 1 log personalizzato) | Determina il formato e il contenuto che vengono assegnati al campo di log personalizzato in un file di log non elaborato.
 [Log Query String](#log-query-string) (Stringa di query log) | Determina se una stringa di query viene archiviata insieme all'URL nei log di accesso.
@@ -140,7 +140,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 Queste funzionalità sono progettate per controllare in che modo la rete CDN comunica con un server di origine.
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Maximum Keep-Alive Requests](#maximum-keep-alive-requests) (Numero massimo di richieste Keep-Alive) | Definisce il numero massimo di richieste per una connessione Keep-Alive prima della chiusura.
 [Proxy Special Headers](#proxy-special-headers) (Intestazioni speciali proxy) | Definisce il set di intestazioni di richiesta specifiche della rete CDN che vengono inoltrate da un POP a un server di origine.
@@ -149,7 +149,7 @@ Name | Scopo
 
 Queste funzionalità offrono caratteristiche avanzate per gli utenti esperti.
 
-Name | Scopo
+NOME | Scopo
 -----|--------
 [Cacheable HTTP Methods](#cacheable-http-methods) (Metodi HTTP inseribili nella cache) | Determina il set di metodi HTTP aggiuntivi che possono essere memorizzati nella cache nella rete.
 [Cacheable Request Body Size](#cacheable-request-body-size) (Dimensioni corpo richiesta inseribile nella cache) | Definisce la soglia per determinare se una risposta POST può essere memorizzata nella cache.
@@ -456,7 +456,7 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 - Indirizzo IP client
 - Parametro cookie
 - Espressione regolare parametro cookie
-- Paese
+- Country
 - Dispositivo
 - Cname perimetrale di Microsoft
 - Dominio di riferimento
@@ -588,7 +588,7 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 - Indirizzo IP client
 - Parametro cookie
 - Espressione regolare parametro cookie
-- Paese
+- Country
 - Dispositivo
 - CNAME periferico
 - Dominio di riferimento
@@ -715,7 +715,7 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 - Indirizzo IP client
 - Parametro cookie
 - Espressione regolare parametro cookie
-- Paese
+- Country
 - Dispositivo
 - CNAME periferico
 - Dominio di riferimento
@@ -799,7 +799,7 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 - Indirizzo IP client
 - Parametro cookie
 - Espressione regolare parametro cookie
-- Paese
+- Country
 - Dispositivo
 - CNAME periferico
 - Dominio di riferimento
@@ -867,7 +867,7 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 - Indirizzo IP client
 - Parametro cookie
 - Espressione regolare parametro cookie
-- Paese
+- Country
 - Dispositivo
 - CNAME periferico
 - Dominio di riferimento
@@ -1128,7 +1128,7 @@ Questa funzionalità consente a un server di origine del cliente di trovare gli 
 
 Assicurarsi che il nome di intestazione specificato non coincida con nessuno dei nomi seguenti:
 
-- Nomi di intestazioni di richiesta standard. L'elenco dei nomi di intestazioni standard è disponibile in [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+- Nomi di intestazioni di richiesta standard. L'elenco dei nomi di intestazioni standard è disponibile in [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Nomi di intestazioni riservate:
     - forwarded-for
     - host

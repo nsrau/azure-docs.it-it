@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e75c6290474d876ca22b5888d06b1fc0e4c8cd05
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24b27c16573a35b1d8749d7ff381fbef970f4bd0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077316"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471652"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Eseguire attività del flusso di dati in Azure Data Factory
 Usare l'attività del flusso di dati execute per eseguire il flusso di dati di Azure Data factory in esecuzioni di pipeline debug (sandbox) e nelle esecuzioni di pipeline attivata.
@@ -80,11 +80,17 @@ Se si usa i set di dati con parametri, assicurarsi di impostare i valori dei par
 
 ![Eseguire i parametri del flusso di dati](media/data-flow/params.png "parametri")
 
-### <a name="debugging-parameterized-data-flows"></a>Debug dei flussi di dati con parametri
+## <a name="parameterized-data-flows"></a>Flussi di dati con parametri
 
-È possibile solo eseguire il debug di flussi di dati con set di dati con parametri di Debug di Pipeline di esecuzione usando l'attività flusso di dati execute. Le sessioni di debug interattivo nel flusso di dati di Azure Data factory attualmente non funzionano con i set di dati con parametri. Le esecuzioni di pipeline ed esecuzioni di debug funzionerà con i parametri.
+Se si dispongono di parametri all'interno del flusso di dati, si imposterà i valori dinamici di qui i parametri del flusso di dati nella sezione dei parametri dell'attività di esecuzione del flusso di dati. Per impostare i valori dei parametri con espressioni dinamiche o valori letterali statici, è possibile utilizzare il linguaggio delle espressioni della Pipeline di Azure Data Factory (solo per tipi di parametro stringa) o il linguaggio delle espressioni del flusso di dati.
 
-Una procedura consigliata consiste nel compilare il flusso di dati con un set di dati statici in modo da poter propagazione di colonna di metadati completi disponibile in fase di progettazione. Sostituire quindi il set di dati statico con un set di dati con parametri dinamici quando si rende operativo il pipeline di flusso di dati.
+![Eseguire l'esempio di parametro del flusso di dati](media/data-flow/parameter-example.png "esempio di parametro")
+
+### <a name="debugging-data-flows-with-parameters"></a>Debug di flussi di dati con parametri
+
+Al momento corrente è solo possibile eseguire il debug di flussi di dati con i parametri di Debug di Pipeline di esecuzione usando l'attività flusso di dati execute. Le sessioni di debug interattiva in Azure Data factory del flusso di dati sarà presto disponibile. Le esecuzioni di pipeline e le esecuzioni di debug, tuttavia, funzionerà con i parametri.
+
+Una procedura consigliata consiste nel compilare il flusso di dati con contenuto statico in modo da poter propagazione di colonna di metadati completi disponibile in fase di progettazione per la risoluzione dei problemi. Sostituire quindi il set di dati statico con un set di dati con parametri dinamici quando si rende operativo il pipeline di flusso di dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere altre attività del flusso di controllo supportate da Data Factory: 

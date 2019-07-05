@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: cf6874512557bc44efe978708c78e3d98db4110b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 2487cf928685423e4b60bb2923fc7e348eaff0c3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205469"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447981"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funzioni logiche nei modelli di Azure Resource Manager
 
@@ -31,11 +31,11 @@ Verifica se tutti i valori dei parametri sono true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Yes |boolean |Secondo valore da controllare per verificare se è true. |
-| argomenti aggiuntivi |No |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
+| Argomenti aggiuntivi |No |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -69,7 +69,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| Name | Type | Value |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -83,7 +83,7 @@ Converte il parametro in un valore booleano.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |stringa o numero intero |Valore da convertire in un valore booleano. |
 
@@ -137,7 +137,7 @@ Restituisce un valore in base a un condizione true o false.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | condition |Yes |boolean |Valore da controllare se è true o false. |
 | trueValue |Yes | string, int, object o array |Valore da restituire quando la condizione è true. |
@@ -182,15 +182,15 @@ L'output dell'esempio precedente è:
 
 | NOME | Type | Value |
 | ---- | ---- | ----- |
-| yesOutput | String | sì |
-| noOutput | String | no |
+| yesOutput | string | sì |
+| noOutput | string | no |
 | objectOutput | Object | { "test": "value1" } |
 
 Quanto segue [modello di esempio](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) viene illustrato come utilizzare questa funzione con le espressioni in modo condizionale solo validi.
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -242,7 +242,7 @@ Converte il valore booleano nel valore opposto.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |boolean |Valore da convertire. |
 
@@ -314,11 +314,11 @@ Verifica se uno qualsiasi dei valori dei parametri è true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Yes |boolean |Secondo valore da controllare per verificare se è true. |
-| argomenti aggiuntivi |No |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
+| Argomenti aggiuntivi |No |boolean |Argomenti aggiuntivi da controllare per verificare se sono true. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -352,7 +352,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| Name | Type | Value |
+| NOME | Type | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |

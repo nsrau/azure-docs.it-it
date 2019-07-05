@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 05/06/2019
-ms.openlocfilehash: 520dba611e6791fca990e21173424a914c3d8e14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: e9d1ce3bcd3bf958be0a7837e8416300af03f5a2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693342"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449741"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Scegliere tra i livelli di servizio vCore ed eseguire la migrazione dai livelli di servizio DTU
 
@@ -28,6 +28,8 @@ La memoria centrale virtuale (vCore)-modello di acquisto basato su consente di r
 
 L'hardware Gen4 offre molta più memoria per ogni vCore. L'hardware Gen5 consente tuttavia di aumentare molto di più le risorse di calcolo.
 
+> [!IMPORTANT]
+> I nuovi database Gen4 non sono più supportati nell'area AustraliaEast.
 > [!NOTE]
 > Per informazioni sui livelli di servizio basato su DTU, vedere [livelli per il modello di acquisto basato su DTU di servizio](sql-database-service-tiers-dtu.md). Per informazioni sulle differenze tra i livelli di servizio per il basato su DTU e i modelli di acquisto basato su vCore, vedere [Database SQL di Azure i modelli di acquisto](sql-database-purchase-models.md).
 

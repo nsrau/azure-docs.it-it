@@ -2,28 +2,21 @@
 title: Richiedono criteri di protezione delle app per accedere all'app cloud con accesso condizionale in Azure Active Directory | Microsoft Docs
 description: Informazioni su come richiedere i criteri di protezione delle app per accedere all'app cloud con accesso condizionale in Azure Active Directory.
 services: active-directory
-keywords: Accesso condizionale alle App, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, i criteri di accesso condizionale
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 4/4/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51d209eceec2c7172cf34dc689079e669760149e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e2e43f13352c56f947f5e560049ab0acf871599
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112733"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509463"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Richiedono criteri di protezione delle app per accedere all'app cloud con l'accesso condizionale (anteprima)
 
@@ -55,7 +48,6 @@ Simile alla conformità che viene segnalata da Intune per iOS e Android per i di
 - Utenti che non possono ricevere criteri di protezione app di Intune.
 - Intune app protection App criteri che non sono configurate per la ricezione di un criterio.
 
-
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Questo articolo presuppone che l'utente abbia familiarità con gli argomento seguenti:
@@ -64,7 +56,6 @@ Questo articolo presuppone che l'utente abbia familiarità con gli argomento seg
 - La guida tecnica per il [requisito delle app client approvate](technical-reference.md#approved-client-app-requirement).
 - Concetti di base della [accesso condizionale in Azure Active Directory](overview.md).
 - Saper [configurare un criterio di accesso condizionale](app-based-mfa.md).
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -87,7 +78,7 @@ Questo scenario presuppone che un utente:
 - Riceve un messaggio di posta elettronica che indica che l'accesso è disponibile solo tramite l'app Outlook.
 - Scarica l'applicazione con il collegamento.
 - Apre l'applicazione di Outlook e accede con credenziali di Azure AD.
-- Viene richiesto di installare Microsoft Authenticator per l'uso di iOS o il portale aziendale di Intune per Android usano continuare.
+- Viene chiesto di installare il **app Microsoft Authenticator** o nella **portale aziendale di Intune** per continuare.
 - Installa l'applicazione e restituisce all'app Outlook per continuare.
 - Viene richiesto di registrare un dispositivo.
 - Può ricevere criteri di protezione app di Intune.
@@ -104,27 +95,23 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 ![Accesso condizionale](./media/app-protection-based-conditional-access/01.png)
 
 1. Immettere il nome del criterio di accesso condizionale.
+1. Sotto **assegnazioni**, nel **utenti e gruppi**, selezionare almeno un utente o il gruppo per ogni criterio di accesso condizionale.
+1. Nelle **le app Cloud**, selezionare **Office 365 Exchange Online**.
 
-2. Sotto **assegnazioni**, nel **utenti e gruppi**, selezionare almeno un utente o il gruppo per ogni criterio di accesso condizionale.
+   ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
 
-3. Nelle **le app Cloud**, selezionare **Office 365 Exchange Online**.
+1. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)** :
+   1. Nelle **piattaforme del dispositivo**, selezionare **Android** e **iOS**.
 
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/03.png)
 
-4. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)** :
+   1. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
 
-    a. Nelle **piattaforme del dispositivo**, selezionare **Android** e **iOS**.
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/91.png)
 
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/03.png)
+1. Sotto **controlli di accesso**, selezionare **richiedono criteri di protezione delle app (anteprima)** .
 
-    b. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
-
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/91.png)
-
-5. Sotto **controlli di accesso**, selezionare **richiedono criteri di protezione delle app (anteprima)** .
-
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/05.png)
- 
+   ![Accesso condizionale](./media/app-protection-based-conditional-access/05.png)
 
 **Passaggio 2: Configurare un criterio di accesso condizionale di Azure AD per Exchange Online con ActiveSync (EAS)**
 
@@ -133,38 +120,30 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 ![Accesso condizionale](./media/app-protection-based-conditional-access/06.png)
 
 1. Immettere il nome del criterio di accesso condizionale.
+1. Sotto **assegnazioni**, nel **utenti e gruppi**, selezionare almeno un utente o il gruppo per ogni criterio di accesso condizionale.
+1. Nelle **le app Cloud**, selezionare **Office 365 Exchange Online**.
 
-2. Sotto **assegnazioni**, nel **utenti e gruppi**, selezionare almeno un utente o il gruppo per ogni criterio di accesso condizionale.
+   ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
 
+1. Nelle **condizioni**, configurare **App Client (anteprima)** . 
 
-3. Nelle **le app Cloud**, selezionare **Office 365 Exchange Online**.
+   1. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client Exchange ActiveSync**.
 
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/92.png)
 
-4. Nelle **condizioni**, configurare **App Client (anteprima)** . 
+   1. Sotto **controlli di accesso**, selezionare **richiedono criteri di protezione delle app (anteprima)** .
 
-    a. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client Exchange ActiveSync**.
-
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/92.png)
-
-    b. Sotto **controlli di accesso**, selezionare **richiedono criteri di protezione delle app (anteprima)** .
-
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/05.png)
-
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/05.png)
 
 **Passaggio 3: Configurare criteri di protezione app di Intune per le applicazioni client per Android e iOS**
-
 
 ![Accesso condizionale](./media/app-protection-based-conditional-access/09.png)
 
 Per altre informazioni, vedere [proteggere App e dati con Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
-
-
 ## <a name="app-protection-based-or-compliant-device-policy-for-exchange-online"></a>Criteri di dispositivi conformi o basato su protezione delle App per Exchange Online
 
 Questo scenario è costituito da un'app basata su protezione dispositivi conformi o criteri di accesso condizionale per l'accesso a Exchange Online.
-
 
 ### <a name="scenario-playbook"></a>Istruzioni dello scenario
 
@@ -177,7 +156,6 @@ Questo scenario presuppone che:
 - L'utente può accedere alla posta elettronica con un criterio di protezione app di Intune e Outlook se non è registrato.
 - Se il dispositivo è registrato, l'utente può accedere tramite posta elettronica con Outlook.
 
-
 ### <a name="configuration"></a>Configurazione
 
 **Passaggio 1: Configurare un criterio di accesso condizionale di Azure AD per Exchange Online**
@@ -187,34 +165,27 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 ![Accesso condizionale](./media/app-protection-based-conditional-access/62.png)
 
 1. Immettere il nome del criterio di accesso condizionale.
+1. Sotto **assegnazioni**, nel **utenti e gruppi**, selezionare almeno un utente o il gruppo per ogni criterio di accesso condizionale.
+1. Nelle **le app Cloud**, selezionare **Office 365 Exchange Online**. 
 
-2. Sotto **assegnazioni**, nel **utenti e gruppi**, selezionare almeno un utente o il gruppo per ogni criterio di accesso condizionale.
+   ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
 
-3. Nelle **le app Cloud**, selezionare **Office 365 Exchange Online**. 
-
-     ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
-
-4. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)** . 
+1. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)** . 
  
-    a. Nelle **piattaforme del dispositivo**, selezionare **Android** e **iOS**.
+   1. Nelle **piattaforme del dispositivo**, selezionare **Android** e **iOS**.
 
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/03.png)
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/03.png)
 
-    b. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
+   1. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
 
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/91.png)
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/91.png)
 
 5. Sotto **controlli di accesso**, selezionare le opzioni seguenti:
-
    - **Richiedi che i dispositivi siano contrassegnati come conformi**
-
    - **Richiedono criteri di protezione delle app (anteprima)**
-
    - **Richiedi uno dei controlli selezionati**   
  
-     ![Accesso condizionale](./media/app-protection-based-conditional-access/11.png)
-
-
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/11.png)
 
 **Passaggio 2: Configurare un criterio di accesso condizionale di Azure AD per Exchange Online con ActiveSync**
 
@@ -223,62 +194,48 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 ![Accesso condizionale](./media/app-protection-based-conditional-access/06.png)
 
 1. Immettere il nome del criterio di accesso condizionale.
+1. Sotto **assegnazioni**, nel **utenti e gruppi**, selezionare almeno un utente o il gruppo per ogni criterio di accesso condizionale.
+1. Nelle **le app Cloud**, selezionare **Office 365 Exchange Online**. 
 
-2. Sotto **assegnazioni**, nel **utenti e gruppi**, selezionare almeno un utente o il gruppo per ogni criterio di accesso condizionale.
+   ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
 
-3. Nelle **le app Cloud**, selezionare **Office 365 Exchange Online**. 
+1. Nelle **condizioni**, configurare **App Client (anteprima)** . 
 
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
+   Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client Exchange ActiveSync**.
 
-4. Nelle **condizioni**, configurare **App Client (anteprima)** . 
+   ![Accesso condizionale](./media/app-protection-based-conditional-access/92.png)
 
-    Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client Exchange ActiveSync**.
-
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/92.png)
-
-5. Sotto **controlli di accesso**, selezionare le opzioni seguenti:
-
+1. Sotto **controlli di accesso**, selezionare le opzioni seguenti:
    - **Richiedi che i dispositivi siano contrassegnati come conformi**
-
    - **Richiedono criteri di protezione delle app (anteprima)**
-
    - **Richiedi uno dei controlli selezionati**
 
-     ![Accesso condizionale](./media/app-protection-based-conditional-access/11.png)
-
-
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/11.png)
 
 **Passaggio 3: Configurare criteri di protezione app di Intune per le applicazioni client per Android e iOS**
-
 
 ![Accesso condizionale](./media/app-protection-based-conditional-access/09.png)
 
 Per altre informazioni, vedere [proteggere App e dati con Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
-
-
-
-
 ## <a name="app-protection-based-and-compliant-device-policy-for-exchange-online"></a>Criteri di dispositivi conformi e basato su protezione delle App per Exchange Online
 
 Questo scenario è costituito da un dispositivo di protezione dal basato su app e conforme a criteri di accesso condizionale per l'accesso a Exchange Online.
-
 
 ### <a name="scenario-playbook"></a>Istruzioni dello scenario
 
 Questo scenario presuppone che un utente:
  
--   Configura indirizzo di posta elettronica usando un'applicazione di posta elettronica nativa in iOS o Android per la connessione a Exchange.
--   Riceve un messaggio di posta elettronica che indica che l'accesso richiede che il dispositivo sia registrato.
--   Scarica portale aziendale di Intune e accede al portale.
--   Verifica di posta elettronica e viene richiesto di usare l'app Outlook.
--   Scarica l'app Outlook.
--   Apre l'app Outlook e immetta le credenziali usate nell'ambito della registrazione.
--   Può ricevere criteri di protezione app di Intune.
--   Può accedere alla posta elettronica con Outlook e criteri di protezione app di Intune.
+- Configura indirizzo di posta elettronica usando un'applicazione di posta elettronica nativa in iOS o Android per la connessione a Exchange.
+- Riceve un messaggio di posta elettronica che indica che l'accesso richiede che il dispositivo sia registrato.
+- Scarica portale aziendale di Intune e accede al portale.
+- Verifica di posta elettronica e viene richiesto di usare l'app Outlook.
+- Scarica l'app Outlook.
+- Apre l'app Outlook e immetta le credenziali usate nell'ambito della registrazione.
+- Può ricevere criteri di protezione app di Intune.
+- Può accedere alla posta elettronica con Outlook e criteri di protezione app di Intune.
 
 Eventuali criteri di protezione app di Intune vengono attivati prima di concessa l'accesso ai dati aziendali. I criteri potrebbero richiedere all'utente di riavviare l'applicazione o usare un PIN aggiuntivo. Ciò avviene se i criteri sono configurati per l'applicazione e piattaforma.
-
 
 ### <a name="configuration"></a>Configurazione
 
@@ -289,34 +246,26 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 ![Accesso condizionale](./media/app-protection-based-conditional-access/01.png)
 
 1. Immettere il nome del criterio di accesso condizionale.
+1. Sotto **assegnazioni**, nel **utenti e gruppi**, selezionare almeno un utente o il gruppo per ogni criterio di accesso condizionale.
+1. Nelle **le app Cloud**, selezionare **Office 365 Exchange Online**. 
 
-2. Sotto **assegnazioni**, nel **utenti e gruppi**, selezionare almeno un utente o il gruppo per ogni criterio di accesso condizionale.
+   ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
 
-3. Nelle **le app Cloud**, selezionare **Office 365 Exchange Online**. 
+1. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)** . 
+   1. Nelle **piattaforme del dispositivo**, selezionare **Android** e **iOS**.
 
-     ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/03.png)
 
-4. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)** . 
- 
-    a. Nelle **piattaforme del dispositivo**, selezionare **Android** e **iOS**.
+   1. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
 
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/03.png)
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/91.png)
 
-    b. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
-
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/91.png)
-
-5. Sotto **controlli di accesso**, selezionare le opzioni seguenti:
-
+1. Sotto **controlli di accesso**, selezionare le opzioni seguenti:
    - **Richiedi che i dispositivi siano contrassegnati come conformi**
-
    - **Richiedono criteri di protezione delle app (anteprima)**
-
    - **Richiedi tutti i controlli selezionati**   
  
-     ![Accesso condizionale](./media/app-protection-based-conditional-access/13.png)
-
-
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/13.png)
 
 **Passaggio 2: Configurare un criterio di accesso condizionale di Azure AD per Exchange Online con ActiveSync**
 
@@ -325,44 +274,33 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 ![Accesso condizionale](./media/app-protection-based-conditional-access/06.png)
 
 1. Immettere il nome del criterio di accesso condizionale.
+1. Sotto **assegnazioni**, nel **utenti e gruppi**, selezionare almeno un utente o il gruppo per ogni criterio di accesso condizionale.
+1. Nelle **le app Cloud**, selezionare **Office 365 Exchange Online**. 
 
-2. Sotto **assegnazioni**, nel **utenti e gruppi**, selezionare almeno un utente o il gruppo per ogni criterio di accesso condizionale.
+   ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
 
-3. Nelle **le app Cloud**, selezionare **Office 365 Exchange Online**. 
+1. Nelle **condizioni**, configurare **App Client (anteprima)** . 
 
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/07.png)
+   Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client Exchange ActiveSync**.
 
-4. Nelle **condizioni**, configurare **App Client (anteprima)** . 
+   ![Accesso condizionale](./media/app-protection-based-conditional-access/92.png)
 
-    Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client Exchange ActiveSync**.
-
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/92.png)
-
-5. Sotto **controlli di accesso**, selezionare le opzioni seguenti:
-
+1. Sotto **controlli di accesso**, selezionare le opzioni seguenti:
    - **Richiedi che i dispositivi siano contrassegnati come conformi**
-
    - **Richiedono criteri di protezione delle app (anteprima)**
-
    - **Richiedi tutti i controlli selezionati**   
  
-     ![Accesso condizionale](./media/app-protection-based-conditional-access/13.png)
-
-
-
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/13.png)
 
 **Passaggio 3: Configurare criteri di protezione app di Intune per le applicazioni client per Android e iOS**
-
 
 ![Accesso condizionale](./media/app-protection-based-conditional-access/09.png)
 
 Per altre informazioni, vedere [proteggere App e dati con Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
-
 ## <a name="app-protection-based-or-app-based-policy-for-exchange-online-and-sharepoint-online"></a>Criteri basato su app o la protezione delle App per Exchange Online e SharePoint Online
 
 Questo scenario è costituito da un criterio di App approvate o basata su protezione app per l'accesso a Exchange Online e SharePoint Online.
-
 
 ### <a name="scenario-playbook"></a>Istruzioni dello scenario
 
@@ -396,45 +334,34 @@ Per i criteri di accesso condizionale in questo passaggio, configurare i compone
 ![Accesso condizionale](./media/app-protection-based-conditional-access/62.png)
 
 1. Immettere il nome del criterio di accesso condizionale.
+1. Sotto **assegnazioni**, nel **utenti e gruppi**, selezionare almeno un utente o il gruppo per ogni criterio di accesso condizionale.
+1. Nelle **le app Cloud**, selezionare **Office 365 Exchange Online**. 
 
-2. Sotto **assegnazioni**, nel **utenti e gruppi**, selezionare almeno un utente o il gruppo per ogni criterio di accesso condizionale.
+   ![Accesso condizionale](./media/app-protection-based-conditional-access/02.png)
 
-3. Nelle **le app Cloud**, selezionare **Office 365 Exchange Online**. 
+1. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)** . 
+   1. Nelle **piattaforme del dispositivo**, selezionare **Android** e **iOS**.
 
-     ![Accesso condizionale](./media/app-protection-based-conditional-access/02.png)
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/03.png)
 
-4. Nelle **condizioni**, configurare **piattaforme del dispositivo** e **Client App (anteprima)** . 
- 
-    a. Nelle **piattaforme del dispositivo**, selezionare **Android** e **iOS**.
+   1. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
 
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/03.png)
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/91.png)
 
-    b. Nelle **App Client (anteprima)** , selezionare **App per dispositivi mobili e client desktop** e **client con autenticazione moderna**.
-
-    ![Accesso condizionale](./media/app-protection-based-conditional-access/91.png)
-
-5. Sotto **controlli di accesso**, selezionare le opzioni seguenti:
-
+1. Sotto **controlli di accesso**, selezionare le opzioni seguenti:
    - **Richiedi app client approvata**
-
    - **Richiedono criteri di protezione delle app (anteprima)**
-
    - **Richiedi uno dei controlli selezionati**
  
-     ![Accesso condizionale](./media/app-protection-based-conditional-access/12.png)
-
+      ![Accesso condizionale](./media/app-protection-based-conditional-access/12.png)
 
 **Passaggio 2: Configurare criteri di protezione app di Intune per le applicazioni client per Android e iOS**
-
 
 ![Accesso condizionale](./media/app-protection-based-conditional-access/09.png)
 
 Per altre informazioni, vedere [proteggere App e dati con Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
-
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Se si desidera sapere come configurare un criterio di accesso condizionale, vedere [Richiedi autenticazione a più fattori per App specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md).
-- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente, vedere [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md). 
+- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente, vedere [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md).

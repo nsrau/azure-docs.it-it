@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: a92017c462ef62cbfb1aa6c2613a502d1cc5ffc6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5f60a2786a87f4bd9be1f4a9e2a7a222e097b2e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340733"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448069"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Piani tariffari in Database di Azure per PostgreSQL - Server singolo
 
@@ -64,16 +64,16 @@ I limiti di archiviazione attualmente stiamo aumentando i livelli di utilizzo ge
 | Tipo di archiviazione | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
 | Dimensioni della risorsa di archiviazione | 32 GB a 16 TB| da 32 a 16 TB |
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB |
-| IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Numero massimo di 20.000 IOPS| 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Numero massimo di 20.000 IOPS |
+| IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Numero massimo di 20.000 IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Numero massimo di 20.000 IOPS |
 
 > [!IMPORTANT]
-> Archiviazione di grandi dimensioni è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Europa settentrionale, Europa occidentale, Asia sud-orientale, Giappone orientale, Corea centrale, Australia orientale.
+> Archiviazione di grandi dimensioni è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sud-orientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia orientale, Australia sud-est.
 >
->L'anteprima di archiviazione di grandi dimensioni attualmente non supporta:
+> L'anteprima di archiviazione di grandi dimensioni attualmente non supporta:
 >
 > * Connessioni in ingresso tramite gli endpoint di servizio di rete virtuale
 > * Backup con ridondanza geografica
-> * Cross replica tra aree
+> * Repliche in lettura
 
 ### <a name="reaching-the-storage-limit"></a>Raggiungimento del limite di archiviazione
 

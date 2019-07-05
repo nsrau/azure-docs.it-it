@@ -4,7 +4,7 @@ description: Informazioni su come usare trigger timer in Funzioni di Azure.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: db80155b39602ad5810c83e03913fb0f3ccb4281
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1a26950f355fd10d9dd502851886a8b8101d4a83
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342223"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508300"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
@@ -269,12 +269,7 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 |Set di valori (operatore `,`)|<nobr>"5,8,10 * * * * *"</nobr>|Alle hh.mm.05, hh.mm.08 e hh.mm.10, dove hh.mm è ogni minuto di ogni ora (3 volte al minuto)|
 |Valore di intervallo (operatore `/`)|<nobr>"0 */5 * * * *"</nobr>|Alle hh.05.00, hh.10.00, hh.15.00 e così via fino alle hh.55.00, dove hh è ogni ora (12 volte all'ora)|
 
-Per specificare mesi o giorni è possibile usare valori numerici, nomi o abbreviazioni di nomi:
-
-* Per i giorni, i valori numerici vanno da 0 a 6 in cui 0 corrisponde alla domenica.
-* I nomi sono in inglese. Ad esempio: `Monday`, `January`.
-* Per i nomi viene fatta distinzione tra maiuscole e minuscole.
-* I nomi possono essere abbreviati. La lunghezza consigliata per le abbreviazioni è tre lettere.  Ad esempio: `Mon`, `Jan`. 
+[!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
 ### <a name="cron-examples"></a>Esempi CRON
 

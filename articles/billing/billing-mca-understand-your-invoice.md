@@ -1,43 +1,40 @@
 ---
-title: Comprendere la fattura di Microsoft dal cliente contratto | Microsoft Docs
-description: Informazioni su come leggere e comprendere la fattura MCA
-services: ''
-documentationcenter: ''
-author: jureid
+title: Comprendere la fattura di contratto di Microsoft dal cliente in Azure
+description: Informazioni su come leggere e comprendere la fattura di contratto di Microsoft dal cliente in Azure
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fed658d3f672d6116d7c2b0f3e2e9ad989dd67c6
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604045"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490645"
 ---
-# <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Comprendere i termini sulla fattura di contratto di Microsoft dal cliente
+# <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termini nella fattura di contratto di Microsoft dal cliente
 
-Questo articolo si applica a un account di fatturazione per un contratto di clienti Microsoft. [Controllare se si ha accesso a un contratto di Microsoft dal cliente](#check-access-to-a-microsoft-customer-agreement).
+Questo articolo si applica a un account di fatturazione di Azure per un contratto di clienti Microsoft. [Controllare se si ha accesso a un contratto di Microsoft dal cliente](#check-access-to-a-microsoft-customer-agreement).
 
 La fattura viene fornito un riepilogo dei costi e le istruzioni per il pagamento. È disponibile per il download in formato PDF (Portable Document Format) dal [Portale di Azure](https://portal.azure.com/). In alternativa, è possibile riceverla tramite posta elettronica. Per altre informazioni, vedere [visualizzazione e download della fattura di Microsoft Azure](billing-download-azure-invoice.md).
 
-<!-- ## When am I billed?
+## <a name="billing-period"></a>Periodo di fatturazione
 
-You are invoiced on a monthly basis. You can find out which day of the month you receive invoices by checking *invoice date* under billing profile properties in the [Azure portal](https://portal.azure.com/). Charges that occur between the end of the billing period and the invoice date are included in the next month's invoice, since they are in the next billing period. The billing period start and end dates for each invoice are listed in the invoice PDF above **Billing Summary**. -->
+Sono fatturate su base mensile. È possibile scoprire in quale giorno del mese si ricevono fatture controllando *data fattura* in proprietà del profilo di fatturazione le [portale di Azure](https://portal.azure.com/). Gli addebiti che si verificano tra la fine del periodo di fatturazione e la data di fatturazione sono incluse nella fattura del mese successivo, poiché sono nel periodo di fatturazione successivo. Le date di inizio e di fine periodiche fatturazione per ogni fattura sono elencate nella fattura precedente PDF **riepilogo di fatturazione**.
 
 ## <a name="invoice-terms-and-descriptions"></a>Condizioni della fattura e descrizioni
 
-Le sezioni seguenti elencano i termini importanti che presenti sulle fatture e le descrizioni per ogni termine.
+Termini importanti elenco le sezioni seguenti forniscono le descrizioni per ogni periodo di validità e vedere nella fattura.
 
 ### <a name="invoice-summary"></a>Riepilogo della fattura
 
-Il **riepilogo della fattura** nella parte superiore della prima pagina e contiene informazioni sul profilo di fatturazione e il metodo di pagamento.
+Il **riepilogo della fattura** si trovi all'inizio della prima pagina e contiene informazioni sul profilo di fatturazione e il metodo di pagamento.
 
 ![Sezione di riepilogo della fattura](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
@@ -78,7 +75,6 @@ I dettagli mostrano il costo per ogni sezione della fattura suddivisi in base al
 
 Importo totale dovuto per ogni gruppo di servizio viene calcolato sottraendo *crediti di Azure* dalla *crediti o addebiti* e l'aggiunta *Tax*:
 
-<!-- `Total = Charges/Credits - Azure Credit + Tax` -->
 
 ![Dettagli in base alla sezione della fattura](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
@@ -103,9 +99,9 @@ Se si dispone di servizi di terze parti nella fattura, il nome e l'indirizzo di 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un contratto di Microsoft dal cliente
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

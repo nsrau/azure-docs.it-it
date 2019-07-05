@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b3a6a18d10b9d9f6ab6456ae2911e54f5c56a71
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827764"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544093"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -138,7 +138,7 @@ Se si sceglie di scrivere i log di controllo su Hub eventi:
 
 Se si sceglie di scrivere i log di controllo in un account di archiviazione di Azure, esistono diversi metodi che è possibile usare per visualizzare i log:
 
-- I log di controllo vengono aggregati nell'account selezionato durante la configurazione. È possibile esplorare i log di controllo con uno strumento come [Azure Storage Explorer](https://storageexplorer.com/). Nell'archiviazione di Azure, i log del controllo vengono salvati come raccolta di file BLOB in un contenitore denominato **sqldbauditlogs**. Per altri dettagli sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e il formato dei log, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
+- I log di controllo vengono aggregati nell'account selezionato durante la configurazione. È possibile esplorare i log di controllo con uno strumento come [Azure Storage Explorer](https://storageexplorer.com/). Nell'archiviazione di Azure, i log del controllo vengono salvati come raccolta di file BLOB in un contenitore denominato **sqldbauditlogs**. Per altri dettagli sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e formato dei log, vedere la [formato di Log di controllo del Database SQL](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Usare il [portale di Azure](https://portal.azure.com).  Aprire il database corrispondente. Nella parte superiore della pagina **Controllo** del database fare clic su **Visualizza log di controllo**.
 
@@ -233,10 +233,12 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 **Cmdlet PowerShell (incluso il supporto della clausola WHERE per altri filtri)** :
 
-- [Crea o aggiorna i criteri (Set-AzSqlDatabaseAuditing) controllo del Database](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [Crea o aggiorna i criteri di controllo del Server (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
-- [Ottenere i criteri di controllo del database (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Ottenere il controllo dei criteri (Get-AzSqlServerAuditing) Server](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [Crea o aggiorna i criteri (Set-AzSqlDatabaseAudit) controllo del Database](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseaudit)
+- [Crea o aggiorna i criteri di controllo del Server (Set-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit)
+- [Ottenere (Get-AzSqlDatabaseAudit) dei criteri di controllo Database](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseaudit)
+- [Ottenere il controllo dei criteri (Get-AzSqlServerAudit) Server](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveraudit)
+- [Rimuovere (Remove-AzSqlDatabaseAudit) dei criteri di controllo Database](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseaudit)
+- [Rimuovere il criterio di controllo di Server (Remove-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserveraudit)
 
 Per un esempio di script, vedere [Configurare il controllo del database SQL e il rilevamento delle minacce usando PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 

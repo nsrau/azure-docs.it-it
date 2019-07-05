@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5e2f7b52ca3cb8a4d472b353e844bdad3aa1b0c1
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 91ec65e17b77ccb3864fce45e30729ff420a48b6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150475"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542664"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
 
@@ -34,15 +34,17 @@ La risorsa padre per una condivisione file di Azure è un account di archiviazio
 
 ## <a name="azure-files-scale-targets"></a>Obiettivi di scalabilità di File di Azure
 
-### <a name="premium-scale-targets"></a>Obiettivi di scalabilità di Premium
+Esistono tre categorie di limitazioni da considerare per i file di Azure: account di archiviazione, condivisioni e file.
 
-Esistono tre categorie di limitazioni da considerare per le condivisioni file premium: gli account di archiviazione, condivisioni e file.
+Ad esempio: Con le condivisioni file premium, una singola condivisione può raggiungere 100.000 IOPS e un singolo file possono aumentare fino a 5.000 IOPS. Pertanto, se si dispone di tre file in una condivisione, il numero massimo di IOPS è possibile ottenere da tale condivisione è 15.000.
 
-Ad esempio:  Una singola condivisione può raggiungere 100.000 IOPS e un singolo file possono aumentare fino a 5.000 IOPS. Quindi, ad esempio, se si dispone di tre file in una condivisione, il numero massimo di IOPS è possibile ottenere da tale condivisione è 15.000.
+### <a name="standard-storage-account-limits"></a>Limiti dell'account di archiviazione standard
+
+Vedere le [obiettivi di scalabilità di account di archiviazione di Azure](#azure-storage-account-scale-targets) sezione per questi limiti.
 
 ### <a name="premium-filestorage-account-limits"></a>Limiti dell'account FileStorage Premium
 
-Vengono effettuato il provisioning di condivisioni file Premium in un account di archiviazione speciale **filestorage (anteprima)** . Questo account dispone di obiettivi di scalabilità leggermente diverso rispetto all'account di archiviazione usato per le condivisioni di file standard. Per obiettivi di scalabilità di account di archiviazione, fare riferimento alla tabella il [obiettivi di scalabilità di account di archiviazione di Azure](#azure-storage-account-scale-targets) sezione.
+[!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
 > Limiti dell'account di archiviazione si applicano a tutte le condivisioni. Scalabilità per il numero massimo per gli account FileStorage solo è realizzabile se è presente solo una condivisione per ogni account FileStorage.

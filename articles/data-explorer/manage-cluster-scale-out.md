@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: 882f44683bbdc7f4eb49ff4912ca7a33187afbf8
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758665"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537903"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gestire l'aumento del numero di istanze di un cluster per rispondere al cambiamento della domanda
 
@@ -76,10 +76,10 @@ La figura seguente mostra il flusso dei passaggi successivi. Altri dettagli segu
 
 È stata configurata un'operazione per aumentare il numero di istanze del cluster di Esplora dati di Azure. Aggiungere un'altra regola per configurare un'operazione per ridurne il numero. Questa configurazione consente il cluster per la scalabilità dinamicamente in base alle metriche che preferisci.
 
-È anche possibile [gestire i cluster aumento](manage-cluster-scale-up.md) per il ridimensionamento appropriato di un cluster.
-
 Se occorre assistenza per problemi di ridimensionamento del cluster [aprire una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) nel portale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Monitorare le prestazioni, integrità e sull'utilizzo con le metriche di Esplora dati di Azure](using-metrics.md)
+* [Monitorare le prestazioni, integrità e sull'utilizzo con le metriche di Esplora dati di Azure](using-metrics.md)
+
+* [Gestire cluster aumento](manage-cluster-scale-up.md) per il ridimensionamento appropriato di un cluster.

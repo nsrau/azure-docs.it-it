@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 2b6adcf4231aa44a4f28d277e963efa16de8af81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afc0bb990f69521efb2557a6a086c0de5126f82c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399337"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440424"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Comprendere e risolvere i problemi di Azure Active Directory Application Proxy CORS
 
-[Cross-origin resource sharing (CORS)](http://www.w3.org/TR/cors/) può talvolta costituire un problema per le App e le API pubblicata tramite il Proxy di applicazione Azure Active Directory. Questo articolo illustra i problemi di Azure AD Application Proxy CORS e le soluzioni.
+[Cross-origin resource sharing (CORS)](https://www.w3.org/TR/cors/) può talvolta costituire un problema per le App e le API pubblicata tramite il Proxy di applicazione Azure Active Directory. Questo articolo illustra i problemi di Azure AD Application Proxy CORS e le soluzioni.
 
 Protezione del browser impedisce in genere una pagina web di creare richieste AJAX a un altro dominio. Questa restrizione viene chiamata il *criterio della stessa origine*e impedisce a un sito dannoso di leggere dati sensibili da un altro sito. Tuttavia, in alcuni casi si potrebbe voler consentire ad altri siti di chiamare l'API web. CORS è uno standard W3C che consente a un server di ridurre i criteri di corrispondenza dell'origine e consentire alcune richieste multiorigine e rifiutarne altre.
 

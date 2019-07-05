@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e55bf4a66dcd8c1c7cfbc881d6f93c3a12f5dc00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112309"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560930"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Criterio di base: Autenticazione legacy di blocco (anteprima)
 
@@ -28,8 +28,6 @@ Per consentire agli utenti di accedere facilmente alle app cloud, Azure Active D
 Oggi, maggior parte di tutti i compromessi in termini tentativi di accesso provengono dall'autenticazione legacy. L'autenticazione legacy non supporta l'autenticazione a più fattori (MFA). Anche se si dispone di un criterio di autenticazione a più fattori abilitato nella directory, un attore malintenzionato potrebbe può eseguire l'autenticazione usando un protocollo legacy e ignorare l'autenticazione a più fattori.
 
 Il modo migliore per proteggere l'account da richieste di autenticazione dannoso eseguite dai protocolli legacy è bloccare questi tentativi tutti insieme. Per renderne più semplice per impedire tutte le richieste di accesso inviate dai protocolli legacy a, viene creato un criterio di base che esegue questa operazione.
-
-![Autenticazione legacy di blocco con accesso condizionale](./media/howto-baseline-protect-legacy-auth/baseline-policy-block-legacy-authentication.png)
 
 **L'autenticazione legacy di blocco** viene [criterio di base](concept-baseline-protection.md) che blocca tutte le richieste di autenticazione eseguite dai protocolli legacy. L'autenticazione moderna deve essere usato per accedere correttamente per tutti gli utenti. Usato in combinazione con altri criteri di base, tutte le richieste provenienti da protocolli legacy verranno bloccate e tutti gli utenti verrà richiesto di autenticazione a più fattori ogni volta che necessarie. Questo criterio non blocca Exchange ActiveSync.
 
@@ -111,7 +109,6 @@ Per abilitare questo criterio e proteggere l'organizzazione:
 1. Passare a **Azure Active Directory** > **accesso condizionale**.
 1. Nell'elenco dei criteri, selezionare **criterio di base: L'autenticazione legacy di blocco (anteprima)** .
 1. Impostare **abilitare i criteri** al **Usa i criteri immediatamente**.
-1. Aggiungere eventuali esclusioni utente facendo clic su **gli utenti** > **selezionare gli utenti esclusi** e scegliendo gli utenti che devono essere escluse. Fare clic su **selezionate** quindi **eseguita**.
 1. Fare clic su **salvare**.
 
 ## <a name="next-steps"></a>Passaggi successivi

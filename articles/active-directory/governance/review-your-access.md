@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b38422b22885ad96c6681abe58b897155809521
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22f12255bf14ca424a8a79107e7ca8e403552b62
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113194"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471735"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Verifica di accesso personali a gruppi o applicazioni in Azure AD le verifiche di accesso
 
@@ -40,7 +40,7 @@ Il primo passaggio per eseguire una verifica di accesso è per trovare e aprire 
 
 1. Cercare un messaggio di posta elettronica da Microsoft in cui viene chiesto di verificare l'accesso. Di seguito è riportato un messaggio di esempio per verificare l'accesso a un gruppo.
 
-    ![Messaggio di posta elettronica di verifica di accesso](./media/review-your-access/access-review-email.png)
+    ![Posta elettronica di esempio da Microsoft per verificare l'accesso a un gruppo](./media/review-your-access/access-review-email.png)
 
 1. Scegliere il **verificare l'accesso** collegamento per aprire la verifica di accesso.
 
@@ -48,7 +48,7 @@ Se non si ha l'indirizzo di posta elettronica, è possibile trovare che l'access
 
 1. Accedere al portale di MyApps all'indirizzo [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-    ![Portale MyApps](./media/review-your-access/myapps-access-panel.png)
+    ![Elencati si dispone delle autorizzazioni per le app nel portale MyApps](./media/review-your-access/myapps-access-panel.png)
 
 1. Fare clic sul simbolo utente nell'angolo superiore destro della pagina, che indica il proprio nome e l'organizzazione predefinita. Se sono elencate più organizzazioni, selezionare l'organizzazione che ha richiesto una verifica di accesso.
 
@@ -56,7 +56,7 @@ Se non si ha l'indirizzo di posta elettronica, è possibile trovare che l'access
 
     Se il riquadro non è visibile, non esistono verifiche di accesso da eseguire per tale organizzazione e al momento non è necessaria alcuna azione.
 
-    ![Elenco delle verifiche di accesso](./media/review-your-access/access-reviews-list.png)
+    ![Elenco di verifiche di accesso in sospeso per le App e i gruppi](./media/review-your-access/access-reviews-list.png)
 
 1. Scegliere il **inizia la verifica** collegamento per la verifica di accesso da eseguire.
 
@@ -68,13 +68,13 @@ Dopo aver aperto la verifica di accesso, è possibile visualizzare l'accesso.
 
     Se la richiesta è di verificare l'accesso ad altri utenti, la pagina avrà un aspetto diversa. Per altre informazioni, vedere [verificare l'accesso a gruppi o applicazioni](perform-access-review.md).
 
-    ![Eseguire una verifica di accesso](./media/review-your-access/perform-access-review.png)
+    ![Verifica di accesso aperti in cui viene chiesto se comunque necessario accedere a un gruppo](./media/review-your-access/perform-access-review.png)
 
 1. Fare clic su **Yes** mantenere l'accesso o fare clic su **No** di rimuovere l'accesso.
 
 1. Se si fa clic **Yes**, potrebbe essere necessario specificare una giustificazione nel **motivo** casella.
 
-    ![Eseguire una verifica di accesso](./media/review-your-access/perform-access-review-submit.png)
+    ![Completare la verifica di accesso in cui viene chiesto se comunque necessario accedere a un gruppo](./media/review-your-access/perform-access-review-submit.png)
 
 1. Fare clic su **Submit**.
 

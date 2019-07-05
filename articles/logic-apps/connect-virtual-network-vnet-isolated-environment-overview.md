@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 1ef8c8eec3865f2a6e363e7da1dbda9504b81c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f981452b06ec06f2be1b8fe0319cd49a678ccfe0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546410"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441571"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accedere alle risorse di Rete virtuale di Azure da App per la logica di Azure usando ambienti del servizio di integrazione (ISE)
 
@@ -35,7 +35,7 @@ App per la logica possa accedere direttamente ai sistemi che si trovano all'inte
 Questa panoramica descrive altri dettagli sul modo in cui un'istanza di ISE offre App per la logica e integrazione degli account di accesso diretto alla rete virtuale di Azure e confronta le differenze tra un'istanza di ISE e il servizio App per la logica globale.
 
 > [!NOTE]
-> App per la logica, incorporato trigger, azioni predefinite e i connettori eseguiti per l'utilizzo ISE un piano tariffario diverso dal piano tariffario in base al consumo. Per altre informazioni, vedere [Prezzi di App per la logica](../logic-apps/logic-apps-pricing.md).
+> App per la logica, incorporato trigger, azioni predefinite e i connettori eseguiti per l'utilizzo ISE un piano tariffario diverso dal piano tariffario in base al consumo. Per altre informazioni, vedere [Prezzi di App per la logica](../logic-apps/logic-apps-pricing.md). L'ISE inoltre dispone di un aumento dei limiti sulla durata dell'esecuzione, conservazione archiviazione, velocità effettiva, richiesta HTTP e timeout risposta, le dimensioni dei messaggi e le richieste di connettore personalizzato. Per altre informazioni, vedere [limiti e configurazione per le App per la logica di Azure](logic-apps-limits-and-config.md).
 
 <a name="difference"></a>
 
@@ -61,14 +61,14 @@ La differenza tra connettori dell'ambiente del servizio di integrazione e quelli
 
   ![Selezionare i connettori ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
+Un'istanza di ISE fornisce anche un aumento dei limiti per la durata dell'esecuzione, conservazione archiviazione, la velocità effettiva, richiesta HTTP e timeout risposta, le dimensioni dei messaggi e richieste di connettore personalizzato. Per altre informazioni, vedere [limiti e configurazione per le App per la logica di Azure](logic-apps-limits-and-config.md).
+
 ### <a name="access-to-on-premises-data-sources"></a>Accesso alle origini dati locali
 
 Per i sistemi locali connessi a una rete virtuale di Azure, inserire un'istanza di ISE in tale rete, in modo che App per la logica possono accedere direttamente a tali sistemi con uno di questi elementi:
 
 * Connettore ISE-version per tale sistema, ad esempio, SQL Server
-  
 * Azione HTTP
-  
 * Connettore personalizzato
 
   * Se si sono connettori personalizzati che richiedono il gateway dati locale e i connettori all'esterno di un'istanza di ISE è stato creato, le App per la logica in un'istanza di ISE anche possono usare i connettori.

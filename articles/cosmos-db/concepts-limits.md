@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2019
-ms.openlocfilehash: 0086327661df637dc0ae60208ed9424b4610ef0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28eb7c6a11f71fa87835bcfe78e635753965bac3
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969493"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561240"
 ---
 # <a name="limits-in-azure-cosmos-db"></a>Limiti di Azure Cosmos DB
 
@@ -37,7 +37,6 @@ Dopo aver creato un account Azure Cosmos nella propria sottoscrizione, è possib
 
 Un contenitore Cosmos (o condivisa della velocità effettiva database) deve avere una velocità effettiva minima di 400 UR. Man mano che aumenta il contenitore, anche la velocità effettiva supportata minima dipende dai fattori seguenti:
 
-* L'archiviazione massima utilizzata nel contenitore viene misurato in base a incrementi di 40 unità riservate per ogni GB di spazio di archiviazione usato. Ad esempio, se un contenitore contiene 100 GB di dati, quindi la velocità effettiva necessario UR almeno 4000
 * La velocità effettiva massima che mai eseguito il provisioning del contenitore. Il servizio supporta la riduzione della velocità effettiva di un contenitore al 10% rispetto al numero massimo di provisioning. Ad esempio, se la velocità effettiva è stata aumentata a 10000 UR, quindi la velocità effettiva con provisioning possibili più bassa sarà 1000 UR
 * Il numero totale di contenitori che hanno già creato in un database condiviso della velocità effettiva, misurata in 100 unità richieste per ogni contenitore. Ad esempio, se è stato creato cinque contenitori all'interno di un database condiviso della velocità effettiva, quindi la velocità effettiva necessario almeno 500 UR
 
@@ -48,7 +47,6 @@ La velocità effettiva corrente e minima di un contenitore o un database può es
 | Unità minima richiesta per ogni contenitore ([modalità di provisioning della velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Unità minima richiesta per ogni database ([modalità di provisioning di velocità effettiva condiviso](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Unità minima richiesta per ogni contenitore all'interno di un database condiviso della velocità effettiva | 100 |
-| Unità minima richiesta per ogni GB di spazio di archiviazione usato | 40 |
 
 COSMOS DB supporta la scalabilità elastica della velocità effettiva (UR) al contenitore o un database tramite il SDK o il portale. Ogni contenitore è possibile scalare in modo sincrono e immediatamente all'interno di un intervallo di scalabilità di 10 a 100 volte, tra i valori minimi e massimo. Se il valore di velocità effettiva richiesta non rientra nell'intervallo, il ridimensionamento viene eseguito in modo asincrono. Ridimensionamento asincrono può richiedere minuti da ore a seconda della velocità effettiva richiesta e dimensioni di archiviazione di dati nel contenitore.  
 

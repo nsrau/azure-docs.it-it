@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e82abd6a7915123a94b4355e24cb94f13f9693c8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110010"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550380"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guida alla conversione di ruoli di lavoro e Web in servizi senza stato di Service Fabric
 Questo articolo descrive come eseguire la migrazione di ruoli di lavoro e Web di Servizi cloud a servizi senza stato di Service Fabric. Questo è il percorso di migrazione più semplice da Servizi cloud a Service Fabric per le applicazioni la cui architettura complessiva rimarrà approssimativamente la stessa.
@@ -32,7 +32,7 @@ La differenza è che il progetto di Servizi cloud abbina la distribuzione dell'a
 ![Confronto tra i progetti di Servizi cloud e Service Fabric][3]
 
 ## <a name="worker-role-to-stateless-service"></a>Da ruolo di lavoro a servizio senza stato
-Concettualmente un ruolo di lavoro rappresenta un carico di lavoro senza stato, ovvero ogni istanza del carico di lavoro è identica e le richieste possono essere indirizzate a qualsiasi istanza in qualsiasi momento. Non è previsto che ogni istanza ricordi la richiesta precedente. Lo stato in cui opera il carico di lavoro viene gestito da un archivio stati esterno, ad esempio un archivio tabelle di Azure o Azure DocumentDB. In Service Fabric questo tipo di carico di lavoro è rappresentato da un servizio senza stato. L'approccio più semplice per la migrazione di un ruolo di lavoro a Service Fabric può avvenire mediante la conversione di codice del ruolo di lavoro in un servizio senza stato.
+Concettualmente un ruolo di lavoro rappresenta un carico di lavoro senza stato, ovvero ogni istanza del carico di lavoro è identica e le richieste possono essere indirizzate a qualsiasi istanza in qualsiasi momento. Non è previsto che ogni istanza ricordi la richiesta precedente. Stato il carico di lavoro su cui opera viene gestito da un archivio stati esterno, ad esempio archiviazione tabelle di Azure o Azure Cosmos DB. In Service Fabric questo tipo di carico di lavoro è rappresentato da un servizio senza stato. L'approccio più semplice per la migrazione di un ruolo di lavoro a Service Fabric può avvenire mediante la conversione di codice del ruolo di lavoro in un servizio senza stato.
 
 ![Da ruolo di lavoro a servizio senza stato][4]
 

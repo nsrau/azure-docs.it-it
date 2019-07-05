@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b1280274122800147c442b73b360bc5141530a0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86d48360e37f26d19d15c62a8109c030d421c661
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050591"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551897"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
 Centro sicurezza raccoglie i dati dalle macchine virtuali di Azure (VM), il set di scalabilità di macchine virtuali, contenitori di IaaS e computer non Azure (incluso in locale) per monitorare le minacce e vulnerabilità di sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai log eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. I dati raccolti sono ad esempio il tipo di sistema operativo e la versione, i log del sistema operativo (log eventi Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso. L'agente Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo nell'area di lavoro.
@@ -46,12 +46,12 @@ Quando il provisioning automatico è attivato, il Centro sicurezza effettua il p
 
 
 Per abilitare il provisioning automatico di Microsoft Monitoring Agent:
-1. Selezionare **Criteri di sicurezza** nel menu principale Centro sicurezza.
-2. Fare clic su **Modifica impostazioni** nella colonna Impostazioni della sottoscrizione desiderata nell'elenco.
+1. Nel menu principale del Centro sicurezza, selezionare **Pricing Impo & stazioni**.
+2. Fare clic sulla sottoscrizione applicabile
 
    ![Selezionare la sottoscrizione][7]
 
-3. In **Criteri di sicurezza** selezionare **Raccolta dati**.
+3. Selezionare **la raccolta dei dati**.
 4. In **Provisioning automatico** selezionare **Attivato** per abilitare il provisioning automatico.
 5. Selezionare **Salva**.
 
@@ -131,11 +131,11 @@ Per selezionare l'area di lavoro Log Analytics esistente:
 
 5. Selezionare il piano tariffario per l'area di lavoro desiderata in cui si intende impostare Microsoft Monitoring Agent. <br>Per usare un'area di lavoro esistente, impostare il piano tariffario per l'area di lavoro. Verrà installata nell'area di lavoro una soluzione del Centro sicurezza, se non ne è già presente una.
 
-    a.  Nel menu principale del Centro sicurezza selezionare **Criteri di sicurezza**.
+    a.  Nel menu principale del Centro sicurezza, selezionare **Pricing Impo & stazioni**.
      
-    b.  Selezionare l'area di lavoro desiderata in cui si vuole connettere l'agente facendo clic su **Modifica impostazioni** nella colonna Impostazioni della sottoscrizione desiderata nell'elenco.
-        ![Selezionare un'area di lavoro][8] c. Impostare il piano tariffario.
-        ![Selezionare un piano tariffario][9] 
+    b.  Selezionare l'area di lavoro desiderata a cui si intende connettere l'agente.
+        ![Selezionare un'area di lavoro][7] c. Impostare il piano tariffario.
+        ![Selezionare un piano tariffario][9]
    
    >[!NOTE]
    >Se l'area di lavoro dispone già di una soluzione **Security**  o **SecurityCenterFree** abilitata, il piano tariffario verrà impostato automaticamente. 
@@ -165,8 +165,8 @@ Questi insiemi sono stati progettati per soddisfare gli scenari tipici. Assicura
 
 Per determinare gli eventi che apparterranno all'insieme di eventi **Comuni** e **Minimi** abbiamo collaborato con i clienti e usato gli standard del settore per conoscere la frequenza non filtrata di ogni evento e il loro uso. In questo processo sono state usate le linee guida seguenti:
 
-- **Minimi**: assicurarsi che questo insieme includa solo gli eventi che potrebbero indicare una violazione riuscita ed eventi importanti con un volume molto basso. Ad esempio, questo insieme può contenere accessi utente riusciti e non (ID evento 4624, 4625), però non contiene disconnessioni importanti per il controllo ma non per il rilevamento e ha un volume relativamente alto. La maggior parte del volume di dati di questo insieme è composto da eventi di accesso e da eventi di creazione del processo (ID evento 4688).
-- **Comuni**: fornire un audit trail completo degli utenti in questo insieme. Ad esempio, questo insieme contiene sia gli accessi utente che le disconnessioni dell'utente (ID evento 4634). Sono incluse azioni di controllo quali modifiche al gruppo di sicurezza, operazioni Kerberos del controller del dominio principale e altri eventi consigliati dalle organizzazioni del settore.
+- **Minimi**: assicurarsi che questo insieme includa solo gli eventi che potrebbero indicare una violazione riuscita ed eventi importanti con un volume molto basso. Ad esempio, questo set contiene riusciti e non account di accesso utente (ID evento 4624, 4625), ma non contiene sign out che è importante per il controllo ma non significativo per il rilevamento e dispone di un volume relativamente alto. La maggior parte del volume di dati di questo insieme è composto da eventi di accesso e da eventi di creazione del processo (ID evento 4688).
+- **Comuni**: fornire un audit trail completo degli utenti in questo insieme. Ad esempio, questo set contiene gli account di accesso utente sia contro di accesso utente (ID evento 4634). Sono incluse azioni di controllo quali modifiche al gruppo di sicurezza, operazioni Kerberos del controller del dominio principale e altri eventi consigliati dalle organizzazioni del settore.
 
 Gli eventi che hanno un volume molto basso sono stati inclusi nell'insieme Comuni. Questo insieme è stato scelto perché l'obiettivo è quello di ridurre il volume, non di filtrare eventi specifici.
 
@@ -191,7 +191,7 @@ Di seguito è riportata una suddivisione completa degli ID di eventi di sicurezz
 >
 
 Per scegliere i criteri di filtraggio:
-1. Nel pannello **Criteri di sicurezza - Raccolta di dati** selezionare i criteri di filtraggio in **Eventi di sicurezza**.
+1. Nel **la raccolta dei dati** pagina, selezionare i criteri di filtraggio sotto **gli eventi di sicurezza**.
 2. Selezionare **Salva**.
 
    ![Scegliere i criteri di filtraggio][5]

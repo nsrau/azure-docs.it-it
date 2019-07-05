@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f46164d52d22b54c0c4f4d707e76be274ebaaf4b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 581471bb20b0774625dda8a5fa1fdd27d571a5b5
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080139"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483869"
 ---
 # <a name="vertically-scale-windows-vms-with-azure-automation"></a>Applicare la scalabilità verticale a macchine virtuali di Windows con Automazione di Azure
 
@@ -37,55 +37,193 @@ Per eseguire questa operazione, seguire questa procedura:
 3. Aggiungere un webhook al runbook
 4. Aggiungere un avviso alla macchina virtuale
 
-> [!NOTE]
-> A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la macchina può essere ridimensionata possono essere limitate a seconda della disponibilità di altre dimensioni nel cluster in cui viene distribuita la macchina virtuale corrente. Nei runbook di automazione pubblicati usati in questo articolo viene considerato questo caso e la scalabilità viene applicata solo all'interno delle coppie di dimensioni delle macchine virtuali seguenti. Pertanto, una macchina virtuale Standard_D1v2 non verrà improvvisamente ridimensionata verso l'alto a una Standard_G5 o verso il basso a una Basic_A0. Anche vincolata macchina virtuale di dimensioni di aumentare/ridurre le dimensioni non è supportato. È possibile scegliere di applicare il ridimensionamento tra le seguenti coppie di dimensioni:
-> 
-> | coppie di ridimensionamento di dimensioni delle macchine virtuali |  |
-> | --- | --- |
-> | Basic_A0 |Basic_A4 |
-> | Standard_A0 |Standard_A4 |
-> | Standard_A5 |Standard_A7 |
-> | Standard_A8 |Standard_A9 |
-> | Standard_A10 |Standard_A11 |
-> | Standard_A1_v2 |Standard_A8_v2 |
-> | Standard_A2m_v2 |Standard_A8m_v2  |
-> | Standard_B1s |Standard_B2s |
-> | Standard_B1ms |Standard_B8ms |
-> | Standard_D1 |Standard_D4 |
-> | Standard_D11 |Standard_D14 |
-> | Standard_DS1 |Standard_DS4 |
-> | Standard_DS11 |Standard_DS14 |
-> | Standard_D1_v2 |Standard_D5_v2 |
-> | Standard_D11_v2 |Standard_D14_v2 |
-> | Standard_DS1_v2 |Standard_DS5_v2 |
-> | Standard_DS11_v2 |Standard_DS14_v2 |
-> | Standard_D2_v3 |Standard_D64_v3 |
-> | Standard_D2s_v3 |Standard_D64s_v3 |
-> | Standard_DC2s |Standard_DC4s |
-> | Standard_E2v3 |Standard_E64v3 |
-> | Standard_E2sv3 |Standard_E64sv3 |
-> | Standard_F1 |Standard_F16 |
-> | Standard_F1s |Standard_F16s |
-> | Standard_F2sv2 |Standard_F72sv2 |
-> | Standard_G1 |Standard_G5 |
-> | Standard_GS1 |Standard_GS5 |
-> | Standard_H8 |Standard_H16 |
-> | Standard_H8m |Standard_H16m |
-> | Standard_L4s |Standard_L32s |
-> | Standard_L8s_v2 |Standard_L80s_v2 |
-> | Standard_M8ms  |Standard_M128ms |
-> | Standard_M32ls  |Standard_M64ls |
-> | Standard_M64s  |Standard_M128s |
-> | Standard_M64  |Standard_M128 |
-> | Standard_M64m  |Standard_M128m |
-> | Standard_NC6 |Standard_NC24 |
-> | Standard_NC6s_v2 |Standard_NC24s_v2 |
-> | Standard_NC6s_v3 |Standard_NC24s_v3 |
-> | Standard_ND6s |Standard_ND24s |
-> | Standard_NV6 |Standard_NV24 |
-> | Standard_NV6s_v2 |Standard_NV24s_v2 |
-> | Standard_NV12s_v3 |Standard_NV48s_v3 |
-> 
+## <a name="scale-limitations"></a>Limitazioni di scalabilità
+
+A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la macchina può essere ridimensionata possono essere limitate a seconda della disponibilità di altre dimensioni nel cluster in cui viene distribuita la macchina virtuale corrente. Nei runbook di automazione pubblicati usati in questo articolo viene considerato questo caso e la scalabilità viene applicata solo all'interno delle coppie di dimensioni delle macchine virtuali seguenti. Pertanto, una macchina virtuale Standard_D1v2 non verrà improvvisamente ridimensionata verso l'alto a una Standard_G5 o verso il basso a una Basic_A0. Anche vincolata macchina virtuale di dimensioni di aumentare/ridurre le dimensioni non è supportato. 
+
+È possibile scegliere di applicare il ridimensionamento tra le seguenti coppie di dimensioni:
+
+* [Serie a](#a-series)
+* [B-Series](#b-series)
+* [D-Series](#d-series)
+* [E-Series](#e-series)
+* [Serie F](#f-series)
+* [Serie G](#g-series)
+* [Serie H](#h-series)
+* [Serie L](#l-series)
+* [Serie M](#m-series)
+* [Serie N](#n-series)
+
+### <a name="a-series"></a>Serie A
+
+| Dimensioni iniziali | Aumentare le dimensioni | 
+| --- | --- |
+| Basic_A0 | Basic_A1 |
+| Basic_A1 | Basic_A2 |
+| Basic_A2 | Basic_A3 |
+| Basic_A3 | Basic_A4 |
+| Standard_A0 | Standard_A1 |
+| Standard_A1 | Standard_A2 |
+| Standard_A2 | Standard_A3 |
+| Standard_A3 | Standard_A4 |
+| Standard_A5 | Standard_A6 |
+| Standard_A6 | Standard_A7 |
+| Standard_A8 | Standard_A9 |
+| Standard_A10 | Standard_A11 |
+| Standard_A1_v2 | Standard_A2_v2 |
+| Standard_A2_v2 | Standard_A4_v2 |
+| Standard_A4_v2 | Standard_A8_v2 |
+| Standard_A2m_v2 | Standard_A4m_v2 |
+| Standard_A4m_v2 | Standard_A8m_v2 |
+
+### <a name="b-series"></a>Serie B
+
+| Dimensioni iniziali | Aumentare le dimensioni | 
+| --- | --- |
+| Standard_B1s | Standard_B2s |
+| Standard_B1ms | Standard_B2ms |
+| Standard_B2ms | Standard_B4ms |
+| Standard_B4ms | Standard_B8ms |
+
+### <a name="d-series"></a>Serie D
+
+| Dimensioni iniziali | Aumentare le dimensioni | 
+| --- | --- |
+| Standard_D1 | Standard_D2 |
+| Standard_D2 | Standard_D3 |
+| Standard_D3 | Standard_D4 |
+| Standard_D11 | Standard_D12 |
+| Standard_D12 | Standard_D13 |
+| Standard_D13 | Standard_D14 |
+| Standard_DS1 | Standard_DS2 |
+| Standard_DS2 | Standard_DS3 |
+| Standard_DS3 | Standard_DS4 |
+| Standard_DS11 | Standard_DS12 |
+| Standard_DS12 | Standard_DS13 |
+| Standard_DS13 | Standard_DS14 |
+| Standard_D1_v2 | Standard_D2_v2 |
+| Standard_D2_v2 | Standard_D3_v2 |
+| Standard_D3_v2 | Standard_D4_v2 |
+| Standard_D4_v2 | Standard_D5_v2 |
+| Standard_D11_v2 | Standard_D12_v2 |
+| Standard_D12_v2 | Standard_D13_v2 |
+| Standard_D13_v2 | Standard_D14_v2 |
+| Standard_DS1_v2 | Standard_DS2_v2 |
+| Standard_DS2_v2 | Standard_DS3_v2 |
+| Standard_DS3_v2 | Standard_DS4_v2 |
+| Standard_DS4_v2 | Standard_DS5_v2 |
+| Standard_DS11_v2 | Standard_DS12_v2 |
+| Standard_DS12_v2 | Standard_DS13_v2 |
+| Standard_DS13_v2 | Standard_DS14_v2 |
+| Standard_D2_v3 | Standard_D4_v3 |
+| Standard_D4_v3 | Standard_D8_v3 |
+| Standard_D8_v3 | Standard_D16_v3 |
+| Standard_D16_v3 | Standard_D32_v3 |
+| Standard_D32_v3 | Standard_D64_v3 |
+| Standard_D2s_v3 | Standard_D4s_v3 |
+| Standard_D4s_v3 | Standard_D8s_v3 |
+| Standard_D8s_v3 | Standard_D16s_v3 |
+| Standard_D16s_v3 | Standard_D32s_v3 |
+| Standard_D32s_v3 | Standard_D64s_v3 |
+| Standard_DC2s | Standard_DC4s |
+
+### <a name="e-series"></a>Serie E
+
+| Dimensioni iniziali | Aumentare le dimensioni | 
+| --- | --- |
+| Standard_E2_v3 | Standard_E4_v3 |
+| Standard_E4_v3 | Standard_E8_v3 |
+| Standard_E8_v3 | Standard_E16_v3 |
+| Standard_E16_v3 | Standard_E20_v3 |
+| Standard_E20_v3 | Standard_E32_v3 |
+| Standard_E32_v3 | Standard_E64_v3 |
+| Standard_E2s_v3 | Standard_E4s_v3 |
+| Standard_E4s_v3 | Standard_E8s_v3 |
+| Standard_E8s_v3 | Standard_E16s_v3 |
+| Standard_E16s_v3 | Standard_E20s_v3 |
+| Standard_E20s_v3 | Standard_E32s_v3 |
+| Standard_E32s_v3 | Standard_E64s_v3 |
+
+### <a name="f-series"></a>Serie F
+
+| Dimensioni iniziali | Aumentare le dimensioni | 
+| --- | --- |
+| Standard_F1 | Standard_F2 |
+| Standard_F2 | Standard_F4 |
+| Standard_F4 | Standard_F8 |
+| Standard_F8 | Standard_F16 |
+| Standard_F1s | Standard_F2s |
+| Standard_F2s | Standard_F4s |
+| Standard_F4s | Standard_F8s |
+| Standard_F8s | Standard_F16s |
+| Standard_F2s_v2 | Standard_F4s_v2 |
+| Standard_F4s_v2 | Standard_F8s_v2 |
+| Standard_F8s_v2 | Standard_F16s_v2 |
+| Standard_F16s_v2 | Standard_F32s_v2 |
+| Standard_F32s_v2 | Standard_F64s_v2 |
+| Standard_F64s_v2 | Standard_F7s_v2 |
+
+### <a name="g-series"></a>Serie G
+
+| Dimensioni iniziali | Aumentare le dimensioni | 
+| --- | --- |
+| Standard_G1 | Standard_G2 |
+| Standard_G2 | Standard_G3 |
+| Standard_G3 | Standard_G4 |
+| Standard_G4 | Standard_G5 |
+| Standard_GS1 | Standard_GS2 |
+| Standard_GS2 | Standard_GS3 |
+| Standard_GS3 | Standard_GS4 |
+| Standard_GS4 | Standard_GS5 |
+
+### <a name="h-series"></a>Serie H
+
+| Dimensioni iniziali | Aumentare le dimensioni | 
+| --- | --- |
+| Standard_H8 | Standard_H16 |
+| Standard_H8m | Standard_H16m |
+
+### <a name="l-series"></a>Serie L
+
+| Dimensioni iniziali | Aumentare le dimensioni | 
+| --- | --- |
+| Standard_L4s | Standard_L8s |
+| Standard_L8s | Standard_L16s |
+| Standard_L16s | Standard_L32s |
+| Standard_L8s_v2 | Standard_L16s_v2 |
+| Standard_L16s_v2 | Standard_L32s_v2 |
+| Standard_L32s_v2 | Standard_L64s_v2 |
+| Standard_L64s_v2 | Standard_L80s_v2 |
+
+### <a name="m-series"></a>Serie M
+
+| Dimensioni iniziali | Aumentare le dimensioni | 
+| --- | --- |
+| Standard_M8ms | Standard_M16ms |
+| Standard_M16ms | Standard_M32ms |
+| Standard_M32ms | Standard_M64ms |
+| Standard_M64ms | Standard_M128ms |
+| Standard_M32ls | Standard_M64ls |
+| Standard_M64s | Standard_M128s |
+| Standard_M64 | Standard_M128 |
+| Standard_M64m | Standard_M128m |
+
+### <a name="n-series"></a>Serie N
+
+| Dimensioni iniziali | Aumentare le dimensioni | 
+| --- | --- |
+| Standard_NC6 | Standard_NC12 |
+| Standard_NC12 | Standard_NC24 |
+| Standard_NC6s_v2 | Standard_NC12s_v2 |
+| Standard_NC12s_v2 | Standard_NC24s_v2 |
+| Standard_NC6s_v3 | Standard_NC12s_v3 |
+| Standard_NC12s_v3 | Standard_NC24s_v3 |
+| Standard_ND6 | Standard_ND12 |
+| Standard_ND12 | Standard_ND24 |
+| Standard_NV6 | Standard_NV12 |
+| Standard_NV12 | Standard_NV24 |
+| Standard_NV6s_v2 | Standard_NV12s_v2 |
+| Standard_NV12s_v2 | Standard_NV24s_v2 |
 
 ## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Configurare Automazione di Azure per l'accesso alle macchine virtuali
 La prima operazione da eseguire è creare l'account di Automazione di Azure che ospiterà i runbook usati per ridimensionare una macchina virtuale. Il servizio Automazione ha introdotto di recente la funzionalità "Account RunAs", che semplifica molto l'impostazione dell'entità servizio per l'esecuzione automatica di runbook per conto dell'utente. Altre informazioni sono disponibili nell'articolo seguente.

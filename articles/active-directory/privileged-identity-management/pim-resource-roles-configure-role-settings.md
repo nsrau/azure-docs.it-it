@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c6da92ccd50707e676a1f5d583fe22ae8b3d8b73
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288376"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476311"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configurare le impostazioni dei ruoli delle risorse di Azure in PIM
 
@@ -38,19 +38,19 @@ Per aprire le impostazioni per un ruolo delle risorse di Azure seguire questa pr
 
 1. Fare clic sulla risorsa da gestire, ad esempio una sottoscrizione o un gruppo di gestione.
 
-    ![Elenco delle risorse di Azure da gestire](./media/pim-resource-roles-configure-role-settings/resources-list.png)
+    ![Pagina delle risorse di Azure che elenca le risorse che possono essere gestite](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
 1. Fare clic su **Impostazioni dei ruoli**.
 
-    ![Impostazioni dei ruoli](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Pagina Impostazioni dei ruoli Elenca i ruoli delle risorse di Azure](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
 1. Fare clic sul ruolo di cui si intende configurare le impostazioni.
 
-    ![Dettagli dell'impostazione del ruolo](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![Pagina dettagli che impostazione ruolo Elenca diverse impostazioni di assegnazione e attivazione](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
 1. Fare clic su **Modifica** per aprire il riquadro Impostazioni dei ruoli.
 
-    ![Modifica delle impostazioni dei ruoli](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Modifica pagina Impostazioni dei ruoli con le opzioni per aggiornare le impostazioni di assegnazione e attivazione](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
 
     Nella pagina delle impostazioni di ogni ruolo sono presenti numerose impostazioni che è possibile configurare.
 
@@ -109,7 +109,7 @@ Se si vuole richiedere l'approvazione per attivare un ruolo, seguire questa proc
 
 1. Fare clic su **Seleziona responsabili approvazione** per aprire il riquadro Selezionare un membro o un gruppo.
 
-    ![Selezionare un membro o un gruppo](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![Selezionare un riquadro del membro o un gruppo per selezionare responsabili approvazione](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. Selezionare almeno un membro o un gruppo e quindi fare clic su **Seleziona**. È possibile aggiungere qualsiasi combinazione di membri e i gruppi. È necessario selezionare almeno un responsabile approvazione. Non esistono responsabili approvazione predefiniti.
 

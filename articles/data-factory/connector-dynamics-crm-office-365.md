@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 07/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f7bf3ce8c01e82fa69b3b041b573b4b31a719d2
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356968"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514099"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiare i dati da e in Dynamics 365 (Common Data Service) o Dynamics CRM usando Azure Data Factory
 
@@ -27,7 +27,13 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 È possibile copiare dati da Dynamics 365 (Common Data Service) o Dynamics CRM in qualsiasi archivio dati di sink supportato. È anche possibile copiare dati da qualsiasi archivio dati di origine supportato a Dynamics 365 (Common Data Service) o Dynamics CRM. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Il connettore Dynamics supporta le versioni di Dynamics e i tipi di autenticazione seguenti. IFD è l'acronimo di Internet Facing Deployment (distribuzione con connessione Internet).
+Il connettore Dynamics supporta Dynamics versione 7.x 9.x per entrambi online o in locale. Più in particolare,
+
+- Versione 7.x esegue il mapping a Dynamics CRM 2015
+- Versione 8.x mappe per la versione precedente di Dynamics 365 e Dynamics CRM 2016
+- Versione 9.x esegue il mapping della versione più recente di Dynamics 365
+
+Fare riferimento alla tabella seguente sui tipi di autenticazione supportati e configurazioni per le versioni/prodotti Dynamics. IFD è l'acronimo di Internet Facing Deployment (distribuzione con connessione Internet).
 
 | Versioni di Dynamics | Tipi di autenticazione | Esempi di servizi collegati |
 |:--- |:--- |:--- |
@@ -43,6 +49,8 @@ Per Dynamics 365 in particolare, sono supportati i tipi di applicazioni seguenti
 - Dynamics 365 for Marketing
 
 Altri tipi di applicazioni, ad esempio Finance and Operations, Talent e così via non sono supportati da questo connettore.
+
+Il connettore Dynamics viene compilato in cima [gli strumenti XRM Dynamics](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 >[!TIP]
 >Per copiare dati da **Dynamics 365 for Finance and Operations**, è possibile usare il [connettore di Dynamics AX](connector-dynamics-ax.md).
@@ -156,7 +164,7 @@ Per copiare dati da e in Dynamics, impostare la proprietà type del set di dati 
 > [!IMPORTANT]
 >- Quando si copiano dati da Dynamics, la sezione "structure" è facoltativa ma altamente recommanded nel set di dati di Dynamics per garantire un risultato deterministico copia. Definisce il nome di colonna e il tipo di dati per i dati di Dynamics da copiare. Per altre informazioni, vedere [Struttura del set di dati](concepts-datasets-linked-services.md#dataset-structure-or-schema) e [Mapping dei tipi di dati per Dynamics](#data-type-mapping-for-dynamics).
 >- Durante l'importazione dello schema nell'interfaccia utente di creazione, Azure Data Factory deduce lo schema tramite il campionamento delle prime righe dal risultato della query Dynamics per inizializzare la costruzione della struttura, nel qual caso le colonne senza valori verranno omesse. Lo stesso comportamento si applica per copiare le esecuzioni se è presente alcuna definizione di struttura esplicita. È possibile rivedere e aggiungere altre colonne nello schema/nella struttura del set di dati Dynamics, come necessario, che verranno rispettate durante il runtime di copia.
->- Quando si copiano dati in Dynamics, la sezione "structure" è facoltativa nel set di dati di Dynamics. Le colonne in cui eseguire la copia sono determinate dallo schema dei dati di origine. Se l'origine è un file CSV senza intestazione, nel set di dati di input specificare "structure" con il nome della colonna e il tipo di dati. Le colonne vengono mappate ai campi nel file CSV una alla volta in ordine.
+>- Quando si copiano dati in Dynamics, la sezione "structure" è facoltativa nel set di dati di Dynamics. Le colonne da copiare nel sono determinate dallo schema di dati di origine. Se l'origine è un file CSV senza intestazione, nel set di dati di input specificare "structure" con il nome della colonna e il tipo di dati. Le colonne vengono mappate ai campi nel file CSV una alla volta in ordine.
 
 **Esempio:**
 
@@ -328,7 +336,7 @@ Nella struttura del set di dati, configurare il tipo di dati corrispondente di D
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | String | ✓ | ✓ |
+| AttributeType.EntityName | string | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓ (associata a destinazione singola) |
 | AttributeType.ManagedProperty | Boolean | ✓ | |
@@ -337,13 +345,12 @@ Nella struttura del set di dati, configurare il tipo di dati corrispondente di D
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | String | ✓ | ✓ |
+| AttributeType.String | string | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
-
 > [!NOTE]
-> Non sono supportati i tipi di dati di Dynamics AttributeType.CalendarRules e AttributeType.PartyList.
+> Non sono supportati i tipi di dati di Dynamics Calendarrules, AttributeType.MultiSelectPicklist e PartyList.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini e sink dall'attività di copia in Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,42 +1,38 @@
 ---
-title: Informazioni sull'utilizzo di Azure e gli addebiti CSV condizioni per un contratto di Microsoft dei clienti | Microsoft Docs
-description: Informazioni su come leggere e comprendere le sezioni dell'utilizzo di Azure e gli addebiti CSV per il profilo di fatturazione
-services: ''
-documentationcenter: ''
+title: Condizioni nel file di utilizzo e costi di Azure per un contratto di Microsoft dal cliente
+description: Informazioni su come leggere e comprendere le sezioni dell'utilizzo di Azure e gli addebiti CSV per il profilo di fatturazione.
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: jureid
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d11e31366ea5aa15cf7a790eaee800fa2ea6dabe
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371309"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490619"
 ---
-# <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Informazioni sull'utilizzo di Azure e gli addebiti CSV condizioni per un contratto di Microsoft dal cliente
+# <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Condizioni nel file di utilizzo e costi di Azure per un contratto di Microsoft dal cliente
 
 Questo articolo si applica a un account di fatturazione per un contratto di clienti Microsoft. [Controllare se si ha accesso a un contratto di Microsoft dal cliente](#check-access-to-a-microsoft-customer-agreement).
 
-File CSV sull'utilizzo e costi di Azure contiene i costi di utilizzo a livello giornaliero e contatore per il periodo di fatturazione corrente.
+File CSV sull'utilizzo e costi di Azure contiene i costi di utilizzo giornalieri e a livello di contatore per il periodo di fatturazione corrente.
 
-Per ottenere il file di utilizzo e costi di Azure, vedere [visualizzazione e download di utilizzo di Azure e gli addebiti per il contratto del cliente Microsoft](billing-download-azure-daily-usage.md).
-È disponibile in un formato di file CSV (valori separati dalla virgola) che è possibile aprire in un foglio di calcolo.
+Per ottenere il file di utilizzo e costi di Azure, vedere [visualizzazione e download di utilizzo di Azure e gli addebiti per il contratto del cliente Microsoft](billing-download-azure-daily-usage.md). È disponibile in un formato di file CSV (valori separati dalla virgola) che è possibile aprire in un foglio di calcolo.
 
 Gli addebiti in base all'utilizzo corrispondono agli addebiti **mensili** totali per una sottoscrizione e non tengono in considerazione eventuali accrediti o sconti applicabili.
 
-## <a name="changes-in-the-enterprise-agreement-azure-usage-and-charges-csv"></a>Modifica nell'utilizzo di Azure per i contratti Enterprise e gli addebiti per CSV
+## <a name="changes-from-azure-ea-usage-and-charges"></a>Modifiche apportate dall'utilizzo di Azure con contratto Enterprise Agreement e negli addebiti
 
-Se si eseguisse un cliente con contratto Enterprise, si noterà che i termini nel profilo di fatturazione file CSV di utilizzo di Azure sono diversi rispetto i termini nel file CSV di utilizzo di Azure con contratto Enterprise. Di seguito è riportato il mapping delle condizioni di utilizzo di tale contratto condizioni di utilizzo del profilo di fatturazione:
+Se si eseguisse un cliente con contratto Enterprise, si noterà che i termini del Azure fatturazione dell'utilizzo CSV file del profilo sono diversi dalle condizioni nel file CSV di utilizzo di contratti Enterprise di Azure. Di seguito è riportato il mapping delle condizioni di utilizzo di tale contratto condizioni di utilizzo del profilo di fatturazione:
 
-| CSV di utilizzo di Azure con contratto Enterprise | Utilizzo di Microsoft Azure per i contratti dei clienti e negli addebiti CSV |
+| Utilizzo di Azure con contratto Enterprise Agreement CSV | Utilizzo di Microsoft Azure per i contratti dei clienti e negli addebiti CSV |
 | --- | --- |
 | Date | date |
 | Mese| date |
@@ -49,7 +45,7 @@ Se si eseguisse un cliente con contratto Enterprise, si noterà che i termini ne
 | meterRegion | meterRegion |
 | nome del contatore | meterName |
 | ConsumedQuantity | quantity |
-| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ResourceRate | effectivePrice |
 | ExtendedCost | cost |
 | ResourceLocation | resourceLocation |
 | ConsumedService | consumedService |
@@ -59,17 +55,15 @@ Se si eseguisse un cliente con contratto Enterprise, si noterà che i termini ne
 | AdditionalInfo | additionalInfo |
 | `Tags` | tags |
 | StoreServiceIdentifier | N/D |
-| DepartmentName | invoiceSection | <!-- this was highlighted -->
+| DepartmentName | invoiceSection |
 | CostCenter | costCenter |
 | UnitOfMeasure | unitofMeasure |
 | ResourceGroup | resourceGroup |
-| ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
+| ChargesBilledSeparately | isAzureCreditEligible |
 
-<!-- TO DO: Marketplace CSV? -->
+## <a name="detailed-terms-and-descriptions"></a>Le descrizioni e informazioni dettagliate sulle condizioni
 
-## <a name="detailed-terms-and-descriptions-in-your-azure-usage-and-charges-file"></a>Dettagli sui termini e le descrizioni nel file di utilizzo e costi di Azure
-
-La sezione seguente descrive i termini più importanti presenti nel file di utilizzo e costi di Azure.
+I termini seguenti vengono visualizzati nel file di utilizzo e costi di Azure.
 
 Nome | Descrizione
 --- | ---
@@ -120,16 +114,16 @@ serviceInfo2 | Campo legacy che acquisisce i metadati specifici del servizio fac
 additionalInfo | Altri metadati specifici del servizio.
 tags | Tag che è assegnato alla risorsa
 
-### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>Come assicurarmi che gli addebiti nel file di utilizzo e costi di Azure siano corretti?
+### <a name="make-sure-that-charges-are-correct"></a>Assicurarsi che gli addebiti siano corretti
 
-Se è previsto un addebito per il file di dati di utilizzo dettagliato che si vogliono ricevere altre informazioni, vedere [comprendere gli addebiti nella fattura del proprio profilo di fatturazione](billing-mca-understand-your-bill.md)
+Se si desidera assicurarsi che gli addebiti nel file di dati di utilizzo dettagliato siano corretti, è possibile verificare tali. Vedere [comprendere gli addebiti nella fattura del proprio profilo di fatturazione](billing-mca-understand-your-bill.md)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un contratto di Microsoft dal cliente
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 02ae9673f1dc402ee1500b466d7e259263ef3262
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: 65795b5b4dea8d2cdeecf5f78f9de751f275dac0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494838"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537589"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Connettersi a Esplora dati di Azure con ODBC
 
@@ -20,7 +20,13 @@ Open Database Connectivity ([ODBC](/sql/odbc/reference/odbc-overview)) è una di
 
 Dietro le quinte, le applicazioni chiamano funzioni nell'interfaccia di ODBC, che vengono implementate nei moduli specifici del database denominati *driver*. Esplora i dati di Azure supporta un subset del protocollo di comunicazione di SQL Server ([MS-TDS](/azure/kusto/api/tds/)), pertanto è possibile usare il driver ODBC per SQL Server.
 
-In questo articolo descrive come usare il driver ODBC di SQL Server, pertanto è possibile connettersi a Esplora dati di Azure da qualsiasi applicazione che supporti ODBC.
+Usa il video seguente, è possibile informazioni su come creare una connessione ODBC. 
+
+> [!VIDEO https://www.youtube.com/embed/qA5wxhrOwog]
+
+In alternativa, è possibile [configurare l'origine dati ODBC](#configure-the-odbc-data-source) come descritto di seguito. 
+
+L'articolo descrive come usare il driver ODBC di SQL Server, pertanto è possibile connettersi a Esplora dati di Azure da qualsiasi applicazione che supporti ODBC. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 

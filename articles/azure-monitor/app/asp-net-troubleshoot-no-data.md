@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3820a5d7becef275ed3408f01cc53ad8590ba60e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2966f90dcb381e439c00a6540ef9a01bd24f8743
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272411"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561181"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alcuni dati di telemetria sono mancanti
@@ -28,13 +28,13 @@ ms.locfileid: "67272411"
 
 *Sto riscontrando una perdita di dati in modo casuale.*
 
-* Controllare se si verificano perdite di dati in [canale di telemetria](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+* Controllare se si verificano perdite di dati in [canale di telemetria](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
 
 * Verificare la presenza di problemi noti nel canale di telemetria [repository Github](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
 
 *Sto riscontrando una perdita di dati nell'App Console o in un'App Web quando l'app sta per essere arrestato.*
 
-* Canale SDK mantiene i dati di telemetria nel buffer e li invia in batch. Se l'applicazione è in corso l'arresto, occorre chiamare in modo esplicito [Flush ()](api-custom-events-metrics.md#flushing-data). Comportamento della `Flush()` dipende effettivi [canale](telemetry-channels.md#built-in-telemetrychannels) utilizzato.
+* Canale SDK mantiene i dati di telemetria nel buffer e li invia in batch. Se l'applicazione è in corso l'arresto, occorre chiamare in modo esplicito [Flush ()](api-custom-events-metrics.md#flushing-data). Comportamento della `Flush()` dipende effettivi [canale](telemetry-channels.md#built-in-telemetry-channels) utilizzato.
 
 ## <a name="no-data-from-my-server"></a>Non sono disponibili dati dal server
 *L'app è stata installata nel server Web e ora non vengono visualizzati i dati di telemetria. Nel computer di sviluppo funzionava correttamente.*
@@ -215,7 +215,9 @@ Seguire queste istruzioni per acquisire i log di risoluzione dei problemi per il
 
 ### <a name="net-core"></a>.NET Core
 
-1. Installare il [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) pacchetto da NuGet. La versione installata deve corrispondere alla versione attualmente installata di `Microsoft.ApplicationInsights`
+1. Installare il pacchetto [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) da NuGet. La versione installata deve corrispondere alla versione attualmente installata di `Microsoft.ApplicationInsights`
+
+La versione più recente di Microsoft.ApplicationInsights.AspNetCore è 2.7.1 e fa riferimento a Microsoft. applicationinsights versione 2.10. Di conseguenza la versione di Microsoft.AspNet.ApplicationInsights.HostingStartup installazione dovrebbe essere 2.10.0
 
 2. Modificare il metodo `ConfigureServices` nella classe `Startup.cs`:
 

@@ -5,31 +5,23 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 03/23/2019
+ms.date: 07/01/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7b75e24e5d59206ee8330c3ca9eaf86eacbad13d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e878ca23b9187fe3175ad0af1b4f27e59e1deef6
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180355"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509867"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Archiviazione blob in blocchi prestazioni Premium
 
 Un account di archiviazione premium prestazioni blocco blob è ottimizzato per le applicazioni che usano più piccole, in kilobyte intervallo, gli oggetti. È ideale per le applicazioni che richiedono una frequenza elevata delle transazioni o coerenti con l'archiviazione a bassa latenza. Archiviazione blob in blocchi prestazioni Premium è progettato per soddisfare le tue applicazioni. Se si prevede di distribuire le applicazioni che richiedono centinaia di migliaia di richieste al secondo o petabyte di capacità di archiviazione, contattare Microsoft inviando una richiesta di supporto nel [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### <a name="premium-performance-filestorage-preview"></a>Prestazioni Premium FileStorage (anteprima)
+### <a name="premium-performance-filestorage"></a>Prestazioni Premium FileStorage
 
-File Premium usano un account di archiviazione univoco **FileStorage (anteprima)** . Questo tipo di account è progettato per carichi di lavoro con numero elevato di IOPS, velocità effettiva elevata con bassa latenza coerente. Archiviazione Premium di file si adatta alle dimensioni della condivisione con provisioning.
-
-|Area  |Destinazione  |
-|---------|---------|
-|Max effettuato il provisioning delle dimensioni     |100 TiB     |
-|Condivisioni   |Illimitato  |
-|IOPS     |100,000    |
-|Ingress|4\.136 MiB/s     |
-|Egress|6,204 MiB/s |
+[!INCLUDE [azure-storage-limits-filestorage](azure-storage-limits-filestorage.md)]
 
  File premium condividono obiettivi di scalabilità, vedere la [file Premium scalare destinazioni](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) sezione.
 

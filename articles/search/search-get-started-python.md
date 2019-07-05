@@ -1,6 +1,6 @@
 ---
-title: 'Avvio rapido: Python e API REST - ricerca di Azure'
-description: Creare, caricare e query su un indice usando Python, notebook di Jupyter e l'API REST di ricerca di Azure.
+title: 'Guida introduttiva di Python: Creare, caricare ed eseguire query sugli indici con API REST di ricerca di Azure - ricerca di Azure'
+description: Illustra come creare un indice, caricare i dati ed eseguire query usando Python, notebook di Jupyter e l'API REST di ricerca di Azure.
 ms.date: 06/20/2019
 author: heidisteen
 manager: cgronlun
@@ -10,23 +10,23 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 227da2739216961dcd1f2fb8c643703a1b62e51a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302288"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485464"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Avvio rapido: Creare un indice di ricerca di Azure con i notebook di Jupyter Python
+# <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Avvio rapido: Creare un indice di ricerca di Azure in Python con notebook di Jupyter
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
-> * [Postman (REST)](search-fiddler.md)
+> * [Postman (REST)](search-get-started-postman.md)
 > * [Portale](search-create-index-portal.md)
 > 
 
-Creare un notebook di Jupyter che crea, carica ed esegue query di un indice di ricerca di Azure con Python e il [API REST di ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/). Questo articolo illustra come creare un notebook passo a passo, a partire da zero. In alternativa, è possibile eseguire un notebook completato. Per scaricare una copia, visitare il[repository azure-aearch-python-samples](https://github.com/Azure-Samples/azure-search-python-samples).
+Creare un notebook di Jupyter che crea, carica ed esegue query di un indice di ricerca di Azure con Python e il [API REST di ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/). Questo articolo illustra come creare un notebook passo a passo, a partire da zero. In alternativa, è possibile eseguire un notebook completato. Per scaricare una copia, visitare il[repository azure-search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -46,7 +46,7 @@ Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni 
 
 1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
-![Ottenere una chiave di accesso e un endpoint HTTP](media/search-fiddler/get-url-key.png "Ottenere una chiave di accesso e un endpoint HTTP")
+![Ottenere una chiave di accesso e un endpoint HTTP](media/search-get-started-postman/get-url-key.png "Ottenere una chiave di accesso e un endpoint HTTP")
 
 Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -275,7 +275,7 @@ Questo passaggio illustra come eseguire query su un indice con il [API REST di r
 
     ![Un indice di ricerca](media/search-get-started-python/search-index.png "un indice di ricerca")
 
-1. Provare ad alcuni altri esempi di query per acquisire familiarità con la sintassi. È possibile sostituire searchstring con gli esempi seguenti e quindi eseguire di nuovo la richiesta di ricerca. 
+1. Provare ad alcuni altri esempi di query per acquisire familiarità con la sintassi. È possibile sostituire il `searchstring` con gli esempi seguenti e quindi eseguire di nuovo la richiesta di ricerca. 
 
    Applicare un filtro: 
 

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bdd91f8ee1228febe71244530a63fe992df56d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7582cd8453b25f071c18566f09d2155a6377a0a6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110856"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482159"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Piattaforma delle identità Microsoft e il flusso di OAuth 2.0 On-Behalf-Of
 
@@ -42,7 +42,7 @@ Si supponga che l'utente sia stato autenticato in un'applicazione usando il [flu
 
 I passaggi che seguono costituiscono il flusso OBO e vengono descritti con l'aiuto del diagramma seguente.
 
-![Flusso On-Behalf-Of di OAuth2.0](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
+![Viene illustrato il flusso On-Behalf-Of di OAuth2.0](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. L'applicazione client esegue una richiesta all'API A con il token A, con un'attestazione `aud` dell'API A.
 1. L'API A esegue l'autenticazione per l'endpoint di rilascio dei token di Microsoft identity platform e richiede un token per accedere alle API B.

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 581b7cc09089b5f48938bc9677eca6b9dc3731d3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922973"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442305"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -623,6 +623,10 @@ Per visualizzare i log in streaming nel portale, selezionare la **funzionalità 
 Questo si connette all'app per il servizio di streaming dei log e i log dell'applicazione vengono visualizzati nella finestra. È possibile attivare alternativamente **log applicazioni** e **log del server Web**.  
 
 ![Visualizzare i log in streaming nel portale](./media/functions-monitoring/streaming-logs-window.png)
+
+### <a name="visual-studio-code"></a>Visual Studio Code
+
+[!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

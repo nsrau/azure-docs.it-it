@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60b634b0b927804249148737ee7a99c0e86dd7d6
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393749"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537769"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Sviluppare applicazioni C# di Service Fabric con Visual Studio Code
 
@@ -77,6 +77,17 @@ Dopo aver compilato l'applicazione, è possibile distribuirla nel cluster locale
 4. Dopo aver verificato l'applicazione è in esecuzione, avviare un browser e aprire questa pagina: http:\//localhost:31002. Questo è il front-end Web dell'applicazione. Aggiornare la pagina per visualizzare il valore corrente del contatore mentre viene incrementato automaticamente.
 
    ![Applicazione CounterService nel browser](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
+
+## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Pubblicare l'applicazione in un cluster Azure Service Fabric
+Insieme a distribuire l'applicazione nel cluster locale, è anche possibile pubblicare l'applicazione in un cluster Azure Service Fabric remoto. 
+
+1. Assicurarsi di avere compilato l'applicazione usando le istruzioni riportate sopra. Aggiornare il file di configurazione generato `Cloud.json` con i dettagli del cluster remoto si desidera pubblicare.
+
+2. Dal **Riquadro comandi** selezionare il comando **Service Fabric: Comando applicazione publish**. L'output del processo di installazione viene inviato al terminale integrato.
+
+   ![Comando applicazione pubblica in Visual Studio Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+
+3. Al termine della distribuzione, avviare un browser e aprire Service Fabric Explorer: `https:<clusterurl>:19080/Explorer`. Si noterà che l'applicazione è in esecuzione. Questa operazione potrebbe richiedere tempo. 
 
 ## <a name="debug-the-application"></a>Eseguire il debug dell'applicazione
 Quando si esegue il debug in Visual Studio Code, l'applicazione deve essere in esecuzione su un cluster locale. È quindi possibile aggiungere punti di interruzione al codice.

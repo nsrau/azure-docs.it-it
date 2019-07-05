@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Caricare i dati su Azure SQL Data Warehouse | Microsoft Docs'
-description: L'esercitazione usa il portale di Azure e SQL Server Management Studio per caricare il data warehouse WideWorldImportersDW da un archivio BLOB di Azure pubblico ad Azure SQL Data Warehouse.
+description: Esercitazione Usa Azure portale e SQL Server Management Studio per caricare il data warehouse WideWorldImportersDW da un Azure globale blob ad Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8bca6c1e56595e4a7d64f9f388c9daca0b166ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4f52c2bd0040efef9e12a8feec0bfc779105ad4
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242919"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461854"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare i dati su Azure SQL Data Warehouse
 
@@ -38,9 +38,9 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Prima di iniziare questa esercitazione, scaricare e installare la versione più recente di [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
+## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-Accedere al [Portale di Azure](https://portal.azure.com/).
+Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Creare un SQL Data Warehouse vuoto
 
@@ -132,7 +132,7 @@ Il servizio SQL Data Warehouse crea un firewall a livello di server che impedisc
 
 Ottenere il nome completo del server SQL nel portale di Azure. In seguitò si userà il nome completo per la connessione al server.
 
-1. Accedere al [Portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**. 
 3. Nel riquadro **Informazioni di base** della pagina del portale di Azure per il database individuare e quindi copiare il **Nome server**. In questo esempio il nome completo è mynewserver-20171113.database.windows.net. 
 
@@ -158,7 +158,7 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 4. Fare clic su **Connetti**. La finestra Esplora oggetti viene visualizzata in SSMS. 
 
-5. In Esplora oggetti espandere **Database**. Espandere quindi **Database di sistema** e **master** per visualizzare gli oggetti nel database master.  Espandere **mySampleDatabase** per visualizzare gli oggetti nel nuovo database.
+5. In Esplora oggetti espandere **Database**. Espandere quindi **Database di sistema** e **master** per visualizzare gli oggetti nel database master.  Espandere **SampleDW** per visualizzare gli oggetti nel nuovo database.
 
     ![oggetti di database](media/load-data-wideworldimportersdw/connected.png) 
 
@@ -217,7 +217,7 @@ Il primo passo per caricare dati è eseguire l'accesso come LoaderRC60.
 
 Ora è possibile iniziare il processo di caricamento dei dati nel nuovo data warehouse. Per riferimento futuro, per sapere come inserire i dati nell'archivio BLOB di Azure o come caricarli direttamente dall'origine in SQL Data Warehouse, vedere la [panoramica del caricamento](sql-data-warehouse-overview-load.md).
 
-Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si vuole caricare. Queste informazioni includono la posizione dei dati, il formato del contenuto dei dati e la definizione della tabella per i dati. I dati si trovano in un BLOB di Azure pubblico.
+Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si vuole caricare. Queste informazioni includono la posizione dei dati, il formato del contenuto dei dati e la definizione della tabella per i dati. I dati si trovano in un Blob di Azure globali.
 
 1. Nella sezione precedente è stato eseguito l'accesso al data warehouse come LoaderRC60. In SSMS fare clic con il pulsante destro del mouse su **SampleDW** sotto la connessione LoaderRC60 e selezionare **Nuova query**.  Verrà visualizzata una nuova finestra di query, 
 
@@ -231,7 +231,7 @@ Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si
     CREATE MASTER KEY;
     ```
 
-4. Eseguire la seguente istruzione [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) per definire la posizione del BLOB di Azure. Questo è il percorso dei dati esterni relativi ai taxi.  Per eseguire un comando che è stato accodato nella finestra della query, evidenziare i comandi che si vuole eseguire e fare clic su **Esegui**.
+4. Eseguire la seguente istruzione [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) per definire la posizione del BLOB di Azure. Questo è il percorso dei dati di utilità di importazione in tutto il mondo esterno.  Per eseguire un comando che è stato accodato nella finestra della query, evidenziare i comandi che si vuole eseguire e fare clic su **Esegui**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -540,13 +540,13 @@ Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si
     );
     ```
 
-8. In Esplora oggetti espandere SampleDW per vedere l'elenco delle tabelle esterne appena create.
+8. In Esplora oggetti espandere SampleDW per vedere l'elenco di tabelle esterne che è stato creato.
 
     ![Visualizzare le tabelle esterne](media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Caricare i dati nel data warehouse
 
-Questa sezione usa le tabelle esterne appena definite per caricare i dati di esempio dal BLOB di Azure a SQL Data Warehouse.  
+Questa sezione Usa le tabelle esterne definite per caricare i dati di esempio dal Blob di Azure a SQL Data Warehouse.  
 
 > [!NOTE]
 > Questa esercitazione carica i dati direttamente nella tabella finale. In un ambiente di produzione si userà in genere CREATE TABLE AS SELECT per eseguire il caricamento in una tabella di staging. Mentre i dati si trovano nella tabella di staging è possibile eseguire le trasformazioni eventualmente necessarie. Per accodare i dati della tabella di staging a una tabella di produzione, è possibile usare l'istruzione INSERT...SELECT. Per altre informazioni, vedere [Inserimento di dati in una tabella di produzione](guidance-for-loading-data.md#inserting-data-into-a-production-table).
@@ -554,7 +554,7 @@ Questa sezione usa le tabelle esterne appena definite per caricare i dati di ese
 
 Lo script usa l'istruzione T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) per caricare i dati dal BLOB del servizio di archiviazione di Azure nelle nuove tabelle del data warehouse. CTAS crea una nuova tabella in base ai risultati di un'istruzione SELECT. La nuova tabella ha le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT. Quando l'istruzione SELECT seleziona da una tabella esterna, SQL Data Warehouse importa i dati in una tabella relazionale del data warehouse. 
 
-Questo script non carica i dati nelle tabelle wwi.dimension_Date e wwi.fact_Sales. Queste tabelle sono generate in un passaggio successivo, in modo che possano avere un numero consistente di righe.
+Questo script non caricare i dati nelle tabelle dimension_date e wwi.fact_Sale. Queste tabelle sono generate in un passaggio successivo, in modo che possano avere un numero consistente di righe.
 
 1. Eseguire lo script seguente per caricare i dati nelle nuove tabelle nel data warehouse.
 
@@ -750,7 +750,7 @@ Questo script non carica i dati nelle tabelle wwi.dimension_Date e wwi.fact_Sale
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Creare tabelle e procedure per generare le tabelle delle date e delle vendite
 
-In questa sezione vengono create le tabelle wwi.dimension_Date e wwi.fact_Sales. Vengono inoltre create stored procedure in grado di generare milioni di righe nelle tabelle wwi.dimension_Date e wwi.fact_Sales.
+In questa sezione vengono create le tabelle dimension_date e wwi.fact_Sale. Crea anche le stored procedure che possono generare milioni di righe nelle tabelle dimension_date e wwi.fact_Sale.
 
 1. Creare le tabelle dimension_Date e fact_Sale.  
 
@@ -893,7 +893,7 @@ In questa sezione vengono create le tabelle wwi.dimension_Date e wwi.fact_Sales.
     DROP table #days;
     END;
     ```
-4. Creare questa procedura per popolare le tabelle wwi.dimension_Date e wwi.fact_Sales. La procedura chiama [wwi].[PopulateDateDimensionForYear] per popolare wwi.dimension_Date.
+4. Creare questa procedura per popolare le tabelle dimension_date e wwi.fact_Sale. La procedura chiama [wwi].[PopulateDateDimensionForYear] per popolare wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -949,7 +949,7 @@ In questa sezione vengono create le tabelle wwi.dimension_Date e wwi.fact_Sales.
     ```
 
 ## <a name="generate-millions-of-rows"></a>Generare milioni di righe
-Usare le stored procedure create per generare milioni di righe nella tabella wwi.fact_Sales e i dati corrispondenti nella tabella wwi.dimension_Date. 
+Utilizzare la stored procedure create per generare milioni di righe nella tabella wwi.fact_Sale e i dati corrispondenti nella tabella dimension_date. 
 
 
 1. Eseguire questa procedura per inizializzare [wwi].[seed_Sale] con più righe.
@@ -958,7 +958,7 @@ Usare le stored procedure create per generare milioni di righe nella tabella wwi
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Eseguire questa procedura per popolare wwi.fact_Sales con 100.000 righe al giorno per ogni giorno dell'anno 2000.
+2. Eseguire questa procedura per popolare wwi.fact_Sale con 100.000 righe al giorno per ogni giorno dell'anno 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -1098,7 +1098,7 @@ Seguire questa procedura per pulire le risorse nel modo desiderato.
 
     ![Pulire le risorse](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Se si vogliono mantenere i dati nelle risorse di archiviazione, è possibile sospendere il calcolo quando il data warehouse non è in uso. Sospendendo il calcolo verrà addebitata solo l'archiviazione dati: sarà possibile riprendere il calcolo quando sarà necessario elaborare i dati. Per sospendere il calcolo, fare clic sul pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, fare clic su **Avvia**.
+2. Se si vogliono mantenere i dati nelle risorse di archiviazione, è possibile sospendere il calcolo quando il data warehouse non è in uso. Da sospendendo il calcolo, sarà solo costo per l'archiviazione dei dati ed è possibile riprendere il calcolo ogni volta che si è pronti per lavorare con i dati. Per sospendere il calcolo, fare clic sul pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, fare clic su **Avvia**.
 
 3. Per evitare di ricevere addebiti in futuro, è possibile eliminare il data warehouse. Per rimuovere il data warehouse in modo da non ricevere addebiti per calcoli o archiviazioni, fare clic su **Elimina**.
 

@@ -1,5 +1,5 @@
 ---
-title: Scambi - Azure Active Directory B2C di attestazioni API REST | Microsoft Docs
+title: Scambi - Azure Active Directory B2C di attestazioni API REST
 description: Aggiungere gli scambi di attestazioni API REST per i criteri personalizzati in Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc0cea765816bfac066b05aca65f668fbce0c8ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bdef508e12a3b11143149b330da73838b53f860
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508759"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439006"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere gli scambi di attestazioni API REST per i criteri personalizzati in Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ L'interazione include uno scambio di attestazioni di informazioni tra le attesta
 - Può essere progettato come passaggio di orchestrazione.
 - Può attivare un'azione esterna. Può registrare ad esempio un evento in un database esterno.
 - Consente di recuperare un valore e quindi archiviarlo nel database utente.
-- Può modificare il flusso di esecuzione. 
+- Può modificare il flusso di esecuzione.
 
 Lo scenario è rappresentato in questo articolo include le azioni seguenti:
 
@@ -45,9 +45,16 @@ Lo scenario è rappresentato in questo articolo include le azioni seguenti:
 
 In questa sezione, ci si prepara la funzione di Azure per ricevere un valore per `email`e quindi restituire il valore per `city` che può essere utilizzato da Azure AD B2C come attestazione.
 
-Modificare il file Run. csx per la funzione di Azure creata per usare il codice seguente: 
+Modificare il file Run. csx per la funzione di Azure creata per usare il codice seguente:
 
-```
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
 public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
   log.LogInformation("C# HTTP trigger function processed a request.");
@@ -77,9 +84,9 @@ public class ResponseContent
 
 ## <a name="configure-the-claims-exchange"></a>Configurare lo scambio di attestazioni
 
-Un profilo tecnico fornisce la configurazione per lo scambio di attestazioni. 
+Un profilo tecnico fornisce la configurazione per lo scambio di attestazioni.
 
-Aprire il *trustframeworkextensions. XML* file e aggiungere gli elementi XML seguenti all'interno di **ClaimsProvider** elemento.
+Aprire il *trustframeworkextensions. XML* del file e aggiungere quanto segue **ClaimsProvider** elemento XML all'interno del **ClaimsProviders** elemento.
 
 ```XML
 <ClaimsProvider>
@@ -134,7 +141,7 @@ Aggiungere un passaggio al percorso utente di modifica del profilo. Dopo che l'u
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
   <ClaimsExchanges>
-    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -188,7 +195,7 @@ Il codice XML finale per il percorso utente dovrebbe essere simile all'esempio:
     <!-- Add a step 6 to the user journey before the JWT token is created-->
     <OrchestrationStep Order="6" Type="ClaimsExchange">
       <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
       </ClaimsExchanges>
     </OrchestrationStep>
     <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
@@ -204,13 +211,15 @@ Modificare il *Profileedit* file e aggiungere `<OutputClaim ClaimTypeReferenceId
 Dopo aver aggiunto la nuova attestazione, il profilo tecnico simile all'esempio:
 
 ```XML
-<DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="OpenIdConnect" />
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <SubjectNamingInfo ClaimType="sub" />
+<TechnicalProfile Id="PolicyProfile">
+  <DisplayName>PolicyProfile</DisplayName>
+  <Protocol Name="OpenIdConnect" />
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+    <OutputClaim ClaimTypeReferenceId="city" />
+  </OutputClaims>
+  <SubjectNamingInfo ClaimType="sub" />
 </TechnicalProfile>
 ```
 

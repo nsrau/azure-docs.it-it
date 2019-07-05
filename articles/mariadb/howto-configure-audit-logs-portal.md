@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: c9ee106972cc78a08709d2ce55d2dfddc96edbf7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/24/2019
+ms.openlocfilehash: 8fadcc8cb418063662df45d4134bef0578ffccda
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079236"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444810"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configurare e accedere ai log di controllo nel portale di Azure
 
@@ -40,7 +40,7 @@ Abilitare e configurare la registrazione di controllo.
 1. Aggiorna il **audit_log_enabled** parametro su ON.
     ![Abilitare i log di controllo](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
-1. Selezionare gli eventi da registrare, aggiornando il **audit_log_events** parametro.
+1. Selezionare il [tipi di evento](concepts-audit-logs.md#configure-audit-logging) da registrare, aggiornando il **audit_log_events** parametro.
     ![Eventi di log di controllo](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
 1. Aggiungere utenti MariaDB da escludere dalla registrazione aggiornando il **audit_log_exclude_users** parametro. Specificare gli utenti, fornendo il proprio nome utente di MariaDB.

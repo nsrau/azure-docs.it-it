@@ -5,27 +5,27 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: f4c296aeefacc9516303ad75dd8b7d67325e38ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c1c987befe928d316b11c6ecd379be76f8f80d4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969063"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490156"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
-Questo articolo fornisce informazioni sui dati inclusi in Gestione costi di Azure. Viene inoltre illustrata la frequenza di elaborazione, raccolta, visualizzazione e chiusura dei dati. L'uso di Azure viene addebitato su base mensile. Tuttavia, il tipo di sottoscrizione di Azure determina quando termina il mese di fatturazione. La frequenza con cui Gestione costi riceve i dati sull'utilizzo varia a seconda di diversi fattori. Tali fattori includono il tempo necessario per l'elaborazione dei dati e la frequenza con cui i servizi di Azure generano i dati sull'utilizzo per il sistema di fatturazione.
+Questo articolo consente di comprendere meglio i dati di utilizzo e costi Azure inclusa in Gestione costi di Azure. Viene spiegato frequenza con cui viene elaborati i dati, raccolti, visualizzata e chiusa. L'uso di Azure viene addebitato su base mensile. Anche se i cicli di fatturazione sono periodi mensili, ciclo di avvio e le date di fine variano in base al tipo di sottoscrizione. La frequenza con cui Gestione costi riceve i dati sull'utilizzo varia a seconda di diversi fattori. Tali fattori includono il tempo necessario per l'elaborazione dei dati e la frequenza con cui i servizi di Azure generano i dati sull'utilizzo per il sistema di fatturazione.
 
-Gestione dei costi include tutti gli utilizzi e gli acquisti, incluse le prenotazioni e le offerte di terze parti per gli account di Enterprise Agreement (EA). Gli account di Microsoft dal cliente contratto MCA () e le sottoscrizioni con pagamento a consumo includono solo l'utilizzo da servizi di Azure e Marketplace. Non sono inclusi supporto e altri costi. Stima i costi fino a quando non viene generata una fattura e non vengono suddivisi fra i crediti.
+Gestione dei costi include tutti gli utilizzi e gli acquisti, incluse le prenotazioni e le offerte di terze parti per gli account di Enterprise Agreement (EA). Gli account di Microsoft dal cliente contratto MCA () e di sottoscrizioni individuali con tariffe a consumo includono solo l'utilizzo da servizi di Azure e Marketplace. Non sono inclusi supporto e altri costi. Stima i costi fino a quando non viene generata una fattura e non vengono suddivisi fra i crediti.
 
-## <a name="supported-microsoft-offers"></a>Offerte Microsoft supportate
+## <a name="supported-microsoft-azure-offers"></a>Offerte supportate di Microsoft Azure
 
-Le informazioni seguenti mostrano le [offerte di Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) attualmente supportate in Gestione costi di Azure.  Per offerta di Azure si intende il tipo di sottoscrizione di Azure di cui si dispone.
+Le informazioni seguenti mostrano l'attualmente supportate [Microsoft Azure offre](https://azure.microsoft.com/support/legal/offer-details/) da Gestione costi di Azure. Il contratto firmato per un'offerta di Azure determina il tipo di sottoscrizione di Azure che si dispone.
 
 | Category  | **Nome dell'offerta** | **Quota ID** | **Numero offerta** |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ Le informazioni seguenti mostrano le [offerte di Microsoft Azure](https://azure.
 | **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
 | **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
 
-La tabella seguente mostra le offerte non supportate.
+La tabella seguente illustra le offerte di Azure che non sono supportate da Gestione costi.
 
 | Category  | **Nome dell'offerta** | **Quota ID** | **Numero offerta** |
 | --- | --- | --- | --- |
@@ -66,7 +66,7 @@ La tabella seguente mostra le offerte non supportate.
 | **Piani di supporto** | Supporto Pro-Direct di Azure per enti pubblici | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Piani di supporto** | Supporto tecnico Developer di Azure per enti pubblici  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-Per i clienti con le categorie di offerta con pagamento in base al consumo, MSDN e Visual Studio, i dati sono disponibili in Gestione costi a partire dal 10/02/2018. Per accedere ai dati per la sottoscrizione prima 02/10 marzo 2018, è possibile usare la [centro Account di Azure](https://account.azure.com/subscriptions) per scaricare l'utilizzo in dettaglio in un file CSV oppure è possibile utilizzare il [API per dettagli sull'uso](/rest/api/consumption/usagedetails).
+Per i clienti con pagamento a consumo, MSDN e Visual Studio offrono le categorie, i dati sono disponibili in Gestione costi, a partire dal 10 ottobre 02/2018. Per accedere ai dati per la sottoscrizione prima 02/10 marzo 2018, è possibile usare la [centro Account di Azure](https://account.azure.com/subscriptions) per scaricare l'utilizzo in dettaglio in un file CSV oppure è possibile utilizzare il [API per dettagli sull'uso](/rest/api/consumption/usagedetails).
 
 ## <a name="determine-your-offer-type"></a>Determinare il tipo di offerta
 Se i dati relativi a una sottoscrizione non vengono visualizzati e si vuole determinare se la sottoscrizione rientra tra le offerte supportate, è possibile convalidare che la sottoscrizione sia supportata. Per convalidare che una sottoscrizione di Azure sia supportata, accedere al [portale di Azure](https://portal.azure.com). Selezionare quindi **Tutti i servizi** nel riquadro del menu a sinistra. Nell'elenco dei servizi selezionare **Sottoscrizioni**. Nel menu dell'elenco delle sottoscrizioni fare clic sulla sottoscrizione da verificare. La sottoscrizione verrà visualizzata nella scheda Panoramica e sarà possibile vedere le informazioni in **Offerta** e **ID offerta**. La figura seguente mostra un esempio.
@@ -116,7 +116,7 @@ Sottoscrizioni con pagamento in base al consumo - Se il mese di fatturazione ter
 
 ### <a name="rerated-data"></a>Dati rivalutati
 
-Se si utilizza il [API di gestione dei costi](https://aka.ms/costmgmt/docs), Power BI o il portale di Azure per recuperare i dati, prevede addebiti del periodo di fatturazione corrente ottenere nuovamente valutati e modificare di conseguenza, fino alla chiusura della fattura.
+Se si utilizza il [API di gestione dei costi](index.yml), Power BI o il portale di Azure per recuperare i dati, prevede addebiti del periodo di fatturazione corrente ottenere nuovamente valutati e modificare di conseguenza, fino alla chiusura della fattura.
 
 ## <a name="usage-data-update-frequency-varies"></a>Variazione della frequenza di aggiornamento dei dati sull'utilizzo
 
@@ -129,7 +129,7 @@ Alcuni servizi generano i dati sull'utilizzo più spesso rispetto ad altri. Pert
 
 ## <a name="historical-data-might-not-match-invoice"></a>I dati cronologici potrebbero non corrispondere fattura
 
-I dati cronologici per le offerte basate su carta di credito e pagamento anticipato potrebbero non corrispondere la fattura. Alcune offerte di Azure con pagamento a consumo, MSDN e Visual Studio possono avere i crediti di Azure e pagamenti avanzati applicati alla fattura. Tuttavia, i dati cronologici visualizzati in Gestione costi si basa sugli addebiti solo stime sui consumi. Non includono dati cronologici a gestione costi pagamenti e crediti. Di conseguenza, i dati cronologici visualizzati per le offerte seguenti potrebbero non corrispondere esattamente a quelli di fattura.
+I dati cronologici per le offerte basate su carta di credito e pagamento anticipato potrebbero non corrispondere la fattura. Alcuni Azure con pagamento a consumo, MSDN e Visual Studio offre possano sono applicati alla fattura avanzati pagamenti e crediti di Azure. Tuttavia, i dati cronologici visualizzati in Gestione costi si basa sugli addebiti solo stime sui consumi. Non includono dati cronologici a gestione costi pagamenti e crediti. Di conseguenza, i dati cronologici visualizzati per le offerte seguenti potrebbero non corrispondere esattamente a quelli di fattura.
 
 -   MS-AZR-0029P
 -   MS-AZR-0064P

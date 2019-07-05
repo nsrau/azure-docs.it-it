@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8d5d1b3c3f505b66e07f7aa226cfa001af94af8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60588078"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449337"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Protezione DDoS di Azure: procedure consigliate e architetture di riferimento
 
@@ -224,6 +224,8 @@ Protezione DDoS di Azure Standard identifica e mitiga gli attacchi DDoS senza al
 - Si prevede un evento virale che aumenterà significativamente il traffico di rete.
 
 - Un attore ha minacciato di lanciare un attacco DDoS contro le risorse.
+
+- Se si desidera whitelist IP o intervallo IP da protezione DDoS di Azure Standard. Uno scenario comune consiste nella whitelist IP se il traffico viene indirizzato da un Web Application firewall cloud esterna ad Azure. 
 
 Per gli attacchi che hanno un impatto aziendale critico, creare un [ticket di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) di gravità A.
 

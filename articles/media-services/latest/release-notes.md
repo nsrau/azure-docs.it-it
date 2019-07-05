@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: aa4e37e3b360727feb998ef5e9ca9b776c4b0e53
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b3e772ebb05f79abb70e58e63a93c3336a413e38
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303955"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542540"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -84,7 +84,7 @@ Aggiunta degli aggiornamenti che sono stati introdotti miglioramenti delle prest
 
 ## <a name="march-2019"></a>Marzo 2019
 
-Creazione dinamica dei pacchetti ora supporta Atmos. Dolby Per altre informazioni, vedere [codec Audio supportati dalla creazione dinamica dei pacchetti](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+Creazione dinamica dei pacchetti ora supporta Atmos. Dolby Per altre informazioni, vedere [codec Audio supportati dalla creazione dinamica dei pacchetti](dynamic-packaging-overview.md#audio-codecs).
 
 È ora possibile specificare un elenco di filtri di asset o account, si applica anche per il localizzatore di Streaming. Per altre informazioni, vedere [associare filtri a localizzatore di Streaming](filters-concept.md#associating-filters-with-streaming-locator).
 

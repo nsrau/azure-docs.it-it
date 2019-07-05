@@ -5,34 +5,30 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 56dc87b1cdf36d761c46133004a05f8fa225a091
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808309"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514441"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>Domande frequenti sul backup di file e cartelle 
+# <a name="common-questions-about-backing-up-files-and-folders"></a>Domande frequenti sul backup di file e cartelle
 
 Questo articolo offre risposte alle domande più comuni relativi ai backup dei file e cartelle con l'agente di Microsoft Azure Recovery Services (MARS) nei [Backup di Azure](backup-overview.md) servizio.
 
 ## <a name="general"></a>Generale
 
-### <a name="why-does-the-mars-agent-need-net-framework-452-or-higher"></a>Perché l'agente MARS è necessario .NET framework 4.5.2 o versione successiva?
-
-Nuove funzionalità disponibili in [il ripristino immediato](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) richiede .NET Framework 4.5.2 o versione successiva.
-
 ## <a name="configure-backups"></a>Configurare i backup
 
-### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>Dove è possibile scaricare la versione più recente dell'agente MARS? 
-L'agente MARS più recente utilizzato per eseguire il backup di macchine Windows Server, System Center DPM e server di Backup di Microsoft Azure è disponibile per [scaricare](https://aka.ms/azurebackup_agent). 
+### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>Dove è possibile scaricare la versione più recente dell'agente MARS?
+L'agente MARS più recente utilizzato per eseguire il backup di macchine Windows Server, System Center DPM e server di Backup di Microsoft Azure è disponibile per [scaricare](https://aka.ms/azurebackup_agent).
 
 ### <a name="how-long-are-vault-credentials-valid"></a>Per quanto tempo sono le credenziali dell'insieme di credenziali valido?
 Le credenziali dell'insieme di credenziali scadono dopo 48 ore. Se il file delle credenziali scade, scaricare nuovamente il file dal portale di Azure.
 
-### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Da quali le unità è possibile eseguire il backup di file e cartelle? 
+### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Da quali le unità è possibile eseguire il backup di file e cartelle?
 
 È possibile eseguire il backup dei seguenti tipi di unità e i volumi:
 
@@ -45,29 +41,20 @@ Le credenziali dell'insieme di credenziali scadono dopo 48 ore. Se il file delle
 
 ### <a name="what-file-and-folder-types-are-supported"></a>Quali tipi di file e cartelle sono supportati?
 
-Sono supportati i tipi seguenti:
-
-* Crittografato
-* Compresso
-* Sparse
-* Compresso + Sparse
-* Collegamenti reali: non supportati, ignorati
-* Reparse point: non supportato, ignorato
-* Crittografato + sparse: non supportato, ignorato
-* Flusso compresso: non supportato, ignorato
-* Reparse point, compresi i collegamenti DFS e i punti di giunzione
-
+[Altre informazioni](backup-support-matrix-mars-agent.md#supported-file-types-for-backup) sui tipi di file e cartelle supportate per il backup.
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>È possibile usare l'agente di MARS per eseguire il backup di file e cartelle in una macchina virtuale di Azure?  
-Sì. Backup di Azure offre backup a livello di macchina virtuale per le macchine virtuali di Azure usando l'estensione macchina virtuale per l'agente di macchine Virtuali di Azure. Se si desidera eseguire il backup di file e cartelle nel sistema operativo Windows guest nella macchina virtuale, è possibile installare l'agente di MARS per eseguire questa operazione. 
+Sì. Backup di Azure offre backup a livello di macchina virtuale per le macchine virtuali di Azure usando l'estensione macchina virtuale per l'agente di macchine Virtuali di Azure. Se si desidera eseguire il backup di file e cartelle nel sistema operativo Windows guest nella macchina virtuale, è possibile installare l'agente di MARS per eseguire questa operazione.
 
-### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>È possibile usare l'agente di MARS per eseguire il backup di file e cartelle nell'archivio temporaneo per la macchina virtuale di Azure? 
-Sì. Installare l'agente MARS ed eseguire il backup di file e cartelle nel sistema operativo Windows guest nell'archivio temporaneo. -Impossibile eseguire processi eseguire il backup sull'archiviazione temporanea vengono cancellati i dati.
+### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>È possibile usare l'agente di MARS per eseguire il backup di file e cartelle nell'archivio temporaneo per la macchina virtuale di Azure?
+Sì. Installare l'agente MARS ed eseguire il backup di file e cartelle nel sistema operativo Windows guest nell'archivio temporaneo.
+
+- I processi di backup non riescano a dati di archiviazione temporanea vengono cancellati.
 - Se i dati di archiviazione temporanea viene eliminati, è possibile ripristinare solo all'archiviazione non volatili.
 
 ### <a name="how-do-i-register-a-server-to-another-region"></a>Come si registra un server in un'altra area?
 
-I dati di backup viene inviati al Data Center dell'insieme di credenziali in cui è registrato il server. Il modo più semplice per modificare il Data Center consiste nel disinstallare e reinstallare l'agente e quindi registrare il computer a un nuovo insieme di credenziali nell'area è necessario
+I dati di backup viene inviati al Data Center dell'insieme di credenziali in cui è registrato il server. Il modo più semplice per modificare il Data Center consiste nel disinstallare e reinstallare l'agente e quindi registrare il computer a un nuovo insieme di credenziali nell'area è necessario.
 
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>Il supporto per l'agente MARS Windows Server 2012 esegue la deduplicazione?
 Sì. L'agente MARS converte i dati deduplicati in dati normali quando si prepara l'operazione di backup. Quindi Ottimizza i dati per il backup, crittografa i dati e quindi invia i dati crittografati nell'insieme di credenziali.
@@ -80,7 +67,7 @@ Quando si rinomina un computer Windows, tutti i backup attualmente configurati v
 
 - È necessario registrare il nuovo nome del computer con l'insieme di credenziali di Backup.
 - Quando si registra il nome del nuovo insieme di credenziali, la prima operazione è un *completo* backup.
-- Se devi ripristinare dati sottoposti a backup nell'insieme di credenziali con il nome del server precedente, usare l'opzione per ripristinare in un percorso alternativo nel ripristino guidato dei dati. [Altre informazioni](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) 
+- Se devi ripristinare dati sottoposti a backup nell'insieme di credenziali con il nome del server precedente, usare l'opzione per ripristinare in un percorso alternativo nel ripristino guidato dei dati. [Altre informazioni](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Che cos'è la lunghezza del percorso di file massime per il backup?
 L'agente MARS si basa su NTFS e utilizza la specifica di lunghezza di filepath limitata dai [API Windows](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Se i file da proteggere sono più lungo del valore consentito, eseguire il backup della cartella padre o l'unità disco.  
@@ -143,8 +130,8 @@ Per la cartella della cache non sono supportati gli attributi seguenti o le rela
 La cartella della cache e il disco rigido virtuale dei metadati non hanno gli attributi necessari per l'agente di Backup di Azure.
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>È possibile regolare la quantità di larghezza di banda usata per il backup?
- 
-Sì, è possibile usare la **modificare le proprietà** opzione nell'agente di MARS per regolare la larghezza di banda e temporizzazione. [Altre informazioni](backup-configure-vault.md#enable-network-throttling)* *.
+
+Sì, è possibile usare la **modificare le proprietà** opzione nell'agente di MARS per regolare la larghezza di banda e temporizzazione. [Altre informazioni](backup-configure-vault.md#enable-network-throttling)
 
 ## <a name="restore"></a>Restore
 

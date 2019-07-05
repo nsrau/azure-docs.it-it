@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 116748d7887ebf2ad821e3159c7c1bdcc2428121
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: e60188496e060eeea14fc7b7f1cc9a662551b286
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64684766"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485168"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Problemi di avvio di BitLocker in una macchina virtuale di Azure
 
@@ -48,7 +48,7 @@ Per risolvere questo problema, arrestare e deallocare la macchina virtuale e qui
 Se questo metodo non risolve il problema, seguire questa procedura per ripristinare manualmente il file con estensione BEK:
 
 1. Creare uno snapshot del disco di sistema della macchina virtuale in questione come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
-2. [Collegare il disco di sistema a una macchina virtuale di ripristino](troubleshoot-recovery-disks-portal-windows.md) crittografata da BitLocker. Questa operazione è necessaria per eseguire il comando [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) che è disponibile solo nella macchina virtuale crittografata da BitLocker.
+2. [Collegare il disco di sistema a una macchina virtuale di ripristino](troubleshoot-recovery-disks-portal-windows.md). Per eseguire la [gestire-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) comando nel passaggio 7, il **BitLocker Drive Encryption** funzionalità deve essere abilitata nella macchina virtuale di ripristino.
 
     Quando si collega un disco gestito, potrebbe essere visualizzato un messaggio di errore che indica la presenza di impostazioni di crittografia e l'impossibilità di usare il disco come disco dati. In questo caso, eseguire lo script seguente per provare nuovamente a collegare il disco:
 
@@ -106,7 +106,7 @@ Se questo metodo non risolve il problema, seguire questa procedura per ripristin
 
     Se il valore di **Content Type** è **Wrapped BEK**, passare agli [scenari relativi alla chiave di crittografia della chiave (KEK)](#key-encryption-key-scenario).
 
-    Dopo aver ottenuto il nome del file con estensione BEK dell'unità, per sbloccare l'unità è necessario creare il file secret-file-name.BEK. 
+    Dopo aver ottenuto il nome del file con estensione BEK dell'unità, per sbloccare l'unità è necessario creare il file secret-file-name.BEK.
 
 6.  Scaricare il file con estensione BEK sul disco di ripristino. L'esempio seguente salva il file con estensione BEK nella cartella C:\BEK. Verificare che il percorso `C:\BEK\` esista prima di eseguire gli script.
 
@@ -120,14 +120,14 @@ Se questo metodo non risolve il problema, seguire questa procedura per ripristin
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.  Per sbloccare il disco collegato usando il file con estensione BEK, eseguire il comando seguente:
+7.  Per sbloccare il disco collegato usando il file con estensione BEK, eseguire il comando seguente.
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
     In questo esempio, il disco del sistema operativo collegato è l'unità F. Verificare di usare la lettera di unità corretta. 
 
-    - Se il disco è stato sbloccato correttamente usando la chiave BEK, il problema di BitLocker può considerarsi risolto. 
+    - Se il disco è stato sbloccato correttamente usando la chiave BEK, è possibile considerare il problema di BitLocker da risolvere. 
 
     - Se l'uso della chiave BEK non ha sbloccato il disco, è possibile sospendere la protezione per disattivare temporaneamente BitLocker con il comando seguente:
     
@@ -254,7 +254,7 @@ In uno scenario con chiave di crittografia della chiave, seguire questa procedur
     ```
     In questo esempio, il disco del sistema operativo collegato è l'unità F. Verificare di usare la lettera di unità corretta. 
 
-    - Se il disco è stato sbloccato correttamente usando la chiave BEK, il problema di BitLocker può considerarsi risolto. 
+    - Se il disco è stato sbloccato correttamente usando la chiave BEK, è possibile considerare il problema di BitLocker da risolvere. 
 
     - Se l'uso della chiave BEK non ha sbloccato il disco, è possibile sospendere la protezione per disattivare temporaneamente BitLocker con il comando seguente:
     

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af7896ec4afaeefda7261542bf593a89a7bb9ae8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332398"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551795"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA per risorse e utenti di Azure 
 
@@ -55,8 +55,8 @@ Il Centro sicurezza supporta gli avvisi di rilevamento delle anomalie di Cloud A
 
 Questi avvisi sono abilitati per impostazione predefinita, ma è possibile disabilitarli:
 
-1. Nel pannello del Centro sicurezza selezionare **Criteri di sicurezza**. Per la sottoscrizione che si vuole modificare fare clic su **Modifica impostazioni**.
-2.  Fare clic su **Rilevamento delle minacce**.
+1. Nel pannello del Centro sicurezza, selezionare **Pricing Impo & stazioni** e selezionare la sottoscrizione applicabile.
+2. Fare clic su **Rilevamento delle minacce**.
 3. In **Enable integrations** (Abilita integrazioni) deselezionare **Allow Microsoft Cloud App Security to access my data** (Consenti a Cloud App Security di accedere ai miei dati) e fare clic su **Salva**.
 
    ![avviso di rilevamento delle minacce](./media/security-center-ueba-mcas/security-center-mcas-optout.png)

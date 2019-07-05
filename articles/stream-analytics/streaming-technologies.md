@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 85d6ed80da93f90e6dc0feaee7081ee3f36f1bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f46a35d971c008b61d4899e30101ea562d3cefea
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242697"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483415"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Scegliere un analitica in tempo reale e streaming la tecnologia di elaborazione in Azure
 
@@ -44,7 +44,7 @@ Azure Stream Analitica ha un'esperienza avanzata di out-of-the-box. È immediata
 
 ### <a name="you-need-to-input-from-or-output-to-kafka"></a>È necessario come input o output per Kafka
 
-Azure Stream Analitica non avere un input di Apache Kafka o adattatore di output. Se si dispone di eventi di destinazione o è necessario per l'invio a Kafka e non si dispone di un requisito per eseguire il proprio cluster Kafka, è possibile continuare a usare Stream Analitica per l'invio di eventi a hub eventi usando l'API Kafka di hub eventi senza modificare il mittente dell'evento. Se è necessario eseguire il proprio cluster Kafka, è possibile usare lo Streaming strutturato Spark, che è completamente supportato nei [Azure Databricks](../azure-databricks/index.yml), o Storm su [Azure HDInsight](../hdinsight/storm/apache-storm-tutorial-get-started-linux.md).
+Azure Stream Analitica non avere un input di Apache Kafka o adattatore di output. Se si dispone di eventi di destinazione o è necessario per l'invio a Kafka e non si dispone di un requisito per eseguire il proprio cluster Kafka, è possibile continuare a usare Stream Analitica per l'invio di eventi a hub eventi usando l'API Kafka di hub eventi senza modificare il mittente dell'evento. Se è necessario eseguire il proprio cluster Kafka, è possibile usare lo Streaming strutturato Spark, che è completamente supportato nei [Azure Databricks](../azure-databricks/index.yml), o Storm su [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
 
 ### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>Si vuole scrivere funzioni definite dall'utente, aggregazioni definite dall'utente e deserializers personalizzato in un linguaggio diverso da JavaScript oC#
 

@@ -2,18 +2,18 @@
 title: Configurare la replica per le macchine virtuali basate su crittografia dischi di Azure in Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come configurare la replica di macchine virtuali basate su crittografia dischi di Azure da un'area di Azure a un'altra con Site Recovery.
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4943b730bb46ee00200d84faf95a7ccb069d3aa8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2e9bf7fbe7d5940b517d97dcc15d21c30835001
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790994"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449207"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali abilitate per crittografia dischi di Azure in un'altra area di Azure
 
@@ -22,23 +22,23 @@ Questo articolo descrive come replicare le macchine virtuali basate su crittogra
 >[!NOTE]
 >Azure Site Recovery supporta attualmente solo macchine virtuali di Azure che eseguono un sistema operativo Windows e che si trovano [abilitata per la crittografia con Azure Active Directory (Azure AD)](https://aka.ms/ade-aad-app).
 
-## <a name="required-user-permissions"></a>Autorizzazioni utente necessarie
+## <a id="required-user-permissions"></a> Autorizzazioni utente necessarie
 Site Recovery richiede che l'utente disponga delle autorizzazioni per creare l'insieme di credenziali delle chiavi nelle chiavi di area geografica e copia di destinazione all'area.
 
 Per abilitare la replica di macchine virtuali con crittografia del disco abilitata dal portale di Azure, l'utente richiede le autorizzazioni seguenti:
 
 - Autorizzazioni dell'insieme di credenziali delle chiavi
-    - Elenco
+    - List
     - Create
     - Get
 
 -   Autorizzazioni di accesso al segreto dell'insieme di credenziali delle chiavi
-    - Elenco
+    - List
     - Create
     - Get
 
 - Autorizzazioni per insieme di credenziali delle chiavi (obbligatorio solo se le macchine virtuali usano una chiave di crittografia per crittografare le chiavi di crittografia del disco)
-    - Elenco
+    - List
     - Get
     - Create
     - Crittografare il contenuto
@@ -139,18 +139,25 @@ Negli scenari seguenti, verrà richiesto di aggiornare le impostazioni di critto
 
 ## <a id="trusted-root-certificates-error-code-151066"></a>Risolvere i problemi di autorizzazione dell'insieme di credenziali chiave durante la replica delle macchine Virtuali di Azure ad Azure
 
-**Causa 1:** Potrebbe essere selezionati dall'area di destinazione un già creato chiave dell'insieme di credenziali che non dispone delle autorizzazioni necessarie anziché consentire a Site Recovery di crearne uno. Assicurarsi che sia l'insieme di credenziali delle chiavi di richiedere le autorizzazioni, come descritto in precedenza.
+Azure Site Recovery richiede l'autorizzazione di lettura almeno l'insieme di credenziali delle chiave area di origine e dell'autorizzazione di scrittura nella destinazione area key vault per leggere la chiave privata e copiarlo nell'insieme di credenziali chiave di destinazione area. 
+
+**Causa 1:** Non si dispone di autorizzazione "GET" **insieme di credenziali delle chiavi area origine** di leggere le chiavi. </br>
+**Come correggere:** Indipendentemente dal fatto che si è un amministratore della sottoscrizione o non, è importante che hai le autorizzazioni get nell'insieme di credenziali chiave.
+
+1. Vai a origine area Key vault che in questo esempio è "ContososourceKeyvault" > **i criteri di accesso** 
+2. Sotto **selezionare un'entità** aggiungere il nome utente, ad esempio: "dradmin@contoso.com"
+3. Sotto **autorizzazioni chiave** selezionare GET 
+4. Sotto **segreto autorizzazione** selezionare GET 
+5. Salvare il criterio di accesso
+
+**Causa 2:** Si dispone delle autorizzazioni necessarie **insieme di credenziali chiave di destinazione area** per scrivere le chiavi. </br>
 
 *Ad esempio*: Si tenta di replicare una macchina virtuale con istanza di key vault *ContososourceKeyvault* su un'area di origine.
 Tutte le autorizzazioni si attiva l'insieme di credenziali chiave di origine area. Ma durante la protezione, si seleziona l'insieme di chiavi già creato ContosotargetKeyvault, che non dispone delle autorizzazioni. Si verifica un errore.
 
-**Come correggere:** Passare a **casa** > **Keyvaults** > **ContososourceKeyvault** > **i criteri di accesso** e aggiungere le autorizzazioni appropriate.
+Autorizzazione necessaria su [insieme di credenziali chiave di destinazione](#required-user-permissions)
 
-**Causa 2:** Si potrebbe essere stata selezionata dall'area di destinazione un già creato chiave dell'insieme di credenziali che non dispone di decrittografia-crittografare autorizzazioni anziché consentire a Site Recovery di crearne uno. Assicurarsi di aver crittografare decrypt autorizzazioni se si sta anche crittografare la chiave nell'area di origine.</br>
-
-*Ad esempio*: Si tenta di replicare una macchina virtuale con un insieme di credenziali delle chiavi *ContososourceKeyvault* sull'area di origine. L'insieme di credenziali chiave di origine area sono presenti tutte le necessarie autorizzazioni. Ma durante la protezione, si seleziona l'insieme di chiavi già creato ContosotargetKeyvault, che non dispone delle autorizzazioni per decrittografare e crittografare. Si verifica un errore.</br>
-
-**Come correggere:** Passare a **casa** > **Keyvaults** > **ContososourceKeyvault** > **i criteri di accesso**. Aggiungere le autorizzazioni in **autorizzazioni chiave** > **operazioni crittografiche**.
+**Come correggere:** Passare a **casa** > **Keyvaults** > **ContosotargetKeyvault** > **i criteri di accesso** e aggiungere le autorizzazioni appropriate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

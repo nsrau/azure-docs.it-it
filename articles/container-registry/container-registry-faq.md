@@ -4,16 +4,16 @@ description: Risposte alle domande frequenti relative al servizio Registro conte
 services: container-registry
 author: sajayantony
 manager: jeconnoc
-ms.service: container-instances
+ms.service: container-registry
 ms.topic: article
-ms.date: 5/13/2019
+ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: beeb4986750e398071e3afb6c1f04663f858cec1
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: c32d7342aaf1c4cce52ce14abe48ea1bc347fdb3
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303582"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551581"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su registro contenitori di Azure
 
@@ -27,6 +27,7 @@ Questo articolo affronta domande frequenti e problemi noti sul registro contenit
 - [Come ottenere le credenziali di amministratore per un registro contenitori?](#how-do-i-get-admin-credentials-for-a-container-registry)
 - [Come ottenere le credenziali di amministratore in un modello di Resource Manager?](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
 - [Operazione di eliminazione della replica ha esito negativo con stato non consentito anche se la replica viene eliminata usando il comando di Azure o Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
+- [Le regole del firewall sono state aggiornate correttamente, ma non hanno effetto](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>È possibile creare un registro contenitori di Azure usando un modello di Resource Manager?
 
@@ -34,11 +35,11 @@ Sì. Di seguito è riportato [un modello](https://github.com/Azure/azure-cli/blo
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>È presente una vulnerabilità di sicurezza l'analisi per le immagini nel registro contenitori di AZURE?
 
-Sì. Vedere la documentazione fornita dal [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](http://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Sì. Vedere la documentazione fornita dal [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Come si configura Kubernetes con registro contenitori di Azure?
 
-Vedere la documentazione relativa [Kubernetes](http://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) e i passaggi relativi [Azure Kubernetes Service](container-registry-auth-aks.md).
+Vedere la documentazione relativa [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) e i passaggi relativi [Azure Kubernetes Service](container-registry-auth-aks.md).
 
 ### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>Come ottenere le credenziali di amministratore per un registro contenitori?
 
@@ -90,6 +91,11 @@ L'errore si verifica quando l'utente dispone delle autorizzazioni per un registr
 ```azurecli  
 az role assignment create --role "Reader" --assignee user@contoso.com --scope /subscriptions/<subscription_id> 
 ```
+
+### <a name="firewall-rules-are-updated-successfully-but-they-do-not-take-effect"></a>Le regole del firewall sono state aggiornate correttamente, ma non hanno effetto
+
+Può richiedere tempo per propagare le modifiche alle regole firewall. Dopo aver modificato le impostazioni del firewall, attendere alcuni minuti prima di verifica per determinare se questa modifica.
+
 
 ## <a name="registry-operations"></a>Operazioni sui registri
 
@@ -245,8 +251,9 @@ Con l'uso di soli i `AcrPull` o `AcrPush` ruolo, l'assegnatario non ha l'autoriz
 
 Quarantena immagine è attualmente una funzionalità di anteprima del registro contenitori di AZURE. È possibile abilitare la modalità di quarantena di un registro di sistema in modo che solo le immagini che sono stati superati analisi di sicurezza sono visibili agli utenti normali. Per informazioni dettagliate, vedere la [repository GitHub di ACR](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
-## <a name="diagnostics"></a>Diagnostica
+## <a name="diagnostics-and-health-checks"></a>Controlli di integrità e diagnostica
 
+- [Verificare l'integrità con `az acr check-health`](#check-health-with-az-acr-check-health)
 - [pull docker non riesce con errore: net/http: richiesta annullata durante l'attesa di connessione (Client.Timeout superato durante l'attesa di intestazioni)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [push di docker ha esito positivo ma pull docker non riesce con errore: non autorizzato: autenticazione obbligatoria](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [Abilitare e ottenere i log di debug del daemon docker](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
@@ -255,16 +262,30 @@ Quarantena immagine è attualmente una funzionalità di anteprima del registro c
 - [Il motivo per cui il portale di Azure non è elencate tutte il repository o i tag?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Come si raccolgono le tracce http su Windows?](#how-do-i-collect-http-traces-on-windows)
 
+### <a name="check-health-with-az-acr-check-health"></a>Verificare l'integrità con `az acr check-health`
+
+Per risolvere i problemi del Registro di sistema e ambiente comuni, vedere [controlla l'integrità di un registro contenitori di Azure](container-registry-check-health.md).
+
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>pull docker non riesce con errore: net/http: richiesta annullata durante l'attesa di connessione (Client.Timeout superato durante l'attesa di intestazioni)
 
  - Se questo errore è un problema temporaneo, ripetizione dei tentativi avrà esito positivo.
- - Se `docker pull` ha esito negativo in modo continuo, potrebbe essersi verificato un problema con il daemon docker. Il problema può essere ridotto a livello generale, riavviare il daemon docker. 
- - Se si continua a visualizzare questo problema dopo il riavvio del daemon docker, il problema potrebbe essere alcuni problemi di connettività di rete con la macchina. Per verificare se generale di rete nel computer è integro, provare a eseguire un comando, ad esempio `ping www.bing.com`.
- - È sempre un meccanismo di ripetizione dei tentativi in tutte le operazioni client docker.
+ - Se `docker pull` ha esito negativo in modo continuo, potrebbe essersi verificato un problema con il daemon Docker. Il problema può essere ridotto a livello generale, riavviare il daemon Docker. 
+ - Se si continua a visualizzare questo problema dopo il riavvio del daemon Docker, il problema potrebbe essere alcuni problemi di connettività di rete con la macchina. Per controllare se generale di rete nel computer è integro, eseguire il comando seguente per testare la connettività dell'endpoint. Il valore minimo `az acr` versione che contiene questo comando verifica la connettività è 2.2.9. Eseguire l'aggiornamento della riga di comando di Azure se si usa una versione precedente.
+ 
+   ```azurecli
+    az acr check-health -n myRegistry
+    ```
+ - È sempre un meccanismo di ripetizione dei tentativi in tutte le operazioni client Docker.
+
+### <a name="docker-pull-is-slow"></a>Pull docker è lento
+Uso [ciò](http://www.azurespeed.com/Azure/Download) lo strumento per testare la velocità di download della rete di computer. Se machine rete è lenta, è consigliabile usare macchine Virtuali di Azure nella stessa area del Registro di sistema. Questo in genere offre maggiore velocità della rete.
+
+### <a name="docker-push-is-slow"></a>Push di docker è lento
+Uso [ciò](http://www.azurespeed.com/Azure/Upload) lo strumento per testare la velocità di caricamento della rete macchina. Se machine rete è lenta, è consigliabile usare macchine Virtuali di Azure nella stessa area del Registro di sistema. Questo in genere offre maggiore velocità della rete.
 
 ### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>push di docker ha esito positivo ma pull docker non riesce con errore: non autorizzato: autenticazione obbligatoria
 
-Questo errore può verificarsi con la versione di Red Hat di daemon docker, in cui `--signature-verification` è abilitato per impostazione predefinita. È possibile controllare le opzioni di daemon docker per Red Hat Enterprise Linux (RHEL) o Fedora eseguendo il comando seguente:
+Questo errore può verificarsi con la versione di Red Hat il daemon Docker, in cui `--signature-verification` è abilitato per impostazione predefinita. È possibile controllare le opzioni di daemon Docker per Red Hat Enterprise Linux (RHEL) o Fedora eseguendo il comando seguente:
 
 ```bash
 grep OPTIONS /etc/sysconfig/docker
@@ -284,12 +305,12 @@ unauthorized: authentication required
 ```
 
 Per risolvere l'errore:
-1. Aggiungere l'opzione `--signature-verification=false` al file di configurazione del daemon docker `/etc/sysconfig/docker`. Ad esempio:
+1. Aggiungere l'opzione `--signature-verification=false` al file di configurazione del daemon Docker `/etc/sysconfig/docker`. Ad esempio:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
   ```
-2. Riavviare il servizio daemon docker eseguendo il comando seguente:
+2. Riavviare il servizio daemon Docker eseguendo il comando seguente:
 
   ```bash
   sudo systemctl restart docker.service
@@ -297,9 +318,9 @@ Per risolvere l'errore:
 
 Dettagli della `--signature-verification` reperibili eseguendo `man dockerd`.
 
-### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Abilitare e ottenere i log di debug del daemon docker  
+### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Abilitare e ottenere i log di debug del daemon Docker  
 
-Avviare `dockerd` con il `debug` opzione. In primo luogo, creare il file di configurazione del daemon docker (`/etc/docker/daemon.json`) se non esiste e aggiungere il `debug` opzione:
+Avviare `dockerd` con il `debug` opzione. In primo luogo, creare il file di configurazione del daemon Docker (`/etc/docker/daemon.json`) se non esiste e aggiungere il `debug` opzione:
 
 ```json
 {   
@@ -387,7 +408,7 @@ curl $redirect_url
 
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Il motivo per cui il portale di Azure non è elencate tutte il repository o i tag? 
 
-Se si usa il browser Microsoft Edge, è possibile visualizzare al massimo 100 repository o i tag elencati. Se il Registro di sistema ha più di 100 repository o i tag, è consigliabile utilizzare il browser Firefox o Chrome per elencarli tutti.
+Se si usa il browser Microsoft Edge o Internet Explorer, è possibile visualizzare al massimo 100 repository o i tag. Se il Registro di sistema ha più di 100 repository o i tag, è consigliabile utilizzare il browser Firefox o Chrome per elencarli tutti.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Come si raccolgono le tracce http su Windows?
 
@@ -439,86 +460,6 @@ Questa impostazione si applica anche al `az acr run` comando.
 
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [Azioni di GitHub](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
-
-## <a name="error-references-for-az-acr-check-health"></a>Riferimenti a errori per `az acr check-health`
-
-### <a name="dockercommanderror"></a>DOCKER_COMMAND_ERROR
-
-Questo errore indica che il client docker per CLI non è stata trovata, che preclude ricerca versione docker, la valutazione dello stato del daemon docker e assicurando comando docker pull può essere eseguito.
-
-*Possibili soluzioni*: installazione del client docker; percorso docker aggiungendo le variabili di sistema.
-
-### <a name="dockerdaemonerror"></a>DOCKER_DAEMON_ERROR
-
-Questo errore indica che lo stato del daemon docker non è disponibile o che non è raggiungibile tramite la CLI. Ciò significa che le operazioni di docker (ad esempio, account di accesso, pull) sarà disponibile tramite l'interfaccia della riga di comando.
-
-*Possibili soluzioni*: Riavviare il daemon docker, o verificare che sia installato correttamente.
-
-### <a name="dockerversionerror"></a>DOCKER_VERSION_ERROR
-
-Questo errore indica che della riga di comando non è riuscito a eseguire il comando `docker --version`.
-
-*Possibili soluzioni*: provare a eseguire il comando manualmente, assicurarsi di avere la versione più recente dell'interfaccia della riga e provare a utilizzare il messaggio di errore.
-
-### <a name="dockerpullerror"></a>DOCKER_PULL_ERROR
-
-Questo errore indica che l'interfaccia della riga di comando non è in grado di estrarre un'immagine di esempio all'ambiente.
-
-*Possibili soluzioni*: verificare che tutti i componenti necessari per il pull di un'immagine vengano eseguiti correttamente.
-
-### <a name="helmcommanderror"></a>HELM_COMMAND_ERROR
-
-Questo errore indica che il client helm non è stato trovato per l'interfaccia della riga di comando, che preclude altre operazioni di helm.
-
-*Possibili soluzioni*: verificare che helm client viene installato e che il relativo percorso viene aggiunto alle variabili di ambiente di sistema.
-
-### <a name="helmversionerror"></a>HELM_VERSION_ERROR
-
-Questo errore indica che l'interfaccia della riga di comando è riuscito a determinare la versione di Helm installata. Questa situazione può verificarsi se la versione della riga di comando di Azure (o se la versione di helm) in uso è obsoleta.
-
-*Possibili soluzioni*: aggiornamento alla versione più recente della riga di comando di Azure o per la versione di helm consigliato; eseguire il comando manualmente ed esaminare il messaggio di errore.
-
-### <a name="connectivitydnserror"></a>CONNECTIVITY_DNS_ERROR
-
-Questo errore indica che il DNS per il server di accesso del Registro di sistema specificato è stato inviato un ping, ma non ha risposto, ovvero che è disponibile. Questo può indicare problemi di connettività. Questo può anche significare che il Registro di sistema non esiste, che l'utente non dispone di autorizzazioni nel Registro di sistema (per recuperare correttamente il server di accesso) o che nel Registro di sistema di destinazione in un cloud diverso rispetto a quello utilizzato nel comando di Azure.
-
-*Possibili soluzioni*: convalidare la connettività: controllare l'ortografia del Registro di sistema e del Registro di sistema esiste, verificare che l'utente disponga delle autorizzazioni appropriate su di esso e che il cloud del Registro di sistema sia uguale a quello utilizzato nel comando di Azure.
-
-### <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
-
-Ciò significa che l'endpoint di richiesta per il Registro di sistema specificata ha risposto con uno stato 403 HTTP non è consentito. Ciò significa che gli utenti autorizzati ad accedere al Registro di sistema, probabilmente a causa di una configurazione di rete virtuale.
-
-*Possibili soluzioni*: rimuovere le regole della rete virtuale oppure aggiungere l'indirizzo IP client corrente all'elenco consentiti.
-
-### <a name="connectivitychallengeerror"></a>CONNECTIVITY_CHALLENGE_ERROR
-
-Questo errore indica che l'endpoint di richiesta di verifica del Registro di sistema di destinazione non ha emesso una richiesta di verifica.
-
-*Possibili soluzioni*: provare più tardi. Se l'errore persiste, aprire problemi am nel https://aka.ms/acr/issues.
-
-### <a name="connectivityaadloginerror"></a>CONNECTIVITY_AAD_LOGIN_ERROR
-
-Questo errore indica che l'endpoint di richiesta di verifica del Registro di sistema di destinazione rilasciato una sfida, ma il Registro di sistema non supporta account di accesso AAD.
-
-*Possibili soluzioni*: provare un altro modo la registrazione in, ad esempio, le credenziali di amministratore. Nel caso in cui l'utente desidera accedere con il supporto AAD, Apri problema am https://aka.ms/acr/issues.
-
-### <a name="connectivityrefreshtokenerror"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
-
-Ciò significa che il server di accesso del Registro di sistema non ha risposto con un token di aggiornamento, il che significa che è stato negato l'accesso al Registro di sistema di destinazione. Questa situazione può verificarsi se l'utente non ha le autorizzazioni appropriate nel Registro di sistema o se le credenziali dell'utente della riga di comando di Azure sono obsolete.
-
-*Soluzioni potenziali*: verificare se l'utente disponga delle autorizzazioni appropriate nel Registro di sistema; eseguire `az login` per aggiornare le autorizzazioni, i token e le credenziali.
-
-### <a name="connectivityaccesstokenerror"></a>CONNECTIVITY_ACCESS_TOKEN_ERROR
-
-Ciò significa che il server di accesso del Registro di sistema non ha risposto con un token di accesso, il che significa che è stato negato l'accesso al Registro di sistema di destinazione. Questa situazione può verificarsi se l'utente non ha le autorizzazioni appropriate nel Registro di sistema o se le credenziali dell'utente della riga di comando di Azure sono obsolete.
-
-*Soluzioni potenziali*: verificare se l'utente disponga delle autorizzazioni appropriate nel Registro di sistema; eseguire `az login` per aggiornare le autorizzazioni, i token e le credenziali.
-
-### <a name="loginservererror"></a>LOGIN_SERVER_ERROR
-
-Ciò significa che l'interfaccia della riga di comando è riuscito a trovare il server di accesso del Registro di sistema specificato e per il cloud corrente è stato trovato alcun suffisso predefinito. Questa situazione può verificarsi se il Registro di sistema non esiste, se l'utente non dispone delle autorizzazioni appropriate nel Registro di sistema, se non corrispondono a cloud del Registro di sistema e il cloud di Azure dell'interfaccia della riga corrente o se la versione della riga di comando di Azure è obsoleta.
-
-*Possibili soluzioni*: verificare che l'ortografia sia corretta e che il Registro di sistema esiste, verifica se l'utente ha le autorizzazioni appropriate nel Registro di sistema e che i cloud del Registro di sistema e dell'ambiente dell'interfaccia della riga corrispondano; della riga di comando di Azure l'aggiornamento alla versione più recente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

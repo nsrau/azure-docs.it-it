@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: monhaber
-ms.openlocfilehash: 76e691df0a026802682b57ff78496f6b66d7ff79
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: ed94b92a34e2989c9f2226c344ac4d34a279eeac
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154821"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551821"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Protezione avanzata dei dati per istanze di SQL Server in macchine virtuali di Azure (anteprima pubblica)
 Protezione avanzata dei dati per istanze di SQL Server in macchine virtuali di Azure è un pacchetto unificato per la funzionalità di sicurezza avanzate SQL. Attualmente (in anteprima pubblica) include funzionalità per esporre e mitigazione delle potenziali vulnerabilità del database e rilevare attività anomale che indicano una minaccia al database. 
@@ -95,7 +95,7 @@ I passaggi seguenti consentono di iniziare con sicurezza avanzata di dati per SQ
 
 È possibile impostare un elenco di destinatari per ricevere una notifica di posta elettronica quando vengono generati avvisi di Centro sicurezza di AZURE. Messaggio di posta elettronica contiene un collegamento diretto dell'avviso nel Centro sicurezza di Azure con tutti i relativi dettagli. 
 
-1. Passare a **Centro sicurezza** > **criteri di sicurezza** quindi nella riga della selezione sottoscrizione da usare **modificare le impostazioni >** .
+1. Passare a **Centro sicurezza** > **prezzi Impo & stazioni** e fare clic sulla sottoscrizione da usare
 
     ![Impostazioni di sottoscrizione](./media/security-center-advanced-iaas-data/subscription-settings.png)
 

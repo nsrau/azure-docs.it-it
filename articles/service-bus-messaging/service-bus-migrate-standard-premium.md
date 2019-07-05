@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991412"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566072"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Eseguire la migrazione esistente spazi dei nomi standard del Bus di servizio di Azure per il livello premium
 Il Bus di servizio di Azure offerto in precedenza, gli spazi dei nomi solo nel livello standard. Gli spazi dei nomi sono impostazioni di multi-tenant che sono ottimizzate per gli ambienti di sviluppo e una velocità effettiva bassa. Il livello premium offre risorse dedicate per ogni spazio dei nomi per aumentare la velocità effettiva a un prezzo fisso e latenza prevedibile. Il livello premium è ottimizzato per la velocità effettiva elevata e ambienti di produzione che richiedono funzionalità aggiuntive dell'organizzazione.
@@ -117,6 +117,28 @@ Migrazione tramite il portale di Azure ha lo stesso flusso logico come eseguire 
 1. Esaminare le modifiche nella pagina di riepilogo. Selezionare **completare la migrazione** per passare gli spazi dei nomi e completare la migrazione.
     ![Passare lo spazio dei nomi - opzione di menu][] viene visualizzata la pagina di conferma una volta completata la migrazione.
     ![Spazio dei nomi switch - operazione riuscita][]
+
+## <a name="caveats"></a>Avvertenze
+
+Alcune delle funzionalità fornite dal livello Standard del Bus di servizio Azure non sono supportati da livello Premium del Bus di servizio di Azure. Questi sono per impostazione predefinita perché il livello premium offre risorse dedicate per la latenza e velocità effettiva prevedibile.
+
+Ecco un elenco delle funzionalità non supportate da Premium e limitarne gli effetti: 
+
+### <a name="express-entities"></a>Entità Express
+
+   Le entità Express che non eseguono il commit i dati dei messaggi all'archiviazione non sono supportate in Premium. Risorse dedicate fornito miglioramento significativo della velocità effettiva garantendo che i dati verranno salvati, come previsto da qualsiasi sistema di messaggistica aziendale.
+   
+   Durante la migrazione, qualsiasi entità express nello spazio dei nomi Standard verrà creato lo spazio dei nomi Premium come un'entità non express.
+   
+   Se si utilizzano i modelli di Azure Resource Manager (ARM), accertarsi di rimuovere il flag 'enableExpress' dalla configurazione della distribuzione in modo che i flussi di lavoro automatizzati eseguiti senza errori.
+
+### <a name="partitioned-entities"></a>Entità partizionate
+
+   Le entità partizionate erano supportate nel livello Standard per fornire una migliore disponibilità in un'installazione multi-tenant. Con la fornitura di risorse dedicate disponibili per ogni spazio dei nomi nel livello Premium, questo non è più necessario.
+   
+   Durante la migrazione, viene creata un'entità partizionata nello spazio dei nomi Standard nello spazio dei nomi Premium come un'entità non partizionate.
+   
+   Se il modello ARM imposta 'enablePartitioning' su 'true' per una coda o un argomento specifico, quindi verrà ignorata dal broker.
 
 ## <a name="faqs"></a>Domande frequenti
 

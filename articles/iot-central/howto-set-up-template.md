@@ -8,31 +8,25 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 58f50a1a2b90b4b5f9708bf0f1a7cb51db8e47ae
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 7fb0fba519a7833ac318c713dc9eb3c6ac7f8b5b
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275968"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509543"
 ---
 # <a name="set-up-a-device-template"></a>Configurare un modello di dispositivo
 
 Un modello di dispositivo è un progetto che definisce le caratteristiche e i comportamenti di un tipo di dispositivo che si connette a un'applicazione Azure IoT Central.
 
-Ad esempio, un generatore può creare un modello per un dispositivo a ventola con connessione IoT con:
+Ad esempio, un generatore può creare un modello di dispositivo per una ventola connessa con le caratteristiche seguenti:
 
 - Misura dei dati di telemetria sulla temperatura
-
+- Misurazione di posizione
 - Misura degli eventi di errore del motore della ventola
-
 - Misura dello stato operativo della ventola
-
 - Impostazione della velocità della ventola
-
-- Proprietà location
-
 - Regole per l'invio di avvisi
-
 - Il dashboard offre una visione complessiva del dispositivo
 
 Da questo modello di dispositivo, un operatore può creare e connettere dei dispositivi a ventola reali a cui assegnare nomi come **fan-1** e **fan-2**. Tutti questi dispositivi a ventola hanno misure, impostazioni, proprietà, regole e un dashboard che gli utenti dell'applicazione possono monitorare e gestire.
@@ -61,6 +55,7 @@ Le misure sono i dati provenienti dal dispositivo. È possibile aggiungere più 
 - Le misure di **Telemetry** (Telemetria) sono i punti dati numerici che il dispositivo raccoglie nel tempo. Sono rappresentati come un flusso continuo. Un esempio è la temperatura.
 - Le misure **Event** (Evento) sono dati temporizzati che hanno un particolare significato per il dispositivo. Il livello di gravità rappresenta l'importanza di un evento. Un esempio è l'errore del motore della ventola.
 - Le misure **State** (Stato) rappresentano lo stato del dispositivo o dei relativi componenti nell'arco di un periodo di tempo. Ad esempio, la modalità della ventola può essere definita come modalità avente stato **operativo** o stato **arrestato**.
+- **Percorso** misurazioni sono le coordinate di latitudine e longitudine del dispositivo in un periodo di tempo in. Una ventola, ad esempio, può essere spostata da una posizione a un'altra.
 
 ### <a name="create-a-telemetry-measurement"></a>Creare una misura di telemetria
 
@@ -78,7 +73,7 @@ PNG, ad esempio, è possibile aggiungere una nuova misura i dati di telemetria d
 
 Dopo aver selezionato **Salva**, la misura **Temperature** (Temperatura) viene visualizzata nell'elenco delle misure. In breve tempo vengono visualizzati i dati della temperatura del dispositivo simulato.
 
-Quando si visualizzano i dati di telemetria, è possibile scegliere tra le opzioni di aggregazione seguenti: Media, minimo, massimo, Sum e Count. **Media** è selezionato come l'aggregazione predefinita del grafico. 
+Quando si visualizzano i dati di telemetria, è possibile scegliere tra le opzioni di aggregazione seguenti: Media, minimo, massimo, Sum e Count. **Media** è selezionato come l'aggregazione predefinita del grafico.
 
 > [!NOTE]
 > Il tipo di dati della misura telemetrica è un numero in virgola mobile.
@@ -127,6 +122,32 @@ Se il dispositivo invia troppi punti dati in un periodo limitato, la misurazione
 > [!NOTE]
 > I dati della misurazione dello stato sono di tipo stringa.
 
+### <a name="create-a-location-measurement"></a>Creare una misura della posizione
+
+Per aggiungere una nuova misura di percorso, selezionare **+ nuova misura**, scegliere **posizione** come la misurazione digitare e immettere i dettagli nella **creare unità di misura** form.
+
+Ad esempio, è possibile aggiungere una nuova misura i dati di telemetria percorso:
+
+| Nome visualizzato        | Nome campo    |
+| --------------------| ------------- |
+| Posizione degli asset      |  assetloc     |
+
+![Modulo "Crea posizione" con i dettagli per la misurazione di posizione](./media/howto-set-up-template/locationmeasurementsform.png)
+
+Dopo aver selezionato **salvare**, il **posizione** misurazione visualizzata nell'elenco delle misure. In un breve periodo di tempo, noterete che la visualizzazione dei dati del percorso del dispositivo simulato.
+
+Quando si visualizzano posizione, è possibile scegliere tra le opzioni seguenti: posizione più recente e la cronologia di percorso. **Cronologia delle posizioni** viene applicato solo l'intervallo di tempo selezionato.
+
+Il tipo di dati della misurazione della posizione è un oggetto che contiene un'altitudine facoltativo, latitudine e longitudine. Il frammento di codice seguente illustra la struttura di JavaScript:
+
+```javascript
+assetloc: {
+  lon: floating point number,
+  lat: floating point number,
+  alt?: floating point number
+}
+```
+
 ## <a name="settings"></a>Impostazioni
 
 Le impostazioni consentono di controllare un dispositivo. Consentono agli operatori di inviare dati al dispositivo. È possibile aggiungere più impostazioni al modello di dispositivo che verranno visualizzate come riquadri nella scheda **Settings** (Impostazioni) e che gli operatori potranno utilizzare. È possibile aggiungere molti tipi di impostazioni: number (numero), text (testo), date (data), toggle (attivazione/disattivazione), pick list (elenco di selezione) e section label (etichetta sezione).
@@ -151,12 +172,12 @@ Dopo aver selezionato **Salva**, l'impostazione **Fan Speed** (Velocità ventola
 
 ## <a name="properties"></a>Properties
 
-Le proprietà sono i metadati associati al dispositivo, ad esempio posizione del dispositivo e numero di serie. Aggiungere più proprietà al modello di dispositivo, che verranno visualizzate come riquadri nella scheda **Properties** (Proprietà). Una proprietà può avere un tipo, ad esempio un numero, un testo, una data, un'alternanza, una proprietà del dispositivo, un'etichetta o una posizione. Un operatore può specificare i valori delle proprietà quando crea un dispositivo e modificare questi valori in qualsiasi momento. Le proprietà del dispositivo sono di sola lettura e vengono inviate dal dispositivo all'applicazione. Un operatore non può modificare le proprietà del dispositivo. Quando si connette un dispositivo reale, il riquadro delle proprietà del dispositivo viene aggiornato nell'applicazione.
+Le proprietà sono metadati che sono associati con il dispositivo, ad esempio una posizione periferica predefinito e il numero di serie. Aggiungere più proprietà al modello di dispositivo, che verranno visualizzate come riquadri nella scheda **Properties** (Proprietà). Una proprietà ha un tipo, ad esempio numero, testo, date, attiva/disattiva, proprietà del dispositivo, un'etichetta o una posizione fissa. Un operatore consente di specificare i valori di proprietà quando si crea un dispositivo ed è possibile modificare questi valori in qualsiasi momento. Le proprietà del dispositivo sono di sola lettura e vengono inviate dal dispositivo all'applicazione. Un operatore non è possibile modificare le proprietà del dispositivo. Quando si connette un dispositivo reale, il riquadro Proprietà dispositivo Aggiorna nell'applicazione.
 
 Sono disponibili due categorie di proprietà:
 
 - Le _proprietà del dispositivo_ segnalate dal dispositivo all'applicazione IoT Central. Le proprietà del dispositivo sono valori di sola lettura riportati dal dispositivo e vengono aggiornate nell'applicazione una volta collegato un dispositivo reale.
-- Le _proprietà dell'applicazione_ che vengono archiviate nell'applicazione e che possono essere modificate dall'operatore. Il dispositivo non riconosce le proprietà dell'applicazione.
+- Le _proprietà dell'applicazione_ che vengono archiviate nell'applicazione e che possono essere modificate dall'operatore. Le proprietà dell'applicazione vengono archiviate solo nell'applicazione e non vengono mai visto un dispositivo.
 
 È ad esempio possibile aggiungere la data dell'ultima manutenzione del dispositivo come nuova proprietà **Date** (Data) (una proprietà dell'applicazione) nella scheda **Properties** (Proprietà):
 
@@ -170,14 +191,17 @@ Dopo aver selezionato **Save** (Salva), la data dell'ultima manutenzione del dis
 
 Dopo aver creato un riquadro è possibile modificare il valore della proprietà dell'applicazione in **Device Explorer**.
 
-### <a name="create-a-location-property-through-azure-maps"></a>Creare una proprietà di posizione con Mappe di Azure
+### <a name="create-a-location-property"></a>Creare una proprietà di posizione
 
-È possibile fornire un contesto geografico per i dati di posizione in Azure IoT Central e mappare qualsiasi coordinata di latitudine e di longitudine di un indirizzo stradale. Oppure è possibile eseguire il mapping delle coordinate di latitudine e longitudine. Mappe di Azure abilita questa funzionalità in IoT Central.
+È possibile fornire contesto geografico ai dati in Azure IoT Central percorso e il mapping di qualsiasi latitudine e le coordinate di longitudine o un indirizzo stradale. Mappe di Azure abilita questa funzionalità in IoT Central.
 
 Esistono due tipi di proprietà di posizione che è possibile aggiungere:
 
-- **Location as an Application property** (Posizione come proprietà dell'applicazione) che viene archiviata nell'applicazione. Il dispositivo non riconosce le proprietà dell'applicazione.
-- **Location as a Device property** (Posizione come proprietà del dispositivo) che il dispositivo segnala all'applicazione.
+- **Location as an Application property** (Posizione come proprietà dell'applicazione) che viene archiviata nell'applicazione. Le proprietà dell'applicazione vengono archiviate solo nell'applicazione e non vengono mai visto un dispositivo.
+- **Location as a Device property** (Posizione come proprietà del dispositivo) che il dispositivo segnala all'applicazione. Questo tipo di proprietà è più adatta per un indirizzo statico.
+
+> [!NOTE]
+> Posizione di una proprietà non registra una cronologia. Se si desidera cronologia, usare una misura della posizione.
 
 #### <a name="add-location-as-an-application-property"></a>Aggiungere la posizione come proprietà dell'applicazione
 
@@ -190,7 +214,7 @@ Esistono due tipi di proprietà di posizione che è possibile aggiungere:
 3. Configurare **Display Name** (Nome visualizzato), **Nome campo** (Field Name) e facoltativamente **Initial Value** (Valore iniziale) per la posizione.
 
     | Nome visualizzato  | Nome campo | Valore iniziale |
-    | --------------| -----------|---------| 
+    | --------------| -----------|---------|
     | Indirizzo di installazione | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
    ![Modulo "Configure Location" (Configura posizione) con i dettagli per la posizione](./media/howto-set-up-template/locationcloudproperty2.png)
@@ -220,7 +244,7 @@ Esistono due tipi di proprietà di posizione che è possibile aggiungere:
 
    ![Modulo "Configure Device Properties" (Configura proprietà dispositivo) con i dettagli per la posizione](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Una volta connesso il dispositivo reale, la posizione aggiunta come proprietà del dispositivo viene aggiornata con il valore inviato dal dispositivo. Ora che è stata configurata la proprietà di posizione, sarà possibile [aggiungere una mappa per visualizzare la posizione nel dashboard del dispositivo](#add-an-azure-maps-location-in-the-dashboard).
+Dopo che è connesso il dispositivo reale, aggiungere il percorso come una proprietà del dispositivo viene aggiornata con il valore inviato dal dispositivo. Dopo aver configurato le proprietà di posizione, è possibile [aggiungere una mappa per visualizzare la posizione nel dashboard del dispositivo](#add-a-location-in-the-dashboard).
 
 ## <a name="commands"></a>Comandi:
 
@@ -240,7 +264,7 @@ Ad esempio, è possibile aggiungere una nuova **Echo** comando selezionando la *
 
 ![Modulo "Configure Command" (Configura comando) con i dettagli per Echo](./media/howto-set-up-template/commandsecho1.png)
 
-Dopo aver selezionato **Save** (Salva), il comando **Echo** (Eco) viene visualizzato come riquadro ed è pronto per essere usato da **Device Explorer** quando viene collegato il dispositivo reale. I nomi dei campi del comando devono corrispondere ai nomi delle proprietà nel codice dispositivo corrispondente, affinché i comandi vengano eseguiti correttamente.
+Dopo aver selezionato **Save** (Salva), il comando **Echo** (Eco) viene visualizzato come riquadro ed è pronto per essere usato da **Device Explorer** quando viene collegato il dispositivo reale. I nomi dei campi del comando devono corrispondere ai nomi di proprietà nel codice del dispositivo corrispondente in ordine per i comandi eseguire correttamente.
 
 ## <a name="rules"></a>Regole
 
@@ -250,7 +274,7 @@ Le regole consentono agli operatori di monitorare i dispositivi quasi in tempo r
 
 ## <a name="dashboard"></a>dashboard
 
-Il dashboard è dove l'operatore può visualizzare informazioni su un dispositivo. In qualità di generatore, è possibile aggiungere riquadri a questa pagina per aiutare gli operatori a comprendere come si comporta il dispositivo. È possibile aggiungere più riquadri del dashboard al modello di dispositivo. È possibile aggiungere più tipi di riquadri del dashboard, ad esempio immagine, grafico a linee, grafico a barre, indicatore di prestazioni chiave, impostazioni e proprietà ed etichetta.
+Il dashboard è in cui un operatore passa per visualizzare informazioni su un dispositivo. Come un generatore di aggiungere riquadri a questa pagina per comprendere gli operatori di comportamento al dispositivo. È possibile aggiungere più tipi di riquadri del dashboard, ad esempio immagine, grafico a linee, grafico a barre, indicatore di prestazioni chiave, impostazioni e proprietà ed etichetta.
 
 È ad esempio possibile aggiungere un riquadro **Settings and Properties** (Impostazioni e proprietà) per mostrare una selezione dei valori correnti di impostazioni e proprietà selezionando la scheda **Dashboard** e il riquadro dalla raccolta:
 
@@ -258,27 +282,29 @@ Il dashboard è dove l'operatore può visualizzare informazioni su un dispositiv
 
 Questo un operatore visualizza il dashboard in **Device Explorer**, ora può vedere il riquadro.
 
-### <a name="add-an-azure-maps-location-in-the-dashboard"></a>Aggiungere una posizione di Mappe di Azure nel dashboard
+### <a name="add-a-location-in-the-dashboard"></a>Aggiungere un percorso nel dashboard
 
-Se è stata configurata una proprietà location, è possibile visualizzare la posizione usando una mappa nel dashboard del dispositivo.
+Se è stata configurata una misura della posizione, è possibile visualizzare il percorso con una mappa nel dashboard del dispositivo.
 
 1. Passare alla scheda **Dashboard**.
 
 1. Nel dashboard del dispositivo selezionare **Map** (Mappa) nella libreria.
 
-1. Assegnare un titolo alla mappa. L'esempio seguente presenta il titolo **Installation Location** (Posizione dell'installazione). Scegliere quindi la proprietà di posizione configurata in precedenza nella scheda **Properties** (Proprietà). Nell'esempio seguente è selezionato **Installation address** (Indirizzo di installazione).
+1. Assegnare un titolo alla mappa. L'esempio seguente contiene il titolo **posizione corrente del dispositivo**. Scegliere quindi la misurazione di percorso configurati in precedenza nel **misurazioni** scheda. Nell'esempio seguente, il **posizione degli Asset** misura viene selezionata:
 
    ![Modulo "Configure Map" (Configura mappa) con i dettagli per titolo e proprietà](./media/howto-set-up-template/locationcloudproperty5map.png)
 
-4. Selezionare **Salva**. Il riquadro Map (Mappa) ora mostra la posizione selezionata.
+1. Selezionare **Salva**. Il riquadro Map (Mappa) ora mostra la posizione selezionata.
 
-Sarà possibile ridimensionare la mappa alle dimensioni desiderate. Ora, quando un operatore visualizza il dashboard in **Device Explorer**, sono visibili tutti i riquadri del dashboard che sono stati configurati, inclusa la mappa della posizione.
+È possibile ridimensionare il riquadro mappa. Quando un operatore visualizzazioni dashboard di **Device Explorer**, tutti i dashboard di riquadri che è stato configurato, include una mappa delle posizioni sono visibili.
+
+Per altre informazioni su come usare i riquadri in Azure IoT Central, vedere [usare i riquadri del dashboard](howto-use-tiles.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ora che si conosce la procedura per configurare un modello di dispositivo nell'applicazione Azure IoT Central, è possibile:
 
 > [!div class="nextstepaction"]
-> [Creare una nuova versione di modello di dispositivo](howto-version-devicetemplate.md)
+> [Creare una nuova versione di modello di dispositivo](howto-version-device-template.md)
 > [connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central](howto-connect-devkit.md)
 > [connettere un'applicazione client generico di Azure Applicazione IoT Central (Node. js)](howto-connect-nodejs.md)

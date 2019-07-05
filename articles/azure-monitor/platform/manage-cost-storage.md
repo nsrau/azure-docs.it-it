@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 3cad3722a9d0a52b1a0e66c760e948ceb3c1671c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7fa59f4086608a8bacabde21f0c02c108f1f5e8
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061043"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466735"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e costi con i log di monitoraggio di Azure
 
@@ -105,10 +105,12 @@ La procedura seguente descrive come configurare il periodo di conservazione dei 
 3. Nel riquadro spostare il dispositivo di scorrimento per aumentare o diminuire il numero di giorni e quindi fare clic su **OK**.  Se si usa il livello *gratuito*, non è possibile modificare il periodo di conservazione dei dati ed è necessario eseguire l'aggiornamento al piano a pagamento per controllare questa impostazione.
 
     ![Modificare l'impostazione di conservazione dei dati dell'area di lavoro](media/manage-cost-storage/manage-cost-change-retention-01.png)
+    
+Il periodo di conservazione può essere anche [impostati tramite ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando il `dataRetention` parametro. Inoltre, se si imposta la conservazione dei dati per 30 giorni, è possibile attivare un'eliminazione immediata dei dati meno recenti usando il `immediatePurgeDataOn30Days` parametro, che può essere utile per gli scenari correlati alla conformità. Questa funzionalità è esposta solo tramite ARM. 
 
 ## <a name="legacy-pricing-tiers"></a>Piani tariffari legacy
 
-Le sottoscrizioni che ha un'area di lavoro di Log Analitica o risorsa di Application Insights in esso prima del 2 aprile 2018, o sono collegate a un contratto Enterprise Agreement che ha avviato prima del 1 febbraio 2019, continueranno ad avere accesso a legacy piani tariffari: **Libera**, **autonomo (Per GB)** e **per ogni nodo (OMS)** .  Le aree di lavoro nel piano tariffario gratuito avrà l'inserimento di dati giornaliero limitata a 500 MB (tranne i tipi di dati di sicurezza raccolti dal Centro sicurezza di Azure) e la conservazione dei dati è limitato a 7 giorni. Il piano tariffario gratuito è destinato solo a scopo di valutazione. Aree di lavoro di autonomo o per ogni nodo piani tariffari hanno conservazione configurabili dall'utente di fino a 2 anni. 
+Le sottoscrizioni che ha un'area di lavoro di Log Analitica o risorsa di Application Insights in esso prima del 2 aprile 2018, o sono collegate a un contratto Enterprise Agreement che ha avviato prima del 1 febbraio 2019, continueranno ad avere accesso a legacy piani tariffari: **Libera**, **autonomo (Per GB)** e **per ogni nodo (OMS)** .  Le aree di lavoro nel piano tariffario gratuito avrà l'inserimento di dati giornaliero limitata a 500 MB (tranne i tipi di dati di sicurezza raccolti dal Centro sicurezza di Azure) e la conservazione dei dati è limitato a 7 giorni. Il piano tariffario gratuito è destinato solo a scopo di valutazione. Aree di lavoro di autonomo o per ogni nodo piani tariffari hanno conservazione configurabili dall'utente di fino a 2 anni. Aree di lavoro create prima del mese di aprile 2016 hanno anche accesso originale **Standard** e **Premium** piani tariffari. Sono disponibili altri dettagli di limitazioni a livello di prezzo [qui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
 > [!NOTE]
 > Per usare i diritti che derivano dall'acquisto di OMS E1 Suite, OMS E2 Suite o un componente aggiuntivo di OMS per System Center, scegliere il piano tariffario *Per nodo* di Log Analytics.
@@ -126,11 +128,7 @@ Se l'area di lavoro Log Analytics ha accesso ai piani tariffari esistenti, modif
 3. In **Piano tariffario** selezionare un piano tariffario e quindi fare clic su **Seleziona**.  
     ![Piano tariffario selezionato](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Se si desidera spostare l'area di lavoro nel piano tariffario corrente, è necessario modificare il monitoraggio della sottoscrizione [modello di determinazione prezzi in Monitoraggio di Azure](usage-estimated-costs.md#moving-to-the-new-pricing-model) che modificheranno il piano tariffario di tutte le aree di lavoro in tale sottoscrizione.
-
-> [!NOTE]
-> Altre informazioni sull'impostazione del piano tariffario quando [usando un modello di Azure Resource Manager](template-workspace-configuration.md#create-a-log-analytics-workspace) per creare un'area di lavoro e assicurarsi che la distribuzione del modello Azure Resource Manager venga eseguita correttamente indipendentemente dal fatto che la sottoscrizione sia nel preesistente o nuovo modello di determinazione prezzi. 
-
+È anche possibile [impostare il piano tariffario tramite ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando il `ServiceTier` parametro. 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Risoluzione dei problemi se Log Analytics non sta più raccogliendo dati
 

@@ -2,19 +2,19 @@
 title: "Risolvere l'errore di Backup di Azure: stato dell'agente guest sconosciuto"
 description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correlati all'agente, all'estensione e ai dischi.
 services: backup
-author: genlin
-manager: cshepard
+author: saurabhsensharma
+manager: saurabhsensharma
 keywords: Backup di Azure; agente di macchine virtuali; connettività di rete;
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
-ms.author: genli
-ms.openlocfilehash: 826a38dd80db7cd0e6e500949d2c259c3808c0a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: saurabhsensharma
+ms.openlocfilehash: 5abaa040b22000a300fba22590866846f6dbbd4a
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64914934"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565678"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere l'errore di Backup di Azure: problemi relativi all'agente o all'estensione
 

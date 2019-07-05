@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c389f2ab9e67cbb1fd1a6a0c9ee274bca7d4c99d
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347450"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560431"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -33,7 +33,7 @@ La figura seguente rappresenta il flusso di avvisi.
 
 ![Flusso di avvisi](media/alerts-overview/Azure-Monitor-Alerts.svg)
 
-Le regole di avviso sono separate dagli avvisi e dalle azioni che vengono intraprese quando viene generato un avviso. 
+Le regole di avviso sono separate da avvisi e le azioni che vengono eseguite quando viene generato un avviso. 
 
 **Regola di avviso**: la regola di avviso acquisisce la destinazione e i criteri per l'invio dell'avviso. Lo stato della regola di avviso può essere impostato su Abilitato o Disabilitato. Gli avvisi vengono generati solo quando sono abilitati. 
 
@@ -94,6 +94,8 @@ I gruppi intelligenti sono aggregazioni di avvisi basate su algoritmi di Machine
 ## <a name="alerts-experience"></a>Esperienza degli avvisi 
 La pagina degli avvisi predefinita fornisce un riepilogo degli avvisi che vengono creati in un intervallo di tempo specifico. Mostra gli avvisi totali per ogni livello di gravità con colonne che identificano il numero totale di avvisi in ogni stato per ogni livello di gravità. Selezionare uno dei valori di gravità per aprire la pagina [Tutti gli avvisi](#all-alerts-page) filtrata in base al livello di gravità specificato.
 
+In alternativa, è possibile [enumerare a livello di codice le istanze di avvisi generate sulle tue sottoscrizioni usando le API REST](#manage-your-alert-instances-programmatically).
+
 Non vengono visualizzati o monitorati gli [avvisi classici](#classic-alerts) delle versioni precedenti. È possibile modificare le sottoscrizioni o i parametri di filtro per aggiornare la pagina. 
 
 ![Pagina degli avvisi](media/alerts-overview/alerts-page.png)
@@ -102,7 +104,7 @@ Non vengono visualizzati o monitorati gli [avvisi classici](#classic-alerts) del
 
 | Colonna | Descrizione |
 |:---|:---|
-| Sottoscrizione | Selezionare fino a cinque sottoscrizioni di Azure. Sono inclusi nella visualizzazione solo gli avvisi delle sottoscrizioni selezionate. |
+| Sottoscrizione | Selezionare le sottoscrizioni di Azure per il quale si desidera visualizzare gli avvisi. È possibile scegliere, facoltativamente, selezionare tutte le sottoscrizioni. Solo gli avvisi che è possibile utilizzare nelle sottoscrizioni selezionate sono incluse nella vista. |
 | Gruppo di risorse | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
 | Intervallo di tempo | Nella visualizzazione vengono inclusi solo gli avvisi attivati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. |
 
@@ -145,11 +147,11 @@ Fare clic su Totale avvisi per visualizzare la pagina Tutti gli avvisi. In quest
 
 | Colonna | Descrizione |
 |:---|:---|
-| Sottoscrizione | Selezionare fino a cinque sottoscrizioni di Azure. Sono inclusi nella visualizzazione solo gli avvisi delle sottoscrizioni selezionate. |
+| Sottoscrizione | Selezionare le sottoscrizioni di Azure per il quale si desidera visualizzare gli avvisi. È possibile scegliere, facoltativamente, selezionare tutte le sottoscrizioni. Solo gli avvisi che è possibile utilizzare nelle sottoscrizioni selezionate sono incluse nella vista. |
 | Gruppo di risorse | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
 | Tipo di risorsa | Selezionare uno o più tipi di risorsa. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni del tipo selezionato. Questa colonna risulta disponibile solo dopo che è stato specificato un gruppo di risorse. |
 | Resource | Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un tipo di risorsa. |
-| Severity | Selezionare un livello di gravità degli avvisi oppure *Tutti* per includere gli avvisi di tutti i livelli di gravità. |
+| severity | Selezionare un livello di gravità degli avvisi oppure *Tutti* per includere gli avvisi di tutti i livelli di gravità. |
 | Condizione di monitoraggio | Selezionare una condizione di monitoraggio oppure *Tutti* per includere gli avvisi di tutte le condizioni. |
 | Stato dell'avviso | Selezionare uno stato dell'avviso oppure *Tutti* per includere gli avvisi di tutti gli stati. |
 | Servizio di monitoraggio | Selezionare un servizio oppure *Tutti* per includere tutti i servizi. Sono inclusi solo gli avvisi creati da regole che usano tale servizio come destinazione. |
@@ -157,20 +159,47 @@ Fare clic su Totale avvisi per visualizzare la pagina Tutti gli avvisi. In quest
 
 Fare clic su **Colonne** nella parte superiore della pagina per selezionare le colonne da visualizzare. 
 
-## <a name="alert-detail-page"></a>Pagina Dettagli avviso
+## <a name="alert-details-page"></a>Pagina dei dettagli degli avvisi
 La pagina dei dettagli dell'avviso viene visualizzata quando si seleziona un avviso. Fornisce i dettagli dell'avviso e consente di cambiarne lo stato.
 
 ![Dettagli dell'avviso](media/alerts-overview/alert-detail2.png)
 
-La pagina dei dettagli dell'avviso include le sezioni seguenti.
+La pagina dei dettagli degli avvisi include le sezioni seguenti.
 
 | `Section` | Descrizione |
 |:---|:---|
-| Informazioni di base | Mostra le proprietà e altre informazioni significative sull'avviso. |
+| Riepilogo | Mostra le proprietà e altre informazioni significative sull'avviso. |
 | Cronologia | Elenca tutte le azioni eseguite dall'avviso e tutte le modifiche apportate all'avviso. Questa opzione è attualmente limitata alle modifiche di stato. |
-| Gruppo intelligente | Informazioni sul gruppo intelligente in cui l'avviso sarà incluso. *Conteggio avvisi* si riferisce al numero di avvisi inclusi nel gruppo intelligente. Include gli altri avvisi dello stesso gruppo intelligente che sono stati creati negli ultimi 30 giorni indipendentemente dal filtro temporale specificato nella pagina dell'elenco degli avvisi. Selezionare un avviso per visualizzarne i dettagli. |
-| Altre informazioni | Mostra altre informazioni contestuali sull'avviso, che sono in genere specifiche del tipo di origine che ha creato l'avviso. |
+| Diagnostica | Informazioni sul gruppo intelligente in cui l'avviso sarà incluso. *Conteggio avvisi* si riferisce al numero di avvisi inclusi nel gruppo intelligente. Include gli altri avvisi dello stesso gruppo intelligente che sono stati creati negli ultimi 30 giorni indipendentemente dal filtro temporale specificato nella pagina dell'elenco degli avvisi. Selezionare un avviso per visualizzarne i dettagli. |
 
+## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Controllo di accesso basato sui ruoli (RBAC) per le istanze di avviso
+
+Il consumo e la gestione delle istanze di avviso richiede all'utente di avere i ruoli RBAC predefiniti di entrambi [collaboratore al monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) oppure [lettore di monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Questi ruoli sono supportati in qualsiasi ambito di Azure Resource Manager, dal livello di sottoscrizione alle assegnazioni granulare a livello di risorse. Ad esempio, se un utente ha solo accesso 'collaboratore al monitoraggio' per la macchina virtuale 'ContosoVM1', si possono quindi utilizzare e gestire solo gli avvisi generati sul 'ContosoVM1'.
+
+## <a name="manage-your-alert-instances-programmatically"></a>Gestire le istanze di avviso a livello di codice
+
+Esistono molti scenari in cui si potrebbe eseguire una query a livello di codice per gli avvisi generati sulla base della sottoscrizione. Potrebbe trattarsi di creare viste personalizzate all'esterno del portale di Azure o per analizzare gli avvisi per identificare modelli e tendenze.
+
+È possibile eseguire una query per gli avvisi generati per le sottoscrizioni tramite il [API REST di gestione degli avvisi](https://aka.ms/alert-management-api) oppure usando la [API REST Graph di Azure Resource per gli avvisi](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
+
+Il [API REST Graph di Azure Resource per gli avvisi](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) consente di eseguire una query per istanze di avvisi su larga scala. Questa è consigliata per scenari in cui è necessario gestire gli avvisi generati in più sottoscrizioni. 
+
+La seguente richiesta di esempio per l'API restituisce il numero di avvisi all'interno di una sottoscrizione:
+
+```json
+{
+  "subscriptions": [
+    <subscriptionId>
+  ],
+  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
+  "options": {
+            "dataset":"alerts"
+  }
+}
+```
+Gli avvisi è possibile eseguire query per la loro ['essenziali'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields) campi.
+
+Il [API REST di gestione di avviso](https://aka.ms/alert-management-api) può essere utilizzato per ottenere altre informazioni sugli avvisi specifici, inclusi relativi ['al contesto dell'avviso'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) campi.
 
 ## <a name="classic-alerts"></a>Avvisi classici 
 

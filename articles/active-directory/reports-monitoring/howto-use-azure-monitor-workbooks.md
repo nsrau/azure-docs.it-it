@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6d461725d0d4c86ee7aa5b450d42c01ca77ffb16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9433714c06dfad09270a6033f38a99471bcd517a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107669"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513612"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Come usare le cartelle di lavoro di monitoraggio di Azure per i report di Azure Active Directory
 
@@ -57,7 +57,7 @@ Per accedere alle cartelle di lavoro:
 
 2. Nel riquadro di spostamento a sinistra, selezionare **Azure Active Directory**.
 
-3. Nel **Monitoring** sezione, selezionare **Insights**. 
+3. Nel **Monitoring** sezione, selezionare **cartelle di lavoro**. 
 
     ![Selezionare Insights](./media/howto-use-azure-monitor-workbooks/41.png)
 
@@ -93,7 +93,7 @@ Questa cartella di lavoro Mostra le tendenze di accesso seguenti:
 
 Per ogni tendenza, ottenere una suddivisione per le categorie seguenti:
 
-- Località
+- Location
 
     ![Accessi da località](./media/howto-use-azure-monitor-workbooks/45.png)
 

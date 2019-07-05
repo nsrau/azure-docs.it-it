@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 10976c9cf16dfab4c31d0d77c519dc3277204a51
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 118daf02ab59646f2926071763aa4d7e97846e04
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293055"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508229"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
 
@@ -50,16 +50,18 @@ Prima di continuare, è importante conoscere alcuni concetti che risulteranno fo
 Quando si modificano uno qualsiasi dei trigger, l'infrastruttura di funzioni deve essere a conoscenza di queste modifiche. Questa sincronizzazione viene eseguita automaticamente per molte tecnologie di distribuzione. Tuttavia, in alcuni casi è necessario sincronizzare manualmente il trigger. Quando si distribuiscono gli aggiornamenti con un URL del pacchetto esterno, locale Git, sincronizzazione cloud o FTP, è necessario assicurarsi di sincronizzare manualmente il trigger. È possibile sincronizzare i trigger in uno dei tre modi:
 
 * Riavviare l'app per le funzioni nel portale di Azure
-* Inviare una richiesta HTTP POST al `https://www.{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` usando il [chiave master](functions-bindings-http-webhook.md#authorization-keys).
+* Inviare una richiesta HTTP POST al `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` usando il [chiave master](functions-bindings-http-webhook.md#authorization-keys).
 * Inviare una richiesta HTTP POST a `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Sostituire i segnaposto con l'ID sottoscrizione, nome del gruppo di risorse e il nome dell'app per le funzioni.
 
 ## <a name="deployment-technology-details"></a>Informazioni dettagliate sulla tecnologia di distribuzione  
+
+Questi metodi di distribuzione seguenti sono supportati da funzioni di Azure.
 
 ### <a name="external-package-url"></a>URL del pacchetto esterno
 
 Consente di fare riferimento a un file remoto pacchetto (zip) che contiene l'app per le funzioni. Il file viene scaricato dall'URL specificato e l'app viene eseguita [Run-da-Package](run-functions-from-deployment-package.md) modalità.
 
->__Come usarlo:__ Aggiungere `WEBSITE_RUN_FROM_PACKAGE` alle impostazioni dell'applicazione. Il valore di questa impostazione deve essere un URL - il percorso del file di pacchetto specifico da eseguire. È possibile aggiungere impostazioni entrambe [nel portale](functions-how-to-use-azure-function-app-settings.md#settings) oppure [tramite la CLI di Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). Se si Usa archiviazione blob di Azure, è consigliabile usare un contenitore privato con un [firma di accesso condiviso (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) agli funzioni l'accesso al pacchetto. In qualsiasi momento del riavvio dell'applicazione recupera una copia del contenuto, il che significa che il riferimento deve essere valido per la durata dell'applicazione.
+>__Come usarlo:__ Aggiungere `WEBSITE_RUN_FROM_PACKAGE` alle impostazioni dell'applicazione. Il valore di questa impostazione deve essere un URL - il percorso del file di pacchetto specifico da eseguire. È possibile aggiungere impostazioni entrambe [nel portale](functions-how-to-use-azure-function-app-settings.md#settings) oppure [tramite la CLI di Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). Se si Usa archiviazione blob di Azure, è consigliabile usare un contenitore privato con un [firma di accesso condiviso (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) agli funzioni l'accesso al pacchetto. In qualsiasi momento del riavvio dell'applicazione recupera una copia del contenuto, il che significa che il riferimento deve essere valido per la durata dell'applicazione.
 
 >__Quando usarlo:__ Questo è il metodo di distribuzione solo supportato per le funzioni di Azure in esecuzione su Linux nel piano a consumo (anteprima). Quando si aggiorna il file del pacchetto fa riferimento a un'app per le funzioni, è necessario [sincronizzare manualmente i trigger](#trigger-syncing) per indicare ad Azure che l'applicazione è stato modificato.
 
@@ -88,11 +90,11 @@ Distribuire un'immagine del contenitore Linux che contiene l'app per le funzioni
 
 ### <a name="web-deploy-msdeploy"></a>Distribuzione Web (MSDeploy)
 
-I pacchetti e distribuisce le applicazioni di Windows a qualsiasi server IIS, incluse le App per le funzioni di Azure in esecuzione su Windows.
+I pacchetti e distribuisce le applicazioni di Windows a qualsiasi server IIS, incluse le App per le funzioni in esecuzione su Windows in Azure.
 
->__Come usarlo:__ Usare la [Visual Studio tools per funzioni di Azure](functions-create-your-first-function-visual-studio.md), e non dei segni di graduazione il `Run from package file (recommended)` casella di controllo.
+>__Come usarlo:__ Usare la [Visual Studio tools per funzioni di Azure](functions-create-your-first-function-visual-studio.md)e deselezionare il `Run from package file (recommended)` casella.
 >
->In alternativa, chiamare `MSDeploy.exe` direttamente dopo il download [3.6 distribuire Web](https://www.iis.net/downloads/microsoft/web-deploy).
+> È anche possibile scaricare [Web distribuire 3.6](https://www.iis.net/downloads/microsoft/web-deploy) e chiamare `MSDeploy.exe` direttamente.
 
 >__Quando usarlo:__ Questa tecnologia di distribuzione è supportata e non è presenti problemi, ma ora è il meccanismo preferito [Zipdeploy eseguiti dal pacchetto abilitato](#zip-deploy). Per altre informazioni, visitare il [Guida di sviluppo di Visual Studio](functions-develop-vs.md#publish-to-azure).
 

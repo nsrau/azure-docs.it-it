@@ -5,16 +5,16 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 5884bb5dc389e6abfd4fa23d28dd71ecd16ff423
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6eedc095f155a77cddf48211dbc4a677bf188112
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67347114"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509865"
 ---
 Le immagini standardizzate macchina virtuale (VM) consentono alle organizzazioni di eseguire la migrazione al cloud e garantire la coerenza nelle distribuzioni. Le immagini includono in genere le impostazioni predefinite di sicurezza e la configurazione e software necessari. La configurazione di pipeline di propria creazione dell'immagine richiede tempo, l'infrastruttura e il programma di installazione, ma con Generatore di immagini di macchina virtuale di Azure, è sufficiente fornire una semplice configurazione che descrivono l'immagine, inviarlo al servizio e l'immagine viene compilata e distribuita.
  
-Nel generatore di immagini di macchina virtuale di Azure (Azure Image Builder) consente di iniziare con un Windows o immagine di Marketplace di Azure basato su Linux, immagini personalizzate esistenti o Red Hat Enterprise Linux (RHEL) ISO e iniziare ad aggiungere le proprie personalizzazioni. Poiché si basa il generatore di immagini [HashiCorp Packer](https://packer.io/), è anche possibile importare gli script esistenti in strumento di provisioning Packer shell. È anche possibile specificare dove si desidera che le immagini ospitate, nella raccolta di Azure condiviso immagine (virtual-machines-common-shared-image-galleries.md), come un'immagine gestita o un disco rigido virtuale.
+Nel generatore di immagini di macchina virtuale di Azure (Azure Image Builder) consente di iniziare con un Windows o immagine di Marketplace di Azure basato su Linux, immagini personalizzate esistenti o Red Hat Enterprise Linux (RHEL) ISO e iniziare ad aggiungere le proprie personalizzazioni. Poiché si basa il generatore di immagini [HashiCorp Packer](https://packer.io/), è anche possibile importare gli script esistenti in strumento di provisioning Packer shell. È inoltre possibile specificare dove si desidera che le immagini in ospitato il [raccolta immagini di Azure condiviso](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), come un'immagine gestita o un disco rigido virtuale.
 
 > [!IMPORTANT]
 > Azure Image Builder è attualmente in anteprima pubblica.
@@ -35,7 +35,7 @@ Per l'anteprima, queste funzionalità sono supportate:
 
 ## <a name="regions"></a>Regions
 Il servizio di generatore di immagini di Azure sarà disponibile in anteprima nelle aree seguenti. Le immagini possono essere distribuite di fuori di queste aree.
-- Stati Uniti orientali
+- East US
 - Stati Uniti orientali 2
 - Stati Uniti centro-occidentali
 - Stati Uniti occidentali
@@ -50,6 +50,12 @@ Un file AIB offrirà supporto per immagini del sistema operativo base di Azure M
 - Windows 2016
 - Windows 2019
 
+Un file AIB supporterà RHEL ISO, come origine per:
+- RHEL 7.3
+- RHEL 7.4
+- RHEL 7.5
+
+7\.6 RHEL non è supportato, ma sottoposto a test.
 
 ## <a name="how-it-works"></a>Funzionamento
 

@@ -10,12 +10,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e1f587785b06f10bab42a425b0910d4f25fddf9f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a13afe56e007e2371b3193003ee95266b0750569
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165549"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543784"
 ---
 # <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Eseguire il training e di registrare modelli TensorFlow su larga scala con il servizio di Azure Machine Learning
 
@@ -23,7 +23,7 @@ Questo articolo illustra come eseguire il training e registrare un modello Tenso
 
 TensorFlow è un framework di elaborazione open source comunemente usato per creare le reti neurali profonde (DNN). Con il servizio di Azure Machine Learning, è possibile aumentare rapidamente i processi di training open source con le risorse di calcolo cloud elastico. È inoltre possibile monitorare le esecuzioni di training, i modelli di versione, la distribuzione di modelli e molto altro ancora.
 
-Se si sta sviluppando un modello TensorFlow da zero o si desidera introdurre un modello esistente nel cloud, servizio Azure Machine Learning consentono di compilare modelli pronti per la produzione.
+Se si sta sviluppando un modello TensorFlow da zero o si desidera introdurre un [modello esistente](how-to-deploy-existing-model.md) nel cloud, servizio Azure Machine Learning consente di compilare modelli pronti per la produzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -290,7 +290,7 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo, viene sottoposto a training e registrato un modello TensorFlow nel servizio di Azure Machine Learning. Per informazioni su come distribuire un modello, continuare con l'articolo sulla distribuzione modello.
+In questo articolo, viene sottoposto a training e registrato un modello TensorFlow. Per informazioni su come distribuire un modello in un cluster abilitate per GPU, continuare con l'articolo sulla distribuzione modello GPU.
 
-> [!div class="nextstepaction"]
-> [Come e dove distribuire i modelli](how-to-deploy-and-where.md)
+[Come distribuire per inferenza con GPU](how-to-deploy-inferencing-gpus.md)
+[come monitorare con Tensorboard](how-to-monitor-tensorboard.md)

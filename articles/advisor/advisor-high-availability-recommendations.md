@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d78d8a689b860162a742e85c155205f072a3667c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254675"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446782"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Migliorare la disponibilità dell'applicazione con Azure Advisor
 
@@ -93,6 +93,9 @@ Azure Advisor identifica gli account Azure Cosmos DB che usano le versioni prece
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Eseguire l'aggiornamento del connettore Spark di Azure Cosmos DB alla versione più recente da Maven
 
 Azure Advisor identifica gli account Azure Cosmos DB che usano le versioni precedenti del connettore Spark per Cosmos DB e consigliabile eseguire l'aggiornamento alla versione più recente da Maven per le correzioni più recenti miglioramenti delle prestazioni e nuove funzionalità. [Altre informazioni sul connettore Spark per Cosmos DB](https://aka.ms/cosmosdb/spark-connector)
+
+## <a name="enable-virtual-machine-replication"></a>Abilitare la replica delle macchine virtuali
+Le macchine virtuali che non è abilitata in un'altra area la replica non sono resiliente alle interruzioni a livello di area. Replica di macchine virtuali riduce effetti negativi sulle attività aziendali durante il periodo di un'interruzione di area di Azure. Advisor rileverà le macchine virtuali che non dispongono della replica abilitato e consiglia l'abilitazione della replica in modo che in caso di interruzione, possono introdurre rapidamente backup delle macchine virtuali in un'area di Azure remota. [Altre informazioni sulla replica di macchine virtuali](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Come accedere ai consigli sulla disponibilità elevata in Advisor
 

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9cf0b848e551d3c0e7d7275af9eb2c8e970dbd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd4c6952aab1581a968fc671141792c0e16a7d46
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113393"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536966"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication
 
 Azure Multi-Factor Authentication offre diversi report che possono essere usati dall'utente e dall'organizzazione e ai quali è possibile accedere tramite il portale di Azure. La tabella seguente elenca i report disponibili:
 
-| Report | Località | Descrizione |
+| Report | Location | Descrizione |
 |:--- |:--- |:--- |
 | Cronologia utenti bloccati | Azure AD > Server MFA > Blocca/Sblocca utenti | Consente di visualizzare la cronologia delle richieste di blocco o sblocco degli utenti. |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
@@ -188,5 +188,6 @@ Nella tabella seguente consente di risolvere i problemi di multi-factor authenti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Utilizzo di SSPR e autenticazione a più fattori e report di insights](howto-authentication-methods-usage-insights.md)
 * [Per gli utenti](../user-help/multi-factor-authentication-end-user.md)
 * [Dove eseguire la distribuzione](concept-mfa-whichversion.md)

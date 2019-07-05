@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: aedfa381f6520a5295467821097b38dd28dcd60c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: df88c3e2e07165182c917eaf30a5f37451fbd073
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057922"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509575"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copiare dati da o verso Azure Data Lake archiviazione Gen1 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory in cui in uso:"]
@@ -81,7 +81,7 @@ Per usare l'autenticazione basata su entità servizio, registrare un'entità app
 >Per elencare le cartelle a partire dalla radice, è necessario impostare l'autorizzazione dell'entità servizio concessa sul **livello di radice con autorizzazione "Esecuzione"** . Ciò vale quando si usano gli strumenti seguenti:
 >- **Lo strumento Copia dati** alla pipeline di copia dell'autore.
 >- **Interfaccia utente di Data Factory** per testare la connessione e passare alle cartelle durante la creazione.
->Se si hanno dubbi sulla concessione dell'autorizzazione a livello radice, ignorare il test della connessione e immettere il percorso manualmente durante la creazione. L'attività di copia funziona a condizione che l'entità servizio viene concesso con l'autorizzazione appropriata i file da copiare.
+>Se si hanno dubbi sulla concessione dell'autorizzazione a livello di radice, durante la creazione, ignorare test connessione e un percorso paraent con autorizzazione concessa quindi si sceglie di passare dall'input che il percorso specificato. Copiare attività works, purché l'entità servizio viene concesso con l'autorizzazione appropriata i file da copiare.
 
 Sono supportate le proprietà seguenti:
 
@@ -135,7 +135,7 @@ Per usare l'autenticazione basata sulle identità gestite per le risorse di Azur
 >Elenco cartelle a partire dalla radice, è necessario impostare l'autorizzazione di identità gestite concessa al **a livello di radice con autorizzazione "Execute"** . Ciò vale quando si usano gli strumenti seguenti:
 >- **Lo strumento Copia dati** alla pipeline di copia dell'autore.
 >- **Interfaccia utente di Data Factory** per testare la connessione e passare alle cartelle durante la creazione.
->Se si hanno dubbi sulla concessione dell'autorizzazione a livello radice, ignorare il test della connessione e immettere il percorso manualmente durante la creazione. L'attività di copia funziona a condizione che l'identità gestita viene concesso con l'autorizzazione appropriata i file da copiare.
+>Se si hanno dubbi sulla concessione dell'autorizzazione a livello di radice, durante la creazione, ignorare test connessione e un percorso padre con autorizzazione concessa quindi si sceglie di passare dall'input che il percorso specificato. Copiare attività works, purché l'entità servizio viene concesso con l'autorizzazione appropriata i file da copiare.
 
 In Azure Data Factory non è necessario specificare alcuna proprietà oltre alle informazioni generali di Data Lake Store nel servizio collegato.
 

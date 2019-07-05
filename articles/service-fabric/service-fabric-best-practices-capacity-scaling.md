@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 58c50eac60f1a8a47aac9a88125bc3e0132ec3db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ba4763e8d4835911d33d21c0f5bb431851a649b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059152"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444709"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Pianificazione della capacità e scalabilità per Azure Service Fabric
 
@@ -78,6 +78,8 @@ Con le proprietà dei nodi e i vincoli di posizionamento dichiarati, eseguire i 
 2. Eseguire `Get-ServiceFabricNode` per assicurarsi che il nodo sia disabilitato. In caso contrario, attendere la disabilitazione del nodo. L'operazione potrebbe richiedere un paio di ore per ogni nodo. Non continuare finché il nodo non risulta disabilitato.
 3. Ridurre il numero di macchine virtuali da uno di quel tipo di nodo. L'istanza di macchina virtuale con il numero più alto verrà rimossa.
 4. Ripetere le fasi da 1 a 3 come necessario, ma non ridurre il numero di istanze nel nodo primario a un valore inferiore a quello garantito dal livello di affidabilità. Per un elenco di istanze consigliate, vedere [Pianificazione della capacità del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+5. Dopo che tutte le macchine virtuali sono state perse (rappresentato come "Down") di fabric: / System/InfrastructureService / [nome del nodo] consente di visualizzare uno stato di errore. Quindi, è possibile aggiornare la risorsa cluster per rimuovere il tipo di nodo. È possibile usare la distribuzione del modello ARM, o modificare la risorsa del cluster tramite il [Gestione risorse di Azure](https://resources.azure.com). Verrà avviato un aggiornamento del cluster che consente di rimuovere il fabric: / / InfrastructureService / [tipo di nodo] servizio di sistema che è in stato di errore.
+ 6. Dopo che è possibile eliminare, facoltativamente, la scalabilità di macchine virtuali, i nodi verrà comunque visualizzata come "Basso" da Service Fabric Explorer visualizza tuttavia. L'ultimo passaggio, è possibile eliminarli con `Remove-ServiceFabricNodeState` comando.
 
 ### <a name="example-scenario"></a>Scenario di esempio
 È uno scenario supportato cui si vuole eseguire un'operazione di ridimensionamento verticale: si vuole eseguire la migrazione del cluster di Service Fabric e dell'applicazione da un disco non gestito a managed disks senza tempi di inattività dell'applicazione. 

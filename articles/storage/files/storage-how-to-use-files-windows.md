@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02a8b825a513c75ef7c037348ccaecdf5026ded2
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926264"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560485"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usare una condivisione file di Azure con Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere usate facilmente in Windows e Windows Server. Questo articolo illustra le considerazioni relative all'uso di una condivisione file di Azure con Windows e Windows Server.
@@ -234,7 +234,7 @@ La tabella seguente offre informazioni dettagliate sullo stato di SMB 1 in ogni 
 
 | Versione di Windows                           | Stato predefinito di SMB 1 | Metodo di disabilitazione/rimozione       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019 (anteprima)             | Disabled             | Rimuovere con funzionalità di Windows |
+| Windows Server 2019                       | Disabled             | Rimuovere con funzionalità di Windows |
 | Windows Server versione 1709 e successive            | Disabled             | Rimuovere con funzionalità di Windows |
 | Windows 10 versione 1709 e successive                | Disabled             | Rimuovere con funzionalità di Windows |
 | Windows Server 2016                       | Enabled              | Rimuovere con funzionalità di Windows |
@@ -246,7 +246,7 @@ La tabella seguente offre informazioni dettagliate sullo stato di SMB 1 in ogni 
 | Windows 7                                 | Enabled              | Disabilitare con Registro di sistema       | 
 
 ### <a name="auditing-smb-1-usage"></a>Controllo dell'utilizzo di SMB 1
-> Si applica a Windows Server 2019 (anteprima), canale semestrale di Windows Server (versioni 1709 e 1803), Windows Server 2016, Windows 10 (versioni 1507, 1607, 1703, 1709 e 1803), Windows Server 2012 R2 e Windows 8.1
+> Si applica a Windows Server 2019, canale semestrale (versione 1709 e 1803) Windows Server, Windows Server 2016, Windows 10 (versioni 1507, 1607, 1703, 1709 e 1803), Windows Server 2012 R2 e Windows 8.1
 
 Prima di rimuovere SMB 1 nell'ambiente, può essere opportuno controllare l'utilizzo di SMB 1 per verificare se la modifica causerà un'interruzione per eventuali client. Se vengono eseguite richieste per condivisioni SMB con SMB 1, nel log eventi verrà registrato un evento di controllo in `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit`. 
 
@@ -260,7 +260,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
 ### <a name="removing-smb-1-from-windows-server"></a>Rimozione di SMB 1 da Windows Server
-> Si applica a Windows Server 2019 (anteprima), canale semestrale di Windows Server (versioni 1709 e 1803), Windows Server 2016 e Windows Server 2012 R2
+> Si applica a Windows Server 2019, Windows Server canale semestrale (versione 1709 e 1803), Windows Server 2016, Windows Server 2012 R2
 
 Per rimuovere SMB 1 da un'istanza di Windows Server, eseguire questo cmdlet da una sessione di PowerShell con privilegi elevati:
 

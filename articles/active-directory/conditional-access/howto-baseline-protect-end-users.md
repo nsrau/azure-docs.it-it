@@ -11,20 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5b72be0dbe35cf95eed404c7c1407c53f5f2ecb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2644e0e35139ac470b89f6af1b95cf510f60a0a
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112357"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561010"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Criterio di base: Protezione dell'utente finale (anteprima)
 
 Tendiamo a pensare che gli account degli amministratori sono gli unici account che richiedono protezione multi-factor Authentication (MFA). Gli amministratori hanno ampio accesso a informazioni riservate e possono apportare modifiche alle impostazioni a livello di sottoscrizione. Tuttavia, gli attori dannosi tendono agli utenti finali di destinazione. Una volta ottenuto l'accesso, questi cattivi attori può richiedere l'accesso a informazioni con privilegi per conto il titolare dell'account originale o scaricare l'intera directory per eseguire un attacco di phishing per l'intera organizzazione. Un metodo comune per migliorare la protezione per tutti gli utenti consiste nel richiedere una forma più avanzata di verifica dell'account, ad esempio multi-factor authentication (MFA).
 
 Per raggiungere un equilibrio ragionevole di sicurezza e facilità di utilizzo, agli utenti non devono essere richiesto ogni volta che accedi. Le richieste di autenticazione che riflettano il comportamento di utente normale, ad esempio l'accesso dallo stesso dispositivo dallo stesso percorso, hanno una bassa probabilità di compromissione. Solo accessi considerati rischiosi e mostrano le caratteristiche di un attore malintenzionato potrebbe devono essere richiesto con le verifiche MFA.
-
-![Richiedere l'autenticazione MFA per gli utenti](./media/howto-baseline-protect-end-users/baseline-policy-end-user-protection.png)
 
 Protezione dell'utente finale è un MFA basato sui rischi [criterio di base](concept-baseline-protection.md) che protegge tutti gli utenti in una directory, inclusi tutti i ruoli di amministratore. Abilita questo criterio richiede tutti gli utenti di effettuare la registrazione per MFA usando l'App Authenticator. Gli utenti possono ignorare la richiesta di registrazione MFA per 14 giorni, dopodiché verranno bloccati dall'accesso fino a quando non si registrano per MFA. Una volta registrato per MFA, verranno richiesto agli utenti per MFA solo durante i tentativi di accesso rischiosi. Account utente compromessi vengono bloccate finché non viene reimpostata la password e gli eventi di rischio sono stati ignorati.
 
@@ -60,17 +58,6 @@ Protocolli di autenticazione legacy (IMAP, SMTP, POP3, e così via) usati dai cl
 > [!WARNING]
 > Prima di abilitare questo criterio, assicurarsi che gli utenti non usano protocolli di autenticazione legacy. Vedere l'articolo [come: L'autenticazione legacy di blocco con Azure AD con accesso condizionale](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) per altre informazioni.
 
-### <a name="user-exclusions"></a>Esclusioni di utente
-
-Questo criterio di base offre la possibilità di escludere gli utenti. Prima di abilitare i criteri per il tenant, è consigliabile escludere i seguenti account:
-
-* **Accesso di emergenza** oppure **emergenza** gli account per evitare il blocco degli account a livello di tenant. Nello scenario improbabile che tutti gli amministratori sono bloccati fuori dal tenant, l'account amministrativo di accesso di emergenza è utilizzabile per accedere alla procedura per ripristinare l'accesso ed esami del tenant.
-   * Altre informazioni sono reperibili nell'articolo [gestire gli account di accesso di emergenza in Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Gli account del servizio** e **principi del servizio**, ad esempio la sincronizzazione Account connettere Azure AD. Account del servizio sono account non interattivi che non sono associate ad alcun utente specifico. In genere vengono usati dai servizi back-end e consentire l'accesso a livello di codice alle applicazioni. Gli account del servizio devono essere escluse perché Impossibile completare l'autenticazione a più fattori a livello di codice.
-   * Se l'organizzazione dispone di questi account in uso nel codice o gli script, è consigliabile sostituirli con [gestito identità](../managed-identities-azure-resources/overview.md). Come soluzione alternativa temporanea, è possibile escludere questi account specifici dai criteri di base.
-* Utenti che non dispongono o non sarà in grado di usare uno Smartphone.
-   * Questo criterio richiede agli utenti di registrarsi per MFA usando l'app Microsoft Authenticator.
-
 ## <a name="enable-the-baseline-policy"></a>Abilitare il criterio di base
 
 I criteri **criterio di base: Protezione dell'utente finale (anteprima)** è preconfigurata e verrà visualizzata nella parte superiore quando si passa al pannello di accesso condizionale nel portale di Azure.
@@ -81,7 +68,6 @@ Per abilitare questo criterio e proteggere gli utenti:
 1. Passare a **Azure Active Directory** > **accesso condizionale**.
 1. Nell'elenco dei criteri, selezionare **criterio di base: Protezione dell'utente finale (anteprima)** .
 1. Impostare **abilitare i criteri** al **Usa i criteri immediatamente**.
-1. Aggiungere eventuali esclusioni utente facendo clic su **gli utenti** > **selezionare gli utenti esclusi** e scegliendo gli utenti che devono essere escluse. Fare clic su **selezionate** quindi **eseguita**.
 1. Fare clic su **salvare**.
 
 ## <a name="next-steps"></a>Passaggi successivi

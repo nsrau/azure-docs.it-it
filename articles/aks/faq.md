@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 07/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 1cc03cbcffc5253e8b357b6702cd21c45740ff81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4fa365e1ed055fa8ddeb8fd475e152af84a3b71
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514496"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560440"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -25,31 +25,33 @@ Per un elenco completo delle aree disponibili, vedere [AKS aree e disponibilità
 
 ## <a name="does-aks-support-node-autoscaling"></a>servizio Azure Kubernetes supporta la scalabilità automatica dei nodi?
 
-Sì, la scalabilità automatica è disponibile tramite il [ridimensionamento automatico di Kubernetes] [ auto-scaler] al momento della stesura 1.10 Kubernetes. Per informazioni su come configurare e usare la scalabilità automatica del cluster manualmente, vedere [scalabilità automatica di Cluster in AKS][aks-cluster-autoscale].
-
-È inoltre possibile utilizzare il ridimensionamento automatico predefinita del cluster (attualmente in anteprima nel servizio contenitore di AZURE) per gestire la scalabilità dei nodi. Per altre informazioni, vedere [ridimensionare automaticamente un cluster per soddisfare le esigenze dell'applicazione nel servizio contenitore di AZURE][aks-cluster-autoscaler].
-
-## <a name="does-aks-support-kubernetes-rbac"></a>AKS supporta RBAC Kubernetes?
-
-Sì, Kubernetes controllo di accesso basato sui ruoli (RBAC) è abilitato per impostazione predefinita quando vengono creati i cluster con la CLI di Azure. È possibile abilitare RBAC per i cluster che sono stati creati tramite il portale di Azure o i modelli.
+Sì, la possibilità di ridimensionare automaticamente in senso orizzontale nodi agente nel servizio contenitore di AZURE è attualmente disponibile in anteprima. Visualizzare [ridimensionare automaticamente un cluster per soddisfare le esigenze dell'applicazione nel servizio contenitore di AZURE][aks-cluster-autoscaler] for instructions. AKS autoscaling is based on the [Kubernetes autoscaler][auto-scaler].
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>È possibile distribuire servizio Azure Kubernetes nella rete virtuale esistente?
 
 Sì, è possibile distribuire un cluster del servizio contenitore di AZURE in una rete virtuale esistente usando il [avanzate funzionalità di rete][aks-advanced-networking].
 
+## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>È possibile limitare chi può accedere al server API Kubernetes?
+
+Sì, è possibile limitare l'accesso al server API Kubernetes usando [API Server autorizzati intervalli di indirizzi IP][api-server-authorized-ip-ranges], che è attualmente in anteprima.
+
 ## <a name="can-i-make-the-kubernetes-api-server-accessible-only-within-my-virtual-network"></a>È possibile rendere il server API Kubernetes accessibile solo all'interno di una rete virtuale?
 
-Attualmente non è possibile. Il server API Kubernetes viene esposto come nome di dominio pubblico completo (FQDN). È possibile controllare l'accesso al cluster usando [RBAC di Kubernetes e Azure Active Directory (Azure AD)][aks-rbac-aad].
+Non in questo momento, ma questa operazione è pianificata. È possibile monitorare lo stato di avanzamento nel [repository GitHub di AKS][private-clusters-github-issue].
+
+## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>È possibile disporre di varie dimensioni di VM in un singolo cluster?
+
+Sì, è possibile usare dimensioni di macchine virtuali diverse nel cluster AKS creando [più pool di nodi][multi-node-pools], che è attualmente in anteprima.
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Gli aggiornamenti della sicurezza vengono applicati ai nodi agente servizio Azure Kubernetes?
 
 Azure applica automaticamente le patch di sicurezza per i nodi di Linux nel cluster in una pianificazione notturna. Tuttavia, si è responsabile di garantire che tali Linux nodi vengano riavviati come richiesto. Sono disponibili diverse opzioni per il riavvio di nodi:
 
 - Manualmente tramite il portale di Azure o l'interfaccia della riga di comando di Azure.
-- Aggiornando il cluster servizio Azure Kubernetes. Gli aggiornamenti del cluster [bloccano e svuotano i nodi] [ cordon-drain] automaticamente e quindi portare online un nodo nuovo con l'immagine Ubuntu più recente e una nuova versione di patch o una versione di Kubernetes. Per altre informazioni, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade].
-- Usando [Kured](https://github.com/weaveworks/kured), un daemon di riavvio open source per Kubernetes. Kured viene eseguito come un [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitora ogni nodo per la presenza di un file che indica che è necessario un riavvio. All'interno del cluster, i riavvii del sistema operativo vengono gestiti dallo stesso [bloccano e svuotano processo] [ cordon-drain] come un aggiornamento del cluster.
+- Aggiornando il cluster servizio Azure Kubernetes. Gli aggiornamenti del cluster [bloccano e svuotano i nodi][cordon-drain] automatically and then bring a new node online with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade].
+- Usando [Kured](https://github.com/weaveworks/kured), un daemon di riavvio open source per Kubernetes. Kured viene eseguito come un [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitora ogni nodo per la presenza di un file che indica che è necessario un riavvio. All'interno del cluster, i riavvii del sistema operativo vengono gestiti dallo stesso [bloccano e svuotano processo][cordon-drain] come un aggiornamento del cluster.
 
-Per altre informazioni sull'utilizzo di Kured, vedere [Apply security and kernel updates to nodes in servizio Azure Kubernetes][node-updates-kured] (Applicare aggiornamenti di sicurezza e del kernel ai nodi di ASK).
+Per altre informazioni sull'utilizzo kured, vedere [applicare gli aggiornamenti di sicurezza e il kernel ai nodi AKS][node-updates-kured].
 
 ### <a name="windows-server-nodes"></a>Nodi di Windows Server
 
@@ -68,7 +70,7 @@ Se si creano le risorse da usare con il cluster AKS, ad esempio gli account di a
 
 Sì. Per impostazione predefinita, il provider di risorse AKS crea automaticamente un gruppo di risorse secondario (ad esempio *MC_myResourceGroup_myAKSCluster_eastus*) durante la distribuzione. Per garantire la conformità ai criteri aziendali, è possibile fornire il proprio nome per il cluster gestito (*MC _* ) gruppo di risorse.
 
-Per specificare il proprio nome di gruppo di risorse, installare il [aks-preview] [ aks-preview-cli] la versione dell'estensione di comando di Azure *0.3.2* o versione successiva. Quando si crea un cluster AKS usando il [az aks create] [ az-aks-create] comando, utilizzare il *-nodo-resource-group* parametro e specificare un nome per il gruppo di risorse. Se si [usare un modello di Azure Resource Manager] [ aks-rm-template] per distribuire un cluster AKS, è possibile definire il nome del gruppo di risorse utilizzando il *nodeResourceGroup* proprietà.
+Per specificare il proprio nome di gruppo di risorse, installare il [aks-preview][aks-preview-cli] la versione dell'estensione di comando di Azure *0.3.2* o versione successiva. Quando si crea un cluster AKS usando il [az aks create][az-aks-create] comando, utilizzare il *-nodo-resource-group* parametro e specificare un nome per il gruppo di risorse. Se si [usare un modello di Azure Resource Manager][aks-rm-template] per distribuire un cluster AKS, è possibile definire il nome del gruppo di risorse tramite il *nodeResourceGroup* proprietà.
 
 * Il gruppo di risorse secondario viene creato automaticamente dal provider di risorse di Azure nella propria sottoscrizione.
 * È possibile specificare il nome di un gruppo di risorse personalizzati solo quando si crea il cluster.
@@ -87,7 +89,7 @@ Se si modificano o eliminano i tag creata in Azure e altre proprietà della riso
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quali controller di ammissione Kubernetes supporta servizio Azure Kubernetes? È possibile aggiungere o rimuovere i controller di ammissione?
 
-servizio Azure Kubernetes supporta i seguenti [controller di ammissione][admission-controllers]:
+Servizio contenitore di AZURE supporta i seguenti [controller di ammissione][admission-controllers]:
 
 - *NamespaceLifecycle*
 - *LimitRanger*
@@ -104,7 +106,7 @@ Attualmente, è possibile modificare l'elenco dei controller di ammissione nel s
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault è integrato in servizio Azure Kubernetes?
 
-Servizio contenitore di AZURE attualmente in modo nativo non sono state integrate con Azure Key Vault. Tuttavia, il [FlexVolume insieme di credenziali delle chiavi di Azure per il progetto Kubernetes] [ keyvault-flexvolume] consente di indirizzare l'integrazione di POD Kubernetes per i segreti di Key Vault.
+Servizio contenitore di AZURE attualmente in modo nativo non sono state integrate con Azure Key Vault. Tuttavia, il [FlexVolume insieme di credenziali delle chiavi di Azure per il progetto Kubernetes][keyvault-flexvolume] consente di indirizzare l'integrazione di POD Kubernetes per i segreti di Key Vault.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>È possibile eseguire contenitori Windows Server in servizio Azure Kubernetes?
 
@@ -131,7 +133,7 @@ Gli utenti non è possibile ignorare il requisito minimo `maxPods` convalida.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>È possibile applicare gli sconti di Azure di prenotazione ai miei nodi agente AKS?
 
-I nodi agente AKS vengono fatturati come macchine virtuali di Azure standard, pertanto se è stata acquistata [Azure prenotazioni] [ reservation-discounts] per le dimensioni di macchina virtuale che si siano utilizzando nel servizio contenitore di AZURE, tali sconti vengono applicati automaticamente.
+I nodi agente AKS vengono fatturati come macchine virtuali di Azure standard, pertanto se è stata acquistata [prenotazioni Azure][reservation-discounts] per le dimensioni di macchina virtuale che si siano utilizzando nel servizio contenitore di AZURE, tali sconti vengono applicati automaticamente.
 
 <!-- LINKS - internal -->
 
@@ -144,12 +146,14 @@ I nodi agente AKS vengono fatturati come macchine virtuali di Azure standard, pe
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
-[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
+[aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
 [reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
+[api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
+[multi-node-pools]: ./use-multiple-node-pools.md
 
 <!-- LINKS - external -->
 
@@ -158,3 +162,4 @@ I nodi agente AKS vengono fatturati come macchine virtuali di Azure standard, pe
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
+[private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948

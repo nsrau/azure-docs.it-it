@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e603435a49894a9b8faa2df9b49a8572b94eecb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 861aacb3e4c288ea7f55c5906534b728e9cd22b6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965582"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447211"
 ---
-# <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Costo totale di proprietà (TCO) con Azure Cosmos DB
+# <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Costo totale di proprietà (TCO) con Azure Cosmos DB
 
-Azure Cosmos DB è stato progettato con la multi-tenancy con granularità fine e la governance delle risorse. Questa progettazione consente ad Azure Cosmos DB di funzionare a costi significativamente più bassi permettendo agli utenti di risparmiare. Attualmente Azure Cosmos DB supporta più di 280 carichi di lavoro dei clienti in un singolo computer con una densità in continuo aumento e migliaia di carichi di lavoro dei clienti all'interno di un cluster. Esegue il bilanciamento del carico delle repliche dei carichi di lavoro dei clienti in diversi computer di un cluster e in più cluster all'interno di un data center. Per altre informazioni, vedere [Azure Cosmos DB: Spingere la frontiera dei database distribuiti a livello globale](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Grazie alla governance delle risorse, alla multi-tenancy e all'integrazione nativa con il resto dell'infrastruttura di Azure, Azure Cosmos DB è in media da 4 a 6 volte più economico di MongoDB, Cassandra o di altri OSS NoSQL in esecuzione su IaaS e fino a 10 volte più economico dei motori di database in esecuzione in locale. Vedere il documento sul [costo totale di non proprietà di un servizio cloud di database NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
+Azure Cosmos DB è stato progettato con la multi-tenancy con granularità fine e la governance delle risorse. Questa progettazione consente ad Azure Cosmos DB di funzionare a costi significativamente più bassi permettendo agli utenti di risparmiare. Attualmente Azure Cosmos DB supporta più di 280 carichi di lavoro dei clienti in un singolo computer con una densità in continuo aumento e migliaia di carichi di lavoro dei clienti all'interno di un cluster. Si bilancia il carico delle repliche dei carichi di lavoro dei clienti tra computer diversi in un cluster e tra più cluster in un data center. Per altre informazioni, vedere [Azure Cosmos DB: Spingere la frontiera dei database distribuiti a livello globale](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Grazie alla governance delle risorse, alla multi-tenancy e all'integrazione nativa con il resto dell'infrastruttura di Azure, Azure Cosmos DB è in media da 4 a 6 volte più economico di MongoDB, Cassandra o di altri OSS NoSQL in esecuzione su IaaS e fino a 10 volte più economico dei motori di database in esecuzione in locale. Vedere il documento sul [costo totale di non proprietà di un servizio cloud di database NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
 
 Le soluzioni di database OSS NoSQL, come i motori Apache Cassandra, MongoDB, HBase, sono state progettate per essere usate in locale. Quando usate come servizio gestito, sono equivalenti a un modello di Resource Manager con un database tenant per la gestione dei cluster con provisioning e il supporto di monitoraggio. Le architetture OSS NoSQL richiedono notevoli costi operativi e trovare le competenze necessarie può risultare difficile e costoso. D'altra parte, Azure Cosmos DB è un servizio cloud completamente gestito che consente agli sviluppatori di concentrarsi sull'innovazione aziendale piuttosto che sulla gestione e la manutenzione dell'infrastruttura di database. 
 

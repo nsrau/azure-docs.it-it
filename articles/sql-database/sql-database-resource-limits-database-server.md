@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 04/18/2019
-ms.openlocfilehash: 06e61d30f0d4e598c48f190572b8b4343f351043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e4c0a6cd25587b33c06526b57e6acdbebb69c8b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762794"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445638"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limiti delle risorse del database SQL per il server di database SQL di Azure
 
@@ -33,7 +33,7 @@ Questo articolo offre una panoramica dei limiti delle risorse del database SQL p
 | Database per server | 5000 |
 | Numero predefinito di server per sottoscrizione in ogni area | 20 |
 | Numero massimo di server per sottoscrizione in ogni area | 200 |  
-| Quota DTU/eDTU per server | 54\.000 |  
+| Quota DTU/eDTU per server | 54.000 |  
 | Quota vCore per server/istanza | 540 |
 | N. max pool per server | Limitato dal numero di DTU o vCore. Se ad esempio ogni pool è da 1000 DTU, un server può supportare 54 pool.|
 |||
@@ -44,6 +44,9 @@ Questo articolo offre una panoramica dei limiti delle risorse del database SQL p
 > Poiché il numero di database si avvicina al limite per server di database SQL, può verificarsi quanto segue:
 > - Latenza in aumento nelle query in esecuzione nel database master.  Ciò include le visualizzazioni delle statistiche di utilizzo delle risorse, ad esempio sys.resource_stats.
 > - Latenza in aumento nelle operazioni di gestione e nel portale di esecuzione del rendering dei punti di visualizzazione che coinvolgono l'enumerazione dei database nel server.
+
+### <a name="storage-size"></a>Dimensioni della risorsa di archiviazione
+- Per i database singoli rources consultare uno [limiti delle risorse basate su DTU](sql-database-dtu-resource-limits-single-databases.md) oppure [limiti delle risorse basate su vCore](sql-database-vcore-resource-limits-single-databases.md) per i limiti delle dimensioni di archiviazione per ogni piano tariffario.
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>Cosa accade quando vengono raggiunti i limiti delle risorse del database?
 

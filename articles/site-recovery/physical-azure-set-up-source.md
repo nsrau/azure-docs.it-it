@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 07/0/2019
 ms.author: ramamill
-ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44588fedd53b363c43a369eeb1917ccaec58d948
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123915"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508774"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurare il server di configurazione per il ripristino di emergenza da server fisici ad Azure
 
@@ -24,7 +24,7 @@ Questo articolo descrive come configurare l'ambiente locale per avviare la repli
 Nell'articolo si presuppone che l'utente disponga di quanto segue:
 - Un insieme di credenziali di Servizi di ripristino nel [portale di Azure](https://portal.azure.com "portale di Azure").
 - Un computer fisico in cui installare il server di configurazione.
-- Se TLS 1.0 è stato disabilitato nel computer in cui si sta installando il server di configurazione, verificare che TLs 1.2 sia abilitato e che .NET Framework versione 4.6 o versione successiva sia installato nel computer (con crittografia avanzata disabilitata). [Altre informazioni](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)
+- Se TLS 1.0 è stato disabilitato nel computer in cui si sta installando il server di configurazione, verificare che TLs 1.2 sia abilitato e che .NET Framework versione 4.6 o versione successiva sia installato nel computer (con abilitata la crittografia avanzata). [Altre informazioni](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)
 
 ### <a name="configuration-server-minimum-requirements"></a>Requisiti minimi per il server di configurazione
 La tabella seguente elenca i requisiti minimi hardware, software e di rete per un server di configurazione.

@@ -3,22 +3,22 @@ title: Configurare le app Linux Java - servizio App di Azure | Microsoft Docs
 description: Informazioni su come configurare app Java in esecuzione nel Servizio app di Azure in Linux.
 keywords: servizio app di Azure, app web, linux, oss, java, java ee, jee, javaee
 services: app-service
-author: rloutlaw
-manager: angerobe
+author: bmitchell287
+manager: douge
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/28/2019
-ms.author: routlaw
+ms.date: 06/26/2019
+ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 91368ac3b1d7948257fa9e55debc862567593425
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 51ca597208b582e95fd305886dcf163744825eee
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341378"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509656"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Linux Java per servizio App di Azure
 
@@ -53,7 +53,7 @@ Per altre informazioni, vedere [Streaming dei log con l'interfaccia della riga d
 
 ### <a name="app-logging"></a>Registrazione dell'app
 
-Abilitare la [registrazione dell'applicazione](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enablediag) tramite il portale di Azure o l'[interfaccia della riga di comando di Azure](/cli/azure/webapp/log#az-webapp-log-config) per configurare il servizio app per scrivere l'output della console standard dell'applicazione e i flussi di errori della console standard nel file system locale o in Archiviazione BLOB di Azure. La registrazione nell'istanza del file system del servizio app locale viene disabilitata 12 ore dopo la configurazione. Se è necessario un periodo di conservazione più lungo, configurare l'applicazione per scrivere l'output in un contenitore di archiviazione BLOB. I registri delle applicazioni Java e Tomcat sono reperibile nella `/home/LogFiles/Application/` directory.
+Abilitare la [registrazione dell'applicazione](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enablediag) tramite il portale di Azure o l'[interfaccia della riga di comando di Azure](/cli/azure/webapp/log#az-webapp-log-config) per configurare il servizio app per scrivere l'output della console standard dell'applicazione e i flussi di errori della console standard nel file system locale o in Archiviazione BLOB di Azure. La registrazione nell'istanza del file system del servizio app locale viene disabilitata 12 ore dopo la configurazione. Se è necessario un periodo di conservazione più lungo, configurare l'applicazione per scrivere l'output in un contenitore di archiviazione BLOB. I registri delle applicazioni Java e Tomcat sono reperibile nella */home/LogFiles/applicazione/* directory.
 
 Se l'applicazione usa [Logback](https://logback.qos.ch/) o [Log4j](https://logging.apache.org/log4j) per la traccia, è possibile inoltrare queste tracce per la revisione ad Azure Application Insights usando le istruzioni di configurazione del framework di registrazione illustrate in [Esplorare i log di traccia Java in Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -76,7 +76,7 @@ Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
 116 /home/site/wwwroot/app.jar
 ```
 
-Eseguire il comando seguente per avviare una registrazione di 30 secondi di JVM. Verrà JVM di profilo e creare un file JFR denominato `jfr_example.jfr` nella home directory. (Sostituire 116 con il numero di serie dell'app Java).
+Eseguire il comando seguente per avviare una registrazione di 30 secondi di JVM. Verrà JVM di profilo e creare un file JFR denominato *jfr_example.jfr* nella home directory. (Sostituire 116 con il numero di serie dell'app Java).
 
 ```shell
 jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
@@ -96,7 +96,7 @@ Per altre informazioni, vedere la [riferimenti ai comandi Jcmd](https://docs.ora
 
 ### <a name="analyzing-recordings"></a>Analyzing Recordings
 
-Uso [FTPS](../deploy-ftp.md) per scaricare il file JFR nel computer locale. Per analizzare il file JFR, scaricare e installare [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). Per istruzioni su Zulu Mission Control, vedere la [documentazione di Azul](https://docs.azul.com/zmc/) e il [le istruzioni di installazione](https://docs.microsoft.com/en-us/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
+Uso [FTPS](../deploy-ftp.md) per scaricare il file JFR nel computer locale. Per analizzare il file JFR, scaricare e installare [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). Per istruzioni su Zulu Mission Control, vedere la [documentazione di Azul](https://docs.azul.com/zmc/) e il [le istruzioni di installazione](https://docs.microsoft.com/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
 
 ## <a name="customization-and-tuning"></a>Personalizzazione e ottimizzazione
 
@@ -133,7 +133,7 @@ Gli sviluppatori che eseguono una singola applicazione con uno slot di distribuz
 
 Quando si ottimizzano le impostazioni heap delle applicazioni, esaminare i dettagli del piano di servizio app e tenere in considerazione le esigenze di più applicazioni e slot di distribuzione per trovare l'allocazione ottimale della memoria.
 
-Se si sta distribuendo un'applicazione con estensione JAR, devono essere denominato `app.jar` in modo che l'immagine incorporata possa identificare correttamente l'app. (Il plug-in Maven esegue automaticamente questa ridenominazione). Se non si desidera rinominare un file JAR per `app.jar`, è possibile caricare uno script shell con il comando per eseguire un file JAR. Quindi incollare il percorso completo per questo script nella [File di avvio](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) nella casella di testo nella sezione di configurazione del portale.
+Se si sta distribuendo un'applicazione con estensione JAR, devono essere denominato *app.jar* in modo che l'immagine incorporata possa identificare correttamente l'app. (Il plug-in Maven esegue automaticamente questa ridenominazione). Se non si desidera rinominare un file JAR al *app.jar*, è possibile caricare uno script shell con il comando per eseguire un file JAR. Quindi incollare il percorso completo per questo script nella [File di avvio](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) nella casella di testo nella sezione di configurazione del portale.
 
 ### <a name="turn-on-web-sockets"></a>Attivare i Web Socket
 
@@ -173,7 +173,7 @@ Se l'applicazione Java è particolarmente grande, è necessario aumentare il lim
 
 ## <a name="secure-applications"></a>Proteggere le applicazioni
 
-Le applicazioni Java in esecuzione nel servizio app per Linux hanno lo stesso set di [procedure consigliate per la sicurezza](/azure/security/security-paas-applications-using-app-services) delle altre applicazioni. 
+Le applicazioni Java in esecuzione nel servizio app per Linux hanno lo stesso set di [procedure consigliate per la sicurezza](/azure/security/security-paas-applications-using-app-services) delle altre applicazioni.
 
 ### <a name="authenticate-users"></a>Autenticare gli utenti
 
@@ -215,7 +215,7 @@ Per disabilitare questa funzionalità, creare un'impostazione applicazione denom
 
 #### <a name="spring-boot"></a>Spring Boot
 
-Gli sviluppatori Spring Boot possono usare l'[utilità di avvio Spring Boot per Azure Active Directory](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) per proteggere le applicazioni usando le familiari annotazioni e API di Spring Security. Assicurarsi di aumentare le dimensioni massime dell'intestazione nel file `application.properties`. È consigliabile il valore `16384`.
+Gli sviluppatori Spring Boot possono usare l'[utilità di avvio Spring Boot per Azure Active Directory](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) per proteggere le applicazioni usando le familiari annotazioni e API di Spring Security. Assicurarsi di aumentare le dimensioni massime dell'intestazione nel *Application. Properties* file. È consigliabile il valore `16384`.
 
 ### <a name="configure-tlsssl"></a>Configurare TLS/SSL
 
@@ -239,11 +239,11 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel ser
 ### <a name="configure-new-relic"></a>Configurare New Relic
 
 1. Creare un account NewRelic in [NewRelic.com](https://newrelic.com/signup)
-2. Scaricare l'agente Java da NewRelic; il nome sarà simile a `newrelic-java-x.x.x.zip`.
+2. Scaricare l'agente Java da NewRelic, avrà un nome di file simile a *newrelic-java-x.x.x.zip*.
 3. Copiare il codice di licenza, che sarà necessario per configurare l'agente in un secondo momento.
-4. [Usare SSH per connettersi all'istanza del servizio App](app-service-linux-ssh-support.md) e creare una nuova directory `/home/site/wwwroot/apm`.
-5. Caricare i file dell'agente Java NewRelic decompressi in una directory in `/home/site/wwwroot/apm`. I file per l'agente devono essere presenti in `/home/site/wwwroot/apm/newrelic`.
-6. Modificare il file YAML in `/home/site/wwwroot/apm/newrelic/newrelic.yml` e sostituire il valore della licenza segnaposto con il proprio codice di licenza.
+4. [Usare SSH per connettersi all'istanza del servizio App](app-service-linux-ssh-support.md) e creare una nuova directory */home/site/wwwroot/apm*.
+5. Caricare i file dell'agente NewRelic Java decompressi in una directory sotto */home/site/wwwroot/apm*. I file per l'agente devono essere */home/site/wwwroot/apm/newrelic*.
+6. Modificare il file YAML */home/site/wwwroot/apm/newrelic/newrelic.yml* e sostituire il valore di licenza del segnaposto con la propria chiave di licenza.
 7. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
     - Se l'app usa **Java SE**, creare una variabile di ambiente denominata `JAVA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
     - Se si usa **Tomcat**, creare una variabile di ambiente denominata `CATALINA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
@@ -253,25 +253,25 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel ser
 ### <a name="configure-appdynamics"></a>Configurare AppDynamics
 
 1. Creare un account AppDynamics in [AppDynamics.com](https://www.appdynamics.com/community/register/)
-1. Scaricare l'agente Java dal sito Web di AppDynamics, il nome file sarà simile a `AppServerAgent-x.x.x.xxxxx.zip`
-1. [Usare SSH per connettersi all'istanza del servizio App](app-service-linux-ssh-support.md) e creare una nuova directory `/home/site/wwwroot/apm`.
-1. Caricare i file dell'agente Java in una directory in `/home/site/wwwroot/apm`. I file per l'agente devono essere presenti in `/home/site/wwwroot/apm/appdynamics`.
-1. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
+2. Scaricare l'agente Java dal sito Web di AppDynamics, il nome del file sarà simile a *AppServerAgent x.x.x.xxxxx.zip*
+3. [Usare SSH per connettersi all'istanza del servizio App](app-service-linux-ssh-support.md) e creare una nuova directory */home/site/wwwroot/apm*.
+4. Caricare i file dell'agente Java in una directory sotto */home/site/wwwroot/apm*. I file per l'agente devono essere */home/site/wwwroot/apm/appdynamics*.
+5. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
     - Se si usa **Java SE**, creare una variabile di ambiente denominata `JAVA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` in cui `<app-name>` è il nome del servizio app.
     - Se si usa **Tomcat**, creare una variabile di ambiente denominata `CATALINA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` in cui `<app-name>` è il nome del servizio app.
     - Se si usa **WildFly**, vedere la documentazione di AppDynamics [qui](https://docs.appdynamics.com/display/PRO45/JBoss+and+Wildfly+Startup+Settings) per indicazioni sull'installazione l'agente Java e la configurazione JBoss.
-    
+
 ## <a name="configure-jar-applications"></a>Configurare le applicazioni con estensione JAR
 
 ### <a name="starting-jar-apps"></a>Avvio delle App con estensione JAR
 
-Per impostazione predefinita, servizio App si aspetta che l'applicazione con estensione JAR denominato `app.jar`. Se è presente il nome specificato, verrà eseguito automaticamente. Per gli utenti di Maven, è possibile impostare il nome del file JAR, includendo `<finalName>app</finalName>` nella `<build>` sezione il `pom.xml`. [È possibile eseguire la stessa in Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) impostando la `archiveFileName` proprietà.
+Per impostazione predefinita, servizio App si aspetta che l'applicazione con estensione JAR chiamarsi *app.jar*. Se è presente il nome specificato, verrà eseguito automaticamente. Per gli utenti di Maven, è possibile impostare il nome del file JAR, includendo `<finalName>app</finalName>` nella `<build>` sezione il *POM. XML*. [È possibile eseguire la stessa in Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) impostando la `archiveFileName` proprietà.
 
 Se si desidera utilizzare un nome diverso per un file JAR, è necessario fornire anche il [avvio comando](app-service-linux-faq.md#built-in-images) che esegue il file con estensione JAR. Ad esempio: `java -jar my-jar-app.jar`. È possibile impostare il valore per il comando di avvio nel portale di configurazione > Impostazioni generali, o con un'impostazione applicazione denominata `STARTUP_COMMAND`.
 
 ### <a name="server-port"></a>Porta del server
 
-Servizio App Linux instrada le richieste in ingresso alla porta 80, in modo che l'applicazione deve essere in ascolto sulla porta 80. È possibile eseguire questa operazione nella configurazione dell'applicazione (ad esempio di Spring `application.properties` file), o il comando di avvio (ad esempio, `java -jar spring-app.jar --server.port=80`). Vedere la documentazione seguente relativa comuni Framework Java:
+Servizio App Linux instrada le richieste in ingresso alla porta 80, in modo che l'applicazione deve essere in ascolto sulla porta 80. È possibile eseguire questa operazione nella configurazione dell'applicazione (ad esempio di Spring *Application. Properties* file), o il comando di avvio (ad esempio, `java -jar spring-app.jar --server.port=80`). Vedere la documentazione seguente relativa comuni Framework Java:
 
 - [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-properties-and-configuration.html#howto-use-short-command-line-arguments)
 - [SparkJava](http://sparkjava.com/documentation#embedded-web-server)
@@ -309,24 +309,24 @@ Determinare quindi se l'origine dati deve essere disponibile per un'applicazione
 
 #### <a name="application-level-data-sources"></a>Origini dati a livello di applicazione
 
-1. Creare un file `context.xml` nella directory `META-INF/` del progetto. Creare la directory `META-INF/` se non esiste.
+1. Creare un *Context* del file nei *META-INF /* del progetto. Creare il *META-INF /* se non esiste nella directory.
 
-2. In `context.xml` aggiungere un elemento `Context` per collegare l'origine dati a un indirizzo JNDI. Sostituire il segnaposto `driverClassName` con il nome della classe del driver indicato nella tabella precedente.
+2. Nelle *Context*, aggiungere un `Context` elemento collegamento all'origine dati a un indirizzo JNDI. Sostituire il segnaposto `driverClassName` con il nome della classe del driver indicato nella tabella precedente.
 
     ```xml
     <Context>
         <Resource
-            name="jdbc/dbconnection" 
+            name="jdbc/dbconnection"
             type="javax.sql.DataSource"
             url="${dbuser}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}" 
+            username="${dbpassword}"
             password="${connURL}"
         />
     </Context>
     ```
 
-3. Aggiornare il file `web.xml` dell'applicazione per usare l'origine dati nell'applicazione.
+3. Aggiornare l'applicazione *Web* per utilizzare l'origine dati nell'applicazione.
 
     ```xml
     <resource-env-ref>
@@ -337,24 +337,25 @@ Determinare quindi se l'origine dati deve essere disponibile per un'applicazione
 
 #### <a name="shared-server-level-resources"></a>Risorse condivise a livello di server
 
-1. Copiare il contenuto di `/usr/local/tomcat/conf` in `/home/tomcat/conf` nell'istanza del servizio app in Linux usando SSH se non è già disponibile una configurazione.
-    ```
+1. Copiare il contenuto della */usr/local/tomcat/conf* nelle */home/tomcat/conf* in Linux il servizio App di istanza tramite SSH, se non si ha una configurazione non esiste già.
+
+    ```bash
     mkdir -p /home/tomcat
     cp -a /usr/local/tomcat/conf /home/tomcat/conf
     ```
 
-2. Aggiungere un elemento Context nell'elemento `<Server>` del file `server.xml`.
+2. Aggiungere un elemento di contesto nel *file* all'interno di `<Server>` elemento.
 
     ```xml
     <Server>
     ...
     <Context>
         <Resource
-            name="jdbc/dbconnection" 
+            name="jdbc/dbconnection"
             type="javax.sql.DataSource"
             url="${dbuser}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}" 
+            username="${dbpassword}"
             password="${connURL}"
         />
     </Context>
@@ -362,7 +363,7 @@ Determinare quindi se l'origine dati deve essere disponibile per un'applicazione
     </Server>
     ```
 
-3. Aggiornare il file `web.xml` dell'applicazione per usare l'origine dati nell'applicazione.
+3. Aggiornare l'applicazione *Web* per utilizzare l'origine dati nell'applicazione.
 
     ```xml
     <resource-env-ref>
@@ -375,7 +376,8 @@ Determinare quindi se l'origine dati deve essere disponibile per un'applicazione
 
 Infine, inserire i file di driver con estensione jar in classpath Tomcat e riavviare il servizio App.
 
-1. Assicurarsi che i file driver JDBC siano disponibili per il caricatore di classe Tomcat inserendoli nella directory `/home/tomcat/lib`. Creare questa directory se non esiste già. Per caricare questi file nell'istanza del servizio app, seguire questa procedura:
+1. Assicurarsi che i file del driver JDBC disponibili per il classloader Tomcat, posizionandoli nel */home/tomcat/lib* directory. Creare questa directory se non esiste già. Per caricare questi file nell'istanza del servizio app, seguire questa procedura:
+
     1. Nel [Cloud Shell](https://shell.azure.com), installare l'estensione App Web:
 
       ```azurecli-interactive
@@ -388,7 +390,7 @@ Infine, inserire i file di driver con estensione jar in classpath Tomcat e riavv
       az webapp remote-connection create --resource-group <resource-group-name> --name <app-name> --port <port-on-local-machine>
       ```
 
-    3. Connettersi alla porta di tunneling locale con il client SFTP e caricare i file nella cartella `/home/tomcat/lib`.
+    3. Connettersi alla porta di tunneling locale con il proprio client SFTP e caricare i file per il */home/tomcat/lib* cartella.
 
     In alternativa, è possibile usare un client FTP per caricare il driver JDBC. Seguire queste [istruzioni per ottenere le credenziali FTP](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
@@ -396,13 +398,13 @@ Infine, inserire i file di driver con estensione jar in classpath Tomcat e riavv
 
 ### <a name="spring-boot"></a>Spring Boot
 
-Per connettersi alle origini dati in applicazioni Spring Boot, è consigliabile creare stringhe di connessione e l'inserimento nel `application.properties` file.
+Per connettersi alle origini dati in applicazioni Spring Boot, è consigliabile creare stringhe di connessione e l'inserimento nel *Application. Properties* file.
 
 1. Nella sezione "Configurazione" della pagina del servizio App, impostare un nome per la stringa, incollare la stringa di connessione JDBC nel campo del valore e impostare il tipo su "Custom". È facoltativamente possibile impostare questa stringa di connessione come impostazione slot.
 
     Questa stringa di connessione sia accessibile all'applicazione come variabile di ambiente denominata `CUSTOMCONNSTR_<your-string-name>`. Ad esempio, la stringa di connessione creata in precedenza verrà denominata `CUSTOMCONNSTR_exampledb`.
 
-2. Nel `application.properties` file, fare riferimento a questa stringa di connessione con il nome di variabile di ambiente. Per questo esempio, utilizziamo la seguente.
+2. Nel *Application. Properties* file, fare riferimento a questa stringa di connessione con il nome di variabile di ambiente. Per questo esempio, utilizziamo la seguente.
 
     ```yml
     app.datasource.url=${CUSTOMCONNSTR_exampledb}
@@ -415,47 +417,49 @@ Vedere le [documentazione sull'accesso ai dati di Spring Boot](https://docs.spri
 > [!NOTE]
 > Java Enterprise Edition in servizio App Linux è attualmente in anteprima. Lo stack è **non** consigliato per la produzione rivolte al lavoro. informazioni sul nostro stack Java SE e Tomcat.
 
-Servizio App di Azure in Linux consente agli sviluppatori Java per creare, distribuire e scalare le applicazioni aziendali Java (EE Java) in un servizio completamente gestito basato su Linux.  L'ambiente di runtime Java Enterprise sottostante è il server applicazioni open source [Wildfly](https://wildfly.org/).
+Servizio App di Azure in Linux consente agli sviluppatori Java per creare, distribuire e scalare le applicazioni aziendali Java (EE Java) in un servizio completamente gestito basato su Linux.  L'ambiente di runtime Java Enterprise sottostante è open source [WildFly](https://wildfly.org/) server applicazioni.
 
-[Scalabilità con il servizio App](#scale-with-app-service)
-[configurazione del server applicazioni Personalizza](#customize-application-server-configuration)
-[moduli e le dipendenze](#modules-and-dependencies)
-[dati origini](#data-sources)
-[consentire ai provider di messaggistica](#enable-messaging-providers)
-[configurare la memorizzazione nella cache di gestione della sessione](#configure-session-management-caching)
+In questa sezione sono disponibili le procedure seguenti:
+
+- [Scalabilità con il servizio App](#scale-with-app-service)
+- [Personalizzare la configurazione dell'applicazione server](#customize-application-server-configuration)
+- [Installare i moduli e le dipendenze](#install-modules-and-dependencies)
+- [Configurare le origini dati](#configure-data-sources)
+- [Consentire ai provider di messaggistica](#enable-messaging-providers)
+- [Configurare la memorizzazione nella cache di gestione della sessione](#configure-session-management-caching)
 
 ### <a name="scale-with-app-service"></a>Ridimensionare con il Servizio app di Azure
 
 Il server applicazioni WildFly del Servizio app di Azure per Linux viene eseguito in modalità autonoma, non in una configurazione di dominio. Quando si amplia il piano di Servizio app, ogni istanza di WildFly viene configurata come server autonomo.
 
- Per scalare l'applicazione orizzontalmente o verticalmente, si usano le [regole di scalabilità](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md) e si [aumenta il numero di istanze](../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Per scalare l'applicazione orizzontalmente o verticalmente, si usano le [regole di scalabilità](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md) e si [aumenta il numero di istanze](../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### <a name="customize-application-server-configuration"></a>Personalizzare la configurazione del server applicazioni
 
-Le istanze dell'app Web sono senza stato, quindi ogni nuova istanza avviata deve essere configurata all'avvio per supportare la configurazione Wildfly richiesta dall'applicazione.
+Le istanze dell'App Web sono senza state, deve essere configurata in ogni nuova istanza avviata all'avvio per supportare la configurazione WildFly richieste dall'applicazione.
 È possibile scrivere uno script Bash di avvio per chiamare l'interfaccia della riga di comando di WildFly per:
 
 - Configurare le origini dati
 - Configurare i provider di messaggistica
-- Aggiungere altri moduli e altre dipendenze alla configurazione del server Wildfly.
+- Aggiungere altri moduli e le dipendenze per la configurazione del server WildFly.
 
- Lo script viene eseguito quando Wildfly è in esecuzione, ma prima dell'avvio dell'applicazione. È consigliabile che lo script usi l'[interfaccia della riga di comando di JBOSS](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) chiamata da `/opt/jboss/wildfly/bin/jboss-cli.sh` per configurare il server applicazioni con qualsiasi configurazione o modifica necessaria dopo l'avvio del server.
+Lo script viene eseguito quando WildFly sia in esecuzione, ma prima dell'avvio dell'applicazione. Lo script deve usare la [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) chiamato da */opt/jboss/wildfly/bin/jboss-cli.sh* per configurare il server applicazioni con le eventuali configurazioni o modifiche necessarie dopo l'avvio del server.
 
-Non usare la modalità interattiva dell'interfaccia della riga di comando per configurare Wildfly. Si può invece specificare uno script di comandi all'interfaccia della riga di comando di JBoss usando il comando `--file`, ad esempio:
+Non utilizzare la modalità interattiva della riga di comando per configurare WildFly. Si può invece specificare uno script di comandi all'interfaccia della riga di comando di JBoss usando il comando `--file`, ad esempio:
 
 ```bash
 /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
 ```
 
-Caricare lo script di avvio in `/home/site/deployments/tools` nell'istanza del Servizio app di Azure. Per le istruzioni su come ottenere le credenziali FTP, vedere [questo documento](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#userscope).
+Usare il FTP per caricare lo script di avvio in un percorso nell'istanza del servizio App con il */Home* directory, ad esempio */home/site/deployments/tools*. Per altre informazioni, vedi [distribuire l'app nel servizio App di Azure usando FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
 
-Impostare il campo **Script di avvio** nel portale di Azure sul percorso dello script della shell di avvio, ad esempio `/home/site/deployments/tools/your-startup-script.sh`.
+Impostare il **Script di avvio** campo nel portale di Azure nel percorso di script della shell di avvio, ad esempio */home/site/deployments/tools/your-startup-script.sh*.
 
 Fornire [le impostazioni dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) nella configurazione dell'applicazione per passare le variabili di ambiente da usare nello script. Le impostazioni dell'applicazione mantengono le stringhe di connessione e altri segreti necessari per configurare il controllo delle versioni dell'applicazione.
 
-### <a name="modules-and-dependencies"></a>Moduli e dipendenze
+### <a name="install-modules-and-dependencies"></a>Installare i moduli e le dipendenze
 
-Per installare i moduli e le relative dipendenze nella classpath di Wildfly tramite l'interfaccia della riga di comando di JBoss, sarà necessario creare i file seguenti nella directory specifica. Per alcuni moduli e dipendenze può essere necessario specificare una configurazione aggiuntiva, ad esempio la denominazione JNDI o un'altra configurazione specifica dell'API. L'elenco che segue include gli elementi minimi necessari per configurare una dipendenza nella maggior parte dei casi.
+Per installare i moduli e le relative dipendenze in classpath WildFly tramite la CLI di JBoss, dovrai creare i seguenti file nella propria directory. Per alcuni moduli e dipendenze può essere necessario specificare una configurazione aggiuntiva, ad esempio la denominazione JNDI o un'altra configurazione specifica dell'API. L'elenco che segue include gli elementi minimi necessari per configurare una dipendenza nella maggior parte dei casi.
 
 - Un [descrittore di modulo XML](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). Questo file XML definisce il nome, gli attributi e le dipendenze del modulo. Questo [file module.xml di esempio](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) definisce un modulo Postgres, la relativa dipendenza JDBC del file JAR e altre dipendenze del modulo richieste.
 - Le dipendenze del file con estensione JAR necessarie per il modulo.
@@ -463,23 +467,170 @@ Per installare i moduli e le relative dipendenze nella classpath di Wildfly tram
 - Uno script Bash di avvio per chiamare l'interfaccia della riga di comando di JBoss ed eseguire lo script del passaggio precedente. Questo file viene eseguito quando l'istanza del Servizio app di Azure viene riavviata o quando viene effettuato il provisioning di nuove istanze durante un'operazione di scale-out. Questo script di avvio è usato per eseguire qualsiasi altra configurazione per l'applicazione man mano che i comandi di JBoss vengono passati all'interfaccia della riga di comando di JBoss. Questo file può essere come minimo un singolo comando per passare lo script di comandi della CLI di JBoss all'interfaccia della riga di comando di JBoss:
 
 ```bash
-`/opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli`
+/opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
 ```
 
-Dopo avere creato il file e il contenuto per il modulo, seguire la procedura sottostante per aggiungere il modulo al server applicazioni Wildfly.
+Dopo aver creato il file e il contenuto per il modulo, attenersi alla procedura seguente per aggiungere il modulo per il server applicazioni WildFly.
 
-1. Trasferire tramite FTP i file in `/home/site/deployments/tools` nell'istanza del Servizio app di Azure. Per le istruzioni su come ottenere le credenziali FTP, vedere questo documento.
-2. Nel **Configuration** > **impostazioni generali** campo pagina di Azure del portale, impostare "Script di avvio" nel percorso di script della shell di avvio, ad esempio `/home/site/deployments/tools/your-startup-script.sh` .
+1. Usare il FTP per caricare i file in un percorso nell'istanza del servizio App con il */Home* directory, ad esempio */home/site/deployments/tools*. Per altre informazioni, vedi [distribuire l'app nel servizio App di Azure usando FTP/S](../deploy-ftp.md).
+2. Nel **Configuration** > **impostazioni generali** pagina del portale di Azure, impostare il **Script di avvio** campo nel percorso di script della shell di avvio, per riportato */home/site/deployments/tools/startup.sh*.
 3. Riavviare l'istanza del servizio App, premere il **riavviare** pulsante il **Panoramica** sezione del portale o tramite la CLI di Azure.
 
-### <a name="configure-data-source-connections"></a>Configurare connessioni a origini dati
+### <a name="configure-data-sources"></a>Configurare le origini dati
 
-Per configurare in Wildfly una connessione all'origine dati, seguire lo stesso processo descritto nella sezione precedente "Moduli e dipendenze". È possibile seguire gli stessi passaggi per qualsiasi servizio di database di Azure.
+Per configurare WildFly/JBoss per accedere a un'origine dati, utilizzare il processo generale illustrato in precedenza nella sezione "installare moduli e le dipendenze". Nella sezione seguente fornisce informazioni dettagliate su questo processo per le origini dati di PostgreSQL, MySQL e SQL Server.
 
-1. Scaricare il driver JDBC per la versione del database. Per praticità, ecco i driver per [Postgres](https://jdbc.postgresql.org/download.html) e [MySQL](https://dev.mysql.com/downloads/connector/j/). Decomprimere il pacchetto scaricato per ottenere il file con estensione jar.
-2. Seguire i passaggi descritti in "Moduli e dipendenze" per creare e caricare il descrittore di modulo XML, lo script dell'interfaccia della riga di comando di JBoss, lo script di avvio e il file della dipendenza con estensione jar di JDBC.
+In questa sezione si presuppone che si dispone già di un'app, un'istanza del servizio App e un'istanza del servizio Database di Azure. Le istruzioni seguenti fanno riferimento al nome del servizio App, il gruppo di risorse e le informazioni di connessione di database. È possibile trovare queste informazioni nel portale di Azure.
 
-Sono disponibili altre informazioni sulla configurazione di Wildfly con [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource) e [SQL Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898). È possibile usare queste istruzioni personalizzate con l'approccio generalizzato sopra indicato per aggiungere definizioni di origini dati al server.
+Se si preferisce passare attraverso l'intero processo dall'inizio usando un'app di esempio, vedere [esercitazione: Creare un'app web Java EE e Postgres in Azure](tutorial-java-enterprise-postgresql-app.md).
+
+I passaggi seguenti illustrano i requisiti per la connessione del servizio App esistente e il database.
+
+1. Scaricare il driver JDBC per [PostgreSQL](https://jdbc.postgresql.org/download.html), [MySQL](https://dev.mysql.com/downloads/connector/j/), o [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server). Decomprimere l'archivio scaricato per più file con estensione jar del driver.
+
+2. Creare un file con un nome simile *module.xml* e aggiungere il markup seguente. Sostituire il `<module name>` segnaposto (incluse le parentesi acute) con `org.postgres` per PostgreSQL `com.mysql` per MySQL, o `com.microsoft` per SQL Server. Sostituire `<JDBC .jar file path>` con il nome del file con estensione jar dal passaggio precedente, incluso il percorso completo al percorso si inseriranno i file nell'istanza del servizio App. Può trattarsi di qualsiasi posizione con il */Home* directory.
+
+    ```xml
+    <?xml version="1.0" ?>
+    <module xmlns="urn:jboss:module:1.1" name="<module name>">
+        <resources>
+           <resource-root path="<JDBC .jar file path>" />
+        </resources>
+        <dependencies>
+            <module name="javax.api"/>
+            <module name="javax.transaction.api"/>
+        </dependencies>
+    </module>
+    ```
+
+3. Creare un file con un nome simile *datasource commands.cli* e aggiungere il codice seguente. Sostituire `<JDBC .jar file path>` con il valore è usato nel passaggio precedente. Sostituire `<module file path>` con il nome di file e percorso del servizio App nel passaggio precedente, ad esempio */home/module.xml*.
+
+    **PostgreSQL**
+
+    ```console
+    module add --name=org.postgres --resources=<JDBC .jar file path> --module-xml=<module file path>
+
+    /subsystem=datasources/jdbc-driver=postgres:add(driver-name=postgres,driver-module-name=org.postgres,driver-class-name=org.postgresql.Driver,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
+
+    data-source add --name=postgresDS --driver-name=postgres --jndi-name=java:jboss/datasources/postgresDS --connection-url=$DATABASE_CONNECTION_URL --user-name=$DATABASE_SERVER_ADMIN_FULL_NAME --password=$DATABASE_SERVER_ADMIN_PASSWORD --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
+
+    reload --use-current-server-config=true
+    ```
+
+    **MySQL**
+
+    ```console
+    module add --name=com.mysql --resources=<JDBC .jar file path> --module-xml=<module file path>
+
+    /subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql,driver-module-name=com.mysql,driver-class-name=com.mysql.cj.jdbc.Driver)
+
+    data-source add --name=mysqlDS --jndi-name=java:jboss/datasources/mysqlDS --connection-url=$DATABASE_CONNECTION_URL --driver-name=mysql --user-name=$DATABASE_SERVER_ADMIN_FULL_NAME --password=$DATABASE_SERVER_ADMIN_PASSWORD --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=com.mysql.cj.jdbc.Driver --jta=true --use-java-context=true --exception-sorter-class-name=com.mysql.cj.jdbc.integration.jboss.ExtendedMysqlExceptionSorter
+
+    reload --use-current-server-config=true
+    ```
+
+    **SQL Server**
+
+    ```console
+    module add --name=com.microsoft --resources=<JDBC .jar file path> --module-xml=<module file path>
+
+    /subsystem=datasources/jdbc-driver=sqlserver:add(driver-name=sqlserver,driver-module-name=com.microsoft,driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver,driver-datasource-class-name=com.microsoft.sqlserver.jdbc.SQLServerDataSource)
+
+    data-source add --name=sqlDS --jndi-name=java:jboss/datasources/sqlDS --driver-name=sqlserver --connection-url=$DATABASE_CONNECTION_URL --validate-on-match=true --background-validation=false --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLExceptionSorter
+
+    reload --use-current-server-config=true
+    ```
+
+    Questo file viene eseguito dallo script di avvio descritto nel passaggio successivo. Consente di installare il driver JDBC come modulo WildFly, crea l'origine dati WildFly corrispondente e ricarica i server per verificare che le modifiche avranno effetto.
+
+4. Creare un file con un nome simile *startup.sh* e aggiungere il codice seguente. Sostituire `<JBoss CLI script>` con il nome del file è stato creato nel passaggio precedente. Assicurarsi di includere il percorso completo al percorso si inseriranno i file nell'istanza del servizio App, ad esempio */home/datasource-commands.cli*.
+
+    ```bash
+    #!/usr/bin/env bash
+    /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=<JBoss CLI script>
+    ```
+
+5. Usare il FTP per caricare il file con estensione jar JDBC, il file XML di modulo, lo script JBoss CLI e lo script di avvio per l'istanza del servizio App. Inserire questi file nel percorso specificato nei passaggi precedenti, ad esempio */Home*. Per altre informazioni su FTP, vedere [distribuire l'app nel servizio App di Azure usando FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
+
+6. Usare il comando di Azure per aggiungere le impostazioni per il servizio App che contengono le informazioni di connessione di database. Sostituire `<resource group>` e `<webapp name>` con i valori viene utilizzato il servizio App. Sostituire `<database server name>`, `<database name>`, `<admin name>`, e `<admin password>` con le informazioni di connessione di database. È possibile ottenere le tue info di servizio App e il database dal portale di Azure.
+
+    **PostgreSQL:**
+
+    ```bash
+    az webapp config appsettings set \
+        --resource-group <resource group> \
+        --name <webapp name> \
+        --settings \
+            DATABASE_CONNECTION_URL=jdbc:postgresql://<database server name>:5432/<database name>?ssl=true \
+            DATABASE_SERVER_ADMIN_FULL_NAME=<admin name> \
+            DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
+    ```
+
+    **MySQL:**
+
+    ```bash
+    az webapp config appsettings set \
+        --resource-group <resource group> \
+        --name <webapp name> \
+        --settings \
+            DATABASE_CONNECTION_URL=jdbc:mysql://<database server name>:3306/<database name>?ssl=true\&useLegacyDatetimeCode=false\&serverTimezone=GMT \
+            DATABASE_SERVER_ADMIN_FULL_NAME=<admin name> \
+            DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
+    ```
+
+    **SQL Server:**
+
+    ```bash
+    az webapp config appsettings set \
+        --resource-group <resource group> \
+        --name <webapp name> \
+        --settings \
+            DATABASE_CONNECTION_URL=jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    ```
+
+    I valori DATABASE_CONNECTION_URL sono diversi per ogni server di database e diversi dai valori nel portale di Azure. I formati di URL illustrati di seguito (e i frammenti di codice precedente) sono necessari per l'uso da WildFly:
+
+    * **PostgreSQL:** `jdbc:postgresql://<database server name>:5432/<database name>?ssl=true`
+    * **MySQL:** `jdbc:mysql://<database server name>:3306/<database name>?ssl=true\&useLegacyDatetimeCode=false\&serverTimezone=GMT`
+    * **SQL Server:** `jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;`
+
+7. Nel portale di Azure, passare al servizio App e trovare il **Configuration** > **impostazioni generali** pagina. Impostare il **Script di avvio** campo e il nome e il percorso di script di avvio, ad esempio */home/startup.sh*.
+
+Al successivo che riavvio del servizio App, verrà eseguito lo script di avvio e seguire i passaggi di configurazione necessarie. Per verificare che questa configurazione viene eseguita correttamente, è possibile accedere al servizio App con SSH e quindi eseguire lo script di avvio manualmente dal prompt di Bash. È anche possibile esaminare i log del servizio App. Per altre informazioni su queste opzioni, vedi [la registrazione e debug delle app](#logging-and-debugging-apps).
+
+Successivamente, sarà necessario aggiornare la configurazione WildFly per l'app e ridistribuirla. Seguire questa procedura:
+
+1. Aprire il *src/main/resources/META-INF/persistence.xml* file per l'app e trovare il `<jta-data-source>` elemento. Sostituirne il contenuto come illustrato di seguito:
+
+    **PostgreSQL**
+
+    ```xml
+    <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>
+    ```
+
+    **MySQL**
+
+    ```xml
+    <jta-data-source>java:jboss/datasources/mysqlDS</jta-data-source>
+    ```
+
+    **SQL Server**
+
+    ```xml
+    <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>
+    ```
+
+2. Ricompilare e ridistribuire l'app usando il comando seguente al prompt di Bash:
+
+    ```bash
+    mvn package -DskipTests azure-webapp:deploy
+    ```
+
+3. Riavviare l'istanza del servizio App, premere il **riavviare** pulsante il **Panoramica** sezione del portale di Azure o tramite la CLI di Azure.
+
+L'istanza del servizio App è ora configurato per accedere al database.
+
+Per altre informazioni sulla configurazione della connettività del database con WildFly, vedi [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), o [SQL Server](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898).
 
 ### <a name="enable-messaging-providers"></a>Consentire ai provider di messaggistica
 
@@ -500,7 +651,7 @@ Per impostazione predefinita, il Servizio app di Azure per Linux userà i cookie
 - Se un'istanza dell'applicazione viene riavviata o ridotta, lo stato della sessione utente nel server di applicazioni verrà perso.
 - Se le applicazioni sono impostate su un timeout della sessione prolungato o un numero fisso di utenti, la ricezione del carico da parte delle nuove istanze scalate automaticamente può richiedere tempo poiché solo le nuove sessioni verranno instradate verso le istanze appena avviate.
 
-È possibile configurare Wildfly in modo che usi un archivio delle sessioni esterne, ad esempio la [Cache Redis di Azure](/azure/azure-cache-for-redis/). Sarà necessario [disabilitare la configurazione di affinità di istanza ARR esistente](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) per disattivare l'instradamento basato sui cookie della sessione e consentire a un archivio delle sessioni di Wildfly di operare senza interferenze.
+È possibile configurare per l'uso di un archivio esterno della sessione, ad esempio WildFly [Cache di Azure per Redis](/azure/azure-cache-for-redis/). Dovrai [disabilitare l'affinità delle istanze esistenti ARR](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration per disattivare il routing di sessione basata su cookie e consentire l'archivio di sessione WildFly configurato operare senza interferenze.
 
 ## <a name="docker-containers"></a>Contenitori Docker
 
@@ -534,4 +685,3 @@ Se un runtime Java supportato sarà ritirato, gli sviluppatori di Azure che usan
 Per trovare guide introduttive di Azure, esercitazioni e documentazione di riferimento su Java, visitare la pagina [Azure per sviluppatori Java](/java/azure/).
 
 Per domande generali sull'uso del servizio app per Linux, non specifiche dello sviluppo Java, vedere le [domande frequenti sul servizio app in Linux](app-service-linux-faq.md).
-

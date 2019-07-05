@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22317372a7d954286ebcb0b59aea293c746b2a58
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807375"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508182"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Risorse, proprietà o iterazione delle variabili nei modelli di Azure Resource Manager
 
@@ -50,6 +50,8 @@ Se è necessario specificare se una risorsa viene distribuita, vedere l'[element
 Per specificare il numero di iterazioni, fornire un valore per la proprietà count. Il conteggio non può essere maggiore di 800.
 
 Il conteggio non può essere un numero negativo. Se si distribuisce un modello con versione dell'API REST **2019 05-10** o versioni successive, è possibile impostare conteggio su zero. Le versioni precedenti dell'API REST non supportano zero per il conteggio. Attualmente, Azure o PowerShell non supportano zero per il conteggio, ma tale supporto verrà aggiunto nelle versioni future.
+
+Possibile con un'attenta [completare la distribuzione in modalità](deployment-modes.md) con copia. Se esegue la ridistribuzione con la modalità completa per un gruppo di risorse, vengono eliminate tutte le risorse che non sono specificate nel modello dopo aver risolto il ciclo di copia.
 
 I limiti per il conteggio sono gli stessi se usato con una risorsa, variabile o proprietà.
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 3/5/2019
+ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3cafa4d5aecaa4c8f3863c3269ec02793340e3e6
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "57570097"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509271"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -43,6 +43,16 @@ SQL API Async Java SD differisce da SQL API Java SDK offrendo operazioni asincro
 | **Runtime minimo supportato**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+* Modalità TCP ora su per impostazione predefinita
+* Le metriche di query in più partizioni restituisce ora tutte le partizioni
+* Sicuro globale ora funziona correttamente
+* Il failover per le query non corretta Ritenta multimaster
+* Esempi di dipendenze per gli hotfix di sicurezza
+
+### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
+* BugFix per il supporto di Hash V2
 
 ### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
 * BugFix per perdita di risorse in client#close() ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).

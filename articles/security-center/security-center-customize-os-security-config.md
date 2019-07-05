@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: d9dc9f3a4ab964b66e3a2cb03f4aad442c5665e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573599"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551382"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizzare le configurazioni di sicurezza del sistema operativo nel Centro sicurezza di Azure (anteprima)
 
@@ -56,13 +56,11 @@ Per personalizzare la configurazione di sicurezza predefinita del sistema operat
 
 1.  Aprire il dashboard **Centro sicurezza**.
 
-2.  Nel riquadro di sinistra selezionare **Criteri di sicurezza**.      
+2.  Nel riquadro sinistro, selezionare **Pricing Impo & stazioni**.
 
     ![Elenco Criteri di sicurezza](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  Nella riga della sottoscrizione che si desidera personalizzare, fare clic su **Modifica impostazioni**.
-
-4. Selezionare **Modifica le configurazioni di sicurezza**.  
+4. Selezionare la sottoscrizione applicabile e selezionare **modificare le configurazioni di sicurezza**.  
 
     ![Finestra "Modifica le configurazioni della sicurezza"](media/security-center-customize-os-security-config/blade.png)
 

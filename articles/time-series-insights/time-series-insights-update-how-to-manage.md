@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6251df2317ceff9dded92f2d829bfab0503fdf1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f626ce2e009a18afcb4d04b7caa6850ea58c7483
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237599"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446820"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Effettuare il provisioning e la gestione di Anteprima di Azure Time Series Insights
 
@@ -45,7 +45,7 @@ I passaggi seguenti descrivono come creare un ambiente Anteprima di Azure Time S
 
 1. Selezionare il pulsante **PAYG** (Con pagamento in base al consumo) sotto il menu **SKU**. Specificare un nome di ambiente e designare il gruppo di sottoscrizioni e il gruppo di risorse da usare, quindi selezionare una località supportata in cui ospitare l'ambiente.
 
-   [![Creare un'istanza di Azure Time Series Insights.](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+   [![Creare un'istanza di Azure Time Series Insights.](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 1. Immettere un ID serie temporale.
 
@@ -56,7 +56,7 @@ I passaggi seguenti descrivono come creare un ambiente Anteprima di Azure Time S
 
 1. Creare un account di archiviazione di Azure selezionando un nome di account di archiviazione e designando un'opzione di replica. In questo modo verrà automaticamente creato un account di archiviazione di Azure per utilizzo generico v1 nella stessa area dell'ambiente Anteprima di Azure Time Series Insights selezionata in precedenza.
 
-    [![Creare un account di archiviazione di Azure per l'istanza](media/v2-update-manage/manage_five.PNG)](media/v2-update-manage/manage_five.PNG#lightbox)
+    [![Creare un account di archiviazione di Azure per l'istanza](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
 
 1. Facoltativamente, è possibile aggiungere un'origine evento.
 
@@ -67,11 +67,11 @@ I passaggi seguenti descrivono come creare un ambiente Anteprima di Azure Time S
      > [!TIP]
      > L'ora di accodamento del messaggio potrebbe non essere la migliore impostazione configurata da usare negli scenari di caricamento di dati cronologici o di eventi di batch. Valutare con attenzione la decisione di usare o meno una proprietà Timestamp in tali casi.
 
-     [![Scheda origine evento](media/v2-update-manage/manage_two.PNG)](media/v2-update-manage/manage_two.PNG#lightbox)
+     [![Scheda origine evento](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
 
 1. Verificare che il provisioning dell'ambiente sia stato effettuato con le impostazioni desiderate.
 
-    [![Rivedi e Crea scheda](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+    [![Rivedi e Crea scheda](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 ## <a name="manage-the-environment"></a>Gestire l'ambiente
 
@@ -88,7 +88,7 @@ I passaggi seguenti descrivono come creare un ambiente Anteprima di Azure Time S
 
 * Il pannello **Dati di riferimento** del portale di Azure è stato rimosso in Anteprima di Azure Time Series Insights, in quanto i dati di riferimento non sono un componente degli ambienti con pagamento in base al consumo.
 
-[![Ambiente di Time Series Insights anteprima nel portale di Azure](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
+[![Ambiente di Time Series Insights anteprima nel portale di Azure](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

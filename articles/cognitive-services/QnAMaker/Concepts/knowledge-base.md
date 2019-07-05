@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b9562a1686c4de4f4e2ef57a7d91bbf18dce63ef
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7e40af9b2362ee52a1d00f29cdc112d3c2b9a842
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447585"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565844"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Che cos'è una knowledge base di QnA Maker?
 
@@ -40,7 +40,7 @@ I campi di metadati sono costituiti da coppie chiave-valore separate da due punt
 
 ## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>Modalità di elaborazione di una query dell'utente per selezionare la risposta migliore QnA Maker
 
-Il modello con training e [pubblicata](/quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QnA Maker della knowledge base riceve una query dell'utente, da un robot o un'altra applicazione client, nelle [API GenerateAnswer](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api). Il diagramma seguente illustra il processo quando viene ricevuta la query dell'utente.
+Il modello con training e [pubblicata](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker della knowledge base riceve una query dell'utente, da un robot o un'altra applicazione client, nelle [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Il diagramma seguente illustra il processo quando viene ricevuta la query dell'utente.
 
 ![Il processo di classificazione per una query dell'utente](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
 
@@ -48,7 +48,7 @@ Il processo è illustrato nella tabella seguente:
 
 |Passaggio|Scopo|
 |--|--|
-|1|L'applicazione client invia la query dell'utente per il [GenerateAnswer API](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api).|
+|1|L'applicazione client invia la query dell'utente per il [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
 |2|QnA Maker di pre-elaborazione della query utente con il rilevamento della lingua, spellers e word breaker.|
 |3|Questa pre-elaborazione viene eseguita per modificare la query dell'utente per ottenere risultati ottimali ricerca.|
 |4|Questa query modificata viene inviata all'indice di ricerca di Azure, la ricezione di `top` numero di risultati. Se la risposta corretta non è in questi risultati, aumentare il valore di `top` leggermente. In genere un valore pari a 10 per `top` funziona in 90% delle query.|

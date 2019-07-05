@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303909"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449865"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -183,6 +183,12 @@ Per i volumi per cui non è abilitata la suddivisione in livelli nel cloud, Sinc
 - Per i processi di ottimizzazione in corso la deduplicazione, cloud a livelli con i criteri di data verranno ottenere posticipato da deduplicazione dati [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) impostazione, se il file non è già a livelli. 
     - Esempio: Se l'impostazione MinimumFileAgeDays è 7 giorni e i criteri Data suddivisione in livelli nel cloud sono di 30 giorni, i criteri di data verranno livello file dopo 37 giorni.
     - Note: Una volta che un file a livelli da sincronizzazione File di Azure, il processo di ottimizzazione della deduplicazione ignorerà il file.
+- Se un server che esegue Windows Server 2012 R2 con installato l'agente sincronizzazione File di Azure viene aggiornato a Windows Server 2016 o Windows Server 2019, è necessario eseguire i passaggi seguenti per supportare la deduplicazione dei dati e la suddivisione in livelli nel volume stesso cloud:  
+    - Disinstallare l'agente sincronizzazione File di Azure per Windows Server 2012 R2 e riavviare il server.
+    - Scaricare l'agente sincronizzazione File di Azure per la nuova versione del sistema operativo server (Windows Server 2016 o Windows Server 2019).
+    - Installare l'agente sincronizzazione File di Azure e riavviare il server.  
+    
+    Note: Le impostazioni di configurazione nel server di sincronizzazione File di Azure vengono mantenute quando l'agente viene disinstallato e reinstallato.
 
 ### <a name="distributed-file-system-dfs"></a>File system distribuito (DFS)
 Sincronizzazione file di Azure supporta l'interoperabilità con Spazi dei nomi DFS (DFS-N) e Replica DFS (DFS-R).
@@ -255,7 +261,7 @@ Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 | India centrale | Pune |
 | Stati Uniti centrali | Iowa |
 | Asia orientale | RAS di Hong Kong |
-| Stati Uniti orientali | Virginia |
+| East US | Virginia |
 | Stati Uniti Orientali 2 | Virginia |
 | Corea del Sud centrale| Seul |
 | Corea del Sud meridionale| Busan |
@@ -296,7 +302,7 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 | India centrale       | India meridionale        |
 | Stati Uniti centrali          | Stati Uniti orientali 2          |
 | Asia orientale           | Asia sud-orientale     |
-| Stati Uniti orientali             | Stati Uniti occidentali            |
+| East US             | Stati Uniti occidentali            |
 | Stati Uniti orientali 2           | Stati Uniti centrali         |
 | Giappone orientale          | Giappone occidentale         |
 | Giappone occidentale          | Giappone orientale         |
@@ -314,7 +320,7 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 | US Gov Virginia      | US Gov Texas       |
 | Europa occidentale         | Europa settentrionale       |
 | Stati Uniti centro-occidentali     | Stati Uniti occidentali 2          |
-| Stati Uniti occidentali             | Stati Uniti orientali            |
+| Stati Uniti occidentali             | East US            |
 | Stati Uniti occidentali 2           | Stati Uniti centro-occidentali    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure

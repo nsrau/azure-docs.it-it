@@ -2,27 +2,21 @@
 title: Come pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido in Azure Active Directory (Azure AD) | Microsoft Docs
 description: Informazioni su come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a1c349ae7cdd66c09db412331c344d6512ecd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c476c2b326045db37c54a358d68f4b5f8bbaed9a
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110606"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509601"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
@@ -83,7 +77,7 @@ Aggiunta ad Azure AD ibrido non è attualmente supportata se l'ambiente è costi
 
 Aggiunta ad Azure AD ibrido non è supportato quando si usa virtual desktop infrastructure (VDI).
 
-Identità ibrida di Azure AD non è supportata per i moduli TPM compatibili con FIPS. Se i dispositivi dispongono di moduli TPM compatibili con FIPS, è necessario disabilitare prima di procedere con l'aggiunta ad Azure AD ibrido. Microsoft non fornisce gli strumenti per la disabilitazione della modalità FIPS per TPM come dipende dal produttore del TPM. Per supporto, contattare l'OEM di hardware.
+Aggiunta ad Azure AD ibrido non è supportato per i moduli TPM compatibili con FIPS. Se i dispositivi dispongono di moduli TPM compatibili con FIPS, è necessario disabilitare prima di procedere con l'aggiunta ad Azure AD ibrido. Microsoft non fornisce gli strumenti per la disabilitazione della modalità FIPS per TPM come dipende dal produttore del TPM. Per supporto, contattare l'OEM di hardware.
 
 Aggiunta ad Azure AD ibrido non è supportato per Windows Server che esegue il ruolo di Controller di dominio (DC).
 
@@ -99,13 +93,11 @@ Se i dispositivi aggiunti a un dominio di Windows 10 sono già [registrati in Az
 - È possibile impedire che il dispositivo aggiunto al dominio in Azure AD registrata mediante l'aggiunta di questa chiave del Registro di sistema - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" runasppl"=DWORD:00000001.
 - Questa modifica è ora disponibile per il rilascio di Windows 10 1803 con KB4489894 applicato. Tuttavia, se si dispone di Windows Hello for Business configurati, l'utente è obbligatorio per Ri-il programma di installazione Windows Hello for Business dopo il doppio dello stato di pulizia.
 
-
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Esaminare convalida controllata di aggiunta ad Azure AD ibrido
 
 Quando tutti i prerequisiti sono presenti, i dispositivi di Windows verranno automaticamente registrati come dispositivi nel tenant di Azure AD. Lo stato di queste identità dei dispositivi in Azure AD è definito come l'aggiunta ad Azure AD ibrido. Altre informazioni sui concetti illustrati in questo articolo sono disponibili negli articoli [Introduzione alla gestione delle identità di dispositivo in Azure Active Directory](overview.md) e [prevede l'aggiunta di Azure Active Directory ibrido implementazione](hybrid-azuread-join-plan.md).
 
 Le organizzazioni potrebbe essere necessario eseguire una convalida controllata di aggiunta ad Azure AD ibrido prima di abilitarlo per tutte contemporaneamente l'intera organizzazione. Vedere l'articolo [controllata la convalida dell'aggiunta ad Azure AD ibrido](hybrid-azuread-join-control.md) per comprendere come ottenere questo risultato.
-
 
 ## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Selezionare lo scenario basato sull'infrastruttura di identità
 
@@ -135,8 +127,6 @@ Basato sullo scenario che corrisponde a infrastruttura di identità, vedere:
 
 - [Configurare aggiunta di Azure Active Directory ibrido per l'ambiente federato](hybrid-azuread-join-federated-domains.md)
 - [Configurare aggiunta all'identità ibrida Azure Active Directory per un ambiente gestito](hybrid-azuread-join-managed-domains.md)
-
-
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Revisione UPN AD supporto locale per l'aggiunta ad Azure AD ibrido
 

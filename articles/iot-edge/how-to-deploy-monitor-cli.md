@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 55b18246861e452a4ac170094ee902bd6954fe89
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 39edbc77215d3a4f6477beae3be9d7d47cbba4f0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190413"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540926"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite l'interfaccia della riga di comando di Azure
 
-Creare un **distribuzione automatica di IoT Edge** usando l'interfaccia della riga di comando di Azure per gestire le distribuzioni in corso per numero di dispositivi in una sola volta. Le distribuzioni automatiche per IoT Edge sono parte del [gestione automatica dei dispositivi](/iot-hub/iot-hub-automatic-device-management.md) funzionalità dell'IoT Hub. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli in più dispositivi, tenere traccia dello stato e integrità dei moduli e apportare modifiche quando necessario. 
+Creare un **distribuzione automatica di IoT Edge** usando l'interfaccia della riga di comando di Azure per gestire le distribuzioni in corso per numero di dispositivi in una sola volta. Le distribuzioni automatiche per IoT Edge sono parte del [gestione automatica dei dispositivi](/azure/iot-hub/iot-hub-automatic-device-management) funzionalità dell'IoT Hub. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli in più dispositivi, tenere traccia dello stato e integrità dei moduli e apportare modifiche quando necessario. 
 
 Per altre informazioni, vedere [distribuzioni automatiche comprendere IoT Edge per singoli dispositivi o su vasta scala](module-deployment-monitoring.md).
 

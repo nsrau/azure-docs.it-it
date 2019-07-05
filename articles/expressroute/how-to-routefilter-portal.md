@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 07/01/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55b5207e4c05712b4d96d4272f9ae193cc4c1720
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839280"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508599"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurare i filtri di route per il peering Microsoft: Portale di Azure
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Se è necessaria la connettività a tutti i servizi, tramite BGP viene annunciat
 
 Quando il peering Microsoft è configurato nel circuito ExpressRoute, i router perimetrali Microsoft stabiliscono una coppia di sessioni BGP con i router perimetrali (dell'utente o del provider di connettività). Non viene annunciata alcuna route per la rete. Per abilitare gli annunci delle ruote per la rete, è necessario associare un filtro di route.
 
-Un filtro di route consente di identificare i servizi da usare tramite il peering Microsoft del circuito di ExpressRoute. Si tratta fondamentalmente di un elenco di tutti i valori di community BGP consentiti. Dopo aver definito una risorsa filtro di route e averla associata a un circuito ExpressRoute, tutti i prefissi corrispondenti ai valori di community BGP vengono annunciati per la rete.
+Un filtro di route consente di identificare i servizi da usare tramite il peering Microsoft del circuito di ExpressRoute. È essenzialmente un elenco di tutti i valori di community BGP che si vuole consentire. Dopo aver definito una risorsa filtro di route e averla associata a un circuito ExpressRoute, tutti i prefissi corrispondenti ai valori di community BGP vengono annunciati per la rete.
 
 Per poter associare i filtri di route ai servizi Office 365, è necessario essere autorizzati all'uso dei servizi Office 365 tramite ExpressRoute. Se non si è autorizzati a usare i servizi Office 365 tramite ExpressRoute, l'operazione di associazione dei filtri di route non riesce. Per altre informazioni sul processo di autorizzazione, vedere [Azure ExpressRoute per Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd). Per la connettività ai servizi Dynamics 365 NON sono richieste autorizzazioni preliminari.
 
@@ -79,7 +79,7 @@ I valori di community BGP associati ai servizi accessibili tramite il peering Mi
 
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Creare un elenco dei valori che si vuole usare
 
-Creare un elenco dei valori di community BGP che si vuole usare nel filtro di route. Ad esempio, il valore di community BGP per i servizi Dynamics 365 è 12076:5040.
+Creare un elenco dei [valori di community BGP](expressroute-routing.md#bgp) si desidera utilizzare nel filtro di route. 
 
 ## <a name="filter"></a>Passaggio 2: Creare un filtro di route e una regola di filtro
 
@@ -101,14 +101,14 @@ Il filtro di route deve essere inserito in un gruppo di risorse.
 ![Creare un filtro di route](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
-Nell'elenco a discesa è possibile selezionare i servizi a cui si intende connettersi e, al termine, salvare la regola.
+È possibile selezionare i servizi che si desidera connettersi nell'elenco a discesa e salvare la regola al termine.
 
 ![Creare un filtro di route](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
 ## <a name="attach"></a>Passaggio 3: Associare il filtro di route a un circuito ExpressRoute
 
-È possibile associare il filtro di route a un circuito facendo clic sul pulsante "Aggiungi circuito" e selezionando il circuito ExpressRoute nell'elenco a discesa.
+È possibile collegare il filtro di route a un circuito selezionando il pulsante "Aggiungi circuito" e selezionando il circuito ExpressRoute nell'elenco a discesa.
 
 ![Creare un filtro di route](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
@@ -137,7 +137,7 @@ Se il provider di connettività configura il peering del circuito ExpressRoute, 
 
 ### <a name="detach"></a>Per rimuovere l'associazione di un filtro di route da un circuito ExpressRoute
 
-Per disconnettere un circuito dal filtro di route, fare clic con il pulsante destro del mouse sul circuito e fare clic su "annulla associazione".
+Per disconnettere un circuito dal filtro di route, pulsante destro del mouse sul circuito e fare clic su "Annulla associazione".
 
 ![Creare un filtro di route](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
@@ -150,4 +150,6 @@ Per disconnettere un circuito dal filtro di route, fare clic con il pulsante des
 
 ## <a name="next-steps"></a>Fasi successive
 
-Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
+* Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
+
+* Per informazioni sugli esempi di configurazione di router, vedere [esempi di configurazione di Router per configurare e gestire il routing](expressroute-config-samples-routing.md). 

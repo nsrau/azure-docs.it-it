@@ -2,48 +2,42 @@
 title: File di inclusione
 description: File di inclusione
 services: functions
-author: craigshoemaker
+author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 09/25/2018
-ms.author: cshoe
+ms.date: 05/25/2019
+ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d62da82b4a4dd35532dd8776a9111689db469201
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179913"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448389"
 ---
-Bundle di estensione per apportare tutte le associazioni pubblicate dal team di funzioni di Azure disponibile tramite un'impostazione nel *host. JSON* file. Per lo sviluppo locale, assicurarsi di aver la versione più recente di [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
+## <a name="register-extensions"></a>Registrare le estensioni
 
-Per usare pacchetti di estensione, aggiornare il *host. JSON* file da includere la voce seguente per `extensionBundle`:
+Fatta eccezione per i trigger di timer e HTTP, associazioni di funzioni in versione di runtime 2.x vengono implementati come pacchetti di estensione. Nella versione 2.x del runtime di funzioni di Azure, è necessario registrare in modo esplicito le estensioni per i tipi di associazione usati nelle funzioni. Le eccezioni sono le associazioni HTTP e i trigger di timer, che non richiedono le estensioni.
 
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 2.0.0)"
-    }
-}
+È possibile scegliere di installare le estensioni delle associazioni singolarmente oppure è possibile aggiungere un riferimento di bundle dell'estensione per il file di progetto host. JSON. Bundle di estensione rimuove la probabilità che i problemi di compatibilità dei pacchetti quando si usano più tipi di associazione. È l'approccio consigliato per la registrazione delle estensioni di binding. Bundle di estensione rimuove anche il requisito di installazione di .NET Core 2.x SDK. 
+
+### <a name="extension-bundles"></a>bundle di estensione
+
+[!INCLUDE [Register extensions](functions-extension-bundles.md)]
+
+Per altre informazioni, vedere [le estensioni delle associazioni di funzioni di Azure registra](../articles/azure-functions/functions-bindings-register.md#extension-bundles). Prima di aggiungere al file Functions binding, è necessario aggiungere il bundle di estensione per l'host. JSON.
+
+### <a name="register-individual-extensions"></a>Registrare le singole estensioni
+
+Se è necessario installare le estensioni che non sono in un bundle, è possibile registrare manualmente i pacchetti di estensione singolo per le associazioni specifiche. 
+
+> [!NOTE]
+> Per registrare manualmente le estensioni usando `func extensions install`, è necessario disporre di .NET Core 2.x SDK installato.
+
+Dopo avere aggiornato il file *function.json* per includere tutte le associazioni necessarie per la funzione, eseguire il seguente comando nella cartella del progetto.
+
+```bash
+func extensions install
 ```
 
-- Il `id` proprietà fa riferimento a spazio dei nomi per il bundle di estensione per funzioni di Microsoft Azure.
-- Il `version` fa riferimento alla versione del bundle.
-
-Riunire incremento delle versioni in pacchetti le modifiche di bundle. Modifiche di versione principale si verificano quando i pacchetti del bundle spostare solo una versione principale. Il `version` utilizzata dalla proprietà di [notazione di intervallo per la specifica di intervalli di versione](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). Il runtime di funzioni sceglie sempre la versione massima consentita definita per l'intervallo e intervallo di versioni.
-
-Quando si fa riferimento i bundle di estensione nel progetto, quindi tutte le associazioni predefinite sono disponibili per le funzioni. Le associazioni disponibili nel [bundle estensione](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) sono:
-
-|Pacchetto  |Version  |
-|---------|---------|
-|Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|
-|Microsoft.Azure.WebJobs.Extensions.EventGrid|2.0.0|
-|Microsoft.Azure.WebJobs.Extensions.EventHubs|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.SendGrid|3.0.0|
-|Microsoft.Azure.WebJobs.Extensions.ServiceBus|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.SignalRService|1.0.0|
-|Microsoft.Azure.WebJobs.Extensions.Storage|3.0.4|
-|Microsoft.Azure.WebJobs.Extensions.Twilio|3.0.0|
+Il comando legge il file *function.json* per scoprire quali pacchetti sono necessari, li installa e ricompila il progetto di estensione. Consente di aggiungere eventuali nuove associazioni alla versione corrente, ma non aggiorna le associazioni esistenti. Usare l'opzione `--force` per aggiornare le associazioni esistenti alla versione più recente quando si installano quelle nuove.

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 479b810c5a66917bde5754d32991fb489ea26c9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 3c0c670cf9d6ea9ff8ada292777211c69b3edb2a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299284"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445894"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Monitoraggio delle dipendenze in Azure Application Insights 
 
@@ -104,7 +104,7 @@ Per le applicazioni ASP.NET, query SQL completa viene raccolto con l'aiuto di st
 | --- | --- |
 | App Web di Azure |Nel Pannello di controllo per l'app web, [aprire il pannello di Application Insights](../../azure-monitor/app/azure-web-apps.md) e abilitare i comandi SQL in .NET |
 | Server IIS (macchina virtuale di Azure, in locale e così via). | [Installare Status Monitor nel server in cui sono in esecuzione applicazioni](../../azure-monitor/app/monitor-performance-live-website-now.md) e riavviare IIS.
-| Servizio cloud di Azure |[Attività di avvio di uso](../../azure-monitor/app/cloudservices.md) a [installare Status Monitor](monitor-performance-live-website-now.md#download) |
+| Servizio cloud di Azure | Aggiungere [attività di avvio per installare StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> L'app deve essere caricata in ApplicationInsights SDK in fase di compilazione tramite l'installazione di pacchetti NuGet per la [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) o [applicazioni ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core.) |
 | IIS Express | Non supportate
 
 Nei casi precedenti, il modo corretto di convalida che il motore di strumentazione è installato correttamente è necessario convalidare che la versione del SDK raccolti `DependencyTelemetry` è 'rddp'. 'rdddsd' o 'rddf' indica che le dipendenze vengono raccolti tramite i callback di DiagnosticSource o EventSource e pertanto non sarà possibile acquisire query SQL completa.
@@ -113,47 +113,25 @@ Nei casi precedenti, il modo corretto di convalida che il motore di strumentazio
 
 * La [mappa delle applicazioni](app-map.md) visualizza le dipendenze tra l'app e i componenti adiacenti.
 * [Diagnostica delle transazioni](transaction-diagnostics.md) Mostra unificata, correlare i dati del server.
-* Il [pannello Browser](javascript.md#ajax-performance) visualizza le chiamate AJAX dai browser degli utenti.
+* [Scheda browser](javascript.md#ajax-performance) Visualizza le chiamate AJAX dai browser degli utenti.
 * Fare clic sulle richieste lente o non riuscite per controllare le chiamate alle dipendenze.
-* L'[analisi](#analytics) può essere usata per effettuare una query dei dati sulle dipendenze.
+* L'[analisi](#logs-analytics) può essere usata per effettuare una query dei dati sulle dipendenze.
 
 ## <a name="diagnosis"></a> Diagnosticare le richieste lente
 
-Ogni evento di richiesta è associato alle chiamate alle dipendenze, alle eccezioni e ad altri eventi registrati mentre l'app elabora la richiesta. Pertanto, se alcune richieste siano eseguendo in modo errato, è possibile trovare definire se si trova a causa di una risposta lenta da una dipendenza.
-
-Di seguito è illustrato un esempio.
+Ogni evento di richiesta associato con le chiamate di dipendenza, eccezioni e altri eventi registrati mentre l'app elabora la richiesta. Pertanto, se alcune richieste siano eseguendo in modo errato, è possibile trovare definire se si trova a causa di una risposta lenta da una dipendenza.
 
 ### <a name="tracing-from-requests-to-dependencies"></a>Traccia dalle richieste alle dipendenze
 
-Aprire il pannello Prestazioni ed esaminare la griglia delle richieste:
+Aprire il **prestazioni** scheda e passare al **dipendenze** scheda in alto accanto alle operazioni.
 
-![Elenco di richieste con conteggi e medie](./media/asp-net-dependencies/02-reqs.png)
+Fare clic su un **nome della dipendenza** in generale. Dopo aver selezionato una dipendenza da un grafico della distribuzione di tale della dipendenza di durate verrà visualizzati a destra.
 
-Quella superiore impiega tempo. È necessario indagare per scoprire in che modo viene impiegato il tempo.
+![Prestazioni scheda fare clic sulla scheda dipendenze nella parte superiore quindi un nome di dipendenze nel grafico](./media/asp-net-dependencies/2-perf-dependencies.png)
 
-Fare clic su tale riga per visualizzare gli eventi di richiesta singola:
+Fare clic sul pulsante azzurro **esempi** pulsante in basso a destra e quindi su un esempio per visualizzare i dettagli della transazione end-to-end.
 
-![Elenco di occorrenze di richiesta](./media/asp-net-dependencies/03-instances.png)
-
-Fare clic su un'istanza a esecuzione prolungata per esaminarla meglio e scorrere in basso fino alle chiamate alle dipendenze remote correlate a questa richiesta:
-
-![Trovare le chiamate alle dipendenze remote, identificare una durata insolita](./media/asp-net-dependencies/04-dependencies.png)
-
-Sembra che gran parte del tempo dedicato a questa richiesta sia stato impiegato in una chiamata a un servizio locale.
-
-Selezionare la riga per ottenere altre informazioni:
-
-![Fare clic su tale dipendenza remota per identificare il motivo del problema](./media/asp-net-dependencies/05-detail.png)
-
-Probabilmente questa dipendenza è l'origine del problema. Dopo avere individuato il problema, rimane solo da capire perché la chiamata sta durando così tanto.
-
-### <a name="request-timeline"></a>Sequenza temporale della richiesta
-
-In un altro caso non ci sono chiamate a dipendenze particolarmente lunghe, ma, passando alla visualizzazione della sequenza temporale, è possibile vedere il punto in cui si è verificato il ritardo nell'elaborazione interna:
-
-![Trovare le chiamate alle dipendenze remote, identificare una durata insolita](./media/asp-net-dependencies/04-1.png)
-
-Dopo la prima chiamata alla dipendenza si verifica una lunga pausa, quindi è opportuno esaminare il codice per capirne il motivo.
+![Fare clic su un esempio per vedere i dettagli della transazione end-to-end](./media/asp-net-dependencies/3-end-to-end.png)
 
 ### <a name="profile-your-live-site"></a>Profilatura del sito live
 
@@ -161,35 +139,35 @@ Se non si riesce a capire perché trascorre così tanto tempo, Il [di Applicatio
 
 ## <a name="failed-requests"></a>Richieste non riuscite
 
-Le richieste non riuscite possono anche essere associate a chiamate non riuscite a dipendenze. Anche in questo caso è possibile fare clic per risalire al problema.
+Le richieste non riuscite possono anche essere associate a chiamate non riuscite a dipendenze.
 
-![Fare clic sul grafico delle richieste non riuscite](./media/asp-net-dependencies/06-fail.png)
+Passiamo al **errori** scheda a sinistra e quindi fare clic sui **dipendenze** scheda nella parte superiore.
 
-Fare clic su un'occorrenza di una richiesta non riuscita ed esaminare gli eventi associati.
+![Fare clic sul grafico delle richieste non riuscite](./media/asp-net-dependencies/4-fail.png)
 
-![Fare clic su un tipo di richiesta, fare clic sull'istanza per ottenere una vista diversa della stessa istanza, fare clic su di essa per ottenere informazioni dettagliate sull'eccezione.](./media/asp-net-dependencies/07-faildetail.png)
+Qui sarà possibile visualizzare il numero di dipendenze non riuscite. Per ottenere ulteriori dettagli su un'occorrenza non riuscito il tentativo di fare clic su un nome di dipendenza nella tabella nella parte inferiore. È possibile fare clic sul pulsante azzurro **dipendenze** pulsante nell'angolo inferiore destro per ottenere i dettagli della transazione end-to-end.
 
-## <a name="analytics"></a>Analytics
+## <a name="logs-analytics"></a>Log (Analitica)
 
 È possibile tenere traccia delle dipendenze nel [linguaggio di query Kusto](/azure/kusto/query/). Di seguito sono riportati alcuni esempi.
 
 * Trovare eventuali chiamate alle dipendenze non riuscite:
 
-```
+``` Kusto
 
     dependencies | where success != "True" | take 10
 ```
 
 * Trovare le chiamate AJAX:
 
-```
+``` Kusto
 
     dependencies | where client_Type == "Browser" | take 10
 ```
 
 * Trovare le chiamate alle dipendenze associate alle richieste:
 
-```
+``` Kusto
 
     dependencies
     | where timestamp > ago(1d) and  client_Type != "Browser"
@@ -200,17 +178,13 @@ Fare clic su un'occorrenza di una richiesta non riuscita ed esaminare gli eventi
 
 * Trovare le chiamate AJAX associate alle visualizzazioni di pagina:
 
-```
+``` Kusto 
 
     dependencies
     | where timestamp > ago(1d) and  client_Type == "Browser"
     | join (browserTimings | where timestamp > ago(1d))
       on operation_Id
 ```
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -220,7 +194,6 @@ Fare clic su un'occorrenza di una richiesta non riuscita ed esaminare gli eventi
 
 ## <a name="open-source-sdk"></a>SDK open source
 Ad esempio ogni SDK di Application Insights, il modulo di raccolta delle dipendenze è anche open source. Leggere e contribuire al codice o segnalare eventuali problemi [repository GitHub ufficiale](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

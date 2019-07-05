@@ -9,18 +9,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0a76ecd12143e0bbaa9997bfc6d7295df9c4ec7
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1a9caf83c6f4cd4ed15290afc872043c11234552
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340870"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508711"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Testare una query di Analisi di flusso con dati di esempio
 
 Usando Azure Stream Analitica, è possibile campionare dati di input o caricare i dati di esempio per testare le query nel portale di Azure senza dover avviare o arrestare un processo.
 
-## <a name="upload-sample-data-and-test-the-query"></a>Caricare i dati di esempio e testare la query
+## <a name="upload-or-sample-data-from-a-live-source-to-test-the-query"></a>Caricamento o dati di esempio da un'origine live per testare la query
 
 1. Accedere al portale di Azure. 
 
@@ -30,7 +30,7 @@ Usando Azure Stream Analitica, è possibile campionare dati di input o caricare 
 
 4. Per testare la query si possono quindi essere Campiona dati da un input in tempo reale o caricamento da un file. I dati devono essere serializzati in JSON, CSV o AVRO. L'esempio di input deve essere codificato in UTF-8 e non compresso. Solo i delimitatori di virgola (,) sono supportati per testare gli input CSV nel portale.
 
-    1. Utilizzando l'input in tempo reale: pulsante destro del mouse su uno degli input. Quindi selezionare **Campiona dati da input**. Nella schermata successiva, è possibile impostare la durata dell'esempio.
+    1. Utilizzando l'input in tempo reale: pulsante destro del mouse su uno degli input. Quindi selezionare **Campiona dati da input**. Nella schermata successiva, è possibile impostare la durata dell'esempio. Gli eventi da un'origine live di campionamento verrà recuperati fino a 1000 eventi o 1 MB (a seconda del valore raggiunto per primo), in modo che i dati campionati potrebbero non rappresentare l'intervallo di tempo completo specificato.
 
     1. Utilizzo di file: fare clic su uno degli input. Selezionare quindi **Upload sample data from file** (Carica dati di esempio da file). 
 

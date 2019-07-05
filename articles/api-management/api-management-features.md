@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
-ms.openlocfilehash: 34c4ef2885a82b6c392b814eeb624e616e341d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a57f8e44d19432f82abe4fa5e7bafce900db3394
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304339"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448001"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Confronto basato sulle funzionalità dei livelli di Gestione API di Azure
 
@@ -40,6 +40,7 @@ Ogni [piano tariffario](https://aka.ms/apimpricing) di Gestione API offre un set
 | [Gestione tramite Git](api-management-configuration-repository-git.md)                        | No                            | Yes            | Sì            | Sì            | Yes            |
 | API di gestione diretta                                                                        | No                            | Yes            | Sì            | Sì            | Yes            |
 | Metriche e log di Monitoraggio di Azure                                                               | No                | Yes            | Sì            | Sì            | Yes            |
+| IP statico                                                               | No                | Yes            | Sì            | Sì            | Yes            |
 
 <sup>1</sup> consente l'uso di Azure Active Directory (e Azure AD B2C) come un'identità provider per l'utente accede da portale per sviluppatori.<br/>
 <sup>2</sup> Sono incluse le funzionalità correlate, ad esempio utenti, gruppi, problemi, modelli di posta elettronica e applicazioni, nonché notifiche.<br/>

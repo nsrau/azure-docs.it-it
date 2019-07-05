@@ -8,19 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471436"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514560"
 ---
 # <a name="about-recovery-plans"></a>Informazioni sui piani di ripristino
 
 Questo articolo descrive i piani di ripristino in [Azure Site Recovery](site-recovery-overview.md).
 
-Un piano di ripristino raccoglie i computer in gruppi di ripristino. È possibile personalizzare un piano aggiungendovi un ordine, istruzioni e attività. Dopo aver definito un piano, è possibile eseguire un failover per esso.
-
+Un piano di ripristino raccoglie i computer in gruppi di ripristino. È possibile personalizzare un piano aggiungendovi un ordine, istruzioni e attività. Dopo aver definito un piano, è possibile eseguire un failover per esso.  Le macchine possono farvi riferimento in più piani di ripristino, in cui i piani di successive ignorerà di distribuzione o avvio del computer se è stata distribuita in precedenza tramite un altro piano di ripristino.
 
 
 ## <a name="why-use-a-recovery-plan"></a>Vantaggi dell'uso di un piano di ripristino

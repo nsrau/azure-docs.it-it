@@ -1,19 +1,19 @@
 ---
-title: Pagare in anticipo per gli addebiti di SQL Data Warehouse con capacità riservata di Azure | Microsoft Docs
+title: Pagare in anticipo per gli addebiti di SQL Data Warehouse con capacità riservata di Azure
 description: Informazioni su come è possibile pagare in anticipo per gli addebiti di SQL Data Warehouse con capacità riservata per risparmiare denaro.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 07/03/2019
 ms.author: banders
-ms.openlocfilehash: 3d56ee99f8056139a234477b6eed93d9fcbe2bbb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cea2c8e6d476c3ea2799337ab2da1f9406731814
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371190"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565349"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Pagare in anticipo per gli addebiti di SQL Data Warehouse con capacità riservata
 
@@ -49,8 +49,9 @@ Si supponga, ad esempio, che il consumo totale di SQL Data Warehouse è DW3000c.
   - Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto.
   - Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.
 4. Selezionare un ambito. Usare l'elenco di ambito per scegliere un ambito della sottoscrizione.
-  - Con il **singolo** opzione, lo sconto della prenotazione viene applicato a SQL Data Warehouse distribuito nella sottoscrizione selezionata.
-  - Con il **condiviso** opzione, lo sconto della prenotazione viene applicato alle istanze in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione.
+  - **Singolo ambito di gruppo di risorse** , applica lo sconto di prenotazione per le risorse corrispondente nel solo il gruppo di risorse selezionato.
+  - **Ambito della sottoscrizione singola** , applica lo sconto di prenotazione per le risorse corrispondente nella sottoscrizione selezionata.
+  - **Ambito condiviso** : si applica lo sconto di prenotazione per le risorse nelle sottoscrizioni idonee che sono nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni con tariffe a consumo, l'ambito di fatturazione è tutte le sottoscrizioni idonee create dall'amministratore dell'account.
     - Per i clienti aziendali, il contesto di fatturazione è la registrazione con contratto Enterprise.
     - Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.
 5. Selezionare un'area per scegliere un'area di Azure sottoposti alla capacità riservata.

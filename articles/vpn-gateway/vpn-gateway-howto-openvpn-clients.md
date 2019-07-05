@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: a3806a7f64f30e5073182f96f552b8584cf1ce0c
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: b8f1626da730178d2cd9c2f31c4f9876102b3d46
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147247"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477839"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurare i client OpenVPN per Gateway VPN di Azure
 
@@ -67,9 +67,9 @@ Verificare di aver completato i passaggi per configurare OpenVPN per il gateway 
 4. Completare la sezione relativa al certificato client da punto a sito con la chiave pubblica del certificato client da punto a sito in formato Base 64. In un certificato in formato PEM è possibile aprire semplicemente il file con estensione cer e copiare la chiave in formato base64 tra le intestazioni del certificato. Visualizzare come [esportare la chiave pubblica](vpn-gateway-certificates-point-to-site.md#cer) per informazioni sull'esportazione di un certificato per ottenere la chiave pubblica codificata.
 5. Completare la sezione relativa alla chiave privata con la chiave privata del certificato client da punto a sito in formato Base 64. Per informazioni su come estrarre una chiave privata, vedere [Export your private key](https://openvpn.net/community-resources/how-to/#pki) (Esportare la chiave privata).
 6. Lasciare invariati tutti gli altri campi. Usare la configurazione così completata nell'input del client per connettersi alla rete VPN.
-7. Fare doppio clic sul file del profilo per creare il profilo in Tunnelblik.
-8. Avviare Tunnelblik dalla cartella delle applicazioni.
-9. Fare clic sull'icona Tunnelblik nell'area di notifica e selezionare l'opzione di connessione.
+7. Fare doppio clic sul file del profilo per creare il profilo in Tunnelblick.
+8. Avviare Tunnelblick dalla cartella di applicazioni.
+9. Fare clic sull'icona Tunnelblick nell'area di notifica e scegliere la connessione.
 
 > [!IMPORTANT]
 >Solo iOS 11.0 e versioni successive; MacOS 10.13 e versioni successive sono supportati con protocollo OpenVPN.

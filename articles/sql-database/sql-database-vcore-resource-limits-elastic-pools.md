@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/23/2019
-ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: 4e63e1e477ce82221e5121815b609326cc2c1112
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240346"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447176"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limiti delle risorse per i pool elastici secondo il modello di acquisto basato su vCore
 
@@ -36,6 +36,9 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 > I limiti di risorse di singoli database nei pool elastici sono in genere gli stessi di quelli per i database singoli al di fuori dei pool che hanno le stesse dimensioni di calcolo. Ad esempio, il numero massimo di ruoli di lavoro simultanei per un database GP_Gen4_1 è 200. Di conseguenza, anche il numero massimo di ruoli di lavoro per un database in un pool GP_Gen4_1 è 200. Si noti che il numero totale di ruoli di lavoro simultanei in un pool GP_Gen4_1 è 210.
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Livello di servizio Utilizzo generico: dimensioni di archiviazione e di calcolo
+
+> [!IMPORTANT]
+> I nuovi database Gen4 non sono più supportati nell'area AustraliaEast.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Livello di servizio Utilizzo generico: Piattaforma di calcolo Generazione 4 (parte 1)
 
@@ -149,6 +152,9 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 \* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Se ad esempio il pool elastico usa la quinta generazione e il numero massimo di vCore per database è 2, il numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è 0,5, il numero massimo di ruoli di lavoro simultanei è 50 perché nella quinta generazione il numero massimo di ruoli di lavoro simultanei per vCore è 100.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Livello di servizio business critical: dimensioni di archiviazione e di calcolo
+
+> [!IMPORTANT]
+> I nuovi database Gen4 non sono più supportati nell'area AustraliaEast.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Livello di servizio business critical: Piattaforma di calcolo Generazione 4 (parte 1)
 

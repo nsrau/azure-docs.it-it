@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: dd5f01c915c658903e87a91992753065c59dfa63
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6c475ab0a2e47cf654d1299a4c5638b34fb5e4b6
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054261"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508528"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -157,7 +157,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | **Area di Microsoft Azure** | **Community BGP a livello di area** | **Community BGP archiviazione** | **SQL BGP community** | **Community di COSMOS DB BGP** |
 | --- | --- | --- | --- | --- |
 | **America del Nord** | |
-| Stati Uniti orientali | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
+| East US | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
 | Stati Uniti orientali 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
 | Stati Uniti occidentali | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
 | Stati Uniti occidentali 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
@@ -210,6 +210,7 @@ Tutte le route annunciate da Microsoft verranno contrassegnate con il valore del
 > 
 > 
 
+### <a name="service-to-bgp-community-value"></a>Servizio per il valore di community BGP
 Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. Questo si applica solo al peering Microsoft. La tabella seguente fornisce il mapping del servizio al valore della community BGP.
 
 | **Servizio** | **Valore della community BGP** |

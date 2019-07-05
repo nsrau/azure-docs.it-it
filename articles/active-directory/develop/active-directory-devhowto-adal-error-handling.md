@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 652175e99c800b8e4aa69c639f0bdb9aba838987
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e125adebfcd110f814b112544004220d2e54e08
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544627"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483207"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Procedure consigliate di gestione degli errori per i client di Azure Active Directory Authentication Library (ADAL)
 
@@ -579,14 +579,14 @@ window.Logging = {
 ```
 ## <a name="related-content"></a>Contenuti correlati
 
-* [Guida per sviluppatori di Azure AD][AAD-Dev-Guide]
-* [Azure AD Authentication Libraries][AAD-Auth-Libraries] (Librerie di autenticazione di Azure AD)
-* [Scenari di autenticazione per Azure AD][AAD-Auth-Scenarios]
+* [Guida per sviluppatori Azure AD][AAD-Dev-Guide]
+* [Azure Active Directory Authentication Library][AAD-Auth-Libraries]
+* [Scenari di autenticazione di Azure AD][AAD-Auth-Scenarios]
 * [Integrazione di applicazioni con Azure Active Directory][AAD-Integrating-Apps]
 
 Usare la sezione dei commenti di seguito per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 
-[![Pulsante Accedi][AAD-Sign-In]][AAD-Sign-In]
+[![Mostra il pulsante "Accedi con Microsoft"][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md

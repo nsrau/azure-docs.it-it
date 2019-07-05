@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 536d7a572eddc2cf75f6ce135c3cd4f4f2635416
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 9f60c6258da77c0aaa99d16e178f4b3531ce90d9
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203307"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509244"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiare dati da e in Azure Data Lake Storage Gen2 tramite Azure Data Factory
 
@@ -115,7 +115,7 @@ Per usare l'autenticazione dell'entità servizio, seguire questa procedura.
 >Elenco cartelle a partire dal livello di account o al test della connessione, è necessario impostare l'autorizzazione dell'entità servizio viene concesso al **account di archiviazione con l'autorizzazione "Lettore di dati Blob di archiviazione" nella pagina IAM**. Ciò vale quando si usano gli strumenti seguenti:
 >- **Lo strumento Copia dati** alla pipeline di copia dell'autore.
 >- **Interfaccia utente di Data Factory** per testare la connessione e passare alle cartelle durante la creazione. 
->Se si hanno dubbi sulla concessione dell'autorizzazione a livello di account, è possibile ignorare test della connessione e il percorso di input manualmente durante la creazione. Attività di copia continui a funzionare fino a quando l'entità servizio viene concesso con l'autorizzazione appropriata i file da copiare.
+>Se si hanno dubbi sulla concessione dell'autorizzazione a livello di account, durante la creazione, ignorare test connessione e un percorso padre con autorizzazione concessa quindi si sceglie di passare dall'input che il percorso specificato. Copiare attività works, purché l'entità servizio viene concesso con l'autorizzazione appropriata i file da copiare.
 
 Queste proprietà sono supportate per il servizio collegato:
 
@@ -169,7 +169,7 @@ Per usare le identità gestito per l'autenticazione di risorse di Azure, seguire
 >Elenco cartelle a partire dal livello di account o al test della connessione, è necessario impostare l'autorizzazione di identità gestite concessa al **account di archiviazione con l'autorizzazione "Lettore di dati Blob di archiviazione" nella pagina IAM**. Ciò vale quando si usano gli strumenti seguenti:
 >- **Lo strumento Copia dati** alla pipeline di copia dell'autore.
 >- **Interfaccia utente di Data Factory** per testare la connessione e passare alle cartelle durante la creazione. 
->Se si hanno dubbi sulla concessione dell'autorizzazione a livello di account, è possibile ignorare test della connessione e il percorso di input manualmente durante la creazione. Attività di copia continui a funzionare, purché l'identità gestita viene concesso con l'autorizzazione appropriata i file da copiare.
+>Se si hanno dubbi sulla concessione dell'autorizzazione a livello di account, durante la creazione, ignorare test connessione e un percorso padre con autorizzazione concessa quindi si sceglie di passare dall'input che il percorso specificato. Copiare attività works, purché l'entità servizio viene concesso con l'autorizzazione appropriata i file da copiare.
 
 >[!IMPORTANT]
 >Se si usa PolyBase per caricare dati da Data Lake Storage Gen2 in SQL Data Warehouse, quando si usa l'autenticazione identità gestita per Data Lake Storage Gen2, assicurarsi che è anche seguire i passaggi 1 e 2 nella [questo materiale sussidiario](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) su 1) registrare la stringa SQL Server di database con Azure Active Directory (Azure AD) e 2) assegnare il ruolo di collaboratore ai dati Blob di archiviazione al server di Database SQL; il resto sono gestite da Data Factory. Se il Gen2 di archiviazione Data Lake è configurato con un endpoint di rete virtuale di Azure, per usare PolyBase per caricare i dati da esso, è necessario utilizzare l'autenticazione identità gestita come richiesto da PolyBase.

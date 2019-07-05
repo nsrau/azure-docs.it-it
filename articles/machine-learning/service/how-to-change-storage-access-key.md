@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/17/2019
-ms.openlocfilehash: 11abbb0494a9771676dcf2436b5e808346c16368
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 488a032e177897caf2897ba6335f4e7f64dc0e4d
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078560"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543838"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Rigenera chiavi di accesso di account di archiviazione
 
@@ -72,7 +72,7 @@ Per aggiornare il servizio di Azure Machine Learning per usare la nuova chiave, 
 > [!IMPORTANT]
 > Eseguire tutti i passaggi, l'aggiornamento sia l'area di lavoro usando il comando e gli archivi dati usando Python. L'aggiornamento solo uno o l'altro può causare errori fino a quando non vengono entrambe aggiornate.
 
-1. Rigenerare la chiave. Per informazioni sulla rigenerazione di una chiave di accesso, vedere la [gestire un account di archiviazione](/azure/storage/common/storage-account-manage.md#access-keys) articolo. Salvare la nuova chiave.
+1. Rigenerare la chiave. Per informazioni sulla rigenerazione di una chiave di accesso, vedere la [gestire un account di archiviazione](/azure/storage/common/storage-account-manage#access-keys) articolo. Salvare la nuova chiave.
 
 1. Per aggiornare l'area di lavoro per usare la nuova chiave, usare la procedura seguente:
 

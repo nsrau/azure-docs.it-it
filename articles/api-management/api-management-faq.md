@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: edc3c2ddcddaa8a51ae634a7abcd3a61aab530e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7e93dc12b9932fed90c7f9fa3145e56a3488b32
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357258"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448030"
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
 Risposte alle domande comuni, modelli e procedure consigliate per Gestione API di Azure.
@@ -65,7 +65,7 @@ Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestion
 
 * Usare l'autenticazione HTTP di base. Per altre informazioni, vedere [Importare e pubblicare la prima API](import-and-publish.md).
 * Usare l'autenticazione reciproca SSL come descritto in [Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure](api-management-howto-mutual-certificates.md).
-* Usare gli elenchi di IP consentiti nel servizio back-end. In tutti i livelli di Gestione API l'indirizzo IP del gateway rimane invariato, con alcune [precisazioni](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). È possibile impostare l'elenco elementi consentiti per autorizzare questo indirizzo IP. È possibile ottenere l'indirizzo IP dell'istanza di Gestione API nel dashboard del portale di Azure.
+* Usare gli elenchi di IP consentiti nel servizio back-end. In tutti i livelli di gestione API ad eccezione di tipo a consumo, l'indirizzo IP del gateway rimane costante, con alcune [avvertenze](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). È possibile impostare l'elenco elementi consentiti per autorizzare questo indirizzo IP. È possibile ottenere l'indirizzo IP dell'istanza di Gestione API nel dashboard del portale di Azure.
 * Connettere l'istanza di Gestione API a una rete virtuale di Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Come si copia l'istanza del servizio Gestione API in una nuova istanza?

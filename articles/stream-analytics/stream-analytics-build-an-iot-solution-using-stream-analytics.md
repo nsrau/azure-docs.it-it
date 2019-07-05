@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201511"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443684"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilare una soluzione IoT con Analisi di flusso
 
@@ -138,7 +138,8 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
 10. Dopo alcuni istanti, viene visualizzata la notifica **La distribuzione è riuscita**, che conferma l'operazione.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Esaminare le risorse di Analisi di flusso di Azure per TollApp
-1. Accedere al Portale di Azure
+
+1. Accedere al portale di Azure
 
 2. Individuare il gruppo di risorse denominato nella sezione precedente.
 
@@ -171,7 +172,7 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
    - L'input **Registration** è una connessione all'archiviazione BLOB di Azure che punta a un file JSON di registrazione statico, usato per le ricerche in base alle necessità. Questo input di dati di riferimento viene usato in variazioni successive della sintassi di query.
 
 4. Esaminare gli output del processo di esempio TollApp.
-   - L'output **Cosmos DB** è una raccolta di database Cosmos che riceve gli eventi sink di output. Notare che questo output viene usato nella clausola INTO della query di streaming.
+   - **COSMOS DB** output è un contenitore di database Cosmos che riceve gli eventi di sink di output. Notare che questo output viene usato nella clausola INTO della query di streaming.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Avviare il processo di streaming TollApp
 Per avviare il processo di streaming, completare questi passaggi:

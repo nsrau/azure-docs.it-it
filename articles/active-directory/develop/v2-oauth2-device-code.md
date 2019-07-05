@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79718b14210bfdf139bca76db91c57c38a791434
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e92e4d0e296e83b413cfd2a67041a5749c16699e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052239"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482225"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Flusso del codice di piattaforma delle identità Microsoft e il dispositivo di OAuth 2.0
 
@@ -52,7 +52,7 @@ Il client deve prima di tutto verificare con il server di autenticazione per un 
 
 > [!TIP]
 > Provare a eseguire la richiesta in Postman.
-> [![Eseguire in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Provare a eseguire questa richiesta in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -77,12 +77,12 @@ Una risposta con esito positivo sarà un oggetto JSON contenente le informazioni
 
 | Parametro | Format | Descrizione |
 | ---              | --- | --- |
-|`device_code`     | String | Una stringa lunga usata per verificare la sessione tra il client e il server di autorizzazione. Il client Usa questo parametro per richiedere il token di accesso dal server di autorizzazione. |
-|`user_code`       | String | Una breve stringa visualizzata all'utente che viene usato per identificare la sessione in un dispositivo secondario.|
+|`device_code`     | string | Una stringa lunga usata per verificare la sessione tra il client e il server di autorizzazione. Il client Usa questo parametro per richiedere il token di accesso dal server di autorizzazione. |
+|`user_code`       | string | Una breve stringa visualizzata all'utente che viene usato per identificare la sessione in un dispositivo secondario.|
 |`verification_uri`| URI | L'URI a cui l'utente deve passare con il `user_code` per eseguire l'accesso. |
 |`expires_in`      | int | Il numero di secondi prima della scadenza del `device_code` e del `user_code`. |
 |`interval`        | int | Il numero di secondi di attesa del client tra le richieste di polling. |
-| `message`        | String | Una stringa leggibile dall'utente con le istruzioni per l'utente. Può essere localizzata includendo un **parametro di query** nella richiesta del form `?mkt=xx-XX`, compilando l'apposito codice della lingua di destinazione. |
+| `message`        | string | Una stringa leggibile dall'utente con le istruzioni per l'utente. Può essere localizzata includendo un **parametro di query** nella richiesta del form `?mkt=xx-XX`, compilando l'apposito codice della lingua di destinazione. |
 
 ## <a name="authenticating-the-user"></a>Autenticazione dell'utente
 
@@ -133,7 +133,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 
 | Parametro | Format | Descrizione |
 | --------- | ------ | ----------- |
-| `token_type` | String| Sempre "Bearer". |
+| `token_type` | string| Sempre "Bearer". |
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, verranno elencati gli ambiti per cui è valido. |
 | `expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 | `access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti.  |

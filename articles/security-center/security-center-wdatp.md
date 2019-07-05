@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: d42b929807bf67b73d0587232608efc0cea6d717
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1737856067b2490db4a993b4383b320cb13a7774
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752583"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551782"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
@@ -71,7 +71,7 @@ Per eseguire l'onboarding dei server al Centro sicurezza, fare clic su **Go to A
 
 ## <a name="enable-windows-defender-atp-integration"></a>Abilitare l'integrazione di Windows Defender ATP
 
-Per verificare se l'integrazione di Windows Defender ATP è abilitata, selezionare **Centro sicurezza** > **Criteri di sicurezza** > **Sottoscrizione** > **Modifica impostazioni**.
+Per visualizzare se è abilitata l'integrazione di Windows Defender ATP, selezionare **Centro sicurezza** > **prezzi Impo & stazioni** > fare clic sulla sottoscrizione.
 
   ![Gestione dei criteri del Centro sicurezza di Azure](media/security-center-wdatp/policy-management.png)
 
