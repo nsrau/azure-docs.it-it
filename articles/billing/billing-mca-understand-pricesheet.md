@@ -1,34 +1,30 @@
 ---
-title: Comprendere i termini nel foglio di prezzo per un contratto del cliente di Microsoft - Azure | Microsoft Docs
-description: Informazioni su come leggere e comprendere l'utilizzo e la fattura per la sottoscrizione di Azure
-services: ''
-documentationcenter: ''
-author: jureid
+title: Comprendere i termini nel foglio di prezzo per un contratto del cliente di Microsoft - Azure
+description: Informazioni su come leggere e comprendere l'utilizzo e la fattura per un contratto di clienti Microsoft.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d83228fbec395d604e5ce3f988d2a6157f21eed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371360"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490654"
 ---
-# <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>Comprendere i termini nel foglio di prezzo per un contratto di Microsoft dal cliente
+# <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Condizioni per il foglio di prezzo di contratto di Microsoft dal cliente
 
-Questo articolo si applica a un account di fatturazione per un contratto di clienti Microsoft. [Controllare se si ha accesso a un contratto di Microsoft dal cliente](#check-access-to-a-microsoft-customer-agreement).
+Questo articolo si applica a un account di fatturazione di Azure per un contratto di clienti Microsoft. [Controllare se si ha accesso a un contratto di Microsoft dal cliente](#check-access-to-a-microsoft-customer-agreement).
 
 Se sei un profilo di fatturazione proprietario, collaboratore, lettore o fattura Manager è possibile scaricare l'elenco prezzi dell'organizzazione dal portale di Azure. Visualizzare [visualizzazione e download dei prezzi di organizzazione del](billing-ea-pricing.md).
 
-## <a name="detailed-terms-and-descriptions-in-your-microsoft-customer-agreement-price-sheet"></a>Dettagli sui termini e le descrizioni nel foglio di prezzo di contratto di Microsoft dal cliente
+## <a name="terms-and-descriptions-in-your-price-sheet"></a>Termini e le descrizioni nell'elenco prezzi
 
 La sezione seguente descrive i termini più importanti presenti nel foglio di prezzo di contratto di Microsoft dal cliente.
 
@@ -61,7 +57,7 @@ La sezione seguente descrive i termini più importanti presenti nel foglio di pr
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

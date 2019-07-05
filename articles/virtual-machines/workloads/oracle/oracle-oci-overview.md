@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 8827feaf1d541edc7c0b54d8af951ddab79c5aaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a60e41d3195c0f7d88fd3ba14336d693d2f528e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808630"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446690"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluzioni di applicazioni Oracle l'integrazione di Microsoft Azure e dell'infrastruttura Cloud di Oracle (anteprima)
 
@@ -74,5 +74,7 @@ Identity è uno dei concetti fondamentali per i core alla partnership tra Micros
 Attualmente, questa integrazione consente di gestire in un'unica posizione centrale, ovvero Azure Active Directory. Azure AD consente di sincronizzare le modifiche nella directory con il servizio directory Oracle corrispondente e viene usato per l'accesso single sign-on per soluzioni Oracle tra cloud.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Iniziare con una [rete tra cloud](configure-azure-oci-networking.md) tra Azure e OCI. 
 
 Per altre informazioni e i white paper relativi OCI, vedere la [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) documentazione.

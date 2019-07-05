@@ -2,26 +2,21 @@
 title: Domande frequenti sulla gestione dei dispositivi di Azure Active Directory | Microsoft Docs
 description: Domande frequenti sulla gestione dei dispositivi di Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/22/2019
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e29c58c0e9a31b2eb3e3d7e237a3db8173214faf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8802f9e5c84078725675d961ada7f8183c91c0ec
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110655"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481761"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -61,17 +56,15 @@ Se si vuole registrare nuovamente il dispositivo, è necessario farlo manualment
 
 Per cancellare lo stato di join dai dispositivi Windows 10 e Windows Server 2016 aggiunti a un dominio Active Directory Domain Services locale, eseguire i passaggi seguenti:
 
-1.  Aprire il prompt dei comandi come amministratore.
-
-2.  Immettere `dsregcmd.exe /debug /leave`.
-
-3.  Disconnettersi e accedere per attivare l'attività pianificata che registra nuovamente il dispositivo con Azure AD. 
+1. Aprire il prompt dei comandi come amministratore.
+1. Immettere `dsregcmd.exe /debug /leave`.
+1. Disconnettersi e accedere per attivare l'attività pianificata che registra nuovamente il dispositivo con Azure AD. 
 
 Per le versioni del sistema operativo Windows di livello inferiore aggiunte a un dominio locale di Active Directory Domain Services, eseguire i passaggi seguenti:
 
-1.  Aprire il prompt dei comandi come amministratore.
-2.  Immettere `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-3.  Immettere `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+1. Aprire il prompt dei comandi come amministratore.
+1. Immettere `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+1. Immettere `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
 
@@ -79,13 +72,10 @@ Per le versioni del sistema operativo Windows di livello inferiore aggiunte a un
 
 **R:**
 
--   Per i dispositivi Windows 10 e Windows Server 2016, i tentativi ripetuti di rimozione o aggiunta dello stesso dispositivo potrebbero dare luogo a elementi duplicati. 
-
--   Ciascun utente Windows che usa l'opzione **Aggiungi account aziendale o dell'istituto di istruzione** creerà un nuovo record di dispositivo con lo stesso nome.
-
--   Per le versioni di sistemi operativi Windows di livello inferiore aggiunte a un dominio Azure Directory locale, la registrazione automatica crea un nuovo record di dispositivo con lo stesso nome per ogni utente del dominio che accede al dispositivo. 
-
--   Un computer aggiunto ad Azure AD cancellato, reinstallato e aggiunto nuovamente con lo stesso nome viene visualizzato con un record diverso ma con lo stesso nome dispositivo.
+- Per i dispositivi Windows 10 e Windows Server 2016, i tentativi ripetuti di rimozione o aggiunta dello stesso dispositivo potrebbero dare luogo a elementi duplicati. 
+- Ciascun utente Windows che usa l'opzione **Aggiungi account aziendale o dell'istituto di istruzione** creerà un nuovo record di dispositivo con lo stesso nome.
+- Per le versioni di sistemi operativi Windows di livello inferiore aggiunte a un dominio Azure Directory locale, la registrazione automatica crea un nuovo record di dispositivo con lo stesso nome per ogni utente del dominio che accede al dispositivo. 
+- Un computer aggiunto ad Azure AD cancellato, reinstallato e aggiunto nuovamente con lo stesso nome viene visualizzato con un record diverso ma con lo stesso nome dispositivo.
 
 ---
 
@@ -110,7 +100,6 @@ Per le versioni del sistema operativo Windows di livello inferiore aggiunte a un
 
 **R:** 
 - Per la gestione ibrida dei dispositivi aggiunti ad Azure AD, assicurarsi di disattivare la registrazione automatica. In questo modo l'attività pianificata non registra nuovamente il dispositivo. A questo punto, aprire il prompt dei comandi come amministratore e immettere `dsregcmd.exe /debug /leave`. O eseguire questo comando come uno script in più dispositivi per separare in blocco.
-
 - Per i dispositivi puri aggiunti ad Azure AD, assicurarsi di avere un account amministratore locale offline o crearne uno. Non è possibile accedere con le credenziali di un utente Azure AD. A questo punto, passare a **Impostazioni** > **Account** > **Accedi all'azienda o all'istituto di istruzione**. Selezionare l'account e quindi **Disconnetti**. Seguire le istruzioni e, quando richiesto, fornire le credenziali di amministratore locale. Riavviare il dispositivo per completare il processo di separazione.
 
 ---
@@ -125,7 +114,7 @@ Gli utenti che non hanno effettuato l'accesso in precedenza non possono accedere
 
 ---
 
-### <a name="q-can-disabled-or-deleted-users-sign-in-to-azure-ad-joined-devices"></a>D: Gli utenti disabilitati o eliminati possono accedere ai dispositivi aggiunti ad Azure AD?
+### <a name="q-can-a-disabled-or-deleted-user-sign-in-to-an-azure-ad-joined-devices"></a>D: Un utente disabilitato o eliminato può accedere a un dispositivi aggiunti ad Azure AD
 
 **R:** Sì, ma solo per un periodo di tempo limitato. Quando un utente viene eliminato o disabilitato in Azure AD, ciò non è noto immediatamente al dispositivo Windows. Pertanto, gli utenti registrati in precedenza possono accedere al desktop con il nome utente memorizzato nella cache e la password. 
 
@@ -166,7 +155,6 @@ Gli utenti eliminati o disabilitati che non hanno effettuato l'accesso in preced
 Questo comportamento:
 
 - È applicabile a tutti i dispositivi registrati in Azure AD e ai dispositivi aggiunti ad Azure AD, ma non ai dispositivi aggiunti ad Azure AD ibrido.
-
 - Non è applicabile ad altri utenti che accedono al dispositivo. Pertanto, tutti gli altri utenti che accedono a tale dispositivo ricevono una richiesta di verifica di Multi-Factor Authentication. A questo punto è possibile accedere le applicazioni che richiedono l'autenticazione a più fattori.
 
 ---
@@ -176,11 +164,8 @@ Questo comportamento:
 **R:** I motivi più comuni per questo scenario sono i seguenti:
 
 - Le credenziali dell'utente non sono più valide.
-
 - Il computer non riesce a comunicare con Azure Active Directory. Verificare la presenza di eventuali problemi di connettività di rete.
-
 - Gli accessi federati richiedono un server federativo con supporto per endpoint WS-Trust abilitati e accessibili. 
-
 - Autenticazione pass-through abilitata. Pertanto, la password temporanea deve essere modificata quando si accede.
 
 ---
@@ -205,10 +190,9 @@ Questo comportamento:
 
 ### <a name="qwhy-do-i-see-multiple-expired-certificates-issued-by-ms-organization-p2p-access-on-our-windows-10-devices-how-can-i-delete-them"></a>Q:Why vengono visualizzati più certificati scaduti vystavitel P2P-accesso-MS-organizzazione nei nostri dispositivi Windows 10? Come è possibile eliminarli?
 
-**R:** Si è verificato un problema in Windows 10, versione 1709 e precedenti, in cui i certificati MS-Organization-P2P-Access scaduti sono rimasti presenti nell'archivio del computer a causa di problemi di crittografia. Gli utenti possono riscontrare problemi con la connettività di rete se si usano client VPN (ad esempio Cisco AnyConnect) che non possono gestire il numero elevato di certificati scaduti. Questo problema è stato risolto nella versione 1803 di Windows 10 nella quale vengono eliminati automaticamente i certificati MS-Organization-P2P-Access scaduti. È possibile risolvere questo problema aggiornando i dispositivi alla versione 1803 di Windows 10. Se non si è in grado di aggiornare, è possibile eliminare questi certificati senza effetti negativi.  
+**R:** Si è verificato un problema in Windows 10, versione 1709 e precedenti, in cui i certificati MS-Organization-P2P-Access scaduti sono rimasti presenti nell'archivio del computer a causa di problemi di crittografia. Gli utenti possono verificarsi problemi con la connettività di rete, se si usa qualsiasi client VPN (ad esempio, Cisco AnyConnect) che non è possibile gestire il numero elevato di certificati scaduti. Questo problema è stato risolto nella versione 1803 di Windows 10 nella quale vengono eliminati automaticamente i certificati MS-Organization-P2P-Access scaduti. È possibile risolvere questo problema aggiornando i dispositivi alla versione 1803 di Windows 10. Se non si è in grado di aggiornare, è possibile eliminare questi certificati senza effetti negativi.  
 
 ---
-
 
 ## <a name="hybrid-azure-ad-join-faq"></a>Domande frequenti sull'aggiunta ad Azure AD ibrido
 
@@ -217,7 +201,6 @@ Questo comportamento:
 **R:** Per informazioni sulla risoluzione dei problemi, vedere gli articoli seguenti:
 
 - [Risoluzione dei problemi relativi a dispositivi Windows 10 e Windows Server 2016 aggiunti all'identità ibrida di Azure Active Directory](troubleshoot-hybrid-join-windows-current.md)
-
 - [Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory](troubleshoot-hybrid-join-windows-legacy.md)
  
 ### <a name="q-why-do-i-see-a-duplicate-azure-ad-registered-record-for-my-windows-10-hybrid-azure-ad-joined-device-in-the-azure-ad-devices-list"></a>D: Perché viene visualizzato un annuncio di Azure duplicato record registrati per la mia ad Azure AD ibrido di Windows 10 aggiunti al dispositivo nell'elenco dei dispositivi Azure AD?
@@ -226,27 +209,25 @@ Questo comportamento:
 
 Lo stato di aggiunto ad Azure AD ibrido ha la precedenza rispetto allo stato di registrato in Azure AD. Pertanto, il dispositivo è considerato ibridi aggiunti ad Azure AD per qualsiasi autenticazione e la valutazione di accesso condizionale. È possibile eliminare in modo sicuro il record di dispositivo registrato in Azure AD dal portale di Azure AD. Informazioni su come [evitare o eliminare il doppio stato nel computer Windows 10](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
 
-
 ---
 
 ### <a name="q-why-do-my-users-have-issues-on-windows-10-hybrid-azure-ad-joined-devices-after-changing-their-upn"></a>D: Il motivo per cui gli utenti devono problemi nei dispositivi aggiunti ad Azure AD ibrido di Windows 10 dopo la modifica di UPN?
 
-**R:** Attualmente, non viene ancora offerto il supporto completo delle modifiche degli UPN sui dispositivi aggiunti ad Azure AD ibrido. Dopo aver modificato il proprio UPN, gli utenti potranno accedere al dispositivo e alle applicazioni locali, ma l'autenticazione ad Azure AD avrà esito negativo. Di conseguenza, gli utenti riscontreranno problemi a livello di accesso SSO e accesso condizionale sui propri dispositivi. Per risolvere il problema, è necessario separare il dispositivo da Azure AD (eseguire "dsregcmd /leave" con privilegi elevati) e aggiungerlo di nuovo (operazione eseguita automaticamente). Microsoft sta lavorando per risolvere questo problema, che non riguarda tuttavia gli utenti che accedono con Windows Hello for Business. 
+**R:** Attualmente, non viene ancora offerto il supporto completo delle modifiche degli UPN sui dispositivi aggiunti ad Azure AD ibrido. Dopo aver modificato il proprio UPN, gli utenti potranno accedere al dispositivo e alle applicazioni locali, ma l'autenticazione ad Azure AD avrà esito negativo. Di conseguenza, gli utenti riscontreranno problemi a livello di accesso SSO e accesso condizionale sui propri dispositivi. A questo punto, è necessario separare il dispositivo da Azure AD (con privilegi elevati, eseguire "dsregcmd. exe /leave") e rejoin (viene eseguita automaticamente) per risolvere il problema. Microsoft sta lavorando per risolvere questo problema, che non riguarda tuttavia gli utenti che accedono con Windows Hello for Business. 
 
 ---
 
 ### <a name="q-do-windows-10-hybrid-azure-ad-joined-devices-require-line-of-sight-to-the-domain-controller-to-get-access-to-cloud-resources"></a>D: I dispositivi aggiunti ad Azure AD di Windows 10 ibridi richiedono comunichi con il controller di dominio per ottenere l'accesso alle risorse cloud?
 
-**R:** In genere no, tranne quando viene modificata la password dell'utente. Dopo che l'aggiunta ad Azure AD ibrido di Windows 10 è stata completata e che l'utente ha eseguito l'accesso almeno una volta, il dispositivo non richiede la comunicazione diretta con il controller di dominio per accedere alle risorse cloud. Windows 10 può avere l'accesso Single Sign-On alle applicazioni Azure AD da qualsiasi posizione con una connessione Internet, tranne quando viene modificata una password. Accedi con Windows Hello for Business continuano a ricevere solo gli utenti accedano alle applicazioni di Azure AD anche dopo che una modifica della password, anche se non hanno comunichi con il controller di dominio. 
+**R:** No, tranne quando viene modificata la password dell'utente. Dopo l'aggiunta ad Azure AD ibrido di Windows 10 è stata completata e l'utente ha eseguito l'accesso ad almeno una volta, il dispositivo non richiede comunichi con il controller di dominio per accedere alle risorse cloud. Windows 10 può disporre single sign-on alle applicazioni di Azure AD da qualsiasi posizione con una connessione internet, tranne quando viene modificata una password. Gli utenti che accedono con Windows Hello for Business continua a ottenere single sign-on le applicazioni Azure AD anche dopo che una modifica della password, anche se non hanno comunichi con il controller di dominio. 
 
 ---
 
 ### <a name="q-what-happens-if-a-user-changes-their-password-and-tries-to-login-to-their-windows-10-hybrid-azure-ad-joined-device-outside-the-corporate-network"></a>D: Cosa accade se un utente modifica la propria password e tenta di accedere a relativi ad Azure AD ibrido di Windows 10 aggiunti al dispositivo esterno alla rete aziendale?
 
-**R:** Se viene modificata una password all'esterno della rete azienda (ad esempio, usando Azure AD SSPR), l'account di accesso utente con la nuova password avrà esito negativo. Per i dispositivi aggiunti ad Azure AD ibrido, in Active Directory locale è l'autorità principale. Quando un dispositivo non dispone di comunichi con il controller di dominio, non è in grado di convalidare la nuova password. Pertanto, è necessario stabilire una connessione con il controller di dominio (sia tramite la VPN o in corso nella rete aziendale) prima che sia in grado di accedere al dispositivo con la nuova password. In caso contrario, può accedere solo con la vecchia password a causa di funzionalità di accesso memorizzato nella cache in Windows. Tuttavia, la vecchia password non viene invalidata tramite Azure AD durante le richieste di token e di conseguenza, impedisce l'accesso single sign in e si verifica un errore di eventuali criteri di accesso condizionale basato su dispositivo. Se si usa Windows Hello for Business, non si verifica questo problema. 
+**R:** Se viene modificata una password all'esterno della rete azienda (ad esempio, usando Azure AD SSPR), l'accesso dell'utente con la nuova password avrà esito negativo. Per i dispositivi aggiunti ad Azure AD ibrido, in Active Directory locale è l'autorità principale. Quando un dispositivo non dispone di comunichi con il controller di dominio, non è in grado di convalidare la nuova password. Pertanto, è necessario stabilire una connessione con il controller di dominio (sia tramite la VPN o in corso nella rete aziendale) prima che sia in grado di accedere al dispositivo con la nuova password. In caso contrario, è possibile solo accedere con la vecchia password a causa di accesso memorizzato nella cache a funzionalità in Windows. Tuttavia, la vecchia password non viene invalidata tramite Azure AD durante le richieste di token e di conseguenza, impedisce l'accesso single sign-on e si verifica un errore di eventuali criteri di accesso condizionale basato su dispositivo. Se si usa Windows Hello for Business, non si verifica questo problema. 
 
 ---
-
 
 ## <a name="azure-ad-register-faq"></a>Domande frequenti sulla registrazione in Azure AD
 
@@ -259,11 +240,15 @@ Lo stato di aggiunto ad Azure AD ibrido ha la precedenza rispetto allo stato di 
 **R:** Eseguire questa procedura:
 
 1.  [Creare i criteri di conformità del dispositivo](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [Definire un criterio di accesso condizionale per i dispositivi macOS](../active-directory-conditional-access-azure-portal.md) 
+1.  [Definire un criterio di accesso condizionale per i dispositivi macOS](../active-directory-conditional-access-azure-portal.md) 
 
 **Osservazioni:**
 
 - Gli utenti inclusi nell'esigenza di criteri di accesso condizionale un [la versione di Office supportata per macOS](../conditional-access/technical-reference.md#client-apps-condition) per accedere alle risorse. 
-
 - Durante il primo tentativo di accesso, agli utenti viene richiesto di registrare il dispositivo tramite il portale aziendale.
 
+## <a name="next-steps"></a>Passaggi successivi
+
+- Altre informazioni su [i dispositivi registrati in Azure AD](concept-azure-ad-register.md)
+- Altre informazioni su [dispositivi aggiunti ad Azure AD](concept-azure-ad-join.md)
+- Altre informazioni su [dispositivi aggiunti all'identità ibrida di Azure AD](concept-azure-ad-join-hybrid.md)
