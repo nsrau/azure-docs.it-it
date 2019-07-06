@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 45ed0167f5a83fa843a224ada35e96672a6752a1
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: b71400c3ae3c1cc6737d9194b4d94bf0b9c7efa9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311850"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606737"
 ---
 # <a name="why-use-batch-transcription"></a>Perché usare la trascrizione batch?
 
@@ -56,7 +55,7 @@ L'API di trascrizione batch supporta i formati seguenti:
 | MP3 | PCM | 16 bit | 8 o 16 kHz, mono, stereo |
 | OGG | OPUS | 16 bit | 8 o 16 kHz, mono, stereo |
 
-Per i flussi audio stereo, l'API di trascrizione batch divide i canali sinistro e destro durante la trascrizione. I due file JSON con il risultato vengono creati ognuno da un singolo canale. I timestamp per espressione consentono allo sviluppatore di creare una trascrizione finale ordinata. Questa richiesta di esempio include proprietà per il filtro di contenuti volgari, la punteggiatura e i timestamp a livello di parola. 
+Per i flussi audio stereo, l'API di trascrizione batch divide i canali sinistro e destro durante la trascrizione. I due file JSON con il risultato vengono creati ognuno da un singolo canale. I timestamp per espressione consentono allo sviluppatore di creare una trascrizione finale ordinata. Questa richiesta di esempio include proprietà per il filtro di contenuti volgari, la punteggiatura e i timestamp a livello di parola.
 
 ### <a name="configuration"></a>Configurazione
 
@@ -97,7 +96,7 @@ Usare queste proprietà facoltative per configurare la trascrizione:
 
 Batch supporta di trascrizione [archiviazione Blob di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) per la lettura di audio e trascrizioni di scrittura in un archivio.
 
-## <a name="webhooks"></a>Webhook 
+## <a name="webhooks"></a>webhooks
 
 Polling di uno stato di trascrizione potrebbe non essere il più efficiente o fornire la migliore esperienza utente. Per eseguire il polling dello stato, è possibile registrare i callback, che è possibile informare il client al completamento di attività con esecuzione prolungata trascrizione.
 
@@ -123,7 +122,7 @@ Per richiedere che la richiesta di trascrizione audio viene elaborata per diariz
 }
 ```
 
-Timestamp di Word a livello sarebbe inoltre necessario 'attivata' perché indicano i parametri nella richiesta precedente. 
+Timestamp di Word a livello sarebbe inoltre necessario 'attivata' perché indicano i parametri nella richiesta precedente.
 
 L'audio corrispondente conterrà i relatori principali identificati da un numero (attualmente sono supportate solo due voci, in modo che i relatori principali verranno identificati come ' relatore 1 ' e 'Relatore 2') seguito dall'output trascrizione.
 
@@ -134,7 +133,7 @@ Si noti inoltre che Diarization non è disponibile in registrazioni Stereo. Inol
 
 ## <a name="sentiment"></a>Valutazione
 
-Sentiment è una nuova funzionalità nell'API di Batch la trascrizione e costituisce un'importante funzionalità del dominio di centro di chiamata. I clienti possono usare il `AddSentiment` parametri alle loro richieste di 
+Sentiment è una nuova funzionalità nell'API di Batch la trascrizione e costituisce un'importante funzionalità del dominio di centro di chiamata. I clienti possono usare il `AddSentiment` parametri alle loro richieste di
 
 1.  Ottieni informazioni dettagliate sulla soddisfazione dei clienti
 2.  Ottieni informazioni dettagliate sulle prestazioni degli agenti (team richiede le chiamate)
@@ -187,7 +186,7 @@ La funzionalità Usa un modello del Sentiment, che è attualmente in versione Be
 
 Esempi completi sono disponibili nel [repository GitHub di esempio](https://aka.ms/csspeech/samples) all'interno di `samples/batch` sottodirectory.
 
-È necessario personalizzare il codice di esempio con le informazioni della sottoscrizione, l'area di servizio, l'URI di firma di accesso condiviso che punta al file audio da trascrivere e gli ID di modello in caso si voglia usare un modello acustico o linguistico personalizzato. 
+È necessario personalizzare il codice di esempio con le informazioni della sottoscrizione, l'area di servizio, l'URI di firma di accesso condiviso che punta al file audio da trascrivere e gli ID di modello in caso si voglia usare un modello acustico o linguistico personalizzato.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 

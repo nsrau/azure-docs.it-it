@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 488cbf1874e023cf3a665bc9f2087900b30b3d3d
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8285a76f8cd07863874f9c8e8eebe96f1cb968dd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204918"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604827"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -181,7 +180,7 @@ Uso di `break` elemento da inserire pause (o interruzioni) tra le parole o imped
 | forza | Specifica la durata relativa di una sospensione tramite uno dei valori seguenti:<ul><li>Nessuno</li><li>x-"Weak"</li><li>debole</li><li>Media (predefinita)</li><li>Sicuro</li><li>x-strong</li></ul> | Facoltativo |
 | time | Specifica la durata di una pausa in secondi o millisecondi assoluta. Esempi di valori validi sono 2s e 500 | Facoltativo |
 
-| Forza | Descrizione |
+| forza | Descrizione |
 |----------|-------------|
 | None, o se nessun valore specificato | 0 ms |
 | x-"Weak" | 250 ms |

@@ -7,15 +7,15 @@ author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 2/20/2019
+ms.topic: conceptual
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 97a3f00bcb5b1a0fb3f499657044b9d83f5b08d7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 16b8f81a09efc60f1214a2dc6ac60da9155e7794
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010380"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605102"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Selezionare un dispositivo di input audio con Speech SDK
 
@@ -381,7 +381,7 @@ In JavaScript il metodo [MediaDevices.enumerateDevices](https://developer.mozill
 > [!div class="nextstepaction"]
 > [Esplorare gli esempi su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)

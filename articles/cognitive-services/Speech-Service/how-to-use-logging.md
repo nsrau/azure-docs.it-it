@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 4573ff14c5326a47cf7b15ae2660614661d45d80
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6179634bb949dbb9da8475e87494eef0f145f13b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073077"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605078"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Abilitare la registrazione in Speech SDK
 
@@ -119,4 +119,3 @@ Più su iOS File System è disponibile [qui](https://developer.apple.com/library
 
 > [!div class="nextstepaction"]
 > [Esplorare gli esempi su GitHub](https://aka.ms/csspeech/samples)
-

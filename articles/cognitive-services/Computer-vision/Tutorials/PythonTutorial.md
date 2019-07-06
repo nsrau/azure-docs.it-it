@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Eseguire operazioni sulle immagini - Python'
+title: Eseguire operazioni sulle immagini - Python
 titlesuffix: Azure Cognitive Services
 description: Informazioni sull'uso dell'API Visione artificiale con Python usando Jupyter Notebook. Visualizzare i risultati usando le librerie comuni.
 services: cognitive-services
@@ -7,20 +7,20 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
-ms.date: 11/06/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: b5333557355aa816245b5086836eac980d90540a
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
-ms.translationtype: HT
+ms.openlocfilehash: b18f41db772c1c214bdf48c9bb765b1ce7e6d2c2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341490"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604163"
 ---
-# <a name="tutorial-computer-vision-api-python"></a>Esercitazione: API Visione artificiale, Python
+# <a name="computer-vision-api-jupyter-notebook"></a>Notebook di API Jupyter visione artificiale di computer
 
-Questa esercitazione illustra come usare l'API Visione artificiale di Python e come visualizzare i risultati usando alcune librerie comuni. Per eseguire l'esercitazione si userà Jupyter. Per informazioni su come iniziare a usare Jupyter Notebook interattivi, fare riferimento alla [documentazione di Jupyter](https://jupyter.readthedocs.io/en/latest/index.html).
+Questa guida illustra come usare l'API visione artificiale in Python e Mostra come visualizzare i risultati tramite librerie comunemente diffuse. Per eseguire l'esercitazione si userà Jupyter. Per informazioni su come iniziare a usare Jupyter Notebook interattivi, fare riferimento alla [documentazione di Jupyter](https://jupyter.readthedocs.io/en/latest/index.html).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,7 +28,7 @@ Questa esercitazione illustra come usare l'API Visione artificiale di Python e c
 - Strumento [pip](https://pip.pypa.io/en/stable/installing/)
 - [Jupyter Notebook](https://jupyter.org/install) installato
 
-## <a name="open-the-tutorial-notebook-in-jupyter"></a>Aprire il notebook dell'esercitazione in Jupyter 
+## <a name="open-the-notebook-in-jupyter"></a>Aprire il notebook di Jupyter 
 
 1. Andare al repository GitHub [Cognitive Vision Python](https://github.com/Microsoft/Cognitive-Vision-Python). 
 2. Fare clic sul pulsante verde per clonare o scaricare il repository. 
@@ -37,7 +37,7 @@ Questa esercitazione illustra come usare l'API Visione artificiale di Python e c
 1. Avviare Jupyter eseguendo il comando `jupyter notebook` dal prompt dei comandi.
 1. Nella finestra Jupyter fare clic su _Computer Vision API Example.ipynb_ per aprire il notebook dell'esercitazione.
 
-## <a name="run-the-tutorial"></a>Eseguire l'esercitazione
+## <a name="run-the-notebook"></a>Eseguire il notebook
 
 Per usare il notebook, è necessaria una chiave di sottoscrizione per l'API Visione artificiale. Visitare la [pagina delle sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/) per effettuare l'iscrizione. Nella pagina di **Accesso** usare l'account Microsoft per accedere; sarà possibile eseguire la sottoscrizione e ottenere le chiavi gratuite. Dopo aver completato il processo di iscrizione, incollare la chiave nella sezione `Variables` del notebook (riportata sotto). Può essere usata indifferentemente la chiave primaria o quella secondaria. Assicurarsi di racchiudere la chiave tra virgolette perché venga interpretata come una stringa.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 07/05/2019
 ms.author: wellsi
-ms.openlocfilehash: 1c91cde45a6a420376af36f70487adf7fe0ee83a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93272520434ea43a94af9441a947239e983c216f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751804"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606692"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Note sulla versione di Speech Devices SDK di Servizi cognitivi
 L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
@@ -37,17 +37,17 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 *   A causa della nuova tecnologia di word riattivazione tutte le parole di riattivazione devono essere create nuovamente nel nostro portale word migliorato della riattivazione. Per rimuovere completamente le parole chiave vecchie dal dispositivo di disinstallare l'app precedente.
     - adb disinstallare com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
 
-## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Dispositivi vocale di servizi cognitivi SDK 1.4.0: Rilascio: aprile 2019 
+## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Dispositivi vocale di servizi cognitivi SDK 1.4.0: Rilascio: aprile 2019
 
-* Aggiornato il [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) componente alla versione 1.4.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew). 
+* Aggiornato il [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) componente alla versione 1.4.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
 
-## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Dispositivi vocale di servizi cognitivi 1.3.1 SDK: Versione-marzo 2019 
+## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Dispositivi vocale di servizi cognitivi 1.3.1 SDK: Versione-marzo 2019
 
-* Aggiornato il [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) componente alla versione 1.3.1. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew). 
+* Aggiornato il [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) componente alla versione 1.3.1. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
 *   Word riattivazione aggiornata la gestione, vedere le modifiche di rilievo.
 *   Applicazione di esempio aggiunge una scelta del linguaggio per il riconoscimento vocale e traduzione.
 
-**Modifiche di rilievo** 
+**Modifiche di rilievo**
 
 *   [Installazione di una parola riattivazione](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) è stato semplificato, fa ora parte dell'app e non richiede installazione separata sul dispositivo.
 *   Il riconoscimento delle parole la riattivazione è stato modificato e sono supportati due eventi.
@@ -55,22 +55,22 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
     - RecognizedKeyword, indica che il riconoscimento (parola chiave) completato riconoscendo la parola chiave Data.
 
 
-## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Speech Devices SDK di Servizi cognitivi 1.1.0: versione di novembre 2018 
+## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Speech Devices SDK di Servizi cognitivi 1.1.0: versione di novembre 2018
 
-* Il componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) è stato aggiornato alla versione 1.1.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew). 
+* Il componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) è stato aggiornato alla versione 1.1.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
 * L'accuratezza del riconoscimento vocale in campo lontano è stata migliorata grazie a un nuovo algoritmo di elaborazione audio.
 * L'applicazione di esempio ha aggiunto il supporto al riconoscimento vocale in cinese.
 
-## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Speech Devices SDK di Servizi cognitivi 1.0.1: versione di ottobre 2018 
+## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Speech Devices SDK di Servizi cognitivi 1.0.1: versione di ottobre 2018
 
-* Il componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) è stato aggiornato alla versione 1.0.1. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew). 
+* Il componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) è stato aggiornato alla versione 1.0.1. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
 * L'accuratezza del riconoscimento vocale risulterà migliorata grazie a un nuovo algoritmo di elaborazione audio.  
 * Un bug relativo alla sessione audio di riconoscimento continuo è stato corretto.
 
-**Modifiche di rilievo** 
+**Modifiche di rilievo**
 
-* Questa versione introduce numerose modifiche di rilievo. Vedere [questa pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) per informazioni dettagliate relative alle API. 
-* I file di modello KWS non sono compatibili con Speech Devices SDK 1.0.1. I file Wake Word esistenti verranno eliminati dopo la scrittura di quelli nuovi nel dispositivo. 
+* Questa versione introduce numerose modifiche di rilievo. Vedere [questa pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) per informazioni dettagliate relative alle API.
+* I file di modello KWS non sono compatibili con Speech Devices SDK 1.0.1. I file Wake Word esistenti verranno eliminati dopo la scrittura di quelli nuovi nel dispositivo.
 
 ## <a name="cognitive-services-speech-devices-sdk-050-2018-aug-release"></a>Speech Devices SDK di Servizi cognitivi 0.5.0: versione di agosto 2018
 

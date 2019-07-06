@@ -7,19 +7,19 @@ author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 04/12/2019
+ms.topic: reference
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6cf3ab6480900aa763598120e6ff7e308f5044e1
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: HT
+ms.openlocfilehash: f6420ea8918816f7356e567ec48cb0f7456065e0
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743214"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604761"
 ---
 # <a name="swagger-documentation"></a>Documentazione di Swagger
 
-I servizi Voce offrono una specifica di Swagger per interagire con alcune API REST usate per importare dati, creare modelli, testare l'accuratezza dei modelli, creare endpoint personalizzati, inserire in coda trascrizioni batch e gestire sottoscrizioni. La maggior parte delle operazioni disponibili tramite il Portale del Servizio riconoscimento vocale personalizzato possono essere completate a livello di codice usando queste API. 
+I servizi Voce offrono una specifica di Swagger per interagire con alcune API REST usate per importare dati, creare modelli, testare l'accuratezza dei modelli, creare endpoint personalizzati, inserire in coda trascrizioni batch e gestire sottoscrizioni. La maggior parte delle operazioni disponibili tramite il Portale del Servizio riconoscimento vocale personalizzato possono essere completate a livello di codice usando queste API.
 
 > [!NOTE]
 > Sia le operazioni di riconoscimento vocale che quelle di sintesi vocale sono supportate e disponibili come API REST, documentate nella specifica di Swagger.

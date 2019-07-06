@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 08bf1363f3c6c9b68243cc10ffb2785f53e02107
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 684ddcd49d3cd3c3d4f0a8d6f4675e1e27bdb7b9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342198"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604881"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST di sintesi vocale
 
@@ -49,7 +48,7 @@ Il `voices/list` endpoint consente di ottenere un elenco completo delle voci per
 | Canada centrale | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti centrali | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Asia orientale | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Stati Uniti orientali | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti orientali 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Francia centrale | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | India centrale | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -225,7 +224,7 @@ Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 | 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
 | 401 | Non autorizzata | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
 | 413 | Entità della richiesta troppo grande | La lunghezza dell'input SSML è maggiore di 1024 caratteri. |
-| 415 | Tipo di supporto non supportato | È possibile che il problema `Content-Type` è stato specificato. `Content-Type` deve essere impostato su `application/ssml+xml`. | 
+| 415 | Tipo di supporto non supportato | È possibile che il problema `Content-Type` è stato specificato. `Content-Type` deve essere impostato su `application/ssml+xml`. |
 | 429 | Troppe richieste | È stata superata la quota o la frequenza di richieste consentite per la sottoscrizione. |
 | 502 | Gateway non valido | Problema di rete o lato server. Può anche indicare intestazioni non valide. |
 
