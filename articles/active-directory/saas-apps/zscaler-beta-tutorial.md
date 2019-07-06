@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f31361dc3d7e24092677f1a78b2c405ae84578ed
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 07341c1ad30f1242bdff430826fdc82c45e09dac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230067"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086063"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Beta
 
@@ -143,7 +143,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Beta, seguire q
     > [!NOTE]
     > Per informazioni su come configurare i ruoli in Azure AD, vedere l'argomento su come [configurare l'attestazione del ruolo](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management).
 
-7. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare **Scarica** per scaricare il file **Certificato (Base64)**. Salvarlo nel computer.
+7. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare **Scarica** per scaricare il file **Certificato (Base64)** . Salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -216,7 +216,7 @@ Per configurare le impostazioni proxy in Internet Explorer, seguire questa proce
   
      ![Scheda Connessioni](./media/zscaler-beta-tutorial/ic769493.png "Connessioni")
 
-4. Selezionare **Impostazioni LAN** per aprire la finestra di dialogo **Impostazione rete locale (LAN)**.
+4. Selezionare **Impostazioni LAN** per aprire la finestra di dialogo **Impostazione rete locale (LAN)** .
 
 5. Nella sezione **Server proxy** seguire questa procedura: 
    
@@ -230,7 +230,7 @@ Per configurare le impostazioni proxy in Internet Explorer, seguire questa proce
 
     d. Selezionare la casella di controllo **Ignora server proxy per indirizzi locali**.
 
-    e. Selezionare **OK** per chiudere la finestra di dialogo **Impostazioni rete locale (LAN)**.
+    e. Selezionare **OK** per chiudere la finestra di dialogo **Impostazioni rete locale (LAN)** .
 
 6. Selezionare **OK** per chiudere la finestra di dialogo **Opzioni Internet**.
 
@@ -256,7 +256,7 @@ Nel portale di Azure creare un utente di test chiamato Britta Simon.
 
     c. Selezionare la casella di controllo **Mostra password**. Prendere quindi nota del valore visualizzato nella casella **Password**.
 
-    d. Selezionare **Create**.
+    d. Selezionare **Create** (Crea).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

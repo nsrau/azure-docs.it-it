@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e50cdd19510f0bf160c075c763e645120622674
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 76a43acb1cf0c514111e89f1a3f4408f4c51e091
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835697"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Esercitazione: Integrazione di Azure Active Directory con EthicsPoint Incident Management (EPIM)
 
@@ -65,7 +65,7 @@ Per configurare l'integrazione di EthicsPoint Incident Management (EPIM) in Azur
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **EthicsPoint Incident Management (EPIM)**, selezionare **EthicsPoint Incident Management (EPIM)** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **EthicsPoint Incident Management (EPIM)** , selezionare **EthicsPoint Incident Management (EPIM)** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![EthicsPoint Incident Management (EPIM) nell'elenco risultati](common/search-new-app.png)
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con EthicsPoint Incident Management (EPIM), è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per EthicsPoint Incident Management (EPIM)](#configure-ethicspoint-incident-management-epim-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di EthicsPoint Incident Management (EPIM)](#create-ethicspoint-incident-management-epim-test-user)**: per avere una controparte di Britta Simon in EthicsPoint Incident Management (EPIM) collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per EthicsPoint Incident Management (EPIM)](#configure-ethicspoint-incident-management-epim-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di EthicsPoint Incident Management (EPIM)](#create-ethicspoint-incident-management-epim-test-user)** : per avere una controparte di Britta Simon in EthicsPoint Incident Management (EPIM) collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -114,7 +114,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con EthicsPoint Incident Ma
 
     b. Nella casella di testo **Identificatore** digitare un URL usando il modello seguente: `https://<companyname>.navexglobal.com/adfs/services/trust`
 
-    c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<servername>.navexglobal.com/adfs/ls/`
+    c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<servername>.navexglobal.com/adfs/ls/`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di EthicsPoint Incident Management (EPIM)](https://www.navexglobal.com/company/contact-us). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -135,7 +135,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con EthicsPoint Incident Ma
 
 ### <a name="configure-ethicspoint-incident-management-epim-single-sign-on"></a>Configurare l'accesso Single Sign-On per EthicsPoint Incident Management (EPIM)
 
-Per configurare l'accesso Single Sign-On sul lato **EthicsPoint Incident Management (EPIM)**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di EthicsPoint Incident Management (EPIM)](https://www.navexglobal.com/company/contact-us). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **EthicsPoint Incident Management (EPIM)** , è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di EthicsPoint Incident Management (EPIM)](https://www.navexglobal.com/company/contact-us). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
@@ -166,11 +166,11 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a EthicsPoint Incident Management (EPIM).
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **EthicsPoint Incident Management (EPIM)**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **EthicsPoint Incident Management (EPIM)** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **EthicsPoint Incident Management (EPIM)**.
+2. Nell'elenco delle applicazioni selezionare **EthicsPoint Incident Management (EPIM)** .
 
     ![Collegamento di EthicsPoint Incident Management (EPIM) nell'elenco delle applicazioni](common/all-applications.png)
 
