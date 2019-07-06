@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce9573f78b6e8a9db65f35b7fc7711a8d3534508
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cedf625beabfb12a459a7fd7c2120250e267772c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699565"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Esercitazione: Integrazione di Azure Active Directory con ServiceChannel
 

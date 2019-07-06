@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c131f034b4a8b5afaa2556c5c8d053b3e6793b4d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: d2dc6dcbcdee8df93f34cf4d68b5e08453554bc8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987258"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090006"
 ---
 # <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>Esercitazione: Integrare Soloinsight-CloudGate SSO con Azure Active Directory
 
@@ -49,7 +49,7 @@ Per configurare l'integrazione di Soloinsight-CloudGate SSO in Azure AD, è nece
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
-1. Passare a **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Soloinsight-CloudGate SSO** nella casella di ricerca.
 1. Selezionare **Soloinsight-CloudGate SSO** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
@@ -98,7 +98,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Per automatizzare la configurazione all'interno di Soloinsight-CloudGate SSO, è necessario installare l'**estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installa l'estensione**.
 
-    ![Estensione MyApps](common/install-myappssecure-extension.png)
+    ![Estensione My Apps](common/install-myappssecure-extension.png)
 
 2. Dopo aver aggiunto l'estensione al browser, facendo clic su **Configura Soloinsight-CloudGate SSO** si verrà indirizzati all'applicazione Soloinsight-CloudGate SSO. Da qui, fornire le credenziali di amministratore per accedere a Soloinsight-CloudGate SSO. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 8.
 

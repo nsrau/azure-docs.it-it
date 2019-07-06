@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0efc69aa7fb081303df6fc6327253fd5b8336999
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 016f4fe5e0d1e8c84a13ca97d8f910c29d5984d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902792"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091125"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Esercitazione: integrazione di Azure Active Directory con ServiceNow
 
@@ -82,13 +82,13 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con ServiceNow, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD per ServiceNow](#configure-azure-ad-single-sign-on-for-servicenow)**: per abilitare gli utenti all'uso di questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di ServiceNow](#configure-servicenow-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Configurare l'accesso Single Sign-On di Azure AD per ServiceNow Express](#configure-azure-ad-single-sign-on-for-servicenow-express)**: per abilitare gli utenti all'uso di questa funzionalità.
-4. **[Configurare l'accesso Single Sign-On di ServiceNow Express](#configure-servicenow-express-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-5. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-6. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-7. **[Creare un utente di test di ServiceNow](#create-servicenow-test-user)**: per avere una controparte di Britta Simon in ServiceNow collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD per ServiceNow](#configure-azure-ad-single-sign-on-for-servicenow)** : per abilitare gli utenti all'uso di questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di ServiceNow](#configure-servicenow-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Configurare l'accesso Single Sign-On di Azure AD per ServiceNow Express](#configure-azure-ad-single-sign-on-for-servicenow-express)** : per abilitare gli utenti all'uso di questa funzionalità.
+4. **[Configurare l'accesso Single Sign-On di ServiceNow Express](#configure-servicenow-express-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+5. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+6. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+7. **[Creare un utente di test di ServiceNow](#create-servicenow-test-user)** : per avere una controparte di Britta Simon in ServiceNow collegata alla rappresentazione dell'utente in Azure AD.
 8. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on-for-servicenow"></a>Configurare l'accesso Single Sign-On di Azure AD per ServiceNow

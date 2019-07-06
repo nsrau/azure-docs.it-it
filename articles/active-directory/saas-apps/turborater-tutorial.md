@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 1e67f3c7f9413382d169837eaba50d6af18552e6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 3777cf09ec669fe3df6bca13f6960f53c689767c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956682"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088282"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Esercitazione: Integrazione di Azure Active Directory con TurboRater
 
@@ -91,7 +91,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con TurboRater, seguire que
 
     ![Configurare l'opzione Single Sign-On](common/select-sso.png)
 
-1. Nel riquadro **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
+1. Nel riquadro **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare l'accesso Single Sign-On.
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
@@ -155,7 +155,7 @@ In questa sezione viene creato un utente di test chiamato Britta Simon nel porta
 
     1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Create**.
+    1. Selezionare **Create** (Crea).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

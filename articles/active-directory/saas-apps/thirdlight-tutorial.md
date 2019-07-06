@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 67c8dcfffd78d4c0114a96622235d6548627fa92
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 448d46cd21a63488c4f567d5555fe6406fc0fa73
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236968"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Esercitazione: Integrazione di Azure Active Directory con ThirdLight
 
@@ -148,7 +148,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ThirdLight, seguire que
 
     1. Selezionare **Save SAML2 settings** (Salva impostazioni SAML2).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
@@ -170,9 +170,9 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Create**.
+    1. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abiliterà Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ThirdLight.
 

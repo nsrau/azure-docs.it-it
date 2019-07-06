@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bff57635c87b77270e1bd20e04834dec132b2df6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c31f201179f9f0eb7077ed275aae927a2a4fe376
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867294"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090729"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Esercitazione: Integrazione di Azure Active Directory con Signagelive
 
@@ -151,7 +151,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Selezionare **Create**.
+    d. Selezionare **Create** (Crea).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
