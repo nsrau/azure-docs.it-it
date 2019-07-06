@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e4f45deb8c63640a328e38cebc2ecbe67233c3b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c374c9e8fd91d50b7e6589f22f9bed09fbe0de39
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143130"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092864"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Esercitazione: Integrare RingCentral con Azure Active Directory
 
@@ -49,7 +49,7 @@ Per configurare l'integrazione di RingCentral in Azure AD, è necessario aggiung
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
-1. Passare a **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **RingCentral** nella casella di ricerca.
 1. Selezionare **RingCentral** nel riquadro dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.

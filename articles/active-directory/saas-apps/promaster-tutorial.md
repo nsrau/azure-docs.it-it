@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 66393ffa5e8837b104e42df03ab3af5d6deea936
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0a1f58705a64a973bb91e47e6e9fce87a48ce99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868760"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094205"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Esercitazione: Integrazione di Azure Active Directory con ProMaster (by Inlogik)
 
@@ -65,7 +65,7 @@ Per configurare l'integrazione di ProMaster (by Inlogik) in Azure AD, è necessa
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **ProMaster (by Inlogik)**, selezionare **ProMaster (by Inlogik)** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **ProMaster (by Inlogik)** , selezionare **ProMaster (by Inlogik)** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![ProMaster (by Inlogik) nell'elenco dei risultati](common/search-new-app.png)
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con ProMaster (by Inlogik), è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di ProMaster (by Inlogik)](#configure-promaster-by-inlogik-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di ProMaster (by Inlogik)](#create-promaster-by-inlogik-test-user)**: per avere una controparte di Britta Simon in ProMaster (by Inlogik) collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di ProMaster (by Inlogik)](#configure-promaster-by-inlogik-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di ProMaster (by Inlogik)](#create-promaster-by-inlogik-test-user)** : per avere una controparte di Britta Simon in ProMaster (by Inlogik) collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -142,7 +142,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ProMaster (by Inlogik),
 
 ### <a name="configure-promaster-by-inlogik-single-sign-on"></a>Configurare l'accesso Single Sign-On di ProMaster (by Inlogik)
 
-Per configurare l'accesso Single Sign-On in **ProMaster (by Inlogik)**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di ProMaster (by Inlogik)](mailto:michael.boldiston@inlogik.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On in **ProMaster (by Inlogik)** , è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di ProMaster (by Inlogik)](mailto:michael.boldiston@inlogik.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
@@ -172,11 +172,11 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ProMaster (by Inlogik).
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **ProMaster (by Inlogik)**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **ProMaster (by Inlogik)** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **ProMaster (by Inlogik)**.
+2. Nell'elenco delle applicazioni selezionare **ProMaster (by Inlogik)** .
 
     ![Collegamento di ProMaster (by Inlogik) nell'elenco delle applicazioni](common/all-applications.png)
 

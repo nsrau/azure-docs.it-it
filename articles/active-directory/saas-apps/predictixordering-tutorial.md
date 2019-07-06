@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 79e9952aefc44b7c490bb9fe375487c1a3335fc8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 457ab3a0d5e816becbd2b32d858d5172951f27ad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901497"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094132"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Esercitazione: Integrazione di Azure Active Directory con Predictix Ordering
 
@@ -119,7 +119,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Predictix Ordering, seg
     > [!NOTE]
     > Questi valori sono segnaposto. Usare l'identificatore e l'URL di accesso effettivi. Per ottenere i valori, contattare il [team di supporto clienti di Predictix Ordering](https://www.predix.io/support/). È anche possibile fare riferimento ai modelli disponibili nella finestra di dialogo **Configurazione SAML di base** del portale di Azure.
 
-5. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare il collegamento **Scarica** accanto a **Certificato (Base64)** , in base ai propri requisiti, quindi salvare il certificato nel computer:
+5. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare il collegamento **Scarica** accanto a **Certificato (Base64)** , in base alle esigenze, quindi salvare il certificato nel computer:
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -155,11 +155,11 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     1. Nella casella **Nome** immettere **BrittaSimon**.
   
-    1. Nella casella **Nome utente** immettere **BrittaSimon@\<dominioaziendale>.\<estensione>** . ad esempio BrittaSimon@contoso.com.
+    1. Nella casella **Nome utente** immettere **BrittaSimon@\<dominioaziendale>.\<estensione>** , ad esempio BrittaSimon@contoso.com.
 
     1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Create**.
+    1. Selezionare **Create** (Crea).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

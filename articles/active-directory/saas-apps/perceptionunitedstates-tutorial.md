@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9ba42f780c93486409077383750d0635637e99b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094846"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Esercitazione: Integrazione di Azure Active Directory con Perception United States (Non-UltiPro)
 
@@ -65,7 +65,7 @@ Per configurare l'integrazione di Perception United States (Non-UltiPro) in Azur
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Perception United States (Non-UltiPro)**, selezionare **Perception United States (Non-UltiPro)** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Perception United States (Non-UltiPro)** , selezionare **Perception United States (Non-UltiPro)** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Perception United States (Non-UltiPro) nell'elenco risultati](common/search-new-app.png)
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Perception United States (Non-UltiPro), è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Perception United States (Non-UltiPro)](#configure-perception-united-states-non-ultipro-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Perception United States (Non-UltiPro)](#create-perception-united-states-non-ultipro-test-user)**: per avere una controparte di Britta Simon in Perception United States (Non-UltiPro) collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Perception United States (Non-UltiPro)](#configure-perception-united-states-non-ultipro-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Perception United States (Non-UltiPro)](#create-perception-united-states-non-ultipro-test-user)** : per avere una controparte di Britta Simon in Perception United States (Non-UltiPro) collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -109,7 +109,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Perception United State
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-    c. L'applicazione **Perception United States (Non-UltiPro)** richiede che il valore **Identificatore di Azure AD** come <entity_id>, ottenuto nella sezione **Configurare Perception United States (Non-UltiPro)**, sia con codifica URI. Per ottenere il valore con codifica URI, usare il collegamento seguente: **http://www.url-encode-decode.com/**.
+    c. L'applicazione **Perception United States (Non-UltiPro)** richiede che il valore **Identificatore di Azure AD** come <entity_id>, ottenuto nella sezione **Configurare Perception United States (Non-UltiPro)** , sia con codifica URI. Per ottenere il valore con codifica URI, usare il collegamento seguente: **http://www.url-encode-decode.com/** .
 
     d. Dopo aver ottenuto il valore con codifica URI, combinarlo con l'**URL di risposta** come indicato di seguito.
 
@@ -195,11 +195,11 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Perception United States (Non-UltiPro).
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Perception United States (Non-UltiPro)**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Perception United States (Non-UltiPro)** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Perception United States (Non-UltiPro)**.
+2. Nell'elenco delle applicazioni selezionare **Perception United States (Non-UltiPro)** .
 
     ![Collegamento di Perception United States (Non-UltiPro) nell'elenco delle applicazioni](common/all-applications.png)
 

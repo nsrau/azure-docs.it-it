@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 61173d21c52d061f0d02ab02eb2f1083507983c2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0c3eb72abc90347c8e18a2f56a5d4756ecd80f3a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991657"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096343"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Esercitazione: Integrazione di MyWorkDrive con Azure Active Directory
 
@@ -48,7 +48,7 @@ Per configurare l'integrazione di MyWorkDrive in Azure AD, è necessario aggiung
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
-1. Passare a **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **MyWorkDrive** nella casella di ricerca.
 1. Selezionare **MyWorkDrive** nel riquadro dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
@@ -118,11 +118,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-In questa sezione verrà creato un utente di test chiamato Britta Simon nel portale di Azure.
+In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
-1. In **Proprietà utente** completare questa procedura:
+1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `Britta Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `BrittaSimon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.

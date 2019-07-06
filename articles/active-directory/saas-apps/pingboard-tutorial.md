@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d69271f65c326237a380624d994d8f5339537114
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 341d8dd712b858572ec5df76b176258ca87c8857
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869389"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094434"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Esercitazione: Integrazione di Azure Active Directory con PingBoard
 
@@ -78,11 +78,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con PingBoard, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Pingboard](#configure-pingboard-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Pingboard](#create-pingboard-test-user)**: per avere una controparte di Britta Simon in Pingboard collegata alla relativa rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Pingboard](#configure-pingboard-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Pingboard](#create-pingboard-test-user)** : per avere una controparte di Britta Simon in Pingboard collegata alla relativa rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -142,7 +142,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Pingboard, seguire ques
 
     ![Configure Single Sign-On](./media/pingboard-tutorial/Pingboard_integration.png)
 
-3. Nella pagina **Integrazioni**, trovare e fare clic sul riquadro di **"Azure Active Directory"**.
+3. Nella pagina **Integrazioni**, trovare e fare clic sul riquadro di **"Azure Active Directory"** .
 
     ![Integrazione Single-Sign-On di Pingboard](./media/pingboard-tutorial/Pingboard_aad.png)
 
@@ -224,7 +224,7 @@ L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simo
 
     a. Nella casella di testo **Full Name** (Nome completo) digitare il nome completo dell'utente, ad esempio **Britta Simon**.
 
-    b. Nella casella di testo **Email** digitare l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon@contoso.com**.
+    b. Nella casella di testo **Email** digitare l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon@contoso.com** .
 
     c. Nella casella di testo **Posizione** digitare la posizione di Britta Simon.
 

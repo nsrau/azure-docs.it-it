@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 08db463c92e4ee34819f446c3827ed8dfddc02d7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b2bfbed33433521fd086d474ea4b754f5435f5e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903943"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092914"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Esercitazione: Integrazione di Azure Active Directory con Riskware
 

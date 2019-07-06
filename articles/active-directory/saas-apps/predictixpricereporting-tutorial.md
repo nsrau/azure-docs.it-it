@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 8074919a61ed4f2e3d0b127c13e733b0c485bf62
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 808b2d964bb39af6b410a84563717102ebece454
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890670"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094115"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Esercitazione: Integrazione di Azure Active Directory con Predictix Price Reporting
 
@@ -156,11 +156,11 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     1. Nella casella **Nome** immettere **BrittaSimon**.
   
-    1. Nella casella **Nome utente** immettere **BrittaSimon@\<dominioaziendale.\<estensione>** , ad esempio BrittaSimon@contoso.com.
+    1. Nella casella **Nome utente** immettere **BrittaSimon@\<dominioaziendale>.\<estensione>** , ad esempio BrittaSimon@contoso.com.
 
     1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Create**.
+    1. Selezionare **Create** (Crea).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e7993ee1cb439ebeaa9f64bee55429aa54f9cee
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 897685eb967e03cfd30182eec6b237e27386496c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903954"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Esercitazione: Integrazione di Azure Active Directory con SAP Fiori
 
@@ -82,7 +82,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con SAP Fiori, è
 | --- | --- |
 | **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** | Consente agli utenti di usare questa funzionalità. |
 | **[Configurare l'accesso Single Sign-On a SAP Fiori](#configure-sap-fiori-single-sign-on)** | Consente di configurare le impostazioni di accesso Single Sign-On nell'applicazione. |
-| **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** | Consente di verificare l’accesso Single Sign-On di Azure AD per un utente chiamato Britta Simon. |
+| **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** | Consente di verificare l'accesso Single Sign-On di Azure AD per un utente chiamato Britta Simon. |
 | **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** | Consente a Britta Simon di usare l'accesso Single Sign-On di Azure AD. |
 | **[Creare un utente di test di SAP Fiori](#create-an-sap-fiori-test-user)** | Consente di creare una controparte di Britta Simon in SAP Fiori collegata alla rappresentazione dell'utente in Azure AD. |
 | **[Testare l'accesso Single Sign-On](#test-single-sign-on)** | Verifica se la configurazione funziona. |
@@ -274,7 +274,7 @@ In questa sezione si configura l'accesso Single Sign-On di Azure AD con SAP Fior
 
     1. In SAP, sotto **Details of NameID Format "Unspecified"** (Dettagli formato NameID “Non specificato”), annotare i dettagli:
 
-        ![Finestra di dialogo Details of NameID Format "Unspecified" (Dettagli formato NameID “Non specificato”) in SAP](./media/sapfiori-tutorial/nameiddetails.png)
+        ![Finestra di dialogo Details of NameID Format "Unspecified" (Dettagli formato NameID "Non specificato") in SAP](./media/sapfiori-tutorial/nameiddetails.png)
 
     1. Nel portale di Azure, sotto **Attributi utente e attestazioni**, annotare le attestazioni necessarie da Azure AD.
 
@@ -318,7 +318,7 @@ In questa sezione viene creato un utente di test chiamato Britta Simon nel porta
 
     1. Selezionare la casella di controllo **Mostra password**. Prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Create**.
+    1. Selezionare **Create** (Crea).
 
     ![Riquadro Utente](common/user-properties.png)
 

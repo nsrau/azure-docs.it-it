@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d2f854c869ead8016a5437a4e40339d9455c9ad7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 0b6fd17d2f8577532778733866260f43e9ac7685
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66226425"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092726"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Esercitazione: Integrazione di Azure Active Directory con RolePoint
 
@@ -134,7 +134,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con RolePoint, seguire ques
 
 Per configurare l'accesso Single Sign-On sul lato RolePoint, è necessario collaborare con il [team di supporto di RolePoint](mailto:info@rolepoint.com). Inviare a questo team il file XML dei metadati di federazione e gli URL ottenuti dal portale di Azure. La configurazione di RolePoint verrà eseguita per assicurarsi che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
@@ -156,9 +156,9 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Create**.
+    1. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abiliterà Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a RolePoint.
 
@@ -184,7 +184,7 @@ In questa sezione si abiliterà Britta Simon all'uso dell'accesso Single Sign-On
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
 
-### <a name="create-a-rolepoint-test-user"></a>Creare un utente di test di RolePoint
+### <a name="create-a-rolepoint-test-user"></a>Creare un utente test di RolePoint
 
 A questo punto è necessario creare un utente di nome Britta Simon in RolePoint. Collaborare con il  [team di supporto di RolePoint](mailto:info@rolepoint.com) per aggiungere gli utenti a RolePoint. Gli utenti devono essere creati e attivati prima di poter usare l'accesso Single Sign-On.
 

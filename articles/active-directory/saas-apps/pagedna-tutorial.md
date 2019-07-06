@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11cb309e6c49ed36247398909e5e1b7ad9f7bc42
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 54c3ae22b9cc2e447960b9e3527bbbb0afae3e54
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891212"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095086"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Esercitazione: Integrazione di Azure Active Directory con PageDNA
 
@@ -167,7 +167,7 @@ In questa sezione viene creato un utente di test di nome Britta Simon nel portal
 
     1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Create**.
+    1. Selezionare **Create** (Crea).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
