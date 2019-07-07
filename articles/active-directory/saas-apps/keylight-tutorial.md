@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a03bb2626525bf022b109105a7c6bc0dee23aea
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 148c2c46a911088d01ab83fe2d16e8ca81d272ff
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407037"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098784"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Esercitazione: Integrazione di Azure Active Directory con LockPath Keylight
 
@@ -78,11 +78,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con LockPath Keylight, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di LockPath Keylight](#configure-lockpath-keylight-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di LockPath Keylight](#create-lockpath-keylight-test-user)**: per avere una controparte di Britta Simon in LockPath Keylight collegata alla relativa rappresentazione in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di LockPath Keylight](#configure-lockpath-keylight-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di LockPath Keylight](#create-lockpath-keylight-test-user)** : per avere una controparte di Britta Simon in LockPath Keylight collegata alla relativa rappresentazione in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -172,11 +172,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con LockPath Keylight, segu
 
     j. Impostare **Auto-provision security config** (Configurazione di sicurezza del provisioning automatico) selezionando **Standard User Configuration** (Configurazione utente standard).
 
-    k. Nella casella di testo **Email attribute** (Attributo posta elettronica) digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    k. Nella casella di testo **Email attribute** (Attributo posta elettronica) digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    l. Nella casella di testo **First name attribute** (Attributo nome) digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    l. Nella casella di testo **First name attribute** (Attributo nome) digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    m. Nella casella di testo **Last name attribute** (Attributo cognome) digitare `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    m. Nella casella di testo **Last name attribute** (Attributo cognome) digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
     n. Fare clic su **Save**.
 

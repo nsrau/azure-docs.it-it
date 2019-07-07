@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: dc1d7032f80babf8686397ae4dcf0043f456acbd
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 2bdc3a13582f079cc9325ef1c6949c3ae10138eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565172"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102530"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Esercitazione: Integrazione di Azure Active Directory con FirmPlay - Employee Advocacy for Recruiting
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con FirmPlay - Employee Advocacy for Recruiting, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di FirmPlay - Employee Advocacy for Recruiting](#configure-firmplay---employee-advocacy-for-recruiting-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di FirmPlay - Employee Advocacy for Recruiting](#create-firmplay---employee-advocacy-for-recruiting-test-user)**: per avere una controparte di Britta Simon in FirmPlay - Employee Advocacy for Recruiting collegata alla relativa rappresentazione in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di FirmPlay - Employee Advocacy for Recruiting](#configure-firmplay---employee-advocacy-for-recruiting-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di FirmPlay - Employee Advocacy for Recruiting](#create-firmplay---employee-advocacy-for-recruiting-test-user)** : per avere una controparte di Britta Simon in FirmPlay - Employee Advocacy for Recruiting collegata alla relativa rappresentazione in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -110,7 +110,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con FirmPlay - Employee Adv
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -126,11 +126,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con FirmPlay - Employee Adv
 
 ### <a name="configure-firmplay---employee-advocacy-for-recruiting-single-sign-on"></a>Configurare l'accesso Single Sign-On di FirmPlay - Employee Advocacy for Recruiting
 
-Per configurare l'accesso Single Sign-On sul lato **FirmPlay - Employee Advocacy for Recruiting**, è necessario inviare il **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lago **FirmPlay - Employee Advocacy for Recruiting**, è necessario inviare il **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -152,7 +152,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a FirmPlay - Employee Advocacy for Recruiting.
 

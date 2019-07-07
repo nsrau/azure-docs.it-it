@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a216e720523767f428036290aea7151c2dca34
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 38ce83df4d4de6d7816ee969a4fee153ad5457d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708161"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098005"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Esercitazione: Integrazione di Azure Active Directory con LinkedIn Sales Navigator
 
@@ -84,7 +84,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con LinkedIn Sale
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di LinkedIn Sales Navigator](#configure-linkedin-sales-navigator-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l' di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di LinkedIn Sales Navigator](#create-linkedin-sales-navigator-test-user)** : per avere una controparte di Britta Simon in LinkedIn Sales Navigator collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -189,9 +189,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con LinkedIn Sales Navigato
 
     ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un  di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un  denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -213,7 +213,7 @@ Questa sezione descrive come creare un  denominato Britta Simon nel portale di A
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l' di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a LinkedIn Sales Navigator.
 
@@ -243,7 +243,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 L'applicazione Linked Sales Navigator supporta il provisioning dell'utente just-in-time e dopo l'autenticazione gli utenti verranno automaticamente creati nell'applicazione. Attivare l'**assegnazione automatica delle licenze** per assegnare una licenza all'utente.
 
-   ![Creazione di un  di Azure AD](./media/linkedinsalesnavigator-tutorial/LinkedinUserprovswitch.png)
+   ![Creazione di un utente test di Azure AD](./media/linkedinsalesnavigator-tutorial/LinkedinUserprovswitch.png)
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

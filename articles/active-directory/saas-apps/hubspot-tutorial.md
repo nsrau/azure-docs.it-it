@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d74cc1665867568032bb1343e4f2c26c50fe15a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3b2c765778fc2bdd8425cc3f375831c0d317e753
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65770183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100884"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Esercitazione: Integrazione di Azure Active Directory con HubSpot
 
@@ -57,7 +57,7 @@ Per integrare HubSpot con Azure AD, è necessario aggiungere HubSpot all'elenco 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Nel menu a sinistra selezionare **Azure Active Directory**.
+1. Nel menu a sinistra, selezionare **Azure Active Directory**.
 
     ![Opzione Azure Active Directory](common/select-azuread.png)
 
@@ -83,7 +83,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con HubSpot, è n
 | --- | --- |
 | **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** | Abilitare gli utenti all'uso di questa funzionalità. |
 | **[Configurare l'accesso Single Sign-On per HubSpot](#configure-hubspot-single-sign-on)** | Configurare le impostazioni dell'accesso Single Sign-On nell'applicazione. |
-| **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** | Testare l'accesso Single Sign-On di Azure AD per un utente di nome Britta Simon. |
+| **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** | Consente di verificare l'accesso Single Sign-On di Azure AD per un utente chiamato Britta Simon. |
 | **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** | Abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD. |
 | **[Creare un utente di test di HubSpot](#create-a-hubspot-test-user)** | Crea una controparte di Britta Simon in HubSpot collegata alla rappresentazione dell'utente in Azure AD. |
 | **[Testare l'accesso Single Sign-On](#test-single-sign-on)** | Verifica se la configurazione funziona. |
@@ -96,11 +96,11 @@ In questa sezione si configura l'accesso Single Sign-On di Azure AD con HubSpot 
 
     ![Configurare l'opzione Single Sign-On](common/select-sso.png)
 
-1. Nel riquadro **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML** o **SAML/WS-Fed** per abilitare il Single Sign-On.
+1. Nel riquadro **Selezionare un metodo di accesso Single Sign-On**, selezionare la modalità **SAML** o **SAML/WS-Fed** per abilitare il Single Sign-On.
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-1. Nel riquadro **Configura l'accesso Single Sign-On con SAML** selezionare **Modifica** (l'icona a forma di matita) per aprire il riquadro **Configurazione SAML di base**.
+1. Nel riquadro **Configura l'accesso Single Sign-On con SAML**, selezionare **Modifica** (l'icona a forma di matita) per aprire il riquadro **Configurazione SAML di base**.
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -123,7 +123,7 @@ In questa sezione si configura l'accesso Single Sign-On di Azure AD con HubSpot 
 
     ![Opzione Impostare URL aggiuntivi](common/metadata-upload-additional-signon.png)
 
-1. Nella sezione **Certificato di firma SAML** nel riquadro **Configura l'accesso Single Sign-On con SAML** selezionare **Scarica** accanto a **Certificato (Base64)** . Selezionare un'opzione di download in base ai requisiti. Salvare il certificato nel computer.
+1. Nella sezione **Certificato di firma SAML** nel riquadro **Configura l'accesso Single Sign-On con SAML** selezionare **Scarica** accanto a **Certificato (Base64)** . Selezionare un'opzione di download in base alle esigenze. Salvare il certificato nel computer.
 
     ![Opzione di download Certificato (Base64)](common/certificatebase64.png)
 
@@ -187,7 +187,7 @@ In questa sezione viene creato un utente di test chiamato Britta Simon nel porta
 
     1. Selezionare la casella di controllo **Mostra password**. Prendere nota del valore visualizzato nella casella **Password**.
 
-    1. Selezionare **Create**.
+    1. Selezionare **Create** (Crea).
 
     ![Riquadro Utente](common/user-properties.png)
 
@@ -211,9 +211,9 @@ In questa sezione si concede a Britta Simon l'accesso a HubSpot in modo che poss
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
-1. Nel riquadro **Utenti e gruppi** selezionare **Britta Simon** nell'elenco di utenti. Scegliere **Seleziona**.
+1. Nel riquadro **Utenti e gruppi**, selezionare **Britta Simon** nell'elenco degli utenti. Scegliere **Seleziona**.
 
-1. Se si prevede un valore di ruolo nell'asserzione SAML, nel riquadro **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Scegliere **Seleziona**.
+1. Se si prevede un valore di ruolo nell'asserzione SAML, nel riquadro **Seleziona ruolo**, selezionare il ruolo dell'utente dall'elenco. Scegliere **Seleziona**.
 
 1. Nel riquadro **Aggiungi assegnazione** selezionare **Assegna**.
 

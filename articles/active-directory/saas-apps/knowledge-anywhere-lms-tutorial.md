@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34553c92f54992698a7e3930ac302ef970edd7c7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f44324bbdd5af6675dfb4f5664cbbde2627edfec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236678"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098557"
 ---
 # <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Esercitazione: Integrare Knowledge Anywhere LMS con Azure Active Directory
 
@@ -106,7 +106,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Per automatizzare la configurazione all'interno di Knowledge Anywhere LMS, è necessario installare l'**estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installa estensione**.
 
-    ![Estensione MyApps](common/install-myappssecure-extension.png)
+    ![Estensione My Apps](common/install-myappssecure-extension.png)
 
 2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Knowledge Anywhere LMS** per passare direttamente all'applicazione Knowledge Anywhere LMS. Nell'applicazione fornire le credenziali di amministratore per accedere a Knowledge Anywhere LMS. L'estensione del browser configurerà automaticamente l'applicazione per l'utente e automatizzerà i passaggi da 3 a 7.
 

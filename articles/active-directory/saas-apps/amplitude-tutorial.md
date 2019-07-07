@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af8bba46bba103eae49ea26ffc0c653c2ccc8309
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5eba2aad0c758aeff189ba8638d92c46ed0902c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860466"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107093"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amplitude"></a>Esercitazione: Integrazione di Azure Active Directory con Amplitude
 
@@ -77,11 +77,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Amplitude, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Amplitude](#configure-amplitude-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Amplitude](#create-amplitude-test-user)**: per avere una controparte di Britta Simon in Amplitude collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per Amplitude](#configure-amplitude-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Amplitude](#create-amplitude-test-user)** : per avere una controparte di Britta Simon in Amplitude collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Amplitude, seguire ques
 
     a. Nella casella di testo **Identificatore** digitare l'URL: `https://amplitude.com/saml/sso/metadata`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://analytics.amplitude.com/saml/sso/<uniqueid>`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://analytics.amplitude.com/saml/sso/<uniqueid>`
 
     > [!NOTE]
     > Il valore di URL di risposta non è reale. Questo valore verrà ottenuto più avanti nell'esercitazione.
