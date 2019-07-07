@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 873bc340d738704418310e22c34b0042f71a96bd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ad7aedf90ead4b21bab661bdaf85316cd648fd75
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890900"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101261"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Esercitazione: Integrazione di Azure Active Directory con HighGear
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con il sistema HighGear, è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per HighGear](#configure-highgear-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione HighGear.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di HighGear](#create-highgear-test-user)**: per avere una controparte di Britta Simon in HighGear collegata alla rappresentazione dell'utente in Azure AD. 
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per HighGear](#configure-highgear-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione HighGear.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di HighGear](#create-highgear-test-user)** : per avere una controparte di Britta Simon in HighGear collegata alla rappresentazione dell'utente in Azure AD. 
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -157,15 +157,15 @@ Per configurare HighGear per Single Sign-On, accedere al sistema HighGear. Dopo 
 
 4. Nel campo **Single Logout (SLO) URL** (URL Single Log-Out (SLO)) in HighGear incollare il valore del campo **URL di disconnessione** presente nella sezione **Configura HighGear** in Azure.
 
-5. Usare il Blocco note per aprire il certificato scaricato dalla sezione **Certificato di firma SAML** in Azure. Il formato scaricato dovrebbe essere **Certificato (Base64)**. Copiare il contenuto del certificato dal Blocco note e incollarlo nel campo **Identity Provider Certificate** (Certificato provider di identità) in HighGear.
+5. Usare il Blocco note per aprire il certificato scaricato dalla sezione **Certificato di firma SAML** in Azure. Il formato scaricato dovrebbe essere **Certificato (Base64)** . Copiare il contenuto del certificato dal Blocco note e incollarlo nel campo **Identity Provider Certificate** (Certificato provider di identità) in HighGear.
 
 6. Inviare un messaggio di posta elettronica al [team di supporto di HighGear](mailto:support@highgear.com) per richiedere il certificato HighGear. Seguire le istruzioni ricevute da HighGear per compilare i campi **HighGear Certificate** (Certificato HighGear) e **HighGear Certificate Password** (Password del certificato HighGear).
 
 7. Fare clic sul pulsante **Save** (Salva) per salvare la configurazione Single Sign-On di HighGear.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -188,7 +188,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a HighGear.
 
