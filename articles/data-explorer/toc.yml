@@ -100,10 +100,10 @@
           href: manage-database-permissions.md
         - name: Controllare l'integrità del cluster
           href: check-cluster-health.md
-        - name: Gestire l'aumento del numero di istanze del cluster
-          href: manage-cluster-scale-out.md
-        - name: Gestire l'aumento delle prestazioni del cluster
-          href: manage-cluster-scale-up.md
+        - name: Gestire il ridimensionamento orizzontale dei cluster
+          href: manage-cluster-horizontal-scaling.md
+        - name: Gestire il ridimensionamento verticale dei cluster
+          href: manage-cluster-vertical-scaling.md
         - name: Eliminare i dati
           href: delete-data.md
         - name: Gestire i dati duplicati
