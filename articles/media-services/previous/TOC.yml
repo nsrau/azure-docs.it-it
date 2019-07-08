@@ -51,6 +51,9 @@
   items:
     - name: Gestisci
       items:
+        - name: Account
+          displayName: subscription
+          href: media-services-account-concept.md
         - name: Entità
           items:
             - name: .NET

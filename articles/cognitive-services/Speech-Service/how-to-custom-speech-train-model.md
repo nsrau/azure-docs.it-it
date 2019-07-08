@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 7bc1f2adf3d8c38845218681a55e3942aa809db5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 49195efa54c8e6eca9186a9e2fc33da84ff34413
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603212"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625393"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Eseguire il training di un modello per il riconoscimento vocale personalizzato
 
@@ -25,12 +25,11 @@ Training di un riconoscimento vocale-riconoscimento è necessario per migliorare
 
 Se si potrebbero verificarsi problemi di riconoscimento con il modello, usando un'etichetta umane trascrizioni e i relativi dati di training aggiuntivi possono contribuire a migliorare la precisione. Usare questa tabella per determinare quale set di dati da utilizzare per risolvere i problemi:
 
-| Caso d'uso | Tipo di dati | Quantità di dati |
-|----------|-----------|---------------|
-| I nomi propri sono riconosciuta correttamente | Testo (le frasi o espressioni) | 10 MB a 500 MB |
-| Le parole sono riconosciuta correttamente a causa di una distinzione tra caratteri accentati | Testo correlato (pronuncia) | Specificare le parole misrecognized |
-| Le parole comuni vengono eliminate o utente | Trascrizioni audio + con etichetta umane | ore di trascrizione di 10 a 1.000 |
-
+| Caso d'uso | Tipo di dati |
+|----------|-----------|
+| Migliorare la precisione del riconoscimento nel vocabolario specifici del settore e grammatica, ad esempio la terminologia mediche o gergo IT | Testo (le frasi o espressioni) |
+| Definire il modulo visualizzato e fonetico di una parola o un termine con pronuncia non standard, ad esempio i nomi di prodotto o acronimi. | Testo correlato (pronuncia) |
+| Migliorare la precisione del riconoscimento in a proposito di stili, accenti o rumori di fondo specifico | Trascrizioni audio + con etichetta umane |
 > [!IMPORTANT]
 > Se è stato ancora caricato un set di dati, vedere [prepara e i dati di test](how-to-custom-speech-test-data.md). Questo documento fornisce istruzioni per il caricamento dei dati e le linee guida per la creazione di set di dati di alta qualità.
 

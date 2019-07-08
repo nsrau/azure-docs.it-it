@@ -435,8 +435,6 @@
                   href: app/proactive-exception-volume.md
                 - name: Perdita di memoria
                   href: app/proactive-potential-memory-leak.md
-                - name: Utilizzo delle risorse
-                  href: app/proactive-low-utilization-cloud-resources.md
                 - name: Rilevamento di sicurezza
                   href: app/proactive-application-security-detection-pack.md
                 - name: Servizi cloud di Azure
