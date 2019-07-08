@@ -1,5 +1,5 @@
 ---
-title: Come rilevare lo sfasamento di dati (anteprima) in distribuzioni con configurazione servizio contenitore di AZURE
+title: Rilevare lo sfasamento di dati (anteprima) in distribuzioni con configurazione servizio contenitore di AZURE
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come rilevare lo sfasamento di dati in Azure Kubernetes Service distribuito nel servizio Azure Machine Learning i modelli.
 services: machine-learning
@@ -10,21 +10,24 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 06/20/2019
-ms.openlocfilehash: e4deeab28fb643ff32624ba9dd16574e621f508c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: c446c8236ca64948f0bb6a8354a83579cc6ff24c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332660"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443952"
 ---
-# <a name="how-to-detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service"></a>Come rilevare lo sfasamento di dati (anteprima) per i modelli distribuiti in Azure Kubernetes Service
-In questo articolo descrive come monitorare le [dati sfasamento](concept-data-drift.md) tra i dati di training set di dati e l'inferenza di un modello distribuito. 
+# <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service"></a>Rilevare lo sfasamento di dati (anteprima) per i modelli distribuiti in Azure Kubernetes Service
+In questo articolo descrive come monitorare la deviazione di dati tra il set di dati di training e inferenza dei dati di un modello distribuito. 
 
-Lo sfasamento di dati è uno dei motivi principali in cui accuratezza del modello comporta una riduzione nel tempo. Si verifica quando i dati forniti a un modello nell'ambiente di produzione sono diversi dai dati utilizzati per il training del modello. Il servizio di Azure Machine Learning consente di monitorare lo sfasamento di dati usando il rilevatore di sfasamento di dati. Se viene rilevato uno sfasamento, il servizio può inviare un avviso all'utente.  
+## <a name="what-is-data-drift"></a>Che cos'è lo sfasamento di dati?
+
+Lo sfasamento di dati, noto anche come sfasamento del concetto, è uno dei motivi principali in cui accuratezza del modello comporta una riduzione nel tempo. Si verifica quando i dati forniti a un modello nell'ambiente di produzione sono diversi dai dati utilizzati per il training del modello. Il servizio di Azure Machine Learning è possibile monitorare lo sfasamento di dati e, quando viene rilevato uno sfasamento, il servizio può inviare un messaggio di avviso all'utente.  
 
 > [!Note]
 > Questo servizio è in (anteprima) e limitate nelle opzioni di configurazione. Vedere la [documentazione dell'API](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) e [note sulla versione](azure-machine-learning-release-notes.md) per informazioni dettagliate e gli aggiornamenti. 
 
+## <a name="what-can-i-monitor"></a>Ciò che è possibile monitorare?
 Con il servizio di Azure Machine Learning, è possibile monitorare gli input per un modello distribuito nel servizio contenitore di AZURE e confrontare questi dati per il set di dati di training per il modello. A intervalli regolari, siano i dati di inferenza [snapshot e il profiling](how-to-explore-prepare-data.md), quindi calcolato rispetto ai set di dati della linea di base per produrre un'analisi di sfasamento di dati che: 
 
 + Calcola la grandezza di sfasamento di dati, denominato il coefficiente di deviazione.
@@ -60,7 +63,7 @@ Per informazioni dettagliate sul modo in cui vengono calcolate queste metriche, 
     print(model_name, image_name, service_name, model)
     ```
 
-- Configurare il [agente di raccolta dati del modello](how-to-enable-data-collection.md) raccogliere i dati dalla distribuzione del modello di servizio contenitore di AZURE e verificare che i dati vengono raccolti nel `modeldata` contenitore blob.
+- [Abilitare la raccolta di dati del modello](how-to-enable-data-collection.md) per raccogliere i dati dalla distribuzione del modello di servizio contenitore di AZURE e verificare che i dati vengono raccolti nel `modeldata` contenitore blob.
 
 ## <a name="import-dependencies"></a>Importare le dipendenze 
 Importare le dipendenze usate in questa guida:
@@ -85,11 +88,11 @@ datadrift = DataDriftDetector.create(ws, model.name, model.version, services, fr
 print('Details of Datadrift Object:\n{}'.format(datadrift))
 ```
 
-Per altre informazioni, vedere la [DataDrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) riferimento.
+Per altre informazioni, vedere il `[DataDrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py)` documentazione di riferimento per la classe.
 
 ## <a name="submit-a-datadriftdetector-run"></a>Invia un'esecuzione DataDriftDetector
 
-Con DataDriftDetector configurato, è possibile inviare un [sfasamento di dati eseguito](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) in una determinata data per il modello. 
+Con il `DataDriftDetector` oggetto configurato, è possibile inviare un [sfasamento di dati eseguito](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) in una determinata data per il modello. 
 
 ```python
 # adhoc run today
@@ -107,7 +110,7 @@ dd_run = Run(experiment=exp, run_id=run)
 RunDetails(dd_run).show()
 ```
 
-## <a name="get-data-drift-analysis-results"></a>Ottenere lo sfasamento di dati dei risultati dell'analisi
+## <a name="visualize-drift-metrics"></a>Visualizzare le metriche di deviazione
 
 Python di esempio seguente viene illustrato come tracciare le metriche di sfasamento di dati rilevanti. Per creare visualizzazioni personalizzate, è possibile usare le metriche restituite:
 
@@ -120,13 +123,13 @@ drift_metrics = datadrift.get_output(start_time=start, end_time=end)
 drift_figures = datadrift.show(with_details=True)
 ```
 
-![Mostra lo sfasamento di dati](media/how-to-monitor-data-drift/drift_show.png)
+![Vedere lo sfasamento di dati rilevato da Azure Machine Learning](media/how-to-monitor-data-drift/drift_show.png)
 
 Per informazioni dettagliate sulle metriche calcolate, vedere la [concetto di sfasamento di dati](concept-data-drift.md) articolo.
 
-## <a name="schedule-data-drift-detection"></a>Rilevamento di deviazione di pianificazione data 
+## <a name="schedule-data-drift-scans"></a>Lo sfasamento le analisi dei dati di pianificazione 
 
-Abilitazione di una pianificazione di sfasamento di dati esegue un DataDriftDetector eseguire in base alla frequenza specificata. Se il coefficiente lo sfasamento è superiore alla soglia specificata, viene inviato un messaggio di posta elettronica. 
+Quando si abilita il rilevamento di deviazione di dati, un DataDriftDetector viene eseguito in base alla frequenza specificata, pianificata. Se il coefficiente lo sfasamento è superiore alla soglia specificata, viene inviato un messaggio di posta elettronica. 
 
 ```python
 datadrift.enable_schedule()
@@ -143,9 +146,9 @@ Per visualizzare i risultati nell'interfaccia utente dell'area di lavoro di Mach
 
 ![Portale di Azure lo sfasamento di dati](media/how-to-monitor-data-drift/drift_ui.png)
 
-## <a name="setting-up-alerts"></a>Configurazione degli avvisi 
+## <a name="receiving-drift-alerts"></a>Ricevere avvisi di deviazione
 
-Impostando il coefficiente di deviazione della soglia di avviso e fornendo un indirizzo di posta elettronica, un' [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) avviso tramite posta elettronica viene inviato se il coefficiente lo sfasamento è superiore alla soglia. Tutte le metriche di sfasamento di dati vengono archiviate nella risorsa di app insights associata con l'area di lavoro del servizio Azure Machine Learning consente di configurare gli avvisi personalizzati o azioni. È possibile seguire il collegamento nell'avviso di posta elettronica alla query app insights.
+Impostando il coefficiente di deviazione della soglia di avviso e fornendo un indirizzo di posta elettronica, un' [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) avviso tramite posta elettronica viene inviato automaticamente ogni volta che il coefficiente lo sfasamento è superiore alla soglia. Perché è possibile configurare le azioni e gli avvisi personalizzati, tutte le metriche di sfasamento di dati vengono archiviate nella risorsa di Application Insights è stato creato con l'area di lavoro del servizio di Azure Machine Learning. È possibile seguire il collegamento nell'avviso di posta elettronica per la query di Application Insights.
 
 ![Avviso di posta elettronica di sfasamento di dati](media/how-to-monitor-data-drift/drift_email.png)
 

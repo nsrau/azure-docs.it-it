@@ -127,6 +127,14 @@
           href: sql-data-warehouse-overview-develop.md
         - name: Procedure consigliate
           href: sql-data-warehouse-best-practices-development.md
+        - name: Vista materializzata
+          items:
+            - name: CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)
+              href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
+            - name: ALTER MATERIALIZED VIEW AS SELECT (Transact-SQL)
+              href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+        - name: Memorizzazione nella cache dei set di risultati
+          href: /sql/t-sql/statements/set-result-set-caching-transact-sql
         - name: Tabelle
           items:
             - name: Panoramica

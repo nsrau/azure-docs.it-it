@@ -1,21 +1,24 @@
 ---
 title: Come configurare funzionalità multimaster in Azure Cosmos DB
 description: Informazioni su come configurare funzionalità multimaster nelle applicazioni in Azure Cosmos DB.
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
-ms.author: rimman
-ms.openlocfilehash: 1d9fa7380f62165d360888fd8cb03919f1736297
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 07/02/2019
+ms.author: mjbrown
+ms.openlocfilehash: 73b4ada713e264aaa2504fe4d4f504e07ae45181
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244755"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538081"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurare funzionalità multimaster nelle applicazioni che usano Azure Cosmos DB
 
-Per usare le funzionalità multimaster nelle applicazioni, è necessario abilitare le scritture in più aree e configurare la funzionalità di multihoming in Azure Cosmos DB. Per configurare il multihoming, impostare l'area in cui viene distribuita l'applicazione.
+Dopo aver creato un account con più aree di scrittura abilitate, è necessario apportare due modifiche a ConnectionPolicy nell'applicazione per far sì che DocumentClient abiliti le funzionalità multimaster e multihoming in Azure Cosmos DB. In ConnectionPolicy, impostare UseMultipleWriteLocations su true e passare il nome dell'area in cui viene distribuita l'applicazione su SetCurrentLocation. Questo popolerà la proprietà PreferredLocations in base alla prossimità geografica della posizione passata. Se viene aggiunta una nuova area all'account in un secondo momento, l'applicazione non deve essere aggiornata o ridistribuita, ma rileverà automaticamente l'area più vicina ed eseguirà l'homing automatico su di essa in caso di eventi a livello di area.
+
+> [!TIP]
+> Gli account Cosmos creati non configurati inizialmente per il multimaster possono essere migrati senza nessun tempo di inattività. Per altre informazioni, consultare [Configurare più aree di scrittura](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a id="netv2"></a>.NET SDK v2
 

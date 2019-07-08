@@ -78,6 +78,9 @@
         - name: Prevedere la varianza
           displayName: 'Basic Sample, training, classification, sample 5'
           href: ui-sample-classification-predict-churn.md
+        - name: Prevedere i ritardi dei voli
+          displayName: 'Basic Sample, training, classification, sample 6'
+          href: ui-sample-classification-predict-flight-delay.md
     - name: Set di dati Open di Azure
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concetti
