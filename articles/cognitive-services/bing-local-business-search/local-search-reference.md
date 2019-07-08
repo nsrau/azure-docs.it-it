@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 82b2f5ca70927856aeac889675b5ec4a54ae034f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rosh
+ms.openlocfilehash: e96b1959d9e03273a9ca4c549c0f8b0bda6a708b
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796754"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592799"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Informazioni di riferimento per l'API Bing Local Business Search v7
 
@@ -70,16 +70,16 @@ Di seguito sono riportate le intestazioni che una richiesta e una risposta posso
 La richiesta può includere i parametri di query seguenti. Vedere i parametri obbligatori nella colonna corrispondente. È necessario eseguire la codifica URL dei parametri della query.  
   
   
-|Name|Value|Type|Obbligatorio|  
+|NOME|Value|Type|Obbligatorio|  
 |----------|-----------|----------|--------------|
-|<a name="count" />count|Il numero di risultati da restituire, a partire dall'indice specificato da di `offset` parametro.|String|No|   
-|<a name="localCategories" />localCategories|Elenco di opzioni che definiscono una ricerca in base alla categoria di attività commerciale.  Vedere [Ricerca in base a categorie di attività commerciali](local-categories.md).|String|No|  
-|<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, consultare Market Codes (Codici di mercato).<br /><br /> **NOTA:** attualmente l'API per la ricerca di aziende locali supporta solo la lingua e il mercato en-us.<br /><br />|String|Yes|
+|<a name="count" />count|Il numero di risultati da restituire, a partire dall'indice specificato da di `offset` parametro.|string|No|   
+|<a name="localCategories" />localCategories|Elenco di opzioni che definiscono una ricerca in base alla categoria di attività commerciale.  Vedere [Ricerca in base a categorie di attività commerciali](local-categories.md).|string|No|  
+|<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, consultare Market Codes (Codici di mercato).<br /><br /> **NOTA:** attualmente l'API per la ricerca di aziende locali supporta solo la lingua e il mercato en-us.<br /><br />|string|Yes|
 |<a name="offset"/>offset|Indice per definire l'inizio dei risultati specificati dal parametro `count`.|Integer|No|  
 |<a name="query" />q|Termine di ricerca dell'utente.|String|No|  
 |<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />  Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](https://json-ld.org/).|String|No|  
-|<a name="safesearch" />safeSearch|Filtro usato per filtrare il contenuto per adulti. Di seguito sono riportati i possibili valori di filtro con distinzione tra maiuscole e minuscole.<br /><ul><li>Disattivata: vengono restituite le pagine Web con testo, immagini o video per adulti.<br /><br/></li><li>Moderata: vengono restituite le pagine Web con testo per adulti, ma non le immagini o i video per adulti.<br /><br/></li><li>Completa: non vengono restituite le pagine Web con testo, immagini o video per adulti.</li></ul><br /> Il valore predefinito è Moderate.<br /><br /> **NOTA:** se la richiesta proviene da un mercato in cui il criterio per adulti di Bing richiede che `safeSearch` sia impostata su Completa, Bing ignora il valore di `safeSearch` e usa Completa.<br/><br/>**NOTA:** se si usa l'operatore di query `site:`, esiste la possibilità che la risposta possa includere contenuti per adulti indipendentemente dall'impostazione del parametro di query `safeSearch`. Usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti. |String|No|  
-|<a name="setlang" />setLang|Lingua da usare per le stringhe dell'interfaccia utente. Specificare la lingua tramite il codice lingua a due lettere ISO 639-1. Ad esempio, il codice lingua per l'inglese è EN. L'impostazione predefinita è EN (inglese).<br /><br /> Sebbene sia facoltativo, è opportuno specificare sempre la lingua. In genere, si imposta `setLang` sulla stessa lingua specificata da `mkt`, a meno che non si intenda visualizzare le stringhe dell'interfaccia utente in un'altra lingua.<br /><br /> Questo parametro e l'intestazione [Accept-Language](#acceptlanguage) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti risposta si applicano anche alla lingua specificata.|String|No| 
+|<a name="safesearch" />safeSearch|Filtro usato per filtrare il contenuto per adulti. Di seguito sono riportati i possibili valori di filtro con distinzione tra maiuscole e minuscole.<br /><ul><li>Disattivata: vengono restituite le pagine Web con testo, immagini o video per adulti.<br /><br/></li><li>Moderata: vengono restituite le pagine Web con testo per adulti, ma non le immagini o i video per adulti.<br /><br/></li><li>Completa: non vengono restituite le pagine Web con testo, immagini o video per adulti.</li></ul><br /> Il valore predefinito è Moderate.<br /><br /> **NOTA:** se la richiesta proviene da un mercato in cui il criterio per adulti di Bing richiede che `safeSearch` sia impostata su Completa, Bing ignora il valore di `safeSearch` e usa Completa.<br/><br/>**NOTA:** se si usa l'operatore di query `site:`, esiste la possibilità che la risposta possa includere contenuti per adulti indipendentemente dall'impostazione del parametro di query `safeSearch`. Usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti. |string|No|  
+|<a name="setlang" />setLang|Lingua da usare per le stringhe dell'interfaccia utente. Specificare la lingua tramite il codice lingua a due lettere ISO 639-1. Ad esempio, il codice lingua per l'inglese è EN. L'impostazione predefinita è EN (inglese).<br /><br /> Sebbene sia facoltativo, è opportuno specificare sempre la lingua. In genere, si imposta `setLang` sulla stessa lingua specificata da `mkt`, a meno che non si intenda visualizzare le stringhe dell'interfaccia utente in un'altra lingua.<br /><br /> Questo parametro e l'intestazione [Accept-Language](#acceptlanguage) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti risposta si applicano anche alla lingua specificata.|string|No| 
 
 
 ## <a name="response-objects"></a>Oggetti della risposta  
@@ -96,18 +96,18 @@ Definisce l'errore che si è verificato.
   
 |Elemento|Descrizione|Type|  
 |-------------|-----------------|----------|  
-|<a name="error-code" />code|Codice di errore che identifica la categoria di errore. Per un elenco di codici possibili, vedere [Codici di errore ](#error-codes).|String|  
+|<a name="error-code" />code|Codice di errore che identifica la categoria di errore. Per un elenco di codici possibili, vedere [Codici di errore ](#error-codes).|string|  
 |<a name="error-message" />message|Descrizione dell'errore.|String|  
-|<a name="error-moredetails" />moreDetails|Descrizione che fornisce altre informazioni sull'errore.|String|  
+|<a name="error-moredetails" />moreDetails|Descrizione che fornisce altre informazioni sull'errore.|string|  
 |<a name="error-parameter" />parameter|Parametro di query nella richiesta che ha causato l'errore.|String|  
 |<a name="error-subcode" />subCode|Codice di errore che identifica l'errore. Se ad esempio `code` è InvalidRequest, `subCode` potrebbe essere ParameterInvalid o ParameterInvalidValue. |String|  
-|<a name="error-value" />value|Valore del parametro di query che non è valido.|String|  
+|<a name="error-value" />value|Valore del parametro di query che non è valido.|string|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
 Oggetto di livello superiore incluso nella risposta in caso di richiesta con esito negativo.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |_type|Hint per il tipo.|String|  
 |<a name="errors" />errors|Un elenco di errori che descrivono i motivi per cui la richiesta non ha avuto esito positivo.|[Error](#error)[]|  
@@ -117,20 +117,20 @@ Oggetto di livello superiore incluso nella risposta in caso di richiesta con esi
 ### <a name="license"></a>License  
 Definisce la licenza ai sensi della quale è possibile usare il testo o la foto.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
 |name|Il nome della licenza.|String|  
-|url|L'URL di un sito Web in cui l'utente può ottenere ulteriori informazioni sulla licenza.<br /><br /> Usare il nome e l'URL per creare un collegamento ipertestuale.|String|  
+|url|L'URL di un sito Web in cui l'utente può ottenere ulteriori informazioni sulla licenza.<br /><br /> Usare il nome e l'URL per creare un collegamento ipertestuale.|string|  
 
 
 ### <a name="link"></a>Collegamento  
 Definisce i componenti di un collegamento ipertestuale.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
-|_type|Hint per il tipo.|String|  
-|text|Testo visualizzato.|String|  
-|url|Uniform Resource Locator. Usare l'URL e il testo visualizzato per creare un collegamento ipertestuale.|String|  
+|_type|Hint per il tipo.|string|  
+|text|Testo visualizzato.|string|  
+|url|Uniform Resource Locator. Usare l'URL e il testo visualizzato per creare un collegamento ipertestuale.|string|  
   
 
 
@@ -140,24 +140,24 @@ Definisce un editore.
   
 Si noti che un editore può fornire il proprio nome e/o il sito Web.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
-|name|Nome dell'editore.|String|  
-|url|L'URL del sito Web dell'editore.<br /><br /> Si noti che l'editore potrebbe non fornire un sito Web.|String|  
+|name|Nome dell'editore.|string|  
+|url|L'URL del sito Web dell'editore.<br /><br /> Si noti che l'editore potrebbe non fornire un sito Web.|string|  
   
   
 
 ### <a name="place"></a>Sul posto  
 Definisce le informazioni su un'attività commerciale locale, ad esempio un ristorante o un hotel.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
-|_type|Hint per il tipo, che può essere impostato su uno dei valori seguenti:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Ristorante</ul><li>|String|  
+|_type|Hint per il tipo, che può essere impostato su uno dei valori seguenti:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Ristorante</ul><li>|string|  
 |Address|Indirizzo postale del luogo in cui si trova l'entità.|PostalAddress|  
 |entityPresentationInfo|Informazioni aggiuntive sull'entità, ad esempio gli hint che è possibile usare per determinare il tipo dell'entità. Ad esempio, se si tratta di un ristorante o di un hotel. Il campo `entityScenario` è impostato su ListItem.|EntityPresentationInfo|  
-|name|Nome dell'entità.|String|  
-|telephone|Numero di telefono dell'entità.|String|  
-|url|URL del sito Web dell'entità.<br /><br /> Usare questo URL insieme al nome dell'entità per creare un collegamento ipertestuale su cui l'utente può fare clic per visualizzare il sito Web dell'entità.|String|  
+|name|Nome dell'entità.|string|  
+|telephone|Numero di telefono dell'entità.|string|  
+|url|URL del sito Web dell'entità.<br /><br /> Usare questo URL insieme al nome dell'entità per creare un collegamento ipertestuale su cui l'utente può fare clic per visualizzare il sito Web dell'entità.|string|  
 |webSearchUrl|URL del risultato della ricerca di Bing per la specifica località.|String| 
   
   
@@ -167,21 +167,21 @@ Definisce il contesto di query usato da Bing per la richiesta.
 |Elemento|Descrizione|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Valore booleano che indica se la query specificata ha finalità per adulti. Il valore è **true** se la query ha finalità per adulti; in caso contrario, è **false** .|Boolean|  
-|alterationOverrideQuery|Stringa di query da usare per forzare l'utilizzo della stringa originale in Bing. Ad esempio, se la stringa di query è *saling downwind*, questa stringa di query sarà *+saling downwind*. Ricordarsi di codificare la stringa di query che risulta in *%2Bsaling+downwind*.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|String|  
-|alteredQuery|La stringa di query usata da Bing per eseguire la query. Bing usa la stringa di query modificata se la stringa di query originale conteneva errori di ortografia. Ad esempio, se la stringa di query è `saling downwind`, la stringa di query modificata sarà `sailing downwind`.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|String|  
+|alterationOverrideQuery|Stringa di query da usare per forzare l'utilizzo della stringa originale in Bing. Ad esempio, se la stringa di query è *saling downwind*, questa stringa di query sarà *+saling downwind*. Ricordarsi di codificare la stringa di query che risulta in *%2Bsaling+downwind*.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|string|  
+|alteredQuery|La stringa di query usata da Bing per eseguire la query. Bing usa la stringa di query modificata se la stringa di query originale conteneva errori di ortografia. Ad esempio, se la stringa di query è `saling downwind`, la stringa di query modificata sarà `sailing downwind`.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|string|  
 |askUserForLocation|Valore booleano che indica se Bing richiede la posizione dell'utente per fornire risultati accurati. Se è stata specificata la posizione dell'utente usando le intestazioni [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), è possibile ignorare questo campo.<br /><br /> Per le query in grado di riconoscere la posizione, ad esempio "meteo di oggi " o "ristoranti vicino a me" che richiedono la posizione dell'utente per fornire risultati accurati, questo campo è impostato su **true**.<br /><br /> Per le query in grado di riconoscere la posizione che includono la posizione, ad esempio "meteo di Seattle", questo campo è impostato su **false**. Questo campo viene impostato su **false** anche per le query che non riconoscono la posizione, ad esempio "best seller".|Boolean|  
-|originalQuery|La stringa di query come è stata specificata nella richiesta.|String|  
+|originalQuery|La stringa di query come è stata specificata nella richiesta.|string|  
 
 ### <a name="identifiable"></a>Identifiable
 
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |-------------|-----------------|----------|
 |id|Identificatore di risorsa|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definisce un gruppo di risultati di ricerca, ad esempio la riga principale.
 
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |-------------|-----------------|----------|
 |items|Elenco di risultati della ricerca da visualizzare nel gruppo.|RankingItem|
 
@@ -191,14 +191,14 @@ Definisce un elemento dei risultati della ricerca da visualizzare.
 |NOME|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Indice in base zero dell'elemento nella risposta da visualizzare. Se l'elemento non include questo campo, visualizzare tutti gli elementi nella risposta. Ad esempio, visualizzare tutti gli articoli sulle notizie nella risposta di Ricerca notizie.|Integer|
-|answerType|Risposta che contiene l'elemento da visualizzare, ad esempio, Ricerca notizie.<br /><br />Usare il tipo per trovare la risposta nell'oggetto SearchResponse. Il tipo è il nome di un campo SearchResponse.<br /><br /> Tuttavia, usare il tipo di risposta solo se questo oggetto include il campo del valore; in caso contrario, ignorarlo.|String|
+|answerType|Risposta che contiene l'elemento da visualizzare, ad esempio, Ricerca notizie.<br /><br />Usare il tipo per trovare la risposta nell'oggetto SearchResponse. Il tipo è il nome di un campo SearchResponse.<br /><br /> Tuttavia, usare il tipo di risposta solo se questo oggetto include il campo del valore; in caso contrario, ignorarlo.|string|
 |textualIndex|Indice della risposta in textualAnswers da visualizzare.| Unsigned Integer|
 |value|ID che identifica una risposta o un elemento di una risposta da visualizzare. Se l'ID identifica una risposta, visualizzare tutti gli elementi della risposta.|Identifiable|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Definisce il punto in cui il contenuto della pagina dei risultati della ricerca deve essere posizionato e in quale ordine.  
   
-|Name|Value|  
+|NOME|Value|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|I risultati della ricerca da visualizzare nella riga principale.|  
 |<a name="ranking-pole" />pole|I risultati della ricerca che devono ottenere il trattamento più visibile, ad esempio la visualizzazione sopra la riga principale e la barra laterale.|  
@@ -209,9 +209,9 @@ Definisce l'oggetto di livello superiore incluso nella risposta quando la richie
   
 Si noti che se il servizio sospetta un attacco Denial of Service, la richiesta avrà esito positivo (con codice di stato HTTP 200 OK), ma il corpo della risposta sarà vuoto.  
   
-|Name|Value|Type|  
+|NOME|Value|Type|  
 |----------|-----------|----------|  
-|_type|Hint per il tipo, che è impostato su SearchResponse.|String|  
+|_type|Hint per il tipo, che è impostato su SearchResponse.|string|  
 |places|Elenco di entità che sono rilevanti per la query di ricerca.|Oggetto JSON|  
 |queryContext|Oggetto che contiene la stringa di query usata da Bing per la richiesta.<br /><br /> Questo oggetto contiene la stringa di query così come specificata dall'utente. Può anche contenere una stringa di query modificata usata da Bing per la query se la stringa contiene un errore di ortografia.|[QueryContext](#querycontext)|  
 

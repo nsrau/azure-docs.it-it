@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: deborahc
 ms.author: dech
-ms.date: 05/20/2019
-ms.openlocfilehash: 9e7342ebcbcf536b26e6cf7fb89e3cf58666d24f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 06/21/2019
+ms.openlocfilehash: d7d9d62525161e6871cafd65cf5cd2c403cf0579
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953965"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331769"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usare l'emulatore Azure Cosmos per sviluppo e test locali
 
@@ -413,6 +413,57 @@ Per aprire Esplora dati, passare all'URL seguente nel browser. L'endpoint dell'e
 
     https://<emulator endpoint provided in response>/_explorer/index.html
 
+## Esecuzione su Mac o Linux<a id="mac"></a>
+
+Attualmente l'emulatore di Cosmos può essere eseguito solo su Windows. Gli utenti Mac o Linux possono eseguire l'emulatore in una macchina virtuale Windows ospitata in un hypervisor come Parallels o VirtualBox. Ecco la procedura per abilitarla:
+
+Nella VM di Windows eseguire il comando seguente e prendere nota dell'indirizzo IPv4.
+
+```cmd
+ipconfig.exe
+```
+
+All'interno dell'applicazione è necessario modificare l'URI dell'oggetto DocumentClient per usare l'indirizzo IPv4 restituito da `ipconfig.exe`. Il passaggio successivo consiste in una soluzione alternativa alla convalida dell'autorità di certificazione durante la costruzione dell'oggetto DocumentClient. Sarà necessario fornire un HttpClientHandler al costruttore DocumentClient, che ha una propria implementazione per ServerCertificateCustomValidationCallback.
+
+Il codice sarà simile al seguente.
+
+```csharp
+using System;
+using Microsoft.Azure.Documents;
+using Microsoft.Azure.Documents.Client;
+using System.Net.Http;
+
+namespace emulator
+{
+    class Program
+    {
+        static async void Main(string[] args)
+        {
+            string strEndpoint = "https://10.135.16.197:8081/";  //IPv4 address from ipconfig.exe
+            string strKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
+
+            //Work around the CA validation
+            var httpHandler = new HttpClientHandler()
+            {
+                ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+            };
+
+            //Pass http handler to document client
+            using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+            {
+                Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "myDatabase" });
+                Console.WriteLine($"Created Database: id - {database.Id} and selfLink - {database.SelfLink}");
+            }
+        }
+    }
+}
+```
+
+Infine, dall'interno della VM Windows, avviare l'emulatore Cosmos dalla riga di comando usando le opzioni seguenti.
+
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+```
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 

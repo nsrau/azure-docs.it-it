@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7464ea481d4c95856b78a83a875f2cd24c00705b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689704"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503328"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -77,11 +77,11 @@ Prima di iniziare un'installazione, vedere la documentazione e note SAP seguenti
 | Documentazione | 
 | --- |
 | [Community Wiki SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Include tutte le note su SAP necessarie per Linux |
-| [Pianificazione di macchine virtuali di Azure e implementazione per SAP in Linux] [ planning-guide] Guida |
-| [Distribuzione di macchine virtuali di Azure per SAP in Linux] [ deployment-guide] (questo articolo) |
-| [Macchine virtuali di Azure del database di distribuzione system(DBMS) management per SAP in Linux] [ dbms-guide] Guida |
+| [Pianificazione di macchine virtuali di Azure e implementazione per SAP in Linux][planning-guide] Guida |
+| [Distribuzione di macchine virtuali di Azure per SAP in Linux][deployment-guide] (questo articolo) |
+| [Distribuzione di gestione system(DBMS) per SAP in Linux di macchine virtuali di Azure database][dbms-guide] Guida |
 | [Carico di lavoro SAP in Azure elenco di controllo di pianificazione e distribuzione][azr-sap-plancheck] |
-| [Guide alle procedure consigliate per SUSE Linux Enterprise Server for SAP Applications 12 SP3][sles-for-sap-bp] |
+| [SUSE Linux Enterprise Server per SAP Applications 12 SP3 migliore guide sulle procedure consigliate][sles-for-sap-bp] |
 | [SUSE Linux Enterprise ad alta disponibilità estensione 12 SP3][sles-ha-guide] |
 | [Distribuzione di DBMS di macchine virtuali di Azure di IBM Db2 per carico di lavoro SAP][dbms-db2] |
 | [IBM Db2 HADR 11.1][db2-hadr-11.1] |
@@ -496,13 +496,12 @@ Se è stata eseguita l'installazione prima di creazione della configurazione HAD
 
 Utilizzare lo strumento di configurazione di J2EE per verificare o aggiornare l'URL di JDBC. Poiché lo strumento di configurazione di J2EE è uno strumento con interfaccia grafico, è necessario avere X server installata:
  
-1. Accedere al server dell'applicazione principale dell'istanza di J2EE ed eseguire:
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+1. Accedere al server dell'applicazione principale dell'istanza di J2EE ed eseguire:   `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. Nel riquadro di sinistra, scegliere **store sicurezza**.
-1. Nel riquadro di destra, scegliere il chiave jdbc/pool / \<SAPSID>/url.
+1. Nel riquadro di destra, scegliere il chiavejdbc/pool/\<SAPSID > / url.
 1. Modificare il nome host nell'URL di JDBC con il nome host virtuale.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
-1. Selezionare **aggiungere**.
+     `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
+1. Selezionare **Aggiungi**.
 1. Per salvare le modifiche, selezionare l'icona del disco nell'angolo superiore sinistro.
 1. Chiudere lo strumento di configurazione.
 1. Riavviare l'istanza di Java.

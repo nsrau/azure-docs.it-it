@@ -1,32 +1,32 @@
 ---
-title: Creare entità servizio e assegnazioni di ruolo con PowerShell nell'anteprima di Desktop virtuale Windows - Azure
-description: Come creare entità servizio e assegnare ruoli con PowerShell nell'anteprima di Desktop virtuale Windows.
+title: Creare entità servizio e assegnazioni di ruolo usando PowerShell nell'anteprima di Desktop virtuale Windows - Azure
+description: Come creare entità servizio e assegnare ruoli usando PowerShell nell'anteprima di Desktop virtuale Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 44c823653ecbad1c4dd1fd35b676c8a6d8bd1620
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523306"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206651"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Esercitazione: Creare entità servizio e assegnazioni di ruolo con PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Esercitazione: Creare entità servizio e assegnazioni di ruolo con PowerShell
 
 Le entità servizio sono identità che è possibile creare in Azure Active Directory per assegnare ruoli e autorizzazioni per uno scopo specifico. Nell'anteprima di Desktop virtuale Windows è possibile creare un'entità servizio per:
 
-- Automatizzare specifiche attività di gestione di Desktop virtuale Windows
-- Usarle come credenziali al posto degli utenti con autenticazione MFA obbligatoria quando si esegue qualsiasi modello di Azure Resource Manager in Desktop virtuale Windows
+- Automatizzare specifiche attività di gestione di Desktop virtuale Windows.
+- Usarle come credenziali al posto degli utenti con autenticazione MFA obbligatoria quando si esegue qualsiasi modello di Azure Resource Manager in Desktop virtuale Windows.
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un'entità servizio in Azure Active Directory
-> * Creare un'assegnazione di ruolo in Desktop virtuale Windows
-> * Accedere a Desktop virtuale Windows con l'entità servizio
+> * Creare un'entità servizio in Azure Active Directory.
+> * Creare un'assegnazione di ruolo in Desktop virtuale Windows.
+> * Accedere a Desktop virtuale Windows usando l'entità servizio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -72,7 +72,7 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincip
 
 ## <a name="sign-in-with-the-service-principal"></a>Accedere con l'entità servizio
 
-Dopo aver creato un'assegnazione di ruolo per l'entità servizio, è necessario verificare che l'entità servizio sia in grado di accedere a Desktop virtuale Windows eseguendo il cmdlet seguente:
+Dopo aver creato un'assegnazione di ruolo per l'entità servizio, verificare che l'entità servizio sia in grado di accedere a Desktop virtuale Windows eseguendo il cmdlet seguente:
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
@@ -83,7 +83,7 @@ Dopo aver eseguito l'accesso, testare alcuni cmdlet di PowerShell per Desktop vi
 
 ## <a name="view-your-credentials-in-powershell"></a>Visualizzare le credenziali in PowerShell
 
-Prima di terminare la sessione di PowerShell, è necessario visualizzare le credenziali e prenderne nota per riferimento futuro. La password è particolarmente importante perché non sarà possibile recuperarla dopo aver chiuso questa sessione di PowerShell.
+Prima di terminare la sessione di PowerShell, visualizzare le credenziali e prenderne nota per riferimento futuro. La password è particolarmente importante perché non sarà possibile recuperarla dopo aver chiuso questa sessione di PowerShell.
 
 Ecco le tre credenziali da annotare e i cmdlet che è necessario eseguire per recuperarle:
 

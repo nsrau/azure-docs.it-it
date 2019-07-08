@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/10/2019
+ms.date: 07/03/2019
 ms.author: aljo
-ms.openlocfilehash: 4d7fb257c932d84d8ddcb6c69e5286373f9b6adf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19f5d99fe95e1290cc30dedc8b8172e234bd4642
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067210"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566050"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "67067210"
 > 
 > 
 
-Per compilare ed eseguire [applicazioni di Azure Service Fabric][1] nel computer di sviluppo Windows, installare il runtime di Service Fabric, l'SDK e gli strumenti. È anche necessario [abilitare l'esecuzione di script Windows PowerShell](#enable-powershell-script-execution) inclusi nell'SDK.
+Per compilare ed eseguire [le applicazioni di Azure Service Fabric][1] nel computer di sviluppo Windows, installare il runtime, SDK e strumenti di Service Fabric. È anche necessario [abilitare l'esecuzione di script Windows PowerShell](#enable-powershell-script-execution) inclusi nell'SDK.
 
 ## <a name="prerequisites"></a>Prerequisiti
 ### <a name="supported-operating-system-versions"></a>Versioni del sistema operativo supportate
@@ -43,7 +43,7 @@ Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 
 > [!NOTE]
 > Supporto per Windows 7:
-> - Per impostazione predefinita, Windows 7 include solo Windows PowerShell 2.0. I cmdlet di PowerShell per Service Fabric richiedono PowerShell 3.0 o versione successiva. È possibile [scaricare Windows PowerShell 5.0][powershell5-download] dall'Area download Microsoft.
+> - Per impostazione predefinita, Windows 7 include solo Windows PowerShell 2.0. I cmdlet di PowerShell per Service Fabric richiedono PowerShell 3.0 o versione successiva. È possibile [download di Windows PowerShell 5.0][powershell5-download] dal Microsoft Download Center.
 > - Il proxy inverso di Service Fabric non è disponibile in Windows 7.
 >
 
@@ -62,16 +62,16 @@ Gli strumenti di Service Fabric fanno parte del carico di lavoro di sviluppo di 
 ### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Per usare Visual Studio 2015 (è necessario Visual Studio 2015 Update 2 o versioni successive)
 Per Visual Studio 2015, gli strumenti di Service Fabric vengono installati con l'SDKe il runtime usando Installazione guidata piattaforma Web:
 
-* [Installare Microsoft Azure Service Fabric SDK e gli strumenti][full-bundle-vs2015]
+* [Installare il Microsoft Azure Service Fabric SDK e strumenti][full-bundle-vs2015]
 
 ### <a name="sdk-installation-only"></a>Installazione solo dell'SDK
 Se è necessario solo l'SDK, è possibile installare questo pacchetto:
 * [Installare Microsoft Azure Service Fabric SDK][core-sdk]
 
 Le versioni correnti sono:
-* Service Fabric SDK e strumenti 3.4.639
-* Runtime di Service Fabric 6.5.639
-* Strumenti di Service Fabric per Visual Studio 2015 2.4.11116.1
+* Service Fabric SDK e strumenti 3.4.641
+* Service Fabric runtime 6.5.641
+* Service Fabric Tools Pro Visual Studio 2015 2.5.20615.1
 * Visual Studio 2017 15.9 include Strumenti di Service Fabric per Visual Studio 2.4.11024.1 
 
 Per un elenco delle versioni supportate, vedere [Service Fabric versions](service-fabric-versions.md) (Versioni di Service Fabric)
