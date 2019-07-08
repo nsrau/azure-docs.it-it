@@ -68,7 +68,7 @@ Impostare **authenticationType** su **Basic**, **Digest** o **Windows**. Oltre a
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| username | Nome utente da usare per accedere all'endpoint HTTP. | Sì |
+| userName | Nome utente da usare per accedere all'endpoint HTTP. | Sì |
 | password | Password per l'utente (**username**). | Sì |
 
 **Esempio: Uso dell'autenticazione Basic, Digest o Windows**
