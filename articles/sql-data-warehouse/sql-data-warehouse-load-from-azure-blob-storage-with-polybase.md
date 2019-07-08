@@ -12,7 +12,7 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: eb52169fc522ba323f82c42d9505571b18f49f1b
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244488"
@@ -89,7 +89,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2. Configurare il formato dei dati
-I dati vengono archiviati in file di testo nell'archiviazione BLOB di Azure e ogni campo è separato con un delimitatore. In SSMS, eseguire il comando seguente [CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT] comando per specificare il formato dei dati nei file di testo. I dati di Contoso sono delimitati da barre verticali e non sono compressi.
+I dati vengono archiviati in file di testo nell'archiviazione BLOB di Azure e ogni campo è separato con un delimitatore. In SSMS, eseguire il comando seguente [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] comando per specificare il formato dei dati nei file di testo. I dati di Contoso sono delimitati da barre verticali e non sono compressi.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -213,7 +213,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. Caricare i dati in nuove tabelle
-Per caricare dati dall'archiviazione blob di Azure in tabella di data warehouse, usare il [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] istruzione. Il caricamento con CTAS sfrutta le tabelle esterne fortemente tipizzate creato. Per caricare i dati in nuove tabelle, usare uno [CTAS] [ CTAS] istruzione per ogni tabella. 
+Per caricare dati dall'archiviazione blob di Azure in tabella di data warehouse, usare il [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] istruzione. Il caricamento con CTAS sfrutta le tabelle esterne fortemente tipizzate creato. Per caricare i dati in nuove tabelle, usare uno [CTAS][CTAS] istruzione per ogni tabella. 
  
 CTAS crea una nuova tabella e la popola con i risultati di un'istruzione SELECT. CTAS definisce la nuova tabella in modo che abbia le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT. Se si selezionano tutte le colonne da una tabella esterna, la nuova tabella sarà una replica delle colonne e dei tipi di dati della tabella esterna.
 
