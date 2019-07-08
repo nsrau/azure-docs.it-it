@@ -304,14 +304,14 @@ Verificare che il certificato sia installato nel computer\'archivio personale s.
 
         | Proprietà | Value |
         |---|---|
-        | `Source` | Qualsiasi |
-        | Intervalli di porte di origine | * |
-        | Destination | Qualsiasi |
-        | Intervallo di porte di destinazione | 636 |
-        | Protocol | Qualsiasi |
-        | Azione | CONSENTI |
-        | Priorità | <Desired Number> |
-        | NOME | Port_LDAP_636 |
+        | Source | Any |
+        | Source port ranges | * |
+        | Destination | Any |
+        | Destination port range | 636 |
+        | Protocol | Any |
+        | Action | Allow |
+        | Priority | \<Desired Number> |
+        | Name | Port_LDAP_636 |
 
     ![regola di sicurezza in ingresso](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
