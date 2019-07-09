@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 26f7f3ab60347d9ec5f2a144410ad3de436f5b5c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: acafc2c42c2946632496b646d001c58d6b48c2a6
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454895"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657718"
 ---
 # <a name="create-a-cognitive-services-account-using-the-azure-command-line-interfacecli"></a>Creare un account servizi cognitivi tramite il Interface(CLI) della riga di comando di Azure
 
@@ -39,11 +39,11 @@ az login
  
 ## <a name="create-a-new-azure-cognitive-services-resource-group"></a>Creare un nuovo gruppo di risorse di servizi cognitivi di Azure
 
-Le sottoscrizioni a servizi cognitivi sono rappresentate dalle risorse di Azure. Ogni account di servizi cognitivi (e la relativa risorsa di Azure associata) devono appartenere a un gruppo di risorse di Azure.
+Le sottoscrizioni a servizi cognitivi sono rappresentate dalle risorse di Azure. Ogni account di Servizi cognitivi (e la risorsa di Azure associata) deve appartenere a un gruppo di risorse di Azure.
 
 ### <a name="choose-your-resource-group-location"></a>Scegliere la località del gruppo di risorse
 
-Per creare una risorsa, è necessario uno dei percorsi di Azure disponibili per la sottoscrizione. È possibile recuperare un elenco delle località disponibili con il [percorsi con az account list-](/cli/azure/account#az_account_list) comando. La maggior parte dei servizi cognitivi sono accessibili da diverse posizioni. Scegliere quello più vicino all'utente o visualizzare le posizioni disponibili per il servizio.
+Per creare una risorsa, è necessario uno dei percorsi di Azure disponibili per la sottoscrizione. È possibile recuperare un elenco delle località disponibili con il [percorsi con az account list-](/cli/azure/account#az-account-list-locations) comando. La maggior parte dei servizi cognitivi sono accessibili da diverse posizioni. Scegliere quello più vicino all'utente o visualizzare le posizioni disponibili per il servizio.
 
 > [!IMPORTANT]
 > * Ricordare la località di Azure, perché sarà necessaria quando si chiamano i servizi cognitivi di Azure.
@@ -55,7 +55,7 @@ az account list-locations \
     --out table
 ```
 
-Dopo aver creato la località di azure, creare un nuovo gruppo di risorse nel comando di Azure usando il [creare il gruppo di az](/cli/azure/group#az_group_create) comando.
+Dopo aver creato la località di azure, creare un nuovo gruppo di risorse nel comando di Azure usando il [creare il gruppo di az](/cli/azure/group#az-group-create) comando.
 
 Nell'esempio seguente, sostituire la località di azure `westus2` con uno dei percorsi di Azure disponibili per la sottoscrizione.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 20e47b6d3243bb0cccbc42ab0ab904b72922e98b
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 428dba9e8ff5ec072d5172fee357fd5319d04ad8
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604789"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657740"
 ---
 # <a name="what-is-speech-translation"></a>Che cos'è la traduzione vocale?
 
@@ -55,10 +55,7 @@ Codice di esempio per Speech SDK è disponibile in GitHub. Questi esempi coprono
 
 ## <a name="migration-guides"></a>Guide alla migrazione
 
-> [!WARNING]
-> Traduzione vocale Microsoft Translator verrà ritirato il 15 ottobre 2019.
-
-Se le applicazioni, strumenti o prodotti utilizza traduzione vocale Microsoft Translator, abbiamo creato le guide per facilitare la migrazione ai servizi di riconoscimento vocale.
+Se le applicazioni, strumenti o prodotti Usa la [API traduzione vocale Microsoft Translator](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), abbiamo creato le guide per facilitare la migrazione ai servizi di riconoscimento vocale.
 
 * [Eseguire la migrazione dall'API traduzione vocale Microsoft Translator per i servizi di riconoscimento vocale](how-to-migrate-from-translator-speech-api.md)
 

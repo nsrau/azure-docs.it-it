@@ -19,9 +19,9 @@
           href: 4me-tutorial.md
         - name: 8x8 Virtual Office
           href: 8x8virtualoffice-tutorial.md
-    - name: A
+    - name: Una
       items:
-        - name: Abintegro
+        - name: abintegro
           href: abintegro-tutorial.md
         - name: Absorb LMS
           href: absorblms-tutorial.md
@@ -135,7 +135,7 @@
           href: autotaskworkplace-tutorial.md
         - name: AwardSpring
           href: awardspring-tutorial.md
-    - name: B
+    - name: b
       items:
         - name: BambooHR
           href: bamboo-hr-tutorial.md
@@ -297,7 +297,7 @@
           href: consent2go-tutorial.md
         - name: ContractWorks
           href: contractworks-tutorial.md
-        - name: Control
+        - name: Controllo
           href: control-tutorial.md
         - name: Convene
           href: convene-tutorial.md
@@ -305,7 +305,7 @@
           href: convercent-tutorial.md
         - name: Coralogix
           href: coralogix-tutorial.md
-        - name: Cornerstone OnDemand
+        - name: cornerstone ondemand
           href: cornerstone-ondemand-tutorial.md
         - name: CorpTax
           href: corptax-tutorial.md
@@ -335,7 +335,7 @@
           href: deskradar-tutorial.md
         - name: DigiCert
           href: digicert-tutorial.md
-        - name: Direct
+        - name: Diretto
           href: direct-tutorial.md
         - name: Directions on Microsoft
           href: directions-microsoft-tutorial.md
@@ -375,7 +375,7 @@
           href: edubrite-lms-tutorial.md
         - name: EFI Digital StoreFront
           href: efidigitalstorefront-tutorial.md
-        - name: Egnyte
+        - name: egnyte
           href: egnyte-tutorial.md
         - name: eKincare
           href: ekincare-tutorial.md
@@ -417,7 +417,7 @@
           href: expensify-tutorial.md
         - name: Explanation-Based Auditing System
           href: explanation-based-auditing-system-tutorial.md
-        - name: Expiration Reminder
+        - name: Promemoria di scadenza
           href: expiration-reminder-tutorial.md
     - name: F - G
       items:
@@ -497,7 +497,7 @@
           href: citrix-gotomeeting-tutorial.md
         - name: Gra-Pe
           href: grape-tutorial.md
-        - name: Greenhouse
+        - name: greenhouse
           href: greenhouse-tutorial.md
         - name: GreenOrbit
           href: greenorbit-tutorial.md
@@ -641,7 +641,7 @@
           href: jobbadmin-tutorial.md
         - name: JOBHUB
           href: jobhub-tutorial.md
-        - name: Jobscience
+        - name: jobscience
           href: jobscience-tutorial.md
         - name: JobScore
           href: jobscore-tutorial.md
@@ -725,7 +725,7 @@
           href: litmos-tutorial.md
         - name: LockPath Keylight
           href: keylight-tutorial.md
-        - name: LogicMonitor
+        - name: logicmonitor
           href: logicmonitor-tutorial.md
         - name: LoginRadius
           href: lr-tutorial.md
@@ -791,7 +791,7 @@
           href: moxiengage-tutorial.md
         - name: Moxtra
           href: moxtra-tutorial.md
-        - name: Mozy Enterprise
+        - name: mozy enterprise
           href: mozy-enterprise-tutorial.md
         - name: My Award Points Top Sub/Top Team
           href: myawardpoints-tutorial.md
@@ -899,7 +899,7 @@
           href: peakon-tutorial.md
         - name: Pega Systems
           href: pegasystems-tutorial.md
-        - name: People
+        - name: Persone
           href: people-tutorial.md
         - name: Peoplecart
           href: peoplecart-tutorial.md
@@ -1175,7 +1175,7 @@
           href: successfactors-tutorial.md
         - name: Sugar CRM
           href: sugarcrm-tutorial.md
-        - name: SumoLogic
+        - name: sumologic
           href: sumologic-tutorial.md
         - name: SumTotalCentral
           href: sumtotalcentral-tutorial.md
@@ -1225,7 +1225,7 @@
           href: thirdlight-tutorial.md
         - name: ThirdPartyTrust
           href: thirdpartytrust-tutorial.md
-        - name: Thoughtworks Mingle
+        - name: thoughtworks mingle
           href: thoughtworks-mingle-tutorial.md
         - name: ThousandEyes
           href: thousandeyes-tutorial.md
@@ -1418,7 +1418,7 @@
           href: comeet-recruiting-software-provisioning-tutorial.md
         - name: Concur
           href: concur-provisioning-tutorial.md
-        - name: Cornerstone OnDemand
+        - name: cornerstone ondemand
           href: cornerstone-ondemand-provisioning-tutorial.md
         - name: DocuSign
           href: docusign-provisioning-tutorial.md
@@ -1428,6 +1428,8 @@
           href: dynamic-signal-provisioning-tutorial.md
         - name: Dialpad
           href: dialpad-provisioning-tutorial.md
+        - name: Figma
+          href: figma-provisioning-tutorial.md
         - name: G Suite
           href: google-apps-provisioning-tutorial.md
         - name: GitHub
@@ -1454,6 +1456,8 @@
           href: netsuite-provisioning-tutorial.md
         - name: Pingboard
           href: pingboard-provisioning-tutorial.md
+        - name: Peakon
+          href: peakon-provisioning-tutorial.md
         - name: Salesforce
           href: salesforce-provisioning-tutorial.md
         - name: Salesforce Sandbox

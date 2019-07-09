@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: e1a6a44d7ff9d5786388fc47245ef5c79cb9be82
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 3be912f053bf206999546678e1e407548af181bf
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155731"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657688"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Abilitare la registrazione diagnostica per i servizi cognitivi di Azure
 
@@ -28,14 +28,14 @@ Per abilitare la registrazione diagnostica, è necessario una posizione in cui a
 * [Log Analitica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) -uno strumento di analitica e ricerca log flessibile che consente di analizzare i log non elaborati generati da una risorsa di Azure.
 
 > [!NOTE]
-> Sono disponibili opzioni di configurazione aggiuntive. Per altre informazioni, vedere [raccogliere e usare i dati di log dalle risorse di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+> Sono disponibili opzioni di configurazione aggiuntive. Per altre informazioni, vedere [raccogliere e usare i dati di log dalle risorse di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="enable-diagnostic-log-collection"></a>Abilitare la raccolta di log di diagnostica  
 
 Per iniziare, abilitare la registrazione nel portale di Azure diagnostica.
 
 > [!NOTE]
-> Per abilitare questa funzionalità usando PowerShell o l'interfaccia CLI di Azure, usare le istruzioni disponibili nel [raccogliere e usare i dati di log dalle risorse di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+> Per abilitare questa funzionalità usando PowerShell o l'interfaccia CLI di Azure, usare le istruzioni disponibili nel [raccogliere e usare i dati di log dalle risorse di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings).
 
 1. Passare al portale di Azure. Quindi, individuare e selezionare una risorsa di servizi cognitivi. Ad esempio, la sottoscrizione di ricerca Web Bing.   
 2. Successivamente, dal menu di navigazione a sinistra, individuare **Monitoring** e selezionare **le impostazioni di diagnostica**. Questa schermata contiene tutte le impostazioni di diagnostica create in precedenza per questa risorsa.
