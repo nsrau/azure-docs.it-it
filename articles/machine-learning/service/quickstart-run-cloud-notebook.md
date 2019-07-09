@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 68f24d4d019af873a0ca45792a3cbcc3dd3c3c3f
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015288"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476049"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Usare un server notebook basato sul cloud per iniziare a usare Azure Machine Learning
 
@@ -74,15 +74,20 @@ Dopo che la macchina virtuale è in esecuzione, usare la sezione **Macchine virt
 
 1. Nella pagina Web del notebook di Jupyter, il nomecartella nella parte superiore è il nome utente.  Selezionare questa cartella.
 
+    > [!TIP]
+    > Questa cartella si trova nel [contenitore di archiviazione](concept-workspace.md#resources) nell'area di lavoro anziché sulla macchina virtuale per notebook stessa.  È possibile eliminare la macchina virtuale per notebook e mantenere comunque tutto il lavoro.  Durante la creazione di una nuova macchina virtuale per notebook in un secondo momento,  questa caricherà la stessa cartella.
+
 1. Gli esempi nomecartella includono un numero di versione, ad esempio **esempi-1.0.33.1**.  Selezionare la cartella degli esempi.
 
-1. Selezionare l'**avvio rapido**del notebook.
+1. Selezionare la cartella **avvio rapido**.
 
 ## <a name="run-the-notebook"></a>Eseguire il notebook
 
 Eseguire un notebook che stima il pi greco e registra l'errore nell'area di lavoro.
 
 1. Selezionare **01.run experiment.ipynb** per aprire il notebook.
+
+1. Se si visualizza l'avviso "Kernel non trovato", selezionare il kernel **Python 3.6 - AzureML** (circa a metà dell'elenco) e impostare il kernel.
 
 1. Fare clic sulla prima cella del codice e selezionare **Run** (Esegui).
 
@@ -113,11 +118,11 @@ Eseguire un notebook che stima il pi greco e registra l'errore nell'area di lavo
 
 1. Fare cli sul **collegamento al portale di Azure** per visualizzare le informazioni sull'esecuzione nell'area di lavoro.  Questo collegamento apre l'area di lavoro nel portale di Azure.
 
-1. I tracciati dei valori registrati visualizzati sono stati creati automaticamente nell'area di lavoro. Ogni volta che si registrano più valori con lo stesso parametro name, viene generato automaticamente un tracciato.
+1. I tracciati dei valori registrati visualizzati sono stati creati automaticamente nell'area di lavoro. Ogni volta che si registrano più valori con lo stesso parametro name, viene generato automaticamente un tracciato. Di seguito è fornito un esempio:
 
    ![Visualizzare la cronologia](./media/quickstart-run-cloud-notebook/web-results.png)
 
-Poiché il codice per approssimare Pi usa valori casuali, i tracciati mostreranno valori diversi.  
+Poiché il codice per approssimare Pi usa valori casuali, i tracciati potrebbero essere diversi.  
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -152,7 +157,9 @@ In questa guida di avvio rapido sono state completate le attività seguenti:
 * Eseguire il notebook.
 * Visualizzare i valori di errore registrati nell'area di lavoro.  Questo esempio mostra come l'area di lavoro consente di tenere traccia delle informazioni generate in uno script. 
 
-Nella pagina Web di Jupyter Notebook, esplorare altri notebook nella cartella degli esempi per altre informazioni sul servizio Azure Machine Learning.
+Nella pagina Web di Jupyter Notebook, nella cartella **avvio rapido**, aprire ed eseguire il notebook **02.deploy-web-service.ipynb** per informazioni su come distribuire un servizio Web.
+
+Inoltre, nella pagina Web di Jupyter Notebook, è possibile esplorare altri notebook nella cartella degli esempi per altre informazioni sul servizio Azure Machine Learning.
 
 Per un'esperienza approfondita del flusso di lavoro, seguire le esercitazioni di Machine Learning riguardanti il training e la distribuzione di un modello:  
 

@@ -2,20 +2,20 @@
 title: Informazioni su Azure Active Directory - Azure Active Directory | Microsoft Docs
 description: Panoramica e informazioni concettuali su Azure Active Directory, come terminologia, licenze disponibili e un elenco di funzionalità associate con i collegamenti per altre informazioni.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.date: 05/08/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce8fad7f0dc76aad306e0f2a8e26692ec997952c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 8fafa7bd95801be46025727b2261fc95bc539988
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470351"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440539"
 ---
 # <a name="what-is-azure-active-directory"></a>Informazioni su Azure Active Directory
 
@@ -48,7 +48,7 @@ Per migliorare l'implementazione di Azure AD, è anche possibile aggiungere funz
 >
 >Le edizioni Azure Active Directory Premium P1 e Premium P2 e Azure Active Directory Basic non sono attualmente supportate in Cina. Per altre informazioni sui prezzi di Azure AD, visitare il [forum di Azure Active Directory](https://azure.microsoft.com/support/community/?product=active-directory).
 
-- **Azure Active Directory Free.** Offre funzionalità di gestione di utenti e gruppi, sincronizzazione di directory locali, report di base e accesso Single Sign-On in Azure, Office 365 e molte delle app SaaS più diffuse.
+- **Azure Active Directory Free.** Offre funzionalità di gestione di utenti e gruppi, sincronizzazione di directory locali, report di base, modifica self-service della password per utenti cloud e accesso Single Sign-On in Azure, Office 365 e molte delle app SaaS più diffuse.
 
 - **Azure Active Directory Basic.** Oltre alle funzionalità del livello Gratuito, il livello Basic offre anche l'accesso alle app incentrato sul cloud, la gestione dell'accesso basata sui gruppi, la reimpostazione della password self-service per app cloud e Azure AD Application Proxy, che consente di pubblicare app Web locali con Azure AD.
 
@@ -66,12 +66,14 @@ Per una migliore comprensione di Azure AD e della rispettiva documentazione, è 
 
 |Termine o concetto|DESCRIZIONE|
 |---------------|-----------|
+|Identità| Una cosa che può essere autenticata. Un'identità può essere un utente con un nome utente e password. Le identità includono anche le applicazioni o altri server che potrebbero richiedere l'autenticazione tramite certificati o chiavi private.|
+|Account| Un'identità che contiene dati associati. Non è possibile avere un account senza un'identità.|
+|Account Azure AD| Identità creata tramite Azure AD o un altro servizio cloud Microsoft, ad esempio Office 365. Le identità vengono archiviate in Azure AD e sono accessibili alle sottoscrizioni dei servizi cloud dell'organizzazione. Questo account viene a volte definito account aziendale o dell'istituto di istruzione.|
 |Sottoscrizione di Azure| Usata per pagare i servizi cloud di Azure. È possibile avere più sottoscrizioni, collegate a una carta di credito.|
 |Tenant di Azure| Istanza attendibile e dedicata di Azure AD che viene creata automaticamente quando l'organizzazione si registra a una sottoscrizione di un servizio cloud Microsoft, ad esempio Microsoft Azure, Microsoft Intune oppure Office 365. Un tenant di Azure rappresenta una singola organizzazione.|
 |Tenant singolo| I tenant di Azure che accedono ad altri servizi in un ambiente dedicato vengono considerati tenant singoli.|
 |Multi-tenant| I tenant di Azure che accedono ad altri servizi in un ambiente condiviso in più organizzazioni sono considerati multi-tenant.|
 |Directory di Azure AD|Ogni tenant di Azure ha una directory di Azure AD dedicata e attendibile. La directory di Azure AD include gli utenti, i gruppi e le app del tenant e viene usata per eseguire funzioni di gestione delle identità e dell'accesso per le risorse del tenant.|
-|Account Azure AD | Identità creata tramite Azure AD o un altro servizio cloud Microsoft, ad esempio Office 365. Le identità vengono archiviate in Azure AD e sono accessibili alle sottoscrizioni dei servizi cloud dell'organizzazione. Questo account viene a volte definito account aziendale o dell'istituto di istruzione.|
 |Dominio personalizzato|Ogni nuova directory di Azure AD include un dominio iniziale, domainname.onmicrosoft.com. Oltre a tale dominio iniziale, è possibile aggiungere all'elenco i nomi di dominio dell'organizzazione, che includono i nomi usati per le attività aziendali e i nomi usati dagli utenti per accedere alle risorse dell'organizzazione. L'aggiunta di nomi di dominio personalizzati consente di creare nomi familiari per gli utenti, ad esempio alain@contoso.com.|
 |Amministratore dell'account|Il ruolo Amministratore della sottoscrizione classica corrisponde concettualmente al proprietario di fatturazione di una sottoscrizione. Questo ruolo può accedere al [Centro account di Azure](https://account.azure.com/Subscriptions) e consente di gestire tutte le sottoscrizioni di un account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Amministratore del servizio|Il ruolo Amministratore della sottoscrizione classica consente di gestire tutte le risorse di Azure, incluso l'accesso. Questo ruolo ha un accesso equivalente a quello di un utente cui viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|

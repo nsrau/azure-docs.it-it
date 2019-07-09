@@ -2,18 +2,18 @@
 title: "Esercitazione: Analizzare gli eventi dell'installazione di Gemelli digitali di Azure | Microsoft Docs"
 description: Informazioni su come visualizzare e analizzare gli eventi dagli spazi di Gemelli digitali di Azure con Azure Time Series Insights seguendo i passaggi descritti in questa esercitazione.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
-ms.author: dkshir
-ms.openlocfilehash: 0c441974b40f35bcc39aec05e5ffe66b68e46c10
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: alinast
+ms.openlocfilehash: 3f6111457d3438b80ace8cd557747ab8c799efd3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542268"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484744"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Esercitazione: Visualizzare e analizzare gli eventi dagli spazi di Gemelli digitali di Azure usando Time Series Insights
 
@@ -48,11 +48,11 @@ Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una
 
 1. Nel riquadro a sinistra selezionare **Crea risorsa**.
 
-1. Cercare e selezionare **Hub eventi**. Selezionare **Create**.
+1. Cercare e selezionare **Hub eventi**. Selezionare **Create** (Crea).
 
-1. In **Nome** immettere un nome per lo spazio dei nomi di Hub eventi. Scegliere **Standard** per **Piano tariffario** e indicare **Sottoscrizione**, **Gruppo di risorse** usato per l'istanza di Gemelli digitali e **Località**. Selezionare **Create**.
+1. In **Nome** immettere un nome per lo spazio dei nomi di Hub eventi. Scegliere **Standard** per **Piano tariffario** e indicare **Sottoscrizione**, **Gruppo di risorse** usato per l'istanza di Gemelli digitali e **Località**. Selezionare **Create** (Crea).
 
-1. Nella distribuzione dello spazio dei nomi di Hub eventi, selezionare lo spazio dei nomi in **RISORSA**.
+1. Nella distribuzione dello spazio dei nomi di Hub eventi, selezionare il riquadro **Panoramica**, quindi selezionare **Vai alla risorsa**.
 
     ![Spazio dei nomi di Hub eventi dopo la distribuzione](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
@@ -63,7 +63,7 @@ Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una
 
    Una volta completata la distribuzione, l'hub eventi sarà presente nel riquadro **Hub eventi** dello spazio dei nomi di Hub eventi con lo stato **Attivo**. Selezionare l'hub eventi per aprire il relativo riquadro **Panoramica**.
 
-1. Selezionare il pulsante **Gruppo di consumer** nella parte superiore e immettere un nome, ad esempio **tsievents** per il gruppo di consumer. Selezionare **Create**.
+1. Selezionare il pulsante **Gruppo di consumer** nella parte superiore e immettere un nome, ad esempio **tsievents** per il gruppo di consumer. Selezionare **Create** (Crea).
 
     ![Gruppo di consumer dell'hub eventi](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
 
@@ -130,19 +130,21 @@ Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una
 
 1. Nel riquadro sinistro del [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa**. 
 
-1. Cercare una nuova risorsa **Time Series Insights** e selezionarla. Selezionare **Create**.
+1. Cercare una nuova risorsa **Time Series Insights** e selezionarla. Selezionare **Create** (Crea).
 
-1. In **Nome** immettere un nome per l'istanza di Time Series Insights e quindi selezionare un'opzione in **Sottoscrizione**. In **Gruppo di risorse** selezionare il gruppo di risorse usato per l'istanza di Gemelli digitali e quindi selezionare un'opzione in **Località**. Selezionare **Create**.
+1. In **Nome** immettere un nome per l'istanza di Time Series Insights e quindi selezionare un'opzione in **Sottoscrizione**. In **Gruppo di risorse** selezionare il gruppo di risorse usato per l'istanza di Gemelli digitali e quindi selezionare un'opzione in **Località**. Selezionare **Avanti: Origine evento** o la scheda **Origine evento**.
 
     ![Selezioni per la creazione di un'istanza Time Series Insights](./media/tutorial-facilities-analyze/create-tsi.png)
 
-1. Dopo la distribuzione dell'istanza, aprire l'ambiente Time Series Insights e quindi aprire il relativo riquadro **Origini eventi**. Selezionare il pulsante **Aggiungi** nella parte superiore per aggiungere un gruppo di consumer.
-
-1. Nel riquadro **Nuova origine evento** immettere un valore in **Nome** e assicurarsi che gli altri valori siano selezionati correttamente. Selezionare **ManageSend** per **Nome criteri hub eventi** e quindi selezionare il gruppo di consumer creato nella sezione precedente per **Gruppo di consumer dell'hub eventi**. Selezionare **Create**.
+1. Nella scheda **Origine evento** immettere un **Nome**, selezionare **Hub eventi** come il **Tipo di origine** e assicurarsi che gli altri valori siano selezionati in modo corretto. Selezionare **ManageSend** per **Nome criterio di accesso Hub eventi** e quindi selezionare il gruppo di consumer creato nella sezione precedente per **Gruppo di consumer dell'Hub eventi**. Selezionare **Rivedi e crea**.
 
     ![Selezioni per la creazione di un'origine evento](./media/tutorial-facilities-analyze/tsi-event-source.png)
 
-1. Aprire il riquadro **Panoramica** per l'ambiente Time Series Insights e selezionare il pulsante **Vai all'ambiente** nella parte superiore. Se viene visualizzato un avviso di accesso ai dati, aprire il riquadro **Criteri di accesso ai dati** per l'istanza di Time Series Insights, selezionare **Aggiungi**, selezionare **Collaboratore** come ruolo e selezionare l'utente appropriato.
+1. Nel riquadro **Rivedi e crea** riquadro, esaminare le informazioni immesse e selezionare **Crea**.
+
+1. Nel riquadro di distribuzione, selezionare la risorsa Time Series Insights appena creata. Si aprirà il riquadro **Panoramica** per l'ambiente Time Series Insights.
+
+1. Selezionare il pulsante **Vai all'ambiente** nella parte superiore. Se viene visualizzato un avviso di accesso ai dati, aprire il riquadro **Criteri di accesso ai dati** per l'istanza di Time Series Insights, selezionare **Aggiungi**, selezionare **Collaboratore** come ruolo e selezionare l'utente appropriato.
 
 1. Il pulsante **Vai all'ambiente** consente di visualizzare lo [strumento di esplorazione di Time Series Insights](../time-series-insights/time-series-insights-explorer.md). Se non viene visualizzato alcun evento, simulare eventi dei dispositivi passando al progetto **device-connectivity** dell'esempio di Gemelli digitali ed eseguendo `dotnet run`.
 

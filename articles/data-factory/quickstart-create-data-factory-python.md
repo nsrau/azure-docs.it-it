@@ -13,16 +13,16 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 264a1200ce78d85181650de716f9898033834bc0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 70a862f51f9e15b8eb26e2ac12b046b76b9a7402
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549834"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514324"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Avvio rapido: Creare una data factory e una pipeline con Python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Guida introduttiva: Creare una data factory e una pipeline con Python
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versione corrente](quickstart-create-data-factory-python.md)
 
@@ -41,7 +41,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 1. Avviare il Blocco note. Copiare il testo seguente e salvarlo come file **input.txt** sul disco.
 
-    ```
+    ```text
     John|Doe
     Jane|Doe
     ```
@@ -52,12 +52,12 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 1. Aprire un terminale o un prompt dei comandi con privilegi di amministratore. 
 2. Per prima cosa, installare il pacchetto Python per le risorse di gestione di Azure:
 
-    ```
+    ```python
     pip install azure-mgmt-resource
     ```
 3. Per installare il pacchetto Python per Data Factory, eseguire questo comando:
 
-    ```
+    ```python
     pip install azure-mgmt-datafactory
     ```
 
@@ -374,7 +374,7 @@ def main():
         }
     )
 
-    # Monitor the pipeilne run
+    # Monitor the pipeline run
     time.sleep(30)
     pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
     print("\n\tPipeline run status: {}".format(pipeline_run.status))
