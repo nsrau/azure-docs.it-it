@@ -178,7 +178,7 @@ In questa sezione vengono illustrate le diverse modalità d'uso delle azioni scr
     | Selezionare uno script | Per usare uno script personalizzato, selezionare __Personalizzato__. In caso contrario, selezionare uno degli script disponibili. |
     | Nome |Specificare un nome per l'azione script. |
     | URI script Bash |Specificare l'URI dello script. |
-    | Head/Worker/Zookeeper |Specificare i nodi in cui viene eseguito lo script: **Head**, **Lavoro** o **ZooKeeper**. |
+    | Head/Worker/ZooKeeper |Specificare i nodi in cui viene eseguito lo script: **Head**, **Worker** o **ZooKeeper**. |
     | Parametri |Specificare i parametri, se richiesti dallo script. |
 
     Usare la voce __Salvare questa azione script in modo permanente__ per assicurarsi che lo script venga applicato durante le operazioni di ridimensionamento.
