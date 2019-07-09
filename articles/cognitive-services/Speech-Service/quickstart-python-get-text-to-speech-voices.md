@@ -1,7 +1,7 @@
 ---
-title: 'Avvio rapido: Elenco voci sintesi vocale, Python - servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Elencare le voci per la sintesi vocale, Python - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
-description: In questa Guida introduttiva si apprenderà come ottenere l'elenco completo delle voci neurale e standard per un'area/endpoint usando Python. Viene restituito l'elenco in formato JSON e disponibilità vocale varia in base all'area.
+description: In questa guida di avvio rapido si apprenderà come ottenere l'elenco completo delle voci standard e neurali per un'area/endpoint usando Python. L'elenco viene restituito in formato JSON e la disponibilità delle voci varia in base all'area.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 5d43060ee5303c1df3a1b8448f086ecc32a1f8c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 6e28665dfcdaec55ba4f1fa671e9439a9cf4aa7d
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056867"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338640"
 ---
-# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Avvio rapido: Ottiene l'elenco di voci di sintesi vocale con Python
+# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Guida introduttiva: Ottenere l'elenco delle voci per la sintesi vocale usando Python
 
-In questa Guida introduttiva si apprenderà come ottenere l'elenco completo delle voci neurale e standard per un'area/endpoint usando Python. Viene restituito l'elenco in formato JSON e disponibilità vocale varia in base all'area. Per un elenco delle aree supportate, vedere [aree](regions.md).
+In questa guida di avvio rapido si apprenderà come ottenere l'elenco completo delle voci standard e neurali per un'area/endpoint usando Python. L'elenco viene restituito in formato JSON e la disponibilità delle voci varia in base all'area. Per un elenco delle aree supportate, vedere [Aree](regions.md).
 
-Questa Guida introduttiva richiede un [account di servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa di servizi di riconoscimento vocale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](get-started.md) per ottenere una chiave di sottoscrizione.
+Per questo avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa dei servizi Voce. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](get-started.md) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +29,7 @@ Questa guida introduttiva richiede:
 
 * Python 2.7.x o 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o l'editor di testo preferito
-* Una chiave di sottoscrizione di Azure per i servizi di riconoscimento vocale
+* Una chiave di sottoscrizione di Azure per i servizi Voce
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
@@ -42,11 +42,11 @@ import requests
 > [!NOTE]
 > Se non si è mai usato questi moduli, sarà necessario installarli prima di eseguire il programma. Per installare questi pacchetti, eseguire: `pip install requests`.
 
-Le richieste viene usata per le richieste HTTP al servizio di sintesi vocale.
+Richieste è usato per le richieste HTTP al servizio di sintesi vocale.
 
 ## <a name="set-the-subscription-key-and-create-a-prompt-for-tts"></a>Impostare la chiave di sottoscrizione e creare un prompt per la sintesi vocale
 
-Nelle sezioni successive si creeranno i metodi per gestire l'autorizzazione, chiamare l'API Sintesi vocale e convalidare la risposta. Iniziamo creando una classe. In questa classe si inseriranno i metodi per lo scambio di token e la chiamata all'API Sintesi vocale.
+Nelle sezioni successive si creeranno i metodi per gestire l'autorizzazione, chiamare l'API Sintesi vocale e convalidare la risposta. Si potrà quindi iniziare con la creazione di una classe. In questa classe si inseriranno i metodi per lo scambio di token e la chiamata all'API Sintesi vocale.
 
 ```python
 class GetVoices(object):
@@ -59,9 +59,9 @@ class GetVoices(object):
 
 ## <a name="get-an-access-token"></a>Ottenere un token di accesso
 
-Questo endpoint richiede un token di accesso per l'autenticazione. Per ottenere un token di accesso, è necessario uno scambio. In questo esempio la chiave di sottoscrizione di servizi di riconoscimento vocale per un token di accesso tramite lo scambio di `issueToken` endpoint.
+Questo endpoint necessita di un token di accesso per l'autenticazione. Per ottenere un token di accesso, è necessario uno scambio. In questo esempio viene scambiata la chiave di sottoscrizione dei servizi Voce con un token di accesso usando l'endpoint `issueToken`.
 
-In questo esempio si presuppone che la sottoscrizione di servizi di riconoscimento vocale è nell'area Stati Uniti occidentali. Se si usa un'area diversa, aggiornare il valore per `fetch_token_url`. Per un elenco completo, vedere [Aree](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+L'esempio presuppone che la sottoscrizione dei servizi Voce sia nell'area Stati Uniti occidentali. Se si usa un'area diversa, aggiornare il valore per `fetch_token_url`. Per un elenco completo, vedere [Aree](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copiare questo codice nella classe `GetVoices`:
 
@@ -80,9 +80,9 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Eseguire una richiesta e salvare la risposta
 
-In questo caso si intende la richiesta di compilazione e salvare l'elenco di voci restituite. In primo luogo, è necessario impostare `base_url` e `path`. Questo esempio presuppone che si usi l'endpoint Stati Uniti occidentali. Se la risorsa è registrata in un'area diversa, assicurarsi di aggiornare il valore di `base_url`. Per altre informazioni, vedere [aree di servizi di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+In questa sezione si creerà la richiesta e si salverà l'elenco delle voci restituite. In primo luogo, è necessario impostare `base_url` e `path`. Questo esempio presuppone che si usi l'endpoint Stati Uniti occidentali. Se la risorsa è registrata in un'area diversa, assicurarsi di aggiornare il valore di `base_url`. Per altre informazioni, vedere [Aree dei servizi Voce](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Successivamente, aggiungere le intestazioni obbligatorie per la richiesta. Si creerà infine una richiesta da inviare al servizio. Se la richiesta ha esito positivo e viene restituito un codice di 200 stato, la risposta viene scritto in un file.
+Successivamente, aggiungere le intestazioni obbligatorie per la richiesta. Si creerà infine una richiesta da inviare al servizio. Se la richiesta ha esito positivo e viene restituito il codice di stato 200, la risposta viene scritta su file.
 
 Copiare questo codice nella classe `GetVoices`:
 
@@ -98,7 +98,8 @@ def get_voices(self):
     if response.status_code == 200:
         with open('voices.json', 'wb') as voices:
             voices.write(response.content)
-            print("\nStatus code: " + str(response.status_code) + "\nvoices.json is ready to view.\n")
+            print("\nStatus code: " + str(response.status_code) +
+                  "\nvoices.json is ready to view.\n")
     else:
         print("\nStatus code: " + str(
             response.status_code) + "\nSomething went wrong. Check your subscription key and headers.\n")
@@ -118,7 +119,7 @@ if __name__ == "__main__":
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio
 
-Questo punto, si è pronti per eseguire l'esempio. Dalla riga di comando, o dalla sessione di terminale, passare alla directory del progetto ed eseguire:
+A questo punto è possibile eseguire l'esempio. Dalla riga di comando, o dalla sessione di terminale, passare alla directory del progetto ed eseguire:
 
 ```console
 python get-voices.py

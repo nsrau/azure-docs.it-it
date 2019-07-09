@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: 7d52585b51af09c430130141c3680b5630f7b95e
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a4f1f75c85c99610ee75eb9fda51114b52bbfac3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417279"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304008"
 ---
 # <a name="what-is-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
@@ -85,11 +85,22 @@ Tutti gli endpoint dell'API Analisi del testo accettano dati di testo non elabor
 
 | Limite | Valore |
 |------------------------|---------------|
-| Dimensioni massime di un singolo documento | 5.120 caratteri misurati da [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Dimensioni massime di un singolo documento | 5\.120 caratteri misurati da [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Dimensioni massime dell'intera richiesta | 1 MB |
-| Numero massimo di documenti in una richiesta | 1.000 documenti |
+| Numero massimo di documenti in una richiesta | 1\.000 documenti |
 
-Il limite di velocità è 100 richieste al seconda e 1000 richieste al minuto. È possibile inviare una grande quantità di documenti in una singola chiamata (fino a 1000 documenti).
+Il limite di frequenza varia con il piano tariffario.
+
+| Livello          | Richieste al secondo | Richieste al minuto |
+|---------------|---------------------|---------------------|
+| Multi-servizio | 1000                | 1000                |
+| S0/F0         | 100                 | 300                 |
+| S1            | 200                 | 300                 |
+| S2            | 300                 | 300                 |
+| S3            | 500                 | 500                 |
+| S4            | 1000                | 1000                |
+
+Le richieste vengono misurate separatamente per ogni funzionalità di Analisi del testo. Ad esempio, è possibile inviare il numero massimo di richieste per il piano tariffario per ogni funzionalità, nello stesso momento.      
 
 ## <a name="unicode-encoding"></a>Codifica Unicode
 

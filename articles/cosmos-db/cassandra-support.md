@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 46eea21e1eafce1696ed1cf77a1f334798f0bc17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a6fc9f1a5c32fc9ffa1e1e6ebe525b72030fe803
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848409"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155661"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB 
 
@@ -58,7 +58,7 @@ API Cassandra di Azure Cosmos DB supporta i tipi di dati CQL seguenti:
 * smallint  
 * text  
 * time  
-*  timestamp  
+* timestamp  
 * timeuuid  
 * tinyint  
 * tupla  
@@ -74,6 +74,8 @@ API Cassandra di Azure Cosmos DB supporta i tipi di dati CQL seguenti:
 API Cassandra di Azure Cosmos DB supporta i tipi di funzioni CQL seguenti:
 
 * token  
+* Funzioni di aggregazione
+  * min, max, media, conteggio
 * Funzioni di conversione BLOB 
   * typeAsBlob(value)  
   * blobAsType(value)
@@ -88,7 +90,8 @@ API Cassandra di Azure Cosmos DB supporta i tipi di funzioni CQL seguenti:
   * toDate(timestamp)  
   * to UnixTimestamp(timestamp)  
   * toTimestamp(date)  
-  * toUnixTimestamp(date)  
+  * toUnixTimestamp(date) 
+  
 
 
 ## <a name="cassandra-query-language-limits"></a>Limiti di Cassandra Query Language
@@ -154,11 +157,11 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>Mapping coerente 
 
-API Cassandra di Azure Cosmos DB consente di scegliere la coerenza per le operazioni di lettura. Tutte le operazioni di scrittura, indipendentemente dalla coerenza dell'account, sono sempre scritte con contratti di servizio di prestazione di scrittura.
+API Cassandra di Azure Cosmos DB consente di scegliere la coerenza per le operazioni di lettura.  Il mapping di coerenza è descritto in maniera dettagliata [qui [(https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
 
 ## <a name="permission-and-role-management"></a>Gestione di ruoli e privilegi
 
-Azure Cosmos DB supporta il controllo degli accessi in base al ruolo e chiavi/password di lettura/scrittura e sola lettura ottenibili tramite il [portale di Azure](https://portal.azure.com). Azure Cosmos DB non supporta ancora utenti e ruoli per attività di piano dati. 
+Azure Cosmos DB supporta il controllo degli accessi in base al ruolo per il provisioning, la rotazione delle chiavi, la visualizzazione delle metriche e le chiavi/password di lettura/scrittura e sola lettura ottenibili tramite il [portale di Azure](https://portal.azure.com). Azure Cosmos DB non supporta ancora utenti e ruoli per attività CRUD. 
 
 ## <a name="planned-support"></a>Supporto pianificato 
 * Il nome dell'area nel comando Crea keyspace viene attualmente ignorato. La distribuzione dei dati viene implementata nella piattaforma Cosmos DB sottostante ed esposta tramite il portale o PowerShell per l'account. 

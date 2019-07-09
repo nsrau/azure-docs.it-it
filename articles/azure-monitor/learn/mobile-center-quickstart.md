@@ -5,18 +5,18 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/22/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 67ddedbaca88d46e706c9a143100b215a0d16a90
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b8ce08c662e1615b62160e0c681a2fe8dbcb2be1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683437"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447031"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Avviare l'analisi dell'app per dispositivi mobili con App Center e Application Insights
 
@@ -68,17 +68,17 @@ Per assicurarsi che gli eventi personalizzati vengano ricevuti, passare alla sch
 Quando l'app invia eventi personalizzati e questi vengono ricevuti da App Center, è necessario creare una risorsa di Application Insights di tipo App Center nel portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Selezionare **Crea una risorsa** > **Strumenti di gestione** > **Application Insights**.
+2. Selezionare **Crea una risorsa** > **Strumenti di sviluppo** > **Application Insights**.
 
-    ![Aggiunta di una risorsa di Application Insights](./media/mobile-center-quickstart/add-b.png)
+    > [!NOTE]
+    > Se è la prima volta che si crea una risorsa di Application Insights, consultare il documento [Create an Application Insights Resource (Creare una risorsa di Application Insights)](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) per ulteriori informazioni.
 
     Verrà visualizzata una finestra di configurazione. Usare la tabella seguente per completare i campi di input.
 
     | Impostazioni        |  Valore           | DESCRIZIONE  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Un valore univoco a livello globale, ad esempio "myApp-iOS" | Nome che identifica l'app da monitorare |
-   | **Tipo di applicazione** | Applicazione App Center | Tipo di app da monitorare |
-   | **Gruppo di risorse**     | Un nuovo gruppo di risorse o un gruppo esistente del menu | Il gruppo di risorse in cui creare la nuova risorsa di Application Insights |
+     | **Gruppo di risorse**     | Un nuovo gruppo di risorse o un gruppo esistente del menu | Il gruppo di risorse in cui creare la nuova risorsa di Application Insights |
    | **Posizione** | Un percorso del menu | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
 
 3. Fare clic su **Create**(Crea).
@@ -89,9 +89,7 @@ Se l'app supporta più piattaforme, iOS, Android e così via, è consigliabile c
 
 Nella pagina **Panoramica** della nuova risorsa di Application Insights. Copiare la chiave di strumentazione dalla risorsa.
 
-   ![Pulsante Analytics in Application Insights](./media/mobile-center-quickstart/overview-01.png)
-
-Nell'istanza di App Center per l'app:
+Nell'istanza di [App Center](https://appcenter.ms/) per l'app:
 
 1. Nella pagina **Impostazioni** fare clic su **Esporta**.
 2. Scegliere **Nuova esportazione**, selezionare **Application Insights**, quindi fare clic su **Personalizza**.
@@ -108,13 +106,11 @@ Per consentire all'utente di avere un numero maggiore di dati durante la prima c
 
 Application Insights può eseguire query, segmentare, filtrare e analizzare i dati di telemetria relativi agli eventi personalizzati delle app, oltre agli strumenti di analisi offerti da App Center.
 
-1. **Eseguire query sui dati di telemetria relativi agli eventi personalizzati.** Nella pagina **Panoramica** di Application Insights scegliere **Analytics**. 
+1. **Eseguire query sui dati di telemetria relativi agli eventi personalizzati.** Nella pagina **Panoramica** di Application Insights scegliere **Log (Analytics)** .
 
-   ![Pulsante Analytics in Application Insights](./media/mobile-center-quickstart/analytics-001.png)
-
-   Verrà aperto il portale Analytics di Application Insights associato alla risorsa di Application Insights. Il portale Analytics consente di eseguire direttamente una query sui dati tramite il linguaggio di query di Log Analytics, pertanto è possibile porre domande complesse in modo arbitrario sull'app e i suoi utenti.
+   Verrà aperto il portale Log (Analytics) di Application Insights associato alla risorsa di Application Insights. Il portale Log (Analytics) consente di eseguire direttamente una query sui dati tramite il linguaggio di query di Log Analytics, pertanto è possibile porre domande complesse in modo arbitrario sull'app e i suoi utenti.
    
-   Aprire una nuova scheda nel portale di Analytics, quindi incollare la query seguente. Restituisce il conteggio del numero di singoli utenti che hanno inviato singoli eventi personalizzati dall'app nelle ultime 24 ore, ordinati in base ai singoli conteggi.
+   Aprire una nuova scheda nel portale di Log (Analytics), quindi incollare la query seguente. Restituisce il conteggio del numero di singoli utenti che hanno inviato singoli eventi personalizzati dall'app nelle ultime 24 ore, ordinati in base ai singoli conteggi.
 
    ```AIQL
    customEvents
@@ -123,7 +119,7 @@ Application Insights può eseguire query, segmentare, filtrare e analizzare i da
    | order by dcount_user_Id desc 
    ```
 
-   ![Portale Analytics](./media/mobile-center-quickstart/analytics-portal-001.png)
+   ![Portale di Log (Analytics)](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Selezionare la query facendo clic su un punto qualsiasi della query nell'editor di testo.
    2. Quindi fare clic su **Vai** per eseguire la query. 

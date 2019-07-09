@@ -1,6 +1,6 @@
 ---
-title: "Guida introduttiva: Richiedere l'accettazione di condizioni per l'utilizzo prima dell'accesso alle app cloud protette dall'accesso condizionale di Azure Active Directory | Microsoft Docs"
-description: Questa guida introduttiva illustra come richiedere l'accettazione delle condizioni per l'utilizzo prima di concedere l'accesso alle app cloud selezionate dall'accesso condizionale di Azure Active Directory.
+title: "Avvio rapido: Richiedere l'accettazione di condizioni per l'utilizzo prima dell'accesso alle app cloud protette dall'accesso condizionale di Azure Active Directory | Microsoft Docs"
+description: Questa guida di avvio rapido illustra come richiedere l'accettazione delle condizioni per l'utilizzo prima di concedere l'accesso alle app cloud selezionate dall'accesso condizionale di Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c37a58cb9f9d1082d02854f43e511e5431d90c13
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ba684209b497792cd2f520f6b530168959e62d7f
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894252"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67506923"
 ---
-# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Avvio rapido: Richiedere l'accettazione di condizioni per l'utilizzo prima dell'accesso alle app cloud
+# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Guida introduttiva: Richiedere l'accettazione di condizioni per l'utilizzo prima dell'accesso alle app cloud
 
 Prima che gli utenti accedano ad app cloud specifiche all'interno dell'ambiente in uso, è consigliabile ottenere il consenso di questi sotto forma di accettazione delle condizioni per l'utilizzo. L'accesso condizionale di Azure Active Directory (Azure AD) offre:
 
 - Un metodo semplice per la configurazione delle condizioni per l'utilizzo
 - La possibilità di richiedere l'accettazione delle condizioni per l'utilizzo tramite criteri di accesso condizionale  
 
-Questa guida introduttiva illustra come configurare [criteri di accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md) che richiedono l'accettazione di condizioni per l'utilizzo per un'app cloud selezionata all'interno dell'ambiente.
+Questa guida di avvio rapido illustra come configurare [criteri di accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md) che richiedono l'accettazione di condizioni per l'utilizzo per un'app cloud selezionata all'interno dell'ambiente.
 
 ![Crea criteri](./media/require-tou/5555.png)
 
@@ -49,16 +49,13 @@ L'obiettivo di questo passaggio è farsi un'idea dell'esperienza di accesso senz
 
 ## <a name="create-your-terms-of-use"></a>Creare le condizioni per l'utilizzo
 
-Questa sezione illustra i passaggi necessari per creare un esempio di condizioni per l'utilizzo. Quando si creano condizioni per l'utilizzo, si seleziona un valore per **Applica con i modelli di criteri di accesso condizionale**. Se si seleziona **Criteri personalizzati**, subito dopo la creazione di condizioni per l'utilizzo viene visualizzata la finestra di dialogo per la creazione di un nuovo criterio di accesso condizionale.
+Questa sezione illustra i passaggi necessari per creare un esempio di condizioni per l'utilizzo. Quando si creano condizioni per l'utilizzo, si seleziona un valore per **Applica con i modelli di criteri di accesso condizionale**. Se si seleziona **Criteri personalizzati**, subito dopo la creazione delle condizioni per l'utilizzo viene visualizzata la finestra di dialogo per la creazione di un nuovo criterio di accesso condizionale.
 
 **Per creare condizioni per l'utilizzo:**
 
 1. In Microsoft Word creare un nuovo documento.
-
 1. Digitare **My terms of use** (Condizioni per l'utilizzo personali) e quindi salvare il documento con il nome **mytou.pdf**.
-
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
-
 1. Sulla barra di spostamento a sinistra nel portale di Azure fare clic su **Azure Active Directory**.
 
    ![Azure Active Directory](./media/require-tou/02.png)
@@ -80,17 +77,11 @@ Questa sezione illustra i passaggi necessari per creare un esempio di condizioni
    ![Condizioni per l'utilizzo](./media/require-tou/112.png)
 
    1. Nella casella di testo **Nome** digitare **My TOU** (Condizioni per l'utilizzo personali).
-
    1. Nella casella di testo **Nome visualizzato** digitare **My TOU** (Condizioni per l'utilizzo personali).
-
    1. Caricare il file PDF delle condizioni per l'utilizzo.
-
    1. Per **Lingua**, selezionare **Inglese**.
-
    1. Per **Richiedi agli utenti di espandere le Condizioni d'uso** selezionare **Attivata**.
-
    1. Per **Applica con i modelli di criteri di accesso condizionale** selezionare **Criteri personalizzati**.
-
    1. Fare clic su **Create**(Crea).
 
 ## <a name="create-your-conditional-access-policy"></a>Creare i criteri di accesso condizionale
@@ -125,13 +116,9 @@ Nei criteri, impostare:
    ![Utenti e gruppi](./media/require-tou/24.png)
 
    1. Fare clic su **Seleziona utenti e gruppi** e quindi selezionare **Utenti e gruppi**.
-
    1. Fare clic su **Seleziona**.
-
    1. Nella pagina **Seleziona** scegliere **Isabella Simonsen** e quindi fare clic su **Seleziona**.
-
    1. Nella pagina **Utenti e gruppi** fare clic su **Fatto**.
-
 1. Fare clic su **App cloud**.
 
    ![App cloud](./media/require-tou/08.png)
@@ -141,13 +128,9 @@ Nei criteri, impostare:
    ![Selezionare App cloud](./media/require-tou/26.png)
 
    1. Fare clic su **Selezionare le app**.
-
    1. Fare clic su **Seleziona**.
-
    1. Nella pagina **Seleziona** selezionare **Gestione di Microsoft Azure** e quindi fare clic su **Seleziona**.
-
    1. Nella pagina **App cloud** fare clic su **Fatto**.
-
 1. Nella sezione **Controlli di accesso** fare clic su **Concedi**.
 
    ![Controlli di accesso](./media/require-tou/10.png)
@@ -157,11 +140,8 @@ Nei criteri, impostare:
    ![Concessione](./media/require-tou/111.png)
 
    1. Selezionare **Concedi accesso**.
-
    1. Selezionare **My TOU** (Condizioni per l'utilizzo personali).
-
    1. Fare clic su **Seleziona**.
-
 1. Nella sezione **Attiva criterio** fare clic su **Sì**.
 
    ![Abilitare i criteri](./media/require-tou/18.png)
@@ -172,7 +152,7 @@ Nei criteri, impostare:
 
 Ora che sono stati configurati i criteri di accesso condizionale, è possibile sapere se funzionano come previsto. Come primo passaggio, usare lo strumento per i criteri What If dell'accesso condizionale per simulare un accesso dell'utente di test. La simulazione valuta l'impatto di questo accesso sui criteri e genera un report di simulazione.  
 
-Per inizializzare lo strumento Valutazioni dei criteri di simulazione, impostare:
+Per inizializzare lo strumento di valutazione dei criteri **What If**, impostare:
 
 - **Isabella Simonsen** come utente
 - **Gestione di Microsoft Azure** come app cloud
@@ -199,15 +179,10 @@ Fare clic su **What If** per creare un report di simulazione che indica:
    ![App cloud](./media/require-tou/16.png)
 
    1. Fare clic su **App cloud**.
-
    1. Nella pagina **App cloud** fare clic su **Selezionare le app**.
-
    1. Fare clic su **Seleziona**.
-
    1. Nella pagina **Seleziona** selezionare **Gestione di Microsoft Azure** e quindi fare clic su **Seleziona**.
-
    1. Nella pagina App cloud fare clic su **Fine**.
-
 1. Fare clic su **What If**.
 
 ## <a name="test-your-conditional-access-policy"></a>Testare i criteri di accesso condizionale
@@ -223,7 +198,6 @@ Per testare i criteri, provare ad accedere al [portale di Azure](https://portal.
 Quando non sono più necessari, eliminare l'utente di test e i criteri di accesso condizionale:
 
 - Se non si conosce la procedura per eliminare un utente di Azure AD, vedere [Eliminare gli utenti da Azure Active Directory](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
-
 - Per eliminare i criteri, selezionarli e quindi fare clic su **Elimina** nella barra di accesso rapido.
 
     ![Autenticazione a più fattori](./media/require-tou/33.png)
