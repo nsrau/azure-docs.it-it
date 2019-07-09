@@ -13,31 +13,30 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b060c971218561f285dbd2292529e01a0069d357
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359991"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147752"
 ---
-# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Avvio rapido: Usare SQL Server Management Studio per connettersi a un database SQL di Azure ed eseguire query
+# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare SQL Server Management Studio per connettersi a un database SQL di Azure ed eseguire query
 
 In questa Guida introduttiva, si userà [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) per connettersi a un database SQL di Azure. Si eseguiranno quindi istruzioni Transact-SQL per eseguire query e per inserire, aggiornare ed eliminare dati. È possibile usare SSMS per gestire qualsiasi infrastruttura SQL, da SQL Server al database SQL per Microsoft Windows.  
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- un database SQL di Azure. Per creare e quindi configurare un database in Database SQL di Azure è possibile usare una di queste guide introduttive:
+un database SQL di Azure. Per creare e quindi configurare un database in Database SQL di Azure è possibile usare una di queste guide introduttive:
 
   || Database singolo | Istanza gestita |
   |:--- |:--- |:---|
   | Create| [Portale](sql-database-single-database-get-started.md) | [Portale](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configurare | [Regola del firewall per gli indirizzi IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
+  | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connettività da locale](sql-database-managed-instance-configure-p2s.md)
   |Caricare i dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Ripristinare o importare Adventure Works dal file [BACPAC](sql-database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
 
   > [!IMPORTANT]
   > Gli script in questo articolo sono scritti in modo da usare il database Adventure Works. Con un'istanza gestita, è necessario importare il database Adventure Works in un database dell'istanza oppure modificare gli script di questo articolo in modo da usare il database Wide World Importers.
@@ -87,7 +86,7 @@ In SMSS connettersi al server di database SQL di Azure.
 
 5. Per visualizzare gli oggetti del database, espandere **Database** e quindi **mySampleDatabase**.
 
-   ![Visualizzare gli oggetti del database](./media/sql-database-connect-query-ssms/connected.png)  
+   ![Oggetti mySampleDatabase](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="query-data"></a>Eseguire query sui dati
 
@@ -106,7 +105,7 @@ Eseguire questo codice Transact-SQL [SELECT](https://msdn.microsoft.com/library/
 
 3. Sulla barra degli strumenti selezionare **Esegui** per recuperare i dati dalle tabelle `Product` e `ProductCategory`.
 
-    ![Query per recuperare dati da due tabelle](./media/sql-database-connect-query-ssms/query2.png)
+    ![query per recuperare dati dalla tabella Product e ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Inserire dati
 
@@ -133,7 +132,7 @@ Eseguire questo codice Transact-SQL [INSERT](https://msdn.microsoft.com/library/
            ,GETDATE() );
    ```
 
-2. Selezionare **Esegui** per inserire una nuova riga nella tabella `Product`. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)**.
+2. Selezionare **Esegui** per inserire una nuova riga nella tabella `Product`. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)** .
 
 ## <a name="view-the-result"></a>Visualizzare il risultato
 
@@ -146,7 +145,7 @@ Eseguire questo codice Transact-SQL [INSERT](https://msdn.microsoft.com/library/
 
 2. Scegliere **Execute**(Esegui). Si ottiene il risultato seguente.
 
-   ![risultato](./media/sql-database-connect-query-ssms/result.png)
+   ![risultato della query nella tabella Product](./media/sql-database-connect-query-ssms/result.png)
 
 ## <a name="update-data"></a>Aggiornare i dati
 
@@ -160,7 +159,7 @@ Eseguire questo codice Transact-SQL [UPDATE](https://msdn.microsoft.com/library/
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selezionare **Esegui** per aggiornare la riga specificata nella tabella `Product`. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)**.
+2. Selezionare **Esegui** per aggiornare la riga specificata nella tabella `Product`. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)** .
 
 ## <a name="delete-data"></a>Eliminare i dati
 
@@ -173,7 +172,7 @@ Eseguire questo codice Transact-SQL [DELETE](https://msdn.microsoft.com/library/
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selezionare **Esegui** per eliminare la riga specificata nella tabella `Product`. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)**.
+2. Selezionare **Esegui** per eliminare la riga specificata nella tabella `Product`. Nel riquadro **Messaggi** verrà visualizzato **(1 riga interessata)** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

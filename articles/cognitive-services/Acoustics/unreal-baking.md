@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6b49a6b9e235414cd63eacdbad523bbda8646963
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797176"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304301"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Esercitazione sul bake in Unreal con Progetto Acustica
 Questo documento descrive il processo di invio di un bake dell'acustica con l'estensione dell'editor Unreal.
@@ -208,7 +208,7 @@ Dopo aver completato il bake, verificare che i voxel e i punti di probe siano ne
 Sono quattro i file di dati creati da questo plug-in in punti diversi. Solo uno di essi è necessario in fase di esecuzione e viene inserito nella cartella Content/Acoustics del progetto, aggiunta automaticamente al percorso di creazione pacchetto del progetto. Gli altri tre si trovano nella cartella dei dati di acustica e non vengono inclusi nel pacchetto.
 
 * **[Progetto]/Config/ProjectAcoustics.cfg**: questo file contiene i dati immessi nei campi nell'interfaccia utente della modalità di Acustica. Il percorso e il nome di questo file non possono essere modificati. In questo file sono archiviati altri valori che interessano il bake, ma sono per utenti avanzati e non devono essere modificati.
-* **[Progetto]/Content/Acoustics/[NomeLivello]\_AcousticsData.ace**: questo file viene creato durante la simulazione del bake e contiene i dati di ricerca usati dal runtime per eseguire il rendering dell'acustica della scena. Il percorso e il nome di questo file possono essere modificati usando i campi nella scheda **Probes** (Probe).
+* **[Progetto]/Content/Acoustics/[NomeLivello]\_AcousticsData.ace**: questo file viene creato durante la simulazione del bake e contiene i dati di ricerca usati dal runtime per eseguire il rendering dell'acustica della scena. Il percorso e il nome di questo file possono essere modificati usando i campi nella scheda **Probes** (Probe). Se si desidera rinominare questo file dopo che è stato creato, eliminare il UAsset dal progetto Unreal, rinominare il file al di fuori di Unreal in Esplora File e quindi importare nuovamente questo file in Unreal per produrre un nuovo UAsset. La ridenominazione di UAsset da sola non funzionerà.
 * **[Progetto]/Plugins/ProjectAcoustics/AcousticsData/[NomeLivello]\_AcousticsData.vox**: questo file contiene la geometria di acustica voxelizzata e le proprietà del materiale. Il calcolo viene eseguito usando il pulsante **Calculate** (Calcola) nella scheda **Probes** (Probe). Il percorso e il nome di questo file possono essere modificati usando i campi nella scheda **Probes** (Probe).
 * **[Progetto]/Plugins/ProjectAcoustics/AcousticsData/[NomeLivello]\_AcousticsData\_config.xml**: questo file contiene i parametri calcolati usando il pulsante **Calculate** (Calcola) nella scheda **Probes** (Probe). Il percorso e il nome di questo file possono essere modificati usando i campi nella scheda **Probes** (Probe).
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 12/06/2018
-ms.openlocfilehash: c89567115079887295704e216cd4046fae99c9d1
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.date: 06/25/2019
+ms.openlocfilehash: b6ef08be346aebd220b7234253ce45c4615e38a9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873020"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445518"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Esercitazione: usare Apache Storm con Apache Kafka in HDInsight
 
@@ -629,15 +629,9 @@ Per rimuovere il gruppo di risorse usando il portale di Azure:
 2. Individuare il gruppo di risorse da eliminare e quindi fare clic con il pulsante destro del mouse su __Altro__ (...) a destra dell'elenco.
 3. Scegliere __Elimina gruppo di risorse__ e quindi confermare.
 
-> [!WARNING]  
-> La fatturazione del cluster HDInsight inizia dopo la creazione del cluster e si interrompe solo quando questo viene eliminato. La fatturazione avviene con tariffa oraria, perciò si deve sempre eliminare il cluster in uso quando non lo si usa più.
-> 
-> Se si elimina un cluster Kafka su HDInsight vengono eliminati anche eventuali dati archiviati in Kafka.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione è stato descritto come usare una topologia [Apache Storm](https://storm.apache.org/) per scrivere e leggere dati da [Apache Kafka](https://kafka.apache.org/) in HDInsight. Si è inoltre appreso come archiviare dati nella risorsa di archiviazione compatibile con [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) usata da HDInsight.
 
-Per altre informazioni sull'uso di Kafka in HDInsight, vedere il documento [Usare l'API Apache Kafka per producer e consumer](kafka/apache-kafka-producer-consumer-api.md).
-
-Per informazioni sulla distribuzione e sul monitoraggio di topologie in HDInsight basato su Linux, vedere [Distribuzione e gestione di topologie Apache Storm in HDInsight basato su Linux](storm/apache-storm-deploy-monitor-topology-linux.md).
+> [!div class="nextstepaction"]
+> [Usare l'API Apache Kafka per producer e consumer](kafka/apache-kafka-producer-consumer-api.md)

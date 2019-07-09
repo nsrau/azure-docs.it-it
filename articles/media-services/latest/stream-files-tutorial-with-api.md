@@ -1,6 +1,6 @@
 ---
-title: Eseguire il caricamento, la codifica e lo streaming con Servizi multimediali v3 usando .NET | Microsoft Docs
-description: Seguire i passaggi di questa esercitazione per caricare un file, codificare il video ed eseguire lo streaming dei contenuti con Servizi multimediali v3 usando .NET.
+title: Eseguire il caricamento, la codifica e lo streaming con Servizi multimediali v3 di Azure | Microsoft Docs
+description: Seguire i passaggi di questa esercitazione per caricare un file, codificare il video ed eseguire lo streaming dei contenuti con Servizi multimediali v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,14 +12,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 66ee2c110edfdbd0e33c69d45dee8040654d421a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 46a1add812d5721e36d8af030195c42542dc360c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149154"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273248"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Esercitazione: Eseguire il caricamento, la codifica e lo streaming di video con .NET
+# <a name="tutorial-upload-encode-and-stream-videos"></a>Esercitazione: Caricare, codificare ed eseguire lo streaming dei video
+
+> [!NOTE]
+> Anche se l'esercitazione usa esempi di [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), i passaggi generali sono gli stessi per [API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
 
 Servizi multimediali di Azure consente di codificare i file multimediali nei formati che possono essere riprodotti in una vasta gamma di browser e dispositivi. Ad esempio, potrebbe essere necessario trasmettere il contenuto nei formati HLS o MPEG DASH di Apple. Prima dello streaming, è consigliabile codificare il file multimediale digitale di alta qualità. Per indicazioni per la codifica, vedere i [concetti correlati alla codifica](encoding-concept.md). Questa esercitazione descrive come caricare un file video locale e codificare il file caricato. È anche possibile codificare contenuti resi accessibili tramite un URL HTTPS. Per altre informazioni, vedere [Creare un input del processo da un URL HTTP(s)](job-input-from-http-how-to.md).
 

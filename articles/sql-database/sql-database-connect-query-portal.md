@@ -8,19 +8,19 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: AyoOlubeko
-ms.author: ayolubek
+author: Ninarn
+ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/12/2019
-ms.openlocfilehash: b2109afe6760eb87269a33ed74784149c2bf3e03
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 06/28/2019
+ms.openlocfilehash: 52041ba3c057e871b60f283f293dd79a18f3b21e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105795"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508749"
 ---
-# <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Avvio rapido: Usare l'editor di query SQL del portale di Azure per connettersi ed eseguire query sui dati
+# <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Guida introduttiva: Usare l'editor di query SQL del portale di Azure per connettersi ed eseguire query sui dati
 
 L'editor di query SQL è uno strumento del browser nel portale di Azure che consente di eseguire facilmente query SQL sul database SQL di Azure o su Azure SQL Data Warehouse. In questa guida introduttiva si usa l'editor di query per connettersi a un database SQL e quindi eseguire query e inserire, aggiornare ed eliminare dati con istruzioni Transact-SQL.
 
@@ -32,14 +32,14 @@ Per completare questa esercitazione, sono necessari:
 
   || Database singolo |
   |:--- |:--- |
-  | Create| [Portale](sql-database-single-database-get-started.md) | 
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | 
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | 
-  | Configurare | [Regola del firewall per gli indirizzi IP a livello di server](sql-database-server-level-firewall-rule.md)| 
+  | Create| [Portale](sql-database-single-database-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)|
   |||
 
 > [!NOTE]
-> Verificare che l'opzione **Consenti l'accesso a Servizi di Azure** sia impostata su **SÌ** nelle impostazioni del firewall di SQL Server. Questa opzione consente all'editor di query SQL di accedere a database e data warehouse.
+> L'editor di query usa le porte 443 e 1443 per comunicare.  Assicurarsi di aver abilitato il traffico HTTPS in uscita su queste porte. È anche necessario aggiungere l'indirizzo IP in uscita per le regole del firewall consentite del server per accedere ai database e ai data warehouse.
 
 ## <a name="sign-in-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -49,13 +49,13 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Selezionare **Database SQL** nel menu a sinistra e quindi **mySampleDatabase**.
 
-2. Nel menu a sinistra trovare e selezionare **Editor di query (anteprima)**. Verrà visualizzata la **pagina di accesso**.
+2. Nel menu a sinistra trovare e selezionare **Editor di query (anteprima)** . Verrà visualizzata la **pagina di accesso**.
 
     ![Cercare l'editor di query](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
 3. Nel menu a discesa **Tipo di autorizzazione** selezionare **Autenticazione di SQL Server** e quindi immettere l'ID utente e la password dell'account amministratore del server usato per creare il database.
 
-    ![sign in](./media/sql-database-connect-query-portal/login-menu.png) 
+    ![sign in](./media/sql-database-connect-query-portal/login-menu.png)
 
 4. Selezionare **OK**.
 
@@ -78,8 +78,8 @@ La configurazione di un amministratore di Active Directory (AD) consente di usar
 
 4. Sulla barra degli strumenti della pagina relativa all'amministratore di AD selezionare **Salva**.
 
-5. Passare al database **mySampleDatabase** e selezionare **Editor di query (anteprima)** nel menu a sinistra. Verrà visualizzata la **pagina di accesso**. Se si è un amministratore di AD, a destra in **Accesso Single Sign-On Active Directory** verrà visualizzato un messaggio che informa che è stato eseguito l'accesso. 
-   
+5. Passare al database **mySampleDatabase** e selezionare **Editor di query (anteprima)** nel menu a sinistra. Verrà visualizzata la **pagina di accesso**. Se si è un amministratore di AD, a destra in **Accesso Single Sign-On Active Directory** verrà visualizzato un messaggio che informa che è stato eseguito l'accesso.
+
 6. Selezionare **OK**.
 
 
@@ -160,7 +160,7 @@ Eseguire l'istruzione [DELETE](https://msdn.microsoft.com/library/ms189835.aspx)
 
 Quando si usa l'editor di query è necessario tenere presente quanto segue.
 
-* Non è possibile usare l'editor di query per eseguire query su database di SQL Server in una rete virtuale.
+* L'editor di query usa le porte 443 e 1443 per comunicare.  Assicurarsi di aver abilitato il traffico HTTPS in uscita su queste porte. È anche necessario aggiungere l'indirizzo IP in uscita per le regole del firewall consentite del server per accedere ai database e ai data warehouse.
 
 * Premendo F5, la pagina dell'editor di query verrà aggiornata e qualsiasi query su cui si sta lavorando andrà persa.
 
