@@ -165,9 +165,9 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
 | Attributo | Type |
 | --- | --- |
-| id | Valore integer 64 |
-| itemId | string |
-| properties | Dati binari |
+| id | Integer 64 |
+| itemId | String |
+| properties | Binary Data |
 | table | String |
 | tableKind | Integer 16 |
 
@@ -178,9 +178,9 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
 | Attributo | Type |
 | --- | --- |
-| id |string |
-| operationId |Valore integer 64 |
-| properties |Dati binari |
+| id |String |
+| operationId |Integer 64 |
+| properties |Binary Data |
 | tableKind |Integer 16 |
 
  **MS_TableConfig**
@@ -189,9 +189,9 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
 | Attributo | Type |
 | --- | --- |
-| id |string |
-| key |string |
-| keyType |Valore integer 64 |
+| id |String |
+| key |String |
+| keyType |Integer 64 |
 | table |String |
 | value |String |
 
@@ -201,12 +201,12 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
 | Attributo | Type | Note |
 | --- | --- | --- |
-| id | Stringa, contrassegnata come obbligatoria |chiave primaria nell'archivio remoto |
+| id | String, contrassegnata come obbligatoria |chiave primaria nell'archivio remoto |
 | complete | Boolean | campo elemento ToDo |
 | text |String |campo elemento ToDo |
 | createdAt | Date | (facoltativo) viene mappato alla proprietà di sistema **createdAt** |
 | updatedAt | Date | (facoltativo) viene mappato alla proprietà di sistema **updatedAt** |
-| version | string | (facoltativo) viene usato per il rilevamento dei conflitti, viene mappato a version |
+| version | String | (facoltativo) viene usato per il rilevamento dei conflitti, viene mappato a version |
 
 ## <a name="setup-sync"></a>Modificare il comportamento di sincronizzazione dell'app
 In questa sezione si modifica l'app in modo che non esegua la sincronizzazione all'avvio o quando si inseriscono e si aggiornano elementi, bensì solo quando si seleziona il pulsante di aggiornamento.
