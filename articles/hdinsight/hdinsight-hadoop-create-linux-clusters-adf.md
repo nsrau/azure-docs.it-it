@@ -189,11 +189,11 @@ In questo articolo viene configurata l'attività Hive per la creazione di un clu
 
     |Proprietà  |Valore  |
     |---------|---------|
-    |NOME | Immettere un nome per la data factory. Il nome deve essere univoco a livello globale.|
-    |Sottoscrizione | Selezionare la sottoscrizione di Azure. |
-    |Gruppo di risorse | Selezionare **Use existing** (Usa esistente) e quindi selezionare il gruppo di risorse creato con lo script di PowerShell. |
+    |Name | Immettere un nome per la data factory. Il nome deve essere univoco a livello globale.|
+    |Subscription | Selezionare la sottoscrizione di Azure. |
+    |Resource group | Selezionare **Use existing** (Usa esistente) e quindi selezionare il gruppo di risorse creato con lo script di PowerShell. |
     |Version | Lasciare **V2**. |
-    |Località | Il percorso viene automaticamente impostato sulla posizione specificata durante la creazione del gruppo di risorse precedente. Per questa esercitazione la posizione è impostata su **Stati Uniti orientali**. |
+    |Location | Il percorso viene automaticamente impostato sulla posizione specificata durante la creazione del gruppo di risorse precedente. Per questa esercitazione la posizione è impostata su **Stati Uniti orientali**. |
 
     ![Creare Azure Data Factory tramite il portale di Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "Creare Azure Data Factory tramite il portale di Azure")
 
