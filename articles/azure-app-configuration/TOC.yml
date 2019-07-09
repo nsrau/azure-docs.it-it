@@ -73,10 +73,12 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
         - name: Generatore di .NET Framework
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-        - name: Provider Java Spring
-          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
         - name: .NET Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
+        - name: Provider Java Spring
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
+        - name: Azure SDK per Java
+          href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
         - name: REST
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: Gestione delle funzionalità

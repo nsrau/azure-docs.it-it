@@ -36,11 +36,16 @@
   items:
     - name: Panoramica
       href: concepts-overview.md
-    - name: Caricamento e archiviazione nel cloud
+    - name: Account
       items:
-        - name: Archiviazione
+        - name: Account di Servizi multimediali
+          displayName: subscription
+          href: media-services-account-concept.md
+        - name: Account di archiviazione
           href: storage-account-concept.md
           displayName: Storage side encryption
+    - name: Caricamento
+      items:
         - name: Asset
           href: assets-concept.md
     - name: Codifica
