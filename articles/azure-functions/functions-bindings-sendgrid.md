@@ -261,7 +261,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**apiKey**|**ApiKey**| Il nome di un'impostazione dell'app che contiene la chiave API. Se non viene impostato, il nome dell'impostazione dell'app predefinita è "AzureWebJobsSendGridApiKey".|
 |**to**|**To**| Indirizzo e-mail del destinatario. |
 |**from**|**From**| Indirizzo e-mail del mittente. |
-|**subject**|**Oggetto**| Oggetto del messaggio di posta elettronica. |
+|**subject**|**Subject**| Oggetto del messaggio di posta elettronica. |
 |**text**|**Text**| Contenuto del messaggio di posta elettronica. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
