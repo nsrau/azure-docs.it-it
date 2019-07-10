@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: c22230545ccbe1ef1b4bfa35a33f0302197463b1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: f02f6ebb83f7fbc274797e944d59a5f1e973075c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124536"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67438481"
 ---
 # <a name="example-identify-faces-in-images"></a>Esempio: Identificare i visi nelle immagini
 
@@ -42,10 +42,12 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 ```
 
 La chiave di sottoscrizione può essere in alternativa specificata nell'intestazione della richiesta HTTP **ocp-apim-subscription-key: &lt;chiave di sottoscrizione&gt;** .
-Quando si usa una libreria client, la chiave di sottoscrizione viene passata tramite il costruttore della classe FaceServiceClient. Ad esempio: 
+Quando si usa una libreria client, la chiave di sottoscrizione viene passata tramite il costruttore della classe FaceClient. Ad esempio:
  
-```CSharp 
-faceServiceClient = new FaceServiceClient("<Subscription Key>");
+```csharp 
+private readonly IFaceClient faceClient = new FaceClient(
+            new ApiKeyServiceClientCredentials("<subscription key>"),
+            new System.Net.Http.DelegatingHandler[] { });
 ```
  
 Per ottenere la chiave di sottoscrizione, passare ad Azure Marketplace dal portale di Azure. Per altre informazioni, vedere [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/).
@@ -59,17 +61,17 @@ In questo passaggio, un oggetto PersonGroup denominato "MyFriends" contiene Anna
 ### <a name="step-21-define-people-for-the-persongroup"></a>Passaggio 2.1: Definire le persone per l'oggetto PersonGroup
 Una persona è un'unità di base di identificazione. Per una persona possono essere registrati uno o più visi. Un oggetto PersonGroup è una raccolta di persone. Ogni persona è definita all'interno di un determinato oggetto PersonGroup. L'identificazione viene eseguita in base a un oggetto PersonGroup. L'attività prevede la creazione di un oggetto PersonGroup e quindi la creazione di persone all'interno dell'oggetto, ad esempio Anna, Bill e Clare.
 
-Innanzitutto creare un nuovo oggetto PersonGroup con l'API [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) (PersonGroup - Creazione). L'API della libreria client corrispondente è il metodo CreatePersonGroupAsync per la classe FaceServiceClient. L'ID del gruppo specificato per la creazione del gruppo è univoco per ogni sottoscrizione. È anche possibile ottenere, aggiornare o eliminare oggetti PersonGroup tramite altre API PersonGroup. 
+Innanzitutto creare un nuovo oggetto PersonGroup con l'API [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) (PersonGroup - Creazione). L'API della libreria client corrispondente è il metodo CreatePersonGroupAsync per la classe FaceClient. L'ID del gruppo specificato per la creazione del gruppo è univoco per ogni sottoscrizione. È anche possibile ottenere, aggiornare o eliminare oggetti PersonGroup tramite altre API PersonGroup. 
 
 Dopo aver definito un gruppo, è possibile definire le persone al suo interno usando l'API [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) (PersonGroup Person - Creazione). Il metodo della libreria client è CreatePersonAsync. È possibile aggiungere un viso a ogni persona, dopo averla creata.
 
-```CSharp 
+```csharp 
 // Create an empty PersonGroup
 string personGroupId = "myfriends";
-await faceServiceClient.CreatePersonGroupAsync(personGroupId, "My Friends");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Friends");
  
 // Define Anna
-CreatePersonResult friend1 = await faceServiceClient.CreatePersonAsync(
+CreatePersonResult friend1 = await faceClient.PersonGroupPerson.CreateAsync(
     // Id of the PersonGroup that the person belonged to
     personGroupId,    
     // Name of the person
@@ -79,12 +81,13 @@ CreatePersonResult friend1 = await faceServiceClient.CreatePersonAsync(
 // Define Bill and Clare in the same way
 ```
 ### <a name="step2-2"></a> Passaggio 2.2: Rilevare i visi e registrarli per la persona corretta
-Il rilevamento viene eseguito inviando una richiesta Web "POST" all'API [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Viso - Rilevamento) con il file di immagine nel corpo della richiesta HTTP. Quando si usa la libreria client, il rilevamento dei visi viene eseguito tramite il metodo DetectAsync per la classe FaceServiceClient.
+Il rilevamento viene eseguito inviando una richiesta Web "POST" all'API [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Viso - Rilevamento) con il file di immagine nel corpo della richiesta HTTP. Quando si usa la libreria client, il rilevamento dei visi viene eseguito tramite il metodo DetectAsync per la classe FaceClient.
 
 Per ogni viso rilevato è possibile chiamare [PersonGroup Person – Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) (PersonGroup Person – Aggiunta viso) per aggiungerlo alla persona corretta.
 
 Il codice seguente illustra il processo di rilevamento di un viso da un'immagine e l'aggiunta del viso per una persona:
-```CSharp 
+
+```csharp 
 // Directory contains image files of Anna
 const string friend1ImageDir = @"D:\Pictures\MyFriends\Anna\";
  
@@ -93,7 +96,7 @@ foreach (string imagePath in Directory.GetFiles(friend1ImageDir, "*.jpg"))
     using (Stream s = File.OpenRead(imagePath))
     {
         // Detect faces in the image and add to Anna
-        await faceServiceClient.AddPersonFaceAsync(
+        await faceClient.PersonGroupPerson.AddFaceFromStreamAsync(
             personGroupId, friend1.PersonId, s);
     }
 }
@@ -105,17 +108,17 @@ Se l'immagine contiene più visi, viene aggiunto solo il viso più grande. È po
 
 L'oggetto PersonGroup deve essere sottoposto a training prima di poter essere usato per eseguire un'identificazione. L'oggetto PersonGroup deve essere nuovamente sottoposto a training dopo l'aggiunta o la rimozione di una persona o se si modifica il viso registrato di una persona. Il training viene eseguito dall'API [PersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) (PersonGroup - Training). Quando si usa la libreria client, è richiesta una chiamata al metodo TrainPersonGroupAsync:
  
-```CSharp 
-await faceServiceClient.TrainPersonGroupAsync(personGroupId);
+```csharp 
+await faceClient.PersonGroup.TrainAsync(personGroupId);
 ```
  
 Il training è un processo asincrono, che potrebbe non terminare anche dopo il completamento dell'esecuzione del metodo TrainPersonGroupAsync. Può essere necessario inoltrare una query sullo stato del training. Usare l'API [PersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247) (PersonGroup - Recupero stato training) o il metodo GetPersonGroupTrainingStatusAsync della libreria client. Il codice seguente illustra una semplice logica di attesa del completamento del training di PersonGroup:
  
-```CSharp 
+```csharp 
 TrainingStatus trainingStatus = null;
 while(true)
 {
-    trainingStatus = await faceServiceClient.GetPersonGroupTrainingStatusAsync(personGroupId);
+    trainingStatus = await faceClient.PersonGroup.GetTrainingStatusAsync(personGroupId);
  
     if (trainingStatus.Status != Status.Running)
     {
@@ -134,15 +137,15 @@ Il viso di test deve essere rilevato con i passaggi precedenti. L'ID viso viene 
 
 Il codice seguente illustra il processo di identificazione:
 
-```CSharp 
+```csharp 
 string testImageFile = @"D:\Pictures\test_img1.jpg";
 
 using (Stream s = File.OpenRead(testImageFile))
 {
-    var faces = await faceServiceClient.DetectAsync(s);
+    var faces = await faceClient.Face.DetectAsync(s);
     var faceIds = faces.Select(face => face.FaceId).ToArray();
  
-    var results = await faceServiceClient.IdentifyAsync(personGroupId, faceIds);
+    var results = await faceClient.Face.IdentifyAsync(faceIds, personGroupId);
     foreach (var identifyResult in results)
     {
         Console.WriteLine("Result of face: {0}", identifyResult.FaceId);
@@ -154,7 +157,7 @@ using (Stream s = File.OpenRead(testImageFile))
         {
             // Get top 1 among all candidates returned
             var candidateId = identifyResult.Candidates[0].PersonId;
-            var person = await faceServiceClient.GetPersonAsync(personGroupId, candidateId);
+            var person = await faceClient.PersonGroupPerson.GetAsync(personGroupId, candidateId);
             Console.WriteLine("Identified as {0}", person.Name);
         }
     }

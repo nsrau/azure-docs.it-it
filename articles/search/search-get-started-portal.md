@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Creare e caricare un indice ed eseguirvi query nel portale di Azure - Ricerca di Azure'
-description: Creare il primo indice ed eseguirvi query in Ricerca di Azure usando i dati di esempio integrati e la procedura guidata Importa dati nel portale di Azure.
+title: 'Guida introduttiva: Creare, caricare ed eseguire query su un indice tramite portale di Azure - Ricerca di Azure'
+description: Usare la procedura guidata di importazione dei dati nel portale di Azure per creare, caricare ed eseguire una query nel primo indice in Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e5baa0876dc976553e8e541cef6b481329500bf6
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 4a1944c5c5f169274cf45bd3ebfb6df47942dd5a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606456"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485639"
 ---
-# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Guida introduttiva: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure
+# <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Guida introduttiva: Creare un indice di Ricerca di Azure nel portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
-> * [Postman](search-fiddler.md)
+> * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
 >*
 
@@ -34,7 +34,7 @@ Per approfondire rapidamente i concetti relativi a Ricerca di Azure, provare gli
 > * Visualizzare un indice esistente e le opzioni per modificarlo
 > * Esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy e la ricerca geografica con **Esplora ricerche**
 
-Se gli strumenti sono troppo vincolanti, è possibile esaminare un'[introduzione basata su codice alla programmazione di Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) oppure usare [Postman o Fiddler per effettuare chiamate API REST](search-fiddler.md).
+Se gli strumenti sono troppo vincolanti, è possibile esaminare un'[introduzione basata su codice alla programmazione di Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) oppure usare [Postman o Fiddler per effettuare chiamate API REST](search-get-started-postman.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. È anche possibile guardare una dimostrazione della durata di sei minuti dei passaggi illustrati in questa esercitazione, partendo circa dal terzo minuto di questa [panoramica video su Ricerca di Azure](https://channel9.msdn.com/Events/Connect/2016/138).
 
@@ -274,4 +274,4 @@ Se il servizio Ricerca di Azure è stato usato per la prima volta con questa ese
 
 * [Creare un indice tramite .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [Creare un indice tramite API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Creare un indice usando Postman o Fiddler e le API REST di Ricerca di Azure](search-fiddler.md)
+* [Creare un indice usando Postman o Fiddler e le API REST di Ricerca di Azure](search-get-started-postman.md)

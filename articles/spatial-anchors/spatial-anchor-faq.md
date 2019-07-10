@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: cd004e1eb6a40648c52dd3b5aee0ec38bff8f9b3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 73979ec3bd1d667453a186ea1f20bbeddc12db8f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304168"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273306"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 
@@ -78,14 +78,14 @@ Ancoraggi nello spazio di Azure è conforme alle [Condizioni del contratto del s
 Le date di disponibilità generale (GA) saranno annunciate a breve.
 
 **D: Sono previste delle limitazioni?**
- 
+
 **R**: Sì, sono previste delle limitazioni.  Non è previsto che venga usato per lo sviluppo e il test di applicazioni tipiche. Per le distribuzioni di produzione, verranno soddisfatte le esigenze dei clienti su larga scala. Per altre informazioni, [contattare Microsoft](mailto:azuremrs@microsoft.com). Durante questa fase di anteprima, non sono state ancora pubblicate la suddivisione in livelli e la struttura dei prezzi, ma si prevede di farlo presto.
 
 **D: In quali aree è disponibile Ancoraggi nello spazio di Azure?**
 
 **R:** È possibile creare subito un account di Ancoraggi nello spazio di Azure nell'area di Azure Stati Uniti orientali 2. Ciò significa che sia l'ambiente di calcolo che l'archiviazione alla base di questo servizio risiedono in questa area. Detto questo, non esistono restrizioni per la posizione in cui si trovano i client. In futuro si estenderà la disponibilità del servizio a livello di area a tutte le principali aree di Azure.
 
-**D: Vengono o verranno applicati addebiti per Ancoraggi nello spazio di Azure?** 
+**D: Vengono o verranno applicati addebiti per Ancoraggi nello spazio di Azure?**
 
 **R:** È possibile trovare i dettagli sui prezzi durante l'anteprima nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/spatial-anchors/).
 
@@ -125,3 +125,7 @@ Iniziare a [sviluppare un'app qui](index.yml).
 **D: Funziona con Xamarin?**
 
 **R:** Sì. Anche se non viene fornito un SDK Xamarin, gli sviluppatori possono usare Ancoraggi nello spazio di Azure nelle app Xamarin grazie all'integrazione con l'API Ancoraggi nello spazio di Azure.
+
+**D: Quali porte e protocolli vengono utilizzati da Ancoraggi nello spazio di Azure?**
+
+**R:** Ancoraggi nello spazio di Azure comunica tramite porta TCP 443 usando un protocollo crittografato. Per l'autenticazione, viene utilizzata [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), che comunica tramite HTTPS sulla porta 443.

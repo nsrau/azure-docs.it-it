@@ -12,12 +12,12 @@ ms.author: ninarn
 ms.reviewer: carlrab, sstein
 manager: craigg
 ms.date: 04/23/2019
-ms.openlocfilehash: 85bbd14c8d2bcd8e3699e5f5efdae9f52acd63e5
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 1c24c8a10e35c0cf8979538c67fa8fb71b712741
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808547"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070158"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Guida introduttiva: Creare un database singolo del database SQL di Azure usando il portale di Azure
 
@@ -137,4 +137,4 @@ Al termine, sarà possibile eliminare queste risorse come segue:
   - [Connettersi ed eseguire query usando Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Per creare un database singolo nel livello di elaborazione con provisioning usando l'interfaccia della riga di comando di Azure, vedere [Esempi di interfaccia della riga di comando di Azure](sql-database-cli-samples.md).
 - Per creare un database singolo nel livello di elaborazione con provisioning usando Azure PowerShell, vedere [Esempi di Azure PowerShell](sql-database-powershell-samples.md).
-- Per creare un database singolo nel livello di elaborazione serverless con Azure PowerShell, vedere [Creare database serverless con PowerShell](sql-database-serverless.md#create-new-database-in-serverless-compute-tier-using-powershell)
+- Per creare un database singolo nel livello di elaborazione serverless con Azure PowerShell, vedere [Creare database serverless](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).

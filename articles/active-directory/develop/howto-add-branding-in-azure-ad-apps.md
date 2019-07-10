@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac14572210b80ac1415d129c5810f0e5443012c9
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 92770acb19bf95d6a19507184bd8bea10806d5b7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540099"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483022"
 ---
 # <a name="branding-guidelines-for-applications"></a>Linee guida sulla personalizzazione per le applicazioni
 
@@ -41,7 +41,7 @@ Contenuto dell'articolo:
 Microsoft gestisce due tipi di account utente:
 
 - **Account personali** (noti in precedenza come Windows Live ID). Rappresentano la relazione tra utenti *individuali* e Microsoft e vengono usati per accedere a dispositivi di consumo e servizi forniti da Microsoft. Questi account sono concepiti per un uso personale.
-- **Account aziendali o dell'istituto di istruzione.**  Questi account sono gestiti da Microsoft per conto delle organizzazioni che usano Azure Active Directory. Vengono usati per accedere a Office 365 e altri servizi aziendali forniti da Microsoft.
+- **Account aziendali o dell'istituto di istruzione.** Questi account sono gestiti da Microsoft per conto delle organizzazioni che usano Azure Active Directory. Vengono usati per accedere a Office 365 e altri servizi aziendali forniti da Microsoft.
 
 Gli account Microsoft aziendali o dell'istituto di istruzione vengono normalmente assegnati agli utenti finali (dipendenti, studenti, impiegati pubblici) dalle relative organizzazioni (azienda, istituto di istruzione, agenzia governativa). Questi account vengono gestiti direttamente nel cloud, nella piattaforma Azure AD, o sincronizzati con Azure AD da una directory locale, ad esempio Windows Server Active Directory. Microsoft è *responsabile* degli account aziendali o dell'istituto di istruzione, che sono tuttavia di proprietà e controllati dall'organizzazione.
 
@@ -70,9 +70,9 @@ Il collegamento per "ottenere l'app" deve reindirizzare l'utente alla pagina di 
 
 Dopo avere concesso il consenso all'app, gli amministratori possono scegliere di aggiungerla all'esperienza di avvio delle app di Office 365 dei propri utenti (accessibile dall'icona di avvio delle app e da [https://portal.office.com/myapps](https://portal.office.com/myapps)). Se si vuole annunciare questa funzionalità, è possibile usare termini come "Aggiungere questa app alla propria organizzazione" e visualizzare un pulsante simile al seguente:
 
-![Scenari e tipi di applicazione](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
+![Pulsante che mostra il logo Microsoft e il testo "Aggiungi alla mia organizzazione"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-È tuttavia consigliabile scrivere un testo descrittivo, invece di fare affidamento sui pulsanti. Ad esempio: 
+È tuttavia consigliabile scrivere un testo descrittivo, invece di fare affidamento sui pulsanti. Ad esempio:
 
 > *Se si usa già Office 365 o un altro servizio aziendale di Microsoft, è possibile concedere a <nome_app> l'accesso ai dati dell'organizzazione. In questo modo gli utenti potranno accedere a <nome_app> con gli account aziendali esistenti.*
 
@@ -80,7 +80,7 @@ Per scaricare il logo ufficiale di Microsoft per l'uso nell'app, fare clic con i
 
 | Asset                                | Formato PNG | Formato SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Logo Microsoft  | ![Logo Microsoft PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Logo Microsoft SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
+| Logo Microsoft  | ![Logo Microsoft scaricabile in formato PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Logo Microsoft scaricabile in formato SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>Indicazioni visive per l'accesso
 
@@ -92,16 +92,16 @@ Nell'app dovrà essere visualizzato un pulsante di accesso che reindirizza gli u
 
 Il diagramma seguente mostra le annotazioni consigliate da Microsoft quando si usano gli asset con l'app. Le annotazioni si applicano ad "Accedi con Microsoft" o alla versione più breve "Accedi".
 
-![Annotazioni Accedi con Microsoft](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
+![Mostra limiti "Accedi con Microsoft"](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 Per scaricare le immagini ufficiali per l'uso nell'app, fare clic con il pulsante destro del mouse su quelle che si vuole usare e salvarle sul computer.
 
 | Asset                                | Formato PNG | Formato SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Accedi con Microsoft (tema scuro)  | ![Pulsante Accedi a tema scuro PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Pulsante Accedi con Microsoft a tema scuro SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
-| Accedi con Microsoft (tema chiaro) | ![Pulsante Accedi a tema chiaro PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Pulsante Accedi con Microsoft a tema chiaro SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
-| Accedi (tema scuro)                 | ![Pulsante versione breve Accedi a tema scuro PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Pulsante versione breve Accedi a tema scuro SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
-| Accedi (tema chiaro)                | ![Pulsante versione breve Accedi a tema chiaro PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Pulsante versione breve Accedi a tema chiaro SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
+| Accedi con Microsoft (tema scuro)  | ![Pulsante "Accedi con Microsoft" con tema scuro PNG scaricabile](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Pulsante "Accedi con Microsoft" con tema scuro SVG scaricabile](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Accedi con Microsoft (tema chiaro) | ![Pulsante "Accedi con Microsoft" con tema chiaro PNG scaricabile](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Pulsante "Accedi con Microsoft" con tema chiaro SVG scaricabile](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| Accedi (tema scuro)                 | ![Pulsante versione breve "Accedi" con tema scuro PNG scaricabile](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Pulsante versione breve "Accedi" con tema scuro SVG scaricabile](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| Accedi (tema chiaro)                | ![Pulsante versione breve "Accedi" con tema chiaro PNG scaricabile](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Pulsante versione breve "Accedi" con tema chiaro SVG scaricabile](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 ## <a name="branding-dos-and-donts"></a>Azioni consentite e non consentite per la personalizzazione
 

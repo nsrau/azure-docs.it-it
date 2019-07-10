@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 132711249ffde4a9c49bc997d8c4ebe4d9c74948
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4f9fff41e4b9043c271d656583fb8b9a11ff3a7a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872536"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052791"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web .NET
 
@@ -136,7 +136,7 @@ Pubblicare questa app in Azure per visualizzarla come un'app Web e per verificar
 2. Selezionare **Pubblica** > **Avvia**.
 3. Creare un nuovo **servizio app** e quindi selezionare **Pubblica**.
 4. Modificare il nome dell'app in **keyvaultdotnetcorequickstart**.
-5. Selezionare **Create**.
+5. Selezionare **Create** (Crea).
 
 >[!VIDEO https://sec.ch9.ms/ch9/e93d/a6ac417f-2e63-4125-a37a-8f34bf0fe93d/KeyVault_high.mp4]
 
@@ -174,7 +174,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 A questo punto, quando si esegue l'applicazione viene visualizzato il valore del segreto recuperato. Nel comando precedente si concedono all'identità del servizio app le autorizzazioni per eseguire le operazioni **get** e **list** nell'insieme di credenziali delle chiavi.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate quando non servono più. A tale scopo, selezionare il gruppo di risorse per la VM e selezionare **Elimina**.
+Eliminare il gruppo di risorse, la macchina virtuale e tutte le risorse correlate quando non servono più. A tale scopo, selezionare il gruppo di risorse per l'insieme di credenziali delle chiavi e selezionare **Elimina**.
 
 Eliminare l'insieme di credenziali delle chiavi usando il comando [az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
 

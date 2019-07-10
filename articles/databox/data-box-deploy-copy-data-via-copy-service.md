@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925310"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206052"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Esercitazione: Usare il servizio di copia dei dati per copiare i dati in Azure Data Box (anteprima)
 
@@ -59,7 +59,7 @@ Per copiare i dati usando il servizio di copia dei dati è necessario creare un 
     |-------------------------------|---------|
     |**Nome processo**                       |Nome univoco contenente meno di 230 caratteri per il processo. Nel nome del processo non sono consentiti i caratteri seguenti: \<, \>, \|, \?, \*, \\, \:, \/ e \\\.         |
     |**Percorso di origine**                |Specificare il percorso SMB dell'origine dati nel formato `\\<ServerIPAddress>\<ShareName>` o `\\<ServerName>\<ShareName>`.        |
-    |**Nome utente**                       |Nome utente in formato `\\<DomainName><UserName>` per accedere all'origine dati.        |
+    |**Nome utente**                       |Nome utente in formato `\\<DomainName><UserName>` per accedere all'origine dati. Se un amministratore locale si connette, necessiterà di autorizzazioni di sicurezza esplicite. Fare clic con il pulsante destro del mouse sulla cartella, scegliere **Proprietà** e quindi selezionare **Sicurezza**. In questo modo si aggiunge l'amministratore locale nella scheda **Sicurezza**.       |
     |**Password**                       |Password per accedere all'origine dati.           |
     |**Account di archiviazione di destinazione**    |Selezionare nell'elenco l'account di archiviazione di destinazione in cui caricare i dati.         |
     |**Tipo di destinazione**       |Selezionare il tipo di archiviazione di destinazione dall'elenco: **BLOB in blocchi**, **BLOB di pagine** o **File di Azure**.        |

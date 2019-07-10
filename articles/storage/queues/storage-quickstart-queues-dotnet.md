@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: 41cb37eb9d96752d4732731d2a36d9bc892cbaa5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c3743c62dcbdccc2a119cfec570df96c622390c7
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159821"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540327"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Guida introduttiva: Usare .NET per creare una coda in Archiviazione di Azure
 
@@ -26,7 +26,7 @@ Questa guida introduttiva illustra come usare la libreria client di Archiviazion
 
 Successivamente, scaricare e installare .NET Core 2.0 per il sistema operativo in uso. Se si esegue Windows, è possibile installare Visual Studio e usare .NET Framework, se si preferisce. Si può anche scegliere di installare un editor da usare con il sistema operativo.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 - Installare [.NET Core per Windows](https://www.microsoft.com/net/download/windows) o [.NET Framework](https://www.microsoft.com/net/download/windows), incluso in Visual Studio per Windows
 - Installare [Visual Studio per Windows](https://www.visualstudio.com/). Se si usa .NET Core, l'installazione di Visual Studio è facoltativa.  
@@ -63,7 +63,7 @@ Per eseguire l'applicazione, è necessario specificare la stringa di connessione
 
 Dopo aver copiato la stringa di connessione, scriverla in una nuova variabile di ambiente nel computer locale che esegue l'applicazione. Per impostare la variabile di ambiente, aprire una finestra della console e seguire le istruzioni per il sistema operativo specifico. Sostituire `<yourconnectionstring>` con la stringa di connessione effettiva:
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```cmd
 setx storageconnectionstring "<yourconnectionstring>"
@@ -93,7 +93,7 @@ Dopo avere aggiunto la variabile di ambiente, eseguire `source .bash_profile` da
 
 L'applicazione di esempio crea una coda e vi aggiunge un messaggio. L'applicazione per prima cosa visualizza in anteprima il messaggio senza rimuoverlo dalla coda, quindi lo recupera e lo elimina dalla coda.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Se si usa Visual Studio come editor, è possibile premere **F5** per l'esecuzione. 
 
@@ -189,7 +189,7 @@ Successivamente, l'esempio aggiunge un messaggio nella parte posteriore della co
 
 Il messaggio deve essere in un formato che possa essere incluso in una richiesta XML con codifica UTF-8 e può avere una dimensione massima di 64 KB. Se un messaggio contiene dati binari, è consigliabile usare la codifica Base64.
 
-Per impostazione predefinita, la durata massima (TTL) di un messaggio è impostata su 7 giorni. Come durata del messaggio è possibile specificare qualsiasi numero positivo, nonché -1 per indicare che il messaggio non ha scadenza.
+Per impostazione predefinita, la durata massima (TTL) di un messaggio è impostata su 7 giorni. È possibile specificare qualsiasi numero positivo per la durata massima del messaggio.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -199,6 +199,12 @@ Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
 Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
 Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
 Console.WriteLine();
+```
+
+Per aggiungere un messaggio che non scada, usare `Timespan.FromSeconds(-1)` nella chiamata a [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+
+```csharp
+await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
 ```
 
 ### <a name="peek-a-message-from-the-queue"></a>Visualizzare in anteprima un messaggio dalla coda

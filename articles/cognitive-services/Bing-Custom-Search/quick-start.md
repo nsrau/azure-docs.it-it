@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare una prima istanza di Ricerca personalizzata Bing | Microsoft Docs'
+title: 'Guida introduttiva: Creare una prima istanza di Ricerca personalizzata Bing | Microsoft Docs'
 titlesuffix: Azure Cognitive Services
 description: Usare questo articolo per creare un'istanza di Bing personalizzata che può eseguire ricerche in domini e pagine Web definiti dall'utente.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: d7a0c29ad3386fcdf85292b6e2852842a971c076
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 6949824f598194456837544526223b823dcfc3e5
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56231910"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273338"
 ---
-# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Avvio rapido: Creare la prima istanza di Ricerca personalizzata Bing
+# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Guida introduttiva: Creare la prima istanza di Ricerca personalizzata Bing
 
 Per usare Ricerca personalizzata Bing è necessario creare un'istanza di ricerca personalizzata che definisce la visualizzazione o sezione del Web. L'istanza contiene i domini pubblici, i siti Web e le pagine Web in cui eseguire la ricerca e le eventuali modifiche di classificazione desiderate. 
 
@@ -46,7 +46,7 @@ Per creare un'istanza di Ricerca personalizzata Bing:
 
 5. Fare clic su **Pubblica** per pubblicare le modifiche nell'ambiente di produzione e aggiornare gli endpoint dell'istanza.
 
-6.  Fare clic sulla scheda **Produzione**. In **Endpoint**, copiare l'**ID di configurazione personalizzato**. Questo ID è necessario per chiamare l'API Ricerca personalizzata. Va aggiunto al parametro di query `customconfig=` nelle chiamate.
+6.  Fare clic sulla scheda **Produzione**. In **Endpoint** e copiare l'**ID di configurazione personalizzato**. Questo ID è necessario per chiamare l'API Ricerca personalizzata. Va aggiunto al parametro di query `customconfig=` nelle chiamate.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6a9d6ec651cd365995ce63a8dff6d60c8b23dec1
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447244"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312649"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Caricare i dati in modo incrementale da un database SQL di Azure a un archivio BLOB di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da una tabella di un database SQL di Azure a un archivio BLOB di Azure. 
@@ -238,7 +238,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
 
         ![Seconda attività di ricerca: nuovo set di dati](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. Passare all'editor di pipeline facendo clic sulla scheda della pipeline in alto oppure sul nome della pipeline nella visualizzazione albero a sinistra. Nella finestra delle proprietà per l'attività **Cerca** verificare che nel campo **Source Dataset** (Set di dati di origine) sia selezionato **SourceDataset**. 
-18. Selezionare **Query** per il campo **Use Query** (Usa query) e immettere la query seguente, con cui si seleziona solo il valore massimo di **LastModifytime** da **data_source_table**. Senza questa query, il set di dati recupera tutte le righe della tabella in base al nome di tabella specificato (data_source_table) nella definizione del set di dati.
+18. Selezionare **Query** per il campo **Use Query** (Usa query) e immettere la query seguente, con cui si seleziona solo il valore massimo di **LastModifytime** da **data_source_table**. Assicurarsi di aver controllato anche **Solo prima riga**.
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table
@@ -308,7 +308,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
 
         | NOME | Type | Valore | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | string | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Attività stored procedure: impostazioni della stored procedure](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)

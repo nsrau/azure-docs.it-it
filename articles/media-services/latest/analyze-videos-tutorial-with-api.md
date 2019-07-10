@@ -1,5 +1,5 @@
 ---
-title: Analizzare i video con Servizi multimediali di Azure usando .NET | Microsoft Docs
+title: Analizzare i video con Servizi multimediali di Azure | Microsoft Docs
 description: Seguire i passaggi di questa esercitazione per analizzare i video usando Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -9,22 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 04/21/2019
+ms.date: 06/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ead6fdc0ade4a24d162603b9dc3749726c0d8002
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2c26ba24f0262f7cf43f80b4f4deae464581d08d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415638"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273882"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Esercitazione: Analizzare i video con Servizi multimediali v3 usando .NET
+# <a name="tutorial-analyze-videos-with-media-services-v3"></a>Esercitazione: Analizzare i video con Servizi multimediali v3
+
+> [!NOTE]
+> Anche se l'esercitazione usa esempi di [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), i passaggi generali sono gli stessi per [API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
 
 Questa esercitazione illustra come analizzare i video usando Servizi multimediali di Azure. Esistono molti scenari in cui può essere opportuno acquisire informazioni dettagliate da video registrati e contenuti audio. Le organizzazioni, ad esempio, per migliorare la soddisfazione dei clienti, possono convertire in testo scritto l'audio delle registrazioni del supporto clienti e trasformarle in un catalogo di consultazione, con indici e dashboard. In questo modo, possono acquisire informazioni dettagliate sull'andamento dell'attività, generando ad esempio un elenco dei reclami frequenti, delle origini di tali reclami, nonché altre informazioni utili.
 
 Questa esercitazione illustra come:    
-
+ 
 > [!div class="checklist"]
 > * Scaricare l'app di esempio descritta nell'argomento
 > * Esaminare il codice che analizza il video specificato

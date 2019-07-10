@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f8189b5a90f7e9114ec39a874cc60912ac2bb0ce
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 73c14b3d3023dcca113589d63276216fcfdd17f1
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872990"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513450"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Guida introduttiva: Usare Cache Redis di Azure con Python
 
@@ -48,7 +48,9 @@ Questa guida introduttiva illustra come connettersi a un'istanza di Cache Redis 
 
 L'esempio seguente usa *pip3* per Python3 per installare il pacchetto redis-py in Windows 10 usando un prompt dei comandi per gli sviluppatori di Visual Studio 2019 con privilegi di amministratore elevati.
 
+```python
     pip3 install redis
+```
 
 ![Installare redis-py](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
@@ -67,6 +69,9 @@ True
 b'bar'
 ```
 
+> [!IMPORTANT]
+> Per Redis versione 3.0 o successive, il controllo del certificato SSL è obbligatorio. ssl_ca_certs deve essere impostato in modo esplicito durante la connessione a Redis. Nel caso di RH Linux, ssl_ca_certs è reperibile nel modulo certificato "/etc/pki/tls/certs/ca-bundle.crt".
+
 ## <a name="create-a-python-script"></a>Creare uno script Python
 
 Creare un nuovo file di testo di script denominato *PythonApplication1.py*.
@@ -79,7 +84,8 @@ import redis
 myHostname = "<Your Host Name>.redis.cache.windows.net"
 myPassword = "<Your Access Key>"
 
-r = redis.StrictRedis(host=myHostname, port=6380,password=myPassword,ssl=True)
+r = redis.StrictRedis(host=myHostname, port=6380,
+                      password=myPassword, ssl=True)
 
 result = r.ping()
 print("Ping returned : " + str(result))
@@ -91,7 +97,7 @@ result = r.get("Message")
 print("GET Message returned : " + result.decode("utf-8"))
 
 result = r.client_list()
-print("CLIENT LIST returned : ") 
+print("CLIENT LIST returned : ")
 for c in result:
     print("id : " + c['id'] + ", addr : " + c['addr'])
 ```

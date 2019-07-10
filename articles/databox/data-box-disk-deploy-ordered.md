@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 39d39b313cd2e65989989080d4cb0729b0be1e65
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603175"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561458"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Esercitazione: Ordinare un disco di Azure Data Box
 
@@ -49,7 +49,12 @@ Prima di iniziare, verificare che:
 
 ## <a name="order-data-box-disk"></a>Ordinare un disco di Data Box
 
-Seguire questa procedura nel [portale di Azure](https://aka.ms/azuredataboxfromdiskdocs) per ordinare un disco di Data Box.
+Accedere a:
+
+- Portale di Azure all'URL https://portal.azure.com per ordinare Data Box Disk.
+- Portale di Azure per enti pubblici all'URL https://portal.azure.us. Per altri dettagli, vedere l'articolo su come [connettersi ad Azure per enti pubblici con il portale](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+
+Per ordinare Data Box Disk, seguire questa procedura.
 
 1. Nell'angolo superiore sinistro del portale fare clic su **+ Crea una risorsa** e cercare *Azure Data Box*. Fare clic su **Azure Data Box**.
     
@@ -82,7 +87,7 @@ Seguire questa procedura nel [portale di Azure](https://aka.ms/azuredataboxfromd
     |Area di Azure di destinazione| Selezionare l'area per l'account di archiviazione.<br> Attualmente sono supportati gli account di archiviazione in tutte le aree di Stati Uniti, Europa occidentale e settentrionale, Canada e Australia. |
     |Dimensioni dei dati stimate in TB| Immettere una stima in TB. <br>In base alle dimensioni dei dati, Microsoft invia un numero appropriato di dischi SSD da 8 TB (con capacità utilizzabile di 7 TB). <br>La capacità massima utilizzabile nei 5 dischi è di 35 TB. |
     |Passkey disco| Se si seleziona **Usare una chiave personalizzata anziché la passkey generata da Azure**, specificare la passkey del disco. <br> Immettere una chiave alfanumerica di lunghezza compresa tra 12 e 32 caratteri e che contenga almeno un carattere numerico e un carattere speciale. I caratteri speciali consentiti sono `@?_+`. <br> Se si preferisce, è possibile ignorare questa opzione e usare la passkey generata da Azure per sbloccare i dischi.|
-    |Destinazione di archiviazione     | Scegliere tra account di archiviazione e/o dischi gestiti. <br> In base all'area di Azure specificata, selezionare un account di archiviazione dall'elenco filtrato di un account di archiviazione esistente. Il Data Box può essere collegato a un massimo di 10 account di archiviazione. <br> È anche possibile creare un nuovo account **Utilizzo generico v1**, **Utilizzo generico v2** o un **account di archiviazione BLOB**. <br>Non è possibile usare gli account di archiviazione con regole configurate. Gli account di archiviazione devono **consentire l'accesso da tutte le reti** nella sezione dei firewall e delle reti virtuali.|
+    |Destinazione di archiviazione     | Scegliere tra account di archiviazione e/o dischi gestiti. <br> In base all'area di Azure specificata, selezionare un account di archiviazione dall'elenco filtrato di un account di archiviazione esistente. Il Data Box Disk può essere collegato solamente a 1 account di archiviazione. <br> È anche possibile creare un nuovo account **Utilizzo generico v1**, **Utilizzo generico v2** o un **account di archiviazione BLOB**. <br>Sono supportati gli account di archiviazione con reti virtuali. Per consentire al servizio Data Box di lavorare con gli account di archiviazione protetti, abilitare i servizi attendibili all'interno delle impostazioni del firewall di rete dell'account di archiviazione. Per altre informazioni, vedere come [Aggiungere Azure Data Box come servizio attendibile](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
 
     Se si usa l'account di archiviazione come destinazione, vedere lo screenshot seguente:
 

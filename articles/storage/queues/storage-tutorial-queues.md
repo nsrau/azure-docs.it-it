@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 08ef140eb860637cc0c09619abe7051cc007e99f
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797528"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540286"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Esercitazione: Usare le code di archiviazione di Azure
 
@@ -227,6 +227,14 @@ Creare un nuovo metodo per inviare un messaggio nella coda. Aggiungere il metodo
    ```
 
 2. Salvare il file.
+
+Il messaggio deve essere in un formato che possa essere incluso in una richiesta XML con codifica UTF-8 e può avere una dimensione massima di 64 KB. Se un messaggio contiene dati binari, è consigliabile usare la codifica Base64.
+
+Per impostazione predefinita, la durata massima (TTL) di un messaggio è impostata su 7 giorni. È possibile specificare qualsiasi numero positivo per la durata massima del messaggio. Per aggiungere un messaggio che non scada, usare `Timespan.FromSeconds(-1)` nella chiamata a **AddMessageAsync**.
+
+```csharp
+await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
+```
 
 ## <a name="dequeue-messages"></a>Rimuovere dalla coda i messaggi
 

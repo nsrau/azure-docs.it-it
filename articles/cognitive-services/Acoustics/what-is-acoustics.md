@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 73b8980b0ea2d1adbd814026f026358e25dcbb55
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313618"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502945"
 ---
 # <a name="what-is-project-acoustics"></a>Informazioni su Project Acoustics
 Progetto Acustica è un motore di acustica delle onde per esperienze interattive 3D. Modella effetti d'onda come diffrazione, portaling e riverbero in scene complesse senza markup manuale delle zone. Include anche l'integrazione di motori di gioco e middleware audio. La filosofia di Progetto Acustica è simile all'illuminazione statica: si effettua il bake della fisica dettagliata offline per fornire una baseline fisica e si usa il runtime leggero con controlli di progettazione espressivi per soddisfare gli obiettivi artistici.
@@ -41,7 +41,7 @@ L'[integrazione di Progetto Acustica con Unreal](unreal-integration.md) include 
 
 ## <a name="platforms"></a>Piattaforme
 I plug-in di runtime di Progetto Acustica possono essere attualmente distribuiti nelle piattaforme seguenti:
-*  Windows
+* Windows
 * Android
 * Xbox One
 
@@ -51,7 +51,7 @@ I plug-in di runtime di Progetto Acustica possono essere attualmente distribuiti
   * Per i file binari e il supporto di Xbox, contattare Microsoft tramite l'apposito modulo di iscrizione in basso
 
 ## <a name="contact-us"></a>Contatti
-* [Forum di Progetto Acustica](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
+* [Report dei problemi e discussioni di Progetto Acustica](https://github.com/microsoft/ProjectAcoustics/issues)
 * [Iscriversi per ricevere aggiornamenti su Progetto Acustica](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Passaggi successivi
