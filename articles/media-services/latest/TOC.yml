@@ -242,6 +242,12 @@
           href: monitor-events-portal-how-to.md
         - name: Monitorare gli eventi - Interfaccia della riga di comando
           href: job-state-events-cli-how-to.md
+    - name: Usare Monitoraggio di Azure
+      items:
+        - name: Monitorare le metriche
+          href: media-services-metrics-howto.md
+        - name: Monitorare i log di diagnostica
+          href: media-services-diagnostic-logs-howto.md
     - name: Proteggere il contenuto
       items:
         - name: Ottenere i criteri di chiave simmetrica - .NET
