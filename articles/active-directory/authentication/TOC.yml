@@ -25,6 +25,8 @@
   items:
     - name: Metodi di autenticazione
       href: concept-authentication-methods.md
+    - name: Autenticazione senza password
+      href: concept-authentication-passwordless.md
     - name: Registrazione combinata
       href: concept-registration-mfa-sspr-combined.md
     - name: Reimpostazione delle password
@@ -131,8 +133,12 @@
       href: howto-password-smart-lockout.md
     - name: Windows Hello for Business
       href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
-    - name: Accesso tramite telefono senza password
-      href: howto-authentication-phone-sign-in.md
+    - name: Accesso senza password
+      items:
+        - name: Abilitare l'accesso senza password
+          href: howto-authentication-passwordless-enable.md
+        - name: Accesso tramite telefono senza password
+          href: howto-authentication-phone-sign-in.md
     - name: Autenticazione basata su certificati
       items:
         - name: Introduzione all'autenticazione dei certificati

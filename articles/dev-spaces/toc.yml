@@ -9,14 +9,18 @@
       items:
         - name: Sviluppo in team
           href: quickstart-team-development.md
-        - name: Java (Visual Studio Code & interfaccia della riga di comando)
+        - name: Eseguire un'applicazione
+          href: quickstart-cli.md
+        - name: Eseguire un'applicazione con un Dockerfile
+          href: quickstart-cli-dockerfile.md
+        - name: Eseguire Java ed eseguirne il debug con VS Code
           href: quickstart-java.md
-        - name: .NET Core (Visual Studio Code e interfaccia della riga di comando)
+        - name: Eseguire .NET Core ed eseguirne il debug con VS Code
           href: quickstart-netcore.md
-        - name: .NET Core (Visual Studio)
-          href: quickstart-netcore-visualstudio.md
-        - name: Node.js (Visual Studio Code e interfaccia della riga di comando)
+        - name: Eseguire Node.js ed eseguirne il debug con VS Code
           href: quickstart-nodejs.md
+        - name: Eseguire .NET Core ed eseguirne il debug con Visual Studio
+          href: quickstart-netcore-visualstudio.md
     - name: Esercitazioni
       items:
         - name: Java (Visual Studio Code & interfaccia della riga di comando)
@@ -55,6 +59,8 @@
       items:
         - name: Funzionamento di Dev Spaces
           href: how-dev-spaces-works.md
+        - name: Funzionamento di VS Code con Dev Spaces
+          href: how-vs-code-works-with-dev-spaces.md
     - name: Procedure
       items:
         - name: Creare un cluster Kubernetes usando Azure Cloud Shell

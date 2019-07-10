@@ -16,22 +16,22 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8463ffcb9d9983ff435c01f75dd48f68bde31767
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: b48ec72a1f0a4178dad66ed31c544399e90c5293
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545603"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484510"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Esercitazione: Compilare un'immagine personalizzata ed eseguirla nel servizio app da un registro privato
 
-Il [servizio app](app-service-linux-intro.md) fornisce immagini Docker predefinite in Linux con il supporto per versioni specifiche, ad esempio PHP 7.0 e Node.js 4.5. Il servizio app usa la tecnologia basata su contenitori Docker per ospitare sia immagini predefinite che immagini personalizzate come piattaforma distribuita come servizio. Questa esercitazione mostra come compilare un'immagine personalizzata ed eseguirla nel servizio app. Questo modello è utile quando le immagini incorporate non includono il linguaggio scelto o quando l'applicazione richiede una configurazione specifica che non è fornita all'interno delle immagini incorporate.
+Il [servizio app](app-service-linux-intro.md) fornisce immagini Docker predefinite in Linux con il supporto per versioni specifiche, ad esempio PHP 7.3 e Node.js 10.14. Il servizio app usa la tecnologia basata su contenitori Docker per ospitare sia immagini predefinite che immagini personalizzate come piattaforma distribuita come servizio. Questa esercitazione mostra come compilare un'immagine personalizzata ed eseguirla nel Servizio app di Azure. Questo modello è utile quando le immagini incorporate non includono il linguaggio scelto o quando l'applicazione richiede una configurazione specifica che non è fornita all'interno delle immagini incorporate.
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Distribuire un'immagine personalizzata in un registro contenitori privato
-> * Eseguire l'immagine personalizzata nel servizio app
+> * Eseguire l'immagine personalizzata nel Servizio app di Azure
 > * Configurare le variabili di ambiente
 > * Aggiornare e ridistribuire l'immagine
 > * Accedere ai log di diagnostica
@@ -155,7 +155,7 @@ Verificare che l'accesso sia riuscito.
 
 ### <a name="push-image-to-azure-container-registry"></a>Eseguire il push dell'immagine in Registro Azure Container
 
-Assegnare un tag all'immagine locale per il Registro Azure Container. Ad esempio: 
+Assegnare un tag all'immagine locale per il Registro Azure Container. Ad esempio:
 ```bash
 docker tag mydockerimage <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
@@ -166,7 +166,7 @@ Eseguire il push dell'immagine usando il comando `docker push`. Contrassegnare l
 docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
-In Cloud Shell verificare che il push abbia esito positivo.
+In Cloud Shell, verificare che il push abbia esito positivo.
 
 ```azurecli-interactive
 az acr repository list -n <azure-container-registry-name>
@@ -211,7 +211,7 @@ Dopo la creazione dell'app Web, l'interfaccia della riga di comando di Azure mos
 
 ### <a name="configure-registry-credentials-in-web-app"></a>Configurare le credenziali del registro nell'app Web
 
-Per eseguire il pull dell'immagine privata con il servizio app sono necessarie informazioni sul registro e sull'immagine. In Cloud Shell, fornirle con il comando [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Sostituire *\<app-name>*, *\<azure-container-registry-name>*, _\<registry-username>_ e _\<password>_.
+Per eseguire il pull dell'immagine privata con il Servizio app di Azure sono necessarie informazioni sul registro e sull'immagine. In Cloud Shell, fornirle con il comando [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Sostituire *\<app-name>* , *\<azure-container-registry-name>* , _\<registry-username>_ e _\<password>_ .
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -223,7 +223,7 @@ az webapp config container set --name <app-name> --resource-group myResourceGrou
 
 ### <a name="configure-environment-variables"></a>Configurare le variabili di ambiente
 
-La maggior parte delle immagini Docker usa variabili di ambiente personalizzate, ad esempio una porta diversa da 80. Comunicare al servizio app la porta usata dall'immagine usando l'impostazione dell'app `WEBSITES_PORT`. La pagina di GitHub per l'[esempio di Python in questa esercitazione](https://github.com/Azure-Samples/docker-django-webapp-linux) indica che è necessario impostare `WEBSITES_PORT` su _8000_.
+La maggior parte delle immagini Docker usa variabili di ambiente personalizzate, ad esempio una porta diversa da 80. Comunicare al Servizio app di Azure la porta usata dall'immagine usando l'impostazione dell'app `WEBSITES_PORT`. La pagina di GitHub per l'[esempio di Python in questa esercitazione](https://github.com/Azure-Samples/docker-django-webapp-linux) indica che è necessario impostare `WEBSITES_PORT` su _8000_.
 
 Per configurare le impostazioni dell'app, usare il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. Le impostazioni delle app applicano la distinzione tra maiuscole e minuscole e sono separate da spazi.
 
@@ -236,7 +236,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 Verificare che l'app Web funzioni, esplorandola (`http://<app-name>.azurewebsites.net`).
 
 > [!NOTE]
-> Il primo accesso all'app potrebbe richiedere del tempo perché il servizio app deve eseguire il pull dell'intera immagine. Se il browser raggiunge il timeout, è sufficiente aggiornare la pagina.
+> Il primo accesso all'app potrebbe richiedere del tempo perché il Servizio app di Azure deve eseguire il pull dell'intera immagine. Se il browser raggiunge il timeout, è sufficiente aggiornare la pagina.
 
 ![Testare la configurazione della porta dell'app Web](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
@@ -254,7 +254,7 @@ Nel repository Git locale, aprire app/templates/app/index.html. Individuare il p
   </nav>
 ```
 
-Dopo avere modificato e salvato il file di Python, è necessario ricompilare la nuova immagine Docker ed eseguirne il push. Riavviare quindi l'app Web per rendere effettive le modifiche. Usare gli stessi comandi già usati in questa esercitazione. Vedere le sezioni [Creare l'immagine dal file Docker](#build-the-image-from-the-docker-file) ed [Eseguire il push dell'immagine in Registro Azure Container](#push-image-to-azure-container-registry). Testare l'app Web seguendo le istruzioni in [Testare l'applicazione in Azure](#test-the-web-app).
+Dopo avere modificato e salvato il file di Python, è necessario ricompilare la nuova immagine Docker ed eseguirne il push. Riavviare quindi l'app Web per rendere effettive le modifiche. Usare gli stessi comandi già usati in questa esercitazione. Vedere le sezioni [Creare l'immagine dal file di Docker](#build-the-image-from-the-docker-file) ed [Eseguire il push dell'immagine in Registro Azure Container](#push-image-to-azure-container-registry). Testare l'app Web seguendo le istruzioni in [Testare l'applicazione in Azure](#test-the-web-app).
 
 ## <a name="access-diagnostic-logs"></a>Accedere ai log di diagnostica
 
@@ -278,7 +278,7 @@ SSH consente la comunicazione sicura tra un contenitore e un client. Per abilita
     > [!NOTE]
     > Questa configurazione non consente connessioni esterne al contenitore. SSH è disponibile solo tramite il sito Kudu/SCM. Il sito Kudu/SCM viene autenticato con l'account Azure.
 
-* Il [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) copia il file [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config file in the repository) nella directory */etc/ssh/*.
+* Il [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) copia il file [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config) del repository nella directory */etc/ssh/* .
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/
@@ -328,7 +328,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Congratulazioni! È stato configurato un contenitore Linux personalizzato nel servizio app.
+Congratulazioni! È stato configurato un contenitore Linux personalizzato nel Servizio app di Azure.
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
@@ -338,7 +338,7 @@ Contenuto dell'esercitazione:
 
 > [!div class="checklist"]
 > * Distribuire un'immagine personalizzata in un registro contenitori privato
-> * Eseguire l'immagine personalizzata nel servizio app
+> * Eseguire l'immagine personalizzata nel Servizio app di Azure
 > * Configurare le variabili di ambiente
 > * Aggiornare e ridistribuire l'immagine
 > * Accedere ai log di diagnostica
@@ -355,4 +355,4 @@ In alternativa, consultare altre risorse:
 > [Configurare il contenitore personalizzato](configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Esercitazione: App WordPress multicontenitore](tutorial-multi-container-app.md)
+> [Esercitazione: App WordPress multi-contenitore](tutorial-multi-container-app.md)

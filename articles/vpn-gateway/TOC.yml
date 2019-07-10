@@ -140,6 +140,8 @@
               href: vpn-gateway-howto-openvpn-clients.md
         - name: Passaggio a un certificato del gateway CA pubblico per la connessione da punto a sito
           href: vpn-gateway-point-to-site-gateway-public-ca.md
+        - name: Configurare un tunnel di dispositivo VPN Always On
+          href: vpn-gateway-howto-always-on-device-tunnel.md
     - name: Creare un gateway di rete virtuale con ridondanza della zona nelle zone di disponibilità di Azure
       href: create-zone-redundant-vnet-gateway.md
     - name: Configurare i criteri IPsec/IKE per le connessioni

@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 15b7c052d0e4d51cb033607c156a55c581f722b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4484269194aa3d637101a6a0b83eacb268d4c16e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893963"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147293"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configurare l'agente di Log Analytics per computer Linux in un ambiente ibrido
-[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) può raccogliere dati direttamente dai computer Linux fisici o virtuali nel data center o in altri ambienti cloud in un unico repository per l'esecuzione di analisi dettagliate e della correlazione. Questo avvio rapido illustra come configurare e raccogliere dati dal computer Linux in pochi semplici passaggi.  Per le macchine virtuali Linux di Azure vedere l'argomento seguente [Raccogliere dati sulle macchine virtuali di Azure](quick-collect-azurevm.md).  
+[Azure Log Analytics](../platform/agent-windows.md) può raccogliere dati direttamente dai computer Linux fisici o virtuali nel data center o in altri ambienti cloud in un unico repository per l'esecuzione di analisi dettagliate e della correlazione. Questo avvio rapido illustra come configurare e raccogliere dati dal computer Linux in pochi semplici passaggi.  Per le macchine virtuali Linux di Azure vedere l'argomento seguente [Raccogliere dati sulle macchine virtuali di Azure](quick-collect-azurevm.md).  
 
-Per comprendere la configurazione supportata, vedere i [sistemi operativi Linux supportati](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) e la [configurazione del firewall di rete](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
+Prima di procedere, è necessario rivedere l'articolo con la [panoramica](../platform/log-analytics-agent.md) dell'agente di analisi dei log per comprendere quali configurazioni sono supportate, quali [sistemi operativi Linux sono supportati](../platform/log-analytics-agent.md#supported-linux-operating-systems) e la [ configurazione del firewall di rete](../platform/log-analytics-agent.md#network-firewall-requirements). 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -107,7 +107,7 @@ Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
 Log Analytics può raccogliere gli eventi da Syslog Linux e dai contatori delle prestazioni specificati per l'analisi a lungo termine e la creazione di report e intervenire quando viene rilevata una particolare condizione.  Seguire questi passaggi per configurare la raccolta di eventi da Syslog Linux e di diversi comuni contatori delle prestazioni con cui iniziare.  
 
 1. Selezionare **Syslog**.  
-2. Si aggiunge un registro eventi digitandone il nome. Digitare **Syslog** e quindi fare clic sul segno **+**.  
+2. Si aggiunge un registro eventi digitandone il nome. Digitare **Syslog** e quindi fare clic sul segno **+** .  
 3. Nella tabella deselezionare i livelli di gravità **Informativo**, **Avviso** e **Debug**. 
 4. Fare clic su **Salva** nella parte superiore della pagina per salvare la configurazione.
 5. Selezionare **Linux Performance Data** (Dati di prestazione di Linux) per abilitare la raccolta di contatori delle prestazioni in un computer Linux. 

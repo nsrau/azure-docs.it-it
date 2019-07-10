@@ -5,19 +5,19 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/17/2018
+ms.date: 6/26/2019
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 0c89c8353d410ddd54e8a59f3838c914702b96ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9771e312269eb78e0dc4535a61e9287b5b169d7c
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153721"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459037"
 ---
 1. Accedere al [portale di Azure](http://portal.azure.com).
 
-1. Nel riquadro a sinistra selezionare **Crea una risorsa**. Cercare **gemelli digitali** e selezionare **Gemelli digitali (anteprima)**. Selezionare **Crea** per avviare il processo di distribuzione.
+1. Nel riquadro a sinistra selezionare **Crea una risorsa**. Cercare **gemelli digitali** e selezionare **Gemelli digitali** . Selezionare **Crea** per avviare il processo di distribuzione.
 
    ![Selezioni per la creazione di una nuova istanza di Gemelli digitali](./media/create-digital-twins-portal/create-digital-twins.png)
 

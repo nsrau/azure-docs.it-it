@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/24/2019
+ms.date: 06/19/2019
 ms.author: alkohli
-ms.openlocfilehash: f2f6b544b56977b3f1bfb6a4fb46a9f1e3bcc294
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: d4cdc9b6c31c62080fed5a8528577fef72c01c3f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427952"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271717"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy-preview"></a>Esercitazione: Cablare e connettersi ad Azure Data Box Heavy (anteprima)
 
@@ -28,14 +28,14 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, verificare di:
+Prima di iniziare, verificare che:
 
 1. Aver completato l'esercitazione descritta in [Esercitazione: Ordinare Azure Data Box Heavy](data-box-heavy-deploy-ordered.md).
 2. Aver ricevuto Data Box Heavy e che lo stato dell'ordine nel portale sia **Recapitati**.
 3. Aver consultato le [linee guida per la sicurezza di Data Box Heavy](data-box-safety.md).
 4. Avere accesso a una superficie piana nel data center, vicina a una connessione di rete disponibile, in grado di alloggiare un dispositivo con questo ingombro. Questo dispositivo non può essere montato su rack.
 5. Aver ricevuto quattro cavi di alimentazione con messa a terra da usare con il dispositivo di archiviazione.
-6. Avere un computer host connesso alla rete del data center. Il dispositivo Data Box Heavy copierà i dati da questo computer. Il computer host deve eseguire un [sistema operativo supportato](data-box-heavy-system-requirements.md).
+6. Sia disponibile un computer host connesso alla rete del data center. Il dispositivo Data Box Heavy copierà i dati da questo computer. Il computer host deve eseguire un [sistema operativo supportato](data-box-heavy-system-requirements.md).
 7. Il data center disponga di una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. 
 8. Avere un computer portatile con un cavo RJ-45 per connettersi all'interfaccia utente locale e configurare il dispositivo. Usare il portatile per configurare una sola volta ogni nodo del dispositivo.
 9. È necessario un cavo da 40 Gbps o da 10 Gbps per ogni nodo del dispositivo.
@@ -79,7 +79,7 @@ Per cablare il dispositivo, eseguire la procedura seguente.
 In uno dei nodi del dispositivo eseguire la procedura seguente per configurare il cablaggio di rete.
 
 1. Usare un cavo di rete RJ-45 CAT 6 (cavo blu nella figura) per connettere il computer host alla porta di gestione da 1 Gbps.
-2. Usare un cavo di rame QSFP+ Twinax (cavi neri nella figura) per connettere almeno un'interfaccia di rete da 40 Gbps (consigliata rispetto a quella da 1 Gbps) per i dati. Se si usa uno switch da 10 Gbps, usare un cavo di rame SFP+ Twinax con un adattatore da QSFP+ a SFP+ (adattatore QSA) per connettere l'interfaccia di rete da 40 Gbps per i dati.
+2. Usare un cavo QSFP+ (fibra o rame) per connettere almeno una interfaccia di rete a 40 Gbps (preferita rispetto a quella a 1 Gbps) per i dati. Se si usa uno switch da 10 Gbps, usare un cavo SFP+ con un adattatore da QSFP+ a SFP+ (adattatore QSA) per connettere l'interfaccia di rete da 40 Gbps per i dati.
 
     ![Porte di Data Box Heavy cablate](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
 

@@ -52,6 +52,8 @@
           items:
             - name: Connettere il CEF generico
               href: connect-common-event-format.md
+            - name: Connettere AWS
+              href: connect-aws.md
             - name: Connettere Barracuda
               href: connect-barracuda.md
             - name: Connettere Check Point

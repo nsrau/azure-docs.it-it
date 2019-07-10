@@ -2,22 +2,22 @@
 title: 'Esercitazione: Monitorare uno spazio con Gemelli digitali di Azure | Microsoft Docs'
 description: Informazioni su come effettuare il provisioning delle risorse spaziali e monitorare le condizioni di lavoro con Gemelli digitali di Azure usando i passaggi descritti in questa esercitazione.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/27/2018
-ms.author: dkshir
-ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 06/26/2019
+ms.author: alinast
+ms.openlocfilehash: 3ebfa9b54007d0b409780e6a549bdd2411b94810
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535383"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484678"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Esercitazione: Effettuare il provisioning dell'edificio e monitorare le condizioni di lavoro con Gemelli digitali di Azure
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Esercitazione: Effettuare il provisioning dell'edificio e monitorare le condizioni di lavoro con Anteprima di Gemelli digitali di Azure
 
-Questa esercitazione illustra come usare Gemelli digitali di Azure per monitorare la temperatura e il livello di comfort dei propri spazi. Dopo aver [configurato l'edificio di esempio](tutorial-facilities-setup.md), è possibile effettuare il provisioning dell'edificio ed eseguire funzioni personalizzate sui dati dei sensori usando la procedura descritta in questa esercitazione.
+Questa esercitazione illustra come usare Anteprima di Gemelli digitali di Azure per monitorare la temperatura e il livello di comfort dei propri spazi. Dopo aver [configurato l'edificio di esempio](tutorial-facilities-setup.md), è possibile effettuare il provisioning dell'edificio ed eseguire funzioni personalizzate sui dati dei sensori usando la procedura descritta in questa esercitazione.
 
 In questa esercitazione si apprenderà come:
 
@@ -43,14 +43,14 @@ Questa esercitazione presuppone che sia stata [completata l'installazione di Gem
 
 Dal progetto di esempio **occupancy-quickstart** aprire il file **src\actions\provisionSample.yaml** in Visual Studio Code. Si noti la sezione che inizia con il tipo **matchers**. Ogni voce di questo tipo crea un matcher con il **nome** specificato, che monitorerà un sensore di tipo **dataTypeValue**. Si noti che è correlato allo spazio *Focus Room A1*, che ha un nodo **devices**, contenente alcuni sensori. Per effettuare il provisioning di un matcher che terrà traccia di questi sensori, assicurarsi che **dataTypeValue** corrisponda all'elemento **dataType** del sensore. 
 
-Aggiungere il matcher seguente sotto i matcher esistenti. Assicurarsi che le chiavi siano allineate e gli spazi non vengano sostituiti da caratteri di tabulazione.
+Aggiungere il matcher seguente sotto i matcher esistenti. Assicurarsi che le chiavi siano allineate e gli spazi non vengano sostituiti da caratteri di tabulazione. Queste righe sono presenti anche nel file *provisionSample.yaml* come righe commentate. Per rimuovere il commento, rimuovere il carattere `#` all'inizio di ogni riga.
 
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
 
-Tale matcher terrà traccia del sensore SAMPLE_SENSOR_TEMPERATURE aggiunto nella [prima esercitazione](tutorial-facilities-setup.md). Queste righe sono presenti anche nel file *provisionSample.yaml* come righe commentate. Per rimuovere il commento, rimuovere il carattere `#` all'inizio di ogni riga.
+Tale matcher terrà traccia del sensore SAMPLE_SENSOR_TEMPERATURE aggiunto nella [prima esercitazione](tutorial-facilities-setup.md). 
 
 <a id="udf"></a>
 

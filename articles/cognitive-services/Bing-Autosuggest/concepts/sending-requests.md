@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: abcce52e126e01d25434a90260a220c9aa337f5b
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: fe35901f7d084fd96cb4c164e957391bfe2346a9
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382704"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542636"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Invio di richieste all'API Suggerimenti automatici Bing.
 
-Se l'applicazione invia query a una delle API Ricerca Bing, è possibile usare l'API Suggerimenti automatici Bing per migliorare l'esperienza di ricerca degli utenti. L'API Suggerimenti automatici Bing restituisce un elenco di query suggerite basate sulla stringa di query parziale immessa nella casella di ricerca. Quando i caratteri vengono immessi in una casella di ricerca nell'applicazione, è possibile visualizzare i suggerimenti in un elenco a discesa. Questo articolo contiene informazioni approfondite sull'invio di richieste a questa API.
+Se l'applicazione invia query a una delle API Ricerca Bing, è possibile usare l'API Suggerimenti automatici Bing per migliorare l'esperienza di ricerca degli utenti. L'API Suggerimenti automatici Bing restituisce un elenco di query suggerite basate sulla stringa di query parziale immessa nella casella di ricerca. Quando i caratteri vengono immessi in una casella di ricerca nell'applicazione, è possibile visualizzare i suggerimenti in un elenco a discesa. Questo articolo contiene informazioni approfondite sull'invio di richieste a questa API. 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>Endpoint dell'API Suggerimenti automatici Bing
 
@@ -44,7 +44,7 @@ Per esempi di richieste di base con l'API Suggerimenti automatici, vedere [Guide
 ## <a name="bing-autosuggest-api-requests"></a>Richieste all'API Suggerimenti automatici Bing
 
 > [!NOTE]
-> Le richieste all'API Suggerimenti automatici Bing devono usare il protocollo HTTPS.
+> * Le richieste all'API Suggerimenti automatici Bing devono usare il protocollo HTTPS.
 
 È consigliabile che tutte le richieste abbiano origine da un server. La distribuzione della chiave come parte di un'applicazione client consente a terze parti dannose di accedervi più facilmente. Inoltre, l'esecuzione delle chiamate da un server consente di usare un solo punto di aggiornamento per i futuri aggiornamenti.
 
@@ -95,11 +95,13 @@ L'esempio seguente illustra una richiesta che restituisce le stringhe di query s
 
 Se è la prima volta che si chiama un'API Bing, non includere l'intestazione dell'ID client. Includere l'intestazione dell'ID client solo se in precedenza è già stata chiamata un'API Bing e Bing ha restituito un ID client per la combinazione utente e dispositivo.
 
-Di seguito è indicata la risposta alla richiesta precedente. La risposta include un gruppo di suggerimenti Web che contiene un elenco di suggerimenti di query di ricerca. Ogni suggerimento include un campo `displayText`, `query` e `url`.
+Il gruppo di suggerimento Web seguente è una risposta alla richiesta precedente. Il gruppo contiene un elenco di suggerimenti di query di ricerca, con ogni suggerimento che include un campo `displayText`, `query` e `url`.
 
 Il campo `displayText` contiene la query suggerita che si userebbe per popolare l'elenco a discesa della casella di ricerca. È necessario visualizzare tutti i suggerimenti inclusi nella risposta, nell'ordine indicato.  
 
-Se l'utente seleziona una query dall'elenco a discesa, è possibile usarla per chiamare una delle [API di ricerca Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) e visualizzare autonomamente i risultati. In alternativa, è possibile indirizzare l'utente alla pagina dei risultati di Bing tramite il campo `url` restituito. L'esempio seguente usa l'API Ricerca Web Bing.
+Se l'utente seleziona una query dall'elenco a discesa, è possibile usarla per chiamare una delle [API di ricerca Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) e visualizzare autonomamente i risultati. In alternativa, è possibile indirizzare l'utente alla pagina dei risultati di Bing tramite il campo `url` restituito.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

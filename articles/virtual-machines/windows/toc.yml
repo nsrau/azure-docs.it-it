@@ -256,9 +256,7 @@
             - name: Portale
               href: shared-images-portal.md
             - name: CLI
-              href: ../linux/shared-images.md
-            - name: Portale
-              href: shared-images-portal.md
+              href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Condividere immagini tra tenant
               href: share-images-across-tenants.md
             - name: Risolvere i problemi relativi alle immagini condivise

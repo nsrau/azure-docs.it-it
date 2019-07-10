@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 97083142066e59acbefe60181743e5aa32541bac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00c536120ed9507d5ecc6fe930429d12514945b3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115833"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483827"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Che cos'è Apache Storm in Azure HDInsight?
 
@@ -44,7 +44,7 @@ Storm in HDInsight offre le funzionalità seguenti:
 
 Per un elenco delle società che usano Apache Storm per le loro soluzioni di analisi in tempo reale, vedere l'articolo relativo alle [società che usano Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-Per iniziare a usare Storm, vedere [iniziare con Apache Storm in HDInsight](apache-storm-tutorial-get-started-linux.md).
+Per iniziare a usare Storm, vedere [Creare e monitorare una topologia Apache Storm in Azure HDInsight](apache-storm-quickstart.md).
 
 ## <a name="how-does-apache-storm-work"></a>Funzionamento di Apache Storm
 
@@ -68,7 +68,7 @@ La configurazione predefinita per i cluster Apache Storm prevede un solo nodo Ni
 
 ## <a name="ease-of-creation"></a>Facilità di creazione
 
-È possibile creare un nuovo cluster Storm in HDInsight in pochi minuti. Per altre informazioni sulla creazione di un cluster Storm, vedere [Introduzione a Storm in un HDInsight](apache-storm-tutorial-get-started-linux.md).
+È possibile creare un nuovo cluster Storm in HDInsight in pochi minuti. Per altre informazioni sulla creazione di un cluster Storm, vedere [Create Apache Hadoop clusters using the Azure portal (Creare cluster Apache Hadoop con il portale di Azure)](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="ease-of-use"></a>Semplicità d'uso
 
@@ -82,7 +82,7 @@ La configurazione predefinita per i cluster Apache Storm prevede un solo nodo Ni
 
 * __Azure PowerShell e interfaccia della riga di comando classica di Azure__: sia Azure PowerShell che l'interfaccia della riga di comando includono utilità della riga di comando che è possibile usare dal sistema client per operazioni con HDInsight e altri servizi di Azure.
 
-* __Integrazione di Visual Studio__: Azure Data Lake Tools per Visual Studio includono modelli di progetto per la creazione di C# topologie di Storm usando il framework SCP.NET. Strumenti Data Lake include anche strumenti per distribuire, monitorare e gestire soluzioni con Storm in HDInsight.
+* __Integrazione di Visual Studio__: Strumenti Azure Data Lake per Visual Studio include modelli di progetto per la creazione di topologie Storm C# con il framework SCP.NET. Strumenti Data Lake include anche strumenti per distribuire, monitorare e gestire soluzioni con Storm in HDInsight.
 
   Per altre informazioni, vedere [Sviluppare topologie C# per Storm con gli strumenti di HDInsight per Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
@@ -138,7 +138,7 @@ Per altre informazioni, vedere la sezione sulle [garanzie relative all'elaborazi
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-Il modello di lettura di una tupla di input, la creazione di zero o più tuple e quindi riconoscimento della tupla di input subito dopo la fine del metodo di esecuzione è comune. Storm mette a disposizione l'interfaccia [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) per automatizzarlo.
+Il modello che prevede la lettura di una tupla di input, la generazione di nessuna o più tuple e l'inserimento della tupla di input subito dopo la fine del metodo di esecuzione è un modello comune. Storm mette a disposizione l'interfaccia [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) per automatizzarlo.
 
 ### <a name="joins"></a>Join
 
@@ -176,5 +176,5 @@ Per un esempio di topologia che illustra come configurare la registrazione, vede
 
 Per altre informazioni sulle soluzioni di analisi in tempo reale con Apache Storm in HDInsight:
 
-* [Introduzione ad Apache Storm in HDInsight](apache-storm-tutorial-get-started-linux.md)
+* [Creare e monitorare una topologia Apache Storm in Azure HDInsight](apache-storm-quickstart.md)
 * [Topologie di esempio per Apache Storm in HDInsight](apache-storm-example-topology.md)

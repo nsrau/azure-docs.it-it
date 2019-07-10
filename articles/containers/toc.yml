@@ -62,6 +62,19 @@
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
         - name: Informazioni sui contenitori Windows
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/about/index'
+    - name: Azure Red Hat OpenShift
+      href: 'https://docs.microsoft.com/azure/openshift/'
+      items:
+        - name: Informazioni su Azure Red Hat OpenShift
+          href: ../openshift/intro-openshift.md
+        - name: Esercitazione - Creare e gestire un cluster di Azure Red Hat OpenShift
+          items:
+            - name: 1 - Creare un cluster di Azure Red Hat OpenShift
+              href: ../openshift/tutorial-create-cluster.md
+            - name: 2 - Ridimensionare un cluster di Azure Red Hat OpenShift
+              href: ../openshift/tutorial-scale-cluster.md
+            - name: 3 - Eliminare un cluster di Azure Red Hat OpenShift
+              href: ../openshift/tutorial-delete-cluster.md
     - name: riferimento
       items:
         - name: Istanze di Azure Container (az container)

@@ -11,12 +11,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: c3a988a831ad1069e5988f9c67e92a85a7a44840
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 53c870ad135fe13eb3bf7556678cac29352911aa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765212"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442935"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Team di sviluppo con Azure Dev Spaces
 
@@ -65,7 +65,7 @@ Prima di tutto è necessario distribuire una baseline dei servizi. Questa distri
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Proprietà**.
 1. Selezionare la scheda **Debug** a sinistra per visualizzare le impostazioni di Azure Dev Spaces.
 1. Selezionare **Cambia** per creare lo spazio che verrà usato quando si spreme F5 o CTRL+F5 per il servizio.
-1. Nell'elenco a discesa Spazio, selezionare **\<Crea nuovo spazio\>**.
+1. Nell'elenco a discesa Spazio, selezionare **\<Crea nuovo spazio\>** .
 1. Assicurarsi che lo spazio padre sia impostato su **\<nessuno\>** e immettere il nome dello spazio **dev**. Fare clic su OK.
 1. Premere CTRL+F5 per eseguire _mywebapi_ senza il debugger collegato.
 1. Passare alla finestra di Visual Studio con il progetto _webfrontend_ e premere CTRL+F5 per eseguire anche questo.
@@ -90,7 +90,7 @@ Per creare un nuovo spazio, eseguire questa operazione:
 2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Proprietà**.
 3. Selezionare la scheda **Debug** a sinistra per visualizzare le impostazioni di Azure Dev Spaces.
 4. A questo punto, è possibile modificare o creare il cluster e/o lo spazio che sarà utilizzato quando si usa F5 o CTRL+F5. *Assicurarsi che sia selezionato lo spazio Azure Dev Spaces creato in precedenza*.
-5. Nell'elenco a discesa Spazio, selezionare **\<Crea nuovo spazio\>**.
+5. Nell'elenco a discesa Spazio, selezionare **\<Crea nuovo spazio\>** .
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 
@@ -126,7 +126,7 @@ Questa funzionalità integrata di Azure Dev Spaces consente di testare codice en
 ### <a name="test-code-running-in-the-devscott-space"></a>Testare il codice in esecuzione nello spazio _dev/scott_
 Per testare la nuova versione di *mywebapi* in combinazione con *webfrontend*, aprire il browser all'URL del punto di accesso pubblico per *webfrontend*, ad esempio http://dev.webfrontend.123456abcdef.eus.azds.io) e passare alla pagina delle informazioni. Verrà visualizzato il messaggio originale "Salve da webfrontend e Salve da mywebapi".
 
-A questo punto, aggiungere "scott.s". all'URL in modo che sia simile a http://scott.s.dev.webfrontend.123456abcdef.eus.azds.io e aggiornare il browser. Si dovrebbe raggiungere il punto di interruzione impostato nel progetto *mywebapi*. Premere F5 per continuare e nel browser dovrebbe essere visualizzato il nuovo messaggio "Salve da webfrontend e mywebapi ora dice qualcosa di nuovo". Ciò è dovuto al fatto che il percorso del codice aggiornato in *mywebapi* è in esecuzione nello spazio _dev/scott_.
+A questo punto, aggiungere "scott.s". all'URL in modo che diventi simile a http\://scott.s.dev.webfrontend.123456abcdef.eus.azds.io e aggiornare il browser. Si dovrebbe raggiungere il punto di interruzione impostato nel progetto *mywebapi*. Premere F5 per continuare e nel browser dovrebbe essere visualizzato il nuovo messaggio "Salve da webfrontend e mywebapi ora dice qualcosa di nuovo". Ciò è dovuto al fatto che il percorso del codice aggiornato in *mywebapi* è in esecuzione nello spazio _dev/scott_.
 
 Dopo aver impostato uno spazio _dev_ che contiene sempre le ultime modifiche, e presupponendo che l'applicazione sia progettata per trarre vantaggio dal routing basato su spazio di DevSpace descritto in questa sezione dell'esercitazione, dovrebbe risultare evidente quanto può essere utile usare Dev Spaces per testare le nuove funzionalità nel contesto dell'applicazione più grande. Invece di dover distribuire _tutti_ i servizi nello spazio privato, è possibile creare uno spazio privato che deriva da _dev_ e attivare solo i servizi effettivamente in uso. L'infrastruttura di routing di Dev Spaces gestirà il resto utilizzando tutti i servizi dello spazio privato che riesce a trovare, mentre per impostazione predefinita torna all'ultima versione in esecuzione nello spazio _dev_. E soprattutto _più_ sviluppatori possono sviluppare attivamente diversi servizi contemporaneamente nel proprio spazio senza interrompersi a vicenda.
 

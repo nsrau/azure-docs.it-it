@@ -5,17 +5,17 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 04/01/2019
+ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e54c18eb405ffa36260e9980705784130bc0ca4c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aae5b87e49b6d64e4c9ee854b65821d65969e66b
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803006"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536806"
 ---
-# <a name="quickstart-create-a-server---portal"></a>Avvio rapido: Creare un server - Portale
+# <a name="quickstart-create-a-server---portal"></a>Guida introduttiva: Creare un server - Portale
 
 Questa guida introduttiva descrive come creare una risorsa server Analysis Services nella sottoscrizione di Azure usando il portale.
 
@@ -37,7 +37,7 @@ Questa guida introduttiva descrive come creare una risorsa server Analysis Servi
 
 2. In **Analysis Services** compilare i campi obbligatori e quindi fare clic su **Crea**.
    
-   * **Nome server**: digitare un nome univoco usato per fare riferimento al server.
+   * **Nome server**: digitare un nome univoco usato per fare riferimento al server. Il nome del server deve iniziare con una lettera minuscola e contenere tra 3 e 128 caratteri minuscoli e numeri. Gli spazi e i caratteri speciali non sono consentiti.
    * **Sottoscrizione** selezionare la sottoscrizione a cui il server verrà associato.
    * **Gruppo di risorse**: creare un nuovo gruppo di risorse o selezionarne uno già esistente. I gruppi di risorse sono progettati per facilitare la gestione di una raccolta di risorse di Azure. Per altre informazioni, vedere [Gruppi di risorse](../azure-resource-manager/resource-group-overview.md).
    * **Località**: località del data center di Azure che ospita il server. Selezionare una località vicina alla base di utenti più estesa.

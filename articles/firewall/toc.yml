@@ -49,6 +49,8 @@
       href: deploy-availability-zone-powershell.md
     - name: Integrazione con il servizio di bilanciamento del carico
       href: integrate-lb.md
+    - name: Regole dell'applicazione con FQDN di SQL
+      href: sql-fqdn-filtering.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

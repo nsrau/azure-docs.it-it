@@ -2,18 +2,18 @@
 title: 'Esercitazione: Acquisire eventi da uno spazio di Gemelli digitali di Azure | Microsoft Docs'
 description: Informazioni su come ricevere notifiche dagli spazi grazie all'integrazione di Gemelli digitali di Azure con App per la logica seguendo i passaggi descritti in questa esercitazione.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
-ms.author: dkshir
-ms.openlocfilehash: 524ca96687e9395b65ec513326ad0fd4f7c6d429
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: alinast
+ms.openlocfilehash: 2b84fa2fd8053ca4dc7ef0ad246d29b2bba3dae5
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528904"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484709"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Esercitazione: Ricevere notifiche dagli spazi di Gemelli digitali di Azure usando App per la logica
 
@@ -51,9 +51,9 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
 1. Nel riquadro a sinistra selezionare **Crea risorsa**. 
 
-1. Cercare un **argomento di Griglia di eventi** e selezionarlo. Selezionare **Create**.
+1. Cercare un **argomento di Griglia di eventi** e selezionarlo. Selezionare **Create** (Crea).
 
-1. In **Nome** immettere un nome per l'argomento di Griglia di eventi e scegliere un valore per **Sottoscrizione**. In **Gruppo di risorse** selezionare il gruppo di risorse usato o creato per l'istanza di Gemelli digitali e quindi selezionare un'opzione in **Località**. Selezionare **Create**. 
+1. In **Nome** immettere un nome per l'argomento di Griglia di eventi e scegliere un valore per **Sottoscrizione**. In **Gruppo di risorse** selezionare il gruppo di risorse usato o creato per l'istanza di Gemelli digitali e quindi selezionare un'opzione in **Località**. Selezionare **Create** (Crea). 
 
     ![Creare un argomento di Griglia di eventi](./media/tutorial-facilities-events/create-event-grid-topic.png)
 
@@ -76,16 +76,16 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString: Primary_connection_string_for_your_Event_Grid
-      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
-      path: Event_Grid_Topic_Path
+      connectionString: <Primary connection string for your Event Grid>
+      secondaryConnectionString: <Secondary connection string for your Event Grid>
+      path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Sostituire il segnaposto `Primary_connection_string_for_your_Event_Grid` con il valore di **YOUR_KEY_1**.
+1. Sostituire il segnaposto `<Primary connection string for your Event Grid>` con il valore di **YOUR_KEY_1**.
 
-1. Sostituire il segnaposto `Secondary_connection_string_for_your_Event_Grid` con il valore di **YOUR_KEY_2**.
+1. Sostituire il segnaposto `<Secondary connection string for your Event Grid>` con il valore di **YOUR_KEY_2**.
 
-1. Sostituire il segnaposto `Event_Grid_Topic_Path` con il percorso dell'argomento di Griglia di eventi. Per ottenere questo percorso, rimuovere **https://** e i percorsi delle risorse finali dall'URL di **Endpoint argomento**. Il formato dovrebbe essere simile al seguente: *NomeGrigliaDiEventi.Località.eventgrid.azure.net*.
+1. Sostituire il segnaposto per il **percorso** con il percorso dell'argomento di Griglia di eventi. Per ottenere questo percorso, rimuovere **https://** e i percorsi delle risorse finali dall'URL di **Endpoint argomento**. Il formato dovrebbe essere simile al seguente: *NomeGrigliaDiEventi.Località.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Immettere tutti i valori senza virgolette. Verificare che sia presente almeno uno spazio dopo i due punti nel file YAML. È anche possibile convalidare i contenuti del file YAML usando qualsiasi validator YAML online, come [questo strumento](https://onlineyamltools.com/validate-yaml).
@@ -106,15 +106,15 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
 1. Nel riquadro sinistro del [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa**.
 
-1. Cercare una nuova risorsa **App per la logica** e selezionarla. Selezionare **Create**.
+1. Cercare una nuova risorsa **App per la logica** e selezionarla. Selezionare **Create** (Crea).
 
-1. In **Nome** immettere un nome per la risorsa dell'app per la logica e quindi selezionare le opzioni per **Sottoscrizione**, **Gruppo di risorse** e **Località**. Selezionare **Create**.
+1. In **Nome** immettere un nome per la risorsa dell'app per la logica e quindi selezionare le opzioni per **Sottoscrizione**, **Gruppo di risorse** e **Località**. Selezionare **Create** (Crea).
 
     ![Creare una risorsa di App per la logica](./media/tutorial-facilities-events/create-logic-app.png)
 
 1. Aprire la risorsa dell'app per la logica dopo averla distribuita e quindi aprire il riquadro **Progettazione app per la logica**. 
 
-1. Selezionare il trigger **When an Event Grid event occurs** (Quando si verifica un evento di Griglia di eventi). Accedere al tenant con l'account Azure, quando richiesto. Quando richiesto, selezionare **Consenti l'accesso** per consentire l'accesso alla risorsa di Griglia di eventi. Selezionare **Continua**.
+1. Selezionare il trigger **Quando si verifica un evento di risorsa Griglia di eventi**. Accedere al tenant con l'account Azure, quando richiesto. Se richiesto, selezionare **Consenti l'accesso** per consentire l'accesso alla risorsa di Griglia di eventi. Selezionare **Continua**.
 
 1. Nella finestra **When a resource event occurs (Preview)** (Quando si verifica un evento della risorsa - Anteprima): 
    
@@ -174,7 +174,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
    a. Selezionare **Aggiungi un'azione** e selezionare **Office 365 Outlook**.
 
-   b. Nell'elenco **Azioni** selezionare **Invia un messaggio di posta elettronica**. Selezionare **Accedi** e usare le credenziali del proprio account di posta elettronica. Selezionare **Consenti l'accesso**, quando viene richiesto.
+   b. Nell'elenco **Azioni** selezionare **Invia un messaggio di posta elettronica**. Selezionare **Accedi** e usare le credenziali del proprio account di posta elettronica. Selezionare **Consenti l'accesso**, se viene richiesto.
 
    c. Nella casella **A** immettere l'ID di posta elettronica per la ricezione delle notifiche. In **Oggetto** immettere il testo **Notifica di Gemelli digitali per la qualità scadente dell'aria nello spazio**, quindi selezionare **TopologyObjectId** nell'elenco **Contenuto dinamico** per **Analizza JSON**.
 

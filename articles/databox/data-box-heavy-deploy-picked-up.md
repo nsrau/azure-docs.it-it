@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/28/2019
+ms.date: 07/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 31185900ede0fae74a04f98eaecee7379fb1c4fe
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3903e14e8923f6d29f2a88c61aead0cfc605b5b5
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427800"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508667"
 ---
 # <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure-preview"></a>Esercitazione: Restituire Azure Data Box Heavy e verificare il caricamento dei dati in Azure (anteprima)
 
@@ -43,11 +43,11 @@ Prima di iniziare, verificare che:
 ## <a name="ship-data-box-heavy-back"></a>Restituire Data Box Heavy
 
 1. Verificare che il dispositivo sia spento e che tutti i cavi siano stati rimossi. Avvolgere i 4 cavi di alimentazione e collocarli nel vano accessibile dal retro del dispositivo.
-2. Se il dispositivo viene spedito negli USA o in Europa, il corriere è FedEx.
+2. Il dispositivo spedisce il carico LTL tramite FedEx negli Stati Uniti e DHL nell'Unione Europea
 
-    1. Chiamare il corriere al numero locale per prenotare il ritiro.
-    2. Contattare il team [Data Box Operations](mailto:DataBoxOps@microsoft.com) per informarli sul ritiro e ottenere l'etichetta per la spedizione di reso.
-    3. Assicurarsi che l'etichetta di spedizione sia esposta sullo schermo vuoto nella parte anteriore del dispositivo.
+    1. Contattare il team [Data Box Operations](mailto:DataBoxOps@microsoft.com) per informarli sul ritiro e ottenere l'etichetta per la spedizione di reso.
+    2. Chiamare il corriere al numero locale per prenotare il ritiro.
+    3. Assicurarsi che l'etichetta indirizzo sia chiaramente visibile all'esterno della spedizione.
     4. Verificare che le etichette della spedizione precedente siano state rimosse dal dispositivo.
 3. Quando Data Box Heavy viene ritirato ed esaminato dal corriere, lo stato dell'ordine nel portale diventa **Ritirato**. Viene visualizzato anche un ID di traccia.
 

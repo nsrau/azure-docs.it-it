@@ -2,22 +2,22 @@
 title: 'Esercitazione: Distribuire Gemelli digitali di Azure | Microsoft Docs'
 description: Informazioni su come distribuire un'istanza di Gemelli digitali di Azure e configurare le risorse spaziali seguendo i passaggi descritti in questa esercitazione.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/17/2018
-ms.author: dkshir
-ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 06/26/2019
+ms.author: alinast
+ms.openlocfilehash: 15a152d6941a8c77cae2ef7771be93db4ddceae4
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537457"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484681"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Esercitazione: Distribuire Gemelli digitali di Azure e configurare un grafo spaziale
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Esercitazione: Distribuire Anteprima di Gemelli digitali di Azure e configurare un grafo spaziale
 
-È possibile usare il servizio Gemelli digitali di Azure per riunire persone, luoghi e dispositivi in un sistema spaziale coerente. Questa serie di esercitazioni illustra come usare Gemelli digitali di Azure per determinare l'occupazione di una stanza con condizioni ottimali di temperatura e qualità dell'aria. 
+È possibile usare il servizio di Anteprima di Gemelli digitali di Azure per riunire persone, luoghi e dispositivi in un sistema spaziale coerente. Questa serie di esercitazioni illustra come usare Gemelli digitali di Azure per determinare l'occupazione di una stanza con condizioni ottimali di temperatura e qualità dell'aria. 
 
 Queste esercitazioni illustrano in modo dettagliato un'applicazione console .NET per creare uno scenario costituito da un palazzo di uffici, con più piani e stanze su ogni piano. Le stanze contengono dispositivi, con sensori collegati che rilevano il movimento, la temperatura ambiente e la qualità dell'aria. 
 
@@ -103,7 +103,7 @@ Nella cartella degli esempi estratta, aprire il file **digital-twins-samples-csh
 1. In Visual Studio Code aprire il file [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) del progetto **occupancy-quickstart**. Aggiornare i valori seguenti:
    * **ClientId**: immettere l'ID applicazione della registrazione dell'app Azure AD. Questo ID è stato annotato nella sezione relativa all'[impostazione delle autorizzazioni dell'app](#permissions).
    * **Tenant**: immettere l'ID directory del [tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Anche questo ID è stato annotato nella sezione relativa all'[impostazione delle autorizzazioni dell'app](#permissions).
-   * **BaseUrl**: immettere l'URL dell'istanza di Gemelli digitali. Per ottenere questo URL, sostituire i segnaposto nell'URL con i valori per l'istanza: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. È anche possibile ottenere l'URL modificando l'URL dell'API Gestione della [sezione relativa alla distribuzione](#deploy). Sostituire **swagger/** con **api/v1.0/**.
+   * **BaseUrl**: immettere l'URL dell'istanza di Gemelli digitali. Per ottenere questo URL, sostituire i segnaposto nell'URL con i valori per l'istanza: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. È anche possibile ottenere l'URL modificando l'URL dell'API Gestione della [sezione relativa alla distribuzione](#deploy). Sostituire **swagger/** con **api/v1.0/** .
 
 1. Per visualizzare un elenco delle funzionalità di Gemelli digitali che è possibile esplorare usando l'esempio. Eseguire il comando seguente:
 

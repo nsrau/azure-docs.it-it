@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6112facfc0c10d7a0a0495cd778fa6c3cb6130a7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d8f8c8e98a7a99fc1b94bd5ae84062843ebabbc1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962145"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550583"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Accesso utenti e chiamata di Microsoft Graph da un'app Android
 
@@ -178,7 +178,7 @@ Questa esercitazione creerà un nuovo progetto. Se si preferisce scaricare invec
 
 ### <a name="add-msal-to-your-project"></a>Aggiungere MSAL al progetto
 
-1. In Android Studio selezionare **Gradle Scripts** (Script Gradle) > **build.gradle (Module: app)**.
+1. In Android Studio selezionare **Gradle Scripts** (Script Gradle) > **build.gradle (Module: app)** .
 2. In **Dependencies** incollare il codice seguente:
 
     ```gradle  
@@ -465,7 +465,7 @@ Una volta ottenuto un token, è possibile inviare una richiesta all'API Microsof
 
 | Chiave dell'intestazione    | value                 |
 | ------------- | --------------------- |
-| Authorization | Bearer <access-token> |
+| Authorization | Bearer \<access-token> |
 
 Per eseguire questa operazione nel codice, aggiungere i due metodi seguenti all'app per chiamare Graph e aggiornare l'interfaccia utente: 
 

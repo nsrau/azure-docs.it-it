@@ -49,6 +49,14 @@
       items:
         - name: Informazioni sull'accesso Single Sign-On
           href: what-is-single-sign-on.md
+        - name: Abilitazione dell'accesso SSO per l'applicazione multi-tenant
+          href: isv-sso-content.md
+        - name: Creazione di un tenant di Azure per l'applicazione multi-tenant
+          href: isv-tenant-multi-tenant-app.md
+        - name: Scegliere la federazione multi-tenant
+          href: isv-choose-multi-tenant-federation.md
+        - name: Creare la documentazione per l'applicazione multi-tenant
+          href: isv-create-sso-documentation.md
         - name: Pianificare una distribuzione di Single Sign-On
           href: plan-sso-deployment.md
     - name: Accesso SSO con un clic
@@ -73,6 +81,20 @@
           href: tenant-restrictions.md
         - name: Configurare la crittografia dei token SAML (anteprima)
           href: howto-saml-token-encryption.md
+    - name: Single sign-on
+      items:
+        - name: Informazioni sull'accesso Single Sign-On
+          href: what-is-single-sign-on.md
+        - name: Pianificare una distribuzione di Single Sign-On
+          href: plan-sso-deployment.md
+        - name: Abilitare l'accesso Single Sign-On nell'applicazione multi-tenant
+          href: isv-sso-content.md
+        - name: Scegliere il protocollo di federazione SSO corretto
+          href: isv-choose-multi-tenant-federation.md
+        - name: Creare un tenant di Azure per l'applicazione multi-tenant
+          href: isv-tenant-multi-tenant-app.md
+        - name: Creare e pubblicare la documentazione sull'accesso SSO per l'applicazione
+          href: isv-create-sso-documentation.md
     - name: Portali degli utenti finali
       href: end-user-experiences.md
 - name: Guide alle procedure
