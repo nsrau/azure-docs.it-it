@@ -155,7 +155,7 @@ La tabella seguente contiene le proprietà e le descrizioni dei parametri usati 
 | set-max-intset-entries |Configura l' [ottimizzazione della memoria](https://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
 | zset-max-ziplist-entries |Configura l' [ottimizzazione della memoria](https://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
 | zset-max-ziplist-value |Configura l' [ottimizzazione della memoria](https://redis.io/topics/memory-optimization) per tipi di dati aggregati di piccole dimensioni |Standard e Premium |
-| database |Configura il numero di database. Questa proprietà può essere configurata solo durante la creazione della cache. |Standard e Premium |
+| databases |Configura il numero di database. Questa proprietà può essere configurata solo durante la creazione della cache. |Standard e Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Come creare un'istanza di Cache Redis di Azure
 Le nuove istanze di Cache Redis di Azure vengono create con il cmdlet [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache).
