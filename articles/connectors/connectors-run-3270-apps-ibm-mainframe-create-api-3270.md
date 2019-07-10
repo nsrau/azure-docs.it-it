@@ -320,7 +320,7 @@ Tuttavia, se si tenta di salvare le modifiche al file di criteri di autorizzazio
 
 1. Per passare alla schermata successiva, scegli **successivo**.
 
-1. Al termine, scegliere, che mostra i valori dei parametri output. ****
+1. Al termine, scegliere, che mostra i valori dei parametri output **.**
 
 <a name="add-metadata-integration-account"></a>
 

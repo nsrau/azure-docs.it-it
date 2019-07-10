@@ -186,7 +186,7 @@ Quando il token di accesso del provider (non il [token di sessione](#extend-sess
 - **Account Microsoft**: In fase di [configurazione delle impostazioni di autenticazione dell'account Microsoft](configure-authentication-provider-microsoft.md), selezionare l'ambito `wl.offline_access`.
 - **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com) seguire anche questa procedura:
     1. Nella parte superiore della pagina selezionare **Lettura/scrittura**.
-    2. Nella finestra del browser a sinistra passare a **subscriptions** >  ** _\<subscription\_name_**  > **resourceGroups** >  _ **\<resource\_group\_name>** _ > **providers** > **Microsoft.Web** > **sites** >  _ **\<app\_name>** _ > **config** > **authsettings**. 
+    2. Nella finestra del browser a sinistra passare a **subscriptions** >  ** _\<subscription\_name_**  > **resourceGroups** >  _ **\<resource\_group\_name>**_  > **providers** > **Microsoft.Web** > **sites** >  _ **\<app\_name>**_  > **config** > **authsettings**. 
     3. Fare clic su **Modifica**.
     4. Modificare la proprietà seguente. Sostituire _\<app\_id>_ con l'ID dell'applicazione Azure Active Directory del servizio a cui si vuole accedere.
 
@@ -233,7 +233,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Sia l'account Microsoft che Azure Active Directory consentono l'accesso da più domini. L'account Microsoft consente, ad esempio, gli account _outlook.com_, _live.com_ e _hotmail.com_. Azure Active Directory consente un numero qualsiasi di domini personalizzati per gli account di accesso. Questo comportamento potrebbe essere inaccettabile per un'app interna a cui non si vuole concedere l'accesso agli utenti con un account _outlook.com_. Per limitare il nome di dominio degli account di accesso, seguire questa procedura.
 
-In [https://resources.azure.com](https://resources.azure.com) passare a **subscriptions** >  ** _\< subscription\_ name_**  > **resourceGroups** >  _ **\< resource\_ group\_ name>** _ > **providers** > **Microsoft.Web** > **sites** >  _ **\< app\_ name>** _ > **config** > **authsettings**. 
+In [https://resources.azure.com](https://resources.azure.com) passare a **subscriptions** >  ** _\< subscription\_ name_**  > **resourceGroups** >  _ **\< resource\_ group\_ name>**_  > **providers** > **Microsoft.Web** > **sites** >  _ **\< app\_ name>**_  > **config** > **authsettings**. 
 
 Fare clic su **Modifica**, modificare la proprietà seguente e quindi fare clic su **Put**. Assicurarsi di sostituire _\<domain\_name>_ con il dominio desiderato.
 

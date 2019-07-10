@@ -74,8 +74,8 @@ Il seguente criterio si applica a tutti gli utenti selezionati, che tentano di r
    1. Configurare **Sì**
    1. Includere **qualsiasi posizione**
    1. Escludere **tutte le posizioni attendibili**
-   1. Fare clic su **** nel pannello delle località
-   1. Fare clic su **** nel pannello delle condizioni
+   1. Fare clic su **fatto** nel pannello delle località
+   1. Fare clic su **fatto** nel pannello delle condizioni
 1. Sotto **controlli di accesso** > **Grant**
    1. Fare clic su **bloccare l'accesso**
    1. Quindi fare clic su **selezionare**
