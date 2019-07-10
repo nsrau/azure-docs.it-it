@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: 5a4085f713d66859a464ab59b00d856921db8ec3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: dcbec817f771324219a68de96eb5dd262a887fc1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124488"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449053"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Esempio: Usare la funzionalità su larga scala
 
@@ -30,13 +30,16 @@ Gli esempi sono scritti in C# usando la libreria client dell'API Viso di Servizi
 
 ## <a name="step-1-initialize-the-client-object"></a>Passaggio 1: Inizializzare l'oggetto client
 
-Quando si usa la libreria client dell'API Viso, l'endpoint e la chiave di sottoscrizione vengono passati al costruttore della classe FaceServiceClient. Ad esempio: 
+Quando si usa la libreria client dell'API Viso, l'endpoint e la chiave di sottoscrizione vengono passati al costruttore della classe FaceClient. Ad esempio:
 
 ```CSharp
 string SubscriptionKey = "<Subscription Key>";
 // Use your own subscription endpoint corresponding to the subscription key.
-string SubscriptionRegion = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/";
-FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, SubscriptionRegion);
+string SubscriptionEndpoint = "https://westus.api.cognitive.microsoft.com";
+private readonly IFaceClient faceClient = new FaceClient(
+            new ApiKeyServiceClientCredentials(subscriptionKey),
+            new System.Net.Http.DelegatingHandler[] { });
+faceClient.Endpoint = SubscriptionEndpoint
 ```
 
 Per ottenere la chiave di sottoscrizione con l'endpoint corrispondente, passare ad Azure Marketplace dal portale di Azure.
@@ -94,13 +97,13 @@ private static async Task TrainLargeFaceList(
     int timeIntervalInMilliseconds = 1000)
 {
     // Trigger a train call.
-    await FaceServiceClient.TrainLargeFaceListAsync(largeFaceListId);
+    await FaceClient.LargeTrainLargeFaceListAsync(largeFaceListId);
 
     // Wait for training finish.
     while (true)
     {
         Task.Delay(timeIntervalInMilliseconds).Wait();
-        var status = await FaceServiceClient.GetLargeFaceListTrainingStatusAsync(largeFaceListId);
+        var status = await faceClient.LargeFaceList.TrainAsync(largeFaceListId);
 
         if (status.Status == Status.Running)
         {
@@ -125,7 +128,7 @@ In precedenza, un uso tipico di FaceList con l'aggiunta di visi e FindSimilar er
 const string FaceListId = "myfacelistid_001";
 const string FaceListName = "MyFaceListDisplayName";
 const string ImageDir = @"/path/to/FaceList/images";
-FaceServiceClient.CreateFaceListAsync(FaceListId, FaceListName).Wait();
+faceClient.FaceList.CreateAsync(FaceListId, FaceListName).Wait();
 
 // Add Faces to the FaceList.
 Parallel.ForEach(
@@ -134,7 +137,7 @@ Parallel.ForEach(
         {
             using (Stream stream = File.OpenRead(imagePath))
             {
-                await FaceServiceClient.AddFaceToFaceListAsync(FaceListId, stream);
+                await faceClient.FaceList.AddFaceFromStreamAsync(FaceListId, stream);
             }
         });
 
@@ -143,10 +146,10 @@ const string QueryImagePath = @"/path/to/query/image";
 var results = new List<SimilarPersistedFace[]>();
 using (Stream stream = File.OpenRead(QueryImagePath))
 {
-    var faces = FaceServiceClient.DetectAsync(stream).Result;
+    var faces = faceClient.Face.DetectWithStreamAsync(stream).Result;
     foreach (var face in faces)
     {
-        results.Add(await FaceServiceClient.FindSimilarAsync(face.FaceId, FaceListId, 20));
+        results.Add(await faceClient.Face.FindSimilarAsync(face.FaceId, FaceListId, 20));
     }
 }
 ```
@@ -158,7 +161,7 @@ Quando si esegue la migrazione a LargeFaceList, il frammento di codice diventa i
 const string LargeFaceListId = "mylargefacelistid_001";
 const string LargeFaceListName = "MyLargeFaceListDisplayName";
 const string ImageDir = @"/path/to/FaceList/images";
-FaceServiceClient.CreateLargeFaceListAsync(LargeFaceListId, LargeFaceListName).Wait();
+faceClient.LargeFaceList.CreateAsync(LargeFaceListId, LargeFaceListName).Wait();
 
 // Add Faces to the LargeFaceList.
 Parallel.ForEach(
@@ -167,7 +170,7 @@ Parallel.ForEach(
         {
             using (Stream stream = File.OpenRead(imagePath))
             {
-                await FaceServiceClient.AddFaceToLargeFaceListAsync(LargeFaceListId, stream);
+                await faceClient.LargeFaceList.AddFaceFromStreamAsync(LargeFaceListId, stream);
             }
         });
 
@@ -180,10 +183,10 @@ const string QueryImagePath = @"/path/to/query/image";
 var results = new List<SimilarPersistedFace[]>();
 using (Stream stream = File.OpenRead(QueryImagePath))
 {
-    var faces = FaceServiceClient.DetectAsync(stream).Result;
+    var faces = faceClient.Face.DetectWithStreamAsync(stream).Result;
     foreach (var face in faces)
     {
-        results.Add(await FaceServiceClient.FindSimilarAsync(face.FaceId, largeFaceListId: LargeFaceListId));
+        results.Add(await faceClient.Face.FindSimilarAsync(face.FaceId, largeFaceListId: LargeFaceListId));
     }
 }
 ```
@@ -196,10 +199,10 @@ Anche se l'operazione Train velocizza [FindSimilar](https://westus.dev.cognitive
 
 | Dimensione per visi o persone | Tempo di training stimato |
 |:---:|:---:|
-| 1.000 | 1-2 secondi |
+| 1\.000 | 1-2 secondi |
 | 10,000 | 5-10 secondi |
 | 100,000 | 1-2 minuti |
-| 1.000.000 | 10-30 minuti |
+| 1\.000.000 | 10-30 minuti |
 
 Per usare al meglio la funzionalità su larga scala, è consigliabile adottare le strategie seguenti.
 
@@ -236,7 +239,7 @@ private static void Main()
     // Create a LargePersonGroup.
     const string LargePersonGroupId = "mylargepersongroupid_001";
     const string LargePersonGroupName = "MyLargePersonGroupDisplayName";
-    FaceServiceClient.CreateLargePersonGroupAsync(LargePersonGroupId, LargePersonGroupName).Wait();
+    faceClient.LargePersonGroup.CreateAsync(LargePersonGroupId, LargePersonGroupName).Wait();
 
     // Set up standalone training at regular intervals.
     const int TimeIntervalForStatus = 1000 * 60; // 1-minute interval for getting training status.

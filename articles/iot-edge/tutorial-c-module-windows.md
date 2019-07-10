@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 49f853341edab7c7dc92f72472b81f7fb22c0ad8
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 3573e136c1a830cd75aba0725b4bf087bcd63869
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808764"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485971"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C per dispositivi Windows
 
@@ -51,10 +51,18 @@ Prima di iniziare questa esercitazione è necessario aver completato l'esercitaz
 * Un registro contenitori, ad esempio [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configurato con l'estensione [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 * [Docker CE](https://docs.docker.com/install/) configurato per eseguire i contenitori Windows.
-* Azure IoT SDK per C. 
+* Installare Azure IoT C SDK per Windows x64 tramite vcpkg:
 
+   ```powershell
+   git clone https://github.com/Microsoft/vcpkg
+   cd vcpkg
+   .\bootstrap-vcpkg.bat
+   .\vcpkg install azure-iot-sdk-c:x64-windows
+   .\vcpkg --triplet x64-windows integrate install
+   ```
+   
 > [!TIP]
-> Se si usa Visual Studio 2017 (versione 15.7 o successiva), scaricare e installare [Azure IoT Edge Tools (anteprima)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) per Visual Studio 2017 da Visual Studio Marketplace.
+> Se si usa Visual Studio 2017 (versione 15.7 o successiva), scaricare e installare [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) per Visual Studio 2017 da Visual Studio Marketplace
 
 ## <a name="create-a-module-project"></a>Creare un progetto di modulo
 

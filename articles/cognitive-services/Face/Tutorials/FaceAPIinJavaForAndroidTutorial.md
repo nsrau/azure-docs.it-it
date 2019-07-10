@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c7f2e86d6fe63d309c74d7304f1c19a714b6471
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a809a4de588a388c4be8ca6efa245450699eeb64
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312528"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441615"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Esercitazione: Creare un'app Android per rilevare e incorniciare i visi in un'immagine
 
@@ -100,7 +100,7 @@ Nel riquadro **Project** (Progetto) espandere **app**, quindi **manifests** (man
 
 ## <a name="upload-image-and-detect-faces"></a>Caricare l'immagine e rilevare i visi
 
-L'app rileverà i visi chiamando il metodo **FaceServiceClient.detect**, che esegue il wrapping dell'API REST [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) e restituisce un elenco di istanze di **Viso**.
+L'app rileverà i visi chiamando il metodo **faceClient.Face.DetectWithStreamAsync**, che esegue il wrapping dell'API REST [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) e restituisce un elenco di istanze di **Viso**.
 
 Ogni elemento **Viso** restituito è racchiuso in un rettangolo che ne indica la posizione, combinata con una serie di attributi del viso facoltativi. In questo esempio sono necessari solo i rettangoli posizionati intorno ai visi.
 

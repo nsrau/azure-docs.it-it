@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 1bcb7f9fadc79db0db17336f07f6d58302433c1f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f978087a935bcf6ac78760fee5842573eb3a326e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664030"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274107"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Esercitazione: Installare e creare un cluster di Service Fabric
 
-I cluster autonomi di Service Fabric offrono la possibilità di scegliere il proprio ambiente e creare un cluster come parte dell'approccio "qualsiasi sistema operativo, qualsiasi cloud" adottato da Service Fabric. In questa serie di esercitazioni viene creato un cluster autonomo ospitato in AWS e viene installata un'applicazione al suo interno.
+I cluster autonomi di Service Fabric offrono la possibilità di scegliere il proprio ambiente e creare un cluster come parte dell'approccio "qualsiasi sistema operativo, qualsiasi cloud" adottato da Service Fabric. In questa serie di esercitazioni viene creato un cluster autonomo ospitato in AWS o Azure e viene installata un'applicazione al suo interno.
 
 Questa è la seconda di una serie di esercitazioni. Questa esercitazione illustra la procedura di creazione di un cluster autonomo di Service Fabric.
 
@@ -37,7 +37,7 @@ Nella seconda parte della serie si apprenderà come:
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Scaricare il pacchetto Service Fabric per Windows Server
 
-Service Fabric offre un pacchetto di installazione per la creazione di cluster di Service Fabric autonomi.  [Scaricare il pacchetto di installazione](https://go.microsoft.com/fwlink/?LinkId=730690) nel computer locale.  Dopo che è stato scaricato correttamente, copiarlo al posto della connessione RDP all'istanza EC2 e incollarlo nel desktop.
+Service Fabric offre un pacchetto di installazione per la creazione di cluster di Service Fabric autonomi.  [Scaricare il pacchetto di installazione](https://go.microsoft.com/fwlink/?LinkId=730690) nel computer locale.  Dopo che è stato scaricato correttamente, copiarlo al posto della connessione RDP alla macchina virtuale e incollarlo nel desktop.
 
 Selezionare il file con estensione zip e aprire il menu di scelta rapida, quindi selezionare **Estrai tutto** > **Estrai**.  Mentre si estraggono i file, viene generata una cartella sul desktop che corrisponde al nome del file con estensione zip.
 

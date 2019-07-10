@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: a3677e45738c368d8438872da740a362a8048a63
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742914"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155544"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -68,7 +68,7 @@ Dal menu a sinistra selezionare **Servizi app** e quindi selezionare il nome del
 
 Viene visualizzata la pagina di gestione dell'app del servizio app.  
 
-<a name="checkpricing"></a>
+<a name="checkpricing" aria-hidden="true"></a>
 
 ### <a name="check-the-pricing-tier"></a>Scegliere il piano tariffario
 
@@ -82,7 +82,7 @@ Il livello corrente dell'app è evidenziato da un bordo blu. Verificare che l'ap
 
 Se il piano di servizio app non è **F1**, chiudere la pagina **Aumenta** e passare a [Esecuzione del mapping di un record CNAME](#cname).
 
-<a name="scaleup"></a>
+<a name="scaleup" aria-hidden="true"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Passare a un piano di servizio app di livello superiore
 
@@ -96,7 +96,7 @@ La visualizzazione della notifica seguente indica che l'operazione di passaggio 
 
 ![Conferma operazione di scalabilità](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-<a name="cname"></a>
+<a name="cname" aria-hidden="true"></a>
 
 ## <a name="map-your-domain"></a>Eseguire il mapping del dominio
 
@@ -162,7 +162,7 @@ Se è stato saltato un passaggio o è stato inserito un errore di digitazione, n
 
 ![Errore di verifica](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-<a name="a"></a>
+<a name="a" aria-hidden="true"></a>
 
 ### <a name="map-an-a-record"></a>Esecuzione del mapping di un record A
 
@@ -213,7 +213,7 @@ Dopo aver aggiunto i record, la pagina dei record DNS è simile all'esempio segu
 
 ![Pagina dei record DNS](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-<a name="enable-a"></a>
+<a name="enable-a" aria-hidden="true"></a>
 
 #### <a name="enable-the-a-record-mapping-in-the-app"></a>Abilitare il mapping del record A nell'app
 
@@ -246,7 +246,7 @@ Se è stato saltato un passaggio o è stato inserito un errore di digitazione, n
 
 ![Errore di verifica](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
-<a name="wildcard"></a>
+<a name="wildcard" aria-hidden="true"></a>
 
 ### <a name="map-a-wildcard-domain"></a>Esecuzione del mapping di un dominio con caratteri jolly
 
@@ -310,7 +310,7 @@ Se si riceve un errore HTTP 404 (non trovato) quando si seleziona l'URL del domi
 - Nel dominio personalizzato configurato mancano un record A e/o un record CNAME.
 - Il browser client ha memorizzato nella cache l'indirizzo IP precedente del dominio. Cancellare la cache e testare nuovamente la risoluzione del DNS. In un computer Windows cancellare la cache con `ipconfig /flushdns`.
 
-<a name="virtualdir"></a>
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="migrate-an-active-domain"></a>Eseguire la migrazione di un dominio attivo
 

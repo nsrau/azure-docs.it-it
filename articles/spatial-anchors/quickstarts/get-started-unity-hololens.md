@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 31c7af3edf6364ebca021f87240e73c74e64ebc4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c29819d817138f2512420584947763247837a9ea
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704127"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "67135199"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app HoloLens in Unity che usa gli ancoraggi nello spazio di Azure
 
@@ -34,18 +34,18 @@ Si apprenderà come:
 Per completare questa guida introduttiva:
 
 
-- È necessario un computer Windows in cui sono installati <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> o versione successiva e <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> o versione successiva. L'installazione di Visual Studio deve includere il carico di lavoro di **sviluppo per la piattaforma UWP**. È inoltre necessario installare <a href="https://git-scm.com/download/win" target="_blank">Git per Windows</a>.
+- È necessario un computer Windows in cui sono installati <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> o versione successiva e <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> o versione successiva. L'installazione di Visual Studio deve includere il carico di lavoro di **sviluppo per la piattaforma UWP**. Installare <a href="https://git-scm.com/download/win" target="_blank">Git per Windows</a>.
 - È necessario un dispositivo HoloLens con la [modalità sviluppatore](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) abilitata. Nel dispositivo deve essere installato l'[aggiornamento di Windows 10 (ottobre 2018)](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (anche noto come RS5). Per aggiornare alla versione più recente per HoloLens, aprire l'app **Impostazioni**, scegliere **Aggiornamento e sicurezza**, quindi selezionare **Verifica disponibilità aggiornamenti**.
 - Nell'app è necessario abilitare la funzionalità **SpatialPerception**. Questa impostazione si trova in **Build Settings (Impostazioni compilazione)**  > **Player Settings (Impostazioni lettore)**  > **Publishing Settings (Impostazioni pubblicazione)**  > **Capabilities (Funzionalità)** .
 - Nell'app è necessario abilitare **Virtual Reality Supported** (Realtà virtuale supportata) con **Windows Mixed Reality SDK** (SDK realtà mista Windows). Questa impostazione si trova in **Build Settings (Impostazioni compilazione)**  > **Player Settings (Impostazioni lettore)**  > **XR Settings (Impostazioni realtà mista)** .
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>Aprire il progetto di esempio in Unity
+## <a name="download-and-open-the-unity-sample-project"></a>Scaricare e aprire il progetto di esempio di Unity
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-In Unity aprire il progetto nella cartella Unity.
+[!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
 Aprire **Build Settings** (Impostazioni compilazione) selezionando **File** > **Build Settings** (File -> Impostazioni compilazione).
 
@@ -53,7 +53,7 @@ Nella sezione **Platform** (Piattaforma) selezionare **Universal Windows Platfor
 
 Selezionare **Switch Platform** (Cambia piattaforma) per impostare **Universal Windows Platform** (Piattaforma UWP (Universal Windows Platform)) come piattaforma. Unity potrebbe chiedere di installare i componenti di supporto della piattaforma UWP se sono mancanti.
 
-   ![Finestra di impostazioni di compilazione di Unity](./media/get-started-unity-hololens/unity-build-settings.png)
+![Finestra di impostazioni di compilazione di Unity](./media/get-started-unity-hololens/unity-build-settings.png)
 
 Chiudere la finestra **Build Settings** (Impostazioni compilazione).
 

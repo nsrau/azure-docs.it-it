@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa18bc637ec31a1f83b5cab090e008715c5e0c2a
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0f6707c780931eac58e2a870c321385e63bd948a
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825022"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550475"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Esercitazione: Configurare l'accesso Single Sign-On basato su SAML per un'applicazione con Azure Active Directory
 
@@ -138,7 +138,7 @@ Per assegnare un utente o un gruppo all'applicazione:
 
 La procedura è quasi terminata.  Come passaggio finale, è necessario configurare l'applicazione per l'uso di Azure AD come provider di identità SAML. 
 
-1. Scorrere verso il basso fino alla sezione **Configurare <applicationName>**. Per questa esercitazione, tale sezione viene chiamata **Configurare GitHub-test**. 
+1. Scorrere verso il basso fino alla sezione **Configurare \<applicationName>** . Per questa esercitazione, tale sezione viene chiamata **Configurare GitHub-test**. 
 2. Copiare il valore di ogni riga di questa sezione. Incollare quindi ogni valore nella riga appropriata della sezione **Configurazione SAML di base**. Ad esempio, copiare il valore **URL di accesso** dalla sezione **Configurare GitHub-test** e incollarlo nel campo **URL di accesso** della sezione **Configurazione SAML di base** e così via.
 3. Dopo avere incollato tutti i valori nei campi appropriati, selezionare **Salva**.
 
@@ -147,13 +147,13 @@ La procedura è quasi terminata.  Come passaggio finale, è necessario configura
 È ora possibile testare le impostazioni.  
 
 1. Aprire le impostazioni dell'accesso Single Sign-On per l'applicazione. 
-2. Scorrere fino alla sezione **Verificare l'accesso Single Sign-On con <applicationName>**. Per questa esercitazione, tale sezione viene chiamata **Configurare GitHub-test**.
+2. Scorrere fino alla sezione **Verificare l'accesso Single Sign-On con \<applicationName>** . Per questa esercitazione, tale sezione viene chiamata **Configurare GitHub-test**.
 3. Selezionare **Test**. Verranno visualizzate le opzioni di test.
 4. Selezionare **Accedi con l'account utente corrente**. Questo test consente di verificare prima di tutto il funzionamento dell'accesso Single Sign-On per l'amministratore.
 
 In caso di errore, verrà visualizzato un messaggio di errore. Completare questi passaggi:
 
-1. Copiare e incollare le specifiche nella casella **Qual è l'errore riscontrato?**.
+1. Copiare e incollare le specifiche nella casella **Qual è l'errore riscontrato?** .
 
     ![Ottieni procedure per la risoluzione](media/configure-single-sign-on-portal/error-guidance.png)
 

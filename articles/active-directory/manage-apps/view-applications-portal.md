@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 537916ef14a7cd2748ad453e2d0d91e3b5c936b1
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cccd5ddc2f268eda48bd9803596a1db1c5ee9395
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826059"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481165"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Visualizzare le applicazioni del tenant di Azure Active Directory
 
@@ -64,7 +64,6 @@ Selezionare le opzioni in base a ciò che si intende cercare.
 1. In **Visibilità applicazione** scegliere **Qualsiasi** o **Nascosto**. L'opzione **Nascosto** mostra le applicazioni presenti nel tenant ma non visibili agli utenti.
 
 1. Dopo aver scelto le opzioni desiderate, selezionare **Applica**.
- 
 
 ## <a name="search-for-a-tenant-application"></a>Cercare un'applicazione del tenant
 
@@ -74,19 +73,17 @@ Per cercare un'applicazione specifica:
 
 1. Immettere il nome dell'applicazione che si vuole trovare. Se l'applicazione è stata aggiunta al tenant di Azure AD, viene visualizzata nei risultati della ricerca. Questo esempio mostra che l'applicazione GitHub non è stata aggiunta alle applicazioni del tenant.
 
-    ![Cercare un'applicazione](media/view-applications-portal/search-for-tenant-application.png)
+    ![L'esempio illustra che un'app non è ancora stata aggiunta al tenant](media/view-applications-portal/search-for-tenant-application.png)
 
 1. Provare a immettere le prime lettere del nome di un'applicazione. Questo esempio mostra tutte le applicazioni il cui nome inizia con **Sales**.
 
-    ![Eseguire la ricerca con un prefisso](media/view-applications-portal/search-by-prefix.png)
+    ![L'esempio mostra tutte le app che iniziano con le vendite](media/view-applications-portal/search-by-prefix.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo argomento di avvio rapido si è appreso come visualizzare le applicazioni nel tenant di Azure AD. Si è appreso come filtrare l'elenco delle applicazioni per tipo, stato e visibilità dell'applicazione. È stato anche illustrato come cercare un'applicazione specifica.
 
-Dopo aver trovato l'applicazione cercata, si può continuare ad [aggiungere altre applicazioni al tenant](add-application-portal.md). In alternativa, è possibile selezionare l'applicazione per visualizzare o modificare le proprietà e le opzioni di configurazione. Ad esempio, è possibile configurare l'accesso Single Sign-On. 
+Dopo aver trovato l'applicazione cercata, si può continuare ad [aggiungere altre applicazioni al tenant](add-application-portal.md). In alternativa, è possibile selezionare l'applicazione per visualizzare o modificare le proprietà e le opzioni di configurazione. Ad esempio, è possibile configurare l'accesso Single Sign-On.
 
 > [!div class="nextstepaction"]
 > [Configurare l'accesso Single Sign-On](configure-single-sign-on-portal.md)
-
-
