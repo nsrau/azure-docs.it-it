@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 757c710ddca72ec6a1383b51a8b536d196e6cb8c
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414470"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203623"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Usare le revisioni per apportare modifiche non di rilievo in modo sicuro
 Quando l'API è pronta e inizia a essere usata dagli sviluppatori, è necessario apportare modifiche all'API e contemporaneamente evitare di interferire con i chiamanti dell'API. È anche utile far conoscere agli sviluppatori le modifiche apportate. A tal fine, in Gestione API di Azure sono disponibili le **revisioni**. Per altre informazioni, vedere [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) (Versioni e revisioni) e [API Versioning with Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/) (Controllo delle versioni delle API con Gestione API di Azure).
@@ -37,8 +37,8 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
-+ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
-+ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
++ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md)
 
 ## <a name="add-a-new-revision"></a>Aggiungere una nuova revisione
 
@@ -50,7 +50,7 @@ In questa esercitazione si apprenderà come:
 4. Selezionare **+ Aggiungi revisione**.
 
     > [!TIP]
-    > È anche possibile scegliere **Aggiungi revisione** nel menu di scelta rapida (**...**) dell'API.
+    > È anche possibile scegliere **Aggiungi revisione** nel menu di scelta rapida ( **...** ) dell'API.
 
 5. Fornire una descrizione per la nuova revisione, per facilitare la comprensione dell'uso.
 6. Selezionare **Crea**
@@ -82,9 +82,9 @@ In questa esercitazione si apprenderà come:
 
     ![Il menu Revisione nella schermata di revisione.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
 
-2. Aprire il menu di scelta rapida (**...**) per la **Revisione 2**.
+2. Aprire il menu di scelta rapida ( **...** ) per la **Revisione 2**.
 3. Selezionare **Make Current** (Imposta come corrente).
-4. Selezionare **Post to Public Change Log for this API**(Postare nel registro modifiche pubblico per questa API) per pubblicare delle note sulla modifica. Fornire una descrizione della modifica comprensibile agli sviluppatori, ad esempio **Test delle revisioni. Aggiunta una nuova operazione "test".**
+4. Selezionare **Post to Public Change Log for this API**(Postare nel registro modifiche pubblico per questa API) per pubblicare delle note sulla modifica. Fornire una descrizione della modifica comprensibile agli sviluppatori, ad esempio: **Test delle revisioni. Aggiunta una nuova operazione "test".**
 5. La **Revisione 2** è ora quella corrente.
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Esplorare il portale per sviluppatori per visualizzare le modifiche e il registro modifiche

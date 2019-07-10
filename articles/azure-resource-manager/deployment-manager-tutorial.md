@@ -4,25 +4,22 @@ description: Usare modelli di Resource Manager con Azure Deployment Manager per 
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a42ccb1c0e60f5bf1568ccea13392186577f2875
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238860"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205711"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Esercitazione: Usare Azure Deployment Manager con modelli di Resource Manager (anteprima pubblica)
 
-Questo articolo illustra come usare [Azure Deployment Manager](./deployment-manager-overview.md) per distribuire le applicazioni in più aree. Per usare Deployment Manager è necessario creare due modelli.
+Questo articolo illustra come usare [Azure Deployment Manager](./deployment-manager-overview.md) per distribuire le applicazioni in più aree. Se si preferisce un approccio più veloce, l'[avvio rapido di Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart) crea le configurazioni necessarie nella sottoscrizione e consente di personalizzare gli elementi per distribuire un'applicazione in più aree. L'avvio rapido esegue le stesse attività, come accade in questa esercitazione.
+
+Per usare Deployment Manager è necessario creare due modelli.
 
 * **Modello di topologia**: descrive le risorse di Azure che costituiscono l'applicazione e la posizione in cui devono essere distribuite.
 * **Modello di implementazione**: descrive i passaggi da eseguire durante la distribuzione delle applicazioni.
@@ -44,7 +41,10 @@ Questa esercitazione illustra le attività seguenti:
 > * Distribuire la versione più recente
 > * Pulire le risorse
 
-Le informazioni di riferimento sull'API REST di Azure Deployment Manager sono disponibili [qui](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Risorse aggiuntive:
+
+* Il [riferimento all'API REST di Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Esercitazione: Usare il controllo integrità in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -143,7 +143,7 @@ Gli artefatti modello vengono usati dal modello di topologia del servizio, mentr
     1. In Azure Storage Explorer passare al contenitore BLOB.
     2. Fare clic con il pulsante destro del mouse sul contenitore BLOB nel riquadro sinistro e quindi scegliere **Get Shared Access Signature**(Ottieni firma di accesso condiviso).
     3. Configurare **Start time** (Ora di inizio) ed **Expiry time** (Ora di scadenza).
-    4. Selezionare **Create**.
+    4. Selezionare **Create** (Crea).
     5. Copiare l'URL. Questo URL è necessario per completare un campo nei due file dei parametri, il [file dei parametri della topologia](#topology-parameters-file) e il [file dei parametri dell'implementazione](#rollout-parameters-file).
 
 ## <a name="create-the-user-assigned-managed-identity"></a>Creare l'identità gestita assegnata dall'utente
