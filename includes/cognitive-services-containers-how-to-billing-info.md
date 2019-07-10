@@ -1,15 +1,15 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/16/2019
-ms.openlocfilehash: bfda8b83f1bedf11151ba89b58c95347aa35839a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: a24300958c27daaaf49cc3045a5e99d77c938ab7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052029"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704315"
 ---
 Le query sul contenitore vengono fatturate secondo il piano tariffario della risorsa di Azure usata per `<ApiKey>`.
 
@@ -23,7 +23,7 @@ Per eseguire il contenitore, sono necessari i valori dell'argomento di fatturazi
 
 Per avviare il contenitore con il comando `docker run`, è necessario che vengano specificate tutte e tre le opzioni seguenti con valori validi:
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 |--------|-------------|
 | `ApiKey` | Chiave API della risorsa di Servizi cognitivi usata per tenere traccia delle informazioni di fatturazione.<br/>Il valore di questa opzione deve essere impostato su una chiave API per la risorsa di cui è stato effettuato il provisioning specificata in `Billing`. |
 | `Billing` | Endpoint della risorsa di Servizi cognitivi usata per tenere traccia delle informazioni di fatturazione.<br/>Il valore di questa opzione deve essere impostato sull'URI dell'endpoint di una risorsa di Azure di cui è stato effettuato il provisioning.|

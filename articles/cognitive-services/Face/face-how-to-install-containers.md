@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: beb9818be05fbb9a9e9c958dccb2e375f7685bd0
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 84960e82e25f4b6cc59324f17ce46de7f9f7ac23
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272794"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704668"
 ---
 # <a name="install-and-run-face-containers"></a>Installare ed eseguire i contenitori di viso
 
@@ -28,11 +28,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 È necessario soddisfare i prerequisiti seguenti prima di usare i contenitori l'API viso.
 
-|Obbligatoria|Scopo|
+|Obbligatorio|Scopo|
 |--|--|
 |Motore Docker| Il motore Docker deve essere installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, Docker anche deve essere configurato per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È necessario una conoscenza di base dei concetti relativi a Docker, ad esempio i registri, gli archivi, i contenitori e immagini del contenitore. È anche necessario conoscere basic `docker` comandi.| 
-|Azure `Cognitive Services` risorsa |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa di servizi cognitivi di Azure e la chiave di fatturazione associata e l'URI dell'endpoint fatturazione. Entrambi i valori sono disponibili sul **Overview** e **chiavi** pagine per la risorsa. Sono richieste per avviare il contenitore. Aggiungere il `face/v1.0` routing per l'URI dell'endpoint, come illustrato nell'esempio BILLING_ENDPOINT_URI seguente: <br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : esempio di URI dell'endpoint è `https://westus.api.cognitive.microsoft.com/face/v1.0`|
+|Azure `Cognitive Services` risorsa |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa di servizi cognitivi di Azure e la chiave di fatturazione associata e l'URI dell'endpoint fatturazione. Entrambi i valori sono disponibili sul **Overview** e **chiavi** pagine per la risorsa. Sono richieste per avviare il contenitore. Aggiungere il `face/v1.0` routing per l'URI dell'endpoint, come illustrato nell'esempio BILLING_ENDPOINT_URI seguente: <br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Richiedere l'accesso al registro contenitori privato
 
@@ -41,7 +41,6 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ### <a name="the-host-computer"></a>Computer host
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
-
 
 ### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori
 
@@ -74,7 +73,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 
 ## <a name="use-the-container"></a>Usare il contenitore
 
-Dopo aver creato il contenitore nel [computer host](#the-host-computer), utilizzare la seguente procedura per lavorare con il contenitore.
+Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), seguire questa procedura per usarlo.
 
 1. [Eseguire il contenitore](#run-the-container-with-docker-run) con le necessarie impostazioni di fatturazione. Sono disponibili altri [esempi](./face-resource-container-config.md#example-docker-run-commands) del comando `docker run`. 
 1. [Eseguire le query sull'endpoint di stima del contenitore](#query-the-containers-prediction-endpoint). 

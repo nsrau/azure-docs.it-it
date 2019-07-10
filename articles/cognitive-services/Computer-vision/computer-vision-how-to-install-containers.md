@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 8a5a66c720c0a591fe9d6c9864286d80f68ba599
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d72b47d375b8e50cde43e263261551d3010ba013
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449359"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704722"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installare ed eseguire contenitori di riconoscimento del testo
 
@@ -35,7 +35,6 @@ Prima di usare i contenitori Riconoscimento del testo, è necessario soddisfare 
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
 |Azure `Cognitive Services` risorsa |Per usare il contenitore, è necessario disporre di:<br><br>Oggetto _servizi cognitivi_ risorse di Azure e la fatturazione correlata chiave l'URI dell'endpoint fatturazione. Entrambi i valori sono disponibili nelle pagine di panoramica e le chiavi per la risorsa e sono necessari per avviare il contenitore. È necessario aggiungere il `vision/v2.0` routing per l'URI dell'endpoint come illustrato nell'esempio seguente BILLING_ENDPOINT_URI. <br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
-
 
 ## <a name="request-access-to-the-private-container-registry"></a>Richiedere l'accesso al registro contenitori privato
 

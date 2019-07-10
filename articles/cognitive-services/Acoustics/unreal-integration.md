@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 02d63897cffa2ceca46b992e7d07b917dd73bc72
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6207808efb9bee327afd2de21ffa59535acf4e55
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621557"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704799"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Integrazione Wwise e Unreal acustica progetto
 Questa procedura viene descritta la procedura dettagliata l'integrazione del pacchetto progetto acustica plug-nel progetto gioco Unreal e Wwise esistente. 
@@ -26,7 +26,7 @@ Requisiti software:
 * [Plug-in Wwise per Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Se si usa un'integrazione diretta di SDK Wwise invece di usare i plug-in Wwise Unreal, consultare il progetto acustica Unreal plug-in e modificare le chiamate API Wwise.
 
-Se si desidera usare acustica progetto con un motore diverso da Wwise audio, contattaci sul [forum di Project acustica](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics). È possibile usare il plug-in progetto acustica Unreal per eseguire query sui dati acustica e quindi chiamare le API per il motore.
+Se si desidera usare acustica progetto con un motore diverso da Wwise audio, effettuare una richiesta di funzionalità avanzata sul [forum di discussione progetto acustica](https://github.com/microsoft/ProjectAcoustics/issues). È possibile usare il plug-in progetto acustica Unreal per eseguire query sui dati acustica e quindi chiamare le API per il motore.
 
 ## <a name="download-project-acoustics"></a>Download progetto acustica
 Se hai già fatto, scaricare il [pacchetto di plug-in progetto acustica Unreal & Wwise](https://www.microsoft.com/download/details.aspx?id=58090)). 

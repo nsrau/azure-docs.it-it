@@ -1,15 +1,15 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/25/2019
-ms.openlocfilehash: f4925401235aedb341a7e29ca36b079126647f7b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: HT
+ms.openlocfilehash: 00cc63f53388ab7bea05a0b55784247f63477684
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180421"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704244"
 ---
 ## <a name="validate-that-a-container-is-running"></a>Verificare che il contenitore sia in esecuzione 
 
