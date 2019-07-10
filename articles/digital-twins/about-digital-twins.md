@@ -3,38 +3,37 @@ title: Panoramica di Gemelli digitali di Azure | Microsoft Docs
 description: Altre informazioni su Gemelli digitali di Azure, una soluzione Azure IoT per l'intelligenza spaziale.
 author: julieseto
 ms.author: jseto
-ms.date: 12/14/2018
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0bbbb924cace93e44af84fd96926a2d7153dd5f8
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437113"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459012"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Panoramica di Gemelli digitali di Azure
 
-Gemelli digitali di Azure è un servizio Azure IoT che consente di creare modelli completi dell'ambiente fisico. Consente di creare grafici di intelligenza spaziale per modellare le relazioni e le interazioni tra persone, spazi e dispositivi.
+Anteprima di Gemelli digitali di Azure è un servizio Azure IoT che consente di creare modelli completi dell'ambiente fisico. Consente di creare grafici di intelligenza spaziale per modellare le relazioni e le interazioni tra persone, spazi e dispositivi.
 
-Con Gemelli digitali di Azure è possibile eseguire query sui dati da uno spazio fisico invece che da sensori diversi. Questo servizio consente di creare esperienze riutilizzabili, altamente scalabili, con riconoscimento dello spazio, che collegano flussi di dati del mondo digitale e fisico. Queste speciali funzionalità contestuali contribuiscono al miglioramento delle app. È possibile usare Gemelli digitali di Azure per le attività di esempio seguenti per:
+Con Gemelli digitali di Azure è possibile eseguire query sui dati da uno spazio fisico invece che da sensori diversi. Questo servizio consente di creare esperienze riutilizzabili, altamente scalabili, con riconoscimento dello spazio, che collegano flussi di dati del mondo digitale e fisico. Queste speciali funzionalità contestuali contribuiscono al miglioramento delle app. 
+
+Gemelli digitali di Azure si applica a tutti i tipi di ambienti, ad esempio, data warehouse, uffici, scuole, ospedali e banche. ma può essere usato anche per stadi, fabbriche, parcheggi, parchi, reti intelligenti e città. Di seguito sono indicati alcuni scenari in cui Gemelli digitali di Azure può essere utile:
 
 - Prevedere gli interventi di manutenzione necessari di una fabbrica.
 - Analizzare in tempo reale il fabbisogno energetico di una rete elettrica.
 - Ottimizzare l'uso dello spazio disponibile per un ufficio.
-
-Gemelli digitali di Azure si applica a tutti i tipi di ambienti, ad esempio magazzini, uffici, scuole, ospedali e banche, ma può essere usato anche per stadi, fabbriche, parcheggi, parchi, reti intelligenti e città. È possibile usare Gemelli digitali di Azure negli scenari di esempio seguenti per:
-
 - Tenere traccia della temperatura giornaliera in diversi stati o province.
 - Monitorare i percorsi dei droni in volo.
 - Identificare veicoli autonomi.
 - Analizzare i livelli di occupazione di un edificio.
 - Individuare la cassa più attiva del punto vendita.
 
-Qualsiasi sia lo scenario del mondo reale, è possibile eseguire il provisioning di un'istanza digitale corrispondente con Gemelli digitali di Azure.
+Qualsiasi sia lo scenario del mondo reale, è molto probabile poter eseguire il provisioning di un'istanza digitale corrispondente con Gemelli digitali di Azure.
 
 Il video seguente illustra in modo più approfondito il servizio Gemelli digitali di Azure.
 
@@ -46,15 +45,15 @@ Gemelli digitali include le funzionalità chiave seguenti.
 
 ### <a name="spatial-intelligence-graph"></a>Grafico di intelligenza spaziale
 
-Il [*grafico di intelligenza spaziale*](./concepts-objectmodel-spatialgraph.md), o *grafico spaziale*, è una rappresentazione virtuale dell'ambiente fisico che consente di modellare le relazioni tra persone, luoghi e dispositivi.
+Il [*grafico di intelligenza spaziale*](./concepts-objectmodel-spatialgraph.md#graph), o *grafico spaziale*, è una rappresentazione virtuale dell'ambiente fisico che consente di modellare le relazioni tra persone, luoghi e dispositivi.
 
 Si consideri un'app Smart Utility che prevede diversi contatori di utilizzo dell'energia elettrica connessi in un quartiere. L'azienda Smart Utility deve monitorare e prevedere con precisione l'utilizzo e la fatturazione dell'energia elettrica. A tale scopo, è necessario modellare ogni dispositivo e sensore con informazioni di contesto sulla località e sul cliente destinatario della fattura. È possibile usare il grafico di intelligenza spaziale per modellare questi tipi di relazioni complesse.
 
 ### <a name="digital-twin-object-models"></a>Modelli a oggetti di gemelli digitali
 
-I [modelli a oggetti di gemelli digitali](./concepts-objectmodel-spatialgraph.md) sono protocolli di dispositivo e schemi di dati predefiniti che consentono di allineare le esigenze specifiche del dominio di una soluzione per accelerare e semplificare lo sviluppo.
+I [modelli a oggetti di gemelli digitali](./concepts-objectmodel-spatialgraph.md#model) sono protocolli di dispositivo e schemi di dati predefiniti che consentono di allineare le esigenze specifiche del dominio di una soluzione per accelerare e semplificare lo sviluppo.
 
-Un esempio è costituito da un'applicazione per la gestione dell'occupazione delle stanze che può usare tipi di spazio predefiniti, come campus, edificio, piano e stanza.
+Per esempio, un'applicazione per la gestione dell'occupazione delle stanze che può usare tipi di spazio predefiniti, come campus, edificio, piano e stanza.
 
 ### <a name="multiple-and-nested-tenants"></a>Più tenant annidati
 

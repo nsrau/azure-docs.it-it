@@ -10,12 +10,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: 4287efedfc35da762825c5562cf88e64987192f1
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414224"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312655"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Esercitazione: automatizzare la gestione di messaggi di posta elettronica e allegati con App per la logica di Azure
 
@@ -145,7 +145,7 @@ Usare ora il frammento di codice fornito in questi passaggi per creare una funzi
 
    | Impostazione | Valore | DESCRIZIONE |
    | ------- | ----- | ----------- |
-   | **Nome app** | CleanTextFunctionApp | Nome univoco globale e descrittivo per l'app per le funzioni |
+   | **Nome app** | <*function-app-name*> | Il nome descrittivo e univoco a livello globale dell'app per le funzioni, ovvero "CleanTextFunctionApp" in questo esempio, quindi specificare un nome diverso, ad esempio "MyCleanTextFunctionApp" |
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | La stessa sottoscrizione di Azure usata in precedenza | 
    | **Gruppo di risorse** | LA-Tutorial-RG | Lo stesso gruppo di risorse di Azure usato in precedenza |
    | **Piano di hosting** | Piano a consumo | Questa impostazione determina la modalità di allocazione e scalabilità delle risorse, ad esempio la potenza di calcolo, per l'esecuzione dell'app per le funzioni. Vedere il [confronto tra piani di hosting](../azure-functions/functions-scale.md). | 
@@ -168,7 +168,7 @@ Usare ora il frammento di codice fornito in questi passaggi per creare una funzi
 
    Per creare un'app per le funzioni è anche possibile usare l'[interfaccia della riga di comando di Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md) oppure [PowerShell e i modelli di Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
-2. In **App per le funzioni** espandere **CleanTextFunctionApp** e selezionare **Funzioni**. Sulla barra degli strumenti delle funzioni selezionare **Nuova funzione**.
+2. In **App per le funzioni**, espandere l'app per le funzioni, ovvero "CleanTextFunctionApp" in questo esempio e selezionare **Funzioni**. Sulla barra degli strumenti delle funzioni selezionare **Nuova funzione**.
 
    ![Creare una nuova funzione](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
@@ -210,7 +210,7 @@ Usare ora il frammento di codice fornito in questi passaggi per creare una funzi
    }
    ```
 
-6. Al termine dell'operazione, scegliere **Salva**. Per testare la funzione, sul bordo destro dell'editor scegliere **Test** sotto l'icona a forma di freccia (**<**).
+6. Al termine dell'operazione, scegliere **Salva**. Per testare la funzione, sul bordo destro dell'editor scegliere **Test** sotto l'icona a forma di freccia ( **<** ).
 
    ![Aprire il riquadro "Test"](./media/tutorial-process-email-attachments-workflow/function-choose-test.png)
 
@@ -260,7 +260,7 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
 1. Nella casella di ricerca della finestra di progettazione immettere "all'arrivo di un nuovo messaggio di posta elettronica" come filtro. Selezionare questo trigger per il provider di posta elettronica: **All'arrivo di un nuovo messaggio di posta elettronica - <*provider di posta elettronica*>**
 
-   Ad esempio: 
+   Ad esempio:
 
    ![Selezionare questo trigger per il provider di posta elettronica: "All'arrivo di un nuovo messaggio di posta elettronica"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
@@ -316,7 +316,7 @@ Aggiungere quindi una condizione per selezionare solo i messaggi di posta elettr
    ![Selezionare "Condizione"](./media/tutorial-process-email-attachments-workflow/select-condition.png)
 
    1. Rinominare la condizione con una descrizione migliore. 
-   Sulla barra del titolo della condizione fare clic sui **puntini di sospensione** (**...**) > **Rinomina**.
+   Sulla barra del titolo della condizione fare clic sui **puntini di sospensione** ( **...** ) > **Rinomina**.
 
       ![Rinominare la condizione](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
 
@@ -399,7 +399,7 @@ Questo passaggio aggiunge la funzione di Azure creata in precedenza all'app per 
 
    ![Selezionare l'azione "Scegliere una funzione di Azure"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. Selezionare l'app per la funzione creata in precedenza: **CleanTextFunctionApp**
+3. Selezionare l'app per le funzioni creata in precedenza, ovvero "CleanTextFunctionApp" in questo esempio:
 
    ![Selezionare l'app per le funzioni di Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
@@ -626,7 +626,7 @@ Aggiungere quindi un'azione in modo che l'app per la logica invii un messaggio d
    ||||
 
    > [!NOTE]
-   > Se si seleziona un campo contenente una matrice, ad esempio il campo **Contenuto** che è una matrice contenente allegati, la finestra di progettazione aggiunge automaticamente un ciclo "For each" intorno all'azione che fa riferimento a tale campo. In questo modo, l'app per la logica può eseguire l'azione su ogni elemento della matrice. Per rimuovere il ciclo, rimuovere il campo per la matrice, spostare l'azione di riferimento fuori dal ciclo, scegliere i puntini di sospensione (**...** ) sulla barra del titolo del ciclo e scegliere **Elimina**.
+   > Se si seleziona un campo contenente una matrice, ad esempio il campo **Contenuto** che è una matrice contenente allegati, la finestra di progettazione aggiunge automaticamente un ciclo "For each" intorno all'azione che fa riferimento a tale campo. In questo modo, l'app per la logica può eseguire l'azione su ogni elemento della matrice. Per rimuovere il ciclo, rimuovere il campo per la matrice, spostare l'azione di riferimento fuori dal ciclo, scegliere i puntini di sospensione ( **...** ) sulla barra del titolo del ciclo e scegliere **Elimina**.
 
 6. Salvare l'app per la logica.
 

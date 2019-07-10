@@ -17,19 +17,19 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44aad6b2fab7e0ab2ff11d8469782b001b1f4d18
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 3e43bc245a5908ba1bf91e7b4bee6df2f5cfc618
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545878"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514359"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Ambiti per un'API Web che accetta i token v1.0
 
 Le autorizzazioni OAuth2 sono ambiti di autorizzazione che un'applicazione (risorsa) dell'API Web (v1.0) di Azure AD per sviluppatori espone alle applicazioni client. Questi ambiti di autorizzazione possono essere concessi alle applicazioni client durante il consenso. Vedere la sezione relativa a `oauth2Permissions` nelle [informazioni di riferimento sul manifesto dell'applicazione in Azure Active Directory](reference-app-manifest.md#manifest-reference).
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a specifiche autorizzazioni OAuth2 di un'applicazione v1.0
-Se si vogliono acquisire i token per gli ambiti specifici di un'applicazione v1.0 (ad esempio, Graph di Azure AD, ovvero https://graph.windows.net)), è necessario creare ambiti concatenando un identificatore di risorsa desiderato con un'autorizzazione OAuth2 desiderata per tale risorsa.
+Se si vogliono acquisire i token per gli ambiti specifici di un'applicazione v1.0 (ad esempio, Graph di Azure AD, ovvero https:\//graph.windows.net), è necessario creare ambiti concatenando un identificatore di risorsa desiderato con un'autorizzazione OAuth2 desiderata per tale risorsa.
 
 Ad esempio, per accedere per conto dell'utente a un'API Web v1.0 dove l'URI dell'ID app è `ResourceId`:
 
@@ -41,7 +41,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Per eseguire operazioni di lettura e scrittura con Azure Active Directory in MSAL.NET tramite l'API Graph di Azure AD (https://graph.windows.net/)), è possibile creare un elenco di ambiti come mostrato di seguito:
+Per eseguire operazioni di lettura e scrittura con Azure Active Directory in MSAL.NET tramite l'API Graph di Azure AD (https:\//graph.windows.net/), è possibile creare un elenco di ambiti come mostrato di seguito:
 
 ```csharp
 string ResourceId = "https://graph.windows.net/";
@@ -53,7 +53,7 @@ var ResourceId = "https://graph.windows.net/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
-Per eseguire operazioni di scrittura nell'ambito corrispondente all'API di Azure Resource Manager (https://management.core.windows.net/)), è necessario richiedere l'ambito seguente (si notino le due barre):
+Per eseguire operazioni di scrittura nell'ambito corrispondente all'API di Azure Resource Manager (https:\//management.core.windows.net/), è necessario richiedere l'ambito seguente (si notino le due barre):
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -69,7 +69,7 @@ La logica usata da Azure AD è la seguente:
 
 - Per l'endpoint ADAL (v1.0) con un token di accesso v1.0 (l'unico possibile), aud=resource
 - Per MSAL (endpoint v2.0 di Microsoft Identity Platform) che richiede un token di accesso per una risorsa che accetta i token v2.0, aud=resource.AppId
-- Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v1.0 (come nel caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutto ciò che precede l'ultima barra e usandolo come identificatore della risorsa. Di conseguenza, se https://database.windows.net prevede un gruppo di destinatari "https://database.windows.net/", sarà necessario richiedere un ambito "https://database.windows.net//.default". Vedere anche in GitHub il problema [n. 747: se la barra finale dell'URL della risorsa viene omessa, si verifica un errore di autenticazione SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+- Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v1.0 (come nel caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutto ciò che precede l'ultima barra e usandolo come identificatore della risorsa. Di conseguenza, se https:\//database.windows.net prevede un gruppo di destinatari "https:\//database.windows.net/", è necessario richiedere un ambito di "https:\//database.windows.net//.default". Vedere anche in GitHub il problema [n. 747: se la barra finale dell'URL della risorsa viene omessa, si verifica un errore di autenticazione SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a tutte le autorizzazioni di un'applicazione v1.0
 Per acquisire un token per tutti gli ambiti statici di un'applicazione v1.0, accodare ".default" all'URI dell'ID app dell'API:

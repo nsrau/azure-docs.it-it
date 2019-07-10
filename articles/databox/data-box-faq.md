@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8f090a3f07eba529fd39976545eb654083e637eb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236289"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561406"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Domande frequenti
 
@@ -53,7 +53,7 @@ R. Data Box ha una capacità nominale di 100 TB e una capacità usabile di 80 TB
 R.  Per informazioni sui paesi o sulle aree geografiche in cui Data Box è disponibile, vedere [Aree di disponibilità](data-box-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>D: In quali aree è possibile archiviare dati con Data Box?
-R. Data Box è supportato in tutte le aree negli Stati Uniti, in Europa occidentale e settentrionale, in Francia e nel Regno Unito. Sono supportate solo le aree del cloud pubblico di Azure. Non sono supportati i cloud Azure per enti pubblici o altri cloud sovrani. Per altre informazioni, vedere [Disponibilità a livello di area](data-box-overview.md#region-availability).
+R. Data Box è supportato in tutte le aree negli Stati Uniti, in Europa occidentale e settentrionale, in Francia, nel Regno Unito, in Giappone, in Australia e in Canada. Per altre informazioni, vedere [Disponibilità a livello di area](data-box-overview.md#region-availability).
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>D: Chi è possibile contattare se si verificano problemi con Data Box?
 R. Se si verificano problemi con Data Box, [contattare il supporto tecnico Microsoft](data-box-disk-contact-microsoft-support.md).
@@ -170,7 +170,7 @@ A.  To speed up the copy process:
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>D: È possibile usare più account di archiviazione con Data Box?
-R.  Sì. Con Data Box è supportato un massimo di 10 account di archiviazione, per utilizzo generico, classico o BLOB. Sono supportati BLOB sia ad accesso frequente che sporadico. Nella versione di disponibilità generale nel cloud pubblico di Azure sono supportati gli account di archiviazione in tutte le aree negli Stati Uniti, in Europa occidentale e settentrionale, in Francia e nel Regno Unito.
+R.  Sì. Con Data Box è supportato un massimo di 10 account di archiviazione, per utilizzo generico, classico o BLOB. Sono supportati BLOB sia ad accesso frequente che sporadico. 
 
 
 ## <a name="ship-device"></a>Spedire il dispositivo

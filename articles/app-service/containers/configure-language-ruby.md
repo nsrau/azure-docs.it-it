@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 412efac3742acf7ad1cdc3d08f9d90c4d39bad3e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 8a2eaf50a35b25463be3e323d4362b52e2339bf6
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956125"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550304"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurare un'app Ruby in Linux per il Servizio app di Azure
 
@@ -65,7 +65,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Accedere alle variabili di ambiente
 
-Nel servizio app è possibile [configurare le impostazioni dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) al di fuori del codice dell'app. Quindi è possibile accedervi usando il modello standard [ENV['<nome-percorso>']](https://ruby-doc.org/core-2.3.3/ENV.html). Ad esempio, per accedere a un'impostazione dell'app denominata `WEBSITE_SITE_NAME`, usare il codice seguente:
+Nel servizio app è possibile [configurare le impostazioni dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) al di fuori del codice dell'app. Quindi è possibile accedervi usando il modello standard [ENV['\<nome-percorso>']](https://ruby-doc.org/core-2.3.3/ENV.html). Ad esempio, per accedere a un'impostazione dell'app denominata `WEBSITE_SITE_NAME`, usare il codice seguente:
 
 ```ruby
 ENV['WEBSITE_SITE_NAME']
@@ -92,7 +92,7 @@ Se questa impostazione viene definita, il motore di distribuzione esegue `bundle
 
 ### <a name="precompile-assets"></a>Precompilare gli asset
 
-Per impostazione predefinita, la procedura di post-distribuzione non precompila gli asset. Per attivare la precompilazione degli asset, impostare l'[impostazione dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `ASSETS_PRECOMPILE` su `true`. Il comando `bundle exec rake --trace assets:precompile` verrà eseguito al termine della procedura di post-distribuzione. Ad esempio: 
+Per impostazione predefinita, la procedura di post-distribuzione non precompila gli asset. Per attivare la precompilazione degli asset, impostare l'[impostazione dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `ASSETS_PRECOMPILE` su `true`. Il comando `bundle exec rake --trace assets:precompile` verrà eseguito al termine della procedura di post-distribuzione. Ad esempio:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASSETS_PRECOMPILE=true
@@ -121,7 +121,7 @@ Per impostazione predefinita, il contenitore Ruby avvia il server Rails nella se
 Per impostazione predefinita, il server Rails nel contenitore Ruby viene eseguito in modalità di produzione e [presuppone che gli asset vengano precompilati e siano gestiti dal server Web](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Per gestire asset statici dal server Rails, è necessario eseguire due operazioni:
 
 - **Precompilare gli asset** - [Precompilare gli asset statici localmente](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) e distribuirli manualmente. In alternativa, possono essere gestiti dal motore di distribuzione (vedere [Precompilare gli asset](#precompile-assets).
-- **Abilitare la gestione di file statici** - Per gestire gli asset statici dal contenitore Ruby, impostare `RAILS_SERVE_STATIC_FILES` [impostare l'`RAILS_SERVE_STATIC_FILES`impostazione dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) su `true`. Ad esempio: 
+- **Abilitare la gestione di file statici** - Per gestire gli asset statici dal contenitore Ruby, impostare `RAILS_SERVE_STATIC_FILES` [impostare l'`RAILS_SERVE_STATIC_FILES`impostazione dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) su `true`. Ad esempio:
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true
@@ -135,15 +135,15 @@ Per impostazione predefinita, il server Rails viene eseguito in modalità di pro
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_ENV="development"
 ```
 
-Tuttavia, questa impostazione da sola fa sì che il server Rails venga avviato in modalità di sviluppo, accettando solo richieste localhost e non risultando accessibile al di fuori del contenitore. Per accettare le richieste dei client remoti, impostare l'[impostazione dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `APP_COMMAND_LINE` su `rails server -b 0.0.0.0`. Questa impostazione dell'app consente di eseguire un comando personalizzato nel contenitore Ruby. Ad esempio: 
+Tuttavia, questa impostazione da sola fa sì che il server Rails venga avviato in modalità di sviluppo, accettando solo richieste localhost e non risultando accessibile al di fuori del contenitore. Per accettare le richieste dei client remoti, impostare l'[impostazione dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `APP_COMMAND_LINE` su `rails server -b 0.0.0.0`. Questa impostazione dell'app consente di eseguire un comando personalizzato nel contenitore Ruby. Ad esempio:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
 ```
 
-### <a name="set-secretkeybase-manually"></a>Impostare manualmente secret_key_base
+### <a name="set-secret_key_base-manually"></a>Impostare manualmente secret_key_base
 
-Per usare un valore `secret_key_base` personalizzato invece di quello generato automaticamente dal servizio app, configurare l'[impostazione dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `SECRET_KEY_BASE` con il valore desiderato. Ad esempio: 
+Per usare un valore `secret_key_base` personalizzato invece di quello generato automaticamente dal servizio app, configurare l'[impostazione dell'app](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `SECRET_KEY_BASE` con il valore desiderato. Ad esempio:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"

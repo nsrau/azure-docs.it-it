@@ -4,14 +4,14 @@ description: Informazioni su come trovare l'addebito delle unità richiesta (UR)
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 0671556a1ad049782090ffede509072adbac4c6a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 07ca6278da6dd1f50f017f389c2c1389a42196f4
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416046"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163830"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Trovare l'addebito delle unità richiesta in Azure Cosmos DB
 
@@ -302,3 +302,4 @@ Per informazioni su come ottimizzare il consumo di UR, vedere questi articoli:
 * [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
 * [Effettuare il provisioning della velocità effettiva per contenitori e database](set-throughput.md)
 * [Effettuare il provisioning della velocità effettiva per un contenitore](how-to-provision-container-throughput.md)
+* [Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB](use-metrics.md)

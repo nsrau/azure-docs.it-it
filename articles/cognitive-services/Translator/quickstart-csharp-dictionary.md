@@ -3,19 +3,19 @@ title: 'Guida introduttiva: Cercare le parole con il dizionario bilingue, C# - A
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando .NET Core e l'API Traduzione testuale.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: a937ac1039d7a7552290257f42dd4bc45c8f0605
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 0c8fb4eb50b5824126d2be2160dd341ed60955af
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514973"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448187"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando C#
 
@@ -89,6 +89,8 @@ System.Object[] body = new System.Object[] { new { Text = @"Elephants" } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
 
+
+
 ## <a name="instantiate-the-client-and-make-a-request"></a>Creare un'istanza del client ed effettuare una richiesta
 
 Queste righe consentono di creare un'istanza di `HttpClient` e `HttpRequestMessage`:
@@ -143,6 +145,8 @@ static string PrettyPrint(string s)
     return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
 }
 ```
+
+Se si usa una sottoscrizione multiservizio di Servizi cognitivi, è necessario includere anche `Ocp-Apim-Subscription-Region` nei parametri della richiesta. [Informazioni sull'autenticazione con la sottoscrizione multiservizio](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="put-it-all-together"></a>Combinare tutti gli elementi
 

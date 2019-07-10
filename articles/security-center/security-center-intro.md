@@ -3,7 +3,7 @@ title: Introduzione al Centro sicurezza di Azure | Microsoft Docs
 description: Informazioni sul Centro sicurezza di Azure, le funzionalità principali e il funzionamento.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 13526268480c69798ee52078f7448605fc1afa9a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.date: 6/06/2019
+ms.author: v-mohabe
+ms.openlocfilehash: 28e85f2e9caacc0cc30dcc1a073414c34bc2ab0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242038"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064336"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -125,6 +125,10 @@ Centro sicurezza consente di limitare l’esposizione agli attacchi di forza bru
 ### <a name="protect-data-services"></a>Protezione dei servizi dati
 
 Centro sicurezza include funzionalità che consentono di classificare automaticamente i dati di SQL Azure. È anche possibile ottenere valutazioni per le potenziali vulnerabilità nei servizi di archiviazione e SQL di Azure e raccomandazioni su come attenuarle.
+
+### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>Proteggere i carichi di lavoro di cloud ibrido e IoT (anteprima)
+
+Il Centro sicurezza di Azure per IoT (Internet delle cose) semplifica la protezione carichi di lavoro ibrido offrendo visibilità unificata e controllo, prevenzione delle minacce adattiva, rilevamento delle minacce intelligente e risposta su carichi di lavoro in esecuzione in dispositivi perimetrali, in locale, in Azure e in altri cloud. Per altre informazioni, vedere [Centro sicurezza di Azure per IOT (anteprima)](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Protezione più rapida
 

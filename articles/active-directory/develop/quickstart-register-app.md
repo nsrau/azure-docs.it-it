@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 156b26454aad6d6fd3230e19b47a938841331aec
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 9ec1d5fb13d7fb191bfee6194e69a217bcaddbb9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545703"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482583"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Guida introduttiva: Registrare un'applicazione con Microsoft Identity Platform
 
@@ -46,7 +46,7 @@ Questa guida introduttiva illustra come aggiungere e registrare un'applicazione 
        | **Account in qualsiasi directory organizzativa** | Selezionare questa opzione se si preferisce includere tutti i clienti aziendali o di istituti di istruzione.<br><br>Questa opzione esegue il mapping solo a multi-tenant Azure AD.<br><br>Un'app registrata solo come a tenant singolo Azure AD può essere aggiornata a multi-tenant Azure AD e di nuovo a tenant singolo tramite il pannello **Autenticazione**. |
        | **Account in qualsiasi directory organizzativa e account Microsoft personali** | Selezionare questa opzione per includere il set più ampio possibile di clienti.<br><br>Questa opzione esegue il mapping ad account Microsoft personali e multi-tenant Azure AD.<br><br>Se l'app è stata registrata come multi-tenant Azure AD e per account Microsoft personali, non è possibile modificare questa impostazione nell'interfaccia utente. Per modificare i tipi di account supportati è necessario usare l'editor del manifesto dell'applicazione. |
 
-   - **URI di reindirizzamento (facoltativo)**: selezionare il tipo di app che si sta creando, ossia **Web** o **Client pubblico (per dispositivi mobili e desktop)**, e quindi immettere l'URI di reindirizzamento (o l'URL di risposta) per l'applicazione.
+   - **URI di reindirizzamento (facoltativo)** : selezionare il tipo di app che si sta creando, ossia **Web** o **Client pubblico (per dispositivi mobili e desktop)** , e quindi immettere l'URI di reindirizzamento (o l'URL di risposta) per l'applicazione.
        - Per le applicazioni Web, specificare l'URL di base dell'app. Ad esempio, `http://localhost:31544` potrebbe essere l'URL per un'app Web eseguita sul computer locale. Gli utenti possono usare questo URL per accedere a un'applicazione client Web.
        - Per le applicazioni client pubbliche, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico dell'applicazione, ad esempio `myapp://auth`.
 
@@ -54,11 +54,11 @@ Questa guida introduttiva illustra come aggiungere e registrare un'applicazione 
 
 1. Al termine, selezionare **Registra**.
 
-    [![Registrare una nuova applicazione nel portale di Azure](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
+    [![Mostra la schermata per registrare una nuova applicazione nel Portale di Azure](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
 Azure AD assegna un ID applicazione (client) univoco all'app e viene visualizzata la pagina **Panoramica** dell'applicazione. Per aggiungere altre funzionalità all'applicazione, è possibile selezionare altre opzioni di configurazione, come Personalizzazione, Certificati e segreti, Autorizzazioni API e altro ancora.
 
-[![Pagina di panoramica dell'app appena registrata](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
+[![Esempio di una pagina di panoramica dell'app appena registrata](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

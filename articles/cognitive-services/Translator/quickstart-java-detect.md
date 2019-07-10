@@ -3,19 +3,19 @@ title: 'Guida introduttiva: Rilevare la lingua del testo, Java - API Traduzione 
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si apprenderà come rilevare la lingua del testo fornito con Java e l'API REST Traduzione testuale.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: f2d5a9d5564b6136601a003e01a3c58cac5a74e3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: bbab179d5c70274ea5c6ae4120384dd168247298
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514860"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445156"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Guida introduttiva: Usare l'API Traduzione testuale per rilevare la lingua del testo con Java
 
@@ -108,6 +108,8 @@ Aggiungere le righe seguenti alla classe `Detect`:
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0";
 ```
+
+Se si usa una sottoscrizione multiservizio di Servizi cognitivi, è necessario includere anche `Ocp-Apim-Subscription-Region` nei parametri della richiesta. [Informazioni sull'autenticazione con la sottoscrizione multiservizio](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-client-and-build-a-request"></a>Creare un client e compilare una richiesta
 
