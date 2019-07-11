@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db7e2588b03807a42f82fd0fcd4e71855e55c1d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 8babf2a6a4f4a15c6d2979ea0d5ce558dfb0cd6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66426333"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052142"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente i dispositivi aggiunti ad Azure Active Directory ibrido
 
@@ -139,7 +139,7 @@ Il `Initialize-ADSyncDomainJoinedComputerSync` cmdlet esegue queste operazioni:
 
 * Usa il modulo Active Directory PowerShell e gli strumenti Azure Active Directory Domain Services (Azure AD DS). Questi strumenti si basano sull'esecuzione di Servizi Web Active Directory in un controller di dominio. Il servizio Servizi Web Active Directory è supportato nei controller di dominio che eseguono Windows Server 2008 R2 e versioni successive.
 * È supportato solo per il modulo MSOnline PowerShell versione 1.1.166.0. Per scaricare questo modulo, seguire [questo collegamento](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
-* Se gli strumenti Azure AD DS non sono installati, `Initialize-ADSyncDomainJoinedComputerSync` avrà esito negativo. È possibile installare questi strumenti tramite Server Manager in **Funzionalità** > **Strumenti di amministrazione remota del server** > **Strumenti di amministrazione ruoli**.
+* Se gli strumenti Active Directory Domain Services non sono installati, `Initialize-ADSyncDomainJoinedComputerSync` avrà esito negativo. È possibile installare questi strumenti tramite Server Manager in **Funzionalità** > **Strumenti di amministrazione remota del server** > **Strumenti di amministrazione ruoli**.
 
 Per i controller di dominio che eseguono Windows Server 2008 o versioni precedenti, usare lo script seguente per creare il punto di connessione del servizio. In una configurazione a più foreste, usare lo script seguente per creare il punto di connessione del servizio in ogni foresta in cui sono presenti computer.
 

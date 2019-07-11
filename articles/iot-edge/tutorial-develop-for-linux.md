@@ -4,17 +4,17 @@ description: Questa esercitazione illustra in modo dettagliato come configurare 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/26/2019
+ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 11fa72f5853350c76b2a8d0aa4fd7b96b598b670
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: e5499afebf29df2942e74148b33797844fa9c880
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303858"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051889"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Esercitazione: Sviluppare moduli IoT Edge per dispositivi Linux
 
@@ -22,7 +22,7 @@ Usare Visual Studio Code per sviluppare e distribuire codice in dispositivi Linu
 
 Negli articoli di avvio rapido è stato creato un dispositivo IoT Edge usando una macchina virtuale Linux ed è stato distribuito un modulo predefinito da Azure Marketplace. Questa esercitazione illustra in modo dettagliato come sviluppare e distribuire codice personalizzato in un dispositivo IoT Edge. Questa esercitazione è un prerequisito utile per tutte le altre esercitazioni, che illustrano in modo più dettagliato i concetti relativi a linguaggi di programmazione o servizi di Azure specifici. 
 
-Questa esercitazione usa l'esempio di distribuzione di un **modulo C in un dispositivo Linux**. Questo esempio è stato scelto perché è quello con meno prerequisiti, in modo che sia possibile apprendere informazioni sugli strumenti di sviluppo senza doversi preoccupare di avere le librerie appropriate installate. Una volta appresi i concetti di sviluppo, è possibile scegliere il linguaggio o il servizio di Azure preferito per approfondire i dettagli. 
+Questa esercitazione usa l'esempio di distribuzione di un **modulo C# in un dispositivo Linux**. Questo esempio è stato scelto perché è lo scenario attivo più comune per gli sviluppatori per le soluzioni IoT Edge. Anche se si prevede di usare un linguaggio diverso o di distribuire un servizio di Azure, questa esercitazione è comunque utile per apprendere i concetti e gli strumenti di sviluppo. Dopo aver completato questa introduzione al processo di sviluppo, è possibile scegliere il linguaggio o il servizio di Azure preferito per approfondire i dettagli. 
 
 In questa esercitazione si apprenderà come:
 
@@ -51,7 +51,7 @@ La tabella seguente elenca gli scenari di sviluppo supportati per i **contenitor
 | **Architettura dei dispositivi Linux** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Servizi di Azure** | Funzioni di Azure <br> Analisi di flusso di Azure <br> Azure Machine Learning |   |
 | **Linguaggi** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **Altre informazioni** | [Azure IoT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools per Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [Azure IoT Edge Tools per Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
+| **Altre informazioni** | [Azure IoT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools per Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) <br> [Azure IoT Edge Tools per Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 Questa esercitazione illustra i passaggi di sviluppo per Visual Studio Code. Se si preferisce usare Visual Studio, vedere le istruzioni riportate in [Usare Visual Studio 2019 per lo sviluppo e il debug di moduli per Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
@@ -62,6 +62,8 @@ Un computer di sviluppo:
 * È possibile usare il proprio computer o una macchina virtuale, a seconda delle preferenze di sviluppo.
 * Per lo sviluppo di moduli IoT Edge per dispositivi Linux, è possibile usare la maggior parte dei sistemi operativi in grado di eseguire un motore per i contenitori. Questa esercitazione usa un computer Windows, ma vengono sottolineate le differenze note in MacOS o Linux. 
 * Installare [Git](https://git-scm.com/) per eseguire il pull dei pacchetti di modelli di moduli più avanti in questa esercitazione.  
+* [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 
 Un dispositivo Azure IoT Edge in Linux:
 
@@ -114,9 +116,9 @@ Usare le estensioni IoT per Visual Studio Code per sviluppare moduli IoT Edge. Q
 
 ## <a name="create-a-new-module-project"></a>Creare un nuovo progetto di modulo
 
-L'estensione Azure IoT Tools fornisce modelli di progetto per tutti i linguaggi dei moduli IoT Edge supportati in Visual Studio Code. Questi modelli hanno tutti i file e il codice necessari per distribuire un modulo funzionante per testare IoT Edge oppure per fornire un punto di partenza per personalizzare il modello con la propria logica di business. 
+L'estensione Azure IoT Tools fornisce modelli di progetto per tutti i linguaggi dei moduli IoT Edge supportati in Visual Studio Code. Questi modelli includono il codice e tutti i file necessari per distribuire un modulo funzionante per testare IoT Edge oppure offrono un punto di partenza per personalizzare il modello con la propria logica di business. 
 
-Per questa esercitazione, si userà il modello di modulo C perché è quello con meno prerequisiti da installare. 
+Per questa esercitazione, si userà il modello di modulo C# perché è quello usato più di frequente. 
 
 ### <a name="create-a-project-template"></a>Creare un modello di progetto
 
@@ -126,7 +128,7 @@ Nel riquadro comandi di Visual Studio Code cercare e selezionare **Azure IoT Edg
    | ----- | ----- |
    | Selezionare la cartella | Nel computer di sviluppo scegliere la posizione in cui Visual Studio Code dovrà creare i file della soluzione. |
    | Provide a solution name (Specificare un nome per la soluzione) | Immettere un nome descrittivo per la soluzione oppure accettare quello predefinito **EdgeSolution**. |
-   | Select module template (Selezionare un modello di modulo) | Scegliere **C Module** (Modulo C). |
+   | Select module template (Selezionare un modello di modulo) | Scegliere **C# Module** (Modulo C#). |
    | Provide a module name (Specificare un nome per il modulo) | Accettare il valore predefinito **SampleModule**. |
    | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore viene preinserita in base al nome specificato nell'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br> Il repository di immagini finale sarà simile a \<nome registro\>.azurecr.io/samplemodule. |
  
@@ -154,7 +156,7 @@ L'estensione IoT Edge cerca di eseguire il pull delle credenziali del Registro C
 
 ### <a name="select-your-target-architecture"></a>Selezionare l'architettura di destinazione
 
-Attualmente, Visual Studio Code consente di sviluppare moduli C per dispositivi Linux AMD64 e Linux ARM32v7. È necessario selezionare l'architettura di destinazione per ogni soluzione, perché ciò influisce sul modo in cui il contenitore viene compilato ed eseguito. L'impostazione predefinita è Linux AMD64. 
+Attualmente, Visual Studio Code può sviluppare moduli C# per dispositivi Linux AMD64 e Linux ARM32v7. È necessario selezionare l'architettura di destinazione per ogni soluzione, perché ciò influisce sul modo in cui il contenitore viene compilato ed eseguito. L'impostazione predefinita è Linux AMD64. 
 
 1. Aprire il riquadro comandi e cercare **Azure IoT Edge: Set Default Target Platform for Edge Solution** (Azure IoT Edge: Imposta la piattaforma di destinazione predefinita per la soluzione Edge) oppure selezionare l'icona del collegamento sulla barra laterale nella parte inferiore della finestra. 
 
@@ -168,17 +170,19 @@ Il modello di soluzione creato include codice di esempio per un modulo IoT Edge.
 
 Per ogni modulo nel codice possono essere dichiarate più code di *input* e *output*. L'hub di IoT Edge in esecuzione nel dispositivo instrada i messaggi dall'output di un modulo all'input di uno o più moduli. Il linguaggio specifico per la dichiarazione di input e output varia a seconda dei linguaggi, ma il concetto è lo stesso in tutti i moduli. Per altre informazioni sul routing tra moduli, vedere [Dichiarare le route](module-composition.md#declare-routes).
 
-1. Aprire il file **main.c**, all'interno della cartella **modules/SampleModules/** . 
+L'esempio di codice C# disponibile con il modello di progetto usa la [classe ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) da IoT Hub SDK per .NET. 
 
-2. IoT Hub C SDK usa la funzione [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback) per inizializzare le code di input dei moduli. Cercare tale funzione nel file main.c.
+1. Aprire il file **Program.cs**, all'interno della cartella **modules/SampleModule/** . 
 
-3. Esaminare il costruttore della funzione SetInputMessageCallback e osservare che nel codice viene inizializzata una coda di input denominata **input1**. 
+2. In program.cs individuare il metodo **SetInputMessageHandlerAsync**.
+
+2. Il metodo [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) consente di configurare una coda di input per la ricezione di messaggi in arrivo. Esaminare questo metodo e vedere in che modo inizializza una coda di input denominata **input1**. 
 
    ![Trovare il nome di input nel costruttore SetInputMessageCallback](./media/tutorial-develop-for-linux/declare-input-queue.png)
 
-4. Le code di output dei moduli vengono inizializzate in modo analogo. Cercare la funzione [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync) nel file main.c. 
+3. Individuare quindi il metodo **SendEventAsync**.
 
-5. Esaminare il costruttore della funzione SendEventToOutputAsync e osservare che nel codice viene inizializzata una coda di output denominata **output1**. 
+4. Il metodo [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) consente di elaborare i messaggi ricevuti e di configurare una coda di output per passarli. Esaminare questo metodo e notare che inizializza una coda di output denominata **output1**. 
 
    ![Trovare il nome di output in SendEventToOutputAsync](./media/tutorial-develop-for-linux/declare-output-queue.png)
 
@@ -245,7 +249,7 @@ Visual Studio Code può ora accedere al Registro Container, quindi è possibile 
 
 10. Nel Registro Container selezionare **Repository** e quindi **samplemodule**. Verificare che sia stato eseguito il push di entrambe le versioni dell'immagine nel registro.
 
-   ![Visualizzare entrambe le versioni dell'immagine nel Registro Container](./media/tutorial-develop-for-linux/view-repository-versions.png)
+    ![Visualizzare entrambe le versioni dell'immagine nel Registro Container](./media/tutorial-develop-for-linux/view-repository-versions.png)
 
 <!--Alternative steps: Use VS Code Docker tools to view ACR images with tags-->
 
@@ -256,7 +260,7 @@ Se si verificano errori durante la compilazione e il push dell'immagine del modu
 * È stato eseguito il comando `docker login` usando le credenziali copiate dal Registro Container? Queste credenziali sono diverse rispetto a quelle usate per accedere ad Azure. 
 * Il repository di contenitori è corretto? Il nome del Registro Container e quello del modulo sono corretti? Aprire il file **module.json** nella cartella SampleModule per controllare. Il valore del repository deve essere simile a **\<nome registro\>.azurecr.io/samplemodule**. 
 * Se è stato usato un nome diverso da **SampleModule** per il modulo, il nome è coerente in tutta la soluzione?
-* Il computer esegue contenitori dello stesso tipo di quelli che si stanno compilando? Questa esercitazione è relativa ai dispositivi IoT Edge Linux, quindi in Visual Studio Code deve essere presente l'indicazione **amd64** o **arm32v7** sulla barra laterale e Docker Desktop deve eseguire contenitori Linux. I moduli C in Visual Studio Code non supportano i contenitori Windows. 
+* Il computer esegue contenitori dello stesso tipo di quelli che si stanno compilando? Questa esercitazione è relativa ai dispositivi IoT Edge Linux, quindi in Visual Studio Code deve essere presente l'indicazione **amd64** o **arm32v7** sulla barra laterale e Docker Desktop deve eseguire contenitori Linux.  
 
 ## <a name="deploy-modules-to-device"></a>Distribuire i moduli nel dispositivo
 
