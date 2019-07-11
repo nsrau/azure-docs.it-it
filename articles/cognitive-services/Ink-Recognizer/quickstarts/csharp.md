@@ -1,5 +1,6 @@
 ---
 title: "Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e C#"
+titleSuffix: Azure Cognitive Services
 description: Usare l'API Riconoscimento input penna per avviare il riconoscimento di tratti input penna.
 services: cognitive-services
 author: aahill
@@ -9,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: d661d6eca6e4916946944c48cc2e5411aeaf8f14
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 6a1b4ab43a7d87ac1162a7f0a3556d6bc3bfbfab
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060985"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721254"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Guida introduttiva: Riconoscere l'input penna con l'API REST Riconoscimento input penna e C#
 
@@ -22,7 +23,7 @@ Usare questo avvio rapido per iniziare a inviare tratti input penna all'API Rico
 
 L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
-In genere è necessario chiamare l'API da un'app di input penna. Questo avvio rapido invia i dati del tratto input penna per il seguente esempio scritto a mano da un file JSON.
+In genere è necessario chiamare l'API da un'app di input penna. Questa guida di avvio rapido invia i dati del tratto input penna per l'esempio scritto a mano seguente da un file JSON.
 
 ![immagine di testo scritto a mano](../media/handwriting-sample.jpg)
 

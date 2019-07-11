@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: dbef7c2cb8de5a1b4bbb3073f694b8f77c9f441b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: eae23806ee1b4e2dac1d3410e32c3242e89d4be8
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231292"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719829"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Esercitazione: Configurare ruoli Controllo degli accessi in base al ruolo nel servizio Azure Kubernetes con Ansible
 
@@ -39,7 +39,7 @@ ms.locfileid: "65231292"
 
 ## <a name="configure-azure-ad-for-aks-authentication"></a>Configurare Azure AD per l'autenticazione del servizio Azure Kubernetes
 
-Quando si configura Azure AD per l'autenticazione del servizio Azure Kubernetes, vengono configurate due applicazioni di Azure AD. Questa operazione deve essere completata da un amministratore tenant di Azure. Per altre informazioni, vedere [Integrare Azure Active Directory con il servizio Azure Kubernetes](/azure/aks/aad-integration#create-server-application). 
+Quando si configura Azure AD per l'autenticazione del servizio Azure Kubernetes, vengono configurate due applicazioni di Azure AD. Questa operazione deve essere completata da un amministratore tenant di Azure. Per altre informazioni, vedere [Integrare Azure Active Directory con il servizio Azure Kubernetes](/azure/aks/aad-integration#create-the-server-application). 
 
 Richiedere i valori seguenti all'amministratore del tenant di Azure:
 
@@ -50,7 +50,7 @@ Richiedere i valori seguenti all'amministratore del tenant di Azure:
 
 Questi valori sono necessari quando si esegue il playbook di esempio.  
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Kubernetes
+## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
 In questa sezione viene creato un servizio Azure Kubernetes con l'[applicazione Azure AD](#configure-azure-ad-for-aks-authentication).
 
@@ -73,7 +73,7 @@ Salvare il playbook seguente come `aks-create.yml`:
       location: "{{ location }}"
 
 - name: List supported kubernetes version from Azure
-  azure_rm_aks_version:
+  azure_rm_aksversion_facts:
       location: "{{ location }}"
   register: versions
 
