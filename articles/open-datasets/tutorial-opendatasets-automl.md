@@ -4,18 +4,17 @@ titleSuffix: Azure Open Datasets
 description: Informazioni su come sfruttare la praticità di Set di dati Open di Azure con le funzionalità del servizio Azure Machine Learning per creare un modello di regressione per prevedere i prezzi delle corse in taxi di New York City.
 services: open-datasets
 ms.service: open-datasets
-ms.subservice: core
 ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: e753793b5da59d09a21991831046a43899c62ef2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a1df79c59ede8cd9ad72a2ebb2edb4bdb64b802a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027517"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588965"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Esercitazione: Creare un modello di regressione con Machine Learning automatizzato e Set di dati Open
 
@@ -1000,7 +999,7 @@ taxi_holidays_df.head(5)
       <td>4</td>
       <td>21</td>
       <td>Stati Uniti</td>
-      <td>True </td>
+      <td>True</td>
       <td>New Year's Day</td>
     </tr>
     <tr>
@@ -1019,7 +1018,7 @@ taxi_holidays_df.head(5)
       <td>4</td>
       <td>0</td>
       <td>Stati Uniti</td>
-      <td>True </td>
+      <td>True</td>
       <td>New Year's Day</td>
     </tr>
     <tr>

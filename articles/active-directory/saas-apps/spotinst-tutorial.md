@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b3c9a0152144ac0d705c7d3f12c18cbc38398f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 817eecce6c2c1be273b47494e8ecc14180394796
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090139"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705346"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Esercitazione: integrazione di Azure Active Directory con Spotinst
 
@@ -114,7 +114,7 @@ Per configurare Single Sign-On di Azure AD con Spotinst, seguire questa procedur
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Spotinst](common/metadata-upload-additional-signon.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL: `https://console.spotinst.com`
+    Nella casella di testo **URL di accesso** digitare l'URL: `https://console.spotinst.com/auth/saml`
 
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornarlo con il valore di Stato dell'inoltro reale, descritto più avanti nell'esercitazione.

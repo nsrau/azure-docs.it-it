@@ -4,7 +4,7 @@ description: In questa esercitazione viene descritto come installare lo stack di
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 0a9d63f4064952adbfedfc3f9656370ef7c4a1cc
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 15d88e082f9ab0838f4a560d89801edd9d46d682
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511278"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703533"
 ---
 # <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Esercitazione: Installare un server Web LEMP in una macchina virtuale Linux in Azure
 
@@ -80,7 +80,7 @@ Per proteggere l'installazione di MySQL, impostando anche una password radice, e
 sudo mysql_secure_installation
 ```
 
-È possibile facoltativamente configurare il plug-in di convalida password (scelta consigliata). Impostare quindi una password per l'utente ROOT MySQL e configurare le restanti impostazioni di sicurezza per l'ambiente. È consigliabile rispondere "Y" (sì) a tutte le domande.
+Facoltativamente, è possibile configurare il plug-in di convalida password (scelta consigliata). Impostare quindi una password per l'utente ROOT MySQL e configurare le restanti impostazioni di sicurezza per l'ambiente. È consigliabile rispondere "Y" (sì) a tutte le domande.
 
 Per provare le funzionalità di MySQL, ovvero creare un database MySQL, aggiungere utenti o modificare le impostazioni di configurazione, accedere a MySQL. Questo passaggio non è obbligatorio per completare l'esercitazione. 
 

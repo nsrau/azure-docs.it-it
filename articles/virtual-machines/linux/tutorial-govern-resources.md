@@ -4,7 +4,7 @@ description: In questa esercitazione viene descritto come usare l'interfaccia de
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: d3182c51ca80a26159e962a6354a53b5283326a2
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 760055a831998aa026439302094e146fd4d39394
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343069"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708426"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Esercitazione: Informazioni sulla governance di macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 
@@ -65,7 +65,7 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-Se viene visualizzato l'errore **L'entità <guid> non esiste nella directory**, il nuovo gruppo non è stato ancora propagato in Azure Active Directory. Provare a eseguire di nuovo il comando.
+Se viene visualizzato l'errore **L'entità \<guid> non esiste nella directory**, il nuovo gruppo non è stato ancora propagato in Azure Active Directory. Provare a eseguire di nuovo il comando.
 
 In genere si ripete il processo per *Collaboratore Rete* e *Collaboratore Account di archiviazione* per assicurarsi che vengano assegnati utenti per la gestione delle risorse distribuite. In questo articolo è possibile ignorare questi passaggi.
 

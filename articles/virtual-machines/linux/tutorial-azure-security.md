@@ -4,7 +4,7 @@ description: In questa esercitazione vengono descritte le funzionalità del Cent
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b4c484f3dd118a19291741b071432b09894e836c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 671b7de8852b0aac30e35b76d89eb4489a206f91
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593302"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708558"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Esercitazione: usare il Centro sicurezza di Azure per monitorare le macchine virtuali Linux
 
@@ -51,7 +51,7 @@ Per ottenere la visibilità sulle configurazioni di sicurezza delle macchine vir
 
 1. Nel dashboard del Centro sicurezza fare clic su **Criteri di sicurezza** e selezionare la sottoscrizione in uso. 
 2. In **Provisioning automatico** in **Raccolta dati** selezionare **On**.
-3. Per **Configurazione dell'area di lavoro predefinita** lasciare impostata l'opzione **Usa le aree di lavoro create dal Centro sicurezza (impostazione predefinita)**.
+3. Per **Configurazione dell'area di lavoro predefinita** lasciare impostata l'opzione **Usa le aree di lavoro create dal Centro sicurezza (impostazione predefinita)** .
 4. In **Livelli per gli eventi di sicurezza** mantenere l'opzione predefinita **Comune**.
 4. Fare clic su **Salva** nella parte superiore della pagina. 
 
