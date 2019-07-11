@@ -10,14 +10,15 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/10/2018
-ms.author: routlaw, glenga
+ms.author: routlaw
+ms.reviewer: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 66a7caddc499d32a4d836dcb60bc940c1ebc8a9e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: da4de9185ba7371281c140c5f2456d85661c0af4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444565"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706432"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Creare la prima funzione con Java e Maven
 

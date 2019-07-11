@@ -4,7 +4,7 @@ description: Esempio di script di Azure PowerShell - Creare una VM Windows NLB
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 94e65bc271cddb548e891deb1174891d8f30fa2c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7c345d95af1167d0f6c99fdb3d438962a13242d6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059034"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696041"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Bilanciare il carico del traffico tra macchine virtuali a disponibilità elevata
 
