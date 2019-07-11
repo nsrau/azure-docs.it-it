@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/21/2019
-ms.author: andret
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17aaff1a6da2c18e9b1d915f61844635b1ad130b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: d0a5f9c14e04e9a0b5b8b48524a425ea94ebf3af
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001450"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702994"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
@@ -73,7 +73,7 @@ Se invece si preferisce scaricare questo progetto Visual Studio di esempio, atte
 2. Per **Tipo di progetto** selezionare **Web** e quindi selezionare **Applicazione Web ASP.NET (.NET Framework)** .
 3. Assegnare un nome all'applicazione e selezionare **Crea**.
 4. Selezionare **Vuoto** e quindi selezionare **MVC** in **Aggiungi cartelle e riferimenti principali** per aggiungere i riferimenti MVC.
-5. Selezionare **Create**.
+5. Selezionare **Create** (Crea).
 
 ## <a name="step-3-add-authentication-components"></a>Passaggio 3: Aggiungere i componenti per l'autenticazione
 

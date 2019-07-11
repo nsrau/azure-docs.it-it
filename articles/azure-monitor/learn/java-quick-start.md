@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: dd1644ad9b7fcee951b31997ab549f117530f635
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: fc47b00bb266bb57ecffbb522667ca67ac7c8c97
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808389"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656735"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Iniziare a monitorare l'applicazione Web Java
 
@@ -57,7 +57,6 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
     | Impostazioni        | Valore           | DESCRIZIONE  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore globalmente univoco | Nome che identifica l'app da monitorare |
-   | **Tipo di applicazione** | Applicazione Web Java | Tipo di app da monitorare |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per l'hosting dei dati di Application Insights |
    | **Posizione** | Stati Uniti orientali | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
 

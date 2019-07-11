@@ -1,0 +1,51 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Condivisione dati di Azure (anteprima)
+metadata:
+  title: Documentazione di Condivisione dati di Azure (anteprima) - Esercitazioni e guide pratiche
+  description: Condivisione dati di Azure (anteprima) è un servizio sicuro e affidabile per condividere dati con organizzazioni di terze parti.
+  author: joannapea
+  ms.author: joanpo
+  ms.service: data-share
+  ms.topic: landing-page
+  ms.date: 07/10/2019
+abstract:
+  description: '<p>Condivisione dati di Azure (anteprima) è un servizio sicuro e affidabile per condividere dati con organizzazioni di terze parti. Selezionare i set di dati che si intende condividere, aggiungere i destinatari e iniziare a condividere dati con la possibilità di gestire, monitorare e controllare le relazioni di condivisione dei dati. </p><p>Esercitazioni per imparare a usare Condivisione dati di Azure.</p>'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/azure-friday.png
+      width: 250
+    title: Condivisione dati di Azure su Azure Friday
+    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Share-data-simply-and-securely-using-Azure-Data-Share/player?format=ny'
+    width: 250
+sections:
+  - title: Guide alle procedure
+    items:
+      - type: paragraph
+        text: 'Guide pratiche per imparare a monitorare la condivisione dei dati, configurare i mapping dei set di dati, aggiungere i destinatari e altro ancora:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Monitorare Condivisione dati di Azure
+            href: /azure/data-share/how-to-monitor
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Configurare un mapping dei set di dati
+            href: /azure/data-share/how-to-configure-mapping
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Risolvere i problemi relativi a Condivisione dati di Azure
+            href: /azure/data-share/data-share-troubleshoot
+  - title: Esercitazioni dettagliate
+    items:
+      - type: paragraph
+        text: Informazioni su come iniziare a condividere dati con Condivisione dati di Azure
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="share-your-data">Condividere dati con Condivisione dati di Azure</a>
+          - html: <a href="subscribe-to-data-share">Accettare e ricevere dati con Condivisione dati di Azure</a>

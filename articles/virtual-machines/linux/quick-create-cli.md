@@ -4,7 +4,7 @@ description: In questa guida introduttiva si apprenderà come usare l'interfacci
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1335f4abebffaf8ae0034ec023d2a988be1c39eb
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 0396cfadd4bae9b79cde3881e529677d9432a019
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514518"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667052"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Guida introduttiva: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 

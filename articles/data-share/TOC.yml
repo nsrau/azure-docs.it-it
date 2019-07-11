@@ -1,0 +1,39 @@
+- name: Documentazione di Condivisione dati di Azure (anteprima)
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni su Condivisione dati di Azure (anteprima)
+      href: overview.md
+- name: Esercitazioni
+  expanded: true
+  items:
+    - name: Condividere dati
+      href: share-your-data.md
+    - name: Accettare e ricevere dati
+      href: subscribe-to-data-share.md
+- name: Concetti
+  items:
+    - name: Terminologia di Condivisione dati di Azure
+      href: terminology.md
+    - name: Ruoli e requisiti
+      href: concepts-roles-permissions.md
+- name: Guide alle procedure
+  items:
+    - name: Monitorare
+      href: how-to-monitor.md
+    - name: Configurare i mapping dei set di dati
+      href: how-to-configure-mapping.md
+    - name: Risolvere problemi
+      href: data-share-troubleshoot.md
+- name: Risorse
+  items:
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/tag/data-share'
+    - name: Microsoft Tech Community
+      href: 'https://techcommunity.microsoft.com/'
+    - name: Feedback sul prodotto
+      href: 'https://feedback.azure.com/forums/922759-azure-data-share-public-preview'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=data-share'

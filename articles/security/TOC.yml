@@ -142,6 +142,9 @@
         - name: Elenco di controllo relativo alla sicurezza
           displayName: 'identity, active directory, password'
           href: azure-ad-secure-steps.md
+        - name: Scegliere l'accesso senza password
+          displayName: 'identity, active directory, passwordless'
+          href: azure-ad-passwordless.md
         - name: Procedure consigliate
           displayName: 'password, identity, active directory'
           href: azure-security-identity-management-best-practices.md

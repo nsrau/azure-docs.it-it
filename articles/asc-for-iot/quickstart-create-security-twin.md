@@ -2,26 +2,27 @@
 title: Creare un modulo gemello di sicurezza per il Centro sicurezza di Azure per IoT - Anteprima | Microsoft Docs
 description: Informazioni su come creare un modulo gemello di sicurezza del Centro sicurezza di Azure per IoT per l'uso con il Centro sicurezza di Azure per IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: c782692e-1284-4c54-9d76-567bc13787cc
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: af952b59a2f4924be79c0ac7dc728f1d9bd0d641
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0e042942be63fdcd97c7cda6003e6d55376ca1a1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65200726"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616665"
 ---
-# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Avvio rapido: Creare un modulo gemello azureiotsecurity
+# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Guida introduttiva: Creare un modulo gemello azureiotsecurity
 
 > [!IMPORTANT]
 > Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

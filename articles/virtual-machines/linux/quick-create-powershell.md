@@ -4,7 +4,7 @@ description: In questa guida introduttiva si apprenderà come usare Azure PowerS
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 46ab5cae7514adfc4ec31ad88f5445a09e3c0e6a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2bbf76e161ec4106b625d1ceb7677c728a989d66
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55975297"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667054"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Avvio rapido: Creare una macchina virtuale Linux in Azure con PowerShell
+# <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Guida introduttiva: Creare una macchina virtuale Linux in Azure con PowerShell
 
 Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando di PowerShell o negli script. Questa guida introduttiva illustra come usare il modulo Azure PowerShell per distribuire una macchina virtuale (VM) Linux in Azure. In questa guida introduttiva si usa l'immagine di Ubuntu 16.04 LTS di Canonical disponibile nel Marketplace. Per vedere in azione la macchina virtuale, viene stabilita anche una connessione SSH alla macchina virtuale e viene installato il server Web NGINX.
 
@@ -215,7 +215,7 @@ Usare il Web browser che si preferisce per vedere la pagina iniziale di NGINX pr
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, è possibile rimuovere il gruppo di risorse, la VM e tutte le risorse correlate con il cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup):
+Quando non sono più necessari, è possibile rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate con il cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup):
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup"

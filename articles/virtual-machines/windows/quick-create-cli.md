@@ -4,7 +4,7 @@ description: In questa guida introduttiva si apprenderà come usare Azure PowerS
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aaa9441064b7bcf5a105b61c61fc5e64f5687dc7
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: d50c3cc59bffba1c9124c59bbd6ed197025dabc8
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551648"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723007"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Guida introduttiva: Creare una macchina virtuale Windows con l'interfaccia della riga di comando di Azure
 

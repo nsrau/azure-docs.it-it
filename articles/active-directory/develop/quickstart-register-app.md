@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ec1d5fb13d7fb191bfee6194e69a217bcaddbb9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 541253cf3a8f2628ea0e76f1115ddc4a290daf62
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482583"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655487"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Guida introduttiva: Registrare un'applicazione con Microsoft Identity Platform
 
@@ -50,7 +50,7 @@ Questa guida introduttiva illustra come aggiungere e registrare un'applicazione 
        - Per le applicazioni Web, specificare l'URL di base dell'app. Ad esempio, `http://localhost:31544` potrebbe essere l'URL per un'app Web eseguita sul computer locale. Gli utenti possono usare questo URL per accedere a un'applicazione client Web.
        - Per le applicazioni client pubbliche, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico dell'applicazione, ad esempio `myapp://auth`.
 
-     Per esempi specifici per le applicazioni Web o per le applicazioni native, vedere le [guide introduttive](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).
+     Per esempi specifici per le applicazioni Web o per le applicazioni native, vedere le [guide introduttive](https://docs.microsoft.com/azure/active-directory/develop).
 
 1. Al termine, selezionare **Registra**.
 
@@ -67,6 +67,6 @@ Azure AD assegna un ID applicazione (client) univoco all'app e viene visualizzat
     - [Configurare un'applicazione client per l'accesso ad API Web](quickstart-configure-app-access-web-apis.md)
     - [Configurare un'applicazione per l'esposizione di API Web](quickstart-configure-app-expose-web-apis.md)
     - [Modificare gli account supportati da un'applicazione](quickstart-modify-supported-accounts.md)
-- Scegliere una [guida introduttiva](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts) per creare rapidamente un'app e aggiungere funzionalità come il recupero e l'aggiornamento di token, l'accesso di un utente, la visualizzazione di alcune informazioni utente e altro ancora.
+- Scegliere una [guida introduttiva](https://docs.microsoft.com/azure/active-directory/develop) per creare rapidamente un'app e aggiungere funzionalità come il recupero e l'aggiornamento di token, l'accesso di un utente, la visualizzazione di alcune informazioni utente e altro ancora.
 - Per altre informazioni su due oggetti di Azure AD che rappresentano un'applicazione registrata e la relazione tra essi, vedere [Oggetti applicazione e oggetti entità servizio](app-objects-and-service-principals.md).
 - Per altre informazioni sulle linee guida relative alla personalizzazione che è consigliabile seguire per lo sviluppo di app, vedere [Linee guida sulla personalizzazione per le applicazioni](howto-add-branding-in-azure-ad-apps.md).

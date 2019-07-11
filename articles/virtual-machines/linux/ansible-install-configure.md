@@ -5,15 +5,15 @@ keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
 ms.service: ansible
 author: tomarchermsft
-manager: jeconnoc
+manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 60cefe24feab9de4262e81eb1bc313aeadc7eb05
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: d3302d999dd70a83be18ce610b9c3d44992c865c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409247"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671854"
 ---
 # <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>Guida introduttiva: Installare Ansible in macchine virtuali Linux in Azure
 
@@ -164,4 +164,4 @@ Per verificare la configurazione, usare Ansible per creare un gruppo di risorse 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"] 
-> [Avvio rapido: Configurare una macchina virtuale Linux in Azure tramite Ansible](./ansible-create-vm.md)
+> [Guida introduttiva: Configurare una macchina virtuale Linux in Azure tramite Ansible](./ansible-create-vm.md)

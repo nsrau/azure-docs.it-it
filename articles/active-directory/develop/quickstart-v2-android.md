@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/26/2019
-ms.author: dadobali
+ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45252cc4d45e96c2bde4a4600630ea578a8d3009
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 547eafac8cc1acf2b60416f93804e819a1c549b0
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946733"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702753"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app di Android
 
@@ -69,7 +69,7 @@ Questa guida introduttiva contiene un esempio di codice che illustra come un'app
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Passaggio 1: Configurare l'applicazione
-> Per il funzionamento dell'esempio di codice di questa guida introduttiva è necessario aggiungere un URI di reindirizzamento compatibile con il broker di autenticazione. 
+> Per il funzionamento dell'esempio di codice di questo argomento di avvio rapido è necessario aggiungere un URI di reindirizzamento compatibile con il broker di autenticazione. 
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta questa modifica per me]()
 >
@@ -186,7 +186,7 @@ Inizializzare quindi la libreria MSAL usando il codice seguente:
 
 In MSAL sono disponibili due metodi per acquisire i token: `acquireToken` e `acquireTokenSilentAsync`
 
-#### <a name="acquiretoken-getting-a-token-interactively"></a>acquireToken: ottenere un token in modo interattivo
+#### <a name="acquiretoken-getting-a-token-interactively"></a>acquireToken: Recupero di un token in modo interattivo
 
 Alcune situazioni richiedono agli utenti di interagire con Microsoft Identity Platform. In questi casi, l'utente finale può dover selezionare il proprio account, immettere le credenziali o fornire il consenso alle autorizzazioni richieste dall'app. Ad esempio, 
 
@@ -195,7 +195,7 @@ Alcune situazioni richiedono agli utenti di interagire con Microsoft Identity Pl
 * Se il consenso viene revocato 
 * Se l'app richiede esplicitamente il consenso. 
 * Quando l'applicazione richiede l'accesso a una risorsa per la prima volta
-* Quando è richiesta l'autenticazione a più fattori o altri criteri di accesso condizionale
+* Quando è necessario eseguire l'autenticazione a più fattori o soddisfare altri criteri di accesso condizionale
 
 ```java
 sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
@@ -208,7 +208,7 @@ sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
 
 #### <a name="acquiretokensilent-getting-a-user-token-silently"></a>acquireTokenSilent: Acquisizione di un token utente in modo invisibile
 
-Le app non dovrebbero richiedere agli utenti di accedere ogni volta che richiedono un token. Se l'utente ha già effettuato l'accesso, questo metodo consente alle app di richiedere i token in modo invisibile all'utente.
+Le app non dovrebbero richiedere agli utenti di accedere ogni volta che richiedono un token. Se l'utente ha già eseguito l'accesso, questo metodo consente alle app di richiedere i token in modo invisibile all'utente.
 
 ```java
     sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {

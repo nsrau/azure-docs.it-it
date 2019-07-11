@@ -119,6 +119,9 @@
         - name: Elaborare gli eventi Kafka
           href: ../event-hubs/event-hubs-kafka-stream-analytics.md
           maintainContext: true
+        - name: Elaborare i dati di Hub eventi
+          href: ../event-hubs/process-data-azure-stream-analytics.md
+          maintainContext: true
         - name: Scenari geospaziali
           href: geospatial-scenarios.md
     - name: Monitorare

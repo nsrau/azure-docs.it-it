@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/22/2019
 ms.author: sngun
 ms.openlocfilehash: b940d7308648a3a55ed031d7d57542f3b31e9f27
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 07/10/2019
 ms.locfileid: "67180691"
 ---
 Il portale di Azure consente di monitorare la velocità effettiva, lo spazio di archiviazione, la disponibilità, la latenza e la coerenza dell'account Cosmos DB. I grafici per le metriche associate a un [contratto di servizio di Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/) indicano il valore previsto dal contratto di servizio rispetto alle prestazioni effettive. Questo gruppo di metriche garantisce la trasparenza nel monitoraggio dei contratti di servizio.

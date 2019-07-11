@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: ea4134c486310592f1f0f344ae26a11276143faf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: d8e1c3f845af6edf274aa95797523ace07cf820c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193365"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594024"
 ---
-# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Avvio rapido: Integrare un account di archiviazione di Azure con la rete CDN di Azure
+# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Guida introduttiva: Integrare un account di archiviazione di Azure con la rete CDN di Azure
 In questa guida introduttiva, la [rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md) viene abilitata per memorizzare nella cache i contenuti dall'archiviazione di Azure. La rete CDN di Azure offre agli sviluppatori una soluzione globale per distribuire contenuti con esigenze di larghezza di banda elevata. Consente di memorizzare nella cache oggetti BLOB e contenuti statici di istanze di calcolo in nodi fisici negli Stati Uniti, in Europa, Asia, Australia e Sud America.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -55,7 +55,7 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
    
     Questo valore diventa il nome host all'interno dell'URI usato per fare riferimento a risorse BLOB, di accodamento o tabelle per la sottoscrizione. Per accedere a una risorsa contenitore nell'archiviazione BLOB, usare un URI nel formato seguente:
    
-    http://*&lt;EtichettaAccountArchiviazione&gt;*.blob.core.windows.net/*&lt;contenitorepersonale&gt;*
+    http:// *&lt;EtichettaAccountArchiviazione&gt;* .blob.core.windows.net/ *&lt;contenitorepersonale&gt;*
 
     dove *&lt;EtichettaAccountArchiviazione&gt;* fa riferimento al valore inserito nella casella **Nome**.
    
@@ -80,7 +80,7 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
     
 5. Selezionare **Aggiungi al dashboard** per salvare l'account di archiviazione nel dashboard dopo la creazione.
     
-6. Selezionare **Create**. Per completare la creazione dell'account di archiviazione potrebbero essere richiesti diversi minuti.
+6. Selezionare **Create** (Crea). Per completare la creazione dell'account di archiviazione potrebbero essere richiesti diversi minuti.
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>Abilitare la rete CDN di Azure per l'account di archiviazione
 
@@ -98,10 +98,10 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
     | -------- | ----- |
     | **Profilo CDN** | Selezionare **Crea nuovo** e immettere il nome del profilo, ad esempio *my-cdn-profile-123*. Il nome deve essere univoco a livello globale.  |
     | **Piano tariffario** | Selezionare **Verizon standard** dall'elenco a discesa. |
-    | **Nome endpoint rete CDN** | Immettere il nome host dell'endpoint, ad esempio *my-endpoint-123*. Il nome deve essere univoco a livello globale. Questo nome viene usato per accedere alle risorse memorizzate nella cache nel dominio _&lt;nome endpoint&gt;_.azureedge.net. |
+    | **Nome endpoint rete CDN** | Immettere il nome host dell'endpoint, ad esempio *my-endpoint-123*. Il nome deve essere univoco a livello globale. Questo nome viene usato per accedere alle risorse memorizzate nella cache nel dominio _&lt;nome endpoint&gt;_ .azureedge.net. |
     | **Nome host dell'origine** | Per impostazione predefinita, un nuovo endpoint della rete CDN usa il nome host dell'account di archiviazione come server di origine. |
 
-3. Selezionare **Create**. Dopo la creazione, l'endpoint verrà visualizzato nell'elenco di endpoint.
+3. Selezionare **Create** (Crea). Dopo la creazione, l'endpoint verrà visualizzato nell'elenco di endpoint.
 
     ![Archiviare un nuovo endpoint di rete CDN](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
 
