@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: c88977f465de6d9b89bd2d9c4cf67402fe6f563f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4ae02a494949e92ad8e59cd35e46b6ce246ae7cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228159"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115017"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Esercitazione: Usare Azure Key Vault con una macchina virtuale Windows in .NET
 
@@ -53,7 +53,11 @@ Quando si abilita l'identità del servizio gestita per un servizio di Azure, com
 
 Il codice chiama quindi un servizio di metadati locale disponibile nella risorsa di Azure per ottenere un token di accesso. Il codice usa il token di accesso ottenuto dall'endpoint dell'identità del servizio gestita locale per eseguire l'autenticazione con un servizio Azure Key Vault. 
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="create-resources-and-assign-permissions"></a>Creare le risorse e assegnare le autorizzazioni
+
+Prima di iniziare a scrivere il codice, è necessario creare alcune risorse, inserire un segreto nell'insieme di credenziali delle chiavi e assegnare le autorizzazioni.
+
+### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Per accedere ad Azure tramite l'interfaccia della riga di comando di Azure, immettere:
 
@@ -61,24 +65,22 @@ Per accedere ad Azure tramite l'interfaccia della riga di comando di Azure, imme
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
+### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
+Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). 
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). 
-
-Selezionare quindi il nome di un gruppo di risorse e compilare il segnaposto. L'esempio seguente crea un gruppo di risorse nell'area Stati Uniti occidentali:
+Questo esempio crea un gruppo di risorse nella località Stati Uniti occidentali:
 
 ```azurecli
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
-Questo gruppo di risorse verrà usato durante tutta l'esercitazione.
+Il gruppo di risorse appena creato verrà usato durante tutta l'esercitazione.
 
-## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
+### <a name="create-a-key-vault-and-populate-it-with-a-secret"></a>Creare un insieme di credenziali delle chiavi e inserirvi un segreto
 
-Per creare un insieme di credenziali delle chiavi nel gruppo di risorse creato nel passaggio precedente, specificare le informazioni seguenti:
+Creare un insieme di credenziali delle chiavi nel gruppo di risorse fornendo al comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) le informazioni seguenti:
 
 * Nome dell'insieme di credenziali delle chiavi: una stringa contenente da 3 a 24 caratteri, limitati a numeri (0-9), lettere (a-z, A-Z) e trattini (-)
 * Nome del gruppo di risorse
@@ -89,11 +91,10 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 ```
 A questo punto, l'account Azure è l'unico autorizzato a eseguire operazioni su questo nuovo insieme di credenziali.
 
-## <a name="add-a-secret-to-the-key-vault"></a>Aggiungere un segreto all'insieme di credenziali delle chiavi
+Aggiungere ora un segreto all'insieme di credenziali delle chiavi usando il comando [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set).
 
-Verrà aggiunto un segreto per illustrare il funzionamento di questa operazione. Può trattarsi di una stringa di connessione SQL o di qualsiasi altra informazione che è necessario conservare in modo sicuro e rendere allo stesso tempo disponibile per l'applicazione.
 
-Per creare un segreto nell'insieme di credenziali delle chiavi denominato **AppSecret**, immettere il comando seguente:
+Per creare un segreto denominato **AppSecret** nell'insieme di credenziali delle chiavi, immettere il comando seguente:
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
@@ -101,15 +102,15 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 Questo segreto archivia il valore **MySecret**.
 
-## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
-È possibile creare una macchina virtuale scegliendo tra i seguenti metodi:
+### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
+Creare una macchina virtuale scegliendo tra gli strumenti seguenti:
 
 * [L’interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
 * [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
 * [Il portale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="assign-an-identity-to-the-vm"></a>Assegnare un'identità alla macchina virtuale
-In questo passaggio si crea un'identità assegnata dal sistema per la macchina virtuale eseguendo questo comando nell'interfaccia della riga di comando di Azure:
+### <a name="assign-an-identity-to-the-vm"></a>Assegnare un'identità alla macchina virtuale
+Creare un'identità assegnata dal sistema per la macchina virtuale con il comando [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign):
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -124,31 +125,47 @@ Annotare l'identità assegnata dal sistema che viene visualizzata nel codice seg
 }
 ```
 
-## <a name="assign-permissions-to-the-vm-identity"></a>Assegnare autorizzazioni per l'identità della macchina virtuale
-A questo punto è possibile assegnare le autorizzazioni dell’identità creata in precedenza all'insieme di credenziali delle chiavi eseguendo il comando seguente:
+### <a name="assign-permissions-to-the-vm-identity"></a>Assegnare autorizzazioni per l'identità della macchina virtuale
+Assegnare le autorizzazioni dell'identità creata in precedenza all'insieme di credenziali delle chiavi con il comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy):
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="log-on-to-the-virtual-machine"></a>Accesso alla macchina virtuale
+### <a name="sign-in-to-the-virtual-machine"></a>Accedere alla macchina virtuale
 
-Per accedere alla macchina virtuale, seguire le istruzioni riportate in [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+Per accedere alla macchina virtuale, seguire le istruzioni riportate in [Connettersi e accedere a una macchina virtuale di Azure che esegue Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
-## <a name="install-net-core"></a>Installare .NET Core
+## <a name="set-up-the-console-app"></a>Impostare l'app console
+
+Creare un'app console e installare i pacchetti necessari usando il comando `dotnet`.
+
+### <a name="install-net-core"></a>Installare .NET Core
 
 Per installare .NET Core, visitare la pagina dei [download di .NET](https://www.microsoft.com/net/download).
 
-## <a name="create-and-run-a-sample-net-app"></a>Creare ed eseguire un'app .NET di esempio
+### <a name="create-and-run-a-sample-net-app"></a>Creare ed eseguire un'app .NET di esempio
 
 Aprire un prompt dei comandi.
 
 È possibile stampare sulla console "Hello World" eseguendo i comandi seguenti:
 
-```batch
+```console
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
+```
+
+### <a name="install-the-packages"></a>Installare i pacchetti
+
+ Dalla finestra della console installare i pacchetti .NET necessari per questo argomento di avvio rapido:
+
+ ```console
+dotnet add package System.IO;
+dotnet add package System.Net;
+dotnet add package System.Text;
+dotnet add package Newtonsoft.Json;
+dotnet add package Newtonsoft.Json.Linq;
 ```
 
 ## <a name="edit-the-console-app"></a>Modificare l'app console

@@ -215,8 +215,8 @@ La causa più probabile per questa eccezione è costituita dall'allocazione di m
 
 ### <a name="additional-reading"></a>Altre informazioni
 
-- [Apache Spark memory management overview](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview) (Panoramica della gestione della memoria Apache Spark)
-- [Debug an Apache Spark application on an HDInsight cluster](https://web.archive.org/web/20190112152909/https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/) (Eseguire il debug di un'applicazione Apache Spark in un cluster HDInsight)
+- [Panoramica della gestione della memoria Apache Spark](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
+- [Eseguire il debug di un'applicazione Apache Spark in un cluster HDInsight](https://web.archive.org/web/20190112152909/https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 
 ### <a name="see-also"></a>Vedere anche
