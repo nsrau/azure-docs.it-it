@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Traduzione vocale, Java (Windows, Linux)- Servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Traduzione vocale, Java (Windows, Linux)- Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si creerà una semplice applicazione Java per acquisire i contenuti vocali dell'utente, convertirli in un'altra lingua e restituire il testo nella riga di comando. Questa guida è destinata agli utenti di Windows e Linux.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 69cb48df4e765250247605fb5c4e1f421554fd20
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 68567e673cf6fb53b8d9b6f7b9ef96aee691ac3a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467008"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604960"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Avvio rapido: Traduzione vocale con Speech SDK per Java
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Guida introduttiva: Traduzione vocale con Speech SDK per Java
 
 Sono disponibili guide di avvio rapido anche per la [sintesi vocale](quickstart-java-jre.md) e l'[assistente virtuale voice-first](quickstart-virtual-assistant-java-jre.md).
 
@@ -90,7 +90,7 @@ Esempi aggiuntivi, ad esempio come eseguire il riconoscimento vocale da un file 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Java su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Guida introduttiva: Riconoscimento vocale, Java (Windows, Linux)](quickstart-java-jre.md)
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88940b40eb309a5fb6ff73c04a47813ec3a47669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4728ad4fcd44c754a62ec19037562e63d92ec304
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103870"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656615"
 ---
 # <a name="tutorial-integrate-drift-with-azure-active-directory"></a>Esercitazione: Integrare Drift con Azure Active Directory
 
@@ -88,7 +88,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     d. Nella casella di testo **URL di accesso** digitare un URL: `https://start.drift.com`
 
-6. L'applicazione Drift prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su  **Modifica** per aprire la finestra di dialogo Attributi utente.
+6. L'applicazione Drift prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
     ![image](common/edit-attribute.png)
 

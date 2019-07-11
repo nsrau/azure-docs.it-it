@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 3dad2696332f57d9a0dc86927f91caa7352b1d7b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: dce0a1b2adf20b2301402f37307e7ee1284c9aee
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65884951"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605163"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Java
 
@@ -93,7 +93,7 @@ Esempi aggiuntivi, ad esempio per eseguire il riconoscimento vocale da un file a
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice Java su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Guida introduttiva: Traduzione vocale, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)

@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6c4636fe370a4046b1c5020aee249529f1498639
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 16c32fc14805ac8ae1412671b2bb400456b4ab7d
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155522"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603654"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Esercitazione: Creare e distribuire moduli IoT Edge personalizzati
 
@@ -245,7 +245,7 @@ Come accennato prima, il runtime IoT Edge usa route configurate nel file *deploy
 3. Aggiungere quindi una route per i messaggi inviati dal modulo rulClassifier al modulo turbofanRouter:
 
    ```json
-   "classifierToRouter": "FROM /messages/modules/classifier/outputs/amloutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")"
+   "classifierToRouter": "FROM /messages/modules/turbofanRulClassifier/outputs/amloutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")"
    ```
 
 #### <a name="outputs"></a>Output
@@ -255,7 +255,7 @@ Aggiungere altre quattro route al parametro di route $edgeHub per gestire gli ou
 1. Program.cs definisce il metodo SendMessageToClassifier(), che usa il client del modulo per inviare un messaggio al classificatore di vita utile rimanente tramite la route:
 
    ```json
-   "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/classifier/inputs/amlInput\")"
+   "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/turbofanRulClassifier/inputs/amlInput\")"
    ```
 
 2. SendRulMessageToIotHub() usa i client del modulo per inviare solo i dati sulla vita utile rimanente del dispositivo all'hub IoT tramite la route:

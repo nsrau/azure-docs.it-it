@@ -1,16 +1,16 @@
 ---
 author: garyericson
 ms.service: sql-database
-ms.component: machine-learning
+ms.subservice: machine-learning
 ms.topic: include
 ms.date: 04/10/2019
 ms.author: garye
-ms.openlocfilehash: de3cbf4411c2b10c0a5a06c4e220f3a245f5bdc3
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 841157d92b4b9564a74dfbfee8de6edf83e75d3c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180228"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608229"
 ---
 > [!IMPORTANT]
 > Machine Learning Services nel database SQL di Azure è attualmente in anteprima pubblica.

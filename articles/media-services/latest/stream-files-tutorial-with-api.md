@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 46a1add812d5721e36d8af030195c42542dc360c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 5b359b81de694c47151c95254b80f847db828aed
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273248"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653923"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos"></a>Esercitazione: Caricare, codificare ed eseguire lo streaming dei video
 
@@ -86,7 +86,7 @@ In Servizi multimediali v3 si usano le API di Archiviazione di Azure per caricar
 La funzione esegue queste azioni:
 
 * Crea un **asset** 
-* Ottiene un [URL di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) scrivibile al [contenitore nel servizio di archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) dell'asset
+* Ottiene un [URL di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) scrivibile al [contenitore nel servizio di archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) dell'asset
 * Carica il file nel contenitore nel servizio di archiviazione usando l'URL di firma di accesso condiviso.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]

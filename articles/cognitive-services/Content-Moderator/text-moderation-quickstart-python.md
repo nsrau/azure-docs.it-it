@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Analizzare il contenuto di testo in Python - Content Moderator'
+title: 'Guida introduttiva: Analizzare il contenuto di testo in Python - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Come analizzare il contenuto del testo alla ricerca di materiale non appropriato di diverso tipo usando Content Moderator SDK per Python
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 20920a04c5b85c9eede7d7b249dd6e0548308240
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0fef3bffd30c19d0313e5fce7eb610ae7f6349f5
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883407"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607000"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Avvio rapido: Analizzare il contenuto del testo per individuare materiale non appropriato in Python
 
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Installare Content Moderator SDK per Python aprendo un prompt dei comandi ed eseguendo il comando seguente:
 
-```
+```bash
 pip install azure-cognitiveservices-vision-contentmoderator
 ```
 
@@ -61,7 +61,7 @@ Per semplicità, si analizzerà il testo direttamente dallo script. Definire una
 
 ## <a name="query-the-moderator-service"></a>Eseguire una query sul servizio Moderator
 
-Creare un'istanza di **ContentModeratorClient** usando la chiave di sottoscrizione e l'URL dell'endpoint. Usare quindi l'istanza di **TextModerationOperations** membro per chiamare l'API di moderazione. Per altre informazioni su come eseguire la chiamata, vedere la documentazione di riferimento su **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)**.
+Creare un'istanza di **ContentModeratorClient** usando la chiave di sottoscrizione e l'URL dell'endpoint. Usare quindi l'istanza di **TextModerationOperations** membro per chiamare l'API di moderazione. Per altre informazioni su come eseguire la chiamata, vedere la documentazione di riferimento su **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** .
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, C++ - Servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Riconoscimento vocale, C++ - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in C++ in Windows Desktop con Speech SDK
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 672a691cdad5c83583ea840907fa7dd193c7ae3a
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d63d1c96077642e660e2272cbd8c2ee1250b1471
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466957"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606483"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C++ su Windows Desktop con Speech SDK
+# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in C++ su Windows Desktop con Speech SDK
 
 Sono disponibili guide di avvio rapido anche per la [sintesi vocale](quickstart-text-to-speech-cpp-windows.md) e la [traduzione vocale](quickstart-translate-speech-cpp-windows.md).
 
@@ -67,7 +67,7 @@ Esempi aggiuntivi, ad esempio per eseguire il riconoscimento vocale da un file a
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C++ su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)

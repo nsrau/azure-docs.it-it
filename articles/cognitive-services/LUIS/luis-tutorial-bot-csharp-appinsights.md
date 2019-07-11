@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/16/2019
 ms.author: diberry
-ms.openlocfilehash: fa7147dd1b5f22ead17a60042c1c35c4b770cd18
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 720352403fd5f5937669f9838f3974cb0d3f8797
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154912"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657798"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-bot-in-c"></a>Aggiungere risultati LUIS ad Application Insights da un bot in C#
 
@@ -173,7 +173,7 @@ Aprire Application Insights per visualizzare le voci LUIS. Per visualizzare i da
     ![Esaminare le proprietà personalizzate di LUIS archiviate in Application Insights](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties-csharp.png)
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Eseguire query su Application Insights per finalità, punteggio ed espressione
-Application Insights consente di eseguire query sui dati con il linguaggio [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics), oltre che di esportarli in [Power BI](https://powerbi.microsoft.com). 
+Application Insights consente di eseguire query sui dati con il linguaggio [Kusto](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#what-language-do-log-queries-use), oltre che di esportarli in [Power BI](https://powerbi.microsoft.com). 
 
 1. Selezionare **Log Analytics**. Verrà aperta una nuova finestra con una finestra di query nella parte superiore e una finestra di tabella di dati al di sotto. Per chi ha già usato database in precedenza, questa disposizione risulta familiare. La query rappresenta i dati filtrati in precedenza. La colonna **CustomDimensions** include le informazioni relative a bot e LUIS.
 1. Per estrarre finalità principale, punteggio ed espressione, aggiungere quanto segue sopra l'ultima riga (`|top...`) nella finestra di query:

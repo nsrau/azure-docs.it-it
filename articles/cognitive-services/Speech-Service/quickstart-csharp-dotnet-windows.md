@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: d297addbeffcc530ba676e4132f9f0ebdceac3c9
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d8738357a3bad6626ef6d79248aef1c4d2cb1ead
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467003"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603082"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per .NET Framework (Windows)
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per .NET Framework (Windows)
 
 Sono disponibili guide di avvio rapido anche per la [sintesi vocale](quickstart-text-to-speech-dotnet-windows.md) e la [traduzione vocale](quickstart-translate-speech-dotnetframework-windows.md).
 
@@ -73,7 +73,7 @@ Per completare questo progetto, saranno necessari:
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C# su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)

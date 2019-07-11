@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: a4f1f75c85c99610ee75eb9fda51114b52bbfac3
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 89a1fa396ff8bc5b954e91e7b08e6d731a81559a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304008"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657643"
 ---
 # <a name="what-is-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
@@ -28,13 +28,13 @@ L'API fa parte di [Servizi cognitivi di Azure](https://docs.microsoft.com/azure/
 L'analisi del testo può avere diversi significati, ma in Servizi cognitivi l'API Analisi del testo offre quattro tipi di analisi, come descritto nella tabella seguente.
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
-Usare l'[analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis.md) per conoscere l'opinione dei clienti su un marchio o su un argomento analizzando il testo non elaborato alla ricerca di indizi su sentiment positivo o negativo. L'API restituisce un punteggio sentiment compreso tra 0 e 1 per ogni documento, dove 1 è il risultato più positivo.<br /> I modelli di analisi vengono formati preventivamente usando un corpo completo di testo e tecnologie di linguaggio naturale di Microsoft. Per [alcune lingue](text-analytics-supported-languages.md), l'API può analizzare e assegnare punteggi a qualsiasi testo non elaborato fornito dall'utente, restituendo direttamente i risultati all'applicazione chiamante. È possibile usare l'API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+Usare l'[analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis.md) per conoscere l'opinione dei clienti su un marchio o su un argomento analizzando il testo non elaborato alla ricerca di indizi su sentiment positivo o negativo. L'API restituisce un punteggio sentiment compreso tra 0 e 1 per ogni documento, dove 1 è il risultato più positivo.<br /> I modelli di analisi vengono formati preventivamente usando un corpo completo di testo e tecnologie di linguaggio naturale di Microsoft. Per [alcune lingue](text-analytics-supported-languages.md), l'API può analizzare e assegnare punteggi a qualsiasi testo non elaborato fornito dall'utente, restituendo direttamente i risultati all'applicazione chiamante. È possibile usare l'API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK.
 
 ## <a name="key-phrase-extraction"></a>Estrazione frasi chiave
-[Estrae frasi chiave](how-tos/text-analytics-how-to-keyword-extraction.md) in modo automatico per identificare rapidamente i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso". È possibile usare qui l'API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+[Estrae frasi chiave](how-tos/text-analytics-how-to-keyword-extraction.md) in modo automatico per identificare rapidamente i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso". È possibile usare qui l'API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK.
 
 ## <a name="language-detection"></a>Rilevamento lingua
-È possibile [rilevare la lingua in cui è stato scritto il testo di input](how-tos/text-analytics-how-to-language-detection.md) e indicare un singolo codice lingua per ogni documento inviato nella richiesta in un'ampia varietà di lingue, varianti, dialetti e alcune lingue regionali/culturali. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. È possibile usare l'API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+È possibile [rilevare la lingua in cui è stato scritto il testo di input](how-tos/text-analytics-how-to-language-detection.md) e indicare un singolo codice lingua per ogni documento inviato nella richiesta in un'ampia varietà di lingue, varianti, dialetti e alcune lingue regionali/culturali. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. È possibile usare l'API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK.
 
 ## <a name="named-entity-recognition"></a>Riconoscimento di entità denominate
 [Identificare e classificare le entità](how-tos/text-analytics-how-to-entity-linking.md) nel testo, come persone, luoghi, organizzazioni, data/ora, quantità, percentuali, valute e altro ancora. Le entità più note vengono anche riconosciute e collegate ad altre informazioni sul Web. È possibile usare l'API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634).

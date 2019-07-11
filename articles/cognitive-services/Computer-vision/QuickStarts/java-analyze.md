@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Analizzare un'immagine remota - REST, Java"
+title: "Guida introduttiva: Analizzare un'immagine remota - REST, Java"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizzerà un'immagine usando l'API Visione artificiale con Java.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ba6c0c8627ce1e46f36f7a85a9e92d85236b7ee6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: eadf3aca848f1b8ad24cd387e1988cdf8ea55580
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009294"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604431"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Avvio rapido: Analizzare un'immagine remota usando l'API REST di Visione artificiale e Java
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST di Visione artificiale e Java
 
 In questa guida introduttiva si analizza un'immagine archiviata in remoto per estrarre le caratteristiche visive usando l'API REST di Visione artificiale. Con il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) è possibile estrarre caratteristiche visive in base al contenuto di un'immagine.
 
@@ -72,7 +72,7 @@ public class Main {
     // from the West US region, replace "westcentralus" in the URL
     // below with "westus".
     //
-    // Free trial subscription keys are generated in the "westus" region.
+    // Free trial subscription keys are generated in the "westcentralus" region.
     // If you use a free trial subscription key, you shouldn't need to change
     // this region.
     private static final String uriBase =
@@ -203,10 +203,6 @@ REST Response:
   }]
 }
 ```
-
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Quando non sono più necessari, eliminare il progetto Java con la classe compilata e le librerie importate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

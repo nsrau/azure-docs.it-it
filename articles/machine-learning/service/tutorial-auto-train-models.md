@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 907383c057c0c1eebee6550a0d1e9c75dd88513c
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8cedf7abf71a772a0b770dd2f82d9a5508f5dd75
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417300"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622366"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per creare il proprio modello di regressione
 
@@ -1127,6 +1127,8 @@ print(y_predict[:10])
 Creare un grafico a dispersione per visualizzare i valori stimati dei costi rispetto ai valori effettivi. Il codice seguente usa la funzione `distance` come asse x e il valore `cost` della corsa come asse y. Per confrontare la varianza del costo stimato per ogni valore di distanza della corsa, i primi 100 valori di costi stimati ed effettivi vengono creati come serie separate. Se esaminiamo il grafico, la relazione distanza/costi è quasi lineare e i costi stimati sono in genere molto vicini a quelli effettivi dei costi per la stessa distanza della corsa.
 
 ```python
+%matplotlib inline
+
 import matplotlib.pyplot as plt
 
 fig = plt.figure(figsize=(14, 10))

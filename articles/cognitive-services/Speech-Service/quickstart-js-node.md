@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, Node.js: servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, Node.js: servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per creare un'applicazione console di riconoscimento vocale con Speech SDK per Node.js. Al termine, sarà possibile usare il microfono nel computer per trascrivere contenuti vocali in tempo reale.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 1/16/2019
+ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 5fa0b6d2a361fdbf372ba73fed9d8e2c48cb3630
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9d233de8a9cdd4b9a3637edcd1c6196b4ad16fd2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871218"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605122"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per Node.js
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Node.js
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

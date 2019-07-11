@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire la sintesi vocale, C++ (Windows) - Servizi Voce'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, C++ (Windows) - Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come seguire la sintesi vocale in C++ su Windows Desktop con Speech SDK
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 4/03/2019
+ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 7e9aebd3a49182f84e05473da9ed166499f34a28
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: dfad425d6da2e3dabec138ef4f108957ebea7ee9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465698"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602922"
 ---
-# <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Avvio rapido: Eseguire la sintesi vocale in C++ su Windows con Speech SDK
+# <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Guida introduttiva: Eseguire la sintesi vocale in C++ su Windows con Speech SDK
 
 Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-cpp-windows.md) e la [traduzione vocale](quickstart-translate-speech-cpp-windows.md).
 
@@ -68,7 +68,7 @@ Esempi aggiuntivi, ad esempio per salvare il parlato in un file audio, sono disp
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C++ su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Personalizzare i carattere voce](how-to-customize-voice-font.md)
 - [Registrare esempi vocali](record-custom-voice-samples.md)

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 24767f73e3e1409f81262ad57f3fd5152a4ec319
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 705e637235eb81be29a2ea0d7d68ccd000ea0470
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003469"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626025"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Esercitazione: Integrare Power BI con il servizio cognitivo Analisi del testo
 
@@ -103,7 +103,7 @@ L'[API Frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/Te
 A questo punto è possibile creare la funzione personalizzata che integrerà Power BI e Analisi del testo. La funzione riceve il testo da elaborare come parametro. Converte i dati nel e dal formato JSON necessario e invia la richiesta HTTP all'API Frasi chiave. La funzione analizza quindi la risposta dell'API e restituisce una stringa che contiene un elenco delimitato da virgole delle frasi chiave estratte.
 
 > [!NOTE]
-> Le funzioni personalizzate di Power BI Desktop sono scritte nella [lingua della formula di Power Query M](https://msdn.microsoft.com/library/mt211003.aspx), in breve semplicemente "M". M è un linguaggio di programmazione funzionale basato su [F#](https://docs.microsoft.com/dotnet/fsharp/). Non è necessario essere un programmatore per completare questa esercitazione. Tutto il codice necessario è riportato sotto.
+> Le funzioni personalizzate di Power BI Desktop sono scritte nella [lingua della formula di Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference), in breve semplicemente "M". M è un linguaggio di programmazione funzionale basato su [F#](https://docs.microsoft.com/dotnet/fsharp/). Non è necessario essere un programmatore per completare questa esercitazione. Tutto il codice necessario è riportato sotto.
 
 In Power BI Desktop verificare che sia ancora aperta la finestra 	Editor di query. Se non lo è, selezionare la scheda **Home** sulla barra multifunzione, quindi nel gruppo **Dati esterni** fare clic su **Modifica query**.
 
@@ -144,7 +144,7 @@ Nella finestra Editor di query di Power BI Desktop tornare alla query `FabrikamC
 
 Viene visualizzata la finestra di dialogo Richiama funzione personalizzata. In **Nome nuova colonna** immettere `keyphrases`. In **Query della funzione** selezionare la funzione personalizzata creata, `KeyPhrases`.
 
-Nella finestra di dialogo viene visualizzato un nuovo campo, **testo (facoltativo)**. In questo campo occorre specificare la colonna che si vuole usare per fornire i valori per il parametro `text` dell'API Frasi chiave. Tenere presente che i valori per i parametri `language` e `id` sono già stati impostati come hardcoded. Selezionare `Merged` (la colonna creata [in precedenza](#PreparingData) tramite il merge dei campi dell'oggetto e del messaggio) dal menu a discesa.
+Nella finestra di dialogo viene visualizzato un nuovo campo, **testo (facoltativo)** . In questo campo occorre specificare la colonna che si vuole usare per fornire i valori per il parametro `text` dell'API Frasi chiave. Tenere presente che i valori per i parametri `language` e `id` sono già stati impostati come hardcoded. Selezionare `Merged` (la colonna creata [in precedenza](#PreparingData) tramite il merge dei campi dell'oggetto e del messaggio) dal menu a discesa.
 
 ![[Richiamo di una funzione personalizzata]](../media/tutorials/power-bi/invoke-custom-function.png)
 
@@ -188,7 +188,7 @@ Questa colonna verrà ora usata per generare una nuvola di parole. Per iniziare,
 > [!NOTE]
 > Perché usare le frasi chiave estratte per generare una nuvola di parole anziché usare il testo completo di ogni commento? Le frasi chiave forniscono le parole *importanti* dei commenti del cliente, non solo le *parole più comuni*. Inoltre, le dimensioni delle parole nella nuvola risultante non sono distorte dall'uso frequente di una parola in un numero relativamente piccolo di commenti.
 
-Se l'oggetto visivo personalizzato Word Cloud non è già installato, installarlo. Nel pannello Visualizzazioni nella parte destra dell'area di lavoro, fare clic sui puntini di sospensione (**...**) e scegliere **Importa dall'archivio**. Cercare "cloud" e fare clic sul pulsante **Aggiungi** accanto all'oggetto visivo Word Cloud. Power BI installa l'oggetto visivo Word Cloud e notifica l'avvenuta installazione.
+Se l'oggetto visivo personalizzato Word Cloud non è già installato, installarlo. Nel pannello Visualizzazioni nella parte destra dell'area di lavoro, fare clic sui puntini di sospensione ( **...** ) e scegliere **Importa dall'archivio**. Cercare "cloud" e fare clic sul pulsante **Aggiungi** accanto all'oggetto visivo Word Cloud. Power BI installa l'oggetto visivo Word Cloud e notifica l'avvenuta installazione.
 
 ![[aggiunta di un oggetto visivo personalizzato]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -294,7 +294,7 @@ Altre informazioni sul servizio Analisi del testo,sulla lingua della formula M d
 > [Informazioni di riferimento sull'API Analisi del testo](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sulla lingua della formula M di Power Query](https://msdn.microsoft.com/library/mt211003.aspx)
+> [Informazioni di riferimento sulla lingua della formula M di Power Query](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Documentazione di Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

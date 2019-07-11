@@ -1,5 +1,6 @@
 ---
 title: 'Esercitazione: Rilevamento anomalie nei dati di streaming con Azure Databricks'
+titleSuffix: Azure Cognitive Services
 description: Usare l'API Rilevamento anomalie e Azure Databricks per monitorare le anomalie nei dati.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: 7009771f2b647bb582b3d8091edce99fe901a9f1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 8d3f5d0e10fadd31fd8bde77339b872c1b90451f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080797"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721465"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Esercitazione: Rilevamento anomalie nei dati di streaming con Azure Databricks
 

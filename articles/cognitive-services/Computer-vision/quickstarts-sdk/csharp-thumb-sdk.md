@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Generare un'anteprima - SDK, C#"
+title: "Guida introduttiva: Generare un'anteprima - SDK, C#"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si genera un'anteprima da un'immagine usando la libreria client Windows C# di Visione artificiale.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ea03aa8242358833d32029918ce2e381182f6ba2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 78ffd9628c7a65ae60d457bbff3631ea261649d5
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998329"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603446"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Avvio rapido: generare un'anteprima tramite l'SDK di Visione artificiale e C#
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Guida introduttiva: generare un'anteprima tramite l'SDK di Visione artificiale e C#
 
 In questa guida introduttiva si genererà un'anteprima con ritaglio intelligente da un'immagine usando l'SDK di Visione artificiale per C#. Se si vuole, è possibile scaricare il codice contenuto in questa guida come app di esempio completa dal repository per [Visione artificiale di Servizi cognitivi e C#](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) in GitHub.
 

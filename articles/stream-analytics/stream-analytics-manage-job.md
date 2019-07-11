@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: f78555b37cc82c1e97a6f51ec504bc47937ee8c4
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: d09ed0585250d078f728aa4e7272cca147a40c38
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493421"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612371"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analizzare i dati delle telefonate con Analisi di flusso di Azure e visualizzare i risultati in una dashboard Power BI
 
@@ -191,7 +191,7 @@ L'ultimo passaggio consiste nel definire un sink di output per il processo, in c
 
 ## <a name="define-a-query-to-analyze-input-data"></a>Definire una query per analizzare i dati di input
 
-Il passaggio successivo consiste nel creare una trasformazione che analizzi i dati in tempo reale. Per definire la query di trasformazione, si usa il [linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/dn834998.aspx). La query usata in questa esercitazione consente di rilevare le chiamate fraudolente dai dati delle telefonate.
+Il passaggio successivo consiste nel creare una trasformazione che analizzi i dati in tempo reale. Per definire la query di trasformazione, si usa il [linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). La query usata in questa esercitazione consente di rilevare le chiamate fraudolente dai dati delle telefonate.
 
 In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da località diverse e vengono effettuate a cinque secondi di distanza una dall'altra. Ad esempio, lo stesso utente non può eseguire legittimamente una chiamata dagli Stati Uniti e dall'Australia nello stesso momento. Per definire la query di trasformazione per il processo di Analisi di flusso:
 
@@ -212,7 +212,7 @@ In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da l
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Per controllare le chiamate fraudolente, è possibile eseguire un self-join sui dati di streaming in base al valore di `CallRecTime`. Cercare quindi i record delle chiamate in cui il valore `CallingIMSI` (numero di origine) è lo stesso, ma il valore `SwitchNum` (paese/area di origine) è diverso. Quando si usa un'operazione JOIN con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. Dal momento che i dati di streaming sono infiniti, è necessario specificare i limiti di tempo per la relazione all'interno della clausola **ON** del join usando la funzione [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
+   Per controllare le chiamate fraudolente, è possibile eseguire un self-join sui dati di streaming in base al valore di `CallRecTime`. Cercare quindi i record delle chiamate in cui il valore `CallingIMSI` (numero di origine) è lo stesso, ma il valore `SwitchNum` (paese/area di origine) è diverso. Quando si usa un'operazione JOIN con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. Dal momento che i dati di streaming sono infiniti, è necessario specificare i limiti di tempo per la relazione all'interno della clausola **ON** del join usando la funzione [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
 
    La query è simile a un normale join SQL, ad eccezione della funzione **DATEDIFF**. La funzione **DATEDIFF** usata in questa query è specifica di Analisi di flusso e deve essere inclusa nella clausola `ON...BETWEEN`.
 

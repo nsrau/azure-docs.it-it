@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire la sintesi vocale, .NET Framework (Windows) - Servizi Voce'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, .NET Framework (Windows) - Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per creare un'applicazione console di sintesi vocale con .NET Framework per Windows e Speech SDK. Al termine, è possibile sintetizzare la voce dal testo e ascoltarla dall'altoparlante in tempo reale.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 4/03/2019
+ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 3b7addd369d5e26554dd4300e65bee66b8a62768
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 352d3f5f34bd46d8ee1ba2ed45dcc28af2b430ef
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465569"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605018"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Avvio rapido: Eseguire la sintesi vocale con Speech SDK per .NET Framework (Windows)
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Guida introduttiva: Eseguire la sintesi vocale con Speech SDK per .NET Framework (Windows)
 
 Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-csharp-dotnet-windows.md) e la [traduzione vocale](quickstart-translate-speech-dotnetframework-windows.md).
 
@@ -70,7 +70,7 @@ Per completare questo progetto, saranno necessari:
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C# su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Personalizzare i carattere voce](how-to-customize-voice-font.md)
 - [Registrare esempi vocali](record-custom-voice-samples.md)

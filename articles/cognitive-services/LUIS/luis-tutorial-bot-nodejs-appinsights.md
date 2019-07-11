@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5459fb5d8304a35b3f009354c446514a2831c513
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: cfed5477df75350f24e77786117e85b9c728c49a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155289"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657770"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-bot-in-nodejs"></a>Aggiungere risultati LUIS ad Application Insights da un bot in Node.js
 Questa esercitazione aggiunge le informazioni relative a bot e Language Understanding all'archivio dei dati di telemetria di [Application Insights](https://azure.microsoft.com/services/application-insights/). Dopo aver acquisito i dati, è possibile sottoporli a query con il linguaggio Kusto o con Power BI per analizzare, aggregare e registrare le finalità e le entità delle espressioni in tempo reale. Questa analisi consente di determinare se è necessario aggiungere o modificare le finalità e le entità dell'app LUIS.
@@ -205,7 +205,7 @@ Aprire Application Insights per visualizzare le voci LUIS. Per visualizzare i da
     ![Esaminare le proprietà personalizzate di LUIS archiviate in Application Insights](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties-nodejs.png)
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Eseguire query su Application Insights per finalità, punteggio ed espressione
-Application Insights consente di eseguire query sui dati con il linguaggio [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics), oltre che di esportarli in [Power BI](https://powerbi.microsoft.com). 
+Application Insights consente di eseguire query sui dati con il linguaggio [Kusto](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#what-language-do-log-queries-use), oltre che di esportarli in [Power BI](https://powerbi.microsoft.com). 
 
 1. Selezionare **Log Analytics**. Verrà aperta una nuova finestra con una finestra di query nella parte superiore e una finestra di tabella di dati al di sotto. Per chi ha già usato database in precedenza, questa disposizione risulta familiare. La query rappresenta i dati filtrati in precedenza. La colonna **CustomDimensions** include le informazioni relative a bot e LUIS.
 1. Per estrarre finalità principale, punteggio ed espressione, aggiungere quanto segue sopra l'ultima riga (`|top...`) nella finestra di query:
