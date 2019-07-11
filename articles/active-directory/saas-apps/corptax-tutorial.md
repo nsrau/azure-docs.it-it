@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con CorpTax | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e CorpTax.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Corptax | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Corptax.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,27 +8,28 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: fdad2893-41f4-4056-b6d2-ec3d050eb350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f150522c8ea4d3bcb69b7ffe274f1d40d831ab2b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7cd09a35d5796cdc4267c9d01a901b4e3b812d7c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864916"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104390"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Esercitazione: Integrazione di Azure Active Directory con CorpTax
+# <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Esercitazione: Integrazione di Azure Active Directory con Corptax
 
-Questa esercitazione descrive come integrare CorpTax con Azure Active Directory (Azure AD).
-L'integrazione di CorpTax con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare Corptax con Azure Active Directory (Azure AD).
+L'integrazione di Corptax con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere a CorpTax.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a CorpTax con gli account Azure AD personali.
+* È possibile controllare in Azure AD chi può accedere a Corptax.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Corptax con i rispettivi account Azure AD.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +37,22 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con CorpTax, sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con Corptax, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di CorpTax abilitata per l'accesso Single Sign-On
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione di Corptax abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* CorpTax supporta l'accesso SSO avviato da **SP**
+* Corptax supporta l'accesso SSO avviato da **SP**
 
-## <a name="adding-corptax-from-the-gallery"></a>Aggiunta di CorpTax dalla raccolta
+## <a name="adding-corptax-from-the-gallery"></a>Aggiunta di Corptax dalla raccolta
 
-Per configurare l'integrazione di CorpTax in Azure AD, è necessario aggiungere CorpTax dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Corptax in Azure AD, è necessario aggiungere Corptax dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere CorpTax dalla raccolta, seguire questa procedura:**
+**Per aggiungere Corptax dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -65,31 +66,31 @@ Per configurare l'integrazione di CorpTax in Azure AD, è necessario aggiungere 
 
     ![Pulsante Nuova applicazione](common/add_new_app.png)
 
-4. Nella casella di ricerca digitare **CorpTax**, selezionare **CorpTax** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Corptax**, selezionare **Corptax** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![CorpTax nell'elenco risultati](common/search_new_app.png)
+    ![Corptax nell'elenco risultati](common/search_new_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con CorpTax usando un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in CorpTax.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Corptax usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Corptax.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con CorpTax, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Corptax, è necessario completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di CorpTax](#configure-corptax-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Creare un utente di test di CorpTax](#create-corptax-test-user)**: per avere una controparte di Britta Simon in CorpTax collegata alla rappresentazione dell'utente in Azure AD.
-5. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On di Corptax](#configure-corptax-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Corptax](#create-corptax-test-user)** : per avere una controparte di Britta Simon in Corptax collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare l'accesso Single Sign-On di Azure AD con CorpTax, seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con Corptax, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **CorpTax** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Corptax** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select_sso.png)
 
@@ -103,17 +104,17 @@ Per configurare l'accesso Single Sign-On di Azure AD con CorpTax, seguire questa
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di CorpTax](common/sp_intiated.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Corptax](common/sp_intiated.png)
 
     Nella casella di testo **URL di accesso** digitare un URL: `https://asp.corptax.com`
 
-8. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML** fare clic su **Scarica** per scaricare il file **XML metadati federazione** e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML** fare clic su **Scarica** per scaricare il file **XML metadati federazione** e salvarlo nel computer in uso.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-### <a name="configure-corptax-single-sign-on"></a>Configurare l'accesso Single Sign-On di CorpTax
+### <a name="configure-corptax-single-sign-on"></a>Configurare l'accesso Single Sign-On di Corptax
 
-Per configurare l'accesso Single Sign-On in **CorpTax**, è necessario inviare il file **XML metadati federazione** scaricato al [team di supporto di CorpTax](mailto:bgraves@corptax.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On in **Corptax**, è necessario inviare il file **XML metadati federazione** scaricato al [team di supporto di Corptax](https://connect.corptax.com/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -133,7 +134,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
 
-    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
+    b. Nel campo **Nome utente** digitare `brittasimon\@yourcompanydomain.extension`.  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
@@ -142,15 +143,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a CorpTax.
+In questa sezione si abilita Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Corptax.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **CorpTax**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Corptax**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise_applications.png)
 
-2. Nell'elenco delle applicazioni digitare e selezionare **CorpTax**.
+2. Nell'elenco delle applicazioni digitare e selezionare **Corptax**.
 
-    ![Collegamento a CorpTax nell'elenco delle applicazioni](common/all_applications.png)
+    ![Collegamento relativo a Corptax nell'elenco delle applicazioni](common/all_applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -166,18 +167,18 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-corptax-test-user"></a>Creare un utente di test di CorpTax
+### <a name="create-corptax-test-user"></a>Creare un utente di test di Corptax
 
-In questa sezione viene creato un utente di nome Britta Simon in CorpTax. Collaborare con il  [team di supporto di CorpTax](mailto:bgraves@corptax.com) per aggiungere gli utenti alla piattaforma CorpTax. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Corptax. Collaborare con il  [team di supporto di Corptax](https://connect.corptax.com/) per aggiungere gli utenti nella piattaforma Corptax. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
-Quando si fa clic sul riquadro di CorpTax nel pannello di accesso, si viene reindirizzati alla pagina di CorpTax seguente 
+Quando si fa clic sul riquadro di Corptax nel pannello di accesso, si viene reindirizzati alla pagina di Corptax seguente: 
 
 ![image](media/corptax-tutorial/corptaxlogin.png)
 
-Nella casella di testo **Environment** (Ambiente) digitare l'ambiente appropriato. Si dovrebbe accedere automaticamente all'applicazione CorpTax per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Nella casella di testo **Environment** (Ambiente) digitare l'ambiente appropriato. Si dovrebbe accedere automaticamente all'applicazione Corptax per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

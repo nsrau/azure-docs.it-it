@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fdf88ed6cedaa38676a56536ff1eda7ee6bca66
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a229eef3d49964e71becf066d67f60b18da6fc18
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204798"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113248"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Esercitazione: Completare l'implementazione di un gruppo pilota per Azure Multi-Factor Authentication
 
-In questa esercitazione vengono descritte le procedure per la configurazione di criteri di accesso condizionale per l'abilitazione di Azure Multi-Factor Authentication (Azure MFA) quando si accede al portale di Azure. I criteri vengono distribuiti e testati per un gruppo specifico di utenti pilota. La distribuzione di Azure MFA usando l'accesso condizionale offre una notevole flessibilità alle organizzazioni e agli amministratori rispetto al metodo tradizionale con imposizione.
+In questa esercitazione vengono descritte le procedure per la configurazione di criteri di accesso condizionale per l'abilitazione di Azure Multi-Factor Authentication (Azure MFA) quando si accede al portale di Azure. I criteri vengono distribuiti e testati per un gruppo specifico di utenti pilota. La distribuzione di Azure MFA con l'accesso condizionale offre una notevole flessibilità alle organizzazioni e agli amministratori rispetto al tradizionale metodo applicato.
 
 > [!div class="checklist"]
 > * Abilitare Azure Multi-Factor Authentication

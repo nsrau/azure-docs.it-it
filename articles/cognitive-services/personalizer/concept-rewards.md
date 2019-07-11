@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/13/2019
+ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: 302f1e18a23bdef9247693f84d3a924370b63f80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c64d43301fd173203bd1625b8d37120b71c22805
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244240"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077404"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>I punteggi di ricompensa indicano il grado di successo della personalizzazione
 
@@ -30,6 +30,18 @@ Le ricompense vengono inviate a Personalizza esperienze dall'[API Ricompensa](ht
 Le ricompense vengono inviate dopo che si è verificato il comportamento degli utenti, che può avvenire alcuni giorni più tardi. Il tempo massimo di attesa prima che Personalizza esperienze consideri un evento come evento senza ricompensa, o con una ricompensa predefinita, viene configurato con [Reward Wait Time](#reward-wait-time) (Tempo di attesa ricompense) nel portale di Azure.
 
 Se non si riceve il punteggio di ricompensa per un evento nel tempo indicato per **Reward Wait Time** (Tempo di attesa ricompense), verrà applicato il valore di **Default Reward** (Ricompensa predefinita). Il valore di **[Default Reward](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** (Ricompensa predefinita) è impostato su zero.
+
+
+## <a name="behaviors-and-data-to-consider-for-rewards"></a>Comportamenti e dati da considerare per le ricompense
+
+Prendere in considerazione questi segnali e comportamenti per il contesto del punteggio di ricompensa:
+
+* Input utente diretto per i suggerimenti quando si tratta di opzioni ("Intendi X?").
+* Durata della sessione.
+* Tempo tra le sessioni.
+* Analisi del sentiment delle interazioni dell'utente.
+* Domande dirette e brevi sondaggi in cui il bot chiede all'utente un feedback sull'utilità e sull'accuratezza.
+* Risposta agli avvisi o ritardo nel rispondere agli avvisi.
 
 ## <a name="composing-reward-scores"></a>Composizione dei punteggi di ricompensa
 

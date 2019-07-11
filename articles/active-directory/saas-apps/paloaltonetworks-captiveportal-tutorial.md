@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3651e81cd3916bccc859bc3bc010511b2a114a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869962"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095272"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Esercitazione: Integrazione di Azure Active Directory con Palo Alto Networks Captive Portal
 
@@ -78,12 +78,12 @@ In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure 
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Palo Alto Networks Captive Portal, completare le attività seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire all'utente di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Palo Alto Networks Captive Portal](#configure-palo-alto-networks-captive-portal-single-sign-on)**: per configurare le impostazioni dell'accesso Single Sign-On nell'applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente *Britta Simon*.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per configurare Britta Simon per l'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire all'utente di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per Palo Alto Networks Captive Portal](#configure-palo-alto-networks-captive-portal-single-sign-on)** : per configurare le impostazioni dell'accesso Single Sign-On nell'applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente *Britta Simon*.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per configurare Britta Simon per l'uso dell'accesso Single Sign-On di Azure AD.
 5. **Creare un utente di test di Palo Alto Networks Captive Portal**: creare un utente *Britta Simon* corrispondente in Palo Alto Networks Captive Portal collegato all'utente di Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -158,11 +158,11 @@ A questo punto creare un utente di test di nome *Britta Simon* nel portale di Az
 
     1. In **Nome** immettere **BrittaSimon**.
   
-    2. In **Nome utente** immettere **BrittaSimon\@\<dominio_società\>**. Ad esempio, **BrittaSimon\@contoso.com**.
+    2. In **Nome utente** immettere **BrittaSimon\@\<dominio_società\>** . Ad esempio, **BrittaSimon\@contoso.com**.
 
     3. In **Password** immettere una password. È consigliabile prendere nota della password immessa. Per visualizzare la password, è possibile selezionare la casella di controllo **Mostra password**.
 
-    4. Selezionare **Create**.
+    4. Selezionare **Create** (Crea).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

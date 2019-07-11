@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 40c8cb41ad3bcd46e9973a5f96134ff1bfd02fd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 40ae634897361219c39e60d2161d3576cc44a400
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077505"
 ---
-Per creare rapidamente una rete virtuale, è possibile fare clic su "Prova" in questo articolo per aprire una console di PowerShell. Personalizzare i valori, quindi copiare e incollare i comandi nella finestra della console. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](/powershell/azure/new-azureps-module-az). Per istruzioni sull'installazione del modulo Az, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps).
+Per creare rapidamente una rete virtuale, è possibile fare clic su "Prova" in questo articolo per aprire una console di PowerShell in Azure Cloud Shell. Personalizzare i valori, quindi copiare e incollare i comandi nella finestra della console. 
 
 Assicurarsi di verificare che lo spazio degli indirizzi della rete virtuale creata non si sovrapponga a uno qualsiasi degli intervalli di indirizzi per le altre reti virtuali a cui ci si vuole connettere o allo spazio degli indirizzi della rete locale.
 

@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
-ms.openlocfilehash: 6e0175173f17ae0958522517360b94ee80f3b2f9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66148977"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133560"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -27,9 +27,12 @@ Per attivare una compilazione in caso di commit in un repository Git, Attività 
 
 1. Passare alla pagina per la creazione di token di accesso personali in GitHub all'indirizzo https://github.com/settings/tokens/new
 1. Immettere una breve **descrizione** del token, ad esempio "ACR Tasks Demo".
-1. In **repo** abilitare **repo:status** e **public_repo**.
+1. Selezionare gli ambiti per l'accesso di Registro Azure Container al repository. Per accedere a un repository pubblico come in questa esercitazione, in **repo** abilitare **repo:status** e **public_repo**.
 
    ![Screenshot della pagina per la generazione di token di accesso personali in GitHub][build-task-01-new-token]
+
+   > [!NOTE]
+   > Per generare un token di accesso personale per accedere a un repository *privato*, selezionare l'ambito per il controllo **repo** completo.
 
 1. Selezionare il pulsante **Generate token** (Genera token). Potrebbe essere richiesto di confermare la password.
 1. Copiare e salvare il token generato in una **posizione sicura**. Questo token verrà usato per definire un'attività nella sezione seguente.

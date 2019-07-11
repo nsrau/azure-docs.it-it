@@ -5,73 +5,66 @@ description: Informazioni su come usare Riconoscimento modulo per analizzare dat
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 8fb382227c71fce7ebe062057adf5edfb90a1a92
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: e064faf3017b95cb3a5f3d9b89f178fb7f846766
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601631"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592613"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
 
-Riconoscimento modulo di Azure è un servizio cognitivo che usa tecnologia di apprendimento automatico per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. È possibile chiamare il modello di riconoscimento modulo personalizzato usando una semplice API REST per ridurre la complessità e integrarlo facilmente nel flusso di lavoro o nell'applicazione. Per iniziare sono necessari solo cinque documenti modulo o un modulo vuoto dello stesso tipo del materiale di input. È possibile ottenere in modo rapido risultati accurati e su misura per il contenuto specifico, senza alcun intervento manuale impegnativo o competenze approfondite di data science.
+Riconoscimento modulo di Azure è un servizio cognitivo che usa tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e dati di tabella da documenti modulo. Restituisce quindi dati strutturati che includono le relazioni nel file originale. È possibile chiamare il modello di riconoscimento modulo personalizzato usando una semplice API REST per ridurre la complessità e integrarlo facilmente nel flusso di lavoro o nell'applicazione. Per iniziare sono necessari solo cinque documenti modulo compilati oppure due moduli compilati più un modulo vuoto dello stesso tipo del materiale di input. È possibile ottenere in modo rapido risultati accurati e su misura per il contenuto specifico, senza alcun intervento manuale impegnativo o competenze approfondite di data science.
 
-## <a name="request-access"></a>Richiedere l'accesso
-Il riconoscimento modulo è disponibile in anteprima ad accesso limitato. Per avere accesso all'anteprima, completare e inviare il modulo di [richiesta di accesso al riconoscimento modulo](https://aka.ms/FormRecognizerRequestAccess). Il modulo richiede informazioni sull'utente, sull'azienda e sullo scenario utente per cui si userà Riconoscimento modulo. Se la richiesta viene approvata dal team di Servizi cognitivi di Azure, si riceverà un messaggio di posta elettronica con le istruzioni per l'accesso al servizio.
+## <a name="custom-models"></a>Modelli personalizzati
 
-## <a name="what-it-does"></a>Risultato
+Il modello personalizzato di Riconoscimento modulo esegue il training in base ai dati personali e, per iniziare, sono necessari solo cinque moduli di input di esempio. Quando si inviano i dati di input, l'algoritmo esegue il clustering dei moduli per tipo, individua le tabelle e le chiavi presenti e associa i valori alle chiavi e le voci alle tabelle. Restituisce quindi dati strutturati che includono le relazioni nel file originale. Dopo il training del modello, è possibile testarlo, ripeterne il training e infine usarlo per estrarre dati in modo affidabile da altri moduli in base alle proprie esigenze.
 
-Quando si inviano i dati di input, esegue il training dell'algoritmo, quindi il clustering dei moduli per tipi, individua quali tabelle e le chiavi sono presenti e apprende ad associare i valori alle chiavi e le voci alle tabelle. L'apprendimento non supervisionato consente al modello di riconoscere il layout e le relazioni tra campi e voci senza assegnazione manuale di etichette dati o impegnative attività di creazione di codice e manutenzione. Al contrario, i modelli di Machine Learning con training preliminare richiedono dati standardizzati e sono meno accurati se usati con materiale di input che si discosta dai formati tradizionali, come i moduli specifici del settore.
+L'apprendimento non supervisionato consente al modello di riconoscere il layout e le relazioni tra campi e voci senza assegnazione manuale di etichette dati o impegnative attività di creazione di codice e manutenzione. Al contrario, i modelli di Machine Learning con training preliminare richiedono dati standardizzati sono meno accurati se usati con materiale di input che si discosta dai formati tradizionali, come i moduli specifici del settore.
 
-Dopo il training del modello, è possibile testarlo, ripeterne il training e infine usarlo per estrarre dati in modo affidabile da altri moduli in base alle proprie esigenze.
+## <a name="pre-built-receipt-model"></a>Modello di ricevuta predefinito
+
+Riconoscimento modulo include anche un modello per la lettura delle ricevute di vendita. Questo modello consente di estrarre le informazioni principali, come la data e l'ora della transazione, i dati del rivenditore, gli importi di imposte e totali e altro ancora. Il training del modello di ricevute predefinito è stato inoltre eseguito in modo che il modello possa riconoscere e restituire tutto il testo di una ricevuta.
 
 ## <a name="what-it-includes"></a>Cosa include
 
-Riconoscimento modulo è disponibile come API REST. È possibile creare, eseguire il training e assegnare punteggi a un modello richiamando l'API. È eventualmente possibile eseguire il modello in un contenitore Docker locale.
+Riconoscimento modulo è disponibile come API REST. È possibile creare, eseguire il training e assegnare un punteggio a un modello personalizzato oppure accedere al modello predefinito richiamando queste API. Se necessario, è possibile eseguire il training e avviare modelli personalizzati anche in un contenitore Docker locale.
 
-## <a name="input-requirements"></a>Requisiti di input
+## <a name="input-requirements-custom-model"></a>Requisiti di input (modello personalizzato)
 
-Il riconoscimento modulo funziona su documenti di input che soddisfano questi requisiti:
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-* Il formato deve essere JPG, PNG o PDF (testo o digitalizzato). I documenti PDF con testo incorporato sono i più adatti perché non vi è alcuna possibilità di errore nell'estrazione e individuazione dei caratteri.
-* Le dimensioni del file devono essere inferiori a 4 megabyte (MB).
-* Per le immagini, le dimensioni devono essere comprese tra 50 x 50 pixel e 4200 x 4200 pixel.
-* Se digitalizzati da documenti cartacei, i moduli devono essere scansioni di alta qualità.
-* Per il testo deve essere usato l'alfabeto latino (caratteri in lingua inglese).
-* I dati devono essere stampati (non scritti a mano).
-* I dati devono contenere chiavi e valori.
-* Le chiavi possono essere visualizzate sopra o a sinistra dei valori, ma non sotto o a destra.
+## <a name="request-access"></a>Richiedere l'accesso
 
-Il riconoscimento modulo attualmente non supporta questi tipi di dati di input:
-
-* Tabelle complesse (tabelle annidate, intestazioni o celle unite e così via).
-* Caselle di controllo o pulsanti di opzione.
-* Documenti PDF con più di 50 pagine.
+Il riconoscimento modulo è disponibile in anteprima ad accesso limitato. Per avere accesso all'anteprima, completare e inviare il modulo di [richiesta di accesso al riconoscimento modulo](https://aka.ms/FormRecognizerRequestAccess). Il modulo richiede informazioni sull'utente, sull'azienda e sullo scenario utente per cui si userà Riconoscimento modulo. Se la richiesta viene approvata dal team di Servizi cognitivi di Azure, si riceverà un messaggio di posta elettronica con le istruzioni per l'accesso al servizio.
 
 ## <a name="where-do-i-start"></a>Dove iniziare?
 
 **Passaggio 1:** Creare una risorsa Riconoscimento modulo nel portale di Azure.
 
-**Passaggio 2:** Provare una guida di avvio rapido per acquisire esperienza pratica:
+**Passaggio 2:** Seguire uno dei seguenti argomenti di avvio rapido per usare l'API REST:
 * [Guida introduttiva: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con cURL](quickstarts/curl-train-extract.md)
 * [Guida introduttiva: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con Python](quickstarts/python-train-extract.md)
+* [Guida introduttiva: Estrarre i dati delle ricevute usando cURL](quickstarts/curl-receipts.md)
+* [Guida introduttiva: Estrarre i dati delle ricevute usando Python](quickstarts/python-receipts.md)
 
-In fase di apprendimento della tecnologia è consigliabile usare il servizio gratuito, ma tenere presente che il numero di pagine gratuite è limitato a 500 pagine al mese.
+È consigliabile usare il servizio gratuito mentre si acquisisce familiarità con questa tecnologia. Tenere presente che il numero di pagine gratuite è limitato a 500 al mese.
 
 **Passaggio 3:** Esaminare le API REST
 
 Usare le API seguenti per eseguire il training ed estrarre dati strutturati dai moduli.
 
-| API REST | DESCRIZIONE |
-|-----|-------------|
-| Eseguire il training | Eseguire il training di un nuovo modulo per analizzare i moduli usando cinque moduli dello stesso tipo o un modulo vuoto.  |
-| Analizzare  |Analizzare un singolo documento passato come flusso per estrarre le coppie chiave-valore e le tabelle dal modulo con il proprio modello personalizzato.  |
+|||
+|---|---|
+| Eseguire il training del modello| Eseguire il training di un nuovo modulo per analizzare i moduli usando cinque moduli dello stesso tipo. In alternativa, eseguire il training di un modulo vuoto e di due moduli compilati.  |
+| Analyze Form (Analisi modulo) |Analizzare un singolo documento passato come flusso per estrarre le coppie chiave-valore e le tabelle dal modulo con il proprio modello personalizzato.  |
+| Analyze Receipt (Analisi ricevuta) |Analizzare una singola ricevuta per estrarre le informazioni principali e eventuale testo aggiuntivo contenuto nella ricevuta.|
 
-Esplorare il [documento Informazioni di riferimento sulle API del servizio REST](https://aka.ms/form-recognizer/api). 
+Per altre informazioni, esplorare la [documentazione di riferimento dell'API REST](https://aka.ms/form-recognizer/api). 
 
 ## <a name="data-privacy-and-security"></a>Sicurezza e privacy dei dati
 

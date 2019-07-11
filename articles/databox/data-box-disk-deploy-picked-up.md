@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 06/25/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603080"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448205"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Esercitazione: Restituire Azure Data Box Disk e verificare il caricamento dei dati in Azure
 
@@ -88,7 +88,7 @@ Eseguire la procedura seguente se si restituisce il dispositivo in Europa.
 
 ### <a name="pick-up-in-asia-pacific-region"></a>Ritiro nell'area Asia Pacifico
 
-Quest'area include le istruzioni per il ritiro in Giappone, Corea e Australia.
+Quest'area include le istruzioni per il ritiro in Giappone, Corea, Australia e Singapore.
 
 #### <a name="pick-up-in-australia"></a>Ritiro in Australia
 
@@ -103,43 +103,64 @@ I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiun
 
 #### <a name="pick-up-in-japan"></a>Ritiro in Giappone
 
-1. Includere la lettera di vettura (connote) per il reso di Japan Post Chakubarai.
-2. Sulla lettera di vettura, nelle informazioni sul mittente indicare il nome dell'azienda e l'indirizzo.
-3. Chiamare il numero 0800-0800-111 (numero verde) di Japan Post per la richiesta di ritiro. Digitare il codice postale a 7 cifre dell'indirizzo per il ritiro e l'inoltro all'ufficio postale più vicino.
-    - Gli orari disponibili per la richiesta di ritiro dipendono dai singoli uffici postali.
-    - Indicare che il vettore della spedizione è Japan Post Chakubarai Yu-Pack.
-    - Usare la lettera di vettura di Chakubarai inclusa.
-4. Se la lettera di vettura di Japan Post Chakubarai non è stata inclusa, inviare un messaggio di posta elettronica a *Quantium Solutions* all'indirizzo `Customerservice.JP@quantiumsolutions.com`. *Quantium Solutions* richiederà a Japan Post di fornire la lettera di vettura al momento del ritiro.
-    - Indicare il numero di riferimento nella colonna dei commenti della lettera di vettura di Chakubarai che verrà fornita da Japan Post.
-    - Specificare l'indirizzo di spedizione come indicato sotto:   
-        ```
-        3F N7 Prologis Park Tokyo Ohta, 1-3-6 Tokai Ohta-ku, Tokyo 143-0001
-        Microsoft Service Center c/o Quantium Solutions Japan
-        TEL: 03-5755-0150
-        ```
+1. Sulla lettera di vettura, nelle informazioni sul mittente, indicare il nome dell'azienda e l'indirizzo.
+2. Inviare un messaggio di posta elettronica a Quantium Solutions usando il modello di messaggio di posta elettronica seguente.
 
-Se la lettera di vettura di Chakubarai non è presente, è possibile richiedere il ritiro tramite posta elettronica. Usare il modello di messaggio di posta elettronica seguente per richiedere il ritiro.
+    - Se la lettera di vettura di Japan Post Chakubarai non era inclusa o risulta mancante, indicarlo nel messaggio di posta elettronica. Quantium Solutions Japan richiederà a Japan Post di portare la lettera di vettura al momento del ritiro.
+    - In caso di più ordini, inviare messaggi di posta elettronica per garantire prelievi singoli.
 
-```
-To: Customerservice.JP@quantiumsolutions.com
-Subject: Pickup request for Azure Data Box Disk｜Job Name： 
-Body: 
-- Azure Data Box Disk job name：
-- Reference number:  
-- Requested pickup date：mmdd (Select a requested time slot from below).
-    a. 08：00-13：00 
-    b. 13：00-15：00 
-    c. 15：00-17：00 
-    d. 17：00-19：00 
-```
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+        a. 08：00-13：00 
+        b. 13：00-15：00 
+        c. 15：00-17：00 
+        d. 17：00-19：00 
+    ```
+
+3. Si riceverà una conferma tramite posta elettronica da Quantium Solutions dopo la prenotazione di un prelievo. La conferma tramite posta elettronica include anche informazioni sulla lettera di vettura di Chakubarai.
+
+Se necessario, è possibile contattare il supporto di Quantium Solutions (in lingua giapponese) come segue: 
+
+- Posta elettronica：Customerservice.JP@quantiumsolutions.com 
+- Telefono：03-5755-0150 
 
 #### <a name="pick-up-in-korea"></a>Ritiro in Corea
 
-1. Assicurarsi di includere la lettera di vettura (connote) per il reso.
-2. Per richiedere il ritiro:
-    1. Chiamare l'assistenza clienti di *Quantium Solutions International* al numero 070-8231-1418 durante l'orario di ufficio (dalle 10.00 alle 17.00, dal lunedì al venerdì). Indicare *Ritiro Microsoft* e il numero della lettera di vettura per organizzare il ritiro.  
-    2. Se il numero dell'assistenza clienti è occupato, inviare un messaggio di posta elettronica all'indirizzo `microsoft@rocketparcel.com`, con l'oggetto *Ritiro Microsoft* e il numero di lettera di vettura come riferimento.
+1. Assicurarsi di includere la lettera di vettura per il reso.
+2. Per richiedere il prelievo quando è presente la lettera di vettura:
+    1. Chiamare l'assistenza clienti di *Quantium Solutions International* al numero 070-8231-1418 durante l'orario di ufficio (dalle 10.00 alle 17.00, dal lunedì al venerdì). Indicare *Ritiro Microsoft Azure* e il numero della richiesta di servizio per organizzare il ritiro.  
+    2. Se il numero dell'assistenza clienti è occupato, inviare un messaggio di posta elettronica all'indirizzo `microsoft@rocketparcel.com` con l'oggetto *Ritiro Microsoft Azure* e il numero della richiesta di servizio come riferimento.
     3. Qualora il corriere non si presenti, chiamare *Quantium Solutions International* per accordarsi in merito a un ritiro alternativo. 
+    4. Si riceverà una conferma tramite posta elettronica con la pianificazione del prelievo.
+3. Eseguire questo passaggio solo se la lettera di vettura non è presente. Per richiedere il ritiro:
+    1. Chiamare l'assistenza clienti di *Quantium Solutions International* al numero 070-8231-1418 durante l'orario di ufficio (dalle 10.00 alle 17.00, dal lunedì al venerdì). Indicare *Ritiro Microsoft Azure* e il numero della richiesta di servizio per organizzare il ritiro. Specificare che è necessaria una nuova lettera di vettura per organizzare un prelievo. Specificare il mittente (cliente), le informazioni sul destinatario (data center di Azure) e il numero di riferimento (numero della richiesta di servizio). 
+    2. Se il numero dell'assistenza clienti è occupato, inviare un messaggio di posta elettronica all'indirizzo `microsoft@rocketparcel.com` con l'oggetto *Ritiro Microsoft Azure* e il numero della richiesta di servizio come riferimento.
+    3. Qualora il corriere non si presenti, chiamare *Quantium Solutions International* per accordarsi in merito a un ritiro alternativo. 
+    4. Se la richiesta viene eseguita tramite telefono, si riceverà una conferma verbale.
+
+### <a name="pick-up-in-singapore"></a>Prelievo a Singapore
+
+1. Stampare l'etichetta indirizzo e applicarla alla scatola. Se l'etichetta è danneggiata o è stata smarrita:
+    - Passare a **Panoramica > Scarica etichetta di spedizione**.
+
+        ![Scaricare l'etichetta di spedizione](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        Questa azione scarica un'etichetta per la spedizione di ritorno, come illustrato di seguito.
+
+        ![Esempio di etichetta di spedizione](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Applicare l'etichetta sul dispositivo. Assicurarsi che l'etichetta sia visibile.
+
+2. Per richiedere il ritiro:
+    - Chiamare l'assistenza clienti **SingPost** al numero **6845 6485** durante l'orario di ufficio (dalle 9.00 alle 17.00, da lunedì a venerdì).  
+    - Indicare *Ritiro Microsoft Azure* e il numero della richiesta di servizio (numero di monitoraggio sull'etichetta indirizzo di reso) per organizzare il ritiro. 
+    - Si riceverà una conferma verbale della pianificazione del prelievo. 
+    - Qualora il corriere non si presenti, chiamare **SingPost** al numero **6845 6485** per accordarsi in merito a un ritiro alternativo. 
+3. Consegnare la scatola al corriere. 
+
 
 ## <a name="verify-data-upload-to-azure"></a>Verificare il caricamento dei dati in Azure
 
@@ -156,6 +177,8 @@ I dati vengono copiati automaticamente quando i dischi vengono collegati a un se
 Al termine della copia, lo stato dell'ordine diventa **Completato**.
 
 ![Copia dei dati completata](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
+
+Se la copia viene completata con errori, vedere [Risolvere gli errori di caricamento](data-box-disk-troubleshoot-upload.md).
 
 Verificare la presenza dei dati negli account di archiviazione prima di eliminarli dall'origine. I dati possono trovarsi in:
 

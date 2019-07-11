@@ -1,22 +1,22 @@
 ---
-title: Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package - Azure
-description: Informazioni su come configurare i criteri di Apache Ranger per Kafka in HDInsight di Azure con Enterprise Security Package.
+title: Esercitazione - Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package - Azure
+description: Esercitazione - Informazioni su come configurare i criteri di Apache Ranger per Kafka in Azure HDInsight con Enterprise Security Package.
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 01/14/2019
-ms.openlocfilehash: 6434f7cae3c3fa402efad00b2f6bfb0bc405f9e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/24/2019
+ms.openlocfilehash: ba16a975aa3b1e60393006ef49a7e422c572931e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730240"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441378"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Esercitazione: Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package (anteprima)
 
-Informazioni su come configurare i criteri di Apache Ranger per i cluster Apache Kafka Enterprise Security Package (ESP). Gli ESP cluster sono connessi a un dominio che consente agli utenti di eseguire l'autenticazione con le credenziali di dominio. In questa esercitazione vengono creati due criteri di Ranger per limitare l'accesso a `sales*` e `marketingspend`.
+Informazioni su come configurare i criteri di Apache Ranger per i cluster Apache Kafka Enterprise Security Package (ESP). Gli ESP cluster sono connessi a un dominio che consente agli utenti di eseguire l'autenticazione con le credenziali di dominio. In questa esercitazione vengono creati due criteri di Ranger per limitare l'accesso a `sales` e `marketingspend`.
 
 In questa esercitazione si apprenderà come:
 
@@ -26,20 +26,13 @@ In questa esercitazione si apprenderà come:
 > * Creare argomenti in un cluster Kafka
 > * Testare i criteri di Ranger
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="prerequisite"></a>Prerequisito
 
-* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/).
-
-* Accedere al [portale di Azure](https://portal.azure.com/).
-
-* Creare un [cluster HDInsight Kafka con Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
+Un [cluster HDInsight Kafka con Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md).
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Connettersi all'interfaccia utente di amministrazione di Apache Ranger
 
-1. Da un browser, connettersi all'interfaccia utente di amministrazione di Ranger usando l'URL `https://<ClusterName>.azurehdinsight.net/Ranger/`. Ricordarsi di modificare `<ClusterName>` con il nome del cluster Kafka.
-
-    > [!NOTE]  
-    > Le credenziali di Ranger non sono le stesse usate del cluster Hadoop. Per evitare che i browser usino credenziali memorizzate nella cache di Hadoop, usare una nuova finestra del browser InPrivate per connettersi all'interfaccia utente di Ranger Admin.
+1. Da un browser, connettersi all'interfaccia utente di amministrazione di Ranger usando l'URL `https://ClusterName.azurehdinsight.net/Ranger/`. Ricordarsi di modificare `ClusterName` con il nome del cluster Kafka. Le credenziali di Ranger non sono le stesse usate del cluster Hadoop. Per evitare che i browser usino credenziali memorizzate nella cache di Hadoop, usare una nuova finestra del browser InPrivate per connettersi all'interfaccia utente di Ranger Admin.
 
 2. Accedere usando le credenziali di amministratore di Azure Active Directory (AD). Le credenziali di amministratore di Azure AD non sono le stesse del cluster HDInsight o del nodo SSH di Linux HDInsight.
 
@@ -47,7 +40,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="create-domain-users"></a>Creare utenti del dominio
 
-Visitare [Creare un cluster HDInsight con Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds) per informazioni su come creare gli utenti del dominio **sales_user** e **marketing_user**. In uno scenario di produzione, gli utenti del dominio provengono dal tenant di Active Directory.
+Visitare [Creare un cluster HDInsight con Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md) per informazioni su come creare gli utenti del dominio **sales_user** e **marketing_user**. In uno scenario di produzione, gli utenti del dominio provengono dal tenant di Active Directory.
 
 ## <a name="create-ranger-policy"></a>Creare un criterio di Ranger
 
@@ -55,11 +48,11 @@ Creare un criterio di Ranger per **sales_user** e **marketing_user**.
 
 1. Aprire l’**interfaccia utente di amministrazione di Ranger**.
 
-2. Fare clic su  **\<ClusterName>_kafka** nella sezione **Kafka**. Potrebbe essere presente un criterio preconfigurato.
+2. Selezionare  **\<NomeCluster>_kafka** nella sezione **Kafka**. Potrebbe essere presente un criterio preconfigurato.
 
-3. Fare clic su **Aggiungi nuovo criterio**, quindi immettere i valori seguenti:
+3. Selezionare **Aggiungi nuovo criterio** e immettere i valori seguenti:
 
-   |**Impostazione**  |**Valore consigliato**  |
+   |Impostazione  |Valore consigliato  |
    |---------|---------|
    |Nome criterio  |  hdi sales* policy   |
    |Argomento   |  sales* |
@@ -71,16 +64,15 @@ Creare un criterio di Ranger per **sales_user** e **marketing_user**.
    * "*" indica zero o più occorrenze del carattere.
    * "?" indica un carattere singolo.
 
-   ![Creazione di un criterio nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
+   ![Creazione di un criterio nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
 
-   >[!NOTE]
-   >Attendere alcuni istanti per eseguire la sincronizzazione con Azure AD, se un utente di dominio non viene popolato automaticamente per **Seleziona utente**.
+   Attendere alcuni istanti per eseguire la sincronizzazione con Azure AD, se un utente di dominio non viene popolato automaticamente per **Seleziona utente**.
 
-4. Fare clic su **Aggiungi** per salvare il criterio.
+4. Selezionare **Aggiungi** per salvare il criterio.
 
-5. Fare clic su **Aggiungi nuovo criterio**, quindi immettere i valori seguenti:
+5. Selezionare **Aggiungi nuovo criterio** e quindi immettere i valori seguenti:
 
-   |**Impostazione**  |**Valore consigliato**  |
+   |Impostazione  |Valore consigliato  |
    |---------|---------|
    |Nome criterio  |  hdi marketing policy   |
    |Argomento   |  marketingspend |
@@ -89,7 +81,7 @@ Creare un criterio di Ranger per **sales_user** e **marketing_user**.
 
    ![Creazione di un criterio nell'interfaccia utente di amministrazione di Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
-6. Fare clic su **Aggiungi** per salvare il criterio.
+6. Selezionare **Aggiungi** per salvare il criterio.
 
 ## <a name="create-topics-in-a-kafka-cluster-with-esp"></a>Creare argomenti in un cluster Kafka con ESP
 
@@ -97,11 +89,11 @@ Per creare due argomenti `salesevents` e `marketingspend`:
 
 1. Per aprire una connessione SSH al cluster, usare il comando seguente:
 
-   ```bash
+   ```cmd
    ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   Sostituire `DOMAINADMIN` con l'utente amministratore per il cluster configurato durante la [creazione del cluster](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-hdinsight-cluster-with-esp) e sostituire `CLUSTERNAME` con il nome del cluster. Quando richiesto, immettere la password per l'account utente amministratore. Per altre informazioni sull'uso di `SSH` con HDInsight, vedere [Use SSH with HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) (Uso di SSH con HDInsight).
+   Sostituire `DOMAINADMIN` con l'utente amministratore per il cluster configurato durante la [creazione del cluster](./apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp) e sostituire `CLUSTERNAME` con il nome del cluster. Quando richiesto, immettere la password per l'account utente amministratore. Per altre informazioni sull'uso di `SSH` con HDInsight, vedere [Use SSH with HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) (Uso di SSH con HDInsight).
 
 2. Per salvare il nome del cluster in una variabile e installare un'utilità di analisi JSON `jq`, usare i comandi seguenti. Quando richiesto, immettere il nome del cluster Kafka.
 
@@ -116,12 +108,11 @@ Per creare due argomenti `salesevents` e `marketingspend`:
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
 
-   > [!Note]  
-   > Prima di continuare, può essere necessario configurare l'ambiente di sviluppo se non è stato ancora fatto. Sono necessari componenti quali Java JDK, Apache Maven e un client SSH con scp. Per altri dettagli, vedere le [istruzioni di configurazione](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
-   
+   Prima di continuare, può essere necessario configurare l'ambiente di sviluppo se non è stato ancora fatto. Saranno necessari componenti quali Java JDK, Apache Maven e un client SSH con SCP. Per altre informazioni, vedere le [istruzioni di configurazione](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+
 1. Scaricare gli [esempi di producer e consumer Apache Kafka aggiunti a dominio](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
-1. Seguire i passaggi 2 e 3 sotto **Compilare e distribuire l'esempio** in [Esercitazione: Usare le API Apache Kafka Producer e Consumer](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
+1. Seguire i passaggi 2 e 3 sotto **Compilare e distribuire l'esempio** in [Esercitazione: Usare le API Apache Kafka Producer e Consumer](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)
 
 1. Eseguire i comandi seguenti:
 
@@ -154,7 +145,7 @@ In base ai criteri di Ranger configurati, **sales_user** può creare o utilizzar
 
    Esempio: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-4. Seguire il passaggio 3 in **Compilare e distribuire l'esempio** dell'[Esercitazione: Usare le API Apache Kafka Producer e Consumer](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example) per assicurarsi che `kafka-producer-consumer.jar` sia disponibile anche per **sales_user**.
+4. Seguire il passaggio 3 in **Compilare e distribuire l'esempio** dell'[Esercitazione: Usare le API Apache Kafka Producer e Consumer](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) per assicurarsi che `kafka-producer-consumer.jar` sia disponibile anche per **sales_user**.
 
 5. Verificare che **sales_user1** possa creare risorse nell'argomento `salesevents` eseguendo il comando seguente:
 
@@ -194,7 +185,17 @@ In base ai criteri di Ranger configurati, **sales_user** può creare o utilizzar
 
    ![Controllo dei criteri di Ranger dell'interfaccia utente](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se non si intende continuare a usare questa applicazione, eseguire questa procedura per eliminare il cluster Kafka creato:
+
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Nella casella **Ricerca** in alto digitare **HDInsight**.
+1. Selezionare **Cluster HDInsight** in **Servizi**.
+1. Nell'elenco di cluster HDInsight visualizzato, fare clic su **...** accanto al cluster creato per questa esercitazione. 
+1. Fare clic su **Elimina**. Fare clic su **Sì**.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Trasferire la propria chiave ad Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
-* [Introduzione alla sicurezza Apache Hadoop con Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+> [!div class="nextstepaction"]
+> [Trasferire la propria chiave ad Apache Kafka](../kafka/apache-kafka-byok.md)

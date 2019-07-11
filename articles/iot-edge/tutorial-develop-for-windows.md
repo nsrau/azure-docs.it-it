@@ -4,17 +4,17 @@ description: Questa esercitazione illustra in modo dettagliato come configurare 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/20/2019
+ms.date: 06/06/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 81d660857eff63e0dfeeda400b168ea424152081
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 94a287cd996bd18b757620254540f8dc0df499e8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808612"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051770"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Esercitazione: Sviluppare moduli IoT Edge per dispositivi Windows
 
@@ -22,7 +22,7 @@ Usare Visual Studio per sviluppare e distribuire codice in dispositivi Windows c
 
 Nela procedura di avvio rapido è stato creato un dispositivo IoT Edge usando una macchina virtuale Windows ed è stato distribuito un modulo predefinito da Azure Marketplace. Questa esercitazione illustra in modo dettagliato come sviluppare e distribuire codice personalizzato in un dispositivo IoT Edge. Questa esercitazione è un prerequisito utile per tutte le altre esercitazioni, che illustrano in modo più dettagliato i concetti relativi a linguaggi di programmazione o servizi di Azure specifici. 
 
-Questa esercitazione usa l'esempio di distribuzione di un **modulo C in un dispositivo Windows**. Questo esempio è stato scelto per la sua semplicità, in modo che sia possibile apprendere informazioni sugli strumenti di sviluppo senza doversi preoccupare di avere le librerie appropriate installate. Una volta appresi i concetti di sviluppo, è possibile scegliere il linguaggio o il servizio di Azure preferito per approfondire i dettagli. 
+Questa esercitazione usa come esempio la distribuzione di un **modulo C# in un dispositivo Windows**. Questo esempio è stato scelto perché rappresenta lo scenario di sviluppo più comune. Se il proprio interesse è rivolto allo sviluppo in un linguaggio diverso o si prevede di distribuire servizi di Azure come moduli, questa esercitazione è comunque utile per acquisire informazioni sugli strumenti di sviluppo. Una volta appresi i concetti di sviluppo, è possibile scegliere il linguaggio o il servizio di Azure preferito per approfondire i dettagli. 
 
 In questa esercitazione si apprenderà come:
 
@@ -49,9 +49,7 @@ La tabella seguente elenca gli scenari di sviluppo supportati per i **contenitor
 | - | ------------------ | ------------------ |
 | **Servizi di Azure** | Funzioni di Azure <br> Analisi di flusso di Azure |   |
 | **Linguaggi** | C# (debug non supportato) | C <br> C# |
-| **Altre informazioni** | [Azure IoT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
-
-Questa esercitazione illustra i passaggi di sviluppo per Visual Studio 2019. Se si preferisce usare Visual Studio Code, vedere le istruzioni in [Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug](how-to-vs-code-develop-module.md). Se si usa Visual Studio 2017 (versione 15.7 o successiva), scaricare e installare [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
+| **Altre informazioni** | [Azure IoT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools per Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Azure IoT Edge Tools per Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -60,17 +58,6 @@ Un computer di sviluppo:
 * Windows 10 con l'aggiornamento 1809 o successivo.
 * È possibile usare il proprio computer o una macchina virtuale, a seconda delle preferenze di sviluppo.
 * Installare [Git](https://git-scm.com/). 
-* Installare Azure IoT C SDK per Windows x64 tramite vcpkg:
-
-   ```powershell
-   git clone https://github.com/Microsoft/vcpkg
-   cd vcpkg
-   .\bootstrap-vcpkg.bat
-   .\vcpkg install azure-iot-sdk-c:x64-windows
-   .\vcpkg --triplet x64-windows integrate install
-   ```
-
-<!--vcpkg only required for C development-->
 
 Un dispositivo Azure IoT Edge in Windows:
 
@@ -94,17 +81,23 @@ Usare la documentazione di Docker per eseguire l'installazione nel computer di s
 
 ## <a name="set-up-visual-studio-and-tools"></a>Configurare Visual Studio e gli strumenti
 
-Usare le estensioni IoT per Visual Studio 2019 per sviluppare moduli IoT Edge. Queste estensioni forniscono modelli di progetto, automatizzano la creazione del manifesto della distribuzione e consentono di monitorare e gestire i dispositivi IoT Edge. In questa sezione si installano Visual Studio e l'estensione IoT Edge, quindi si configura l'account di Azure per gestire le risorse dell'hub IoT da Visual Studio. 
+Le estensioni IoT per Visual Studio semplificano lo sviluppo di moduli IoT Edge. Queste estensioni forniscono modelli di progetto, automatizzano la creazione del manifesto della distribuzione e consentono di monitorare e gestire i dispositivi IoT Edge. In questa sezione si installano Visual Studio e l'estensione IoT Edge, quindi si configura l'account di Azure per gestire le risorse dell'hub IoT da Visual Studio. 
 
-1. Se Visual Studio non è già presente nel computer di sviluppo, [installare Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) con i carichi di lavoro seguenti: 
+Questa esercitazione illustra i passaggi di sviluppo per Visual Studio 2019. Se si usa Visual Studio 2017 (versione 15.7 o successiva), i passaggi sono molto simili. Se si preferisce usare Visual Studio Code, vedere le istruzioni in [Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug](how-to-vs-code-develop-module.md). 
 
-   * Sviluppo di Azure
-   * Sviluppo per desktop con C++
-   * Sviluppo multipiattaforma .NET Core
+1. Preparare Visual Studio 2019 nel computer di sviluppo. 
 
-1. Se Visual Studio 2019 è già presente nel computer di sviluppo. Seguire i passaggi descritti in [Modificare Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) per aggiungere i carichi di lavoro richiesti, se non sono già presenti.
+   * Se Visual Studio non è già presente nel computer di sviluppo, [installare Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) con i carichi di lavoro seguenti: 
+
+      * Sviluppo di Azure
+      * Sviluppo per desktop con C++
+      * Sviluppo multipiattaforma .NET Core
+
+   * Se Visual Studio 2019 è già presente nel computer di sviluppo, seguire la procedura descritta in [Modificare Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) per aggiungere i carichi di lavoro necessari.
 
 2. Scaricare e installare l'estensione [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) per Visual Studio 2019. 
+
+   Se si usa Visual Studio 2017 (versione 15.7 o successiva), scaricare e installare [Azure IoT Edge Tools per Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
 
 3. Dopo aver completato le installazioni, aprire Visual Studio 2019 e selezionare **Continua senza codice**.
 
@@ -112,9 +105,9 @@ Usare le estensioni IoT per Visual Studio 2019 per sviluppare moduli IoT Edge. Q
 
 5. Selezionare l'icona del profilo in Cloud Explorer e accedere all'account di Azure, se non si è già connessi. 
 
-6. Una volta effettuato l'accesso, vengono elencate le sottoscrizioni di Azure. Selezionare le sottoscrizioni a cui si vuole accedere tramite Cloud Explorer e quindi selezionare **Applica**. 
+6. Una volta effettuato l'accesso, vengono elencate le sottoscrizioni di Azure. Espandere la sottoscrizione che contiene l'hub IoT. 
 
-7. Espandere la sottoscrizione, quindi **Hub IoT** e infine l'hub IoT. Dovrebbe venire visualizzato un elenco di dispositivi IoT, che è possibile gestire con Explorer. 
+7. All'interno della sottoscrizione espandere **Hub IoT** e quindi l'hub IoT. Dovrebbe venire visualizzato un elenco di dispositivi IoT, che è possibile gestire con Explorer. 
 
    ![Accedere alle risorse dell'hub IoT in Cloud Explorer](./media/tutorial-develop-for-windows/cloud-explorer-view-hub.png)
 
@@ -126,11 +119,11 @@ L'estensione Azure IoT Edge Tools fornisce modelli di progetto per tutti i lingu
 
 1. Selezionare **File** > **Nuovo** > **Progetto**.
 
-2. Nella finestra del nuovo progetto cercare il progetto **IoT Edge** e scegliere il progetto **Azure IoT Edge (Windows amd64)** . Fare clic su **Avanti**. 
+2. Nella finestra del nuovo progetto cercare **IoT Edge** e scegliere il progetto **Azure IoT Edge (Windows amd64)** . Fare clic su **Avanti**. 
 
    ![Creare un nuovo progetto Azure IoT Edge](./media/tutorial-develop-for-windows/new-project.png)
 
-3. Nella finestra Configura il nuovo progetto assegnare al progetto e alla soluzione un nuovo nome descrittivo, ad esempio **CTutorialApp**. Fare clic su **Crea** per creare il progetto.
+3. Nella finestra Configura il nuovo progetto assegnare al progetto e alla soluzione un nuovo nome descrittivo, ad esempio **CSharpTutorialApp**. Fare clic su **Crea** per creare il progetto.
 
    ![Configurare un nuovo progetto Azure IoT Edge](./media/tutorial-develop-for-windows/configure-project.png)
  
@@ -139,20 +132,21 @@ L'estensione Azure IoT Edge Tools fornisce modelli di progetto per tutti i lingu
 
    | Campo | Valore |
    | ----- | ----- |
+   | Selezionare un modello: | Selezionare **C# Module** (Modulo C#). | 
+   | Module project name (Nome progetto modulo) | Accettare il nome predefinito **IoTEdgeModule1**. | 
+   | Docker image repository (Repository immagini Docker) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata in base al valore del nome del progetto di modulo. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br> Il repository di immagini finale sarà simile a \<nome registro\>.azurecr.io/iotedgemodule1. |
 
-   | Selezionare un modello | Selezionare **C Module** (Modulo C). | | Module project name (Nome progetto modulo) | Accettare il nome predefinito **IoTEdgeModule1**. | | Docker image repository (Repository immagini Docker) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata in base al valore del nome del progetto di modulo. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br> Il repository di immagini finale sarà simile a \<nome registro\>.azurecr.io/iotedgemodule1. |
+   ![Configurare il progetto per il dispositivo di destinazione, il tipo di modulo e il registro contenitori](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
-   ![Configurare il progetto per il Registro Container, il tipo di modulo e il dispositivo di destinazione](./media/tutorial-develop-for-windows/add-application-and-module.png)
-
-5. Selezionare **OK** per applicare le modifiche. 
+5. Selezionare **Sì** per applicare le modifiche. 
 
 Una volta che il nuovo progetto viene caricato nella finestra di Visual Studio, dedicare un po' di tempo ad acquisire familiarità con i file creati: 
 
-* Un progetto IoT Edge denominato **AzureIoTEdgeApp1.Windows.Amd64**.
+* Progetto IoT Edge denominato **CSharpTutorialApp**.
     * La cartella **Modules** (Moduli) contiene i puntatori ai moduli inclusi nel progetto. In questo caso, dovrebbe essere semplicemente IoTEdgeModule1. 
     * Il file **deployment.template.json** è un modello che aiuta a creare un manifesto della distribuzione. Un *manifesto della distribuzione* è un file che definisce esattamente i moduli da distribuire in un dispositivo, come configurarli e il modo in cui comunicano tra loro e con il cloud. 
 * Un progetto di modulo IoT Edge denominato **IoTEdgeModule1**.
-    * Il file **main.c** contiene il codice del modulo C predefinito fornito con il modello di progetto. Il modulo predefinito accetta l'input da un'origine e lo passa all'hub IoT. 
+    * Il file **program.cs** contiene il codice del modulo C# predefinito disponibile con il modello di progetto. Il modulo predefinito accetta l'input da un'origine e lo passa all'hub IoT. 
     * Il file **module.json** contiene i dettagli del modulo, tra cui il repository di immagini completo, la versione delle immagini e il documento Dockerfile da usare per ogni piattaforma supportata.
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>Fornire le credenziali del registro all'agente IoT Edge
@@ -183,17 +177,19 @@ Il modello di soluzione creato include codice di esempio per un modulo IoT Edge.
 
 Per ogni modulo nel codice possono essere dichiarate più code di *input* e *output*. L'hub di IoT Edge in esecuzione nel dispositivo instrada i messaggi dall'output di un modulo all'input di uno o più moduli. Il linguaggio specifico per la dichiarazione di input e output varia a seconda dei linguaggi, ma il concetto è lo stesso in tutti i moduli. Per altre informazioni sul routing tra moduli, vedere [Dichiarare le route](module-composition.md#declare-routes).
 
-1. Nel file **main.c** trovare la funzione **SetupCallbacksForModule**.
+L'esempio di codice C# disponibile con il modello di progetto usa la [classe ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) da IoT Hub SDK per .NET. 
 
-2. Questa funzione configura una coda di input per la ricezione dei messaggi in arrivo. Chiama la funzione [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback) del modulo client C SDK. Esaminare questa funzione e verificare che inizializza una coda di input denominata **input1**. 
+1. Nel file **program.cs** individuare il metodo **SetInputMessageHandlerAsync**.
 
-   ![Trovare il nome di input nel costruttore SetInputMessageCallback](./media/tutorial-develop-for-windows/declare-input-queue.png)
+2. Il metodo [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) consente di configurare una coda di input per la ricezione di messaggi in arrivo. Esaminare questo metodo e vedere in che modo inizializza una coda di input denominata **input1**. 
 
-3. Trovare quindi la funzione **InputQueue1Callback**.
+   ![Individuare il nome di input nel costruttore SetInputMessageHandlserAsync](./media/tutorial-develop-for-windows/declare-input-queue.png)
 
-4. Questa funzione elabora i messaggi ricevuti e configura una coda di output in cui passarli. Chiama la funzione [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync) del modulo client C SDK. Esaminare questa funzione e verificare che inizializza una coda di output denominata **output1**. 
+3. Individuare quindi il metodo **SendEventAsync**.
 
-   ![Trovare il nome di output nel costruttore SendEventToOutputAsync](./media/tutorial-develop-for-windows/declare-output-queue.png)
+4. Il metodo [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) consente di elaborare i messaggi ricevuti e di configurare una coda di output per passarli. Esaminare questo metodo e vedere che inizializza una coda di output denominata **output1**. 
+
+   ![Individuare il nome di output nel costruttore SendEventAsync](./media/tutorial-develop-for-windows/declare-output-queue.png)
 
 5. Aprire il file **deployment.template.json**.
 
@@ -232,7 +228,7 @@ Specificare le credenziali del registro contenitori in Docker nel computer di sv
 
 Il computer di sviluppo può ora accedere al Registro Container, come pure possono fare i dispositivi IoT Edge. A questo punto, è possibile trasformare il codice del progetto in un'immagine del contenitore. 
 
-1. Fare clic con il pulsante destro del mouse sulla cartella del progetto **AzureIotEdgeApp1.Windows.Amd64** e scegliere **Build and Push IoT Edge Modules** (Compila moduli IoT Edge ed esegui il push). 
+1. Fare clic con il pulsante destro del mouse sulla cartella del progetto **CSharpTutorialApp** e scegliere **Build and Push IoT Edge Modules** (Compila moduli IoT Edge ed esegui il push). 
 
    ![Comando Build and push IoT Edge modules (Compila moduli IoT Edge ed esegui il push)](./media/tutorial-develop-for-windows/build-and-push-modules.png)
 
@@ -253,7 +249,7 @@ Il computer di sviluppo può ora accedere al Registro Container, come pure posso
 
 6. Salvare le modifiche nel file module.json.
 
-7. Fare di nuovo clic con il pulsante destro del mouse sulla cartella del progetto **AzureIotEdgeApp1.Windows.Amd64** e scegliere di nuovo **Build and Push IoT Edge Modules** (Compila moduli IoT Edge ed esegui il push). 
+7. Fare di nuovo clic con il pulsante destro del mouse sulla cartella del progetto **CSharpTutorialApp** e scegliere di nuovo **Build and Push IoT Edge Modules** (Compila moduli IoT Edge ed esegui il push). 
 
 8. Aprire di nuovo il file **deployment.windows-amd64.json**. Si noti che non è stato creato un nuovo file quando è stato eseguito di nuovo il comando di compilazione e push. È invece stato aggiornato lo stesso file per riflettere le modifiche. L'immagine IotEdgeModule1 ora punta alla versione 0.0.2 del contenitore. Questa modifica nel manifesto della distribuzione indica al dispositivo IoT Edge che è disponibile una nuova versione di un modulo di cui eseguire il pull. 
 
@@ -283,7 +279,7 @@ Si è verificato che le immagini dei contenitori di cui è stata eseguita la com
    ![Create deployment for single device (Crea la distribuzione per un unico dispositivo)](./media/tutorial-develop-for-windows/create-deployment.png)
 
 
-3. In Esplora file passare alla cartella config del progetto e selezionare il file **deployment.windows-amd64.json**. Questo file si trova spesso in `C:\Users\<username>\source\repos\AzureIotEdgeApp1\AzureIotEdgeApp1.Windows.Amd64\config\deployment.windows-amd64.json`
+3. In Esplora file passare alla cartella config del progetto e selezionare il file **deployment.windows-amd64.json**. Questo file si trova spesso in `C:\Users\<username>\source\repos\CSharpTutorialApp\CSharpTutorialApp\config\deployment.windows-amd64.json`
 
    Non usare il file deployment.template.json, nel quale non sono presenti i valori completi delle immagini dei moduli. 
 

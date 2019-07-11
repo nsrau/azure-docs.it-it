@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: diberry
-ms.openlocfilehash: 85d5fa1cc036737497e276413985e0828e3b51f6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c6fddec80da1baa852a2f3712a94b785d775919e
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788710"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151034"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Guida introduttiva: creare una knowledge base in QnA Maker con Java
 
@@ -100,7 +100,7 @@ Ripetere la chiamata fino a quando l'esito non è positivo o negativo:
 ```
 
 ## <a name="add-a-main-method"></a>Aggiungere un metodo Main
-Il metodo Main crea la knowledge base e quindi esegue il polling dello stato. Viene restituito l'**ID operazione** _create_ nel campo di intestazione della risposta POST **Location**, quindi usato come parte della route nella richiesta GET. ** Il ciclo `while` ritenta il polling dello stato se non è completo.
+Il metodo Main crea la knowledge base e quindi esegue il polling dello stato. L'ID operazione viene restituito nel campo di intestazione della risposta POST **Location** e quindi viene usato come parte della route nella richiesta GET. Il ciclo `while` ritenta il polling dello stato se non è completo.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 

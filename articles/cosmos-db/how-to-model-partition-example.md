@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: c98a8187c0365abc8fdb2bedacc5216266cc5cad
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 4bb99c8cbec88d23f9297dcbe8b13cc69cd0006c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240990"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070679"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale
 
@@ -479,7 +479,7 @@ Dunque, per ottimizzare quest'ultima richiesta, si introduce nella progettazione
 
 Questo contenitore è suddiviso in partizioni per `type`, che sarà sempre `post` negli elementi di questo esempio. Questa operazione assicura che tutti gli elementi in questo contenitore si troveranno nella stessa partizione.
 
-Per ottenere la denormalizzazione, è sufficiente utilizzare la pipeline del feed di modifiche introdotta in precedenza per inviare i post al nuovo contenitore. È importante assicurarsi che vengano archiviati solo i 100 post più recenti; in caso contrario, il contenuto del contenitore può eccedere le dimensioni massime di una partizione. Per eseguire questa operazione si chiama un [post-trigger](stored-procedures-triggers-udfs.md#triggers) ogni volta che viene aggiunto un documento al contenitore:
+Per ottenere la denormalizzazione, è sufficiente utilizzare la pipeline del feed di modifiche introdotta in precedenza per inviare i post al nuovo contenitore. È importante ricordare che è necessario assicurarsi che vengano archiviati solo i 100 post più recenti. In caso contrario, il contenuto del contenitore può eccedere le dimensioni massime di una partizione. Per eseguire questa operazione si chiama un [post-trigger](stored-procedures-triggers-udfs.md#triggers) ogni volta che viene aggiunto un documento al contenitore:
 
 ![Denormalizzazione dei post nel contenitore feed](./media/how-to-model-partition-example/denormalization-3.png)
 

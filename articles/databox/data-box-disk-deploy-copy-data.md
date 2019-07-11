@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f5c498fc3f3fe051070b3565041e506bc40fceda
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 70890dcd72cadc55e56410381a94ac071b248a91
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925158"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147522"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica
 
@@ -250,6 +250,8 @@ Scegliere questa procedura facoltativa quando si usano più dischi e si ha un se
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+Se vengono visualizzati errori quando si usa lo strumento di divisione della copia dati, passare alla procedura di [risoluzione degli errori dello strumento di divisione della copia dati](data-box-disk-troubleshoot-data-copy.md).
+
 Dopo aver completato la copia dei dati, è possibile passare alla convalida dei dati. Se è stato usato lo strumento di divisione della copia, ignorare la convalida perché viene eseguita dallo strumento stesso, quindi passare all'esercitazione successiva.
 
 
@@ -270,6 +272,8 @@ Se non si è usato lo strumento di divisione della copia per copiare i dati, sar
     > - Usare l'opzione 1 nel caso di set di dati di grandi dimensioni che contengono file piccoli (~ KB). Con questa opzione viene eseguita solo la convalida dei file perché la generazione dei checksum può richiedere molto tempo e le prestazioni potrebbero risentirne negativamente.
 
 3. Se si usano più dischi, eseguire il comando per ciascun disco.
+
+Se si verificano errori durante la convalida, vedere la [risoluzione degli errori di convalida](data-box-disk-troubleshoot.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

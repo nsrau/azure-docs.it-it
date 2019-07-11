@@ -7,21 +7,21 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/16/2019
-ms.openlocfilehash: f607c1e79262efdbec79677fa7f16863b7a9d160
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/21/2019
+ms.openlocfilehash: c50ad2b045f32daf53033318123b68e4b2d58db5
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393978"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329326"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Informazioni su Analisi di flusso di Azure
 
-Analisi di flusso di Azure è un motore di elaborazione di eventi progettato per esaminare volumi elevati di dati in streaming. I modelli e le relazioni possono essere identificati nelle informazioni estratte da numerose origini di input tra cui dispositivi, sensori, siti Web, feed di social media e applicazioni. Questi modelli possono essere usati per attivare altre azioni a valle, ad esempio la creazione di avvisi, l'invio di informazioni a uno strumento di creazione di report o l'archiviazione dei dati trasformati per un uso successivo.
+Analisi di flusso di Azure è un complesso motore di elaborazione eventi e analisi in tempo reale progettato per analizzare ed elaborare contemporaneamente ingenti volumi di dati in streaming veloce da più origini. I modelli e le relazioni possono essere identificati nelle informazioni estratte da numerose origini di input tra cui dispositivi, sensori, clickstream, feed di social media e applicazioni. Questi modelli possono essere usati per attivare azioni e avviare flussi di lavoro, ad esempio la creazione di avvisi, l'invio di informazioni a uno strumento di creazione di report o l'archiviazione dei dati trasformati per un uso successivo. Analisi di flusso è disponibile anche nel runtime di Azure IoT Edge e supporta lo stesso linguaggio o la stessa sintassi del cloud. 
 
 Gli scenari seguenti sono esempi di quando è possibile usare Analisi di flusso di Azure:
 
-* Fusione di sensori di Internet delle cose (IoT) e analisi in tempo reale su dati di telemetria dei dispositivi
+* Analisi di flussi di dati di telemetria in tempo reale da dispositivi IoT
 * Analisi di log Web/clickstream
 * Analisi geospaziale per la gestione della flotta e veicoli senza conducente
 * Monitoraggio remoto e manutenzione predittiva di risorse di valore elevato
@@ -29,12 +29,12 @@ Gli scenari seguenti sono esempi di quando è possibile usare Analisi di flusso 
 
 ## <a name="how-does-stream-analytics-work"></a>Funzionamento di Analisi di flusso
 
-Un processo di Analisi di flusso di Azure è costituito da un input, una query di trasformazione e un output. Quando vengono inseriti eventi del software o dei dispositivi da Hub eventi di Azure, dall'hub IoT di Azure o da Archiviazione BLOB di Azure, è possibile specificare uno o più di tali servizi come origine di input per il processo. La query di trasformazione, basata sul linguaggio di query SQL, viene usata per filtrare, ordinare, aggregare e unire facilmente dati in streaming in base a un periodo di tempo. È possibile modificare le opzioni di ordinamento degli eventi e la durata delle finestre temporali durante l'esecuzione delle operazioni di aggregazione.
+Un processo di Analisi di flusso di Azure è costituito da un input, una query e un output. Analisi di flusso può inserire i dati dall'hub eventi di Azure, dall'hub IoT di Azure o da Archiviazione BLOB di Azure. La query, basata sul linguaggio di query SQL, può essere usata per filtrare, ordinare, aggregare e unire facilmente dati in streaming in base a un periodo di tempo. È anche possibile estendere il linguaggio SQL con JavaScript e funzioni definite dall'utente C#. È possibile modificare facilmente le opzioni di ordinamento degli eventi e la durata delle finestre temporali durante l'esecuzione di operazioni di aggregazione tramite semplici costrutti di linguaggio e/o configurazioni.
 
 Per ogni processo è presente un output per i dati trasformati ed è possibile controllare cosa avviene in risposta alle informazioni analizzate. Ad esempio, è possibile:
 
-* Inviare dati a una coda monitorata per attivare avvisi o flussi di lavoro personalizzati a valle.
-* Inviare dati a un dashboard di Power BI per la visualizzazione in tempo reale.
+* Inviare dati a servizi quali Funzioni di Azure, argomenti del bus di servizio o code per attivare comunicazioni o flussi di lavoro personalizzati a valle.
+* Inviare dati a un dashboard di Power BI per la visualizzazione nel dashboard in tempo reale.
 * Archiviare dati in altri servizi di archiviazione di Azure per eseguire il training di un modello di Machine Learning in base a dati cronologici oppure eseguire l'analisi in batch.
 
 L'immagine seguente mostra il modo in cui i dati vengono inviati ad Analisi di flusso, analizzati e inviati per altre azioni, tra cui archiviazione o presentazione:
@@ -51,7 +51,7 @@ Analisi di flusso di Azure è progettato in modo da essere facile da usare, fles
 
 È possibile iniziare a usare Analisi di flusso di Azure in tutta semplicità. Sono necessari solo pochi clic per connettersi a più origini o sink creando una pipeline end-to-end. Analisi di flusso può connettersi a [Hub eventi di Azure](/azure/event-hubs/) e [hub IoT di Azure](/azure/iot-hub/) per l'inserimento dei dati in streaming, nonché ad [Archiviazione BLOB di Azure](/azure/storage/storage-introduction) per l'inserimento dei dati cronologici. L'input del processo può anche includere dati di riferimento statici o a modifica lenta di Archiviazione BLOB di Azure o del [database SQL](stream-analytics-use-reference-data.md#azure-sql-database) che possono essere uniti a dati in streaming per eseguire operazioni di ricerca.
 
-Analisi di flusso può indirizzare l'output del processo a molti sistemi di archiviazione, tra cui [Archiviazione BLOB di Azure](/azure/storage/storage-introduction), il [database SQL di Azure](/azure/sql-database/), [Azure Data Lake Storage](/azure/data-lake-store/) e [Azure Cosmos DB](/azure/cosmos-db/introduction). È possibile eseguire analisi in batch con Azure HDInsight sull'output archiviato o inviare l'output a un altro servizio, ad esempio Hub eventi per l'utilizzo o [Power BI](https://docs.microsoft.com/power-bi/) per la visualizzazione in tempo reale.
+Analisi di flusso può indirizzare l'output del processo a molti sistemi di archiviazione, tra cui [Archiviazione BLOB di Azure](/azure/storage/storage-introduction), il [database SQL di Azure](/azure/sql-database/), [Azure Data Lake Storage](/azure/data-lake-store/) e [Azure CosmosDB](/azure/cosmos-db/introduction). È possibile eseguire analisi in batch con Azure HDInsight sull'output archiviato o inviare l'output a un altro servizio, ad esempio Hub eventi per l'utilizzo o [Power BI](https://docs.microsoft.com/power-bi/) per la visualizzazione in tempo reale.
 
 Per l'intero elenco di output di Analisi di flusso, vedere [Informazioni sugli output di Analisi di flusso di Azure](stream-analytics-define-outputs.md).
 
@@ -67,9 +67,9 @@ Il linguaggio di query di Analisi di flusso offre un'ampia gamma di funzioni per
 
 Analisi di flusso di Azure è un'offerta senza server completamente gestita (PaaS) in Azure. Non è necessario effettuare il provisioning di hardware o gestire i cluster per l'esecuzione dei processi. Analisi di flusso di Azure gestisce completamente il processo configurando cluster di calcolo complessi nel cloud ed eseguendo l'attività di ottimizzazione delle prestazioni necessaria per l'esecuzione del processo. L'integrazione con Hub eventi di Azure e l'hub IoT di Azure permette a un processo di inserire milioni di eventi al secondo provenienti da numerose origini, tra cui dispositivi connessi, clickstream e file di log. Grazie alla funzionalità di partizionamento di Hub eventi, è possibile suddividere i calcoli in passaggi logici, ciascuno con la possibilità di essere ulteriormente suddiviso per aumentare la scalabilità.
 
-## <a name="run-in-the-cloud-on-in-the-intelligent-edge"></a>Eseguire nel cloud nella rete perimetrale intelligente
+## <a name="run-in-the-cloud-or-on-the-intelligent-edge"></a>Eseguire nel cloud o nella rete perimetrale intelligente
 
-È possibile eseguire Analisi di flusso di Azure nel cloud per l'analisi su ampia scala oppure in IoT Edge per l'analisi a latenza ultra bassa. Analisi di flusso di Azure usa lo stesso linguaggio di query sia nel cloud che nella rete perimetrale, consentendo agli sviluppatori di creare architetture realmente ibride per l'elaborazione dello streaming.
+È possibile eseguire Analisi di flusso di Azure nel cloud per l'analisi su ampia scala oppure in IoT Edge per l'analisi a latenza ultra bassa. Analisi di flusso di Azure usa lo stesso linguaggio di query sia nel cloud che nella rete perimetrale, consentendo agli sviluppatori di creare architetture realmente ibride per l'elaborazione dello streaming. 
 
 ## <a name="low-total-cost-of-ownership"></a>Costo totale di proprietà ridotto
 
@@ -85,7 +85,7 @@ Analisi di flusso di Azure garantisce un'elaborazione di eventi di tipo exactly-
 
 Analisi di flusso di Azure include funzionalità di ripristino predefinite in caso di errori di recapito degli eventi. Analisi di flusso fornisce anche checkpoint predefiniti per mantenere lo stato del proprio lavoro e fornisce risultati ripetibili.
 
-Come servizio gestito, Analisi di flusso garantisce l'elaborazione di eventi con una disponibilità del 99,9% a livello di minuto. Per altre informazioni, vedere la pagina [Contratto di servizio per Analisi di flusso](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/). 
+Come servizio gestito, Analisi di flusso garantisce l'elaborazione di eventi con una disponibilità del 99,9% a un livello di granularità di un minuto. Per altre informazioni, vedere la pagina [Contratto di servizio per Analisi di flusso](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/). 
 
 ### <a name="security"></a>Security
 
@@ -97,7 +97,7 @@ Analisi di flusso di Azure soddisfa più certificazioni di conformità, come des
 
 ## <a name="performance"></a>Prestazioni
 
-Analisi di flusso può elaborare milioni di eventi al secondo e può recapitare risultati con bassa latenza. Il servizio permette di aumentare o diminuire le risorse per gestire grandi applicazioni di elaborazione degli eventi complesse in tempo reale. Analisi di flusso supporta le prestazioni con partizionamento, consentendo di usare in parallelo ed eseguire query complesse su più nodi di streaming. Analisi di flusso di Azure si basa su [Trill](https://github.com/Microsoft/Trill), un motore di analisi di flusso in memoria ad alte prestazioni, sviluppato in collaborazione con Microsoft Research.
+Analisi di flusso può elaborare milioni di eventi al secondo e può recapitare risultati con latenza estremamente bassa. Il servizio permette di aumentare o diminuire le risorse per gestire grandi applicazioni di elaborazione degli eventi complesse in tempo reale. Analisi di flusso supporta prestazioni più elevate grazie al partizionamento, ovvero consentendo di usare in parallelo ed eseguire query complesse su più nodi di streaming. Analisi di flusso di Azure si basa su [Trill](https://github.com/Microsoft/Trill), un motore di analisi di flusso in memoria ad alte prestazioni, sviluppato in collaborazione con Microsoft Research.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
