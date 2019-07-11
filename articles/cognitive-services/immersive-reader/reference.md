@@ -1,20 +1,21 @@
 ---
 title: Riferimento al SDK del lettore coinvolgenti
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Informazioni di riferimento per il lettore Immersive SDK
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: c128608b3c4a8e1155c3ac962bcfd07f589fbf23
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 485e8626af4266492e02d4f9fbe4af486e10c082
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311793"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718395"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Riferimento al SDK del lettore coinvolgenti
 
@@ -34,7 +35,7 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 
 #### <a name="parameters"></a>Parametri
 
-| NOME | Type | Descrizione |
+| Name | Type | Descrizione |
 | ---- | ---- |------------ |
 | `token` | string | Il token di accesso acquisito dalla chiamata al `issueToken` endpoint. |
 | `resourceName` | string | Riservato. Il valore deve essere impostato su `null`. |
@@ -86,7 +87,7 @@ Contiene le proprietà che consentono di configurare determinati comportamenti d
 }
 ```
 
-### <a name="error"></a>Tipi di errore
+### <a name="error"></a>Errore
 
 Contiene informazioni sull'errore.
 
@@ -117,7 +118,7 @@ il SDK fornisce lo stile predefinito per il pulsante per l'avvio del lettore coi
 
 Usare gli attributi seguenti per configurare l'aspetto del pulsante.
 
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 | --------- | ----------- |
 | `data-button-style` | Imposta lo stile del pulsante. Può essere `icon`, `text` o `iconAndText`. Il valore predefinito è `icon`. |
 | `data-locale` | Imposta le impostazioni locali, ad esempio `en-US`, `fr-FR`. L'impostazione predefinita all'inglese. |

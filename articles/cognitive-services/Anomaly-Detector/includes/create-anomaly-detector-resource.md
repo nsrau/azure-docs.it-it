@@ -12,8 +12,8 @@ ms.openlocfilehash: b40f1833f08074cb0a8d45fe3afc6bac7cbac7f0
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711681"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717061"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Creare una risorsa di rilevatore di anomalie
 

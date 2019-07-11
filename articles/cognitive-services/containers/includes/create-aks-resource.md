@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: 1d68c08f6dfca74c38973af1686d614f3f10cc28
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: eb2d609c3a7dfd769c6a19854366ac5e45fddb7d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67455141"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712456"
 ---
 ## <a name="create-an-azure-kubernetes-service-aks-cluster-resource"></a>Creare una risorsa cluster Azure Kubernetes Service (AKS)
 
@@ -37,7 +37,7 @@ ms.locfileid: "67455141"
 1. Nel **Authentication** scheda, lasciare *dell'entità servizio* e *abilitare RBAC* i valori predefiniti.
 1. Nel **Networking** , immettere le selezioni seguenti:
 
-    |Impostazione|Value|
+    |Impostazione|Valore|
     |--|--|
     |Routing di applicazioni HTTP|No|
     |Configurazione delle impostazioni di rete|Basic|

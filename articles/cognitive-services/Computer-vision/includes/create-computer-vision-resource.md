@@ -12,8 +12,8 @@ ms.openlocfilehash: cbf11c13bfb5c90739ea67fab92df08796a88e50
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711604"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717275"
 ---
 ## <a name="create-an-computer-vision-resource"></a>Creare una risorsa di visione artificiale
 
@@ -32,7 +32,7 @@ ms.locfileid: "67711604"
 1. Fare clic su **Create** e attendere che la risorsa da creare. Dopo averlo creato, passare alla pagina di risorse
 1. Raccolta configurata `endpoint` e una chiave API:
 
-    |Scheda risorse nel portale|Impostazione|Value|
+    |Scheda risorse nel portale|Impostazione|Valore|
     |--|--|--|
     |**Panoramica**|Endpoint|Copiare l'endpoint. È simile a `https://computer-vision.cognitiveservices.azure.com/`|
     |**Chiavi**|API key|Copiare 1 delle due chiavi. È una stringa di caratteri alfanumerici 32 senza spazi o trattini, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|

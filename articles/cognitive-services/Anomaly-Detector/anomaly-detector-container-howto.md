@@ -1,20 +1,21 @@
 ---
-title: Installare ed eseguire i contenitori - rilevatore di anomalie
+title: Come installare ed eseguire i contenitori per l'uso di API rilevatore di anomalie
 titleSuffix: Azure Cognitive Services
 description: Usare algoritmi avanzati dell'API di rilevamento delle anomalie per identificare le anomalie nei dati delle serie temporali.
 services: cognitive-services
 author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 254173df33bdc82b7de87328a715954c1a6993d7
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f84f1bab048630d6dd45085b3d082004d10bb6a8
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593118"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721715"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Installare ed eseguire i contenitori di rilevatore di anomalie
 
@@ -33,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 È necessario soddisfare i prerequisiti seguenti prima di usare i contenitori di rilevatore di anomalie:
 
-|Obbligatorio|Scopo|
+|Obbligatoria|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 

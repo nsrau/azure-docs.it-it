@@ -1,20 +1,21 @@
 ---
-title: Configurare i contenitori - rilevatore di anomalie
+title: Come configurare un contenitore per l'API rilevatore di anomalie
 titleSuffix: Azure Cognitive Services
-description: Viene configurato l'ambiente di runtime del contenitore rilevatore di anomalie usando il `docker run` argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative.
+description: Viene configurato l'ambiente di runtime del contenitore API rilevatore di anomalie usando il `docker run` argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative.
 services: cognitive-services
 author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 50f62fa20ea9b52db79160d9d2f3a6fa463079b7
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: cb0a12df6696e76050d4c53bd75e07134b3dc27c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593111"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721725"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurare i contenitori di rilevatore di anomalie
 
@@ -24,7 +25,7 @@ Il **rilevatore di anomalie** ambiente di runtime contenitore viene configurato 
 
 Questo contenitore ha le impostazioni di configurazione seguenti:
 
-|Obbligatorio|Impostazione|Scopo|
+|Obbligatoria|Impostazione|Scopo|
 |--|--|--|
 |Yes|[ApiKey](#apikey-configuration-setting)|Si usa per rilevare le informazioni di fatturazione.|
 |No|[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
@@ -58,9 +59,9 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 * Portale di Azure: **Rilevatore di anomalie** panoramica, con l'etichetta `Endpoint`
 
-|Obbligatorio| NOME | Tipo di dati | Descrizione |
+|Obbligatoria| Name | Tipo di dati | DESCRIZIONE |
 |--|------|-----------|-------------|
-|Yes| `Billing` | string | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
+|Sì| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -89,8 +90,8 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 |Facoltativo| NOME | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
-|Non consentito| `Input` | string | I contenitori di rilevatore di anomalie non usano questa proprietà.|
-|Facoltativo| `Output` | string | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Non consentito| `Input` | String | I contenitori di rilevatore di anomalie non usano questa proprietà.|
+|Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio 
 
@@ -101,7 +102,7 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 
 Sostituisci valore tra parentesi quadre, `{}`, con i propri valori:
 
-| Placeholder | Value | Formato o esempio |
+| Placeholder | Valore | Formato o esempio |
 |-------------|-------|---|
 |{BILLING_KEY} | La chiave di endpoint della risorsa rilevatore di anomalie. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | Il valore dell'endpoint di fatturazione inclusa la regione.|`https://westus2.api.cognitive.microsoft.com`|

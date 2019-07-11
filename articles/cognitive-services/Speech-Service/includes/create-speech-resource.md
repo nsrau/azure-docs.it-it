@@ -12,8 +12,8 @@ ms.openlocfilehash: 3c42bf2b2acc2472741bd603ea9d653a314ecc40
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711824"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717269"
 ---
 ## <a name="create-a-speech-resource"></a>Crea una risorsa di riconoscimento vocale
 
@@ -23,7 +23,7 @@ ms.locfileid: "67711824"
 
     |Impostazione|Valore|
     |--|--|
-    |NOME|Nome desiderato (2-64 caratteri)|
+    |Name|Nome desiderato (2-64 caratteri)|
     |Sottoscrizione|Selezionare la sottoscrizione appropriata|
     |Location|Selezionare qualsiasi località nelle vicinanze e disponibile|
     |Piano tariffario|`F0` -il livello di prezzo minimo|

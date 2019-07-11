@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: edjez
-ms.openlocfilehash: 783bfcd5ad9e114a5329892449f35f6ed8316948
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: HT
+ms.openlocfilehash: ceb32e9e378ba1e58db11e55be8bd551faf08c2a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428440"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722402"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Linee guida per l'implementazione responsabile di Personalizza esperienze
 
@@ -102,7 +102,7 @@ Un sito di notizie, al contrario, potrebbe voler impostare ricompense collegate 
 ### <a name="unintended-consequences-from-reward-scores"></a>Conseguenze impreviste dei punteggi di ricompensa
 Pur essendo creati con le migliori intenzioni, i punteggi di ricompensa possono comunque generare conseguenze o risultati imprevisti nella classificazione del contenuto da parte di Personalizza esperienze. 
 
-Si considerino gli esempi seguenti:
+Considerare gli esempi seguenti:
 
 * Basando la ricompensa per la personalizzazione di contenuto video sulla percentuale di lunghezza del video visualizzata si tenderà probabilmente a classificare i video più brevi.
 * La ricompensa per le condivisioni sui social media, senza analisi del sentiment in relazione alla modalità di condivisione o al contenuto stesso, potrebbe determinare la classificazione di contenuto offensivo, non moderato o provocatorio che tende a suscitare un "engagement" considerevole ma aggiunge scarso valore.

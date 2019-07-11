@@ -12,8 +12,8 @@ ms.openlocfilehash: 52d8e1355558b197b193a50c7cde571799541268
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711835"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717199"
 ---
 ## <a name="create-a-luis-resource"></a>Crea una risorsa di LUIS
 
@@ -23,7 +23,7 @@ ms.locfileid: "67711835"
 
     |Impostazione|Valore|
     |--|--|
-    |NOME|Nome desiderato (2-64 caratteri)|
+    |Name|Nome desiderato (2-64 caratteri)|
     |Sottoscrizione|Selezionare la sottoscrizione appropriata|
     |Location|Selezionare qualsiasi località nelle vicinanze e disponibile|
     |Piano tariffario|`F0` -il livello di prezzo minimo|

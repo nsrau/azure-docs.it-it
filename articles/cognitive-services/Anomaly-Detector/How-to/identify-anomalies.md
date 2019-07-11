@@ -1,5 +1,6 @@
 ---
 title: Come utilizzare l'API rilevatore di anomalie nei dati delle serie temporali
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come rilevare le anomalie nei dati, come un batch o nel flusso di dati.
 services: cognitive-services
 author: aahill
@@ -9,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 63ede8fe90d5c19c2473ffb315bf6096599ffb9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 551196815004cb047680e2ae2f8dbe32186c1a0c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61432349"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721785"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Procedura: Usare l'API rilevatore di anomalie in dati delle serie temporali  
 
@@ -28,11 +29,11 @@ L'API rilevatore di anomalie fornisce modalità di rilevamento: batch e streamin
 > La richiesta seguente che gli URL devono essere combinati con l'endpoint appropriato per la sottoscrizione. Ad esempio: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
 
 
-### <a name="batch-detection"></a>Rilevamento di batch
+### <a name="batch-detection"></a>Rilevamento in batch
 
 Per rilevare le anomalie in tutta una serie di punti dati in un intervallo di tempo specifico, usare il seguente URI richiesta con i dati delle serie temporali: 
 
-`/timeseries/entire/detect`. 
+[https://login.microsoftonline.com/consumers/](`/timeseries/entire/detect`). 
 
 Mediante l'invio di dati delle serie temporali in una sola volta, l'API genera un modello usando l'intera serie e analizzare ciascun punto dati con esso.  
 
@@ -40,7 +41,7 @@ Mediante l'invio di dati delle serie temporali in una sola volta, l'API genera u
 
 Per rilevare in modo continuo anomalie nei dati di streaming, usare il seguente URI richiesta con il punto dati più recente: 
 
-`/timeseries/last/detect'`. 
+[https://login.microsoftonline.com/common/](`/timeseries/last/detect'`). 
 
 Inviando i nuovi punti dati come generarli, è possibile monitorare i dati in tempo reale. Verrà generato un modello con i punti dati inviati e l'API consente di verificare se l'ultimo punto nella serie temporale è un'anomalia.
 

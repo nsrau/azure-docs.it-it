@@ -1,38 +1,37 @@
 ---
 title: Usare Kubernetes in locale
 titleSuffix: Azure Cognitive Services
-description: Utilizzo (K8s) di Kubernetes e Helm per definire le immagini del contenitore per il riconoscimento vocale e sintesi vocale, si creerà un pacchetto di Kubernetes. Questo pacchetto verrà distribuito a Kubernetes cluster in locale.
+description: Uso di Kubernetes e Helm per definire le immagini del contenitore per il riconoscimento vocale e sintesi vocale, si creerà un pacchetto di Kubernetes. Questo pacchetto verrà distribuito a Kubernetes cluster in locale.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 7/10/2019
 ms.author: dapine
-ms.openlocfilehash: 1e3afc80abad5f5c1f9b4d57c52ca75449eeb755
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 33d9de956a6d43145fc68f4ec46b09b8e8bf0188
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711483"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786247"
 ---
 # <a name="use-kubernetes-on-premises"></a>Usare Kubernetes in locale
 
-Utilizzo (K8s) di Kubernetes e Helm per definire le immagini del contenitore per il riconoscimento vocale e sintesi vocale, si creerà un pacchetto di Kubernetes. Questo pacchetto verrà distribuito a Kubernetes cluster in locale. Infine, verrà illustrato come testare i servizi distribuiti e diverse opzioni di configurazione.
+Uso di Kubernetes e Helm per definire le immagini del contenitore per il riconoscimento vocale e sintesi vocale, si creerà un pacchetto di Kubernetes. Questo pacchetto verrà distribuito a Kubernetes cluster in locale. Infine, verrà illustrato come testare i servizi distribuiti e diverse opzioni di configurazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa procedura richiede diversi strumenti che devono essere installati ed eseguiti in locale.
+Prima di usare vocale contenitori in locale, è necessario soddisfare i prerequisiti seguenti:
 
-* Usare una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito][free-azure-account] prima di iniziare.
-* Installare il [CLI Azure][azure-cli] (az).
-* Installare il [Kubernetes CLI][kubernetes-cli] (kubectl).
-* Installare il [Helm][helm-install] client, la gestione di pacchetti di Kubernetes.
-    * Installazione del server, Helm [Tiller][tiller-install].
-* Una risorsa di Azure con il piano tariffario corretto. Non tutti i piani tariffari funzionano con tali immagini del contenitore:
-    * **Riconoscimento vocale** livelli solo di risorsa con F0 o prezzo Standard.
-    * Risorsa **Servizi cognitivi** con piano tariffario S0.
+|Obbligatoria|Scopo|
+|--|--|
+| Account Azure | Se non si ha una sottoscrizione di Azure, creare un [account gratuito][free-azure-account] prima di iniziare. |
+| Accesso al registro contenitori | Affinché il pull di immagini docker nel cluster Kubernetes, è necessario l'accesso al registro contenitori. Devi [richiedere l'accesso al registro contenitori di][speech-preview-access] prima. |
+| Comando di Kubernetes | Il [Kubernetes CLI][kubernetes-cli] è obbligatorio per la gestione delle credenziali condivise dal registro contenitori. Kubernetes è inoltre necessaria prima di Helm, ovvero la gestione di pacchetti di Kubernetes. |
+| Comando di Helm | Durante la [della riga di comando di Helm][helm-install] install, you'll also need to initialize Helm which will install [Tiller][tiller-install]. |
+|Risorse di riconoscimento vocale |Per usare questi contenitori, è necessario avere:<br><br>Oggetto _vocale_ risorse di Azure per ottenere la chiave di fatturazione associata e l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nel portale di Azure **vocale** pagine di panoramica e le chiavi e sono necessari per avviare il contenitore.<br><br>**{API_KEY}** : chiave di risorsa<br><br>**{ENDPOINT_URI}** : esempio di URI dell'endpoint è: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>La configurazione del computer host consigliato
 
@@ -43,19 +42,13 @@ Vedere le [computer host del servizio di riconoscimento vocale contenitore][spee
 | **Riconoscimento vocale** | un decodificatore richiede un minimo di 1,150 millicore. Se il `optimizedForAudioFile` è abilitato, quindi 1,950 millicore sono necessari. (predefinito: due decodificatori di immagini) | Obbligatorio: 2 GB<br>Limited:  4 GB |
 | **Sintesi vocale** | una richiesta simultanea richiede almeno 500 millicore. Se il `optimizeForTurboMode` è abilitata, sono necessari 1.000 millicore. (predefinito: due richieste simultanee) | Obbligatorio: 1 GB<br> Limited: 2 GB |
 
-## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
-
-Inviare il [modulo di richiesta di contenitori vocale servizi cognitivi][speech-preview-access] per richiedere l'accesso al contenitore. 
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
 ## <a name="connect-to-the-kubernetes-cluster"></a>Connettersi al cluster Kubernetes
 
 È previsto che il computer host dispone di un cluster Kubernetes disponibili. Vedere l'esercitazione sul [distribuisce un cluster Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) per una comprensione concettuale dei come distribuire un cluster Kubernetes in un computer host.
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Condividere le credenziali di Docker con il cluster Kubernetes
 
-Per consentire al cluster Kubernetes `docker pull` le immagini da configurati il `containerpreview.azurecr.io` registro contenitori, è necessario trasferire le credenziali di docker nel cluster. Eseguire la [ `kubectl create` ][kubectl-create] comando seguente per creare una *segreto del registro docker* basato sulle credenziali fornite dal contenitore [accesso al registro](#request-access-to-the-container-registry) sezione.
+Per consentire al cluster Kubernetes `docker pull` le immagini da configurati il `containerpreview.azurecr.io` registro contenitori, è necessario trasferire le credenziali di docker nel cluster. Eseguire la [ `kubectl create` ][kubectl-create] comando seguente per creare una *segreto del registro docker* basato sulle credenziali fornite dal prerequisito di accesso del registro contenitori.
 
 Dall'interfaccia della riga di comando di scelta, eseguire il comando seguente. Assicurarsi di sostituire il `<username>`, `<password>`, e `<email-address>` con le credenziali del registro contenitori.
 

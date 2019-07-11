@@ -1,5 +1,5 @@
 ---
-title: Configurare le impostazioni
+title: Configurare le impostazioni - Personalizer
 titleSuffix: Azure Cognitive Services
 description: La configurazione del servizio include il modo in cui vengono trattate le ricompense, la frequenza delle esplorazioni, la frequenza di ripetizione del training del modello e la quantità di dati archiviati.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: HT
+ms.openlocfilehash: 6f5028f093a9fd8c17928c2167039599d4db897c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478587"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722329"
 ---
 # <a name="personalizer-settings"></a>Impostazioni di Personalizza esperienze
 
@@ -35,7 +35,7 @@ Creare una risorsa di Personalizza esperienze per ogni ciclo di feedback.
 1. Trovare la risorsa di Personalizza esperienze. 
 1. Nella sezione **Gestione risorse** selezionare **Impostazioni**.
 
-    Prima di uscire dal portale di Azure, copiare una delle chiavi di risorsa dalla pagina **Chiavi**. Tale chiave sarà necessaria per usare [Personalizer SDK](https://go.microsoft.com/fwlink/?linkid=2092353).
+    Prima di uscire dal portale di Azure, copiare una delle chiavi di risorsa dalla pagina **Chiavi**. Tale chiave sarà necessaria per usare [Personalizer SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
 
 ### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Configurare le impostazioni delle ricompense per il ciclo di feedback in base al caso d'uso
 

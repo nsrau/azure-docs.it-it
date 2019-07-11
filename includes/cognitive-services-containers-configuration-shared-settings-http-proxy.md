@@ -1,24 +1,24 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/07/2019
-ms.openlocfilehash: fe1b4699a300831294c26b103d322fb83ad87d3b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: HT
+ms.openlocfilehash: 9911b1c92bdca6c0cdf064ea484cfb603e659467
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180417"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712569"
 ---
 Se è necessario configurare un proxy HTTP per eseguire le richieste in uscita, usare questi due argomenti:
 
-| NOME | Tipo di dati | DESCRIZIONE |
+| Name | Tipo di dati | Descrizione |
 |--|--|--|
-|HTTP_PROXY|stringa|Il proxy da usare, ad esempio, `http://proxy:8888`<br><proxy-url>|
-|HTTP_PROXY_CREDS|stringa|Qualsiasi credenziale richiesta per autenticare il proxy, ad esempio, nome utente:password.|
-|`<proxy-user>`|stringa|L'utente per il proxy.|
-|`proxy-password`|stringa|La password associata a `<proxy-user>` per il proxy.|
+|HTTP_PROXY|string|Il proxy da usare, ad esempio, `http://proxy:8888`<br><proxy-url>|
+|HTTP_PROXY_CREDS|string|Qualsiasi credenziale richiesta per autenticare il proxy, ad esempio, nome utente:password.|
+|`<proxy-user>`|string|L'utente per il proxy.|
+|`proxy-password`|string|La password associata a `<proxy-user>` per il proxy.|
 ||||
 
 

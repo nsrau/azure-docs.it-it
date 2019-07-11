@@ -1,16 +1,16 @@
 ---
 author: PatrickFarley
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/12/2019
 ms.author: pafarley
-ms.openlocfilehash: d322aa27c7c9dcf4ad365ec22f8074aeacc85d3b
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: a37087c90b6c9b3629402c7a8c2fa5861e46ae9a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502826"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592509"
 ---
 Quando viene concesso l'accesso per l'uso del riconoscimento modulo, si riceve un messaggio di posta elettronica di benvenuto con più collegamenti e risorse. Usare il collegamento al portale di Azure nel messaggio per aprire il portale di Azure e creare una risorsa di riconoscimento modulo. Nel riquadro **Crea** specificare le informazioni seguenti:
 
