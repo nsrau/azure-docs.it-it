@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: c64d43301fd173203bd1625b8d37120b71c22805
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 39db28cd7e11d77362a2aefcf4ad8d2748db59c2
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077404"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722499"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>I punteggi di ricompensa indicano il grado di successo della personalizzazione
 
@@ -29,7 +29,7 @@ Le ricompense vengono inviate a Personalizza esperienze dall'[API Ricompensa](ht
 
 Le ricompense vengono inviate dopo che si è verificato il comportamento degli utenti, che può avvenire alcuni giorni più tardi. Il tempo massimo di attesa prima che Personalizza esperienze consideri un evento come evento senza ricompensa, o con una ricompensa predefinita, viene configurato con [Reward Wait Time](#reward-wait-time) (Tempo di attesa ricompense) nel portale di Azure.
 
-Se non si riceve il punteggio di ricompensa per un evento nel tempo indicato per **Reward Wait Time** (Tempo di attesa ricompense), verrà applicato il valore di **Default Reward** (Ricompensa predefinita). Il valore di **[Default Reward](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** (Ricompensa predefinita) è impostato su zero.
+Se non si riceve il punteggio di ricompensa per un evento nel tempo indicato per **Reward Wait Time** (Tempo di attesa ricompense), verrà applicato il valore di **Default Reward** (Ricompensa predefinita). Il valore di **[Ricompensa predefinita](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** è impostato su zero.
 
 
 ## <a name="behaviors-and-data-to-consider-for-rewards"></a>Comportamenti e dati da considerare per le ricompense
