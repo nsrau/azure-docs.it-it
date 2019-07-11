@@ -4,7 +4,7 @@ description: Esempio di script di Azure PowerShell - Log di Monitoraggio di Azur
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e32729ba9a8ae4e10fe696c130b32b76bcf8fd2c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e05f146a45eebd257c0a7648573252d1784d21e3
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536426"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703345"
 ---
 # <a name="create-an-azure-monitor-vm-with-powershell"></a>Creare una macchina virtuale di Monitoraggio di Azure con PowerShell
 
@@ -31,7 +31,7 @@ Questo script consente di creare una macchina virtuale di Azure, installare l'ag
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Script di esempio
 

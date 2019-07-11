@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Traduzione vocale, C# (.NET Framework Windows) - Servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Traduzione vocale, C# (.NET Framework Windows) - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si creerà una semplice applicazione .NET Framework per acquisire i contenuti vocali dell'utente, convertirli in un'altra lingua e restituire il testo nella riga di comando. Questa guida è destinata agli utenti di Windows.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0bb5fa25301fa86564c7f7aadb3285bdd5898a08
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b81aac4779570f39fcbacda867fe27d902322bc5
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511170"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602832"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Avvio rapido: Traduzione vocale con Speech SDK per .NET Framework
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Guida introduttiva: Traduzione vocale con Speech SDK per .NET Framework
 
 Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](quickstart-csharp-dotnet-windows.md) e la [sintesi vocale](quickstart-text-to-speech-dotnet-windows.md).
 
@@ -69,7 +69,7 @@ Esempi aggiuntivi, ad esempio come eseguire il riconoscimento vocale da un file 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C# su GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)

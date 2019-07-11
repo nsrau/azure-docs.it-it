@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2018
-ms.author: aljo, dekapur
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 11d913264e5920b90ea08d2a29a3651ab101ee64
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 011cac977e44f85b8b183d253e987ff1b38c9834
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663163"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621924"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Esercitazione: Monitorare i contenitori di Windows in Service Fabric usando i log di Monitoraggio di Azure
 
@@ -86,7 +86,7 @@ Apportare le modifiche seguenti nel file *template.json*:
     "omsSolution": "ServiceFabric"
     ```
 
-3. Aggiungere Microsoft Monitoring Agent come estensione macchina virtuale. Trovare la risorsa set di scalabilità di macchine virtuali: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. In *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* aggiungere la descrizione di estensione seguente nell'estensione *ServiceFabricNode*: 
+3. Aggiungere Microsoft Monitoring Agent come estensione macchina virtuale. Trovare la risorsa set di scalabilità di macchine virtuali: *resources* >  *"apiVersion": "[variables('vmssApiVersion')]"* . In *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* aggiungere la descrizione di estensione seguente nell'estensione *ServiceFabricNode*: 
     
     ```json
     {
