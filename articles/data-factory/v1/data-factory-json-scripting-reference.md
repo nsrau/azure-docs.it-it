@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 25cf9c3b7968be16dcc22f4140725efc22d785f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 279a016d60ecb1bc80baf92a7fa60365145e397d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66156526"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836253"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Informazioni di riferimento sugli script JSON
 > [!NOTE]
@@ -292,7 +292,7 @@ La tabella seguente descrive le proprietà nel codice JSON precedente:
 | typeProperties | Proprietà che corrispondono al tipo selezionato. Vedere la sezione [Archivi dati](#data-stores) per i tipi supportati e le rispettive proprietà. |Sì |NA |
 | external | Flag booleano per specificare se un set di dati è generato o meno in modo esplicito da una pipeline della data factory. |N. |false |
 | Disponibilità | Definisce la finestra di elaborazione o il modello di sezionamento per la produzione di set di dati Per informazioni dettagliate sul modello di sezionamento dei set di dati, vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md). |Sì |NA |
-| criterio |Definisce i criteri o la condizione che devono soddisfare i sezionamenti di set di dati. <br/><br/>Per informazioni dettagliate, vedere la sezione Criteri di set di dati. |N. |NA |
+| policy |Definisce i criteri o la condizione che devono soddisfare i sezionamenti di set di dati. <br/><br/>Per informazioni dettagliate, vedere la sezione Criteri di set di dati. |N. |NA |
 
 Ogni colonna della sezione **struttura** contiene le proprietà seguenti:
 
@@ -499,7 +499,7 @@ Se si copiano dati da Archiviazione BLOB di Azure, impostare il **tipo di origin
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True (valore predefinito), False |N. |
+| recursive |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True (valore predefinito), False |N. |
 
 #### <a name="example-blobsource"></a>Esempio: **BlobSource**
 ```json
@@ -689,7 +689,7 @@ Se si copiano dati da Azure Data Lake Store, impostare il **tipo di origine** de
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True (valore predefinito), False |N. |
+| recursive |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True (valore predefinito), False |N. |
 
 #### <a name="example-azuredatalakestoresource"></a>Esempio: AzureDataLakeStoreSource
 
@@ -3678,7 +3678,7 @@ Se si copiano dati da un server FTP, impostare il **tipo di origine** dell'attiv
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |N. |
+| recursive |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |N. |
 
 #### <a name="example"></a>Esempio
 
@@ -3818,7 +3818,7 @@ Se si copiano dati da HDFS, impostare il **tipo di origine** dell'attività di c
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |N. |
+| recursive |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |N. |
 
 #### <a name="example"></a>Esempio
 
@@ -4019,7 +4019,7 @@ Se si copiano dati da un'origine SFTP, impostare il **tipo di origine** dell'att
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |N. |
+| recursive |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |N. |
 
 
 
@@ -5698,5 +5698,5 @@ Per altre informazioni, vedere l'articolo relativo all'[uso delle attività pers
 ## <a name="next-steps"></a>Fasi successive
 Vedere le esercitazioni seguenti:
 
-- [Esercitazione: Creare una pipeline con un'attività di copia](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Esercitazione: Creare una pipeline con un'attività di Hive](data-factory-build-your-first-pipeline-using-editor.md)
+- [Esercitazione: Creare una pipeline con un'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Esercitazione: Creare una pipeline con un'attività di Hive](data-factory-build-your-first-pipeline.md)

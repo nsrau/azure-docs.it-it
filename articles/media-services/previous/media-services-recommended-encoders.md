@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ec881d190de719c2a7dbedcbf28b0b3ea57140d8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332653"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840122"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificatori locali consigliati
 Quando si esegue lo streaming live con Servizi multimediali di Azure è possibile specificare in che modo si vuole che il canale riceva il flusso di input. Se si sceglie di usare un codificatore locale su un canale di codifica live, il codificatore deve eseguire il push un flusso a bitrate singolo di alta qualità come output. Se si sceglie di usare un codificatore locale via con un canale pass-through, il codificatore deve eseguire il push un flusso a bitrate multipli come output con tutte le qualità di output desiderato. Per altre informazioni, vedere [lo streaming Live con in locale codificatori](media-services-live-streaming-with-onprem-encoders.md).
@@ -54,7 +54,7 @@ Verifica del canale pass-through
 4. Creare un evento live pubblicato
 5. Eseguire il codificatore live per circa 10 minuti
 6. Arrestare l'evento live
-7. Creare, avviare un endpoint di streaming, usare un lettore, ad esempio [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) per guardare l'asset archiviato e assicurarsi che la riproduzione non presenti anomalie visibili a livello di qualità. In alternativa guardare e convalidare l'asset usando l'URL di anteprima durante la sessione live prima di eseguire il passaggio 6.
+7. Creare, avviare un endpoint di streaming, usare un lettore, ad esempio [Azure Media Player](http://aka.ms/azuremediaplayer) per guardare l'asset archiviato e assicurarsi che la riproduzione non presenti anomalie visibili a livello di qualità. In alternativa guardare e convalidare l'asset usando l'URL di anteprima durante la sessione live prima di eseguire il passaggio 6.
 8. Registrare l'ID risorsa, l'URL di streaming pubblicato per l'archivio live e le impostazioni e la versione usate dal codificatore live
 9. Reimpostare lo stato del canale dopo la creazione di ogni esempio
 10. Ripetere i passaggi da 3 a 9 per tutte le configurazioni supportate dal codificatore (con e senza segnalazioni annunci/sottotitoli/diverse velocità di codifica)
@@ -66,7 +66,7 @@ Verifica del canale di codifica live
 4. Creare un evento live pubblicato
 5. Eseguire il codificatore live per circa 10 minuti
 6. Arrestare l'evento live
-7. Creare, avviare un endpoint di streaming, usare un lettore, ad esempio [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) per guardare l'asset archiviato e assicurarsi che la riproduzione non presenti anomalie visibili a livello di qualità. In alternativa guardare e convalidare l'asset usando l'URL di anteprima durante la sessione live prima di eseguire il passaggio 6.
+7. Creare, avviare un endpoint di streaming, usare un lettore, ad esempio [Azure Media Player](http://aka.ms/azuremediaplayer) per guardare l'asset archiviato e assicurarsi che la riproduzione non presenti anomalie visibili a livello di qualità. In alternativa guardare e convalidare l'asset usando l'URL di anteprima durante la sessione live prima di eseguire il passaggio 6.
 8. Registrare l'ID risorsa, l'URL di streaming pubblicato per l'archivio live e le impostazioni e la versione usate dal codificatore live
 9. Reimpostare lo stato del canale dopo la creazione di ogni esempio
 10. Ripetere i passaggi da 3 a 9 per tutte le configurazioni supportate dal codificatore (con e senza segnalazioni annunci/sottotitoli/diverse velocità di codifica)
@@ -77,7 +77,7 @@ Verifica della durata
 3. Configurare il codificatore per eseguire il push di un flusso live a bitrate multipli.
 4. Creare un evento live pubblicato
 5. Eseguire un codificatore live per almeno una settimana
-6. Usare un lettore, ad esempio [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) per guardare di volta in volta lo streaming live (o l'asset archiviato) e assicurarsi che la riproduzione non presenti anomalie visibili
+6. Usare un lettore, ad esempio [Azure Media Player](http://aka.ms/azuremediaplayer) per guardare di volta in volta lo streaming live (o l'asset archiviato) e assicurarsi che la riproduzione non presenti anomalie visibili
 7. Arrestare l'evento live
 8. Registrare l'ID risorsa, l'URL di streaming pubblicato per l'archivio live e le impostazioni e la versione usate dal codificatore live
 

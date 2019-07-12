@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ee34c91787ede0431c71b0fd96d2c040717dbca2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 58db6f9903c4dc02c2d76f3784b004972621a000
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487391"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836489"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-create-pipelines.md)
 > * [Versione 2 (corrente)](../concepts-pipelines-activities.md)
 
@@ -290,8 +290,7 @@ Per altre informazioni, vedere [Pianificazione ed esecuzione](data-factory-sched
 ## <a name="create-and-monitor-pipelines"></a>Creare e monitorare le pipeline
 È possibile creare pipeline usando uno di questi strumenti o SDK.
 
-- Copia guidata.
-- Portale di Azure
+- Copia guidata
 - Visual Studio
 - Azure PowerShell
 - Modello di Azure Resource Manager

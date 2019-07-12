@@ -2,17 +2,17 @@
 title: Concetti - Nozioni di base di Kubernetes per il servizio Azure Kubernetes
 description: Informazioni sui componenti di base del cluster e del carico di lavoro di Kubernetes e sulle loro relazioni con le funzionalità del servizio Azure Kubernetes
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: iainfou
-ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514535"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616009"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -54,7 +54,7 @@ servizio Azure Kubernetes fornisce un master del cluster a tenant singolo con un
 
 Questo schema cluster gestito significa che non è necessario configurare i componenti come a disponibilità elevata *etcd* store, ma significa anche che è possibile accedere direttamente al master del cluster. Gli aggiornamenti di Kubernetes sono orchestrati tramite l'interfaccia della riga di comando di Azure o il portale di Azure che aggiorna il master del cluster e quindi i nodi. Per risolvere eventuali problemi è possibile esaminare il log del master del cluster tramite i log di Monitoraggio di Azure.
 
-Se è necessario configurare il master del cluster in modo particolare o di accedervi direttamente, è possibile distribuire il proprio cluster Kubernetes usando [servizio Azure Kubernetes-engine][aks-engine].
+Se è necessario configurare il master del cluster in modo particolare o necessario accesso diretto ad esse, è possibile distribuire il proprio cluster Kubernetes usando [aks-engine][aks-engine].
 
 Per procedure consigliate associati, vedere [procedure consigliate per la sicurezza del cluster e aggiornamenti nel servizio contenitore di AZURE][operator-best-practices-cluster-security].
 
@@ -70,9 +70,9 @@ Per eseguire le applicazioni e i servizi di supporto, è necessario un *nodo* Ku
 
 La dimensione della macchina virtuale di Azure per i nodi definisce il numero di CPU, la quantità di memoria e la dimensione e tipo della risorsa di archiviazione disponibile, ad esempio unità SSD a prestazioni elevate o HDD normale. Se si prevede di aver bisogno di applicazioni che richiedono grandi quantità di CPU e memoria o archiviazione a prestazioni elevate, pianificare di conseguenza la dimensione dei nodi. È anche possibile aumentare il numero di nodi del cluster servizio Azure Kubernetes in base alle esigenze.
 
-Nel servizio contenitore di AZURE, l'immagine di macchina virtuale per i nodi del cluster è attualmente basato su Ubuntu Linux o Windows Server 2019. Quando si crea un cluster servizio Azure Kubernetes o si aumenta il numero di nodi, la piattaforma Azure crea il numero richiesto di macchine virtuali e le configura. Non è presente alcuna configurazione manuale per eseguire. Nodi agente vengono fatturati come macchine virtuali standard, in modo che gli eventuali sconti avere sulle dimensioni della macchina virtuale in uso (compresi [Azure prenotazioni][reservation-discounts]) vengono applicati automaticamente.
+Nel servizio contenitore di AZURE, l'immagine di macchina virtuale per i nodi del cluster è attualmente basato su Ubuntu Linux o Windows Server 2019. Quando si crea un cluster servizio Azure Kubernetes o si aumenta il numero di nodi, la piattaforma Azure crea il numero richiesto di macchine virtuali e le configura. Non è presente alcuna configurazione manuale per eseguire. I nodi agente vengono fatturati come macchine virtuali standard, in modo che gli eventuali sconti avere sulle dimensioni della macchina virtuale in uso (compresi [prenotazioni Azure][reservation-discounts]) vengono applicate automaticamente.
 
-Se è necessario usare un sistema operativo host diverso, un altro runtime del contenitore o includere pacchetti personalizzati, è possibile distribuire il proprio cluster Kubernetes usando [servizio Azure Kubernetes-engine][aks-engine]. `aks-engine` upstream rilascia funzionalità e offre opzioni di configurazione prima che siano supportate ufficialmente nei cluster del servizio Azure Kubernetes. Ad esempio, se si vuole usare un runtime di contenitore diverso da Moby, è possibile usare `aks-engine` per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
+Se è necessario utilizzare un altro host del sistema operativo, runtime del contenitore, o includere i pacchetti personalizzati, è possibile distribuire il proprio cluster Kubernetes usando [aks-engine][aks-engine]. `aks-engine` upstream rilascia funzionalità e offre opzioni di configurazione prima che siano supportate ufficialmente nei cluster del servizio Azure Kubernetes. Ad esempio, se si vuole usare un runtime di contenitore diverso da Moby, è possibile usare `aks-engine` per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
 
 ### <a name="resource-reservations"></a>Prenotazioni di risorse
 
@@ -132,7 +132,7 @@ Kubernetes usa i *pod* per eseguire un'istanza dell'applicazione. Un pod rappres
 
 Quando si crea un pod è possibile definire *limiti per le risorse* per richiedere una certa quantità di risorse della CPU o di memoria. L'Utilità di pianificazione di Kubernetes tenta di pianificare i pod per l'esecuzione in un nodo con le risorse disponibili per soddisfare la richiesta. È anche possibile specificare limiti massimi per le risorse che impediscono a un pod dato di usare troppe risorse di calcolo del nodo sottostante. Una procedura consigliata consiste nell'includere limiti per le risorse per tutti i pod, per consentire all'l'Utilità di pianificazione di Kubernetes di capire quali risorse sono necessarie e consentite.
 
-Per altre informazioni, vedere [Pod di Kubernetes][kubernetes-pods] e [Ciclo di vita dei pod di Kubernetes][kubernetes-pod-lifecycle].
+Per altre informazioni, vedere [POD Kubernetes][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
 
 Un pod è una risorsa logica, i carichi di lavoro applicativi sono eseguiti nei contenitori. I pod sono in genere risorse temporanee ed eliminabili e i pod con pianificazione individuale perdono alcune delle funzionalità di disponibilità elevate e ridondanza offerte da Kubernetes. I pod sono in genere distribuiti e gestiti da *controller* di Kubernetes, ad esempio il controller di distribuzione.
 
@@ -179,17 +179,17 @@ spec:
 
 È possibile creare applicazioni più complesse includendo anche servizi come quelli di bilanciamento del carico all'interno del manifesto YAML.
 
-Per altre informazioni, vedere le [distribuzioni Kubernetes][kubernetes-deployments].
+Per altre informazioni, vedere [distribuzioni Kubernetes][kubernetes-deployments].
 
 ### <a name="package-management-with-helm"></a>Gestione dei pacchetti con Helm
 
-Un approccio comune alla gestione di applicazioni in Kubernetes è l'uso di [Helm][helm]. È possibile creare e usare *grafici* Helm pubblici esistente che contengono una versione pacchetto del codice applicativo e manifesti YAML di Kubernetes per distribuire le risorse. Questi grafici Helm possono essere archiviati in locale e spesso in un repository remoto, ad esempio un [repository per grafici Helm di Registro Azure Container][acr-helm].
+Un approccio comune per la gestione delle applicazioni in Kubernetes riguarda [Helm][helm]. È possibile creare e usare *grafici* Helm pubblici esistente che contengono una versione pacchetto del codice applicativo e manifesti YAML di Kubernetes per distribuire le risorse. Questi grafici Helm possono essere archiviati in locale o, spesso in un repository remoto, ad esempio un [repository grafico Helm registro contenitori di Azure][acr-helm].
 
-Per poter usare Helm, viene installato un componente server denominato *Tiller* nel cluster Kubernetes. Tiller gestisce l'installazione dei grafici all'interno del cluster. Il client Helm è installato localmente nel computer o può essere usato in [Azure Cloud Shell][azure-cloud-shell]. È possibile cercare o creare grafici Helm con il client e quindi installarli nel cluster Kubernetes.
+Per poter usare Helm, viene installato un componente server denominato *Tiller* nel cluster Kubernetes. Tiller gestisce l'installazione dei grafici all'interno del cluster. Il client Helm stesso è installato localmente nel computer o possono essere usato entro i [Azure Cloud Shell][azure-cloud-shell]. È possibile cercare o creare grafici Helm con il client e quindi installarli nel cluster Kubernetes.
 
 ![Helm include un componente client e un componente Tiller lato-server che crea risorse all'interno del cluster Kubernetes](media/concepts-clusters-workloads/use-helm.png)
 
-Per altre informazioni, vedere [Installare le applicazioni con Helm nel servizio Azure Kubernetes][aks-helm].
+Per altre informazioni, vedere [installare le applicazioni con Helm in Azure Kubernetes Service (AKS)][aks-helm].
 
 ## <a name="statefulsets-and-daemonsets"></a>Oggetti StatefulSet e DaemonSet
 
@@ -206,7 +206,7 @@ Molte applicazioni sviluppate attualmente sono senza stato, mentre gli oggetti *
 
 Si definisce l'applicazione nel formato YAML tramite `kind: StatefulSet` e poi il controller StatefulSet gestisce la distribuzione e la gestione delle repliche necessarie. I dati vengono scritti nella risorsa di archiviazione permanente fornita da Managed Disks di Azure o File di Azure. Con gli oggetti StatefulSet, la risorsa di archiviazione permanente sottostante rimane anche quando viene eliminato l'oggetto StatefulSet.
 
-Per altre informazioni, vedere [Oggetti StatefulSet di Kubernetes][kubernetes-statefulsets].
+Per altre informazioni, vedere [Kubernetes StatefulSets][kubernetes-statefulsets].
 
 Le repliche in un oggetto StatefulSet sono pianificate ed eseguire su tutti i nodi disponibili in un cluster servizio Azure Kubernetes. Se è necessario assicurarsi che almeno un pod del set venga eseguito in un nodo, è possibile usare un oggetto DaemonSet.
 
@@ -218,7 +218,7 @@ Il controller DaemonSet può pianificare i pod nei nodi in una delle prime fasi 
 
 Come gli oggetti StatefulSet, un oggetto DaemonSet viene definito come parte di una definizione YAML usando `kind: DaemonSet`.
 
-Per altre informazioni, vedere [Oggetti DaemonSet di Kubernetes][kubernetes-daemonset].
+Per altre informazioni, vedere [Kubernetes DaemonSets][kubernetes-daemonset].
 
 > [!NOTE]
 > Se si usa la [componente aggiuntivo di nodi virtuali](virtual-nodes-cli.md#enable-virtual-nodes-addon), Daemonset non creerà i POD nel nodo virtuale.
@@ -235,17 +235,17 @@ Quando si crea un cluster servizio Azure Kubernetes, sono disponibili gli spazi 
 - *kube system*: lo spazio dei nomi in cui sono presenti le risorse principali, ad esempio le funzionalità di rete come DNS e proxy o il dashboard di Kubernetes. In genere non si distribuiscono le proprie applicazioni in questo spazio dei nomi.
 - *kube-public*: questo spazio dei nomi solitamente non viene usato ma può essere usato per le risorse che devono essere visibili nell'intero cluster ed essere visualizzate da tutti gli utenti.
 
-Per altre informazioni, vedere [Spazi dei nomi di Kubernetes][kubernetes-namespaces].
+Per altre informazioni, vedere [spazi dei nomi Kubernetes][kubernetes-namespaces].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questo articolo tratta alcuni dei componenti principali di Kubernetes descrivendo come si applicano ai cluster servizio Azure Kubernetes. Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 
-- [Kubernetes / Accesso e identità per servizio Azure Kubernetes][aks-concepts-identity]
-- [Kubernetes / Sicurezza di servizio Azure Kubernetes][aks-concepts-security]
-- [Kubernetes / Reti virtuali in servizio Azure Kubernetes][aks-concepts-network]
-- [Kubernetes / Archiviazione in servizio Azure Kubernetes][aks-concepts-storage]
-- [Kubernetes / Ridimensionamento in AKS][aks-concepts-scale]
+- [Kubernetes / AKS di accesso e identità][aks-concepts-identity]
+- [Kubernetes / sicurezza AKS][aks-concepts-security]
+- [Kubernetes / reti virtuali di servizio contenitore di AZURE][aks-concepts-network]
+- [Kubernetes / archiviazione servizio contenitore di AZURE][aks-concepts-storage]
+- [Kubernetes / scalabilità AKS][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 [aks-engine]: https://github.com/Azure/aks-engine

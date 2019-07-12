@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: 95315007186b209a618337749662a1921f5a05e1
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
-ms.translationtype: HT
+ms.openlocfilehash: ee0200f7c007b437a27b8e9d0f36becc13b8f611
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827616"
+ms.locfileid: "67835810"
 ---
 # <a name="pre-filtering-manifests-by-using-dynamic-packager"></a>Pre-filtro dei manifesti con creazione dinamica dei pacchetti
 
@@ -48,7 +48,7 @@ Per un esempio REST, vedere [caricare, codificare e trasmettere i file con REST]
 
 ### <a name="monitor-the-bitrate-of-a-video-stream"></a>Monitorare la velocità in bit di un flusso video
 
-È possibile usare la [pagina di prova di Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) per monitorare la velocità in bit di un flusso video. La pagina di prova consente di visualizzare informazioni di diagnostica sul **diagnostica** scheda:
+È possibile usare la [pagina di prova di Azure Media Player](http://aka.ms/azuremediaplayer) per monitorare la velocità in bit di un flusso video. La pagina di prova consente di visualizzare informazioni di diagnostica sul **diagnostica** scheda:
 
 ![Diagnostica di Azure Media Player][amp_diagnostics]
  

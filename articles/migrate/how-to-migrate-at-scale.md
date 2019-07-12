@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
-ms.openlocfilehash: f90140e9464ee72e9ceae8ca140bd060c51aade8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b45a158569b3be8250728293c1bf73c1a860a0f6
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60597119"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67808031"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Migrazione su vasta scala di macchine virtuali con Azure Site Recovery
 
-Questo articolo aiuta a comprendere il processo di uso degli script per eseguire la migrazione di un numero elevato di macchine virtuali con Azure Site Recovery. Questi script sono disponibili per il download nel repository di [esempi di Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) in GitHub. Gli script possono essere utilizzati per eseguire la migrazione di VMware, AWS, GCP le macchine virtuali e server fisici di Azure e il supporto della migrazione a managed disks. È anche possibile usare questi script per eseguire la migrazione di macchine virtuali Hyper-V se si esegue la migrazione delle macchine virtuali come server fisici. Gli script sfruttano i cmdlet di PowerShell per Azure Site Recovery documentati [qui](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+Questo articolo aiuta a comprendere come usare gli script per eseguire la migrazione di un numero elevato di macchine virtuali con Azure Site Recovery. Questi script sono disponibili per il download nel repository di [esempi di Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) in GitHub. Gli script possono essere utilizzati per eseguire la migrazione di VMware, AWS, GCP le macchine virtuali e server fisici in dischi gestiti in Azure. È anche possibile usare questi script per eseguire la migrazione di macchine virtuali Hyper-V se si esegue la migrazione delle macchine virtuali come server fisici. Gli script che consentono di sfruttare PowerShell per Azure Site Recovery sono documentati [qui](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
 
 ## <a name="current-limitations"></a>Limitazioni correnti:
 - È possibile specificare l'indirizzo IP statico solo per la scheda di interfaccia di rete primaria della macchina virtuale di destinazione
@@ -60,7 +60,7 @@ Una volta pronto il file CSV, è possibile seguire la procedura illustrata di se
 6 | asr_cleanuptestmigration.ps1 | Una volta convalidate manualmente le macchine virtuali che sono state sottoposte al failover di test, è possibile usare questo script per eseguire la pulizia delle macchine virtuali usate per il failover di test.
 7 | asr_migration.ps1 | Eseguire un failover non pianificato per le macchine virtuali elencate nel file CSV. Lo script crea un output CSV con i dettagli del processo per ogni macchina virtuale. Lo script non arresta le macchine virtuali locale prima di attivare il failover, per coerenza con l'applicazione, è consigliabile che è stato arrestato manualmente le macchine virtuali prima di eseguire lo script.
 8 | asr_completemigration.ps1 | Eseguire l'operazione di commit nelle macchine virtuali ed eliminare le entità di Azure Site Recovery
-9 | asr_postmigration.ps1 | Se si prevede di assegnare gruppi di sicurezza di rete alle schede di interfaccia di rete dopo il failover, è possibile usare questo script a tale scopo. Lo script assegna un gruppo di sicurezza di rete a ogni scheda di interfaccia di rete nella macchina virtuale di destinazione.
+9 | asr_postmigration.ps1 | Se si prevede di assegnare gruppi di sicurezza di rete alle schede di interfaccia di rete dopo il failover, è possibile usare questo script a tale scopo. Assegna un NSG a un'interfaccia di rete nella macchina virtuale di destinazione.
 
 ## <a name="how-to-migrate-to-managed-disks"></a>Come eseguire la migrazione a managed disks?
 Lo script, per impostazione predefinita, viene eseguita la migrazione di macchine virtuali a managed disks in Azure. Se l'account di archiviazione di destinazione specificato è un account di archiviazione premium, i dischi premium gestiti vengono creati post-migrazione. L'account di archiviazione della cache possa comunque essere un account standard. Se l'account di archiviazione di destinazione è un account di archiviazione standard, i dischi standard vengono creati dopo la migrazione. 

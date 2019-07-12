@@ -10,24 +10,24 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06879164c6f72891b734da077c667c6f90448fe4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6163f1cbf878f4d4678b2b66829522b0dd16ae22
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512957"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835623"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates e PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Gli elementi **Predicates** e **PredicateValidations** consentono di eseguire un processo di convalida per assicurarsi che solo i dati adeguatamente formattati vengano immessi nel tenant di Azure Active Directory (Azure AD) B2C in uso.  
+Gli elementi **Predicates** e **PredicateValidations** consentono di eseguire un processo di convalida per assicurarsi che solo i dati adeguatamente formattati vengano immessi nel tenant di Azure Active Directory (Azure AD) B2C in uso.
 
-Il diagramma seguente mostra la relazione tra gli elementi:  
+Il diagramma seguente mostra la relazione tra gli elementi:
 
-![Predicati](./media/predicates/predicates.png)
+![Diagramma che illustra la relazione di predicati e le convalide del predicato](./media/predicates/predicates.png)
 
-## <a name="predicates"></a>Predicati  
+## <a name="predicates"></a>Predicati
 
 L'elemento **Predicate** definisce una convalida di base per controllare il valore di un tipo di attestazione e restituisce `true` o `false`. La convalida viene eseguita usando un elemento **Method** specificato e un set di elementi **Parameter** pertinenti al metodo. Un predicato può ad esempio controllare se la lunghezza di un valore di attestazione di tipo stringa rientra nell'intervallo di parametri minimo e massimo specificato o se un valore di attestazione di tipo stringa contiene un set di caratteri. L'elemento **UserHelpText** visualizza un messaggio di errore agli utenti se il controllo ha esito negativo. Il valore dell'elemento **UserHelpText** può essere localizzato usando la [funzionalità di personalizzazione della lingua](localization.md).
 
@@ -35,27 +35,27 @@ L'elemento **Predicates** contiene l'elemento seguente:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| Predicate | 1:n | Elenco di predicati. | 
+| Predicate | 1:n | Elenco di predicati. |
 
 L'elemento **Predicate** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | ID | Yes | Identificatore usato per il predicato. Altri elementi possono usare questo identificatore nei criteri. |
-| Metodo | Yes | Tipo di metodo da usare per la convalida. Valori possibili: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** e **IsDateRange**. Il valore **IsLengthRange** controlla se la lunghezza del valore di un'attestazione di tipo stringa rientra nell'intervallo di parametri minimo e massimo specificato. Il valore **MatchesRegex** controlla se il valore di un'attestazione di tipo stringa corrisponde a un'espressione regolare. Il valore **IncludesCharacters** controlla se il valore di un'attestazione di tipo stringa contiene un set di caratteri. Il valore **IsDateRange** controlla se il valore di un'attestazione di tipo data rientra nell'intervallo di parametri minimo e massimo specificato. |
+| Metodo | Sì | Tipo di metodo da usare per la convalida. Valori possibili: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** e **IsDateRange**. Il valore **IsLengthRange** controlla se la lunghezza del valore di un'attestazione di tipo stringa rientra nell'intervallo di parametri minimo e massimo specificato. Il valore **MatchesRegex** controlla se il valore di un'attestazione di tipo stringa corrisponde a un'espressione regolare. Il valore **IncludesCharacters** controlla se il valore di un'attestazione di tipo stringa contiene un set di caratteri. Il valore **IsDateRange** controlla se il valore di un'attestazione di tipo data rientra nell'intervallo di parametri minimo e massimo specificato. |
 
 L'elemento **Predicate** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | Messaggio di errore per gli utenti se il controllo ha esito negativo. Questa stringa può essere localizzata usando la [funzionalità di personalizzazione della lingua](localization.md). |
-| Parametri | 1:1 | Parametri del tipo di metodo della convalida della stringa. | 
+| Parametri | 1:1 | Parametri del tipo di metodo della convalida della stringa. |
 
 L'elemento **Parameters** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
-| Parametro | 1:n | Parametri del tipo di metodo della convalida della stringa. | 
+| Parametro | 1:n | Parametri del tipo di metodo della convalida della stringa. |
 
 L'elemento **Parameter** contiene gli attributi seguenti:
 
@@ -108,7 +108,7 @@ L'esempio seguente mostra un metodo `IsDateRange` con i parametri `Minimum` e `M
 </Predicate>
 ```
 
-## <a name="predicatevalidations"></a>PredicateValidations 
+## <a name="predicatevalidations"></a>PredicateValidations
 
 Mentre i predicati definiscono la convalida da controllare rispetto a un tipo di attestazione, gli elementi **PredicateValidations** raggruppano un set di predicati per formare la convalida di un input utente che può essere applicata a un tipo di attestazione. Ogni elemento **PredicateValidation** contiene un set di elementi **PredicateGroup** che contengono un set di elementi **PredicateReference** che punta a un elemento **Predicate**. Per passare la convalida, il valore dell'attestazione deve superare tutti i testi di qualsiasi predicato in tutto il **PredicateGroup** con i rispettivi set di elementi **PredicateReference**.
 
@@ -134,38 +134,38 @@ L'elemento **PredicateValidations** contiene l'elemento seguente:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| PredicateValidation | 1:n | Elenco di convalida del predicato. | 
+| PredicateValidation | 1:n | Elenco di convalida del predicato. |
 
 L'elemento **PredicateValidation** contiene l'attributo seguente:
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Yes | Identificatore che viene usato per la convalida del predicato. L'elemento **ClaimType** può usare questo identificatore nei criteri. |
+| ID | Sì | Identificatore che viene usato per la convalida del predicato. L'elemento **ClaimType** può usare questo identificatore nei criteri. |
 
 L'elemento **PredicateValidation** contiene l'elemento seguente:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| PredicateGroups | 1:n | Elenco di gruppi di predicati. | 
+| PredicateGroups | 1:n | Elenco di gruppi di predicati. |
 
 L'elemento **PredicateGroups** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
-| PredicateGroup | 1:n | Elenco di predicati. | 
+| PredicateGroup | 1:n | Elenco di predicati. |
 
 L'elemento **PredicateGroup** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| ID | Yes | Identificatore usato per il gruppo di predicati.  |
+| ID | Sì | Identificatore usato per il gruppo di predicati.  |
 
 L'elemento **PredicateGroup** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 |  Descrizione del predicato che può essere utile agli utenti per sapere quale valore devono digitare. | 
-| PredicateReferences | 1:n | Elenco di riferimenti del predicato. | 
+| UserHelpText | 1:1 |  Descrizione del predicato che può essere utile agli utenti per sapere quale valore devono digitare. |
+| PredicateReferences | 1:n | Elenco di riferimenti del predicato. |
 
 L'elemento **PredicateReferences** contiene gli attributi seguenti:
 
@@ -177,7 +177,7 @@ L'elemento **PredicateReferences** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| PredicateReference | 1:n | Riferimento a un predicato. | 
+| PredicateReference | 1:n | Riferimento a un predicato. |
 
 L'elemento **PredicateReference** contiene gli attributi seguenti:
 
@@ -188,7 +188,7 @@ L'elemento **PredicateReference** contiene gli attributi seguenti:
 
 ## <a name="configure-password-complexity"></a>Configurare la complessità delle password
 
-Con gli elementi **Predicates** e **PredicateValidationsInput** è possibile controllare i requisiti di complessità delle password specificate da un utente durante la creazione di un account. Per impostazione predefinita, Azure AD B2C usa password complesse. Azure AD B2C supporta anche opzioni di configurazione per controllare la complessità delle password che i clienti possono usare. È possibile definire la complessità delle password usando questi elementi predicato: 
+Con gli elementi **Predicates** e **PredicateValidationsInput** è possibile controllare i requisiti di complessità delle password specificate da un utente durante la creazione di un account. Per impostazione predefinita, Azure AD B2C usa password complesse. Azure AD B2C supporta anche opzioni di configurazione per controllare la complessità delle password che i clienti possono usare. È possibile definire la complessità delle password usando questi elementi predicato:
 
 - **IsLengthBetween8And64** con il metodo `IsLengthRange` convalida che la password deve contenere da 8 a 64 caratteri.
 - **Lowercase** con il metodo `IncludesCharacters`, convalida che la password contiene una lettera minuscola.
@@ -348,7 +348,7 @@ Nel tipo di attestazione aggiungere l'elemento **PredicateValidationReference** 
 
 Di seguito viene illustrato come vengono organizzati gli elementi quando Azure AD B2C visualizza il messaggio di errore:
 
-![Processo dei predicati](./media/predicates/predicates-pass.png)
+![Diagramma di predicato e PredicateGroup esempio complessità password](./media/predicates/predicates-pass.png)
 
 ## <a name="configure-a-date-range"></a>Configurare un intervallo di date
 
@@ -382,8 +382,8 @@ Aggiungere un elemento **PredicateValidation** con un riferimento al predicato `
 </PredicateValidations>
 ```
 
-Nel tipo di attestazione aggiungere l'elemento **PredicateValidationReference** e specificare l'identificatore come `CustomDateRange`. 
-    
+Nel tipo di attestazione aggiungere l'elemento **PredicateValidationReference** e specificare l'identificatore come `CustomDateRange`.
+
 ```XML
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>

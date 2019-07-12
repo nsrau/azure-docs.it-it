@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a91d0f75b7e27065bd2ee0ea430a859d265afacb
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 2eae81f357904bd5034d7409ef42b681d1085930
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332043"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695230"
 ---
 # <a name="vpn-gateways-overview"></a>Panoramica del gateway VPN
 
@@ -43,8 +43,6 @@ Casi d'uso per la rete VPN site-to-site includono:
 > È necessario limitare MSS TCP 1078 byte o inferiore. O se i dispositivi VPN non supportano limitazione di MSS, è inoltre possibile impostare il valore MTU sull'interfaccia del tunnel in byte 1118 invece. 
 
 ### <a name="cryptographic-parameters"></a>Parametri di crittografici
-
-Una connessione VPN site-to-site Usa i parametri di crittografia predefinito seguente per stabilire una connessione sicura.  Quando si crea una connessione dal dispositivo VPN locale, i parametri devono corrispondere.
 
 Una connessione VPN site-to-site Usa i parametri di crittografia predefinito seguente per stabilire una connessione sicura.  Quando si crea una connessione dal dispositivo VPN locale, usare uno qualsiasi dei seguenti parametri supportati dal gateway VPN da sito locale.
 

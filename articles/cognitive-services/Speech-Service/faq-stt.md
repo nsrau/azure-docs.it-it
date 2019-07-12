@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 73e53e47576b0697c0d09b386bb3e830d976dd04
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a437927f6ad43f4c3a90433faa5b9fa6f964aa5c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606651"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839241"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
@@ -83,7 +83,12 @@ Contattare [supporto vocale](mailto:speechsupport@microsoft.com?subject=Request%
 
 **R**: L'API REST limita le richieste a 25 ogni 5 secondi. Informazioni dettagliate sono disponibili nelle pagine relative al [Riconoscimento vocale](speech-to-text.md).
 
-In caso di altri problemi di privacy che impediscono l'uso del Servizio di riconoscimento vocale personalizzato, contattare uno dei canali di supporto.
+**D: Come addebito per l'audio a doppio canale?**
+
+**R**: Se si invia separatamente ogni canale (ogni canale nel proprio file), viene addebitato per la durata di ciascun file. Se si invia un singolo file con ogni canale multiplex insieme, ti verrà addebitata per la durata del file singolo.
+
+> [!IMPORTANT]
+> In caso di altri problemi di privacy che impediscono l'uso del Servizio di riconoscimento vocale personalizzato, contattare uno dei canali di supporto.
 
 ## <a name="importing-data"></a>Importazione di dati
 

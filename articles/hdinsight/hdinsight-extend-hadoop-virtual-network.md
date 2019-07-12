@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/17/2019
-ms.openlocfilehash: fc46b971ee3abb4c7e52f0cfa07a7098e2f86c19
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
-ms.translationtype: HT
+ms.date: 07/10/2019
+ms.openlocfilehash: dab4262e5412c8ef3cd1e0d2ef8203d7f289693f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797726"
+ms.locfileid: "67839177"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estendere Azure HDInsight usando Rete virtuale di Azure
 
@@ -25,7 +25,9 @@ Informazioni su come usare HDInsight con [Rete virtuale di Azure](../virtual-net
 * Accesso diretto ai servizi [Apache Hadoop](https://hadoop.apache.org/) che non sono disponibili pubblicamente su Internet, ad esempio le API [Apache Kafka](https://kafka.apache.org/) o l'API Java [Apache HBase](https://hbase.apache.org/).
 
 > [!IMPORTANT]  
-> Dopo il 28 febbraio 2019 è verranno eseguito il provisioning di risorse di rete (ad esempio, schede di rete, servizi Location based e così via) per i nuovi cluster creato in una rete virtuale nello stesso gruppo di risorse cluster HDInsight. In precedenza, queste risorse sono state sottoposte a provisioning nel gruppo di risorse della rete virtuale. Non sussiste alcuna modifica per i cluster in esecuzione correnti e i cluster creati senza una rete virtuale.
+> Creazione di un cluster HDInsight in una rete virtuale crea le risorse di rete diversi, ad esempio schede di rete e bilanciamento del carico. Effettuare **non** eliminare queste risorse di rete, in quanto sono necessari per il cluster funzionino correttamente con la rete virtuale.
+>
+> Dopo il 28 febbraio 2019 è verranno eseguito il provisioning queste risorse di rete (ad esempio, schede di rete, servizi Location based e così via) per i nuovi cluster creato in una rete virtuale nello stesso gruppo di risorse cluster HDInsight. In precedenza, queste risorse sono state sottoposte a provisioning nel gruppo di risorse della rete virtuale. Non sussiste alcuna modifica per i cluster in esecuzione correnti e i cluster creati senza una rete virtuale.
 
 ## <a name="prerequisites-for-code-samples-and-examples"></a>Prerequisiti per gli esempi di codice ed esempi
 

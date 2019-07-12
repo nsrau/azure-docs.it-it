@@ -9,12 +9,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 50eb62b20be66337c819372fa3d97eae4d7214b8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 43a673621aa3c114f99479a6da97153dae44990d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435748"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696086"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di archiviazione Blob di Azure
 
@@ -31,7 +31,7 @@ Si consideri uno scenario in cui i dati ottiene accesso frequente durante le fas
 
 ## <a name="storage-account-support"></a>Supporto dell'account di archiviazione
 
-I criteri di gestione del ciclo di vita sono disponibili sia con gli account per utilizzo generico v2 (GPv2), sia con gli account di archiviazione BLOB. Nel portale di Azure, è possibile aggiornare un account di uso generale (per utilizzo generico v1) esistente a un account per utilizzo generico v2. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).  
+I criteri di gestione del ciclo di vita sono disponibili con utilizzo generico v2 (GPv2) degli account, account di archiviazione Blob e gli account di archiviazione Blob in blocchi per Premium. Nel portale di Azure, è possibile aggiornare un account di uso generale (per utilizzo generico v1) esistente a un account per utilizzo generico v2. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).  
 
 ## <a name="pricing"></a>Prezzi
 
@@ -39,7 +39,7 @@ La funzionalità di gestione del ciclo di vita è gratuita. Ai clienti viene add
 
 ## <a name="regional-availability"></a>Disponibilità internazionale
 
-La funzionalità di gestione del ciclo di vita è disponibile in tutte le aree globali di Azure.
+La funzionalità di gestione del ciclo di vita è disponibile in tutte le aree globali di Azure e Azure per enti pubblici.
 
 ## <a name="add-or-remove-a-policy"></a>Aggiungere o rimuovere un criterio
 
@@ -197,7 +197,7 @@ Un criterio è una raccolta di regole:
 
 Ogni regola all'interno del criterio ha diversi parametri:
 
-| Nome parametro | Tipo di parametro | Note | Obbligatorio |
+| Nome parametro | Tipo di parametro | Note | Obbligatoria |
 |----------------|----------------|-------|----------|
 | `name`         | String |Nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | True |
 | `enabled`      | Boolean | Un valore booleano facoltativo per consentire una regola affinché sia temporanea è disabilitata. Valore predefinito è true se non è impostata. | False | 

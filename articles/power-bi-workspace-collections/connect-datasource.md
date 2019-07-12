@@ -2,18 +2,18 @@
 title: Connessione a un'origine dati nelle raccolte di aree di lavoro di Power BI | Microsoft Docs
 description: Informazioni su come connettersi a un'origine dati nelle raccolte di aree di lavoro di Power BI.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 721458c5725e912d801b307ac05f3fde0776580e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ce666a017c1e5ac25b11fe1c22cdb37746f75df
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708753"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669151"
 ---
 # <a name="connect-to-a-data-source"></a>Connettersi a un'origine dati
 
@@ -24,7 +24,7 @@ Le **raccolte di aree di lavoro di Power BI** consentono di incorporare report i
 
 Di seguito sono spiegate le differenze tra l'**importazione** e la modalità **DirectQuery**.
 
-| Importa | DirectQuery |
+| Import | DirectQuery |
 | --- | --- |
 | Tabelle, colonne *e dati* vengono importati o copiati nel set di dati del report. Per visualizzare le modifiche apportate ai dati sottostanti, è necessario aggiornare o importare nuovamente un set di dati completo e corrente. |Vengono importate o copiate nel set di dati del report solo *tabelle e colonne* . Vengono visualizzati sempre i dati più recenti. |
 

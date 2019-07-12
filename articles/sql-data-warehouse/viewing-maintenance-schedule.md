@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 61537a4cb8ca1e6e98f2fa04959861eb03480fe9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0b9b59ec09445a170d1f93181c2b432eafb60bf
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61474871"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839992"
 ---
 # <a name="view-a-maintenance-schedule"></a>Visualizzare una pianificazione della manutenzione 
 
@@ -27,7 +27,7 @@ Per visualizzare la pianificazione della manutenzione applicata al data warehous
 
 1.  Accedere al [portale di Azure](https://portal.azure.com/).
 2.  Selezionare il data warehouse che si vuole visualizzare. 
-3.  Il data warehouse selezionato verrà aperto nel pannello Panoramica. La pianificazione della manutenzione applicata al data warehouse verrà visualizzata sotto la **pianificazione della manutenzione (anteprima)** .
+3.  Il data warehouse selezionato verrà aperto nel pannello Panoramica. La pianificazione di manutenzione che viene applicata al data warehouse viene visualizzato sotto **pianificazione di manutenzione**.
 
 ![Pannello Panoramica](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 

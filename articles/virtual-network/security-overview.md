@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: a81232266749c14ce421ccf774e0cbd843b8b4eb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 99a55d0cd06e6f1a92a70b20447d300dbc05eee1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436619"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709546"
 ---
 # <a name="security-groups"></a>Gruppi di sicurezza
 <a name="network-security-groups"></a>
@@ -32,7 +32,7 @@ Un gruppo di sicurezza di rete può contenere zero regole o il numero di regole 
 
 |Proprietà  |Spiegazione  |
 |---------|---------|
-|NOME|Nome univoco all'interno del gruppo di sicurezza di rete.|
+|Name|Nome univoco all'interno del gruppo di sicurezza di rete.|
 |Priorità | Numero compreso tra 100 e 4096. Le regole vengono elaborate in ordine di priorità. I numeri più bassi vengono elaborati prima di quelli più elevati perché hanno priorità più alta. Quando il traffico corrisponde a una regola, l'elaborazione viene interrotta. Di conseguenza, le regole con priorità più bassa (numeri più elevati) che hanno gli stessi attributi di regole con priorità più elevata non vengono elaborate.|
 |Origine o destinazione| Qualsiasi indirizzo IP, blocco CIDR (Classless Inter-Domain Routing), ad esempio 10.0.0.0/24, [tag di servizio](#service-tags) o [gruppo di sicurezza delle applicazioni](#application-security-groups). Se si specifica un indirizzo per una risorsa di Azure, specificare l'indirizzo IP privato assegnato alla risorsa. I gruppi di sicurezza della rete vengono elaborati dopo che Azure ha convertito un indirizzo IP pubblico in un indirizzo IP privato per il traffico in ingresso e prima che Azure converta un indirizzo IP privato in un indirizzo IP pubblico per il traffico in uscita. Vedere altre informazioni sugli [indirizzi IP](virtual-network-ip-addresses-overview-arm.md) di Azure. Specificando un intervallo, un tag di servizio o un gruppo di sicurezza delle applicazioni è possibile creare un minor numero di regole di sicurezza. La possibilità di specificare più intervalli e indirizzi IP singoli in una regola è detta [regola di sicurezza ottimizzata](#augmented-security-rules). Non si possono specificare più tag di servizio o gruppi di applicazioni. È possibile creare regole di sicurezza ottimizzate solo in gruppi di sicurezza di rete creati tramite il modello di distribuzione Resource Manager. Non si possono specificare più indirizzi IP e intervalli di indirizzi IP nei gruppi di sicurezza di rete creati tramite il modello di distribuzione classica. Vedere altre informazioni sui [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure.|
 |Protocol     | TCP, UDP o Qualsiasi, che include, ad esempio, TCP, UDP e ICMP. Non è possibile specificare solo ICMP. Se è necessario ICMP, usare Qualsiasi. |
@@ -82,6 +82,11 @@ I tag di servizio seguenti sono disponibili per l'utilizzo in [le regole dei gru
 * **AzureBackup*** (solo Resource Manager): Questo tag identifica i prefissi degli indirizzi del servizio AzureBackup. Se si specifica *AzureBackup* per il valore, il traffico è consentito o negato per AzureBackup. Il tag non ha dipendenze **memorizzazione** e **AzureActiveDirectory** tag. Questo tag consigliati per la regola di sicurezza in uscita. 
 * **AzureActiveDirectoryDomainServices*** (solo Resource Manager): Questo tag identifica i prefissi degli indirizzi il traffico di gestione per le distribuzioni dedicate di Azure Active Directory Domain Services. Se si specifica *AzureActiveDirectoryDomainServices* per il valore, il traffico è consentito o negato per AzureActiveDirectoryDomainServices. Questo tag consigliati per la regola di sicurezza in ingresso/in uscita.  
 * **SqlManagement*** (solo Resource Manager): Questo tag identifica che i prefissi degli indirizzi il traffico di gestione per SQL dedicato le distribuzioni. Se si specifica *SqlManagement* per il valore, il traffico è consentito o negato per SqlManagement. Questo tag consigliati per la regola di sicurezza in ingresso/in uscita. 
+* **CognitiveServicesManagement** (solo Resource Manager): Questo tag identifica i prefissi degli indirizzi del traffico per servizi cognitivi. Se si specifica *CognitiveServicesManagement* per il valore, il traffico è consentito o negato per CognitiveServicesManagement. Questo tag consigliati per la regola di sicurezza in uscita.  
+* **Dynamics365ForMarketingEmail** (solo Resource Manager): Questo tag identifica i prefissi degli indirizzi del servizio di posta elettronica di marketing di Dynamics 365. Se si specifica *Dynamics365ForMarketingEmail* per il valore, il traffico è consentito o negato per Dynamics365ForMarketingEmail. Se si desidera solo consentire l'accesso a Dynamics365ForMarketingEmail in una determinata [regione](https://azure.microsoft.com/regions), è possibile specificare tale area nel formato seguente Dynamics365ForMarketingEmail. [ nome dell'area].
+* **AzurePlatformDNS** (solo Resource Manager): Questo tag identifica il DNS che è un servizio di infrastruttura di base. Se si specifica *AzurePlatformDNS* per il valore, è possibile disabilitare l'impostazione predefinita [considerazione piattaforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) per DNS. Prestare attenzione nell'uso di questo tag. È consigliabile eseguire test prima di usare questo tag. 
+* **AzurePlatformIMDS** (solo Resource Manager): Questo tag identifica il servizio metadati dell'istanza che è un servizio di infrastruttura di base. Se si specifica *AzurePlatformIMDS* per il valore, è possibile disabilitare l'impostazione predefinita [considerazione piattaforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) per IMDS. Prestare attenzione nell'uso di questo tag. È consigliabile eseguire test prima di usare questo tag. 
+* **AzurePlatformLKM** (solo Resource Manager): Questo tag identifica il servizio di gestione delle chiavi o licenze di Windows. Se si specifica *AzurePlatformLKM* per il valore, è possibile disabilitare l'impostazione predefinita [considerazione piattaforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) per le licenze. Prestare attenzione nell'uso di questo tag. È consigliabile eseguire test prima di usare questo tag. 
 
 > [!NOTE]
 > I tag di servizio per i servizi Azure identificano i prefissi di indirizzo dal cloud specifico in uso. 
@@ -107,13 +112,13 @@ Azure crea le regole predefinite seguenti in ogni gruppo di sicurezza di rete cr
 
 |Priorità|`Source`|Porte di origine|Destination|Porte di destinazione|Protocol|Accesso|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tutti|CONSENTI|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tutti|Allow|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
 |Priorità|`Source`|Porte di origine|Destination|Porte di destinazione|Protocol|Accesso|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Tutti|CONSENTI|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Tutti|Allow|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
@@ -127,13 +132,13 @@ Azure crea le regole predefinite seguenti in ogni gruppo di sicurezza di rete cr
 
 |Priorità|`Source`|Porte di origine| Destination | Porte di destinazione | Protocol | Accesso |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tutti | CONSENTI |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tutti | Allow |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
 |Priorità|`Source`|Porte di origine| Destination | Porte di destinazione | Protocol | Accesso |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Tutti | CONSENTI |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Tutti | Allow |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
@@ -159,7 +164,7 @@ Questa regola è necessaria per consentire il traffico da Internet verso i serve
 
 |Priorità|`Source`|Porte di origine| Destination | Porte di destinazione | Protocol | Accesso |
 |---|---|---|---|---|---|---|
-| 100 | Internet | * | AsgWeb | 80 | TCP | CONSENTI |
+| 100 | Internet | * | AsgWeb | 80 | TCP | Allow |
 
 ### <a name="deny-database-all"></a>Deny-Database-All
 
@@ -175,7 +180,7 @@ Questa regola consente il traffico dal gruppo di sicurezza delle applicazioni *A
 
 |Priorità|`Source`|Porte di origine| Destination | Porte di destinazione | Protocol | Accesso |
 |---|---|---|---|---|---|---|
-| 110 | AsgLogic | * | AsgDb | 1433 | TCP | CONSENTI |
+| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
 
 Le regole che specificano un gruppo di sicurezza delle applicazioni come origine o destinazione vengono applicate solo alle interfacce di rete che sono membri del gruppo di sicurezza delle applicazioni. Se l'interfaccia di rete non è membro di un gruppo di sicurezza delle applicazioni, la regola non viene applicata all'interfaccia di rete, anche se il gruppo di sicurezza di rete è associato alla subnet.
 

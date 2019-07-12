@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 0a1ead1580f6764fec7d1d18daa38bf093f242f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/11/2019
+ms.openlocfilehash: c19ec06ce353d653086fa693dde975a55f51f823
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61364439"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839246"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Eseguire la replica dei dati in Database di Azure per MariaDB
 
@@ -35,9 +35,8 @@ Il [*database di sistema mysql*](https://mariadb.com/kb/en/library/the-mysql-dat
 - Il server master deve usare il motore InnoDB.
 - L'utente deve disporre delle autorizzazioni necessarie per configurare la registrazione binaria e creare nuovi utenti sul server master.
 
-### <a name="other"></a>Altri
+### <a name="other"></a>Altro
 - La replica dei dati in ingresso è supportata solo nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria.
-- Gli identificatori di transazione globale (GTID) non sono supportati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [configurare la replica dei dati in ingresso](howto-data-in-replication.md).

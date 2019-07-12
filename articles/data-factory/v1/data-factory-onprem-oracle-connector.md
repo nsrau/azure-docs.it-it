@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51fae63b6db99f28a5b3bed056dadc0c2513ff0f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462412"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839940"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiare dati da o verso un database Oracle locale con Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-onprem-oracle-connector.md)
 > * [Versione 2 (corrente)](../connector-oracle.md)
 
@@ -83,7 +83,7 @@ Se si usa la Copia guidata per creare la pipeline di copia, il tipo di driver vi
 
 Il modo più semplice per creare una pipeline è usare la Copia guidata. Per istruzioni dettagliate, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md) per una rapida procedura dettagliata di creazione di una pipeline mediante la procedura guidata Copia dati.
 
-Per creare una pipeline, è possibile usare anche uno di questi strumenti: il **portale di Azure**, **Visual Studio**, **Azure PowerShell**, un **modello di Azure Resource Manager**, l'**API .NET** o l'**API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+È anche possibile usare uno dei seguenti strumenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, una **modello Azure Resource Manager**, la **API .NET**, o **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Se si usano gli strumenti o le API, completare la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -105,7 +105,7 @@ La tabella seguente descrive gli elementi JSON specifici del servizio collegato 
 | type |La proprietà **type** deve essere impostata su **OnPremisesOracle**. |Yes |
 | driverType | Specificare il driver da usare per copiare i dati da o verso il database Oracle. I valori consentiti sono **Microsoft** e **ODP** (impostazione predefinita). Per informazioni dettagliate sui driver, vedere [Versioni supportate e installazione](#supported-versions-and-installation). | No |
 | connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà **connectionString**. | Yes |
-| gatewayName | Nome del gateway usato per connettersi al server Oracle locale. |Yes |
+| gatewayName | Nome del gateway usato per connettersi al server Oracle locale. |Sì |
 
 **Esempio: mediante il driver Microsoft**
 
@@ -187,7 +187,7 @@ Nell'attività di copia con origine di tipo **OracleSource** sono disponibili le
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Esempi JSON per la copia dei dati da e verso il database Oracle
 
-Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Questi esempi illustrano come copiare dati da o verso un database Oracle e da o verso Archiviazione BLOB di Azure. I dati possono tuttavia essere copiati in uno qualsiasi dei sink elencati in [Archivi dati e formati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
+Gli esempi seguenti forniscono le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) oppure [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Questi esempi illustrano come copiare dati da o verso un database Oracle e da o verso Archiviazione BLOB di Azure. I dati possono tuttavia essere copiati in uno qualsiasi dei sink elencati in [Archivi dati e formati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
 
 **Esempio: Copiare i dati da Oracle ad Archiviazione BLOB di Azure**
 

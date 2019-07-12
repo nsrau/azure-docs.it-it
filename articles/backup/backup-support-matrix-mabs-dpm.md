@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 0f99042d91738c88a8b673444bb3d4a40602b012
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 85e65c36a0d636d94a9ef9070c21ab047542d8f4
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204177"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594251"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con System Center DPM o un Server di Backup di Microsoft Azure
 
@@ -55,7 +55,7 @@ Per altre informazioni:
 
 **Scenario** | **Agent** | **Location**
 --- | --- | ---
-**Backup di carichi di lavoro e computer locali** | Agente protezione DPM/MABS viene eseguito nei computer in cui si desidera eseguire il backup.<br/><br/> L'agente di MARS nel server DPM/MABS. | DPM/MABS deve essere in esecuzione in locale.
+**Backup di carichi di lavoro e computer locali** | Agente protezione DPM/MABS viene eseguito nei computer in cui si desidera eseguire il backup.<br/><br/> L'agente di MARS nel server DPM/MABS.<br/> La versione minima dell'agente di Servizi di ripristino di Microsoft Azure o dell'agente di Backup di Azure richiesta per l'abilitazione di questa funzionalità è la 2.0.8719.0.  | DPM/MABS deve essere in esecuzione in locale.
 **Backup di carichi di lavoro e macchine virtuali di Azure** | Agente protezione DPM/MABS nel computer protetto.<br/><br/> L'agente di MARS nel server DPM/MABS. | DPM o il server di Backup di Microsoft Azure deve essere in esecuzione in una macchina virtuale di Azure.
 
 ## <a name="supported-deployments"></a>Distribuzioni supportate
@@ -152,7 +152,7 @@ Dal 2016 DPM/MABS v2 (in esecuzione in Windows Server 2016) e versioni successiv
 - I backup di MBS vengono archiviati in un disco ReFS (Resilient File System).
 - MBS Usa blocchi ReFS la clonazione per il backup più veloci e un uso più efficiente di spazio di archiviazione.
 - Quando si aggiungono i volumi al pool di archiviazione DPM/MABS locale, si configurarli con lettere di unità. È quindi possibile configurare l'archiviazione dei carichi di lavoro in volumi diversi.
-- Quando si creano gruppi protezione dati per eseguire il backup dei dati in DPM o nel server di Backup di Microsoft Azure, si seleziona l'unità che si intende usare. Ad esempio, si potrebbe archiviare i backup per SQL o altra unità di carichi di lavoro ad alte prestazioni IOPS elevata e memorizzare i carichi di lavoro che viene eseguiti meno frequentemente in un'unità di prestazioni inferiore.
+- Quando si creano gruppi protezione dati per eseguire il backup dei dati in DPM o nel server di Backup di Microsoft Azure, si seleziona l'unità che si intende usare. Ad esempio, si potrebbe archiviare i backup per SQL o altri carichi di lavoro IOPS elevati in un'unità ad alte prestazioni e memorizzare i carichi di lavoro che viene eseguiti meno frequentemente in un'unità di prestazioni inferiore.
 
 
 ## <a name="supported-backups-to-mabs"></a>Backup nel server di Backup di Microsoft Azure supportati
@@ -206,7 +206,7 @@ La tabella seguente riepiloga gli elementi di cui è possibile eseguire il backu
 **Macchine virtuali VMware: vCenter/vSphere ESXi 5.5/6.0/6.5** | Server di Backup di Microsoft Azure v3, v2 <br/><br/> DPM 2012 R2 richiede l'aggiornamento cumulativo 1 di System Center <br/><br/>In locale. | Eseguire il backup di macchine virtuali VMware in archiviazione volumi condivisi cluster, NFS e SAN.<br/><br/> Ripristino dell'intera macchina virtuale.<br/><br/> Backup di Windows/Linux.<br/><br/> Ripristino a livello di elemento di cartella/file solo per le macchine virtuali Windows.<br/><br/> Le vApp VMware non sono supportate.<br/><br/> Il ripristino per le macchine virtuali Linux è per l'intera macchina.
 
 
-- Si noti che i carichi di lavoro in cluster il backup di DPM/MABS deve essere nello stesso dominio DPM/MABS o in un dominio trusted o figlio.
+- I carichi di lavoro in cluster il backup di DPM/MABS deve essere nello stesso dominio DPM/MABS o in un dominio trusted o figlio.
 - È possibile usare l'autenticazione NTLM/del certificato per eseguire il backup dei dati in gruppi di lavoro o domini non attendibili.
 
 
