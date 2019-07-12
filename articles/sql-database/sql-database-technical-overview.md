@@ -13,39 +13,27 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: ed05748a450d8d2082476aaba0831383e5fb60a0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 20fdd63939c91f8421048e4904b8a694849570ab
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441557"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67808064"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Che cos'è servizio di Database SQL di Azure
 
-Il database SQL è un servizio gestito di database relazionale per utilizzo generico in Microsoft Azure che supporta strutture come dati relazionali, JSON, dati spaziali e XML. Il database SQL offre prestazioni scalabili in modo dinamico all'interno di due diversi modelli di acquisto: un modello di acquisto basato su vCore e un modello di acquisto basato su DTU. Il database SQL offre anche opzioni come gli [indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) per funzionalità di analisi e report avanzatissime e [OLTP in memoria](sql-database-in-memory.md) per l'elaborazione XTP (Extreme Transaction Processing). Microsoft gestisce agevolmente tutte le operazioni di applicazione di patch e aggiornamento della base di codice SQL, rimuovendo tutte le attività di gestione dell'infrastruttura sottostante.
+Database SQL di Azure è un servizio gestito di database relazionale per utilizzo generico che consente di creare disponibilità elevata e il livello di archiviazione di dati ad alte prestazioni per le applicazioni e soluzioni nel cloud di Microsoft Azure. Database SQL può essere la scelta giusta per un'ampia gamma di applicazioni cloud moderne perché ti consente di usare funzionalità potenti per l'elaborazione di dati relazionali e [strutture non relazionali](sql-database-multi-model-features.md) , ad esempio grafici, JSON, spaziali, e XML. Si basa sull'ultima versione stabile del [motore di database Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) ed è possibile usare set completo di funzionalità di elaborazione, ad esempio di query avanzate [tecnologie in memoria ad alte prestazioni](sql-database-in-memory.md)e [l'elaborazione delle query intelligente](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). In linea con la strategia Microsoft incentrata sul cloud, le funzionalità più recenti di SQL Server vengono rilasciate prima al database SQL e poi a SQL Server. Questo approccio significa avere la possibilità di usare le funzionalità di SQL Server più nuove senza sovraccarico per l'applicazione di patch o gli aggiornamenti, oltre al vantaggio che le nuove funzionalità sono testate in milioni di database. Database SQL consente di definire con facilità e ridimensionare le prestazioni all'interno di due diversi modelli di acquisto: una [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) e una [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md). Database SQL è servizio completamente gestito con elevata-disponibilità incorporate, backup e altre operazioni di manutenzione comuni. Microsoft gestisce tutte le patch e l'aggiornamento del codice SQL e del sistema operativo con facilità e astrazione di tutta la gestione dell'infrastruttura sottostante.
 
 > [!NOTE]
-> Per un glossario di termini relativi al database SQL di Azure, vedere [SQL Database terms glossary](sql-database-glossary-terms.md) (Glossario di termini relativi al database SQL)
+> Per un glossario di termini relativi al database SQL di Azure, vedere [Glossario dei termini relativi al database SQL](sql-database-glossary-terms.md)
 
 Per la distribuzione di un database SQL di Azure sono disponibili le opzioni seguenti:
 
-- Come [database singolo](sql-database-single-database.md) con uno specifico set di risorse gestito tramite server di database SQL. Un database singolo è simile a un [database indipendente](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) in SQL Server.
-- Un [pool elastico](sql-database-elastic-pool.md), ovvero una raccolta di database con un set condiviso di risorse gestito tramite un server di database SQL. I database singoli possono essere spostati all'interno e all'esterno di un pool elastico.
-- [Istanza gestita](sql-database-managed-instance.md), ovvero una raccolta di database utente e di sistema con un set condiviso di risorse. Un'istanza gestita è simile a un'istanza del [motore di database di Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation).
-
-La figura seguente illustra queste opzioni di distribuzione:
-
 ![Opzioni di distribuzione](./media/sql-database-technical-overview/deployment-options.png)
 
-Il database SQL condivide la base di codice con il [motore di database di Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). In linea con la strategia Microsoft incentrata sul cloud, le funzionalità più recenti di SQL Server vengono rilasciate prima al database SQL e poi a SQL Server. Questo approccio significa avere la possibilità di usare le funzionalità di SQL Server più nuove senza sovraccarico per l'applicazione di patch o gli aggiornamenti, oltre al vantaggio che le nuove funzionalità sono testate in milioni di database. Per informazioni sulle nuove funzionalità annunciate, vedere:
-
-- **[Roadmap per il database SQL di Azure](https://azure.microsoft.com/roadmap/?category=databases)** :
-
-  Il posto ideale per scoprire le novità recenti e quelle presto disponibili.
-
-- **[Blog sul database SQL di Azure](https://azure.microsoft.com/blog/topics/database)** :
-
-  Raccoglitore dei post dei membri del team di prodotto SQL Server sulle novità e le funzionalità di database SQL.
+- [Database singolo](sql-database-single-database.md) rappresenta database isolato completamente gestito che è la scelta ideale per le applicazioni cloud moderne e i microservizi che richiedono un'origine dati affidabile. Un database singolo è simile a un [database indipendenti](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) nelle [motore di database Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
+- [Istanza gestita](sql-database-managed-instance.md) è un'istanza completamente gestito del [motore di database Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) contenente un set di database che possono essere usati insieme. È la scelta ideale per semplificare la migrazione dei database di SQL Server locale al cloud di Azure e per le applicazioni che dovranno usare la funzionalità di database potente che fornisce il motore di Database di SQL Server.
+- [Pool elastico](sql-database-elastic-pool.md) è una raccolta di [database singoli](sql-database-single-database.md) con un set di risorse come CPU o memoria condiviso. I database singoli possono essere spostati all'interno e all'esterno di un pool elastico.
 
 > [!IMPORTANT]
 > Per informazioni sulle differenze tra le funzionalità del database SQL e di SQL Server, oltre che tra le diverse opzioni di distribuzione del database SQL di Azure, vedere [Funzionalità di SQL](sql-database-features.md).
@@ -54,6 +42,7 @@ Il database SQL offre prestazioni prevedibili con più tipi di risorse, livelli 
 
 ## <a name="scalable-performance-and-pools"></a>Prestazioni e pool scalabili
 
+Tutte le versioni del Database SQL consente di definire la quantità di risorse che verranno assegnati. 
 - I database singoli sono database isolati dagli altri e portatili, ognuno con una quantità garantita di risorse di calcolo, memoria e archiviazione. Il database SQL offre risorse di calcolo, memoria e archiviazione diverse a seconda delle esigenze e la possibilità di [ridimensionare le risorse dei database singoli](sql-database-single-database-scale.md) aumentando e riducendo le prestazioni in modo dinamico. Il [livello di servizio su scala molto vasta](sql-database-service-tier-hyperscale.md) per singolo database è possibile ridimensionare fino a 100 TB, con operazioni di backup e ripristino di funzionalità.
 - Con i pool elastici, è possibile creare nuovi database o spostare i database singoli in un pool di risorse per ottimizzare l'uso delle risorse, risparmiare denaro e avere la possibilità di [ridimensionare le risorse dei pool elastici](sql-database-elastic-pool-scale.md) aumentando e riducendo le prestazioni in modo dinamico.
 - Con le istanze gestite, ogni istanza è isolata dalle altre con risorse garantite. In un'istanza gestita i database dell'istanza condividono un set di risorse e la possibilità di [ridimensionare le risorse dell'istanza gestita](sql-database-managed-instance-resource-limits.md) aumentando e riducendo le prestazioni in modo dinamico.
@@ -65,11 +54,8 @@ La scalabilità dinamica è diversa dalla scalabilità automatica. Con la scalab
 ### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>Modelli di acquisto, livelli di servizio, dimensioni di calcolo e spazi di archiviazione
 
 Il database SQL offre due modelli di acquisto:
-
-- Il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) offre un insieme di risorse di calcolo, memoria e risorse di I/O in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti. Le dimensioni di calcolo di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
 - Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione. Il modello di acquisto basato su vCore offre inoltre la possibilità di usare [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) per un risparmio in termini di costi. Per altre informazioni su Vantaggio Azure Hybrid, vedere le [domande frequenti](#sql-database-frequently-asked-questions-faq).
-
-  
+- Il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) offre un insieme di risorse di calcolo, memoria e risorse di I/O in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti. Le dimensioni di calcolo di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>I pool elastici ottimizzano l'utilizzo delle risorse
 
@@ -88,7 +74,7 @@ Gli script possono essere utili per il monitoraggio e il ridimensionamento dei p
 
 È possibile usare database singoli insieme a pool elastici e cambiare i livelli di servizio dei database singoli e dei pool elastici in modo semplice e rapido per adattarli alle proprie esigenze. Con la potenza e la portata di Azure, è possibile combinare e integrare altri servizi di Azure con il database SQL per soddisfare le esigenze esclusive di progettazione delle app, promuovere l'efficienza in termini di costi e di risorse, nonché sfruttare nuove opportunità commerciali.
 
-### <a name="extensive-monitoring-and-alerting-capabilities"></a>Funzionalità complete di monitoraggio e avviso
+## <a name="extensive-monitoring-and-alerting-capabilities"></a>Funzionalità complete di monitoraggio e avviso
 
 Si usano gli strumenti [predefinite di monitoraggio delle prestazioni](sql-database-performance.md) e [avviso](sql-database-insights-alerts-portal.md), combinati con le classificazioni delle prestazioni. Usando questi strumenti, è possibile valutare rapidamente l'impatto dell'aumento o della riduzione delle prestazioni in base alle esigenze correnti o previste relative alle prestazioni. Database SQL può anche [generare log di metrica e diagnostica](sql-database-metrics-diag-logging.md) per facilitare il monitoraggio. È possibile configurare il database SQL per archiviare l'utilizzo delle risorse, ruoli di lavoro, sessioni e connettività in una delle risorse di Azure seguenti:
 
@@ -260,3 +246,8 @@ I clienti di database SQL possono beneficiare dei diritti seguenti associati al 
 - Per un set di esempi dell'interfaccia della riga di comando di Azure e di PowerShell, vedere:
   - [Esempi dell'interfaccia della riga di comando di Azure per database SQL](sql-database-cli-samples.md)
   - [Esempi di Azure PowerShell per database SQL](sql-database-powershell-samples.md)
+
+ - Per informazioni sulle nuove funzionalità annunciate, vedere 
+   - **[Roadmap per Azure per il Database SQL](https://azure.microsoft.com/roadmap/?category=databases)**  -un posto ideale per scoprire le novità recenti e quelle presto.
+  - **[Azure SQL Database blog](https://azure.microsoft.com/blog/topics/database)**  -una posizione in cui i membri blog sulle novità di Database SQL e funzionalità del team prodotto SQL Server.
+

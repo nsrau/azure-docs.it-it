@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1ec6987f1a142e9bf9cd4413cfb4444bde1b7dd
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476123"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797008"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
@@ -83,7 +83,7 @@ Per trovare gli indirizzi IP a destra all'elenco elementi consentiti per le conn
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Annotare l'indirizzo IP restituito `Non-authoritative answer`. Questo indirizzo IP è statico. L'unico punto nel tempo che comporterebbe la modifica è se si ripristina lo spazio dei nomi a un cluster diverso.
+2. Annotare l'indirizzo IP restituito `Non-authoritative answer`. L'unico punto nel tempo che comporterebbe la modifica è se si ripristina lo spazio dei nomi a un cluster diverso.
 
 Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario effettuare alcuni passaggi aggiuntivi: 
 
@@ -115,7 +115,7 @@ Esempio:
 
 bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
 
-Note: se sasl.jaas.config non è una configurazione supportata nel framework, individuare le configurazioni usate per impostare il nome utente e la password SASL e usarle. Impostare il nome utente $ConnectionString e la password per la stringa di connessione di Hub eventi.
+Nota: se sasl.jaas.config non è una configurazione supportata nel framework, individuare le configurazioni usate per impostare il nome utente e la password SASL e usarle. Impostare il nome utente $ConnectionString e la password per la stringa di connessione di Hub eventi.
 
 ### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>Qual è la dimensione di messaggi/eventi per Hub eventi abilitato per Kafka?
 La dimensione massima dei messaggi consentita per Hub eventi abilitato per Kafka è 1 MB.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: b94d59b55a62797e142768dc84ec499d714bd067
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a3cd1fe69a0d99f9faf3a451f76a3a420d713711
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67479018"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795210"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Aggiunta di risorse personalizzate all'API REST di Azure
 
@@ -104,7 +104,7 @@ az resource create --is-full-object \
                     }'
 ```
 
-Parametro | Obbligatorio | Descrizione
+Parametro | Obbligatoria | Descrizione
 ---|---|---
 is-full-object | *Sì* | Indica che l'oggetto delle proprietà include altre opzioni, ad esempio percorso, i tag, sku e/o piano.
 id | *Sì* | L'ID risorsa della risorsa personalizzata. Questo deve essere disponibile all'esterno del **ResourceProvider**
@@ -116,7 +116,7 @@ Eliminare una risorsa personalizzata di Azure:
 az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{resourceTypeName}/{customResourceName}
 ```
 
-Parametro | Obbligatorio | Descrizione
+Parametro | Obbligatoria | DESCRIZIONE
 ---|---|---
 id | *Sì* | L'ID risorsa della risorsa personalizzata. Questo deve essere disponibile all'esterno della **ResourceProvider**.
 
@@ -126,7 +126,7 @@ Recuperare una risorsa personalizzata di Azure:
 az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{resourceTypeName}/{customResourceName}
 ```
 
-Parametro | Obbligatorio | Descrizione
+Parametro | Obbligatoria | Descrizione
 ---|---|---
 id | *Sì* | L'ID risorsa della risorsa personalizzata. Questo deve essere disponibile all'esterno del **ResourceProvider**
 
@@ -176,7 +176,7 @@ Esempio modello di gestione risorse di Azure:
 }
 ```
 
-Parametro | Obbligatorio | Descrizione
+Parametro | Obbligatoria | Descrizione
 ---|---|---
 resourceTypeName | *Sì* | Il **name** delle **resourceType** definito nel provider personalizzato.
 resourceProviderName | *Sì* | Il nome di istanza del provider di risorse personalizzato.
@@ -185,7 +185,8 @@ customResourceName | *Sì* | Il nome di risorsa personalizzata.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Panoramica sui provider di risorse personalizzati di Azure](./custom-providers-overview.md)
-- [Esercitazione: Creare il Provider di risorse personalizzati di Azure e distribuire le risorse personalizzate](./create-custom-provider.md)
+- [Avvio rapido: Creare il Provider di risorse personalizzati di Azure e distribuire le risorse personalizzate](./create-custom-provider.md)
+- [Esercitazione: Creare azioni personalizzate e le risorse in Azure](./tutorial-custom-providers-101.md)
 - [Procedure: Aggiunta di azioni personalizzate all'API REST di Azure](./custom-providers-action-endpoint-how-to.md)
 - [Informazioni di riferimento: Riferimento a una risorsa personalizzata Proxy](./custom-providers-proxy-resource-endpoint-reference.md)
 - [Informazioni di riferimento: Riferimento a una risorsa personalizzata della Cache](./custom-providers-proxy-cache-resource-endpoint-reference.md)

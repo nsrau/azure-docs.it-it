@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8e79fd1a839113cad5a3a36c01855d98793d7032
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205003"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655301"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>La scalabilità automatica e il Gateway applicazione ridondanza della zona v2 
 
@@ -23,7 +23,7 @@ Il nuovo SKU di versione 2 include i miglioramenti seguenti:
 - **Ridimensionamento automatico**: le distribuzioni del gateway applicazione o WAF nello SKU con ridimensionamento automatico possono passare a un piano superiore o inferiore in base alle modifiche dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. Questo SKU offre elasticità true. In Standard_v2 e WAF_v2 SKU, il Gateway applicazione può operare sia fisso della capacità (disabilitata la scalabilità automatica) sia in modalità di scalabilità automatica abilitata. La modalità di capacità fissa è utile per gli scenari con carichi di lavoro coerenti e prevedibili. Modalità la scalabilità automatica è utile nelle applicazioni che osserva varianza nel traffico dell'applicazione.
 - **Ridondanza della zona**: Un Gateway applicazione o distribuzione di Web Application firewall può estendersi su più zone di disponibilità, eliminando la necessità di effettuare il provisioning di istanze del Gateway applicazione separate in ogni zona con gestione traffico. È possibile scegliere una o più zone in cui sono distribuite istanze del Gateway applicazione, che rende più resiliente a errori della zona. Il pool di back-end per le applicazioni può analogamente essere distribuito tra zone di disponibilità.
 
-  Ridondanza di zona è disponibile solo in cui sono disponibili aree di Azure. Nelle altre aree sono supportate tutte le altre funzionalità. Per altre informazioni, vedere [quali sono le zone di disponibilità in Azure?](../availability-zones/az-overview.md#services-support-by-region)
+  Ridondanza di zona è disponibile solo in cui sono disponibili aree di Azure. Nelle altre aree sono supportate tutte le altre funzionalità. Per altre informazioni, vedere [Informazioni sulle zone di disponibilità di Azure](../availability-zones/az-overview.md#services-support-by-region)
 - **Indirizzo VIP statico**: SKU v2 del Gateway applicazione supporta esclusivamente il tipo statico di indirizzi VIP. Ciò garantisce che l'indirizzo VIP associato al gateway applicazione non subisca modifiche per il ciclo di vita della distribuzione, anche dopo un riavvio.  Non c'è un indirizzo VIP statico nella versione 1, pertanto è necessario usare l'URL del gateway applicazione invece dell'indirizzo IP per il dominio nome routing ai servizi di App tramite il gateway applicazione.
 - **Intestazione riscrittura**: Il Gateway applicazione consente di aggiungere, rimuovere o aggiornare le intestazioni della richiesta e risposta HTTP con SKU v2. Per altre informazioni, vedere [intestazioni riscrivere HTTP con il Gateway applicazione](rewrite-http-headers.md)
 - **Integrazione di Key Vault (anteprima)** : Versione 2 di Gateway applicazione supporta l'integrazione con Key Vault (in anteprima pubblica) per i certificati server collegati di listener di traccia abilitato per HTTPS. Per altre informazioni, vedere [terminazione SSL con certificati Key Vault](key-vault-certs.md).
@@ -35,7 +35,7 @@ Il nuovo SKU di versione 2 include i miglioramenti seguenti:
 
 ## <a name="supported-regions"></a>Aree supportate
 
-Il Standard_v2 e WAF_v2 SKU è disponibile nelle aree seguenti: Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale, Europa occidentale, Asia sud-orientale, Francia centrale, Regno Unito occidentale, Giappone orientale, Giappone occidentale. In futuro verranno aggiunte altre aree.
+Il Standard_v2 e WAF_v2 SKU è disponibile nelle aree seguenti: Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale, Europa occidentale, Asia sud-orientale, Francia centrale, Regno Unito occidentale, Giappone orientale, Giappone occidentale, Australia orientale, Australia sud-orientale, Canada centrale, Canada orientale, Asia orientale, Corea Centrale, Corea meridionale, India meridionale, Regno Unito meridionale, India centrale, India occidentale, India meridionale.
 
 ## <a name="pricing"></a>Prezzi
 

@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b637f547de06d9347a1c74ad7da560be97f16881
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 12b9793cabb261368c437bd2ae2dbb39cf078bef
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144438"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653292"
 ---
 # <a name="design-secure-applications-on-azure"></a>Progettazione di applicazioni sicure in Azure
 In questo articolo ti presentiamo le attività di sicurezza e controlli da considerare quando si progettano applicazioni per il cloud. Risorse e concetti per prendere in considerazione durante i requisiti e la progettazione delle fasi di Microsoft e domande di sicurezza per il training [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) vengono analizzati. L'obiettivo è che consentono di definire le attività e i servizi di Azure che è possibile utilizzare per progettare un'applicazione più sicura.
@@ -39,7 +39,7 @@ Usare le risorse seguenti durante la fase di formazione per acquisire familiarit
 
   - [SDK e strumenti](https://docs.microsoft.com/azure/index#pivot=sdkstools) vengono descritti gli strumenti disponibili in Azure.
 
-  - [Servizi di Azure DevOps](https://docs.microsoft.com/azure/devops/?view=vsts#pivot=index&panel=indexA) fornisce gli strumenti di collaborazione di sviluppo. Gli strumenti includono le pipeline a prestazioni elevate, repository Git gratuiti, lavagne Kanban configurabili e il test di carico automatizzato e basato sul cloud completo.
+  - [Servizi di Azure DevOps](https://docs.microsoft.com/azure/devops/) fornisce gli strumenti di collaborazione di sviluppo. Gli strumenti includono le pipeline a prestazioni elevate, repository Git gratuiti, lavagne Kanban configurabili e il test di carico automatizzato e basato sul cloud completo.
     Il [Centro risorse di DevOps](https://docs.microsoft.com/azure/devops/learn/) combina le nostre risorse di apprendimento DevOps procedure consigliate, Git controllo della versione, le metodologie agile, come lavoriamo con DevOps presso Microsoft e come è possibile valutare il proprio progressione DevOps.
 
   - [Primi 5 elementi di sicurezza da considerare prima di eseguire il push in produzione](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) illustra come proteggere le applicazioni web in Azure e per proteggere le app contro gli attacchi di applicazioni web più comuni e pericoloso.
@@ -155,7 +155,7 @@ La progettazione di applicazioni di modellazione e l'enumerazione [STRIDE](https
 | Spoofing               | Authentication        | [Richiedi connessioni HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manomissione              | Integrità             | Convalidare i certificati SSL/TLS. Le applicazioni che usano SSL/TLS devono verificare completamente i certificati X.509 delle entità di che cui si connettono. Usare i certificati di Azure Key Vault per [gestire x509 i certificati](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
 | Ripudio            | Non ripudio       | Abilitazione del [monitoraggio e diagnostica](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) di Azure.|
-| Divulgazione di informazioni | Riservatezza       | Crittografare i dati sensibili [inattivi](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) e [durante il transito](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
+| Diffusione di informazioni | Riservatezza       | Crittografare i dati sensibili [inattivi](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) e [durante il transito](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
 | Denial of Service      | Disponibilità          | Monitorare le metriche delle prestazioni per potenziali condizioni di DOS. Implementare i filtri di connessione. [Protezione DDoS di Azure](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), combinati con procedure consigliate per progettazione dell'applicazione, che fornisce una difesa contro gli attacchi DDoS.|
 | Elevazione dei privilegi | Authorization         | Usare Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
 

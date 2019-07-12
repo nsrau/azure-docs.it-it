@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/07/2019
 ms.author: raynew
-ms.openlocfilehash: 5dc98048099264942552862498b5137b4954c200
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 1d54f2847f7c37631374653bf291aadf091f3328
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491638"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805942"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -83,15 +83,15 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 **Versione supportata** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
-14.04 LTS | [9.24][9.25 UR]  | 3.13.0-24-Generic a 3.13.0-169-generic,<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>4.4.0-21-Generic a 4.4.0-146-generic,<br/>4.15.0-1023-Azure a 4.15.0-1042-azure |
+14.04 LTS | [9.26][9.26 UR]| 3.13.0-24-Generic a 3.13.0-170-generic,<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>4.4.0-21-Generic a 4.4.0-148-generic,<br/>4.15.0-1023-Azure a 4.15.0-1045-azure |
+14.04 LTS | [9.25][9.25 UR]  | 3.13.0-24-Generic a 3.13.0-169-generic,<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>4.4.0-21-Generic a 4.4.0-146-generic,<br/>4.15.0-1023-Azure a 4.15.0-1042-azure |
 14.04 LTS | [9.24][9.24 UR] | 3.13.0-24-Generic a 3.13.0-167-generic,<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>4.4.0-21-Generic a 4.4.0-143-generic,<br/>4.15.0-1023-Azure a 4.15.0-1040-azure |
 14.04 LTS | [9.23][9.23 UR] | 3.13.0-24-Generic a 3.13.0-165-generic,<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>4.4.0-21-Generic a 4.4.0-142-generic,<br/>4.15.0-1023-Azure a 4.15.0-1037-azure |
-14.04 LTS | [9.22][9.22 UR] | Da 3.13.0-24 generica a 3.13.0-164 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1036 Azure |
 |||
+16.04 LTS | [9.26][9.26 UR] | 4.4.0-21-Generic a 4.4.0-148-generic,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>4.15.0-13-Generic a 4.15.0-50-generic<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure a 4.15.0-1045-azure|
 16.04 LTS | [9.25][9.25 UR] | 4.4.0-21-Generic a 4.4.0-146-generic,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>4.15.0-13-Generic a 4.15.0-48-generic<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure a 4.15.0-1042-azure|
 16.04 LTS | [9.24][9.24 UR] | 4.4.0-21-Generic a 4.4.0-143-generic,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>4.15.0-13-Generic a 4.15.0-46-generic<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure a 4.15.0-1040-azure|
 16.04 LTS | [9.23][9.23 UR] | 4.4.0-21-Generic a 4.4.0-142-generic,<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>4.15.0-13-Generic a 4.15.0-45-generic<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>4.15.0-1012-Azure a 4.15.0-1037-azure|
-16.04 LTS | [9.22][9.22 UR] | Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-43 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1036 Azure|
 
 ### <a name="debian-kernel-versions"></a>Versioni del kernel Debian
 
@@ -108,10 +108,10 @@ Debian 8 | [9.22][9.22 UR],[9.23][9.23 UR], [9,24][9.24 UR] | Da 3.16.0-4-amd64 
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.26][9.26 UR] | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> 3\.12.74-60.64.45-default SP1(LTSS) a 3.12.74-60.64.110-default</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>4\.4.121-92.73-default SP2(LTSS) a 4.4.121-92.109-default</br></br>4\.4.73-5-default SP3 a 4.4.178-94.91-default</br></br>4\.4.138-4.7-azure SP3 a 4.4.178-4.28-azure</br></br>4\.12.14-94.41-default SP4 a 4.12.14-95.16-default</br>4\.12.14-6.3-azure SP4 a 4.12.14-6.9-azure |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.25][9.25 UR] | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>4\.4.121-92.73-default SP2(LTSS) a 4.4.121-92.104-default</br></br>4\.4.73-5-default SP3 a 4.4.176-94.88-default</br></br>4\.4.138-4.7-azure SP3 a 4.4.176-4.25-azure</br></br>4\.12.14-94.41-default SP4 a 4.12.14-95.13-default</br>4\.12.14-6.3-azure SP4 a 4.12.14-6.9-azure |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.24][9.24 UR] | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>4\.4.121-92.73-default SP2(LTSS) a 4.4.121-92.101-default</br></br>4\.4.73-5-default SP3 a 4.4.175-94.79-default</br></br>4\.12.14-94.41-default SP4 a 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.23][9.23 UR] | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>4\.4.121-92.73-default SP2(LTSS) a 4.4.121-92.101-default</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.162-94.69 predefinita</br></br>4\.12.14-94.41-default SP4 a 4.12.14-95.6-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | [9.22][9.22 UR] | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.107 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.98 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.162-94.72 predefinita |
 
 
 ## <a name="linux-file-systemsguest-storage"></a>File system/archiviazione guest Linux
@@ -157,15 +157,15 @@ Più schede di interfaccia rete guest/server | Sì.
 
 **Componente** | **Supportato**
 --- | ---
-Azure ExpressRoute | Yes
-ILB | Yes
+Azure ExpressRoute | Sì
+ILB | Sì
 ELB | Yes
-Gestione traffico di Azure | Yes
+Gestione traffico di Azure | Sì
 Più NIC | Yes
-Indirizzo IP riservato | Yes
-IPv4 | Yes
-Conservazione indirizzo IP di origine | Yes
-Endpoint servizio di rete virtuale di Azure<br/> | Yes
+Indirizzo IP riservato | Sì
+IPv4 | Sì
+Conservazione indirizzo IP di origine | Sì
+Endpoint servizio di rete virtuale di Azure<br/> | Sì
 Rete accelerata | No
 
 ## <a name="storage"></a>Archiviazione
@@ -174,27 +174,27 @@ Rete accelerata | No
 Disco dinamico | Disco del sistema operativo deve essere un disco di base. <br/><br/>I dischi dati possono essere dinamici
 Configurazione dei dischi Docker | No
 NFS host | Sì per VMware<br/><br/> No per server fisici
-Host SAN (iSCSI/FC) | Yes
+Host SAN (iSCSI/FC) | Sì
 Host vSAN | Sì per VMware<br/><br/> N/D per server fisici
 Percorsi multipli (MPIO) | Sì, testato con DSM Microsoft, EMC PowerPath 5.7 SP4, DSM EMC PowerPath per CLARiiON
 Volumi virtuali host | Sì per VMware<br/><br/> N/D per server fisici
-VMDK guest/server | Yes
+VMDK guest/server | Sì
 Disco cluster condiviso guest/server | No
 Disco crittografato guest/server | No
 NFS guest/server | No
 Guest/server iSCSI | No
 SMB 3.0 guest/server | No
 RDM guest/server | Yes<br/><br/> N/D per server fisici
-Disco guest/server > 1 TB | Yes<br/><br/>Fino a 4.095 GB<br/><br/> Le dimensioni del disco non devono superare i 1024 MB.
+Disco guest/server > 1 TB | Sì<br/><br/>Fino a 4.095 GB<br/><br/> Le dimensioni del disco non devono superare i 1024 MB.
 Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | No
 Disco guest/server con logico di 4 KB e dimensioni fisiche di settore di 512 byte | No
 Volume con disco con striping > 4 TB guest/server <br/><br/>Gestione volumi logici (LVM)| Yes
 Guest/server - Spazi di archiviazione | No
 Disco di aggiunta/rimozione a caldo guest/server | No
-Guest/server - esclusione disco | Yes
+Guest/server - esclusione disco | Sì
 Percorsi multipli (MPIO) guest/server | No
-Partizione GPT guest/server | Cinque partizioni sono supportate dal [aggiornamento cumulativo 37](https://support.microsoft.com/help/4508614/) (versione 9.25 del servizio Mobility) o versione successiva. In precedenza erano supportate quattro.
-Avvio EFI/UEFI guest/server | -Supportato durante l'esecuzione di versione del servizio Mobility 9.13 o successiva.<br/> -Supportato durante la migrazione di macchine virtuali VMware o server fisici che eseguono Windows Server 2012 o versioni successive in Azure.<br/> -È possibile replicare le macchine virtuali solo per la migrazione. Non è supportato il failback in locale.<br/> -È supportato solo NTFS & tipo di avvio protetto UEFI non è supportato. <br/> -Dimensioni del settore disco devono essere di 512 byte per settore fisico.
+Partizione GPT guest/server | Cinque partizioni sono supportate dal [aggiornamento cumulativo 37](https://support.microsoft.com/help/4508614/) (versione 9.25 del servizio Mobility) o versione successiva. In precedenza ne erano supportate quattro.
+Avvio EFI/UEFI guest/server | -Supportato durante l'esecuzione di versione del servizio Mobility 9.13 o successiva.<br/> -Supportato durante la migrazione di macchine virtuali VMware o server fisici che eseguono Windows Server 2012 o versioni successive in Azure.<br/> -È possibile replicare le macchine virtuali solo per la migrazione. Non è supportato il failback in locale.<br/> -È supportato solo NTFS <br/> -Il tipo di avvio UEFI sicuro non è supportato. <br/> -Dimensioni del settore disco devono essere di 512 byte per settore fisico.
 
 ## <a name="replication-channels"></a>Canali di replica
 
@@ -208,13 +208,13 @@ Avvio EFI/UEFI guest/server | -Supportato durante l'esecuzione di versione del s
 
 **Componente** | **Supportato**
 --- | ---
-Archiviazione con ridondanza locale | Yes
+Archiviazione con ridondanza locale | Sì
 Archiviazione con ridondanza geografica | Yes
-Archiviazione con ridondanza geografica e accesso in lettura | Yes
+Archiviazione con ridondanza geografica e accesso in lettura | Sì
 Archiviazione ad accesso sporadico | No
 Archiviazione ad accesso frequente| No
 BLOB in blocchi | No
-Crittografia dei dati inattivi (SSE)| Yes
+Crittografia dei dati inattivi (SSE)| Sì
 Archiviazione Premium | Yes
 Servizio di importazione/esportazione | No
 Firewall di archiviazione di Azure per le reti virtuali | Sì.<br/> Configurato in un account di archiviazione/cache di archiviazione di destinazione (usato per archiviare i dati della replica).
@@ -226,8 +226,8 @@ Account di archiviazione per utilizzo generico v2 (livelli ad accesso frequente 
 --- | ---
 Set di disponibilità | Yes
 Zone di disponibilità | No
-HUB | Yes
-Dischi gestiti | Yes
+HUB | Sì
+Dischi gestiti | Sì
 
 ## <a name="azure-vm-requirements"></a>Requisiti per le VM di Azure
 
@@ -297,6 +297,7 @@ Servizio Mobility | Installato su VM VMware o server fisici da replicare.<br/> C
 ## <a name="next-steps"></a>Passaggi successivi
 [Informazioni su come](tutorial-prepare-azure.md) preparare Azure per il ripristino di emergenza delle macchine virtuali VMware.
 
+[9.26 UR]: https://support.microsoft.com/en-in/help/4508614/update-rollup-37-for-azure-site-recovery
 [9.25 UR]: https://support.microsoft.com/en-in/help/4508614/update-rollup-37-for-azure-site-recovery
 [9.24 UR]: https://support.microsoft.com/en-in/help/4503156
 [9.23 UR]: https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery

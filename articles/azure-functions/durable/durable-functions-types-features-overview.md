@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 76b6f013333113d5a24b744bc962d36b1c0e21b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de5019e0f91c92829082aed962bb9633da52b4a9
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731117"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812839"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Tipi di funzioni durevoli e caratteristiche (funzioni di Azure)
 
@@ -27,7 +27,7 @@ Questo articolo offre una panoramica dei tipi di funzioni che è possibile usare
 
 ## <a name="types-of-durable-functions"></a>Tipi di funzioni durevoli
 
-È possibile usare tre tipi di funzione permanente in funzioni di Azure: client, orchestrator e attività.
+È possibile usare quattro tipi di funzioni durevoli in funzioni di Azure: attività, l'agente di orchestrazione, entità e client.
 
 ### <a name="activity-functions"></a>Funzioni di attività
 
@@ -43,7 +43,7 @@ Per altre informazioni ed esempi, vedere [funzioni di attività](durable-functio
 
 ### <a name="orchestrator-functions"></a>Funzioni dell'agente di orchestrazione
 
-Le funzioni di orchestrazione viene descritto come vengono eseguite le azioni e l'ordine in cui vengono eseguite le azioni. Le funzioni di orchestrazione vengono descritte l'orchestrazione nel codice (C# o JavaScript) come illustrato nel [modelli di funzioni permanenti e concetti tecnici](durable-functions-concepts.md). Un'orchestrazione può avere molti tipi diversi di azioni, incluse [funzioni di attività](#activity-functions), [orchestrazioni secondarie](#sub-orchestrations), [in attesa di eventi esterni](#external-events)e [timer](#durable-timers). 
+Le funzioni di orchestrazione viene descritto come vengono eseguite le azioni e l'ordine in cui vengono eseguite le azioni. Le funzioni di orchestrazione vengono descritte l'orchestrazione nel codice (C# o JavaScript) come illustrato nel [modelli di funzioni permanenti e concetti tecnici](durable-functions-concepts.md). Un'orchestrazione può avere molti tipi diversi di azioni, incluse [funzioni di attività](#activity-functions), [orchestrazioni secondarie](#sub-orchestrations), [in attesa di eventi esterni](#external-events)e [timer](#durable-timers). Le funzioni di orchestrazione possono inoltre interagire [funzioni entity](#entity-functions).
 
 Una funzione di orchestrazione deve essere attivata da un [trigger di orchestrazione](durable-functions-bindings.md#orchestration-triggers).
 
@@ -51,11 +51,18 @@ Un agente di orchestrazione viene avviata da un [client orchestrator](#client-fu
 
 Per altre informazioni ed esempi, vedere [trigger di orchestrazione](durable-functions-bindings.md#orchestration-triggers).
 
+###  <a name="entity-functions"></a>Funzioni dell'entità (anteprima)
+
+Definiscono le operazioni per la lettura e aggiornamento piccole parti di stato, noto come funzioni Entity *entità permanente*. Ad esempio le funzioni di orchestrazione entità sono funzioni con un tipo speciale di trigger, *trigger entità*. A differenza delle funzioni dell'agente di orchestrazione, le funzioni entità non hanno vincoli qualsiasi codice specifico. Funzioni dell'entità anche gestire lo stato in modo esplicito anziché in modo implicito che rappresenta lo stato tramite il flusso di controllo.
+
+> [!NOTE]
+> Funzioni dell'entità e la relativa funzionalità è disponibile solo in funzioni durevoli 2.0 e versioni successive.
+
+Per altre informazioni sulle funzioni di entità, vedere la [funzioni Entity](durable-functions-preview.md#entity-functions) documentazione sulle funzionalità di anteprima.
+
 ### <a name="client-functions"></a>Funzioni client
 
-Le funzioni client sono le funzioni attivate che creano nuove istanze di un'orchestrazione. Le funzioni client sono il punto di ingresso per la creazione di un'istanza di un'orchestrazione di funzioni permanenti. È possibile attivare una funzione di client da qualsiasi origine (HTTP, coda, flusso di eventi). È possibile scrivere una funzione di client in qualsiasi lingua supportata dall'app. 
-
-Le funzioni client hanno anche un [del client di orchestrazione](durable-functions-bindings.md#orchestration-client) associazione. Una funzione di client può usare il client di orchestrazione di associazione per creare e gestire le orchestrazioni durevole. 
+Le funzioni client vengono attivate le funzioni che creano e gestiscono le istanze delle orchestrazioni e le entità. Essi sono effettivamente il punto di ingresso per l'interazione con funzioni permanenti. È possibile attivare una funzione di client da qualsiasi origine (HTTP, coda, flusso di eventi e così via). Una funzione client usa la [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) per creare e gestire le orchestrazioni permanenti ed entità.
 
 L'esempio più semplice di una funzione di client è una funzione attivata tramite HTTP che si avvia una funzione di orchestrazione e quindi restituisce una risposta di stato di controllo. Per un esempio, vedere [rilevamento dell'URL di API HTTP](durable-functions-http-api.md#http-api-url-discovery).
 

@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
-ms.openlocfilehash: 489c94f37b6c88db001dee437cc6ed89383e6053
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: tyleonha
+ms.reviewer: glenga
+ms.openlocfilehash: a75bdaf0e26193a5b2792b52923c085eff89b83f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442171"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706406"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per sviluppatori di Azure PowerShell di funzioni
 
@@ -133,9 +134,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Di seguito sono i parametri validi per la chiamata `Push-OutputBinding`:
 
-| NOME | Type | Posizione | Descrizione |
+| Name | Type | Posizione | Descrizione |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | string | 1 | Il nome dell'associazione di output a cui si desidera impostare. |
+| **`-Name`** | String | 1 | Il nome dell'associazione di output a cui si desidera impostare. |
 | **`-Value`** | Object | 2 | Il valore dell'associazione di output si desidera impostare, che è accettato dalla pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | denominata | (Facoltativo) Quando specificato, se ne determina il valore da impostare per un'associazione di output specificato. | 
 
@@ -240,7 +241,7 @@ La registrazione in funzioni di PowerShell funziona come la registrazione di Pow
 
 | Funzioni di livello di registrazione | Cmdlet di registrazione |
 | ------------- | -------------- |
-| Tipi di errore | **`Write-Error`** |
+| Errore | **`Write-Error`** |
 | Avviso | **`Write-Warning`**  | 
 | Informazioni | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informazioni | Scrive _informazioni_ la registrazione a livello. |
 | Debug | **`Write-Debug`** |

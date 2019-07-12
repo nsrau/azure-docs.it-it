@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2e590e4765f4795123e219f8da4b3e62bc79ca30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8de1d27d92ac57f478b7615144dba166f420d27
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511353"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807220"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure AD B2C
 
@@ -70,7 +70,7 @@ Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed 
 
 | Chiave | Value |
 | --- | ----- |
-| username | leadiocl@outlook.com |
+| userName | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
@@ -108,7 +108,7 @@ Costruire una chiamata POST simile a quella indicata qui con le informazioni rip
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Chiave | Value |
+| Chiave | Valore |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
@@ -135,6 +135,8 @@ Una risposta con esito positivo è simile all'esempio seguente:
     "refresh_token_expires_in": 1209600
 }
 ```
+> [!NOTE]
+> La creazione di utenti tramite l'API Graph, l'applicazione deve avere le autorizzazioni "profilo" Microsoft Graph "openid" e "offline_access".
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementare con l'SDK nativo preferito o usare AppAuth
 

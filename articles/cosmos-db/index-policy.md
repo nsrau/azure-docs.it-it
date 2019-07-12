@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 3f19668cc4fb4f4f4a900c157aa79de83ad1b79b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 791779bfc2262bb13dc2c3a192d9c74ae69cb30e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163732"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722544"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
 
@@ -60,7 +60,7 @@ Quando un percorso in modo esplicito sia incluso nei criteri di indicizzazione, 
 
 | Tipo di indice | Tipi di dati di destinazione consentiti |
 | --- | --- |
-| Range | Stringa o numero |
+| Intervallo | Stringa o numero |
 | Spatial | Point, LineString o poligono |
 
 Ad esempio, è possibile includere il `/headquarters/employees/?` percorso e specificare che un `Range` indice deve essere applicato in tale percorso per entrambi `String` e `Number` valori.
@@ -73,6 +73,8 @@ Qualsiasi criterio di indicizzazione ha includere il percorso radice `/*` come u
 - Escludere il percorso radice in modo da includere in modo selettivo i percorsi che devono essere indicizzati.
 
 - Per i percorsi con caratteri normali che comprendono: caratteri alfanumerici e _ (carattere di sottolineatura), non è necessario eseguire l'escape la stringa del percorso intorno tra virgolette doppie (ad esempio, "/ path /?"). Per i percorsi con altri caratteri speciali, è necessario eseguire l'escape la stringa del percorso intorno tra virgolette doppie (ad esempio, "/\"percorso-abc\"/?"). Se si prevede che i caratteri speciali nel proprio percorso, è possibile eseguire l'escape di ogni percorso per motivi di sicurezza. A livello funzionale non effettua alcuna differenza se l'escape di ogni percorso di Vs solo quelli che hanno caratteri speciali.
+
+- La proprietà di sistema "etag" viene escluso dall'indicizzazione per impostazione predefinita, a meno che il valore etag viene aggiunto al percorso incluso per l'indicizzazione.
 
 Visualizzare [in questa sezione](how-to-manage-indexing-policy.md#indexing-policy-examples) per esempi di criteri di indicizzazione.
 

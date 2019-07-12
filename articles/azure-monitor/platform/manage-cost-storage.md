@@ -14,18 +14,18 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: b7fa59f4086608a8bacabde21f0c02c108f1f5e8
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: bcfefc9698f7f251e99531750e19e7c06395e064
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466735"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655695"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e costi con i log di monitoraggio di Azure
 
 > [!NOTE]
 > Questo articolo descrive come controllare i costi in Monitoraggio di Azure, impostare il periodo di conservazione dati per l'area di lavoro di Log Analitica.  Vedere l'articolo seguente per informazioni correlate.
-> - [Monitorare l'utilizzo e i costi stimati](usage-estimated-costs.md) descrive come visualizzare l'utilizzo e i costi stimati relativi a più funzionalità di monitoraggio di Azure per diversi modelli di prezzi. Illustra inoltre come modificare il modello di prezzi.
+> - [Monitoraggio dell'utilizzo e dei costi stimati](usage-estimated-costs.md) descrive come visualizzare l'utilizzo e i costi stimati tra più funzionalità di monitoraggio di Azure per diversi modelli di determinazione dei prezzi. Illustra inoltre come modificare il modello di prezzi.
 
 Log di monitoraggio di Azure è progettato per scalabilità e supportare la raccolta, l'indicizzazione e l'archiviazione di enormi quantità di dati al giorno da qualsiasi origine in ambito aziendale o distribuito in Azure.  Anche se si tratta di uno strumento importante per l'organizzazione, è comunque fondamentale ottimizzare i costi. A tale scopo, è importante comprendere che il costo di un'area di lavoro di Log Analitica non è basato solo sul volume dei dati raccolti, è anche dipende dal piano selezionato, e quanto tempo si è scelto di archiviare i dati generati dalle origini connesse.  
 
@@ -413,7 +413,7 @@ Quando si riceve un avviso, seguire la procedura descritta nella sezione seguent
 
 ## <a name="limits-summary"></a>Riepilogo dei limiti
 
-Esistono alcuni altri limiti di Analitica di Log, alcuni dei quali dipendono dal piano tariffario di Analitica di Log. Questi scenari sono documentati [qui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-limits).
+Esistono alcuni altri limiti di Analitica di Log, alcuni dei quali dipendono dal piano tariffario di Analitica di Log. Questi scenari sono documentati [qui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

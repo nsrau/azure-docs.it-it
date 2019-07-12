@@ -11,27 +11,31 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 9fe6ab797eaa325ad802702e95f5a0e5b8e4fef4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/07/2019
+ms.openlocfilehash: 7cf54b79fac87905117e321574571890c59315e6
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070418"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827070"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a un'istanza gestita di database SQL di Azure
 
-Questo articolo illustra i metodi disponibili per eseguire la migrazione di un'istanza di SQL Server 2005 o versione successiva a un'[istanza gestita di database SQL di Azure](sql-database-managed-instance.md). Per informazioni sulla migrazione a un database singolo o a un pool elastico, vedere [Migrate to a single or pooled database](sql-database-cloud-migrate.md) (Eseguire la migrazione a un database singolo o in pool). Per informazioni sulla migrazione da altre piattaforme, vedere [Azure Database Migration Guide](https://datamigration.microsoft.com/) (Guida alla migrazione di database di Azure).
+Questo articolo illustra i metodi disponibili per eseguire la migrazione di un'istanza di SQL Server 2005 o versione successiva a un'[istanza gestita di database SQL di Azure](sql-database-managed-instance.md). Per informazioni sulla migrazione a un database singolo o a un pool elastico, vedere [Migrate to a single or pooled database](sql-database-cloud-migrate.md) (Eseguire la migrazione a un database singolo o in pool). Per informazioni sulla migrazione da altre piattaforme, vedere [Guida alla migrazione di database di Azure](https://datamigration.microsoft.com/).
+
+> [!NOTE]
+> Se si desidera iniziare rapidamente e provare a istanza gestita, si potrebbe voler passare a [Guida introduttiva](/sql-database-managed-instance-quickstart-guide.md) invece questa pagina. 
 
 A livello generale, il processo di migrazione del database è simile a quello indicato di seguito:
 
 ![Processo di migrazione](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Valutare la compatibilità dell'istanza gestita](#assess-managed-instance-compatibility)
-- [Scegliere un'opzione di connettività dell'app](sql-database-managed-instance-connect-app.md)
-- [Eseguire la distribuzione in un'istanza gestita di dimensioni ottimali](#deploy-to-an-optimally-sized-managed-instance)
-- [Selezionare il metodo ed eseguire la migrazione](#select-migration-method-and-migrate)
-- [Monitorare le applicazioni](#monitor-applications)
+- [Valutare la compatibilità di istanza gestita](#assess-managed-instance-compatibility) in cui è necessario assicurarsi che vi siano problemi di blocco che potrebbero impedire le migrazioni.
+  - Questo passaggio prevede anche la creazione di [baseline delle prestazioni](#create-performance-baseline) per determinare l'utilizzo di risorse nell'istanza di SQL Server di origine. Questo passaggio è necessario se si desidera o distribuire l'istanza gestita di dimensioni in modo corretto e verificare che non sono interessate le prestazioni dopo la migrazione.
+- [Scegliere le opzioni di connettività delle app](sql-database-managed-instance-connect-app.md)
+- [Distribuire in un'istanza gestita di dimensioni ottimali](#deploy-to-an-optimally-sized-managed-instance) in cui si sceglierà caratteristiche tecniche (numero di Vcore, quantità di memoria) e il livello di prestazioni (Business Critical, utilizzo generico) dell'istanza gestita.
+- [Selezionare il metodo ed eseguire la migrazione](#select-migration-method-and-migrate) in cui si esegue la migrazione dei database tramite migrazione offline (backup e ripristino native, importe/esportazione di database) o la migrazione online (servizio migrazione del database, la replica transazionale).
+- [Monitorare le applicazioni](#monitor-applications) per garantire che si hanno prestazioni previste.
 
 > [!NOTE]
 > Per eseguire la migrazione di un database singolo in un database singolo o un pool di database elastico, vedere l'articolo relativo alla [migrazione di un database di SQL Server nel database SQL di Azure](sql-database-single-database-migrate.md).
@@ -58,7 +62,11 @@ Gestita garanzia del 99,99% disponibilità dell'istanza anche negli scenari crit
 
 ### <a name="create-performance-baseline"></a>Creare una baseline delle prestazioni
 
-Se si desidera confrontare le prestazioni del carico di lavoro sull'istanza gestita con il carico di lavoro originale in esecuzione in SQL Server, è necessario creare una baseline delle prestazioni che verrà utilizzata per il confronto. Alcuni dei parametri che è necessario misurare nell'istanza di SQL Server sono: 
+Se si desidera confrontare le prestazioni del carico di lavoro sull'istanza gestita con il carico di lavoro originale in esecuzione in SQL Server, è necessario creare una baseline delle prestazioni che verrà utilizzata per il confronto. 
+
+La baseline delle prestazioni è un set di parametri, ad esempio utilizzo della CPU medio/massimo, il disco di average/max latenza dei / o e velocità effettiva, numero di IOPS, la permanenza presunta della pagina average/max, Media delle dimensioni massime del database tempdb. Vuoi avere parametri simili o meglio ancora, dopo la migrazione, pertanto è importante misurare e registrare i valori della linea di base per questi parametri. Oltre ai parametri di sistema, è necessario selezionare un set di query più importanti o le query rappresentative di durata min/average/max carichi di lavoro e misure, utilizzo della CPU per le query selezionate. Questi valori consente di confrontare le prestazioni del carico di lavoro in esecuzione in istanza gestita con i valori originali nell'origine SQL Server.
+
+Alcuni dei parametri che è necessario misurare nell'istanza di SQL Server sono: 
 - [Monitorare l'utilizzo della CPU nell'istanza di SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e la media di record e i picchi di utilizzo della CPU.
 - [Monitoraggio dell'utilizzo di memoria nell'istanza di SQL Server](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) e determinare la quantità di memoria utilizzata da componenti diversi, ad esempio pool di buffer, cache, il pool di ColumnStore, dei piani [OLTP In memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)e così via. Inoltre, si devono trovare i valori di picco e medi del contatore delle prestazioni memoria permanenza presunta della pagina.
 - Monitoraggio dell'utilizzo dei / o disco in istanza SQL Server di origine mediante [DM io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) visualizzazione oppure [i contatori delle prestazioni](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
@@ -72,9 +80,10 @@ Nell'ambito di questa attività deve aver documentato Media e valori di picco pe
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Eseguire la distribuzione in un'istanza gestita di dimensioni ottimali
 
 L'istanza gestita è progettata appositamente per carichi di lavoro locali che si intende spostare nel cloud. Introduce un [nuovo modello di acquisto](sql-database-service-tiers-vcore.md) che offre maggiore flessibilità nella selezione del livello appropriato di risorse per i carichi di lavoro. Nell'ambiente locale, si è probabilmente soliti dimensionare i carichi di lavoro usando core fisici o larghezza di banda di I/O. Il modello di acquisto dell'istanza gestita è basato sui core virtuali, o "vCore", con I/O e spazio di archiviazione aggiuntivi disponibili separatamente. Il modello basato su vCore semplifica la comprensione dei requisiti di calcolo nel cloud rispetto alle risorse usate attualmente in locale. Questo nuovo modello consente di dimensionare correttamente l'ambiente di destinazione nel cloud. Linee guida generali che possono aiutarti a scegliere il livello di servizio corretto e le caratteristiche sono descritti di seguito:
-- [Monitorare l'utilizzo della CPU nell'istanza di SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e controllare quanto potenza usi attualmente (utilizzando viste a gestione dinamica, SQL Server Management Studio o altri strumenti di monitoraggio) di calcolo. È possibile eseguire il provisioning di un'istanza gestita che corrisponde al numero di core che si usa in SQL Server, disponendo di ricordare che le caratteristiche della CPU potrebbe essere necessario aumentare in modo da corrispondere [caratteristiche della macchina virtuale in cui è installata l'istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics).
-- Controllare la quantità di memoria disponibile nell'istanza di SQL Server e scegliere [il livello di servizio che disponga di memoria corrisponda](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics). Sarebbe utile misurare la permanenza presunta della pagina nell'istanza di SQL Server per determinare [è necessario aggiungere memoria](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Misurare la latenza dei / o del sottosistema di file scegliere tra i livelli di servizio utilizzo generico e Business Critical.
+- In base la linea di base dell'utilizzo della CPU è possibile eseguire il provisioning di un'istanza gestita che corrisponde al numero di core che si usa in SQL Server, con presente tale caratteristiche della CPU potrebbe essere necessario aumentare in modo che corrisponda [caratteristiche della macchina virtuale in cui l'istanza gestita è installato](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+- L'utilizzo della memoria della linea di base in base sceglie [il livello di servizio che disponga di memoria corrisponda](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics). La quantità di memoria non può essere scelta direttamente ed è quindi necessario selezionare l'istanza gestita con la quantità di Vcore che disponga di memoria corrisponda (ad esempio 5.1 GB/vCore in Gen5). 
+- Basato sulla linea di base dei / o la latenza del sottosistema di file scegliere tra generico (latenza maggiore di 5 ms) e i livelli di servizio Business Critical (latenza inferiore a 3 ms).
+- Basato sulla velocità effettiva della linea di base pre-allocare le dimensioni dei dati o i file di log per ottenere prestazioni dei / o previste.
 
 È possibile scegliere di calcolo e le risorse di archiviazione in fase di distribuzione di tempo e quindi modificarle in seguito senza causare tempi di inattività per l'applicazione utilizzando il [portale di Azure](sql-database-scale-resources.md):
 
@@ -169,6 +178,13 @@ Potrebbe essere il risultato del confronto delle prestazioni:
 Apportare la modifica dei parametri o aggiornare i livelli di servizio per la convergenza per la configurazione ottimale, fino a quando non si ottengono le prestazioni del carico di lavoro adatta alle proprie esigenze.
 
 ### <a name="monitor-performance"></a>Monitorare le prestazioni
+
+Istanza gestita offre numerosi strumenti avanzati per il monitoraggio e risoluzione dei problemi e si devono utilizzarle per monitorare le prestazioni nell'istanza. Alcuni dei parametri che il dovrà monitorare sono:
+- Utilizzo della CPU dell'istanza per determinare esegue il numerica di Vcore di cui è stato effettuato il provisioning è la corrispondenza corretta per il carico di lavoro.
+- La permanenza presunta della pagina per istanza gestita per determinare [è necessario aggiungere memoria](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
+- Statistiche di attesa `INSTANCE_LOG_GOVERNOR` o `PAGEIOLATCH` che indicherà sono problemi dei / o di archiviazione, soprattutto nel livello utilizzo generico in cui potrebbe essere necessario preallocare i file e ottenere migliorate prestazioni dei / o.
+
+## <a name="leverage-advanced-paas-features"></a>Sfruttare le funzionalità avanzate di PaaS
 
 Una volta che trovano in una piattaforma completamente gestita e aver verificato che le prestazioni del carico di lavoro delle corrispondenti si delle prestazioni del carico di lavoro di SQL Server, usufruire dei vantaggi offerti automaticamente come parte del servizio del Database SQL. 
 

@@ -4,7 +4,7 @@ description: Disponibilità elevata multi-SID per un'istanza SAP ASCS/SCS con Wi
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dbc21922be66c793e76882cbd145f19681684252
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27e75ac256cf71441e00a004bb2331277aa07b43
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66143278"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710029"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -209,7 +209,7 @@ ms.locfileid: "66143278"
 > ![Windows][Logo_Windows] Windows
 >
 
-A settembre 2016, Microsoft ha rilasciato una funzionalità con cui è possibile gestire più indirizzi IP virtuali usando un [servizio di bilanciamento del carico interno di Azure][load-balancer-multivip-overview]. Questa funzionalità esiste già nel servizio di bilanciamento del carico esterno di Azure. 
+Settembre 2016, Microsoft ha rilasciato una funzionalità in cui è possibile gestire più indirizzi IP virtuali usando un [servizio di bilanciamento del carico interno di Azure][load-balancer-multivip-overview]. Questa funzionalità esiste già nel servizio di bilanciamento del carico esterno di Azure. 
 
 Se si dispone di una distribuzione SAP, usare un servizio di bilanciamento del carico interno per creare una configurazione cluster Windows per istanze di SAP Central Services, ovvero ASCS/SCS.
 
@@ -255,7 +255,7 @@ Il panorama generale con due sistemi SAP a disponibilità elevata si presenta co
 
 Per preparare l'infrastruttura, è possibile installare un'istanza aggiuntiva di SAP ASCS/SCS con i parametri seguenti:
 
-| Nome parametro | Value |
+| Nome parametro | Valore |
 | --- | --- |
 | SID di SAP ASCS/SCS |pr1-lb-ascs |
 | Servizio di bilanciamento del carico interno di SAP DBMS | PR5 |
@@ -385,11 +385,11 @@ Dopo l'esecuzione dello script, i risultati vengono visualizzati nel portale di 
 
 È necessario aggiungere un nuovo disco con condivisione cluster per ogni istanza di SAP ASCS/SCS aggiuntiva. Attualmente, il disco cluster condiviso Windows Server 2012 R2 WSFC viene usato dalla soluzione software SIOS DataKeeper.
 
-Eseguire le operazioni seguenti:
+Seguire questa procedura:
 1. Aggiungere un altro disco o più dischi con la stessa dimensione (da sottoporre a striping) su ciascuno dei nodi del cluster e formattarli.
 2. Configurare la replica di archiviazione con SIOS DataKeeper.
 
-Questa procedura presuppone che SIOS DataKeeper sia già stato installato nei computer del cluster WSFC. Se è stato installato, è ora necessario configurare la replica tra le macchine. Il processo viene descritto in dettaglio nel capitolo [Installare SIOS DataKeeper Cluster Edition per il disco di condivisione del cluster SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].  
+Questa procedura presuppone che SIOS DataKeeper sia già stato installato nei computer del cluster WSFC. Se è stato installato, è ora necessario configurare la replica tra le macchine. Il processo è descritto dettagliatamente [installare SIOS DataKeeper Cluster Edition per il disco cluster condiviso di SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].  
 
 ![Mirroring sincrono di DataKeeper per il nuovo disco condiviso di SAP ASCS/SCS è attivo][sap-ha-guide-figure-6006]
 
@@ -402,11 +402,11 @@ Per completare la preparazione dell'infrastruttura per il secondo sistema SAP, p
 
 ## <a name="install-an-sap-netweaver-multi-sid-system"></a>Installare un sistema multi-SID di SAP NetWeaver
 
-Per una descrizione completa del processo di installazione di un secondo sistema SAP SID2 vedere [Installazione della disponibilità elevata di SAP NetWeaver sul cluster di failover di Windows e sul disco condiviso per l'istanza SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk].
+Per una descrizione completa del processo di installazione di un secondo sistema SAP SID2, vedere [installazione SAP NetWeaver a disponibilità elevata nel Cluster di Failover Windows e dischi condivisi per un'istanza di SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk].
 
 La procedura di alto livello è la seguente:
 
-1. [Installare SAP con un'istanza di ASCS/SCS a disponibilità elevata][sap-high-availability-installation-wsfc-shared-disk-install-ascs].  
+1. [Installare SAP con un'istanza ASCS/SCS a disponibilità elevata][sap-high-availability-installation-wsfc-shared-disk-install-ascs].  
  In questo passaggio si sta installando SAP con un'istanza di ASCS/SCS a disponibilità elevata nel nodo 1 del cluster WSFC esistente.
 
 2. [Modificare il profilo SAP dell'istanza di ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile].
@@ -421,19 +421,19 @@ La procedura di alto livello è la seguente:
  In questo passaggio si sta installando SAP con un'istanza di ASCS/SCS a disponibilità elevata nel nodo 2 del cluster WSFC esistente. Per installare il secondo nodo del cluster, seguire i passaggi descritti nella guida all'installazione di SAP.
 
 6. Aprire le porte di Windows Firewall per l'istanza di SAP ASCS/SCS e la porta del probe.  
-    In entrambi i nodi del cluster usati per le istanze di SAP ASCS/SCS si stanno aprendo tutte le porte di Windows Firewall usate da SAP ASCS/SCS. Queste porte di istanze SAP ASCS/SCS sono elencate nel capitolo [Porte di SAP ASCS/SCS][sap-net-weaver-ports-ascs-scs-ports].
+    In entrambi i nodi del cluster usati per le istanze di SAP ASCS/SCS si stanno aprendo tutte le porte di Windows Firewall usate da SAP ASCS/SCS. Queste porte di istanze SAP ASCS/SCS sono elencate nel capitolo [SAP ASCS / SCS porte][sap-net-weaver-ports-ascs-scs-ports].
 
-    Per un elenco di tutte le altre porte SAP vedere [TCP/IP Ports of All SAP Products][sap-net-weaver-ports] (Porte TCP/IP di tutti i prodotti SAP).  
+    Per un elenco di tutte le altre porte SAP, vedere [porte TCP/IP di tutti i prodotti SAP][sap-net-weaver-ports].  
 
-    Aprire anche la porta probe del servizio di bilanciamento del carico interno di Azure, ovvero 62350, in questo scenario. È descritto [in questo articolo][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port].
+    Aprire anche la porta probe del servizio di bilanciamento del carico interno di Azure, ovvero 62350, in questo scenario. Viene descritta [in questo articolo][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port].
 
-7. [Cambiare il tipo di avvio dell'istanza del servizio Windows della Liquidazione automatica ricevimento merci (ERS) SAP][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
+7. [Modificare il tipo di avvio dell'istanza del servizio SAP valutata receipt finalizzazione (ERS) Windows][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
 
 8. Installare il server dell'applicazione primario SAP nella nuova macchina virtuale dedicata come descritto nella guida all'installazione SAP.  
 
 9. Installare il server dell'applicazione SAP aggiuntivo nella nuova macchina virtuale dedicata come descritto nella guida all'installazione SAP.
 
-10. [Testare il failover e la replica SIOS dell'istanza di SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl].
+10. [Testare il failover dell'istanza SAP ASCS/SCS e la replica SIOS][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl].
 
 ## <a name="next-steps"></a>Passaggi successivi
 

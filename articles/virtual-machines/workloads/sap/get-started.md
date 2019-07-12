@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/10/2019
+ms.date: 07/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b4ed11b5a0f463afee0dae149820bb546db0c53
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27e12b5f33f2e3c0024d5caa6a9bee5e9576a45a
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058709"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805838"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -36,10 +36,12 @@ Hosting di scenari di carico di lavoro SAP in Azure anche possibile creare i req
 
 ## <a name="latest-changes"></a>Modifiche più recenti
 
+- Versione della nuova Guida di [IBM Db2 HADR in Red Hat Enterprise Server](high-availability-guide-rhel-ibm-db2-luw.md)
+- Versione di [disponibilità elevata per SAP NetWeaver in Red Hat Enterprise Linux con file NetApp di Azure per le applicazioni SAP](high-availability-guide-rhel-netapp-files.md)
 - Introduzione del percorso veloce ExpressRoute e copertura globale per le istanze Large di HANA nel [architettura di rete di SAP HANA (istanze Large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) e documenti correlati
 - Versione di [controllare istanze Large di HANA di Azure tramite il portale di Azure](hana-li-portal.md)
 - Versione di [disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure su SUSE Linux Enterprise Server con file di NetApp Azure for SAP Applications](high-availability-guide-suse-netapp-files.md)
-- Chiarimenti sui **del sistema operativo Linux parametro net.ipv4.tcp_timestamps** bilanciamento del carico di impostazioni insieme a un'istanza di Azure
+
 
 
 

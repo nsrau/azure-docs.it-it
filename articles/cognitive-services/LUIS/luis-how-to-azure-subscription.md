@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: dedc498ebc910b448b1684136c288b2045780e00
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204152"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797958"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Uso delle chiavi della sottoscrizione con l'app LUIS
 
@@ -32,6 +32,8 @@ Solo in caso di test o come prototipo, usa il livello (F0) gratuito. Per i siste
 
 Si crea il [risorsa endpoint stima](get-started-portal-deploy-app.md#create-the-endpoint-resource) nel portale di Azure. Dovrà essere usata solo per le query di stima dell'endpoint. Non usarla per apportare modifiche all'app.
 
+È possibile creare una risorsa di Language Understanding Intelligent Service o a una risorsa di servizi cognitivi. Se si crea una risorsa di Language Understanding Intelligent Service, è consigliabile per postpend il tipo di risorsa per il nome della risorsa. 
+
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
 <a name="endpoint-key" ></a>
@@ -45,6 +47,15 @@ Si crea il [risorsa endpoint stima](get-started-portal-deploy-app.md#create-the-
 <a name="assign-endpoint-key"></a>
 <a name="assign-resource"></a>
 
+### <a name="using-resource-from-luis-portal"></a>Utilizzo risorse dal portale di LUIS
+
+Se si usa la risorsa dal portale di LUIS, non occorre conoscere la chiave e la località. Invece è necessario conoscere i tenant delle risorse, sottoscrizioni e nome della risorsa.
+
+Dopo aver [assegnare](#assign-resource-key-to-luis-app-in-luis-portal) risorsa all'App LUIS nel portale di LUIS, la chiave e posizione vengono fornite come parte dell'URL dell'endpoint stima query nella sezione Gestisci **chiavi e l'Endpoint impostazioni** pagina.
+ 
+### <a name="using-resource-from-rest-api-or-sdk"></a>Uso della risorsa API REST o SDK
+
+Se si usa la risorsa dal più REST o SDK, è necessario conoscere la chiave e la località. Queste informazioni vengono fornite come parte dell'URL dell'endpoint stima query nella sezione Gestisci **chiavi e l'Endpoint impostazioni** anche pagina come portale di Azure, nelle pagine di panoramica e le chiavi della risorsa.
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Assegnare la chiave di risorsa all'app LUIS nel portale LUIS
 
@@ -121,7 +132,7 @@ Per scopi di automazione, ad esempio una pipeline CI/CD, è possibile automatizz
 
     Questa API POST richiede le impostazioni seguenti:
 
-    |Intestazione|Value|
+    |Intestazione|Valore|
     |--|--|
     |`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.| 
     |`Ocp-Apim-Subscription-Key`|La [chiave di creazione](luis-how-to-account-settings.md).|

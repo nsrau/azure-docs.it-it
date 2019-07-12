@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: 79d4254de40ef787b30eb4f483c86383a928ee1f
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 6a748031f9d35e26eeb544f154477ea3449903f5
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566231"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796107"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
@@ -209,11 +209,16 @@ Per usare un certificato client per l'autenticazione dell'entità servizio
 
 1. Sostituire `{KeyVaultCertificateSecretIdentifier}` nella stringa di connessione con l'identificatore del certificato:
 
-```
-RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
-```
+    ```
+    RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
+    ```
 
-Se, ad esempio l'insieme di credenziali delle chiavi è stato chiamato "myKeyVault" ed è creato un certificato denominato 'myCert', l'identificatore del certificato sarebbe `https://myKeyVault.vault.azure.net/secrets/myCert`, e la stringa di connessione sarà `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert`.
+    Se, ad esempio l'insieme di credenziali delle chiavi è stato chiamato "myKeyVault" ed è creato un certificato denominato 'myCert', verrà visualizzata l'identificatore del certificato:
+
+    ```
+    RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert
+    ```
+
 
 ## <a name="connection-string-support"></a>Opzioni supportate per la stringa di connessione
 

@@ -156,6 +156,8 @@
           maintainContext: true
     - name: Domande frequenti sui set di scalabilità
       href: virtual-machine-scale-sets-faq.md
+    - name: Attributi di sicurezza
+      href: virtual-machine-scale-sets-security-attributes.md
 - name: Procedure
   items:
     - name: Pianificare e progettare

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: a097539e51aa2a2130dead236d553d60f2ebb89d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d30cd92456218284326263d7bd3c9c7820fa435c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965629"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621281"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
 
@@ -21,6 +21,8 @@ In quanto servizio di database cloud nativo completamente gestito, Azure Cosmos 
 Con Azure Cosmos DB i costi vengono addebitati su base oraria a seconda della velocità effettiva di cui viene effettuato il provisioning e a seconda delle risorse di archiviazione utilizzate. Per la velocità effettiva di cui è stato effettuato il provisioning, l'unità per la fatturazione è 100 UR al secondo all'ora, l'importo addebitato è di 0,008 dollari all'ora, in base al prezzo pubblico standard. Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/). Per le risorse di archiviazione utilizzate, vengono fatturati 0,25 dollari al mese per ogni GB di spazio di archiviazione. Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 Questo articolo presenta alcuni esempi che consentono di comprendere i dettagli della fattura mensile. I numeri visualizzati negli esempi possono essere diversi se per i contenitori di Azure Cosmos in uso è stato effettuato il provisioning di una quantità diversa di velocità effettiva, se i contenitori si estendono su più aree o vengono eseguiti per un periodo diverso nel corso di un mese.
+
+>! Nota: La fatturazione si basa qualsiasi parte di un'ora basata sul tempo reale, non una durata di 60 minuti.
 
 ## <a name="billing-examples"></a>Esempi di fatturazione
 
@@ -203,7 +205,7 @@ Si consideri un altro esempio, in cui si vuole stimare in modo proattivo la fatt
 |**Costi di archiviazione** | |
 |----|----|
 |Dimensioni medie dei record (KB) |1 |
-|Numero di record  |100\.000.000  |
+|Numero di record  |100.000.000  |
 |Spazio di archiviazione totale (GB)  |100 |
 |Costo mensile per GB  |$ 0,25  |
 |Costo mensile previsto per l'archiviazione   |$ 25,00  |
@@ -236,7 +238,7 @@ La fattura totale (senza capacità riservata) è (presupponendo 30 giorni o 720 
 
 |**Area**| **Prezzo all'ora per 100 UR/s**|**Unità (UR/s)**|**Importo fatturato (orario)**| **Importo fatturato (mensile)**|
 |----|----|----|----|----|
-|Stati Uniti orientali|$ 0,008 |50 K|$ 4|$ 2.880 |
+|East US|$ 0,008 |50 K|$ 4|$ 2.880 |
 |Giappone orientale|$ 0,009 |50 K| $ 4,50 |$ 3.240 |
 |Totale|||$ 8,50|$ 6.120 |
 
@@ -250,7 +252,7 @@ Ciò che si è effettivamente acquistato è un credito di 8 dollari all'ora, per
 
 |**Area**| **Prezzo all'ora per 100 UR/s**|**Unità (UR/s)**| **Importo fatturato (orario)**| **Importo fatturato (mensile)**|
 |----|----|----|----|----|
-|Stati Uniti orientali|$ 0,008 |50 K|$ 4|$ 2.880 |
+|East US|$ 0,008 |50 K|$ 4|$ 2.880 |
 |Giappone orientale|$ 0,009 |50 K| $ 4,50 |$ 3.240 |
 |||Pagamento in base al consumo|$ 8,50|$ 6120|
 |Capacità riservata acquistata|$ 0,0064 (20% di sconto) |100 UR/sec o $ 8 di capacità preacquistata |-$ 8|-$ 5.760 |

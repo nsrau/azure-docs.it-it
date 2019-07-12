@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: eb8c98df0f015244adf06a9b57f2223509f1f081
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc39cc09259c1ae681e1fee070777575e2788323
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082963"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827838"
 ---
-# <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-account"></a>Autenticazione basata su certificato per un'identità di Azure AD per le chiavi di accesso da un account Azure Cosmos
+# <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticazione basata su certificato per un'identità di Azure AD per le chiavi di accesso da un account Azure Cosmos DB
 
-L'autenticazione basata su certificati consente all'applicazione client di essere autenticati usando Azure Active Directory (Azure AD) con un certificato client. È possibile eseguire l'autenticazione basata su certificati in un computer in cui è necessario un'identità, ad esempio un computer locale o macchina virtuale in Azure. L'applicazione può quindi leggere le chiavi di Azure Cosmo DB senza che sia le chiavi direttamente nell'applicazione. Questo articolo descrive come creare un'applicazione di Azure AD esempio, configurarlo per l'autenticazione basata su certificato, accedere ad Azure usando la nuova identità di applicazione, e quindi recupera le chiavi dal proprio account Azure Cosmos. Questo articolo Usa Azure PowerShell per impostare l'identità e fornisce un C# app di esempio che esegue l'autenticazione e accede a chiavi dal proprio account Azure Cosmos.  
+L'autenticazione basata su certificati consente all'applicazione client di essere autenticati usando Azure Active Directory (Azure AD) con un certificato client. È possibile eseguire l'autenticazione basata su certificati in un computer in cui è necessario un'identità, ad esempio un computer locale o macchina virtuale in Azure. L'applicazione può quindi leggere le chiavi di Azure Cosmos DB senza che sia le chiavi direttamente nell'applicazione. Questo articolo descrive come creare un'applicazione di Azure AD esempio, configurarlo per l'autenticazione basata su certificato, accedere ad Azure usando la nuova identità di applicazione, e quindi recupera le chiavi dal proprio account Azure Cosmos. Questo articolo Usa Azure PowerShell per impostare l'identità e fornisce un C# app di esempio che esegue l'autenticazione e accede a chiavi dal proprio account Azure Cosmos.  
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -26,7 +26,7 @@ L'autenticazione basata su certificati consente all'applicazione client di esser
 
 ## <a name="register-an-app-in-azure-ad"></a>Registrare un'app in Azure AD
 
-In questo passaggio si registrerà un'applicazione web di esempio nell'account di Azure AD. Questa applicazione in un secondo momento viene utilizzata per leggere le chiavi dell'account di Azure Cosmos. Usare la procedura seguente per registrare un'applicazione: 
+In questo passaggio si registrerà un'applicazione web di esempio nell'account di Azure AD. Questa applicazione in un secondo momento viene utilizzata per leggere le chiavi dell'account di Azure Cosmos DB. Usare la procedura seguente per registrare un'applicazione: 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 

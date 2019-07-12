@@ -7,19 +7,19 @@ author: zhangmanling
 manager: zhangmanling
 editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
-ms.service: cdn
+ms.service: azure-cdn
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: b55685bc9cfdc8c31e6658050be94cbe49062f89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472166"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593399"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Protezione di asset della rete CDN di Azure con l'autenticazione basata su token
 
@@ -96,7 +96,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
       > <table>
       > <tr>
       >   <th>Nome parametro</th> 
-      >   <th>Descrizione</th>
+      >   <th>DESCRIZIONE</th>
       > </tr>
       > <tr>
       >    <td><b>ec_expire</b></td>
@@ -114,7 +114,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>Valore di input `/pictures/`: Solo le richieste contenenti il `/pictures/` percorso sono consentiti. Ad esempio: `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+      >       <li>Valore di input `/pictures/`: Solo le richieste contenenti il `/pictures/` percorso sono consentiti. Ad esempio `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
       >       <li>Valore di input `/pictures/city/strasbourg.png`: Sono consentite solo le richieste per questo specifico percorso e asset.</li>
       >    </ul>
       > </tr>
@@ -162,7 +162,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
 
    7. Selezionare **Encrypt** (Crittografa) per generare il token.
 
-      Il token generato viene visualizzato nella casella **Generated Token** (Token generato). Per usare il token, aggiungerlo come stringa di query alla fine del file nel percorso dell'URL, Ad esempio: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+      Il token generato viene visualizzato nella casella **Generated Token** (Token generato). Per usare il token, aggiungerlo come stringa di query alla fine del file nel percorso dell'URL, Ad esempio `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
    8. Facoltativamente, verificare il token con lo strumento per decrittografare in modo che sia possibile visualizzare i parametri del token. Incollare il valore del token nella casella **Token to Decrypt** (Token da decrittografare). Selezionare la chiave di crittografia da usare dall'elenco **Key to Decrypt** (Chiave da decrittografare) e quindi selezionare **Decrypt** (Decrittografa).
 

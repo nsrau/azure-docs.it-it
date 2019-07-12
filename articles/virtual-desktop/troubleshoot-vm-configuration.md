@@ -4,15 +4,15 @@ description: Come risolvere i problemi quando si configura un tenant e la sessio
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
-ms.date: 04/08/2019
+ms.topic: troubleshooting
+ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 38d59fb20776470cb683f2a2146838bb217addf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96a9d8fc7495ea473b0a3250b34251afc5f30c13
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64928123"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786716"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creazione di pool di host e tenant
 
@@ -284,6 +284,18 @@ Se il sistema operativo Microsoft Windows 10, continuare con le istruzioni ripor
     ```
 
 16. Quando i cmdlet vengono eseguiti in esecuzione, riavviare la macchina virtuale con lo stack side-by-side non funziona correttamente.
+
+## <a name="remote-licensing-model-is-not-configured"></a>Modello di gestione licenze remoto non è configurato
+
+Se si accede alla multi-sessione di Windows 10 Enterprise utilizzando un account amministratore, è possibile ricevere una notifica con la dicitura "modalità di gestione licenze Desktop remoto non è configurata, Servizi Desktop remoto smetterà di funzionare in X giorni. Nel server Gestore connessione, usare Server Manager per specificare la modalità gestione licenze Desktop remoto." Se viene visualizzato questo messaggio, che significa che è necessario configurare manualmente la modalità gestione licenze per **per ogni utente**.
+
+Per configurare manualmente la modalità gestione licenze:  
+
+1. Andare alla **dal menu Start** casella di ricerca, quindi trovare e aprire **gpedit. msc** per accedere all'editor Criteri di gruppo locali. 
+2. Passare a **configurazione Computer** > **modelli amministrativi** > **i componenti di Windows**  >   **Servizi Desktop remoto** > **Host sessione Desktop remoto** > **licenze**. 
+3. Selezionare **impostare la modalità gestione licenze Desktop remoto** e impostarlo su **per ogni utente**.
+
+È attualmente sta analizzando i problemi di timeout di notifica e periodo di prova e pianificare la risoluzione in un aggiornamento futuro. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,14 +8,14 @@ manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/25/2019
+ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 88ffd6ec24ed19dd3b1e57277884c8759cdac1f9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5969c3e0d270b45347f8132b2d655ba2e56cb2c0
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480341"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625904"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrare le estensioni delle associazioni di funzioni di Azure
 
@@ -33,8 +33,8 @@ Nella tabella seguente indica come e quando si registra le associazioni.
 |-------------------------|------------------------------------|------------------------------------|
 |Portale di Azure|Automatico|Automatico|
 |Linguaggi non .NET o lo sviluppo di strumenti di base di Azure locale|Automatico|[Usare Azure Functions Core Tools e aggregazioni di estensione](#extension-bundles)|
-|C#libreria di classi mediante Visual Studio 2019|[Usare gli strumenti di NuGet](#c-class-library-with-visual-studio-2019)|[Usare gli strumenti di NuGet](#c-class-library-with-visual-studio-2019)|
-|Libreria di classi C# usando Visual Studio Code|N/D|[Usare l'interfaccia della riga di comando di .NET Core](#c-class-library-with-visual-studio-code)|
+|C#libreria di classi mediante Visual Studio|[Usare gli strumenti di NuGet](#vs)|[Usare gli strumenti di NuGet](#vs)|
+|Libreria di classi C# usando Visual Studio Code|N/D|[Usare l'interfaccia della riga di comando di .NET Core](#vs-code)|
 
 ## <a name="extension-bundles"></a>Pacchetti di estensione per lo sviluppo locale
 
@@ -58,7 +58,7 @@ Per usare pacchetti di estensione, aggiornare il *host. JSON* file da includere 
 
 Le proprietà seguenti sono disponibili in `extensionBundle`:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | -------- | ----------- |
 | **`id`** | Lo spazio dei nomi per il bundle di estensione per funzioni di Microsoft Azure. |
 | **`version`** | La versione del bundle da installare. Il runtime di funzioni sceglie sempre la versione massima consentita definita per l'intervallo e intervallo di versioni. Il valore della versione precedente consente a tutte le versioni di bundle da 1.0.0 fino a ma escludendo 2.0.0. Per altre informazioni, vedere la [notazione di intervallo per la specifica di intervalli di versione](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). |
@@ -69,9 +69,9 @@ Il set di estensioni installate per l'aggregazione predefinita corrente sono enu
 
 <a name="local-csharp"></a>
 
-## <a name="c-class-library-with-visual-studio-2019"></a>C\# libreria di classi con Visual Studio 2019
+## <a name="vs"></a> C\# libreria di classi con Visual Studio
 
-Nelle **Visual Studio 2019**, è possibile installare i pacchetti dalla Console di gestione pacchetti usando la [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) comando, come illustrato nell'esempio seguente:
+Nelle **Visual Studio**, è possibile installare i pacchetti dalla Console di gestione pacchetti usando la [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) comando, come illustrato nell'esempio seguente:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
@@ -81,24 +81,25 @@ Il nome del pacchetto utilizzato per una determinata associazione viene fornito 
 
 Sostituire `<TARGET_VERSION>` nell'esempio con una specifica versione del pacchetto, come `3.0.0-beta5`. Le versioni valide sono elencate nelle pagine dei singoli pacchetti in [NuGet.org](https://nuget.org). Le versioni principali che corrispondono al runtime di Funzioni 1.x o 2.x sono specificate nell'articolo di riferimento per l'associazione.
 
-## <a name="c-class-library-with-visual-studio-code"></a>Libreria di classi C# con Visual Studio Code
+Se si usa `Install-Package` per fare riferimento a un'associazione, non è necessario usare [bundle estensione](#extension-bundles). Questo approccio è specifico di librerie di classi create in Visual Studio.
+
+## <a name="vs-code"></a> C#libreria di classi con Visual Studio Code
 
 > [!NOTE]
 > È consigliabile usare [bundle estensione](#extension-bundles) affinché funzioni installare automaticamente un insieme compatibile di pacchetti di estensione di associazione.
 
-Nella **Visual Studio Code**, installare i pacchetti per un C# progetto di libreria di classi dal prompt dei comandi usando il [dotnet Aggiungi pacchetto](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) comando della riga di comando .NET Core, come illustrato nell'esempio seguente:
+Nella **Visual Studio Code**, installare i pacchetti per un C# progetto di libreria di classi dal prompt dei comandi usando il [dotnet Aggiungi pacchetto](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) comando CLI di .NET Core. Nell'esempio seguente viene illustrato come si aggiunge un'associazione:
 
 ```terminal
-dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <TARGET_VERSION>
+dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
 ```
 
 L'interfaccia della riga di comando di .NET Core può essere usata solo per lo sviluppo di Funzioni di Azure 2.x.
 
-Il nome del pacchetto da usare per una determinata associazione è fornito nell'articolo di riferimento per quell'associazione. Per un esempio, vedere la [sezione sui pacchetti dell'articolo di riferimento sull'associazione del bus di servizio](functions-bindings-service-bus.md#packages---functions-1x).
+Sostituire `<BINDING_TYPE_NAME>` con il nome del pacchetto fornito nell'articolo di riferimento per l'associazione desiderata. È possibile trovare l'articolo di riferimento dell'associazione desiderata nel [elenco di associazioni supportate](./functions-triggers-bindings.md#supported-bindings).
 
 Sostituire `<TARGET_VERSION>` nell'esempio con una specifica versione del pacchetto, come `3.0.0-beta5`. Le versioni valide sono elencate nelle pagine dei singoli pacchetti in [NuGet.org](https://nuget.org). Le versioni principali che corrispondono al runtime di Funzioni 1.x o 2.x sono specificate nell'articolo di riferimento per l'associazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > [Esempio di trigger e associazione di funzione Azure](./functions-bindings-example.md)
-

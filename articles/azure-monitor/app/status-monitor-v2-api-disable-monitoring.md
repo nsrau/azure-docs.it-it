@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 201c5cc251896efae6b9f4639818471c0f011afe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 98171692284f5f28fb189e2658d207fb80d428ba
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514413"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807136"
 ---
-# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v021-alpha"></a>API v2 di Status Monitor: Disable-ApplicationInsightsMonitoring (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v040-alpha"></a>API v2 di Status Monitor: Disable-ApplicationInsightsMonitoring (v0.4.0-alpha)
 
 Questo articolo descrive un cmdlet che è un membro del [modulo di Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -28,7 +28,7 @@ Questo articolo descrive un cmdlet che è un membro del [modulo di Az.Applicatio
 > Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate e alcune potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="description"></a>Descrizione
+## <a name="description"></a>DESCRIZIONE
 
 Disabilita il monitoraggio nel computer di destinazione.
 Questo cmdlet rimuoverà le modifiche al file ApplicationHost. config di IIS e rimuovere le chiavi del Registro di sistema.

@@ -4,7 +4,7 @@ description: Informazioni su come configurare MPI per HPC in Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 5356a033dbc3d989dd27019f03b1fe36035ff9a4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 541e42a72ea604c4d71dc546b14dea2f0857bcc1
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441642"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797503"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configurare Message Passing Interface per HPC
 
@@ -126,7 +126,7 @@ L'aggiunta di processo funziona correttamente per PPN 15, 30 e 60 per impostazio
 
 ## <a name="osu-mpi-benchmarks"></a>Benchmark MPI OSU
 
-[Scaricare benchmark MPI OSU] [ http://mvapich.cse.ohio-state.edu/benchmarks/ ](http://mvapich.cse.ohio-state.edu/benchmarks/) e decomprimere.
+[Scaricare i benchmark MPI OSU](http://mvapich.cse.ohio-state.edu/benchmarks/) e decomprimere.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
@@ -146,7 +146,7 @@ I benchmark MPI sono sotto `mpi/` cartella.
 
 ## <a name="discover-partition-keys"></a>Individuare le chiavi di partizione
 
-Individuare le chiavi di partizione (p-chiavi) per la comunicazione con altre macchine virtuali.
+Individuare le chiavi di partizione (p-chiavi) per la comunicazione con altre macchine virtuali nello stesso tenant (Set di disponibilità o Set di scalabilità di macchine Virtuali).
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
@@ -164,13 +164,15 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 
 Utilizzare la partizione diversa dalla chiave di partizione predefinito (0x7fff). UCX richiede il byte più significativo della chiave p da cancellare. Ad esempio, impostare UCX_IB_PKEY come 0x000b per 0x800b.
 
+Si noti inoltre che, purché il tenant (AVSet o VMSS) esiste già, il PKEYs rimangono invariati. Questo vale anche quando i nodi vengono aggiunti o eliminati. Nuovi tenant ottenere PKEYs diverso.
+
 
 ## <a name="set-up-user-limits-for-mpi"></a>Impostare i limiti di utenti per MPI
 
 Configurare i limiti utente per MPI.
 
 ```bash
-cat << EOF >> /etc/security/limits.conf
+cat << EOF | sudo tee -a /etc/security/limits.conf
 *               hard    memlock         unlimited
 *               soft    memlock         unlimited
 *               hard    nofile          65535

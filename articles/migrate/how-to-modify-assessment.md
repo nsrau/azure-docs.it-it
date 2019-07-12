@@ -1,63 +1,72 @@
 ---
-title: Personalizzare le impostazioni di valutazione di Azure Migrate | Microsoft Docs
-description: Descrive come configurare ed eseguire una valutazione per la migrazione di macchine virtuali VMware in Azure usando Azure Migration Planner
+title: Personalizzare le valutazioni per la valutazione di Azure Migrate Server | Microsoft Docs
+description: Viene descritto come personalizzare le valutazioni create con la valutazione di Azure eseguire la migrazione di Server
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 07/09/2019
 ms.author: raynew
-ms.openlocfilehash: 8419d7e7a91e4cbfd0eebfe00d35bf498cf5998c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b200ce3d6e73a575b1b89d82a9323d58f435a48
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62129824"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807916"
 ---
 # <a name="customize-an-assessment"></a>Personalizzare una valutazione
 
-[Azure Migrate](migrate-overview.md) crea valutazioni con proprietà predefinite. Dopo aver creato una valutazione, è possibile modificare le proprietà predefinite seguendo le istruzioni contenute in questo articolo.
+Questo articolo descrive come personalizzare le valutazioni create dalla valutazione di Azure Migrate Server.
+
+[Azure Migrate](migrate-services-overview.md) fornisce un hub centrale per tenere traccia di individuazione, valutazione e migrazione delle App in locale e i carichi di lavoro e cloud privati/pubblici macchine virtuali di Azure. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e migrazione, nonché le offerte di fornitori di software indipendenti di terze parti.
+
+È possibile utilizzare lo strumento di valutazione di Server di eseguire la migrazione di Azure per creare le valutazioni per le macchine virtuali VMware locali e macchine virtuali Hyper-V, in preparazione per la migrazione ad Azure. 
+
+## <a name="about-assessments"></a>Sulle valutazioni
+
+Esistono due tipi di valutazioni che è possibile eseguire usando Azure eseguire la migrazione di Server Assessment.
+
+**Valutazione** | **Dettagli** | **Dati**
+--- | --- | ---
+**Basato sulle prestazioni** | Valutazioni in base ai dati sulle prestazioni raccolti | **Dimensioni VM consigliate**: Basate sui dati di utilizzo della CPU e memoria.<br/><br/> **Tipo di disco (disco gestito di standard o premium) consigliato**: Base di IOPS e velocità effettiva dei dischi in locale.
+**Come in locale** | Valutazioni in base a un'istanza locale di ridimensionamento. | **Dimensioni VM consigliate**: In base alla dimensione di macchina virtuale in locale<br/><br> **Tipo di disco consigliato**: Base all'impostazione di tipo archiviazione che scelto per la valutazione.
+
+
+## <a name="how-is-an-assessment-done"></a>Come viene eseguita una valutazione?
+
+Una valutazione di Azure Migrate si articola in tre fasi. La valutazione inizia con un'analisi di idoneità, seguita dalla determinazione della dimensione e termina con una stima dei costi mensili. Un computer passa alla fase successiva soltanto se supera quella precedente. Ad esempio, se un computer non supera il controllo di idoneità di Azure, viene contrassegnato come non idoneo per Azure e la dimensione e i costi non vengono calcolati.
+
+## <a name="whats-in-an-assessment"></a>Elementi inclusi nella valutazione
+
+**Proprietà** | **Dettagli**
+--- | ---
+**Posizione di destinazione** | Area di Azure in cui si vuole eseguire la migrazione.<br/> Azure Migrate supporta attualmente queste aree di destinazione: Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, India centrale, Stati Uniti centrali, Cina orientale, Cina settentrionale, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Germania centrale, Germania nord-orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Nord Stati Uniti centrali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, India meridionale, Regno Unito meridionale, Regno Unito occidentale, Stati Uniti Arizona Gov, US Gov Texas, US Gov Virginia, Stati Uniti centro occidentali, Europa occidentale, India occidentale, Stati Uniti occidentali e Stati Uniti occidentali 2.<br/> Per impostazione predefinita, l'area di destinazione è impostata su Stati Uniti occidentali 2.
+**Tipo di archiviazione** | Premium/standard HHD/Standard a dischi SSD dischi.<br/> Quando si specifica il tipo di archiviazione come automatico in una valutazione, i dati sulle prestazioni dei dischi (numero di IOPS e velocità effettiva) si basa la raccomandazione del disco.<br/> Se si specifica il tipo di archiviazione come Premium o Standard, consiglia la valutazione un disco SKU all'interno del tipo di archiviazione selezionato.<br/> Se si desidera ottenere una singola istanza VM SLA pari al 99,9%, è possibile impostare il tipo di archiviazione come dischi gestiti Premium. Quindi tutti i dischi nella valutazione verranno generate indicazioni come dischi gestiti Premium. <br/> Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.<br/> 
+**Istanze riservate (RI)** | Specificare questa proprietà se si hanno istanze riservate di in Azure. Le stime di costo nella valutazione prenderà in considerazione gli sconti delle istanze riservate. Le istanze riservate sono attualmente supportate solo per offerte di pagamento a consumo in Azure Migrate.
+**Criterio di dimensionamento** | Consente di dimensionare le macchine virtuali. Ridimensionamento può essere basata sulle prestazioni, oppure **come in locale**, senza considerare la cronologia delle prestazioni.
+**Cronologia delle prestazioni** | La durata da considerare per la valutazione delle prestazioni della macchina virtuale. Questa proprietà è applicabile solo quando il ridimensionamento è basato sulle prestazioni.
+**Utilizzo percentile** | Il valore percentile dell'esempio di prestazioni che viene usato per corretto dimensionamento delle macchine virtuali. Questa proprietà è applicabile solo quando il ridimensionamento è basato sulle prestazioni.
+**Serie macchina virtuale** | Serie di VM usata per le stime delle dimensioni. Se si ha un ambiente di produzione di cui non si intende eseguire la migrazione a VM serie A in Azure, ad esempio, si può escludere la serie A dall'elenco o dalle serie. Il dimensionamento sarà basato solo sulla serie selezionata.
+**Fattore di comfort** | Valutazione di Server eseguire la migrazione di Azure considera un buffer (fattore di comfort) durante la valutazione. che viene applicato ai dati sull'utilizzo delle VM (CPU, memoria, disco e rete). Il fattore di comfort tiene conto di aspetti come utilizzo stagionale, breve cronologia delle prestazioni e probabile aumento dell'utilizzo futuro.<br/><br/> Da una VM con 10 core e un utilizzo del 20%, ad esempio, si ottiene normalmente una VM con 2 core. Con un fattore di comfort pari a 2.0x, invece, il risultato è una VM con 4 core.
+**Offerta** | [Offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) sottoscritta. Azure Migrate stima il costo di conseguenza.
+**Valuta** | Valuta di fatturazione. 
+**Sconto (%)** | Qualsiasi sconto specifico della sottoscrizione ricevuto oltre all'offerta Azure.<br/> L'impostazione predefinita è 0%.
+**Tempo di attività macchina virtuale** | Se non si prevede di eseguire ininterrottamente le macchine virtuali in Azure, è possibile specificare la durata (numero di giorni al mese e numero di ore al giorno) dell'esecuzione. Il costo verrà stimato di conseguenza.<br/> Il valore predefinito è di 31 giorni al mese e di 24 ore al giorno.
+**Vantaggio Azure Hybrid** | Specifica se dispone di software assurance e sono idonei [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Se il valore è impostato su Sì, alle macchine virtuali Windows si applicano i prezzi di Azure per sistemi non Windows. | Il valore predefinito è Yes.
 
 
 ## <a name="edit-assessment-properties"></a>Modificare le proprietà di valutazione
 
-1. Nella pagina **Valutazioni** del progetto di migrazione selezionare la valutazione e fare clic su **Modifica proprietà**.
-2. Personalizzare le proprietà di valutazione in base ai dettagli seguenti:
+Per modificare le proprietà di valutazione dopo la creazione di una valutazione, eseguire le operazioni seguenti:
 
-    **Impostazione** | **Dettagli** | **Default**
-    --- | --- | ---
-    **Posizione di destinazione** | Area di Azure in cui si vuole eseguire la migrazione.<br/><br/> Azure Migrate supporta attualmente 30 aree, tra cui Asia orientale, Asia sud-orientale, Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Cina orientale, Cina settentrionale, Corea del Sud centrale, Corea del Sud meridionale, Europa occidentale, Europa settentrionale, Germania centrale, Germania nordorientale, Giappone occidentale, Giappone orientale, India centrale, India meridionale, India occidentale, Regno Unito meridionale, Regno Unito occidentale, Governo degli Stati Uniti Arizona, Governo degli Stati Uniti Texas, Governo degli Stati Uniti Virginia, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti centro-settentrionali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali e Stati Uniti occidentali 2. |  L'area predefinita è Stati Uniti occidentali 2.
-    **Tipo di archiviazione** | È possibile usare questa proprietà per specificare il tipo di dischi da spostare in Azure. Per il dimensionamento come in locale, è possibile specificare il tipo di dischi di destinazione come Managed Disks Premium o Managed Disks Standard. Per il dimensionamento basato sulle prestazioni, è possibile specificare il tipo di dischi di destinazione come Automatico, Managed Disks Premium o Managed Disks Standard. Quando si specifica il tipo di archiviazione automatico, la preferenza dei dischi è basata sui dati delle relative prestazioni (numero di operazioni di I/O al secondo e velocità effettiva). Se ad esempio si vuole ottenere un [contratto di servizio per singole istanze di macchina virtuale con tempo di attività pari al 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), può essere opportuno specificare il tipo di archiviazione Managed Disks Premium che garantisce che tutti i dischi nella valutazione vengano raccomandati come Managed Disks Premium. Si noti che Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione. | Il valore predefinito è Managed Disks Premium, con il criterio di dimensionamento *as on-premises sizing* (Determinazione della dimensione come in locale).
-    **Istanze riservate** |  È anche possibile specificare se sono presenti [istanze riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure. Azure Migrate stimerà il costo di conseguenza. Le istanze riservate sono attualmente supportate solo per l'offerta con pagamento in base al consumo in Azure Migrate. | Il valore predefinito per questa proprietà corrisponde a istanze riservate per 3 anni.
-    **Criterio di dimensionamento** | Criterio che Azure Migrate deve usare per definire correttamente le dimensioni delle macchine virtuali per Azure. È possibile eseguire il dimensionamento *basato sulle prestazioni* o definire le dimensioni delle macchine virtuali *come in locale*, senza considerare la cronologia delle prestazioni. | L'opzione predefinita è il dimensionamento basato sulle prestazioni.
-    **Cronologia delle prestazioni** | Durata da considerare per la valutazione delle prestazioni delle macchine virtuali. Questa proprietà è applicabile solo quando il criterio di dimensionamento è *basato sulle prestazioni*. | Il valore predefinito è un giorno.
-    **Utilizzo percentile** | Valore percentile dell'esempio di prestazioni da tenere in considerazione per il dimensionamento corretto. Questa proprietà è applicabile solo quando il criterio di dimensionamento è *basato sulle prestazioni*.  | Il valore predefinito è 95° percentile.
-    **Serie macchina virtuale** | È possibile specificare la serie di macchine virtuali che si intende tenere in considerazione per il dimensionamento corretto. Se ad esempio si ha un ambiente di produzione di cui non si intende eseguire la migrazione a macchine virtuali serie A in Azure, è possibile escludere la serie A dall'elenco o dalla serie e il dimensionamento viene eseguito solo nella serie selezionata. | Per impostazione predefinita, sono selezionate tutte le serie di macchine virtuali.
-    **Fattore di comfort** | Durante la valutazione, Azure Migrate considera un buffer (fattore di comfort), che viene applicato ai dati sull'utilizzo delle VM (CPU, memoria, disco e rete). Il fattore di comfort tiene conto di aspetti come utilizzo stagionale, breve cronologia delle prestazioni e probabile aumento dell'utilizzo futuro.<br/><br/> Da una VM con 10 core e un utilizzo del 20%, ad esempio, si ottiene normalmente una VM con 2 core. Con un fattore di comfort pari a 2.0x, invece, il risultato è una VM con 4 core. | L'impostazione predefinita è 1.3x.
-    **Offerta** | [Offerta Azure](https://azure.microsoft.com/support/legal/offer-details/) sottoscritta. | L'opzione predefinita è [Pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/).
-    **Valuta** | Valuta di fatturazione. | La valuta predefinita è il dollaro statunitense.
-    **Sconto (%)** | Qualsiasi sconto specifico della sottoscrizione ricevuto oltre all'offerta Azure. | L'impostazione predefinita è 0%.
-    **Tempo di attività macchina virtuale** | Se non si prevede di eseguire ininterrottamente le macchine virtuali in Azure, è possibile specificare la durata (numero di giorni al mese e numero di ore al giorno) dell'esecuzione. Il costo verrà stimato di conseguenza. | Il valore predefinito è di 31 giorni al mese e di 24 ore al giorno.
-    **Vantaggio Azure Hybrid** | Specificare se si dispone di licenze Software Assurance e se si è idonei per l'opzione [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Se il valore è impostato su Sì, alle macchine virtuali Windows si applicano i prezzi di Azure per sistemi non Windows. | Il valore predefinito è Yes.
+1. Nel progetto Azure Migrate, fare clic su **server**.
+2. In **Azure Migrate: Server Assessment**, scegliere il numero di valutazioni.
+3. Nelle **Assessment**, fare clic su valutazione pertinente > **modificare le proprietà**.
+5. Personalizzare le proprietà di valutazione in base alla tabella precedente.
+6. Fare clic su **Salva** per aggiornare la valutazione.
 
-3. Fare clic su **Salva** per aggiornare la valutazione.
 
-## <a name="faqs-on-assessment-properties"></a>Domande frequenti sulle proprietà di valutazione
+È anche possibile modificare le proprietà di valutazione durante la creazione di una valutazione.
 
-### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>Qual è la differenza tra il dimensionamento locale e il dimensionamento basato sulle prestazioni?
-
-Quando si specifica che il criterio di dimensionamento deve essere locale, Azure Migrate non considera i dati delle prestazioni delle macchine virtuali e le ridimensiona in base alla configurazione locale. Se il criterio di dimensionamento è basato sulle prestazioni, il dimensionamento viene eseguito in base ai dati di utilizzo, ad esempio se è presente una macchina virtuale locale con 4 core e 8 GB di memoria, con un utilizzo della CPU e della memoria del 50%. Se il criterio di dimensionamento è il dimensionamento locale, è consigliato uno SKU di macchina virtuale di Azure con 4 core e 8 GB di memoria, ma, se il criterio di dimensionamento è basato sulle prestazioni, è consigliato uno SKU di macchina virtuale con 2 core e 4 GB perché, pur consigliando le dimensioni, va considerata la percentuale di utilizzo.
-
-Analogamente, per i dischi, il dimensionamento dei dischi dipende da due proprietà di valutazione: i criteri di dimensionamento e il tipo di archiviazione. Se il criterio di dimensionamento è basato sulle prestazioni e il tipo di archiviazione è automatico, vengono considerati i valori relativi alle operazioni di I/O al secondo e alla velocità effettiva del disco per identificare il tipo di disco di destinazione (Standard o Premium). Se il criterio di dimensionamento è basato sulle prestazioni e il tipo di archiviazione è Premium, è consigliabile un disco Premium. La SKU del disco Premium in Azure viene selezionato in base alle dimensioni del disco locale. La stessa logica si applica al dimensionamento del disco quando il criterio di dimensionamento è quello locale e il tipo di archiviazione è Standard o Premium.
-
-### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Qual è l'impatto della cronologia delle prestazioni e dell'utilizzo percentile sulle dimensioni consigliate?
-
-Queste proprietà sono applicabili solo per il dimensionamento basato sulle prestazioni. Azure Migrate raccoglie la cronologia delle prestazioni dei computer locali e la usa per consigliare le dimensioni della macchina virtuale e il tipo di disco in Azure.
-
-- L'appliance dell'agente di raccolta esegue continuamente una profilatura dell'ambiente locale per raccogliere i dati di utilizzo in tempo reale ogni 20 secondi.
-- L'appliance esegue il rollup dei campioni raccolti ogni 20 secondi e crea un singolo punto dati ogni 15 minuti. Per creare il singolo punto dati, l'appliance seleziona il valore di picco da tutti i campioni raccolti ogni 20 secondi e lo invia ad Azure.
-- Quando si crea una valutazione in Azure, in base alla durata delle prestazioni e al valore percentile della cronologia delle prestazioni, Azure Migrate calcola il valore di utilizzo effettivo e lo usa per il dimensionamento.
-
-Se ad esempio la durata delle prestazioni è stata impostata su 1 giorno e il valore percentile è stato impostato su 95, Azure Migrate usa i punti campione da 15 minuti inviati dall'agente di raccolta per l'ultimo giorno, li ordina in senso crescente e sceglie il valore del 95° percentile come utilizzo effettivo. Il valore del 95° percentile assicura che vengano ignorati eventuali outlier, come potrebbe invece verificarsi se si selezionasse il 99° percentile. Per scegliere il picco nell'utilizzo per il periodo di tempo senza perdere gli outlier, è consigliabile selezionare il 99° percentile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

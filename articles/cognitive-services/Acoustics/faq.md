@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 6e979db29f4a223b61580c48101c0d242fdbebbf
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a18f6b57e203c40c0f667f07e8371348cb738c9b
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616324"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827574"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Domande frequenti su acustica progetto
 
@@ -29,7 +29,7 @@ Il gruppo di progetto acustica dei plug-in è un sistema acustica che calcola il
 
 ## <a name="does-project-acoustics-support-ltxgt-platform"></a>Supporta progetti acustica &lt;x&gt; piattaforma?
 
-Supporto della piattaforma acustica progetto si evolve in base alle esigenze dei clienti. Contattaci sul [forum di Project acustica](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) per richiedere informazioni sul supporto per altre piattaforme.
+Supporto della piattaforma acustica progetto si evolve in base alle esigenze dei clienti. Contattaci sul [acustica progetto problema forum](https://github.com/microsoft/ProjectAcoustics/issues) per richiedere informazioni sul supporto per altre piattaforme.
 
 ## <a name="is-azure-used-at-runtime"></a>Azure viene usato in fase di esecuzione?
 

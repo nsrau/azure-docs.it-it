@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: ef40ce0987d44c968b120d7d4b142cc95d7eaf30
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 8e01815cee0d6e39f6f773e9838b2a8b60638ab1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67294840"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672291"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Prerequisiti di Crittografia dischi di Azure
 
@@ -48,10 +48,14 @@ Crittografia dischi di Azure è anche disponibile per le macchine virtuali con a
 
 ### <a name="windows"></a>Windows
 
-- Versioni di Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2012 R2 Server Core e Windows Server 2016 Server core.
-Per Windows Server 2008 R2 è necessario che .NET Framework 4.5 sia installato prima dell'abilitazione della crittografia in Azure. Installarlo da Windows Update con l'aggiornamento facoltativo Microsoft .NET Framework 4.5.2 per sistemi basati su x64 di Windows Server 2008 R2 (KB2901983).
-- Componenti di base di Windows Server 2012 R2 e Windows Server 2016 Core sono supportate da crittografia dischi di Azure dopo la componente bdehdcfg viene installata nella macchina virtuale.
-- Versioni del Client Windows: Client Windows 8 e client Windows 10.
+- Client Windows: Windows 8 e versioni successive.
+- Server Windows: Windows Server 2008 R2 e versioni successive.  
+ 
+> [!NOTE]
+> Windows Server 2008 R2 richiede .NET Framework 4.5 sia installato per la crittografia; installarlo da Windows Update con l'aggiornamento facoltativo Microsoft .NET Framework 4.5.2 per i sistemi basati su x64 di Windows Server 2008 R2 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
+>  
+> Componenti di base di Windows Server 2012 R2 e Windows Server 2016 Core richiede la componente bdehdcfg da installare nella macchina virtuale per la crittografia.
+
 
 ### <a name="linux"></a>Linux 
 
@@ -110,7 +114,7 @@ Un esempio dei comandi che è possibile usare per montare i dischi dati e creare
 
 
 **Criteri di gruppo:**
- - La soluzione Crittografia dischi di Azure usa la protezione con chiave esterna BitLocker per macchine virtuali IaaS Windows. Per le macchine virtuali aggiunte a un dominio, non eseguire il push di criteri di gruppo che applichino protezioni TPM. Per informazioni sui Criteri di gruppo per consentire BitLocker senza un TPM compatibile, vedere [BitLocker Group Policy Reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup) (Informazioni di riferimento sui Criteri di gruppo BitLocker).
+ - La soluzione Crittografia dischi di Azure usa la protezione con chiave esterna BitLocker per macchine virtuali IaaS Windows. Per le macchine virtuali aggiunte a un dominio, non eseguire il push di criteri di gruppo che applichino protezioni TPM. Per informazioni sui Criteri di gruppo per consentire BitLocker senza un TPM compatibile, vedere [BitLocker Group Policy Reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1) (Informazioni di riferimento sui Criteri di gruppo BitLocker).
 
 -  I criteri di BitLocker nelle macchine virtuali aggiunte a un dominio con criteri di gruppo personalizzati devono includere l'impostazione seguente: [Configurare l'archivio utente di BitLocker le informazioni di ripristino -> chiave di ripristino consentono a 256 bit](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Crittografia dischi di Azure avrà esito negativo quando le impostazioni di Criteri di gruppo personalizzate per BitLocker sono incompatibili. Sulle macchine sprovviste delle corrette impostazioni di criteri, applicare i nuovi criteri, forzare l'aggiornamento dei criteri (gpupdate.exe /force) e, dopodiché, potrebbe essere necessario riavviare.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87de721f596eb4148939c00bc4b4db270a87c24e
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850773"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724089"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Modificare le informazioni sul profilo per l'account di Azure
 
@@ -87,10 +87,16 @@ Per rifiutare esplicitamente la ricezione di messaggi di posta elettronica di ma
 1. Andare alla [modulo di richiesta](https://account.microsoft.com/profile/permissions-link-request) per inviare una richiesta usando l'indirizzo di posta elettronica del profilo. Si riceverà un collegamento tramite posta elettronica per aggiornare le proprie preferenze.
 2. Selezionare il collegamento per aprire la **gestire le autorizzazioni di comunicazione** pagina. Questa pagina illustra i tipi di comunicazioni di marketing che l'indirizzo di posta elettronica è acconsentito esplicitamente a. Cancella tutti gli argomenti che si desidera escludere e quindi selezionare **salvare**.
 
-
 ![Esempio della pagina per la gestione delle autorizzazioni di comunicazione](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
 
 Quando è rifiutare esplicitamente le comunicazioni di marketing, comunque ricevere le notifiche del servizio, in base all'account.
+
+## <a name="change-the-subscription-name"></a>Modificare il nome della sottoscrizione
+
+1. Accedi per il [portale di Azure](https://portal.azure.com), selezionare **sottoscrizione** dal riquadro a sinistra e quindi selezionare la sottoscrizione che si desidera rinominare.
+1. Selezionare **Overview**, quindi selezionare **rinominare** dalla barra dei comandi.
+    ![Esempio di ridenominazione di sottoscrizione di Azure](./media/billing-how-to-change-azure-account-profile/rename-sub.png)
+1. Dopo aver modificato il nome, selezionare **salvare**.
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 

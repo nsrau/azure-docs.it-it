@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e57291292d8957fd323f9be03bb7df0492484ea8
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: da10b70b85e284173abbd1779fb1d39f477ca0cd
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341626"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723222"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Eseguire l'autenticazione con Azure Active Directory da un'applicazione per l'accesso a BLOB e code
 
@@ -49,16 +49,16 @@ Per altre informazioni sulla registrazione di un'applicazione in Azure AD, veder
 Successivamente, concedere autorizzazioni per l'applicazione per chiamare le API di archiviazione di Azure. Questo passaggio consente all'applicazione autorizzare le richieste ad archiviazione di Azure con Azure AD.
 
 1. Nel **Overview** pagina per l'applicazione registrata, seleziona **visualizzare le autorizzazioni API**.
-1. Nel **le autorizzazioni API** sezione, selezionare **aggiungere un'autorizzazione** e scegliere **API Usa la mia organizzazione**.
-1. Sotto il **API Usa la mia organizzazione** sezione, cercare "Azure Storage" e selezionare **archiviazione di Azure** dall'elenco dei risultati per visualizzare il **le autorizzazioni richieste API** riquadro.
+1. Nel **le autorizzazioni API** sezione, selezionare **aggiungere un'autorizzazione** e scegliere **APIs Microsoft**.
+1. Selezionare **archiviazione di Azure** dall'elenco dei risultati per visualizzare i **le autorizzazioni richieste API** riquadro.
+1. Sotto **quale tipo di autorizzazioni per l'applicazione richiede?** , osservare che il tipo di autorizzazione disponibili **autorizzazioni delegate**. Questa opzione è selezionata per impostazione predefinita.
+1. Nel **selezionare le autorizzazioni** sezione del **le autorizzazioni API Request** riquadro, selezionare la casella di controllo accanto a **user_impersonation**, quindi fare clic su **Aggiungi le autorizzazioni**.
 
     ![Screenshot che mostra autorizzazioni per l'archiviazione](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-1. Sotto **quale tipo di autorizzazioni per l'applicazione richiede?** , osservare che il tipo di autorizzazione disponibili **autorizzazioni delegate**. Questa opzione è selezionata per impostazione predefinita.
-1. Nel **selezionare le autorizzazioni** sezione del **le autorizzazioni API Request** riquadro, selezionare la casella di controllo accanto a **user_impersonation**, quindi fare clic su **Aggiungi le autorizzazioni**.
-1. Il **le autorizzazioni API** riquadro Mostra ora che l'applicazione Azure AD ha accesso a Microsoft Graph e l'archiviazione di Azure. Le autorizzazioni vengono concesse automaticamente a Microsoft Graph quando prima di tutto registrare l'app con Azure AD.
+Il **le autorizzazioni API** riquadro Mostra ora che registrato l'applicazione Azure AD ha accesso a Microsoft Graph e l'archiviazione di Azure. Le autorizzazioni vengono concesse automaticamente a Microsoft Graph quando prima di tutto registrare l'app con Azure AD.
 
-    ![Screenshot di registrare le autorizzazioni dell'app](media/storage-auth-aad-app/registered-app-permissions-2.png)
+![Screenshot di registrare le autorizzazioni dell'app](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## <a name="create-a-client-secret"></a>Creare un segreto client
 
@@ -275,7 +275,7 @@ CloudBlockBlob blob = new CloudBlockBlob(
 
 ### <a name="enable-implicit-grant-flow"></a>Abilitare il flusso di concessione implicita
 
-Per eseguire l'esempio, si potrebbe essere necessario configurare il flusso di concessione implicita per la registrazione dell'app. A tale scopo, seguire questa procedura:
+Per eseguire l'esempio, si potrebbe essere necessario configurare il flusso di concessione implicita per la registrazione dell'app. Attenersi ai passaggi riportati di seguito.
 
 1. Passare alla registrazione dell'app nel portale di Azure.
 1. Nella sezione Gestisci selezionare il **autenticazione** impostazione.

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: ecee1669c29d7b298741f9e5521de03da6dd7e3b
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 476aaacbe6f1bf6d1920df0f12599976bfcc27b7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331642"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701148"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS evasione, API, versione 2 
 
@@ -87,7 +87,7 @@ Nella tabella seguente sono elencate le definizioni per i parametri comuni ed en
 | `offerId`                | Un identificatore di stringa univoco per ogni offerta (ad esempio: "offer1").  |
 | `planId`                 | Un identificatore di stringa univoco per ogni piano/SKU (ad esempio: "silver"). |
 | `operationId`            | Identificatore GUID per una determinata operazione.  |
-|  `action`                | L'azione eseguita su una risorsa, ovvero `subscribe`, `unsubscribe`, `suspend`, `reinstate`, o `changePlan`, `changeQuantity`, `transfer`.  |
+|  `action`                | L'azione eseguita su una risorsa, ovvero `unsubscribe`, `suspend`, `reinstate`, o `changePlan`, `changeQuantity`, `transfer`.  |
 |   |   |
 
 Gli identificatori univoci globali ([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) sono numeri (32 cifre esadecimali) a 128 bit che in genere vengono generati automaticamente. 
@@ -199,10 +199,16 @@ Payload della risposta:<br>
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
               "tenantId": "<guid>"
           },
+            "term": {
+                "startDate": "2019-05-31",
+                "endDate": "2019-06-29",
+                "termUnit": "P1M"
+          },
           "allowedCustomerOperations": [
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
+          "isFreeTrial": "true", // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
   ],
@@ -271,7 +277,13 @@ Response Body:
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
+        "isFreeTrial": "true", // true – customer subscription is currently in free trial, false – customer subscription is not currently in free trial.
         "status": "Subscribed", // Indicates the status of the operation.
+          "term": { //This gives the free trial term start and end date
+            "startDate": "2019-05-31",
+            "endDate": "2019-06-29",
+            "termUnit": "P1M"
+        },
 }
 ```
 
@@ -537,7 +549,7 @@ Errore interno del server.
 
 Annullare la sottoscrizione ed eliminare la sottoscrizione specificata.
 
-##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionid-api-versionapiversion"></a>Delete<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`
+##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionid-api-versionapiversion"></a>Eliminare<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -794,7 +806,6 @@ Il server di pubblicazione deve implementare un webhook nel servizio SaaS per ri
 }
 ```
 In cui l'azione può essere uno dei seguenti: 
-- `subscribe` (quando la risorsa è stata attivata)
 - `unsubscribe` (quando la risorsa è stata eliminata)
 - `changePlan` (quando ha completato l'operazione del piano di modifica)
 - `changeQuantity` (quando ha completato l'operazione di modifica quantità)

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43498a7829a43fad331841aca045f52ae680be
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 54a99d001f8cb59af3042ce8b6849a2cd9480e99
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481477"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724006"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione e PingAccess
 
@@ -53,10 +53,11 @@ Se è stato abilitato il Proxy di applicazione abilitato e già installato un co
 Il connettore del Proxy di applicazione è un servizio di Windows Server che indirizza il traffico dai dipendenti remoti alle applicazioni pubblicate. Per istruzioni di installazione più dettagliate, vedere [esercitazione: Aggiungere un'applicazione in locale per l'accesso remoto tramite il Proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 1. Accedi per il [portale di Azure Active Directory](https://aad.portal.azure.com/) come amministratore dell'applicazione. Il **interfaccia di amministrazione di Azure Active Directory** verrà visualizzata la pagina.
-2. Selezionare **Azure Active Directory** > **proxy dell'applicazione** > **Scarica servizio connettore**. Il **Application Proxy Connector Download** verrà visualizzata la pagina.
+1. Selezionare **Azure Active Directory** > **proxy dell'applicazione** > **Scarica servizio connettore**. Il **Application Proxy Connector Download** verrà visualizzata la pagina.
 
    ![Download del connettore proxy dell'applicazione](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
-3. Seguire le istruzioni di installazione.
+
+1. Seguire le istruzioni di installazione.
 
 Scaricando il connettore deve abilitare automaticamente il Proxy di applicazione per la directory, ma in caso contrario, è possibile selezionare **abilitare il Proxy di applicazione**.
 
@@ -139,7 +140,7 @@ Infine, configurare l'applicazione in locale in modo che gli utenti hanno access
 | Nome del campo di Azure AD | Nome del campo di PingAccess | Formato dati |
 | --- | --- | --- |
 | **ID applicazione (client)** | **ID client** | GUID |
-| **ID di directory (tenant)** | **Issuer** | GUID |
+| **ID della directory (tenant)** | **Issuer** | GUID |
 | `PingAccess key` | **Segreto client** | Stringa casuale |
 
 Per raccogliere queste informazioni:
@@ -205,7 +206,7 @@ Ad esempio includere indirizzo di posta elettronica nel token di accesso che uti
 
 ### <a name="use-of-claims-mapping-policy-optional"></a>Uso di criteri (facoltativo) di mapping delle attestazioni
 
-[Criteri di Mapping (anteprima) di attestazioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) per gli attributi che non esistono in Azure ad. Mapping delle attestazioni consente di migrare le app precedenti dall'ambiente locale al cloud aggiungendo altre attestazioni personalizzate che sono supportate da oggetti di ad FS o un utente
+[Criteri di Mapping (anteprima) di attestazioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties) per gli attributi che non esistono in Azure ad. Mapping delle attestazioni consente di migrare le app precedenti dall'ambiente locale al cloud aggiungendo altre attestazioni personalizzate che sono supportate da oggetti di ad FS o un utente
 
 Per rendere l'applicazione usi un'attestazione personalizzata e includa campi aggiuntivi, assicurarsi aver anche [creati criteri di mapping delle attestazioni personalizzate e averlo assegnato all'applicazione](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 

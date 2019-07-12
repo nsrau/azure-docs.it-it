@@ -5,38 +5,38 @@ services: functions
 author: cgillum
 manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7101519aa4a87995dac3a7f11046eed84a2c09b6
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596072"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812770"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Anteprima della versione 2.0 di funzioni permanente (funzioni di Azure)
 
 *Funzioni permanenti* è un'estensione di [Funzioni di Azure](../functions-overview.md) e [Processi Web di Azure](../../app-service/web-sites-create-web-jobs.md) che consente di scrivere funzioni con stato in un ambiente senza server. L'estensione gestisce automaticamente lo stato, i checkpoint e i riavvii. Se non ha già familiarità con funzioni permanenti, vedere la [documentazione con la panoramica](durable-functions-overview.md).
 
-Funzioni permanenti è una funzionalità di disponibilità generale (disponibile a livello generale) di funzioni di Azure, ma contiene anche diverse funzionalità secondarie che sono attualmente in anteprima pubblica. Questo articolo descrive le funzionalità di anteprima rilasciata di recente e passa i dettagli su come funzionano e come è possibile iniziare a utilizzarle.
+Funzioni permanenti è una funzionalità di disponibilità generale (disponibile a livello generale) di funzioni di Azure 1.x, ma contiene anche diverse funzionalità secondarie che sono attualmente in anteprima pubblica. Questo articolo descrive le funzionalità di anteprima rilasciata di recente e passa i dettagli su come funzionano e come è possibile iniziare a utilizzarle.
 
 > [!NOTE]
-> Queste funzionalità di anteprima sono parte di una versione 2.0 di funzioni permanenti, che è attualmente un' **versione di qualità alfa** con molte modifiche di rilievo. Azure funzioni durevoli compila pacchetto di estensione è reperibile in nuget.org con le versioni costituiti **2.0.0-alpha**. Tali build non sono adatte per i carichi di lavoro di produzione e versioni successive possono contenere modifiche di rilievo aggiuntive.
+> Queste funzionalità di anteprima sono parte di una versione 2.0 di funzioni permanenti, che è attualmente una **qualità versione di anteprima** con molte modifiche di rilievo. Azure funzioni durevoli compila pacchetto di estensione è reperibile in nuget.org con le versioni costituiti **2.0.0-betaX**. Tali build non sono pensate per i carichi di lavoro di produzione e versioni successive possono contenere modifiche di rilievo aggiuntive.
 
 ## <a name="breaking-changes"></a>Modifiche di rilievo
 
 2\.0 di funzioni permanenti sono introdotte diverse modifiche di rilievo. Le applicazioni esistenti non possono essere compatibili con 2.0 di funzioni permanenti senza modifiche al codice. In questa sezione sono elencate alcune delle modifiche:
 
-### <a name="dropping-net-framework-support"></a>Eliminazione di supporto di .NET Framework
-
-Supporto per .NET Framework (e pertanto le funzioni 1.0) è stato eliminato per 2.0 di funzioni permanenti. Il motivo principale è consentire ai collaboratori non Windows di facile compilare e testare le modifiche apportate alle funzioni durevoli da piattaforme macOS e Linux. Il secondo motivo è per incoraggiare gli sviluppatori per spostarne la versione più recente del runtime di funzioni di Azure.
-
 ### <a name="hostjson-schema"></a>Schema di host. JSON
 
-Il frammento seguente mostra il nuovo schema per l'host. JSON. La modifica principale da tenere presente è il nuovo `"storageProvider"` sezione e `"azureStorage"` sezione sottostanti. Questa modifica è stata eseguita per supportare [provider di archiviazione alternativo](durable-functions-preview.md#alternate-storage-providers).
+Il frammento seguente mostra il nuovo schema per l'host. JSON. Le modifiche principali da tenere presenti sono le nuove sottosezioni:
+
+* `"storageProvider"` (e `"azureStorage"` sottosezione) per la configurazione di specifici dell'archiviazione
+* `"tracking"` per il rilevamento e la configurazione della registrazione
+* `"notifications"` (e `"eventGrid"` sottosezione) per la configurazione di notifica della griglia di eventi
 
 ```json
 {
@@ -56,19 +56,25 @@ Il frammento seguente mostra il nuovo schema per l'host. JSON. La modifica princ
           "maxQueuePollingInterval": <hh:mm:ss?>
         }
       },
+      "tracking": {
+        "traceInputsAndOutputs": <bool?>,
+        "traceReplayEvents": <bool?>,
+      },
+      "notifications": {
+        "eventGrid": {
+          "topicEndpoint": <string?>,
+          "keySettingName": <string?>,
+          "publishRetryCount": <string?>,
+          "publishRetryInterval": <hh:mm:ss?>,
+          "publishRetryHttpStatus": <int[]?>,
+          "publishEventTypes": <string[]?>,
+        }
+      },
       "maxConcurrentActivityFunctions": <int?>,
       "maxConcurrentOrchestratorFunctions": <int?>,
-      "traceInputAndOutputs": <bool?>,
-      "eventGridTopicEndpoint": <string?>,
-      "eventGridKeySettingName": <string?>,
-      "eventGridPublishRetryCount": <string?>,
-      "eventGridPublishRetryInterval": <hh:mm:ss?>,
-      "eventGridPublishRetryHttpStatus": <int[]?>,
-      "eventgridPublishEventTypes": <string[]?>,
-      "customLifeCycleNotificationHelperType"
       "extendedSessionsEnabled": <bool?>,
       "extendedSessionIdleTimeoutInSeconds": <int?>,
-      "logReplayEvents": <bool?>
+      "customLifeCycleNotificationHelperType": <string?>
   }
 }
 ```
@@ -93,27 +99,27 @@ Nel caso in cui una classe base astratta inclusi metodi virtuali, questi metodi 
 
 Definiscono le operazioni per la lettura e aggiornamento piccole parti di stato, noto come funzioni Entity *entità permanente*. Ad esempio le funzioni di orchestrazione entità sono funzioni con un tipo speciale di trigger, *trigger entità*. A differenza delle funzioni dell'agente di orchestrazione, le funzioni entità non hanno vincoli qualsiasi codice specifico. Funzioni dell'entità anche gestire lo stato in modo esplicito anziché in modo implicito che rappresenta lo stato tramite il flusso di controllo.
 
-Il codice seguente è riportato un esempio di una funzione semplice entità che definisce una *contatore* entità. La funzione definisce tre operazioni, `add`, `subtract`, e `reset`, ognuno dei quali aggiornare un valore intero, `currentValue`.
+### <a name="net-programing-models"></a>Modelli di programmazione .NET
+
+Esistono due modelli di programmazione facoltativi per la creazione di entità permanente. Il codice seguente è riportato un esempio di una semplice *contatore* entità implementata come una funzione standard. Questa funzione definisce tre *operations*, `add`, `reset`, e `get`, ognuno dei che operano su un valore di stato, numero intero `currentValue`.
 
 ```csharp
 [FunctionName("Counter")]
-public static async Task Counter(
-    [EntityTrigger] IDurableEntityContext ctx)
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-    int operand = ctx.GetInput<int>();
 
-    switch (ctx.OperationName)
+    switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
+            int amount = ctx.GetInput<int>();
             currentValue += operand;
             break;
-        case "subtract":
-            currentValue -= operand;
-            break;
         case "reset":
-            await SendResetNotificationAsync();
             currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
             break;
     }
 
@@ -121,16 +127,38 @@ public static async Task Counter(
 }
 ```
 
+Questo modello è adatto per implementazioni semplici entità o implementazioni che includono un set dinamico di operazioni. Tuttavia, è anche un modello di programmazione basata su classe che è utile per le entità che sono statici, ma hanno implementazioni più complesse. L'esempio seguente è un'implementazione dell'equivalente di `Counter` entità usando metodi e classi .NET.
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+    
+    public void Reset() => this.CurrentValue = 0;
+    
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
+}
+```
+
+Il modello basato su classi è simile al modello di programmazione, rese famose da [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). In questo modello, un tipo di entità è definito come una classe .NET. Ogni metodo della classe è un'operazione che può essere richiamata da un client esterno. A differenza di Orleans, Mostra, tuttavia, le interfacce di .NET sono facoltative. Il precedente *contatore* esempio non è stata utilizzata un'interfaccia, ma possono comunque essere richiamato tramite altre funzioni o le chiamate API HTTP.
+
 Entity *istanze* sono accessibili tramite un identificatore univoco, il *ID entità*. Un ID di entità è semplicemente una coppia di stringhe che identifica in modo univoco un'istanza di entità. È costituita da:
 
-1. un' **nome dell'entità**: un nome che identifica il tipo di entità (ad esempio, "Contatore")
-2. un' **chiave di entità**: una stringa che identifica in modo univoco l'entità tra tutte le altre entità con lo stesso nome (ad esempio, un GUID)
+* Un' **nome dell'entità**: un nome che identifica il tipo di entità (ad esempio, "Contatore").
+* Un' **chiave di entità**: una stringa che identifica in modo univoco l'entità tra tutte le altre entità con lo stesso nome (ad esempio, un GUID).
 
 Ad esempio, un *contatore* funzione entità può essere usato per tenere il punteggio in un gioco online. Ogni istanza del gioco avrà un ID di entità univoca, ad esempio `@Counter@Game1`, `@Counter@Game2`e così via.
 
 ### <a name="comparison-with-virtual-actors"></a>Confronto con gli attori virtuali
 
-La progettazione delle entità durevole dipende in larga misura per il [modello actor](https://en.wikipedia.org/wiki/Actor_model). Se si ha già familiarità con gli attori, i concetti relativi all'entità permanente devono essere familiari. In particolare, sono simili a entità permanente [actors virtuale](https://research.microsoft.com/en-us/projects/orleans/) in molti modi:
+La progettazione delle entità durevole dipende in larga misura per il [modello actor](https://en.wikipedia.org/wiki/Actor_model). Se si ha già familiarità con gli attori, i concetti relativi all'entità permanente devono essere familiari. In particolare, sono simili a entità permanente [actors virtuale](https://research.microsoft.com/projects/orleans/) in molti modi:
 
 * Le entità permanenti sono indirizzabili tramite un *ID entità*.
 * Entità durevole operazioni vengono eseguite in modo seriale, uno alla volta, per evitare race condition.
@@ -139,23 +167,22 @@ La progettazione delle entità durevole dipende in larga misura per il [modello 
 
 Esistono alcune importanti differenze, tuttavia, che è importante sottolineare:
 
-* Entità permanente vengono modellate come funzioni pure. Questa progettazione è diversa dalla maggior parte dei framework orientata agli oggetti che rappresentano attori utilizzando il supporto specifico del linguaggio per le classi, proprietà e metodi.
 * Definire le priorità entità permanente *durabilità* failover *latenza*e quindi potrebbero non essere appropriato per le applicazioni con requisiti di latenza strict.
 * I messaggi inviati tra le entità vengano recapitati in modo affidabile e in ordine.
 * Entità durevoli può essere usata in combinazione con le orchestrazioni durevoli e possono fungere da blocchi distribuiti, che sono descritte più avanti in questo articolo.
 * I modelli di richiesta/risposta in entità sono limitati alle orchestrazioni. Per la comunicazione di entità ed entità, sono consentiti solo i messaggi unidirezionali (noto anche come "segnalazione"), come nel modello actor originale. Questo comportamento impedisce deadlock distribuito.
 
-### <a name="durable-entity-apis"></a>API Entity durevole
+### <a name="durable-entity-net-apis"></a>Entità durevole API .NET
 
 Supporto Entity comporta diverse API. Per uno, è disponibile una nuova API per la definizione delle funzioni dell'entità, come illustrato in precedenza, che specificano l'azione da intraprendere quando viene richiamata un'operazione su un'entità. Inoltre, le API esistenti per i client e le orchestrazioni sono state aggiornate con nuove funzionalità per l'interazione con entità.
 
-### <a name="implementing-entity-operations"></a>Implementazione delle operazioni di entità
+#### <a name="implementing-entity-operations"></a>Implementazione delle operazioni di entità
 
 L'esecuzione di un'operazione su un'entità può chiamare questi membri dell'oggetto di contesto (`IDurableEntityContext` in .NET):
 
 * **OperationName**: Ottiene il nome dell'operazione.
-* **GetInput\<T >** : Ottiene l'input per l'operazione.
-* **GetState\<T >** : Ottiene lo stato corrente dell'entità.
+* **GetInput\<TInput >** : Ottiene l'input per l'operazione.
+* **GetState\<TState >** : Ottiene lo stato corrente dell'entità.
 * **SetState**: aggiorna lo stato dell'entità.
 * **SignalEntity**: invia un messaggio unidirezionale a un'entità.
 * **Self**: Ottiene l'ID dell'entità.
@@ -168,24 +195,90 @@ Le operazioni sono meno restrizioni rispetto a orchestrazioni:
 * Operazioni possono chiamare i/o esterno, usando le API sincrone o asincrone (è consigliabile usare solo quelli asincroni).
 * Operazioni possono essere non deterministico. Ad esempio, è possibile chiamare `DateTime.UtcNow`, `Guid.NewGuid()` o `new Random()`.
 
-### <a name="accessing-entities-from-clients"></a>Accede alle entità dai client
+#### <a name="accessing-entities-from-clients"></a>Accede alle entità dai client
 
 Entità permanente può essere richiamata da funzioni ordinarie tramite il `orchestrationClient` binding (`IDurableOrchestrationClient` in .NET). Sono supportati i metodi seguenti:
 
 * **ReadEntityStateAsync\<T >** : legge lo stato di un'entità.
 * **SignalEntityAsync**: invia un messaggio unidirezionale a un'entità e attende il suo da accodare.
+* **SignalEntityAsync\<T >** : uguale allo `SignalEntityAsync` ma usa un oggetto proxy generato di tipo `T`.
 
-Questi metodi di definire la priorità delle prestazioni sul coerenza: `ReadEntityStateAsync` può restituire un valore non aggiornato, e `SignalEntityAsync` può restituire prima del completamento dell'operazione. Al contrario, la chiamata delle entità dalle orchestrazioni (come descritto di seguito) è con coerenza assoluta.
+Il precedente `SignalEntityAsync` chiamata è necessario specificare il nome dell'operazione di entità come una `string` e il payload dell'operazione come una `object`. Esempio di codice seguente è riportato un esempio di questo modello:
 
-### <a name="accessing-entities-from-orchestrations"></a>Accede alle entità dalle orchestrazioni
+```csharp
+EntityId id = // ...
+object amount = 5;
+context.SignalEntityAsync(id, "Add", amount);
+```
 
-Le orchestrazioni possono accedere le entità usando l'oggetto di contesto. È possibile scegliere tra una comunicazione unidirezionale (generato automaticamente) e comunicazioni bidirezionali (richiesta e risposta). I rispettivi metodi sono
+È anche possibile generare un oggetto proxy per l'accesso indipendente dai tipi. Per generare un proxy indipendente dai tipi, il tipo di entità deve implementare un'interfaccia. Ad esempio, si supponga che il `Counter` entità indicato in precedenza implementato un `ICounter` interfaccia, definito come segue:
+
+```csharp
+public interface ICounter
+{
+    void Add(int amount);
+    void Reset();
+    int Get();
+}
+
+public class Counter : ICounter
+{
+    // ...
+}
+```
+
+Il codice client può quindi utilizzare `SignalEntityAsync<T>` e specificare il `ICounter` interfaccia come parametro di tipo per generare un proxy indipendente dai tipi. Questo utilizzo dei proxy è indipendente dai tipi è illustrato nell'esempio di codice seguente:
+
+```csharp
+[FunctionName("UserDeleteAvailable")]
+public static async Task AddValueClient(
+    [QueueTrigger("my-queue")] string message,
+    [OrchestrationClient] IDurableOrchestrationClient client)
+{
+    int amount = int.Parse(message);
+    var target = new EntityId(nameof(Counter), "MyCounter");
+    await client.SignalEntityAsync<ICounter>(target, proxy => proxy.Add(amount));
+}
+```
+
+Nell'esempio precedente, il `proxy` parametro è un'istanza generata in modo dinamico dei `ICounter`, che converte internamente la chiamata a `Add` nell'equivalente (non tipizzato) le chiamate a `SignalEntityAsync`.
+
+> [!NOTE]
+> È importante notare che il `ReadEntityStateAsync` e `SignalEntityAsync` metodi `IDurableOrchestrationClient` stabilire le priorità delle prestazioni tramite la coerenza. `ReadEntityStateAsync` può restituire un valore non aggiornato, e `SignalEntityAsync` può restituire prima del completamento dell'operazione.
+
+#### <a name="accessing-entities-from-orchestrations"></a>Accede alle entità dalle orchestrazioni
+
+Le orchestrazioni possono accedere le entità utilizzando la `IDurableOrchestrationContext` oggetto. È possibile scegliere tra una comunicazione unidirezionale (generato automaticamente) e comunicazioni bidirezionali (richiesta e risposta). I rispettivi metodi sono:
 
 * **SignalEntity**: invia un messaggio unidirezionale a un'entità.
 * **CallEntityAsync**: invia un messaggio a un'entità e attende una risposta che indica che l'operazione è stata completata.
 * **CallEntityAsync\<T >** : invia un messaggio a un'entità e attende una risposta che contiene un risultato di tipo T.
 
 Quando si usa la comunicazione bidirezionale, tutte le eccezioni generate durante l'esecuzione dell'operazione vengono anche trasmessi nuovamente all'orchestrazione chiama e generata di nuovo. Al contrario, quando si usa fire-and-forget, le eccezioni non vengono rispettate.
+
+Per l'accesso indipendente dai tipi, funzioni di orchestrazione possono generare i proxy basati su un'interfaccia. Il `CreateEntityProxy` metodo di estensione può essere utilizzato per questo scopo:
+
+```csharp
+public interface IAsyncCounter
+{
+    Task AddAsync(int amount);
+    Task ResetAsync();
+    Task<int> GetAsync();
+}
+
+[FunctionName("CounterOrchestration)]
+public static async Task Run(
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    // ...
+    IAsyncCounter proxy = context.CreateEntityProxy<IAsyncCounter>("MyCounter");
+    await proxy.AddAsync(5);
+    int newValue = await proxy.GetAsync();
+    // ...
+}
+```
+
+Nell'esempio precedente, un'entità "counter" è stato si presuppone che esista che implementa il `IAsyncCounter` interfaccia. L'orchestrazione è stata quindi in grado di utilizzare il `IAsyncCounter` definizione per generare un tipo di proxy per interagire in modo sincrono con l'entità del tipo.
 
 ### <a name="locking-entities-from-orchestrations"></a>Blocco entità dalle orchestrazioni
 
@@ -282,4 +375,4 @@ Il [DurableTask.Redis](https://www.nuget.org/packages/Microsoft.Azure.DurableTas
 Il `connectionStringName` deve fare riferimento al nome di una variabile di ambiente o impostazione di app. Tale variabile di ambiente o impostazione di app deve contenere un valore di stringa di connessione Redis costituiti *: porta*. Ad esempio, `localhost:6379` per la connessione a un cluster Redis locale.
 
 > [!NOTE]
-> Il provider di Redis è attualmente in fase sperimentale e supporta solo App per le funzioni in esecuzione in un singolo nodo.
+> Il provider di Redis è attualmente in fase sperimentale e supporta solo App per le funzioni in esecuzione in un singolo nodo. Non è garantito che il provider di Redis verrà mai resa disponibile a livello generale e potrebbe venire rimosso in una versione futura.

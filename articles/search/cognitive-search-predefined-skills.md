@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 7925f3aef4123fddd3a96c6e62971b881ae4cbc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9dfa6af4fb13018051c06783e5ae2bc3f49c0da
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021865"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672100"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Competenze predefinite per l'arricchimento del contenuto (Ricerca di Azure)
 
@@ -45,7 +45,7 @@ Diverse competenze sono flessibili in relazione a ciò che usano o producono. In
 | [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Consente l'estendibilità della pipeline di ricerca cognitiva effettuando una chiamata HTTP in un'API Web personalizzata |
 
 
-Per materiale sussidiario sulla creazione di una [competenza personalizzata](cognitive-search-custom-skill-web-api.md), consultare [Come definire un'interfaccia personalizzata](cognitive-search-custom-skill-interface.md) ed [Esempio: creazione di una competenza personalizzata](cognitive-search-create-custom-skill-example.md).
+Per istruzioni sulla creazione di un [competenze personalizzate](cognitive-search-custom-skill-web-api.md), vedere [come definire un'interfaccia personalizzata](cognitive-search-custom-skill-interface.md) e [esempio: Creazione di una competenza personalizzata per la ricerca cognitiva](cognitive-search-create-custom-skill-example.md).
 
 ## <a name="see-also"></a>Vedere anche
 

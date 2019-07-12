@@ -4,7 +4,7 @@ description: Informazioni sul clustering di un'istanza SAP ASCS/SCS in un cluste
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 987cd1e5860b0fe340ba8a5163d844bec29b541c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aef5c67786726790c5841c1ce4ddff8b67bdf21b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205111"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709038"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -195,7 +195,7 @@ Un cluster di failover è un gruppo di 1 + n server, ovvero nodi, indipendenti c
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di svolgere le attività descritte in questo articolo, leggere l'articolo seguente:
 
-* [Scenari e architettura di disponibilità elevata in Macchine virtuali di Azure per SAP NetWeaver][sap-high-availability-architecture-scenarios]
+* [Architettura di Azure le macchine virtuali a disponibilità elevata e scenari per SAP NetWeaver][sap-high-availability-architecture-scenarios]
 
 
 ## <a name="windows-server-failover-clustering-in-azure"></a>Windows Server Failover Clustering in Azure
@@ -276,6 +276,6 @@ _**Figura 5:** Configurazione in Azure con SIOS DataKeeper il clustering di fail
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Preparazione dell'infrastruttura di Azure per la disponibilità elevata di SAP con il cluster di failover Windows e i dischi condivisi per l'istanza SAP (A)SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [Preparare l'infrastruttura di Azure per SAP a disponibilità elevata usando un cluster di failover Windows e dischi condivisi per un'istanza di SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-* [Installazione della disponibilità elevata di SAP NetWeaver nel cluster di failover Windows e nei dischi condivisi per l'istanza SAP (A)SCS in Azure][sap-high-availability-installation-wsfc-shared-disk]
+* [Installare SAP NetWeaver a disponibilità elevata in un cluster di failover Windows e dischi condivisi per un'istanza di SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk]

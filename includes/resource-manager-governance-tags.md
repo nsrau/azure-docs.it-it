@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 06/18/2019
+ms.date: 07/11/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 5358fe387d2a371d96d46d8546ce0f20b47ca54b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
-ms.translationtype: MT
+ms.openlocfilehash: 17247b6dfac18a841a35e97496ec8f84f0cdeb8f
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206504"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827928"
 ---
 I tag vengono applicati alle risorse di Azure che contengono metadati per organizzarle in modo logico in categorie in una tassonomia. Ogni tag è costituito da una coppia di nome e valore. Ad esempio, è possibile applicare il nome "Environment" e il valore "Production" a tutte le risorse nell'ambiente di produzione.
 
@@ -26,7 +26,7 @@ Ai tag si applicano le limitazioni seguenti:
 * Non tutti i tipi di risorse supportano i tag. Per determinare se è possibile applicare un tag a un tipo di risorsa, vedere [Supporto dei tag per le risorse di Azure](../articles/azure-resource-manager/tag-support.md).
 * Ogni risorsa o gruppo di risorse può avere un massimo di 15 coppie nome-valore di tag. Questa limitazione si applica solo ai tag applicati direttamente al gruppo di risorse o alla risorsa. Un gruppo di risorse può contenere più risorse ognuna con 15 coppie nome-valore di tag. Se si devono associare più di 15 valori a una risorsa, usare una stringa JSON come valore di tag. La stringa JSON può contenere diversi valori applicati a un singolo nome di tag. Questo articolo illustra un esempio di assegnazione di una stringa JSON al tag.
 * Il nome del tag è limitato a 512 caratteri e il valore del tag è limitato a 256 caratteri. Per gli account di archiviazione, il nome del tag è limitato a 128 caratteri e il valore a 256 caratteri.
-* Le macchine virtuali e set di scalabilità di macchine virtuali sono limitati a un totale di 2048 caratteri per tutti i nomi di tag e i valori. Virtuali non generalizzate non supportano i tag.
+* Virtuali non generalizzate non supportano i tag.
 * I tag applicati al gruppo di risorse non vengono ereditati dalle risorse in tale gruppo di risorse.
 * Non è possibile applicare tag alle risorse classiche, ad esempio Servizi cloud.
 * I nomi dei tag non possono contenere i caratteri seguenti: `<`, `>`, `%`, `&`, `\`, `?`, `/`

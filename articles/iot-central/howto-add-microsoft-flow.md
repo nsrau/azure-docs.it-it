@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8bc8b8d4e3585ea4c0505f2e36abc6d1da7f8eb
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235815"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797718"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Creare flussi di lavoro con il connettore IoT Central in Microsoft Flow
 
@@ -31,7 +31,8 @@ Consultare [questi modelli di Microsoft Flow](https://aka.ms/iotcentralflowtempl
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un'applicazione con pagamento in base al consumo
-- Un account Microsoft personale, aziendale o dell'istituto di istruzione per eseguire l'accesso a Flow ([altre informazioni sui piani di Microsoft Flow](https://aka.ms/microsoftflowplans))
+- Un Microsoft personale o aziendale o dell'istituto di istruzione per usare Microsoft Flow ([altre informazioni sui piani di Microsoft Flow](https://aka.ms/microsoftflowplans))
+- Un account aziendale o dell'istituto di istruzione per usare il connettore Azure IoT Central
 
 ## <a name="trigger-a-workflow"></a>Attivare un flusso di lavoro
 
@@ -45,7 +46,12 @@ Questa sezione illustra come attivare una notifica per dispositivi mobili nell'a
 
     ![Modelli disponibili di Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates1.png)
 
-1. Verrà richiesto di accedere ai connettori nel modello che scelto. Una volta che i connettori si sarà connesso, viene visualizzata nella finestra di progettazione per compilare il flusso di lavoro. Il flusso di lavoro include un trigger di IoT Central in cui l'applicazione e la regola sono già inserite.
+1. Verrà richiesto di accedere ai connettori nel modello che scelto. 
+
+    > [!NOTE]
+    > Per usare il connettore Azure IoT Central, è necessario accedere con un account di Azure Active Directory (account aziendale o dell'istituto di istruzione). Un account personale, ad esempio abc@outlook.com o abc@live.com non sono supportate dal connettore di Azure IoT Central.
+
+    Dopo avere effettuato l'accesso ai connettori, viene visualizzata nella finestra di progettazione per compilare il flusso di lavoro. Il flusso di lavoro include un trigger di IoT Central in cui l'applicazione e la regola sono già inserite.
 
 1. È possibile personalizzare il flusso di lavoro personalizzando le informazioni passate per l'azione e l'aggiunta di nuove azioni. In questo esempio, l'azione è **notifiche - Inviami una notifica sul dispositivo mobile**. È possibile includere *contenuto dinamico* proveniente dalla regola di IoT Central per trasmettere alla notifica informazioni importanti, quali il nome del dispositivo e il timestamp.
 

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 61a208f3e84125acc2a3cb22d3abccf16587e581
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
-ms.translationtype: MT
+ms.openlocfilehash: fc46b971ee3abb4c7e52f0cfa07a7098e2f86c19
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543686"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797726"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estendere Azure HDInsight usando Rete virtuale di Azure
 
@@ -270,8 +270,7 @@ Se si usa i gruppi di sicurezza di rete o route definite dall'utente per control
     | ---- | ---- | ---- | ---- | ----- |
     | Asia | Asia orientale | 23.102.235.122</br>52.175.38.134 | \*:443 | In ingresso |
     | &nbsp; | Asia sud-orientale | 13.76.245.160</br>13.76.136.249 | \*:443 | In ingresso |
-    | Australia | Australia centrale | 20.36.36.33</br>20.36.36.196 | \*:443 | In ingresso |
-    | &nbsp; | Australia orientale | 104.210.84.115</br>13.75.152.195 | \*:443 | In ingresso |
+    | Australia | Australia orientale | 104.210.84.115</br>13.75.152.195 | \*:443 | In ingresso |
     | &nbsp; | Australia sud-orientale | 13.77.2.56</br>13.77.2.94 | \*:443 | In ingresso |
     | Brasile | Brasile meridionale | 191.235.84.104</br>191.235.87.113 | \*:443 | In ingresso |
     | Canada | Canada orientale | 52.229.127.96</br>52.229.123.172 | \*:443 | In ingresso |
@@ -569,7 +568,7 @@ Nel server DNS personalizzato nella rete virtuale:
     
     * Sostituire il valore `192.168.0.1` con l'indirizzo IP del server DNS locale. Questa voce indirizza tutte le altre richieste DNS al server DNS locale.
 
-3. Per usare la configurazione, riavviare Bind. Ad esempio: `sudo service bind9 restart`.
+3. Per usare la configurazione, riavviare Bind. Ad esempio `sudo service bind9 restart`.
 
 4. Aggiungere un server d'inoltro condizionale al server DNS locale. Configurare il server d'inoltro condizionale per l'invio di richieste del suffisso DNS del passaggio 1 al server DNS personalizzato.
 

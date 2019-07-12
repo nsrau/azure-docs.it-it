@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: d850cb222b0028f862cdba302140ce12af8576db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 913140a51603429e003f04f860bca9b4ddb1c214
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492733"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704888"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
 
@@ -145,7 +145,7 @@ Annullare la registrazione di un'istanza di SQL Server dopo aver disattivato la 
 
 In alcuni casi, l'estensione del carico di lavoro della macchina virtuale può risultare alterata per un motivo o l'altro. In questi casi, tutte le operazioni attivate nella macchina virtuale inizierà a non riuscire. È quindi potrebbe essere necessario registrare di nuovo l'estensione nella macchina virtuale. **Registrare nuovamente** operazione reinstalla l'estensione di backup del carico di lavoro nella macchina virtuale per le operazioni continuare.  <br>
 
-È consigliabile usare questa opzione con cautela. Quando viene attivato in una macchina virtuale con un'estensione già integra, questa operazione causerà l'estensione ottenere riavviato. Questo può comportare tutti i processi in corso a non riuscire. Controllare per uno o più i [sintomi](backup-sql-server-azure-troubleshoot.md#symptoms) prima di attivare l'operazione di ripetere la registrazione.
+È consigliabile usare questa opzione con cautela. Quando viene attivato in una macchina virtuale con un'estensione già integra, questa operazione causerà l'estensione ottenere riavviato. Questo può comportare tutti i processi in corso a non riuscire. Controllare per uno o più i [sintomi](backup-sql-server-azure-troubleshoot.md#re-registration-failures) prima di attivare l'operazione di ripetere la registrazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

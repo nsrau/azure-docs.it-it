@@ -2,24 +2,25 @@
 title: Metodi di autenticazione per il Centro sicurezza di Azure per l'anteprima di IoT | Microsoft Docs
 description: Informazioni sui metodi di autenticazione diversi disponibili quando si usa il Centro sicurezza di Azure per il servizio IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 10b38f20-b755-48cc-8a88-69828c17a108
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 634d1aedfaf868766e3c1bf97373b9c310885835
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d5701ae37d64e25fba981cd85deed2c4e4d87a15
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198409"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618346"
 ---
 # <a name="security-agent-authentication-methods"></a>Metodi di autenticazione di sicurezza dell'agente 
 

@@ -9,12 +9,12 @@ ms.date: 04/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 41ca1c5f413e5e15691f336d203edb918f21dc1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3fe142439dc80af660d286e5913fee13d4de8e86
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147301"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625650"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Eseguire i comandi CLI di Azure o PowerShell con credenziali di Azure AD di accedere ai dati di accodamento o blob
 
@@ -26,7 +26,7 @@ Archiviazione di Azure fornisce estensioni di comando di Azure e PowerShell che 
 
 Le estensioni sono supportate per le operazioni su contenitori e code. Quali operazioni è possibile chiamare dipende dalle autorizzazioni concesse all'entità di sicurezza di Azure AD con cui si accede al comando di Azure o PowerShell. Le autorizzazioni per i contenitori o le code di Archiviazione di Azure vengono assegnate tramite il controllo degli accessi in base al ruolo (RBAC). Ad esempio, se è stata assegnata la **lettore di dati Blob** ruolo, sarà possibile eseguire i comandi script che leggono i dati da un contenitore o una coda. Se è stata assegnata la **collaboratore ai dati Blob** ruolo, sarà possibile eseguire i comandi script che leggeranno, scrivano o eliminare un contenitore o coda o dati che contengono. 
 
-Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione di Archiviazione di Azure su un contenitore o una coda, vedere [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations) (Autorizzazioni per la chiamata di operazioni REST).  
+Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione di archiviazione di Azure in un contenitore o coda, vedere [chiamare operazioni di archiviazione con token OAuth](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
 ## <a name="call-cli-commands-using-azure-ad-credentials"></a>Chiamare i comandi dell'interfaccia della riga usando le credenziali di Azure AD
 

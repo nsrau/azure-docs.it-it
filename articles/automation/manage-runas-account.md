@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6fceee819762e10809a94f72d944e7625cb7e67c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 49b8554f6064f036d4305cf7a5c1450c2f18c48d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478557"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798501"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gestire account RunAs di Automazione di Azure
 
@@ -104,7 +104,7 @@ Questo script di PowerShell include il supporto per le configurazioni seguenti:
 
 1. Salvare lo script seguente nel computer. Per questo esempio, salvare il file con il nome *New-RunAsAccount.ps1*.
 
-   Lo script usa più cmdlet di Azure Resource Manager per creare le risorse. La tabella seguente illustra i cmdlet e le relative autorizzazioni necessarie.
+   Lo script usa più cmdlet di Azure Resource Manager per creare le risorse. Precedente [autorizzazioni](#permissions) tabella sono riportati i cmdlet e le relative autorizzazioni necessite.
 
     ```powershell
     #Requires -RunAsAdministrator
@@ -368,15 +368,37 @@ Per rinnovare il certificato, seguire questa procedura:
 
 1. Durante il rinnovamento del certificato, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
 
-## <a name="limiting-run-as-account-permissions"></a>Limitazione delle autorizzazioni dell'account RunAs
+## <a name="limiting-run-as-account-permissions"></a>La limitazione delle autorizzazioni dell'account RunAs
 
-Per controllare la destinazione dell'automazione in base alle risorse in Automazione di Azure, all'account RunAs vengono concessi i diritti di collaboratore nella sottoscrizione per impostazione predefinita. Se è necessario limitare le operazioni che l'entità servizio RunAs può eseguire, è possibile rimuovere l'account dal ruolo di collaboratore per la sottoscrizione e aggiungerlo come collaboratore ai gruppi di risorse che si vuole specificare.
+Per controllare la destinazione dell'automazione in base alle risorse in Azure, è possibile eseguire la [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) script in PowerShell gallery per modificare l'entità servizio di Account runas esistente a creare e usare una definizione di ruolo personalizzate. Questo ruolo disporrà delle autorizzazioni per tutte le risorse eccetto [Key Vault](https://docs.microsoft.com/azure/key-vault/). 
 
-Nel portale di Azure selezionare **Sottoscrizioni** e scegliere la sottoscrizione dell'account di Automazione. Selezionare **Controllo di accesso (IAM)** e quindi la scheda **Assegnazioni di ruolo**. Cercare l'entità servizio per l'account di Automazione, che è simile a \<NomeAccountDiAutomazione\>_identificatore univoco. Selezionare l'account e fare clic su **Rimuovi** per rimuoverlo dalla sottoscrizione.
+> [!IMPORTANT]
+> Dopo aver eseguito la `Update-AutomationRunAsAccountRoleAssignments.ps1` script, i runbook che accedono a Key Vault tramite l'uso degli account RunAs non funzionerà più. È consigliabile esaminare i runbook nell'account per le chiamate a Azure Key Vault.
+>
+> Per abilitare l'accesso a Key Vault i runbook di automazione di Azure, occorre [aggiungere l'account RunAs con autorizzazioni di Key Vault](#add-permissions-to-key-vault).
 
-![Collaboratori della sottoscrizione](media/manage-runas-account/automation-account-remove-subscription.png)
+Se è necessario limitare l'entità servizio RunAs operazioni eseguibili ulteriormente, è possibile aggiungere altri tipi di risorse per il `NotActions` della definizione del ruolo personalizzato. Nell'esempio seguente limita l'accesso a `Microsoft.Compute`. Se si aggiunge questa opzione per la **NotActions** della definizione di ruolo, questo ruolo non sarà in grado di accedere alle risorse di calcolo. Per altre informazioni sulle definizioni di ruolo, vedere [comprendere le definizioni di ruolo per le risorse di Azure](../role-based-access-control/role-definitions.md).
 
-Per aggiungere l'entità servizio a un gruppo di risorse, selezionare il gruppo di risorse nel portale di Azure e selezionare **Controllo di accesso (IAM)** . Selezionare **Aggiungi assegnazione di ruolo** per aprire la pagina **Aggiungi assegnazione di ruolo**. Per **Ruolo**, selezionare **Collaboratore**. Nella casella di testo **Seleziona** digitare il nome dell'entità servizio per l'account RunAs e selezionarlo dall'elenco. È consigliabile fare clic su **Salva** per salvare le modifiche. Eseguire questa procedura per i gruppi di risorse a cui l'entità servizio RunAs di Automazione di Azure deve poter accedere.
+```powershell
+$roleDefinition = Get-AzureRmRoleDefinition -Name 'Automation RunAs Contributor'
+$roleDefinition.NotActions.Add("Microsoft.Compute/*")
+$roleDefinition | Set-AzureRMRoleDefinition
+```
+
+Per determinare se l'entità servizio usata per l'Account RunAs è nel **collaboratori** o una definizione di ruolo personalizzato passare all'Account di automazione e in **impostazioni Account**, selezionare **runas gli account** > **Account runas di Azure**. Sotto **ruolo** troverai la definizione del ruolo in uso. 
+
+[![](media/manage-runas-account/verify-role.png "Verificare il ruolo Account runas")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+
+Per determinare la definizione di ruolo usata per gli account RunAs di automazione per più sottoscrizioni o gli account di automazione, è possibile usare la [controllo AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) script in PowerShell Gallery.
+
+### <a name="add-permissions-to-key-vault"></a>Aggiungere le autorizzazioni di Key Vault
+
+Se si vuole consentire ad automazione di Azure gestire Key Vault e il servizio di esecuzione come Account dell'entità Usa una definizione di ruolo personalizzato è necessario eseguire passaggi aggiuntivi per consentire questo comportamento:
+
+* Concedere le autorizzazioni all'insieme di credenziali chiave
+* Impostare i criteri di accesso
+
+È possibile usare la [Estendi AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) lo script in PowerShell Gallery per concedere le autorizzazioni dell'Account runas per Key Vault oppure visitare [concedere alle applicazioni di accedere a un insieme di credenziali delle chiavi ](../key-vault/key-vault-group-permissions-for-apps.md) per altri dettagli sulle autorizzazioni per le impostazioni in Key Vault.
 
 ## <a name="misconfiguration"></a>Errore di configurazione
 

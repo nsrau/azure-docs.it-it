@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
-ms.openlocfilehash: 3eb20013a6b3afaddce10f2e4652add0edf22a9a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: c46b333f2cc304cc12ddf78670b60940c7bc0db3
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276782"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827706"
 ---
 # <a name="scaling-with-event-hubs"></a>Scalabilità con l'hub eventi
 
@@ -48,14 +48,14 @@ Il servizio Hub eventi aumenta la velocità effettiva quando il carico supera la
 Per altre informazioni sulla funzionalità aumento automatico, vedere [ridimensionare automaticamente le unità elaborate](event-hubs-auto-inflate.md).
 
 ## <a name="partitions"></a>Partitions
+[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-Le partizioni consentono scalabilità all'elaborazione downstream. A causa di modello consumer partizionato che offre un hub eventi con le partizioni, è possibile scalare orizzontalmente durante l'elaborazione di eventi simultaneamente. Un Hub eventi può avere un massimo di 32 partizioni.
+### <a name="partition-key"></a>Chiave di partizione
 
-È consigliabile bilanciare unità elaborate di 1:1 e partizioni per ottenere una scalabilità ottimale. Una singola partizione ha un ingresso e uscita di fino a un'unità di velocità effettiva garantite. Benché sia possibile essere in grado di raggiungere una velocità effettiva in una partizione, le prestazioni non sono garantita. Ecco perché è fortemente consigliabile che il numero di partizioni in un hub eventi sia maggiore o uguale al numero di unità di velocità effettiva.
+È possibile usare una [chiave di partizione](event-hubs-programming-guide.md#partition-key) per mappare i dati dell'evento in ingresso in partizioni specifiche ai fini dell'organizzazione dei dati. La chiave di partizione è un valore fornito dal mittente che viene passato a un hub eventi. Viene elaborato tramite una funzione di hashing statica, che crea l'assegnazione di partizione. Se non si specifica una chiave di partizione quando si pubblica un evento, viene usata un'assegnazione round robin.
 
-Data la velocità effettiva totale che si prevede di dover, si conosce il numero di unità di velocità effettiva desiderata e il numero minimo di partizioni, ma il numero di partizioni è opportuno avere? Selezionare numero di partizioni in base al parallelismo downstream che si desidera ottenere, nonché esigenze di velocità effettiva futura. Non sono previsti addebiti per il numero di partizioni all'interno di un Hub eventi.
+L'autore di eventi è a conoscenza solo della chiave di partizione, non la partizione in cui gli eventi vengono pubblicati. Questa separazione tra chiave e partizione evita che il mittente debba conoscere troppe informazioni sull'elaborazione downstream. Un’identità univoca per dispositivo o utente crea una chiave di partizione efficace, ma è possibile utilizzare anche altri attributi, ad esempio l’area geografica, per raggruppare gli eventi correlati in un'unica partizione.
 
-Per informazioni dettagliate sui prezzi di Hub eventi, vedere [Prezzi di Hub eventi ](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:

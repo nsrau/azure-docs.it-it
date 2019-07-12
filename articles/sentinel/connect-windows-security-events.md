@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: d51d2e09-a073-41c8-b396-91d60b057e6a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 36d38aa82b4f0ec8d7d9ef6ebb1145b1fcc334df
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 188febf090ddb3f685f9d3c3b94d822f15bbcfcb
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190577"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673776"
 ---
 # <a name="connect-windows-security-events"></a>Connettere gli eventi di sicurezza di Windows 
 
@@ -30,10 +31,10 @@ ms.locfileid: "67190577"
 È possibile trasmettere tutti gli eventi di sicurezza dai server Windows connessi all'area di lavoro Azure Sentinel. Questa connessione consente di visualizzare i dashboard, creare avvisi personalizzati e migliorare l'analisi. Questo ti offre informazioni più dettagliate sulla rete dell'organizzazione e migliorare le funzionalità di sicurezza.  È possibile selezionare gli eventi per lo streaming:
 
 - **Tutti gli eventi** -protezione di tutti i Windows e gli eventi di AppLocker.
-- **Common** -un set standard di eventi a scopo di controllo. In questo set è incluso un audit trail utente completo. Ad esempio, questo insieme contiene sia gli accessi utente che le disconnessioni dell'utente (ID evento 4634). Sono incluse azioni di controllo quali modifiche al gruppo di sicurezza, operazioni Kerberos del controller del dominio principale e altri eventi consigliati dalle organizzazioni del settore.
+- **Common** -un set standard di eventi a scopo di controllo. In questo set è incluso un audit trail utente completo. Ad esempio, questo set contiene sia utente di accesso e disconnessione utente degli eventi (ID evento 4634). Sono incluse azioni di controllo quali modifiche al gruppo di sicurezza, operazioni Kerberos del controller del dominio principale e altri eventi consigliati dalle organizzazioni del settore.
 
 Gli eventi che hanno un volume molto basso sono stati inclusi nell'insieme Comuni. Questo insieme è stato scelto perché l'obiettivo è quello di ridurre il volume, non di filtrare eventi specifici.
-- **Minimo** -un piccolo set di eventi che possono indicare potenziali minacce. Abilitando questa opzione, sarà possibile avere un audit trail completo.  Questo insieme includa solo gli eventi che potrebbero indicare una violazione riuscita ed eventi importanti che dispone di un volume molto basso. Ad esempio, questo insieme può contenere accessi utente riusciti e non (ID evento 4624, 4625), però non contiene disconnessioni importanti per il controllo ma non per il rilevamento e ha un volume relativamente alto. La maggior parte del volume di dati di questo insieme è composto da eventi di accesso e da eventi di creazione del processo (ID evento 4688).
+- **Minimo** -un piccolo set di eventi che possono indicare potenziali minacce. Abilitando questa opzione, sarà possibile avere un audit trail completo.  Questo insieme includa solo gli eventi che potrebbero indicare una violazione riuscita ed eventi importanti che dispone di un volume molto basso. Ad esempio, questo set contiene riusciti e non account di accesso utente (ID evento 4624, 4625), ma non contiene informazioni che sono importante per il controllo ma non significativo per il rilevamento e dispone di un volume relativamente alto di disconnessione. La maggior parte del volume di dati di questo set è il segno negli eventi e l'evento di creazione del processo (evento ID 4688).
 - **Nessuno** -alcuna sicurezza o gli eventi di AppLocker.
 
 > [!NOTE]
@@ -60,7 +61,7 @@ Integrare completamente gli eventi di sicurezza di Windows con Azure Sentinel:
 
 1. Nel portale di Azure Sentinel, selezionare **connettori di dati** e quindi fare clic sui **gli eventi di sicurezza di Windows** riquadro. 
 1. Selezionare i tipi di dati da trasmettere in streaming.
-1. Fare clic su **Update**.
+1. Fare clic su **Aggiorna**.
 6. Per usare lo schema appropriato nel Log Analitica per gli eventi di sicurezza di Windows, cercare **SecurityEvent**.
 
 ## <a name="validate-connectivity"></a>Convalidare la connettività

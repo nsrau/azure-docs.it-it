@@ -1,7 +1,7 @@
 ---
 title: Guida alla risoluzione dei problemi di distribuzione
 titleSuffix: Azure Machine Learning service
-description: Informazioni su come risolvere, risolvere e risolvere errori comuni durante la distribuzione Docker con servizio contenitore di AZURE e ACI usando il servizio di Azure Machine Learning.
+description: Informazioni su come risolvere, risolvere e risolvere errori comuni durante la distribuzione Docker con Azure Kubernetes Service e istanze di contenitore di Azure usando il servizio di Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 05/02/2018
+ms.date: 07/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0fba7c2f5a46e0c5d0e3c5fdd65a03bb77f148d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0f4b024d717c08df3514df057abf89d55be1dc9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074987"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707044"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Risoluzione dei problemi di distribuzione del servizio Azure Kubernetes e di Istanze di Azure Container con il servizio Azure Machine Learning
+# <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Risoluzione dei problemi di distribuzione del servizio Azure Machine Learning Azure Kubernetes Service e le istanze di contenitore di Azure
 
 Informazioni su come risolvere o a risolvere errori comuni di distribuzione di Docker con Azure Kubernetes Service (AKS) usando il servizio di Azure Machine Learning e le istanze di contenitore di Azure (ACI).
 
@@ -314,6 +314,214 @@ Esistono due operazioni che possono aiutare a evitare i codici di stato 503:
 
 Per altre informazioni sull'impostazione `autoscale_target_utilization`, `autoscale_max_replicas`, e `autoscale_min_replicas` for, vedere il [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) riferimento al modulo.
 
+
+## <a name="advanced-debugging"></a>Debug avanzato
+
+In alcuni casi, potrebbe essere necessario in modo interattivo il debug del codice Python inclusi nella distribuzione del modello. Ad esempio, se lo script di ingresso non riesce e non è possibile determinare il motivo per la registrazione aggiuntiva. Usando Visual Studio Code e gli strumenti Python per Visual Studio (PTVSD), è possibile collegare al codice in esecuzione all'interno del contenitore Docker.
+
+> [!IMPORTANT]
+> Questo metodo di debug non funziona quando si usa `Model.deploy()` e `LocalWebservice.deploy_configuration` per distribuire un modello in locale. In alternativa, è necessario creare un'immagine utilizzando il [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) classe. 
+>
+> Le distribuzioni del servizio web locale richiedono un lavoro di installazione di Docker nel sistema locale. Docker deve essere in esecuzione prima di distribuire un servizio web locale. Per informazioni sull'installazione e l'uso di Docker, vedere [ https://www.docker.com/ ](https://www.docker.com/).
+
+### <a name="configure-development-environment"></a>Configurare l'ambiente di sviluppo
+
+1. Per installare Python Tools per Visual Studio (PTVSD) nell'ambiente di sviluppo di Visual Studio Code locale, usare il comando seguente:
+
+    ```
+    python -m pip install --upgrade ptvsd
+    ```
+
+    Per altre informazioni sull'uso di PTVSD con Visual Studio Code, vedere [debug remoto](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
+
+1. Per configurare Visual Studio Code per comunicare con l'immagine Docker, creare una nuova configurazione di debug:
+
+    1. Da Visual Studio Code, selezionare la __Debug__ dal menu e quindi selezionare __aprire configurazioni__. Un file denominato __Launch. JSON__ apre.
+
+    1. Nel __Launch. JSON__ del file, trovare la riga che contiene `"configurations": [`e inserirvi il testo seguente dopo di esso:
+
+        ```json
+        {
+            "name": "Azure Machine Learning service: Docker Debug",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "localhost",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/var/azureml-app"
+                }
+            ]
+        }
+        ```
+
+        > [!IMPORTANT]
+        > Se esistono già altre voci nella sezione delle configurazioni, aggiungere una virgola (,) dopo il codice che è stato inserito.
+
+        In questa sezione viene associato al contenitore Docker usando la porta 5678.
+
+    1. Salvare il __Launch. JSON__ file.
+
+### <a name="create-an-image-that-includes-ptvsd"></a>Creare un'immagine che include PTVSD
+
+1. Modificare l'ambiente conda per la distribuzione in modo che includa PTVSD. Nell'esempio seguente viene illustrato come aggiungere tramite il `pip_packages` parametro:
+
+    ```python
+    from azureml.core.conda_dependencies import CondaDependencies 
+    
+    # Usually a good idea to choose specific version numbers
+    # so training is made on same packages as scoring
+    myenv = CondaDependencies.create(conda_packages=['numpy==1.15.4',            
+                                'scikit-learn==0.19.1', 'pandas==0.23.4'],
+                                 pip_packages = ['azureml-defaults==1.0.17', 'ptvsd'])
+    
+    with open("myenv.yml","w") as f:
+        f.write(myenv.serialize_to_string())
+    ```
+
+1. Per avviare PTVSD e attendere la connessione all'avvio del servizio, aggiungere il codice seguente all'inizio del `score.py` file:
+
+    ```python
+    import ptvsd
+    # Allows other computers to attach to ptvsd on this IP address and port.
+    ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
+    # Wait 30 seconds for a debugger to attach. If none attaches, the script continues as normal.
+    ptvsd.wait_for_attach(timeout = 30)
+    print("Debugger attached...")
+    ```
+
+1. Durante il debug, è possibile apportare modifiche ai file di immagine senza dover ricreare l'oggetto. Per installare un editor di testo (vim) nell'immagine Docker, creare un nuovo file di testo denominato `Dockerfile.steps` e usare il comando seguente come contenuto del file:
+
+    ```text
+    RUN apt-get update && apt-get -y install vim
+    ```
+
+    Un editor di testo consente di modificare i file all'interno dell'immagine docker per testare le modifiche senza creare una nuova immagine.
+
+1. Per creare un'immagine che utilizza il `Dockerfile.steps` file, usare il `docker_file` parametro durante la creazione di un'immagine. Nell'esempio seguente viene illustrato come eseguire questa operazione:
+
+    > [!NOTE]
+    > Questo esempio si presuppone che `ws` punta all'area di lavoro di Azure Machine Learning e che `model` è il modello da distribuire. Il `myenv.yml` file contiene le dipendenze conda create nel passaggio 1.
+
+    ```python
+    from azureml.core.image import Image, ContainerImage
+    image_config = ContainerImage.image_configuration(runtime= "python",
+                                 execution_script="score.py",
+                                 conda_file="myenv.yml",
+                                 docker_file="Dockerfile.steps")
+
+    image = Image.create(name = "myimage",
+                     models = [model],
+                     image_config = image_config, 
+                     workspace = ws)
+    # Print the location of the image in the repository
+    print(image.image_location)
+    ```
+
+Dopo aver creato l'immagine, viene visualizzato il percorso dell'immagine nel Registro di sistema. Il percorso è simile al testo seguente:
+
+```text
+myregistry.azurecr.io/myimage:1
+```
+
+In questo esempio di testo, è il nome del Registro di sistema `myregistry` e l'immagine sia denominata `myimage`. La versione dell'immagine è `1`.
+
+### <a name="download-the-image"></a>Scaricare l'immagine
+
+1. Aprire un prompt dei comandi, terminal o un'altra shell e usare il comando seguente [CLI Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) comando per l'autenticazione alla sottoscrizione di Azure che contiene l'area di lavoro di Azure Machine Learning:
+
+    ```azurecli
+    az login
+    ```
+
+1. Per eseguire l'autenticazione per i contenitori di Azure del Registro di sistema (ACR) che contiene l'immagine, usare il comando seguente. Sostituire `myregistry` con quello restituito quando è registrata l'immagine:
+
+    ```azurecli
+    az acr login --name myregistry
+    ```
+
+1. Per scaricare l'immagine di Docker locale, usare il comando seguente. Sostituire `myimagepath` registrato con il percorso restituito quando l'immagine:
+
+    ```bash
+    docker pull myimagepath
+    ```
+
+    Il percorso dell'immagine deve essere simile a `myregistry.azurecr.io/myimage:1`. In cui `myregistry` è il Registro di sistema `myimage` è l'immagine, e `1` è la versione dell'immagine.
+
+    > [!TIP]
+    > L'autenticazione nel passaggio precedente non duri all'infinito. Se si attende tempo sufficiente tra i comandi di autenticazione e il pull, si riceverà un errore di autenticazione. In questo caso, ripetere l'autenticazione.
+
+    Il tempo che necessario per completare il download dipende dalla velocità della connessione internet. Uno stato di download viene visualizzato durante il processo. Una volta completato il download, è possibile usare il `docker images` comando per verificare che lo ha scaricato.
+
+1. Per renderlo più facile lavorare con l'immagine, usare il comando seguente per aggiungere un tag. Sostituire `myimagepath` con il valore di posizione dal passaggio 2.
+
+    ```bash
+    docker tag myimagepath debug:1
+    ```
+
+    Per il resto dei passaggi, è possibile fare riferimento all'immagine locale come `debug:1` anziché il valore del percorso completo dell'immagine.
+
+### <a name="debug-the-service"></a>Il debug del servizio
+
+> [!TIP]
+> Se si imposta un timeout per la connessione di PTVSD nel `score.py` file, è necessario connettersi Visual Studio Code per la sessione di debug prima della scadenza del timeout. Avviare Visual Studio Code, aprire la copia locale di `score.py`, impostare un punto di interruzione e fare in modo che pronto prima di usare i passaggi descritti in questa sezione.
+>
+> Per altre informazioni sul debug e impostando punti di interruzione, vedere [debug](https://code.visualstudio.com/Docs/editor/debugging).
+
+1. Per avviare un contenitore Docker usando l'immagine, usare il comando seguente:
+
+    ```bash
+    docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
+    ```
+
+1. Per connettere Visual Studio Code per PTVSD all'interno del contenitore, aprire Visual Studio Code e usare F5 o selezionare __Debug__. Quando richiesto, selezionare il __servizio Azure Machine Learning: Debug docker__ configurazione. È anche possibile selezionare l'icona debug dalla barra laterale di __servizio Azure Machine Learning: Debug docker__ voce dal menu a discesa di Debug e quindi usare la freccia verde per collegare il debugger.
+
+    ![L'icona per il debug, pulsante di debug di avvio e selettore configurazione](media/how-to-troubleshoot-deployment/start-debugging.png)
+
+A questo punto, Visual Studio Code si connette a PTVSD nel contenitore Docker e si arresta nel punto di interruzione che è impostato in precedenza. È ora possibile eseguire il codice durante l'esecuzione, visualizzare variabili e così via.
+
+Per altre informazioni sull'uso di Visual Studio Code per eseguire il debug di Python, vedere [eseguire il Debug del codice Python](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
+
+<a id="editfiles"></a>
+### <a name="modify-the-container-files"></a>Modificare i file contenitore
+
+Per apportare modifiche ai file nell'immagine, è possibile associare al contenitore in esecuzione ed eseguire una shell bash. Da qui, è possibile usare vim per modificare i file:
+
+1. Per connettersi al contenitore in esecuzione e si avvia una shell bash nel contenitore, usare il comando seguente:
+
+    ```bash
+    docker exec -it debug /bin/bash
+    ```
+
+1. Per trovare i file usati dal servizio, usare il comando seguente dalla shell di bash nel contenitore:
+
+    ```bash
+    cd /var/azureml-app
+    ```
+
+    A questo punto, è possibile utilizzare vim per modificare il `score.py` file. Per altre informazioni sull'uso di vim, vedere [usando l'editor Vim](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html).
+
+1. Modifiche a un contenitore non vengono mantenute normalmente. Per salvare le modifiche apportate, usare il comando seguente, prima di uscire dalla shell di avvio nel passaggio precedente (ovvero, in un'altra shell):
+
+    ```bash
+    docker commit debug debug:2
+    ```
+
+    Questo comando crea una nuova immagine denominata `debug:2` che contiene tutte le modifiche.
+
+    > [!TIP]
+    > È necessario arrestare il contenitore corrente e iniziare a usare la nuova versione, affinché le modifiche abbiano effetto.
+
+1. Assicurarsi di mantenere le modifiche apportate ai file nel contenitore sincronizzati con i file locale che Usa Visual Studio Code. In caso contrario, l'esperienza di debugger non funzionerà come previsto.
+
+### <a name="stop-the-container"></a>Arrestare il contenitore
+
+Per arrestare il contenitore, usare il comando seguente:
+
+```bash
+docker stop debug
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6ea5e72f70620004b4b00be0c779893a3b2ad90
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111465"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706197"
 ---
 # <a name="azure-relay-faqs"></a>Domande frequenti sul servizio di inoltro di Azure
 
@@ -42,7 +42,7 @@ Il servizio in precedenza chiamato Inoltro del bus di servizio ora si chiama [In
 Questa sezione contiene le risposte ad alcune domande frequenti sulla struttura dei prezzi del servizio di inoltro. Per informazioni generali sui prezzi di Azure, vedere [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/). Per informazioni complete sui prezzi del servizio di inoltro, vedere la pagina contenente i [dettagli dei prezzi del bus di servizio][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Come vengono addebitati i costi di Connessioni ibride e Inoltro WCF?
-Per informazioni complete sui prezzi di inoltro, vedere la tabella relativa alle [connessioni ibride e agli inoltri WCF][Pricing overview] nella pagina dei dettagli dei prezzi del bus di servizio. Oltre ai prezzi indicati in questa pagina, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.
+Per informazioni complete sui prezzi degli inoltri, vedere la [connessioni ibride e inoltri WCF][Pricing overview] tabella nella pagina relativa ai prezzi del Bus di servizio. Oltre ai prezzi indicati in questa pagina, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>Come viene fatturato l'uso di Connessioni ibride?
 Ecco tre scenari di fatturazione di esempio per Connessioni ibride:
@@ -80,7 +80,7 @@ L'invio di un messaggio a un inoltro del bus di servizio viene considerato come 
 Gli inoltri aperti con il binding WCF **netTCPRelay** considerano i messaggi non come singoli messaggi, ma come flusso di dati che attraversa il sistema. Quando si usa questo binding, solo il mittente e il listener hanno visibilità sulla struttura dei singoli messaggi inviati/ricevuti. Per gli inoltri che usano il binding **netTCPRelay**, tutti i dati vengono considerati come flusso per il calcolo dei messaggi fatturabili. In questo caso, il bus di servizio calcola la quantità totale di dati inviati o ricevuti mediante ciascun inoltro ogni 5 minuti. Quindi divide la quantità totale di dati per 64 KB per determinare il numero di messaggi fatturabili per questo inoltro durante questo periodo di tempo.
 
 ## <a name="quotas"></a>Quote
-| Nome della quota | `Scope` |  Note | Value |
+| Nome della quota | Ambito |  Note | Value |
 | --- | --- | --- | --- |
 | Listener simultanei per un inoltro |Entità |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |25 |
 | Connessioni di inoltro simultanee per tutti gli endpoint di inoltro in uno spazio dei nomi del servizio |Spazio dei nomi |- |5\.000 |
@@ -106,7 +106,7 @@ Per spostare uno spazio dei nomi da una sottoscrizione di Azure a un'altra sotto
 
 #### <a name="azure-portal"></a>Portale di Azure
 
-Per usare il portale di Azure per migrare gli spazi dei nomi di inoltro di Azure da una sottoscrizione a un'altra sottoscrizione, vedere l'articolo relativo allo [spostamento di risorse in un nuovo gruppo di risorse o in una nuova sottoscrizione](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Per usare il portale di Azure per migrare gli spazi dei nomi di inoltro di Azure da una sottoscrizione a un'altra sottoscrizione, vedere l'articolo relativo allo [spostamento di risorse in un nuovo gruppo di risorse o in una nuova sottoscrizione](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
@@ -125,10 +125,10 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Quali sono alcune eccezioni generate dalle API del servizio di inoltro di Azure e le azioni consigliate?
-Per una descrizione di eccezioni comuni e delle azioni consigliate, vedere [Eccezioni di inoltro][Relay exceptions].
+Per una descrizione di comune eccezioni ed è possibile eseguire le azioni consigliate, vedere [eccezioni di inoltro][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Cos'è una firma di accesso condiviso e quali linguaggi è possibile usare per generare una firma?
-Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le firme in Node, PHP, Java, C e C#, vedere [Service Bus authentication with shared access signatures][Shared Access Signatures] (Autenticazione del bus di servizio con le firme di accesso condiviso).
+Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le firme nel nodo, PHP, Java, C, e C#, vedere [l'autenticazione del Bus di servizio con firme di accesso condiviso][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>È possibile aggiungere all'elenco elementi consentiti gli endpoint di inoltro?
 Sì. Il client di inoltro stabilisce connessioni al servizio di inoltro di Azure usando nomi di dominio completi. I clienti possono quindi aggiungere una voce per `*.servicebus.windows.net` nei firewall che supportano l'aggiunta all'elenco elementi consentiti per DNS.

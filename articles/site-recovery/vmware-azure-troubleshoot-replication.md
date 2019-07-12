@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: mayg
-ms.openlocfilehash: c005dcee78e2a9338dc7a816e06d9a78a2f355b6
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: ed04c21fc5f3aecb91483dbd1eb7ca5fbf47c3e9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491682"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805968"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Risolvere i problemi di replica per macchine virtuali VMware e server fisici
 
@@ -133,7 +133,63 @@ Per risolvere il problema, usare la procedura seguente per verificare lo stato d
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
 
+## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>ID errore 78144 - Nessun punto di ripristino coerenti con l'app disponibile per la macchina virtuale negli ultimi minuti 'XXX'
 
+Di seguito sono elencati alcuni dei problemi più comuni
+
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Causa 1: Problema noto nel SQL server 2008/2008 R2 
+**Come correggere** : Si verifica un problema noto con SQL server 2008/2008 R2. Consultare questo articolo della Knowledge Base [Azure Site Recovery Agent o altri VSS non componente di backup ha esito negativo per un server che ospita SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-autoclose-dbs"></a>Causa 2: Azure hanno esito negativo dei processi di Site Recovery nei server che ospitano qualsiasi versione di istanze di SQL Server con database AUTO_CLOSE 
+**Come correggere** : Fare riferimento Kb [articolo](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+
+
+#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Causa 3: Problema noto in SQL Server 2016 e 2017
+**Come correggere** : Fare riferimento Kb [articolo](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+
+
+### <a name="more-causes-due-to-vss-related-issues"></a>Problemi relativi alle cause più a causa di VSS:
+
+Per risolvere il problema, controllare i file nella macchina di origine per ottenere il codice di errore esatto dell'errore:
+    
+    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+
+Come individuare gli errori nel file?
+Cercare la stringa "vacpError" aprendo il file vacp.log in un editor
+        
+    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+
+Nell'esempio precedente **2147754994** è riportato il codice di errore indicante che sull'errore come illustrato di seguito
+
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>Servizio VSS writer non è installato - errore 2147221164 
+
+*Come correggere*: Per generare tag di coerenza dell'applicazione, Azure Site Recovery Usa la copia Shadow del Volume Microsoft Service (VSS). Viene installato un Provider VSS per eseguire l'operazione per creare app coerenza snapshot. Questo Provider VSS viene installato come un servizio. Nel caso in cui il servizio Provider servizio Copia shadow non è installato, la creazione di snapshot di coerenza dell'applicazione non riesce con l'id dell'errore 0x80040154 "Classe non registrata". </br>
+Fare riferimento [articolo per la risoluzione dei problemi di installazione di VSS writer](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+
+#### <a name="vss-writer-is-disabled---error-2147943458"></a>Servizio VSS writer è disabilitato - errore 2147943458
+
+**Come correggere**: Per generare tag di coerenza dell'applicazione, Azure Site Recovery Usa la copia Shadow del Volume Microsoft Service (VSS). Viene installato un Provider VSS per eseguire l'operazione per creare app coerenza snapshot. Questo Provider VSS viene installato come un servizio. Nel caso in cui il servizio Provider servizio Copia shadow è disabilitato, la creazione di snapshot di coerenza dell'applicazione non riesce con l'id dell'errore "il servizio specificato è disabilitato e non può essere started(0x80070422)". </br>
+
+- Se è disabilitato VSS,
+    - Verificare che il tipo di avvio del servizio Provider servizio Copia shadow è impostato su **automatica**.
+    - Riavviare i servizi seguenti:
+        - Servizio VSS
+        - Provider VSS di Azure Site Recovery
+        - Servizio VDS
+
+####  <a name="vss-provider-notregistered---error-2147754756"></a>NOT_REGISTERED PROVIDER VSS - errore 2147754756
+
+**Come correggere**: Per generare tag di coerenza dell'applicazione, Azure Site Recovery Usa la copia Shadow del Volume Microsoft Service (VSS). Controllare se il servizio di Provider VSS di Azure Site Recovery è installato o non. </br>
+
+- Riprovare l'installazione del Provider usando i comandi seguenti:
+- Disinstallare provider esistente: C:\Programmi\Microsoft file (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
+- Reinstallare: C:\Programmi\Microsoft file (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
+ 
+Verificare che il tipo di avvio del servizio Provider servizio Copia shadow è impostato su **automatica**.
+    - Riavviare i servizi seguenti:
+        - Servizio VSS
+        - Provider VSS di Azure Site Recovery
+        - Servizio VDS
 
 ## <a name="next-steps"></a>Passaggi successivi
 

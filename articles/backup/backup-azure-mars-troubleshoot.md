@@ -3,17 +3,17 @@ title: Risolvere i problemi di Azure Backup agent
 description: Risolvere i problemi di installazione e registrazione dell'agente di Backup di Azure
 services: backup
 author: saurabhsensharma
-manager: shivamg
+manager: sivan
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/05/2019
 ms.author: saurse
-ms.openlocfilehash: 1c4c2ed6265bdb3c29986fb0b90c3d85d32aadca
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 437b175efad081b8382d80be8427aa074920fd3e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434019"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705048"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Risolvere i problemi dell'agente di Microsoft Azure Recovery Services (MARS)
 
@@ -46,7 +46,7 @@ Questo articolo descrive come risolvere errori che potrebbero verificarsi durant
 | Causa | Azioni consigliate |
 | ---     | ---    |
 | **Insieme di credenziali non valide** <br/> <br/> I file delle credenziali dell'insieme di credenziali potrebbero essere danneggiati o potrebbero essere scaduto. (Ad esempio, si potrebbe sono state scaricate più di 48 ore prima dell'ora di registrazione.)| Scaricare le nuove credenziali dall'insieme di credenziali di servizi di ripristino nel portale di Azure. (Vedere il passaggio 6 nel [scaricare l'agente MARS](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) sezione.) Quindi eseguire questi passaggi, come appropriato: <ul><li> Se già installato e registrato MARS, aprire la console di MMC dell'agente di Backup di Microsoft Azure e quindi selezionare **registra Server** nel **azioni** per completare la registrazione con il nuovo riquadro credenziali. <br/> <li> Se la nuova installazione non riesce, provare a reinstallare con le nuove credenziali.</ul> **Nota**: Se sono stati scaricati più file delle credenziali dell'insieme di credenziali, solo i file più recente è valido per 48 ore successive. Si consiglia di scaricare un nuovo file delle credenziali dell'insieme di credenziali.
-| **Server proxy/firewall sta bloccando la registrazione** <br/>oppure <br/>**Nessuna connettività a internet** <br/><br/> Se il computer o un server proxy ha limitato la connettività internet e non garantire l'accesso per gli URL necessari, la registrazione avrà esito negativo.| Eseguire questi passaggi:<br/> <ul><li> Rivolgersi al team IT per assicurarsi che il sistema disponga della connettività internet.<li> Se non si dispone di un server proxy, assicurarsi che non è selezionata l'opzione proxy quando si registra l'agente. [Controllare le impostazioni del proxy](#verifying-proxy-settings-for-windows).<li> Se si dispone di un server proxy/firewall, lavorare con il team di rete per assicurarsi che questi URL e gli indirizzi IP dispongono di accesso:<br/> <br> **URL**<br> www.msftncsi.com <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Indirizzi IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Ripetere la registrazione dopo aver completato i passaggi di risoluzione dei problemi precedenti.
+| **Server proxy/firewall sta bloccando la registrazione** <br/>oppure <br/>**Nessuna connettività a internet** <br/><br/> Se il computer o un server proxy ha limitato la connettività internet e non garantire l'accesso per gli URL necessari, la registrazione avrà esito negativo.| Eseguire questi passaggi:<br/> <ul><li> Rivolgersi al team IT per assicurarsi che il sistema disponga della connettività internet.<li> Se non si dispone di un server proxy, assicurarsi che non è selezionata l'opzione proxy quando si registra l'agente. [Controllare le impostazioni del proxy](#verifying-proxy-settings-for-windows).<li> Se si dispone di un server proxy/firewall, lavorare con il team di rete per assicurarsi che questi URL e gli indirizzi IP dispongono di accesso:<br/> <br> **URL**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Indirizzi IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Ripetere la registrazione dopo aver completato i passaggi di risoluzione dei problemi precedenti.
 | **Il software antivirus blocca la registrazione** | Se si dispone di un software antivirus installato nel server, aggiungere regole di esclusione necessari per l'analisi antivirus per questi file e cartelle: <br/><ui> <li> CBengine.exe <li> CSC.exe<li> La cartella dei file temporanei. Il percorso predefinito è C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Nella cartella bin in C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Consigli aggiuntivi
@@ -68,34 +68,34 @@ Questo articolo descrive come risolvere errori che potrebbero verificarsi durant
 
 ## <a name="unable-to-download-vault-credential-file"></a>Non è possibile scaricare il file di credenziali dell'insieme di credenziali
 
-| Tipi di errore   | Azioni consigliate |
+| Errore   | Azioni consigliate |
 | ---     | ---    |
 |Non è stato possibile scaricare il file dell'insieme di credenziali. (ID: 403) | <ul><li> Provare a scaricare le credenziali dell'insieme di credenziali tramite un browser diverso o eseguire questi passaggi: <ul><li> Avviare Internet Explorer. Selezionare F12. </li><li> Andare alla **rete** scheda e cancellare la cache e cookie. </li> <li> Aggiornare la pagina.<br></li></ul> <li> Controllare se la sottoscrizione è disabilitato o scaduto.<br></li> <li> Controllare se qualsiasi regola del firewall sta bloccando i download. <br></li> <li> Verificare che ancora stato esaurito il limite per l'insieme di credenziali (50 computer per ogni insieme di credenziali).<br></li>  <li> Verificare che l'utente disponga delle autorizzazioni di Backup di Azure necessarie per scaricare le credenziali dell'insieme di credenziali e registrare un server con l'insieme di credenziali. Visualizzare [controllo di accesso degli accessi in base a gestire i punti di ripristino di Backup di Azure](backup-rbac-rs-vault.md).</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>L'agente di Servizi di ripristino di Microsoft Azure non è riuscito a connettersi a Backup di Microsoft Azure
 
-| Tipi di errore  | Causa possibile | Azioni consigliate |
+| Errore  | Causa possibile | Azioni consigliate |
 | ---     | ---     | ---    |
 | <br /><ul><li>L'agente di Microsoft Azure Recovery Service non è riuscito a connettersi a Backup di Microsoft Azure. (ID: 100050) controllare le impostazioni di rete e verificare che sia in grado di connettersi a internet.<li>(407) autenticazione proxy necessaria. |La connessione è bloccata da un proxy. |  <ul><li>In Internet Explorer passare a **degli strumenti** > **Opzioni Internet** > **sicurezza** > **Internet**. Selezionare **livello personalizzato** e scorrere verso il basso il **download di File** sezione. Selezionare **Abilita**.<p>Si potrebbe anche essere necessario aggiungere [URL e indirizzi IP](backup-configure-vault.md#verify-internet-access) ai siti attendibili in Internet Explorer.<li>Modificare le impostazioni per l'utilizzo di un server proxy. Indicare quindi i dettagli del server proxy.<li> Se il computer ha limitato l'accesso a internet, assicurarsi che le impostazioni del firewall nel computer o nel proxy consentano questi [URL e indirizzi IP](backup-configure-vault.md#verify-internet-access). <li>Se si dispone di un software antivirus installato nel server, escludere questi file dall'analisi dell'antivirus: <ul><li>CBengine.exe (anziché dpmra.exe).<li>CSC.exe (correlato a .NET Framework). È presente un CSC.exe per ogni versione di .NET Framework installata nel server. Escludi file CSC.exe per tutte le versioni di .NET Framework nel server interessato. <li>Il percorso cache o nella cartella file temporaneo. <br>Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>Nella cartella bin in C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Impossibile impostare la chiave di crittografia per i backup protetti
 
-| Tipi di errore | Possibili cause | Azioni consigliate |
+| Errore | Possibili cause | Azioni consigliate |
 | ---     | ---     | ---    |
 | <br />Impossibile impostare la chiave di crittografia per i backup protetti. Attivazione non è stata completata, ma la passphrase di crittografia è stata salvata nel seguente file. |<li>Il server è già registrato con un altro insieme di credenziali.<li>Durante la configurazione la passphrase è stata danneggiata.| Annullare la registrazione di server dall'insieme di credenziali e registrarlo nuovamente con una nuova passphrase.
 
 ## <a name="the-activation-did-not-complete-successfully"></a>L'attivazione non è stata completata
 
-| Tipi di errore  | Possibili cause | Azioni consigliate |
+| Errore  | Possibili cause | Azioni consigliate |
 |---------|---------|---------|
-|<br />L'attivazione non è stata completata. Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x1FC07]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft.     | <li> La cartella scratch si trova in un volume che non ha spazio sufficiente. <li> La cartella scratch è stata spostata in modo non corretto. <li> Il file OnlineBackup.KEK è mancante.         | <li>Aggiornamento per il [versione più recente](https://aka.ms/azurebackup_agent) dell'agente MARS.<li>Spostare il percorso cache o nella cartella file temporaneo in un volume con spazio libero è compreso tra 5 e 10% delle dimensioni totali dei dati di backup. Per spostare correttamente il percorso della cache, vedere i passaggi descritti in [domande frequenti sul backup di file e cartelle](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Verificare che sia presente il file OnlineBackup.KEK. <br>*Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|<br />L'attivazione non è stata completata. Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x1FC07]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft.     | <li> La cartella scratch si trova in un volume che non ha spazio sufficiente. <li> La cartella scratch è stata spostata in modo non corretto. <li> Il file OnlineBackup.KEK è mancante.         | <li>Aggiornamento per il [versione più recente](https://aka.ms/azurebackup_agent) dell'agente MARS.<li>Spostare il percorso cache o nella cartella file temporaneo in un volume con spazio libero è compreso tra 5 e 10% delle dimensioni totali dei dati di backup. Per spostare correttamente il percorso della cache, vedere i passaggi descritti in [domande frequenti sul backup di file e cartelle](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Verificare che sia presente il file OnlineBackup.KEK. <br>*Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>La passphrase di crittografia non è configurata correttamente
 
-| Tipi di errore  | Possibili cause | Azioni consigliate |
+| Errore  | Possibili cause | Azioni consigliate |
 |---------|---------|---------|
-| <br />Errore 34506. La passphrase di crittografia archiviata su questo computer non è configurata correttamente.    | <li> La cartella scratch si trova in un volume che non ha spazio sufficiente. <li> La cartella scratch è stata spostata in modo non corretto. <li> Il file OnlineBackup.KEK è mancante.        | <li>Eseguire l'aggiornamento alla [versione più recente](https://aka.ms/azurebackup_agent) dell'Agente di Servizi di ripristino di Microsoft Azure.<li>Spostare il percorso cache o nella cartella file temporaneo in un volume con spazio libero è compreso tra 5 e 10% delle dimensioni totali dei dati di backup. Per spostare correttamente il percorso della cache, vedere i passaggi descritti in [domande frequenti sul backup di file e cartelle](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Verificare che sia presente il file OnlineBackup.KEK. <br>*Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
+| <br />Errore 34506. La passphrase di crittografia archiviata su questo computer non è configurata correttamente.    | <li> La cartella scratch si trova in un volume che non ha spazio sufficiente. <li> La cartella scratch è stata spostata in modo non corretto. <li> Il file OnlineBackup.KEK è mancante.        | <li>Eseguire l'aggiornamento alla [versione più recente](https://aka.ms/azurebackup_agent) dell'Agente di Servizi di ripristino di Microsoft Azure.<li>Spostare il percorso cache o nella cartella file temporaneo in un volume con spazio libero è compreso tra 5 e 10% delle dimensioni totali dei dati di backup. Per spostare correttamente il percorso della cache, vedere i passaggi descritti in [domande frequenti sul backup di file e cartelle](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Verificare che sia presente il file OnlineBackup.KEK. <br>*Il percorso predefinito per la cartella scratch o il percorso della cache è C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 
 ## <a name="backups-dont-run-according-to-schedule"></a>I backup non vengono eseguiti in base alla pianificazione

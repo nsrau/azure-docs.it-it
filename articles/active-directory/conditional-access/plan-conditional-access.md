@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56ddc2738305600c611cab1e09d654164f78b3d6
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3fca84a71e1ede572e3889f973248db158115bec
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509442"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655493"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procedura: Pianificare la distribuzione di accesso condizionale in Azure Active Directory
 
@@ -57,7 +57,7 @@ Come minimo, **quando accade questo** definisce l'entità di sicurezza (**chi**)
 
 Con **fare questo**, si definisce la risposta dei criteri a una condizione di accesso. Nella risposta, si blocca o si concede l'accesso con requisiti aggiuntivi, ad esempio, l'autenticazione a più fattori (MFA). Per una panoramica completa, vedere [consente di controllare quali sono l'accesso in Active Directory accesso condizionale di Azure?](controls.md)  
 
-La combinazione delle condizioni con i controlli di accesso rappresenta un criterio di accesso condizionale.
+La combinazione delle condizioni con i controlli di accesso rappresenta un tipo di criteri di accesso condizionale.
 
 ![Motivo e risposta](./media/plan-conditional-access/51.png)
 
@@ -162,7 +162,7 @@ Il piano di test è importante per disporre di un confronto tra i risultati prev
 |---|---|---|---|
 |[Richiedi autenticazione a più fattori quando non al lavoro](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Un utente autorizzato accede ad *App* da un percorso attendibile/dal posto di lavoro|All'utente non viene richiesta l'autenticazione a più fattori| |
 |[Richiedi autenticazione a più fattori quando non al lavoro](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Un utente autorizzato accede ad *App* da un percorso non attendibile/non dal posto di lavoro|All'utente viene richiesta l'autenticazione a più fattori e può eseguire correttamente l'accesso| |
-|[Richiedi autenticazione a più fattori (per l'amministratore)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|L'amministratore globale accede ad *App*|All'amministratore viene richiesta l'autenticazione a più fattori| |
+|[Richiedi autenticazione a più fattori (per l'amministratore)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|L'amministratore globale accede ad *App*|All'amministratore viene richiesta l'autenticazione a più fattori| |
 |[Accessi a rischio](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|L'utente accede ad *App* usando un [browser Tor](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|All'amministratore viene richiesta l'autenticazione a più fattori| |
 |[Gestione del dispositivo](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Un utente autorizzato cerca di accedere da un dispositivo autorizzato|Accesso concesso| |
 |[Gestione del dispositivo](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Un utente autorizzato cerca di accedere da un dispositivo non autorizzato|Accesso bloccato| |
@@ -181,7 +181,7 @@ Per altre informazioni su come creare criteri di accesso condizionale, vedere [R
 
 ### <a name="evaluate-a-simulated-sign-in"></a>Valutare un accesso simulato
 
-Ora che è stato configurato il criterio di accesso condizionale, probabilmente si desidera sapere se funziona come previsto. Come primo passaggio, usare l'accesso condizionale [cosa accade se lo strumento dei criteri](what-if-tool.md) per simulare un accesso dell'utente di test. La simulazione valuta l'impatto di questo accesso sui criteri e genera un report di simulazione.
+Ora che sono stati configurati i criteri di accesso condizionale, è possibile sapere se funzionano come previsto. Come primo passaggio, usare lo [strumento per i criteri What If](what-if-tool.md) dell'accesso condizionale per simulare un accesso dell'utente di test. La simulazione valuta l'impatto di questo accesso sui criteri e genera un report di simulazione.
 
 >[!NOTE]
 > Mentre un'esecuzione simulata fornisce impressione dell'impatto prodotto che dispone di un criterio di accesso condizionale, non sostituisce un'esecuzione dei test effettivo.

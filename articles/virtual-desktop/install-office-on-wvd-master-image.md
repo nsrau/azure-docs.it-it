@@ -4,15 +4,15 @@ description: Come installare e personalizzare Office su un'immagine master di an
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 6d2bb7efdd5567da377e1e15fec4935b7d4a3a6f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0e89d37011ccdfc3acdace5b45faa8e9a64e4d3e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444123"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620476"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installare Office in un'immagine master di disco rigido virtuale
 
@@ -23,7 +23,7 @@ Questo articolo presuppone di che aver già creato una macchina virtuale (VM). I
 Anche questo articolo presuppone che avere accesso con privilegi elevati nella macchina virtuale, se il provisioning in Azure o Hyper-V Manager. In caso contrario, vedere [elevare l'accesso per gestire tutti i gruppi di gestione e di sottoscrizione Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
 
 >[!NOTE]
->Queste istruzioni sono valide per una configurazione specifici del Desktop virtuale Windows anteprima che può essere usata con i processi esistenti dell'organizzazione.
+>Le istruzioni riguardano una configurazione specifica di Desktop virtuale Windows (anteprima) che può essere usata con gli attuali processi dell'organizzazione.
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Installare Office nella modalità di attivazione di computer condivisi
 

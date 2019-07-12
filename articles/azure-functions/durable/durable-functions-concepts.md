@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 95ec6a863f951a8c26abd865041c68df333a4e38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a244883f470f4906879725daf0d37bd1759e65c4
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65071327"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812904"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Modelli di funzioni durevoli e concetti tecnici (funzioni di Azure)
 
@@ -60,7 +60,7 @@ public static async Task<object> Run(DurableOrchestrationContext context)
 > [!NOTE]
 > Esistono differenze minime tra la scrittura di una funzione permanente precompilata C# e la scrittura di una funzione permanente precompilata di C# script che viene visualizzato nell'esempio. In un C# funzione precompilati o meno parametri durevoli devono essere decorati con i rispettivi attributi. Un esempio è il `[OrchestrationTrigger]` dell'attributo per il `DurableOrchestrationContext` parametro. In un C# precompilato funzione permanente, se i parametri non sono decorati in modo corretto, il runtime non è possibile inserire le variabili nella funzione e si verifica un errore. Per altri esempi, vedere la [azure-functions-durable-extension esempi in GitHub](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -113,7 +113,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -199,7 +199,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 ```javascript
 // An HTTP-triggered function starts a new orchestrator function instance.
@@ -223,7 +223,7 @@ In .NET, il parametro [DurableOrchestrationClient](https://azure.github.io/azure
 
 Negli esempi precedenti, una funzione attivata tramite HTTP accetta una `functionName` valore dell'URL in ingresso e passa il valore per [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Il [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) associazione API quindi restituisce una risposta che contiene un `Location` intestazione e informazioni aggiuntive relative all'istanza. È possibile usare le informazioni in un secondo momento per cercare lo stato dell'istanza avviata o per terminare l'istanza.
 
-### <a name="monitoring"></a>Modello 4: Monitorare
+### <a name="monitoring"></a>Modello 4: Monitoraggio
 
 Il modello di monitoraggio fa riferimento a un processo ricorrente e flessibile in un flusso di lavoro. Un esempio esegue il polling fino a quando non vengono soddisfatte specifiche condizioni. È possibile usare una normale [trigger timer](../functions-bindings-timer.md) per soddisfare una semplice scenario, ad esempio un processo di pulizia periodico, ma il relativo intervallo è statico e la gestione delle durate delle istanze diventa complessa. È possibile usare funzioni permanenti per creare gli intervalli di ricorrenza flessibili, gestire la durata di attività e creare un monitoraggio più processi da una singola orchestrazione.
 
@@ -330,7 +330,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (solo funzioni 2.x)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (solo Funzioni 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -374,7 +374,7 @@ module.exports = async function (context) {
 };
 ```
 
-## <a name="pattern-6-aggregator-preview"></a>Modello #6: Aggregator (anteprima)
+### <a name="aggregator"></a>Modello #6: Aggregator (anteprima)
 
 Il sesto pattern è sull'aggregazione di dati dell'evento in un periodo di tempo in un unico, indirizzabile *entità*. In questo modello, i dati aggregati possono provenire da più origini, potrebbero essere recapitati in batch o possono essere dispersi in long-periodi di tempo. L'aggregatore potrebbe essere necessario intervenire sui dati dell'evento come arriva e i client esterni potrebbe essere necessario eseguire query sui dati aggregati.
 
@@ -385,27 +385,46 @@ Il problema sul tentativo di implementare questo modello con normale, funzioni s
 Usando un [funzioni durevoli entità](durable-functions-preview.md#entity-functions), possibile implementare questo pattern facilmente come una singola funzione.
 
 ```csharp
-public static async Task Counter(
-    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-    int operand = ctx.GetInput<int>();
 
-    switch (ctx.OperationName)
+    switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
+            int amount = ctx.GetInput<int>();
             currentValue += operand;
             break;
-        case "subtract":
-            currentValue -= operand;
-            break;
         case "reset":
-            await SendResetNotificationAsync();
             currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
             break;
     }
 
     ctx.SetState(currentValue);
+}
+```
+
+Entità permanente, possono essere modellate come classi .NET. Ciò può essere utile se l'elenco delle operazioni più grande e se è prevalentemente statico. L'esempio seguente è un'implementazione dell'equivalente di `Counter` entità usando metodi e classi .NET.
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+    
+    public void Reset() => this.CurrentValue = 0;
+    
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
 }
 ```
 
@@ -426,7 +445,7 @@ public static async Task Run(
 }
 ```
 
-Allo stesso modo, i client possono eseguire query per lo stato di una funzione di entità utilizzando i metodi di `orchestrationClient` associazione.
+Proxy generato in modo dinamico sono anche disponibili per segnalare le entità in modo indipendente dai tipi. E oltre a segnalare, i client possono anche eseguire una query per lo stato di una funzione di entità utilizzando i metodi di `orchestrationClient` associazione.
 
 > [!NOTE]
 > Funzioni dell'entità sono attualmente disponibili solo nel [anteprima della versione 2.0 di funzioni durevoli](durable-functions-preview.md).

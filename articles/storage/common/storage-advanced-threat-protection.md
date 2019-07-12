@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: ed263fec271801ac9c46bbc3125c71ca15b9a330
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cea4b3fb78f3430fdd92e40552d687501af4be8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153965"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621966"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection per Archiviazione di Azure
 
@@ -111,7 +111,7 @@ Gli avvisi sono generati dai tentativi insoliti e potenzialmente dannosi di acce
 
 ### <a name="anomalous-access-pattern-alerts"></a>Avvisi di criterio di accesso anomalo
 
-* **Accesso da posizione insolita**: Questo avviso viene generato quando viene apportata una modifica nel criterio di accesso a un account di archiviazione. Ad esempio, quando un utente effettua l'accesso ad un account di archiviazione da una posizione geografica insolita.
+* **Accesso da posizione insolita**: Questo avviso viene generato quando un utente ha eseguito l'accesso di un account di archiviazione da una posizione geografica insolita.
 Possibili cause:
    * Un utente malintenzionato ha accesso l'account di archiviazione
    * Un utente autorizzato ha accesso l'account di archiviazione da una nuova posizione
@@ -120,10 +120,16 @@ Possibili cause:
    * Un utente malintenzionato ha accesso l'account di archiviazione tramite una nuova applicazione.
    * Un utente autorizzato ha utilizzato un nuova applicazione/browser per accedere all'account di archiviazione.
 
-* **L'accesso anonimo**: Questo avviso indica che si verifica un cambiamento nel criterio di accesso a un account di archiviazione. Ad esempio, questo account è stato consentito l'accesso anonimo (vale a dire senza alcuna autenticazione), che non è previsto confrontato con il modello di accesso recente su questo account.
+* **L'accesso anonimo**: Questo avviso indica che questo account è stato consentito l'accesso anonimo (vale a dire senza alcuna autenticazione), che non è previsto confrontato con il modello di accesso recente su questo account.
 Possibili cause:
    * Un utente malintenzionato ha sfruttato l'accesso in lettura pubblico per un contenitore.
    * Un utente legittimo o un'applicazione ha usato accesso in lettura pubblico per un contenitore.
+
+* **Anomalie tor**: Questo avviso indica che questo account è stato eseguito l'accesso correttamente da un indirizzo IP noto come un nodo di uscita attivo di Tor (un proxy anonimizzazione delle). La gravità dell'avviso considera il tipo di autenticazione usato (se presente) e se questo è il primo caso di autorizzazioni di accesso.
+Possibili cause:
+   * Un utente malintenzionato ha accesso l'account di archiviazione usando Tor.
+   * Un utente legittimo ha eseguito l'account di archiviazione usando Tor.
+
 
 ### <a name="anomalous-extractupload-alerts"></a>Avvisi di estrarre o caricare anomale
 

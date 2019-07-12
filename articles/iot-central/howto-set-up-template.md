@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7fb0fba519a7833ac318c713dc9eb3c6ac7f8b5b
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: d27fd9460685c08a2b13936415935f5aaf893797
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509543"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622405"
 ---
 # <a name="set-up-a-device-template"></a>Configurare un modello di dispositivo
 
@@ -88,7 +88,7 @@ Ad esempio, è possibile aggiungere un nuovo evento **Fan Motor Error** (Errore 
 
 | Nome visualizzato        | Nome campo    |  Gravità predefinita |
 | --------------------| ------------- |-----------|
-| Errore motore ventola     | fanmotorerror |  Tipi di errore    |
+| Errore motore ventola     | fanmotorerror |  Errore    |
 
 ![Modulo "Create Event" (Crea evento) con i dettagli per un evento motore ventola](./media/howto-set-up-template/eventmeasurementsform.png)
 
@@ -150,7 +150,7 @@ assetloc: {
 
 ## <a name="settings"></a>Impostazioni
 
-Le impostazioni consentono di controllare un dispositivo. Consentono agli operatori di inviare dati al dispositivo. È possibile aggiungere più impostazioni al modello di dispositivo che verranno visualizzate come riquadri nella scheda **Settings** (Impostazioni) e che gli operatori potranno utilizzare. È possibile aggiungere molti tipi di impostazioni: number (numero), text (testo), date (data), toggle (attivazione/disattivazione), pick list (elenco di selezione) e section label (etichetta sezione).
+Le impostazioni consentono di controllare un dispositivo. Consentono agli operatori di inviare dati al dispositivo. È possibile aggiungere più impostazioni al modello di dispositivo che verranno visualizzate come riquadri nella scheda **Settings** (Impostazioni) e che gli operatori potranno utilizzare. È possibile aggiungere molti tipi di impostazioni: numero, testo, date, attiva/disattiva ed etichetta di sezione.
 
 Le impostazioni possono presentare uno di tre stati possibili. Il dispositivo segnala questi stati.
 

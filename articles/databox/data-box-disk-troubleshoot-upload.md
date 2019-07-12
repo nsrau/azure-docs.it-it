@@ -6,22 +6,116 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 06/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 6f3ac38c3eac968bd2f7ec2aada435466d3ff279
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: deaa9a220ee4d765650779b40742225e300ffdb7
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67148309"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807510"
 ---
 # <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Comprendere i log per risolvere i problemi di caricamento dati in Azure Data Box Disk
 
 Questo articolo si applica a Microsoft Azure Data Box Disk e vengono descritti i problemi che viene visualizzato quando si caricano dati in Azure.
 
-## <a name="data-upload-logs"></a>I log di caricamento dei dati
+## <a name="about-upload-logs"></a>Informazioni sui log di caricamento
 
-Quando i dati vengono caricati in Azure presso il Data Center, `_error.xml` e `_verbose.xml` vengono generati i file. Questi log vengono caricati lo stesso account di archiviazione usato per caricare i dati. Un esempio del `_error.xml` è illustrato di seguito.
+Quando i dati vengono caricati in Azure presso il Data Center, `_error.xml` e `_verbose.xml` vengono generati file per ogni account di archiviazione. Questi log vengono caricati lo stesso account di archiviazione usato per caricare i dati. 
+
+Entrambi i log sono nello stesso formato e contengono le descrizioni XML degli eventi che si sono verificati durante la copia dei dati dal disco nell'account di archiviazione di Azure.
+
+Il log dettagliato contiene informazioni complete sullo stato dell'operazione di copia per ogni blob o file, mentre il log degli errori contiene solo le informazioni per i BLOB o file di cui si sono verificati errori durante il caricamento.
+
+Il log degli errori presenta la stessa struttura come il log dettagliato, ma esclude le operazioni completate correttamente.
+
+## <a name="download-logs"></a>Scaricare i log
+
+Eseguire i passaggi seguenti per individuare i log di caricamento.
+
+1. Se si verificano errori durante il caricamento dei dati in Azure, il portale Visualizza il percorso di cartella in cui si trovano i log di diagnostica.
+
+    ![Collegamento ai log nel portale](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
+
+2. Passare a **waies**.
+
+    ![errore e i log dettagliati](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
+
+In ogni caso, vengono visualizzati i log degli errori e i log dettagliati. Selezionare ogni log e scaricare una copia locale.
+
+## <a name="sample-upload-logs"></a>Esempio carica i log
+
+Un esempio del `_verbose.xml` è illustrato di seguito. In questo caso, l'ordine è stata completata senza errori.
+
+```xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<DriveLog Version="2018-10-01">
+  <DriveId>184020D95632</DriveId>
+  <Blob Status="Completed">
+    <BlobPath>$root/botetapageblob.vhd</BlobPath>
+    <FilePath>\PageBlob\botetapageblob.vhd</FilePath>
+    <Length>1073742336</Length>
+    <ImportDisposition Status="Created">rename</ImportDisposition>
+    <PageRangeList>
+      <PageRange Offset="0" Length="4194304" Status="Completed" />
+      <PageRange Offset="4194304" Length="4194304" Status="Completed" />
+      <PageRange Offset="8388608" Length="4194304" Status="Completed" />
+      --------CUT-------------------------------------------------------
+      <PageRange Offset="1061158912" Length="4194304" Status="Completed" />
+      <PageRange Offset="1065353216" Length="4194304" Status="Completed" />
+      <PageRange Offset="1069547520" Length="4194304" Status="Completed" />
+      <PageRange Offset="1073741824" Length="512" Status="Completed" />
+    </PageRangeList>
+  </Blob>
+  <Blob Status="Completed">
+    <BlobPath>$root/botetablockblob.txt</BlobPath>
+    <FilePath>\BlockBlob\botetablockblob.txt</FilePath>
+    <Length>19</Length>
+    <ImportDisposition Status="Created">rename</ImportDisposition>
+    <BlockList>
+      <Block Offset="0" Length="19" Status="Completed" />
+    </BlockList>
+  </Blob>
+  <File Status="Completed">
+    <FileStoragePath>botetaazurefilesfolder/botetaazurefiles.txt</FileStoragePath>
+    <FilePath>\AzureFile\botetaazurefilesfolder\botetaazurefiles.txt</FilePath>
+    <Length>20</Length>
+    <ImportDisposition Status="Created">rename</ImportDisposition>
+    <FileRangeList>
+      <FileRange Offset="0" Length="20" Status="Completed" />
+    </FileRangeList>
+  </File>
+  <Status>Completed</Status>
+</DriveLog>
+```
+
+Per l'ordine stesso, un campione del `_error.xml` è illustrato di seguito.
+
+```xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<DriveLog Version="2018-10-01">
+  <DriveId>184020D95632</DriveId>
+  <Summary>
+    <ValidationErrors>
+      <None Count="3" />
+    </ValidationErrors>
+    <CopyErrors>
+      <None Count="3" Description="No errors encountered" />
+    </CopyErrors>
+  </Summary>
+  <Status>Completed</Status>
+</DriveLog>
+```
+
+Un esempio del `_error.xml` dove di seguito è riportato l'ordine completata con errori. 
+
+Il file degli errori in questo caso ha un `Summary` sezione e un'altra sezione che contiene tutti i file a livello di errori. 
+
+Il `Summary` contiene il `ValidationErrors` e il `CopyErrors`. In questo caso, 8 file o cartelle sono state caricate in Azure e nessun errore di convalida. Quando i dati siano stati copiati in account di archiviazione di Azure, 5 file o cartelle caricato correttamente. Le restanti 3 file o cartelle sono state rinominate in base alle convenzioni di denominazione di contenitori di Azure e quindi caricate correttamente in Azure.
+
+Lo stato a livello di file sono in `BlobStatus` che descrive eventuali azioni eseguite per caricare i BLOB. Tre contenitori vengono rinominati in questo caso, poiché le cartelle in cui è stati copiati i dati non sono conforme alle convenzioni di denominazione Azure per contenitori. Per i BLOB caricati in tali contenitori, sono inclusi il nuovo nome del contenitore, percorso del blob in Azure, il percorso file non valido originale e le dimensioni del blob.
     
 ```xml
  <?xml version="1.0" encoding="utf-8"?>
@@ -57,32 +151,17 @@ Quando i dati vengono caricati in Azure presso il Data Center, `_error.xml` e `_
     </DriveLog>
 ```
 
-## <a name="download-logs"></a>Scaricare i log
-
-Esistono due modi per individuare e scaricare i log di diagnostica.
-
-- Se si verificano errori durante il caricamento dei dati in Azure, il portale Visualizza il percorso di cartella in cui si trovano i log di diagnostica.
-
-    ![Collegamento ai log nel portale](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
-
-- Passare all'account di archiviazione associato il tuo ordine di Data Box. Passare a **Servizio BLOB > Esplora BLOB** e cercare il BLOB corrispondente all'account di archiviazione. Passare a **waies**.
-
-    ![Log di copia 2](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs2.png)
-
-In ogni caso, vengono visualizzati i log degli errori e i log dettagliati. Selezionare ogni log e scaricare una copia locale.
-
-
 ## <a name="data-upload-errors"></a>Errori di caricamento dei dati
 
 Nella tabella seguente sono riepilogati gli errori generati durante il caricamento dei dati in Azure.
 
-| Codice di errore | Descrizione                        |
+| Codice di errore | Descrizione                   |
 |-------------|------------------------------|
 |`None` |  Completato correttamente.           |
-|`Renamed` | È stato rinominato il blob.  |                                                            |
+|`Renamed` | È stato rinominato il blob.   |
 |`CompletedWithErrors` | Caricamento completato con errori. I dettagli dei file di errore sono incluse nel file di log.  |
 |`Corrupted`|CRC calcolato durante l'inserimento di dati non corrisponde al CRC calcolato durante il caricamento.  |  
-|`StorageRequestFailed` | Richiesta di archiviazione di Azure non è riuscita.   |     |
+|`StorageRequestFailed` | Richiesta di archiviazione di Azure non è riuscita.   |     
 |`LeasePresent` | Questo elemento è associato a un lease e viene utilizzato da un altro utente. |
 |`StorageRequestForbidden` |Impossibile caricare a causa di problemi di autenticazione. |
 |`ManagedDiskCreationTerminalFailure` | Non è stato possibile caricare come dischi gestiti. I file sono disponibili nell'account di archiviazione di staging come BLOB di pagine. È possibile convertire manualmente i BLOB di pagine in dischi gestiti.  |

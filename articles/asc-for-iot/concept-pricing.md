@@ -2,24 +2,25 @@
 title: Comprendere il Centro sicurezza di Azure per IoT ha un costo Preview | Microsoft Docs
 description: Scopri i costi associati Centro sicurezza di Azure per IoT e come è possibile controllarle.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: ef839708-4574-4a40-bc45-07005f8e9daf
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 40963e0d81ccff21cc625b799833b996547a13b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd041cdb1608eab60fa2a5fa756f381656a13a46
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198328"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618447"
 ---
 # <a name="pricing-and-associated-costs"></a>Prezzi e costi associati
 
@@ -62,7 +63,7 @@ Per modificare le impostazioni:
 
 Nella tabella seguente fornisce un riepilogo dei costi associati e le implicazioni di ogni opzione.
 
-|     | Uso | Commento |
+|     | Utilizzo | Commento |
 | --- | --- | --- |
 | **Utilizzo di quota dell'IoT Hub** |  |
 | [Esportare dispositivi](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) processo (esportazione dei dispositivi gemelli) | Una volta al giorno | Disabilitare _twin raccolta di metadati_ |

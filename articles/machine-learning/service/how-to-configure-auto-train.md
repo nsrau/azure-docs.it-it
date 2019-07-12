@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c003ebaed645fcdefb379eb100220ccc2207d82
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 0d9019a6b4a32066480a70f72562bc5a7a9a1e8b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202968"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797642"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare gli esperimenti di Machine Learning automatizzati in Python
 
@@ -40,7 +40,7 @@ Se non si preferisce un'alcuna esperienza di codice, è anche possibile [automat
 
 Prima di iniziare l'esperimento, è necessario determinare il tipo di problema di machine learning da risolvere. Il processo di Machine Learning automatizzato supporta attività di tipo classificazione, regressione e previsione.
 
-Durante il processo di automazione e ottimizzazione, il processo di Machine Learning automatizzato supporta gli algoritmi seguenti. Come utente, non è necessario specificare l'algoritmo. Sebbene gli algoritmi di rete neurale profonda siano disponibili durante il training, Machine Learning automatizzati non compila i modelli di rete neurale profonda.
+Durante il processo di automazione e ottimizzazione, il processo di Machine Learning automatizzato supporta gli algoritmi seguenti. Come utente, non è necessario specificare l'algoritmo. 
 
 classificazione | Regressione | Previsione in serie temporale
 |-- |-- |--
@@ -312,7 +312,7 @@ best_run, fitted_model = automl_run.get_output()
 
 Visualizzare l'elenco di pre-elaborazione e [automatizzato di progettazione di funzionalità](concept-automated-ml.md#preprocess) che accade quando pre-elaborazione = True.
 
-Considerare questo esempio:
+Si consideri l'esempio seguente:
 + Esistono 4 funzionalità input: A (numerico), (numerico) B, C (numerico), D (DateTime)
 + Funzioni numeriche C viene eliminato perché è una colonna ID con tutti i valori univoci
 + Funzioni numeriche A e B sono valori mancanti e di conseguenza vengono attribuiti con mean

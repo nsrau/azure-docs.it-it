@@ -4,7 +4,7 @@ description: Informazioni sulle soluzioni che integrano App Oracle in esecuzione
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 tags: ''
 ms.assetid: ''
 ms.service: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 5a60e41d3195c0f7d88fd3ba14336d693d2f528e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fcdd46ea60ea53088ffacd7d13693b16a208d527
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446690"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707461"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluzioni di applicazioni Oracle l'integrazione di Microsoft Azure e dell'infrastruttura Cloud di Oracle (anteprima)
 
@@ -67,7 +67,7 @@ Sicurezza di rete è un componente fondamentale di qualsiasi applicazione aziend
 
 Inoltre, è possibile configurare [gli elenchi di sicurezza](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) sulle regole di rete e sicurezza del cloud virtuale OCI (collegato ad Azure [gruppi di sicurezza di rete](../../../virtual-network/security-overview.md)). Usare queste regole per controllare il traffico che scorre tra le macchine nelle reti virtuali. Le regole di sicurezza di rete possono essere aggiunti a un livello di computer, a un livello di subnet, nonché a livello di rete virtuale.
  
-## <a name="identity"></a>Identità
+## <a name="identity"></a>identità
 
 Identity è uno dei concetti fondamentali per i core alla partnership tra Microsoft e Oracle. È stato eseguito un lavoro notevole per integrare [Oracle identità Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) con [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). Azure AD è basata sul cloud identità e accesso servizio di gestione di Microsoft. Consente agli utenti l'accesso e accedere alle varie risorse. Azure AD consente inoltre di gestire gli utenti e le relative autorizzazioni.
 

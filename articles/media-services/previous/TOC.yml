@@ -254,7 +254,7 @@
         - name: Gestire operazioni a esecuzione prolungata
           href: media-services-dotnet-long-operations.md
         - name: Specifica per l'inserimento live di un flusso MP4 frammentato
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: Introduzione
           href: media-services-azure-media-clipper-getting-started.md
         - name: Caricare video
@@ -458,11 +458,11 @@
     - name: Specifiche
       items:
         - name: Inserimento live - Specifica per l'inserimento live di un flusso MP4 frammentato
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: Inserimento live - Segnalazione dei metadati temporizzati nello streaming live
-          href: media-services-specifications-live-timed-metadata.md
+          href: ../media-services-specifications-live-timed-metadata.md
         - name: Smooth Streaming HEVC
-          href: media-services-specifications-ms-sstr-amendment-hevc.md
+          href: ../media-services-specifications-ms-sstr-amendment-hevc.md
 - name: Risorse
   items:
     - name: Community di Servizi multimediali di Azure
