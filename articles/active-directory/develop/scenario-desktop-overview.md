@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 204e230f7ff0897d2ba97213ebc836aff9d0324b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 476703b52813e6b3081dcfb3ab5a2fb4f3a7bfc5
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204657"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785625"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: App desktop che chiama le API Web
 
@@ -45,7 +45,11 @@ Se hai già fatto, creare la prima applicazione seguendo la Guida introduttiva a
 
 Si scrive un'applicazione desktop e si vuole accedere gli utenti all'applicazione e chiamare le API, ad esempio Microsoft Graph, altre APIs Microsoft o un'API web web. Sono disponibili diverse possibilità:
 
-- Se l'applicazione desktop supporta i controlli con interfaccia grafici, ad esempio se si tratta di un'applicazione Windows.Form o un'applicazione WPF, è possibile usare l'acquisizione dei token interattiva.
+- È possibile usare l'acquisizione dei token interattiva:
+
+  - Se l'applicazione desktop supporta i controlli con interfaccia grafici, ad esempio se si tratta di un'applicazione Windows.Form o un'applicazione WPF.
+  - Di se si tratta di un'applicazione .NET Core e accetti di svolgere l'interazione di autenticazione con Azure AD si verificano nel browser del sistema
+
 - Per le applicazioni Windows ospitato, è anche possibile per le applicazioni in esecuzione in computer aggiunti a un dominio Windows o AAD si farebbe per acquisire un token invisibile all'utente tramite l'autenticazione integrata di Windows.
 - Infine, e sebbene non sia consigliabile, è possibile usare nome utente/Password nelle applicazioni client pubblici. È ancora necessario in alcuni scenari (ad esempio DevOps), ma tenere presente che utilizzarlo impongono vincoli sull'applicazione. Ad esempio, è possibile accedere gli utenti che devono eseguire l'autenticazione a più fattori (accesso condizionale). Anche l'applicazione non trarre vantaggio dall'accesso single sign-on (SSO).
 
@@ -53,7 +57,7 @@ Si scrive un'applicazione desktop e si vuole accedere gli utenti all'applicazion
 
   ![Applicazione desktop](media/scenarios/desktop-app.svg)
 
-- Se si sta scrivendo uno strumento da riga di comando portabile: probabilmente un'applicazione .NET Core in esecuzione in Linux o Mac, sarà possibile usare l'autenticazione interattiva di entrambi (come .NET Core non fornisce una [browser Web](https://aka.ms/msal-net-uses-web-browser)), o integrata Autenticazione di Windows. L'opzione migliore in questo caso consiste nell'utilizzare il flusso di codice di dispositivo. Questo flusso viene usato anche per le applicazioni senza un browser, ad esempio applicazioni IoT
+- Se si sta scrivendo uno strumento da riga di comando portabile - probabilmente un'applicazione .NET Core in esecuzione su Linux o Mac - e se si accetta di delegare l'autenticazione per il browser del sistema, sarà possibile usare l'autenticazione interattiva. (.NET core non offre ancora una [browser Web](https://aka.ms/msal-net-uses-web-browser) e pertanto l'autenticazione viene eseguita nel browser del sistema), in caso contrario, l'opzione migliore in questo caso è usare il flusso di codice di dispositivo. Questo flusso viene usato anche per le applicazioni senza un browser, ad esempio applicazioni IoT
 
   ![Applicazione browserless](media/scenarios/device-code-flow-app.svg)
 

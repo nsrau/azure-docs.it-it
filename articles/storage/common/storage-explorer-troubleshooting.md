@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: cf26455ce069294bd1c5a52306ed21019287a0df
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
-ms.translationtype: HT
+ms.openlocfilehash: fd34ab7cd899549962663e8cee8ee2121c39c49e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786276"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840394"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di archiviazione di Azure Explorer
 
@@ -233,46 +233,76 @@ Se per errore è stato associato un URL SAS non valido e non è possibile annull
 
 ## <a name="linux-dependencies"></a>Dipendenze Linux
 
-In generale, i pacchetti seguenti devono essere eseguiti Storage Explorer in Linux:
+<!-- Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
 
-* [Per .NET core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Nota: Storage Explorer versione 1.7.0 e versioni precedenti richiedono .NET Core 2.0. Se si dispone di una versione più recente di .NET Core installato è necessario applicare patch di Storage Explorer (vedere sotto). Se si esegue Storage Explorer 1.8.0 o maggiore quindi sarà possibile usare per .NET Core 2.2. Le versioni successive a 2.2 non sono state verificate per lavorare in questo momento.
-* `libgnome-keyring-common` e `libgnome-keyring-dev`
+Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager with the following command:
+
+```bash
+snap connect storage-explorer:password-manager-service :password-manager-service
+```
+
+You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
+
+> [!IMPORTANT]
+> Storage Explorer, come specificato nel. gz download è supportato solo per le distribuzioni di Ubuntu. Altre distribuzioni non sono stati verificati e possono richiedere pacchetti aggiuntivi o alternativi.
+
+Questi pacchetti sono i requisiti più comuni di Storage Explorer in Linux:
+
+* [Runtime di .NET core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgconf-2-4`
+* `libgnome-keyring0` o `libgnome-keyring-dev`
+* `libgnome-keyring-common`
 
-A seconda della distribuzione, potrebbero esserci diverse o altri pacchetti da installare.
+> [!NOTE]
+> Storage Explorer versione 1.7.0 e versioni precedenti richiedono .NET Core 2.0. Se si ha una versione più recente di .NET Core installato, è necessario [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Se si esegue Storage Explorer 1.8.0 o maggiore quindi sarà possibile usare per .NET Core 2.2. Le versioni successive a 2.2 non sono state verificate per lavorare in questo momento.
 
-Storage Explorer è ufficialmente supportata in Ubuntu 18.04, 14.04 e 16.04. Come indicato di seguito sono riportati i passaggi di installazione per un computer pulito:
+# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+
+1. Scaricare Storage Explorer.
+2. Installare il [Runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
+3. Eseguire il comando seguente:
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Scaricare Storage Explorer
-2. Installare il Runtime di .NET Core, versione verificato più recente è: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) (se già installato una versione più recente, potrebbe essere necessario applicare patch di Storage Explorer, vedere sotto)
-3. Eseguire `sudo apt-get install libgconf-2-4`
-4. Eseguire `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
+1. Scaricare Storage Explorer.
+2. Installare il [Runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
+3. Eseguire il comando seguente:
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Scaricare Storage Explorer
-2. Installare il Runtime di .NET Core, versione verificato più recente è: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) (se già installato una versione più recente, potrebbe essere necessario applicare patch di Storage Explorer, vedere sotto)
-3. Eseguire `sudo apt install libgnome-keyring-dev`
+2. Installare il [Runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
+3. Eseguire il comando seguente:
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
 # <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
 
 1. Scaricare Storage Explorer
-2. Installare il Runtime di .NET Core, versione verificato più recente è: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) (se già installato una versione più recente, potrebbe essere necessario applicare patch di Storage Explorer, vedere sotto)
-3. Eseguire `sudo apt install libgnome-keyring-dev`
+2. Installare il [Runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
+3. Eseguire il comando seguente:
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
----
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>L'applicazione delle patch di Storage Explorer per le versioni più recenti di .NET Core
 
-### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>L'applicazione delle patch di Storage Explorer per le versioni più recenti di .NET Core 
-Se si dispone di una versione di .NET Core superiori a 2.0 installato ed eseguono la versione di Storage Explorer 1.7.0 o versioni precedenti, è necessario molto probabilmente applicare patch di Storage Explorer, completare i passaggi seguenti:
+Per Storage Explorer 1.7.0 o versione precedente, potrebbe essere necessario applicare patch alla versione di .NET Core usata da Storage Explorer.
+
 1. Scaricare la versione 1.5.43 di StreamJsonRpc [da nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Cercare il collegamento "Download del pacchetto" sul lato destro della pagina.
-2. Dopo aver scaricato il pacchetto, modificare l'estensione di file da `.nupkg` a `.zip`
-3. Decomprimere il pacchetto
-4. Passare a `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
+2. Dopo aver scaricato il pacchetto, modificare l'estensione di file da `.nupkg` a `.zip`.
+3. Decomprimere il pacchetto.
+4. Aprire la cartella `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
 5. Copia `StreamJsonRpc.dll` nelle posizioni seguenti all'interno della cartella di Storage Explorer:
-    1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
-    2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
+   * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+   * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Apri In Explorer dal portale di Azure non funziona
 
