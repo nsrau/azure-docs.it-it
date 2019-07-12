@@ -4,7 +4,7 @@ description: Disponibilità elevata per NFS in macchine virtuali di Azure su SUS
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: ed92be0c1968d8f8a931d59d2dadefbbb12f2100
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93644b9a3487906a27db70bfe82cceccdc7ab45c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925732"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707219"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -52,7 +52,7 @@ ms.locfileid: "64925732"
 [sap-hana-ha]:sap-hana-high-availability.md
 
 Questo articolo descrive come distribuire le macchine virtuali, configurare le macchine virtuali, installare il framework del cluster e installare un server NFS a disponibilità elevata che può essere usato per archiviare i dati condivisi di un sistema SAP a disponibilità elevata.
-Questa guida descrive come configurare un server NFS a disponibilità elevata usato da due sistemi SAP, NW1 e NW2. I nomi delle risorse, ad esempio delle macchine virtuali e delle reti virtuali, nell'esempio presuppongono che sia stato usato il [modello di file server SAP][template-file-server] con il prefisso di risorsa **prod**.
+Questa guida descrive come configurare un server NFS a disponibilità elevata usato da due sistemi SAP, NW1 e NW2. I nomi delle risorse (ad esempio le macchine virtuali, reti virtuali) nell'esempio presuppongono che sia stato usato il [modello di file server SAP][template-file-server] con prefisso della risorsa **prod**.
 
 Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 
@@ -71,13 +71,13 @@ Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 * La nota SAP [1984787] contiene informazioni generali su SUSE Linux Enterprise Server 12.
 * La nota SAP [1999351] contiene informazioni aggiuntive sulla risoluzione dei problemi per l'estensione di monitoraggio avanzato di Azure per SAP.
 * [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene tutte le note su SAP necessarie per Linux.
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP in Linux][planning-guide]
-* [Distribuzione di Macchine virtuali di Azure per SAP in Linux (questo articolo)][deployment-guide]
-* [Distribuzione DBMS di Macchine virtuali di Azure per SAP in Linux][dbms-guide]
-* [Guide alle procedure consigliate per SUSE Linux Enterprise High Availability Extension 12 SP3][sles-hae-guides]
+* [Pianificazione di macchine virtuali di Azure e implementazione per SAP in Linux][planning-guide]
+* [Distribuzione di macchine virtuali di Azure per SAP in Linux (questo articolo)][deployment-guide]
+* [Distribuzione DBMS di macchine virtuali di Azure per SAP in Linux][dbms-guide]
+* [SUSE Linux Enterprise ad alta disponibilità estensione 12 SP3 migliore guide sulle procedure consigliate][sles-hae-guides]
   * Archiviazione NFS a disponibilità elevata con DRBD e Pacemaker
-* [Guide alle procedure consigliate per SUSE Linux Enterprise Server for SAP Applications 12 SP3][sles-for-sap-bp]
-* [Note sulla versione di SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
+* [SUSE Linux Enterprise Server per SAP Applications 12 SP3 migliore guide sulle procedure consigliate][sles-for-sap-bp]
+* [Note sulla versione SUSE la disponibilità elevata estensione 12 SP3][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>Panoramica
 
@@ -110,7 +110,7 @@ Il server NFS usa un nome host virtuale dedicato e indirizzi IP virtuali per ogn
 Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP Applications 12 che è possibile usare per distribuire nuove macchine virtuali.
 È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello consente di distribuire le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via. Per distribuire il modello, seguire questi passaggi:
 
-1. Aprire il [modello di file server di SAP][template-file-server] nel portale di Azure   
+1. Aprire il [modello di file server SAP][template-file-server] nel portale di Azure   
 1. Immettere i parametri seguenti
    1. Prefisso della risorsa  
       Immettere il prefisso che si vuole usare. Il valore viene usato come prefisso per le risorse distribuite.
@@ -539,8 +539,8 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Installare SAP ASCS e il database](high-availability-guide-suse.md)
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP][planning-guide]
-* [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
-* [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
+* [Pianificazione di macchine virtuali di Azure e implementazione per SAP][planning-guide]
+* [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
+* [Distribuzione DBMS di macchine virtuali di Azure per SAP][dbms-guide]
 * Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md).
-* Per informazioni su come ottenere la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA nelle macchine virtuali di Azure, vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali di Azure (VM)][sap-hana-ha].
+* Per informazioni su come implementare la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in macchine virtuali di Azure, vedere [disponibilità elevata di SAP HANA in macchine virtuali (VM)][sap-hana-ha]

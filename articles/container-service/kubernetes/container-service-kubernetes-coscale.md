@@ -20,7 +20,7 @@ ms.locfileid: "60713078"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-Questo articolo illustra come distribuire l'agente [CoScale](https://web.archive.org/web/20180317071550/ https://www.coscale.com/) per monitorare tutti i nodi e tutti i contenitori del cluster Kubernetes nel servizio Azure Container. Per questa configurazione, è necessario un account con CoScale. 
+Questo articolo illustra come distribuire l'agente [CoScale](https://web.archive.org/web/20180317071550/https://www.coscale.com/) per monitorare tutti i nodi e tutti i contenitori del cluster Kubernetes nel servizio Azure Container. Per questa configurazione, è necessario un account con CoScale. 
 
 
 ## <a name="about-coscale"></a>Informazioni su CoScale 
@@ -34,7 +34,7 @@ Come illustrato in questo articolo, è possibile installare gli agenti in un clu
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È prima di tutto necessario [creare un account CoScale](https://web.archive.org/web/20170507123133/ https://www.coscale.com/free-trial).
+È prima di tutto necessario [creare un account CoScale](https://web.archive.org/web/20170507123133/https://www.coscale.com/free-trial).
 
 Si presume che questa procedura dettagliata abbia [creato un cluster Kubernetes mediante il servizio Azure Container](container-service-kubernetes-walkthrough.md).
 
@@ -81,5 +81,5 @@ L'agente CoScale viene distribuito automaticamente nelle nuove macchine virtuali
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle soluzioni di monitoraggio di CoScale, vedere la [documentazione di CoScale](https://web.archive.org/web/20180415164304/ http://docs.coscale.com:80/) e il [blog](https://web.archive.org/web/20170501021344/ http://www.coscale.com:80/blog). 
+Per altre informazioni sulle soluzioni di monitoraggio di CoScale, vedere la [documentazione di CoScale](https://web.archive.org/web/20180415164304/http://docs.coscale.com:80/) e il [blog](https://web.archive.org/web/20170501021344/http://www.coscale.com:80/blog). 
 

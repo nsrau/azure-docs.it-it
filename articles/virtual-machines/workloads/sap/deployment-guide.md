@@ -4,7 +4,7 @@ description: Informazioni su come distribuire il software SAP in macchine virtua
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: 82ab400c89cb57f3cf72cfb9196ea7c6402808fe
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 23f2d9add5838fc0c9ac5764921a2f3cc6ae7ab7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203923"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709888"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Distribuzione di Macchine virtuali di Microsoft Azure per SAP NetWeaver
 
@@ -314,7 +314,7 @@ ms.locfileid: "67203923"
 
 Macchine virtuali di Azure è la soluzione ideale per le organizzazioni che necessitano di risorse di calcolo e di archiviazione in tempi minimi e con cicli di approvvigionamento brevi. È possibile usare Macchine virtuali di Azure per distribuire applicazioni classiche, ad esempio applicazioni basate su SAP NetWeaver, in Azure. È possibile estendere l'affidabilità e la disponibilità di un'applicazione senza risorse locali aggiuntive. Macchine virtuali di Azure supporta la connettività cross-premise e quindi è possibile integrare Macchine virtuali di Azure nei domini locali, nei cloud privati e nel panorama applicativo del sistema SAP dell'organizzazione.
 
-In questo articolo viene illustrata la procedura per distribuire applicazioni SAP in macchine virtuali in Azure, incluse le opzioni di distribuzione alternative e la risoluzione dei problemi. Questo articolo si basa sulle informazioni contenute in [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide]. Integra anche la documentazione sull'installazione di SAP e le note su SAP, che sono le risorse principali per l'installazione e la distribuzione del software SAP.
+In questo articolo viene illustrata la procedura per distribuire applicazioni SAP in macchine virtuali in Azure, incluse le opzioni di distribuzione alternative e la risoluzione dei problemi. Questo articolo si basa sulle informazioni presenti [macchine virtuali di Azure pianificazione e implementazione per SAP NetWeaver][planning-guide]. Integra anche la documentazione sull'installazione di SAP e le note su SAP, che sono le risorse principali per l'installazione e la distribuzione del software SAP.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -328,7 +328,7 @@ Per gestire VM Windows o Linux, è possibile usare uno script di PowerShell e il
 
 ### <a name="internet-connection"></a>Connessione Internet
 
-Per scaricare ed eseguire gli strumenti e gli script necessari per la distribuzione del software SAP, è necessario essere connessi a Internet. Anche la VM di Azure che esegue l'estensione di monitoraggio avanzato di Azure per SAP deve avere accesso a Internet. Se la VM di Azure fa parte di una rete virtuale di Azure o di un dominio locale, verificare che le impostazioni proxy pertinenti siano configurate come descritto in [Configurare il proxy][deployment-guide-configure-proxy].
+Per scaricare ed eseguire gli strumenti e gli script necessari per la distribuzione del software SAP, è necessario essere connessi a Internet. Anche la VM di Azure che esegue l'estensione di monitoraggio avanzato di Azure per SAP deve avere accesso a Internet. Se la macchina virtuale di Azure fa parte di una rete virtuale di Azure o nel dominio locale, assicurarsi che le impostazioni proxy pertinenti siano configurate, come descritto in [configurare il proxy][deployment-guide-configure-proxy].
 
 ### <a name="microsoft-azure-subscription"></a>iscriversi a Microsoft Azure
 
@@ -346,7 +346,7 @@ Per scaricare ed eseguire gli strumenti e gli script necessari per la distribuzi
 * Dimensioni delle macchine virtuali e numero di dischi dati aggiuntivi da montare nelle macchine virtuali
 * Configurazione di SAP Correction and Transport System (CTS)
 
-Creare e configurare gli account di archiviazione di Azure, se necessario, o le reti virtuali di Azure prima di iniziare il processo di distribuzione del software SAP. Per informazioni su come creare e configurare queste risorse, vedere [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide].
+Creare e configurare gli account di archiviazione di Azure, se necessario, o le reti virtuali di Azure prima di iniziare il processo di distribuzione del software SAP. Per informazioni su come creare e configurare queste risorse, vedere [macchine virtuali di Azure pianificazione e implementazione per SAP NetWeaver][planning-guide].
 
 ### <a name="sap-sizing"></a>Dimensionamento di SAP
 
@@ -386,16 +386,16 @@ Quando si configura la distribuzione del software SAP, sono necessarie le risors
 * La nota SAP [1597355] contiene informazioni generali sullo spazio di swapping per Linux.
 * Nella [pagina in SCN SAP in Azure](https://wiki.scn.sap.com/wiki/x/Pia7Gg) sono disponibili informazioni e una raccolta di risorse utili.
 * [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene tutte le note su SAP necessarie per Linux.
-* Cmdlet di PowerShell specifici di SAP inclusi in [Azure PowerShell][azure-ps].
-* Comandi dell'interfaccia della riga di comando di Azure specifici di SAP inclusi nell'[interfaccia della riga di comando di Azure][azure-cli].
+* I cmdlet di PowerShell specifici di SAP che fanno parte di [Azure PowerShell][azure-ps].
+* I comandi di CLI di Azure specifiche di SAP che fanno parte di [CLI Azure][azure-cli].
 
 ### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Risorse di Windows
 
 Questi articoli Microsoft descrivono le distribuzioni SAP in Azure:
 
 * [Guida alla pianificazione e all'implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide]
-* [Distribuzione di Macchine virtuali di Azure per SAP NetWeaver (questo articolo)][deployment-guide]
-* [Distribuzione DBMS di Macchine virtuali di Azure per SAP NetWeaver][dbms-guide]
+* [Distribuzione di macchine virtuali di Azure per SAP NetWeaver (questo articolo)][deployment-guide]
+* [Distribuzione DBMS di macchine virtuali di Azure per SAP NetWeaver][dbms-guide]
 
 ## <a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Scenari di distribuzione per il software SAP in VM di Azure
 
@@ -403,7 +403,7 @@ Questi articoli Microsoft descrivono le distribuzioni SAP in Azure:
 
 ### <a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>Scenario 1: Distribuzione di una macchina virtuale da Azure Marketplace per SAP
 
-È possibile usare un'immagine fornita da Microsoft o da terze parti in Azure Marketplace per distribuire la VM. Il Marketplace offre alcune immagini di sistemi operativi standard per Windows Server e diverse distribuzioni Linux. È anche possibile distribuire un'immagine che include SKU di sistema di gestione di database (DBMS), ad esempio, Microsoft SQL Server. Per altre informazioni sull'uso di immagini con SKU DBMS, vedere [Distribuzione DBMS di Macchine virtuali di Azure per SAP NetWeaver][dbms-guide].
+È possibile usare un'immagine fornita da Microsoft o da terze parti in Azure Marketplace per distribuire la VM. Il Marketplace offre alcune immagini di sistemi operativi standard per Windows Server e diverse distribuzioni Linux. È anche possibile distribuire un'immagine che include SKU di sistema di gestione di database (DBMS), ad esempio, Microsoft SQL Server. Per altre informazioni sull'uso di immagini con SKU DBMS, vedere [distribuzione di DBMS di macchine virtuali di Azure per SAP NetWeaver][dbms-guide].
 
 Il diagramma di flusso seguente illustra la sequenza di passaggi specifica di SAP per distribuire una VM da Azure Marketplace:
 
@@ -427,22 +427,22 @@ La procedura guidata illustra in dettaglio l'impostazione dei parametri necessar
    * **Nome utente e password** o **Chiave pubblica SSH**: immettere il nome utente e la password dell'utente creato durante il provisioning. Per una macchina virtuale Linux, è possibile immettere la chiave pubblica Secure Shell (SSH) che si usa per accedere al computer.
    * **Sottoscrizione** selezionare la sottoscrizione che si vuole usare per effettuare il provisioning della nuova macchina virtuale.
    * **Gruppo di risorse**: nome del gruppo di risorse della macchina virtuale. È possibile immettere il nome di un nuovo gruppo di risorse o il nome di uno già esistente.
-   * **Località**: posizione in cui distribuire la nuova macchina virtuale. Se si vuole connettere la macchina virtuale alla rete locale, verificare di selezionare il percorso della rete virtuale che connette Azure alla rete locale. Per altre informazioni, vedere [Rete di Microsoft Azure][planning-guide-microsoft-azure-networking] in [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide].
+   * **Località**: posizione in cui distribuire la nuova macchina virtuale. Se si vuole connettere la macchina virtuale alla rete locale, verificare di selezionare il percorso della rete virtuale che connette Azure alla rete locale. Per altre informazioni, vedere [rete di Microsoft Azure][planning-guide-microsoft-azure-networking] in [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide].
 1. **Dimensione**:
 
-     Per un elenco dei tipi di VM supportati, vedere la nota SAP [1928533]. Assicurarsi di selezionare il tipo di VM corretto se si vuole usare Archiviazione Premium di Azure. Non tutti i tipi di VM supportano Archiviazione Premium. Per altre informazioni, vedere [Archiviazione: Archiviazione di Microsoft Azure e dischi dati][planning-guide-storage-microsoft-azure-storage-and-data-disks] e [Archiviazione Premium di Azure][planning-guide-azure-premium-storage] in [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide].
+     Per un elenco dei tipi di VM supportati, vedere la nota SAP [1928533]. Assicurarsi di selezionare il tipo di VM corretto se si vuole usare Archiviazione Premium di Azure. Non tutti i tipi di VM supportano Archiviazione Premium. Per altre informazioni, vedere [Archiviazione: Archiviazione di Microsoft Azure e dischi dati][planning-guide-storage-microsoft-azure-storage-and-data-disks] and [Azure Premium Storage][planning-guide-azure-premium-storage] nelle [macchine virtuali di Azure pianificazione e implementazione per SAP NetWeaver][planning-guide].
 
 1. **Impostazioni**:
    * **Archiviazione**
      * **Tipo di disco**: selezionare il tipo di disco del disco con il sistema operativo. Se si vuole usare l'Archiviazione Premium per i dischi dati, è consigliabile usare l'Archiviazione Premium anche per il disco del sistema operativo.
-     * **Usa il servizio Managed Disks**: se si vuole usare Managed Disks, selezionare Sì. Per altre informazioni su Managed Disks, vedere il capitolo [Managed Disks][planning-guide-managed-disks] nella guida alla pianificazione.
+     * **Usa il servizio Managed Disks**: se si vuole usare Managed Disks, selezionare Sì. Per altre informazioni sul servizio Managed Disks, vedere il capitolo [Managed Disks][planning-guide-managed-disks] nella Guida alla pianificazione.
      * **Account di archiviazione**: selezionare un account di archiviazione esistente o crearne uno nuovo. Non tutti i tipi di archiviazione funzionano per l'esecuzione di applicazioni SAP. Per altre informazioni sui tipi di archiviazione, vedere [Struttura delle risorse di archiviazione di una VM per le distribuzioni RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
    * **Rete**
      * **Rete virtuale** e **Subnet**: per integrare la macchina virtuale con la Intranet, selezionare la rete virtuale connessa alla rete locale.
      * **Indirizzo IP pubblico**: selezionare l'indirizzo IP pubblico che si vuole usare oppure immettere i parametri per crearne uno nuovo. È possibile usare un indirizzo IP pubblico per accedere alla macchina virtuale tramite Internet. Verificare anche di creare un gruppo di sicurezza di rete per proteggere l'accesso alla macchina virtuale.
-     * **Network security group** (Gruppo di sicurezza di rete): per altre informazioni, vedere [Controllare il flusso del traffico di rete con i gruppi di sicurezza di rete][virtual-networks-nsg].
-   * **Estensioni**: è possibile installare le estensioni macchina virtuale aggiungendole alla distribuzione. Non è necessario aggiungere le estensioni in questo passaggio. Le estensioni necessarie per il supporto SAP vengono installate in un secondo momento. Vedere il capitolo [Configurare l'estensione di monitoraggio avanzato di Azure per SAP][deployment-guide-4.5] in questa guida.
-   * **Disponibilità elevata**: selezionare un set di disponibilità oppure immettere i parametri per crearne uno nuovo. Per altre informazioni, vedere [Set di disponibilità di Azure][planning-guide-3.2.3].
+     * **Network security group** (Gruppo di sicurezza di rete): Per altre informazioni, vedere [controllare il flusso di traffico di rete con gruppi di sicurezza di rete][virtual-networks-nsg].
+   * **Estensioni**: è possibile installare le estensioni macchina virtuale aggiungendole alla distribuzione. Non è necessario aggiungere le estensioni in questo passaggio. Le estensioni necessarie per il supporto SAP vengono installate in un secondo momento. Vedere il capitolo [configurare Azure Enhanced Monitoring Extension per SAP][deployment-guide-4.5] in questa Guida.
+   * **Disponibilità elevata**: selezionare un set di disponibilità oppure immettere i parametri per crearne uno nuovo. Per altre informazioni, vedere [set di disponibilità di Azure][planning-guide-3.2.3].
    * **Monitoraggio**
      * **Diagnostica di avvio**: è possibile selezionare **Disabilita** per la diagnostica di avvio.
      * **Diagnostica del sistema operativo guest**: è possibile selezionare **Disabilita** per la diagnostica del monitoraggio.
@@ -455,7 +455,7 @@ La macchina virtuale viene distribuita nel gruppo di risorse selezionato.
 
 #### <a name="create-a-virtual-machine-by-using-a-template"></a>Creare una macchina virtuale usando un modello
 
-È possibile creare una macchina virtuale usando uno dei modelli SAP pubblicati nel [repository di GitHub azure-quickstart-templates][azure-quickstart-templates-github]. È anche possibile creare una macchina virtuale manualmente usando il [portale di Azure][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] o l'[interfaccia della riga di comando di Azure][virtual-machines-linux-tutorial].
+È possibile creare una macchina virtuale usando uno dei modelli SAP pubblicati nel [repository GitHub azure-quickstart-templates][azure-quickstart-templates-github]. You also can manually create a virtual machine by using the [Azure portal][virtual-machines-windows-tutorial], [PowerShell] [ Virtual-Machines-PS-create-preconfigure-Windows-Resource-Manager-VMS], oppure [CLI Azure][virtual-machines-linux-tutorial].
 
 * [**Modello per configurazione a due livelli (una sola macchina virtuale)** (sap-2-tier-marketplace-image)][sap-templates-2-tier-marketplace-image]
 
@@ -491,9 +491,9 @@ Nel portale di Azure immettere i parametri seguenti per il modello:
    * **Tipo di archiviazione** (solo per il modello a due livelli): tipo di archiviazione da usare.
 
      Per i sistemi più grandi, è consigliabile usare Archiviazione Premium di Azure. Per altre informazioni sui tipi di archiviazione, vedere queste risorse:
-      * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194] (Uso dell'archiviazione unità SSD di Azure Premium per l'istanza DBMS di SAP)
+      * [Utilizzo dell'archiviazione unità SSD Premium di Azure per l'istanza DBMS SAP][2367194]
       * [Struttura delle risorse di archiviazione di una VM per le distribuzioni RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
-      * [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure][storage-premium-storage-preview-portal]
+      * [Premium Storage: Archiviazione ad alte prestazioni per carichi di lavoro di macchina virtuale di Azure][storage-premium-storage-preview-portal]
       * [Introduzione ad Archiviazione di Microsoft Azure][storage-introduction]
    * **Nome utente amministratore** e **Password amministratore**: nome utente e password.
      Viene creato un nuovo utente, per l'accesso alla macchina virtuale.
@@ -509,19 +509,19 @@ Quando si usa un'immagine di Azure Marketplace, per impostazione predefinita vie
 
 #### <a name="configure-proxy-settings"></a>Configurare le impostazioni proxy
 
-A seconda della configurazione della rete locale, potrebbe essere necessario configurare il proxy nella VM. Se la VM è connessa alla rete locale tramite VPN o ExpressRoute, la VM potrebbe non riuscire ad accedere a Internet e non riuscirà a scaricare le estensioni necessarie o a raccogliere i dati di monitoraggio. Per altre informazioni, vedere [Configurare il proxy][deployment-guide-configure-proxy].
+A seconda della configurazione della rete locale, potrebbe essere necessario configurare il proxy nella VM. Se la VM è connessa alla rete locale tramite VPN o ExpressRoute, la VM potrebbe non riuscire ad accedere a Internet e non riuscirà a scaricare le estensioni necessarie o a raccogliere i dati di monitoraggio. Per altre informazioni, vedere [configurare il proxy][deployment-guide-configure-proxy].
 
 #### <a name="join-a-domain-windows-only"></a>Aggiungere a un dominio (solo per Windows)
 
-Se la distribuzione di Azure è connessa a un'istanza di DNS o di Active Directory locale tramite una connessione VPN da sito a sito di Azure o ExpressRoute (questa connessione è detta *cross-premise* in [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide]), è previsto che la VM sia aggiunta a un dominio locale. Per altre informazioni sulle considerazioni relative a questa attività, vedere [Aggiungere una VM a un dominio locale (solo per Windows)][deployment-guide-4.3].
+Se la distribuzione di Azure è connessa a un'istanza di Active Directory o DNS locale tramite una connessione VPN di Azure site-to-site o ExpressRoute (questa operazione viene definita *cross-premise* in [pianificazione di macchine virtuali di Azure e l'implementazione per SAP NetWeaver][planning-guide]), it is expected that the VM is joining an on-premises domain. For more information about considerations for this task, see [Join a VM to an on-premises domain (Windows only)][deployment-guide-4.3].
 
 #### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>Configurare il monitoraggio
 
-Per assicurarsi che SAP supporti l'ambiente, configurare l'estensione di monitoraggio di Azure per SAP come descritto in [Configurare l'estensione di monitoraggio avanzato di Azure per SAP][deployment-guide-4.5]. Controllare i prerequisiti per il monitoraggio di SAP e le versioni minime obbligatorie del kernel SAP e dell'agente host SAP nelle risorse elencate in [Risorse SAP][deployment-guide-2.2].
+Per assicurarsi che SAP supporti l'ambiente, configurare Azure Monitoring Extension per SAP come descritto [configurare Azure Enhanced Monitoring Extension per SAP][deployment-guide-4.5]. Check the prerequisites for SAP monitoring, and required minimum versions of SAP Kernel and SAP Host Agent, in the resources listed in [SAP resources][deployment-guide-2.2].
 
 #### <a name="monitoring-check"></a>Controllo del monitoraggio
 
-Controllare se il monitoraggio funziona, come descritto in [Controlli e risoluzione dei problemi per la configurazione del monitoraggio end-to-end][deployment-guide-troubleshooting-chapter].
+Verificare se il monitoraggio funziona, come descritto in [controlli e risoluzione dei problemi per la configurazione di monitoraggio end-to-end][deployment-guide-troubleshooting-chapter].
 
 #### <a name="post-deployment-steps"></a>Passaggi post-distribuzione
 
@@ -541,12 +541,12 @@ La procedura per creare un'immagine privata per Linux è diversa da quella per c
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Per preparare un'immagine Linux da poter usare per distribuire più macchine virtuali, è necessario eseguire l'astrazione o la generalizzazione di alcune impostazioni di Linux nella VM locale. A tale scopo, è possibile usare `waagent -deprovision`. Per altre informazioni, vedere [Acquisire una macchina virtuale Linux in esecuzione in Azure][virtual-machines-linux-capture-image] e [Guida dell'utente dell'agente Linux di Azure][virtual-machines-linux-agent-user-guide-command-line-options].
+> Per preparare un'immagine Linux da poter usare per distribuire più macchine virtuali, è necessario eseguire l'astrazione o la generalizzazione di alcune impostazioni di Linux nella VM locale. A tale scopo, è possibile usare `waagent -deprovision`. Per altre informazioni, vedere [acquisire una macchina virtuale Linux in esecuzione in Azure][virtual-machines-linux-capture-image] and the [Azure Linux agent user guide][virtual-machines-linux-agent-user-guide-command-line-options].
 >
 >
 
 ---
-È possibile preparare e creare un'immagine personalizzata e quindi usarla per creare più VM nuove, come illustrato in [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide]. Configurare il contenuto del database usando SAP Software Provisioning Manager per installare un nuovo sistema SAP (che ripristina un backup del database da un disco collegato alla macchina virtuale) o ripristinando un backup del database direttamente da Archiviazione di Azure, se l'operazione è supportata dal sistema DBMS. Per altre informazioni, vedere [Distribuzione DBMS di Macchine virtuali di Azure per SAP NetWeaver][dbms-guide]. Se è già stato installato un sistema SAP nella macchina virtuale locale (soprattutto per sistemi a due livelli), è possibile adattare le impostazioni del sistema SAP dopo la distribuzione della macchina virtuale di Azure usando la procedura di ridenominazione del sistema supportata da SAP Software Provisioning Manager (nota SAP [1619720]). In caso contrario, è possibile installare il software SAP dopo la distribuzione della VM di Azure.
+È possibile preparare e creare un'immagine personalizzata e quindi usarla per creare più VM nuove, Come descritto nella [macchine virtuali di Azure pianificazione e implementazione per SAP NetWeaver][planning-guide]. Set up your database content either by using SAP Software Provisioning Manager to install a new SAP system (restores a database backup from a disk that's attached to the virtual machine) or by directly restoring a database backup from Azure storage, if your DBMS supports it. For more information, see [Azure Virtual Machines DBMS deployment for SAP NetWeaver][dbms-guide]. Se è già stato installato un sistema SAP nella macchina virtuale locale (soprattutto per sistemi a due livelli), è possibile adattare le impostazioni del sistema SAP dopo la distribuzione della macchina virtuale di Azure usando la procedura di ridenominazione del sistema supportata da SAP Software Provisioning Manager (nota SAP [1619720]). In caso contrario, è possibile installare il software SAP dopo la distribuzione della VM di Azure.
 
 Il diagramma di flusso seguente illustra la sequenza di passaggi specifica di SAP per distribuire una VM da un'immagine personalizzata:
 
@@ -567,21 +567,21 @@ La procedura guidata illustra in dettaglio l'impostazione dei parametri necessar
    * **Nome utente e password** o **Chiave pubblica SSH**: immettere il nome utente e la password dell'utente creato durante il provisioning. Per una macchina virtuale Linux, è possibile immettere la chiave pubblica Secure Shell (SSH) che si usa per accedere al computer.
    * **Sottoscrizione** selezionare la sottoscrizione che si vuole usare per effettuare il provisioning della nuova macchina virtuale.
    * **Gruppo di risorse**: nome del gruppo di risorse della macchina virtuale. È possibile immettere il nome di un nuovo gruppo di risorse o il nome di uno già esistente.
-   * **Località**: posizione in cui distribuire la nuova macchina virtuale. Se si vuole connettere la macchina virtuale alla rete locale, verificare di selezionare il percorso della rete virtuale che connette Azure alla rete locale. Per altre informazioni, vedere [Rete di Microsoft Azure][planning-guide-microsoft-azure-networking] in [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide].
+   * **Località**: posizione in cui distribuire la nuova macchina virtuale. Se si vuole connettere la macchina virtuale alla rete locale, verificare di selezionare il percorso della rete virtuale che connette Azure alla rete locale. Per altre informazioni, vedere [rete di Microsoft Azure][planning-guide-microsoft-azure-networking] in [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide].
 1. **Dimensione**:
 
-     Per un elenco dei tipi di VM supportati, vedere la nota SAP [1928533]. Assicurarsi di selezionare il tipo di VM corretto se si vuole usare Archiviazione Premium di Azure. Non tutti i tipi di VM supportano Archiviazione Premium. Per altre informazioni, vedere [Archiviazione: Archiviazione di Microsoft Azure e dischi dati][planning-guide-storage-microsoft-azure-storage-and-data-disks] e [Archiviazione Premium di Azure][planning-guide-azure-premium-storage] in [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide].
+     Per un elenco dei tipi di VM supportati, vedere la nota SAP [1928533]. Assicurarsi di selezionare il tipo di VM corretto se si vuole usare Archiviazione Premium di Azure. Non tutti i tipi di VM supportano Archiviazione Premium. Per altre informazioni, vedere [Archiviazione: Archiviazione di Microsoft Azure e dischi dati][planning-guide-storage-microsoft-azure-storage-and-data-disks] and [Azure Premium Storage][planning-guide-azure-premium-storage] nelle [macchine virtuali di Azure pianificazione e implementazione per SAP NetWeaver][planning-guide].
 
 1. **Impostazioni**:
    * **Archiviazione**
      * **Tipo di disco**: selezionare il tipo di disco del disco con il sistema operativo. Se si vuole usare l'Archiviazione Premium per i dischi dati, è consigliabile usare l'Archiviazione Premium anche per il disco del sistema operativo.
-     * **Usa il servizio Managed Disks**: se si vuole usare Managed Disks, selezionare Sì. Per altre informazioni su Managed Disks, vedere il capitolo [Managed Disks][planning-guide-managed-disks] nella guida alla pianificazione.
+     * **Usa il servizio Managed Disks**: se si vuole usare Managed Disks, selezionare Sì. Per altre informazioni sul servizio Managed Disks, vedere il capitolo [Managed Disks][planning-guide-managed-disks] nella Guida alla pianificazione.
    * **Rete**
      * **Rete virtuale** e **Subnet**: per integrare la macchina virtuale con la Intranet, selezionare la rete virtuale connessa alla rete locale.
      * **Indirizzo IP pubblico**: selezionare l'indirizzo IP pubblico che si vuole usare oppure immettere i parametri per crearne uno nuovo. È possibile usare un indirizzo IP pubblico per accedere alla macchina virtuale tramite Internet. Verificare anche di creare un gruppo di sicurezza di rete per proteggere l'accesso alla macchina virtuale.
-     * **Network security group** (Gruppo di sicurezza di rete): per altre informazioni, vedere [Controllare il flusso del traffico di rete con i gruppi di sicurezza di rete][virtual-networks-nsg].
-   * **Estensioni**: è possibile installare le estensioni macchina virtuale aggiungendole alla distribuzione. Non è necessario aggiungere l'estensione in questo passaggio. Le estensioni necessarie per il supporto SAP vengono installate in un secondo momento. Vedere il capitolo [Configurare l'estensione di monitoraggio avanzato di Azure per SAP][deployment-guide-4.5] in questa guida.
-   * **Disponibilità elevata**: selezionare un set di disponibilità oppure immettere i parametri per crearne uno nuovo. Per altre informazioni, vedere [Set di disponibilità di Azure][planning-guide-3.2.3].
+     * **Network security group** (Gruppo di sicurezza di rete): Per altre informazioni, vedere [controllare il flusso di traffico di rete con gruppi di sicurezza di rete][virtual-networks-nsg].
+   * **Estensioni**: è possibile installare le estensioni macchina virtuale aggiungendole alla distribuzione. Non è necessario aggiungere l'estensione in questo passaggio. Le estensioni necessarie per il supporto SAP vengono installate in un secondo momento. Vedere il capitolo [configurare Azure Enhanced Monitoring Extension per SAP][deployment-guide-4.5] in questa Guida.
+   * **Disponibilità elevata**: selezionare un set di disponibilità oppure immettere i parametri per crearne uno nuovo. Per altre informazioni, vedere [set di disponibilità di Azure][planning-guide-3.2.3].
    * **Monitoraggio**
      * **Diagnostica di avvio**: è possibile selezionare **Disabilita** per la diagnostica di avvio.
      * **Diagnostica del sistema operativo guest**: è possibile selezionare **Disabilita** per la diagnostica del monitoraggio.
@@ -594,18 +594,18 @@ La macchina virtuale viene distribuita nel gruppo di risorse selezionato.
 
 #### <a name="create-a-virtual-machine-by-using-a-template"></a>Creare una macchina virtuale usando un modello
 
-Per creare una distribuzione usando un'immagine del sistema operativo privata dal portale di Azure, usare uno dei modelli SAP seguenti. Questi modelli sono pubblicati nel [repository di GitHub azure-quickstart-templates][azure-quickstart-templates-github]. È anche possibile creare una macchina virtuale manualmente usando [PowerShell][virtual-machines-upload-image-windows-resource-manager].
+Per creare una distribuzione usando un'immagine del sistema operativo privata dal portale di Azure, usare uno dei modelli SAP seguenti. Questi modelli sono pubblicati nel [repository GitHub azure-quickstart-templates][azure-quickstart-templates-github]. You also can manually create a virtual machine, by using [PowerShell][virtual-machines-upload-image-windows-resource-manager].
 
-* [**Modello per configurazione a due livelli (una sola macchina virtuale)** (sap-2-tier-user-image)][sap-templates-2-tier-user-image]
+* [**Modello per configurazione a due livelli (una sola macchina virtuale)** (sap-2-tier-utente-image)][sap-templates-2-tier-user-image]
 
   Per creare un sistema a due livelli usando una sola macchina virtuale, usare questo modello.
-* [**Modello per configurazione a due livelli (una sola macchina virtuale) - Immagine di disco gestito** (sap-2-tier-user-image-md)][sap-templates-2-tier-user-image-md]
+* [**Modello per configurazione a due livelli (una sola macchina virtuale) - immagine di disco gestito** (sap-2-tier-user-image-md)][sap-templates-2-tier-user-image-md]
 
   Per creare un sistema a due livelli usando una sola macchina virtuale e un'immagine di disco gestito, usare questo modello.
-* [**Modello per configurazione a tre livelli (più macchine virtuali)** (sap-3-tier-user-image)][sap-templates-3-tier-user-image]
+* [**Modello per configurazione a tre livelli (più macchine virtuali)** (sap-3-tier-utente-image)][sap-templates-3-tier-user-image]
 
   Per creare un sistema a tre livelli usando più macchine virtuali o l'immagine del sistema operativo, usare questo modello.
-* [**Modello per configurazione a tre livelli (più macchine virtuali) - Immagine di disco gestito** (sap-3-tier-user-image-md)][sap-templates-3-tier-user-image-md]
+* [**Modello per configurazione a tre livelli (più macchine virtuali) - immagine di disco gestito** (sap-3-tier-user-image-md)][sap-templates-3-tier-user-image-md]
 
   Per creare un sistema a tre livelli usando più macchine virtuali o l'immagine del sistema operativo e un'immagine di disco gestito, usare questo modello.
 
@@ -627,9 +627,9 @@ Nel portale di Azure immettere i parametri seguenti per il modello:
    * **Tipo di archiviazione** (solo per il modello a due livelli): tipo di archiviazione da usare.
 
      Per i sistemi più grandi, è consigliabile usare Archiviazione Premium di Azure. Per altre informazioni sui tipi di archiviazione, vedere le risorse seguenti:
-      * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194] (Uso dell'archiviazione unità SSD di Azure Premium per l'istanza DBMS di SAP)
+      * [Utilizzo dell'archiviazione unità SSD Premium di Azure per l'istanza DBMS SAP][2367194]
       * [Struttura delle risorse di archiviazione di una VM per le distribuzioni RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
-      * [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure][storage-premium-storage-preview-portal]
+      * [Premium Storage: archiviazione ad alte prestazioni per i carichi di lavoro delle macchine virtuali di Azure][storage-premium-storage-preview-portal]
       * [Introduzione ad Archiviazione di Microsoft Azure][storage-introduction]
    * **User image VHD URI** (URI VHD dell'immagine utente - solo per il modello di immagine del disco non gestito): URI del disco rigido virtuale dell'immagine del sistema operativo privata, ad esempio https://&lt;nomeaccount>.blob.core.windows.net/vhds/userimage.vhd.
    * **User image storage account** (Account di archiviazione dell'immagine utente - solo per il modello di immagine del disco non gestito): nome dell'account di archiviazione in cui è archiviata l'immagine privata del sistema operativo, ad esempio &lt;nomeaccount> in https://&lt;nomeaccount>.blob.core.windows.net/vhds/userimage.vhd.
@@ -647,28 +647,28 @@ Nel portale di Azure immettere i parametri seguenti per il modello:
 
 #### <a name="install-the-vm-agent-linux-only"></a>Installare l'agente di macchine virtuali (solo per Linux)
 
-Per usare i modelli descritti nella sezione precedente, l'agente Linux deve essere già installato nell'immagine utente o la distribuzione avrà esito negativo. Scaricare e installare l'agente di macchine virtuali nell'immagine utente come descritto in [Scaricare, installare e abilitare l'agente di macchine virtuali di Azure][deployment-guide-4.4]. Se non si usano i modelli, si può anche installare l'agente di macchine virtuali in un secondo momento.
+Per usare i modelli descritti nella sezione precedente, l'agente Linux deve essere già installato nell'immagine utente o la distribuzione avrà esito negativo. Scaricare e installare l'agente di macchine Virtuali nell'immagine utente come descritto in [scaricare, installare e abilitare l'agente di macchine Virtuali di Azure][deployment-guide-4.4]. Se non si usano i modelli, si può anche installare l'agente di macchine virtuali in un secondo momento.
 
 #### <a name="join-a-domain-windows-only"></a>Aggiungere a un dominio (solo per Windows)
 
-Se la distribuzione di Azure è connessa a un'istanza di DNS o di Active Directory locale tramite una connessione VPN da sito a sito di Azure o Azure ExpressRoute (questa connessione è detta *cross-premise* in [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide]), è previsto che la VM sia aggiunta a un dominio locale. Per altre informazioni sulle considerazioni relative a questo passaggio, vedere [Aggiungere una VM a un dominio locale (solo per Windows)][deployment-guide-4.3].
+Se la distribuzione di Azure è connessa a un'istanza di Active Directory o DNS locale tramite una connessione VPN site-to-site Azure o Azure ExpressRoute (questa operazione viene definita *cross-premise* in [macchine virtuali di Azure pianificazione e implementazione per SAP NetWeaver][planning-guide]), it is expected that the VM is joining an on-premises domain. For more information about considerations for this step, see [Join a VM to an on-premises domain (Windows only)][deployment-guide-4.3].
 
 #### <a name="configure-proxy-settings"></a>Configurare le impostazioni proxy
 
-A seconda della configurazione della rete locale, potrebbe essere necessario configurare il proxy nella VM. Se la VM è connessa alla rete locale tramite VPN o ExpressRoute, la VM potrebbe non riuscire ad accedere a Internet e non riuscirà a scaricare le estensioni necessarie o a raccogliere i dati di monitoraggio. Per altre informazioni, vedere [Configurare il proxy][deployment-guide-configure-proxy].
+A seconda della configurazione della rete locale, potrebbe essere necessario configurare il proxy nella VM. Se la VM è connessa alla rete locale tramite VPN o ExpressRoute, la VM potrebbe non riuscire ad accedere a Internet e non riuscirà a scaricare le estensioni necessarie o a raccogliere i dati di monitoraggio. Per altre informazioni, vedere [configurare il proxy][deployment-guide-configure-proxy].
 
 #### <a name="configure-monitoring"></a>Configurare il monitoraggio
 
-Per assicurarsi che SAP supporti l'ambiente, configurare l'estensione di monitoraggio di Azure per SAP come descritto in [Configurare l'estensione di monitoraggio avanzato di Azure per SAP][deployment-guide-4.5]. Controllare i prerequisiti per il monitoraggio di SAP e le versioni minime obbligatorie del kernel SAP e dell'agente host SAP nelle risorse elencate in [Risorse SAP][deployment-guide-2.2].
+Per assicurarsi che SAP supporti l'ambiente, configurare Azure Monitoring Extension per SAP come descritto [configurare Azure Enhanced Monitoring Extension per SAP][deployment-guide-4.5]. Check the prerequisites for SAP monitoring, and required minimum versions of SAP Kernel and SAP Host Agent, in the resources listed in [SAP resources][deployment-guide-2.2].
 
 #### <a name="monitoring-check"></a>Controllo del monitoraggio
 
-Controllare se il monitoraggio funziona, come descritto in [Controlli e risoluzione dei problemi per la configurazione del monitoraggio end-to-end][deployment-guide-troubleshooting-chapter].
+Verificare se il monitoraggio funziona, come descritto in [controlli e risoluzione dei problemi per la configurazione di monitoraggio end-to-end][deployment-guide-troubleshooting-chapter].
 
 
 ### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Scenario 3: Spostamento di una macchina virtuale dall'ambiente locale tramite un disco rigido virtuale di Azure non generalizzato con SAP
 
-In questo scenario si pianifica lo spostamento di un sistema SAP specifico da un ambiente locale ad Azure. È possibile eseguire questa operazione caricando in Azure il disco rigido virtuale contenente il sistema operativo, i file binari SAP e infine i file binari DBMS, nonché i dischi rigidi virtuali con i file di dati e di log del sistema DBMS. A differenza dello scenario descritto in [Scenario 2: Distribuzione di una macchina virtuale con un'immagine personalizzata per SAP][deployment-guide-3.3], in questo caso il nome host, il SID SAP e gli account utente SAP nella macchina virtuale di Azure vengono mantenuti perché sono stati configurati nell'ambiente locale. Non è necessario generalizzare il sistema operativo. Questo scenario si applica molto spesso agli scenari cross-premise in cui parte del panorama applicativo SAP viene eseguita in locale e parte in Azure.
+In questo scenario si pianifica lo spostamento di un sistema SAP specifico da un ambiente locale ad Azure. È possibile eseguire questa operazione caricando in Azure il disco rigido virtuale contenente il sistema operativo, i file binari SAP e infine i file binari DBMS, nonché i dischi rigidi virtuali con i file di dati e di log del sistema DBMS. A differenza dello scenario descritto in [Scenario 2: Distribuzione di una VM con un'immagine personalizzata per SAP][deployment-guide-3.3], in questo caso, mantenere il nome host, SID di SAP e gli account utente SAP nella VM di Azure, perché sono stati configurati nell'ambiente locale. Non è necessario generalizzare il sistema operativo. Questo scenario si applica molto spesso agli scenari cross-premise in cui parte del panorama applicativo SAP viene eseguita in locale e parte in Azure.
 
 In questo scenario l'agente di macchine virtuali **non** viene installato automaticamente durante la distribuzione. Poiché l'agente di macchine virtuali e l'estensione di monitoraggio avanzato di Azure per SAP sono necessari per eseguire SAP NetWeaver in Azure, è necessario scaricare, installare e abilitare entrambi i componenti manualmente dopo avere creato la macchina virtuale.
 
@@ -691,16 +691,16 @@ Il diagramma di flusso seguente illustra la sequenza di passaggi per spostare un
 
 ![Diagramma di flusso della distribuzione di una VM per sistemi SAP con un disco della VM][deployment-guide-figure-400]
 
-Se il disco è già caricato e definito in Azure (vedere [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide]), eseguire le attività descritte nelle sezioni successive.
+Se il disco sia già caricato e definito in Azure (vedere [macchine virtuali di Azure pianificazione e implementazione per SAP NetWeaver][planning-guide]), eseguire le attività descritte nelle prossime sezioni successive.
 
 #### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-Per creare una distribuzione usando un disco del sistema operativo privato tramite il portale di Azure, usare il modello SAP pubblicato nel [repository azure-quickstart-templates di GitHub][azure-quickstart-templates-github]. È anche possibile creare una macchina virtuale manualmente usando PowerShell.
+Per creare una distribuzione usando un disco del sistema operativo privato tramite il portale di Azure, usare il modello SAP pubblicato nel [repository GitHub azure-quickstart-templates][azure-quickstart-templates-github]. È anche possibile creare una macchina virtuale manualmente usando PowerShell.
 
 * [**Modello per configurazione a due livelli (una sola macchina virtuale)** (sap-2-tier-user-disk)][sap-templates-2-tier-os-disk]
 
   Per creare un sistema a due livelli usando una sola macchina virtuale, usare questo modello.
-* [**Modello per configurazione a due livelli (una sola macchina virtuale) - Disco gestito** (sap-2-tier-user-disk-md)][sap-templates-2-tier-os-disk-md]
+* [**Modello per configurazione a due livelli (una sola macchina virtuale) - Managed Disks** (sap-2-tier-user-disk-md)][sap-templates-2-tier-os-disk-md]
 
   Per creare un sistema a due livelli usando una sola macchina virtuale e un disco gestito, usare questo modello.
 
@@ -719,9 +719,9 @@ Nel portale di Azure immettere i parametri seguenti per il modello:
    * **Tipo di archiviazione** (solo per il modello a due livelli): tipo di archiviazione da usare.
 
      Per i sistemi più grandi, è consigliabile usare Archiviazione Premium di Azure. Per altre informazioni sui tipi di archiviazione, vedere le risorse seguenti:
-      * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194] (Uso dell'archiviazione unità SSD di Azure Premium per l'istanza DBMS di SAP)
+      * [Utilizzo dell'archiviazione unità SSD Premium di Azure per l'istanza DBMS SAP][2367194]
       * [Struttura delle risorse di archiviazione di una VM per le distribuzioni RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
-      * [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure][storage-premium-storage-preview-portal]
+      * [Premium Storage: Archiviazione ad alte prestazioni per carichi di lavoro di macchina virtuale di Azure][storage-premium-storage-preview-portal]
       * [Introduzione ad Archiviazione di Microsoft Azure][storage-introduction]
    * **OS disk VHD URI** (URI VHD del disco del sistema operativo - solo per il modello di disco non gestito): URI del disco del sistema operativo privato, ad esempio https://&lt;nomeaccount>.blob.core.windows.net/vhds/osdisk.vhd.
    * **OS disk Managed Disk Id** (ID disco gestito su disco sistema operativo - solo per il modello di disco gestito): ID del disco gestito del disco del sistema operativo, ad esempio /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
@@ -735,25 +735,25 @@ Nel portale di Azure immettere i parametri seguenti per il modello:
 
 #### <a name="install-the-vm-agent"></a>Installare l'agente di macchine virtuali
 
-Per usare i modelli descritti nella sezione precedente, l'agente di macchine virtuali deve essere installato nel disco del sistema operativo o la distribuzione avrà esito negativo. Scaricare e installare l'agente di macchine virtuali nella VM come descritto in [Scaricare, installare e abilitare l'agente di macchine virtuali di Azure][deployment-guide-4.4].
+Per usare i modelli descritti nella sezione precedente, l'agente di macchine virtuali deve essere installato nel disco del sistema operativo o la distribuzione avrà esito negativo. Scaricare e installare l'agente di macchine Virtuali nella macchina virtuale, come descritto in [scaricare, installare e abilitare l'agente di macchine Virtuali di Azure][deployment-guide-4.4].
 
 Se non si usano i modelli descritti nella sezione precedente, si può anche installare l'agente di macchine virtuali in un secondo momento.
 
 #### <a name="join-a-domain-windows-only"></a>Aggiungere a un dominio (solo per Windows)
 
-Se la distribuzione di Azure è connessa a un'istanza di DNS o di Active Directory locale tramite una connessione VPN da sito a sito di Azure o ExpressRoute (questa connessione è detta *cross-premise* in [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide]), è previsto che la VM sia aggiunta a un dominio locale. Per altre informazioni sulle considerazioni relative a questa attività, vedere [Aggiungere una VM a un dominio locale (solo per Windows)][deployment-guide-4.3].
+Se la distribuzione di Azure è connessa a un'istanza di Active Directory o DNS locale tramite una connessione VPN di Azure site-to-site o ExpressRoute (questa operazione viene definita *cross-premise* in [pianificazione di macchine virtuali di Azure e l'implementazione per SAP NetWeaver][planning-guide]), it is expected that the VM is joining an on-premises domain. For more information about considerations for this task, see [Join a VM to an on-premises domain (Windows only)][deployment-guide-4.3].
 
 #### <a name="configure-proxy-settings"></a>Configurare le impostazioni proxy
 
-A seconda della configurazione della rete locale, potrebbe essere necessario configurare il proxy nella VM. Se la VM è connessa alla rete locale tramite VPN o ExpressRoute, la VM potrebbe non riuscire ad accedere a Internet e non riuscirà a scaricare le estensioni necessarie o a raccogliere i dati di monitoraggio. Per altre informazioni, vedere [Configurare il proxy][deployment-guide-configure-proxy].
+A seconda della configurazione della rete locale, potrebbe essere necessario configurare il proxy nella VM. Se la VM è connessa alla rete locale tramite VPN o ExpressRoute, la VM potrebbe non riuscire ad accedere a Internet e non riuscirà a scaricare le estensioni necessarie o a raccogliere i dati di monitoraggio. Per altre informazioni, vedere [configurare il proxy][deployment-guide-configure-proxy].
 
 #### <a name="configure-monitoring"></a>Configurare il monitoraggio
 
-Per assicurarsi che SAP supporti l'ambiente, configurare l'estensione di monitoraggio di Azure per SAP come descritto in [Configurare l'estensione di monitoraggio avanzato di Azure per SAP][deployment-guide-4.5]. Controllare i prerequisiti per il monitoraggio di SAP e le versioni minime obbligatorie del kernel SAP e dell'agente host SAP nelle risorse elencate in [Risorse SAP][deployment-guide-2.2].
+Per assicurarsi che SAP supporti l'ambiente, configurare Azure Monitoring Extension per SAP come descritto [configurare Azure Enhanced Monitoring Extension per SAP][deployment-guide-4.5]. Check the prerequisites for SAP monitoring, and required minimum versions of SAP Kernel and SAP Host Agent, in the resources listed in [SAP resources][deployment-guide-2.2].
 
 #### <a name="monitoring-check"></a>Controllo del monitoraggio
 
-Controllare se il monitoraggio funziona, come descritto in [Controlli e risoluzione dei problemi per la configurazione del monitoraggio end-to-end][deployment-guide-troubleshooting-chapter].
+Verificare se il monitoraggio funziona, come descritto in [controlli e risoluzione dei problemi per la configurazione di monitoraggio end-to-end][deployment-guide-troubleshooting-chapter].
 
 ## <a name="update-the-monitoring-configuration-for-sap"></a>Aggiornare la configurazione di monitoraggio per SAP
 
@@ -764,7 +764,7 @@ Aggiornare la configurazione di monitoraggio di SAP negli scenari seguenti:
 * Si modificano le dimensioni della macchina virtuale di Azure, ad esempio dalla dimensione A5 a qualsiasi altra dimensione di macchina virtuale.
 * Si aggiungono nuove interfacce di rete alla VM di Azure.
 
-Per aggiornare le impostazioni di monitoraggio, aggiornare l'infrastruttura di monitoraggio seguendo la procedura illustrata in [Configurare l'estensione di monitoraggio avanzato di Azure per SAP][deployment-guide-4.5].
+Per aggiornare le impostazioni di monitoraggio, aggiornare l'infrastruttura di monitoraggio seguendo la procedura descritta in [configurare Azure Enhanced Monitoring Extension per SAP][deployment-guide-4.5].
 
 ## <a name="detailed-tasks-for-sap-software-deployment"></a>Attività dettagliate per la distribuzione del software SAP
 
@@ -846,7 +846,7 @@ Se si distribuisce una VM da Azure Marketplace, questo passaggio non è obbligat
    1.  Aprire una finestra di Esplora risorse nella macchina virtuale e quindi selezionare la directory di destinazione per il file MSI dell'agente di macchine virtuali.
    1.  Trascinare il file MSI di installazione dell'agente di macchine virtuali di Azure dal server/computer locale alla directory di destinazione dell'agente di macchine virtuali nella VM.
    1.  Fare doppio clic sul file MSI nella macchina virtuale.
-1. Per le macchine virtuali aggiunte a domini locali, verificare che le eventuali impostazioni di proxy Internet si applichino anche all'account di sistema locale di Windows (S-1-5-18) nella macchina virtuale, come descritto in [Configurare il proxy][deployment-guide-configure-proxy]. L'agente di macchine virtuali viene eseguito in questo contesto e deve potersi connettere ad Azure.
+1. Per le macchine virtuali che fanno parte di domini locali, assicurarsi che eventuali impostazioni di proxy Internet si applichino anche all'account di sistema locale di Windows (S-1-5-18) nella macchina virtuale, come descritto in [configurare il proxy][deployment-guide-configure-proxy]. L'agente di macchine virtuali viene eseguito in questo contesto e deve potersi connettere ad Azure.
 
 Non è necessario l'intervento dell'utente per aggiornare l'agente di macchine virtuali di Azure. L'agente di macchine virtuali viene aggiornato automaticamente e non è necessario riavviare la VM.
 
@@ -866,7 +866,7 @@ Usare i comandi seguenti per installare l'agente di macchine virtuali per Linux:
   sudo yum install WALinuxAgent
   ```
 
-Se l'agente è già installato, per aggiornare l'Agente Linux di Azure, eseguire i passaggi descritti in [Aggiornare l'agente Linux di Azure in una macchina virtuale alla versione più recente da GitHub][virtual-machines-linux-update-agent].
+Se l'agente è già installato, per aggiornare l'agente Linux di Azure, effettuare i passaggi descritti in [aggiornare l'agente Linux di Azure in una macchina virtuale per la versione più recente da GitHub][virtual-machines-linux-update-agent].
 
 ### <a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Configurare il proxy
 
@@ -924,19 +924,19 @@ Le impostazioni proxy in \\etc\\waagent.conf si applicano anche alle estensioni 
 
   Non esistono repository per Oracle Linux in Azure. È necessario configurare repository personali per Oracle Linux o usare repository pubblici.
 
-Per altre informazioni sulle route definite dall'utente, vedere [Route definite dall'utente e inoltro IP][virtual-networks-udr-overview].
+Per altre informazioni sulle route definite dall'utente, vedere [route definite dall'utente e inoltro IP][virtual-networks-udr-overview].
 
 ### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configurare l'estensione di monitoraggio avanzato di Azure per SAP
 
-Dopo avere preparato la VM come descritto in [Scenari di distribuzione di VM per SAP in Azure][deployment-guide-3], l'agente di macchine virtuali di Azure è installato nella macchina virtuale. Il passaggio successivo consiste nel distribuire l'estensione di monitoraggio avanzato di Azure per SAP, disponibile nel repository di estensioni di Azure nei data center di Azure globali. Per altre informazioni, vedere [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide-9.1].
+Dopo avere preparato la macchina virtuale come descritto in [scenari di distribuzione di macchine virtuali per SAP in Azure][deployment-guide-3], the Azure VM Agent is installed on the virtual machine. The next step is to deploy the Azure Enhanced Monitoring Extension for SAP, which is available in the Azure Extension Repository in the global Azure datacenters. For more information, see [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide-9.1].
 
-Per installare e configurare l'estensione di monitoraggio avanzato di Azure per SAP, è possibile usare PowerShell o l'interfaccia della riga di comando di Azure. Per installare l'estensione in una VM Windows o Linux usando un computer Windows, vedere [Azure PowerShell][deployment-guide-4.5.1]. Per installare l'estensione in una VM Linux usando un desktop Linux, vedere [Interfaccia della riga di comando di Azure][deployment-guide-4.5.2].
+Per installare e configurare l'estensione di monitoraggio avanzato di Azure per SAP, è possibile usare PowerShell o l'interfaccia della riga di comando di Azure. Per installare l'estensione in una VM di Linux o Windows usando un computer Windows, vedere [Azure PowerShell][deployment-guide-4.5.1]. To install the extension on a Linux VM by using a Linux desktop, see [Azure CLI][deployment-guide-4.5.2].
 
 #### <a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Azure PowerShell per VM Linux e Windows
 
 Per installare l'estensione di monitoraggio avanzato di Azure per SAP usando PowerShell:
 
-1. Verificare di aver installato l'ultima versione dei cmdlet di Azure PowerShell. Per altre informazioni, vedere [Distribuzione di cmdlet di Azure PowerShell][deployment-guide-4.1].  
+1. Verificare di aver installato l'ultima versione dei cmdlet di Azure PowerShell. Per altre informazioni, vedere [cmdlet di distribuzione di Azure PowerShell][deployment-guide-4.1].  
 1. Eseguire il cmdlet di PowerShell seguente.
     Per un elenco degli ambienti disponibili, eseguire `commandlet Get-AzEnvironment`. Per usare il cloud globale di Azure, l'ambiente è **AzureCloud**. Per Azure in Cina, selezionare **AzureChinaCloud**.
 
@@ -962,14 +962,14 @@ L'output dello script include le informazioni seguenti:
 * Una riga dell'output contiene lo stato dell'aggiornamento effettivo della configurazione di monitoraggio.
 * Un'altra riga dell'output conferma che la configurazione è stata distribuita o aggiornata.
 * L'ultima riga dell'output è informativa. Visualizza le opzioni per il test della configurazione di monitoraggio.
-* Per verificare che tutti i passaggi del monitoraggio avanzato di Azure siano stati completati e che l'infrastruttura di Azure fornisca i dati necessari, procedere con il controllo dello stato di preparazione dell'estensione di monitoraggio avanzato di Azure per SAP, come descritto in [Controllo dello stato di preparazione del monitoraggio avanzato di Azure per SAP][deployment-guide-5.1].
+* Per verificare che tutti i passaggi del monitoraggio avanzato di Azure sono stati eseguiti correttamente e che l'infrastruttura di Azure fornisca i dati necessari, procedere con il controllo conformità per Azure Enhanced Monitoring Extension per SAP, come descritto in [Controllo di conformità di monitoraggio avanzato di Azure per SAP][deployment-guide-5.1].
 * Attendere da 15 a 30 minuti mentre Diagnostica di Azure raccoglie i dati pertinenti.
 
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Interfaccia della riga di comando di Azure per VM Linux
 
 Per installare l'estensione di monitoraggio avanzato di Azure per SAP usando l'interfaccia della riga di comando di Azure:
 
-   1. Installare l'interfaccia della riga di comando di Azure classica come descritto in [Installare l'interfaccia della riga di comando di Azure classica][azure-cli].
+   1. Installare CLI di Azure classico, come descritto in [installare CLI Azure classica][azure-cli].
    1. Accedere con l'account Azure:
 
       ```
@@ -990,7 +990,7 @@ Per installare l'estensione di monitoraggio avanzato di Azure per SAP usando l'i
 
 1. Eseguire l'installazione con l'interfaccia della riga di comando di Azure 2.0
 
-   1. Installare l'interfaccia della riga di comando di Azure 2.0 come descritto in [Installare l'interfaccia della riga di comando di Azure 2.0][azure-cli-2].
+   1. Installare Azure CLI 2.0, come descritto in [installare Azure CLI 2.0][azure-cli-2].
    1. Accedere con l'account Azure:
 
       ```
@@ -1027,7 +1027,7 @@ Per installare l'estensione di monitoraggio avanzato di Azure per SAP usando l'i
 
 Al termine della distribuzione della VM di Azure e della configurazione dell'infrastruttura di monitoraggio di Azure pertinente, verificare se tutti i componenti dell'estensione di monitoraggio avanzato di Azure funzionano come previsto.
 
-Eseguire il controllo dello stato di preparazione dell'estensione di monitoraggio avanzato di Azure per SAP come descritto in [Controllo dello stato di preparazione dell'estensione di monitoraggio avanzato di Azure per SAP][deployment-guide-5.1]. Se tutti i risultati dei controlli dello stato di preparazione sono positivi e tutti i contatori delle prestazioni pertinenti sono funzionanti, significa che il monitoraggio di Azure è stato configurato correttamente. È possibile passare all'installazione dell'agente host SAP come descritto nelle note SAP in [Risorse SAP][deployment-guide-2.2]. Se il controllo dello stato di preparazione indica che alcuni contatori non sono presenti, eseguire il controllo dell'integrità dell'infrastruttura di monitoraggio di Azure come descritto in [Controllo dell'integrità della configurazione dell'infrastruttura di monitoraggio di Azure][deployment-guide-5.2]. Per altre opzioni di risoluzione dei problemi, vedere [Risoluzione dei problemi di monitoraggio di Azure per SAP][deployment-guide-5.3].
+Eseguire il controllo conformità per Azure Enhanced Monitoring Extension per SAP come descritto nella [controllo di conformità di Azure Enhanced Monitoring Extension per SAP][deployment-guide-5.1]. If all readiness check results are positive and all relevant performance counters appear OK, Azure monitoring has been set up successfully. You can proceed with the installation of SAP Host Agent as described in the SAP Notes in [SAP resources][deployment-guide-2.2]. Se il controllo conformità indica che i contatori non sono presenti, eseguire il controllo di integrità per l'infrastruttura di monitoraggio di Azure, come descritto nella [controllo dell'integrità di configurazione dell'infrastruttura di monitoraggio Azure] [ Deployment-guide-5.2]. Per altre opzioni di risoluzione dei problemi, vedere [risoluzione dei problemi di Azure monitoring per SAP][deployment-guide-5.3].
 
 ### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Controllo dello stato di preparazione dell'estensione di monitoraggio avanzato di Azure per SAP
 
@@ -1050,7 +1050,7 @@ Questo controllo verifica che tutte le metriche delle prestazioni che vengono vi
    >
    >
 
-Se l'estensione di monitoraggio avanzato di Azure non è installata o il servizio AzureEnhancedMonitoring non è in esecuzione, l'estensione non è stata configurata correttamente. Per informazioni dettagliate su come distribuire l'estensione, vedere [Risoluzione dei problemi dell'infrastruttura di monitoraggio di Azure per SAP][deployment-guide-5.3].
+Se l'estensione di monitoraggio avanzato di Azure non è installata o il servizio AzureEnhancedMonitoring non è in esecuzione, l'estensione non è stata configurata correttamente. Per informazioni dettagliate su come distribuire l'estensione, vedere [risoluzione dei problemi di infrastruttura di Azure monitoring per SAP][deployment-guide-5.3].
 
 > [!NOTE]
 > Azperflib.exe è un componente che può essere utilizzato per scopi personalizzati. È un componente che fornisce all'agente host SAP i dati di monitoraggio di Azure correlati alla macchina virtuale.
@@ -1074,7 +1074,7 @@ Interpretare i valori dei risultati come segue:
 | **Health status** |È positivo solo se lo stato restituito è **OK**. |
 | **Diagnostica** |Informazioni dettagliate sullo stato di integrità. |
 
-Se il valore di **Health status** non è **OK**, seguire le istruzioni in [Controllo dell'integrità della configurazione dell'infrastruttura di monitoraggio di Azure][deployment-guide-5.2].
+Se il **lo stato di integrità** il valore non è **OK**, seguire le istruzioni [controllo dell'integrità di configurazione dell'infrastruttura di monitoraggio Azure][deployment-guide-5.2].
 
 #### <a name="run-the-readiness-check-on-a-linux-vm"></a>Eseguire il controllo dello stato di preparazione in una VM Linux
 
@@ -1126,13 +1126,13 @@ Se il controllo precedente non è riuscito, eseguire questi controlli aggiuntivi
 
 Se è già installato un server applicazioni SAP NetWeaver ABAP, aprire la transazione ST06 e controllare se il monitoraggio avanzato è abilitato.
 
-Se uno di questi controlli non riesce e per informazioni dettagliate su come ridistribuire l'estensione, vedere [Risoluzione dei problemi dell'infrastruttura di monitoraggio di Azure per SAP][deployment-guide-5.3].
+Se uno di questi controlli non riuscire e per informazioni dettagliate su come ridistribuire l'estensione, vedere [risoluzione dei problemi di infrastruttura di Azure monitoring per SAP][deployment-guide-5.3].
 
 ### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Controllo dell'integrità della configurazione dell'infrastruttura di monitoraggio di Azure
 
-Se alcuni dati di monitoraggio non vengono forniti correttamente come indicato nel test descritto in [Controllo dello stato di preparazione del monitoraggio avanzato di Azure per SAP][deployment-guide-5.1], eseguire il cmdlet `Test-AzVMAEMExtension` per controllare se l'infrastruttura di monitoraggio di Azure e l'estensione di monitoraggio per SAP sono configurate correttamente.
+Se alcuni di monitoraggio dati non vengono forniti correttamente come indicato nel test descritto nel [controllo di conformità di monitoraggio avanzato di Azure per SAP][deployment-guide-5.1], eseguire il `Test-AzVMAEMExtension` cmdlet per verificare se il monitoraggio di Azure infrastruttura e monitoring extension per SAP sono configurate correttamente.
 
-1. Verificare di aver installato l'ultima versione del cmdlet di Azure PowerShell come descritto in [Distribuzione dei cmdlet di Azure PowerShell][deployment-guide-4.1].
+1. Assicurarsi di avere installato la versione più recente dei cmdlet di PowerShell di Azure, come descritto in [cmdlet di distribuzione di Azure PowerShell][deployment-guide-4.1].
 1. Eseguire il cmdlet di PowerShell seguente. Per un elenco degli ambienti disponibili, eseguire il cmdlet `Get-AzEnvironment`. Per usare Azure globale, selezionare l'ambiente **AzureCloud**. Per Azure in Cina, selezionare **AzureChinaCloud**.
    ```powershell
    $env = Get-AzEnvironment -Name <name of the environment>
@@ -1149,10 +1149,10 @@ Se alcuni dati di monitoraggio non vengono forniti correttamente come indicato n
 
    ![Output di un test riuscito dell'infrastruttura di monitoraggio di Azure per SAP][deployment-guide-figure-1300]
 
-Verificare che il risultato di ogni controllo dell'integrità sia **OK**. Se alcuni controlli non indicano **OK**, eseguire il cmdlet di aggiornamento come descritto in [Configurare l'estensione di monitoraggio avanzato di Azure per SAP][deployment-guide-4.5]. Attendere 15 minuti e ripetere i controlli descritti in [Controllo dello stato di preparazione del monitoraggio avanzato di Azure per SAP][deployment-guide-5.1] e [Controllo dell'integrità della configurazione dell'infrastruttura di monitoraggio di Azure][deployment-guide-5.2]. Se i controlli segnalano ancora un problema con alcuni o tutti i contatori, vedere [Risoluzione dei problemi dell'infrastruttura di monitoraggio di Azure per SAP][deployment-guide-5.3].
+Verificare che il risultato di ogni controllo dell'integrità sia **OK**. Se alcuni controlli non indicano **OK**, eseguire il cmdlet di aggiornamento come descritto in [Configura Azure Enhanced Monitoring Extension per SAP][deployment-guide-4.5] . Wait 15 minutes, and repeat the checks described in [Readiness check for Azure Enhanced Monitoring for SAP][deployment-guide-5.1] e [controllo dell'integrità di Azure Configurazione dell'infrastruttura di monitoraggio][deployment-guide-5.2]. Se i controlli segnalano ancora un problema con alcuni o tutti i contatori, vedere [risoluzione dei problemi di infrastruttura di Azure monitoring per SAP][deployment-guide-5.3].
 
 > [!Note]
-> Potrebbero essere visualizzati alcuni avvisi nei casi in cui si usi Managed Disks Standard di Azure. Gli avvisi saranno visualizzati in sostituzione degli "OK" restituiti dai test. Questo è normale e previsto per quel tipo di disco. Vedere anche [Risoluzione dei problemi dell'infrastruttura di monitoraggio di Azure per SAP][deployment-guide-5.3]
+> Potrebbero essere visualizzati alcuni avvisi nei casi in cui si usi Managed Disks Standard di Azure. Gli avvisi saranno visualizzati in sostituzione degli "OK" restituiti dai test. Questo è normale e previsto per quel tipo di disco. Vedere anche vedere [risoluzione dei problemi di infrastruttura di Azure monitoring per SAP][deployment-guide-5.3]
 > 
 
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Risoluzione dei problemi dell'infrastruttura di monitoraggio di Azure per SAP
@@ -1184,7 +1184,7 @@ L'output di azperflib.exe genera un errore:
 
 ###### <a name="solution"></a>Soluzione
 
-Se il servizio non esiste, l'estensione di monitoraggio avanzato di Azure per SAP non è stata installata correttamente. Ridistribuire l'estensione usando la procedura descritta per lo scenario di distribuzione specifico in [Scenari di distribuzione di VM per SAP in Azure][deployment-guide-3].
+Se il servizio non esiste, l'estensione di monitoraggio avanzato di Azure per SAP non è stata installata correttamente. Ridistribuire l'estensione usando la procedura descritta per lo scenario di distribuzione in [scenari di distribuzione di macchine virtuali per SAP in Azure][deployment-guide-3].
 
 Dopo avere distribuito l'estensione, dopo un'ora controllare di nuovo se i contatori delle prestazioni di Azure sono presenti nella VM di Azure.
 
@@ -1196,7 +1196,7 @@ Il servizio di Windows AzureEnhancedMonitoring esiste ed è abilitato, ma non si
 
 ###### <a name="solution"></a>Soluzione
 
-La configurazione non è corretta. Riavviare l'estensione di monitoraggio per la VM, come descritto in [Configurare l'estensione di monitoraggio avanzato di Azure per SAP][deployment-guide-4.5].
+La configurazione non è corretta. Riavviare l'estensione di monitoraggio per la macchina virtuale, come descritto nei [configurare Azure Enhanced Monitoring Extension per SAP][deployment-guide-4.5].
 
 #### <a name="windowslogowindows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Alcuni contatori delle prestazioni di Azure non sono presenti
 
@@ -1243,4 +1243,4 @@ Le metriche delle prestazioni in Azure vengono raccolte da un daemon, che ottien
 
 Per un elenco completo e aggiornato dei problemi noti, vedere la nota SAP [1999351], che contiene informazioni aggiuntive sulla risoluzione dei problemi per il monitoraggio avanzato di Azure per SAP.
 
-Se la soluzione indicata nella nota SAP [1999351] non risolve il problema, eseguire di nuovo lo script di configurazione `Set-AzVMAEMExtension` come descritto in [Configurare l'estensione di monitoraggio avanzato di Azure per SAP][deployment-guide-4.5]. Potrebbe essere necessario attendere un'ora perché i contatori relativi all'analisi dell'archiviazione o alla diagnostica non possono essere creati subito dopo essere stati abilitati. Se il problema persiste, inviare un messaggio all'assistenza clienti SAP in merito al componente BC-OP-NT-AZR per Windows o al componente BC-OP-LNX-AZR per una macchina virtuale Linux.
+Se la risoluzione dei problemi con la nota SAP [1999351] non risolve il problema, eseguire di nuovo il `Set-AzVMAEMExtension` script di configurazione come descritto in [configurare Azure Enhanced Monitoring Extension per SAP][deployment-guide-4.5]. Potrebbe essere necessario attendere un'ora perché i contatori relativi all'analisi dell'archiviazione o alla diagnostica non possono essere creati subito dopo essere stati abilitati. Se il problema persiste, inviare un messaggio all'assistenza clienti SAP in merito al componente BC-OP-NT-AZR per Windows o al componente BC-OP-LNX-AZR per una macchina virtuale Linux.

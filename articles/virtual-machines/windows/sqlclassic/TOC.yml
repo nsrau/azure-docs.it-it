@@ -50,14 +50,6 @@
           href: virtual-machines-windows-classic-sql-automated-backup.md
         - name: Usare Archiviazione di Azure per il backup e il ripristino
           href: ../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-    - name: Business Intelligence
-      items:
-        - name: SQL Server Business Intelligence in macchine virtuali di Azure
-          href: virtual-machines-windows-classic-ps-sql-bi.md
-        - name: Usare ReportViewer in un sito Web ospitato in Azure
-          href: virtual-machines-windows-classic-sql-server-reportviewer.md
-        - name: Usare Azure PowerShell per creare una macchina virtuale di Azure con un server di report
-          href: virtual-machines-windows-classic-ps-sql-report.md
     - name: Procedure consigliate per le prestazioni
       href: ../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
     - name: Modelli di applicazione

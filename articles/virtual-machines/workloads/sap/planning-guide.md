@@ -4,7 +4,7 @@ description: Guida alla pianificazione e all'implementazione di Macchine virtual
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c6a119fe777c443c777781aca4ae46e0ca171e52
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 11a54dee653bcfa6c94a861e483183ac39f465bf
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442122"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710188"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 
@@ -370,7 +370,7 @@ Il punto di ingresso per il carico di lavoro SAP nella documentazione di Azure �
 
 Le note seguenti su SAP sono correlate all'argomento relativo a SAP in Azure:
 
-| Numero della nota | Title |
+| Numero della nota | Titolo |
 | --- | --- |
 | [1928533] |Applicazioni SAP in Azure: Prodotti e dimensioni supportate |
 | [2015553] |SAP in Microsoft Azure: prerequisiti per il supporto |
@@ -1332,7 +1332,7 @@ Potrebbe essere necessario configurare il firewall nelle macchine virtuali per c
 > ![Windows][Logo_Windows] Windows
 >
 > Per impostazione predefinita, Windows Firewall all'interno di una macchina virtuale distribuita di Azure è attivato. A questo punto è necessario consentire l'apertura della porta SAP, in caso contrario l'interfaccia utente grafica SAP non potrà connettersi.
-> A tale scopo, effettuare l'operazione seguente:
+> A tale scopo, effettuare le seguenti operazioni:
 >
 > * Aprire **Impostazioni avanzate** in Pannello di controllo\Sistema e Sicurezza\Windows Firewall.
 > * Fare clic con il pulsante destro del mouse su Regole connessioni in entrata e scegliere **Nuova regola**.
@@ -1658,7 +1658,7 @@ La configurazione delle stampanti di rete locali basate su TCP/IP in una VM di A
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> A tale scopo, effettuare l'operazione seguente:
+> A tale scopo, effettuare le seguenti operazioni:
 >
 > * Alcune stampanti di rete sono dotate di una configurazione guidata che semplifica la configurazione della stampante in una VM di Azure. Se non è stato distribuito alcun software di procedura guidata con la stampante, la modalità manuale di configurazione della stampante prevede la creazione di una nuova porta stampante TCP/IP.
 > * Aprire Pannello di controllo -> Dispositivi e stampanti -> Aggiungi stampante
