@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b615185472ede25fd6ceef9cc3e7325375e16ac7
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233883"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846676"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Informazioni di riferimento sui domini predefiniti per l'app LUIS
 Queste informazioni di riferimento descrivono i [domini predefiniti](luis-how-to-use-prebuilt-domains.md) che sono raccolte predefinite delle finalità ed delle entità offerte da LUIS.
@@ -54,7 +54,7 @@ The table below summarizes the currently supported domains. Support for English 
 
 |Tipo di entità|description|
 |--|--|
-|Calendar|Calendario è alcuna operazione sulle riunioni personale e gli appuntamenti _non_ eventi pubblici (come mondo FIFA pianificazioni, calendari Seattle o calendari generici (ad esempio quale giorno è oggi, ciò che rientrano avviata, quando è Labor Day).|
+|Calendar|Calendario è alcuna operazione sulle riunioni personale e gli appuntamenti _non_ eventi pubblici (ad esempio mondo FIFA pianificazioni, calendari Seattle) calendari generici o (ad esempio quale giorno è oggi, ciò che rientrano avviata, quando è Labor Day).|
 |Comunicazione|Le richieste per effettuare chiamate, inviare messaggi o messaggi immediati, trovare e aggiungere contatti e varie altre richieste alle comunicazioni (a livello generale in uscita). Nome del contatto solo le query non appartengono al dominio di comunicazione.|
 |Email|Messaggio di posta elettronica è un sottodominio del dominio di comunicazione. Contiene principalmente le richieste per inviare e ricevere messaggi tramite messaggi di posta elettronica.|
 |HomeAutomation|Il dominio HomeAutomation fornisce finalità ed entità correlate al controllo del smart device home. Principalmente supporta il comando di controllo correlato alla luce puntiforme e condizionatore d'aria, ma presenta alcune funzionalità di generalizzazione per altre Appliance electric.|

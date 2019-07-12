@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
-ms.author: gracez
-ms.openlocfilehash: 33907437ab330278bdf7b023f6a93bd96e78cbad
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.author: nitinme
+ms.openlocfilehash: 205ca0baa195a3859fd7d5cc04e3057411ecbe1c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561333"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845898"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Eseguire la migrazione da Riconoscimento vocale Bing al Servizio di riconoscimento vocale
 
@@ -51,7 +51,7 @@ Riconoscimento finalità voce | Richiede una chiamata separata all'API LUIS | In
 Riconoscimento delle finalità semplice | :heavy_minus_sign: | :heavy_check_mark:
 Trascrizione in batch di file audio lunghi | :heavy_minus_sign: | :heavy_check_mark:
 Modalità di riconoscimento | Manuale tramite l'URI dell'endpoint | Automatico | La modalità di riconoscimento non è disponibile nel servizio Voce.
-Località dell'endpoint | Globale | Regionale | Gli endpoint a livello di area migliorano la latenza.
+Località dell'endpoint | Global | Regionale | Gli endpoint a livello di area migliorano la latenza.
 API REST | :heavy_check_mark: | :heavy_check_mark: | Le API REST di servizi di riconoscimento vocale sono compatibili con il riconoscimento vocale Bing (diversi endpoint). Le API REST supportano la sintesi vocale e funzionalità limitate di riconoscimento vocale.
 Protocolli WebSocket | :heavy_check_mark: | :heavy_check_mark: | L'API WebSocket servizi di riconoscimento vocale è compatibile con il riconoscimento vocale Bing (diversi endpoint). Se possibile, eseguire la migrazione a Speech SDK per semplificare il codice.
 Chiamate API da servizio a servizio | :heavy_check_mark: | :heavy_minus_sign: | Fornito in Riconoscimento vocale Bing tramite la libreria di servizio di C#.

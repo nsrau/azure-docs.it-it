@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: e990ebe89f4446a0226aa0e0f73ffd900e5b021a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.author: nolachar
+ms.openlocfilehash: ed18d30a0c3f5d51cb3a07b8948863cdda16c1ae
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592948"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845956"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>Quando usare azioni di SET di entità ed entità di ENUM
 
@@ -65,7 +65,7 @@ In altre parole, usare questi valori per eventuali richieste è terminata di chi
 > Attualmente sono la limitazione di valori fino a 5 per ogni entità enum. Ogni valore viene utilizzato uno degli slot nel limite di 64 corrente. Vedere [cl-valori-e-limiti](../cl-values-and-boundaries.md)
 
 Esempio: BOT: L'ordine è corretta?
-Utente: Yes
+Utente: Sì
 
 Quando i valori possibili dell'entità sono aperte e non corretto, è necessario usare, ad esempio una funzionalità alternativa [previsto entità](05-expected-entity.md).
 
