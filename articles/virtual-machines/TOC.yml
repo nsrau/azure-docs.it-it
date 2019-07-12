@@ -13,7 +13,7 @@
     - name: SAP
       href: workloads/sap/get-started.md
     - name: HPC (High Performance Computing)
-      href: workloads/hpc/configure.md
+      href: workloads/hpc/overview.md
     - name: Re-hosting del mainframe
       href: workloads/mainframe-rehosting/overview.md
 - name: Distribuzioni classiche

@@ -4,19 +4,150 @@ description: Elenca i tipi di risorse di Azure che possono essere spostati in un
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 6/6/2019
+ms.date: 7/9/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9ab8fbd8fa0453ca6c89f3e7ad91bea95b0b9096
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 093c20407cb6210125106189f36566f539de0dcc
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331993"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721109"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
-Questo articolo indica se un tipo di risorsa di Azure supporta l'operazione di spostamento. Anche se un tipo di risorsa supporta l'operazione di spostamento, potrebbero esservi condizioni che impediscano alla risorsa di essere spostata. Per informazioni dettagliate sulle condizioni che influiscono sulle operazioni di spostamento, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).
+Questo articolo indica se un tipo di risorsa di Azure supporta l'operazione di spostamento. Fornisce inoltre informazioni sulle condizioni speciali da considerare durante lo spostamento di una risorsa.
 
-Per ottenere gli stessi dati come file con valori delimitati da virgole, scaricare [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).
+Passa a uno spazio dei nomi del provider di risorse:
+> [!div class="op_single_selector"]
+> - [Microsoft.AAD](#microsoftaad)
+> - [microsoft.aadiam](#microsoftaadiam)
+> - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
+> - [Microsoft.AnalysisServices](#microsoftanalysisservices)
+> - [Microsoft.ApiManagement](#microsoftapimanagement)
+> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft.AppService](#microsoftappservice)
+> - [Microsoft.Authorization](#microsoftauthorization)
+> - [Microsoft.Automation](#microsoftautomation)
+> - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
+> - [Microsoft.AzureStack](#microsoftazurestack)
+> - [Microsoft.Backup](#microsoftbackup)
+> - [Microsoft.Batch](#microsoftbatch)
+> - [Microsoft.BatchAI](#microsoftbatchai)
+> - [Microsoft.BingMaps](#microsoftbingmaps)
+> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
+> - [Microsoft.Blockchain](#microsoftblockchain)
+> - [Microsoft.Blueprint](#microsoftblueprint)
+> - [Microsoft.BotService](#microsoftbotservice)
+> - [Microsoft.Cache](#microsoftcache)
+> - [Microsoft.Cdn](#microsoftcdn)
+> - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
+> - [Microsoft.ClassicCompute](#microsoftclassiccompute)
+> - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
+> - [Microsoft.ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
+> - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft.Container](#microsoftcontainer)
+> - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
+> - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
+> - [Microsoft.ContainerService](#microsoftcontainerservice)
+> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
+> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
+> - [Microsoft.CostManagement](#microsoftcostmanagement)
+> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
+> - [Microsoft.DataBox](#microsoftdatabox)
+> - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
+> - [Microsoft.Databricks](#microsoftdatabricks)
+> - [Microsoft.DataCatalog](#microsoftdatacatalog)
+> - [Microsoft.DataConnect](#microsoftdataconnect)
+> - [Microsoft.DataExchange](#microsoftdataexchange)
+> - [Microsoft.DataFactory](#microsoftdatafactory)
+> - [Microsoft.DataLake](#microsoftdatalake)
+> - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
+> - [Microsoft.DataLakeStore](#microsoftdatalakestore)
+> - [Microsoft.DataMigration](#microsoftdatamigration)
+> - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
+> - [Microsoft.DBforMySQL](#microsoftdbformysql)
+> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
+> - [Microsoft.Devices](#microsoftdevices)
+> - [Microsoft.DevSpaces](#microsoftdevspaces)
+> - [Microsoft.DevTestLab](#microsoftdevtestlab)
+> - [microsoft.dns](#microsoftdns)
+> - [Microsoft.DocumentDB](#microsoftdocumentdb)
+> - [Microsoft.DomainRegistration](#microsoftdomainregistration)
+> - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
+> - [Microsoft.EventGrid](#microsofteventgrid)
+> - [Microsoft.EventHub](#microsofteventhub)
+> - [Microsoft.Genomics](#microsoftgenomics)
+> - [Microsoft.HanaOnAzure](#microsofthanaonazure)
+> - [Microsoft.HDInsight](#microsofthdinsight)
+> - [Microsoft.HealthcareApis](#microsofthealthcareapis)
+> - [Microsoft.HybridCompute](#microsofthybridcompute)
+> - [Microsoft.HybridData](#microsofthybriddata)
+> - [Microsoft.ImportExport](#microsoftimportexport)
+> - [microsoft.insights](#microsoftinsights)
+> - [Microsoft.IoTCentral](#microsoftiotcentral)
+> - [Microsoft.IoTSpaces](#microsoftiotspaces)
+> - [Microsoft.KeyVault](#microsoftkeyvault)
+> - [Microsoft.Kusto](#microsoftkusto)
+> - [Microsoft.LabServices](#microsoftlabservices)
+> - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
+> - [Microsoft.LocationServices](#microsoftlocationservices)
+> - [Microsoft.Logic](#microsoftlogic)
+> - [Microsoft.MachineLearning](#microsoftmachinelearning)
+> - [Microsoft.MachineLearningCompute](#microsoftmachinelearningcompute)
+> - [Microsoft.MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
+> - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
+> - [Microsoft.MachineLearningOperationalization](#microsoftmachinelearningoperationalization)
+> - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
+> - [Microsoft.Maps](#microsoftmaps)
+> - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
+> - [Microsoft.Media](#microsoftmedia)
+> - [Microsoft.Migrate](#microsoftmigrate)
+> - [Microsoft.NetApp](#microsoftnetapp)
+> - [Microsoft.Network](#microsoftnetwork)
+> - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
+> - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
+> - [Microsoft.Peering](#microsoftpeering)
+> - [Microsoft.Portal](#microsoftportal)
+> - [Microsoft.PortalSdk](#microsoftportalsdk)
+> - [Microsoft.PowerBI](#microsoftpowerbi)
+> - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft.ProjectOxford](#microsoftprojectoxford)
+> - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
+> - [Microsoft.Relay](#microsoftrelay)
+> - [Microsoft.SaaS](#microsoftsaas)
+> - [Microsoft.Scheduler](#microsoftscheduler)
+> - [Microsoft.Search](#microsoftsearch)
+> - [Microsoft.Security](#microsoftsecurity)
+> - [Microsoft.ServerManagement](#microsoftservermanagement)
+> - [Microsoft.ServiceBus](#microsoftservicebus)
+> - [Microsoft.ServiceFabric](#microsoftservicefabric)
+> - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
+> - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
+> - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft.Sql](#microsoftsql)
+> - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
+> - [Microsoft.SqlVM](#microsoftsqlvm)
+> - [Microsoft.Storage](#microsoftstorage)
+> - [Microsoft.StorageCache](#microsoftstoragecache)
+> - [Microsoft.StorageSync](#microsoftstoragesync)
+> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
+> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
+> - [Microsoft.StorSimple](#microsoftstorsimple)
+> - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
+> - [Microsoft.StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
+> - [Microsoft.TerraformOSS](#microsoftterraformoss)
+> - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
+> - [Microsoft.Token](#microsofttoken)
+> - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
+> - [microsoft.visualstudio](#microsoftvisualstudio)
+> - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft.Web](#microsoftweb)
+> - [Microsoft.WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft.WindowsVirtualDesktop](#microsoftwindowsvirtualdesktop)
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -31,22 +162,22 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| actionrules | Yes | Yes |
+| actionrules | Sì | Yes |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| servers | Yes | Yes |
+| servers | Sì | Sì |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| service | Yes | Yes |
+| servizio | Yes | Sì |
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| configurationstores | Yes | Yes |
+| configurationstores | Sì | Sì |
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -54,6 +185,9 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | apiapps | No | No |
 | appidentities | No | No |
 | gateways | No | No |
+
+> [!IMPORTANT]
+> Visualizzare [servizio App di passare informazioni aggiuntive](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -63,19 +197,22 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| automationaccounts | Yes | Yes |
-| automationaccounts/configurations | Yes | Yes |
-| automationaccounts/runbooks | Yes | Yes |
+| automationaccounts | Sì | Sì |
+| automationaccounts/configurations | Sì | Sì |
+| automationaccounts/runbooks | Sì | Sì |
+
+> [!IMPORTANT]
+> I runbook devono esistere nello stesso gruppo di risorse dell'Account di automazione.
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| b2cdirectories | Yes | Yes |
+| b2cdirectories | Sì | Sì |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| registrations | Yes | Yes |
+| registrations | Yes | Sì |
 
 ## <a name="microsoftbackup"></a>Microsoft.Backup
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -85,7 +222,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| batchaccounts | Yes | Yes |
+| batchaccounts | Sì | Sì |
 
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -103,12 +240,12 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| biztalk | Yes | Yes |
+| biztalk | Sì | Sì |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| blockchainmembers | Yes | Yes |
+| blockchainmembers | Sì | Yes |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -118,29 +255,38 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| botservices | Yes | Yes |
+| botservices | Sì | Sì |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| redis | Yes | Yes |
+| redis | Yes | Sì |
+
+> [!IMPORTANT]
+> Se la Cache di Azure per l'istanza di Redis viene configurata con una rete virtuale, l'istanza può essere spostato in un'altra sottoscrizione. Visualizzare [reti virtuali spostare limitazioni](./move-limitations/virtual-network-move-limitations.md).
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| Profili | Yes | Yes |
-| profiles/endpoints | Yes | Yes |
+| profiles | Sì | Sì |
+| profiles/endpoints | Sì | Sì |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| certificateorders | Yes | Yes |
+| certificateorders | Sì | Sì |
+
+> [!IMPORTANT]
+> Visualizzare [servizio App di passare informazioni aggiuntive](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | domainnames | Yes | No |
 | virtualmachines | Yes | No |
+
+> [!IMPORTANT]
+> Visualizzare [di distribuzione classica spostare indicazioni](./move-limitations/classic-model-move-limitations.md). Risorse di distribuzione classico possono essere spostate tra le sottoscrizioni con un'operazione specifica per tale scenario.
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -149,35 +295,44 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | reservedips | No | No |
 | virtualnetworks | No | No |
 
+> [!IMPORTANT]
+> Visualizzare [di distribuzione classica spostare indicazioni](./move-limitations/classic-model-move-limitations.md). Risorse di distribuzione classico possono essere spostate tra le sottoscrizioni con un'operazione specifica per tale scenario.
+
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| storageaccounts | Yes | No |
+| storageaccounts | Sì | No |
+
+> [!IMPORTANT]
+> Visualizzare [di distribuzione classica spostare indicazioni](./move-limitations/classic-model-move-limitations.md). Risorse di distribuzione classico possono essere spostate tra le sottoscrizioni con un'operazione specifica per tale scenario.
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| availabilitysets | Yes | Yes |
-| disks | Yes | Yes |
+| availabilitysets | Sì | Sì |
+| disks | Sì | Sì |
 | galleries | No | No |
 | galleries/images | No | No |
 | galleries/images/versions | No | No |
 | hostgroups | No | No |
 | hostgroups/hosts | No | No |
-| images | Yes | Yes |
+| images | Sì | Sì |
 | proximityplacementgroups | No | No |
 | restorepointcollections | No | No |
 | sharedvmimages | No | No |
 | sharedvmimages/versions | No | No |
-| snapshots | Yes | Yes |
-| virtualmachines | Yes | Yes |
-| virtualmachines/extensions | Yes | Yes |
-| virtualmachinescalesets | Yes | Yes |
+| snapshots | Sì | Sì |
+| virtualmachines | Sì | Sì |
+| virtualmachines/extensions | Yes | Sì |
+| virtualmachinescalesets | Sì | Yes |
+
+> [!IMPORTANT]
+> Visualizzare [materiale sussidiario di spostare le macchine virtuali](./move-limitations/virtual-machines-move-limitations.md).
 
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -192,11 +347,11 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| registries | Yes | Yes |
-| registries/buildtasks | Yes | Yes |
-| registries/replications | Yes | Yes |
-| registries/tasks | Yes | Yes |
-| registries/webhooks | Yes | Yes |
+| registries | Yes | Sì |
+| registries/buildtasks | Sì | Sì |
+| registries/replications | Sì | Sì |
+| registries/tasks | Sì | Yes |
+| registries/webhooks | Sì | Yes |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -208,7 +363,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| scala Web | Yes | Yes |
+| scala Web | Sì | Sì |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -218,12 +373,12 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| dell'account di integrazione | Yes | Yes |
+| dell'account di integrazione | Yes | Sì |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| hubs | Yes | Yes |
+| hubs | Sì | Sì |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -243,7 +398,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| catalogs | Yes | Yes |
+| catalogs | Sì | Yes |
 | datacatalogs | No | No |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
@@ -260,7 +415,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| datafactories | Yes | Yes |
+| datafactories | Yes | Sì |
 | factories | Yes | Yes |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
@@ -271,12 +426,12 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -288,37 +443,37 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| servers | Yes | Yes |
+| servers | Sì | Sì |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| servers | Yes | Yes |
+| servers | Sì | Sì |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | servergroups | No | No |
-| servers | Yes | Yes |
-| serversv2 | Yes | Yes |
+| servers | Sì | Sì |
+| serversv2 | Yes | Sì |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| artifactsources | Yes | Yes |
-| rollouts | Yes | Yes |
-| servicetopologies | Yes | Yes |
-| servicetopologies/services | Yes | Yes |
-| servicetopologies/services/serviceunits | Yes | Yes |
-| steps | Yes | Yes |
+| artifactsources | Yes | Sì |
+| rollouts | Sì | Sì |
+| servicetopologies | Yes | Sì |
+| servicetopologies/services | Sì | Sì |
+| servicetopologies/services/serviceunits | Sì | Sì |
+| steps | Sì | Yes |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | elasticpools | No | No |
 | elasticpools/iothubtenants | No | No |
-| iothubs | Yes | Yes |
-| provisioningservices | Yes | Yes |
+| iothubs | Sì | Sì |
+| provisioningservices | Sì | Sì |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -329,11 +484,11 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | labcenters | No | No |
-| labs | Yes | No |
-| / ambienti lab | Yes | Yes |
-| labs/servicerunners | Yes | Yes |
+| labs | Sì | No |
+| / ambienti lab | Sì | Sì |
+| labs/servicerunners | Yes | Sì |
 | labs/virtualmachines | Yes | No |
-| schedules | Yes | Yes |
+| schedules | Sì | Yes |
 
 ## <a name="microsoftdns"></a>microsoft.dns
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -351,28 +506,28 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| databaseaccounts | Yes | Yes |
+| databaseaccounts | Sì | Yes |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| domains | Yes | Yes |
+| domains | Sì | Sì |
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| services | Yes | Yes |
+| services | Yes | Sì |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| domains | Yes | Yes |
-| topics | Yes | Yes |
+| domains | Sì | Sì |
+| topics | Yes | Sì |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| clusters | Yes | Yes |
+| clusters | Sì | Sì |
 | spazi dei nomi | Yes | Yes |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
@@ -390,10 +545,15 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | ------------- | ----------- | ---------- |
 | clusters | Yes | Yes |
 
+> [!IMPORTANT]
+> È possibile spostare i cluster HDInsight in una nuova sottoscrizione o in un nuovo gruppo di risorse. Non è tuttavia possibile spostare tra sottoscrizioni le risorse di rete collegate al cluster HDInsight, ad esempio la rete virtuale, l'interfaccia di rete o il servizio di bilanciamento del carico. Non è possibile spostare in un nuovo gruppo di risorse un'interfaccia di rete collegata a una macchina virtuale per il cluster.
+>
+> Quando si sposta un cluster HDInsight in una nuova sottoscrizione, spostare prima altre risorse, ad esempio l'account di archiviazione. Spostare quindi il cluster HDInsight.
+
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| services | Yes | Yes |
+| services | Sì | Sì |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -403,61 +563,67 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| datamanagers | Yes | Yes |
+| datamanagers | Sì | Yes |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| jobs | Yes | Yes |
+| jobs | Sì | Sì |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | account | No | No |
-| actiongroups | Yes | Yes |
+| actiongroups | Yes | Sì |
 | activitylogalerts | No | No |
-| alertrules | Yes | Yes |
-| autoscalesettings | Yes | Yes |
-| components | Yes | Yes |
+| alertrules | Sì | Sì |
+| autoscalesettings | Sì | Sì |
+| components | Yes | Sì |
 | guestdiagnosticsettings | No | No |
 | metricalerts | No | No |
 | notificationgroups | No | No |
 | notificationrules | No | No |
-| scheduledqueryrules | Yes | Yes |
-| webtests | Yes | Yes |
-| workbooks | Yes | Yes |
+| scheduledqueryrules | Sì | Sì |
+| webtests | Sì | Sì |
+| workbooks | Yes | Sì |
+
+> [!IMPORTANT]
+> Assicurarsi che lo spostamento alla nuova sottoscrizione non superano [quote di sottoscrizione](../azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| iotapps | Yes | Yes |
+| iotapps | Yes | Sì |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| checknameavailability | Yes | Yes |
+| checknameavailability | Sì | Sì |
 | graph | Yes | Yes |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | hsmpools | No | No |
-| insiemi di credenziali | Yes | Yes |
+| insiemi di credenziali | Yes | Sì |
+
+> [!IMPORTANT]
+> Insiemi di credenziali chiave utilizzata per la crittografia del disco non è possibile spostare un gruppo di risorse nella stessa sottoscrizione o tra sottoscrizioni.
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| clusters | Yes | Yes |
+| clusters | Sì | Yes |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| labaccounts | Yes | Yes |
+| labaccounts | No | No |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| account | Yes | Yes |
+| account | Sì | Yes |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -471,19 +637,19 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | integrationaccounts | Yes | Yes |
 | integrationserviceenvironments | No | No |
 | isolatedenvironments | No | No |
-| flussi di lavoro | Yes | Yes |
+| flussi di lavoro | Sì | Yes |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| commitmentplans | Yes | Yes |
+| commitmentplans | Sì | Yes |
 | webservices | Yes | No |
-| aree di lavoro | Yes | Yes |
+| aree di lavoro | Sì | Yes |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| operationalizationclusters | Yes | Yes |
+| operationalizationclusters | Yes | Sì |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -518,7 +684,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -528,9 +694,9 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| mediaservices | Yes | Yes |
-| mediaservices/liveevents | Yes | Yes |
-| mediaservices/streamingendpoints | Yes | Yes |
+| mediaservices | Sì | Sì |
+| mediaservices/liveevents | Yes | Sì |
+| mediaservices/streamingendpoints | Sì | Yes |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -553,68 +719,74 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | ------------- | ----------- | ---------- |
 | applicationgateways | No | No |
 | applicationgatewaywebapplicationfirewallpolicies | No | No |
-| applicationsecuritygroups | Yes | Yes |
-| azurefirewalls | Yes | Yes |
+| applicationsecuritygroups | Yes | Sì |
+| azurefirewalls | Sì | Yes |
 | bastionhosts | No | No |
-| connections | Yes | Yes |
-| ddoscustompolicies | Yes | Yes |
+| connections | Sì | Sì |
+| ddoscustompolicies | Sì | Yes |
 | ddosprotectionplans | No | No |
-| dnszones | Yes | Yes |
+| dnszones | Yes | Sì |
 | expressroutecircuits | No | No |
 | expressroutecrossconnections | No | No |
 | expressroutegateways | No | No |
 | expressrouteports | No | No |
 | frontdoors | No | No |
 | frontdoorwebapplicationfirewallpolicies | No | No |
-| loadbalancers | Yes | Yes |
-| localnetworkgateways | Yes | Yes |
-| natgateways | Yes | Yes |
-| networkintentpolicies | Yes | Yes |
-| networkinterfaces | Yes | Yes |
+| loadbalancers | Sì - SKU Basic<br>No - SKU Standard | Sì - SKU Basic<br>No - SKU Standard |
+| localnetworkgateways | Sì | Sì |
+| natgateways | Sì | Sì |
+| networkintentpolicies | Sì | Yes |
+| networkinterfaces | Sì | Sì |
 | networkprofiles | No | No |
-| networksecuritygroups | Yes | Yes |
-| networkwatchers | Yes | Yes |
-| networkwatchers/connectionmonitors | Yes | Yes |
-| networkwatchers/lenses | Yes | Yes |
-| networkwatchers/pingmeshes | Yes | Yes |
+| networksecuritygroups | Sì | Sì |
+| networkwatchers | Sì | Yes |
+| networkwatchers/connectionmonitors | Sì | Yes |
+| networkwatchers/lenses | Yes | Sì |
+| networkwatchers/pingmeshes | Sì | Sì |
 | p2svpngateways | No | No |
-| privatednszones | Yes | Yes |
-| privatednszones/virtualnetworklinks | Yes | Yes |
+| privatednszones | Sì | Yes |
+| privatednszones/virtualnetworklinks | Sì | Sì |
 | privateendpoints | No | No |
 | privatelinkservices | No | No |
-| publicipaddresses | Yes | Yes |
-| publicipprefixes | Yes | Yes |
+| publicipaddresses | Sì - SKU Basic<br>No - SKU Standard | Sì - SKU Basic<br>No - SKU Standard |
+| publicipprefixes | Sì | Sì |
 | routefilters | No | No |
-| routetables | Yes | Yes |
-| securegateways | Yes | Yes |
-| serviceendpointpolicies | Yes | Yes |
-| trafficmanagerprofiles | Yes | Yes |
+| routetables | Yes | Sì |
+| securegateways | Sì | Sì |
+| serviceendpointpolicies | Sì | Sì |
+| trafficmanagerprofiles | Sì | Sì |
 | virtualhubs | No | No |
-| virtualnetworkgateways | Yes | Yes |
-| virtualnetworks | Yes | Yes |
+| virtualnetworkgateways | Sì | Yes |
+| virtualnetworks | Yes | Sì |
 | virtualnetworktaps | No | No |
 | virtualwans | No | No |
 | vpngateways | No | No |
 | vpnsites | No | No |
-| webapplicationfirewallpolicies | Yes | Yes |
+| webapplicationfirewallpolicies | Sì | Sì |
+
+> [!IMPORTANT]
+> Visualizzare [reti virtuali spostare indicazioni](./move-limitations/virtual-network-move-limitations.md).
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| spazi dei nomi | Yes | Yes |
+| spazi dei nomi | Sì | Sì |
 | namespaces/notificationhubs | Yes | Yes |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| aree di lavoro | Yes | Yes |
+| aree di lavoro | Sì | Sì |
+
+> [!IMPORTANT]
+> Assicurarsi che lo spostamento alla nuova sottoscrizione non superano [quote di sottoscrizione](../azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| managementconfigurations | Yes | Yes |
+| managementconfigurations | Sì | Yes |
 | solutions | Yes | Yes |
-| Viste | Yes | Yes |
+| Viste | Sì | Yes |
 
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -624,7 +796,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| dashboards | Yes | Yes |
+| dashboards | Yes | Sì |
 
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -649,33 +821,39 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| insiemi di credenziali | Yes | Yes |
+| insiemi di credenziali | Sì | Sì |
+
+> [!IMPORTANT]
+> Visualizzare [servizi di ripristino spostare indicazioni](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| spazi dei nomi | Yes | Yes |
+| spazi dei nomi | Yes | Sì |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| scala Web | Yes | No |
+| scala Web | Sì | No |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| flows | Yes | Yes |
-| jobcollections | Yes | Yes |
+| flows | Sì | Sì |
+| jobcollections | Sì | Sì |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| searchservices | Yes | Yes |
+| searchservices | Sì | Yes |
+
+> [!IMPORTANT]
+> È possibile spostare più risorse di ricerca in aree diverse in un'unica operazione. Al contrario, è possibile spostarle con operazioni separate.
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| iotsecuritysolutions | Yes | Yes |
+| iotsecuritysolutions | Sì | Sì |
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -686,13 +864,13 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| spazi dei nomi | Yes | Yes |
+| spazi dei nomi | Sì | Yes |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | scala Web | No | No |
-| clusters | Yes | Yes |
+| clusters | Sì | Sì |
 | containergroups | No | No |
 | containergroupsets | No | No |
 | edgeclusters | No | No |
@@ -705,20 +883,23 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | ------------- | ----------- | ---------- |
 | scala Web | Yes | Yes |
 | containergroups | No | No |
-| gateways | Yes | Yes |
+| gateways | Sì | Sì |
 | networks | Yes | Yes |
-| chiavi private | Yes | Yes |
+| chiavi private | Sì | Sì |
 | volumes | Yes | Yes |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| signalr | Yes | Yes |
+| signalr | Sì | Sì |
 
 ## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
 | siterecoveryvault | No | No |
+
+> [!IMPORTANT]
+> Visualizzare [servizi di ripristino spostare indicazioni](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -732,18 +913,21 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| instancepools | Yes | Yes |
-| managedinstances | Yes | Yes |
-| managedinstances/databases | Yes | Yes |
-| servers | Yes | Yes |
-| servers/databases | Yes | Yes |
-| servers/elasticpools | Yes | Yes |
-| virtualclusters | Yes | Yes |
+| instancepools | Sì | Yes |
+| managedinstances | Sì | Yes |
+| managedinstances/databases | Sì | Yes |
+| servers | Yes | Sì |
+| servers/databases | Sì | Yes |
+| servers/elasticpools | Sì | Yes |
+| virtualclusters | Sì | Sì |
+
+> [!IMPORTANT]
+> Un database e server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database. Questo comportamento si applica al database SQL di Azure e ai database di Azure SQL Data Warehouse.
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| sqlvirtualmachinegroups | Yes | Yes |
+| sqlvirtualmachinegroups | Yes | Sì |
 | sqlvirtualmachines | Yes | Yes |
 
 ## <a name="microsoftsqlvm"></a>Microsoft.SqlVM
@@ -754,7 +938,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| storageaccounts | Yes | Yes |
+| storageaccounts | Yes | Sì |
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -764,7 +948,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| storagesyncservices | Yes | Yes |
+| storagesyncservices | Yes | Sì |
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -784,7 +968,10 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| streamingjobs | Yes | Yes |
+| streamingjobs | Sì | Yes |
+
+> [!IMPORTANT]
+> Stream Analitica i processi non possono essere spostati durante l'esecuzione dello stato.
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -804,9 +991,9 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| environments | Yes | Yes |
-| environments/eventsources | Yes | Yes |
-| environments/referencedatasets | Yes | Yes |
+| environments | Sì | Yes |
+| environments/eventsources | Sì | Sì |
+| environments/referencedatasets | Sì | Sì |
 
 ## <a name="microsofttoken"></a>Microsoft.Token
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -821,29 +1008,35 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| account | Yes | Yes |
-| account/extension | Yes | Yes |
-| account/project | Yes | Yes |
+| account | Sì | Yes |
+| account/extension | Sì | Sì |
+| account/project | Sì | Sì |
+
+> [!IMPORTANT]
+> Per modificare la sottoscrizione per Azure DevOps, vedere [modificare la sottoscrizione di Azure usata per la fatturazione](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| dedicatedcloudnodes | Yes | Yes |
-| dedicatedcloudservices | Yes | Yes |
-| virtualmachines | Yes | Yes |
+| dedicatedcloudnodes | Sì | Yes |
+| dedicatedcloudservices | Sì | Sì |
+| virtualmachines | Sì | Sì |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
 | ------------- | ----------- | ---------- |
-| certificates | No | Yes |
-| connectiongateways | Yes | Yes |
-| connections | Yes | Yes |
-| customapis | Yes | Yes |
+| certificates | No | Sì |
+| connectiongateways | Sì | Yes |
+| connections | Sì | Yes |
+| customapis | Sì | Sì |
 | hostingenvironments | No | No |
 | serverfarms | Yes | Yes |
-| siti | Yes | Yes |
-| sites/premieraddons | Yes | Yes |
-| sites/slots | Yes | Yes |
+| siti | Yes | Sì |
+| sites/premieraddons | Sì | Sì |
+| sites/slots | Sì | Sì |
+
+> [!IMPORTANT]
+> Visualizzare [servizio App di passare informazioni aggiuntive](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Tipo di risorsa | Gruppo di risorse | Sottoscrizione |
@@ -863,3 +1056,5 @@ I servizi di terze parti attualmente non supportano l'operazione di spostamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per i comandi sullo spostamento di risorse, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).
+
+Per ottenere gli stessi dati come file con valori delimitati da virgole, scaricare [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).

@@ -2,17 +2,17 @@
 title: Proteggere i pod con criteri di rete nel servizio Azure Kubernetes
 description: Informazioni su come proteggere il traffico che passa da e verso i POD usando i criteri di rete Kubernetes in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: c9bf2c2c459999813c7fc30f95be653168d270ad
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230006"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613960"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteggere il traffico tra i pod usando criteri di rete nel servizio Azure Kubernetes
 
@@ -22,14 +22,14 @@ Questo articolo illustra come installare il modulo criteri di rete e creare i cr
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-È necessario la CLI di Azure versione 2.0.61 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È necessario la CLI di Azure versione 2.0.61 o versione successiva installato e configurato. Eseguire  `az --version` per trovare la versione. Se è necessario installare o eseguire l'aggiornamento, vedere [installare CLI Azure][install-azure-cli].
 
 > [!TIP]
 > Se si usa la funzionalità di criteri di rete durante l'anteprima, è consigliabile che si [creare un nuovo cluster](#create-an-aks-cluster-and-enable-network-policy).
 > 
 > Se si desidera continuare a usare i cluster di test esistente che utilizzato Criteri di rete durante l'anteprima, aggiornare il cluster a una nuove versioni di Kubernetes per l'ultima versione disponibile a livello generale e quindi distribuire il manifesto YAML seguente per correggere l'arresto anomalo server delle metriche e Kubernetes cruscotto. Questa correzione è solo necessario per i cluster che utilizzano il motore di criteri di rete Tigrato.
 >
-> Per una protezione ottimale, [esaminare il contenuto di questo manifesto YAML] [ calico-aks-cleanup] per comprendere ciò che viene distribuito nel cluster AKS.
+> Per una protezione ottimale, [esaminare il contenuto di questo manifesto YAML][calico-aks-cleanup] per comprendere ciò che viene distribuito nel cluster AKS.
 >
 > `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
@@ -62,7 +62,7 @@ Criteri di rete funzionano solo con l'opzione Azure CNI (avanzate). Implementazi
 | Piattaforme supportate                      | Linux                      | Linux                       |
 | Opzioni di rete supportate             | Azure CNI                  | Azure CNI                   |
 | Conformità con la specifica di Kubernetes | Tutti i tipi di criteri supportati |  Tutti i tipi di criteri supportati |
-| Funzionalità aggiuntive                      | Nessuna                       | Esteso al modello dei criteri costituita da criteri di rete globali, impostare rete globale e Host Endpoint. Per altre informazioni sull'uso di `calicoctl` CLI per gestire tali estese le funzionalità, vedere [riferimenti relativi all'utente calicoctl][calicoctl]. |
+| Funzionalità aggiuntive                      | Nessuna                       | Esteso al modello dei criteri costituita da criteri di rete globali, impostare rete globale e Host Endpoint. Per altre informazioni sull'uso di `calicoctl` interfaccia della riga di comando per gestire tali estese le funzionalità, vedere [calicoctl riferimenti relativi all'utente][calicoctl]. |
 | Supporto                                  | Supportato dal team di progettazione e supporto tecnico di Azure | Supporto della community Tigrato. Per altre informazioni sul supporto a pagamento aggiuntivo, vedere [opzioni di supporto di progetto Tigrato][calico-support]. |
 | Registrazione                                  | Le regole di aggiunta / eliminazione di IPTables vengono registrate in ogni host in */var/log/azure-npm.log* | Per altre informazioni, vedere [log componente Tigrato][calico-logs] |
 
@@ -76,7 +76,7 @@ Per visualizzare i criteri di rete in azione, è possibile creare e quindi espan
 
 In primo luogo, è possibile creare un cluster del servizio contenitore di AZURE che supporta i criteri di rete. La funzionalità di criteri di rete può essere abilitata solo quando viene creato il cluster. Non è possibile abilitare criteri di rete in un cluster esistente del servizio Azure Kubernetes.
 
-Per usare i criteri di rete con un cluster AKS, è necessario usare il [plug-in CNI Azure] [ azure-cni] e definire la propria rete virtuale e le subnet. Per altri dettagli su come pianificare gli intervalli di subnet necessari, vedere [Configurare funzionalità di rete avanzate][use-advanced-networking].
+Per usare i criteri di rete con un cluster AKS, è necessario usare il [plug-in CNI Azure][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking].
 
 Lo script di esempio seguente:
 
@@ -138,7 +138,7 @@ az aks create \
     --network-policy azure
 ```
 
-La creazione del cluster richiede alcuni minuti. Quando il cluster è pronto, configurare `kubectl` per connettersi al cluster Kubernetes usando il [az aks get-credentials] [ az-aks-get-credentials] comando. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarle:
+La creazione del cluster richiede alcuni minuti. Quando il cluster è pronto, configurare `kubectl` per connettersi al cluster Kubernetes usando il [az aks get-credentials][az-aks-get-credentials] comando. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarle:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -207,7 +207,7 @@ spec:
   ingress: []
 ```
 
-Applicare i criteri di rete usando il [kubectl applicare] [ kubectl-apply] comando e specificare il nome del manifesto YAML:
+Applicare i criteri di rete usando il [kubectl applicare][kubectl-apply] comando e specificare il nome del manifesto YAML:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -265,7 +265,7 @@ spec:
 > [!NOTE]
 > Il criterio di rete usa un *namespaceSelector* e un elemento *podSelector* (elemento) per la regola per il traffico in ingresso. La sintassi YAML è importante per le regole del traffico in ingresso essere additivi. In questo esempio, entrambi gli elementi devono corrispondere perché la regola per il traffico in ingresso venga applicata. Nelle versioni precedenti per le versioni di Kubernetes *1.12* non potrebbe interpretare correttamente questi elementi e limitare il traffico di rete nel modo previsto. Per altre informazioni su questo comportamento, vedere [comportamento da e verso i selettori][policy-rules].
 
-Applicare i criteri di rete aggiornato usando il [kubectl applicare] [ kubectl-apply] comando e specificare il nome del manifesto YAML:
+Applicare i criteri di rete aggiornato usando il [kubectl applicare][kubectl-apply] comando e specificare il nome del manifesto YAML:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -388,7 +388,7 @@ spec:
 
 Negli esempi più complessi, è possibile definire più regole di traffico in ingresso, ad esempio un *namespaceSelector* e quindi una *podSelector*.
 
-Applicare i criteri di rete aggiornato usando il [kubectl applicare] [ kubectl-apply] comando e specificare il nome del manifesto YAML:
+Applicare i criteri di rete aggiornato usando il [kubectl applicare][kubectl-apply] comando e specificare il nome del manifesto YAML:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -446,7 +446,7 @@ exit
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-In questo articolo, abbiamo creato due spazi dei nomi e applicare un criterio di rete. Per pulire le risorse, usare il [kubectl eliminare] [ kubectl-delete] comando e specificare i nomi delle risorse:
+In questo articolo, abbiamo creato due spazi dei nomi e applicare un criterio di rete. Per pulire le risorse, usare il [kubectl eliminare][kubectl-delete] comando e specificare i nomi delle risorse:
 
 ```console
 kubectl delete namespace production

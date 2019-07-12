@@ -5,16 +5,16 @@ services: cosmos-db
 author: luisbosquez
 manager: kfile
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: lbosq
-ms.openlocfilehash: 2f3967c64e79b2bc7b01b35eff26f5ac0d4e3db4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4964f485f5e781b7fe0a0f09486512fe6a5b9035
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888409"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592486"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Come usare il passaggio di profilo di esecuzione per valutare le query Gremlin
 
@@ -148,7 +148,7 @@ La risposta di una funzione executionProfile() produrrà una gerarchia di oggett
     - `storeOps.count`: Rappresenta il numero di risultati che questa operazione di archiviazione restituita.
     - `storeOps.size`: Rappresenta la dimensione in byte del risultato di un'operazione di archiviazione specificato.
 
-Operatore di Runtime di COSMOS DB Gremlin|Descrizione
+Operatore di Runtime di COSMOS DB Gremlin|DESCRIZIONE
 ---|---
 `GetVertices`| Questo passaggio Ottiene un set di oggetti predicato ha dal livello di persistenza. 
 `GetEdges`| Questa operazione Ottiene i bordi adiacenti a un set di vertici. Questo passaggio può comportare uno o più operazioni di archiviazione.
@@ -216,7 +216,7 @@ Da quest'ultimo, è possono effettuare le seguenti conclusioni:
 - A giudicare dal `time` metrica, la latenza di questa query potrebbe essere elevata poiché si tratta [più di 10 ms per una singola operazione di lettura punto](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
 - Se vengono esaminati i `storeOps` dell'oggetto, è possibile osservare che il `fanoutFactor` viene `5`, vale a dire che [5 partizioni](https://docs.microsoft.com/azure/cosmos-db/partition-data) erano accessibili tramite questa operazione.
 
-Come un termine di questa analisi, è possibile determinare che la prima query accede a più partizioni rispetto al necessario. Questo problema può essere risolto specificando la chiave di partizionamento della query come predicato. Ciò causerà minore latenza e meno costi per ogni query. Altre informazioni sulle [partizionamento graph](graph-partitioning.md). Una query più ottimale sarebbe `g.V('tt0093640').has('partitionKey', 't1001')`.
+Come un termine di questa analisi, è possibile determinare che la prima query accede a più partizioni rispetto al necessario. Questo problema può essere risolto specificando la chiave di partizionamento della query come predicato. Ciò causerà minore latenza e meno costi per ogni query. Per altre informazioni, vedere l'articolo sul [partizionamento di grafi](graph-partitioning.md). Una query più ottimale sarebbe `g.V('tt0093640').has('partitionKey', 't1001')`.
 
 ### <a name="unfiltered-query-patterns"></a>Modelli di query senza filtri
 

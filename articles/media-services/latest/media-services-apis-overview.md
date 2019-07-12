@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ca4e343ea4774bbe4ff992ad671575b150b3c045
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8dac6f38052f176c7a3741a664e174d0a66cbc5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65890972"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612690"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Sviluppo con servizi multimediali v3 API
 
@@ -99,7 +99,6 @@ Servizi multimediali ha le seguenti operazioni a esecuzione prolungata:
 * Avviare un'entità StreamingEndpoint
 * Arrestare entità StreamingEndpoint
 * Scalabilità StreamingEndpoint
-
 
 ## <a name="sdks"></a>SDK
 

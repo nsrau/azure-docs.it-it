@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4b622a5925aebd140fed2ac74eaf7cc186803b90
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a63ef969f17fc48145174d99fec53e77b61885a4
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236145"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827984"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Hive in Azure Data Factory 
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
@@ -75,13 +75,13 @@ L'attività Hive di HDInsight in una [pipeline](data-factory-create-pipelines.md
 ## <a name="syntax-details"></a>Dettagli sintassi
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
-| name |Nome dell'attività |Yes |
+| name |Nome dell'attività |Sì |
 | description |Testo descrittivo per lo scopo dell'attività |No |
-| type |HDinsightHive |Yes |
+| type |HDinsightHive |Sì |
 | inputs |Input utilizzati dall'attività Hive |No |
 | outputs |Output generati dall'attività Hive |Yes |
-| linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Yes |
-| script |Specificare lo script Hive inline |N. |
+| linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Sì |
+| script |Specificare lo script Hive inline |No |
 | scriptPath |Archiviare lo script Hive in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |N. |
 | defines |Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Hive usando "hiveconf" |No |
 

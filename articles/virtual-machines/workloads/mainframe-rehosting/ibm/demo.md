@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d527b08f3610531bef8e98a11998942411651d27
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925683"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621358"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Set di backup di un'applicazione agli sviluppatori controllato distribuzione (ADCD) in IBM zD & T v1
 
@@ -21,13 +21,13 @@ ms.locfileid: "64925683"
 
 Questo articolo illustra come configurare un'istanza ADCD un zD & ambiente T in Azure. ADCDs creare implementazioni di sistema operativo Z serie completate per ambienti di sviluppo e test in esecuzione in zD & T.
 
-Ad esempio zD & T, ADCDs sono disponibili solo per i partner e clienti di IBM e sono esclusivamente per scopi di sviluppo e test. Non sono può essere utilizzato per gli ambienti di produzione. Sono disponibili per il download tramite numerosi pacchetti di installazione di IBM [Passport vantaggio](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) oppure [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd).
+Ad esempio zD & T, ADCDs sono disponibili solo per i partner e clienti di IBM e sono esclusivamente per scopi di sviluppo e test. Non sono può essere utilizzato per gli ambienti di produzione. Sono disponibili per il download tramite numerosi pacchetti di installazione di IBM [Passport vantaggio](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) oppure [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- Il [zD & ambiente T] [ ibm-install-z] impostata in precedenza in Azure. Questo articolo presuppone che si usa la stessa immagine di macchina virtuale di Ubuntu 16.04 creata in precedenza.
+- Il [zD & ambiente T][ibm-install-z] impostata in precedenza in Azure. Questo articolo presuppone che si usa la stessa immagine di macchina virtuale di Ubuntu 16.04 creata in precedenza.
 
 - Accesso ai supporti ADCD tramite IBM PartnerWorld o i vantaggi di Passport.
 
@@ -39,7 +39,7 @@ Ad esempio zD & T, ADCDs sono disponibili solo per i partner e clienti di IBM e 
 
 ## <a name="download-the-installation-packages-from-passport-advantage"></a>Scaricare i pacchetti di installazione dal vantaggio Passport
 
-È necessario l'accesso ai supporti ADCD. I passaggi seguenti presuppongono un clienti di IBM e possono usare i vantaggi di Passport. Possono usare i partner di IBM [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd).
+È necessario l'accesso ai supporti ADCD. I passaggi seguenti presuppongono un clienti di IBM e possono usare i vantaggi di Passport. Possono usare i partner di IBM [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 > [!NOTE]
 > Questo articolo presuppone che un PC Windows viene usato per accedere al portale di Azure e per scaricare il supporto di IBM. Se si sta usando un desktop Mac e Ubuntu, i comandi e processo per ottenere il supporto di IBM possono differire leggermente.

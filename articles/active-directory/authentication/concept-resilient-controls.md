@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 831ba47ea4e999219a6d8cf34cb5fb0fdcd1ead8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113482"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594948"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
 
@@ -123,7 +123,7 @@ Criteri di accesso condizionale di emergenza sono un **disabilitato criterio** c
 * Assegnare un nome ai criteri per esseri sicuri di trovarli facilmente durante un'interruzione. Includere gli elementi seguenti nel nome dei criteri:
   * Un *numero di etichetta* per i criteri.
   * Il testo da visualizzare. Questo criterio è destinato solo ai casi di emergenza. Ad esempio:  **ENABLE IN EMERGENCY**
-  * L'*interruzione* a cui si applica il criterio. Ad esempio: **Durante interruzione MFA**
+  * L'*interruzione* a cui si applica il criterio. Ad esempio:  **Durante interruzione MFA**
   * Un *numero di sequenza* per mostrare l'ordine in cui è necessario attivare i criteri.
   * Le *app* a cui si applica il criterio.
   * I *controlli* a cui si applicherà il criterio.
@@ -143,7 +143,7 @@ L'esempio seguente: **L'esempio A: criteri di accesso condizionale di emergenza 
   * Nome: EM001 - ENABLE IN EMERGENCY: Interruzione autenticazione a più fattori[1/4] - Exchange SharePoint - Richiedi Aggiunta ad Azure AD ibrido
   * Utenti e gruppi: Includere ContingencyAccess. Escludere CoreAdmins ed EmergencyAccess
   * App cloud: Exchange Online e SharePoint Online
-  * Condizioni: Qualsiasi
+  * Condizioni: Any
   * Concedere controllo: Richiedere aggiunta a un dominio
   * Stato: Disabled
 * Criterio 2: Bloccare le piattaforme diverse da Windows

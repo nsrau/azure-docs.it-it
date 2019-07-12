@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8676ad48bc4fab6149db00d778349ac1acd7223d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4b5d198506473c598f058c881f781a06e191df88
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062392"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653431"
 ---
 # <a name="filters-in-azure-search"></a>Filtri in Ricerca di Azure 
 
@@ -97,7 +97,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="filter-usage-patterns"></a>Filtra i modelli di utilizzo
 
-Gli esempi seguenti illustrano diversi modelli di utilizzo per gli scenari di filtro. Per altre idee, vedere [OData expression syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) (Sintassi delle espressioni OData -> Esempi).
+Gli esempi seguenti illustrano diversi modelli di utilizzo per gli scenari di filtro. Per altre idee, vedere [OData expression syntax > Examples](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples) (Sintassi delle espressioni OData -> Esempi).
 
 + Elemento **$filter** autonomo, senza una stringa di query, utile quando l'espressione filtro è in grado di specificare il nome completo dei documenti di interesse. Senza una stringa di query, non ci sono un'analisi lessicale o linguistica, un'assegnazione del punteggio e una classificazione. Si noti che la stringa di ricerca è solo un asterisco, che significa "tutti i documenti corrispondenti".
 
@@ -158,7 +158,7 @@ Per le stringhe di testo viene fatta distinzione tra maiuscole e minuscole. Non 
 
 ### <a name="approaches-for-filtering-on-text"></a>Approcci per il filtro sul testo
 
-| Approccio | Descrizione | Quando usare le autorizzazioni |
+| Approccio | DESCRIZIONE | Quando usare le autorizzazioni |
 |----------|-------------|-------------|
 | [`search.in`](search-query-odata-search-in-function.md) | Una funzione che corrisponde a un campo rispetto a un elenco delimitato da virgole di stringhe. | Consigliato per [filtri di sicurezza](search-security-trimming-for-azure-search.md) e per tutti i filtri in cui devono essere associata a un campo stringa molti valori di testo non elaborato. Il **search.in** funzione è progettata per offrire velocità ed è molto più veloce rispetto a confronto esplicito di campo in ogni stringa usando `eq` e `or`. | 
 | [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Funzione che consente di combinare le operazioni di ricerca full-text con operazioni di filtro esclusivamente booleane nella stessa espressione filtro. | Uso **IsMatch** (o equivalente, assegnazione dei punteggi **search.ismatchscoring**) quando si desidera più combinazioni di filtri di ricerca in un'unica richiesta. Può essere usata anche con un filtro *contains* per applicare un filtro su una stringa parziale all'interno di una stringa più grande. |
@@ -195,7 +195,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-Per altri esempi, vedere [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) (Sintassi delle espressioni di filtro OData -> Esempi).
+Per altri esempi, vedere [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples) (Sintassi delle espressioni di filtro OData -> Esempi).
 
 ## <a name="see-also"></a>Vedere anche
 

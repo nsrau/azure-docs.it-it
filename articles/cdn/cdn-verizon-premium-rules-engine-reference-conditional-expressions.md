@@ -3,16 +3,16 @@ title: Espressioni condizionali del motore regole di rete CDN di Azure fornita d
 description: Documentazione di riferimento per la rete CDN di Azure fornita da Verizon Premium regole di funzionalità e condizioni di corrispondenza del motore.
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: c6e49e6fbc0c541ce9a8cd903eb313d61413257c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f790e37ae876c0640d55ebfb51abb43c6a705f04
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481535"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593229"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>Rete CDN di Azure da espressioni condizionali del motore regole di Verizon Premium
 
@@ -20,7 +20,7 @@ Questo articolo fornisce descrizioni dettagliate delle espressioni condizionali 
 
 La prima parte di una regola è l'espressione condizionale.
 
-Espressione condizionale | Descrizione
+Espressione condizionale | DESCRIZIONE
 -----------------------|-------------
 IF | Un'espressione IF è sempre una parte della prima istruzione in una regola. Come tutte le altre espressioni condizionali, l'istruzione IF deve essere associata a una corrispondenza. Se non è definite alcun altre espressioni condizionali, questa corrispondenza determina il criterio che deve essere soddisfatti prima di un set di funzionalità può essere applicato a una richiesta.
 AND IF | Un'espressione AND IF può essere aggiunta solo dopo i tipi di espressioni condizionali seguenti: IF e AND IF. Indica che esiste un'altra condizione che deve essere soddisfatta per l'istruzione IF iniziale.

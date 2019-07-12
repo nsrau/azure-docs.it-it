@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: efed981b500ff14a66c2355a1d14bd762000622f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787824"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606171"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Esempio 4: classificazione: Prevedere il rischio di credito (costo sensibile)
 
@@ -37,7 +37,7 @@ Ecco il grafico completato per questo esperimento:
 
     ![Aprire l'esperimento](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="data"></a>Dati
+## <a name="data"></a>Data
 
 Viene usato il set di dati German Credit Card dal repository UC Irvine. Questo set di dati contiene 1000 campioni con 1 etichetta e 20 funzionalità. Ogni esempio rappresenta una persona. Le funzionalità di 20 includono funzionalità numeriche e di categoria. Vedere le [sito Web UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) per altre informazioni sul set di dati. L'ultima colonna è l'etichetta, che indica il rischio di credito e dispone di due soli valori possibili: rischio di credito elevato = 2 e a basso rischio di credito = 1.
 
@@ -164,3 +164,4 @@ Esplorare gli altri esempi disponibili per l'interfaccia visiva:
 - [Esempio 2: regressione: Confrontare gli algoritmi per la stima di prezzo di un'automobile](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Esempio 3: classificazione: Prevedere il rischio di credito](ui-sample-classification-predict-credit-risk-basic.md)
 - [Esempio 5 - classificazione: Prevedere la varianza](ui-sample-classification-predict-churn.md)
+- [Esempio 6: classificazione: Prevedere i ritardi dei voli](ui-sample-classification-predict-flight-delay.md)

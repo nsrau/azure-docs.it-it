@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: d21b54c3bea98a9a1499dc75890f75f28f2f9dc0
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560930"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655719"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Criterio di base: Autenticazione legacy di blocco (anteprima)
 
@@ -25,11 +25,11 @@ Per consentire agli utenti di accedere facilmente alle app cloud, Azure Active D
 * Client Office meno recenti che non usano l'autenticazione moderna (ad esempio, i client di Office 2010)
 * Qualsiasi client che Usa protocolli di posta elettronica legacy, ad esempio IMAP o SMTP o POP3
 
-Oggi, maggior parte di tutti i compromessi in termini tentativi di accesso provengono dall'autenticazione legacy. L'autenticazione legacy non supporta l'autenticazione a più fattori (MFA). Anche se si dispone di un criterio di autenticazione a più fattori abilitato nella directory, un attore malintenzionato potrebbe può eseguire l'autenticazione usando un protocollo legacy e ignorare l'autenticazione a più fattori.
+Oggi, la maggior parte di tutti i compromessi in termini tentativi di accesso riusciti provengono da autenticazione legacy. L'autenticazione legacy non supporta l'autenticazione a più fattori (MFA). Anche se si dispone di un criterio di autenticazione a più fattori abilitato nella directory, un attore malintenzionato potrebbe può eseguire l'autenticazione usando un protocollo legacy e ignorare l'autenticazione a più fattori.
 
-Il modo migliore per proteggere l'account da richieste di autenticazione dannoso eseguite dai protocolli legacy è bloccare questi tentativi tutti insieme. Per renderne più semplice per impedire tutte le richieste di accesso inviate dai protocolli legacy a, viene creato un criterio di base che esegue questa operazione.
+Il modo migliore per proteggere l'account da richieste di autenticazione dannoso eseguite dai protocolli legacy è bloccare completamente tali tentativi. Nel tentativo di rendono più semplice per proteggere l'ambiente, è stato creato questo criterio di base per l'autenticazione legacy di blocco.
 
-**L'autenticazione legacy di blocco** viene [criterio di base](concept-baseline-protection.md) che blocca tutte le richieste di autenticazione eseguite dai protocolli legacy. L'autenticazione moderna deve essere usato per accedere correttamente per tutti gli utenti. Usato in combinazione con altri criteri di base, tutte le richieste provenienti da protocolli legacy verranno bloccate e tutti gli utenti verrà richiesto di autenticazione a più fattori ogni volta che necessarie. Questo criterio non blocca Exchange ActiveSync.
+**L'autenticazione legacy di blocco** è un [criterio di base](concept-baseline-protection.md) che blocca tutte le richieste di autenticazione eseguite dai protocolli legacy. L'autenticazione moderna deve essere usato per accedere correttamente per tutti gli utenti. Usato in combinazione con altri criteri di base, tutte le richieste provenienti da protocolli legacy verranno bloccate e tutti gli utenti verrà richiesto di autenticazione a più fattori ogni volta che necessarie. Questo criterio non blocca Exchange ActiveSync.
 
 ## <a name="identify-legacy-authentication-use"></a>Identificare l'utilizzo di autenticazione legacy
 
@@ -78,13 +78,13 @@ SharePoint Online è abilitato per impostazione predefinita l'autenticazione mod
 
 Per evitare richieste di autenticazione legacy eseguite da Skype for Business, è necessario abilitare l'autenticazione moderna per Skype for Business Online. Per le directory create dopo il 1 ° agosto 2017, l'autenticazione moderna per Skype for Business è abilitato per impostazione predefinita.
 
-Per abilitare l'autenticazione moderna in Skype for Business, è consigliabile eseguire la transizione a Microsoft Teams, che supporta l'autenticazione moderna per impostazione predefinita. Tuttavia, se non si riesce a tr in questo momento, sarà necessario abilitare l'autenticazione moderna per Skype for Business Online in modo che Skype per i client di Business inizia a usare l'autenticazione moderna. Seguire questi passaggi nell'articolo [Skype per topologie di Business supportate con l'autenticazione moderna](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), per i passaggi abilitare l'autenticazione moderna per Skype for Business.
+È consigliabile eseguire la transizione a Microsoft Teams, che supporta l'autenticazione moderna per impostazione predefinita. Tuttavia, se non si riesce a eseguire la migrazione in questo momento, è necessario abilitare l'autenticazione moderna per Skype for Business Online in modo da Skype per i client di Business inizia a usare l'autenticazione moderna. Seguire i passaggi descritti in questo articolo [Skype per topologie di Business supportate con l'autenticazione moderna](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), per abilitare l'autenticazione moderna per Skype for Business.
 
-Oltre ad abilitare l'autenticazione moderna per Skype for Business Online, è consigliabile modern authentication essere abilitato per Exchange Online quando si abilita l'autenticazione moderna per Skype for Business. Questo processo consente di sincronizzare lo stato dell'autenticazione moderna in Exchange Online e Skype for Business online e impedirà più richieste di accesso per Skype per i client di Business.
+Oltre ad abilitare l'autenticazione moderna per Skype for Business Online, si consiglia di abilitare l'autenticazione moderna per Exchange Online quando si abilita l'autenticazione moderna per Skype for Business. Questo processo consente di sincronizzare lo stato dell'autenticazione moderna in Exchange Online e Skype for Business online e impedirà più richieste di accesso per Skype per i client di Business.
 
 ### <a name="step-5-using-mobile-devices"></a>Passaggio 5: Uso di dispositivi mobili
 
-Le applicazioni sul dispositivo mobile devono bloccare anche l'autenticazione legacy. È consigliabile usare Outlook per dispositivi mobili. Outlook per dispositivi mobili supporta l'autenticazione moderna per impostazione predefinita e soddisferanno altri criteri di protezione della linea di base di autenticazione a più fattori.
+Le applicazioni sul dispositivo mobile devono bloccare anche l'autenticazione legacy. È consigliabile usare Outlook per dispositivi mobili. Outlook per dispositivi mobili supporta l'autenticazione moderna per impostazione predefinita e soddisferà altri criteri di protezione della linea di base di autenticazione a più fattori.
 
 Per usare il client di posta elettronica native per iOS, è necessario essere in esecuzione iOS versione 11.0 e versioni successive per assicurarsi che il client di posta elettronica è stato aggiornato per bloccare l'autenticazione legacy.
 
@@ -92,9 +92,10 @@ Per usare il client di posta elettronica native per iOS, è necessario essere in
 
 Se sei un cliente ibrida con Exchange Server locale e Skype per Business locale, entrambi i servizi dovrà essere aggiornata per abilitare l'autenticazione moderna. Quando si usa l'autenticazione moderna in un ambiente ibrido, si ha ancora l'autenticazione degli utenti in locale. La storia di autorizzare l'accesso alle modifiche delle risorse (file o messaggi di posta elettronica).
 
-Prima di abilitare l'autenticazione moderna in locale, è possibile che siano soddisfatti theIf siano soddisfatti i requisiti, ora possibile abilitare l'autenticazione moderna in locale.
+Prima di abilitare l'autenticazione moderna in locale, assicurarsi che siano soddisfatti i prerequisiti.
+A questo punto si è pronti abilitare l'autenticazione moderna in locale.
 
-Passaggi per abilitare l'autenticazione moderna disponibili negli articoli seguenti:
+Passaggi per abilitare l'autenticazione moderna sono reperibile negli articoli seguenti:
 
 * [Come configurare Exchange Server locale da usare l'autenticazione moderna ibrida](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 * [Come usare l'autenticazione moderna (ADAL) con Skype for Business](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)

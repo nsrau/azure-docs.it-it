@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a951ebd46335ad4639b8499283ddd30f13edd64e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296201"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605660"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventi live e output live
 
@@ -83,7 +83,7 @@ Al termine della creazione dell'evento live, è possibile ottenere gli URL di in
 È possibile usare URL di non reindirizzamento a microsito o URL di reindirizzamento a microsito. 
 
 > [!NOTE] 
-> Per un URL di inserimento da costituire una previsione, impostare la modalità "personale".
+> Per un URL di inserimento predittivo, impostare la modalità di "reindirizzamento a microsito".
 
 * URL di non reindirizzamento a microsito
 
@@ -109,7 +109,7 @@ Al termine della creazione dell'evento live, è possibile ottenere gli URL di in
 ### <a name="live-ingest-url-naming-rules"></a>Regole di denominazione degli URL di inserimento live
 
 * La stringa *casuale* sottostante è un numero esadecimale a 128 bit (costituito da 32 caratteri 0-9 a-f).
-* *il token di accesso* -la stringa del GUID valida è impostato quando si usa la modalità personale. Ad esempio: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *il token di accesso* -la stringa del GUID valida è impostato quando si usa la modalità personale. Ad esempio `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
 * *nome del flusso* -indica il nome del flusso per una connessione specifica. Il valore del nome di flusso viene in genere aggiunto dal codificatore live che è utilizzare. È possibile configurare il codificatore live per utilizzare qualsiasi nome per descrivere la connessione, ad esempio: "video1_audio1", "video2_audio1", "flusso".
 
 #### <a name="non-vanity-url"></a>URL di non reindirizzamento a microsito
@@ -142,7 +142,7 @@ Al termine della creazione dell'evento live, è possibile ottenere gli URL di in
 
 ## <a name="live-event-preview-url"></a>URL di anteprima di un evento live
 
-Una volta che l'**evento live** inizia a ricevere il feed di contributi, è possibile usare l'endpoint di anteprima per visualizzare in anteprima e convalidare la ricezione del flusso live prima di pubblicare nuovamente. Dopo avere verificato che il flusso di anteprima è consigliabile, è possibile usare l'evento Live per rendere disponibili per il recapito tramite uno o più, pre-creati, il flusso live **gli endpoint di Streaming**. A tale scopo, si crea un nuovo [output live](https://docs.microsoft.com/rest/api/media/liveoutputs) nell'**evento live**. 
+Dopo l'evento Live inizia a ricevere i feed di contributo, è possibile utilizzare l'endpoint di anteprima per visualizzare in anteprima e convalidare che si ricevano il flusso live prima di pubblicare ulteriormente. Dopo avere verificato che il flusso di anteprima è consigliabile, è possibile usare l'evento Live per rendere disponibili per il recapito tramite uno o più (creato in precedenza) endpoint di Streaming il flusso live. A tale scopo, si crea un nuovo [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) dell'evento Live. 
 
 > [!IMPORTANT]
 > Assicurarsi che il video raggiunga l'URL di anteprima prima di continuare.
@@ -158,11 +158,11 @@ Dopo l'avvio del flusso nell'evento live, è possibile iniziare l'evento di stre
 > [!NOTE]
 > Gli output live iniziano al momento della creazione e terminano quando vengono eliminati. Quando si elimina l'output live, non si elimina l'asset sottostante e il contenuto dell'asset. 
 
-La relazione tra un **evento live** e il relativo **output live** è simile alla trasmissione televisiva tradizionale: un canale (**evento live**) rappresenta un flusso costante di video e una registrazione (**output live**) è limitata a uno specifico segmento di tempo (ad esempio, le notizie della sera dalle 18:30 alle 19:00). È possibile registrare programmi TV tramite un DVR (Digital Video Recorder): la funzionalità equivalente di eventi live è gestita dalla proprietà **ArchiveWindowLength**. È un timespan ISO-8601 (ad esempio, PTHH:MM:SS), il quale specifica la capacità del DVR e può essere impostato da un minimo di 3 minuti fino a un massimo di 25 ore.
+La relazione tra un **evento Live** e il relativo **Live output** è simile al tradizionale televisione broadcast, in cui un canale (evento Live) rappresenta un flusso costante di una registrazione (dal vivo e video Output) ha come ambito un segmento di tempo specifico (ad esempio, sera notizie da 6:30 PM alle 19:00:00). È possibile registrare programmi TV tramite una registrazione di Video digitali (DVR): la funzionalità equivalente in eventi Live viene gestita tramite il **archiveWindowLength** proprietà. È un timespan ISO-8601 (ad esempio, PTHH:MM:SS), il quale specifica la capacità del DVR e può essere impostato da un minimo di 3 minuti fino a un massimo di 25 ore.
 
-L'oggetto **output live** è come un registratore che riceve e registra il flusso live in un asset nell'account di Servizi multimediali. Il contenuto registrato verrà mantenuto nell'account di Archiviazione di Azure collegato al proprio account, nel contenitore definito dalla risorsa Asset. L'**output live** consente anche di regolare alcune proprietà del Live Stream in uscita, come la parte da conservare nelle registrazioni di archivio (ad esempio, la capacità del DVR cloud) e la possibilità da parte degli utenti di aprire il Live Stream. L'archivio su disco è una "finestra" dell'archivio circolare che contiene solo la quantità di contenuto specificato nella proprietà **archiveWindowLength** dell'**output live**. Il contenuto che rientra in questa finestra viene automaticamente rimosso dal contenitore di archiviazione e non è recuperabile. È possibile creare più **output live** (tre al massimo) su un **evento live** con lunghezze e impostazioni di archivio diverse.  
+L'oggetto di Output in tempo reale è simile a un registratore che rileverà e registra il flusso live in un Asset nell'account di servizi multimediali. Il contenuto registrato verrà mantenuto nell'account di Archiviazione di Azure collegato al proprio account, nel contenitore definito dalla risorsa Asset. L'Output Live consente anche di controllare alcune proprietà del flusso in tempo reale in uscita, ad esempio quantità del flusso viene mantenuta nella registrazione archivio (ad esempio, la capacità del cloud DVR) e se gli utenti possono avviare guardano lo streaming live. L'archivio su disco non è un archivio circolare la "finestra" che contiene solo la quantità di contenuto specificato nella proprietà archiveWindowLength dell'Output in tempo reale. Il contenuto che rientra in questa finestra viene automaticamente rimosso dal contenitore di archiviazione e non è recuperabile. È possibile creare più output in tempo reale (massimo fino a tre) su un evento Live con le impostazioni e le lunghezze di archiviazione differente.  
 
-Se l'**asset** dell'**output live** è stato pubblicato usando un **localizzatore di streaming**, l'**evento live** (fino alla lunghezza dell'intervallo DVR) continuerà a essere visualizzabile fino alla scadenza o all'eliminazione del localizzatore di streaming, a seconda del valore raggiunto per primo.
+Se è stata pubblicata l'Output Live **bene** usando un **localizzatore di Streaming**, l'evento Live (fino alla lunghezza dell'intervallo DVR) continueranno a essere visualizzato fino alla scadenza o eliminazione, il localizzatore di Streaming a seconda del valore raggiunto per primo.
 
 Per altre informazioni, vedere [Uso di un DVR cloud](live-event-cloud-dvr.md).
 

@@ -3,15 +3,15 @@ title: Informazioni dettagliate prestazioni query nel Database di Azure per MySQ
 description: Questo articolo descrive la funzionalità informazioni dettagliate prestazioni Query nel Database di Azure per MySQL
 author: ajlam
 ms.author: andrela
-ms.service: MySQL
+ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: fe6dce58714f8221625d13af1f8458662a19eaf6
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 8f142933ebf955cbe3aa119f42779109fb6ef7db
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461749"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67589079"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Informazioni dettagliate prestazioni query nel Database di Azure per MySQL
 

@@ -3,16 +3,16 @@ title: Eseguire l'onboarding un dominio radice o vertice a una porta principale 
 description: Informazioni su come eseguire l'onboarding a un dominio radice o vertice a una porta principale esistente usando il portale di Azure.
 services: front-door
 author: sharad4u
-ms.service: front-door
+ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 464c38b0ece274d2ea7df89ab9fd7c0a60dc4b58
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 8fe8da95a61d2f2bb35095236131670cb6ef0e70
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332771"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605785"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Eseguire l'onboarding un dominio radice o vertice nell'ingresso principale
 Porta d'ingresso Azure utilizza i record CNAME per convalidare la proprietà del dominio per l'onboarding dei domini personalizzati. Inoltre, porta d'ingresso non espone l'indirizzo IP front-end associato al profilo di porta principale e pertanto non è possibile mappare il dominio di apex a un indirizzo IP, se si desidera eseguire l'onboarding è di ingresso principale di Azure.

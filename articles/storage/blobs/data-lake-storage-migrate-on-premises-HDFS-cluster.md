@@ -7,13 +7,13 @@ ms.service: storage
 ms.date: 06/11/2019
 ms.author: normesta
 ms.topic: article
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 65ef586d74297e692160dc075dead2f0b1d973b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 4445a8566c04d30cfb8743cbd33623f2e23f0dde
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116961"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595393"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Usare Azure Data Box per migrare i dati da un archivio HDFS in locale in archiviazione di Azure
 
@@ -345,7 +345,7 @@ Se i dati non superano le dimensioni di un singolo dispositivo Data Box, è poss
 
 Nel cluster Hadoop in locale in cui si intende avviare il processo DistCp, creare un file che specifica l'elenco delle directory in cui si desidera escludere.
 
-Ad esempio:
+Di seguito è riportato un esempio:
 
 ```
 .*ranger/audit.*

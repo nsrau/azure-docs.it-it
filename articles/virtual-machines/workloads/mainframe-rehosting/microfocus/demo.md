@@ -2,15 +2,16 @@
 title: Impostare i Micro messa a fuoco CICS BankDemo per Micro messa a fuoco Enterprise Developer 4.0 in macchine virtuali di Azure
 description: Eseguire l'applicazione di Micro messa a fuoco BankDemo in macchine virtuali (VM) per informazioni su come usare Micro Focus Enterprise Server e Enterprise Developer.
 author: sread
+ms.author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 7afe29cb98a294b2a30020ad48f8b27264386746
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4491fc137c2c85e2be605f5e58fde6fd422efbbe
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304931"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621344"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Impostare i Micro messa a fuoco CICS BankDemo per Micro messa a fuoco Enterprise Developer 4.0 in Azure
 
@@ -181,7 +182,7 @@ La query dovrebbe eseguita senza errori. Al termine, si dispone di database di e
 
      ![Definire l'area: nome dell'area: BANKDEMO](media/08-demo-cics.png)
 
-7. Fare clic su **Finish**.
+7. Scegliere **Fine**.
 
 ## <a name="create-xa-resource-definitions"></a>Creare le definizioni delle risorse XA
 

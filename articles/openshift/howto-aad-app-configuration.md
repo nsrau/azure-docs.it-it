@@ -3,18 +3,18 @@ title: Integrazione di Azure Active Directory per Azure Red Hat OpenShift | Micr
 description: Informazioni su come creare un gruppo di sicurezza di Azure AD e un utente di test delle app nel cluster di Microsoft Azure Red Hat OpenShift.
 author: jimzim
 ms.author: jzim
-ms.service: openshift
+ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: b79efa6ee1f4c052a0037a971fc36d8a9ae0ce58
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 00609905d09f8d414660c21805c6efca5eb30843
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67458706"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669395"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integrazione di Azure Active Directory per Azure Red Hat OpenShift
 
@@ -33,7 +33,7 @@ Creare un nuovo utente amministratore globale di Azure Active Directory per acce
 1. Andare alla [-gli utenti per tutti gli utenti](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) pannello.
 2. Fare clic su **+ nuovo utente** per aprire il **utente** riquadro.
 3. Immettere un **nome** per questo utente.
-4. Creare un **nome utente** in base al nome del tenant è stato creato, con `.onmicrosoft.com` aggiunto alla fine. Ad esempio: `yourUserName@yourTenantName.onmicrosoft.com`. Annotare il nome utente specificato. È necessario poter accedere al cluster.
+4. Creare un **nome utente** in base al nome del tenant è stato creato, con `.onmicrosoft.com` aggiunto alla fine. Ad esempio `yourUserName@yourTenantName.onmicrosoft.com`. Annotare il nome utente specificato. È necessario poter accedere al cluster.
 5. Fare clic su **ruolo della Directory** per aprire il riquadro del ruolo di directory e selezionare **amministratore globale** e quindi fare clic su **Ok** nella parte inferiore del riquadro.
 6. Nel **utente** riquadro, fare clic su **Show Password** e registrare la password temporanea. Dopo l'accesso la prima volta, verrà richiesto di ripristinare le impostazioni.
 7. Nella parte inferiore del riquadro, fare clic su **Create** per creare l'utente.
@@ -90,7 +90,7 @@ Per altre informazioni sugli oggetti applicazione di Azure, vedere [dell'applica
 
 Per informazioni dettagliate sulla creazione di una nuova applicazione Azure AD, vedere [registrare un'app con l'endpoint v1.0 di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
 
-## <a name="add-api-permissions"></a>Aggiungere le autorizzazioni API
+## <a name="add-api-permissions"></a>Aggiungere autorizzazioni API
 
 1. Nel **Manage** sezione fare clic su **autorizzazioni delle API**.
 2. Fare clic su **aggiungere l'autorizzazione** e selezionare **Azure Active Directory Graph** quindi **autorizzazioni delegate**

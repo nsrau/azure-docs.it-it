@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39f38af601888f847cd1a82da9e2e03e6893c28e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591546"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607290"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
 
@@ -54,7 +54,7 @@ Nelle macchine virtuali di Azure è possibile concedere in licenza SQL Server us
 
 Con le licenze PAYG, un'istanza del cluster di failover (FCI) di SQL Server nelle macchine virtuali di Microsoft Azure comporta costi per tutti i nodi di FCI, inclusi i nodi passivi. Per ulteriori informazioni, consultare le [tariffe delle Macchine virtuali SQL Server Enterprise](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-I clienti con un contratto Enterprise con Software Assurance hanno il diritto di utilizzare un nodo FCI passivo gratuito per ogni nodo attivo. Per sfruttarne i vantaggi In Azure, utilizzare le immagini di VM BYOL, quindi utilizzare la stessa licenza in entrambi i nodi attivo e passivo dell'istanza FCI. Per altre informazioni, consultare il [Contratto Enterprise](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+I clienti con un contratto Enterprise con Software Assurance hanno il diritto di utilizzare un nodo FCI passivo gratuito per ogni nodo attivo. Per sfruttarne i vantaggi In Azure, utilizzare le immagini di VM BYOL, quindi utilizzare la stessa licenza in entrambi i nodi attivo e passivo dell'istanza FCI. Per altre informazioni, consultare il [Contratto Enterprise](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
 Per confrontare le licenze PAYG e BYOL per SQL Server nelle macchine virtuali di Azure, consultare [Introduzione alle VM di SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 

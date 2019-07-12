@@ -2,24 +2,25 @@
 title: Il Centro sicurezza di Azure per la Guida alle indagini sui dispositivi IoT Preview | Microsoft Docs
 description: Questa Guida alle procedure spiega come usare il Centro sicurezza di Azure per IoT per analizzare un dispositivo IoT sospetto usando Log Analitica.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: b18b48ae-b445-48f8-9ac0-365d6e065b64
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 15e65c155a98ae12c156587735d34a16ed2c9109
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 884d001a65962d5e7e6e52dd47ce6ad7e02e1057
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192664"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618129"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Analizzare un dispositivo IoT sospetto
 

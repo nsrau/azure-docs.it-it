@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68be46b406e7a5caaabbc0726a6aece0fd0423ce
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a6935d2a89968b55dec1626d23b3f290261cf66f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472192"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655451"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archivio per le novità in Azure Active Directory
 
@@ -217,7 +217,7 @@ Per altre informazioni su PIM e sulle notifiche di posta elettronica disponibili
 ### <a name="group-based-licensing-is-now-generally-available"></a>Licenze basate sui gruppi ora disponibili a livello generale
 
 **Tipo:** Funzionalità modificata  
-**Categoria di servizio:** Altri  
+**Categoria di servizio:** Altro  
 **Funzionalità del prodotto:** Directory
 
 Le licenze basate sui gruppi sono ora in anteprima pubblica e disponibili a livello generale. Nell'ambito della disponibilità generale questa funzionalità è stata resa più scalabile e sono state aggiunte la possibilità di rielaborare assegnazioni di licenze basate sui gruppi per un singolo utente e quella di usare licenze basate sui gruppi con licenze di Office 365 E3/A3.
@@ -337,7 +337,7 @@ Per iniziare a usare questa esperienza con un clic, passare al **portale di Azur
 ### <a name="azure-active-directory---where-is-your-data-located-page"></a>Azure Active Directory - Pagina Dove vengono archiviati i tuoi dati?
 
 **Tipo:** Nuova funzionalità  
-**Categoria di servizio:** Altri  
+**Categoria di servizio:** Altro  
 **Funzionalità del prodotto:** GoLocal
 
 Selezionare l'area della società nella pagina **Azure Active Directory - Dove vengono archiviati i tuoi dati** per visualizzare il data center di Azure che ospita i dati inattivi di Azure AD per tutti i servizi di Azure AD. È possibile filtrare le informazioni in base ai servizi di Azure AD specifici per l'area della società.
@@ -482,7 +482,7 @@ Per attivare questa visualizzazione aggiornata, fare clic sul collegamento **Pro
 ### <a name="changes-to-azure-active-directory-ip-address-ranges"></a>Modifiche agli intervalli di indirizzi IP di Azure Active Directory
 
 **Tipo:** Modifica prevista  
-**Categoria di servizio:** Altri  
+**Categoria di servizio:** Altro  
 **Funzionalità del prodotto:** Piattaforma
 
 È in corso l'introduzione di intervalli IP più ampi in Azure AD. Ciò indica che se gli intervalli di indirizzi IP di Azure AD per i firewall, i router o i gruppi di sicurezza di rete sono già stati configurati, è necessario aggiornarli. Questo aggiornamento ha lo scopo di evitare altre modifiche alla configurazione degli intervalli IP dei firewall, dei router o dei gruppi di sicurezza di rete quando Azure AD aggiunge nuovi endpoint. 
@@ -606,7 +606,7 @@ Si tratta di una funzionalità in anteprima pubblica con consenso esplicito. Per
 ### <a name="improvements-to-azure-active-directory-email-notifications"></a>Miglioramenti alle notifiche di posta elettronica di Azure Active Directory
 
 **Tipo:** Funzionalità modificata  
-**Categoria di servizio:** Altri  
+**Categoria di servizio:** Altro  
 **Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
  
 I messaggi di posta elettronica di Azure Active Directory (Azure AD) ora presentano una struttura grafica aggiornata, nonché modifiche all'indirizzo di posta elettronica e al nome visualizzato del mittente, quando vengono inviati dai servizi seguenti:
@@ -928,7 +928,7 @@ Per altre informazioni, vedere [Funzionalità Condizioni per l'utilizzo di Azure
 ### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Nuova guida completa su come distribuire Azure Multi-Factor Authentication
 
 **Tipo:** Nuova funzionalità  
-**Categoria di servizio:** Altri  
+**Categoria di servizio:** Altro  
 **Funzionalità del prodotto:** Protezione e sicurezza delle identità
  
 Sono state rilasciate nuove istruzioni dettagliate su come distribuire Azure Multi-Factor Authentication (MFA) nell'organizzazione.
@@ -1016,7 +1016,7 @@ Gli utenti possono ora accedere alle applicazioni tramite URL interni quando si 
 ### <a name="azure-active-directory---data-in-europe-for-europe-customers"></a>Azure Active Directory - Dati in Europa per i clienti europei
 
 **Tipo:** Nuova funzionalità  
-**Categoria di servizio:** Altri  
+**Categoria di servizio:** Altro  
 **Funzionalità del prodotto:** GoLocal
 
 I dati dei clienti in Europa devono restare in Europa e non possono essere replicati al di fuori di data center europei ai fini della conformità alle leggi europee e sulla privacy. Questo [articolo](https://go.microsoft.com/fwlink/?linkid=872328) include i dettagli specifici su quali informazioni sulle identità verranno archiviate in Europa e fornisce anche informazioni sui dati che verranno archiviati al di fuori dei data center europei. 
@@ -1094,7 +1094,7 @@ Per altre informazioni su come inserire l'applicazione nella raccolta di app di 
 ### <a name="new-step-by-step-deployment-guides-for-azure-active-directory"></a>Nuove guide dettagliate alla distribuzione per Azure Active Directory
 
 **Tipo:** Nuova funzionalità  
-**Categoria di servizio:** Altri  
+**Categoria di servizio:** Altro  
 **Funzionalità del prodotto:** Directory
  
 Nuove indicazioni dettagliate su come distribuire Azure Active Directory (Azure AD), tra cui password self-service (SSPR) di reimpostare l'accesso single sign-on (SSO), l'accesso Condizionale, proxy di App, provisioning, Active Directory Federation Services (ADFS) di utenti Autenticazione pass-through (PTA) e ad FS per la sincronizzazione degli hash Password (PHS).
@@ -1189,7 +1189,7 @@ Per altre informazioni, vedere [Funzione Condizioni per l'utilizzo di Azure Acti
 ### <a name="azure-ad-connect-health-risky-ip-for-ad-fs-extranet-lockout-protection"></a>Azure AD Connect Health: IP a rischio per la protezione tramite blocco della Extranet di AD FS 
 
 **Tipo:** Nuova funzionalità  
-**Categoria di servizio:** Altri  
+**Categoria di servizio:** Altro  
 **Funzionalità del prodotto:** Monitoraggio e creazione report
 
 Connect Health ora supporta la capacità di rilevare gli indirizzi IP che superano una soglia di accessi U/P non riusciti su base oraria o giornaliera. Le funzionalità fornite da questa funzione sono:
@@ -1277,7 +1277,7 @@ Per altre informazioni, consultare [Concedere agli utenti B2B in Azure AD l'acce
 ### <a name="get-sso-integration-tutorials-from-the-azure-marketplace"></a>Esercitazioni per l'integrazione dell'accesso Single Sign-On disponibili in Azure Marketplace
 
 **Tipo:** Funzionalità modificata  
-**Categoria di servizio:** Altri  
+**Categoria di servizio:** Altro  
 **Funzionalità del prodotto:** Integrazione con app di terze parti
 
 Se un'applicazione elencata in [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) supporta l'accesso singolo basato su SAML, facendo clic su **Scarica adesso** si ottiene il tutorial di integrazione associato a tale applicazione. 
@@ -2213,7 +2213,7 @@ Considerando la disponibilità di queste nuove funzionalità, le API di report n
 **Categoria di servizio:** App personali  
 **Funzionalità del prodotto:** Single sign-on  
 
-Azure AD supporta il rilevamento automatico del campo di accesso per le applicazioni che eseguono il rendering di un campo HTML per nome utente e password. Questi passaggi sono illustrati in [Come acquisire manualmente i campi di accesso per un'applicazione](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application). È possibile trovare questa funzionalità aggiungendo un'applicazione *non nella raccolta* nella pagina **Applicazioni aziendali** del [portale di Azure](https://aad.portal.azure.com). È anche possibile configurare la modalità **Single Sign-On** in questa nuova applicazione impostandola su **Accesso Single Sign-On basato su password**, immettere un URL Web e quindi salvare la pagina.
+Azure AD supporta il rilevamento automatico del campo di accesso per le applicazioni che eseguono il rendering di un campo HTML per nome utente e password. Questi passaggi sono illustrati in [Come acquisire manualmente i campi di accesso per un'applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications-problems#manually-capture-sign-in-fields-for-an-app). È possibile trovare questa funzionalità aggiungendo un'applicazione *non nella raccolta* nella pagina **Applicazioni aziendali** del [portale di Azure](https://aad.portal.azure.com). È anche possibile configurare la modalità **Single Sign-On** in questa nuova applicazione impostandola su **Accesso Single Sign-On basato su password**, immettere un URL Web e quindi salvare la pagina.
  
 A causa di un problema del servizio, questa funzionalità è stata temporaneamente disabilitata. Il problema è stato risolto e il rilevamento automatico del campo di accesso è nuovamente disponibile.
 

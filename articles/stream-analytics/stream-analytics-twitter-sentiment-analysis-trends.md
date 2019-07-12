@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f24ad348c681609392f83af894bf774dbee226bc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60763229"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620847"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analisi del sentiment su Twitter in tempo reale in Analisi di flusso di Azure
 
@@ -232,9 +232,9 @@ Ora che gli eventi tweet vengono trasmessi in flusso in tempo reale da Twitter, 
 
 ## <a name="specify-the-job-query"></a>Specificare la query del processo
 
-Analisi di flusso supporta un semplice modello di query dichiarativa per descrivere le trasformazioni. Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx).  Questa esercitazione permette di creare e testare diverse query su dati di Twitter.
+Analisi di flusso supporta un semplice modello di query dichiarativa per descrivere le trasformazioni. Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di analisi dei flussi di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  Questa esercitazione permette di creare e testare diverse query su dati di Twitter.
 
-Per confrontare il numero di menzioni tra gli argomenti, è possibile usare una [finestra a cascata](https://msdn.microsoft.com/library/azure/dn835055.aspx) per ottenere il conteggio delle menzioni per argomento ogni cinque secondi.
+Per confrontare il numero di menzioni tra gli argomenti, è possibile usare una [finestra a cascata](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) per ottenere il conteggio delle menzioni per argomento ogni cinque secondi.
 
 1. Chiudere il pannello **Input** se non si è già fatto.
 
@@ -266,7 +266,7 @@ Per confrontare il numero di menzioni tra gli argomenti, è possibile usare una 
 
     Se non si è usato `TwitterStream` come alias per l'input, sostituire l'alias per `TwitterStream` nella query.  
 
-    In questa query viene usata la parola chiave **TIMESTAMP BY** per specificare un campo di timestamp nel payload da usare nel calcolo temporale. Se il campo non è stato specificato, l'operazione di windowing viene eseguita usando l'ora in cui ogni evento è arrivato all'hub eventi. Altre informazioni sono disponibili nella sezione relativa a tempo di arrivo e tempo di applicazione nelle [informazioni di riferimento sulle query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+    In questa query viene usata la parola chiave **TIMESTAMP BY** per specificare un campo di timestamp nel payload da usare nel calcolo temporale. Se il campo non è stato specificato, l'operazione di windowing viene eseguita usando l'ora in cui ogni evento è arrivato all'hub eventi. Altre informazioni sono disponibili nella sezione relativa a tempo di arrivo e tempo di applicazione nelle [informazioni di riferimento sulle query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
     Questa query accede anche a un timestamp per la fine di ogni finestra usando la proprietà **System.Timestamp**.
 
@@ -348,7 +348,7 @@ Per visualizzare l'output del processo in tempo reale, usare uno strumento come 
 
 ## <a name="create-another-query-to-identify-trending-topics"></a>Creare un'altra query per identificare gli argomenti di tendenza
 
-Un'altra query che è possibile usare per comprendere il sentiment su Twitter si basa su un [finestra temporale scorrevole](https://msdn.microsoft.com/library/azure/dn835051.aspx). Per identificare gli argomenti di tendenza si cercano gli argomenti in cui le menzioni superano un valore soglia entro un determinato periodo di tempo.
+Un'altra query che è possibile usare per comprendere il sentiment su Twitter si basa su un [finestra temporale scorrevole](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics). Per identificare gli argomenti di tendenza si cercano gli argomenti in cui le menzioni superano un valore soglia entro un determinato periodo di tempo.
 
 Ai fini di questa esercitazione, si cercano gli argomenti menzionati più di 20 volte negli ultimi cinque secondi.
 
@@ -379,5 +379,5 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

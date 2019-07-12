@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 37d43dbdd8de66a10a94827e313679dc6ffd220d
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: b0c7c38ebabfdd142394152f735d40320a98dced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490394"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798148"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Ottenere informazioni sull'utilizzo e costi di prenotazione contratto Enterprise Agreement
 
@@ -92,7 +92,7 @@ Nel portale di Azure, passare a [gestione costi + fatturazione](https://portal.a
 
 1. Selezionare l'account di fatturazione.
 2. Fare clic su **utilizzo e costi**.
-3. Fare clic su **Download**.  
+3. Scegliere **Download**.  
 ![Esempio che illustra come scaricare il file di dati CSV sull'utilizzo nel portale di Azure](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
 4. Nelle **Scarica utilizzo e costi** , in **versione 2 per i dettagli dell'utilizzo** , selezionare **tutti gli addebiti (utilizzo e gli acquisti)** e quindi fare clic su Scarica. Ripetere la procedura per **ammortizzato addebiti (utilizzo e gli acquisti)** .
 
@@ -120,7 +120,7 @@ Ottenere i dati di costo ammortizzato e filtro per un ordine di prenotazione med
 
 - Risorse (ad esempio una macchina virtuale)
 - Gruppo di risorse
-- `Tags`
+- Tag
 - Sottoscrizione
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>Ottenere la frequenza combinata per il chargeback
@@ -139,17 +139,17 @@ Ottenere i dati dei costi Amortized e filtrare i dati per un'istanza riservata. 
 2. Ottenere i costi di prenotazione. Somma i _costo_ valori da ottenere il valore monetario di ciò che hai pagato per l'istanza riservata. Include i costi utilizzati e inutilizzati della prenotazione.
 3. Esegue la sottrazione dei costi di prenotazione dai costi stimati con pagamento a consumo per ottenere i risparmi stimati.
 
-## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>Gli acquisti di prenotazioni e ripartirli in analisi dei costi di Azure
+## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Gli acquisti di prenotazioni e ripartirli in analisi dei costi
 
-Costo delle istanze riservate sono disponibile nel [modalità di anteprima di analisi dei costi Azure](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis). Per impostazione predefinita, la visualizzazione di dati di costo è per il costo effettivo. È possibile passare a costo ammortizzato. Di seguito è riportato un esempio.
+I costi di prenotazione sono disponibili nel [analisi dei costi](https://aka.ms/costanalysis). Per impostazione predefinita, Mostra analisi dei costi **Actual cost**, ovvero come i costi verranno visualizzati nella fattura. Per visualizzare gli acquisti di prenotazioni suddivisi e associati alle risorse su cui è usato il vantaggio, passare a **Amortized cost**:
 
 ![Esempio che illustra la selezione di costo ammortizzato nell'analisi dei costi](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Applicare filtri per visualizzare gli addebiti per un tipo di prenotazione o costi. Raggruppa in base a nome prenotazione per visualizzare i costi per le prenotazioni.
+Raggruppa per tipo di addebito per visualizzare un'interruzione verso il basso di utilizzo, gli acquisti e rimborsi; o per la prenotazione per una suddivisione dei costi di prenotazione e on demand. Tenere presente i costi di prenotazione solo che verrà visualizzato quando si esaminano i costi effettivi sono gli acquisti, ma verranno allocati i costi per le singole risorse cui usato comporti quando si esaminano costo ammortizzato. Si noterà anche una nuova **UnusedReservation** applicato un addebito tipo quando si esaminano amortized cost.
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

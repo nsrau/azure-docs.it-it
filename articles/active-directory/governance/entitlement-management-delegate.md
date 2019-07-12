@@ -3,8 +3,8 @@ title: Delegare le attività di gestione dei diritti di Azure AD (anteprima) - A
 description: Informazioni sui ruoli che è possibile assegnare a delegare le attività di gestione dei diritti di Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/07/2019
-ms.author: rolyon
+ms.date: 07/10/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa0be8e2af7644564ba27e6d58fda09b1ae7bc7
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: d4c4933847a39a56084894e5bbd40e166e6b73b6
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191499"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798642"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegare le attività di gestione dei diritti di Azure AD (anteprima)
 
@@ -64,7 +64,7 @@ Ora di ricerca e i reparti marketing possono utilizzare il diritto di gestione. 
 
 Gestione Entitlement presenta i seguenti ruoli che sono specifici per la gestione dei diritti.
 
-| Ruolo | Descrizione |
+| Role | Descrizione |
 | --- | --- |
 | Creatore del catalogo | Creare e gestire cataloghi. In genere un amministratore IT che non è un amministratore globale o un proprietario della risorsa per una raccolta di risorse. La persona che crea automaticamente un catalogo diventa proprietario catalogo prima del catalogo e possa aggiungere proprietari catalogo aggiuntivi. |
 | Proprietario catalogo | Modificare e gestire cataloghi esistenti. In genere un amministratore IT o i proprietari delle risorse o un utente che è designato il proprietario del catalogo. |
@@ -84,7 +84,7 @@ La tabella seguente elenca le attività che possono eseguire questi ruoli.
 | [Modifica di un catalogo](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
 | [Eliminare un catalogo](entitlement-management-catalog-create.md#delete-a-catalog) |  | :heavy_check_mark: |  |  |
 | [Aggiungere un proprietario del catalogo o un package manager l'accesso a un catalogo](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
-| [Creare un nuovo pacchetto di accesso in un catalogo](entitlement-management-access-package-create.md) |  | :heavy_check_mark: |  |  |
+| [Creare un nuovo pacchetto di accesso in un catalogo](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
 | [Gestire i ruoli delle risorse in un pacchetto di accesso](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Specificare chi può richiedere un pacchetto di accesso](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Assegnare un utente direttamente a un pacchetto di accesso](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |

@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5d4657f87b0a6cbae0699c5a2f95773ff55f633
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235951"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798440"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Panoramica di Configurazione stato di Automazione di Azure
 
@@ -81,6 +81,10 @@ Se i nodi si trovano all'interno di una rete privata, le porte e gli URL seguent
 * URL globale: *.azure-automation.net
 * URL globale di US Gov Virginia: *.azure-automation.us
 * Servizio agente: https://\<workspaceId\>.agentsvc.azure-automation.net
+
+Ciò offre connettività di rete per il nodo gestito comunicare con automazione di Azure.
+Se si usano le risorse DSC che comunicano tra i nodi, ad esempio la [le risorse WaitFor *](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), è necessario anche consentire il traffico tra i nodi.
+Vedere la documentazione per ogni risorsa DSC comprendere i requisiti di rete.
 
 #### <a name="proxy-support"></a>Supporto per il proxy
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 00147002317f15345f01c88e81973837d16e6669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8eedea2e867dd2a5e2d9cf7e92f47c007bc48af1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797615"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707093"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemi comuni e soluzioni per Azure IoT Edge
 
@@ -288,7 +288,7 @@ Quando viene visualizzato questo errore, è possibile risolvere il problema conf
 Hub di IoT Edge, che fa parte del runtime di IoT Edge, è ottimizzato per le prestazioni per impostazione predefinita e tenta di allocare grandi blocchi di memoria. Questa ottimizzazione non è ideale per i dispositivi Edge con limiti e può causare problemi di stabilità.
 
 ### <a name="resolution"></a>Risoluzione
-Per l'hub di IoT Edge, impostare una variabile di ambiente **OptimizeForPerformance** al **false**. A questo scopo è possibile procedere in due modi:
+Per l'hub di IoT Edge, impostare una variabile di ambiente **OptimizeForPerformance** al **false**. Questo risultato può essere raggiunto in due modi:
 
 Nell'interfaccia utente: 
 
@@ -343,6 +343,8 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 Per motivi di sicurezza, il daemon di IoT Edge impone l'identificazione del processo a tutti i moduli che si connettono a edgeHub. Verifica che tutti i messaggi inviati da un modulo provengano dall'ID del processo principale del modulo. Se viene inviato un messaggio da un modulo da un ID di processo diverso rispetto a quello inizialmente stabilito, rifiuterà il messaggio con un messaggio di errore 404.
 
 ### <a name="resolution"></a>Risoluzione
+A partire dalla versione 1.0.7, tutti i processi di modulo sono autorizzati a connettersi. Se l'aggiornamento a 1.0.7 non è possibile, completare i passaggi seguenti. Per altre informazioni, vedere la [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+
 Verificare che il modulo IoT Edge personalizzato usi sempre lo stesso ID di processo per inviare messaggi a edgeHub. Ad esempio, verificare di aver `ENTRYPOINT` invece di `CMD` comando nel file di Docker, perché `CMD` porterà a un unico processo ID per il modulo e un altro ID di processo per il comando di bash in esecuzione il programma principale mentre `ENTRYPOINT` comporterà un ID del singolo processo.
 
 
@@ -380,7 +382,7 @@ L'esempio precedente imposta il server DNS a un servizio DNS accessibile pubblic
 
 Posizione `daemon.json` nella posizione appropriata per la tua piattaforma: 
 
-| Piattaforma | Località |
+| Piattaforma | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Host di Windows con i contenitori Windows | `C:\ProgramData\iotedge-moby\config` |

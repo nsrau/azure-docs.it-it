@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 03cb3f2339dda1bf1dbb510b686882e924a98d74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: cf26455ce069294bd1c5a52306ed21019287a0df
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118692"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786276"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di archiviazione di Azure Explorer
 
@@ -59,7 +59,7 @@ Se non si dispone di un ruolo di concessione di alcuna gestione delle autorizzaz
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Cosa accade se non è possibile ottenere la gestione delle autorizzazioni di livello dal mio amministratore necessario?
 
-Non abbiamo ancora una soluzione di RBAC in questo momento. In alternativa, è possibile richiedere un URI SAS [collegare alla risorsa](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas).
+Non abbiamo ancora una soluzione di RBAC in questo momento. In alternativa, è possibile richiedere un URI SAS [collegare alla risorsa](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Errore: certificato autofirmato nella catena di certificati (ed errori simili)
 

@@ -7,19 +7,19 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
-ms.openlocfilehash: 70593bffbf30b3a0c0978e56c2af1a856a22f2ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86f8c099061cd3b75b77330c567f34dea2b34928
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563020"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657591"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montare un volume gitRepo in Istanze di Azure Container
 
 Informazioni su come montare un volume *gitRepo* per clonare un repository Git in Istanze di Container.
 
 > [!NOTE]
-> Il montaggio di un volume *gitRepo* è attualmente limitato ai contenitori di Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di Azure Container).
+> Il montaggio di un volume *gitRepo* è attualmente limitato ai contenitori di Linux. Microsoft sta lavorando per trasferire tutte le funzionalità in contenitori Windows, è possibile trovare le differenze di piattaforma corrente nel [Panoramica](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="gitrepo-volume"></a>Volume gitRepo
 
@@ -29,15 +29,15 @@ Quando si monta un volume *gitRepo*, è possibile impostare tre proprietà per c
 
 | Proprietà | Obbligatorio | Descrizione |
 | -------- | -------- | ----------- |
-| `repository` | Yes | URL completo, incluso `http://` o `https://`, del repository Git da clonare.|
+| `repository` | Sì | URL completo, incluso `http://` o `https://`, del repository Git da clonare.|
 | `directory` | No | Directory in cui clonare il repository. Il percorso non deve contenere né iniziare con "`..`".  Se si specifica "`.`", il repository viene clonato nella directory del volume. In caso contrario il repository Git viene clonato in una sottodirectory del nome dato all'interno della directory del volume. |
 | `revision` | No | Hash commit della revisione da clonare. Se non specificato, la revisione `HEAD` viene clonata. |
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>Montare un volume gitRepo: Interfaccia della riga di comando di Azure
 
-Per montare un volume gitRepo quando si distribuiscono le istanze di contenitore con l'[interfaccia della riga di comando di Azure](/cli/azure), fornire i parametri `--gitrepo-url` e `--gitrepo-mount-path` al comando [az container create][az-container-create]. Facoltativamente, è possibile specificare la directory del volume in cui eseguire la clonazione (`--gitrepo-dir`) e l'hash commit della revisione da clonare (`--gitrepo-revision`).
+Per montare un volume gitRepo quando si distribuiscono le istanze di contenitore con il [Azure CLI](/cli/azure), fornire il `--gitrepo-url` e `--gitrepo-mount-path` parametri per il [crea contenitore di az][az-container-create] comando. Facoltativamente, è possibile specificare la directory del volume in cui eseguire la clonazione (`--gitrepo-dir`) e l'hash commit della revisione da clonare (`--gitrepo-revision`).
 
-Questo comando di esempio Clona Microsoft [aci-helloworld] [ aci-helloworld] nell'applicazione di esempio `/mnt/aci-helloworld` nell'istanza di contenitore:
+Questo comando di esempio Clona Microsoft [aci-helloworld][aci-helloworld] applicazione di esempio `/mnt/aci-helloworld` nell'istanza di contenitore:
 
 ```azurecli-interactive
 az container create \
@@ -50,7 +50,7 @@ az container create \
     --gitrepo-mount-path /mnt/aci-helloworld
 ```
 
-Per verificare che il volume gitRepo sia stato montato, avviare una shell nel contenitore con [az container exec][az-container-exec] ed elencare la directory:
+Per verificare il volume gitRepo è stato montato, avviare una shell nel contenitore con [exec di contenitore di az][az-container-exec] ed elencare la directory:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh

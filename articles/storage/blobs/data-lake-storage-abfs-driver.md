@@ -9,12 +9,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 57cda4d07315c6c37c2ce51f530fb081949b628c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abe3f67141011c765f9de93bcf51998ddae002cb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939493"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696133"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Driver del file system del BLOB di Azure: un driver di Archiviazione di Azure dedicato per Hadoop
 
@@ -59,7 +59,7 @@ I dettagli di tutte le voci di configurazione supportate sono riportati nella [d
 
 ### <a name="hadoop-documentation"></a>Documentazione di Hadoop
 
-Informazioni dettagliate sul driver ABFS sono disponibili nella [documentazione ufficiale di Hadoop](https://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+Informazioni dettagliate sul driver ABFS sono disponibili nella [documentazione ufficiale di Hadoop](https://github.com/apache/hadoop/blob/trunk/hadoop-tools/hadoop-azure/src/site/markdown/abfs.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,21 +1,20 @@
 ---
-title: Visualizzare gli esperimenti con il servizio Azure Machine Learning e TensorBoard
+title: Visualizzare esperimenti con TensorBoard
+titleSuffix: Azure Machine Learning service
 description: Avviare TensorBoard per visualizzare le cronologie di esecuzione dell'esperimento e identificare potenziali aree utili per iperparametri ottimizzazione e la ripetizione del training.
 services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: article
 author: maxluk
 ms.author: maxluk
-ms.reviewer: nibaccam
-ms.service: machine-learning
-ms.component: core
-ms.workload: data-services
-ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: babd4cdf8b7ed9e04b4bd975d840688b27439c4f
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: fde2b6d1d298e89227951c376d584452fbff2679
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560861"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707060"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizzare le esecuzioni dell'esperimento e le metriche con TensorBoard e Azure Machine Learning
 

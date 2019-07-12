@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: a0846a7d03cc2f63af6747c8b8514b563c1d4a5d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4e19b916553912e36f2c3beee3f6a518b244e4d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447810"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707011"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Cenni preliminari su Azure SQL Database managed i limiti delle risorse di istanza
 
@@ -37,11 +37,11 @@ Istanza gestita di Database SQL Azure può essere distribuito in due generazioni
 |   | **Quarta generazione** | **Quinta generazione** |
 | --- | --- | --- |
 | Hardware | Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico) | Processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz, unità SSD NVMe veloce, vCore = 1 LP (hyperthread) |
-| vCore | 8, 16, 24 vCore | 4, 8, 16, 24, 32, 40, 64, 80 Vcore |
-| Memoria (percentuale di memoria/core) | 7 GB per vCore | 5,1 GB per vCore |
+| Numero di Vcore | 8, 16, 24 vCore | 4, 8, 16, 24, 32, 40, 64, 80 Vcore |
+| Memoria massima (rapporto memoria/core) | 7 GB per vCore<br/>Aggiungi numero maggiore di Vcore per ottenere maggiore quantità di memoria. | 5,1 GB per vCore<br/>Aggiungi numero maggiore di Vcore per ottenere maggiore quantità di memoria. |
 | Memoria di OLTP In memoria max | Limite di istanze: 3 GB per vCore<br/>Limiti del database:<br/> -8 core: 8 GB per ogni database<br/> -16 core: 20 GB per ogni database<br/> -24 core: 36 GB per ogni database | Limite di istanze: 2,5 GB per vCore<br/>Limiti del database:<br/> -8 core: 13 GB per ogni database<br/> -16 core: 32 GB per ogni database |
-| Archiviazione istanza massimo (generico) |  8 TB | 8 TB |
-| Istanza spazio di archiviazione massimo (Business Critical) | 1 TB | 1 TB, 2 TB o 4 TB in base al numero di core |
+| Istanza massima riservata archiviazione (generico) |  8 TB | 8 TB |
+| Istanza massima riservata archiviazione (Business Critical) | 1 TB | 1 TB, 2 TB o 4 TB in base al numero di core |
 
 > [!IMPORTANT]
 > I nuovi database Gen4 non sono più supportati nell'area AustraliaEast.
@@ -53,16 +53,16 @@ Istanza gestita ha due livelli di servizio: Utilizzo generico e Business Critica
 | **Funzionalità** | **Utilizzo generico** | **Business Critical** |
 | --- | --- | --- |
 | Numero di vCore\* | Quarta generazione: 8, 16, 24<br/>Quinta generazione: 4, 8, 16, 24, 32, 40, 64, 80 | Quarta generazione: 8, 16, 24, 32 <br/> Quinta generazione: 4, 8, 16, 24, 32, 40, 64, 80 |
-| Memoria | Quarta generazione: 56 GB - 168 GB (7GB/vCore)<br/>Quinta generazione: GB 40,8-408 GB (5.1 GB/vCore) | Quarta generazione: 56 GB - 168 GB (7GB/vCore)<br/>Quinta generazione: GB 40,8-408 GB (5.1 GB/vCore) |
-| Spazio di archiviazione massimo istanza | -2 TB per 4 Vcore per utilizzo (solo Gen5)<br/>-8 TB per gli altri formati | Quarta generazione: 1 TB <br/> Quinta generazione: <br/>-1 TB per 4, 8, 16 Vcore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
-| Quantità massima di risorse di archiviazione per database | Determinata dalla dimensione massima di archiviazione per ogni istanza | Determinata dalla dimensione massima di archiviazione per ogni istanza |
+| Memoria massima | Quarta generazione: 56 GB - 168 GB (7GB/vCore)<br/>Quinta generazione: GB 40,8-408 GB (5.1 GB/vCore)<br/>Aggiungi numero maggiore di Vcore per ottenere maggiore quantità di memoria. | Quarta generazione: 56 GB - 168 GB (7GB/vCore)<br/>Quinta generazione: GB 40,8-408 GB (5.1 GB/vCore)<br/>Aggiungi numero maggiore di Vcore per ottenere maggiore quantità di memoria. |
+| Istanza max riservato spazio di archiviazione | -2 TB per 4 Vcore per utilizzo (solo Gen5)<br/>-8 TB per gli altri formati | Quarta generazione: 1 TB <br/> Quinta generazione: <br/>-1 TB per 4, 8, 16 Vcore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
+| Dimensioni massime del database | Determinata dalla dimensione massima di archiviazione per ogni istanza | Determinata dalla dimensione massima di archiviazione per ogni istanza |
 | Numero massimo di database per istanza | 100 | 100 |
-| Numero massimo di file di database per istanza | Fino a 280 | 32.767 file per ogni database |
-| Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes).| 11 K - 110 K (1375/vCore) |
-| Velocità effettiva di log | 3 MB/s per ogni vCore<br/>Max 22 MB/s per ogni istanza | 4 MB al secondo per vCore<br/>Numero massimo 48 MB/s per ogni istanza|
-| Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes). | N/D |
-| Latenza di I/O (approssimativa) | 5-10 ms | 1-2 ms |
-| Dimensioni max di tempDB | 192 - 1.920 GB (24 GB per vCore) | Nessun vincolo; limitato dalla dimensione massima di archiviazione dell'istanza |
+| Numero massimo di file di database per ogni istanza | Fino a 280 | 32.767 file per ogni database |
+| Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[Aumento dimensioni file per ottenere ulteriori operazioni di IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore)<br/>Aggiungi numero maggiore di Vcore per ottenere migliorate prestazioni dei / o. |
+| Limite di velocità effettiva di scrittura log | 3 MB/s per ogni vCore<br/>Max 22 MB/s per ogni istanza | 4 MB al secondo per vCore<br/>Numero massimo 48 MB/s per ogni istanza|
+| Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[Aumentare le dimensioni del file per ottenere migliorate prestazioni dei / o](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/D |
+| Latenza di archiviazione dei / o (approssimativa) | 5-10 ms | 1-2 ms |
+| Dimensioni max di tempDB | 192 - 1.920 GB (24 GB per vCore)<br/>Aggiungi numero maggiore di Vcore per ottenere più spazio di TempDB. | Limitato dalle dimensioni memoria massime istanza. Dimensioni file di log TempDB sono attualmente limitata a 24GB/vCore. |
 | Numero massimo di sessioni | 30000 | 30000 |
 
 > [!NOTE]

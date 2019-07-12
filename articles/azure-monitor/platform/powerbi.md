@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/01/219
+ms.date: 05/01/2019
 ms.author: bwren
-ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b1627306f1a8e9d9285c72118bfebdcb53d369b
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234193"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626109"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importare i dati di log di monitoraggio di Azure in Power BI
 
@@ -28,12 +28,12 @@ ms.locfileid: "65234193"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>Panoramica
-Per importare dati da un [dell'area di lavoro di Log Analitica](manage-access.md) in Monitoraggio di Azure in Power BI, si crea un set di dati in Power BI basato su un [query log](../log-query/log-query-overview.md) in Monitoraggio di Azure.  La query viene eseguita ogni volta che viene aggiornato il set di dati.  È quindi possibile creare report di Power BI basati sui dati provenienti dal set di dati.  Per creare il set di dati in Power BI, esportare la query da Log Analytics nella [lingua di Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx)  e usarla per creare una query in Power BI Desktop e pubblicarla in Power BI come set di dati.  Di seguito sono descritti i dettagli relativi a questo processo.
+Per importare dati da un [dell'area di lavoro di Log Analitica](manage-access.md) in Monitoraggio di Azure in Power BI, si crea un set di dati in Power BI basato su un [query log](../log-query/log-query-overview.md) in Monitoraggio di Azure.  La query viene eseguita ogni volta che viene aggiornato il set di dati.  È quindi possibile creare report di Power BI basati sui dati provenienti dal set di dati.  Per creare il set di dati in Power BI, esportare la query da Log Analytics nella [lingua di Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification)  e usarla per creare una query in Power BI Desktop e pubblicarla in Power BI come set di dati.  Di seguito sono descritti i dettagli relativi a questo processo.
 
 ![Log Analytics in Power BI](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>Esportare la query
-Iniziare creando un [query di log](../log-query/log-query-overview.md) che restituisce i dati che si desidera popolare il set di dati di Power BI.  Esportare quindi la query nella [lingua di Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx), in modo che possa essere usata da Power BI Desktop.
+Iniziare creando un [query di log](../log-query/log-query-overview.md) che restituisce i dati che si desidera popolare il set di dati di Power BI.  Esportare quindi la query nella [lingua di Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification), in modo che possa essere usata da Power BI Desktop.
 
 1. [Creare la query di log in Log Analitica](../log-query/get-started-portal.md) per estrarre i dati per il set di dati.
 2. Selezionare **esportare** > **Power BI Query (M)** .  Ciò consente di esportare la query in un file di testo denominato **Powerbiquery**. 

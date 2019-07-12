@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 406bd11765e4b580849e8719939c3e11c19d99a8
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591329"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604558"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Usare modelli di avvio rapido di Azure per configurare gruppi di disponibilità AlwaysOn per SQL Server in una VM di Azure
 Questo articolo descrive come usare i modelli di avvio rapido di Azure per automatizzare parzialmente la distribuzione di una configurazione di gruppo di disponibilità Always On per macchine virtuali di SQL Server in Azure. In questo processo vengono usati due modelli di avvio rapido di Azure. 
@@ -38,7 +38,7 @@ Altre parti della configurazione del gruppo di disponibilità devono essere eseg
 Per automatizzare la configurazione di un gruppo di disponibilità Always On usando i modelli di avvio rapido sono necessari i prerequisiti seguenti: 
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
 - Un gruppo di risorse con un controller di dominio. 
-- Una o più [macchine virtuali in Azure che eseguono SQL Server 2016 (o superiore) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) aggiunte al dominio, nella stessa zona di disponibilità o set di disponibilità[ registrato con il provider di risorse di macchine virtuali SQL](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- Una o più [macchine virtuali in Azure che eseguono SQL Server 2016 (o superiore) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) aggiunte al dominio, nella stessa zona di disponibilità o set di disponibilità[ registrato con il provider di risorse di macchine virtuali SQL](virtual-machines-windows-sql-register-with-resource-provider.md).  
 - (Non usato da qualsiasi entità) disponibili due indirizzi IP, uno per il bilanciamento del carico interno e uno per il listener del gruppo di disponibilità all'interno della stessa subnet del gruppo di disponibilità. Se viene usato un bilanciamento del carico esistente, è necessario un solo indirizzo IP disponibile.  
 
 ## <a name="permissions"></a>Autorizzazioni
@@ -95,7 +95,7 @@ Always On listener gruppo di disponibilità (AG) richiede un interno Azure (bila
 4. Nel pannello **Servizio di bilanciamento del carico** fare clic su**Crea**.
 5. Bella finestra di dialogo **Crea servizio di bilanciamento del carico** configurare il servizio di bilanciamento del carico come segue:
 
-   | Impostazione | Value |
+   | Impostazione | Valore |
    | --- | --- |
    | **Nome** |Nome che rappresenta il servizio di bilanciamento del carico. Ad esempio **sqlLB**. |
    | **Tipo** |**Interna**: La maggior parte delle implementazioni usa un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterna**: consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
@@ -105,7 +105,7 @@ Always On listener gruppo di disponibilità (AG) richiede un interno Azure (bila
    | **Indirizzo IP privato** | Specificare un indirizzo IP disponibile della subnet. |
    | **Sottoscrizione** |Se si hanno più sottoscrizioni, può essere visualizzato questo campo. Selezionare la sottoscrizione da associare a questa risorsa. In genere è la stessa sottoscrizione di tutte le risorse del gruppo di disponibilità. |
    | **Gruppo di risorse** |Selezionare il gruppo di risorse in cui si trovano le istanze di SQL Server. |
-   | **Posizione** |Selezionare il percorso di Azure in cui si trovano le istanze di SQL Server. |
+   | **Location** |Selezionare il percorso di Azure in cui si trovano le istanze di SQL Server. |
    | &nbsp; | &nbsp; |
 
 6. Selezionare **Create**. 
@@ -133,7 +133,7 @@ Per configurare l'ILB e creare il listener AG, eseguire le operazioni seguenti:
 
     La tabella seguente mostra i valori necessari per il modello: 
 
-   | **Campo** | Value |
+   | **Campo** | Valore |
    | --- | --- |
    |**Gruppo di risorse** | Gruppo di risorse in cui si trovano le VM di SQL Server e il gruppo di disponibilità. | 
    |**Existing Failover Cluster Name** (Nome cluster di failover esistente) | Nome del cluster a cui sono aggiunte le VM di SQL Server. |
@@ -190,7 +190,7 @@ Questo errore può essere causato da uno di due motivi. L'account di dominio spe
 
     ![Un account utente vuoto indica un UPN mancante](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
-5. Immettere il **Nome accesso utente** corrispondente al nome dell'utente e quindi selezionare il dominio appropriato nell'elenco a discesa. 
+5. Immettere il **nome di accesso utente** per associare il nome dell'utente, quindi selezionare il dominio appropriato dall'elenco a discesa. 
 6. Selezionare **Applica** per salvare le modifiche e chiudere la finestra di dialogo selezionando **OK**. 
 
    Dopo aver apportato queste modifiche, tentare di distribuire il modello di avvio rapido di Azure ancora una volta. 
@@ -199,7 +199,7 @@ Questo errore può essere causato da uno di due motivi. L'account di dominio spe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere gli articoli seguenti: 
+Per altre informazioni, vedere i seguenti articoli: 
 
 * [Cos'è SQL Server in Macchine virtuali di Azure?](virtual-machines-windows-sql-server-iaas-overview.md)
 * [Domande frequenti su SQL Server in esecuzione in macchine virtuali Windows in Azure](virtual-machines-windows-sql-server-iaas-faq.md)

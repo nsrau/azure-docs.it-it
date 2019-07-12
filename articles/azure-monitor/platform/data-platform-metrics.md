@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 319def9072dbf38eff44ca4459428f1ef99a2b54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 684491b546a0456d936ae199cdfb93180aa05043
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64867973"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607034"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metriche in Monitoraggio di Azure
 
@@ -33,7 +33,7 @@ La tabella seguente elenca i diversi modi, che è possibile usare i dati delle m
 
 |  |  |
 |:---|:---|
-| Analizzare | Uso [Esplora metriche](metrics-charts.md) per analizzare le metriche raccolte in un grafico e confrontare le metriche da diverse risorse. |
+| Analyze | Uso [Esplora metriche](metrics-charts.md) per analizzare le metriche raccolte in un grafico e confrontare le metriche da diverse risorse. |
 | Visualizzazione | Aggiungere un grafico da Esplora metriche per un [dashboard Azure](../learn/tutorial-app-dashboards.md).<br>Creare un [cartella di lavoro](../app/usage-workbooks.md) da combinare con più set di dati in un report interattivo. Esportare i risultati di una query sul [Grafana](grafana-plugin.md) per sfruttare la creazione di dashboard e si combina con altre origini dati. |
 | Avviso | Configurare un [regola di avviso metrica](alerts-metric.md) che invia una notifica o esegue [azione automatica](action-groups.md) quando il valore della metrica supera una soglia. |
 | Automatizzare |  Uso [scalabilità automatica](autoscale-overview.md) per aumentare o ridurre le risorse in base a un valore della metrica che supera una soglia. |

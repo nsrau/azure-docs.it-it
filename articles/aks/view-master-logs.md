@@ -2,17 +2,17 @@
 title: Visualizzare i log del controller del servizio Azure Kubernetes
 description: Informazioni su come abilitare e visualizzare i log per il nodo master di Kubernetes nel servizio Azure Kubernetes
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: iainfou
-ms.openlocfilehash: 256101cce5588f56a8094a7a9a98e5fe69e6ec73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: ef77b991461c5d9640cbab9d53f8393540f47c9b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497268"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613916"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Abilitare e controllare i log del nodo master di Kubernetes nel servizio Azure Kubernetes
 
@@ -20,11 +20,11 @@ Con il servizio Azure Kubernetes, i componenti master, ad esempio *kube-apiserve
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo richiede un cluster del servizio Azure Kubernetes esistente in esecuzione nel proprio account di Azure. Se non si dispone ancora di un cluster del servizio Azure Kubernetes, crearne uno usando l'[interfaccia della riga di comando di Azure][cli-quickstart] oppure il [portale di Azure][portal-quickstart]. I log di Monitoraggio di Azure funzionano con cluster del servizio Azure Kubernetes abilitati per il Controllo degli accessi in base al ruolo e non abilitati.
+Questo articolo richiede un cluster del servizio Azure Kubernetes esistente in esecuzione nel proprio account di Azure. Se si dispone già di un cluster del servizio contenitore di AZURE, crearne una usando il [Azure CLI][cli-quickstart] or [Azure portal][portal-quickstart]. I log di Monitoraggio di Azure funzionano con cluster del servizio Azure Kubernetes abilitati per il Controllo degli accessi in base al ruolo e non abilitati.
 
 ## <a name="enable-diagnostics-logs"></a>Abilitare la registrazione diagnostica
 
-Per raccogliere e rivedere i dati da più origini, i log di Monitoraggio di Azure forniscono un linguaggio di query e un motore di analisi che offrono informazioni dettagliate per l'ambiente in uso. Viene usata un'area di lavoro per collazionare e analizzare i dati che possa integrarsi con altri servizi di Azure, ad esempio Application Insights e Centro sicurezza. Per usare una piattaforma diversa per analizzare i log, è possibile scegliere di inviare i log di diagnostica a un account di archiviazione di Azure o a un hub eventi. Per altre informazioni, vedere [Analizzare i dati di log in Monitoraggio di Azure][log-analytics-overview].
+Per raccogliere e rivedere i dati da più origini, i log di Monitoraggio di Azure forniscono un linguaggio di query e un motore di analisi che offrono informazioni dettagliate per l'ambiente in uso. Viene usata un'area di lavoro per collazionare e analizzare i dati che possa integrarsi con altri servizi di Azure, ad esempio Application Insights e Centro sicurezza. Per usare una piattaforma diversa per analizzare i log, è possibile scegliere di inviare i log di diagnostica a un account di archiviazione di Azure o a un hub eventi. Per altre informazioni, vedere [What ' s i log di monitoraggio di Azure?][log-analytics-overview].
 
 Log di monitoraggio di Azure sono abilitate e gestiti nel portale di Azure. Per abilitare la raccolta dei log per i componenti master di Kubernetes nel cluster del servizio Azure Kubernetes, aprire il portale di Azure in un Web browser e completare i passaggi seguenti:
 
@@ -37,15 +37,15 @@ Log di monitoraggio di Azure sono abilitate e gestiti nel portale di Azure. Per 
 1. Quando si è pronti, selezionare **Salva** per abilitare la raccolta dei log selezionati.
 
 > [!NOTE]
-> AKS acquisisce solo i log di controllo per i cluster creati o aggiornati dopo l'attivazione di un flag funzionalità nell’abbonamento. Per registrare il flag funzionalità *AKSAuditLog*, usare il comando [az feature register][az-feature-register] come mostrato nell'esempio seguente:
+> AKS acquisisce solo i log di controllo per i cluster creati o aggiornati dopo l'attivazione di un flag funzionalità nell’abbonamento. Per registrare il *AKSAuditLog* flag delle funzionalità, utilizzare il [register funzionalità az][az-feature-register] seguente come mostrato nell'esempio seguente:
 >
 > `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
 >
-> Attendere la visualizzazione dello stato *Registrato*. È possibile controllare lo stato di registrazione usando il comando [az feature list][az-feature-list]:
+> Attendere la visualizzazione dello stato *Registrato*. È possibile controllarne lo stato di registrazione usando il [elenco delle funzionalità az][az-feature-list] comando:
 >
 > `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
 >
-> Quando si è pronti, aggiornare la registrazione del provider di risorse AKS usando il comando [az provider register][az-provider-register]:
+> Quando si è pronti, aggiornare la registrazione del provider di risorse AKS usando il [register di az provider][az-provider-register] comando:
 >
 > `az provider register --namespace Microsoft.ContainerService`
 
@@ -77,7 +77,7 @@ spec:
     - containerPort: 80
 ```
 
-Creare il pod con il comando [kubectl create][kubectl-create] e specificare il file YAML, come illustrato nell'esempio seguente:
+Creare il pod con il [kubectl create][kubectl-create] di comandi e specificare un file YAML, come illustrato nell'esempio seguente:
 
 ```
 $ kubectl create -f nginx.yaml
@@ -114,7 +114,7 @@ Vengono visualizzati i log specifici per il pod NGINX, come illustrato nello scr
 
 Per visualizzare altri log, è possibile aggiornare la query per il nome di *Categoria* con *kube-controller-manager* oppure *kube-scheduler*, a seconda dei log aggiuntivi che si vuole abilitare. È possibile usare ulteriori istruzioni *where* per definire gli eventi da cercare.
 
-Per altre informazioni su come eseguire una query e filtrare i dati dei log, vedere [Visualizzare o analizzare i dati raccolti con la ricerca log di Log Analytics][analyze-log-analytics].
+Per altre informazioni su come eseguire una query e filtrare i dati dei log, vedere [visualizzare o analizzare i dati raccolti con la ricerca nei log di log analitica][analyze-log-analytics].
 
 ## <a name="log-event-schema"></a>Schema di eventi del log
 
@@ -133,7 +133,7 @@ Per semplificare l'analisi dei dati dei log, la tabella seguente illustra lo sch
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato descritto come abilitare e analizzare i log per i componenti master di Kubernetes nel cluster servizio Azure Kubernetes. Per monitorare ulteriormente e risolvere eventuali problemi, è anche possibile [visualizzare i log di Kubelet] [ kubelet-logs] e [abilitare l'accesso ai nodi SSH][aks-ssh].
+In questo articolo è stato descritto come abilitare e analizzare i log per i componenti master di Kubernetes nel cluster servizio Azure Kubernetes. Per monitorare e risolvere il problema, è anche possibile [visualizzare i log di Kubelet][kubelet-logs] and [enable SSH node access][aks-ssh].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

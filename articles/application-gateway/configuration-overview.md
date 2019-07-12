@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: c5cc39c2f2a7f2a79b8d6bc2bd95506ee5532a84
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86b41bb2554dbefeaeb724e746bcaf757463f8ae
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073970"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795910"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica configurazione del Gateway applicazione
 
@@ -297,6 +297,7 @@ Questa impostazione consente di configurare un percorso di inoltro personalizzat
   | / home/secondhome /          | /pathrule*      | /override/            | / sostituzione/home/secondhome /   |
   | /pathrule/home /            | regola di percorso/home page * | /override/            | /override/                   |
   | regola di percorso/home/secondhome / | regola di percorso/home page * | /override/            | / sostituzione/secondhome /        |
+  | /pathrule/                 | /pathrule/      | /override/            | /override/                   |
 
 ### <a name="use-for-app-service"></a>Utilizzo per il servizio app
 

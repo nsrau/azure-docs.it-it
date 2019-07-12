@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd29fc00a1c25a7c092393591060ca7e2938155
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5d3b8176566593c5c9e9ff63a6ccbafcb2a35cd5
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481277"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67828001"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applicazioni con carattere jolly in Azure Active Directory Application Proxy
 
@@ -45,7 +45,9 @@ Questo articolo offre le informazioni necessarie per configurare la pubblicazion
 
 > http(s)://*.\<domain\>
 
-Ad esempio: `http(s)://*.adventure-works.com`. Anche se gli URL interni ed esterni possono usare domini diversi, la procedura consigliata è quella di usare lo stesso dominio. Quando si pubblica l'applicazione, viene visualizzato un errore se uno degli URL non contiene un carattere jolly.
+Ad esempio: `http(s)://*.adventure-works.com`.
+
+Anche se gli URL interni ed esterni possono usare domini diversi, la procedura consigliata è quella di usare lo stesso dominio. Quando si pubblica l'applicazione, viene visualizzato un errore se uno degli URL non contiene un carattere jolly.
 
 Se sono presenti altre applicazioni con impostazioni di configurazione diverse, è necessario pubblicare queste eccezioni come applicazioni separate per sovrascrivere i valori predefiniti impostati per il carattere jolly. Le applicazioni senza carattere jolly hanno sempre la precedenza sulle applicazioni con carattere jolly. Dal punto di vista della configurazione, si tratta di applicazioni normali.
 
@@ -60,7 +62,7 @@ Per iniziare, assicurarsi di che aver soddisfatto questi requisiti.
 Mentre i [domini personalizzati](application-proxy-configure-custom-domain.md) sono facoltativi per tutte le altre applicazioni, per le applicazioni con carattere jolly costituiscono un prerequisito. Per creare domini personalizzati è necessario:
 
 1. Creare un dominio verificato all'interno di Azure.
-2. Caricare un certificato SSL in formato PFX nel proxy dell'applicazione.
+1. Caricare un certificato SSL in formato PFX nel proxy dell'applicazione.
 
 Può essere opportuno usare un certificato con carattere jolly corrispondente all'applicazione che si intende creare. In alternativa, è anche possibile usare un certificato contenente un elenco di applicazioni specifiche. In questo caso, solo le applicazioni elencate nel certificato saranno accessibili tramite l'applicazione con carattere jolly.
 
@@ -82,11 +84,11 @@ Di seguito sono riportate alcune considerazioni, che è consigliabile prendere i
 
 Per le applicazioni con carattere jolly, il campo **URL interno** deve contenere un valore con formato `http(s)://*.<domain>`.
 
-![Per l'URL interno, usare il formato http (s) :/ / *. < dominio >](./media/application-proxy-wildcard/22.png)
+![Per l'URL interno, usare il formato http (s) :/ / *. \<dominio >](./media/application-proxy-wildcard/22.png)
 
 Quando si configura un valore nel campo **URL esterno**, è necessario usare il formato seguente: `https://*.<custom domain>`
 
-![Per l'URL esterno, usare il dominio di https://*.<custom formato >](./media/application-proxy-wildcard/21.png)
+![Per l'URL esterno, usare il formato https://*. \<dominio personalizzate >](./media/application-proxy-wildcard/21.png)
 
 Altre posizioni del carattere jolly, altre stringhe regex o caratteri jolly multipli non sono supportati e possono causare errori.
 
@@ -95,11 +97,11 @@ Altre posizioni del carattere jolly, altre stringhe regex o caratteri jolly mult
 Per escludere un'applicazione da un'applicazione con carattere jolly, è possibile:
 
 - Pubblicare l'applicazione di eccezione come applicazione normale.
-- Abilitare il carattere jolly solo per applicazioni specifiche tramite le impostazioni DNS.  
+- Abilitare il carattere jolly solo per applicazioni specifiche tramite le impostazioni DNS.
 
 La pubblicazione di un'applicazione come applicazione normale è il metodo preferito per escludere un'applicazione da un'applicazione con carattere jolly. È necessario pubblicare le applicazioni escluse prima delle applicazioni con carattere jolly per garantire che le eccezioni vengano applicate fin dall'inizio. L'applicazione più specifica avrà sempre la precedenza. Un'applicazione pubblicata come `budgets.finance.adventure-works.com` ha la precedenza sull'applicazione `*.finance.adventure-works.com`, che a sua volta ha la precedenza sull'applicazione `*.adventure-works.com`.
 
-È anche possibile limitare l'uso del carattere jolly ad applicazioni specifiche tramite la gestione del DNS. Come procedura consigliata, è necessario creare una voce CNAME contenente un carattere jolly e corrispondente al formato dell'URL esterno configurato. Tuttavia, è possibile in alternativa puntare gli URL di applicazioni specifiche sui caratteri jolly. Ad esempio, anziché `*.adventure-works.com`, puntare `hr.adventure-works.com`, `expenses.adventure-works.com` e `travel.adventure-works.com individually` su `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`. 
+È anche possibile limitare l'uso del carattere jolly ad applicazioni specifiche tramite la gestione del DNS. Come procedura consigliata, è necessario creare una voce CNAME contenente un carattere jolly e corrispondente al formato dell'URL esterno configurato. Tuttavia, è possibile in alternativa puntare gli URL di applicazioni specifiche sui caratteri jolly. Ad esempio, anziché `*.adventure-works.com`, puntare `hr.adventure-works.com`, `expenses.adventure-works.com` e `travel.adventure-works.com individually` su `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`.
 
 Se si usa questa opzione, è necessaria anche un'altra voce CNAME per il valore `AppId.domain`, ad esempio `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, che punti sullo stesso percorso. È possibile trovare il valore **AppId** nella pagina delle proprietà dell'applicazione con carattere jolly:
 
@@ -110,7 +112,7 @@ Se si usa questa opzione, è necessaria anche un'altra voce CNAME per il valore 
 L'applicazione con carattere jolly è rappresentata con un solo riquadro nel [pannello App](https://myapps.microsoft.com). Per impostazione predefinita, questo riquadro è nascosto. Per visualizzare il riquadro e consentire agli utenti di accedere a una pagina specifica:
 
 1. Seguire le linee guida per l'[impostazione dell'URL di una home page](application-proxy-configure-custom-home-page.md).
-2. Impostare **Show Application** (Mostra applicazione) su **true** nella pagina delle proprietà dell'applicazione.
+1. Impostare **Show Application** (Mostra applicazione) su **true** nella pagina delle proprietà dell'applicazione.
 
 ### <a name="kerberos-constrained-delegation"></a>Delega vincolata Kerberos
 

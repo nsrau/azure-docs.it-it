@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
-ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 15f17ac6556c4ff731372dc7f738d0f58bdc3e31
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60323576"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593310"
 ---
 # <a name="custom-reports-from-verizon"></a>Report personalizzati di Verizon
 
@@ -81,7 +81,7 @@ Dopo aver selezionato l'intervallo di date, fare clic su **Go** (Vai) per genera
 | Riscontri                      | Indica il numero totale di richieste inviate al CNAME perimetrale |
 | Misses (Mancati riscontri)                    | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un mancato riscontro nella cache, ad esempio TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS o TCP_MISS. Un mancato riscontro nella cache si verifica quando il contenuto richiesto non è stato memorizzato nella cache del server perimetrale che ha soddisfatto la richiesta. | 
 | No Cache (Nessuna cache)                  | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un codice di stato cache CONFIG_NOCACHE.  |
-| Altri                     | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un codice di stato HTTP che non rientra nell'intervallo 2xx - 5xx. |
+| Altro                     | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un codice di stato HTTP che non rientra nell'intervallo 2xx - 5xx. |
 | Piattaforma                  | Indica la piattaforma che gestisce il traffico del CNAME perimetrale. |
 | Unassigned (Non assegnato)               | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale per il quale non è stato registrato il codice di stato cache o il codice di stato HTTP.  |
 | Uncacheable (Non inseribile nella cache)               | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un codice di stato cache UNCACHEABLE.  |

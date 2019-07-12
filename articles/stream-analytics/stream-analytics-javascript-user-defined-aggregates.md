@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: 6663e3fc48408de83e92f39e8c8070005818852d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6b61ee44d252f76cd1aa5e1790456acb3d7bae5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479559"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620904"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure (anteprima)
  
@@ -90,7 +90,7 @@ Per l'aggregazione definita dall'utente, il tipo di funzione deve essere **UDA J
 
 Tipo specifico supportato dal processo di Analisi di flusso di Azure oppure "Any" se si desidera gestire il tipo nella query.
 
-### <a name="function-name"></a>Nome della funzione
+### <a name="function-name"></a>Nome funzione
 
 Nome dell'oggetto Function corrente. Il nome della funzione deve corrispondere esattamente all'alias dell'aggregazione definita dall'utente (anticipazione: si sta valutando la possibilità di supporto della funzione anonima in GA).
 
@@ -234,5 +234,5 @@ Per ulteriore assistenza, provare il [Forum di Analisi di flusso di Azure](https
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

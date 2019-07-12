@@ -7,15 +7,15 @@ author: DrEsteban
 ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: conceptual
-manager: yuvalm
+manager: gwallace
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
-ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 01e1401c5054eb56d4e2313b5e03ce5a36d1b301
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60687311"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704073"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usare CI/CD con Azure Dev Spaces
 
@@ -79,7 +79,7 @@ Per creare una pipeline da questo file:
 1. Selezionare l'opzione per creare un **New** la pipeline di compilazione.
 1. Selezionare **GitHub** come origine, autorizzare con il proprio account GitHub se necessario, quindi selezionare la _azds_updates_ ramo dalla versione creata tramite fork del repository sampleapp dev-spazi.
 1. Selezionare **configurazione come codice**, o **YAML**, come il modello.
-1. Viene visualizzata una pagina di configurazione per la pipeline di compilazione. Come indicato in precedenza, passare al percorso specifico del linguaggio per il **percorso del file YAML** usando il **...**  pulsante. Ad esempio: `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Viene visualizzata una pagina di configurazione per la pipeline di compilazione. Come indicato in precedenza, passare al percorso specifico del linguaggio per il **percorso del file YAML** usando il **...**  pulsante. Ad esempio `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Andare alla **variabili** scheda.
 1. Aggiungere manualmente _dockerId_ come variabile, corrispondente al nome utente dell'[account amministratore del Registro Azure Container](../../container-registry/container-registry-authentication.md#admin-account) (indicato nei prerequisiti dell'articolo).
 1. Aggiungere manualmente _dockerPassword_ come variabile, corrispondente alla password dell'[account amministratore del Registro Azure Container](../../container-registry/container-registry-authentication.md#admin-account). Assicurarsi di specificare _dockerPassword_ come segreto (selezionando l'icona a forma di lucchetto) per motivi di sicurezza.
@@ -148,7 +148,7 @@ Uri                                           Status
 http://dev.webfrontend.fedcba098.eus.azds.io  Available
 ```
 
-## <a name="deploying-to-production"></a>Distribuzione nell'ambiente di produzione
+## <a name="deploying-to-production"></a>Distribuzione in produzione
 
 Per alzare manualmente il livello una determinata versione a _prod_ usando il sistema CI/CD creato in questa esercitazione:
 1. Passare al **rilasci** sezione sotto **pipeline**.

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b50f98c4abaeda3ac1805b73aa18fe6c29596426
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a0bc1b07ebf1aed55551e37ecc122ff393c0f7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708697"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703908"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
 
@@ -198,7 +198,7 @@ Per altre informazioni su altri possibili attributi, vedere [JSON Web Key (JWK)]
 
 Controllo di accesso per le chiavi gestite da Key Vault fornito a livello di un Key Vault che funge da contenitore delle chiavi. I criteri di controllo di accesso per le chiavi sono distinti dai criteri di controllo di accesso per i segreti presenti nello stesso insieme di credenziali delle chiavi. Gli utenti possono creare uno o più insiemi di credenziali per le chiavi e sono tenuti a mantenere una segmentazione e una gestione delle chiavi appropriate in base allo scenario. Il controllo degli accessi per le chiavi è indipendente dal controllo di accesso per i segreti.  
 
-Le autorizzazioni seguenti possono essere concesse, su base principale utente/servizio, nella voce di controllo di accesso chiavi in un insieme di credenziali. Queste autorizzazioni rispecchiano fedelmente le operazioni consentite su un oggetto chiave:  
+Le autorizzazioni seguenti possono essere concesse, su base principale utente/servizio, nella voce di controllo di accesso chiavi in un insieme di credenziali. Queste autorizzazioni fedelmente le operazioni consentite su un oggetto chiave.  Concedere l'accesso a un'entità servizio in insieme di credenziali delle chiavi è un'operazione onetime e rimarrà lo stesso per tutte le sottoscrizioni di Azure. È possibile usarlo per distribuire tutti i certificati desiderati. 
 
 - Autorizzazioni per le operazioni di gestione delle chiavi
   - *get*: consente di leggere la parte pubblica di una chiave e i relativi attributi
@@ -330,7 +330,7 @@ Sono disponibili altri attributi di sola lettura che sono inclusi in una rispost
 > [!Note] 
 > Se un certificato in Key Vault scade, la chiave e il segreto indirizzabili sono inutilizzabili.  
 
-#### <a name="tags"></a>`Tags`
+#### <a name="tags"></a>Tag
 
  Dizionario specificato dal client di coppie chiave-valore, simile ai tag delle chiavi e dei segreti.  
 
@@ -476,5 +476,4 @@ Per altre informazioni, vedere le operazioni relative ai certificati in [Key Vau
 ## <a name="see-also"></a>Vedere anche
 
 - [Autenticazione, richieste e risposte](authentication-requests-and-responses.md)
-- [Versioni di Key Vault](key-vault-versions.md)
 - [Guida per gli sviluppatori all'insieme di credenziali delle chiavi](/azure/key-vault/key-vault-developers-guide)

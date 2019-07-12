@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179826"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673389"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Configurare l'applicazione per l'accesso all'archiviazione di Azure
 Per autenticare l'applicazione per accedere ai servizi di archiviazione, è possibile procedere in due modi:
@@ -38,11 +38,11 @@ Ecco un esempio di stringa di connessione che usa l'autenticazione con la chiave
 
 ### <a name="shared-access-signatures-sas"></a>Firme di accesso condiviso
 Per un'applicazione mobile, il metodo consigliato per autenticare una richiesta da parte di un client in base al servizio di archiviazione di Azure è di usare una firma di accesso condiviso. La firma di accesso condiviso consente di concedere a un client l'accesso a una risorsa per un periodo di tempo specificato, con un set di autorizzazioni specificato.
-Il proprietario dell'account di archiviazione dovrà generare una firma di accesso condiviso che verrà usata dai client mobili. Per generare la firma di accesso condiviso da distribuire ai client, è possibile che si voglia scrivere un apposito servizio separato. A scopo di test è possibile usare [Microsoft Azure Storage Explorer](http://storageexplorer.com) o il [portale di Azure](https://portal.azure.com) per generare una firma di accesso condiviso. Quando si crea la firma di accesso condiviso, è possibile specificare l'intervallo di tempo in cui la firma di accesso condiviso è valida e le autorizzazioni che la firma di accesso condiviso concede al client.
+Il proprietario dell'account di archiviazione dovrà generare una firma di accesso condiviso che verrà usata dai client mobili. Per generare la firma di accesso condiviso da distribuire ai client, è possibile che si voglia scrivere un apposito servizio separato. A scopo di test è possibile usare [Microsoft Azure Storage Explorer](https://storageexplorer.com) o il [portale di Azure](https://portal.azure.com) per generare una firma di accesso condiviso. Quando si crea la firma di accesso condiviso, è possibile specificare l'intervallo di tempo in cui la firma di accesso condiviso è valida e le autorizzazioni che la firma di accesso condiviso concede al client.
 
 L'esempio seguente mostra come usare Esplora archivi di Microsoft Azure per generare una firma di accesso condiviso.
 
-1. Se non è già stato fatto, [installare Esplora archivi di Microsoft Azure](http://storageexplorer.com)
+1. Se non è già stato fatto, [installare Esplora archivi di Microsoft Azure](https://storageexplorer.com)
 2. connessione alla sottoscrizione.
 3. Fare clic sull'account di archiviazione e quindi sulla scheda "Azioni" in basso a sinistra. Fare clic su "Get Shared Access Signature" (Ottieni firma di accesso condiviso) per generare una "stringa di connessione" per la firma di accesso condiviso.
 4. Di seguito è riportato un esempio di una stringa di connessione della firma di accesso condiviso che concede le autorizzazioni di lettura e scrittura a livello di servizio, contenitore e oggetto per il servizio BLOB dell'account di archiviazione.

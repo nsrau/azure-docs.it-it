@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: b588a1eb-ab69-4fc7-ae4d-157c3e46f4a8
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b665c2f72f50b2d72fd625b49c4212785ab3301d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60323714"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593265"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Risoluzione dei problemi degli endpoint della rete CDN di Azure che restituiscono un codice stato 404
 Questo articolo consente di risolvere i problemi relativi agli endpoint di rete CDN di Azure che restituiscono codici di stato di risposta HTTP 404.
@@ -51,7 +51,7 @@ Le cause possono essere diverse, ad esempio:
 ### <a name="check-the-origin-file"></a>Controllare il file di origine
 In primo luogo, verificare che il file da memorizzare nella cache sia disponibile nel server di origine e accessibile pubblicamente In Internet. Il modo più rapido per eseguire questa operazione consiste nell'aprire un browser in una sessione privata o anonima e passare direttamente al file. Digitare o incollare l'URL nella casella dell'indirizzo e verificare che restituisca il file desiderato. Si supponga ad esempio che si disponga di un file in account di Archiviazione di Azure, accessibile all'indirizzo https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt. Se è stato possibile caricare il contenuto del file, il test è stato superato.
 
-![Completamento della procedura](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
+![Operazione completata](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
 
 > [!WARNING]
 > Anche se questo è il modo più rapido e semplice per verificare che il file sia disponibile pubblicamente, per alcune configurazioni di rete dell'organizzazione potrebbe sembrare che il file sia disponibile pubblicamente mentre in realtà è visibile solo agli utenti della rete (anche se è ospitato in Azure). Per garantire che la situazione è diversa, eseguire il test sul file con un browser esterno, ad esempio in un dispositivo mobile non connesso alla rete dell'organizzazione, oppure in una macchina virtuale in Azure.

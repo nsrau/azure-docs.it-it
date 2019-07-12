@@ -4,7 +4,7 @@ description: Informazioni su come abilitare InfiniBand con SR-IOV.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,27 +12,26 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 879b1eed7bf4778d4d49f6f991d6d74214d33823
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 2e28627359f339a3bf818a15d6a5c8e456fb554a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537655"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797531"
 ---
 # <a name="enable-infiniband-with-sr-iov"></a>Abilitare InfiniBand con SR-IOV
-
 
 Il modo più semplice e consigliato per configurare l'immagine di macchina virtuale personalizzata con InfiniBand (IB) consiste nell'aggiungere l'estensione VM InfiniBandDriverWindows o InfiniBandDriverLinux alla distribuzione.
 Informazioni su come usare queste estensioni di macchina virtuale con [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) e [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 
-Per configurare manualmente InfiniBand su SR-IOV abilitato le macchine virtuali (attualmente serie HB e connessione ibrida), seguire questa procedura. Questi passaggi sono solo per RHEL/CentOS. Per Ubuntu (16.04 e 18.04) e SLES (12 SP4 e 15), i driver della posta in arrivo funzionano correttamente. Per Ubuntu, 
-
+Per configurare manualmente InfiniBand su SR-IOV abilitato le macchine virtuali (attualmente serie HB e connessione ibrida), seguire questa procedura. Questi passaggi sono solo per RHEL/CentOS. Per Ubuntu (16.04 e 18.04) e SLES (12 SP4 e 15), i driver della posta in arrivo funzionano correttamente.
 
 ## <a name="manually-install-ofed"></a>Installare manualmente OFED
 
 Installare i driver più recenti MLNX_OFED per ConnectX-5 dal [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26).
 
 Per RHEL/CentOS (esempio di seguito per 7.6):
+
 ```bash
 sudo yum install -y kernel-devel python-devel
 sudo yum install -y redhat-rpm-config rpm-build gcc-gfortran gcc-c++

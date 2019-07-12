@@ -2,24 +2,25 @@
 title: Configurare il Centro sicurezza di Azure per IoT agente Preview | Microsoft Docs
 description: Informazioni su come configurare gli agenti per l'uso con il Centro sicurezza di Azure per IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 311a867c863cbd72292d8e34b4f7abdb949b12c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39539bb14877208e5f6af957e735a136b077f16a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198452"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618270"
 ---
 # <a name="tutorial-configure-security-agents"></a>Esercitazione: Configurare gli agenti di sicurezza
 
@@ -107,14 +108,14 @@ Nella tabella seguente contiene le proprietà controllabile del Centro sicurezza
 
 I valori predefiniti sono disponibili nello schema appropriata [Github](https://aka.ms/iot-security-module-default).
 
-| NOME| Stato | Valori validi| Valori predefiniti| Descrizione |
+| Name| Stato | Valori validi| Valori predefiniti| Descrizione |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|highPriorityMessageFrequency|Richiesto: false |Valori validi:  Durata in formato ISO 8601 |Valore predefinito: PT7M |Tempo massimo prima dei messaggi con priorità alta vengono inviati.|
-|lowPriorityMessageFrequency |Richiesto: false|Valori validi:  Durata in formato ISO 8601 |Valore predefinito: PT5H |Tempo massimo prima dei messaggi con priorità bassa vengono inviati.| 
+|highPriorityMessageFrequency|Richiesto: false |Valori validi: Durata in formato ISO 8601 |Valore predefinito: PT7M |Tempo massimo prima dei messaggi con priorità alta vengono inviati.|
+|lowPriorityMessageFrequency |Richiesto: false|Valori validi: Durata in formato ISO 8601 |Valore predefinito: PT5H |Tempo massimo prima dei messaggi con priorità bassa vengono inviati.| 
 |snapshotFrequency |Richiedi: false|I valori valida: durata in formato ISO 8601 |Valore predefinito PT13H |Intervallo di tempo per la creazione di snapshot dello stato di dispositivi.| 
 |maxLocalCacheSizeInBytes |Richiesto: false |Valori validi: |Valore predefinito: 2560000, dimensioni superiori a 8192 | Archiviazione massima (in byte) consentito per la cache messaggi di un agente. Quantità massima di spazio consentito per archiviare i messaggi sul dispositivo, prima che i messaggi vengono inviati.| 
-|maxMessageSizeInBytes |Richiesto: false |Valori validi:  Un numero positivo maggiore di 8192 262144 minore di |Valore predefinito: 204800 |Numero massimo di dimensioni del messaggio da cloud di un agente. Questa impostazione controlla la quantità di dati massimi in ogni messaggio inviati. |
-|eventPriority${EventName} |Richiesto: false |Valori validi:  Massimo, minimo, disattivato |Valori predefiniti: |Priorità di ogni agente ha generato l'evento | 
+|maxMessageSizeInBytes |Richiesto: false |Valori validi: Un numero positivo maggiore di 8192 262144 minore di |Valore predefinito: 204800 |Numero massimo di dimensioni del messaggio da cloud di un agente. Questa impostazione controlla la quantità di dati massimi in ogni messaggio inviati. |
+|eventPriority${EventName} |Richiesto: false |Valori validi: Massimo, minimo, disattivato |Valori predefiniti: |Priorità di ogni agente ha generato l'evento | 
 
 ### <a name="supported-security-events"></a>Eventi di sicurezza supportate
 

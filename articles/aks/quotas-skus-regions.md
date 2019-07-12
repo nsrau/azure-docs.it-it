@@ -2,17 +2,17 @@
 title: Quote, SKU e aree di disponibilità in Azure Kubernetes Service (AKS)
 description: Informazioni sulle quote predefinite, dimensioni SKU di VM di nodi con restrizioni e disponibilità delle aree di Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: iainfou
-ms.openlocfilehash: 8d4ed8f791858747814972bcf16a9672a7f12610
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 318846cddecdf020e2e751d3a0b9e05fc83bba73
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65901448"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614542"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quote, limiti di dimensione di macchina virtuale e disponibilità per area geografica in Azure Kubernetes Service (AKS)
 
@@ -43,15 +43,15 @@ Ogni nodo in un cluster AKS contiene una quantità fissa di risorse di calcolo, 
 - Standard_F1
 - Standard_F1s
 
-Per altre informazioni sui tipi di VM e le relative risorse di calcolo, vedere [dimensioni delle macchine virtuali di Azure][vm-skus].
+Per altre informazioni sui tipi di VM e le relative risorse di calcolo, vedere [dimensioni delle macchine virtuali in Azure][vm-skus].
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-Per l'elenco più recente in cui è possibile distribuire ed eseguire i cluster, vedere [AKS aree di disponibilità][region-availability].
+Per l'elenco più recente in cui è possibile distribuire ed eseguire i cluster, vedere [disponibilità delle aree del servizio contenitore di AZURE][region-availability].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile aumentare alcune quote e alcuni limiti predefiniti. Se la risorsa supporta un aumento, richiedere l'aumento tramite un [richiesta di supporto tecnico di Azure] [ azure-support] (per **tipo di problema**, selezionare **Quota** ).
+È possibile aumentare alcune quote e alcuni limiti predefiniti. Se la risorsa supporta un aumento, richiedere l'aumento tramite un [richiesta di supporto tecnico di Azure][azure-support] (per **tipo di problema**, selezionare **Quota**).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

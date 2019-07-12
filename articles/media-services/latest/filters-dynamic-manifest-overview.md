@@ -11,22 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: ab07b87d724f2006b6b5c0e4f472140f92230dea
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 95315007186b209a618337749662a1921f5a05e1
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080407"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827616"
 ---
-# <a name="pre-filtering-manifests-with-dynamic-packager"></a>Pre-filtro dei manifesti con creazione dinamica dei pacchetti
+# <a name="pre-filtering-manifests-by-using-dynamic-packager"></a>Pre-filtro dei manifesti con creazione dinamica dei pacchetti
 
-Durante la distribuzione di contenuti sui dispositivi di streaming a bitrate adattivo, è spesso necessario pubblicare più versioni del manifesto di funzionalità specifiche del dispositivo di destinazione o larghezza di banda disponibile. Il [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) consente di specificare filtri che è possono escludere specifici codec, risoluzione e velocità in bit audio tenere traccia delle combinazioni su immediatamente eliminando la necessità di creare più copie. È sufficiente pubblicare un nuovo URL con un set specifico di filtri configurati per i dispositivi di destinazione (iOS, Android, SmartTV o browser) e le funzionalità di rete (scenari di larghezza di banda elevata, per dispositivi mobili o larghezza di banda limitata). In questo caso, i client possono modificare lo streaming di contenuti tramite la stringa di query (specificando disponibili [Account filtri o filtri di Asset](filters-concept.md)) e usare i filtri a sezioni specifiche del flusso di un flusso.
+Quando si distribuiscono contenuti ai dispositivi di streaming a bitrate adattivo, è spesso necessario pubblicare più versioni del manifesto di funzionalità specifiche del dispositivo di destinazione o larghezza di banda disponibile. Il [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) consente di specificare filtri che è possono escludere specifici codec, risoluzione e velocità in bit audio tenere traccia delle combinazioni su immediatamente eliminando la necessità di creare più copie. È sufficiente pubblicare un nuovo URL con un set specifico di filtri configurati per i dispositivi di destinazione (iOS, Android, SmartTV o browser) e le funzionalità di rete (scenari di larghezza di banda elevata, per dispositivi mobili o larghezza di banda limitata). In questo caso, i client possono modificare lo streaming di contenuti tramite la stringa di query (specificando disponibili [Account filtri o filtri di Asset](filters-concept.md)) e usare i filtri a sezioni specifiche del flusso di un flusso.
 
 Alcuni scenari di distribuzione è necessario che un cliente non è in grado di accedere alle tracce specifiche. Ad esempio, si potrebbe non si desidera pubblicare un manifesto che contiene le tracce HD a un livello determinato sottoscrittore. In alternativa, è possibile rimuovere le tracce specifiche a bitrate adattivo (ABR) per ridurre i costi di consegna a un dispositivo specifico che indicate non traggono vantaggio da altre tracce. In questo caso è possibile associare un elenco dei filtri creati in precedenza con il [localizzatore di Streaming](streaming-locators-concept.md) al momento della creazione. In questo caso, i client non è possibile modificare la modalità con cui viene inviato nel flusso di contenuto, viene definito per il **localizzatore di Streaming**.
 
-È possibile combinare filtri tramite la specifica [filtri sul localizzatore di Streaming](filters-concept.md#associating-filters-with-streaming-locator) + filtri specifici di dispositivo aggiuntivi che il client specifica l'URL. Ciò può essere utile per limitare le tracce aggiuntive, come i flussi di metadati o un evento, lingue audio o descrittive tracce audio. 
+È possibile combinare filtri tramite la specifica [filtri sul localizzatore di Streaming](filters-concept.md#associating-filters-with-streaming-locator) + filtri specifici di dispositivo aggiuntivi che il client specifica l'URL. Ciò può essere utile per limitare le tracce aggiuntive come flussi di metadati o un evento, lingue audio o brani audio descrittivi. 
 
 Questa possibilità di specificare filtri diversi sul flusso, fornisce una potente **manifesto dinamico** soluzione manipolazione come destinazione più casi d'uso per i dispositivi di destinazione. Questo argomento illustra i concetti relativi ai **manifesti dinamici** e fornisce alcuni esempi di scenari in cui è possibile usare questa funzionalità.
 
@@ -34,27 +34,27 @@ Questa possibilità di specificare filtri diversi sul flusso, fornisce una poten
 > I manifesti dinamici non modificano l'asset e il relativo manifesto predefinito. 
 > 
 
-## <a name="manifests-overview"></a>Filtri e manifesti
+##  <a name="overview-of-manifests"></a>Panoramica di manifesti
 
-Servizi multimediali supporta i protocolli Smooth Streaming, HLS, MPEG DASH. Come parte della [creazione dinamica dei pacchetti](dynamic-packaging-overview.md), i manifesti client streaming (Master HLS Playlist, DASH Media Presentation Description (MPD) e Smooth Streaming) vengono generati dinamicamente in base il selettore di formato nell'URL. Vedere i protocolli di recapito [in questa sezione](dynamic-packaging-overview.md#delivery-protocols). 
+Servizi multimediali di Azure supporta i protocolli HLS, MPEG DASH e Smooth Streaming. Come parte della [creazione dinamica dei pacchetti](dynamic-packaging-overview.md), i manifesti client streaming (Master HLS Playlist, DASH Media Presentation Description [MPD] e Smooth Streaming) vengono generati dinamicamente in base il selettore di formato nell'URL. Vedere i protocolli di recapito [flusso di lavoro on demand comune](dynamic-packaging-overview.md#delivery-protocols). 
 
 ### <a name="get-and-examine-manifest-files"></a>Ottenere ed esaminare i file manifesto
 
-Specificare un elenco di condizioni delle proprietà dei brani in base alle quali i brani del flusso (live o video on demand) devono essere inclusi nel manifesto creato dinamicamente. Per ottenere ed esaminare le proprietà dei brani, è necessario caricare prima di tutto il manifesto Smooth Streaming.
+Si specifica un elenco di condizioni di filtro proprietà track che tiene traccia del flusso (in tempo reale o video su richiesta [VOD]) deve essere inclusi in un manifesto creato dinamicamente in base. Per ottenere ed esaminare le proprietà dei brani, è necessario caricare prima di tutto il manifesto Smooth Streaming.
 
-L’esercitazione [Caricare, codificare e trasmettere i file con .NET](stream-files-tutorial-with-api.md) spiega come compilare gli URL di streaming con .NET (vedere la sezione [Creazione di URL](stream-files-tutorial-with-api.md#get-streaming-urls)). Se si esegue l'app, uno degli URL punta al manifesto Smooth Streaming: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`.<br/>Copiare e incollare l'URL nella barra degli indirizzi del browser. Il file verrà scaricato. Può essere aperto in un editor di testo di propria scelta.
+Il [caricare, codificare e trasmettere i file con .NET](stream-files-tutorial-with-api.md#get-streaming-urls) esercitazione illustra come compilare gli URL di streaming con .NET. Se si esegue l'app, uno degli URL punta al manifesto Smooth Streaming: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`.<br/> Copiare e incollare l'URL nella barra degli indirizzi del browser. Il file verrà scaricato. Può essere aperto in un editor di testo di propria scelta.
 
-Per l'esempio REST, vedere [Caricare, codificare ed eseguire lo streaming dei file con REST](stream-files-tutorial-with-rest.md#list-paths-and-build-streaming-urls).
+Per un esempio REST, vedere [caricare, codificare e trasmettere i file con REST](stream-files-tutorial-with-rest.md#list-paths-and-build-streaming-urls).
 
 ### <a name="monitor-the-bitrate-of-a-video-stream"></a>Monitorare la velocità in bit di un flusso video
 
-È possibile usare la [pagina di prova di Azure Media Player](https://aka.ms/amp) per monitorare la velocità in bit di un flusso video. La pagina di prova mostra le informazioni di diagnostica nella scheda **Diagnostica**:
+È possibile usare la [pagina di prova di Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) per monitorare la velocità in bit di un flusso video. La pagina di prova consente di visualizzare informazioni di diagnostica sul **diagnostica** scheda:
 
 ![Diagnostica di Azure Media Player][amp_diagnostics]
  
 ### <a name="examples-urls-with-filters-in-query-string"></a>Esempi: URL con i filtri nella stringa di query
 
-È possibile applicare filtri ai protocolli di streaming a bitrate adattivo: HLS, MPEG-DASH e Smooth Streaming. Nella tabella seguente sono disponibili alcuni esempi di URL con filtri:
+È possibile applicare filtri a ABR protocolli di streaming: HLS, MPEG-DASH e Smooth Streaming. Nella tabella seguente sono disponibili alcuni esempi di URL con filtri:
 
 |Protocol|Esempio|
 |---|---|
@@ -64,84 +64,94 @@ Per l'esempio REST, vedere [Caricare, codificare ed eseguire lo streaming dei fi
 
 ## <a name="rendition-filtering"></a>Filtro di rendering
 
-È possibile scegliere di codificare un asset con più profili di codifica (H.264 Baseline, H.264 High, AACL, AACH, Dolby Digital Plus) e più velocità in bit di qualità. Non tutti i dispositivi, tuttavia, supportano tutti i profili e le velocità in bit dell'asset. Solo i dispositivi Android di precedente generazione, ad esempio, supportano il profilo H.264 Baseline+AACL. La trasmissione di contenuti a un dispositivo con una velocità in bit superiore di cui non può trarre vantaggio, inoltre, comporta uno spreco di larghezza di banda e di capacità di elaborazione. Per poter visualizzare i contenuti trasmessi, infatti, il dispositivo deve decodificare e ridimensionare tutte le informazioni trasmesse.
+È possibile scegliere di codificare un asset con più profili di codifica (H.264 Baseline, H.264 High, AACL, AACH, Dolby Digital Plus) e più velocità in bit di qualità. Non tutti i dispositivi, tuttavia, supportano tutti i profili e le velocità in bit dell'asset. Dispositivi Android meno recenti, ad esempio, supportano solo H.264 Baseline + AACL. L'invio di velocità in bit superiore a un dispositivo che non è possibile ottenere i vantaggi comporta uno spreco di larghezza di banda e calcolo. Tale dispositivo deve decodificare tutte le informazioni, solo per la scalabilità verso il basso per la visualizzazione.
 
-Con il manifesto dinamico, è possibile creare profili di dispositivo, ad esempio mobile, console, HD/SD e così via, e includere le tracce e la qualità desiderate per ogni profilo.
+Con il manifesto dinamico, è possibile creare i profili di dispositivo (ad esempio dispositivi mobili, console o HD/SD) e includere le tracce e la qualità che si desidera far parte di ogni profilo. Che viene chiamato filtro di rendering. Il diagramma seguente mostra un esempio di esso.
 
 ![Esempio di filtro di rendering][renditions2]
 
-Nell'esempio seguente si usa un codificatore per codificare un asset in formato intermedio in sette rendering video ISO MP4 (da 180p a 1080p). L'asset così codificato può essere [in modo dinamico nel pacchetto](dynamic-packaging-overview.md) in nessuno dei protocolli di streaming seguenti: HLS, MPEG DASH e Smooth.  Nella parte superiore del diagramma è riportato il manifesto HLS per l'asset senza filtri (contiene tutti i sette rendering),  mentre in basso a sinistra è riportato il manifesto HLS con applicato un filtro denominato "ott". Il filtro "ott" indica che devono essere rimosse tutte le velocità in bit inferiori a 1 Mbps. L'applicazione di questo filtro ha generato i due livelli di qualità inferiori rimossi nella risposta. In basso a destra è riportato invece il manifesto HLS con applicato un filtro denominato "mobile". Il filtro "mobile" indica che devono essere rimossi tutti i rendering con risoluzione superiore a 720p. L'applicazione di questo filtro ha generato i due rendering 1080p rimossi.
+Nell'esempio seguente si usa un codificatore per codificare un asset in formato intermedio in sette rendering video ISO MP4 (da 180p a 1080p). L'asset così codificato può essere [in modo dinamico nel pacchetto](dynamic-packaging-overview.md) in nessuno dei protocolli di streaming seguenti: HLS, MPEG DASH e Smooth. 
+
+La parte superiore del diagramma seguente mostra che il manifesto HLS per l'asset senza filtri. (Contiene tutti i sette rendering).  In basso a sinistra, il diagramma illustra un manifesto HLS per cui è stato applicato un filtro denominato "ott". Il filtro "ott" Specifica la rimozione di tutte le velocità in bit inferiore a 1 Mbps, in modo che i due livelli di qualità sono stati rimossi nella risposta. In basso a destra, il diagramma mostra il manifesto HLS per cui è stato applicato un filtro denominato "mobile". Il filtro "mobile" Specifica la rimozione del rendering in cui la risoluzione è superiore a 720p, in modo che i due 1080 trasformate p sono stati rimossi.
 
 ![Filtro di rendering][renditions1]
 
 ## <a name="removing-language-tracks"></a>Rimozione delle tracce di lingua
-Gli asset possono includere più lingue audio, ad esempio inglese, spagnolo, francese e così via. In genere, è l'SDK del lettore a gestire la selezione della traccia audio predefinita e delle tracce audio disponibili per ciascuna selezione utente. Sviluppare questo tipo di SDK, tuttavia, è particolarmente difficile poiché richiede diverse implementazioni nel Player Framework specifico di ogni dispositivo. In alcune piattaforme, inoltre, le API del lettore offrono funzionalità limitate (ad esempio non includono funzioni di selezione audio) e non consentono quindi agli utenti di selezionare o modificare la traccia audio predefinita. Con i filtri di asset, è possibile controllare il comportamento mediante la creazione di filtri che includono solo le lingue audio desiderate.
+Gli asset possono includere più lingue audio, ad esempio inglese, spagnolo, francese e così via. In genere, è l'SDK del lettore a gestire la selezione della traccia audio predefinita e delle tracce audio disponibili per ciascuna selezione utente.
 
-![Filtro delle tracce di lingua][language_filter]
+È difficile lo sviluppo di questo tipo di SDK, poiché richiede diverse implementazioni su Framework di lettori di specifiche del dispositivo. Inoltre, in alcune piattaforme, le API del lettore sono limitate e non includono la funzionalità di selezione audio in cui gli utenti non è possibile selezionare o modificare la traccia audio predefinita. Con i filtri di asset, è possibile controllare il comportamento mediante la creazione di filtri che includono solo le lingue audio desiderate.
 
-## <a name="trimming-start-of-an-asset"></a>Trimming della parte iniziale di un asset
-Nella maggior parte degli eventi in live streaming, gli operatori eseguono alcuni test prima dell'evento effettivo. Prima dell'inizio dell'evento, ad esempio, possono includere uno slate di questo tipo: "Il programma sta per iniziare". Se il programma prevede l'archiviazione, vengono archiviati e inclusi nella presentazione anche i dati del test e dello slate. Queste informazioni, tuttavia, non risultano visibili ai client. Con il manifesto dinamico, è possibile creare un filtro di ora di inizio e rimuovere dal manifesto tutti i dati non desiderati.
+![Il filtro delle tracce di lingua][language_filter]
+
+## <a name="trimming-the-start-of-an-asset"></a>Trimming della parte iniziale di un asset
+
+Nella maggior parte degli eventi in live streaming, gli operatori eseguono alcuni test prima dell'evento effettivo. Prima dell'inizio dell'evento, ad esempio, possono includere uno slate di questo tipo: "Programma sta per iniziare." 
+
+Se il programma prevede l'archiviazione, vengono archiviati e inclusi nella presentazione anche i dati del test e dello slate. Queste informazioni, tuttavia, non risultano visibili ai client. Con il manifesto dinamico, è possibile creare un filtro di ora di inizio e rimuovere dal manifesto tutti i dati non desiderati.
 
 ![Trimming della parte iniziale][trim_filter]
 
 ## <a name="creating-subclips-views-from-a-live-archive"></a>Creazione di sottoclip (visualizzazioni) da un archivio live
-Molti eventi live hanno una durata molto lunga ed è possibile quindi che un archivio live includa più eventi. Al termine dell'evento live, ad esempio, gli emittenti possono decidere di suddividere l'archivio live in sequenze logiche di avvio e arresto del programma. Possono quindi pubblicare separatamente questi programmi virtuali, senza dover eseguire la post-elaborazione dell'archivio live e creare asset distinti, che non traggono vantaggio dai frammenti presenti nella cache in caso di reti per la distribuzione di contenuti. Esempi di programmi virtuali di questo tipo sono, ad esempio, i tempi di una partita di calcio o di basket, gli inning del baseball o eventi singoli di un qualsiasi programma sportivo.
 
-Con il manifesto dinamico, è possibile creare filtri basati sulle ore di inizio/fine e creare visualizzazioni virtuali all'inizio dell'archivio live. 
+Molti eventi live hanno una durata molto lunga ed è possibile quindi che un archivio live includa più eventi. Al termine dell'evento live, ad esempio, gli emittenti possono decidere di suddividere l'archivio live in sequenze logiche di avvio e arresto del programma. 
+
+È possibile pubblicare separatamente questi programmi virtuali senza dover post-elaborazione dell'archivio live e creare asset distinti (che non traggono il vantaggio dei frammenti memorizzati nella cache esistenti nel caso di reti CDN). Esempi di programmi virtuali di questo tipo sono, ad esempio, i tempi di una partita di calcio o di basket, gli inning del baseball o eventi singoli di un qualsiasi programma sportivo.
+
+Con il manifesto dinamico, è possibile creare filtri con ora di inizio/fine e creare visualizzazioni virtuali nella parte superiore dell'archivio live. 
 
 ![Filtro di sottoclip][subclip_filter]
 
-Asset filtrato:
+Ecco l'asset filtrato:
 
 ![Sci][skiing]
 
-## <a name="adjusting-presentation-window-dvr"></a>Regolazione della finestra di presentazione (DVR)
-Attualmente, Servizi multimediali di Azure offre un archivio circolare la cui durata può essere configurata tra 5 minuti e 25 ore. Usando i filtri del file manifesto, è possibile creare una finestra DVR in sequenza all'inizio dell'archivio, senza dover eliminare alcun contenuto. Sono molti i casi in cui per un emittente può essere utile creare una finestra DVR limitata, in grado di spostarsi con il margine live, e al tempo stesso mantenere una finestra di archiviazione più grande. Un emittente, ad esempio, può decidere di usare i dati esterni alla finestra DVR per evidenziare clip oppure fornire finestre DVR diverse per dispositivi diversi. La maggior parte dei dispositivi mobili, ad esempio, non è in grado di gestire finestre DVR di grandi dimensioni (è possibile usufruire di una finestra DVR di 2 minuti per i dispositivi mobili e di un'ora per i client desktop).
+## <a name="adjusting-the-presentation-window-dvr"></a>Regolazione finestra presentazione (DVR)
+
+Attualmente, servizi multimediali di Azure offre un archivio circolare in cui la durata può essere configurata tra 5 minuti e 25 ore. Usando i filtri del file manifesto, è possibile creare una finestra DVR in sequenza all'inizio dell'archivio, senza dover eliminare alcun contenuto. Sono molti i casi in cui per un emittente può essere utile creare una finestra DVR limitata, in grado di spostarsi con il margine live, e al tempo stesso mantenere una finestra di archiviazione più grande. Un emittente, ad esempio, può decidere di usare i dati esterni alla finestra DVR per evidenziare clip oppure fornire finestre DVR diverse per dispositivi diversi. Ad esempio, la maggior parte dei dispositivi mobili non gestire finestre DVR di grandi dimensioni (è possibile avere una finestra DVR di 2 minuti per i dispositivi mobili e 1 ora per i client desktop).
 
 ![Finestra DVR][dvr_filter]
 
 ## <a name="adjusting-livebackoff-live-position"></a>Regolazione LiveBackoff (posizione live)
-È possibile usare i filtri del file manifesto anche per rimuovere alcuni secondi dal margine live di un programma live. Con i filtri gli emittenti possono guardare la presentazione nel punto di pubblicazione di anteprima e creare punti di inserimento di annunci prima che i destinatari ricevano il flusso (ritardato di 30 secondi). Gli emittenti possono quindi inserire questi annunci nel proprio Framework Client in tempo per poter ricevere ed elaborare le informazioni prima dell'opportunità di annuncio.
 
-Oltre a fornire il supporto per gli annunci pubblicitari, l'impostazione LiveBackoff consente anche di regolare la posizione dei visualizzatori in modo che, nel momento in cui i client deviano e raggiungono il margine live, possono comunque ottenere i frammenti dal server, anziché un errore HTTP 404 o 412.
+È possibile usare i filtri del file manifesto anche per rimuovere alcuni secondi dal margine live di un programma live. Filtri gli emittenti possono guardare la presentazione nel punto di pubblicazione di anteprima e creare punti di inserimento di annunci prima che i destinatari ricevano il flusso (supportato da 30 secondi). Gli emittenti possono quindi inserire questi annunci nel proprio framework client in tempo per poter ricevere ed elaborare le informazioni prima dell'opportunità di annuncio.
 
-![livebackoff_filter][livebackoff_filter]
+Oltre al supporto degli annunci, l'impostazione di Backoff in tempo reale è utilizzabile per regolare la posizione dei visualizzatori in modo che quando i client deviano e raggiungono il margine live, frammenti, possono comunque ottenere dal server. In questo modo, i client non otterranno un errore HTTP 404 o errore 412.
+
+![Filtro per eseguire il backoff in tempo reale][livebackoff_filter]
 
 ## <a name="combining-multiple-rules-in-a-single-filter"></a>Combinazione di più regole in un unico filtro
-È possibile combinare più regole di filtro in un unico filtro. È ad esempio possibile definire una "regola di intervallo" per rimuovere slate da un archivio live e applicare un filtro alle velocità in bit disponibili. Se si applicano più regole di filtro, il risultato finale è l'intersezione di tutte le regole.
 
-![multiple-rules][multiple-rules]
+È possibile combinare più regole di filtro in un unico filtro. È ad esempio possibile definire una "regola di intervallo" per rimuovere slate da un archivio live e applicare un filtro alle velocità in bit disponibili. Quando si applica più regole di filtro, il risultato finale è l'intersezione di tutte le regole.
+
+![Più regole di filtro][multiple-rules]
 
 ## <a name="combining-multiple-filters-filter-composition"></a>Combinazione di più filtri (filtro composizione)
 
-È inoltre possibile combinare più filtri in un singolo URL. 
+È inoltre possibile combinare più filtri in un singolo URL. Lo scenario seguente illustra il motivo per cui è possibile combinare filtri:
 
-Lo scenario seguente illustra il motivo per cui è possibile combinare filtri:
+1. È necessario filtrare le qualità video per i dispositivi mobili, ad esempio Android o iPad (per limitare le qualità video). Per rimuovere le qualità indesiderate, si creerà un filtro di account adatto per i profili di dispositivo. È possibile usare i filtri di account per tutti gli asset con lo stesso account di servizi multimediali senza altre associazioni.
+1. Inoltre si desidera tagliare l'ora di inizio e fine di un asset. A tale scopo, si verrà creato un filtro di asset e impostare l'ora di inizio/fine. 
+1. Si desidera combinare entrambi questi filtri. Senza combinazione, devi aggiungere un filtro qualità al filtro di taglio, che renderebbe più difficile l'utilizzo del filtro.
 
-1. È necessario filtrare le qualità video per dispositivi mobili, come ad esempio  Android o iPad (per limitare le qualità video). Per rimuovere le qualità indesiderate, creare un filtro account adatto per i profili del dispositivo. I filtri account possono essere utilizzati per tutti gli asset con lo stesso account di servizi multimediali senza altre associazioni. 
-2. Inoltre si desidera tagliare l'ora di inizio e fine di un asset. A tale scopo, è necessario creare un filtro asset e impostare l'ora di inizio e di fine. 
-3. È necessario combinare entrambi questi filtri, in caso contrario è necessario aggiungere un filtro qualità al filtro di taglio, il che rende più difficile l'utilizzo del filtro.
 
-Per combinare i filtri, è necessario impostare i nomi dei filtri per il manifesto/playlist URL delimitati dal punto e virgola. Si supponga di disporre di un filtro denominato *MyMobileDevice* che filtra le qualità e di un altro filtro denominato *MyStartTime* per impostare una specifica ora di inizio. È possibile combinarli nel seguente modo:
+Per combinare i filtri, è necessario impostare i nomi dei filtri per il manifesto/playlist URL nel formato delimitato da punto e virgola. Si supponga che si dispone di un filtro denominato *MyMobileDevice* che filtra le qualità e si dispone di un altro denominato *MyStartTime* per impostare una specifica ora di inizio. È possibile combinare fino a tre filtri. 
 
-È possibile combinare fino a tre filtri. 
-
-Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
+Per altre informazioni, vedere [questo post di blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## <a name="considerations-and-limitations"></a>Considerazioni e limiti
 
-- I valori di **forceEndTimestamp**, **presentationWindowDuration** e **liveBackoffDuration** non devono essere impostati per un filtro VoD. Vengono usati solo per gli scenari di filtro live. 
-- Il manifesto dinamico opera nei limiti dell'intervallo GOP (fotogrammi chiave) e, pertanto, il trimming eredita la precisione del GOP. 
-- È possibile usare lo stesso nome di filtro per i filtri account e asset. I filtri asset, tuttavia, hanno la precedenza e sovrascrivono quindi i filtri account.
-- Se si aggiorna un filtro, possono volerci fino a 2 minuti per l'Endpoint di Streaming per aggiornare le regole. Se il contenuto è stato trasmesso usando dei filtri (e memorizzato nelle cache dei proxy e delle reti CDN), l'aggiornamento dei filtri può determinare un errore del lettore. È consigliabile cancellare la cache dopo aver aggiornato il filtro. Se questa operazione non è consentita, prendere in considerazione la possibilità di usare un filtro diverso.
-- I clienti devono scaricare manualmente il manifesto e analizzare il startTimestamp esatto e la scala cronologica.
+- I valori per **forceEndTimestamp**, **presentationWindowDuration**, e **liveBackoffDuration** non deve essere impostato per un filtro VOD. E vengono usati solo per gli scenari di filtro in tempo reale. 
+-  Un manifesto dinamico opera nei limiti GOP (fotogrammi chiave), quindi, trimming ha la precisione del GOP.
+-  È possibile usare lo stesso nome di filtro per i filtri di asset e account. Filtri di asset hanno la precedenza e sostituiranno i filtri di account.
+- Se si aggiorna un filtro, possono volerci fino a 2 minuti per l'endpoint di streaming aggiornare le regole. Se sono stati usati i filtri per rendere disponibile il contenuto ed è memorizzato nella cache il contenuto di proxy e memorizza nella cache della rete CDN, l'aggiornamento di questi filtri può causare errori di Windows Media player. Si consiglia di cancellare la cache dopo aver aggiornato il filtro. Se questa opzione non è possibile, è consigliabile usare un filtro diverso.
+- I clienti devono scaricare il manifesto e analizzare il timestamp di inizio e scala cronologica manualmente.
     
-    - Per determinare le proprietà dei brani in un asset, [ottenere ed esaminare il file manifesto](#get-and-examine-manifest-files).
-    - Formula per impostare le proprietà del timestamp di filtro dell’asset: <br/>startTimestamp = &lt;ora di inizio nel manifesto&gt; +  &lt;ora di inizio del filtro prevista in secondi&gt;*scala cronologica
+    - Per determinare le proprietà delle tracce in un asset [ottenere ed esaminare il file manifesto](#get-and-examine-manifest-files).
+    - La formula per impostare le proprietà di data e ora filtro di asset è: <br/>startTimestamp = &lt;ora di inizio nel manifesto&gt; +  &lt;previsto ora di inizio filtro in pochi secondi&gt; * scala cronologica
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Gli articoli seguenti spiegano come creare filtri in modo programmatico.  
+Gli articoli seguenti illustrano come creare filtri a livello di codice:  
 
 - [Creare filtri con le API REST](filters-dynamic-manifest-rest-howto.md)
 - [Creare filtri con .NET](filters-dynamic-manifest-dotnet-howto.md)

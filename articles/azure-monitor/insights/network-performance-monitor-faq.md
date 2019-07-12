@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
-ms.author: vinynigam
-ms.openlocfilehash: d573b7ad9edac6b1502744b61e85cba3402a6f68
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vinigam
+ms.openlocfilehash: 71eb789c92452353029613265fe97411c8c00649
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232666"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706337"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -155,7 +155,7 @@ E2EMedianLatency è la latenza aggiornata ogni tre minuti dopo l'aggiornamento d
 
 ### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Perché è la differenza tra i numeri di latenza dell'hop-by-hop e HopLatencyValues 
 HopLatencyValues sono fonte all'endpoint.
-ad esempio: Hop - A, B, C. AvgHopLatency - 10,15,20. Ciò significa che l'origine per una latenza = 10, origine alla latenza B = 15 e origine alla latenza di C è 20. Interfaccia utente calcolerà latenza dell'hop a-B come nella topologia 5
+Di seguito è riportato un esempio: Hop - A, B, C. AvgHopLatency - 10,15,20. Ciò significa che l'origine per una latenza = 10, origine alla latenza B = 15 e origine alla latenza di C è 20. Interfaccia utente calcolerà latenza dell'hop a-B come nella topologia 5
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>Per quale motivo la soluzione mostra una perdita del 100%, ma è presente connettività tra l'origine e la destinazione?
 Questa situazione può verificarsi se il firewall dell'host o il firewall intermedio (firewall di rete o gruppo di sicurezza di rete di Azure) blocca le comunicazioni tra l'agente di origine e la destinazione attraverso la porta usata da Monitoraggio prestazioni rete per il monitoraggio. Per impostazione predefinita, viene usata la porta 8084, a meno che il cliente non abbia modificato l'impostazione.

@@ -4,15 +4,15 @@ description: Come creare un pool di host in anteprima di Desktop virtuale Window
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 4df8b854a94374346eec6f77d761e65a04ef78a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdc61aede6e650bce62768b7a97f8640affd594f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523972"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620493"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Creare un pool di host con un modello di Azure Resource Manager
 
@@ -20,7 +20,7 @@ I pool di host sono una raccolta di una o più macchine virtuali identiche all'i
 
 Seguire le istruzioni della sezione per creare un pool di host per un tenant di Desktop virtuale Windows con un modello di Azure Resource Manager fornito da Microsoft. Questo articolo illustrerà come creare un pool di host di Desktop virtuale Windows, creare un gruppo di risorse con le macchine virtuali in una sottoscrizione di Azure, aggiungere tali macchine virtuali al dominio di Active Directory e registrare le macchine virtuali con Windows Desktop virtuale.
 
-## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>Cosa occorre per eseguire il modello di Azure Resource Manager
+## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>Requisiti per eseguire il modello di Azure Resource Manager
 
 Assicurarsi di conoscere le operazioni seguenti prima di eseguire il modello di Azure Resource Manager:
 
@@ -40,11 +40,11 @@ Se si distribuisce in una sottoscrizione Enterprise, scorrere verso il basso e s
 
 Se si distribuisce in una sottoscrizione di Cloud Solution Provider, seguire questi passaggi per distribuire in Azure:
 
-1. Scorrere verso il basso e fare doppio clic su **Deploy to Azure**, quindi selezionare **Copia collegamento percorso**.
-2. Aprire un editor di testo come blocco note e incollare il collegamento non esiste.
+1. Scorrere in basso e fare clic con il pulsante destro del mouse su **Distribuisci in Azure**, quindi scegliere **Copia collegamento**.
+2. Aprire un editor di testo, come il Blocco note, e incollarvi il collegamento.
 3. Subito dopo "https://portal.azure.com/" e prima l'hashtag (#) immettere un simbolo di chiocciola (@) seguiti dal nome di dominio del tenant. Ecco un esempio del formato è necessario utilizzare: https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
-4. Accedere al portale di Azure come utente con autorizzazioni di amministratore o collaboratore nella sottoscrizione di Cloud Solution Provider.
-5. Incollare il collegamento copiato nell'editor di testo nella barra degli indirizzi.
+4. Accedere al portale di Azure come utente con autorizzazioni di Amministratore/Collaboratore per la sottoscrizione di Cloud Solution Provider.
+5. Incollare nella barra degli indirizzi il collegamento copiato nell'editor di testo.
 
 Per indicazioni sui quali parametri è necessario immettere per il proprio scenario, vedere il Desktop virtuale Windows [file Leggimi](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/Create%20and%20provision%20WVD%20host%20pool/README.md). Il file Leggimi viene sempre aggiornato con le modifiche più recenti.
 

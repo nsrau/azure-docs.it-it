@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8a65d4ae6aaac78e642c851a66b745a940fa0ad
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61070008"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593906"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analizzare le prestazioni del nodo perimetrale nella rete CDN di Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -126,7 +126,7 @@ Lo scopo di queste metriche consiste nel tenere traccia delle prestazioni comple
 #### <a name="secure-traffic-metrics"></a>Metriche relative al traffico sicuro
 Lo scopo di queste metriche consiste nel tenere traccia delle prestazioni della rete CDN per il traffico HTTPS.
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 | --- | --- |
 | Efficienza della cache sicura |Indica la percentuale dei dati trasferiti per richieste HTTPS che sono state fornite dalla cache. Questa metrica indica quando una versione del contenuto richiesto memorizzata nella cache è stata fornita direttamente dalla rete CDN (server perimetrali) ai richiedenti (ad esempio un Web browser) su HTTPS. |
 | Velocità di trasferimento sicuro |Indica la velocità media di trasferimento dei contenuti dalla rete CDN (server perimetrali) ai richiedenti (ad esempio server Web) su HTTPS. |

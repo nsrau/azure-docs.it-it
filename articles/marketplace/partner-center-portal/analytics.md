@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 0da95dbdca52232b4b24ad921bf2d9c78dc76d56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e467def33eb2980e58611d50c314a1206877e3b0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247725"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619694"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analitica per il Marketplace nel centro per i Partner commercio
 
@@ -138,7 +138,7 @@ Il **ordini in base al tipo di licenza marketplace** grafico mostra un numero di
 
 - **Fatturazione tramite Azure**: Microsoft prevede la fatturazione ai clienti per tuo conto quando si sceglie di [vendere la tua offerta tramite il Microsoft](./create-new-saas-offer.md#sell-through-microsoft) con questo tipo di licenza. I tipi di pagamento includono pagamento tramite carta di credito o fatturazione Enterprise.
 - **Bring your own license per**: Microsoft non invia fatture ai clienti l'utilizzo dei dati di questo tipo di offerta del marketplace. Elencato come **[scaricarlo ora (gratuito)](./create-new-saas-offer.md#get-it-now-free)** nel marketplace.
-- **Gratuito**: Microsoft non invia fatture ai clienti l'utilizzo dei dati di questo tipo di offerta del marketplace. Elencato come **[versione di valutazione gratuita](./create-new-saas-offer.md#free-trial)** nel marketplace.
+- **Gratuito**: Microsoft non invia fatture ai clienti l'utilizzo dei dati di questo tipo di offerta del marketplace. Elencato come **[versione di valutazione gratuita](./create-new-saas-offer.md##free-trial-listing)** nel marketplace.
 - **Microsoft come reseller**: Offerte vendute dai rivenditori di Microsoft come parte di rappresenta il  **[programma Cloud Solution Provider (CSP)](./create-new-saas-offer.md#csp-program-opt-in)** .
 
 ![Ordini analizza Centro per i partner in base al tipo di licenza](./media/analyze-license-type.png)
@@ -276,7 +276,7 @@ Si riceverà una notifica popup e un messaggio di posta elettronica contenente u
 | Tipo di offerta: Macchina virtuale | Ordine| Usare il tipo di offerta per le macchine virtuali quando si distribuisce un'appliance virtuale all'abbonamento associato al cliente.||
 | Tipo di offerta: Estensione di Visual Studio Marketplace  | Ordine| Disponibili in precedenza tipo di offerta per gli sviluppatori di estensioni di Azure DevOps. Passare Avanti DevOps di Azure gli sviluppatori di estensioni possono vendere l'estensione direttamente ai clienti. Offerte di estensione possono essere configurate come a pagamento o incluse una versione di valutazione. |
 | Order Cancel Date| Ordine| Data in cui l'ordine del Marketplace è stato eliminato.||
-| ID ordine| Ordine| Identificatore univoco dell'ordine del cliente per il servizio Marketplace. Offerte per macchina virtuale basata sull'utilizzo non sono associate a un ordine.| |
+| ID dell'ordine| Ordine| Identificatore univoco dell'ordine del cliente per il servizio Marketplace. Offerte per macchina virtuale basata sull'utilizzo non sono associate a un ordine.| |
 | Order Purchase Date| Ordine| La data in cui è stato creato l'ordine del Marketplace.|||
 | Order Status| Ordine| Lo stato di un ordine del Marketplace al momento dell'ultimo aggiornamento dei dati.|     |
 | Stato dell'ordine: Attivo  | Ordine| Il cliente ha acquistato un ordine e non ha annullato il relativo ordine.|         |

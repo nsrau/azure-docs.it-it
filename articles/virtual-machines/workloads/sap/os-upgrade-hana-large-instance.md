@@ -4,7 +4,7 @@ description: Eseguire l'aggiornamento del sistema operativo per SAP HANA in Azur
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7d451f3831309b4755170915b35a23da8910510
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5583a633c64943185f874e1c0ff80f654010aa53
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60935637"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710006"
 ---
 # <a name="operating-system-upgrade"></a>Aggiornamento del sistema operativo
 Questo documento descrive i dettagli sugli aggiornamenti del sistema operativo nelle istanze HANA Large.

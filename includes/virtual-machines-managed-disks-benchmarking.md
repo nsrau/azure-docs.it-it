@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180132"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673387"
 ---
 *Preparare la cache*  
 Il disco con memorizzazione nella cache dell'host di tipo ReadOnly è in grado di ottenere valori di IOPS più elevati rispetto al limite del disco. Per ottenere queste prestazioni di lettura massime dalla cache dell'host, è prima di tutto necessario preparare la cache del disco. Ciò assicura che le operazioni di I/O di lettura che lo strumento di benchmarking eseguirà sul volume CacheReads raggiungano effettivamente la cache e non direttamente il disco. I riscontri nella cache producono IOPS aggiuntivi da un singolo disco abilitato per la cache.
@@ -25,7 +25,7 @@ Il disco con memorizzazione nella cache dell'host di tipo ReadOnly è in grado d
 
 ### <a name="iometer"></a>Iometer
 
-[Scaricare lo strumento Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) nella VM.
+[Scaricare lo strumento Iometer](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) nella VM.
 
 #### <a name="test-file"></a>File di test
 
@@ -73,13 +73,13 @@ Seguire questa procedura per preparare la cache.
    | Inizializzare il disco della cache |CacheReads |RandomWrites\_1MB |2 ore |
 1. Eseguire il test di Iometer per la preparazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
 
-   | Scenario | Volume di destinazione | Name | Durata |
+   | Scenario | Volume di destinazione | NOME | Durata |
    | --- | --- | --- | --- |
    | Preparare il disco della cache |CacheReads |RandomReads\_1MB |2 ore |
 
 Dopo la preparazione del disco della cache, procedere con gli scenari di test elencati di seguito. Per eseguire il test di Iometer, usare almeno tre thread di lavoro per **ogni** volume di destinazione. Per ogni thread di lavoro selezionare il volume di destinazione, impostare la profondità della coda e selezionare una delle specifiche di test salvate, come illustrato nella tabella seguente, per eseguire lo scenario di test corrispondente. La tabella illustra anche i risultati previsti per IOPS e velocità effettiva quando si eseguono questi test. Per tutti gli scenari vengono usati una dimensione di I/O ridotta pari a 8 KB e un valore elevato per la profondità della coda pari a 128.
 
-| Scenario di test | Volume di destinazione | NOME | Risultato |
+| Scenario di test | Volume di destinazione | Name | Risultato |
 | --- | --- | --- | --- |
 | Max. IOPS di lettura |CacheReads |RandomWrites\_8K |50.000 IOPS |
 | Max. IOPS di scrittura |NoCacheWrites |RandomReads\_8K |64.000 IOPS |

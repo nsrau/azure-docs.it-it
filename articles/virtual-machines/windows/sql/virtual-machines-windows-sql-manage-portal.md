@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e2a807bbd6baeb2f14a6d36f5d98a28d48725449
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59a85e855c9fab9f2a3437c83c867b8076f55049
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082716"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607220"
 ---
 # <a name="manage-sql-server-vms-in-azure-using-the-azure-portal"></a>Gestire macchine virtuali di SQL Server in Azure usando il portale di Azure
 
@@ -33,7 +33,7 @@ Il **macchine virtuali SQL** risorsa ora è un servizio di gestione indipendente
 ## <a name="remarks"></a>Note
 
 - Il **macchine virtuali SQL** risorsa è il metodo consigliato per visualizzare e gestire le macchine virtuali di SQL Server. Tuttavia, attualmente, il **macchine virtuali SQL** risorsa non supporta la gestione dei [fine del supporto (May)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) VM di SQL Server. Per gestire le impostazioni per le VM di SQL Server EOS, utilizzare deprecate [della scheda di configurazione di SQL Server](#access-sql-server-configuration-tab) invece. 
-- Il **macchine virtuali SQL** risorsa è disponibile solo per le VM di SQL Server che hanno [registrata con il provider di risorse di VM di SQL](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider). 
+- Il **macchine virtuali SQL** risorsa è disponibile solo per le VM di SQL Server che hanno [registrata con il provider di risorse di VM di SQL](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 
 ## <a name="access-sql-virtual-machine-resource"></a>Risorsa della macchina virtuale l'accesso SQL
@@ -60,7 +60,7 @@ Verrà aperto selezionando la macchina virtuale di SQL Server la **macchine virt
   > Il **macchine virtuali SQL** risorse sia per le impostazioni di SQL Server dedicate. Selezionare il nome della macchina virtuale nel **macchina virtuale** campo per passare a impostazioni che sono specifiche per la macchina virtuale, ma non esclusivo a SQL Server. 
 
 ## <a name="access-sql-server-configuration-tab"></a>Scheda di configurazione di accesso SQL Server
-La scheda di configurazione di SQL Server è stata deprecata. A questo punto, è l'unico metodo per gestire [fine del supporto (May)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) macchine virtuali SQL Server e macchine virtuali di SQL Server che non sono state [registrata con il provider di risorse di VM di SQL](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider).
+La scheda di configurazione di SQL Server è stata deprecata. A questo punto, è l'unico metodo per gestire [fine del supporto (May)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) macchine virtuali SQL Server e macchine virtuali di SQL Server che non sono state [registrata con il provider di risorse di VM di SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
 
 Per accedere alla scheda Configurazione deprecata di SQL server, è necessario passare per il **macchine virtuali** risorsa. A tale scopo, seguire questa procedura:
 
@@ -79,7 +79,7 @@ Per accedere alla scheda Configurazione deprecata di SQL server, è necessario p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere gli articoli seguenti: 
+Per altre informazioni, vedere i seguenti articoli: 
 
 * [Panoramica di SQL Server in una macchina virtuale Windows](virtual-machines-windows-sql-server-iaas-overview.md)
 * [SQL Server sulle domande frequenti di una macchina virtuale Windows](virtual-machines-windows-sql-server-iaas-faq.md)

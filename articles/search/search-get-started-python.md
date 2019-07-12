@@ -1,7 +1,7 @@
 ---
 title: 'Guida introduttiva di Python: Creare, caricare ed eseguire query sugli indici con API REST di ricerca di Azure - ricerca di Azure'
 description: Illustra come creare un indice, caricare i dati ed eseguire query usando Python, notebook di Jupyter e l'API REST di ricerca di Azure.
-ms.date: 06/20/2019
+ms.date: 07/09/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
-ms.translationtype: MT
+ms.openlocfilehash: 39ff269c582a2d981d8fb30e09a550813a262eca
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485464"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798744"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Avvio rapido: Creare un indice di ricerca di Azure in Python con notebook di Jupyter
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 In questa guida di avvio rapido vengono usati i servizi e gli strumenti seguenti. 
 
-+ [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), fornendo Python 3.x e notebook di Jupyter.
++ [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), che fornisce Python 3.x e Jupyter Notebook.
 
 + [Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare il livello gratuito per questa Guida introduttiva. 
 
@@ -64,7 +64,7 @@ In questa attività, avviare un notebook di Jupyter e verificare che sia possibi
    from pprint import pprint
    ```
 
-1. Nella seconda cella, immettere gli elementi di richiesta che verrà costanti a ogni richiesta. Sostituire il nome del servizio ricerca (YOUR-SEARCH-SERVICE-NAME) e la chiave API di amministrazione (YOUR-ADMIN-API-KEY) con i valori validi. 
+1. Nella seconda cella, immettere gli elementi di richiesta che verrà costanti a ogni richiesta. Sostituire il nome del servizio di ricerca (YOUR-SEARCH-SERVICE-NAME) e la chiave API dell'amministratore (YOUR-ADMIN-API-KEY) con valori validi. 
 
    ```python
    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
@@ -295,26 +295,13 @@ Questo passaggio illustra come eseguire query su un indice con il [API REST di r
    searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
-## <a name="clean-up"></a>Eseguire la pulizia 
+## <a name="clean-up"></a>Eseguire la pulizia
 
-Se è non è più necessario, è necessario eliminare l'indice. Un servizio gratuito è limitato a tre indici. È necessario eliminare eventuali indici che non si usa attivamente per fare spazio ad altre esercitazioni.
+Quando si lavora nella propria sottoscrizione, è una buona idea alla fine di un progetto per identificare se sono comunque necessarie le risorse che è stato creato. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le risorse singolarmente o eliminare il gruppo di risorse per eliminare l'intero set di risorse.
 
-Il modo più semplice per eliminare gli oggetti è tramite il portale, ma poiché si tratta di una Guida introduttiva per Python, la sintassi seguente restituisce lo stesso risultato:
+È possibile trovare e gestire le risorse nel portale, usando il **tutte le risorse** o **gruppi di risorse** collegamento nel riquadro di spostamento a sinistra.
 
-   ```python
-  url = endpoint + "indexes/hotels-quickstart" + api_version
-  response  = requests.delete(url, headers=headers)
-   ```
-
-È possibile verificare l'eliminazione dell'indice richiedendo un elenco degli indici esistenti. Se non è più presente hotels-quickstart, allora si conosce la richiesta ha avuto esito positivo.
-
-```python
-url = endpoint + "indexes" + api_version + "&$select=name"
-
-response  = requests.get(url, headers=headers)
-index_list = response.json()
-pprint(index_list)
-```
+Se si usa un servizio gratuito, tenere presente che si è limitati a tre indici, indicizzatori e origini dati. È possibile eliminare i singoli elementi nel portale per restare sotto il limite. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

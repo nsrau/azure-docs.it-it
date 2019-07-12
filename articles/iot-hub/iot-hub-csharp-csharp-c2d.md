@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 629342e44af16b6d23f9ed85f8c5306c807b8bfc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864453"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621892"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Inviare messaggi dal cloud al dispositivo con Hub IoT (.NET)
 
@@ -22,29 +22,29 @@ ms.locfileid: "65864453"
 
 ## <a name="introduction"></a>Introduzione
 
-L'hub IoT di Azure è un servizio completamente gestito che consente di abilitare comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. La guida introduttiva [Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md) mostra come creare un hub IoT, eseguire il provisioning dell'identità di un dispositivo al suo interno e creare il codice di un'app per dispositivo che invia messaggi da dispositivo a cloud.
+L'hub IoT di Azure è un servizio completamente gestito che consente di abilitare comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. Il [inviare i dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md) Guida introduttiva illustra come creare un hub IoT, eseguire il provisioning di un'identità del dispositivo in esso e codice di un'app di dispositivo che invia messaggi da dispositivo a cloud.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Questa esercitazione è basata sulla guida introduttiva [Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md). Illustra come eseguire i passaggi seguenti:
+Questa esercitazione si basa sul [inviare i dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md). Illustra come eseguire i passaggi seguenti:
 
 * Dal back-end della soluzione inviare messaggi da cloud a dispositivo a un singolo dispositivo tramite l'hub IoT.
 
 * Ricevere messaggi da cloud a dispositivo in un dispositivo.
 
-* Dal back-end della soluzione richiedere l'acknowledgement di recapito (*feedback*) per i messaggi inviati a un dispositivo dall'hub IoT.
+* Dal back-end della soluzione, chiedere una conferma di recapito (*commenti e suggerimenti*) per i messaggi inviati a un dispositivo dall'IoT Hub.
 
 Altre informazioni sui messaggi da cloud a dispositivo sono disponibili in [Messaggistica da dispositivo a cloud e da cloud a dispositivo con l'hub IoT](iot-hub-devguide-messaging.md).
 
 Al termine di questa esercitazione, si eseguite due App console .NET.
 
-* **SimulatedDevice**, una versione modificata dell'app creata in [Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md), che si connette all'hub IoT e riceve messaggi da cloud a dispositivo.
+* **SimulatedDevice**, una versione modificata dell'app creata nel [inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md), che si connette all'hub IoT e riceve messaggi da cloud a dispositivo.
 
-* **SendCloudToDevice**, che invia un messaggio diretto dal cloud al dispositivo all'app per dispositivi tramite l'hub IoT e quindi riceve la conferma di recapito.
+* **SendCloudToDevice**, che invia un messaggio da cloud a dispositivo all'app del dispositivo tramite l'IoT Hub e riceve quindi relativo acknowledgment di recapito.
 
 > [!NOTE]
 > L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi, tra cui C, Java e Javascript, tramite gli [SDK del dispositivo IoT Azure](iot-hub-devguide-sdks.md). Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere la [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md).
-> 
+>
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -54,7 +54,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 ## <a name="receive-messages-in-the-device-app"></a>Ricevere messaggi nell'app per dispositivi
 
-In questa sezione si modificherà l'app per dispositivi creata in [Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md) per ricevere messaggi da cloud a dispositivo dall'hub IoT.
+In questa sezione si modificherà l'app per dispositivi creata in [inviare i dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md) per ricevere messaggi da cloud a dispositivo dall'hub IoT.
 
 1. In Visual Studio, nel progetto **SimulatedDevice** aggiungere il seguente metodo alla classe **Program**.
 
@@ -138,7 +138,7 @@ Ora possibile scrivere un'app console .NET che invia messaggi da cloud a disposi
    static string connectionString = "{iot hub connection string}";
    ```
 
-6. Aggiungere il metodo seguente alla classe **Program**. Impostare il nome del dispositivo a quella usata durante la definizione di dispositivo in [inviare dati di telemetria da un dispositivo a un hub IoT... ](quickstart-send-telemetry-dotnet.md).
+6. Aggiungere il metodo seguente alla classe **Program**. Impostare il nome del dispositivo a quella usata durante la definizione di dispositivo nel [inviare i dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md).
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
@@ -149,7 +149,7 @@ Ora possibile scrivere un'app console .NET che invia messaggi da cloud a disposi
    }
    ```
 
-   Questo metodo invia un nuovo messaggio da cloud a dispositivo al dispositivo con ID `myFirstDevice`. Modificare questo parametro solo se è stato cambiato rispetto a quello usato in [Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md).
+   Questo metodo invia un nuovo messaggio da cloud a dispositivo al dispositivo con ID `myFirstDevice`. Modificare questo parametro solo se è stato modificato rispetto a quello usato nel [inviare i dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-dotnet.md).
 
 7. Aggiungere infine le righe seguenti al metodo **Main** .
 
@@ -171,7 +171,7 @@ Ora possibile scrivere un'app console .NET che invia messaggi da cloud a disposi
 
 ## <a name="receive-delivery-feedback"></a>Ricevere feedback di recapito
 
-È possibile richiedere la conferma della ricezione (o della scadenza) dall'hub IoT per ogni messaggio da cloud a dispositivo. Questa opzione consente al back-end della soluzione di informare facilmente la logica di ripetizione o di compensazione. Per altre informazioni sul feedback dei messaggi da cloud a dispositivo, vedere [Messaggistica da dispositivo a cloud e da cloud a dispositivo con l'hub IoT](iot-hub-devguide-messaging.md).
+È possibile per i riconoscimenti di richiesta (o della scadenza) dall'IoT Hub per ogni messaggio da cloud a dispositivo. Questa opzione consente al back-end della soluzione di informare facilmente la logica di ripetizione o di compensazione. Per altre informazioni sul feedback dei messaggi da cloud a dispositivo, vedere [Messaggistica da dispositivo a cloud e da cloud a dispositivo con l'hub IoT](iot-hub-devguide-messaging.md).
 
 In questa sezione si modifica l'app **SendCloudToDevice** per richiedere feedback e riceverlo dall'hub IoT.
 
@@ -217,7 +217,7 @@ In questa sezione si modifica l'app **SendCloudToDevice** per richiedere feedbac
    ![Ricezione di un messaggio da parte dell'app](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come suggerito nell'articolo [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
+> Per semplicità, questa esercitazione non implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come suggerito nell'articolo [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
 >
 
 ## <a name="next-steps"></a>Passaggi successivi

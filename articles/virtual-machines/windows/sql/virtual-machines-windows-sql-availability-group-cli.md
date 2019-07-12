@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5efbe874bbf3c1c4081eb7a2c76c1be5a3358ec8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5015f00d3c6dfe0e1e5c2466af777cc0f1bc509
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518970"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607143"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Usare VM di SQL Azure CLI per configurare gruppi di disponibilità AlwaysOn per SQL Server in una VM di Azure
 Questo articolo descrive come usare [macchina virtuale di SQL Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) per distribuire un Cluster di Failover di Windows (WSFC) e aggiungere le macchine virtuali di SQL Server al cluster, nonché per creare il bilanciamento del carico interno e il listener per un gruppo di disponibilità Always On.  La distribuzione effettiva del gruppo di disponibilità Always On viene comunque eseguita manualmente tramite SQL Server Management Studio (SSMS). 
@@ -28,7 +28,7 @@ Questo articolo descrive come usare [macchina virtuale di SQL Azure CLI](/cli/az
 Per automatizzare l'installazione di un gruppo disponibilità Always On tramite CLI della macchina virtuale di Azure SQL, è necessario disporre già i prerequisiti seguenti: 
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
 - Un gruppo di risorse con un controller di dominio. 
-- Uno o più aggiunti al dominio [macchine virtuali in Azure in esecuzione SQL Server 2016 (o superiore) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) nel *stesso set di disponibilità o le zone di disponibilità diverso* che sono stati [registrato con il provider di risorse di VM di SQL](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- Uno o più aggiunti al dominio [macchine virtuali in Azure in esecuzione SQL Server 2016 (o superiore) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) nel *stesso set di disponibilità o le zone di disponibilità diverso* che sono stati [registrato con il provider di risorse di VM di SQL](virtual-machines-windows-sql-register-with-resource-provider.md).  
 - [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 - (Non usato da qualsiasi entità) disponibili due indirizzi IP, uno per il bilanciamento del carico interno e uno per il listener del gruppo di disponibilità all'interno della stessa subnet del gruppo di disponibilità. Se viene usato un bilanciamento del carico esistente, è necessario un solo indirizzo IP disponibile per il listener del gruppo di disponibilità. 
 
@@ -212,7 +212,7 @@ az sql vm group ag-listener delete --group-name <cluster name> --name <listener 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere gli articoli seguenti: 
+Per altre informazioni, vedere i seguenti articoli: 
 
 * [Cos'è SQL Server in Macchine virtuali di Azure?](virtual-machines-windows-sql-server-iaas-overview.md)
 * [Domande frequenti su SQL Server in esecuzione in macchine virtuali Windows in Azure](virtual-machines-windows-sql-server-iaas-faq.md)

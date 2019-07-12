@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 02/20/2019
+ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e062fd73f2baeb4948430b13e0caa1f5c0b3f066
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4a5723b2ffbd34fd7cf022bf747b4504b3bdac53
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341106"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797668"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire l'accesso a un'area di lavoro di Azure Machine Learning
 
@@ -26,7 +26,7 @@ In questo articolo descrive come gestire l'accesso a un'area di lavoro di Azure 
 
 Un'area di lavoro di Azure Machine Learning è una risorsa di Azure. Quali altre risorse di Azure quando viene creata una nuova area di Azure Machine Learning, include tre ruoli predefiniti. È possibile aggiungere utenti all'area di lavoro e assegnarli a uno di questi ruoli predefiniti.
 
-| Ruolo | Livello di accesso |
+| Role | Livello di accesso |
 | --- | --- |
 | **Lettore** | Azioni di sola lettura nell'area di lavoro. I lettori possono elencare e visualizzare gli asset in un'area di lavoro, ma Impossibile creare o aggiornare questi asset. |
 | **Collaboratore** | Visualizzare, creare, modificare o eliminare (dove applicabile) gli asset in un'area di lavoro. Ad esempio, i collaboratori possono creare un esperimento creare o collegare un cluster di calcolo, invia un'esecuzione e distribuire un servizio web. |

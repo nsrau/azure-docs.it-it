@@ -6,12 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.openlocfilehash: e56301e98ca773369631e2f7ae137c63d0b9ddef
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60832915"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613306"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Le regole e gruppi di regole CRS di web application firewall
 
@@ -25,7 +26,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="General"></a> <p x-ms-format-detection="none">Generale</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |200004|Possibile limite multiparte senza corrispondenza.|
 
@@ -48,7 +49,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |920100|Riga della richiesta HTTP non valida|
 |920130|Impossibile analizzare corpo della richiesta|
@@ -94,7 +95,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |921100|Attacco di tipo HTTP Request Smuggling|
 |921110|Attacco di tipo HTTP Request Smuggling|
@@ -127,7 +128,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs932"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |932120|Esecuzione comandi in remoto: trovato comando di Windows PowerShell|
 |932130|Esecuzione comandi in remoto: trovata espressione shell Unix|
@@ -212,7 +213,7 @@ I seguenti gruppi di regole e le regole sono disponibili quando si usa il Gatewa
 
 ### <a name="crs943"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |943100|Possibile attacco di tipo Session Fixation: impostazione valori cookie in HTML|
 |943110|Possibile attacco di tipo Session Fixation: nome parametro SessionID con referrer fuori dominio|

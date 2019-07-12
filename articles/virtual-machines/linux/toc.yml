@@ -137,6 +137,8 @@
           href: infrastructure-example.md
         - name: Quote vCPU
           href: quotas.md
+    - name: Attributi di sicurezza
+      href: virtual-machines-linux-security-attributes.md
 - name: Guide alle procedure
   items:
     - name: Creare VM

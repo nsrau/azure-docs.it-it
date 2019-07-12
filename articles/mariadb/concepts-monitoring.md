@@ -1,17 +1,17 @@
 ---
 title: Monitoraggio in Database di Azure per MariaDB
 description: Questo articolo illustra le metriche di monitoraggio e avviso per Database di Azure per MariaDB, che includono statistiche relative a CPU, spazio di archiviazione e connessioni.
-author: andrela
-ms.author: ajlam
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 8625441f836256028362fc327873383f5b46620c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fb998edffed290bb7bc59945163f0fd48c55cbf5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065735"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612536"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitoraggio in Database di Azure per MariaDB
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per MariaDB offre varie metriche che consentono di ottenere informazioni dettagliate sul comportamento del server.
@@ -24,7 +24,7 @@ Per indicazioni dettagliate, vedere l'articolo su come [configurare gli avvisi](
 ### <a name="list-of-metrics"></a>Elenco delle metriche
 Per Database di Azure per MariaDB sono disponibili le metriche seguenti:
 
-|Metrica|Nome visualizzato per la metrica|Unità|Descrizione|
+|Metrica|Nome visualizzato per la metrica|Unità|DESCRIZIONE|
 |---|---|---|---|
 |cpu_percent|Percentuale CPU|Percent|Percentuale di CPU in uso.|
 |memory_percent|Percentuale memoria|Percent|Percentuale di memoria in uso.|

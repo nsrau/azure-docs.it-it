@@ -8,17 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 07/10/2019
 ms.author: wellsi
-ms.openlocfilehash: 93272520434ea43a94af9441a947239e983c216f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1ca6b5265cf97ef551ec0b13b46ac934a372d2c7
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606692"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797920"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Note sulla versione di Speech Devices SDK di Servizi cognitivi
 L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
+
+## <a name="speech-devices-sdk-160"></a>Dispositivi Speech SDK 1.6.0:
+
+*   Supporto tecnico [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) in Windows e Linux con i comuni [applicazione di esempio](https://aka.ms/sdsdk-download)
+*   Aggiornato il [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) componente alla versione 1.6.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="speech-devices-sdk-151"></a>Dispositivi Speech SDK 1.5.1:
 

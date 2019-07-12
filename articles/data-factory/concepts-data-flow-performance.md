@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 1ee266d7d9846a357dce613817affdb0cde5bfdc
+ms.sourcegitcommit: e6cb7ca206a125c05acfd431b5a64391a8dcc6b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190606"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569035"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapping delle prestazioni di flussi di dati e l'ottimizzazione manuale
 
@@ -127,7 +127,18 @@ Fare clic sull'icona visualizzerà il piano di esecuzione e il profilo di presta
 * Tenere a mente quando si sceglie questa opzione più diffusi. Se si combinano molti file di grandi dimensioni di origine in una partizione del file di output singolo, è possibile eseguire esaurisce le risorse di nodo del cluster.
 * Per evitare l'esaurimento delle risorse di nodo di calcolo, è possibile mantenere il valore predefinito o esplicito schema di partizionamento in Azure Data factory, in modo da ottimizzare per le prestazioni, e quindi aggiungere un'attività di copia successive della pipeline che unisce tutta la parte dei file dalla cartella dell'output di un singolo nuovo file. In pratica, questa tecnica separa l'azione di trasformazione dall'unione di file e consente di ottenere lo stesso risultato dell'impostazione di "output in un singolo file".
 
+### <a name="looping-through-file-lists"></a>Scorrimento in ciclo tra gli elenchi di file
+
+Nella maggior parte dei casi, i dati fluiscono in Azure Data factory eseguirà migliori da una pipeline che consente la trasformazione di origine del flusso di dati eseguire l'iterazione su più file. In altre parole, è preferibile usare caratteri jolly o elenchi di file all'interno dell'origine dei dati di flusso per eseguire l'iterazione su un lungo elenco di file mediante ForEach nella pipeline, la chiamata a un'esecuzione del flusso di dati in ogni iterazione. Il processo del flusso di dati verrà eseguite più velocemente, consentendo il ciclo che si verifichi all'interno del flusso di dati.
+
+Ad esempio, se dispone di un elenco di file di dati da luglio 2019 che desidera elaborare in una cartella nell'archiviazione Blob, sarebbe più efficiente per chiamare un'attività flusso di dati di eseguire una sola volta da pipeline e usare un carattere jolly nell'origine simile al seguente :
+
+```DateFiles/*_201907*.txt```
+
+Questo garantirà prestazioni migliori rispetto a una ricerca in Store i Blob in una pipeline che quindi esegue un'iterazione su tutti i file corrispondenti con un'attività di esecuzione del flusso di dati all'interno di un ciclo ForEach.
+
 ## <a name="next-steps"></a>Passaggi successivi
+
 Vedere gli altri del flusso di dati articoli correlati alle prestazioni:
 
 - [Scheda Ottimizza il flusso di dati](concepts-data-flow-optimize-tab.md)

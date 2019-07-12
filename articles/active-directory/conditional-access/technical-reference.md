@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5919eebccad8d7f9e048ae07be296eaaaf8428eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 535842989ef49ee13a5ddee7c4349a3b819f741c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112115"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797848"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Fare riferimento a impostazioni di accesso condizionale di Active Directory di Azure
 
@@ -134,7 +134,7 @@ In Windows 7, iOS, Android e macOS Azure AD identifica il dispositivo usando un 
 
 #### <a name="chrome-support"></a>Supporto di Chrome
 
-Per il supporto di Chrome in **Windows 10 Creators Update (versione 1703)** o versioni successive, installare [questa estensione](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+Per Chrome supporto in **Windows 10 Creators Update (versione 1703)** o versioni successive, installare il [estensione di Windows 10 account](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Questa estensione è necessaria quando un criterio di accesso condizionale richiede i dettagli specifici di dispositivi.
 
 Per distribuire automaticamente questa estensione ai browser Chrome, creare la chiave del Registro di sistema seguente:
 

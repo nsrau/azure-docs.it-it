@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1bd9774cf045d9ed7f16a637fcb2eb1378b48686
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: d0a81d5d7ce8e7569b77007b6ad9c322cf626f16
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565823"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670707"
 ---
 # <a name="assets"></a>Asset
 
@@ -101,7 +101,7 @@ La tabella seguente illustra come il [Asset](https://docs.microsoft.com/rest/api
 |description|NOME|
 |LastModified|LastModified|
 |storageAccountName|StorageAccountName|
-|storageEncryptionFormat| Opzioni - opzioni di creazione|
+|storageEncryptionFormat| Opzioni (opzioni di creazione)|
 |type||
 
 ## <a name="storage-side-encryption"></a>Crittografia lato archiviazione

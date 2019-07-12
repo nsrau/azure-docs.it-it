@@ -2,17 +2,17 @@
 title: Integrare Azure Active Directory con il servizio Azure Kubernetes
 description: Come creare cluster abilitato Azure Active Directory di Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
-ms.author: iainfou
-ms.openlocfilehash: db166c82e39e9184528fde67ff868229cf9b1d57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 80137023643630e8472a70fcca6cb656aeba7123
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061114"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616381"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrare Azure Active Directory con il servizio Azure Kubernetes
 
@@ -26,7 +26,7 @@ Questo articolo spiega come:
 - Distribuire un cluster abilitato per AD Azure.
 - Creare un ruolo RBAC di base del cluster servizio contenitore di AZURE usando il portale di Azure.
 
-È anche possibile completare questi passaggi tramite il [Azure CLI][azure-ad-cli].
+È anche possibile completare questi passaggi tramite il [CLI Azure][azure-ad-cli].
 
 > [!NOTE]
 > Azure AD può essere abilitata solo quando si crea un nuovo cluster abilitato RBAC. Non è possibile abilitare Azure AD in un cluster del servizio Azure Kubernetes.
@@ -39,7 +39,7 @@ Per altre informazioni su OpenID Connect, vedere [autorizzare l'accesso ad appli
 
 All'interno di un cluster Kubernetes, viene utilizzata l'autenticazione tramite token webhook per i token di autenticazione. L'autenticazione del token del webhook viene configurata e gestita come parte del cluster servizio Azure Kubernetes.
 
-Per altre informazioni sull'autenticazione basata su token webhook, vedere la [autenticazione basata su Token Webhook] [ kubernetes-webhook] sezione nella documentazione di Kubernetes.
+Per altre informazioni sull'autenticazione basata su token webhook, vedere la [autenticazione basata su Token Webhook][kubernetes-webhook] sezione nella documentazione di Kubernetes.
 
 Per fornire l'autenticazione di Azure AD per un cluster AKS, vengono create due applicazioni Azure AD. La prima applicazione è un componente server che fornisce l'autenticazione dell'utente. La seconda applicazione è un componente client che viene usato quando richiesto per l'interfaccia della riga di comando per l'autenticazione. Questa applicazione client usa l'applicazione server per l'autenticazione effettivo delle credenziali forniti dal client.
 
@@ -152,13 +152,13 @@ Dal portale di Azure, selezionare **Azure Active Directory** > **delle propriet�
 
 ## <a name="deploy-the-aks-cluster"></a>Distribuire il cluster AKS
 
-Usare il comando [az group create][az-group-create] per creare un gruppo di risorse per il cluster servizio Azure Kubernetes.
+Usare la [creare il gruppo di az][az-group-create] comando per creare un gruppo di risorse per il cluster AKS.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Usare la [az aks create] [ az-aks-create] comando per distribuire il cluster AKS. Successivamente, sostituire i valori nel comando seguente. Usare i valori raccolti durante la creazione di applicazioni di Azure AD per l'ID dell'app server, segreto dell'app, ID app client e ID tenant.
+Usare la [az aks create][az-aks-create] comando per distribuire il cluster AKS. Successivamente, sostituire i valori nel comando seguente. Usare i valori raccolti durante la creazione di applicazioni di Azure AD per l'ID dell'app server, segreto dell'app, ID app client e ID tenant.
 
 ```azurecli
 az aks create \
@@ -175,9 +175,9 @@ Un cluster AKS richiede alcuni minuti per creare.
 
 ## <a name="create-an-rbac-binding"></a>Creare un'associazione di RBAC
 
-Prima di usare un account Azure Active Directory con un cluster del servizio contenitore di AZURE, è necessario creare un'associazione di ruolo o un'associazione di ruolo del cluster. I ruoli definiscono le autorizzazioni da concedere e associazioni applicano agli utenti desiderati. Queste assegnazioni possono essere applicate a uno spazio dei nomi specifico o all'intero cluster. Per altre informazioni, vedere [Uso di autorizzazioni del controllo degli accessi in base al ruolo][rbac-authorization].
+Prima di usare un account Azure Active Directory con un cluster del servizio contenitore di AZURE, è necessario creare un'associazione di ruolo o un'associazione di ruolo del cluster. I ruoli definiscono le autorizzazioni da concedere e associazioni applicano agli utenti desiderati. Queste assegnazioni possono essere applicate a uno spazio dei nomi specifico o all'intero cluster. Per altre informazioni, vedere [autorizzazione tramite RBAC][rbac-authorization].
 
-In primo luogo, usare il [az aks get-credentials] [ az-aks-get-credentials] comando con il `--admin` argomento per accedere al cluster con l'accesso come amministratore.
+In primo luogo, usare il [az aks get-credentials][az-aks-get-credentials] con il `--admin` argomento per accedere al cluster con l'accesso come amministratore.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
@@ -187,7 +187,7 @@ Successivamente, creare ClusterRoleBinding per un account Azure AD che si deside
 
 - Se l'utente si concede che l'associazione di RBAC per è nello stesso tenant di Azure AD, è possibile assegnare autorizzazioni in base al nome dell'entità utente (UPN). Passare al passaggio per creare il manifesto YAML per ClusterRoleBinding.
 
-- Se l'utente è in un Azure AD diversi tenant, eseguire una query per e usare la **objectId** proprietà invece. Se necessario, ottenere l'objectId dell'account necessari utente usando il [show utente di ad az] [ az-ad-user-show] comando. Fornire il nome dell'entità utente (UPN) dell'account richiesto:
+- Se l'utente è in un Azure AD diversi tenant, eseguire una query per e usare la **objectId** proprietà invece. Se necessario, ottenere l'objectId dell'account necessari utente usando il [show utente di ad az][az-ad-user-show] comando. Fornire il nome dell'entità utente (UPN) dell'account richiesto:
 
     ```azurecli-interactive
     az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
@@ -210,7 +210,7 @@ subjects:
   name: userPrincipalName_or_objectId
 ```
 
-Applica l'associazione utilizzando il [kubectl applicare] [ kubectl-apply] seguente come mostrato nell'esempio seguente:
+Applica l'associazione utilizzando il [kubectl applicare][kubectl-apply] seguente come mostrato nell'esempio seguente:
 
 ```console
 kubectl apply -f rbac-aad-user.yaml
@@ -235,17 +235,17 @@ subjects:
    name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
 ```
 
-Applica l'associazione utilizzando il [kubectl applicare] [ kubectl-apply] seguente come mostrato nell'esempio seguente:
+Applica l'associazione utilizzando il [kubectl applicare][kubectl-apply] seguente come mostrato nell'esempio seguente:
 
 ```console
 kubectl apply -f rbac-aad-group.yaml
 ```
 
-Per altre informazioni sulla protezione di un cluster Kubernetes con RBAC, vedere [Using RBAC Authorization][rbac-authorization] (Uso delle autorizzazioni RBAC).
+Per altre informazioni sulla protezione di un cluster Kubernetes con RBAC, vedere [con autorizzazione RBAC][rbac-authorization].
 
 ## <a name="access-the-cluster-with-azure-ad"></a>Accedere al cluster con Azure AD
 
-Estrarre il contesto per l'utente senza privilegi di amministratore usando il [az aks get-credentials] [ az-aks-get-credentials] comando.
+Estrarre il contesto per l'utente senza privilegi di amministratore usando il [az aks get-credentials][az-aks-get-credentials] comando.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -279,7 +279,7 @@ error: You must be logged in to the server (Unauthorized)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per usare i gruppi e utenti di Azure AD per controllare l'accesso alle risorse del cluster, vedere [controllare l'accesso alle risorse del cluster con controllo degli accessi basata sui ruoli e le identità di Azure AD in AKS][azure-ad-rbac].
+Per usare i gruppi e utenti di Azure AD per controllare l'accesso alle risorse del cluster, vedere [controllare l'accesso alle risorse del cluster con controllo degli accessi basata sui ruoli e le identità di Azure AD nel servizio contenitore di AZURE][azure-ad-rbac].
 
 Per altre informazioni su come i cluster Kubernetes sicuri, vedere [opzioni di accesso e identità per AKS][rbac-authorization].
 

@@ -1,41 +1,46 @@
 ---
-title: Distribuire un Prometheus autonomo in un cluster Azure Red Hat OpenShift | Microsoft Docs
-description: Di seguito viene illustrato come creare un'istanza di Prometheus in un cluster Azure Red Hat OpenShift per monitorare le metriche dell'applicazione.
-author: Makdaam
+title: Distribuire un'istanza di Prometheus autonoma in un cluster Azure Red Hat OpenShift | Microsoft Docs
+description: Creare un'istanza di Prometheus in un cluster Azure Red Hat OpenShift per monitorare le metriche dell'applicazione.
+author: makdaam
 ms.author: b-lejaku
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: prometheus, aro, openshift, metriche, red hat
-ms.openlocfilehash: e66658151361edd43f61d398274c88c047928028
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: a9748932a72106413677b21fe0efd1f69fb02e47
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342537"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827011"
 ---
-# <a name="deploy-a-standalone-prometheus-in-an-azure-red-hat-openshift-cluster"></a>Distribuire un Prometheus autonomo in un cluster Azure Red Hat OpenShift
+# <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Distribuire un'istanza di Prometheus autonoma in un cluster Azure Red Hat OpenShift
 
-Questa guida descrive come configurare un computer autonomo Prometheus con individuazione dei servizi in un cluster Azure Red Hat OpenShift.  NON è necessario l'accesso "Amministratore del cliente" al cluster.
+Questo articolo descrive come configurare un'istanza di Prometheus autonomo che usa l'individuazione del servizio in un cluster Azure Red Hat OpenShift.
 
-La configurazione di destinazione è come segue:
+> [!NOTE]
+> Accesso di amministratore dei clienti per Azure Red Hat OpenShift cluster non è obbligatorio.
 
-- un progetto (prometheus-), che contiene Prometheus e Alertmanager
-- due progetti (project1 di app e app-project2), che contengono le applicazioni da monitorare
+Programma di installazione di destinazione:
 
-Viene illustrato come preparare alcuni file di configurazione di Prometheus in locale. Creare una nuova cartella in cui archiviarli.
-Questi file di configurazione verranno archiviati nel cluster come segreti nel caso in cui i token segreto a essi aggiunti in un secondo momento.
+- Un progetto (prometheus-), che contiene Prometheus e Alertmanager.
+- Due progetti (project1 di app e app-project2), che contengono le applicazioni da monitorare.
 
-## <a name="step-1-sign-in-to-the-cluster-using-the-oc-tool"></a>Passaggio 1: Accedere al cluster tramite il `oc` strumento
-Usando un web browser, passare alla console web del cluster (https://openshift. *id casuale*. *area*. azmosa.io).
-Accedere con le credenziali di Azure.
-Fare clic sul proprio nome utente in alto a destra e selezionare "Copia Login Command". Incollarlo nel terminale che verrà usato.
+Viene illustrato come preparare dei file di configurazione di Prometheus in locale. Creare una nuova cartella in cui archiviarli. I file di configurazione vengono archiviati nel cluster come segreti, nel caso in cui i token segreto saranno state aggiunte al cluster.
 
-È possibile verificare se si è connessi al cluster corretto con il `oc whoami -c` comando.
+## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>Accedere al cluster usando lo strumento di O.C.
 
-## <a name="step-2-prepare-the-projects"></a>Passaggio 2: Preparare i progetti
+1. Aprire un web browser e passare quindi alla console web del cluster (https://openshift. *id casuale*. *area*. azmosa.io).
+2. Accedere con le credenziali di Azure.
+3. Selezionare il nome utente nell'angolo superiore destro e quindi selezionare **comando Login copia**.
+4. Incollare il nome utente nel terminale che verrà usato.
 
-Creare progetti.
+> [!NOTE]
+> Per vedere se si è connessi al cluster corretto, eseguire il `oc whoami -c` comando.
+
+## <a name="prepare-the-projects"></a>Preparare i progetti
+
+Per creare i progetti, eseguire i comandi seguenti:
 ```
 oc new-project prometheus-project
 oc new-project app-project1
@@ -44,10 +49,10 @@ oc new-project app-project2
 
 
 > [!NOTE]
-> È possibile usare la `-n` oppure `--namespace` parametro o selezionare il progetto con un oggetto attivo il `oc project` comando
+> È possibile usare la `-n` o `--namespace` parametro o selezionare un progetto attivo eseguendo il `oc project` comando.
 
-## <a name="step-3-prepare-prometheus-config"></a>Passaggio 3: Prepara configurazione di Prometheus
-Creare un file denominato prometheus.yml con il contenuto seguente.
+## <a name="prepare-the-prometheus-configuration-file"></a>Preparare il file di configurazione di Prometheus
+Creare un file prometheus.yml immettendo il seguente contenuto:
 ```
 global:
   scrape_interval: 30s
@@ -68,19 +73,18 @@ scrape_configs:
           - app-project1
           - app-project2
 ```
-Creare un segreto denominato "prom" con la configurazione.
+Creare un segreto denominato Prom immettendo la configurazione seguente:
 ```
 oc create secret generic prom --from-file=prometheus.yml -n prometheus-project
 ```
 
-Il file elencato in precedenza è un file di configurazione di Prometheus base.
-Imposta gli intervalli e consente di configurare l'individuazione automatica in tre progetti (prometheus a progetto, project1 di app, app-project2).
-In questo esempio, l'auto individuati gli endpoint verranno scorporati tramite HTTP senza autenticazione.
-Per altre informazioni su scraping gli endpoint, vedere https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config.
+Il file prometheus.yml è un file di configurazione di Prometheus base. Imposta gli intervalli e consente di configurare l'individuazione automatica in tre progetti (prometheus a progetto, project1 di app, app-project2). Nel file di configurazione precedente, gli endpoint di individuazione automatica sono scorporati su HTTP senza autenticazione.
+
+Per altre informazioni sull'endpoint di scraping, vedere [Prometheus scape config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
 
 
-## <a name="step-4-prepare-alertmanager-config"></a>Passaggio 4: Preparare Alertmanager config
-Creare un file denominato alertmanager.yml con il contenuto seguente.
+## <a name="prepare-the-alertmanager-config-file"></a>Preparare il file di configurazione Alertmanager
+Creare un file alertmanager.yml immettendo il contenuto seguente:
 ```
 global:
   resolve_timeout: 5m
@@ -98,39 +102,39 @@ receivers:
 - name: default
 - name: deadmansswitch
 ```
-Creare un segreto denominato "prom-alerts" con la configurazione.
+Creare un segreto denominato Prom-Alerts immettendo la configurazione seguente:
 ```
 oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-project
 ```
 
-Il file elencato in precedenza è il file di configurazione di gestione avvisi.
+Alertmanager.yml è il file di configurazione di gestione avvisi.
 
 > [!NOTE]
-> È possibile verificare i due passaggi precedenti con `oc get secret -n prometheus-project`
+> Per verificare se i due passaggi precedenti, eseguire il `oc get secret -n prometheus-project` comando.
 
-## <a name="step-5-start-prometheus-and-alertmanager"></a>Passaggio 5: Avviare Prometheus e Alertmanager
-Scaricare il [prometheus standalone.yaml](
-https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml) modello dalle [openshift/repository origin](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus) e applicarlo nel progetto di prometheus
+## <a name="start-prometheus-and-alertmanager"></a>Avviare Prometheus e Alertmanager
+Passare a [openshift/repository origin](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus) e scaricare la [prometheus standalone.yaml](
+https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml) modello. Applicare il modello di progetto di prometheus immettendo la configurazione seguente:
 ```
 oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml | oc apply -f - -n prometheus-project
 ```
-Il file di prometheus standalone.yaml è un modello di OpenShift, che verrà creata un'istanza di Prometheus con un proxy di oauth davanti a e un'istanza Alertmanager, anche protetti con il proxy di oauth.  In questo modello oauth per il proxy è configurato per consentire tutti gli utenti possono "get" lo spazio dei nomi "prometheus-project" (vedere il `-openshift-sar` flag).
+Il file di prometheus standalone.yaml è un modello di OpenShift. Creerà un'istanza di Prometheus con oauth-proxy davanti a e un'istanza Alertmanager, anche protetti con il proxy di oauth. In questo modello, oauth-proxy è configurato per consentire tutti gli utenti possono "get" lo spazio dei nomi progetto di prometheus (vedere il `-openshift-sar` flag).
 
 > [!NOTE]
-> È possibile verificare se l'oggetto StatefulSet "prom" è uguale *DESIRED* e *corrente* numero di repliche con i `oc get statefulset -n prometheus-project` comando.
-> È inoltre possibile controllare tutte le risorse nel progetto con `oc get all -n prometheus-project`.
+> Per verificare se l'oggetto StatefulSet prom sia uguale DESIDERATA e numero di repliche corrente, eseguire il `oc get statefulset -n prometheus-project` comando. Per controllare tutte le risorse nel progetto, eseguire il `oc get all -n prometheus-project` comando.
 
-## <a name="step-6-add-permissions-to-allow-service-discovery"></a>Passaggio 6: Aggiungere le autorizzazioni per consentire l'individuazione del servizio
-Creare prometheus sdrole.yml con il contenuto seguente.
+## <a name="add-permissions-to-allow-service-discovery"></a>Aggiungere le autorizzazioni per consentire l'individuazione del servizio
+
+Creare un file di prometheus sdrole.yml immettendo il seguente contenuto:
 ```
 apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
   name: prometheus-sdrole
   annotations:
-    "openshift.io/display-name": Prometheus Service Discovery Role
+    "openshift.io/display-name": Prometheus service discovery role
     description: |
-      A role and rolebinding adding permissions required to perform Service Discovery in a given project.
+      Role and rolebinding added permissions required for service discovery in a given project.
     iconClass: fa fa-cogs
     tags: "monitoring,prometheus,alertmanager,time-series"
 parameters:
@@ -166,42 +170,48 @@ objects:
     name: prom
     namespace: ${PROMETHEUS_PROJECT}
 ```
-Applicare il modello a tutti i progetti in cui si desidera consentire l'individuazione del servizio.
+Per modello applicato a tutti i progetti che si desidera consentire l'individuazione del servizio, eseguire i comandi seguenti:
 ```
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project1
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
 ```
-Se si vuole anche Prometheus per essere in grado di raccogliere le metriche da se stessa, ricordarsi di applicare le autorizzazioni nel progetto di prometheus troppo.
+Per consentire a Prometheus per raccogliere metriche da se stesso, applicare le autorizzazioni nel progetto di prometheus.
 
 > [!NOTE]
-> È possibile verificare se il ruolo e RoleBinding sono stati creati correttamente con il `oc get role` e `oc get rolebinding` comandi rispettivamente
+> Per verificare che ruoli e RoleBinding siano stati creati correttamente, eseguire la `oc get role` e `oc get rolebinding` comandi.
 
 ## <a name="optional-deploy-example-application"></a>Facoltativo: Distribuire l'applicazione di esempio
-Tutto funziona, ma non sono presenti origini delle metriche. Passare all'URL di Prometheus (https://prom-prometheus-project.apps. *id casuale*. *area*.azmosa.io/), che è disponibile con il comando seguente.
+
+Tutto funziona, ma non sono presenti origini delle metriche. Passare all'URL di Prometheus (https://prom-prometheus-project.apps. *id casuale*. *area*.azmosa.io/). È possibile trovarlo tramite il seguente comando:
+
 ```
 oc get route prom -n prometheus-project
 ```
-Ricordarsi di prefisso del nome host con https://.
+> [!IMPORTANT]
+> Ricordarsi di aggiungere il prefisso https:// all'inizio del nome host.
 
 Il **stato > Service Discovery** pagina mostrerà destinazioni active 0 o 0.
 
-Per distribuire un'applicazione di esempio, che espone le metriche di base python nell'endpoint di /metrics eseguire i comandi seguenti.
+Per distribuire un'applicazione di esempio, che espone le metriche di base Python sotto l'endpoint /metrics, eseguire i comandi seguenti:
 ```
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example1 -n app-project1
+
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example2 -n app-project2
 ```
-Le nuove applicazioni vengono visualizzati come destinazioni valide nella pagina di individuazione servizio entro 30 secondi dopo la distribuzione. È possibile ottenere altri dettagli **stato > destinazioni** pagina.
+Le nuove applicazioni devono essere visualizzati come destinazioni valide nella pagina di individuazione servizio entro 30 secondi dopo la distribuzione.
+
+Per altri dettagli, selezionare **lo stato** > **destinazioni**.
 
 > [!NOTE]
-> Per ogni destinazione ottenute correttamente Prometheus aggiunge un elemento datapoint la metrica "massimo". Fare clic su **Prometheus** in alto a sinistra angolo ed immettere "up" come l'espressione, quindi scegliere **Execute**.
+> Per ogni destinazione ottenute correttamente, Prometheus aggiunge un punto dati nella metrica rapidamente. Selezionare **Prometheus** nell'angolo superiore sinistro, immettere **backup** come espressione e quindi selezionare **Execute**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile aggiungere strumentazione di Prometheus personalizzata alle applicazioni.
+È possibile aggiungere strumentazione di Prometheus personalizzata alle applicazioni. La libreria Client di Prometheus, che semplifica la preparazione di Prometheus metriche, è pronta per diversi linguaggi di programmazione.
 
-La libreria Client di Prometheus, semplificando la preparazione delle metriche di Prometheus è pronta per diversi linguaggi di programmazione.
+Per altre informazioni, vedere le librerie di GitHub seguenti:
 
- - Java https://github.com/prometheus/client_java
- - Python https://github.com/prometheus/client_python
- - Vai https://github.com/prometheus/client_golang
- - Ruby https://github.com/prometheus/client_ruby
+ - [Java](https://github.com/prometheus/client_java)
+ - [Python](https://github.com/prometheus/client_python)
+ - [Go](https://github.com/prometheus/client_golang)
+ - [Ruby](https://github.com/prometheus/client_ruby)

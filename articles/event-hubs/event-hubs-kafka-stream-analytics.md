@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: b6bba4ed45530ba66a1adde274022a80091cd199
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c4beede2508104fc9af934d3f9a2bbcce791292
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60748144"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626177"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Elaborare gli eventi di Apache Kafka per Hub eventi mediante Analisi di flusso 
 Questo articolo illustra come trasmettere i dati in Hub eventi abilitati per Kafka ed elaborarli con Analisi di flusso di Azure. L'articolo include le istruzioni dettagliate per le operazioni seguenti: 
@@ -163,7 +163,7 @@ La query nel processo di Analisi di flusso di Azure attraversa i dati senza eseg
  
 
 ### <a name="define-a-query"></a>Definire una query
-Dopo aver configurato un processo di Analisi di flusso per leggere un flusso di dati in ingresso, il passaggio successivo consiste nel creare una trasformazione che analizza i dati in tempo reale. Per definire la query di trasformazione, si usa il [linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/dn834998.aspx). In questa procedura dettagliata si definisce una query che attraversa i dati senza apportare alcuna trasformazione.
+Dopo aver configurato un processo di Analisi di flusso per leggere un flusso di dati in ingresso, il passaggio successivo consiste nel creare una trasformazione che analizza i dati in tempo reale. Per definire la query di trasformazione, si usa il [linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). In questa procedura dettagliata si definisce una query che attraversa i dati senza apportare alcuna trasformazione.
 
 1. Selezionare **Query**.
 2. Nella finestra della query sostituire `[YourOutputAlias]` con l'alias di output creato in precedenza.

@@ -4,7 +4,7 @@ description: Informazioni sulle prestazioni, risultati del test per le dimension
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 9174ed0fbf95a094c363fa1d9aa899d9554b345b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 820aa1d04437a80f72e95fab71f5c8503c59822c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809978"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707739"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali serie HB
 
@@ -78,7 +78,7 @@ Latenza MPI OSU v5.4.3 di Test.
 | 128  | 2.76     | 2.88     | 3.06     | 2.91     |
 | 256  | 3.53     | 3.65     | 3,73     | 3.57     |
 | 512  | 3.68     | 3.78     | 3.81     | 3.70     |
-| 1024 | 3.86     | 3.97     | 3.95     | 3.93     |
+| 1024 | 3,86     | 3.97     | 3.95     | 3.93     |
 | 2048 | 4.12     | 4.5      | 4.24     | 4.22     |
 | 4096 | 4.79     | 5,28     | 6.33     | 4.91     |
 

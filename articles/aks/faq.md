@@ -2,18 +2,18 @@
 title: Domande frequenti relative al servizio Azure Kubernetes
 description: Trova le risposte ad alcune delle domande frequenti su Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/03/2019
-ms.author: iainfou
-ms.openlocfilehash: d4fa365e1ed055fa8ddeb8fd475e152af84a3b71
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 495f182ed450d0fac69b31ea2996bacc60863fea
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560440"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672772"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -62,30 +62,28 @@ Per i nodi Windows Server (attualmente in anteprima nel servizio contenitore di 
 Ogni distribuzione servizio Azure Kubernetes si estende a due gruppi di risorse:
 
 1. Creare il primo gruppo di risorse. Questo gruppo contiene solo la risorsa del servizio Kubernetes. Il provider di risorse AKS crea automaticamente il secondo gruppo di risorse durante la distribuzione. È un esempio del secondo gruppo di risorse *MC_myResourceGroup_myAKSCluster_eastus*. Per informazioni su come specificare il nome del secondo gruppo di risorse, vedere la sezione successiva.
-1. Il secondo gruppo di risorse, ad esempio *MC_myResourceGroup_myAKSCluster_eastus*, contiene tutte le risorse di infrastruttura associate al cluster. come ad esempio le macchine virtuali dei nodi Kubernetes, le risorse della rete virtuale e di archiviazione. Lo scopo di questo gruppo di risorse è per semplificare la pulizia delle risorse.
+1. Il secondo gruppo di risorse, noto come il *gruppo di risorse nodo*, contiene tutte le risorse di infrastruttura associate al cluster. come ad esempio le macchine virtuali dei nodi Kubernetes, le risorse della rete virtuale e di archiviazione. Per impostazione predefinita, il gruppo di risorse di nodo con un nome simile a *MC_myResourceGroup_myAKSCluster_eastus*. Servizio contenitore di AZURE Elimina automaticamente la risorsa di nodo ogni volta che il cluster viene eliminato, pertanto deve essere utilizzata solo per le risorse che condividono ciclo di vita del cluster.
 
-Se si creano le risorse da usare con il cluster AKS, ad esempio gli account di archiviazione o indirizzi IP pubblici riservati, inserirle nel gruppo di risorse generato automaticamente.
+## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>È possibile fornire un nome per il gruppo di risorse del nodo AKS?
 
-## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>È possibile fornire un nome per il gruppo di risorse di infrastruttura servizio contenitore di AZURE?
-
-Sì. Per impostazione predefinita, il provider di risorse AKS crea automaticamente un gruppo di risorse secondario (ad esempio *MC_myResourceGroup_myAKSCluster_eastus*) durante la distribuzione. Per garantire la conformità ai criteri aziendali, è possibile fornire il proprio nome per il cluster gestito (*MC _* ) gruppo di risorse.
+Sì. Per impostazione predefinita, servizio contenitore di AZURE verrà denominare il gruppo di risorse del nodo *MC_clustername_resourcegroupname_location*, ma è anche possibile fornire il proprio nome.
 
 Per specificare il proprio nome di gruppo di risorse, installare il [aks-preview][aks-preview-cli] la versione dell'estensione di comando di Azure *0.3.2* o versione successiva. Quando si crea un cluster AKS usando il [az aks create][az-aks-create] comando, utilizzare il *-nodo-resource-group* parametro e specificare un nome per il gruppo di risorse. Se si [usare un modello di Azure Resource Manager][aks-rm-template] per distribuire un cluster AKS, è possibile definire il nome del gruppo di risorse tramite il *nodeResourceGroup* proprietà.
 
 * Il gruppo di risorse secondario viene creato automaticamente dal provider di risorse di Azure nella propria sottoscrizione.
 * È possibile specificare il nome di un gruppo di risorse personalizzati solo quando si crea il cluster.
 
-Quando si lavora con i *MC _* gruppo di risorse, tenere presente che non è possibile:
+Quando si lavora con il gruppo di risorse di nodo, tenere presente che non è possibile:
 
-* Specificare un gruppo di risorse per la *MC _* gruppo.
-* Specificare una sottoscrizione diversa per il *MC _* gruppo di risorse.
-* Modifica il *MC _* nome gruppo di risorse dopo aver creato il cluster.
-* Specificare nomi per le risorse gestite all'interno di *MC _* gruppo di risorse.
-* Modificare o eliminare i tag delle risorse gestite all'interno di *MC _* gruppo di risorse. (Vedere altre informazioni nella sezione successiva).
+* Specificare un gruppo di risorse per il gruppo di risorse del nodo.
+* Specificare una sottoscrizione diversa per il gruppo di risorse del nodo.
+* Modificare il nome del gruppo di risorse del nodo dopo aver creato il cluster.
+* Specificare nomi per le risorse gestite all'interno del gruppo di risorse del nodo.
+* Modificare o eliminare i tag delle risorse gestite all'interno del gruppo di risorse del nodo. (Vedere altre informazioni nella sezione successiva).
 
-## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>È possibile modificare i tag e le altre proprietà delle risorse nel gruppo di risorse MC _ AKS?
+## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>È possibile modificare i tag e le altre proprietà delle risorse nel gruppo di risorse nodo AKS?
 
-Se si modificano o eliminano i tag creata in Azure e altre proprietà della risorsa nella *MC _* gruppo di risorse, è possibile ottenere risultati imprevisti, ad esempio la scalabilità e l'aggiornamento degli errori. Servizio contenitore di AZURE consente di creare e modificare i tag personalizzati. È possibile creare o modificare i tag personalizzati, ad esempio, per assegnare un centro business unit o costi. Modificando le risorse con il *MC _* nel cluster AKS, si interrompe l'obiettivo del livello di servizio (SLO). Per altre informazioni, vedere [AKS viene offrono un contratto di servizio?](#does-aks-offer-a-service-level-agreement)
+Se si modifica o Elimina tag creata in Azure e altre proprietà delle risorse nel gruppo di risorse di nodo, è possibile ottenere risultati imprevisti, ad esempio la scalabilità e l'aggiornamento degli errori. Servizio contenitore di AZURE consente di creare e modificare i tag personalizzati. È possibile creare o modificare i tag personalizzati, ad esempio, per assegnare un centro business unit o costi. Modifica le risorse nel gruppo di risorse di nodo nel cluster AKS, si interrompe l'obiettivo del livello di servizio (SLO). Per altre informazioni, vedere [AKS viene offrono un contratto di servizio?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quali controller di ammissione Kubernetes supporta servizio Azure Kubernetes? È possibile aggiungere o rimuovere i controller di ammissione?
 

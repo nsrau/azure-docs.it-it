@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0913e1877c63ed1a8e960676be02a12b45a34a7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12fd1b03e58d1c62157c6652ce96d8f0172dadb2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240087"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606115"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuire Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -25,7 +25,7 @@ Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell
     - [Aree di disponibilità](storage-sync-files-planning.md#region-availability) per Sincronizzazione file di Azure.
     - [Creare una condivisione file](storage-how-to-create-file-share.md) per una descrizione dettagliata della procedura per la creazione di una condivisione file.
 * Almeno un'istanza supportata di Windows Server o di cluster Windows Server da sincronizzare con Sincronizzazione file di Azure. Per altre informazioni sulle versioni supportate di Windows Server, vedere [Interoperabilità di Sincronizzazione file di Azure](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
-* Il modulo PowerShell di Az può essere usato con PowerShell 5.1 o con PowerShell 6 o versione successiva. È possibile usare il modulo PowerShell di Az per sincronizzazione File di Azure in qualsiasi sistema supportata, compresi i sistemi non Windows, tuttavia, il cmdlet di registrazione del server venga sempre essere eseguito direttamente nell'istanza del Server di Windows che si sta registrando. In Windows Server 2012 R2, è possibile verificare che sia in esecuzione almeno PowerShell 5.1. \* esaminando il valore della **PSVersion** proprietà della **$PSVersionTable** oggetto:
+* Il modulo PowerShell di Az può essere usato con PowerShell 5.1 o con PowerShell 6 o versione successiva. È possibile usare il modulo PowerShell di Az per sincronizzazione File di Azure in qualsiasi sistema supportato, inclusi i sistemi non Windows, tuttavia, il cmdlet di registrazione del server deve sempre essere eseguito nell'istanza del Server di Windows si sono la registrazione (questa operazione può essere eseguita direttamente o tramite PowerShell accesso remoto). In Windows Server 2012 R2, è possibile verificare che sia in esecuzione almeno PowerShell 5.1. \* esaminando il valore della **PSVersion** proprietà della **$PSVersionTable** oggetto:
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -39,17 +39,25 @@ Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell
     > Se si prevede di usare l'interfaccia utente registrazione Server, anziché la registrazione direttamente da PowerShell, è necessario usare PowerShell 5.1.
 
 * Se si è scelto di usare PowerShell 5.1, assicurarsi che in viene installato almeno .NET 4.7.2. Altre informazioni sulle [versioni di .NET Framework e le dipendenze](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) nel sistema.
-* Il modulo PowerShell di Az, che può essere installato seguendo le istruzioni riportate qui: [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
-* Il modulo Az.StorageSync, che è attualmente installato indipendentemente da modulo Az:
 
-    ```PowerShell
-    Install-Module Az.StorageSync -AllowClobber
-    ```
+    > [!Important]  
+    > Se si sta installando .NET 4.7.2+ in Windows Server Core, è necessario installare con il `quiet` e `norestart` flag o l'installazione avrà esito negativo. Ad esempio, se l'installazione di .NET 4.8, il comando sarebbe simile al seguente:
+    > ```PowerShell
+    > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
+    > ```
+
+* Il modulo PowerShell di Az, che può essere installato seguendo le istruzioni riportate qui: [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+     
+    > [!Note]  
+    > Il modulo Az.StorageSync ora viene installato automaticamente quando si installa il modulo PowerShell di Az.
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Preparare Windows Server per l'uso con Sincronizzazione file di Azure
 Per ogni server da usare con Sincronizzazione file di Azure, incluso ogni nodo server in un cluster di failover, disabilitare **Sicurezza avanzata di Internet Explorer**. Questa operazione è necessaria solo per la registrazione iniziale del server e l'opzione può essere riabilitata dopo che il server è stato registrato.
 
 # <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+> [!Note]  
+> È possibile ignorare questo passaggio se si distribuisce sincronizzazione File di Azure in Windows Server Core.
+
 1. Aprire Server Manager.
 2. Fare clic su **Server locale**:  
     !["Server locale" sul lato sinistro dell'interfaccia utente di Server Manager](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
@@ -62,18 +70,23 @@ Per ogni server da usare con Sincronizzazione file di Azure, incluso ogni nodo s
 Per disabilitare Sicurezza avanzata di Internet Explorer, eseguire quanto segue da una sessione di PowerShell con privilegi elevati:
 
 ```powershell
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Administrators
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+$installType = (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\").InstallationType
 
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Users
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
-
-# Force Internet Explorer closed, if open. This is required to fully apply the setting.
-# Save any work you have open in the IE browser. This will not affect other browsers,
-# including Microsoft Edge.
-Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+# This step is not required for Server Core
+if ($installType -ne "Server Core") {
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Administrators
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Users
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Force Internet Explorer closed, if open. This is required to fully apply the setting.
+    # Save any work you have open in the IE browser. This will not affect other browsers,
+    # including Microsoft Edge.
+    Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+}
 ``` 
 
 ---
@@ -100,7 +113,14 @@ Al termine, selezionare **Crea** per distribuire il servizio di sincronizzazione
 Sostituire **< Az_Region >** , **< RG_Name >** , e **< my_storage_sync_service >** con i propri valori, quindi usare i comandi seguenti per creare e distribuire un Servizio di sincronizzazione archiviazione:
 
 ```powershell
-Connect-AzAccount
+$hostType = (Get-Host).Name
+
+if ($installType -eq "Server Core" -or $hostType -eq "ServerRemoteHost") {
+    Connect-AzAccount -UseDeviceAuthentication
+}
+else {
+    Connect-AzAccount
+}
 
 # this variable holds the Azure region you want to deploy 
 # Azure File Sync into

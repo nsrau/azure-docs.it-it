@@ -3,16 +3,16 @@ title: Creare una porta d'ingresso tramite HTTP per il reindirizzamento HTTPS da
 description: Informazioni su come creare una porta d'ingresso con traffico reindirizzato da HTTP a HTTPS usando il portale di Azure.
 services: front-door
 author: sharad4u
-ms.service: front-door
+ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: a07b19c49630cc925e719aaa1d46476a1edc58f5
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 7fabc1e3445d3dbd357700ffde3caeb985cc60c4
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332777"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67601966"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Creare una porta d'ingresso tramite HTTP per il reindirizzamento HTTPS dal portale di Azure
 
@@ -100,7 +100,7 @@ Dopo aver aggiunto il record CNAME, la pagina dei record DNS è simile all'esemp
 
 1. Fare clic sulla regola di routing di reindirizzamento creata in precedenza.
 2. Fare clic sull'elenco a discesa per gli host di front-end e selezionare il dominio personalizzato per applicare questa route per il dominio nonché.
-3. Fare clic su **Update**.
+3. Fare clic su **Aggiorna**.
 4. Eseguire, ovvero la stessa operazione per l'altra regola di routing anche per le route di inoltro aggiungere il dominio personalizzato.
 5. Fare clic su **salvare** per inviare le modifiche.
 

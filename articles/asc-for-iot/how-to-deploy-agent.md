@@ -2,24 +2,25 @@
 title: Selezionare e distribuire il Centro sicurezza di Azure per l'agente di IoT Preview | Microsoft Docs
 description: Informazioni su come selezionare e distribuire il Centro sicurezza di Azure per IoT gli agenti protezione nei dispositivi IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 32a9564d-16fd-4b0d-9618-7d78d614ce76
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 5c76cce5a3d9add8a1dcd8acc439a70c4a8655a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c549e5ccbda9b364b3e7d20c9572eb777c32299e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200576"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616821"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selezionare e distribuire un agente protezione nel dispositivo IoT
 
@@ -48,16 +49,16 @@ L'agente protezione basata su C ha un impatto minore sulla memoria e rappresenta
 | --- | ----------- | --------- |
 | Aprire origine | Disponibile nel [licenza MIT](https://en.wikipedia.org/wiki/MIT_License) in [Github](https://aka.ms/iot-security-github-cs) | Disponibile nel [licenza MIT](https://en.wikipedia.org/wiki/MIT_License) in [Github](https://aka.ms/iot-security-github-c) |
 | Linguaggio di sviluppo    | C | C# |
-| Piattaforme supportate di Windows? | No | Yes |
+| Piattaforme supportate di Windows? | No | Sì |
 | Prerequisiti di Windows | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | Piattaforme supportate di Linux? | Sì, x64 e x86 | Sì, solo x64 |
 | Prerequisiti di Linux | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plug-in | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plug-in, sudo, netstat, iptables |
 | Footprint su disco | 10.5 MB | 90MB |
 | Footprint di memoria (in Media) | 5.5 MB | 33MB |
-| [Autenticazione](concept-security-agent-authentication-methods.md) all'Hub IoT | Yes | Yes |
-| I dati di sicurezza [raccolta](how-to-agent-configuration.md#supported-security-events) | Yes | Yes |
-| Aggregazione di eventi | Yes | Yes |
-| Configurazione remota tramite [dispositivo gemello del modulo security](concept-security-module.md) | Yes | Yes |
+| [Autenticazione](concept-security-agent-authentication-methods.md) all'Hub IoT | Sì | Sì |
+| I dati di sicurezza [raccolta](how-to-agent-configuration.md#supported-security-events) | Yes | Sì |
+| Aggregazione di eventi | Yes | Sì |
+| Configurazione remota tramite [dispositivo gemello del modulo security](concept-security-module.md) | Yes | Sì |
 
 
 ## <a name="choose-an-agent-flavor"></a>Scegliere una versione dell'agente 

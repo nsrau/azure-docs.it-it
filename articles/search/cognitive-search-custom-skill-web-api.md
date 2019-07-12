@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
-ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1ca8a5ce7b615ed8d84c91d8a0d72098c175c44
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023864"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672125"
 ---
 # <a name="custom-web-api-skill"></a>Competenza API Web personalizzata
 
@@ -205,4 +205,4 @@ Nei casi in cui l'API Web non è disponibile o restituisce un errore HTTP, un er
 
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Come aggiungere una competenza personalizzata a una pipeline di ricerca cognitiva](cognitive-search-custom-skill-interface.md)
-+ [Creare una competenza personalizzata usando l'API Traduzione testuale](cognitive-search-create-custom-skill-example.md)
++ [Esempio: Creazione di una competenza personalizzata per la ricerca cognitiva](cognitive-search-create-custom-skill-example.md)

@@ -4,15 +4,15 @@ description: Questo articolo descrive come usare i contatori grafici RemoteFX in
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 0b4113f1e0024415135aa99d1fb4e881efe448a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a139542bf9272336784ac96d667d65caa1ed96ff
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66499265"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607342"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticare i problemi di prestazioni della grafica in Desktop remoto
 

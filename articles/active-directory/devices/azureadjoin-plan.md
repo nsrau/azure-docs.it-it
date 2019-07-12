@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36429feed99c421984ed55d4e506954aa30f0040
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 4332c921af770cb47e9a9a779d0bd148153fcd31
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482137"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666151"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -70,7 +70,7 @@ Un ambiente federato deve includere un provider di identità che supporta i prot
 - **WS-Fed:** questo protocollo è necessario per aggiungere un dispositivo ad Azure AD.
 - **WS-Trust:** questo protocollo è necessario per accedere a un dispositivo aggiunto ad Azure AD. 
 
-Se il provider di identità non supporta questi protocolli, l'aggiunta ad Azure AD non funziona in modo nativo. A partire da Windows 10 1809, gli utenti possono accedere a un dispositivo aggiunto ad Azure AD con un provider di identità basato su SAML attraverso l'[accesso Web in Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Attualmente, l'accesso Web è una funzionalità solo in versione di anteprima.
+Se il provider di identità non supporta questi protocolli, l'aggiunta ad Azure AD non funziona in modo nativo. A partire da Windows 10 1809, gli utenti possono accedere a un dispositivo aggiunto ad Azure AD con un provider di identità basato su SAML attraverso l'[accesso Web in Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Attualmente, accedi web sono una funzionalità in anteprima e non sono consigliato per le distribuzioni di produzione.
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Smart card e autenticazione basata su certificato
 
@@ -189,7 +189,7 @@ Ecco un confronto di questi tre approcci
 |   | Configurazione self-service | Windows Autopilot | Registrazione in blocco |
 | --- | --- | --- | --- |
 | Richiesta dell'interazione dell'utente per la configurazione | Yes | Sì | No |
-| Richiesta di attività IT | No | Yes | Yes |
+| Richiesta di attività IT | No | Yes | Sì |
 | Flussi applicabili | Configurazione guidata e impostazioni | Solo Configurazione guidata | Solo Configurazione guidata |
 | Diritti di amministratore locale a un utente primario | Sì, per impostazione predefinita | Configurabile | No |
 | Richiesta del supporto dell'OEM del dispositivo | No | Sì | No |

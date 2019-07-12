@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443684"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620512"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilare una soluzione IoT con Analisi di flusso
 
@@ -55,7 +55,7 @@ Il flusso di dati di ingresso contiene informazioni sulle automobili che entrano
 
 Ecco una breve descrizione delle colonne:
 
-| Colonna | Descrizione |
+| Colonna | DESCRIZIONE |
 | --- | --- |
 | ID casello |ID casello che identifica in modo univoco un casello |
 | Tempo ingresso |Data e ora (UTC) di ingresso del veicolo nel casello |
@@ -82,7 +82,7 @@ Il flusso di dati di uscita contiene informazioni sulle automobili che escono da
 
 Ecco una breve descrizione delle colonne:
 
-| Colonna | Descrizione |
+| Colonna | DESCRIZIONE |
 | --- | --- |
 | ID casello |ID casello che identifica in modo univoco un casello |
 | Tempo ingresso |Data e ora (UTC) di uscita del veicolo dal casello |
@@ -102,7 +102,7 @@ Questa soluzione usa uno snapshot statico di un database di registrazione di vei
 
 Ecco una breve descrizione delle colonne:
 
-| Colonna | Descrizione |
+| Colonna | DESCRIZIONE |
 | --- | --- |
 | Targa |Numero di targa del veicolo |
 | ID registrazione |ID registrazione del veicolo |
@@ -164,7 +164,7 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
 
    Parafrasando la finalità della query, è necessario conteggiare il numero di veicoli che entrano in un casello. Poiché un casello in autostrada ha un flusso continuo di veicoli in entrata, questi eventi di entrata sono analoghi a un flusso senza fine. Per quantificare il flusso, è necessario definire un "periodo di tempo" in base al quale eseguire la misurazione. Affinare ulteriormente la domanda, chiedendo: "Quanti veicoli entrano in un casello ogni tre minuti?" Questo tipo di conteggio viene detto a cascata.
 
-   Come si può notare, Analisi di flusso di Azure usa un linguaggio di query simile a SQL e aggiunge alcune estensioni per specificare gli aspetti temporali della query.  Per maggiori dettagli, vedere i costrutti relativi alla [gestione del tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e al [windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) usati nella query.
+   Come si può notare, Analisi di flusso di Azure usa un linguaggio di query simile a SQL e aggiunge alcune estensioni per specificare gli aspetti temporali della query.  Per maggiori dettagli, vedere i costrutti relativi alla [gestione del tempo](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) e al [windowing](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) usati nella query.
 
 3. Esaminare gli input del processo di esempio TollApp. Nella query corrente viene usato solo l'input EntryStream.
    - L'input **EntryStream** è una connessione a Hub eventi che accoda i dati che rappresentano ogni momento in cui un'auto entra in un casello in autostrada. Un'app Web che fa parte dell'esempio sta creando gli eventi e i dati vengono accodati in Hub eventi. Notare che le query su questo input vengono eseguite nella clausola FROM della query di streaming.
@@ -322,7 +322,7 @@ L'area **MONITORAGGIO** contiene le statistiche relative al processo in esecuzio
 
 3. Selezionare **Elimina gruppo di risorse**. Digitare il nome del gruppo di attività per confermare l'eliminazione.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Questa soluzione ha presentato il servizio Analisi di flusso di Azure. È stato illustrato come configurare input e output per il processo di Analisi di flusso. Usando lo scenario dei dati del casello, la soluzione ha descritto tipi comuni di problemi che si verificano nello spazio dei dati in movimento e come risolverli con semplici query di tipo SQL in Analisi di flusso di Azure. La soluzione ha descritto i costrutti di estensioni SQL per l'uso di dati temporali. È stato illustrato come creare un join tra flussi di dati, come arricchire il flusso di dati con dati di riferimento statici e come aumentare il numero di istanze di una query per ottenere una maggiore produttività.
 
 Anche se questa soluzione offre una buona introduzione, non può ritenersi completa. Per altri modelli di query che usano il linguaggio SAQL, vedere [Esempi di query per modelli di uso comune di Analisi di flusso](stream-analytics-stream-analytics-query-patterns.md).

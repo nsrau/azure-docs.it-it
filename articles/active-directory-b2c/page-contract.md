@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f7098d805b0e3f1527587fc3411cd4c3b234b057
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: c3ee05096b0bfd071ea569105973097ce9727b07
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540385"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604532"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Selezionare un contratto di pagina in Azure Active Directory B2C tramite criteri personalizzati
 
@@ -79,7 +79,7 @@ I pacchetti di pagina del contratto vengono aggiornati periodicamente in modo da
   - Il campo di input per l'accetta attualmente solo codice immettere caratteri fino a sei (6)
   - La pagina tenterà automaticamente di verificare il codice inserito quando viene immesso un codice di 6 cifre, senza dover fare clic su un pulsante qualsiasi
   - Se il codice non è corretto quindi il campo di input viene cancellato automaticamente
-  - Dopo tre (3) tentativi con un codice non corretto, B2C invia un errore al servizio
+  - Dopo tre (3) tentativi con un codice non corretto, B2C invia un errore al relying party
   - Correzioni per l'accessibilità
   - Default CSS rimosso
 - Pagina autocertificato (selfasserted)

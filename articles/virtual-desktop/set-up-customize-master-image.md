@@ -4,19 +4,19 @@ description: Come preparare, personalizzare e caricare un'immagine master di ant
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 186086a94470faaf19fa8a3c07939b9856ae2ec9
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 2413a380adf32755452482d2b68d2055f7db666d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466825"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620430"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
 
-Questo articolo descrive come preparare un'immagine di disco rigido virtuale (VHD) master per il caricamento in Azure, incluse le procedure creare macchine virtuali (VM) e installare il software su di essi. Queste istruzioni sono valide per una configurazione specifici del Desktop virtuale Windows anteprima che può essere usata con i processi esistenti dell'organizzazione.
+Questo articolo descrive come preparare un'immagine di disco rigido virtuale (VHD) master per il caricamento in Azure, incluse le procedure creare macchine virtuali (VM) e installare il software su di essi. Le istruzioni riguardano una configurazione specifica di Desktop virtuale Windows (anteprima) che può essere usata con gli attuali processi dell'organizzazione.
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
@@ -157,7 +157,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 ### <a name="include-additional-language-support"></a>Includono il supporto di lingue aggiuntive
 
-Questo articolo non illustra come configurare la lingua e supporto a livello di area. Per altre informazioni, vedere gli articoli seguenti:
+Questo articolo non illustra come configurare la lingua e supporto a livello di area. Per altre informazioni, vedere i seguenti articoli:
 
 - [Aggiungere lingue per le immagini di Windows](https://docs.microsoft.com/windows-hardware/manufacture/desktop/add-language-packs-to-windows)
 - [Funzionalità su richiesta](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities)

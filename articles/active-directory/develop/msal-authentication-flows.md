@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 821143d39f8a4c06501ee38ef598a9d06d267d72
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b7ba6ae188c098e85573503a1518ba65480d713a
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273108"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807199"
 ---
 # <a name="authentication-flows"></a>Flussi di autenticazione
 
@@ -166,7 +166,7 @@ Autenticazione integrata di Windows sia per le app scritte per le piattaforme .N
 
 Autenticazione integrata di Windows non ignorare multi-factor authentication. Se multi-factor authentication è configurato, autenticazione integrata di Windows potrebbe non riuscire se è necessaria una richiesta di autenticazione a più fattori. Multi-factor authentication richiede l'intervento dell'utente.
 
-Non è possibile controllare quando il provider di identità richiede l'autenticazione a due fattori da eseguire. Esegue l'amministratore del tenant. In genere, l'autenticazione a due fattori è obbligatorio quando si accede da un altro paese, quando non si è connessi tramite VPN a una rete aziendale e talvolta persino quando si è connessi tramite VPN. Azure AD Usa l'intelligenza artificiale per conoscere in modo continuativo se è necessaria l'autenticazione a due fattori. Se si verifica un errore di autenticazione integrata di Windows, è necessario eseguire il fallback a un prompt utente (https://aka.ms/msal-net-interactive).
+Non è possibile controllare quando il provider di identità richiede l'autenticazione a due fattori da eseguire. Esegue l'amministratore del tenant. In genere, l'autenticazione a due fattori è obbligatorio quando si accede da un altro paese, quando non si è connessi tramite VPN a una rete aziendale e talvolta persino quando si è connessi tramite VPN. Azure AD Usa l'intelligenza artificiale per conoscere in modo continuativo se è necessaria l'autenticazione a due fattori. Se si verifica un errore di autenticazione integrata di Windows, è necessario eseguire il fallback un [prompt utente interattivo] (#interactive).
 
 L'autorità passato durante la creazione dell'applicazione client pubblica deve essere uno dei seguenti:
 - Tenant (nel formato `https://login.microsoftonline.com/{tenant}/` in cui `tenant` è il guid che rappresenta l'ID tenant o in un dominio associato al tenant).

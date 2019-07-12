@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c4e79d166d92a88934e5c5330ca852da8900c6f3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: aecad4273493cd573935c78cae51bd0f59461e2e
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275558"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806963"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 Questo articolo risponde alle domande comuni sul servizio Backup di Azure.
@@ -51,37 +51,6 @@ No. Un insieme di credenziali di Servizi di ripristino può solo modificare le o
 - Per l'agente usato per eseguire il backup delle cartelle di file di Azure, leggere queste [domande frequenti](backup-azure-file-folder-backup-faq.md).
 
 
-## <a name="vmware-and-hyper-v-backup"></a>Backup di VMware e Hyper-V
-
-### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>È possibile eseguire il backup dei server VMware vCenter in Azure?
-Sì. È possibile usare il server di Backup di Azure per eseguire il backup degli host del server VMware vCenter ed ESXi in Azure.
-
-- [Altre informazioni](backup-mabs-protection-matrix.md) sulle versioni supportate.
-- [Attenersi a questa procedura](backup-azure-backup-server-vmware.md) per eseguire il backup di un server VMware.
-
-### <a name="do-i-need-a-separate-license-to-recover-an-full-on-premises-vmwarehyper-v-cluster"></a>Occorre una licenza separata per ripristinare un cluster VMware/Hyper-V locale completo?
-Per la protezione di VMware/Hyper-V non è necessaria alcuna licenza separata.
-
-- Se si è cliente di System Center, usare System Center Data Protection Manager, ovvero DPM, per proteggere le macchine virtuali VMware.
-- Se non si è clienti System Center, per proteggere le macchine virtuali VMware è possibile usare il server di Backup di Azure (con pagamento in base al consumo).
-
-## <a name="dpm-and-azure-backup-server-backup"></a>Backup di DPM e del server di Backup di Azure
-
-### <a name="which-dpm-versions-are-supported"></a>Quali versioni di DPM sono supportate?
-Le versioni di DPM supportate sono riepilogate nella [matrice di supporto](backup-azure-dpm-introduction.md#prerequisites-and-limitations). È consigliabile installare gli ultimi aggiornamenti di DPM ed eseguire la [versione più recente](https://aka.ms/azurebackup_agent) dell'agente di Backup di Azure nel server DPM.
-
-### <a name="can-i-register-the-server-to-multiple-vaults"></a>È possibile registrare un server in più insiemi di credenziali?
-No. Un server di Backup di Azure o un server DPM può essere registrato in un solo insieme di credenziali.
-
-### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>È possibile usare il server di Backup di Azure per creare un backup di ripristino bare metal per un server fisico? <br/>
-Sì.
-
-### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>È possibile usare DPM per eseguire il backup delle App in Azure Stack?
-No. È possibile usare Backup di Azure per proteggere Azure Stack. Backup di Azure non supporta l'uso di DPM per eseguire il backup delle app in Azure Stack.
-
-### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Se ho installato l'agente Backup di Azure per proteggere i file e le cartelle, posso installare System Center DPM per eseguire il backup dei carichi di lavoro locali in Azure?
-Sì. Ma è consigliabile configurare prima DPM e poi installare l'agente di Backup di Azure.  L'installazione dei componenti in questo ordine assicura che l'agente di Backup di Azure funzioni con DPM. L'installazione dell'agente prima di installare DPM non è consigliabile o supportata.
-
 ## <a name="general-backup"></a>Backup generale
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Esistono limiti per la pianificazione del backup?
@@ -118,7 +87,7 @@ Per i backup Linux della macchina virtuale di Azure, Backup di Azure supporta [l
 Di seguito sono riportati i limiti di dimensioni:
 
 Computer o sistema operativo | Limite di dimensioni dell'origine dati
---- | --- 
+--- | ---
 Windows 8 o versione successiva | 54400 GB
 Windows 7 |1700 GB
 Windows Server 2012 o versioni successive | 54400 GB
@@ -185,7 +154,7 @@ Per ogni istanza protetta, è possibile creare fino a 9999 punti di ripristino. 
 - Altre informazioni sul [backup e la conservazione](./backup-overview.md#backup-and-retention).
 
 
-### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>Quante volte è possibile ripristinare i dati di cui viene eseguito il backup in Azure?
+### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Quante volte è possibile ripristinare i dati sottoposti a backup in Azure?
 Non esistono limiti al numero di ripristini da Backup di Azure.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>Quando si ripristinano i dati, vengono addebitati costi per il traffico in uscita da Azure?

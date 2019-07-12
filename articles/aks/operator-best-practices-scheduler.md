@@ -2,17 +2,17 @@
 title: Procedure consigliate per l'operatore - Funzionalità di base dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 description: Procedure consigliate per l'operatore del cluster per l'uso delle funzionalità di base dell'utilità di pianificazione, come quote di risorse e budget di interruzione dei pod, nel servizio Azure Kubernetes (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: f6e370442c9c359a38025762fb90269119ec0ea6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 3ce59784b2c7c1d145d99786b10927c230146c8b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074116"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614613"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità di base dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -29,7 +29,7 @@ Questo articolo sulle procedure consigliate è incentrato sulle funzionalità di
 
 **Indicazioni sulle procedure consigliate**. Pianificare e applicare le quote di risorse a livello di spazio dei nomi. Se i pod non definiscono le richieste di risorse e i limiti, rifiutare la distribuzione. Monitorare l'utilizzo delle risorse e modificare le quote in base alle esigenze.
 
-Le richieste di risorse e i limiti vengono inseriti nella specifica del pod. Questi limiti vengono usati dall'utilità di pianificazione di Kubernetes in fase di distribuzione per trovare un nodo disponibile nel cluster. I limiti e le richieste funzionano a livello di singolo pod. Per altre informazioni su come definire questi valori, vedere [Definire le richieste di risorse e i limiti del pod][resource-limits]
+Le richieste di risorse e i limiti vengono inseriti nella specifica del pod. Questi limiti vengono usati dall'utilità di pianificazione di Kubernetes in fase di distribuzione per trovare un nodo disponibile nel cluster. I limiti e le richieste funzionano a livello di singolo pod. Per altre informazioni su come definire questi valori, vedere [Definisci pod risorse richieste e limiti][resource-limits]
 
 Per riservare e limitare le risorse in un progetto o in un team di sviluppo, è consigliabile usare le *quote di risorse*. Queste quote sono definite in uno spazio dei nomi e possono essere usate per impostare le quote in base agli elementi seguenti:
 
@@ -39,7 +39,7 @@ Per riservare e limitare le risorse in un progetto o in un team di sviluppo, è 
 
 Kubernetes non esegue l'overcommit delle risorse. Una volta che il totale cumulativo delle richieste di risorse o dei limiti supera la quota assegnata, nessun'altra distribuzione successiva ha esito positivo.
 
-Quando si definiscono le quote di risorse, tutti i pod creati nello spazio dei nomi devono fornire limiti o richieste nelle relative specifiche dei pod. Se questi valori non vengono forniti, è possibile rifiutare la distribuzione. In alternativa, è possibile [configurare richieste e limiti predefiniti per uno spazio dei nomi][configure-default-quotas].
+Quando si definiscono le quote di risorse, tutti i pod creati nello spazio dei nomi devono fornire limiti o richieste nelle relative specifiche dei pod. Se questi valori non vengono forniti, è possibile rifiutare la distribuzione. In alternativa, è possibile [configurare le richieste predefinite e limiti per uno spazio dei nomi][configure-default-quotas].
 
 L'esempio di manifesto YAML seguente denominato *dev-app-team-quotas.yaml* imposta un limite rigido di un totale di *10* CPU, *20Gi* di memoria e *10* pod:
 
@@ -63,7 +63,7 @@ kubectl apply -f dev-app-team-quotas.yaml --namespace dev-apps
 
 Contattare gli sviluppatori e i proprietari delle applicazioni per comprenderne le esigenze e applicare le quote di risorse appropriate.
 
-Per altre informazioni sugli oggetti risorsa disponibili, gli ambiti e le priorità, vedere [Resource quotas in Kubernetes][k8s-resource-quotas] (Quote di risorse in Kubernetes).
+Per altre informazioni sugli oggetti di risorse disponibili, gli ambiti e le priorità, vedere [le quote di risorse in Kubernetes][k8s-resource-quotas].
 
 ## <a name="plan-for-availability-using-pod-disruption-budgets"></a>Pianificare la disponibilità tramite i budget di interruzione dei pod
 
@@ -118,15 +118,15 @@ kubectl apply -f nginx-pdb.yaml
 
 Contattare gli sviluppatori e i proprietari delle applicazioni per comprenderne le esigenze e applicare i budget di interruzione dei pod appropriati.
 
-Per altre informazioni sull'uso dei budget di interruzione dei pod, vedere [Specify a disruption budget for your application][k8s-pdbs] (Specificare un budget di interruzione per l'applicazione).
+Per altre informazioni sull'uso di budget interruzioni pod, vedere [specificare un budget interruzioni per l'applicazione][k8s-pdbs].
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Verificare regolarmente la presenza di problemi del cluster con kube-advisor
 
 **Procedure consigliate** -regolarmente eseguono la versione più recente di `kube-advisor` strumento open source per rilevare i problemi nel cluster. Se si applicano le quote di risorse in un cluster servizio Azure Kubernetes esistente, eseguire per prima cosa `kube-advisor` per trovare i pod che non hanno richieste di risorse e limiti definiti.
 
-Il [kube-advisor] [ kube-advisor] lo strumento è un progetto open source AKS associato che esegue l'analisi di un cluster Kubernetes e segnala i problemi rilevati. Un controllo utile consiste nell'identificare i pod che non hanno richieste di risorse e limiti applicati.
+Il [kube-advisor][kube-advisor] lo strumento è un progetto open source AKS associato che esegue l'analisi di un cluster Kubernetes e segnala i problemi rilevati. Un controllo utile consiste nell'identificare i pod che non hanno richieste di risorse e limiti applicati.
 
-Lo strumento di kube-advisor può segnalare su richiesta di risorse e i limiti non presente nelle applicazioni PodSpecs per Windows, nonché le applicazioni di Linux, ma solo lo strumento di kube-advisor deve essere pianificato in un pod di Linux. È possibile pianificare un pod per l'esecuzione in un pool di nodi con un sistema operativo specifico utilizzando un [selettore nodo] [ k8s-node-selector] nella configurazione del pod.
+Lo strumento di kube-advisor può segnalare su richiesta di risorse e i limiti non presente nelle applicazioni PodSpecs per Windows, nonché le applicazioni di Linux, ma solo lo strumento di kube-advisor deve essere pianificato in un pod di Linux. È possibile pianificare un pod per l'esecuzione in un pool di nodi con un sistema operativo specifico utilizzando un [selettore nodo][k8s-node-selector] nella configurazione del pod.
 
 In un cluster servizio Azure Kubernetes che ospita più team di sviluppo e applicazioni può essere difficile tenere traccia dei pod senza questi limiti e richieste di risorse impostati. Come procedura consigliata, eseguire regolarmente `kube-advisor` nei cluster servizio Azure Kubernetes, soprattutto se non si assegnano quote di risorse agli spazi dei nomi.
 
@@ -134,7 +134,7 @@ In un cluster servizio Azure Kubernetes che ospita più team di sviluppo e appli
 
 Questo articolo ha illustrato le funzionalità di base dell'utilità di pianificazione di Kubernetes. Per altre informazioni sulle operazioni cluster in servizio Azure Kubernetes, vedere le procedure consigliate seguenti:
 
-* [Isolamento cluster e multi-tenant][aks-best-practices-cluster-isolation]
+* [Isolamento multi-tenancy e cluster][aks-best-practices-cluster-isolation]
 * [Funzionalità avanzate dell'utilità di pianificazione di Kubernetes][aks-best-practices-advanced-scheduler]
 * [Autenticazione e autorizzazione][aks-best-practices-identity]
 

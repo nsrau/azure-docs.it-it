@@ -3,16 +3,15 @@ title: Deviazione dello schema dei flussi di dati di mapping di Azure Data Facto
 description: Compilare flussi di dati resilienti in Azure Data Factory con la deviazione dello schema
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61262117"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722876"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Deviazione dello schema dei flussi di dati di mapping
 
@@ -34,7 +33,7 @@ Per proteggere l'ambiente dalla deviazione dello schema, è importante avere a d
 
 * Dopo aver selezionato questa opzione, tutti i campi in ingresso verranno letti dall'origine a ogni esecuzione del flusso di dati e verranno passati attraverso l'intero flusso al sink.
 
-* Assicurarsi di usare "Mapping automatico" per eseguire il mapping di tutti i nuovi campi nella trasformazione sink in modo che tutti i nuovi campi vengano selezionati e immessi nella destinazione:
+* Assicurarsi di usare "Mapping automatico" per eseguire il mapping di tutti i nuovi campi nella trasformazione Sink in modo che tutti i nuovi campi ottengano raccoglie e visualizzati nella destinazione.
 
 <img src="media/data-flow/automap.png" width="400">
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f7e93dc12b9932fed90c7f9fa3145e56a3488b32
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4140754afa8de994b227dc187cd73c9ccfa86f9
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448030"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666022"
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
 Risposte alle domande comuni, modelli e procedure consigliate per Gestione API di Azure.
@@ -87,7 +87,7 @@ Ecco come è possibile aggiungere un utente al gruppo di amministratori:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare al gruppo di risorse con l'istanza di Gestione API che si vuole aggiornare.
-3. In Gestione API assegnare il ruolo **Api Management Contributor** (Collaboratore Gestione API) all'utente.
+3. In Gestione API, assegnare il **collaboratore servizio Gestione Api** ruolo all'utente.
 
 Ora il nuovo collaboratore aggiunto può usare i [cmdlet](https://docs.microsoft.com/powershell/azure/overview) di Azure PowerShell. Ecco come accedere come amministratore:
 

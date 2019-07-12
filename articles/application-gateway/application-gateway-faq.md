@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 25779cd62f70df41a7734d2f8097504923dcb3a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71f1beb68171613fe926ba4d87a13ef58cac1edf
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430878"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655266"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul Gateway applicazione
 
@@ -45,7 +45,7 @@ Visualizzare [supporto HTTP/2](https://docs.microsoft.com/azure/application-gate
 
 ### <a name="what-resources-are-supported-as-part-of-a-backend-pool"></a>Quali risorse sono supportate come parte di un pool di back-end?
 
-Visualizzare [supportato risorse back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pool).
+Visualizzare [supportato risorse back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools).
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>In quali aree è disponibile il Gateway applicazione?
 

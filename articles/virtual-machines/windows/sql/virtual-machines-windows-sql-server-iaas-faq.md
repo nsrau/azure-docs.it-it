@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95ad2ba4798d41f2e5e49ca33735b997859af23f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477264"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67658148"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Domande frequenti su SQL Server in esecuzione in macchine virtuali Windows in Azure
 
@@ -37,7 +37,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 ## <a id="images"></a> Immagini
 
-1. **Quali immagini della raccolta di macchine virtuali di SQL Server sono disponibili?**
+1. **Quali immagini della raccolta di macchine virtuali di SQL Server sono disponibili?** 
 
    Azure mantiene le immagini delle macchine virtuali per tutte le principali versioni supportate di SQL Server in tutte le edizioni sia per Linux che per Windows. Per altre informazioni, vedere l’elenco completo di [immagini di macchine virtuali Windows](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) e di [immagini di macchine virtuali Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
 
@@ -77,8 +77,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **Come si installa una copia di SQL Server con licenza in una VM di Azure?**
 
-   Per eseguire questa operazione è possibile procedere in due modi: È possibile eseguire il provisioning di una delle [immagini di macchina virtuale che supporta le licenze](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), un'operazione nota anche come Bring Your Own License (BYOL). Un'altra possibilità consiste nel copiare il supporto di installazione di SQL Server in una VM Windows Server, quindi installare SQL Server nella VM. Tuttavia, se si installa manualmente SQL Server, non è prevista alcuna integrazione del portale e l'estensione SQL Server IaaS Agent non è supportata, pertanto funzionalità quali Backup automatizzato e Applicazione automatica delle patch non funzioneranno in questo scenario. Per questo motivo, è consigliabile usare una delle immagini della raccolta BYOL. Per usare BYOL o il proprio supporto di SQL Server in una VM di Azure, è necessario disporre della [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Per altre informazioni, vedere [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
-
+   È possibile ottenere questo risultato in due modi. È possibile eseguire il provisioning di una delle [immagini di macchina virtuale che supporta le licenze](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), un'operazione nota anche come Bring Your Own License (BYOL). Un'altra possibilità consiste nel copiare il supporto di installazione di SQL Server in una VM Windows Server, quindi installare SQL Server nella VM. Tuttavia, se si installa manualmente SQL Server, non è prevista alcuna integrazione del portale e l'estensione SQL Server IaaS Agent non è supportata, pertanto funzionalità quali Backup automatizzato e Applicazione automatica delle patch non funzioneranno in questo scenario. Per questo motivo, è consigliabile usare una delle immagini della raccolta BYOL. Per usare BYOL o il proprio supporto di SQL Server in una VM di Azure, è necessario disporre della [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Per altre informazioni, vedere [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
 
 1. **È necessario pagare la licenza di SQL Server in una VM di Azure se viene utilizzata solo per standby/failover?**
 
@@ -147,9 +146,10 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
    
 ## <a name="updating-and-patching"></a>Aggiornamento e applicazione di patch
 
-1. **Come si modifica a una nuova versione/edizione di SQL Server in una VM di Azure?**
+1. **Come si modifica a una versione/edizione diversa di SQL Server in una VM di Azure?**
 
-   I clienti con Software Assurance sono in grado di aggiornamenti sul posto di SQL Server in esecuzione in una VM di Azure usando il supporto di installazione nel portale di gestione delle licenze di Volume. Tuttavia, attualmente, non alcuna possibilità di modificare l'edizione di un'istanza di SQL Server. Creare una nuova macchina virtuale di Azure con l'edizione di SQL Server desiderata e quindi eseguire la migrazione dei database nel nuovo server usando standard [tecniche di migrazione dati](virtual-machines-windows-migrate-sql.md).
+   I clienti possono cambiare la versione/edizione di SQL Server usando i supporti di installazione che contiene la versione desiderata o edizione di SQL Server. Dopo aver modificato l'edizione, usare il portale di Azure per modificare la proprietà edizione della macchina virtuale in modo da riflettere in modo accurato la fatturazione per la macchina virtuale. Per altre informazioni, vedere [modificare l'edizione di una macchina virtuale di SQL Server](virtual-machines-windows-sql-change-edition.md). 
+
 
 1. **Come si applicano gli aggiornamenti e i Service Pack a una VM di SQL Server?**
 
@@ -170,7 +170,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **Come si installa SQL Server Data Tools in una VM di Azure?**
 
-    Scaricare e installare SQL Server Data Tools da [Microsoft SQL Server Data Tools - Business Intelligence per Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
+    Scaricare e installare SQL Server Data Tools da [Microsoft SQL Server Data Tools - Business Intelligence per Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313).
 
 1. **Sono transazioni distribuite con MSDTC supportati nelle macchine virtuali di SQL Server?**
    

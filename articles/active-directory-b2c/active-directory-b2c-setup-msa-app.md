@@ -7,25 +7,26 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 63aa93e72d76d430fc7e026478d91e496f27eae6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82c1be335bfd39d641f0203116e68a4cb4c0a674
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055104"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654223"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Microsoft tramite Azure Active Directory B2C
 
 ## <a name="create-a-microsoft-account-application"></a>Creare un'applicazione di account Microsoft
 
-Per usare un account Microsoft come [provider di identità](active-directory-b2c-reference-oidc.md) in Azure Active Directory (Azure AD) B2C, è necessario creare nel tenant un'applicazione che lo rappresenti. Se non si possiede già un account Microsoft, è possibile crearlo sul sito [https://www.live.com/](https://www.live.com/).
+Per usare un account Microsoft come un [provider di identità](active-directory-b2c-reference-oidc.md) in Azure Active Directory (Azure AD) B2C, è necessario creare un'applicazione nel tenant di Azure AD. Il tenant di Azure AD non corrisponde al tenant di Azure AD B2C. Se non si ha già un account Microsoft, è possibile ottenere uno alla [ https://www.live.com/ ](https://www.live.com/).
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Selezionare **tutti i servizi** nell'angolo superiore sinistro del portale di Azure e quindi cercare e selezionare **registrazioni per l'App**.
-1. Selezionare **nuova registrazione**
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Assicurarsi di usare la directory contenente il tenant di Azure AD facendo clic sul **filtro per directory e sottoscrizione** nel menu in alto e scegliendo tale directory.
+1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
+1. Selezionare **Nuova registrazione**.
 1. Immettere un **nome** per l'applicazione. Ad esempio, *MSAapp1*.
 1. Sotto **tipi di account supportati**, selezionare **gli account in qualsiasi directory dell'organizzazione e gli account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** . Questa opzione è destinato il set più ampio di identità Microsoft.
 

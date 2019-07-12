@@ -4,7 +4,7 @@ description: Caricare un disco rigido virtuale generalizzato in Azure e usarlo p
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: ee2fe91d915faf7e09dee004891edfc6bef38d6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9846bf7b28f1205f98eb59671553d309fe754d30
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685406"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707944"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Caricare un disco rigido virtuale generalizzato e usarlo per creare nuove macchine virtuali in Azure
 
@@ -109,7 +109,7 @@ L'esecuzione del comando potrebbe richiedere del tempo, a seconda della connessi
     Il servizio Importazione/esportazione può essere usato per eseguire la copia in un account di archiviazione standard. È possibile eseguire la copia dall'archiviazione standard all'account di archiviazione Premium usando uno strumento come AzCopy.
 
 > [!IMPORTANT]
-> Se per il caricamento del disco rigido virtuale in Azure si usa AzCopy, verificare di aver impostato [ **/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) prima di eseguire lo script di caricamento. Se la destinazione è un BLOB e questa opzione non è specificata, per impostazione predefinita AzCopy crea un BLOB in blocchi.
+> Se per il caricamento del disco rigido virtuale in Azure si usa AzCopy, verificare di aver impostato [ **/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs#upload-a-file) prima di eseguire lo script di caricamento. Se la destinazione è un BLOB e questa opzione non è specificata, per impostazione predefinita AzCopy crea un BLOB in blocchi.
 > 
 > 
 

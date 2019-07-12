@@ -5,28 +5,23 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/20/2019
+ms.date: 7/10/2019
 ms.author: victorh
-ms.openlocfilehash: 2fa6a62a28a1536da83994cb07b7c5fa5d7bda9f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 56958eedceeb4602589d65d5e0eb7b10e8a9ff2d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276912"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704006"
 ---
 # <a name="deploy-an-azure-firewall-with-availability-zones-using-azure-powershell"></a>Distribuire un Firewall di Azure con le zone di disponibilità tramite Azure PowerShell
 
-> [!IMPORTANT]
-> Firewall di Azure con le zone di disponibilità è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Firewall di Azure può essere configurato durante la distribuzione in più zone di disponibilità per una maggiore disponibilità di estendersi.
+Firewall di Azure può essere configurato durante la distribuzione con più zone di disponibilità per una maggiore disponibilità.
 
 Questa funzionalità consente gli scenari seguenti:
 
-- È possibile aumentare la disponibilità al 99,99% tempo di attività. Per altre informazioni, vedere il Firewall di Azure [contratto di servizio (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). Il tempo di attività pari al 99,99% contratto di servizio è disponibile quando si selezionano due o più zone di disponibilità.
-- È inoltre possibile associare il Firewall di Azure a una zona specifica solo per motivi di prossimità, tramite il contratto di servizio standard del 99,95%.
+- È possibile aumentare la disponibilità al 99,99% tempo di attività. Per altre informazioni, vedere il [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/) per Firewall di Azure. Il contratto di servizio con un tempo di attività del 99,99% è disponibile quando si selezionano due o più zone di disponibilità.
+- È anche possibile associare Firewall di Azure a una zona specifica solo per motivi di prossimità, tramite il contratto di servizio standard pari al 99,95%.
 
 Per altre informazioni sulle zone di disponibilità Firewall di Azure, vedere [What ' s Firewall di Azure?](overview.md)
 

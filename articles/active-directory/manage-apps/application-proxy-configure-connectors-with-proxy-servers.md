@@ -12,18 +12,19 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cc0b3a9a02c023678691921100443436cdf0011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e4b073a63b5b6bec565aed67bcaec7ed014261b
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015466"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807863"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Usare server proxy locali esistenti
 
 Questo articolo illustra come configurare i connettori del proxy applicazione di Azure Active Directory (Azure AD) per l'uso di server proxy in uscita. È rivolto ai clienti con ambienti di rete che dispongono di proxy esistenti.
 
 Iniziamo esaminando questi scenari di distribuzione principali:
+
 * Configurare i connettori per ignorare i proxy in uscita locali.
 * Configurare i connettori per l'uso di un proxy in uscita per accedere al proxy applicazione di Azure AD.
 
@@ -53,6 +54,7 @@ Per disabilitare l'uso del proxy in uscita per il connettore, modificare il file
   </appSettings>
 </configuration>
 ```
+
 Per assicurarsi che anche il servizio Connector Updater ignori il proxy, apportare una modifica simile al file ApplicationProxyConnectorUpdaterService.exe.config. Questo file si trova in C:\Programmi\Microsoft AAD App Proxy Connector Updater.
 
 Assicurarsi di creare copie dei file originali nel caso sia necessario ripristinare i file .config predefiniti.
@@ -67,8 +69,8 @@ Si può configurare il traffico del connettore per il passaggio attraverso il pr
 
 Dato che il traffico è solo in uscita, non è necessario configurare l'accesso in ingresso attraverso firewall.
 
->[!NOTE]
->Il proxy di applicazione non supporta l'autenticazione in altri proxy. Gli account del servizio di rete del connettore/strumento di aggiornamento dovrebbero essere in grado di connettersi al proxy senza ricevere richieste di autenticazione.
+> [!NOTE]
+> Il proxy di applicazione non supporta l'autenticazione in altri proxy. Gli account del servizio di rete del connettore/strumento di aggiornamento dovrebbero essere in grado di connettersi al proxy senza ricevere richieste di autenticazione.
 
 ### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>Passaggio 1: Configurare il connettore e i servizi correlati per il passaggio attraverso il proxy in uscita
 
@@ -98,12 +100,14 @@ Configurare quindi il servizio Connector Updater in modo che usi il proxy, appor
 ### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Passaggio 2: Configurare il proxy per consentire il passaggio del traffico proveniente dal connettore e dai servizi correlati
 
 Esistono quattro aspetti da considerare per il proxy in uscita:
+
 * Regole in uscita del proxy
 * Autenticazione proxy
 * Porte proxy
 * Ispezione SSL
 
 #### <a name="proxy-outbound-rules"></a>Regole in uscita del proxy
+
 Consentire l'accesso agli URL seguenti:
 
 | URL | Uso |
@@ -113,7 +117,6 @@ Consentire l'accesso agli URL seguenti:
 | login.windows.net<br>login.microsoftonline.com | Il connettore usa questi URL durante il processo di registrazione. |
 
 Se il firewall o proxy consente di configurare DNS elenco dei tipi consentiti, è possibile consentire le connessioni a \*. msappproxy.net e \*. servicebus.windows.net. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
-
 
 Se non è possibile consentire la connettività in base al nome di dominio completo ed è necessario specificare invece intervalli IP, usare queste opzioni:
 
@@ -128,13 +131,15 @@ L'autenticazione proxy non è attualmente supportata. Il nostro consiglio è di 
 
 Il connettore esegue le connessioni SSL in uscita usando il metodo CONNECT. Questo metodo crea essenzialmente un tunnel attraverso il proxy in uscita. Configurare il server proxy per consentire il tunneling alle porte 443 e 80.
 
->[!NOTE]
->Quando il bus di servizio viene eseguito su HTTPS, usa la porta 443. Per impostazione predefinita, il bus di servizio prova tuttavia a stabilire connessioni TCP dirette ed esegue il fallback su HTTPS solo se si verifica un errore di connettività diretta.
+> [!NOTE]
+> Quando il bus di servizio viene eseguito su HTTPS, usa la porta 443. Per impostazione predefinita, il bus di servizio prova tuttavia a stabilire connessioni TCP dirette ed esegue il fallback su HTTPS solo se si verifica un errore di connettività diretta.
 
 #### <a name="ssl-inspection"></a>Ispezione SSL
-Non usare l'ispezione SSL per il traffico del connettore perché causa problemi per tale traffico. Il connettore usa un certificato client per l'autenticazione al servizio proxy di applicazione e il certificato può essere perso durante l'analisi SSL. 
+
+Non usare l'ispezione SSL per il traffico del connettore perché causa problemi per tale traffico. Il connettore usa un certificato client per l'autenticazione al servizio proxy di applicazione e il certificato può essere perso durante l'analisi SSL.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Risolvere i problemi relativi al connettore proxy e alla connettività del servizio
+
 A questo punto si dovrebbe vedere tutto il traffico che passa attraverso il proxy. Se si verificano problemi, potrebbero essere utili le seguenti informazioni per la risoluzione dei problemi.
 
 Il modo migliore per identificare e risolvere i problemi di connettività del connettore è eseguire un'acquisizione di rete durante l'avvio del servizio del connettore. Ecco alcuni semplici suggerimenti per acquisire e filtrare le tracce di rete.
@@ -151,21 +156,18 @@ Per iniziare la risoluzione dei problemi, procedere come segue:
 
    ![Servizio connettore proxy applicazione di Azure AD in services.msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
-2. Eseguire Message Analyzer come amministratore.
-3. Selezionare l'opzione per l'avvio della **traccia locale**.
+1. Eseguire Message Analyzer come amministratore.
+1. Selezionare l'opzione per l'avvio della **traccia locale**.
+1. Avviare il servizio connettore del proxy applicazione di Azure AD.
+1. Arrestare l'acquisizione di rete.
 
-   ![Avviare l'acquisizione di rete](./media/application-proxy-configure-connectors-with-proxy-servers/start-local-trace.png)
-
-3. Avviare il servizio connettore del proxy applicazione di Azure AD.
-4. Arrestare l'acquisizione di rete.
-
-   ![Arrestare l'acquisizione di rete](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
+   ![Schermata mostra il pulsante di acquisizione di rete Stop](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
 
 ### <a name="check-if-the-connector-traffic-bypasses-outbound-proxies"></a>Controllare se il traffico del connettore ignora i proxy in uscita
 
-Se il connettore del proxy di applicazione è stato configurato per ignorare i server proxy e connettersi direttamente al servizio proxy di applicazione, è necessario individuare nell'acquisizione di rete i tentativi di connessione TCP non riusciti. 
+Se il connettore del proxy di applicazione è stato configurato per ignorare i server proxy e connettersi direttamente al servizio proxy di applicazione, è necessario individuare nell'acquisizione di rete i tentativi di connessione TCP non riusciti.
 
-Usare il filtro di Message Analyzer per identificare questi tentativi. Immettere `property.TCPSynRetransmit` nella casella del filtro e selezionare **Applica**. 
+Usare il filtro di Message Analyzer per identificare questi tentativi. Immettere `property.TCPSynRetransmit` nella casella del filtro e selezionare **Applica**.
 
 Un pacchetto SYN è il primo pacchetto inviato per stabilire una connessione TCP. Se questo pacchetto non restituisce una risposta, il SYN viene ritentato. È possibile usare il filtro precedente per visualizzare qualsiasi SYN ritrasmesso. È quindi possibile vedere se questi SYN corrispondono a traffico correlato al connettore.
 
@@ -173,9 +175,9 @@ Se si prevede che il connettore esegua connessioni dirette ai servizi di Azure, 
 
 ### <a name="check-if-the-connector-traffic-uses-outbound-proxies"></a>Controllare se il traffico del connettore usa proxy in uscita
 
-Se il traffico del connettore del proxy di applicazione è stato configurato per passare attraverso i server proxy, è necessario individuare le connessioni HTTPS non riuscite nel proxy. 
+Se il traffico del connettore del proxy di applicazione è stato configurato per passare attraverso i server proxy, è necessario individuare le connessioni HTTPS non riuscite nel proxy.
 
-Per filtrare l'acquisizione di rete in modo da individuare questi tentativi di connessione, immettere `(https.Request or https.Response) and tcp.port==8080` nel filtro di Message Analyzer, sostituendo 8080 con la porta del servizio proxy. Selezionare **Applica** per visualizzare i risultati del filtro. 
+Per filtrare l'acquisizione di rete in modo da individuare questi tentativi di connessione, immettere `(https.Request or https.Response) and tcp.port==8080` nel filtro di Message Analyzer, sostituendo 8080 con la porta del servizio proxy. Selezionare **Applica** per visualizzare i risultati del filtro.
 
 Il filtro precedente mostra solo le richieste e le risposte HTTPS da e verso la porta del proxy. Cercare le richieste CONNECT che indicano la comunicazione con il server proxy. Al completamento dell'operazione si ottiene una risposta HTTP affermativa (200).
 
@@ -183,6 +185,5 @@ Se vengono visualizzati altri codici di risposta, ad esempio 407 o 502, signific
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)
-
-- In caso di problemi di connettività del connettore, porre una domanda nel [forum di Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) o creare un ticket per il team di supporto Microsoft.
+* [Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)
+* In caso di problemi di connettività del connettore, porre una domanda nel [forum di Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) o creare un ticket per il team di supporto Microsoft.

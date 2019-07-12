@@ -4,7 +4,7 @@ description: Informazioni sul supporto dell'anteprima per le dimensioni di macch
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: f96a1179c103dd9dfb4d358572f9a9adbe24b977
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cdb539846104f70dabf684925685fb062fea8af
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809873"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797565"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Panoramica delle macchine virtuali serie connessione ibrida
 
@@ -31,7 +31,7 @@ La topologia precedente è ancora presente anche la configurazione di hypervisor
 
 La macchina virtuale non è a conoscenza che pCores 0-1 e 24-25 non sono stati assegnati a esso. Pertanto, espone ogni vNUMA come se avesse in modo nativo 22 Core.
 
-Intel Xeon Platinum, Gold e Silver CPU introducono anche una rete mesh 2D in dado per la comunicazione all'interno ed esterno nel socket della CPU. Si consiglia di associazione del processo per coerenza e prestazioni ottimali. L'aggiunta di processo funzionerà in macchine virtuali della serie HC perché la silicon sottostante è esposta come-consiste nella macchina virtuale guest. Altre informazioni su architettura Intel Xeon SP in: https://bit.ly/2RCYkiE
+Intel Xeon Platinum, Gold e Silver CPU introducono anche una rete mesh 2D in dado per la comunicazione all'interno ed esterno nel socket della CPU. Si consiglia di associazione del processo per coerenza e prestazioni ottimali. L'aggiunta di processo funzionerà in macchine virtuali della serie HC perché la silicon sottostante è esposta come-consiste nella macchina virtuale guest. Per altre informazioni, vedere [architettura Intel Xeon SP](https://bit.ly/2RCYkiE).
 
 Il diagramma seguente mostra la separazione di core riservati per l'Hypervisor di Azure e la macchina virtuale serie connessione ibrida.
 
@@ -58,8 +58,8 @@ Il diagramma seguente mostra la separazione di core riservati per l'Hypervisor d
 | Framework aggiuntivi       | Unified Communication X, libfabric, PGAS |
 | Supporto di archiviazione di Azure       | Standard e Premium (massimi 4 dischi) |
 | Supporto per RDMA SRIOV del sistema operativo   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+ |
-| Supporto per Azure CycleCloud    | Yes                         |
-| Supporto di Azure Batch         | Yes                         |
+| Supporto per Azure CycleCloud    | Sì                         |
+| Supporto di Azure Batch         | Sì                         |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

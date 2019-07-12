@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/30/2019
-ms.openlocfilehash: 47bf59adb33f3685b31430c652b31880d383833e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80d01a360a2f80749bd7fbe7a9aadb9dda1189c6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232656"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706983"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Ripristinare un database SQL di Azure mediante i backup automatici del database
 
@@ -77,7 +77,7 @@ In genere si ripristina un database a un punto precedente per scopi di ripristin
 
 - **Sostituzione del database**
 
-  Se il database ripristinato è da intendersi come una sostituzione per il database originale, è necessario specificare dimensioni di calcolo del database orinal e livello di servizio. È quindi possibile rinominare il database originale e assegnare al database ripristinato il nome originale usando il [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) comando in T-SQL.
+  Se il database ripristinato è da intendersi come una sostituzione per il database originale, è necessario specificare dimensioni di calcolo del database originale e il livello di servizio. È quindi possibile rinominare il database originale e assegnare al database ripristinato il nome originale usando il [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) comando in T-SQL.
 
 - **Ripristino dei dati**
 
@@ -124,7 +124,7 @@ Ripristino geografico è l'opzione di ripristino predefinita quando il database 
 Il ripristino temporizzato in un database di replica geografica secondaria non è attualmente supportato. Il ripristino temporizzato può essere eseguito solo in un database primario. Per informazioni dettagliate sull'uso del ripristino geografico in caso di un'interruzione del servizio, vedere [Ripristinare un database SQL di Azure o eseguire il failover in un database secondario](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Il ripristino geografico è la più semplice soluzione di ripristino di emergenza disponibile nel Database SQL. Si basa su creati automaticamente i backup con replica geografica con RPO = 1 ora e il tempo di recupero stimato di fino a 12 ore. Ciò garantisce che l'area di destinazione avrà la capacità di ripristino dei database dopo un ourage a livello di area perché sarà probabilmente un aumento della domanda ben strutturato. Per applicazioni critiche non aziendali che usano database di dimensioni relativamente ridotte, il ripristino geografico è una soluzione di ripristino di emergenza appropriato. Per applicazioni critiche business che utilizzano database di grandi dimensioni e devono garantire la continuità aziendale, è consigliabile usare [gruppi di failover automatico](sql-database-auto-failover-group.md). Offre un RPO e RTO molto basso, e la capacità è sempre garantita. Per altre informazioni sulle opzioni di continuità aziendale, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
+> Il ripristino geografico è la più semplice soluzione di ripristino di emergenza disponibile nel Database SQL. Si basa su creati automaticamente i backup con replica geografica con RPO = 1 ora e il tempo di recupero stimato di fino a 12 ore. Ciò garantisce che l'area di destinazione avrà la capacità di ripristino dei database dopo un ourage a livello di area perché sarà probabilmente un aumento della domanda ben strutturato. Per applicazioni critiche non aziendali che usano database di dimensioni relativamente ridotte, il ripristino geografico è una soluzione di ripristino di emergenza appropriato. Per applicazioni aziendali critiche che usano database di grandi dimensioni e devono garantire la continuità aziendale, è consigliabile usare [gruppi di failover automatico](sql-database-auto-failover-group.md). Offre un RPO e RTO molto basso, e la capacità è sempre garantita. Per altre informazioni sulle opzioni di continuità aziendale, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Eseguire il ripristino geografico tramite il portale di Azure
 

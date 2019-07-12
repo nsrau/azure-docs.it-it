@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 65116ebbd6a66241a5b35a39f3dfb8f826a3745f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477872"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594282"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Creare un host di Azure Bastion (anteprima)
 
@@ -57,7 +57,7 @@ In questa sezione consente di creare una nuova risorsa di Azure Bastion dal port
     * **Subnet**: La subnet nella rete virtuale a cui verrà distribuita la nuova risorsa di Bastion host. È necessario creare una subnet usando il valore del nome **AzureBastionSubnet**. Questo valore informa Azure che la subnet in cui distribuire le risorse Bastion. Questo è diverso rispetto a una subnet del Gateway. È consigliabile usare almeno/27 o più grande (/ 27, / 26 e così via). Creare il **AzureBastionSubnet** senza eventuali gruppi di sicurezza di rete, instradare le tabelle o le deleghe.
     * **Indirizzo IP pubblico**: L'indirizzo IP pubblico della risorsa Bastion in cui si accederà RDP o SSH (sulla porta 443). Creare un nuovo indirizzo IP pubblico o usarne uno esistente. L'indirizzo IP pubblico deve essere nella stessa area come risorsa di Bastion a cui che si sta creando.
     * **Nome indirizzo IP pubblico**: Il nome della risorsa indirizzo IP pubblico.
-    * **Indirizzo IP pubblico dello SKU**: Pre-popolato per impostazione predefinita per **Standard**.
+    * **Indirizzo IP pubblico dello SKU**: Pre-popolato per impostazione predefinita per **Standard**. Azure Bastion Usa/supporta lo Standard SKU IP pubblico.
     * **Assegnazione**: Pre-popolato per impostazione predefinita per **statici**.
 
 1. Dopo aver specificato le impostazioni, fare clic su **revisione + Crea**. Questa convalida i valori. Al termine della convalida, è possibile iniziare il processo di creazione.

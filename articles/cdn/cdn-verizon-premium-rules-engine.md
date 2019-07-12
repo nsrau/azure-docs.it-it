@@ -3,16 +3,16 @@ title: Override del comportamento HTTP con la rete CDN di Azure da Verizon Premi
 description: Il motore regole consente di personalizzare come richieste HTTP vengono gestite dalla rete CDN di Azure fornita da Verizon Premium, ad esempio la distribuzione di determinati tipi di contenuto, definire un criterio di memorizzazione nella cache e modificare le intestazioni HTTP.
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 81af3073d64e4379972568a57907a7fb2f82356d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa08f59f3b69395d548649bb131e04c5071c053d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481730"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593169"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Override del comportamento HTTP con la rete CDN di Azure da Verizon Premium motore regole di Business
 

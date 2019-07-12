@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 8883c1e7f2874e1e2e61b8eca122f2ec294c7849
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00c0fea9d8ca7ee299a9a19473917eba90edd675
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808943"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606982"
 ---
 # <a name="azure-monitor-data-platform"></a>Piattaforma dati di monitoraggio Azure
 
@@ -70,9 +70,9 @@ La tabella seguente confronta le metriche e log in Monitoraggio di Azure.
 | Attributo  | metrics | Log |
 |:---|:---|:---|
 | Vantaggi | Caricamento leggero e in grado di supportare scenari di quasi in tempo reale, ad esempio gli avvisi. Ideale per il rilevamento rapido dei problemi. | Analizzati con avanzato linguaggio di query. Ideale per un'analisi approfondita e identificazione di causa principale. |
-| Dati | Solo i valori numerici | Dati numerici o di testo |
-| Structure | Set standard di proprietà, tra cui tempo di campionamento, risorsa che si sta controllando, un valore numerico. Alcune metriche includono più dimensioni per un'ulteriore definizione. | Set di proprietà in base al tipo di log univoco. |
-| Raccolta | Raccolti a intervalli regolari. | Può essere raccolto sporadicamente come eventi che attivano un record da creare. |
+| Data | Solo i valori numerici | Dati numerici o di testo |
+| Struttura | Set standard di proprietà, tra cui tempo di campionamento, risorsa che si sta controllando, un valore numerico. Alcune metriche includono più dimensioni per un'ulteriore definizione. | Set di proprietà in base al tipo di log univoco. |
+| Collection | Raccolti a intervalli regolari. | Può essere raccolto sporadicamente come eventi che attivano un record da creare. |
 | Consente di visualizzare nel portale di Azure | Esplora metriche | Log Analytics |
 | Le origini dati includono | Piattaforma metriche raccolte dalle risorse di Azure.<br>Applicazioni monitorate da Application Insights.<br>Definito dall'applicazione o l'API personalizzata. | Applicazione e i log di diagnostica.<br>Monitoraggio delle soluzioni.<br>Gli agenti e le estensioni di VM.<br>Le richieste dell'applicazione e le eccezioni.<br>Centro sicurezza di Azure.<br>API di raccolta dati. |
 

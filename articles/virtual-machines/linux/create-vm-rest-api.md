@@ -4,7 +4,7 @@ description: Informazioni su come creare una macchina virtuale Linux in Azure ch
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7f624bc85d35048a8f9afa0f527ae592a24fbf1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391362"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667953"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creare una macchina virtuale Linux che usa l'autenticazione SSH con l'API REST
 
@@ -52,7 +52,7 @@ Oltre ai parametri `{subscription-id}` e `{resourceGroupName}`, è necessario sp
 
 Gli argomenti seguenti sono obbligatori:
 
-| Intestazione della richiesta   | Descrizione |
+| Intestazione della richiesta   | DESCRIZIONE |
 |------------------|-----------------|
 | *Content-Type:*  | Richiesto. Impostare su `application/json`. |
 | *Authorization:* | Richiesto. Impostare su un [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valido. |
@@ -63,7 +63,7 @@ Per informazioni generali sul lavoro con le operazioni con API REST, vedere [Com
 
 Per compilare un corpo della richiesta vengono usate le definizioni comuni seguenti:
 
-| Name                       | Obbligatorio | Type                                                                                | Descrizione  |
+| Name                       | Obbligatoria | Type                                                                                | Descrizione  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | string                                                                              | Percorso della risorsa. |
 | name                       |          | string                                                                              | Nome della macchina virtuale. |

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 06/27/2019
-ms.openlocfilehash: 1eeb37ce74b3e2f57588197d6bb88f59944c61cf
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: ce16450f7f25e5703cf283c4babb2a935aad21de
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460670"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813057"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
@@ -109,7 +109,11 @@ Se il database è crittografato con TDE, i backup vengono crittografati automati
 
 ## <a name="how-does-microsoft-ensure-backup-integrity"></a>In che modo Microsoft garantisce l'integrità dei backup
 
-In modo continuativo, il team di progettazione del database SQL di Azure verifica automaticamente il ripristino dei backup automatici dei database nel servizio. Al momento del ripristino, i database sono anche sottoposti a controlli di integrità tramite DBCC CHECKDB. Gli eventuali problemi rilevati durante la verifica dell'integrità determinano la generazione di un avviso per il team di progettazione. Per altre informazioni sull'integrità dei dati nel database SQL di Azure, vedere [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) (Integrità dei dati nel database SQL di Azure).
+In modo continuativo, team di progettazione automaticamente il Database SQL di Azure i test il ripristino dei backup automatici del database di database posizionati in server logici e i pool elastici (non disponibile nell'istanza gestita). Al momento del ripristino, point-in-time database ricevono anche controlli di integrità tramite DBCC CHECKDB.
+
+Istanza gestita richiede il backup iniziale automatico con `CHECKSUM` i database ripristinati con native `RESTORE` comando o il servizio di migrazione una volta completata la migrazione di dati.
+
+Gli eventuali problemi rilevati durante la verifica dell'integrità determinano la generazione di un avviso per il team di progettazione. Per altre informazioni sull'integrità dei dati nel database SQL di Azure, vedere [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) (Integrità dei dati nel database SQL di Azure).
 
 ## <a name="how-do-automated-backups-impact-compliance"></a>In che modo i backup automatici influiscono sulla conformità
 

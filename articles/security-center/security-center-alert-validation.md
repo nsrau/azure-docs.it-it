@@ -1,5 +1,5 @@
 ---
-title: Convalida degli avvisi nel Centro sicurezza di Azure | Microsoft Docs
+title: Avviso di convalida (file di test EICAR) nel Centro sicurezza di Azure | Microsoft Docs
 description: Questo documento illustra come convalidare gli avvisi di sicurezza nel Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
@@ -12,38 +12,56 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 7/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 009f5fe7243b8ce597c2be9f9c6874cdb56d103c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f65b4b74a1a91fa081bd9c0d8146d055cebb0de6
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60706044"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626307"
 ---
-# <a name="alerts-validation-in-azure-security-center"></a>Convalida degli avvisi nel Centro sicurezza di Azure
+# <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Convalida degli avvisi (file di test EICAR) nel Centro sicurezza di Azure
 Questo documento illustra come verificare che il sistema sia configurato correttamente per gli avvisi del Centro sicurezza di Azure.
 
 ## <a name="what-are-security-alerts"></a>Informazioni sugli avvisi di sicurezza
-Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log delle risorse di Azure, della rete e delle soluzioni partner connesse, ad esempio soluzioni di protezione endpoint e firewall, per rilevare e segnalare all'utente le minacce. Vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) per altre informazioni sugli avvisi di sicurezza e [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) per altre informazioni sui diversi tipi di avvisi.
+Gli avvisi sono notifiche che il Centro sicurezza viene generato l'errore quando rileva le minacce sulle risorse. Si assegna la priorità e vengono elencati gli avvisi e le informazioni necessarie per poter analizzare rapidamente il problema. Il Centro sicurezza fornisce inoltre consigli per come è possibile risolvere un attacco.
+Per altre informazioni, vedere [avvisi di sicurezza nel Centro sicurezza di Azure](security-center-alerts-overview.md) e [gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)
 
 ## <a name="alert-validation"></a>Convalida degli avvisi
-Dopo aver installato l'agente del Centro sicurezza nel computer, seguire questa procedura nel computer in cui si vuole essere avvisati delle risorse che hanno subito attacchi:
 
-1. Copiare un file eseguibile (ad esempio, calc.exe) sul desktop del computer o in un'altra directory per motivi di praticità.
-2. Rinominare il file **ASC_AlertTest_662jfi039N.exe**.
-3. Aprire il prompt dei comandi ed eseguire il file con un argomento (un semplice nome di argomento fittizio), ad esempio: *ASC_AlertTest_662jfi039N.exe -foo*
-4. Attendere da 5 a 10 minuti e aprire gli avvisi del Centro sicurezza. Dovrebbe essere visualizzato un avviso simile al seguente:
+* [Windows](#validate-windows)
+* [Linux](#validate-linux)
 
-    ![Convalida degli avvisi](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)
+## Convalidare l'avviso nella macchina virtuale Windows <a name="validate-windows"></a>
 
-Esaminando questo avviso, verificare che il campo Arguments Auditing Enabled (Controllo argomenti abilitato) sia impostato su "vero". Se l'impostazione visualizzata è "falso", è necessario abilitare il controllo degli argomenti della riga di comando. È possibile abilitare questa opzione con la riga di comando seguente:
+Dopo il centro di sicurezza dell'agente è installato nel computer in uso, seguire questi passaggi dal computer in cui si desidera essere avvisati delle risorse dell'avviso:
 
-*reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
-
+1. Copiare un file eseguibile (ad esempio **calc.exe**) per il desktop del computer o qualsiasi altra directory di praticità e rinominarlo come **ASC_AlertTest_662jfi039N.exe**.
+1. Aprire il prompt dei comandi ed eseguire questo file con un argomento (solo un nome argomento fittizio), ad esempio: ```ASC_AlertTest_662jfi039N.exe -foo```
+1. Attendere da 5 a 10 minuti e aprire gli avvisi del Centro sicurezza. Un avviso simile al [esempio](#alert-validate) seguito deve essere visualizzato:
 
 > [!NOTE]
-> Per una dimostrazione di questa funzionalità, guardare il video [Alert Validation in Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) (Convalida degli avvisi nel Centro sicurezza di Azure).
+> Quando si rivede questo avviso di test per Windows, assicurarsi che il campo **argomenti attivasse** viene **true**. Se si tratta **false**, quindi è necessario abilitare il controllo degli argomenti della riga di comando. Per abilitarla, usare la riga di comando seguente:
+>
+>```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
+
+## Convalidare l'avviso in VM Linux <a name="validate-linux"></a>
+
+Dopo il centro di sicurezza dell'agente è installato nel computer in uso, seguire questi passaggi dal computer in cui si desidera essere avvisati delle risorse dell'avviso:
+1. Copiare un file eseguibile in una posizione comoda e rinominarlo **. / asc_alerttest_662jfi039n**, ad esempio:
+
+    ```cp /bin/echo ./asc_alerttest_662jfi039n```
+
+1. Aprire il prompt dei comandi ed eseguire il file:
+
+    ```./asc_alerttest_662jfi039n testing eicar pipe```
+
+1. Attendere da 5 a 10 minuti e aprire gli avvisi del Centro sicurezza. Un avviso simile al [esempio](#alert-validate) seguito deve essere visualizzato:
+
+### Esempio di avviso <a name="alert-validate"></a>
+
+![Esempio di convalida degli avvisi](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
 
 ## <a name="see-also"></a>Vedere anche
 Questo articolo ha presentato il processo di convalida degli avvisi. Dopo aver acquisito familiarità con tale convalida, vedere gli articoli seguenti:

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 42724f5fcb3101015cef0d218a3d548f349646be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d10d996febd0e31c9085bf5cb82324cce101c80
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785829"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606149"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Esempio 5 - classificazione: Prevedere la varianza, stime sui desideri e up-selling 
 
@@ -37,7 +37,7 @@ Ecco il grafico completato per questo esperimento:
 
     ![Aprire l'esperimento](media/ui-sample-classification-predict-churn/open-sample5.png)
 
-## <a name="data"></a>Dati
+## <a name="data"></a>Data
 
 I dati che si userà per questo esperimento sono dalla competizione KDD Cup 2009. Il set di dati contiene 50.000 righe e colonne di funzioni 230. L'attività consiste nel prevedere la varianza, stime sui desideri e up-selling per i clienti che usano queste funzionalità. Per altre informazioni sui dati e l'attività, vedere la [sito Web KDD](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
@@ -79,3 +79,4 @@ Esplorare gli altri esempi disponibili per l'interfaccia visiva:
 - [Esempio 2: regressione: Confrontare gli algoritmi per la stima di prezzo di un'automobile](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Esempio 3: classificazione: Prevedere il rischio di credito](ui-sample-classification-predict-credit-risk-basic.md)
 - [Esempio 4: classificazione: Prevedere il rischio di credito (costo sensibile)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Esempio 6: classificazione: Prevedere i ritardi dei voli](ui-sample-classification-predict-flight-delay.md)

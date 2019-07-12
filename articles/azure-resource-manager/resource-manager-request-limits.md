@@ -4,19 +4,19 @@ description: Viene descritto come usare la limitazione con le richieste di Azure
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36e881fb9ba3ab81611b94a36ef0beed8748d5b1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399709"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705128"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitazione delle richieste di Resource Manager
 
-Per ogni sottoscrizione e tenant di Azure, Resource Manager consente fino a 12.000 richieste di lettura per ora e 1.200 richieste di scrittura per ora. L'ambito di questi limiti è l'ID dell'entità di sicurezza che effettua le richieste e l'ID sottoscrizione o l'ID tenant. Se le richieste provengono da più di un ID dell'entità di sicurezza, il limite per la sottoscrizione o il tenant è superiore a 12.000 e 1.200 richieste per ora.
+Per ogni sottoscrizione e tenant di Azure, Resource Manager consente fino a 12.000 richieste di lettura per ora e 1.200 richieste di scrittura per ora. Questi limiti sono limitati all'entità di sicurezza (utente o applicazione) effettua le richieste e l'ID sottoscrizione o l'ID tenant Se le richieste provengano da più entità di sicurezza, il limite tra la sottoscrizione o il tenant è maggiore di 12.000 e 1.200 all'ora.
 
 Le richieste vengono applicate alla sottoscrizione o al tenant. Le richieste di sottoscrizione sono quelle che coinvolgono passando l'ID sottoscrizione, ad esempio il recupero di gruppi di risorse nella sottoscrizione. Le richieste relative al tenant non includono l'ID sottoscrizione, ad esempio il recupero delle posizioni di Azure valide.
 

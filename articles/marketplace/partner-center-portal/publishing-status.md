@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9bf3136969974abbe9a99a5632478e3cbb22307e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae4840877ae461244a76984ed8ac3edc82d57a38
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474518"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653990"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Controllare lo stato di pubblicazione dell'offerta commerciale Marketplace
 
@@ -75,7 +75,7 @@ Durante la convalida del contenuto, le informazioni immesse al momento della cre
 - screenshot di qualità e che accompagna i video; e
 - Spiegazione del modo in cui l'offerta Usa gli strumenti e piattaforme Microsoft.
 
-Altre informazioni relative ai criteri di convalida del contenuto, vedere la [elenco di criteri generale](https://docs.microsoft.com/legal/marketplace/general-policies#10-general-listing-policies).
+Altre informazioni relative ai criteri di convalida del contenuto, vedere la [elenco di criteri generale](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general-policies).
 
 #### <a name="technical-validation"></a>Convalida tecnica
 

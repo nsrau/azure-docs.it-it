@@ -189,11 +189,11 @@ In questo articolo viene configurata l'attività Hive per la creazione di un clu
 
     |Proprietà  |Valore  |
     |---------|---------|
-    |NOME | Immettere un nome per la data factory. Il nome deve essere univoco a livello globale.|
-    |Sottoscrizione | Selezionare la sottoscrizione di Azure. |
-    |Gruppo di risorse | Selezionare **Use existing** (Usa esistente) e quindi selezionare il gruppo di risorse creato con lo script di PowerShell. |
+    |Name | Immettere un nome per la data factory. Il nome deve essere univoco a livello globale.|
+    |Subscription | Selezionare la sottoscrizione di Azure. |
+    |Resource group | Selezionare **Use existing** (Usa esistente) e quindi selezionare il gruppo di risorse creato con lo script di PowerShell. |
     |Versione | Lasciare **V2**. |
-    |Località | Il percorso viene automaticamente impostato sulla posizione specificata durante la creazione del gruppo di risorse precedente. Per questa esercitazione la posizione è impostata su **Stati Uniti orientali**. |
+    |Location | Il percorso viene automaticamente impostato sulla posizione specificata durante la creazione del gruppo di risorse precedente. Per questa esercitazione la posizione è impostata su **Stati Uniti orientali**. |
 
     ![Creare Azure Data Factory tramite il portale di Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "Creare Azure Data Factory tramite il portale di Azure")
 
@@ -230,7 +230,7 @@ In questa sezione si creano due servizi collegati nella data factory.
 
     |Proprietà |Valore |
     |---|---|
-    |NOME |Immettere `HDIStorageLinkedService`.|
+    |Name |Immettere `HDIStorageLinkedService`.|
     |Sottoscrizione di Azure |Selezionare la sottoscrizione dall'elenco a discesa.|
     |Nome dell'account di archiviazione |Selezionare l'account di Archiviazione di Azure creato con lo script di PowerShell.|
 
@@ -252,7 +252,7 @@ In questa sezione si creano due servizi collegati nella data factory.
 
     | Proprietà | Valore |
     | --- | --- |
-    | NOME | Immettere `HDInsightLinkedService`.|
+    | Name | Immettere `HDInsightLinkedService`.|
     | Type | Selezionare **On-demand HDInsight** (HDInsight su richiesta). |
     | Servizio collegato Archiviazione di Azure | Selezionare `HDIStorageLinkedService`. |
     | Tipo di cluster | Selezionare **hadoop** |
@@ -260,7 +260,7 @@ In questa sezione si creano due servizi collegati nella data factory.
     | ID entità servizio | Specificare l'ID applicazione dell'entità servizio di Azure Active Directory che è stata creata come parte dei prerequisiti. |
     | Chiave entità servizio | Specificare la chiave di autenticazione per l'entità servizio di Azure Active Directory. |
     | Prefisso nome cluster | Specificare il valore che verrà usato come prefisso per tutti i tipi di cluster creati dalla data factory. |
-    |Sottoscrizione |Selezionare la sottoscrizione dall'elenco a discesa.|
+    |Subscription |Selezionare la sottoscrizione dall'elenco a discesa.|
     | Selezionare il gruppo di risorse | Selezionare il gruppo di risorse creato dallo script PowerShell usato in precedenza.|
     |Selezionare l'area | Selezionare un'area dall'elenco a discesa.|
     | Nome utente SSH tipo sistema operativo/cluster | Immettere un nome utente SSH, in genere `sshuser`. |

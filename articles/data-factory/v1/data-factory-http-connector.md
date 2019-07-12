@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: baca05a9c007849d813b2f4de17378e6d18da4a5
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318479"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701743"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Spostare dati da un'origine HTTP tramite Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-http-connector.md)
 > * [Versione 2 (corrente)](../connector-http.md)
 
@@ -66,7 +66,7 @@ Per informazioni sull'impostazione di credenziali per un'origine dati connettore
 
 Impostare **authenticationType** su **Basic**, **Digest** o **Windows**. Oltre alle proprietà generiche del connettore HTTP descritte nelle sezioni precedenti, impostare le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | userName | Nome utente da usare per accedere all'endpoint HTTP. | Sì |
 | password | Password per l'utente (**username**). | Sì |

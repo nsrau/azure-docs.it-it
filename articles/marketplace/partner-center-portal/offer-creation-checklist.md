@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 904058c2c98c8ded2ea9c91e8aa7ec595aa49b05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb824eb67e84ec4bdb93bc355ac6a6afa844ceb9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481445"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701160"
 ---
 # <a name="offer-creation-checklist"></a>Elenco di controllo per la creazione di offerte
 
@@ -38,12 +38,12 @@ Viene richiesto di fornire o specificare gli elementi sono riportati di seguito.
 
 ## <a name="new-offer-modal"></a>Nuova offerta modale 
 
-Il primo verrà richiesto di fornire le informazioni sono un nome e un ID dell'offerta. 
+Il primo utente viene chiesto di fornire informazioni sono un ID e un alias per l'offerta. 
 
 | **Nome campo**    | **Note**   |  
 | :---------------- | :-----------| 
 | Offer ID (ID offerta)  | Obbligatorio, non può essere modificato dopo la creazione. Numero massimo di 50 caratteri e deve contenere solo caratteri alfanumerici minuscoli, trattini o caratteri di sottolineatura. |
-| Nome offerta  | Richiesto. |
+| Alias di offerta  | Richiesto. |
 
 ## <a name="offer-setup-page"></a>Pagina di installazione dell'offerta
 
@@ -51,13 +51,13 @@ La pagina di installazione offerta è in cui è possibile acconsentire esplicita
 
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------|  
-| Vuoi vendere tramite Microsoft?  | Richiesto. Predefinito: Yes |
-| Specificare la modalità potenziali clienti per interagire con l'offerta riporti? (Invito all'azione)  | Obbligatorio se non di vendita Microsoft. Predefinito: Versione di valutazione gratuita, le opzioni: "Scarica adesso", "Versione di valutazione gratuita", "Contact me." |
+| Vuoi vendere tramite Microsoft?  | Richiesto. Valore predefinito: Sì |
+| Specificare la modalità potenziali clienti per interagire con l'offerta riporti? (Invito all'azione)  | Obbligatorio se non di vendita Microsoft. Valore predefinito: Versione di valutazione gratuita, le opzioni: "Scarica adesso", "Versione di valutazione gratuita", "Contact me." |
 | URL della versione di valutazione  | Obbligatorio se è selezionata la "Versione di valutazione gratuita", come i clienti modo devono interagire con l'elenco di offerta. |
 | URL dell'offerta  | Obbligatorio se "Ottenere adesso" è selezionata, come i clienti modo devono interagire con l'elenco di offerta |
-| Canali  | facoltativo. Predefinito: Non è acconsentito esplicitamente nel canale di CSP (rivenditore).  |
-| Test drive | facoltativo. Predefinito: Nessuna versione di test abilitata.  |
-| Type of Test Drive (Tipo di test drive) | Obbligatorio se è abilitata una test drive. Predefinito: Nessun elemento selezionato. Opzioni: Gestione risorse di Azure, Dynamics 365 per centrali di Business, Dynamics 365 for Customer Engagement, Dynamics 365 per le app per la logica, operazioni di Power BI.  |
+| Canali  | facoltativo. Valore predefinito: Non è acconsentito esplicitamente nel canale di CSP (rivenditore).  |
+| Test drive | facoltativo. Valore predefinito: Nessuna versione di test abilitata.  |
+| Type of Test Drive (Tipo di test drive) | Obbligatorio se è abilitata una test drive. Valore predefinito: Nessun elemento selezionato. Opzioni: Gestione risorse di Azure, Dynamics 365 per centrali di Business, Dynamics 365 for Customer Engagement, Dynamics 365 per le app per la logica, operazioni di Power BI.  |
 | Gestione dei lead: connettersi a un sistema CRM | Obbligatorio se vendere attraverso Microsoft o elenco sono disponibili come "Contact me." Valore predefinito: nessun sistema CRM connesso. Opzioni di CRM: Tabelle di Azure, blob di Azure, Dynamics CRM online, endpoint degli HTTPs, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Pagina Proprietà
@@ -66,9 +66,9 @@ La pagina delle proprietà viene usata per definire le categorie e settori utili
 
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------|  
-| Categoria e sottocategoria | Richiesto 3 1, quello massimo. Predefinito: Nessun elemento selezionato. |
+| Categoria e sottocategoria | Richiesto 3 1, quello massimo. Valore predefinito: Nessun elemento selezionato. |
 | Settori e subindustries | facoltativo. numero massimo di 2 L1 settori e numero massimo di 2 subindustries all'interno di ogni settore L1, impostazione predefinita: Nessuna selezione |
-| Versione dell'app  | facoltativo. Predefinito: No. |
+| Versione dell'app  | facoltativo. Valore predefinito: No. |
 | Utilizzare il contratto Standard  | facoltativo. Valore predefinito: non è selezionata.  | |
 | Condizioni per l'utilizzo  | Obbligatorio se il contratto Standard non è selezionato.  |
 
@@ -137,11 +137,11 @@ La pagina dei prezzi e disponibilità di piano viene usata per definire le carat
 | **Nome campo**    | **Note**   | 
 | :---------------- | :-----------| 
 | Disponibilità di immissione sul mercato  | Obbligatorio, 1 min e max 141. |
-| Modello di prezzi  | Richiesto. Predefinito: Tariffa fissa. Opzioni: Tariffa fissa per ogni utente. |
+| Modello di prezzi  | Richiesto. Valore predefinito: Tariffa fissa. Opzioni: Tariffa fissa per ogni utente. |
 | Valore minimo e massime postazioni  | Facoltativo, è disponibile solo se basati sulle postazioni piano tariffario selezionato. |
-| Periodo di fatturazione  | Richiesto. Predefinito: Mensile. Opzioni: Mensile, annuale. |
+| Periodo di fatturazione  | Richiesto. Valore predefinito: Mensile. Opzioni: Mensile, annuale. |
 | Prezzo  | Obbligatorio USD al mese, se la fatturazione mensile termine selezionato. o USD all'anno se annuali billing termine selezionato. |
-| Piano di destinatari  | facoltativo. Predefinito: Piano pubblico. Opzioni: Pubblico, privato dall'ID tenant |
+| Piano di destinatari  | facoltativo. Valore predefinito: Piano pubblico. Opzioni: Pubblico, privato dall'ID tenant |
 | Destinatari di pianificare con restrizioni (ID tenant + descrizione)  | Obbligatorio se piano privato selezionato. 1 min e max 10 tenant ID se immessi manualmente. Max 20000 se l'importazione di file CSV. |
 
 ## <a name="test-drive-listing-page"></a>Pagina di presentazione di test unità

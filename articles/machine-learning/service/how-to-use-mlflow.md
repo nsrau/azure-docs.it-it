@@ -11,16 +11,16 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: d0bc4620d0c55d6e94a3d99c39ab405dab2743e5
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 2f3ec9792a7af0398da770286b805be4d1f25589
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461662"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657972"
 ---
 # <a name="use-mlflow-with-azure-machine-learning-service-preview"></a>Usare MLflow con il servizio di Azure Machine Learning (anteprima)
 
-Questo articolo illustra come usare MLflow URI di rilevamento e la registrazione di API, collettivamente noto anche come MLflow di rilevamento, con il servizio di Azure Machine Learning per rilevare e registrare metriche esperimento e gli elementi di [Azure Machine Learning area di lavoro servizio](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace). Se si usa già MLflow di rilevamento per gli esperimenti, l'area di lavoro fornisce una posizione centralizzata, sicura e scalabile per archiviare le metriche di formazione e modelli.
+Questo articolo illustra come usare MLflow URI di rilevamento e la registrazione di API, collettivamente noto anche come MLflow di rilevamento, con il servizio di Azure Machine Learning per rilevare e registrare metriche esperimento e gli elementi di [Azure Machine Learning area di lavoro servizio](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces). Se si usa già MLflow di rilevamento per gli esperimenti, l'area di lavoro fornisce una posizione centralizzata, sicura e scalabile per archiviare le metriche di formazione e modelli.
 
 [MLflow](https://www.mlflow.org) è una libreria open source per la gestione del ciclo di vita di esperimenti di machine learning. [Rilevamento MLFlow](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) è un componente di MLflow che registra e tiene traccia di metriche di esecuzione di training e gli elementi di modello, se vengono eseguiti in locale, gli esperimenti in una macchina virtuale o in un server remoto di calcolo del cluster.
 ![mlflow diagramma di azure machine learning](media/how-to-use-mlflow/mlflow-diagram.png)

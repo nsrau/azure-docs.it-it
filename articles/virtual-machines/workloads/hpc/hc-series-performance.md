@@ -4,7 +4,7 @@ description: Informazioni sulle prestazioni, risultati del test per le dimension
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: f931bfa486384a0f38a4964c2ed7b2446b40bfec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cea772f03d5e2838b44d50f3cf5e926d740be5f0
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809858"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707693"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali serie connessione ibrida
 
@@ -48,9 +48,9 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 | 32              | 1000            | 1.80            | 6.82            | 1.84            | 1.85            | 0,24            |
 | 64              | 1000            | 1.85            | 5.47            | 1.88            | 1.86            | 0,12            |
 | 128             | 1000            | 1.88            | 5.61            | 1.93            | 1.89            | 0,25            |
-| 256             | 1000            | 2.24            | 6.39            | 2.28            | 2.02            | 0.18            |
+| 256             | 1000            | 2,24            | 6.39            | 2,28            | 2.02            | 0.18            |
 | 512             | 1000            | 2.32            | 5.42            | 2.36            | 2.30            | 0.17            |
-| 1024            | 1000            | 2.43            | 6.22            | 2.48            | 2.38            | 0.21            |
+| 1024            | 1000            | 2.43            | 6.22            | 2,48            | 2.38            | 0.21            |
 | 2048            | 1000            | 2.68            | 6.14            | 2.75            | 2.52            | 0.20            |
 | 4096            | 1000            | 3.17            | 7.02            | 3.26            | 2.81            | 0,24            |
 
@@ -69,9 +69,9 @@ Latenza MPI OSU v5.4.3 di Test.
 | 8    | 1.85     | 1.79     | 2.05     |
 | 16   | 1.85     | 1.79     | 2.1      |
 | 32   | 1.87     | 1.82     | 2.12     |
-| 64   | 2        | 1.95     | 2.13     |
+| 64   | 2        | 1.95     | 2,13     |
 | 128  | 2.05     | 2        | 2.18     |
-| 256  | 2.48     | 2.44     | 2.75     |
+| 256  | 2,48     | 2.44     | 2.75     |
 | 512  | 2.57     | 2.52     | 2.81     |
 | 1024 | 2.76     | 2.71     | 2.97     |
 | 2048 | 3.09     | 3.11     | 3.34     |

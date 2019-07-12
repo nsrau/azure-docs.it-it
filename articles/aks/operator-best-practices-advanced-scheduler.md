@@ -2,17 +2,17 @@
 title: Procedure consigliate per l'operatore - Funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 description: Procedure consigliate per l'operatore del cluster per l'uso delle funzionalità avanzate dell'utilità di pianificazione, come taint e tolleranze, selettori di nodo e affinità oppure affinità tra pod e anti-affinità, nel servizio Azure Kubernetes (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 5affcd5ee1e51ac754d8a9bb81560a6cc3626860
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 4caa4219d2bf7558dbdf71e92e4993722c6e8f6a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055625"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614866"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -73,7 +73,7 @@ Quando questo pod viene distribuito, ad esempio usando `kubectl apply -f gpu-tol
 
 Quando si applicano i taint, contattare gli sviluppatori e i proprietari delle applicazioni per consentire loro di definire le tolleranze richieste nelle proprie distribuzioni.
 
-Per altre informazioni su taint e tolleranze, vedere l'articolo sull'[applicazione di taint e tolleranze][k8s-taints-tolerations].
+Per altre informazioni sulle taints e tolerations, vedere [applicando taints e tolerations][k8s-taints-tolerations].
 
 Per altre informazioni su come usare più pool di nodi nel servizio contenitore di AZURE, vedere [creare e gestire più pool di nodi per un cluster di AKS][use-multiple-node-pools].
 
@@ -130,7 +130,7 @@ spec:
 
 Quando si usano queste opzioni dell'utilità di pianificazione, contattare gli sviluppatori e i proprietari delle applicazioni per consentire loro di definire correttamente le specifiche dei pod.
 
-Per altre informazioni sull'uso dei selettori di nodo, vedere [Assigning Pods to Nodes][k8s-node-selector] (Assegnazione di pod ai nodi).
+Per altre informazioni sull'uso dei selettori di nodo, vedere [assegnazione di POD ai nodi][k8s-node-selector].
 
 ### <a name="node-affinity"></a>Affinità tra nodi
 
@@ -166,7 +166,7 @@ spec:
 
 La parte *IgnoredDuringExecution* dell'impostazione indica che se le etichette del nodo vengono modificate, il pod non deve essere rimosso dal nodo. L'utilità di pianificazione di Kubernetes usa solo le etichette dei nodi aggiornate per la pianificazione dei nuovi pod, e non i pod già pianificati sui nodi.
 
-Per altre informazioni, vedere la sezione relativa ad [affinità e anti-affinità][k8s-affinity].
+Per altre informazioni, vedere [affinità e anti-affinità][k8s-affinity].
 
 ### <a name="inter-pod-affinity-and-anti-affinity"></a>Affinità tra pod e anti-affinità
 
@@ -179,13 +179,13 @@ Un buon esempio è un'applicazione Web che usa anche una cache Redis di Azure. �
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-Questo esempio è una distribuzione più complessa rispetto all'uso dei selettori di nodo o dell'affinità tra nodi. La distribuzione garantisce il controllo sul modo in cui Kubernetes pianifica i pod sui nodi e isola in modo logico le risorse. Per un esempio completo di questa applicazione Web con un esempio di cache Redis di Azure, vedere la sezione sulla [condivisione del percorso dei pod sullo stesso nodo][k8s-pod-affinity].
+Questo esempio è una distribuzione più complessa rispetto all'uso dei selettori di nodo o dell'affinità tra nodi. La distribuzione garantisce il controllo sul modo in cui Kubernetes pianifica i pod sui nodi e isola in modo logico le risorse. Per un esempio completo di questa applicazione web con Cache di Azure, ad esempio Redis, vedere [Colocate POD nello stesso nodo][k8s-pod-affinity].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questo articolo ha illustrato le funzionalità avanzate dell'utilità di pianificazione di Kubernetes. Per altre informazioni sulle operazioni cluster in servizio Azure Kubernetes, vedere le procedure consigliate seguenti:
 
-* [Isolamento cluster e multi-tenant][aks-best-practices-scheduler]
+* [Isolamento multi-tenancy e cluster][aks-best-practices-scheduler]
 * [Funzionalità di base dell'utilità di pianificazione di Kubernetes][aks-best-practices-scheduler]
 * [Autenticazione e autorizzazione][aks-best-practices-identity]
 

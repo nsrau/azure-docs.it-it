@@ -4,7 +4,7 @@ description: Estensione di Microsoft Azure per l'installazione dei driver GPU NV
 services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004d6125de6762303db91f3a5ef9ffa16e6e501f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388676"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705945"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Estensione di driver GPU NVIDIA per Windows
 
@@ -27,6 +27,7 @@ ms.locfileid: "60388676"
 
 Questa estensione installa i driver GPU NVIDIA nelle macchine virtuali Windows serie N. A seconda della famiglia di macchine virtuali, l'estensione installa i driver CUDA o GRID. Quando si installano i driver NVIDIA con questa estensione, l'utente accetta e acconsente alle condizioni del [contratto di licenza dell'utente finale di NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante il processo di installazione, la macchina virtuale potrebbe venire riavviata per completare l'installazione del driver.
 
+Istruzioni sull'installazione manuale dei driver e le versioni correnti supportate sono disponibili [qui](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
 È anche disponibile un'estensione per installare i driver GPU NVIDIA nelle [macchine virtuali serie N di Linux](hpccompute-gpu-linux.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -37,7 +38,7 @@ Questa estensione supporta i seguenti sistemi operativi:
 
 | Distribuzione | Version |
 |---|---|
-| Windows 10 (fino alla versione 1803)| Core |
+| Windows 10 | Core |
 | Windows Server 2016 | Core |
 | Windows Server 2012 R2 | Core |
 
@@ -71,7 +72,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione.
 
 ### <a name="properties"></a>Properties
 
-| Name | Valore/Esempio | Tipo di dati |
+| NOME | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |

@@ -10,13 +10,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 05/22/2019
-ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.openlocfilehash: 05ec49c98c5bcfe40346550f5570c03a8fb3f881
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66016382"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657983"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fusi orari in istanza gestita di Azure SQL Database
 
@@ -30,7 +30,9 @@ Uso [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-tra
 
 ## <a name="supported-time-zones"></a>Fusi orari supportati
 
-Un set di zone ora supportate verrà ereditato dal sistema operativo sottostante dell'istanza gestita. Venga aggiornata regolarmente per ottenere le nuove definizioni di fuso orario e riflettere le modifiche a quelli esistenti. 
+Un set di zone ora supportate verrà ereditato dal sistema operativo sottostante dell'istanza gestita. Venga aggiornata regolarmente per ottenere le nuove definizioni di fuso orario e riflettere le modifiche a quelli esistenti.
+
+[Modifica i criteri di ora legale all'ora/fuso orario](https://aka.ms/time) garantisce la precisione cronologica da inoltrare 2010.
 
 Un elenco con i nomi dei fusi orari supportati viene esposta tramite il [Sys. time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) vista di sistema.
 
@@ -43,7 +45,7 @@ Un fuso orario di un'istanza gestita può essere impostato durante la creazione 
 
 ### <a name="set-the-time-zone-through-the-azure-portal"></a>Impostare il fuso orario nel portale di Azure
 
-Quando si immettono i parametri per una nuova istanza, selezionare un fuso orario dall'elenco dei fusi orari supportati. 
+Quando si immettono i parametri per una nuova istanza, selezionare un fuso orario dall'elenco dei fusi orari supportati.
   
 ![Impostazione di un fuso orario durante la creazione di istanze](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
@@ -82,7 +84,10 @@ Il [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-tim
 
 ### <a name="point-in-time-restore"></a>Ripristino temporizzato
 
-Quando si esegue un ripristino temporizzato in, il tempo per il ripristino viene interpretato come ora UTC. Questa impostazione consente di evitare qualsiasi ambiguità a causa dell'ora legale e le relative modifiche potenziali.
+<del>Quando si esegue un ripristino temporizzato in, il tempo per il ripristino viene interpretato come ora UTC. Questa impostazione consente di evitare qualsiasi ambiguità a causa dell'ora legale e le relative modifiche potenziali.<del>
+
+ >[!WARNING]
+  > Comportamento corrente non è in linea con l'istruzione precedente e tempo per il ripristino viene interpretato secondo il fuso orario dell'istanza gestita origine da cui vengono prelevati i backup automatici del database. Stiamo lavorando sulla risoluzione di questo comportamento per interpretare dato punto nel tempo come ora UTC. Visualizzare [problemi noti](sql-database-managed-instance-timezone.md#known-issues) per altri dettagli.
 
 ### <a name="auto-failover-groups"></a>Gruppi di failover automatico
 
@@ -95,6 +100,21 @@ Usando lo stesso fuso orario su un'istanza primaria e secondaria in un gruppo di
 
 - Impossibile modificare il fuso orario dell'istanza gestita esistente.
 - I processi esterni avviati da processi di SQL Server Agent non osservare il fuso orario dell'istanza.
+
+## <a name="known-issues"></a>Problemi noti
+
+Quando point-in-time restore (PITR) viene eseguita l'operazione, il tempo per il ripristino viene interpretato in base al fuso orario impostato sull'istanza gestita in cui vengono eseguiti i backup automatici del database, anche se la pagina del portale per PITR suggerisce che il tempo viene interpretato come ora UTC.
+
+Esempio:
+
+Ad esempio quell'istanza in cui i backup automatici vengono eseguiti da dispone di set di fuso orario ora solare fuso orientale (UTC-5).
+Pagina del portale per il ripristino temporizzato in suggerisce che il tempo in cui che si sceglie di ripristinare è ora UTC:
+
+![Ripristino Temporizzato con l'ora locale tramite portale](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
+
+Tuttavia, il tempo necessario per ripristinare in realtà viene interpretato come ora solare fuso orientale e in questo esempio specifico database verrà ripristinato lo stato 9 ora solare fuso orientale di AM e non all'ora UTC.
+
+Se si desidera eseguire Ripristino point-in-time a un momento specifico in formato UTC, calcolare il tempo equivalente nel fuso orario dell'istanza di origine e utilizzare quel momento nel portale o uno script di PowerShell/CLI.
 
 ## <a name="list-of-supported-time-zones"></a>Elenco dei fusi orari supportati
 

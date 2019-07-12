@@ -7,24 +7,24 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dec753d7c891d226aa2e6d3efa993d8d24adfbaa
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475279"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593831"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Intestazioni HTTP X-EC-Debug per il motore regole della rete CDN di Azure
 L' intestazione della richiesta di debug della cache, `X-EC-Debug`, fornisce ulteriori informazioni sui criteri della cache applicati all'asset richiesto. Queste intestazioni sono specifiche dei prodotti **Azure CDN Premium di Verizon**.
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 La risposta inviata dai server POP a un utente include l'intestazione `X-EC-Debug` solo quando sono soddisfatte le condizioni seguenti:
 
 - Nel motore regole per la richiesta specificata è stata abilitata la [funzionalità relativa alle intestazioni di risposta di debug per la cache](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers).
@@ -103,9 +103,9 @@ L'intestazione di risposta `X-EC-Debug` che segnala se la richiesta fosse idonea
 
 Il termine usato nella sintassi dell'intestazione della risposta riportata sopra è definito nel modo seguente:
 
-Value  | Descrizione
+Value  | DESCRIZIONE
 -------| --------
-SÌ    | Indica che il contenuto richiesto era idoneo per la memorizzazione nella cache.
+YES    | Indica che il contenuto richiesto era idoneo per la memorizzazione nella cache.
 NO     | Indica che il contenuto richiesto non era idoneo per la memorizzazione nella cache. Questo stato può essere dovuto a una delle cause seguenti: <br /> Configurazione specifici del cliente: Una configurazione specifica dell'account può impedire ai server pop di memorizzazione nella cache un asset. Ad esempio, il motore regole può impedire la memorizzazione di un asset nella cache abilitando la funzionalità Ignora cache per le richieste qualificate.<br /> -Memorizza nella cache le intestazioni di risposta: Le intestazioni Cache-Control ed Expires dell'asset richiesto possono impedire i server POP di memorizzarla nella cache.
 UNKNOWN | Indica che i server non sono stati in grado di valutare se l'asset richiesto fosse inseribile nella cache. Questo stato si verifica in genere quando la richiesta viene rifiutata a causa dell'autenticazione basata su token.
 

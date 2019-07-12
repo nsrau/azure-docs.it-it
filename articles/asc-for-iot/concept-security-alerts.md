@@ -2,24 +2,25 @@
 title: Guida degli avvisi di sicurezza per il Centro sicurezza di Azure per l'anteprima di IoT | Microsoft Docs
 description: Informazioni sugli avvisi di sicurezza e la correzione consigliata con il Centro sicurezza di Azure per servizi e le funzionalità di IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: db3a955cd9e572d1daca044aed75048e394e8457
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6168278a51cf5a73fec0387ab61f46e201d158f9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200749"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616954"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Il Centro sicurezza di Azure per gli avvisi di sicurezza IoT
 
@@ -37,7 +38,7 @@ Per altre informazioni, vedere [creare avvisi personalizzati](quickstart-create-
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Avvisi predefiniti per i dispositivi IoT
 
-| Severity | NOME                                                   | origine dati | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| severity | Name                                                   | origine dati | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------|--------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alto     | Eseguito correttamente l'accesso locale                                 | Agente       | Rilevato accesso riuscita del dispositivo locale                                                                                                                                                                                                                                                                                                                                                                                         |
 | Alto     | Forza bruta                                  | Agente       | Rilevate più tentativi di accesso non riuscito, seguita da un account di accesso ha esito positivo. Si è verificato un attacco di forza bruta nel dispositivo.                                                                                                                                                                                                                                                                                                              |
@@ -81,7 +82,7 @@ Per altre informazioni, vedere [creare avvisi personalizzati](quickstart-create-
 
 ## <a name="built-in-alerts-for-iot-hub"></a>Avvisi predefiniti per l'IoT Hub
 
-| Severity | Name                                                                         | Descrizione                                                                                                                                                                                                                                                                                                                            |
+| severity | Name                                                                         | DESCRIZIONE                                                                                                                                                                                                                                                                                                                            |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Media   | Nuovo certificato aggiunto a un IoT Hub                                    |Nuovo certificato aggiunto a un hub IoT. Se questa aggiunta non è stata eseguita da un'entità autorizzata, potrebbe indicare attività dannose.                                                                                                                                                                                                    |
 | Media   | Certificato è stato eliminato da un IoT Hub                                    | Certificato è stato eliminato da un hub IoT. Se questa azione non è stata eseguita da un'entità autorizzata, potrebbe indicare attività dannose.                                                                                                                                                                                                |

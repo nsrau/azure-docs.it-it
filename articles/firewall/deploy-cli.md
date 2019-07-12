@@ -4,15 +4,15 @@ description: In questo articolo descrive come distribuire e configurare il Firew
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 06/11/2019
+ms.date: 7/10/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: b40ac789fbc331e779e85462724e5c8a8e9bce47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24954eecde58c978fa3e14bb3a2d411d708687a3
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083353"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707156"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuire e configurare il Firewall di Azure tramite la CLI di Azure
 
@@ -20,7 +20,7 @@ Il controllo dell'accesso alla rete in uscita è un componente importante di un 
 
 È possibile controllare l'accesso alla rete in uscita da una subnet di Azure con Firewall di Azure. Con Firewall di Azure, è possibile configurare:
 
-* Regole di applicazione che definiscono i nomi di dominio completi (FQDN) accessibili da una subnet.
+* Regole di applicazione che definiscono i nomi di dominio completi (FQDN) accessibili da una subnet. Il nome FQDN è anche possibile [includere le istanze di SQL](sql-fqdn-filtering.md).
 * Regole di rete che definiscono l'indirizzo di origine, il protocollo, la porta di destinazione e l'indirizzo di destinazione.
 
 Il traffico di rete è sottoposto alle regole del firewall configurate quando si instrada il traffico di rete al firewall come gateway predefinito della subnet.
@@ -54,6 +54,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Per trovare la versione, eseguire **az --version**. Per informazioni sull'installazione o sull'aggiornamento, vedere [Installare l'interfaccia da riga di comando di Azure]( /cli/azure/install-azure-cli).
+
+Installare l'estensione del Firewall di Azure:
+
+```azurecli-interactive
+az extension add -n azure-firewall
+```
+
 
 ## <a name="set-up-the-network"></a>Configurare la rete
 

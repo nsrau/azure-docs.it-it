@@ -1,5 +1,5 @@
 ---
-title: Configurare l'accesso per un'organizzazione Azure Active Directory - Azure Active Directory B2C | Microsoft Docs
+title: Configurare l'accesso per un'organizzazione di Azure Active Directory - Azure Active Directory B2C
 description: Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 28dbf0382ac151857e72d4bb59e207f07c8ad3f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b867a7f9ffeab3d243c8c094830aa0984cffd04a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508430"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654211"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C
 
@@ -32,19 +32,19 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 2. Assicurarsi che si usa la directory contenente i tenant di Azure AD. Selezionare il **Directory e sottoscrizione filtro** nel menu in alto e scegliere la directory contenente i tenant di Azure AD. Questo non è nello stesso tenant del tenant di Azure AD B2C.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 4. Selezionare **Nuova registrazione**.
-5. Immettere un nome per l'applicazione. Ad esempio: `Azure AD B2C App`.
+5. Immettere un nome per l'applicazione. Ad esempio `Azure AD B2C App`.
 6. Accettare la selezione dei **gli account in questa directory dell'organizzazione solo** per questa applicazione.
 7. Per il **URI di reindirizzamento**, accettare il valore **Web**, quindi immettere l'URL seguente in lettere minuscole, in cui `your-B2C-tenant-name` viene sostituito con il nome del tenant di Azure AD B2C. Ad esempio, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
     ```
-    https://your--B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
     Tutti gli URL dovrebbero ora usare [b2clogin.com](b2clogin.md).
 
 8. Fare clic su **Register**. Copia il **ID applicazione (client)** da usare in un secondo momento.
 9. Selezionare **certificati e i segreti** nel menu dell'applicazione e quindi selezionare **nuovo segreto client**.
-10. Immettere un nome per il segreto client. Ad esempio: `Azure AD B2C App Secret`.
+10. Immettere un nome per il segreto client. Ad esempio `Azure AD B2C App Secret`.
 11. Selezionare il periodo di scadenza. Per questa applicazione, la selezione di accettare **tra 1 anno**.
 12. Selezionare **Add** e copiare il valore del nuovo segreto client che viene visualizzato per l'uso in un secondo momento.
 
@@ -63,10 +63,10 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
     ```
 
 8. Per la **ID Client**, immettere l'ID dell'applicazione registrato in precedenza e per **privata del Client**, immettere il segreto client registrato in precedenza.
-9. Facoltativamente immettere un valore per **Domain_hint**. Ad esempio: `ContosoAD`. Si tratta del valore da usare quando si fa riferimento a questo provider di identità specificando *domain_hint* nella richiesta. 
+9. Facoltativamente immettere un valore per **Domain_hint**. Ad esempio `ContosoAD`. Si tratta del valore da usare quando si fa riferimento a questo provider di identità specificando *domain_hint* nella richiesta.
 10. Fare clic su **OK**.
 11. Selezionare **Esegui mapping delle attestazioni di questo provider di identità** e impostare le attestazioni seguenti:
-    
+
     - Per **ID utente** immettere `oid`.
     - Per **nome visualizzato** immettere `name`.
     - Per **Nome** immettere `given_name`.

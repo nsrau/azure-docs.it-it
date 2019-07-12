@@ -6,20 +6,20 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: af5ddd50556b493cddf27d1ebb766d9bf6105107
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8bb077242c0a989e100c81d4dfefeb53f4bc90c4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433441"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620684"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurare il traffico di rete in uscita per i cluster HDInsight di Azure con Firewall (anteprima)
 
 Questo articolo fornisce i passaggi per poter proteggere il traffico in uscita dal cluster HDInsight tramite il Firewall di Azure. I passaggi seguenti presuppongono che si sta configurando un Firewall di Azure per un cluster esistente. Se si distribuisce un nuovo cluster e un firewall, creare innanzitutto il cluster HDInsight e la subnet e quindi seguire i passaggi descritti in questa Guida.
 
-## <a name="background"></a>Background
+## <a name="background"></a>Sfondo
 
 I cluster HDInsight di Azure vengono in genere distribuiti nella propria rete virtuale. Il cluster presenta dipendenze da servizi di fuori di tale rete virtuale che richiedono l'accesso alla rete per funzionare correttamente.
 
@@ -81,7 +81,7 @@ Creare le regole di rete per configurare correttamente il cluster HDInsight.
    | **Nome** | **Protocollo** | **Indirizzo di origine** | **Indirizzo di destinazione** | **Porta di destinazione** | **Note** |
    | --- | --- | --- | --- | --- | --- |
    | Regola_1 | UDP | * | * | `123` | Servizio ora |
-   | Rule_2 | Qualsiasi | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Se si usa Enterprise Security Package (ESP), quindi aggiungere una regola di rete nella sezione degli indirizzi IP che consente la comunicazione con AAD-DS per i cluster ESP. È possibile trovare gli indirizzi IP dei controller di dominio nella sezione AAD-DS nel portale | 
+   | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Se si usa Enterprise Security Package (ESP), quindi aggiungere una regola di rete nella sezione degli indirizzi IP che consente la comunicazione con AAD-DS per i cluster ESP. È possibile trovare gli indirizzi IP dei controller di dominio nella sezione AAD-DS nel portale | 
    | Rule_3 | TCP | * | Indirizzo IP dell'account di archiviazione di Data Lake | `*` | Se si Usa archiviazione di Azure Data Lake, è possibile aggiungere una regola di rete nella sezione degli indirizzi IP per risolvere un problema SNI con Azure Data Lake Store Gen1 e Gen2. Questa opzione instraderà il traffico al firewall che potrebbe comportare costi più elevati per i caricamenti di dati di grandi dimensioni, ma il traffico verrà registrata e controllabile nel log del firewall. Determinare l'indirizzo IP per l'account Data Lake Store. È possibile usare un comando di powershell, ad esempio `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` risolvere il FQDN per un indirizzo IP.|
    | Rule_4 | TCP | * | * | `12000` | (Facoltativo) Se si usa Log Analitica, quindi creare una regola di rete nella sezione degli indirizzi IP per abilitare la comunicazione con l'area di lavoro di Log Analitica. |
 

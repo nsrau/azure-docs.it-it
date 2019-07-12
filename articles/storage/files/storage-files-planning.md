@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6506a93914cfbc10f37980c4b916a93aa9aad75d
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 28487397cbfe70a64b3c403039d7f38270e04dca
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67564409"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827063"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -210,10 +210,20 @@ Le condivisioni di file standard sono disponibili in tutte le aree fino a 5 TiB.
 |Europa occidentale     |Archiviazione con ridondanza locale|No         |
 |Stati Uniti occidentali 2     |LRS, ZRS|No         |
 
+Per contribuire a nuove aree geografiche e funzionalità, compila ciò [sondaggio](https://aka.ms/azurefilesatscalesurvey).
 
 ### <a name="steps-to-onboard"></a>Passaggi per eseguire l'onboarding
 
-Per registrare la sottoscrizione all'anteprima di condivisioni file di dimensioni maggiori, eseguire i comandi di PowerShell seguenti:
+Per registrare la sottoscrizione all'anteprima di condivisioni file di dimensioni maggiori, è necessario usare Azure PowerShell. È possibile usare [Azure Cloud Shell](https://shell.azure.com/) o installare il [modulo di Azure PowerShell in locale](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) per eseguire i comandi di PowerShell seguenti:
+
+In primo luogo, verificare che sia selezionata la sottoscrizione che si desidera registrare nel riquadro di anteprima:
+
+```powershell
+$context = Get-AzSubscription -SubscriptionId ...
+Set-AzContext $context
+```
+
+Registrare quindi, nel riquadro di anteprima usando i comandi seguenti:
 
 ```powershell
 Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage

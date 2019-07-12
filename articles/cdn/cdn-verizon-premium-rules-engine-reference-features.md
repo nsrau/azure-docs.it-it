@@ -3,16 +3,16 @@ title: Funzionalità del motore regole di rete CDN di Azure fornita da Verizon P
 description: Documentazione di riferimento per la rete CDN di Azure fornita da Verizon Premium funzionalità del motore regole.
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 7e75a6ffe28aa74ea2fad30bbe2728317712d86b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9177ac544c83305ae95ad681d3dc9f84ac64ea36
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443487"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593236"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Rete CDN di Azure dalla funzionalità del motore regole di Verizon Premium
 
@@ -24,7 +24,7 @@ La terza parte di una regola è la funzionalità. Una funzionalità definisce il
 
 Queste funzionalità sono progettate per controllare l'accesso al contenuto.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Deny Access (403)](#deny-access-403) (Nega accesso (403)) | Determina se tutte le richieste vengono rifiutate con una risposta 403 Accesso negato.
 [Token Auth](#token-auth) (Autenticazione token) | Determina se l'autenticazione basata su token viene applicata a una richiesta.
@@ -66,7 +66,7 @@ NOME | Scopo
 
 Questa funzionalità è progettata per fornire informazioni aggiuntive all'interno di una regola.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Comment](#comment) | Consente di aggiungere una nota all'interno di una regola.
 
@@ -86,7 +86,7 @@ NOME | Scopo
 
 Queste funzionalità sono progettate per personalizzare i dati archiviati nei file di log non elaborati.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Custom Log Field 1](#custom-log-field-1) (Campo 1 log personalizzato) | Determina il formato e il contenuto che vengono assegnati al campo di log personalizzato in un file di log non elaborato.
 [Log Query String](#log-query-string) (Stringa di query log) | Determina se una stringa di query viene archiviata insieme all'URL nei log di accesso.
@@ -140,7 +140,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 Queste funzionalità sono progettate per controllare in che modo la rete CDN comunica con un server di origine.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Maximum Keep-Alive Requests](#maximum-keep-alive-requests) (Numero massimo di richieste Keep-Alive) | Definisce il numero massimo di richieste per una connessione Keep-Alive prima della chiusura.
 [Proxy Special Headers](#proxy-special-headers) (Intestazioni speciali proxy) | Definisce il set di intestazioni di richiesta specifiche della rete CDN che vengono inoltrate da un POP a un server di origine.
@@ -149,7 +149,7 @@ NOME | Scopo
 
 Queste funzionalità offrono caratteristiche avanzate per gli utenti esperti.
 
-NOME | Scopo
+Name | Scopo
 -----|--------
 [Cacheable HTTP Methods](#cacheable-http-methods) (Metodi HTTP inseribili nella cache) | Determina il set di metodi HTTP aggiuntivi che possono essere memorizzati nella cache nella rete.
 [Cacheable Request Body Size](#cacheable-request-body-size) (Dimensioni corpo richiesta inseribile nella cache) | Definisce la soglia per determinare se una risposta POST può essere memorizzata nella cache.
@@ -173,7 +173,7 @@ NOME | Scopo
 
 **Scopo**: Determina se un'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
 
-Value|Risultato
+Valore|Risultato
 --|--
 Enabled | L'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
 Disabled | L'intestazione di risposta Age viene esclusa dalla risposta inviata al richiedente.
@@ -192,7 +192,7 @@ Disabled | L'intestazione di risposta Age viene esclusa dalla risposta inviata a
 
 I parametri di limitazione della larghezza di banda determinano se la velocità di trasferimento dati per una richiesta del client è limitata a un valore prestabilito.
 
-Value|Risultato
+Valore|Risultato
 --|--
 Enabled|Consente ai POP di soddisfare le richieste di limitazione della larghezza di banda.
 Disabled|Fa in modo che i POP ignorino i parametri di limitazione della larghezza di banda. I contenuti richiesti vengono serviti normalmente, ossia senza limitazione della larghezza di banda.
@@ -211,7 +211,7 @@ Disabled|Fa in modo che i POP ignorino i parametri di limitazione della larghezz
 
 Per impostare correttamente la limitazione della larghezza di banda è necessario che siano definite entrambe le opzioni seguenti.
 
-Opzione|Descrizione
+Opzione|DESCRIZIONE
 --|--
 Kbytes per second (KB al secondo)|Impostare questa opzione sulla larghezza di banda massima (KB al secondo) che è possibile usare per inviare la risposta.
 Prebuf seconds (Secondi prebuf)|Impostare questa opzione sul numero di secondi che i POP devono attendere prima che sia attivata la limitazione della larghezza di banda. Lo scopo di questo intervallo di tempo di larghezza di banda senza restrizioni è quello di impedire a un lettore multimediale di riscontrare problemi di stuttering o buffering a causa della limitazione della larghezza di banda.
@@ -320,7 +320,7 @@ Informazioni chiave:
 - Specificare uno o più nomi di parametro di stringa di query e separare ogni nome di parametro con uno spazio singolo.
 - Questa funzionalità determina se nella chiave di cache i parametri della stringa di query vengono inclusi o esclusi. La tabella seguente contiene informazioni aggiuntive per ogni opzione.
 
-Type|Descrizione
+Type|DESCRIZIONE
 --|--
  Includi|  Indica che nella chiave di cache deve essere incluso ogni parametro specificato. Viene generata una chiave di cache univoca per ogni richiesta in cui sia contenuto un valore univoco per un parametro della stringa di query definito in questa funzionalità.
  Includi tutto  |Indica che viene creata una chiave di cache univoca per ogni richiesta a un asset contenente una stringa di query univoca. Questo tipo di configurazione in genere non è consigliato, perché può comportare una piccola percentuale di riscontri nella cache. Un numero ridotto di riscontri nella cache produce un aumento del carico sul server di origine, che deve gestire un maggior numero di richieste. Questa configurazione consente di duplicare il comportamento di memorizzazione nella cache noto come "unique-cache" nella pagina di memorizzazione nella cache della stringa di query.
@@ -397,7 +397,7 @@ Una chiave di cache è il percorso relativo che identifica un asset ai fini dell
 
 Per configurare questa funzionalità è necessario definire entrambe le opzioni seguenti:
 
-Opzione|Descrizione
+Opzione|DESCRIZIONE
 --|--
 Percorso originale| Consente di definire il percorso relativo dei tipi di richieste di cui viene riscritta la chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare.
 Nuovo percorso|Consente di definire il percorso relativo della nuova chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare. Questo percorso relativo può essere creato dinamicamente tramite l'uso di [variabili HTTP](cdn-http-variables.md).
@@ -514,7 +514,7 @@ Per impostazione predefinita, il campo del log personalizzato è denominato "x-e
 
 Il formato per specificare le intestazioni di richiesta e risposta è definito come segue:
 
-Tipo di intestazione|Format|Esempi
+Tipo di intestazione|Formato|Esempi
 -|-|-
 Intestazione di richiesta|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
 Intestazione di risposta|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
@@ -634,7 +634,7 @@ Disabled| Ripristina il comportamento predefinito. Il comportamento predefinito 
 
 Il modo più semplice per ottenere questo tipo di configurazione è inserire le funzionalità External Max-Age (Validità massima esterna) e Expires Header Treatment (Gestione intestazioni Expires) nella stessa istruzione.
 
-Value|Risultato
+Valore|Risultato
 --|--
 Overwrite|Garantisce che vengano eseguite le azioni seguenti:<br/>- Sovrascrivere l'intestazione `Expires` generata dal server di origine.<br/>- Aggiungere alla risposta l'intestazione `Expires` prodotta dalla funzionalità External Max-Age (Validità massima esterna).
 Pass-through|Assicura che l'intestazione `Expires` prodotta dalla funzionalità External Max-Age (Validità massima esterna) non venga mai aggiunta alla risposta. <br/> Se il server di origine produce un'intestazione `Expires`, ne verrà eseguito il pass-through all'utente finale. <br/>Se il server di origine non produce un'intestazione `Expires`, è possibile che a causa di questa opzione l'intestazione della risposta non contenga un'intestazione `Expires`.
@@ -825,7 +825,7 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 
 Per impostazione predefinita, questo codice di stato viene restituito quando la richiesta di intervallo di byte specificata non può essere soddisfatta da un POP e non è stato specificato un campo di intestazione di richiesta If-Range.
 
-Value|Risultato
+Valore|Risultato
 -|-
 Enabled|Impedisce ai POP di rispondere a una richiesta di intervallo di byte non valida con un codice di stato 416 - Impossibile attenersi all'intervallo richiesto. I server forniranno invece l'asset richiesto e restituiranno al client il codice 200 - OK.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di rispettare il codice di stato 416 - Impossibile attenersi all'intervallo richiesto.
@@ -891,7 +891,7 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 
 **Scopo:** Determina se una stringa di query verrà archiviata insieme all'URL nei log di accesso.
 
-Value|Risultato
+Valore|Risultato
 -|-
 Enabled|Consente l'archiviazione di stringhe di query durante la registrazione degli URL in un log di accesso. Se un URL non contiene una stringa di query, questa opzione non produrrà alcun effetto.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di ignorare le stringhe di query durante la registrazione degli URL in un log di accesso.
@@ -938,7 +938,7 @@ Opzione|Descrizione|Esempio
 -|-|-
 Append|Il valore specificato verrà aggiunto alla fine del valore dell'intestazione di richiesta esistente.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Valore intestazione richiesta (motore regole):**<br/>Value2 <br/>**Valore nuova intestazione richiesta:** <br/>Value1Value2
 Overwrite|Il valore dell'intestazione di richiesta verrà impostato sul valore specificato.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Valore intestazione richiesta (motore regole):**<br/>Value2<br/>**Valore nuova intestazione richiesta:**<br/> Value2 <br/>
-Delete|Elimina l'intestazione di richiesta specificata.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Modificare la configurazione dell'intestazione della richiesta client:**<br/>Eliminare l'intestazione della richiesta in questione.<br/>**Risultato:**<br/>L'intestazione della richiesta specificata non verrà inoltrata al server di origine.
+Eliminare|Elimina l'intestazione di richiesta specificata.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Modificare la configurazione dell'intestazione della richiesta client:**<br/>Eliminare l'intestazione della richiesta in questione.<br/>**Risultato:**<br/>L'intestazione della richiesta specificata non verrà inoltrata al server di origine.
 
 Informazioni chiave:
 
@@ -978,7 +978,7 @@ Opzione|Descrizione|Esempio
 -|-|-
 Append|Il valore specificato verrà aggiunto alla fine del valore dell'intestazione di risposta esistente.|**Valore intestazione risposta (client):**<br />Value1<br/>**Valore intestazione risposta (motore regole):**<br/>Value2<br/>**Valore nuova intestazione risposta:**<br/>Value1Value2
 Overwrite|Il valore dell'intestazione di risposta verrà impostato sul valore specificato.|**Valore intestazione risposta (client):**<br/>Value1<br/>**Valore intestazione risposta (motore regole):**<br/>Value2 <br/>**Valore nuova intestazione risposta:**<br/>Value2 <br/>
-Delete|Elimina l'intestazione di risposta specificata.|**Valore intestazione risposta (client):**<br/>Value1<br/>**Modificare la configurazione dell'intestazione della risposta client:**<br/>Eliminare l'intestazione della risposta in questione.<br/>**Risultato:**<br/>L'intestazione della risposta specificata non verrà inoltrata al richiedente.
+Eliminare|Elimina l'intestazione di risposta specificata.|**Valore intestazione risposta (client):**<br/>Value1<br/>**Modificare la configurazione dell'intestazione della risposta client:**<br/>Eliminare l'intestazione della risposta in questione.<br/>**Risultato:**<br/>L'intestazione della risposta specificata non verrà inoltrata al richiedente.
 
 Informazioni chiave:
 
@@ -1192,7 +1192,7 @@ La chiave di crittografia usata per crittografare e decrittografare i valori dei
 
 Questa funzionalità ha la precedenza sulla maggior parte delle funzionalità ad eccezione di Riscrittura URL.
 
-Value | Risultato
+Valore | Risultato
 ------|---------
 Enabled | Protegge i contenuti richiesti con l'autenticazione basata su token. Verranno soddisfatte solo le richieste provenienti da client che forniscono un token valido e ne soddisfano i requisiti. Dall'autenticazione basata su token sono escluse le transazioni FTP.
 Disabled| Ripristina il comportamento predefinito. Il comportamento predefinito prevede di consentire alla configurazione dell'autenticazione basata su token di determinare se una richiesta deve essere protetta.
@@ -1312,7 +1312,7 @@ Disabled|Un token può essere specificato come un parametro non definito della s
 
 Per configurare questa funzionalità è necessario impostare le opzioni seguenti:
 
-Opzione|Descrizione
+Opzione|DESCRIZIONE
 -|-
 Codice|Selezionare il codice di risposta che verrà restituito al richiedente.
 Source & Pattern (Origine e modello)| Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere reindirizzate. Verranno reindirizzate solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/> <br/> **Origine (o punto di accesso al contenuto):** Selezionare un percorso relativo che identifica un server di origine. Questo percorso è costituito dalla sezione _/XXXX/_ e dal nome dell'endpoint. <br/><br/> **Origine (modello):** Deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> - Assicurarsi che i criteri dell'URI di richiesta, ad esempio origine e modello, definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. <br/> - Specificare un criterio; se si usa un valore vuoto come criterio, viene eseguito il confronto di tutte le stringhe.

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 706311e2895f311c228b55db971eb88a859530f5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e2fd226f1c605821f0fd595832b2cbe26d994fb4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441687"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612346"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Rilevamento anomalie in Analisi di flusso di Azure
 
@@ -124,7 +124,7 @@ Quando la funzione di partizionamento da ID dispositivo, aggiungere "PARTITION B
 ### <a name="observations"></a>Osservazioni
 Nella tabella seguente include le osservazioni di velocità effettiva per un singolo nodo (6 unità di ricerca) per il caso senza partizionamento:
 
-| Dimensioni della cronologia (eventi) | Durata finestra (ms) | Eventi di Input totali / Sec |
+| Dimensioni della cronologia (eventi) | Durata finestra (ms) | Eventi di input totali / sec |
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2,200 |
 | 600 | 728 | 1,650 |
@@ -132,7 +132,7 @@ Nella tabella seguente include le osservazioni di velocità effettiva per un sin
 
 Nella tabella seguente include le osservazioni di velocità effettiva per un singolo nodo (6 unità di ricerca) per il case partizionato:
 
-| Dimensioni della cronologia (eventi) | Durata finestra (ms) | Eventi di Input totali / Sec | Numero di dispositivi |
+| Dimensioni della cronologia (eventi) | Durata finestra (ms) | Eventi di input totali / sec | Numero di dispositivi |
 | --------------------- | -------------------- | -------------------------- | ------------ |
 | 60 | 1,091 | 1,100 | 10 |
 | 600 | 10,910 | 1,100 | 10 |
@@ -160,6 +160,6 @@ Il video seguente illustra come rilevare un'anomalia in tempo reale usando funzi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.ASpx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

@@ -2,17 +2,17 @@
 title: Procedure consigliate per l'operatore - Archiviazione nel servizio Azure Kubernetes (AKS)
 description: Procedure consigliate per l'operatore del cluster per l'archiviazione, la crittografia dei dati e i backup nel servizio Azure Kubernetes
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.author: iainfou
-ms.openlocfilehash: 9231b3629c10043e72efad4231111e56fd54c626
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: b42cdae634a6c2d8d994225d4cb6b440a99918e5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447153"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614584"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedure consigliate per archiviazione e backup nel servizio Azure Kubernetes
 
@@ -36,8 +36,8 @@ La tabella seguente descrive i tipi di archiviazione disponibili e le relative f
 
 | Caso d'uso | Plug-in volume | Una sola operazione di lettura/scrittura | Molte operazioni di sola lettura | Molte operazioni di lettura/scrittura | Supporto per i contenitori Windows Server |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
-| Configurazione condivisa       | File di Azure   | Yes | Sì | Sì | Yes |
-| Dati di app strutturati        | Dischi di Azure   | Yes | No  | No  | Yes |
+| Configurazione condivisa       | File di Azure   | Yes | Sì | Sì | Sì |
+| Dati di app strutturati        | Dischi di Azure   | Sì | No  | No  | Sì |
 | Dati non strutturati, operazioni sui file system | [BlobFuse (anteprima)][blobfuse] | Yes | Sì | Sì | No |
 
 I due principali tipi di archiviazione forniti per i volumi nel servizio Azure Kubernetes sono supportati da Dischi di Azure o File di Azure. Per migliorare la sicurezza, per impostazione predefinita entrambi i tipi di archiviazione usano la crittografia del servizio di archiviazione, che crittografa i dati inattivi. Attualmente i dischi non possono essere crittografati mediante Crittografia dischi di Azure a livello di nodo AKS.

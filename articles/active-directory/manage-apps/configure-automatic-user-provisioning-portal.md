@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b994078350aec5657659f8835d228eb907606bb8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963583"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807628"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
 
@@ -31,14 +31,11 @@ Questo articolo illustra come usare il [portale di Azure](https://portal.azure.c
 Usare il portale di Azure Active Directory per visualizzare e gestire tutte le applicazioni che sono configurate per single sign-on in una directory. Le app aziendali sono app distribuite e usate all'interno dell'organizzazione. Seguire questi passaggi per visualizzare e gestire le applicazioni aziendali:
 
 1. Aprire il [portale di Azure Active Directory](https://aad.portal.azure.com).
-
 1. Selezionare **applicazioni aziendali** nel riquadro sinistro. Viene visualizzato un elenco di tutte le app configurate, incluse le app che sono state aggiunte dalla raccolta.
-
 1. Selezionare un'app per caricare il riquadro di risorse, in cui è possibile visualizzare i report e gestire le impostazioni dell'app.
-
 1. Selezionare **Provisioning** per gestire le impostazioni per l'app selezionata di provisioning dell'account utente.
 
-   ![Riquadro della risorsa dell'applicazione](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Schermata di provisioning per gestire le impostazioni di provisioning dell'account utente](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Modalità di provisioning
 
@@ -68,17 +65,17 @@ Espandere **mapping** per visualizzare e modificare gli attributi utente trasmes
 
 È presente un set preconfigurato di mapping tra gli oggetti utente di ogni app SaaS e gli oggetti utente di Azure AD. Alcune app gestiscono altri tipi di oggetti, quali Gruppi o Contatti. Selezionare un mapping nella tabella per aprire l'editor di mapping a destra, in cui è possibile visualizzare e personalizzarle.
 
-![Riquadro della risorsa dell'applicazione](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Mostra la schermata Mapping attributi](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Le personalizzazioni supportate includono:
 
 * Abilitazione e disabilitazione dei mapping per oggetti specifici, ad esempio l'oggetto utente di Azure AD all'oggetto utente dell'app SaaS.
 * Modifica degli attributi che devono essere trasmessi dall'oggetto utente di Azure AD all'oggetto utente dell'app. Per altre informazioni sul mapping degli attributi, vedere [Informazioni sui tipi di mapping degli attributi](customize-application-attributes.md#understanding-attribute-mapping-types).
-* Filtrare le azioni di provisioning che Azure AD esegue nell'applicazione di destinazione. Invece di avere Azure AD completamente sincronizzare gli oggetti, è possibile limitare le azioni di esecuzione. 
+* Filtrare le azioni di provisioning che Azure AD esegue nell'applicazione di destinazione. Invece di avere Azure AD completamente sincronizzare gli oggetti, è possibile limitare le azioni di esecuzione.
 
   Ad esempio, selezionare solo **Update** e Azure AD Aggiorna solo utente esistente, gli account in un'applicazione ma non crearne uno nuovo. Selezionare solo **Create** e Azure solo consente di creare nuovi account utente senza aggiorna quelli esistenti. Questa funzionalità consente agli amministratori di creare diversi mapping per la creazione dell'account e aggiornare i flussi di lavoro.
 
-* Aggiunta di un nuovo mapping di attributo. Selezionare **Aggiungi nuovi Mapping** in fondo il **Mapping degli attributi** riquadro. Compilare il **Modifica attributo** formano e selezionare **Ok** per aggiungere il nuovo mapping all'elenco. 
+* Aggiunta di un nuovo mapping di attributo. Selezionare **Aggiungi nuovi Mapping** in fondo il **Mapping degli attributi** riquadro. Compilare il **Modifica attributo** formano e selezionare **Ok** per aggiungere il nuovo mapping all'elenco.
 
 ### <a name="settings"></a>Impostazioni
 

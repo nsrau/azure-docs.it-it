@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1c5c38e9af58aa9468fb0e22491327d3a35f0dda
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481132"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656653"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Eseguire il backup di un database SAP HANA
 
@@ -26,7 +26,7 @@ ms.locfileid: "67481132"
 
 **Supporto** | **Dettagli**
 --- | ---
-**Aree geografiche supportate** | Australia sud-orientale, Australia orientale <br> Brasile meridionale <br> Canada Central, Canada East <br> Asia sud-orientale, Asia orientale <br> Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro occidentali, Stati Uniti occidentali, Stati Uniti occidentali 2, North Central US, Stati Uniti centrali, Stati Uniti centro-meridionali<br> India centrale, India meridionale <br> Giappone orientale, Giappone occidentale<br> Corea del Sud centrale, Corea del Sud meridionale <br> Europa settentrionale, Europa occidentale <br> Regno Unito meridionale, Regno Unito occidentale
+**Aree geografiche supportate** | Australia sud-orientale, Australia orientale <br> Brasile meridionale <br> Canada Central, Canada East <br> Asia sud-orientale, Asia orientale <br> Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro occidentali, Stati Uniti occidentali, Stati Uniti occidentali 2, North Central US, Stati Uniti centrali, Stati Uniti centro-meridionali<br> India centrale, India meridionale <br> Giappone orientale, Giappone occidentale<br> Corea del Sud centrale, Corea del Sud meridionale <br> Europa settentrionale, Europa occidentale <br> Regno Unito meridionale, Regno Unito occidentale
 **Sistemi operativi della macchina virtuale** | SLES 12 SP2 o SP3.
 **Versioni supportate di HANA** | SDC on HANA 1.x, MDC on HANA 2.x <= SPS03
 

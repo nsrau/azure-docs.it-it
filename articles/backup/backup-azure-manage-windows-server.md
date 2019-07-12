@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 07/08/2019
 ms.author: raynew
-ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b447290a6910d144703bb796290908d0fc21b924
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688906"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705130"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
@@ -260,21 +260,6 @@ Il riquadro Archivio di backup del dashboard indica lo spazio di archiviazione u
 * Utilizzo dello spazio di archiviazione con ridondanza locale nel cloud associato all'insieme di credenziali
 * Utilizzo dello spazio di archiviazione con ridondanza geografica nel cloud associato all'insieme di credenziali
 
-
-## <a name="frequently-asked-questions"></a>Domande frequenti
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Dopo quanto tempo lo stato del processo dell'agente di Backup di Azure viene indicato nel portale?
-Il portale di Azure può impiegare fino a 15 minuti per visualizzare lo stato del processo dell'agente di Backup di Azure.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando un processo di backup non riesce, quanto tempo passa prima che venga generato un avviso?
-Un avviso viene generato entro 20 minuti dall'errore di backup di Azure.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Esiste un caso in cui non viene inviato un messaggio di posta elettronica se le notifiche sono configurate?
-Sì. Le notifiche non vengono inviate nei casi seguenti.
-
-* Se le notifiche sono configurate su base oraria e un avviso viene generato e risolto entro l'ora
-* Quando un processo viene annullato
-* Se un secondo processo di backup non riesce perché è in corso il processo di backup originale
 
 ## <a name="troubleshooting-monitoring-issues"></a>Risoluzione dei problemi di monitoraggio
 

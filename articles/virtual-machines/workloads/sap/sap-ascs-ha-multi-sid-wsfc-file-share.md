@@ -4,7 +4,7 @@ description: Disponibilità elevata multi-SID per l'istanza ASCS/SCS di SAP con 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 32905f6d505f83ead805550205df0daf6be501e5
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60651718"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710120"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -256,7 +256,7 @@ Creare il gruppo di dominio **\<Domain>\SAP_\<SID2>_GlobalAdmin**, ad esempio co
 * Creare un nome host virtuale per l'istanza ASCS/SCS di SAP in cluster sul server DNS.
 * Aggiungere un indirizzo IP a un servizio di bilanciamento del carico interno di Azure esistente usando PowerShell.
 
-Questa procedura è descritta in [Preparazione dell'infrastruttura per lo scenario multi-SID di SAP][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare].
+Questi passaggi sono descritti [preparazione dell'infrastruttura per uno scenario di multi-SID di SAP][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare].
 
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Preparare l'infrastruttura in un cluster di file server di scalabilità orizzontale usando l'host globale SAP esistente
@@ -461,10 +461,10 @@ Installare i server applicazioni DBMS e SAP come descritto in precedenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Installation of an (A)SCS Instance on a Failover Cluster with no Shared Disks][sap-official-ha-file-share-document] (Installazione di un'istanza (A)SCS in un cluster di failover senza dischi condivisi): linee guida SAP ufficiali per una condivisione file a disponibilità elevata
+* [Installare un'istanza ASCS/SCS in un cluster di failover senza dischi condivisi][sap-official-ha-file-share-document]: linee guida SAP ufficiali per una condivisione file a disponibilità elevata
 
 * [Spazi di archiviazione diretta in Windows Server 2016][s2d-in-win-2016]
 
-* [Panoramica di File server di scalabilità orizzontale per dati applicazioni][sofs-overview]
+* [Di tipo scale-out file server per Cenni preliminari sui dati dell'applicazione][sofs-overview]
 
 * [Novità nell'archiviazione in Windows Server 2016][new-in-win-2016-storage]

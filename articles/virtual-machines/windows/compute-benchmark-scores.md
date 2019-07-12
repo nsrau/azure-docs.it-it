@@ -4,7 +4,7 @@ description: Confrontare i punteggi di benchmark di SPECint calcolo per le macch
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn;davberg
-ms.openlocfilehash: 041906120ea156a00d272e2d3da15dc5174b6585
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e24266a46d192addebfe63f1caab3ac66eca2beb
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64866292"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719083"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcolare i punteggi di benchmark per le VM Windows
 I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per selezionare le VM di Azure che esegue Windows Server. I punteggi di benchmark sul calcolo sono disponibili anche per le [VM Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -29,7 +29,7 @@ I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per
 ## <a name="av2---general-compute"></a>Av2 - Calcolo generale
 | Dimensione | vCPU | Nodi NUMA | CPU | Esecuzioni | Tariffa Base Media | Deviazione standard | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_A1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 12 | 14.2 | 0,3 | 
+| Standard_A1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 12 | 14.2 | 0.3 | 
 | Standard_A1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 9 | 13.2 | 0,6 | 
 | Standard_A1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 10 | 14.1 | 0.7 | 
 | Standard_A2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 14 | 28.9 | 0,6 | 

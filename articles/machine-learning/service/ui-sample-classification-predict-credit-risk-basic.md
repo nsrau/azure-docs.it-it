@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ec91ca83d7aa1bc5e6c290d35b573a60cc0ed19
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789407"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605764"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>Esempio 3: classificazione: Prevedere il rischio di credito
 
@@ -39,7 +39,7 @@ Ecco il grafico completato per questo esperimento:
 
 [Esempio 4: classificazione: (Costo sensibili) previsione del rischio di credito](ui-sample-classification-predict-credit-risk-cost-sensitive.md) fornisce un esperimento avanzato che lo stesso problema di questo esperimento è stato risolto. Viene illustrato come eseguire _costo sensibile_ classificazione tramite un' **Execute Python Script** modulo e confrontare le prestazioni dei due algoritmi di classificazione binaria. Se si desidera per ulteriori informazioni su come creare esperimenti di classificazione, fare riferimento a esso.
 
-## <a name="data"></a>Dati
+## <a name="data"></a>Data
 
 Viene usato il set di dati German Credit Card dal repository UC Irvine.
 Il set di dati contiene 1000 campioni con 1 etichetta e 20 funzionalità. Ogni esempio rappresenta una persona. Le funzionalità includono funzionalità numeriche e di categoria. Vedere le [sito Web UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) per il significato delle funzionalità categoriche. L'ultima colonna è l'etichetta, che indica il rischio di credito e dispone di due soli valori possibili: rischio di credito elevato = 2 e a basso rischio di credito = 1.
@@ -78,3 +78,4 @@ Esplorare gli altri esempi disponibili per l'interfaccia visiva:
 - [Esempio 2: regressione: Confrontare gli algoritmi per la stima di prezzo di un'automobile](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Esempio 4: classificazione: Prevedere il rischio di credito (costo sensibile)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Esempio 5 - classificazione: Prevedere la varianza](ui-sample-classification-predict-churn.md)
+- [Esempio 6: classificazione: Prevedere i ritardi dei voli](ui-sample-classification-predict-flight-delay.md)

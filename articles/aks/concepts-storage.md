@@ -2,17 +2,17 @@
 title: Concetti - Archiviazione nel servizio Azure Kubernetes
 description: Informazioni sull'archiviazione nel servizio Azure Kubernetes, inclusi volumi, volumi permanenti, classi di archiviazione e attestazioni
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: eb9141d363bdb09b5773f80dfc5a1c4b9b92728f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60466818"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615801"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes
 
@@ -125,18 +125,18 @@ Per procedure consigliate associati, vedere [procedure consigliate per i backup 
 
 Per informazioni su come creare i volumi dinamici e statici che usano Dischi di Azure o File di Azure, vedere gli articoli di procedure seguenti:
 
-- [Creare un volume statico usando Dischi di Azure][aks-static-disks]
-- [Creare un volume statico usando File di Azure][aks-static-files]
-- [Creare un volume dinamico usando Dischi di Azure][aks-dynamic-disks]
-- [Creare un volume dinamico usando File di Azure][aks-dynamic-files]
+- [Creare un volume statico usando dischi di Azure][aks-static-disks]
+- [Creare un volume statico tramite file di Azure][aks-static-files]
+- [Creare un volume dinamico con i dischi di Azure][aks-dynamic-disks]
+- [Creare un volume dinamico con i file di Azure][aks-dynamic-files]
 
 Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 
-- [Kubernetes / Cluster servizio Azure Kubernetes e carichi di lavoro][aks-concepts-clusters-workloads]
-- [Kubernetes / Identità di servizio Azure Kubernetes][aks-concepts-identity]
-- [Kubernetes / Sicurezza di servizio Azure Kubernetes][aks-concepts-security]
-- [Kubernetes / Reti virtuali in servizio Azure Kubernetes][aks-concepts-network]
-- [Kubernetes / Ridimensionamento in servizio Azure Kubernetes][aks-concepts-scale]
+- [Kubernetes / cluster servizio contenitore di AZURE e i carichi di lavoro][aks-concepts-clusters-workloads]
+- [Kubernetes / identità del servizio contenitore di AZURE][aks-concepts-identity]
+- [Kubernetes / sicurezza AKS][aks-concepts-security]
+- [Kubernetes / reti virtuali di servizio contenitore di AZURE][aks-concepts-network]
+- [Kubernetes / scalabilità AKS][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 

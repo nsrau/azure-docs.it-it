@@ -7,13 +7,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
-ms.author: alkarche, glenga
-ms.openlocfilehash: 55cce60ab3d1cda3cb870afd2f6214f917a04189
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: alkarche
+ms.reviewer: glenga
+ms.openlocfilehash: 0a31b58a3c843a2add0c84dc1a3ad4ab6417815e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063270"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612877"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Esercitazione: integrazione di funzioni con una rete virtuale di Azure
 
@@ -121,7 +122,7 @@ Con un sito WordPress in esecuzione in una macchina virtuale in una rete virtual
 
     ![Definire la rete virtuale di app (funzione)](./media/functions-create-vnet/networking-3.png)
 
-    | Impostazione      | Valore consigliato  | Descrizione      |
+    | Impostazione      | Valore consigliato  | DESCRIZIONE      |
     | ------------ | ---------------- | ---------------- |
     | **Rete virtuale** | MyResourceGroup-vnet | Questa rete virtuale è quello creato in precedenza. |
     | **Subnet** | Creare una nuova Subnet | Creare una subnet nella rete virtuale per l'app per le funzioni da usare. Integrazione rete virtuale deve essere configurato per usare una subnet vuota. Non è importante che le funzioni usano una subnet diversa da macchina virtuale. La rete virtuale instrada automaticamente il traffico tra le due subnet. |
