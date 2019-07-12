@@ -3,17 +3,17 @@ title: Domande frequenti - soluzione VMware CloudSimple
 description: Domande frequenti per Azure VMware Solution by CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 05/24/19
+ms.date: 05/24/2019
 ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a8cc6cf834c54ca25c12a6d66675e4290fd66136
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e187a4a75a27e206a632388f1e20a94da032eb08
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165810"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595350"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Domande frequenti sulla soluzione di VMware da CloudSimple
 

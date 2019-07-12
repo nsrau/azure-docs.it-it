@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 207fb003eb1fdaafe4f43f7cd41dd4b7662eddf9
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 5b54d8f21f4cb1cdd7bb06871df6ac22d19d1ab6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331970"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705210"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Linee guida per la pianificazione della rete per Azure NetApp Files
 
 Pianificazione di architettura di rete è un elemento fondamentale della progettazione di qualsiasi infrastruttura dell'applicazione. Questo articolo consente di progettare un'architettura di rete effettive per i carichi di lavoro sfruttare le funzionalità avanzate NetApp di file di Azure.
 
-Volumi di NetApp file di Azure sono progettati per essere contenuti in una subnet scopo speciale denominata [delegate subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) all'interno della rete virtuale di Azure. Pertanto, è possibile accedere i volumi direttamente dalla rete virtuale, da reti virtuali con peering nella stessa area o in locale tramite un Gateway di rete virtuale (Gateway VPN o ExpressRoute), se necessario. La subnet sia dedicata NetApp in file di Azure e non è disponibile connettività ad altri servizi di Azure o a internet.
+Volumi di NetApp file di Azure sono progettati per essere contenuti in una subnet scopo speciale denominata un [delegate subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) all'interno della rete virtuale di Azure. Pertanto, è possibile accedere i volumi direttamente dalla rete virtuale, da reti virtuali con peering nella stessa area o in locale tramite un Gateway di rete virtuale (Gateway VPN o ExpressRoute), se necessario. La subnet sia dedicata NetApp in file di Azure e non è disponibile connettività ad altri servizi di Azure o a Internet.
 
 ## <a name="considerations"></a>Considerazioni  
 
@@ -35,7 +35,7 @@ Volumi di NetApp file di Azure sono progettati per essere contenuti in una subne
 
 Non sono attualmente supportate per i file di Azure NetApp funzionalità riportate di seguito: 
 
-* Gruppi di sicurezza di rete (Nsg) sulla subnet
+* Gruppi di sicurezza rete (Nsg) applicati alla subnet del delegato
 * Route definite dall'utente (Udr) con hop successivo come subnet di file di Azure NetApp
 * Criteri di Azure, ad esempio, personalizzati denominazione criteri, sull'interfaccia del file di Azure NetApp
 * Servizi di bilanciamento del carico per il traffico di Azure i file di NetApp
@@ -52,13 +52,13 @@ La tabella seguente descrive le topologie di rete supportate da file di Azure Ne
 
 |    Topologie    |    è supportato    |     Soluzione alternativa    |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
-|    Connettività al volume in una rete virtuale locale    |    Yes    |         |
+|    Connettività al volume in una rete virtuale locale    |    Sì    |         |
 |    Connettività al volume in una rete virtuale con peering (stessa area)    |    Yes    |         |
 |    Connettività al volume in una rete virtuale con peering (regione o tra il peering globale)    |    No    |    Nessuna    |
-|    Connettività a un volume su gateway di ExpressRoute    |    Yes    |         |
+|    Connettività a un volume su gateway di ExpressRoute    |    Sì    |         |
 |    Connettività da locale a un volume in un rete virtuale spoke su gateway ExpressRoute e il peering con il transito gateway della rete virtuale    |    No    |    Creare una subnet di delegato nella rete virtuale (rete virtuale di Azure con il Gateway) dell'hub    |
 |    Connettività da locale a un volume in un rete virtuale spoke tramite gateway VPN    |    Yes    |         |
-|    Connettività da locale a un volume in un rete virtuale spoke tramite gateway VPN e il peering con il transito gateway della rete virtuale    |    Yes    |         |
+|    Connettività da locale a un volume in un rete virtuale spoke tramite gateway VPN e il peering con il transito gateway della rete virtuale    |    Sì    |         |
 
 
 ## <a name="virtual-network-for-azure-netapp-files-volumes"></a>Rete virtuale per i volumi di file di Azure NetApp
@@ -71,7 +71,7 @@ Prima del provisioning di un volume di file di Azure NetApp, è necessario crear
 
 ### <a name="subnets"></a>Subnet
 
-Subnet segmentare la rete virtuale in spazi di indirizzi separati che possono essere utilizzati per le risorse di Azure in essi contenuti.  Volumi di NetApp file di Azure sono contenuti in una subnet con finalità speciali chiamata [delegate subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet). 
+Subnet segmentare la rete virtuale in spazi di indirizzi separati che possono essere utilizzati per le risorse di Azure in essi contenuti.  Volumi di NetApp file di Azure sono contenuti in una subnet speciale denominata un [delegate subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet). 
 
 La delega di subnet offre autorizzazioni esplicite per il servizio file NetApp di Azure per creare le risorse specifiche del servizio nella subnet.  Usa un identificatore univoco nella distribuzione del servizio. In questo caso, viene creata un'interfaccia di rete per abilitare la connettività NetApp in file di Azure.
 
@@ -99,7 +99,7 @@ Uno scenario di base consiste nel creare o connettersi a un volume di file di Az
 
 Se si dispone di altre reti virtuali nella stessa area che richiedono l'accesso alle risorse di altro, le reti virtuali possono essere connesse tramite [peering reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) per abilitare la connettività sicura tramite l'infrastruttura di Azure. 
 
-Prendere in considerazione della rete virtuale 2 e rete virtuale 3 nel diagramma precedente. Se 1 macchina virtuale deve connettersi alla macchina virtuale 2 e Volume 2 o se è necessario connettersi da VM 1 o Volume 1 2 macchine Virtuali, è necessario abilitare la rete virtuale di peering tra la rete virtuale 2 e 3 della rete virtuale. 
+Prendere in considerazione della rete virtuale 2 e rete virtuale 3 nel diagramma precedente. Se 2 VM deve connettersi alle macchine Virtuali 3 o Volume 2 o 3 della macchina virtuale deve connettersi alle VM 2 o Volume 1, quindi è necessario abilitare la rete virtuale di peering tra la rete virtuale 2 e 3 della rete virtuale. 
 
 Inoltre, prendere in considerazione uno scenario in cui è stato eseguito il peering della rete virtuale 1 con rete virtuale 2 e ha eseguito il peering di rete virtuale 2 con 3 di rete virtuale nella stessa area. Le risorse dalla rete virtuale 1 possono connettersi alle risorse nella rete virtuale 2, ma non è possibile connettersi alle risorse nella rete virtuale 3, a meno che non ha eseguito il peering della rete virtuale 1 e rete virtuale 3. 
 
@@ -111,17 +111,17 @@ Il diagramma seguente illustra un ambiente ibrido:
 
 ![Ambiente di rete ibrida](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-Nello scenario ibrido, le applicazioni da on-premises data center devono accedere alle risorse in Azure.  Ciò avviene se si desidera estendere il data center di Azure o se si desidera utilizzare servizi nativi di Azure o il ripristino di emergenza. Visualizzare [Gateway VPN di opzioni di pianificazione](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) su come connettere più risorse locali per le risorse in Azure tramite una VPN site-to-site o ExpressRoute.
+Nello scenario ibrido, le applicazioni dai data center locali devono accedere alle risorse in Azure.  Ciò avviene se si desidera estendere il Data Center di Azure o se si desidera utilizzare servizi nativi di Azure o il ripristino di emergenza. Visualizzare [Gateway VPN di opzioni di pianificazione](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) per informazioni su come connettere più risorse locali per le risorse in Azure tramite una VPN site-to-site o ExpressRoute.
 
 In una topologia hub-spoke ibrida, l'hub di rete virtuale di Azure funge da un punto centrale della connettività alla rete locale. Gli spoke sono le reti virtuali con peering con l'hub e possono essere usati per isolare i carichi di lavoro.
 
-A seconda della configurazione. È possibile connettere risorse da locale alle risorse nell'hub e spoke.
+A seconda della configurazione, è possibile connettersi alle risorse locali per le risorse nell'hub e spoke.
 
 Nella topologia illustrata in precedenza, la rete locale è connessa a un hub di rete virtuale in Azure e sono presenti reti virtuali nella stessa area di spoke 2 di cui è stato eseguito il peering con la rete virtuale dell'hub.  In questo scenario, le opzioni di connettività supportate per i volumi di file di Azure NetApp sono i seguenti:
 
-* Le risorse locali, VM 1 e 2 della macchina virtuale possono connettersi al Volume 1 nell'hub tramite una VPN site-to-site o Expressroute. 
+* Le risorse locali, VM 1 e 2 della macchina virtuale possono connettersi al Volume 1 nell'hub tramite un circuito ExpressRoute o VPN site-to-site. 
 * Le risorse locali, VM 1 e 2 della macchina virtuale possono connettersi al Volume 2 o 3 Volume tramite una VPN site-to-site e a livello di area peering reti virtuali.
-* 3 macchine Virtuali nell'hub di rete virtuale può connettersi a volume nello spoke 1 rete virtuale 2 e 3 Volume in spoke 2 della rete virtuale.
+* 3 macchine Virtuali nell'hub di rete virtuale possa connettersi al Volume 2 negli spoke 1 rete virtuale e Volume 3 nella rete virtuale 2 di spoke.
 * 4 macchine Virtuali dallo spoke di rete virtuale 1 e 5 VM dallo spoke 2 della rete virtuale possono connettersi a Volume 1 nella rete virtuale dell'hub.
 
 4 macchine Virtuali nello spoke 1 rete virtuale non può connettersi a Volume 3 spoke 2 della rete virtuale. Inoltre, 5 VM in spoke VNet2 Impossibile connettersi al Volume 2 nello spoke 1 rete virtuale. Ciò avviene perché non ha eseguito il peering reti virtuali spoke e _routing di transito non è supportato tramite il peering reti virtuali_.

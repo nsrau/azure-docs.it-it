@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 51ca597208b582e95fd305886dcf163744825eee
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: af6fd7b99147396a70fccc7b2b11dfef3def15a8
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509656"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786302"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Linux Java per servizio App di Azure
 
@@ -133,7 +133,7 @@ Gli sviluppatori che eseguono una singola applicazione con uno slot di distribuz
 
 Quando si ottimizzano le impostazioni heap delle applicazioni, esaminare i dettagli del piano di servizio app e tenere in considerazione le esigenze di più applicazioni e slot di distribuzione per trovare l'allocazione ottimale della memoria.
 
-Se si sta distribuendo un'applicazione con estensione JAR, devono essere denominato *app.jar* in modo che l'immagine incorporata possa identificare correttamente l'app. (Il plug-in Maven esegue automaticamente questa ridenominazione). Se non si desidera rinominare un file JAR al *app.jar*, è possibile caricare uno script shell con il comando per eseguire un file JAR. Quindi incollare il percorso completo per questo script nella [File di avvio](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) nella casella di testo nella sezione di configurazione del portale.
+Se si sta distribuendo un'applicazione con estensione JAR, devono essere denominato *app.jar* in modo che l'immagine incorporata possa identificare correttamente l'app. (Il plug-in Maven esegue automaticamente questa ridenominazione). Se non si desidera rinominare un file JAR al *app.jar*, è possibile caricare uno script shell con il comando per eseguire un file JAR. Quindi incollare il percorso completo per questo script nella [File di avvio](app-service-linux-faq.md#built-in-images) nella casella di testo nella sezione di configurazione del portale.
 
 ### <a name="turn-on-web-sockets"></a>Attivare i Web Socket
 
@@ -170,6 +170,10 @@ In alternativa, è possibile configurare l'impostazione dell'app usando il plug-
 ### <a name="adjust-startup-timeout"></a>Modificare il timeout di esecuzione automatica
 
 Se l'applicazione Java è particolarmente grande, è necessario aumentare il limite di tempo di avvio. A questo scopo, creare un'impostazione dell'applicazione, `WEBSITES_CONTAINER_START_TIME_LIMIT` e impostarla sul numero di secondi che il servizio App deve attendere prima del timeout. Il valore massimo è `1800` secondi.
+
+### <a name="pre-compile-jsp-files"></a>Pre-compilare i file JSP
+
+Per migliorare le prestazioni delle applicazioni Tomcat, è possibile compilare i file JSP prima della distribuzione in servizio App. È possibile usare la [plug-in Maven](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) fornito Sling Apache o utilizzando questa [file di compilazione Ant](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation).
 
 ## <a name="secure-applications"></a>Proteggere le applicazioni
 
@@ -267,7 +271,7 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel ser
 
 Per impostazione predefinita, servizio App si aspetta che l'applicazione con estensione JAR chiamarsi *app.jar*. Se è presente il nome specificato, verrà eseguito automaticamente. Per gli utenti di Maven, è possibile impostare il nome del file JAR, includendo `<finalName>app</finalName>` nella `<build>` sezione il *POM. XML*. [È possibile eseguire la stessa in Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) impostando la `archiveFileName` proprietà.
 
-Se si desidera utilizzare un nome diverso per un file JAR, è necessario fornire anche il [avvio comando](app-service-linux-faq.md#built-in-images) che esegue il file con estensione JAR. Ad esempio: `java -jar my-jar-app.jar`. È possibile impostare il valore per il comando di avvio nel portale di configurazione > Impostazioni generali, o con un'impostazione applicazione denominata `STARTUP_COMMAND`.
+Se si desidera utilizzare un nome diverso per un file JAR, è necessario fornire anche il [avvio comando](app-service-linux-faq.md#built-in-images) che esegue il file con estensione JAR. Ad esempio `java -jar my-jar-app.jar`. È possibile impostare il valore per il comando di avvio nel portale di configurazione > Impostazioni generali, o con un'impostazione applicazione denominata `STARTUP_COMMAND`.
 
 ### <a name="server-port"></a>Porta del server
 
