@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e0d5363e253e89b32b5eca14366504f0ace39043
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1e5a4ac9f159ce238149d44127fd63dcf3279623
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479634"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807111"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v031-alpha"></a>API v2 di Status Monitor: Enable-ApplicationInsightsMonitoring (v0.3.1-alpha)
+# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v040-alpha"></a>API v2 di Status Monitor: Enable-ApplicationInsightsMonitoring (v0.4.0-alpha)
 
 Questo articolo descrive un cmdlet che è un membro del [modulo di Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -28,7 +28,7 @@ Questo articolo descrive un cmdlet che è un membro del [modulo di Az.Applicatio
 > Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate e alcune potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="description"></a>Descrizione
+## <a name="description"></a>DESCRIZIONE
 
 Senza codice consente di collegare il monitoraggio delle applicazioni IIS su un computer di destinazione.
 
@@ -93,9 +93,9 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 - **MachineFilter** è necessario un C# regex del computer o del nome della macchina virtuale.
     - '. * "corrisponderanno a tutti
     - 'ComputerName' corrisponderà solo i computer con il nome esatto specificato.
-- **AppFilter** è necessario un C# regex del computer o del nome della macchina virtuale.
+- **AppFilter** è necessario un C# espressione regolare del nome del sito IIS. È possibile ottenere un elenco dei siti nel server eseguendo il comando [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
     - '. * "corrisponderanno a tutti
-    - 'ApplicationName' corrisponderà solo alle App IIS con il nome esatto specificato.
+    - "SiteName" corrisponderanno solo il sito IIS con il nome esatto specificato.
 - **Chiave di strumentazione** è necessaria per abilitare il monitoraggio delle App che corrispondono ai due filtri precedenti.
     - Lasciare questo valore è null se si desidera definire le regole per escludere il monitoraggio.
 

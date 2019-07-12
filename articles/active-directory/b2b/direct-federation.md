@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4dadc68e78fbaa979751d5bcd04ef481c3ab886
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 1bc3c1325e8379082134e2cbec1586f7d338ee61
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544348"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797931"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federazione diretta con AD FS e i provider di terze parti per gli utenti guest (anteprima)
 |     |
@@ -62,7 +62,7 @@ Ad esempio, quando si configura per la federazione diretta **fabrikam.com**, l'U
 ### <a name="signing-certificate-renewal"></a>Rinnovo del certificato di firma
 Se si specifica l'URL dei metadati nelle impostazioni del provider di identità, Azure AD consente di rinnovare il certificato di firma dopo la scadenza. Tuttavia, se il certificato viene ruotato per qualsiasi motivo prima dell'ora di scadenza, o se non si specifica un URL di metadati, Azure AD sarà possibile rinnovare il certificato. In questo caso, è necessario aggiornare manualmente il certificato di firma.
 ## <a name="frequently-asked-questions"></a>Domande frequenti
-### <a name="can-i-set-up-direct-federation-with-an-unmanaged-email-verified-tenant"></a>È possibile impostare la federazione diretta con un tenant non gestito (verificati tramite posta elettronica)? 
+### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>È possibile impostare la federazione diretta con un dominio per cui è presente un tenant non gestito (verificati tramite posta elettronica)? 
 Sì. Se non è stato verificato il dominio e il tenant non ha subito un' [un'acquisizione amministratore](../users-groups-roles/domains-admin-takeover.md), è possibile configurare la federazione diretta. I tenant non gestiti o verificati tramite posta elettronica, vengono creati quando l'utente Riscatta un invito di B2B o esegue un'iscrizione Self-Service per Azure AD usando un dominio che attualmente non esiste. È possibile configurare la federazione diretta con questi domini. Se si prova a configurare la federazione diretta con un dominio verificato DNS, nel portale di Azure o tramite PowerShell, si verrà visualizzato un errore.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Se la federazione diretta e l'autenticazione di passcode monouso inviato tramite posta elettronica sono entrambi abilitati, il metodo ha la precedenza?
 Quando viene stabilita la federazione diretta con un'organizzazione partner, ha la precedenza rispetto all'autenticazione di passcode monouso inviato tramite posta elettronica per i nuovi utenti guest di tale organizzazione. Se un utente guest riscattato un invito tramite l'autenticazione di passcode monouso, prima di configurare la federazione diretta, continueranno a usare l'autenticazione di passcode monouso. 

@@ -7,127 +7,26 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: danlep
-ms.openlocfilehash: c544c8ed6fbfcb859ff1ff01e7bedf46cfb21418
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c603afa61499a615a0882cef06f14fd3d080a9ef
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295140"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797758"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Eliminare le immagini del contenitore in Registro Azure Container
 
 Per mantenere le dimensioni del registro contenitori di Azure, è consigliabile eliminare periodicamente i dati di immagini non aggiornati. Alcune immagini di contenitori distribuite in produzione potrebbero richiedere un'archiviazione a lungo termine, mentre altre possono solitamente essere eliminate prima. Ad esempio, in uno scenario di compilazione e test automatici, il registro può riempirsi velocemente di immagini che non verranno mai distribuite, pertanto potrà essere svuotato subito dopo aver compilato la build ed effettuato correttamente i test.
 
-Poiché è possibile eliminare i dati di immagini in modi diversi, è importante comprendere l'impatto di ciascun tipo di eliminazione sull'utilizzo dello spazio di archiviazione. Prima di tutto, l'articolo descrive i componenti di un registro Docker e le immagini del contenitore, quindi illustra vari modi per eliminare i dati di immagini. Vengono forniti esempi di script per automatizzare le operazioni di eliminazione.
-
-## <a name="registry"></a>Registro
-
-Un *registro* contenitori è un servizio che archivia e distribuisce immagini del contenitore. Docker Hub è un registro contenitori di Docker pubblico, mentre Registro Azure Container fornisce registri contenitori di Docker privati in Azure.
-
-## <a name="repository"></a>Repository
-
-I registri contenitori gestiscono *repository*, ovvero raccolte di immagini del contenitore con lo stesso nome ma tag differenti. Ad esempio, le tre immagini seguenti si trovano nel repository "acr-helloworld":
-
-```
-acr-helloworld:latest
-acr-helloworld:v1
-acr-helloworld:v2
-```
-
-I nomi dei repository possono anche includere [spazi dei nomi](container-registry-best-practices.md#repository-namespaces), Gli spazi dei nomi consentono di raggruppare le immagini usando nomi di inoltro repository delimitato da barra, ad esempio:
-
-```
-marketing/campaign10-18/web:v2
-marketing/campaign10-18/api:v3
-marketing/campaign10-18/email-sender:v2
-product-returns/web-submission:20180604
-product-returns/legacy-integrator:20180715
-```
-
-## <a name="components-of-an-image"></a>Componenti di un immagine
-
-Un'immagine del contenitore all'interno di un registro è associata a uno o più tag, ha uno o più livelli e viene identificata da un manifesto. Comprendere l'interazione tra questi elementi può aiutare a individuare il metodo migliore per liberare spazio nel registro.
-
-### <a name="tag"></a>Tag
-
-Il *tag* di un'immagine ne specifica la versione. A una singola immagine all'interno di un repository possono essere assegnati uno o più tag, che possono anche essere eliminati. Vale a dire, è possibile eliminare tutti i tag da un'immagine, anche se i dati dell'immagine (relativi livelli) rimangono nel Registro di sistema.
-
-Il nome di un'immagine è definito dal repository (o da repository e spazio dei nomi) e da un tag. È possibile eseguire il push e il pull di un'immagine specificandone il nome nella relativa operazione.
-
-In un registro privato, ad esempio il Registro Azure Container, il nome dell'immagine include anche il nome completo dell'host del registro. L'host del Registro di sistema per le immagini nel registro contenitori di AZURE è nel formato *acrname.azurecr.io* (tutte lettere minuscole). Ad esempio, il nome completo dell'immagine del primo nello spazio dei nomi "marketing" nella sezione precedente sarebbe:
-
-```
-myregistry.azurecr.io/marketing/campaign10-18/web:v2
-```
-
-Per una discussione sulle procedure consigliate per il tag di immagine, vedere il post di blog [Docker Tagging: Procedure consigliate per l'assegnazione di tag e controllo delle versioni delle immagini docker][tagging-best-practices] post di blog su MSDN.
-
-### <a name="layer"></a>Livello
-
-Le immagini sono costituite da uno o più *livelli*, ognuno corrispondente a una riga del Dockerfile che definisce l'immagine. Le immagini in un registro condividono i livelli comuni, aumentando così l'efficienza di archiviazione. Ad esempio, numerose immagini in repository diversi potrebbero condividere lo stesso livello di base Alpine Linux, ma ne verrà archiviata una sola copia nel registro.
-
-La condivisione dei livelli ne ottimizza anche la distribuzione ai nodi, in quanto più immagini condivideranno i livelli comuni. Ad esempio, se un'immagine già presente in un nodo include il livello Alpine Linux come base, il pull successivo di un'immagine diversa che fa riferimento al medesimo livello non trasferirà nuovamente il livello al nodo, ma farà invece riferimento a quello già presente.
-
-### <a name="manifest"></a>Manifesto
-
-A ogni immagine del contenitore inserita in un registro contenitori viene associato un *manifesto* generato dal registro quando l'immagine viene inserita. Il manifesto identifica in modo univoco l'immagine e ne specifica i livelli. È possibile elencare i manifesti per un repository con il comando di Azure CLI [az acr repository show-manifesti][az-acr-repository-show-manifests]:
-
-```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>
-```
-
-Ad esempio, questo è l'elenco degli hash di manifesto per il repository "acr-helloworld":
-
-```console
-$ az acr repository show-manifests --name myregistry --repository acr-helloworld
-[
-  {
-    "digest": "sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108",
-    "tags": [
-      "latest",
-      "v3"
-    ],
-    "timestamp": "2018-07-12T15:52:00.2075864Z"
-  },
-  {
-    "digest": "sha256:3168a21b98836dda7eb7a846b3d735286e09a32b0aa2401773da518e7eba3b57",
-    "tags": [
-      "v2"
-    ],
-    "timestamp": "2018-07-12T15:50:53.5372468Z"
-  },
-  {
-    "digest": "sha256:7ca0e0ae50c95155dbb0e380f37d7471e98d2232ed9e31eece9f9fb9078f2728",
-    "tags": [
-      "v1"
-    ],
-    "timestamp": "2018-07-11T21:38:35.9170967Z"
-  }
-]
-```
-
-### <a name="manifest-digest"></a>Hash di manifesto
-
-I manifesti sono identificati da un hash SHA-256 univoco, l'*hash di manifesto*. Ciascuna immagine, con o senza tag, viene identificata da un proprio hash. Il valore dell'hash è univoco anche se i dati dei livelli dell'immagine sono identici a quelli di un'altra. Questo meccanismo consente quindi di eseguire ripetutamente il push di immagini con tag identici in un registro. Ad esempio, è possibile eseguire più volte il push di `myimage:latest` nel registro senza errori poiché ogni immagine viene identificata dal relativo hash univoco.
-
-È possibile eseguire il pull di un'immagine da un registro specificandone l'hash nell'operazione. Alcuni sistemi sono configurati per eseguire il pull tramite hash perché in questo modo viene garantita la versione dell'immagine in questione, anche se in seguito viene eseguito il push nel registro di un'immagine con gli stessi tag.
-
-Ad esempio, questo è il pull di un'immagine dal repository "acr-helloworld" tramite l'hash di manifesto:
-
-```console
-$ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
-```
-
-> [!IMPORTANT]
-> Se si esegue ripetutamente il push di immagini modificate con tag identici, è possibile che vengano create immagini orfane, ovvero prive di tag, che occupano comunque spazio nel registro. Le immagini senza tag non vengono visualizzate nell'interfaccia della riga di comando o nel portale di Azure quando si elencano o si visualizzano le immagini in base ai tag. Tuttavia, i loro livelli sono comunque presenti e occupano spazio nel registro. La sezione [Eliminare immagini senza tag](#delete-untagged-images) di questo articolo illustra come liberare lo spazio usato dalle immagini senza tag.
-
-## <a name="delete-image-data"></a>Eliminare i dati di immagini
-
-Esistono vari modi per eliminare i dati di immagini dal registro contenitori:
+Poiché è possibile eliminare i dati di immagini in modi diversi, è importante comprendere l'impatto di ciascun tipo di eliminazione sull'utilizzo dello spazio di archiviazione. Questo articolo illustra diversi metodi per l'eliminazione dei dati di immagine:
 
 * Eliminare un [repository](#delete-repository): elimina tutte le immagini e tutti i livelli univoci all'interno del repository.
 * Eliminare in base ai [tag](#delete-by-tag): elimina un'immagine, il tag, tutti i livelli univoci a cui l'immagine fa riferimento e tutti gli altri tag a essa associati.
 * Eliminare in base al [digest del manifesto](#delete-by-manifest-digest): elimina un'immagine, tutti i livelli univoci a cui fa riferimento l'immagine e tutti i tag a essa associati.
+
+Vengono forniti esempi di script per automatizzare le operazioni di eliminazione.
+
+Per un'introduzione a questi concetti, vedere [sulle immagini, repository e registri](container-registry-concepts.md).
 
 ## <a name="delete-repository"></a>Eliminare un repository
 
@@ -154,11 +53,11 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> L'eliminazione *in base ai tag* non deve essere confuso con l'eliminazione (rimozione) di un tag. È possibile eliminare un tag con il comando di Azure CLI [rimuovere il tag da repository di az acr][az-acr-repository-untag]. Spazio non viene liberato quando rimuovere il tag da un'immagine poiché relativi [manifesto](#manifest) e livello dati rimangano nel Registro di sistema. Viene eliminato solo il riferimento al tag.
+> L'eliminazione *in base ai tag* non deve essere confuso con l'eliminazione (rimozione) di un tag. È possibile eliminare un tag con il comando di Azure CLI [rimuovere il tag da repository di az acr][az-acr-repository-untag]. Spazio non viene liberato quando rimuovere il tag da un'immagine poiché relativi [manifesto](container-registry-concepts.md#manifest) e livello dati rimangano nel Registro di sistema. Viene eliminato solo il riferimento al tag.
 
 ## <a name="delete-by-manifest-digest"></a>Eliminare in base all'hash di manifesto
 
-È possibile associare un [hash di manifesto](#manifest-digest) a uno o più tag oppure a nessuno. Quando si elimina in base all'hash, vengono eliminati tutti i tag a cui fa riferimento il manifesto, così come i dati dei livelli univoci dell'immagine. I dati dei livelli condivisi non vengono eliminati.
+È possibile associare un [hash di manifesto](container-registry-concepts.md#manifest-digest) a uno o più tag oppure a nessuno. Quando si elimina in base all'hash, vengono eliminati tutti i tag a cui fa riferimento il manifesto, così come i dati dei livelli univoci dell'immagine. I dati dei livelli condivisi non vengono eliminati.
 
 Per eliminare in base all'hash, elencare prima gli hash di manifesto nel repository che contengono le immagini da eliminare. Ad esempio:
 
@@ -248,7 +147,7 @@ fi
 
 ## <a name="delete-untagged-images"></a>Eliminare le immagini senza tag
 
-Come accennato nella sezione [Hash di manifesto](#manifest-digest), il push di un'immagine modificata con un tag esistente **rimuove i tag** dell'immagine del push precedente, dando vita a un'immagine orfana. Il manifesto dell'immagine del push precedente, così come i dati dei relativi livelli, rimane nel registro. Considerare la sequenza di eventi seguente:
+Come accennato nella sezione [Hash di manifesto](container-registry-concepts.md#manifest-digest), il push di un'immagine modificata con un tag esistente **rimuove i tag** dell'immagine del push precedente, dando vita a un'immagine orfana. Il manifesto dell'immagine del push precedente, così come i dati dei relativi livelli, rimane nel registro. Considerare la sequenza di eventi seguente:
 
 1. Eseguire il push dell'immagine *acr-helloworld* con il tag **latest**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. Controllare i manifesti per il repository *acr-helloworld*:

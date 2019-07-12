@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57768fc463f5ea1d2f1ec386f3f0975758220013
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235093"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626391"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Effettuare un provisioning di una macchina virtuale di Data Science Windows di Azure
 
@@ -61,13 +61,13 @@ I data scientist usano diversi strumenti per queste attività. Trovare le versio
 
 DSVM avviare rapidamente il progetto di analisi. ed è possibile svolgere attività in vari linguaggi, ad esempio R, Python, SQL e C#. Visual Studio fornisce un ambiente di sviluppo integrato (IDE) semplice da usare per sviluppare e testare il codice. Azure SDK è incluso nella VM per consentire di compilare le applicazioni usando vari servizi sulla piattaforma cloud di Microsoft.
 
-Per questa immagine di VM per l'analisi scientifica dei dati non sono previsti costi per il software. Si pagano solo le spese di utilizzo di Azure, che dipendono dalle dimensioni della macchina virtuale di cui viene effettuato il provisioning. Per informazioni dettagliate sui costi di calcolo, vedere la sezione **Dettagli prezzi** nella pagina [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice).
+Per questa immagine di VM per l'analisi scientifica dei dati non sono previsti costi per il software. Si pagano solo le spese di utilizzo di Azure, che dipendono dalle dimensioni della macchina virtuale di cui viene effettuato il provisioning. Per informazioni dettagliate sui costi di calcolo, vedere la sezione **Dettagli prezzi** nella pagina [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows).
 
 ### <a name="other-dsvm-versions"></a>Altre versioni di DSVM
 
 * Un'immagine [Ubuntu](dsvm-ubuntu-intro.md). Include molti strumenti simili a DSVM e alcuni altri framework di apprendimento avanzato.
 * Un'immagine [Linux CentOS](linux-dsvm-intro.md).
-* L'[edizione Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) di Data Science Virtual Machine. Alcuni strumenti sono disponibili solo nell'edizione Windows Server 2016. In caso contrario, questo articolo si applica anche all'edizione Windows Server 2012.
+* L'[edizione Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) di Data Science Virtual Machine. Alcuni strumenti sono disponibili solo nell'edizione Windows Server 2016. In caso contrario, questo articolo si applica anche all'edizione Windows Server 2012.
 
 ## <a name="prerequisite"></a>Prerequisito
 

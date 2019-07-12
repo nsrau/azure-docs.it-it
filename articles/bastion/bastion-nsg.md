@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: e7210b2b1be072f5326070d768d5fe12c386ee0b
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5312ad2593e732f4c84eb67ed263bc9e4666a67a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191603"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594184"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion-preview"></a>Uso di accesso di sicurezza di rete e Azure Bastion (anteprima)
 
@@ -24,13 +24,13 @@ Quando si usa Azure Bastion, è possibile usare gruppi di sicurezza di rete (Nsg
 
 ![Architettura](./media/bastion-nsg/nsg_architecture.png)
 
-Nella figura seguente:
+In questo diagramma:
 
-* L'host Bastion viene distribuito nella rete virtuale.
+* Il bastion host viene distribuito nella rete virtuale.
 * L'utente si connette al portale di Azure tramite qualsiasi browser HTML5.
 * L'utente seleziona la macchina virtuale a cui connettersi.
-* Con un solo clic, la sessione RDP/SSH apre nel browser.
-* Non è necessario alcun indirizzo IP pubblico nella macchina virtuale di Azure.
+* Con un solo clic, la sessione RDP/SSH viene aperta nel browser.
+* Non è richiesto alcun indirizzo IP pubblico nella macchina virtuale di Azure.
 
 ## <a name="nsg"></a>Gruppi di sicurezza di rete
 
@@ -44,9 +44,9 @@ Nella figura seguente:
 
 Se si applicano gli Nsg per la **AzureBastionSubnet**, consentire i seguenti due tag di servizio per piano di controllo di Azure e l'infrastruttura:
 
-* **(Solo Resource Manager) GatewayManager**: Questo tag identifica i prefissi di indirizzo del servizio Azure Gateway Manager. Se si specifica GatewayManager per il valore, il traffico è consentito o negato per GatewayManager.
+* **(Solo Resource Manager) GatewayManager**: Questo tag identifica i prefissi di indirizzo del servizio Azure Gateway Manager. Se si specifica GatewayManager per il valore, il traffico è consentito o negato per GatewayManager.  Se si siano creando gli Nsg nel AzureBastionSubnet, abilitare il tag GatewayManager per il traffico in ingresso.
 
-* **AzureCloud (solo Resource Manager)** : Questo tag identifica lo spazio di indirizzi IP per Azure include tutti i Data Center gli indirizzi IP pubblici. Se si specifica AzureCloud per il valore, il traffico è consentito o negato a indirizzi IP pubblici di Azure. Se si desidera solo consentire l'accesso al cloud di Azure in un'area specifica, è possibile specificare l'area. Ad esempio, se si desidera consentire l'accesso solo a Azure AzureCloud nell'area Stati Uniti orientali, è possibile specificare AzureCloud.EastUS come tag di servizio.
+* **AzureCloud (solo Resource Manager)** : Questo tag identifica lo spazio di indirizzi IP per Azure include tutti i Data Center gli indirizzi IP pubblici. Se si specifica AzureCloud per il valore, il traffico è consentito o negato a indirizzi IP pubblici di Azure. Se si desidera consentire l'accesso solo ai cloud di Azure in un'area specifica, è possibile specificare l'area. Ad esempio, se si desidera consentire l'accesso solo a Azure AzureCloud nell'area Stati Uniti orientali, è possibile specificare AzureCloud.EastUS come tag di servizio. Se si siano creando gli Nsg nel AzureBastionSubnet, abilitare il tag AzureCloud per il traffico in uscita.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
