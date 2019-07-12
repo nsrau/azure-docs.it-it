@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 2468fc0cbdcee9088aa9acb387af396dd448ad0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823947"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701682"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Spostare i dati da MySQL mediante Data factory di Azure
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-onprem-mysql-connector.md)
 > * [Versione 2 (corrente)](../connector-mysql.md)
 
@@ -72,7 +72,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | server |Nome del server MySQL. |Sì |
 | database |Nome del database MySQL. |Sì |
 | schema |Nome dello schema nel database. |No |
-| authenticationType |Tipo di autenticazione usato per connettersi al database MySQL. I valori possibili sono:`Basic`. |Sì |
+| authenticationType |Tipo di autenticazione usato per connettersi al database MySQL. I valori possibili sono:`Basic`. |Yes |
 | userName |Specificare nome utente per la connessione al database MySQL. |Sì |
 | password |Specificare la password per l'account utente specificato. |Sì |
 | gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database MySQL locale. |Sì |

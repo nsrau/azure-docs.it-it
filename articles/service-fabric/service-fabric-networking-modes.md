@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: subramar
+ms.openlocfilehash: 2dcb678e8350ae0de3317db3682f0e51e27ab6f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926123"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621929"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
 
@@ -203,11 +203,11 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
    |Impostazione |Value | |
    | --- | --- | --- |
    |Priorità |2000 | |
-   |NOME |Custom_Dns  | |
+   |Name |Custom_Dns  | |
    |`Source` |VirtualNetwork | |
    |Destination | VirtualNetwork | |
    |Service | DNS (UDP/53) | |
-   |Azione | CONSENTI  | |
+   |Azione | Allow  | |
    | | |
 
 4. Specificare la modalità di rete nel manifesto dell'applicazione per ogni servizio: `<NetworkConfig NetworkType="Open">`. La modalità di rete **Open** consente al servizio di ottenere un indirizzo IP dedicato. Se non è specificata alcuna modalità, viene impostata la modalità predefinita **nat**. Nell'esempio di manifesto seguente, i servizi `NodeContainerServicePackage1` e `NodeContainerServicePackage2` possono essere in ascolto sulla stessa porta (entrambi i servizi sono in ascolto su `Endpoint1`). Se è specificata la modalità di rete Open, non è possibile specificare configurazioni `PortBinding`.

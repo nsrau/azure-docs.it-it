@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c6007b66e31996db5c6b043219470968a7b05031
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26350479f0f066f45c143e1a35061b3a409de309
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67114678"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786484"
 ---
 # <a name="creating-filters-with-cli"></a>Creazione di filtri con l'interfaccia della riga di comando 
 
@@ -88,7 +88,7 @@ Questo comando consente di superare il parametro `--tracks` facoltativo che incl
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
 
-Vedere anche [Esempi JSON per i filtri](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create_an_account_filter).
+Vedere anche [Esempi JSON per i filtri](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
 
 ## <a name="create-asset-filters"></a>Creare filtri asset
 
@@ -98,7 +98,7 @@ Il comando [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
 ```
 
-Vedere anche [Esempi JSON per i filtri](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter).
+Vedere anche [Esempi JSON per i filtri](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter).
 
 ## <a name="associate-filters-with-streaming-locator"></a>Associare i filtri localizzatore di Streaming
 

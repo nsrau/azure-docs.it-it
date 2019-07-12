@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec2580f0c71c98c7a03f3326cb1b8ff539109ee0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66137069"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720020"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -30,7 +30,7 @@ Questo articolo offre risposte alle domande frequenti sui problemi di configuraz
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>Esistono limitazioni che occorre tenere in considerazione se si desidera spostare le risorse del servizio app?
 
-Se si intende spostare le risorse del servizio app in un nuovo gruppo di risorse o in una sottoscrizione, occorre considerare alcune limitazioni. Per altre informazioni, vedere [Limitazioni del servizio app](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+Se si intende spostare le risorse del servizio app in un nuovo gruppo di risorse o in una sottoscrizione, occorre considerare alcune limitazioni. Per altre informazioni, vedere [Limitazioni del servizio app](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>Come si utilizza un nome di dominio personalizzato per un'app Web?
 
@@ -56,11 +56,11 @@ Per informazioni su come acquistare e configurare un certificato SSL per l'app W
 
 Attualmente, Azure Application Insights non supporta l'operazione di spostamento. Se il gruppo di risorse originale include una risorsa di Application Insights, non è possibile spostare tale risorsa. Se si include la risorsa di Application Insights quando si tenta di spostare un'app del servizio app, l'intera operazione di spostamento ha esito negativo. Tuttavia, per il corretto funzionamento dell'app non è necessario che la risorsa Application Insights e il piano di servizio app risiedano nello stesso gruppo di risorse in cui si trova l'app stessa.
 
-Per altre informazioni, vedere [Limitazioni del servizio app](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+Per altre informazioni, vedere [Limitazioni del servizio app](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>Dove è possibile trovare un elenco di controllo del materiale sussidiario e altre informazioni sulle operazioni di spostamento delle risorse?
 
-[Limitazioni del servizio app](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations) mostra come spostare le risorse in una nuova sottoscrizione o in un nuovo gruppo di risorse nella stessa sottoscrizione. È possibile ottenere informazioni sull'elenco di controllo dello spostamento delle risorse, apprendere quali servizi supportano l'operazione di spostamento e acquisire altri dettagli sulle limitazioni del servizio app e su altri argomenti.
+[Limitazioni del servizio app](../azure-resource-manager/move-limitations/app-service-move-limitations.md) mostra come spostare le risorse in una nuova sottoscrizione o in un nuovo gruppo di risorse nella stessa sottoscrizione. È possibile ottenere informazioni sull'elenco di controllo dello spostamento delle risorse, apprendere quali servizi supportano l'operazione di spostamento e acquisire altri dettagli sulle limitazioni del servizio app e su altri argomenti.
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>Come si imposta il fuso orario del server per l'app Web?
 

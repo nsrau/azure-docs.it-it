@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
-ms.openlocfilehash: 6c0fa0a3166dce5aa6adc71a46555a24d899c96b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 86f8c6e527f58a7c4cfca6233165f0ab05426409
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441350"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672563"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Device Streams di Hub IoT (anteprima)
 
@@ -82,7 +82,7 @@ Sia il lato dispositivo che il lato servizio di un flusso dispositivo devono ess
 
 !["Endpoint di flusso del dispositivo"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
-In alternativa, è possibile recuperare le informazioni sugli endpoint usando l'interfaccia della riga di comando di Azure nella sezione delle proprietà dell'hub, in particolare chiavi `property.hostname` e `property.deviceStreams`.
+In alternativa, le informazioni di endpoint possono essere recuperate tramite CLI di Azure nella sezione di proprietà dell'hub, in particolare `property.hostname` e `property.deviceStreams` chiavi.
 
 ```azurecli-interactive
 az iot hub devicestream show --name <YourIoTHubName>

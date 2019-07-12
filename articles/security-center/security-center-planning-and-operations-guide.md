@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/11/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 04cfe489e9eea53bf58dd64e0eac3e5a95033bcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca96ba4c6b0de8ad39866a0783e7091fb4755164
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966852"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706243"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni intendano usare il Centro sicurezza di Azure.
@@ -87,21 +87,21 @@ Con gli utenti tipo descritti nel diagramma precedente sarebbe necessario il con
 
 **Jeff (proprietario del carico di lavoro)**
 
-* Proprietario del gruppo di risorse/Collaboratore.
+* Proprietario/collaboratore per il gruppo di risorse
 
 **David (sicurezza IT)**
 
-* Proprietario della sottoscrizione/Collaboratore o Amministratore della protezione
+* Proprietario/collaboratore della sottoscrizione o amministratore della sicurezza
 
 **Judy (attività di sicurezza)**
 
 * Ruolo con autorizzazioni di lettura per la sottoscrizione o per la sicurezza per visualizzare gli avvisi
-* Proprietario della sottoscrizione/Collaboratore o Amministratore della protezione per ignorare gli avvisi
+* Proprietario/collaboratore della sottoscrizione o amministratore della sicurezza per ignorare gli avvisi
 
 **Sam (analista della sicurezza)**
 
 * Ruolo con autorizzazioni di lettura per la sottoscrizione per visualizzare gli avvisi
-* Proprietario della sottoscrizione/Collaboratore per ignorare gli avvisi
+* Proprietario/collaboratore della sottoscrizione per ignorare gli avvisi
 * Potrebbe essere richiesto l'accesso all'area di lavoro
 
 Altre informazioni importanti da considerare:

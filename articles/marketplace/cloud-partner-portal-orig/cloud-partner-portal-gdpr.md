@@ -7,17 +7,17 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 221f559dde2017c9b5d13dd4e06a140a6bcb5e2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91db369f9a2a0439bdbaf8600d1b329f0da00aa0
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935415"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786465"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Conformità al GDPR per il portale Cloud Partner
 ====================================
 
-Il [Regolamento generale sulla protezione dei dati (GDPR)](https://ec.europa.eu/justice/data-protection/reform/index_en.htm) è una legge sulla privacy e sulla protezione dei dati dell'Unione europea (UE). Il GDPR impone regole per le aziende, gli enti pubblici, le organizzazioni no profit e altre organizzazioni che offrono beni e servizi a persone nell'UE o che raccolgono e analizzano dati collegati a persone residenti nell'UE.
+Il [Regolamento generale sulla protezione dei dati (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en/) è una legge sulla privacy e sulla protezione dei dati dell'Unione europea (UE). Il GDPR impone regole per le aziende, gli enti pubblici, le organizzazioni no profit e altre organizzazioni che offrono beni e servizi a persone nell'UE o che raccolgono e analizzano dati collegati a persone residenti nell'UE.
 
 Il portale Cloud Partner offre informazioni dettagliate riguardanti l'elaborazione dei dati del cliente e le misure di sicurezza usate per proteggere i dati. Queste informazioni sono accessibili tramite le proprie esperienze di prodotto.
 

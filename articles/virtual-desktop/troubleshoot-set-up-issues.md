@@ -4,15 +4,15 @@ description: Come pool di tenant e l'host risolvere i problemi durante l'install
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
-ms.date: 04/08/2019
+ms.topic: troubleshooting
+ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 88e843c410a750387ecf58497dec79586e2a59d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ec4e0ffd87c0ef73a551416d8a8cc672f095483
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523338"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786721"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Creazione di pool di host e tenant
 
@@ -118,6 +118,17 @@ Esempio di errore non elaborato:
 **Causa 2:** Nome di dominio non viene risolto.
 
 **Fix 2:** Vedere l'errore "nome di dominio non viene risolto" per le macchine virtuali non vengono aggiunti al dominio in [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md).
+
+
+### <a name="error-your-deployment-failedunauthorized"></a>Errore: Failed...\Unauthorized la distribuzione
+
+```Error
+{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
+```
+
+**Causa:** La sottoscrizione in uso è un tipo che non è possibile accedere alle funzionalità necessarie nell'area in cui il cliente sta tentando di distribuire. Sottoscrizioni MSDN, Free o Education, ad esempio, possono visualizzare questo errore.
+
+**Fix:** Impostare il tipo di sottoscrizione o la regione che possono accedere le funzionalità necessarie.
 
 ### <a name="error-vmextensionprovisioningerror"></a>Errore: VMExtensionProvisioningError
 

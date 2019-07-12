@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: d43bef902b66976c32735b6d45029f41bb5e3264
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 7aedb0804626d1204121568904763bec5e83e858
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514033"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786261"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -25,7 +25,70 @@ Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine 
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
 
+## <a name="2019-07-09"></a>2019-07-09
 
+### <a name="visual-interface"></a>Interfaccia visiva
++ **Funzionalità di anteprima**
+  + Modulo "Execute R script" aggiunto nell'interfaccia visiva.
+
+### <a name="azure-machine-learning-sdk-for-python-v1048"></a>Azure Machine Learning SDK per Python v1.0.48
+
++ **Nuove funzionalità**
+  + **azureml-opendatasets**
+    + **Azure ml-contrib-opendatasets** è ora disponibile come **azureml-opendatasets**. Il pacchetto precedente può continuano a funzionare, ma è consigliabile si usa **azureml-opendatasets** in futuro per miglioramenti e funzionalità più complesse.
+    + Questo nuovo pacchetto consente di registrare Apri set di dati come set di dati nell'area di lavoro di Azure Machine Learning e sfruttare tutte le funzionalità che offre di set di dati.
+    + Include anche le funzionalità esistenti, ad esempio l'utilizzo di set di dati aperto come dataframe di Pandas o SPARK, e percorso di join per alcuni set di dati, ad esempio meteo.
+
++ **Funzionalità di anteprima**
+    + HyperDriveConfig possono ora accettare oggetto della pipeline come parametro per supportare l'ottimizzazione degli iperparametri tramite una pipeline.
+
++ **Correzioni di bug e miglioramenti**
+  + **azureml-train-automl**
+    + Correzione del bug perdere i tipi di colonne dopo la trasformazione.
+    + Correzione del bug per consentire y_query sia un tipo di oggetto che contiene nessuno (s) all'inizio. 
+    + Risolto il problema della procedura di selezione insieme che anche se i punteggi sono rimaste costanti inutilmente aumento insieme risultante.
+    + Risolto il problema con le impostazioni di whitelist_models e blacklist_models in AutoMLStep.
+    + Risolto il problema che impediva l'uso della pre-elaborazione quando AutoML sarebbe stata utilizzata nel contesto delle pipeline di Machine Learning di Azure.
+  + **azureml-opendatasets**
+    + Azure ml-contrib-opendatasets del spostata per Azure ml-opendatasets.
+    + Le classi di set di dati aperto può essere registrata all'area di lavoro di Azure Machine Learning e sfruttare facilmente le funzionalità di set di dati di Azure Machine Learning è consentita.
+    + NoaaIsdWeather migliorata arricchire in modo significativo le prestazioni in versione non SPARK.
+  + **azureml-explain-model**
+    + Documentazione in linea aggiornata per gli oggetti di interpretazione.
+    + Aggiunto batch_size per simulare spiegazione: informazioni su quando include_local = False per lo streaming di spiegazioni globale in batch per migliorare i tempi di esecuzione di DecisionTreeExplainableModel.
+    + Risolto il problema in cui `explanation.expected_values` talvolta restituisce un valore float anziché un elenco con un valore float in esso.
+    + Aggiunti i valori previsti per automl di output per una spiegazione che riproducono in spiegare libreria del modello.
+    + Correzione di modulo permutation feature importance durante le trasformazioni argomento fornito per ottenere l'importanza delle caratteristiche non elaborati.
+    + Aggiunto batch_size per simulare spiegazione: informazioni su quando include_local = False per lo streaming di spiegazioni globale in batch per migliorare il tempo di esecuzione di DecisionTreeExplainableModel per libreria explainability del modello.
+  + **azureml-core**
+    + Aggiunta la possibilità di collegare gli archivi dati DBFS in AzureML CLI.
+    + Risolto il problema con il caricamento di archivio dati in cui viene creata una cartella vuota se `target_path` avviata con `/`.
+    + Abilitato il confronto di due set di dati.
+    + Eliminazione del modello e l'immagine ora fornisce altre informazioni sul recupero di oggetti upstream che dipendono da essi se delete ha esito negativo a causa di una dipendenza a monte.
+    + Deprecato l'impostazione di RunConfiguration inutilizzato nel auto_prepare_environment.
+  + **azureml-mlflow**
+    + Utilizzo delle risorse migliorato di esecuzioni remote che utilizzano azureml.mlflow.
+    + La documentazione del pacchetto azureml-mlflow migliorata.
+    + Risolto il problema in cui mlflow.log_artifacts("my_dir") risparmierebbe elementi sotto "my_dir /-percorsi di elementi" anziché "percorsi di elementi".
+  + **azureml-dataprep**
+    + Gli oggetti del flusso di dati possono ora eseguire l'iterazione producendo una sequenza di record.
+    + Risolto il problema in cui `Dataflow.read_pandas_dataframe` avrebbe esito negativo quando il `in_memory` argomento è impostato su True.
+    + Gestione migliorata di pandas Dataframe con indici di colonna non di tipo stringa.
+    + Esposti `set_diagnostics_collection()` per consentire a livello di codice abilitazione/disabilitazione della raccolta dati di telemetria.
+    + Riepilogare bottomValues e primi valori aggiunti.
+  + **azureml-pipeline-core**
+    + Parametro hash_paths per tutti i passaggi della pipeline è deprecata e verrà rimossa in futuro. Il contenuto predefinito del directory_origine viene generato un hash (tranne i file elencati nel file con estensione gitignore o .amlignore)
+    + Modulo di miglioramento continuo e ModuleStep per il supporto di moduli specifico tipo di calcolo, in preparazione per l'integrazione di RunConfiguration e altre modifiche per sbloccare il relativo utilizzo nelle pipeline.
+  + **azureml-pipeline-steps**
+    + AzureBatchStep: Documentazione migliorata per quanto riguarda gli input/output.
+    + AzureBatchStep: Modificato il valore predefinito delete_batch_job_after_finish su true.
+  + **azureml-train-core**
+    + Le stringhe vengono ora accettate come destinazione di calcolo per l'ottimizzazione degli Iperparametri automatizzata.
+    + Deprecato l'impostazione di RunConfiguration inutilizzato nel auto_prepare_environment.
+    + Deprecati i parametri `conda_dependencies_file_path` e `pip_requirements_file_path` favore del `conda_dependencies_file` e `pip_requirements_file` rispettivamente.
+  + **azureml-opendatasets**
+    + Migliorare NoaaIsdWeather arricchire in modo significativo le prestazioni in versione non SPARK.
+    
 ## <a name="2019-07-01"></a>2019-07-01
 
 ### <a name="azure-machine-learning-data-prep-sdk-v117"></a>SDK v1.1.7 della preparazione dei dati di Azure Machine Learning
@@ -257,7 +320,7 @@ Il [ `PipelineEndpoint` ](https://docs.microsoft.com/python/api/azureml-pipeline
 
 ### <a name="azure-machine-learning-data-prep-sdk-v112"></a>SDK v1.1.2 della preparazione dei dati di Azure Machine Learning
 
-Note: SDK Python di preparazione dei dati non sono più installerà `numpy` e `pandas` pacchetti. Visualizzare [aggiornate le istruzioni di installazione](https://aka.ms/aml-data-prep-installation).
+Nota: SDK Python di preparazione dei dati non sono più installerà `numpy` e `pandas` pacchetti. Visualizzare [aggiornate le istruzioni di installazione](https://aka.ms/aml-data-prep-installation).
 
 + **Nuove funzionalità**
   + È ora possibile usare la trasformazione Pivot.

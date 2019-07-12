@@ -4,17 +4,17 @@ description: Questa guida ha lo scopo di aiutare CEO, CIO, CISO, Chief Identity 
 services: active-directory
 keywords: ''
 author: martincoetzer
-ms.author: martincoetzer
+ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 26fca12060363f4ad05baaeceb6fb800a0d76216
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c0faeb211860391c93563200f509d60876a504b9
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449260"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786687"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure AD 
 
@@ -94,7 +94,7 @@ Dettagli relativi alle domande nell'albero delle decisioni:
 
 * **Scenari avanzati**. Le organizzazioni possono scegliere di usare informazioni tratte dalle identità con i report di Azure AD Identity Protection con Azure AD Premium P2, ad esempio i report sulle credenziali perse. Con Windows Hello for Business [requisiti specifici quando si usa la sincronizzazione dell'hash password](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) richiedono sincronizzazione dell'hash delle password per il provisioning degli utenti con le proprie credenziali aziendali nel dominio gestito.
 
-    Le organizzazioni che richiedono l'autenticazione a più fattori con sincronizzazione dell'hash delle password necessario usare l'autenticazione a più fattori di Azure AD oppure [controlli di accesso condizionale personalizzati](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Le organizzazioni non è possibile usare i metodi multi-factor authentication di terze parti o in locale che si basa sulla federazione.
+    Le organizzazioni che richiedono l'autenticazione a più fattori con sincronizzazione dell'hash delle password necessario usare l'autenticazione a più fattori di Azure AD oppure [controlli di accesso condizionale personalizzati](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview). Le organizzazioni non è possibile usare i metodi multi-factor authentication di terze parti o in locale che si basa sulla federazione.
 
 > [!NOTE]
 > Accesso condizionale di Azure AD richiede [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) licenze.
@@ -118,7 +118,7 @@ Per la procedura di implementazione, vedere [Implementare la sincronizzazione de
 
 * **Scenari avanzati**. L'autenticazione pass-through applica i criteri di account locali al momento dell'accesso. Ad esempio, l'accesso viene negato quando lo stato dell'account di un utente locale è disabilitato o bloccato oppure quando [la password è scaduta](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) o non rientra negli orari di accesso consentiti per l'utente. 
 
-    Le organizzazioni che richiedono l'autenticazione a più fattori con l'autenticazione pass-through debba usare Azure multi-Factor Authentication (MFA) o [controlli di accesso condizionale personalizzati](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Le organizzazioni non è possibile usare un metodo di multi-factor authentication di terze parti o in locale che si basa su federazione. Le funzionalità avanzate richiedono che la sincronizzazione dell'hash delle password venga implementata indipendentemente dalla scelta dell'autenticazione pass-through. Un esempio è il report Credenziali perse di Identity Protection.
+    Le organizzazioni che richiedono l'autenticazione a più fattori con l'autenticazione pass-through debba usare Azure multi-Factor Authentication (MFA) o [controlli di accesso condizionale personalizzati](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview). Le organizzazioni non è possibile usare un metodo di multi-factor authentication di terze parti o in locale che si basa su federazione. Le funzionalità avanzate richiedono che la sincronizzazione dell'hash delle password venga implementata indipendentemente dalla scelta dell'autenticazione pass-through. Un esempio è il report Credenziali perse di Identity Protection.
 
 * **Continuità aziendale**. È consigliabile distribuire due agenti di autenticazione pass-through aggiuntivi, oltre al primo agente sul server Azure AD Connect. Questa distribuzione aggiuntiva assicura una disponibilità elevata delle richieste di autenticazione. Quando si dispone di tre agenti di distribuzione, un agente può avere comunque esito negativo quando un altro agente è inattivo per manutenzione. 
 
@@ -179,9 +179,9 @@ I diagrammi seguenti definiscono i componenti dell'architettura generale necessa
 |Dove si verifica l'autenticazione?|Nel cloud|Nel cloud dopo la verifica della password di protezione con l'agente di autenticazione locale|Locale|
 |Quali sono i requisiti del server locale oltre il sistema di provisioning Azure AD Connect?|Nessuna|Un server per ogni agente di autenticazione aggiuntivo|Due o più server AD FS<br><br>Due o più server WAP nella rete perimetrale|
 |Quali sono i requisiti di rete e Internet locali oltre al sistema di provisioning?|Nessuna|[Accesso a Internet in uscita](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) dai server in cui sono in esecuzione gli agenti di autenticazione|[Accesso Internet in ingresso](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) ai server WAP nelle reti perimetrali<br><br>Accesso di rete in ingresso ai server AD FS dai server WAP nelle reti perimetrali<br><br>Bilanciamento del carico di rete|
-|Esiste un requisito per il certificato SSL?|No|No|Yes|
+|Esiste un requisito per il certificato SSL?|No|No|Sì|
 |Esiste una soluzione di monitoraggio dello stato?|Facoltativo|Stato agente fornito dall'[interfaccia di amministrazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|
-|Gli utenti ottengono l'accesso Single Sign-On alle risorse cloud dai dispositivi aggiunti al dominio all'interno della rete aziendale?|Sì, con l'[accesso Single Sign-On facile](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Sì, con l'[accesso Single Sign-On facile](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Yes|
+|Gli utenti ottengono l'accesso Single Sign-On alle risorse cloud dai dispositivi aggiunti al dominio all'interno della rete aziendale?|Sì, con l'[accesso Single Sign-On facile](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Sì, con l'[accesso Single Sign-On facile](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Sì|
 |Quali tipi di accesso sono supportati?|UserPrincipalName + Password<br><br>Autenticazione integrata di Windows con [Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[ID di accesso alternativo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)|UserPrincipalName + Password<br><br>Autenticazione integrata di Windows con [Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[ID di accesso alternativo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)|UserPrincipalName + Password<br><br>sAMAccountName + Password<br><br>Autenticazione integrata di Windows<br><br>[Autenticazione con certificato e smart card](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID di accesso alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Windows Hello for Business è supportato?|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Richiede il livello di funzionalità del dominio di Windows Server 2016*|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modello di attendibilità certificati](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Quali sono le opzioni di autenticazione a più fattori?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controlli personalizzati con accesso condizionale *](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controlli personalizzati con accesso condizionale *](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Server di Azure MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[MFA di terze parti](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controlli personalizzati con accesso condizionale *](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|
@@ -213,7 +213,7 @@ Usare o abilitare la sincronizzazione dell'hash delle password indipendentemente
 
 Infine, secondo [Gartner](https://info.microsoft.com/landingIAMGartnerreportregistration.html) Microsoft offre il set di funzioni di gestione delle identità e degli accessi più completo. Microsoft gestisce ogni mese [450 miliardi di richieste di autenticazione](https://www.microsoft.com/en-us/security/intelligence-report) per fornire l'accesso a migliaia di applicazioni SaaS come Office 365 praticamente da qualsiasi dispositivo. 
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Questo articolo descrive diverse opzioni di autenticazione che le organizzazioni possono configurare e implementare per supportare l'accesso alle app cloud. Per soddisfare esigenze aziendali, tecniche e di sicurezza diverse, le organizzazioni possono scegliere tra sincronizzazione dell'hash delle password, autenticazione pass-through e federazione. 
 

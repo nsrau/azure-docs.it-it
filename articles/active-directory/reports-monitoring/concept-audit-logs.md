@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59f716ccd7b2e02c9064f13cf1ffd6e8180858c9
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441018"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827903"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
@@ -41,7 +41,7 @@ Questo articolo fornisce una panoramica del report di controllo.
  
 ## <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
 
-* Gli utenti nel **amministratore sicurezza**, **lettura per la sicurezza**, **lettore del Report** oppure **amministratore globale** ruoli
+* Gli utenti nel **amministratore della sicurezza**, **lettura per la sicurezza**, **lettore del Report** oppure **amministratore globale** ruoli
 * Inoltre, tutti gli utenti (non amministratori) possono visualizzare le proprie attività di controllo
 
 ## <a name="audit-logs"></a>Log di controllo
@@ -119,7 +119,7 @@ Il **categoria** filtro consente di selezionare uno dei filtri indicati di segui
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Altri
+- Altro
 - Policy
 - Gestione
 - RoleManagement

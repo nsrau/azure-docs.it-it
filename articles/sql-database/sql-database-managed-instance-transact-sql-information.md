@@ -10,14 +10,14 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 manager: craigg
-ms.date: 03/13/2019
+ms.date: 07/07/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b0e10ce48088853090958dca9d8c1fad20780e7
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070345"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723251"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
 
@@ -293,13 +293,13 @@ Per altre informazioni, vedere [ALTER DATABASE](https://docs.microsoft.com/sql/t
   - SQL Server Analysis Services non sono supportati.
 - Le notifiche sono supportate in modo parziale.
 - Notifica tramite posta elettronica è supportata, anche se è necessario configurare un profilo di posta elettronica Database. SQL Server Agent è possibile usare un solo profilo di posta elettronica Database e deve essere chiamato `AzureManagedInstance_dbmail_profile`. 
-  - Pager non è supportato. 
+  - Pager non è supportato.
   - NetSend non è supportato.
   - Gli avvisi non sono ancora supportati.
-  - I proxy non sono supportati. 
+  - I proxy non sono supportati.
 - EventLog non è supportata.
 
-Le seguenti funzionalità attualmente non sono supportate ma saranno abilitate in futuro:
+Le seguenti funzionalità di SQL Agent non sono attualmente supportate:
 
 - Proxy
 - Pianificazione dei processi su una CPU inattiva
@@ -398,7 +398,13 @@ Tabelle esterne che fanno riferimento che non sono supportati i file in HDFS o B
 
 ### <a name="replication"></a>Replica
 
-Per l'anteprima pubblica di Istanza gestita è disponibile la replica. Per informazioni sulla replica, vedere [replica di SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+[La replica transazionale](sql-database-managed-instance-transactional-replication.md) è disponibile per l'anteprima pubblica sull'istanza gestita con alcune limitazioni:
+- Tipi di tutti i partecipanti di replica (server di pubblicazione, server di distribuzione, sottoscrittore Pull e Push sottoscrittore) possono essere inseriti in istanza gestita, ma server di pubblicazione e server di distribuzione non può trovarsi in istanze diverse.
+- Sono supportati i tipi di replica transazionale, Snapshot e bidirezionali. Replica di tipo merge, la replica Peer-to-peer e le sottoscrizioni aggiornabili non sono supportate.
+- Istanza gestita può comunicare con le versioni recenti di SQL Server. Vedere le versioni supportate [qui](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+- La replica transazionale ha alcuni [requisiti di rete aggiuntivi](sql-database-managed-instance-transactional-replication.md#requirements).
+
+Per informazioni sulla configurazione della replica, vedere [esercitazione replica](replication-with-sql-database-managed-instance.md).
 
 ### <a name="restore-statement"></a>Istruzione RESTORE 
 
@@ -486,7 +492,7 @@ Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
 
 ### <a name="tempdb-size"></a>Dimensioni di TEMPDB
 
-Le dimensioni massime di `tempdb` non può essere maggiore di 24 GB per ogni core in un livello utilizzo generico. Il valore massimo `tempdb` dimensioni su un livello Business Critical sono limitata con le dimensioni di archiviazione di istanza. Il `tempdb` database sempre è suddiviso in file di 12 dati. Queste dimensioni massime per ogni file non possono essere modificata e non possono essere aggiunti al nuovo file `tempdb`. Alcune query potrebbero restituire un errore se necessitano più di 24 GB per ogni core di `tempdb`. `tempdb` viene sempre ricreato come un database vuoto quando l'avvio dell'istanza o il failover e qualsiasi modifica effettuata in `tempdb` non verrà mantenuta. 
+Le dimensioni massime di `tempdb` non può essere maggiore di 24 GB per ogni core in un livello utilizzo generico. Il valore massimo `tempdb` dimensioni su un livello Business Critical sono limitata con le dimensioni di archiviazione di istanza. `tempdb` dimensioni file di log sono limitata a 120 GB sia a per utilizzo generico e livelli Business Critical. Il `tempdb` database sempre è suddiviso in file di 12 dati. Queste dimensioni massime per ogni file non possono essere modificata e non possono essere aggiunti al nuovo file `tempdb`. Alcune query potrebbero restituire un errore se necessitano più di 24 GB per ogni core di `tempdb` o se producono più di 120 GB di log. `tempdb` viene sempre ricreato quando un database vuoto all'avvio dell'istanza o il failover e qualsiasi modifica effettuata in `tempdb` non verrà mantenuta. 
 
 ### <a name="cant-restore-contained-database"></a>Non è possibile ripristinare i database indipendenti
 
@@ -585,6 +591,11 @@ I moduli CLR collocati in un'istanza gestita e i server collegati o le query dis
 Non è possibile eseguire `BACKUP DATABASE ... WITH COPY_ONLY` in un database crittografato con gestite dal servizio Transparent Data Encryption (TDE). TDE gestita dal servizio e impone i backup da crittografare con una chiave interna di Transparent Data Encryption. Impossibile esportare la chiave, in modo che non è possibile ripristinare il backup.
 
 **Soluzione alternativa:** Usare i backup automatici e ripristino temporizzato in oppure usare [gestite dal cliente (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) invece. È anche possibile disabilitare la crittografia nel database.
+
+### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>Ripristino temporizzato in segue ora dal fuso orario impostato nell'istanza di origine
+
+Ripristino temporizzato in attualmente interpreta tempo per il ripristino dal seguente fuso orario dell'istanza di origine invece da UTC seguenti.
+Controllare [problemi noti relativi all'istanza gestita fuso orario](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) per altri dettagli.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

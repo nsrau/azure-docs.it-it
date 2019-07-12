@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 07/10/2018
 ms.author: juliako
-ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: e72085d3ac9815b3ec5fd89c678860bd75761f73
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926520"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798109"
 ---
 # <a name="azure-media-player-overview"></a>Panoramica di Azure Media Player
 
@@ -30,7 +30,7 @@ Servizi multimediali di Microsoft Azure consente di distribuire contenuti nei fo
 
 ### <a name="start-using"></a>Iniziare l'utilizzo
 
-È possibile usare la [pagina demo Azure Media Player](https://aka.ms/amp) per riprodurre esempi di Servizi multimediali di Azure nel proprio flusso.  
+È possibile usare la [pagina demo Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) per riprodurre esempi di Servizi multimediali di Azure nel proprio flusso.  
 
 Per riprodurre un nuovo video, incollare un URL diverso e fare clic su **Update** (Aggiorna).
 
@@ -40,7 +40,7 @@ Per configurare diverse opzioni di riproduzione (ad esempio, tecnologia, lingua 
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>Monitorare la diagnostica di un flusso video
 
-È possibile usare la [pagina demo di Azure Media Player](https://aka.ms/amp) per monitorare la diagnostica di un flusso video. 
+È possibile usare la [pagina demo di Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) per monitorare la diagnostica di un flusso video. 
 
 ![Diagnostica di Azure Media Player](./media/azure-media-player/diagnostics.png)
 

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7db66f6f4efa5e48f2af9380115de8bcfb75cb86
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861115"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786677"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Eseguire la migrazione dei dati di analisi da Excel ad Azure Machine Learning Studio
 
@@ -44,9 +44,9 @@ La regressione di Excel usava il modello di regressione lineare standard disponi
 Per creare l'esperimento in Studio sono stati seguiti questi passaggi: 
 
 1. È stato caricato il set di dati in Studio sotto forma di file CSV (un file di dimensioni molto ridotte)
-2. È stato creato un nuovo esperimento ed è stato usato il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) per selezionare le stesse funzionalità di dati usate in Excel 
-3. È stato usato il modulo [Split data][split] (Divisione dati) con modalità *Relative Expression* (Espressione relativa) per dividere i dati negli stessi set di dati di training di Excel 
-4. È stato eseguito l'esperimento con il modulo [Linear Regression][linear-regression] (Regressione lineare) (solo opzioni predefinite), quindi sono stati documentati e confrontati i risultati nel modello di regressione di Excel
+2. Creato un nuovo esperimento e usato la [Select Columns in Dataset][select-columns] module per selezionare le stesse funzionalità di dati usate in Excel 
+3. Usato il [Split Data][split] modulo (con *espressione relativa* modalità) per dividere i dati stessi set di dati di training è trattato di Excel 
+4. Sperimenta il [Linear Regression][linear-regression] modulo (solo opzioni predefinite), documentati e confrontati i risultati al modello di regressione di Excel
 
 ### <a name="review-initial-results"></a>Rivedere i risultati iniziali
 All'inizio, il modello di Excel ha superato nettamente le prestazioni del modello di Studio: 
@@ -61,7 +61,7 @@ All'inizio, il modello di Excel ha superato nettamente le prestazioni del modell
 
 Il processo e i risultati sono stati sottoposti agli sviluppatori e ai data scientist del team di Machine Learning, che ha subito fornito alcuni suggerimenti utili. 
 
-* Quando si usa il modulo [Linear Regression][linear-regression] (Regressione lineare) in Studio, vengono forniti due metodi.
+* Quando si usa la [Linear Regression][linear-regression] modulo in Studio, vengono forniti due metodi:
   * Online Gradient Descent: questo può essere il metodo più adatto a problemi su larga scala.
   * Ordinary Least Squares: questo è il metodo generalmente associato alla regressione lineare. Per set di dati di piccole dimensioni, il metodo Ordinary Least Squares è solitamente la scelta ottimale.
 * Provare a modificare il parametro L2 Regularization Weight per migliorare le prestazioni. Per impostazione predefinita è impostato su 0.001, ma per i set di dati di piccole dimensioni in questo caso è stato impostato su 0.005 per migliorare le prestazioni. 
@@ -109,9 +109,9 @@ Con la cartella di lavoro aperta, copiare i parametri predefiniti nella sezione 
 ![Cartella di lavoro di Excel modello ci si connette al servizio web distribuito.](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>Ottimizzazione e altri esperimenti
-Con una base disponibile con il modello di Excel, è stato possibile passare all'ottimizzazione del modello di regressione lineare di Machine Learning. È stato usato il modulo [Filter-Based Feature Selection][filter-based-feature-selection] (Selezione di funzionalità in base al filtro) per ottimizzare la selezione degli elementi dei dati iniziali e ottenere un miglioramento delle prestazioni del 4,6% dell'errore assoluto medio. Per i progetti futuri si userà questa funzionalità che risparmiare settimane impiegate nell'iterazione degli attributi di dati per trovare il giusto set di funzionalità da usare per la modellazione. 
+Con una base disponibile con il modello di Excel, è stato possibile passare all'ottimizzazione del modello di regressione lineare di Machine Learning. È stato usato il modulo [Filter-Based Feature Selection][filter-based-feature-selection] per ottimizzare la selezione dei dati iniziale elementi e permesso di ottenere un miglioramento delle prestazioni del 4,6% errore assoluto medio. Per i progetti futuri si userà questa funzionalità che risparmiare settimane impiegate nell'iterazione degli attributi di dati per trovare il giusto set di funzionalità da usare per la modellazione. 
 
-È prevista l'aggiunta di altri algoritmi all'esperimento, ad esempio quelli [bayesiani][bayesian-linear-regression] o gli [alberi delle decisioni con boosting][boosted-decision-tree-regression], per confrontare le prestazioni. 
+È prevista l'aggiunta di altri algoritmi, ad esempio [Bayesiana][bayesian-linear-regression] or [Boosted Decision Trees][boosted-decision-tree-regression] nell'esperimento per confrontare le prestazioni. 
 
 Per eseguire un esperimento con regressione, si consiglia di provare il set di dati di esempio Energy Efficiency Regression, che contiene numerosi attributi numerici. Il set di dati viene fornito come parte dei set di dati di esempio in Studio. È possibile usare diversi moduli di apprendimento per la previsione di Heating Load o Cooling Load. Il grafico seguente è un confronto delle prestazioni di diverse soluzioni di regressione rispetto alle previsioni del set di dati Energy Efficiency per l'elemento variabile Cooling Load di destinazione: 
 
@@ -123,9 +123,9 @@ Per eseguire un esperimento con regressione, si consiglia di provare il set di d
 | Regressione lineare (Ordinary Least Squares) |1,428273 |1,984461 |0,163767 |0,042074 |0,957926 |
 
 ## <a name="key-takeaways"></a>Risultati principali
-L'esecuzione parallela degli esempi di regressione di Excel e di Studio ha aiutato a conoscere meglio questi strumenti. La creazione del modello di base in Excel e il confronto con i modelli usando la [regressione lineare][linear-regression] di Machine Learning hanno illustrato il funzionamento di Studio e permesso di trovare opportunità di miglioramento della selezione dei dati e delle prestazioni del modello. 
+L'esecuzione parallela degli esempi di regressione di Excel e di Studio ha aiutato a conoscere meglio questi strumenti. Creazione del modello di base in Excel e il confronto con i modelli usando Machine Learning [Linear Regression][linear-regression] ha consentito di vedere come Studio e di scoprire nuove opportunità per migliorare le prestazioni di selezione e il modello di dati. 
 
-Il modulo [Filter-Based Feature Selection][filter-based-feature-selection] (Selezione di funzionalità in base al filtro) si è rivelato molto utile per velocizzare i progetti di previsione. Applicando la selezione delle caratteristiche ai dati, è possibile creare un modello ottimizzato in Studio con prestazioni complessivamente migliorate. 
+Abbiamo scoperto anche che è consigliabile usare [Filter-Based Feature Selection][filter-based-feature-selection] per accelerare i progetti di previsione. Applicando la selezione delle caratteristiche ai dati, è possibile creare un modello ottimizzato in Studio con prestazioni complessivamente migliorate. 
 
 La possibilità di trasferire la previsione dell'analisi predittiva da Studio a Excel comporta a livello di sistema un aumento significativo della capacità di fornire risultati a un pubblico molto più ampio di utenti aziendali. 
 
@@ -133,7 +133,7 @@ La possibilità di trasferire la previsione dell'analisi predittiva da Studio a 
 Di seguito sono elencate alcune risorse per agevolare l'uso della regressione: 
 
 * Regressione in Excel. Se non è mai stata provata la regressione in Excel, questa esercitazione la spiega in modo molto chiaro: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
-* Regressione e previsione. Tyler Chessman ha scritto un articolo di blog in cui spiega come fare previsioni di serie temporali in Excel, che contiene una valida descrizione di base della regressione lineare. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
+* Regressione e previsione. Tyler Chessman ha scritto un articolo di blog in cui spiega come fare previsioni di serie temporali in Excel, che contiene una valida descrizione di base della regressione lineare. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
 * Regressione lineare Ordinary Least Squares: difetti, problemi e ostacoli. Per un'introduzione e una discussione sulla regressione: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->

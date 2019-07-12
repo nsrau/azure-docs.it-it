@@ -3,18 +3,18 @@ title: Output di Analisi di flusso di Azure in Database SQL di Azure
 description: Maggiori informazioni sull'output dei dati in SQL Azure da Analisi di flusso di Azure e su come ottenere una elevata velocità effettiva di scrittura.
 services: stream-analytics
 author: chetanmsft
-ms.author: chetanmsft
+ms.author: chetang
 manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/18/2019
-ms.openlocfilehash: ac58bbbc252d66620ad410bffa805b75ec3042d4
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: e0775bff1e7bdeeaf2c544fd815c2ce3bf129eae
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341764"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620863"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Output di Analisi di flusso di Azure in Database SQL di Azure
 

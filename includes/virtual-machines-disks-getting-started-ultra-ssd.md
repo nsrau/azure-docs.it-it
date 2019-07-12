@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7515c061467419412608bb8103136791845ae093
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 742e0028b1f92beb8300cc97f09d8292259fbc0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133729"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712475"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>Abilita e si distribuisce Azure SSDs extra (anteprima)
 
@@ -33,7 +33,7 @@ La risposta sarà simile a quello riportato di seguito, dove X è la zona da uti
 
 Mantenere il **zone** valore, rappresenta la zona di disponibilità e sarà necessario per distribuire un'unità SSD extra.
 
-|ResourceType  |Name  |Località  |Zone  |Restrizione  |Funzionalità  |Value  |
+|ResourceType  |NOME  |Location  |Zone  |Restrizione  |Funzionalità  |Valore  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -63,7 +63,7 @@ Per usare unità SSD extra, è necessario creare una macchina virtuale che è ca
 Sostituire o impostare il **$vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** variabili con i propri valori. Impostare **$zone** al valore della zona di disponibilità che è stato creato dalle [avvio di questo articolo](#determine-your-availability-zone). Eseguire quindi il comando seguente per creare una macchina virtuale abilitata extra:
 
 ```azurecli-interactive
-az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
 ```
 
 ### <a name="create-an-ultra-ssd-using-cli"></a>Creare un'unità SSD extra utilizzando CLI

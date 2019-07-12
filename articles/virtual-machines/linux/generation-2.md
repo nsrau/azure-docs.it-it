@@ -4,7 +4,7 @@ description: Panoramica del supporto tecnico di Azure per macchine virtuali di g
 services: virtual-machines-linux
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 352df275742c38307065252d2f65bb4253d78e5d
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 653d4baa89e28255f11df1c5e2d813d37535793a
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151265"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667553"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Supporto per la generazione 2 macchine virtuali (anteprima) in Azure
 
@@ -40,7 +40,7 @@ Macchine virtuali di generazione 1 sono supportate da tutte le dimensioni di mac
 * [Serie Dsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv2-series) e [serie Dsv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv3-series-1)
 * [Macchine virtuali serie Esv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#esv3-series)
 * [Macchine virtuali serie Fsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-compute#fsv2-series-1)
-* [Serie GS](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#gs-series)
+* [Serie GS](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
 * [Serie ls](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) e [Lsv2 serie](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-storage#lsv2-series)
 * [Mv2 serie](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)
 

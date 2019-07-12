@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 78ee2c1ce402a29f1a9dfdd29f31daef09134eba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 09fd569ebfe8bc7f287eeb2a0b830399250c3a7a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60611327"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701502"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Pig in Azure Data Factory
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
@@ -85,13 +85,13 @@ L'attività Pig di HDInsight in una [pipeline](data-factory-create-pipelines.md)
 
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
-| name |Nome dell'attività |Yes |
+| name |Nome dell'attività |Sì |
 | description |Testo descrittivo per lo scopo dell'attività |No |
-| type |HDInsightPig |Yes |
+| type |HDInsightPig |Sì |
 | inputs |Uno o più input usati dall'attività Pig |No |
-| outputs |Uno o più input prodotti dall'attività Pig |Yes |
-| linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Yes |
-| script |Specificare lo script Pig inline |N. |
+| outputs |Uno o più input prodotti dall'attività Pig |Sì |
+| linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Sì |
+| script |Specificare lo script Pig inline |No |
 | scriptPath |Archiviare lo script Pig in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |N. |
 | defines |Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Pig |No |
 

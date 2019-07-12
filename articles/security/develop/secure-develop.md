@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f68f6c366571b8f0f04f8507606c1a4008ab0405
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4add4bf07178aa616e86f8a64b313630466824f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443253"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653272"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Sviluppare applicazioni sicure in Azure
 In questo articolo ti presentiamo le attività di sicurezza e controlli da considerare quando si sviluppano applicazioni per il cloud. Domande di sicurezza e i concetti da considerare durante le fasi di implementazione e la verifica di Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) vengono analizzati. L'obiettivo è che consentono di definire le attività e i servizi di Azure che è possibile usare per sviluppare un'applicazione più sicura.
@@ -88,7 +88,7 @@ Ciò significa che meno persone hanno accesso ai dati reali, che riduce la super
 
 Per difendersi dagli attacchi di forza bruta e basata su dizionario un'ipotesi, è necessario implementare criteri password complessi per garantire che gli utenti creino password complesse (ad esempio, la lunghezza minima di 12 caratteri e che richiedono di caratteri speciali e alfanumerici).
 
-È possibile usare un framework di identità per creare e applicare i criteri password. Azure AD B2C consente di gestione delle password, fornendo [i criteri predefiniti](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy), [reimpostazione password self-service](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr)e così via.
+È possibile usare un framework di identità per creare e applicare i criteri password. Azure AD B2C consente di gestione delle password, fornendo [i criteri predefiniti](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow), [reimpostazione password self-service](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr)e così via.
 
 Per difendersi da attacchi ad account predefiniti, verificare che tutte le chiavi e le password siano sostituibili e che si sta generate o sostituite dopo l'installazione di risorse.
 

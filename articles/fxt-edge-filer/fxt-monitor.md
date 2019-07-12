@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: e7395c69d99884a5c662e545a69778ed195aec55
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: e6afd90c4e5a1b0759b3de7789ec37db4c04f2c7
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543045"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827452"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Monitorare lo stato dell'hardware Azure FXT Edge filtro
 
@@ -44,9 +44,9 @@ Ogni supporto dell'unità ha due LED di stato: un indicatore dell'attività (1) 
 
 Il lato destro dell'unità (3) viene etichettato con la capacità dell'unità e altre informazioni.
 
-Vengono stampati i numeri di unità in corrispondenza dello spazio tra le unità. In Azure FXT Edge filtro, unità 0 è la parte superiore sinistra unità e unità 1 viene immediatamente di sotto. Numerazione continua in quel modello. 
+I numeri delle unità sono stampati nello spazio tra le unità. In Azure FXT Edge Filer, l'unità 0 è quella in alto a sinistra, mentre l'unità 1 è quella immediatamente al di sotto. Numerazione continua in quel modello. 
 
-![foto di un disco rigido alloggiamento nello chassis FXT, con le etichette di capacità e i numeri di unità](media/fxt-drives-photo.png)
+![Foto di un alloggiamento del disco rigido nello chassis FXT, con i numeri di unità e le etichette della capacità](media/fxt-drives-photo.png)
 
 ## <a name="left-control-panel"></a>Pannello di controllo a sinistra
 
@@ -58,9 +58,9 @@ Il pannello di controllo anteriore a sinistra presenta vari indicatori LED di st
 
 Gli indicatori di stato a sinistra mostrano una luce ambra solid se si verifica un errore in tale sistema. Nella tabella seguente vengono descritte le possibili cause e soluzioni per gli errori. 
 
-Se hai ancora l'errore dopo aver provato queste soluzioni, contattare il supporto tecnico per assistenza. 
+Se hai ancora l'errore dopo aver provato queste soluzioni [contattare il supporto tecnico](fxt-support-ticket.md) per assistenza. 
 
-| Icona | Descrizione | Condizione di errore | Possibili soluzioni |
+| Icona | DESCRIZIONE | Condizione di errore | Possibili soluzioni |
 |----------------|---------------|--------------------|----------------------|
 | ![icona unità](media/fxt-monitor/fxt-hd-icon.jpg) | Stato dell'unità | Errore dell'unità | Controllare il registro eventi di sistema per determinare se l'unità dispone di un errore, o <br>Eseguire il test di diagnostica in linea appropriato. riavviare il sistema e di eseguire la diagnostica incorporata (ePSA), o <br>Se le unità sono configurate in un array RAID, riavviare il sistema e immettere il programma di utilità Configurazione di adapter host |
 |![icona di temperatura](media/fxt-monitor/fxt-temp-icon.jpg) | Stato di temperatura | Errore termico - ad esempio, una ventola è guasta o temperatura ambiente non è compreso nell'intervallo | Verificare le condizioni indirizzabile seguenti: <br>Ventola di raffreddamento è manca o non è riuscita <br>Copertura del sistema, shroud air, modulo memoria vuoto o back-viene rimosso tra parentesi quadre filler <br>La temperatura è troppo elevata <br>Il flusso d'aria esterno è nascosto |
@@ -79,7 +79,7 @@ Premere l'integrità del sistema e un pulsante di ID per passare dalla modalità
 |-------------------------------------------|-----------------------------------------------|
 | Blu a tinta unita | Operazione normale: il sistema è acceso, funzionamento normale, e modalità di ID di sistema non è attiva. <br/>Premere l'integrità di sistema e pulsante ID se si desidera passare alla modalità di ID di sistema. |
 | Blu lampeggia | È attiva la modalità di ID di sistema. Premere l'integrità di sistema e pulsante di ID del sistema se si desidera passare alla modalità di integrità di sistema. |
-| Amber a tinta unita | Il sistema è in modalità provvisoria. Se il problema persiste, contattare il supporto tecnico Microsoft Customer Service. |
+| Amber a tinta unita | Il sistema è in modalità provvisoria. Se il problema persiste, [contattare il supporto tecnico Microsoft](fxt-support-ticket.md). |
 | LED lampeggiante | Errore di sistema. Controllare il registro eventi di sistema per i messaggi di errore specifico. Per informazioni sui messaggi di evento e di errore generati dagli agenti che monitorano i componenti del sistema e il firmware di sistema, vedere la pagina di ricerca di codice di errore al qrl.dell.com. |
 
 

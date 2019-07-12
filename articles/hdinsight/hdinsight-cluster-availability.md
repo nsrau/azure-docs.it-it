@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-ms.openlocfilehash: 459de569916af14b0efea0ff08b92e5c93ed2369
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 195999ba685828042fc958e8aed7e67bad694657
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718904"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786551"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Come monitorare la disponibilità di cluster con Ambari e monitoraggio di Azure log
 
@@ -58,7 +58,7 @@ Per visualizzare un elenco di definizioni di avviso e i relativi stati, fare cli
 
 Ambari offre molti avvisi predefiniti relativi alla disponibilità, tra cui:
 
-| Nome avviso                        | Descrizione                                                                                                                                                                           |
+| Nome avviso                        | DESCRIZIONE                                                                                                                                                                           |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Riepilogo dell'integrità DataNode           | Questo avviso a livello di servizio viene attivato se sono presenti DataNodes non integri                                                                                                                |
 | Stato di disponibilità elevata di NameNode | Questo avviso a livello di servizio viene attivato se NameNode attivi o Standby NameNode non è in esecuzione.                                                                              |
@@ -108,7 +108,7 @@ Una volta attivata l'integrazione dei log di monitoraggio di Azure (l'operazione
 
 Il **registri** pannello elenca un numero di query di esempio, ad esempio:
 
-| Nome della query                      | Descrizione                                                               |
+| Nome della query                      | DESCRIZIONE                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | Oggi stesso la disponibilità di computer    | Il numero di computer che inviano i log, ogni ora del grafico                     |
 | Elenco heartbeat                 | Elencare tutti gli heartbeat computer dall'ultima ora                           |
@@ -123,7 +123,7 @@ Ad esempio, eseguire la **frequenza di disponibilità** esempio di query, fare c
 > [!NOTE] 
 > Frequenza di disponibilità viene misurata in un periodo di 24 ore, in modo che il cluster sarà necessario eseguire per almeno 24 ore prima di poter visualizzare tariffe di disponibilità accurate.
 
-È possibile aggiungere questa tabella a un dashboard condiviso facendo **Pin** nell'angolo superiore destro. Se non si sono presenti dashboard condiviso accessibile in scrittura, è possibile visualizzare come crearne uno qui: [Creare e condividere i dashboard nel portale di Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-a-dashboard-and-manage-access-control).
+È possibile aggiungere questa tabella a un dashboard condiviso facendo **Pin** nell'angolo superiore destro. Se non si sono presenti dashboard condiviso accessibile in scrittura, è possibile visualizzare come crearne uno qui: [Creare e condividere i dashboard nel portale di Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
 ### <a name="azure-monitor-alerts"></a>Avvisi di monitoraggio di Azure
 

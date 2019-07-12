@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3e1f64aa00ea0d78eca8a994814a91600b91239f
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 9d25996db9c13a12781d369327f2b43a41fb4115
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190700"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786526"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Apache Hadoop di terze parti in Azure HDInsight
 
@@ -23,10 +23,10 @@ Un'applicazione HDInsight è un'applicazione che gli utenti possono installare i
 
 L'elenco seguente mostra le applicazioni pubblicate:
 
-|Applicazione |Tipi di cluster | Descrizione |
+|Applicazione |Tipi di cluster | DESCRIZIONE |
 |---|---|---|
 |[AtScale Intelligence Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/atscale.atscale) |Hadoop |AtScale attiva il cluster HDInsight in un server OLAP scale-out, consentendo di eseguire query a miliardi di righe di dati in modo interattivo tramite gli strumenti di BI che già conosci, proprietario e apprezzi: in Microsoft Excel, Power BI, Tableau Software per QlikView. |
-|[CDAP for HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |hbase |CDAP è la prima piattaforma di integrazione unificata per big data che accelera la fase di valore per Hadoop e consente al reparto IT fornire dati self-service. Open source e CDAP estendibile, rimuove le barriere all'innovazione. Requirements: Nodi di 4 aree, min D3 v2. |
+|[CDAP for HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |hbase |CDAP è la prima piattaforma di integrazione unificata per big data che accelera la fase di valore per Hadoop e consente al reparto IT fornire dati self-service. Open source e CDAP estendibile, rimuove le barriere all'innovazione. Requisiti: Nodi di 4 aree, min D3 v2. |
 |[Datameer](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datameer.datameer) |Hadoop |Piattaforma self-service scalabile datameer contribuiscono per la preparazione, esplorazione e che controllano i dati di analitica accelera la trasformazione dati multisource complessi in informazioni aziendali importanti, recapito più veloce, più intelligente insights a un livello aziendale. |
 |[Dataiku DSS in HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS in una piattaforma di analisi scientifica dei dati aziendali che consente ai data Scientist e analisti dei dati collaborano per progettare ed eseguire di nuovo i dati prodotti e servizi in modo più efficiente, trasformare i dati non elaborati in previsioni con impatto elevate. |
 |[WANdisco Fusion HDI App](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop, Spark,HBase,Storm,Kafka |Coerenza dei dati in un ambiente distribuito è un problema di operazioni di grandi quantità di dati. WANdisco Fusion, una piattaforma software aziendale, risolve questo problema abilitando la coerenza dei dati non strutturati in qualsiasi ambiente. |
@@ -38,7 +38,7 @@ L'elenco seguente mostra le applicazioni pubblicate:
 |[Stella Presto per Azure HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/starburst.starburst-presto) |Hadoop |Presto è un veloce e scalabile distribuito motore di query SQL. Progettato per separare l'archiviazione dal calcolo, Presto è perfetto per eseguire query sui dati in Azure Data Lake Storage, Archiviazione BLOB di Azure, database SQL e NoSQL e altre origini dati. |
 |[StreamSets Data Collector per HDInsight Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop, HBase, Spark, Kafka |StreamSets Data Collector è un motore leggero, potente che consente di trasmettere dati in tempo reale. Usare l'agente di raccolta dati per route ed elaborare i dati nei flussi di dati. È dotato di una licenza di valutazione di 30 giorni. |
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trifacta.tr01) |Hadoop, Spark,HBase |Trifacta Wrangler Enterprise per HDInsight supporta a livello aziendale data wrangling per tutte le esigenze dei dati. Il costo dell'esecuzione Trifacta in Azure è una combinazione di Trifacta i costi di sottoscrizione e i costi di infrastruttura di Azure per le macchine virtuali. |
-|[Piattaforma dati di Unifi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unifi-software.unifi-data-platform) |Hadoop,HBase,Storm,Spark |La piattaforma di dati di Unifi è una suite integrata direttamente dei dati self-service gli strumenti progettati per consentire all'utente di business affrontare sfide poste dai dati tale incremento dei ricavi di unità, ridurre i costi o complessità operativa. |
+|[Piattaforma dati di Unifi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unifi-software.unifi-data-catalog) |Hadoop,HBase,Storm,Spark |La piattaforma di dati di Unifi è una suite integrata direttamente dei dati self-service gli strumenti progettati per consentire all'utente di business affrontare sfide poste dai dati tale incremento dei ricavi di unità, ridurre i costi o complessità operativa. |
 |[Application Performance Monitoring Unraveldata](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |Individuare le app di dati per il cluster HDInsight Spark. |
 |[Livello dell'acqua basato su intelligenza artificiale per Data Catalog](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/waterline_data.waterline_data) |Spark |Livello dell'acqua cataloghi, organizza e gestisce i dati usando intelligenza artificiale per auto-contrassegnare i dati con i termini aziendali. Il ricco catalogo aziendale di Waterline è un componente critico e di successo per il self-service di analisi, conformità, governance e iniziative di gestione dell'IT. |
 
@@ -87,7 +87,7 @@ Il portale include un elenco delle applicazioni HDInsight installate per un clus
     |Stato |Stato dell'applicazione. |
     |Pagina Web |URL dell'applicazione Web distribuita nel nodo perimetrale. Le credenziali sono le stesse usate per le credenziali utente HTTP configurate per il cluster. |
     |Endpoint SSH |È possibile usare SSH per connettersi al nodo perimetrale. Le credenziali SSH sono le stesse usate per le credenziali utente SSH configurate per il cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-    |Descrizione | Descrizione dell'applicazione. |
+    |DESCRIZIONE | Descrizione dell'applicazione. |
 
 6. Per eliminare un'applicazione, fare clic con il pulsante destro del mouse sull'applicazione e quindi scegliere **Elimina** dal menu di scelta rapida.
 

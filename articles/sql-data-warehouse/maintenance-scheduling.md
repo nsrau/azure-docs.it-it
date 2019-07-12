@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 03/13/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: b97e27b86ecad1f7f87a6de4d43b09d69c167c6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab6efb858cc86495c687055ce3049cfc0cca7433
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075329"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807902"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Usare le pianificazioni della manutenzione per gestire gli aggiornamenti e la manutenzione dei servizi
 
@@ -34,6 +34,9 @@ Per usare questa funzione è necessario identificare una finestra primaria e sec
 L'integrazione con le notifiche sull'integrità dei servizi e il monitoraggio per il controllo dell'integrità delle risorse consente ai clienti di essere aggiornati sulle attività di manutenzione imminenti. La nuova automazione si avvale di Monitoraggio di Azure. È possibile decidere come si vuole ricevere una notifica degli eventi di manutenzione imminenti. Si può anche decidere quali flussi automatici consentono di gestire i tempi di inattività e ridurre al minimo l'impatto sulle operazioni.
 
 Un preavviso di 24 ore prima tutti gli eventi di manutenzione, con l'eccezione corrente di DW400c e i livelli inferiori. Per ridurre al minimo i tempi di inattività delle istanze, assicurarsi che non siano presenti transazioni con esecuzione prolungata nel data warehouse prima del periodo di manutenzione scelto. Quando inizia la manutenzione verranno annullate tutte le sessioni attive. Le transazioni di commit non verranno annullate e il data warehouse si verifica una breve perdita di connettività. L'utente riceverà una notifica immediatamente al termine della manutenzione del data warehouse.
+
+> [!NOTE]
+> Nel caso in cui è sono necessari per distribuire un aggiornamento critico di tempo, tempi di notifica avanzata possono essere ridotto significativamente.
 
 Se si riceve un preavviso prima dell'esecuzione della manutenzione, ma SQL Data Warehouse non riesce a eseguire la manutenzione nell'orario prestabilito, si riceverà una notifica di annullamento. La manutenzione verrà quindi ripresa durante il successivo periodo di manutenzione pianificato.
 

@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f6c2f36e1061243851b37da47659aaf7a18e8d6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108896"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673013"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Cos'è Azure Active Directory Identity Protection (aggiornato)?
 
@@ -67,7 +67,7 @@ Azure AD Identity Protection rileva gli eventi di rischio seguenti:
 
  
 
-| Tipo di evento di rischio | Descrizione | Tipo di rilevamento |
+| Tipo di evento di rischio | DESCRIZIONE | Tipo di rilevamento |
 | ---             | ---         | ---            |
 | Trasferimento atipico | Accesso da una posizione insolita in base agli accessi recenti dell'utente. | Offline |
 | Indirizzo IP anonimo | Accesso da indirizzo IP anonimo (ad esempio Tor Browser, VPN per navigazione in anonimato). | Tempo reale |
@@ -119,7 +119,7 @@ Il rischio utente viene calcolato considerando tutti i rischi associati all'uten
 
 ## <a name="how-identity-protection-detects-risk"></a>Rilevamento del rischio in Identity Protection  
 
-Azure AD usa l’apprendimento automatico per rilevare anomalie ed eventuali attività sospette, sfruttando sia i segnali rilevati in tempo reale durante gli accessi, sia quelli non in tempo reale correlati agli utenti e alle loro attività di accesso. Usando questi dati, Identity Protection calcola un rischio di accesso in tempo reale ogni volta che un utente esegue l'autenticazione, oltre a determinare un livello di rischio utente complessivo per ogni utente. Identity Protection consente di eseguire azioni automatiche sui rilevamenti di rischio tramite la configurazione dei criteri per rischi utente e rischi di accesso.  
+Azure AD usa l’apprendimento automatico per rilevare anomalie ed eventuali attività sospette, sfruttando sia i segnali rilevati in tempo reale durante gli accessi, sia quelli non in tempo reale correlati agli utenti e alle loro attività di accesso. Usando questi dati, Identity Protection consente di calcolare un rischio di accesso in tempo reale ogni volta che un utente esegue l'autenticazione, nonché determinare un livello di rischio utente complessivo per ogni utente. Identity Protection consente di eseguire azioni automatiche sui rilevamenti di rischio tramite la configurazione dei criteri per rischi utente e rischi di accesso.  
 
  
 
@@ -194,7 +194,7 @@ Per iniziare a usare Identity Protection, per prima cosa è necessario configura
 
 Identity Protection supporta 3 ruoli in Azure AD per bilanciare le attività di gestione nella distribuzione: 
 
-| Ruolo | Operazione consentita | Operazione non consentita |
+| Role | Operazione consentita | Operazione non consentita |
 | --- | --- | --- |
 | Amministratore globale | Accesso completo a Identity Protection, implementazione di Identity Protection | |
 | Amministratore della sicurezza | Accesso completo a Identity Protection | Implementazione di Identity Protection, reimpostazione delle password per un utente |
@@ -212,8 +212,8 @@ Per altri dettagli, vedere [Assegnazione dei ruoli di amministratore in Azure Ac
 
 | Funzionalità | Azure AD P2 Premium | Azure AD Premium P1 | Azure AD Basic/Gratuito |
 | --- | --- | --- | --- |
-| Criteri di rischio utente | Yes | No | No |
-| Criteri di rischio di accesso | Yes | No | No |
+| Criteri di rischio utente | Sì | No | No |
+| Criteri di rischio di accesso | Sì | No | No |
 | Report utenti a rischio | Accesso completo | Informazioni limitate | Informazioni limitate |
 | Report sugli accessi a rischio | Accesso completo | Informazioni limitate | Informazioni limitate |
 | Criteri di registrazione MFA | Yes | No | No |
