@@ -128,6 +128,8 @@
           href: dbms_guide_ibm.md
         - name: Disponibilità elevata di IBN D2 LUW in macchine virtuali di Azure su SUSE Linux Enterprise Server
           href: dbms-guide-ha-ibm.md
+        - name: Disponibilità elevata di IBN Db2 LUW in macchine virtuali di Azure su Red Hat Enterprise Linux Server
+          href: high-availability-guide-rhel-ibm-db2-luw.md
         - name: Distribuzione DBMS per SAP ASE di macchine virtuali di Azure per un carico di lavoro SAP
           href: dbms_guide_sapase.md
         - name: 'Distribuzione di SAP MaxDB, SAP liveCache e SAP Content Server in Azure'

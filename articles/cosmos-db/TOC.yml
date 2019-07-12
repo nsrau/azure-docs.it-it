@@ -285,7 +285,7 @@
           href: online-backup-and-restore.md
         - name: Conformità
           href: compliance.md
-    - name: Limiti delle risorse
+    - name: Quote dei servizi
       href: concepts-limits.md
 - name: 'Cassandra, MongoDB e altre API'
   expanded: true
@@ -632,6 +632,8 @@
           href: key-value-store-cost.md
     - name: Risolvere problemi
       items:
+        - name: Risoluzione dei problemi di prestazioni delle query
+          href: troubleshoot-query-performance.md
         - name: Risolvere i problemi di Java Async SDK
           href: troubleshoot-java-async-sdk.md
         - name: Risolvere i problemi di .NET SDK

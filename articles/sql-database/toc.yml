@@ -30,6 +30,8 @@
       items:
         - name: Regole del firewall IP a livello di server
           href: sql-database-server-level-firewall-rule.md
+        - name: Configurare un endpoint pubblico in Istanza gestita
+          href: sql-database-managed-instance-public-endpoint-configure.md
         - name: Connessione della macchina virtuale client a un'istanza gestita
           href: sql-database-managed-instance-configure-vm.md
         - name: Connessione da punto a sito a un'istanza gestita
@@ -512,8 +514,6 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: Connettere le applicazioni
           href: sql-database-managed-instance-connect-app.md
-        - name: Configurare un endpoint pubblico
-          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: Caricare e spostare dati
       items:
         - name: Copiare un database all'interno di Azure

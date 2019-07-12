@@ -52,6 +52,10 @@
               href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
             - name: Python
               href: Quickstarts/get-answer-from-knowledge-base-python.md
+    - name: Uso di SDK
+      items:
+        - name: 'C#'
+          href: ./Quickstarts/create-publish-kb-csharp-sdk.md
 - name: Esercitazioni
   items:
     - name: Creare e rispondere da una knowledge base
@@ -169,7 +173,9 @@
       items:
         - name: 'C#'
           items:
-            - name: NuGet
+            - name: Documentazione di riferimento
+              href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet'
+            - name: Pacchetto NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/'
         - name: Go
           items:

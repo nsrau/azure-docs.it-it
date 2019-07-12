@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 134ab2a5f0b1b1569cdf4747f5bbe3f895ba4e8f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 8487f82b123b42f9d6a6f0fbd6d6cbb240bf9fdc
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293025"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785537"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuire la protezione delle password di Azure AD
 
@@ -44,7 +44,7 @@ Dopo la funzionalità di esecuzione in modalità di controllo per un periodo di 
    > Distribuzione del servizio proxy è un requisito obbligatorio per la distribuzione di protezione tramite password di Azure AD anche se il controller di dominio abbia connettività in uscita diretta a internet. 
    >
 * Tutti i computer in cui verrà installato il servizio Proxy di protezione delle Password di Azure AD è necessario .NET 4.7 installato.
-  .NET 4.7 deve già essere installato in un Server di Windows completamente aggiornato. Se ciò non avviene, scaricare ed eseguire il programma di installazione, vedere [programma di installazione offline di .NET Framework 4.7 per Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  .NET 4.7 deve già essere installato in un Server di Windows completamente aggiornato. Se ciò non avviene, scaricare ed eseguire il programma di installazione, vedere [programma di installazione offline di .NET Framework 4.7 per Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Tutte le macchine, tra cui i controller di dominio, che ottengono installati i componenti di protezione di Azure AD password deve avere installato il Runtime C universali. È possibile ottenere il runtime, garantendo che si dispone di tutti gli aggiornamenti da Windows Update. Oppure è possibile crearlo in un pacchetto di aggiornamento del sistema operativo specifico. Per altre informazioni, vedere [aggiornamento di Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Connettività di rete tra deve esistere almeno un controller di dominio in ogni dominio e almeno un server che ospita il servizio proxy per la protezione con password. Tale connettività deve consentire il controller di dominio accedere a RPC endpoint mapper la porta 135 e la porta del server RPC del servizio proxy. Per impostazione predefinita, la porta del server RPC è una porta dinamica RPC, ma può essere configurato per [usare una porta statica](#static).
 * Tutti i computer che ospitano il servizio proxy devono avere accesso alla rete agli endpoint seguenti:

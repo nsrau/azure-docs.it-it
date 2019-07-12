@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/10/2019
 abstract:
-  description: '<p>Condivisione dati di Azure (anteprima) è un servizio sicuro e affidabile per condividere dati con organizzazioni di terze parti. Selezionare i set di dati che si intende condividere, aggiungere i destinatari e iniziare a condividere dati con la possibilità di gestire, monitorare e controllare le relazioni di condivisione dei dati. </p><p>Esercitazioni per imparare a usare Condivisione dati di Azure.</p>'
+  description: '<p>Condivisione dati di Azure (anteprima) è un servizio sicuro e affidabile per condividere dati con organizzazioni di terze parti. Selezionare i set di dati che si intende condividere, aggiungere i destinatari e iniziare a condividere dati con la possibilità di gestire, monitorare e controllare le relazioni di condivisione dei dati. </p><p>Informazioni su come usare Condivisione dati di Azure tramite esercitazioni e guide pratiche.</p>'
   aside:
     image:
       alt: null

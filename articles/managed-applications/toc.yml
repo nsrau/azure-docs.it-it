@@ -11,14 +11,24 @@
       href: publish-managed-app-definition-quickstart.md
     - name: Distribuire un'app del catalogo di servizi
       href: deploy-service-catalog-quickstart.md
+    - name: Creare un provider di risorse personalizzato
+      href: create-custom-provider.md
 - name: Esercitazioni
   items:
+    - name: provider personalizzati
+      items:
+        - name: Introduzione ai provider personalizzati
+          href: tutorial-custom-providers-101.md
+        - name: Configurare Funzioni di Azure
+          href: tutorial-custom-providers-function-setup.md
+        - name: Creare un endpoint RESTful
+          href: tutorial-custom-providers-function-authoring.md
+        - name: Creare e utilizzare provider personalizzati
+          href: tutorial-custom-providers-create.md
     - name: Creare file di definizioni
       href: publish-service-catalog-app.md
     - name: Pubblicare un'applicazione del Marketplace
       href: publish-marketplace-app.md
-    - name: Creare un provider di risorse personalizzato
-      href: create-custom-provider.md
 - name: Esempi
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -29,13 +39,13 @@
       href: sample-projects.md
 - name: Concetti
   items:
-    - name: Provider di risorse personalizzati di Azure
+    - name: Provider personalizzati di Azure
       href: custom-providers-overview.md
     - name: Artefatto di definizione delle visualizzazioni
       href: concepts-view-definition.md
 - name: Guide alle procedure
   items:
-    - name: Provider di risorse personalizzati
+    - name: Provider personalizzati
       items:
         - name: Aggiungere azioni personalizzate in Azure
           href: custom-providers-action-endpoint-how-to.md
@@ -65,12 +75,14 @@
           href: approve-just-in-time-access.md
 - name: riferimento
   items:
-    - name: Provider di risorse personalizzati
+    - name: Provider personalizzati
       items:
         - name: Informazioni di riferimento per il proxy di risorse personalizzate
           href: custom-providers-proxy-resource-endpoint-reference.md
         - name: Informazioni di riferimento per la cache di risorse personalizzate
           href: custom-providers-proxy-cache-resource-endpoint-reference.md
+        - name: Informazioni di riferimento per l'endpoint RESTful di provider personalizzati
+          href: reference-custom-providers-csharp-endpoint.md
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/managedapp
     - name: PowerShell

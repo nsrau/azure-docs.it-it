@@ -41,10 +41,14 @@
   items:
     - name: SKU Registro contenitori
       href: container-registry-skus.md
+    - name: 'Registri, repository e immagini'
+      href: container-registry-concepts.md
     - name: Archiviazione immagini
       href: container-registry-storage.md
     - name: Formati del contenuto
       href: container-registry-image-formats.md
+    - name: Tag e versioni delle immagini
+      href: container-registry-image-tag-version.md
     - name: Replica geografica
       href: container-registry-geo-replication.md
     - name: Procedure consigliate per il registro contenitori
