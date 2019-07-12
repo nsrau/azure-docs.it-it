@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d2440b638a9c8eb27505b747d26917de8032e6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cc6c8b4947f8c5ebeb27be2dc82f323f84a6902
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510133"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835428"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Collegare una sottoscrizione di Azure a un tenant di Azure Active Directory B2C
 
@@ -45,9 +45,9 @@ Passare al tenant di Azure AD che mostra la sottoscrizione di Azure. Aprire il [
 
 ## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Trovare Azure Active Directory B2C in Azure Marketplace
 
-Fare clic sul pulsante **Crea una risorsa**. Nel campo **Cerca nel Marketplace** immettere `B2C`.
+Fare clic sul pulsante **Crea una risorsa**. Nel **Cerca nel Marketplace** immettere `Active Directory B2C`.
 
-![Pulsante Aggiungi evidenziato e testo Azure Active Directory B2C nel campo Cerca nel Marketplace](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![Screenshot del portale con 'Active Directory B2C' in ricerca di Marketplace](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
 Nell'elenco dei risultati selezionare **Azure Active Directory B2C**.
 
@@ -67,7 +67,7 @@ Per Sottoscrizione, selezionare una sottoscrizione attiva di Azure di cui si è 
 
 Selezionare un gruppo di risorse e la località del gruppo di risorse. La selezione non influisce su località, prestazioni o stato di fatturazione del tenant di Azure AD B2C.
 
-![Creare una risorsa B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![Pagina di creazione della risorsa di Azure AD B2C nel portale di Azure](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
 ## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Gestire le risorse del tenant di Azure AD B2C
 
@@ -80,7 +80,15 @@ Dopo aver creato una risorsa di Azure AD B2C nella sottoscrizione di Azure, verr
 - Inviare una richiesta di supporto.
 - Spostare la risorsa del tenant di Azure AD B2C in un'altra sottoscrizione di Azure o in un altro gruppo di risorse.
 
-![Impostazioni della risorsa B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
+![Pagina Impostazioni risorsa B2C nel portale di Azure](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
+
+## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Modificare il tenant di Azure AD B2C sottoscrizione di fatturazione
+
+I tenant di Azure AD B2C possono essere spostati in un'altra sottoscrizione se le sottoscrizioni di origine e destinazione trovarsi nello stesso tenant di Azure Active Directory.
+
+Per informazioni su come spostare le risorse di Azure, ad esempio il tenant di Azure AD B2C in un'altra sottoscrizione, vedere [spostare le risorse in un nuovo gruppo di risorse o sottoscrizione](../azure-resource-manager/resource-group-move-resources.md).
+
+Prima di avviare lo spostamento, assicurarsi di leggere l'intero articolo per comprendere meglio le limitazioni e requisiti per questo tipo di spostamento. Oltre alle istruzioni per lo spostamento delle risorse, sono incluse informazioni critiche, ad esempio un elenco di controllo di pre-move e come convalidare l'operazione di spostamento.
 
 ## <a name="known-issues"></a>Problemi noti
 

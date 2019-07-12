@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 81bde837cd78646f1fc59d921246c72978ecb840
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 15724adfc6eb875f3d2d5b6d3ecbbb54135a7265
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180128"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671424"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usare strumenti di automazione dell'infrastruttura con macchine virtuali in Azure
 Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in genere consigliabile una certa parte di automazione. Sono disponibili numerosi strumenti e soluzioni che consentono di automatizzare l'intero ciclo di vita di distribuzione e gestione dell'infrastruttura di Azure. Questo articolo presenta alcuni degli strumenti di automazione dell'infrastruttura che è possibile usare in Azure. Questi strumenti sono in genere associati a uno degli approcci seguenti:
@@ -45,7 +45,7 @@ Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in 
 
 
 ## <a name="puppet"></a>Puppet
-[Puppet](https://www.puppet.com) è una piattaforma di automazione di livello aziendale che gestisce il processo di distribuzione delle applicazioni. Gli agenti vengono installati nei computer di destinazione per consentire a Puppet Master di eseguire i manifesti che definiscono la configurazione desiderata dell'infrastruttura e delle macchine virtuali di Azure. Puppet può integrarsi con altre soluzioni come Jenkins e GitHub per offrire un flusso di lavoro DevOps migliorato. Per altre informazioni, vedere [How Puppet works](https://puppet.com/product/how-puppet-works) (Funzionamento di Puppet).
+[Puppet](https://www.puppet.com) è una piattaforma di automazione di livello aziendale che gestisce il processo di distribuzione delle applicazioni. Gli agenti vengono installati nei computer di destinazione per consentire a Puppet Master di eseguire i manifesti che definiscono la configurazione desiderata dell'infrastruttura e delle macchine virtuali di Azure. Puppet può integrarsi con altre soluzioni come Jenkins e GitHub per offrire un flusso di lavoro DevOps migliorato. Per altre informazioni, vedere [How Puppet works](https://puppet.com/products/how-puppet-works) (Funzionamento di Puppet).
 
 È possibile passare agli argomenti seguenti:
 
@@ -53,7 +53,7 @@ Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in 
 
 
 ## <a name="cloud-init"></a>cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) è un approccio diffuso per personalizzare una macchina virtuale Linux al primo avvio. Cloud-init consente di installare pacchetti e scrivere file o configurare utenti e impostazioni di sicurezza. Poiché cloud-init viene chiamato durante il processo di avvio iniziale, non è necessario applicare passaggi aggiuntivi o agenti alla configurazione.  Per altre informazioni su come formattare correttamente i file `#cloud-config`, vedere il [sito della documentazione di cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  I file `#cloud-config` sono file di testo codificati in formato base64.
+[Cloud-init](https://cloudinit.readthedocs.io) è un approccio diffuso per personalizzare una macchina virtuale Linux al primo avvio. Cloud-init consente di installare pacchetti e scrivere file o configurare utenti e impostazioni di sicurezza. Poiché cloud-init viene chiamato durante il processo di avvio iniziale, non è necessario applicare passaggi aggiuntivi o agenti alla configurazione.  Per altre informazioni su come formattare correttamente i file `#cloud-config`, vedere il [sito della documentazione di cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  I file `#cloud-config` sono file di testo codificati in formato base64.
 
 Cloud-init funziona anche fra distribuzioni. Ad esempio, non si usa **apt-get install** o **yum install** per installare un pacchetto. In alternativa, è possibile definire un elenco di pacchetti da installare. Cloud-init userà automaticamente lo strumento di gestione del pacchetto nativo per la distribuzione selezionata.
 

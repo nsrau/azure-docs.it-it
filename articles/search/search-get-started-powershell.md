@@ -1,7 +1,7 @@
 ---
 title: 'Avvio rapido di PowerShell: Creare, caricare ed eseguire query sugli indici con API REST di ricerca di Azure - ricerca di Azure'
 description: Viene illustrato come creare un indice, caricare i dati ed eseguire query tramite PowerShell Invoke-RestMethod e l'API REST di ricerca di Azure.
-ms.date: 07/09/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: e66223ed953af0c4727d2be92e686b8b50e4769f
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
-ms.translationtype: HT
+ms.openlocfilehash: c8a49fe5d334b5752b9272e480fb2502a980b0a4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827965"
+ms.locfileid: "67840178"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>Avvio rapido: Creare un indice di ricerca di Azure in PowerShell usando le API REST
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "67827965"
 > * [Portale](search-create-index-portal.md)
 > 
 
-Questo articolo illustra il processo di creazione, caricamento e l'esecuzione di query su un indice di ricerca di Azure con PowerShell e il [API REST di ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/). Questo articolo illustra come eseguire i comandi di PowerShell in modo interattivo. In alternativa, è possibile eseguire uno script completato. Per scaricare una copia, visitare il [azure-search-powershell-samples](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) repository.
+Questo articolo illustra il processo di creazione, caricamento e l'esecuzione di query su un indice di ricerca di Azure con PowerShell e il [API REST di ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/). Questo articolo illustra come eseguire i comandi di PowerShell in modo interattivo. In alternativa, è possibile [scaricare ed eseguire uno script di Powershell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) che esegue le stesse operazioni.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -64,7 +64,7 @@ Per ogni richiesta inviata al servizio è necessario specificare una chiave API.
 2. Creare un **$url** che specifica il servizio raccolta di indici. Sostituire il nome del servizio (YOUR-SEARCH-SERVICE-NAME) con un servizio di ricerca valida.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
     ```
 
 3. Eseguire **Invoke-RestMethod** per inviare una richiesta GET al servizio e verificare la connessione. Aggiungere **ConvertTo-Json** in modo che sia possibile visualizzare le risposte inviate dal servizio.

@@ -10,12 +10,12 @@ ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2e7e2048c70cab48ca81b3ebd6bd06779a7bdaeb
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
-ms.translationtype: HT
+ms.openlocfilehash: 5f2830b524c554a6988bfc873cd0f6c54e5c56a4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595666"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839671"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare dati relativi ai taxi di New York in Azure SQL Data Warehouse
 
@@ -603,7 +603,7 @@ Il caricamento con PolyBase e l'autenticazione tramite identità gestite è il m
         
    1. Eseguire le query come di consueto usando le [tabelle esterne](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
-Vedere quanto segue [documentazione] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) se si desidera configurare gli endpoint di servizio di rete virtuale per SQL Data Warehouse. 
+Vedere quanto segue [documentazione](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) se si desidera configurare gli endpoint di servizio di rete virtuale per SQL Data Warehouse. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

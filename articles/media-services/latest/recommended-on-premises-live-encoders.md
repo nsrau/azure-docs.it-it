@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 06/12/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 1bede8ff7c33988a4e11a84d3a51ca098a608f33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e31ad51121b1b198e2d444e70c3f482b208ef105
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055290"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840134"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificatori di streaming live consigliati
 
@@ -97,7 +97,7 @@ Servizi multimediali di Azure offre ai partner di codificatore locale il vantagg
 10. Combinare l'URL del passaggio 8 con il nome host del passaggio 9 per ottenere l'URL completo.
 11. Eseguire il codificatore live per circa 10 minuti.
 12. Arrestare l'evento live. 
-13. Usare un lettore, ad esempio [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html), per guardare la risorsa archiviata e accertarsi che la riproduzione non presenti anomalie visibili a tutti i livelli qualitativi. In alternativa, guardare e convalidare tramite l'anteprima URL durante la sessione live.
+13. Usare un lettore, ad esempio [Azure Media Player](http://aka.ms/azuremediaplayer), per guardare la risorsa archiviata e accertarsi che la riproduzione non presenti anomalie visibili a tutti i livelli qualitativi. In alternativa, guardare e convalidare tramite l'anteprima URL durante la sessione live.
 14. Registrare l'ID dell'asset, l'URL di streaming pubblicato per l'archivio live, le impostazioni e la versione usate dal codificatore live.
 15. Reimpostare lo stato dell'evento live dopo la creazione di ogni esempio.
 16. Ripetere i passaggi da 5 a 15 per tutte le configurazioni supportate dal codificatore (con e senza segnalazioni, sottotitoli o velocità di codifica diverse).
@@ -116,14 +116,14 @@ Servizi multimediali di Azure offre ai partner di codificatore locale il vantagg
 10. Combinare l'URL del passaggio 8 con il nome host del passaggio 9 per ottenere l'URL completo.
 11. Eseguire il codificatore live per circa 10 minuti.
 12. Arrestare l'evento live.
-13. Usare un lettore, ad esempio [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html), per guardare la risorsa archiviata e accertarsi che la riproduzione non presenti anomalie visibili a tutti i livelli qualitativi. In alternativa, guardare e convalidare tramite l'anteprima URL durante la sessione live.
+13. Usare un lettore, ad esempio [Azure Media Player](http://aka.ms/azuremediaplayer), per guardare la risorsa archiviata e accertarsi che la riproduzione non presenti anomalie visibili a tutti i livelli qualitativi. In alternativa, guardare e convalidare tramite l'anteprima URL durante la sessione live.
 14. Registrare l'ID dell'asset, l'URL di streaming pubblicato per l'archivio live, le impostazioni e la versione usate dal codificatore live.
 15. Reimpostare lo stato dell'evento live dopo la creazione di ogni esempio.
 16. Ripetere i passaggi da 5 a 15 per tutte le configurazioni supportate dal codificatore (con e senza segnalazioni, sottotitoli o velocità di codifica diverse).
 
 ### <a name="longevity-verification"></a>Verifica della durata
 
-Seguire gli stessi passaggi di [Verifica dell'evento live pass-through](#pass-through-live-event-verification), tranne il passaggio 11. <br/>Invece che per 10 minuti, eseguire il codificatore live per almeno una settimana. Usare un lettore, ad esempio [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html), per guardare di volta in volta lo streaming live (o la risorsa archiviata) e accertarsi che la riproduzione non presenti anomalie visibili.
+Seguire gli stessi passaggi di [Verifica dell'evento live pass-through](#pass-through-live-event-verification), tranne il passaggio 11. <br/>Invece che per 10 minuti, eseguire il codificatore live per almeno una settimana. Usare un lettore, ad esempio [Azure Media Player](http://aka.ms/azuremediaplayer), per guardare di volta in volta lo streaming live (o la risorsa archiviata) e accertarsi che la riproduzione non presenti anomalie visibili.
 
 ### <a name="email-your-recorded-settings"></a>Inviare tramite posta elettronica le impostazioni registrate
 

@@ -3,17 +3,17 @@ title: Gestire l'autenticazione in Mappe di Azure | Microsoft Docs
 description: È possibile usare il portale di Azure per gestire l'autenticazione in Mappe di Azure.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dc63a2c2350ad4f1d02d0c1b22050293d7b866c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952562"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67837807"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gestire l'autenticazione in Mappe di Azure
 
@@ -59,7 +59,7 @@ Dopo aver creato un account mappe di Azure, è necessario stabilire un collegame
 
 ## <a name="grant-rbac-to-azure-maps"></a>Concedere il controllo degli accessi in base al ruolo a Mappe di Azure
 
-Dopo aver associato un account mappe di Azure con il tenant di Azure AD, è possibile concedere il controllo di accesso tramite l'assegnazione di un utente o un'applicazione a uno o più ruoli di controllo di accesso di mappe di Azure.
+Dopo aver associato un account mappe di Azure con il tenant di Azure AD, è possibile concedere il controllo di accesso tramite l'assegnazione di un utente, gruppo o un'applicazione a uno o più ruoli di controllo di accesso di mappe di Azure.
 
 1. Passare a **controllo di accesso (IAM)** , selezionare **le assegnazioni di ruolo**, quindi selezionare **aggiungere un'assegnazione di ruolo**.
 

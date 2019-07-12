@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98acc7f6dd5ec7cf3702bbcbe60e2739732512e2
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c28cf4326593897dcbc90902737fc4846356078d
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67294924"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653393"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Domande frequenti su Crittografia dischi di Azure per macchine virtuali IaaS
 
@@ -33,6 +33,10 @@ Non è previsto alcun addebito per la crittografia dei dischi delle macchine vir
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Come si può iniziare a usare Crittografia dischi di Azure?
 
 Per iniziare, leggere l'articolo [Azure Disk Encryption overview](azure-security-disk-encryption-overview.md) (Panoramica di Crittografia dischi di Azure).
+
+## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>Le dimensioni delle macchine Virtuali e sistemi operativi supportano crittografia dischi di Azure?
+
+Il [prerequisiti di crittografia dischi di Azure](azure-security-disk-encryption-prerequisites.md) articolo elenca le [dimensioni delle macchine Virtuali](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes) e [sistemi operativi della macchina virtuale](azure-security-disk-encryption-prerequisites.md#supported-operating-systems) che supportano crittografia dischi di Azure.
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>È possibile crittografare sia i volumi di avvio che i volumi di dati con Crittografia dischi di Azure?
 

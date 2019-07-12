@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2142fbf03daa6667b20db43f9212a2b5e6d7dd44
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60447875"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657524"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copiare i dati in Esplora dati di Azure usando Azure Data Factory 
 
@@ -50,7 +50,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
     | **Sottoscrizione** | selezionare la sottoscrizione di Azure in cui creare la data factory. |
     | **Gruppo di risorse** | Selezionare **Crea nuovo** e immettere il nome del nuovo gruppo di risorse. Selezionare **Usa esistente**, se si dispone di un gruppo di risorse. |
     | **Versione** | Selezionare **V2**. |
-    | **Posizione** | Selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati utilizzati da data factory possono essere in altre posizioni o aree geografiche. |
+    | **Location** | Selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati utilizzati da data factory possono essere in altre posizioni o aree geografiche. |
     | | |
 
 1. Selezionare le notifiche nella barra degli strumenti per monitorare il processo di creazione. Dopo aver completata la creazione, passare alla data factory creata. Il **Data Factory** verrà visualizzata la pagina iniziale.
@@ -141,7 +141,7 @@ Azure Esplora dati nuovo servizio collegato viene creato per copiare i dati nell
     * Selezionare **fine** per completare la creazione del servizio collegato.
 
     > [!NOTE]
-    > L'entità servizio è usato da Azure Data Factory per accedere al servizio di Esplora dati di Azure. Per l'entità servizio [creare un Azure Active Directory (Azure AD) dell'entità servizio](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad). Non usare la **Azure Key Vault** (metodo).
+    > L'entità servizio è usato da Azure Data Factory per accedere al servizio di Esplora dati di Azure. Per l'entità servizio [creare un Azure Active Directory (Azure AD) dell'entità servizio](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal). Non usare la **Azure Key Vault** (metodo).
 
 1. Il **archivio dati di destinazione** apre. La connessione dati di Esplora dati di Azure che è stato creato è disponibile per l'uso. Selezionare **successivo** per configurare la connessione.
 

@@ -11,12 +11,12 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 216f5413ce3dae1f2d040643a30a4d7db4a879b8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205355"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835405"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accesso ai log di controllo di Azure AD B2C
 
@@ -31,24 +31,24 @@ Azure Active Directory B2C (Azure AD B2C) genera log di controllo contenenti inf
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Panoramica delle attività disponibili nella categoria B2C dei log di controllo
 La categoria **B2C** nei log di controllo contiene i tipi di attività seguenti:
 
-|Tipo di attività |Descrizione  |
+|Tipo di attività |DESCRIZIONE  |
 |---------|---------|
 |Authorization |Attività relative all'autorizzazione di un utente ad accedere alle risorse B2C (ad esempio, un amministratore che accede a un elenco di criteri B2C)         |
-|Directory |Attività relative agli attributi della directory recuperati quando un amministratore esegue l'accesso usando il portale di Azure |
+|Directory |Attività relative agli attributi di directory recuperati quando un amministratore acceda con il portale di Azure |
 |Applicazione | Operazioni CRUD sulle applicazioni B2C |
 |Chiave |Operazioni CRUD sulle chiavi archiviate nel contenitore di chiavi B2C |
-|Resource |Operazioni CRUD sulle risorse B2C (ad esempio, criteri e provider di identità)
+|Risorsa |Operazioni CRUD sulle risorse B2C (ad esempio, criteri e provider di identità)
 |Authentication |Convalida delle credenziali utente e rilascio dei token|
 
 > [!NOTE]
 > Per le attività CRUD sugli oggetti utente, vedere la categoria **Directory principale**.
 
 ## <a name="example-activity"></a>Attività di esempio
-L'esempio seguente mostra i dati acquisiti quando un utente esegue l'accesso con un provider di identità esterno: ![Log di controllo - Esempio](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+L'esempio seguente mostra i dati acquisiti quando un utente esegue l'accesso con un provider di identità esterno: ![Esempio di pagina di dettagli attività di controllo del Log nel portale di Azure](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 Il riquadro dei dettagli attività contiene le informazioni seguenti:
 
-|`Section`|Campo|Descrizione|
+|`Section`|Campo|DESCRIZIONE|
 |-------|-----|-----------|
 | Attività | Name | Quale attività ha avuto luogo. Ad esempio, "emettere un id_token all'applicazione" (che si conclude l'effettivo accesso dell'utente). |
 | Azione avviata da (attore) | ObjectId | Il **ID di oggetto** dell'applicazione B2C in cui l'utente esegue l'accesso a (questo identificatore non è visibile nel portale di Azure, ma è accessibile tramite l'API Graph, ad esempio). |
@@ -58,20 +58,20 @@ Il riquadro dei dettagli attività contiene le informazioni seguenti:
 | Altri dettagli | `PolicyId` | Il **ID criterio** del flusso utente (criteri) viene usato per l'accesso all'utente. |
 | Altri dettagli | ApplicationId | Il **ID applicazione** dell'applicazione che esegue l'accesso utente a B2C. |
 
-## <a name="accessing-audit-logs-through-the-azure-portal"></a>Accesso ai log di controllo dal portale di Azure
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>L'accesso ai log di controllo tramite il portale di Azure
 1. Accedere al [portale di Azure](https://portal.azure.com). Verificare di essere nella directory B2C.
 2. Fare clic su **Azure Active Directory** nella barra dei preferiti a sinistra
-    
-    ![Log di controllo - Pulsante AAD](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
+
+    ![Pulsante di Azure Active Directory evidenziato nel menu a sinistra del portale](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
 1. In **Attività** fare clic su **Log di controllo**
 
-    ![Log di controllo - Sezione Log](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+    ![Pulsante di log di controllo evidenziato nella sezione attività di menu](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
 
 2. Nella casella di riepilogo a discesa **Categoria** selezionare **B2C**
 3. Fare clic su **Applica**
 
-    ![Log di controllo - Categoria](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
+    ![Categoria e il pulsante Applica evidenziato nel filtro di Log di controllo](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
 Verrà visualizzato un elenco delle attività registrate negli ultimi sette giorni.
 - Usare la casella di riepilogo a discesa **Tipo di risorsa attività** per filtrare in base ai tipi di attività illustrati sopra

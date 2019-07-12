@@ -4,15 +4,15 @@ description: Viene descritto come configurare lo script di scalabilità automati
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b98db361a8ec888eb8bf9e1bf3658a7e38111c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755140"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620426"
 ---
 # <a name="automatically-scale-session-hosts"></a>Ridimensionare automaticamente gli host della sessione
 
@@ -75,7 +75,7 @@ Successivamente, è necessario creare le credenziali archiviate in modo sicuro:
     Ad esempio, **Set-Variable - Name KeyPath-ambito globale-valore "c:\\HostPool1 scalabilità"**
 5. Eseguire la **New-StoredCredential - KeyPath \$KeyPath** cmdlet. Quando richiesto, immettere le credenziali di Desktop virtuale Windows con le autorizzazioni per eseguire una query il pool di host (il pool di host è specificato nella **config. XML**).
     - Se si usa diverse entità servizio o account standard, eseguire la **New-StoredCredential - KeyPath \$KeyPath** cmdlet una volta per ogni account creare locale le credenziali archiviate.
-6. Eseguire **Get-StoredCredentials-elenco** per confermare le credenziali sono state create correttamente.
+6. Eseguire **Get-StoredCredential-elenco** per confermare le credenziali sono state create correttamente.
 
 ### <a name="configure-the-configxml-file"></a>Configurare il file config. Xml
 
@@ -90,7 +90,7 @@ Immettere i valori appropriati nei campi seguenti per aggiornare le impostazioni
 | tenantName                    | Nome del tenant di Desktop virtuale Windows                                                    |
 | hostPoolName                  | Nome del pool di Desktop virtuale di Windows host                                                 |
 | RDBroker                      | URL del servizio, WVD predefinito valore https:\//rdbroker.wvd.microsoft.com             |
-| Username                      | L'ID applicazione di un'entità servizio (è possibile che la stessa entità servizio come AADApplicationId) o un utente standard senza multi-factor authentication |
+| Nome utente                      | L'ID applicazione di un'entità servizio (è possibile che la stessa entità servizio come AADApplicationId) o un utente standard senza multi-factor authentication |
 | isServicePrincipal            | Valori accettati sono **true** oppure **false**. Indica se il secondo set di credenziali in uso è un'entità servizio o un account standard. |
 | BeginPeakTime                 | Quando inizia la fase di picco dell'utilizzo                                                            |
 | EndPeakTime                   | Quando termina il tempo di utilizzo di picco                                                              |

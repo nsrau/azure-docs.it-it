@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: e63937cedf44b1642e091a4744d898a26422be10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 587304968cdf3a3763e47b9f8b614fe67aebf534
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393681"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798042"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funzionalità in anteprima di Analisi di flusso di Azure
 
@@ -23,7 +23,10 @@ Questo articolo riepiloga tutte le funzionalità attualmente in anteprima per An
 
 Nell'anteprima pubblica sono disponibili le funzionalità seguenti. È possibile sfruttare queste funzionalità adesso, ma non usarle nell'ambiente di produzione.
 
-### <a name="visual-studio-code-for-azure-stream-analytics-released-may-2019"></a>Visual Studio Code per Azure Stream Analitica (rilasciata a maggio 2019)
+### <a name="one-click-integration-with-event-hubs"></a>Integrazione con hub eventi con un clic 
+Con questa integrazione, a questo punto sarà possibile visualizzare i dati in ingresso e iniziare a scrivere una query di Stream Analitica con un solo clic dal portale di Hub eventi. Quando la query è pronta, sarà possibile productize, con pochi e iniziare a ottenere informazioni dettagliate in tempo reale. Ciò riduce significativamente i tempi e costi per lo sviluppo di soluzioni di analitica in tempo reale. La documentazione è disponibile [qui](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics).
+
+### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code per Analisi di flusso di Azure
 
 I processi di Analisi di flusso di Azure possono essere creati in Visual Studio Code. Vedere la [esercitazione introduttiva di Visual Studio Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
 
@@ -49,19 +52,13 @@ Con le funzioni .NET Standard definite dall'utente, è possibile eseguire il cod
 
 ## <a name="other-previews"></a>Altre anteprime
 
-Le funzionalità seguenti sono anche disponibili in anteprima.
+Le funzionalità seguenti sono anche disponibili in anteprima nella richiesta.
 
-### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud-announced-may-2019"></a>C#deserializzatore personalizzato per Analitica Stream di Azure in IoT Edge e il Cloud (Announced maggio 2019)
+### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud"></a>C#deserializzatore personalizzato per Analitica Stream di Azure in IoT Edge e il Cloud
 
 Gli sviluppatori possono implementare deserializers personalizzato in C# per deserializzare gli eventi ricevuti da Azure Stream Analitica. Gli esempi di formati che possono essere deserializzati includono Parquet, Protobuf, XML o qualsiasi altro formato binario. Iscriversi a questa versione di anteprima [qui](https://aka.ms/asapreview1).
 
-### <a name="parquet-output-announced-may-2019"></a>Output parquet (annunciato maggio 2019)
-Parquet è un formato orc abilitazione elaborazione efficiente di big data. Restituendo i dati in formato Parquet in un archivio data lake, è possibile sfruttare Azure Stream Analitica per su larga scala power streaming ETL ed eseguire l'elaborazione batch, eseguire il training di algoritmi di machine learning o eseguire query interattive su dati cronologici. Iscriversi a questa versione di anteprima [qui](https://aka.ms/asapreview1).
-
-### <a name="one-click-integration-with-event-hubs-announced-may-2019"></a>Integrazione con hub eventi (Announced maggio 2019) con un clic 
-Con questa integrazione, a questo punto sarà possibile visualizzare i dati in ingresso e iniziare a scrivere una query di Stream Analitica con un solo clic dal portale di Hub eventi. Quando la query è pronta, sarà possibile productize, con pochi e iniziare a ottenere informazioni dettagliate in tempo reale. Ciò riduce significativamente i tempi e costi per lo sviluppo di soluzioni di analitica in tempo reale. Iscriversi a questa versione di anteprima [qui](https://aka.ms/asapreview1).
-
-### <a name="support-for-azure-stack-announced-may-2019"></a>Supporto per Azure Stack (annunciato maggio 2019)
+### <a name="support-for-azure-stack"></a>Supporto per Azure Stack
 Questa funzionalità è abilitata nel runtime di Azure IoT Edge, sfrutta funzionalità personalizzate di Azure Stack, ad esempio il supporto nativo per gli input locali e gli output in esecuzione in Azure Stack (ad esempio hub eventi, IoT Hub, archiviazione Blob). Questa nuova integrazione consente di compilare architetture ibride in grado di analizzare i tuoi dati vicino in cui viene generato, riducendo la latenza e massimizzando insights.
 Iscriversi a questa versione di anteprima [qui](https://aka.ms/asapreview1).
 
