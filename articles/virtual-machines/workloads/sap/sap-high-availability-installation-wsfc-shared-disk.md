@@ -4,7 +4,7 @@ description: Informazioni su come installare la disponibilità elevata di SAP Ne
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1229b7f9e2a430a663a3e78bb457c03cf4a4a590
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1a7d3d3a8f66cfbb3ed649ac645520f39cbb1e4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60714425"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709006"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installare la disponibilità elevata di SAP NetWeaver in un cluster di failover Windows e nel disco condiviso per un'istanza ASCS/SCS di SAP in Azure
 
@@ -153,9 +153,9 @@ Questo articolo descrive come installare e configurare un sistema SAP a disponib
 
 Prima di iniziare l'installazione, esaminare questi documenti:
 
-* [Guida all'architettura: Clustering di un'istanza SAP ASCS/SCS in un cluster di failover Windows tramite un disco condiviso del cluster][sap-high-availability-guide-wsfc-shared-disk]
+* [Guida all'architettura: Cluster di un'istanza di SAP ASCS/SCS in un cluster di failover Windows con disco condiviso del cluster][sap-high-availability-guide-wsfc-shared-disk]
 
-* [Preparazione dell'infrastruttura di Azure per la disponibilità elevata di SAP con il cluster di failover Windows e i dischi condivisi per l'istanza ASCS/SCS di SAP][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [Preparare l'infrastruttura di Azure per SAP a disponibilità elevata usando un cluster di failover Windows e dischi condivisi per un'istanza di SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
 
 In questo articolo non viene trattata la configurazione del sistema DBMS perché varia a seconda del sistema DBMS usato. Si presuppone che i problemi di disponibilità elevata del sistema DBMS vengano risolti con le funzionalità supportate dai diversi fornitori di sistemi DBMS per Azure, ad esempio Gruppi di disponibilità AlwaysOn o mirroring del database per SQL Server e Oracle Data Guard per database Oracle. Nello scenario usato in questo articolo, non sono state aggiunte altre funzionalità di protezione per il sistema DBMS.
 
@@ -211,7 +211,7 @@ L'installazione di SAP con un'istanza di ASCS/SCS a disponibilità elevata preve
    * Per il **sistema Java**: **SCS** numero di istanza **01**
    * Per il **sistema ABAP + Java**: **ASCS** numero di istanza **00** e **SCS** numero di istanza **01**
 
-   Per usare numeri di istanza diversi da 00 per l'istanza ABAP ASCS e 01 per l'istanza Java SCS, modificare in primo luogo le regole di bilanciamento del carico predefinite del servizio di bilanciamento del carico interno di Azure. Per altre informazioni, vedere [Modificare le regole di bilanciamento del carico predefinite di ASCS/SCS per il servizio di bilanciamento del carico interno di Azure][sap-ha-guide-8.9].
+   Per usare numeri di istanza diversi da 00 per l'istanza ABAP ASCS e 01 per l'istanza Java SCS, modificare in primo luogo le regole di bilanciamento del carico predefinite del servizio di bilanciamento del carico interno di Azure. Per altre informazioni, vedere [modificare il carico predefinite di ASCS/SCS bilanciamento del carico delle regole di bilanciamento del carico interno di Azure][sap-ha-guide-8.9].
 
 Le attività successive non sono descritte nella documentazione di installazione generale di SAP.
 
@@ -222,7 +222,7 @@ Le attività successive non sono descritte nella documentazione di installazione
 
 ### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modificare il profilo SAP dell'istanza di ASCS/SCS
 
-Aggiungere prima di tutto un nuovo parametro del profilo. Questo parametro impedisce la chiusura delle connessioni tra i processi di lavoro SAP e il server di accodamento quando sono inattivi per un tempo eccessivo. Lo scenario del problema è stato descritto nella sezione [Aggiungere le voci del Registro di sistema in entrambi i nodi del cluster per l'istanza ASCS/SCS di SAP][sap-ha-guide-8.11]. In quella sezione sono anche illustrate due modifiche ad alcuni parametri della connessione TCP/IP di base. Nel secondo passaggio è necessario impostare il server di accodamento per l'invio di un segnale `keep_alive` per impedire alle connessioni di raggiungere la soglia di inattività del servizio di bilanciamento del carico interno di Azure.
+Aggiungere prima di tutto un nuovo parametro del profilo. Questo parametro impedisce la chiusura delle connessioni tra i processi di lavoro SAP e il server di accodamento quando sono inattivi per un tempo eccessivo. È importante tenere presente lo scenario del problema nella [aggiungere le voci del Registro di sistema in entrambi i nodi del cluster dell'istanza SAP ASCS/SCS][sap-ha-guide-8.11]. In quella sezione sono anche illustrate due modifiche ad alcuni parametri della connessione TCP/IP di base. Nel secondo passaggio è necessario impostare il server di accodamento per l'invio di un segnale `keep_alive` per impedire alle connessioni di raggiungere la soglia di inattività del servizio di bilanciamento del carico interno di Azure.
 
 Per modificare il profilo SAP dell'istanza di ASCS/SCS:
 

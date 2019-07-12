@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: dd800c0eeb18fe45b44a72aeb58b500623b2b366
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514441"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705086"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Domande frequenti sul backup di file e cartelle
 
@@ -88,9 +88,19 @@ Questo avviso possa essere visualizzati anche se è stato configurato un criteri
 La dimensione della cartella della cache determina la quantità di dati sottoposti a backup.
 - I volumi di cartella della cache devono avere spazio libero pari almeno al 5-10% delle dimensioni totali dei dati di backup.
 - Se il volume è inferiore al 5% spazio libero, aumentare le dimensioni del volume, o spostare la cartella della cache in un volume con spazio sufficiente.
-- Se si esegue il backup dello stato del sistema Windows, è necessario altri 30-35 GB di spazio libero nel volume che contiene la cartella della cache
-### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Come si modifica il percorso della cache per l'agente MARS?
+- Se si esegue il backup dello stato del sistema Windows, è necessario altri 30-35 GB di spazio libero nel volume che contiene la cartella della cache.
 
+### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Come è possibile verificare se la cartella scratch sia valido e accessibile?
+
+1. Per impostazione predefinita la cartella scratch si trova in `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+2. Assicurarsi che il percorso della cartella scratch corrispondente con i valori delle voci di chiave del Registro di sistema illustrate di seguito:
+
+  | Percorso del Registro | Chiave del Registro | Valore |
+  | --- | --- | --- |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella della cache* |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella della cache* |
+
+### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Come si modifica il percorso della cache per l'agente MARS?
 
 1. Eseguire questo comando in un prompt dei comandi con privilegi elevati per arrestare il motore di Backup:
 

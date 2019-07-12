@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: e1327ded4b07f379f954ee5594b4eec2b7523ab4
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
-ms.translationtype: HT
+ms.openlocfilehash: cef3036b01709847016d9523a5770febb8ff1134
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621119"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839666"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Aggiornare il data warehouse a Gen2
 
@@ -39,13 +39,13 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 | Canada orientale |\* |\* |
 | Stati Uniti centrali |Disponibile |1 giugno 2019 |
 | Cina orientale |\* |\* |
-| Cina orientale 2 |\* |Solo Gen2 |
+| Cina orientale 2 |Disponibile |Solo Gen2 |
 | Cina settentrionale |\* |\* |
 | Cina settentrionale 2 |Disponibile |Solo Gen2 |
 | Asia orientale |Disponibile |1 giugno 2019 |
 | East US |Disponibile |1 giugno 2019 |
 | Stati Uniti orientali 2 |Disponibile |1 giugno 2019 |
-| Francia centrale |\* |1 giugno 2019 |
+| Francia centrale |Disponibile |1 giugno 2019 |
 | Germania centrale |\* |\* |
 | Germania centro-occidentale |1 settembre 2019|2 gennaio 2020 |
 | India centrale |Disponibile |1 giugno 2019 |
@@ -56,10 +56,12 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 | Corea del Sud meridionale |Disponibile |1 maggio 2019 |
 | Stati Uniti centro-settentrionali |Disponibile |1 maggio 2019 |
 | Europa settentrionale |Disponibile |1 giugno 2019 |
+| Sudafrica settentrionale |12 luglio 2019 |Solo Gen2 |
 | Stati Uniti centro-meridionali |Disponibile |1 giugno 2019 |
 | Asia sudorientale |Disponibile |1 giugno 2019 |
-| Regno Unito meridionale |Disponibile, 2019 |1 giugno 2019 |
-| Regno Unito occidentale |\*|\* |
+| Emirati Arabi Uniti settentrionali |20 luglio 2019 |Solo Gen2 |
+| Regno Unito meridionale |Disponibile |1 giugno 2019 |
+| Regno Unito occidentale |Disponibile |Solo Gen2 |
 | Stati Uniti centro-occidentali |2 settembre 2019 |2 gennaio 2020|
 | Europa occidentale |Disponibile |1 giugno 2019 |
 | Stati Uniti occidentali |Disponibile |1 giugno 2019 |

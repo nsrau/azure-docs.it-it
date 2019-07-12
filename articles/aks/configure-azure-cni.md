@@ -2,17 +2,17 @@
 title: Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes
 description: Informazioni su come configurare le funzionalità di rete avanzate di Azure CNI nel servizio Azure Kubernetes, inclusa la distribuzione di un cluster del servizio Azure Kubernetes in una rete e in una subnet virtuali esistenti.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.author: iainfou
-ms.openlocfilehash: 8e541834b31a762c65eabf07072d9b9f7333923e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: 4d2b4bef5bfcade93b222e69e85df782480e430e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441970"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615796"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes
 

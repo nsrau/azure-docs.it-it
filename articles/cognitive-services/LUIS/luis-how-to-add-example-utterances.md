@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: dd8ed146c507d8d39ba99c6573321ee80bc891c9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: af43697dc864019c6fd86b041e231a54d8aa8b40
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442567"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827480"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Aggiungere un'entità in espressioni di esempio 
 
@@ -45,7 +45,7 @@ Are there any SQL server jobs?
     > [!NOTE]
     > Quando si selezionano le parole da taggare come entità:
     > * Per una parola singola, è sufficiente selezionarla. 
-    > * Per una serie di due o più parole, selezionare l'inizio e la fine della serie.
+    > * Per un set di due o più parole, selezionare la prima parola e quindi la parola finale.
 
 1. Nella finestra di dialogo popup **What type of entity do you want to create?** (Che tipo di entità vuoi creare?) verificare il nome dell'entità e selezionare il tipo di entità **Semplice**, quindi selezionare **Done** (Chiudi).
 

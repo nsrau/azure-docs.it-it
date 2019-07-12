@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: dabaa06e224c6498c0080c4546c04f40e3919bb6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: bb6cd43c77c31874115250d13f8d4067b3db7b36
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448542"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67804978"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Archiviare i dati sui dispositivi perimetrali con l'archiviazione BLOB di Azure in IoT Edge (anteprima)
 
@@ -62,13 +62,14 @@ Un dispositivo Azure IoT Edge:
 
 - L'archiviazione BLOB di Azure nel modulo di IoT Edge supporta le configurazioni di dispositivo seguenti:
 
-  | Sistema operativo | Architettura |
-  | ---------------- | ----- | ----- |
-  | Ubuntu Server 16.04 | AMD64 |
-  | Ubuntu Server 18.04 | AMD64 |
-  | Windows 10 IoT Enterprise | AMD64 |
-  | Windows Server 2019 | AMD64 |
-  | Raspbian-stretch | ARM32 |
+  | Sistema operativo | AMD64 | ARM32v7 | ARM64 |
+  | ---------------- | ----- | ----- | ---- |
+  | Raspbian-stretch | No | Sì | No |  
+  | Ubuntu Server 16.04 | Sì | No | Yes |
+  | Ubuntu Server 18.04 | Sì | No | Sì |
+  | Windows 10 IoT Enterprise, compilazione 17763 | Sì | No | No |
+  | Windows Server 2019, compilazione 17763 | Sì | No | No |
+  
 
 Risorse cloud:
 
@@ -99,7 +100,7 @@ Il nome di questa impostazione è `deviceAutoDeleteProperties`
 | ----- | ----- | ---- | ---- |
 | deleteOn | true, false | Per impostazione predefinita è impostata su `false`, se si desidera attivarla, impostare su `true`| `deviceAutoDeleteProperties__deleteOn={false,true}` |
 | deleteAfterMinutes | `<minutes>` | Specificare il tempo in minuti. Il modulo eliminerà automaticamente i BLOB dall'archivio locale alla scadenza di questo valore | `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
-| retainWhileUploading | true, false | Per impostazione predefinita è impostata su `true`, e manterrà il blob durante il caricamento nell'archiviazione cloud se deleteAfterMinutes scade. È possibile impostarlo `false` ed eliminerà i dati appena deleteAfterMinutes scade. Note: Per questa proprietà funzioni uploadOn deve essere impostata su true| `deviceAutoDeleteProperties__retainWhileUploading={false,true}` |
+| retainWhileUploading | true, false | Per impostazione predefinita è impostata su `true`, e manterrà il blob durante il caricamento nell'archiviazione cloud se deleteAfterMinutes scade. È possibile impostarlo `false` ed eliminerà i dati appena deleteAfterMinutes scade. Nota: Per questa proprietà funzioni uploadOn deve essere impostata su true| `deviceAutoDeleteProperties__retainWhileUploading={false,true}` |
 
 ## <a name="configure-log-files"></a>Configurare i file di log
 

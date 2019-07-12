@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 928c943e21e7d00b87ac1e506b98d47107ac4348
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 904994134db28a8244f15ff42e0104e8565c68dd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508566"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839789"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata con Azure Cosmos DB
 
@@ -42,7 +42,7 @@ Essendo un database distribuito a livello globale, Cosmos DB offre contratti di 
 
 ## <a name="high-availability-with-cosmos-db-in-the-event-of-regional-outages"></a>Disponibilità elevata con Cosmos DB in caso di interruzioni a livello di area
 
-Interruzioni a livello di area sono abbastanza comuni e Azure Cosmos DB garantisce che il database sia sempre a disponibilità elevata. I dettagli seguenti acquisire il comportamento di Cosmos DB durante un'interruzione, a seconda della configurazione di account Cosmos:
+Le interruzioni a livello di area sono abbastanza comuni e Azure Cosmos DB garantisce che il database sia sempre altamente disponibile. I dettagli seguenti acquisire il comportamento di Cosmos DB durante un'interruzione, a seconda della configurazione di account Cosmos:
 
 - Con Cosmos DB, prima della conferma di un'operazione di scrittura al client, un quorum di repliche esegue il commit permanente dei dati all'interno dell'area accettando le operazioni di scrittura.
 
@@ -93,7 +93,8 @@ La tabella seguente riepiloga le funzionalità a disponibilità elevata delle va
 |Velocità effettiva    |  Provisioning di UR X della velocità effettiva      |  Provisioning di UR X della velocità effettiva       |  2 x velocità effettiva con provisioning di UR/sec <br/><br/> Questa modalità di configurazione richiede due volte la quantità di velocità effettiva rispetto a una singola area con zone di disponibilità perché sono presenti due aree.   |
 
 > [!NOTE] 
-> Per abilitare il supporto di zona di disponibilità, l'account Azure Cosmos DB deve avere multi-master/a più aree operazioni di scrittura abilitati. 
+> Per abilitare il supporto di zona di disponibilità per un'area con più account Azure Cosmos, l'account deve disporre le scritture multimaster abilitate.
+
 
 Quando si aggiunge un'area per gli account Cosmos Azure nuovi o esistenti, è possibile abilitare la ridondanza di zona. Attualmente, è possibile abilitare solo la ridondanza di zona usando Azure portale, i modelli di Azure Resource Manager e PowerShell. Per abilitare la ridondanza di zona per l'account Cosmos Azure, è consigliabile impostare il `isZoneRedundant` flag per `true` per una località specifica. È possibile impostare questo flag all'interno della proprietà di percorsi. Ad esempio, il frammento di powershell seguente consente la ridondanza di zona per l'area "Asia sud-orientale":
 

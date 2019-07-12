@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ecb7030fa3652525a36ce15d66ea6e5daf9c3296
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b16fecd6db1f4bed319c832795a2252f8de96c6c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304218"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607127"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estendere il supporto per SQL Server 2008 e SQL Server 2008 R2 con Azure
 
@@ -43,7 +43,7 @@ Immagini distribuite tramite il Marketplace forniti con l'estensione SQL IaaS pr
 ## <a name="licensing"></a>Licenze
 Distribuzioni di pagamento a consumo SQL Server 2008 R2 possono convertire [vantaggio Hybrid Azure (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-Per convertire una licenza di Software Assurance (SA) in base al consumo, i clienti devono registrarsi con la VM di SQL [provider di risorse](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). Una volta registrato con il provider di risorse di VM di SQL, il tipo di licenza SQL saranno interscambiabile tra vantaggio Azure Hybrid e pagamento a consumo.
+Per convertire una licenza di Software Assurance (SA) in base al consumo, i clienti devono registrarsi con la VM di SQL [provider di risorse](virtual-machines-windows-sql-register-with-resource-provider.md). Una volta registrato con il provider di risorse di VM di SQL, il tipo di licenza SQL saranno interscambiabile tra vantaggio Azure Hybrid e pagamento a consumo.
 
 Le istanze di SQL Server 2008 o SQL Server 2008 R2 autonomo installate nella macchina virtuale di Azure è possono registrare con il provider di risorse SQL e convertire il tipo di licenza in base al consumo.
 
@@ -69,7 +69,7 @@ Soluzioni di ripristino di emergenza per EOS SQL Server in macchine Virtuali di 
 - **Azure Site Recovery**: È possibile replicare le VM tra zone e aree tramite la replica di Azure Site Recovery. SQL Server richiede snapshot coerenti con l'App garantire il ripristino in caso di emergenza. Azure Site Recovery offre minimo RPO di 1 ora e 2 ore + tempo di ripristino di SQL Server RTO per EOS SQL Server di ripristino di emergenza.
 
 ## <a name="security-patching"></a>L'applicazione di patch di sicurezza
-Gli aggiornamenti della protezione estesa per le macchine virtuali di SQL Server verrà recapitati tramite i canali Microsoft Update dopo che la macchina virtuale di SQL Server è stata registrata con il codice SQL [provider di risorse](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). Le patch che possono essere scaricate manualmente o automaticamente.
+Gli aggiornamenti della protezione estesa per le macchine virtuali di SQL Server verrà recapitati tramite i canali Microsoft Update dopo che la macchina virtuale di SQL Server è stata registrata con il codice SQL [provider di risorse](virtual-machines-windows-sql-register-with-resource-provider.md). Le patch che possono essere scaricate manualmente o automaticamente.
 
 **Automated patching** è abilitata per impostazione predefinita. Questa opzione consente ad Azure di applicare automaticamente le patch a SQL Server e al sistema operativo. Se è installata l'estensione SQL IaaS, è possibile specificare un giorno della settimana, ora e durata di una finestra di manutenzione. Durante la finestra di manutenzione Azure esegue l'applicazione delle patch. La pianificazione dell'ora, la finestra di manutenzione usa le impostazioni locali della macchina virtuale.  Per altre informazioni, vedere [Applicazione automatica delle patch per SQL Server nelle macchine virtuali di Azure (Resource Manager)](virtual-machines-windows-sql-automated-patching.md).
 

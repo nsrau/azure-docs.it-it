@@ -11,16 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c39c585d9947422260868734ec89814d8a510089
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658305"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836960"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacità di un'istanza di Gestione API di Azure
 
-La **capacità** è la [metrica di Monitoraggio di Azure](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) più importante per prendere decisioni informate sull'opportunità di ridimensionare un'istanza di Gestione API per gestire un carico maggiore. La costruzione è complessa e impone determinati comportamenti.
+**Capacità** è la più importante [metrica di monitoraggio di Azure](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) per prendere decisioni informate se si desidera ridimensionare un'istanza di gestione API per gestire un carico maggiore. La costruzione è complessa e impone determinati comportamenti.
 
 Questo articolo descrive che cos'è la **capacità** e il relativo comportamento. Illustra come accedere alle metriche di **capacità** nel portale di Azure e suggerisce quando prendere in considerazione il ridimensionamento o l'aggiornamento dell'istanza di Gestione API.
 
@@ -40,12 +40,14 @@ Per eseguire i passaggi in questo articolo è necessario quanto segue:
 
 ![Metriche di capacità](./media/api-management-capacity/capacity-ingredients.png)
 
-La **capacità** è un indicatore del carico in un'istanza di Gestione API, che indica l'utilizzo delle risorse (CPU, memoria) e le lunghezze delle code di rete. L'utilizzo di CPU e memoria indicano l'utilizzo delle risorse per:
+**Capacità** è un indicatore di carico in un'istanza di gestione API. che indica l'utilizzo delle risorse (CPU, memoria) e le lunghezze delle code di rete. L'utilizzo di CPU e memoria indicano l'utilizzo delle risorse per:
 
-+ Servizi di Gestione API, ad esempio le azioni di gestione o l'elaborazione delle richieste, che possono includere l'inoltro delle richieste o l'esecuzione di criteri
++ Servizi di gestione API, ad esempio azioni o richiesta di elaborazione di gestione, che può includere inoltrando le richieste o l'esecuzione di un criterio
 + Processi del sistema operativo selezionati, inclusi i processi che comportano costi per handshake SSL su nuove connessioni.
 
 La **capacità** totale è una media dei valori per ogni unità di un'istanza di Gestione API.
+
+Anche se il **metrica capacità** è progettata per surface problemi con l'istanza di gestione API, vi sono casi in cui problemi non verranno applicati le modifiche apportate nel **metrica capacità**.
 
 ## <a name="capacity-metric-behavior"></a>Comportamento delle metriche di capacità
 
@@ -63,6 +65,8 @@ A una maggiore complessità delle operazioni sulle richieste corrisponde un util
 ![Picchi delle metriche di capacità](./media/api-management-capacity/capacity-spikes.png)
 
 I picchi di **capacità** possono anche verificarsi a intermittenza o essere maggiori di zero, anche in assenza di richieste in fase di elaborazione. Ciò si verifica a causa di azioni specifiche del sistema o della piattaforma e non devono essere presi in considerazione quando si decide se ridimensionare un'istanza.
+
+Low **metrica capacità** non significa necessariamente che l'istanza di gestione API non è subentrati problemi.
   
 ## <a name="use-the-azure-portal-to-examine-capacity"></a>Usare il portale di Azure per esaminare la capacità
   

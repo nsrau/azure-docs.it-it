@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 53ff318dcc034fb11e2d554f9ad8e8814eb32879
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165586"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672581"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 
@@ -37,7 +37,7 @@ La scrittura di stored procedure, trigger e funzioni definite dall'utente (UDF) 
 * **Incapsulamento:** è possibile usare le stored procedure per raggruppare la logica in un solo posto. L'incapsulamento aggiunge un livello di astrazione al di sopra dei dati, consentendo l'evoluzione delle applicazioni indipendentemente dai dati. Questo livello di astrazione è utile quando i dati sono senza schema e non è necessario gestire l'aggiunta di altra logica direttamente nell'applicazione. Questa astrazione consente di proteggere i dati semplificando l'accesso dagli script.
 
 > [!TIP]
-> Le stored procedure sono più adatte per le operazioni che richiedono molte operazioni di scrittura. Quando si decide dove usare le stored procedure, eseguire l'ottimizzazione incapsulando la quantità massima di possibili operazioni di scrittura. In generale, le stored procedure non sono il modo più efficiente per eseguire un numero elevato di operazioni di lettura. Pertanto, l'uso delle stored procedure per inviare in batch un numero elevato di operazioni di lettura da restituire al client non produrrà i vantaggi desiderati.
+> Le stored procedure sono ideali per le operazioni di scrittura pesanti e richiedono una transazione tra un valore di chiave di partizione. Se si decide di utilizzare le stored procedure, ottimizzare tutto che incapsula la quantità massima di possibili operazioni di scrittura. In generale, le stored procedure non sono il modo più efficiente per eseguire un numero elevato di operazioni di lettura o la query, in modo che utilizzano le stored procedure a un numero elevato di letture da restituire al client di batch non produrrà i vantaggi desiderati. Per prestazioni ottimali, queste operazioni con intensa attività di lettura devono essere eseguite sul lato client, usando il SDK di Cosmos. 
 
 ## <a name="transactions"></a>Transazioni
 

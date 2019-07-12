@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.openlocfilehash: dcd51756a9c5a5a24a082862bb911cc2d2605d61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9de37c04e5e791445659de0ab667b51f44a4024
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954365"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839831"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza in Azure Cosmos DB
 
@@ -48,7 +48,7 @@ La semantica dei cinque livelli di coerenza è descritta qui:
 
   Il decadimento ristretto offre un ordine globale totale tranne all'interno della "finestra di decadimento". La garanzia di lettura monotona esiste in un'area sia all'interno che all'esterno della finestra di obsolescenza. Coerenza assoluta è la stessa semantica di quella offerta da decadimento ristretto. La finestra di obsolescenza è uguale a zero. L'obsolescenza associata è anche definita linearizzabilità posticipata. Quando un client esegue le operazioni di lettura all'interno di un'area che accetta le scritture, le garanzie fornite dal livello di coerenza decadimento ristretto sono identiche a tali garanzie per la coerenza assoluta.
 
-- **Sessione**: questo livello assicura che le operazioni di lettura rispettino le garanzie della coerenza del prefisso (presupponendo una singola sessione di scrittura), delle letture monotoniche, delle scritture monotoniche, della lettura delle proprie scritture e delle letture che seguono la scrittura. L'ambito di una coerenza di sessione è una sessione client.
+- **Sessione**:  All'interno di una singola sessione client le letture a rispettare il prefisso coerente (presupponendo che una sessione single "writer"), letture monotone, scritture monotone, garanzie di lettura delle proprie scritture e scrittura basata sulle letture. I client all'esterno della sessione eseguendo operazioni di scrittura visualizzeranno la coerenza finale.
 
 - **Coerenza del prefisso**: gli aggiornamenti restituiti contengono un prefisso di tutti gli aggiornamenti, senza lacune. Livello di coerenza prefisso coerente garantisce che non vedano mai scritture non di in ordine.
 

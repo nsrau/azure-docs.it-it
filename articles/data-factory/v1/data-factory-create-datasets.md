@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f88d83a851ad878ac9ee9b0195816d2ca35e4c13
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487274"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839369"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Set di dati in Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-create-datasets.md)
 > * [Versione 2 (corrente)](../concepts-datasets-linked-services.md)
 
@@ -328,7 +328,6 @@ A meno che non sia generato da Data Factory, il set di dati deve essere contrass
 È possibile creare set di dati usando uno di questi strumenti o SDK:
 
 - Copia guidata
-- Portale di Azure
 - Visual Studio
 - PowerShell
 - Modello di Azure Resource Manager
