@@ -7,7 +7,7 @@ author: barbaraselden
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d40c0604f0947abe8d536eafe87545790476a98
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108473"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625537"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Pianificare una distribuzione di Proxy applicazione Azure AD
 
@@ -70,7 +70,8 @@ Devono essere soddisfatti i requisiti di base seguenti per configurare e impleme
 
 * **Certificato pubblico**: Se si utilizzano nomi di dominio personalizzato, è necessario ottenere un certificato pubblico generato da un'autorità di certificazione attendibili non Microsoft. A seconda delle esigenze dell'organizzazione, come ottenere un certificato può richiedere molto tempo ed è consigliabile iniziare il processo di quanto prima possibile. Proxy applicazione di Azure supporta standard, [jolly](application-proxy-wildcard.md), o i certificati basati su SAN.
 
-* **Requisiti di dominio**: Single sign-on alle applicazioni pubblicate mediante la delega vincolata Kerberos (KCD) richiede che un host del connettore sia aggiunto al dominio allo stesso dominio Active Directory come le applicazioni in fase di pubblicazione. Per informazioni dettagliate sull'argomento, vedere [delega vincolata Kerberos per single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) con Proxy dell'applicazione. Il servizio del connettore viene eseguito nel contesto di sistema locale e non deve essere configurato per usare un'identità personalizzata.
+* **Requisiti di dominio**: Single sign-on alle applicazioni pubblicate mediante la delega vincolata Kerberos (KCD) richiede che il server che esegue il connettore e il server che esegue l'app siano aggiunti a un dominio e parte dello stesso dominio o domini trusting.
+Per informazioni dettagliate sull'argomento, vedere [delega vincolata Kerberos per single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) con Proxy dell'applicazione. Il servizio del connettore viene eseguito nel contesto di sistema locale e non deve essere configurato per usare un'identità personalizzata.
 
 * **Record DNS per gli URL**
 
