@@ -55,7 +55,8 @@
     - name: Sfogliare le immagini
       href: paging-images.md
     - name: Ridimensionare e ritagliare le anteprime
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Aggiornamento da v5 a v7
       href: bing-image-upgrade-guide-v5-to-v7.md
 - name: Concetti

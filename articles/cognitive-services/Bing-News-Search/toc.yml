@@ -51,7 +51,8 @@
     - name: Sfogliare le notizie
       href: paging-news.md
     - name: Ridimensionare e ritagliare le anteprime
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Eseguire l'aggiornamento dalla versione 5 alla versione 7 dell'API
       href: bing-news-upgrade-guide-v5-to-v7.md
     - name: Utilizzo di Visual Studio

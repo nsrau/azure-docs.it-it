@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 9b8f3894062c34e743a39f28b5f079a67a285c84
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 8956aff86777e2a2570c6a555a9bd0882f328a77
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357675"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868403"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -31,17 +31,17 @@ La versione 3 dell'API Traduzione testuale fornisce un'API Web moderna basata su
 
 ## <a name="base-urls"></a>URL di base
 
-Microsoft Translator è accessibile da più posizioni di data center. Attualmente si trovano in 6 [aree geografiche di Azure](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator è accessibile da più posizioni di data center. Attualmente si trovano in 10 [aree geografiche di Azure](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **Americhe:** Stati Uniti occidentali 2 e Stati Uniti centro-occidentali 
-* **Asia Pacifico:** Asia sud-orientale e Corea meridionale
+* **Americhe:** Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro occidentali e Stati Uniti occidentali 2 
+* **Asia Pacifico:** Corea meridionale, Giappone orientale, Asia sud-orientale e Australia orientale
 * **Europa:** Europa settentrionale e Europa occidentale
 
 Nella maggior parte dei casi le richieste per l'API Traduzione testuale Microsoft vengono gestite dal data center più vicino all'area di origine della richiesta. In caso di errore di Data Center, la richiesta può essere instradata di fuori dell'area geografica di Azure.
 
 Per forzare la richiesta di essere gestita da una specifica area geografica di Azure, modificare l'endpoint globale nella richiesta di API per l'endpoint a livello di area desiderato:
 
-|Descrizione|Area geografica di Azure|URL di base|
+|DESCRIZIONE|Area geografica di Azure|URL di base|
 |:--|:--|:--|
 |Azure|Global (non a livello di area)|   api.cognitive.microsofttranslator.com|
 |Azure|Stati Uniti|   api-nam.cognitive.microsofttranslator.com|
@@ -126,7 +126,7 @@ Ad esempio, un cliente con una sottoscrizione della versione di valutazione grat
 ```
 Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. Codici errore comuni sono:
 
-| Codice | Descrizione |
+| Codice | DESCRIZIONE |
 |:----|:-----|
 | 400000| Uno degli input della richiesta non è valido.|
 | 400001| Il parametro "scope" non è valido.|

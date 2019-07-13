@@ -52,7 +52,8 @@
     - name: Sfogliare i video
       href: paging-videos.md
     - name: Ridimensionare e ritagliare le anteprime
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Aggiornamento da v5 a v7
       href: bing-video-upgrade-guide-v5-to-v7.md
 - name: Concetti

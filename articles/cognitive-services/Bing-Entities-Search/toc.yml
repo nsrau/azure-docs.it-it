@@ -45,7 +45,8 @@
 - name: Guide alle procedure
   items:
     - name: Ridimensionare e ritagliare le anteprime
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
 - name: Concetti
   items:
     - name: Ricerca di entità
