@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe1324479ed3b1438e993504552c6279bcef5a15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f28c7b94a9eb8131f0638a24a0d4b3cfccf062e5
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431076"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836300"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Spostare dati da HDFS locale con Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-hdfs-connector.md)
 > * [Versione 2 (corrente)](../connector-hdfs.md)
 
@@ -67,7 +67,7 @@ Un servizio collegato collega un archivio dati a una data factory. Viene creato 
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **Hdfs** |Yes |
+| type |La proprietà type deve essere impostata su: **Hdfs** |Sì |
 | url |URL di HDFS |Sì |
 | authenticationType |Anonima o Windows. <br><br> Per usare l'**autenticazione Kerberos** per il connettore HDFS, fare riferimento a [questa sezione](#use-kerberos-authentication-for-hdfs-connector) per impostare correttamente l'ambiente locale. |Sì |
 | userName |Nome utente per l'autenticazione di Windows Per l'autenticazione Kerberos specificare `<username>@<domain>.com`. |Sì (per l'autenticazione di Windows) |
@@ -171,7 +171,7 @@ Per l'attività di copia con origine di tipo **FileSystemSource** , nella sezion
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |No |
+| recursive |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True, False (valore predefinito) |No |
 
 ## <a name="supported-file-and-compression-formats"></a>Formati di file e di compressione supportati
 Per i dettagli, vedere l'articolo relativo ai [file e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
@@ -179,7 +179,7 @@ Per i dettagli, vedere l'articolo relativo ai [file e formati di compressione in
 ## <a name="json-example-copy-data-from-on-premises-hdfs-to-azure-blob"></a>Esempio di JSON: Copiare i dati da un HDFS locale al BLOB di Azure
 Questo esempio illustra come copiare dati da HDFS locale all'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.  
 
-L'esempio fornisce le definizioni JSON per le entità di data factory seguenti. È possibile usare queste definizioni per creare una pipeline per copiare dati da HDFS a un'archiviazione BLOB di Azure mediante il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
+L'esempio fornisce le definizioni JSON per le entità di data factory seguenti. È possibile usare queste definizioni per creare una pipeline per copiare dati da HDFS in archiviazione Blob di Azure usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) oppure [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
 
 1. Un servizio collegato di tipo [OnPremisesHdfs](#linked-service-properties).
 2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
