@@ -6,16 +6,18 @@
   href: create-manage-support-requests-using-access-control.md
 - name: Richieste di aumento della quota
   items:
-    - name: Richieste di aumento della quota di modelli di distribuzione Resource Manager
+    - name: Calcolare l'aumento del limite di vCPU
       items:
-        - name: Aumento del limite di vCPU per una serie di VM
-          href: per-vm-quota-requests.md
-        - name: Aumento del limite di vCPU totali di un'area
-          href: regional-quota-requests.md
-        - name: Aumento del limite delle connessioni di rete
-          href: networking-quota-requests.md
-    - name: Richieste di aumento della quota di modelli di distribuzione classici
-      href: classic-deployment-model-quota-increase-requests.md
+        - name: Modello di distribuzione di Resource Manager
+          items:
+            - name: Aumento del limite di vCPU per una serie di VM
+              href: per-vm-quota-requests.md
+            - name: Aumento del limite di vCPU totali di un'area
+              href: regional-quota-requests.md
+        - name: Modello di distribuzione classica
+          href: classic-deployment-model-quota-increase-requests.md
+    - name: Aumento del limite delle connessioni di rete
+      href: networking-quota-requests.md
 - name: Risoluzione dei problemi relativi ad aree o SKU in una sottoscrizione
   href: sku-series-unavailable.md
 - name: riferimento

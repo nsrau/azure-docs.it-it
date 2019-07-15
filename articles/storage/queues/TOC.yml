@@ -158,7 +158,7 @@
       items:
         - name: Avviare il failover di un account
           href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Usare l'emulatore di archiviazione
+    - name: Usare l'emulatore di archiviazione di Azure
       href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Sviluppare con code
       items:

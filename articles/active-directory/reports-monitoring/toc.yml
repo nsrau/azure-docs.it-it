@@ -58,7 +58,7 @@
           href: howto-power-bi-content-pack.md
         - name: Configurare i prerequisiti per l'API di creazione di report
           href: howto-configure-prerequisites-for-reporting-api.md
-        - name: Come usare le cartelle di lavoro di Monitoraggio di Azure
+        - name: Come usare le cartelle di lavoro di Azure AD
           href: howto-use-azure-monitor-workbooks.md
     - name: Monitoraggio
       items:
@@ -87,6 +87,8 @@
 - name: riferimento
   expanded: true
   items:
+    - name: Cmdlet di Azure AD PowerShell per la creazione di report
+      href: reference-powershell-reporting.md
     - name: Informazioni di riferimento sulle API dei log di controllo
       href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
     - name: Informazioni di riferimento sulle API dei log di accesso
