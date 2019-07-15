@@ -16,8 +16,6 @@
       href: tutorial-sspr-pilot.md
     - name: Abilitare l'integrazione locale della reimpostazione della password self-service
       href: tutorial-enable-writeback.md
-    - name: Abilitare la reimpostazione della password di Windows 10
-      href: tutorial-sspr-windows.md
     - name: Integrazione di Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Concetti
@@ -73,8 +71,8 @@
           href: howto-sspr-authenticationdata.md
         - name: Abilitare il writeback delle password
           href: howto-sspr-writeback.md
-        - name: 'Reimpostazione password self-service per Windows 7, 8 e 8.1'
-          href: howto-sspr-windows-7-8.md
+        - name: Reimpostazione della password self-service per client Windows
+          href: howto-sspr-windows.md
     - name: Multi-Factor Authentication basata sul cloud
       items:
         - name: Distribuire Multi-Factor Authentication basata sul cloud

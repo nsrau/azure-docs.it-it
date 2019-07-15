@@ -54,21 +54,21 @@ ms.locfileid: "65409958"
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
 [2039619]:https://launchpad.support.sap.com/#/notes/2039619
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -365,7 +365,7 @@ ms.locfileid: "65409958"
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
-[sap-pam]: https://support.sap.com/pam (Product Availability Matrix (PAM) SAP)
+[sap-pam]:https://support.sap.com/pam (Product Availability Matrix PAM SAP)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
@@ -1177,7 +1177,7 @@ La configurazione di un controllo di condivisione file del cluster prevede quest
 
    _**Figura 30:** Assegnare le autorizzazioni nella condivisione per l'oggetto del nome cluster_
 
-   Assicurarsi che le autorizzazioni includano l'autorità di modificare i dati nella condivisione per l'oggetto nome cluster (in questo esempio **pr1-ascs-vir$** ).
+   Assicurarsi che le autorizzazioni includano l'autorità di modificare i dati nella condivisione per l'oggetto nome cluster (in questo esempio **pr1-ascs-vir$**).
 
 3. Per aggiungere l'oggetto nome cluster all'elenco, selezionare **Aggiungi**. Modificare il filtro per cercare gli oggetti computer, oltre a quelli illustrati nella figura 31.
 
@@ -1410,7 +1410,7 @@ L'installazione di SAP con un'istanza di ASCS/SCS a disponibilità elevata preve
 1. In Gestore DNS di Windows creare una voce DNS per il nome host virtuale dell'istanza di ASCS/SCS.
 
    > [!IMPORTANT]
-   > L'indirizzo IP assegnato al nome host virtuale dell'istanza di ASCS/SCS deve essere lo stesso indirizzo IP assegnato ad Azure Load Balancer ( **<*SID*>-lb-ascs**).  
+   > L'indirizzo IP assegnato al nome host virtuale dell'istanza di ASCS/SCS deve essere lo stesso indirizzo IP assegnato ad Azure Load Balancer (**<*SID*>-lb-ascs**).  
    >
    >
 
@@ -1612,7 +1612,7 @@ Il gruppo di cluster **SAP PR1** è in esecuzione nel nodo A del cluster, ad ese
 
 _**Figura 61:** Gestione cluster di failover: il gruppo di cluster <*SID*> SAP è in esecuzione nel nodo A del cluster_
 
-Nello strumento di configurazione e gestione di SIOS DataKeeper è possibile verificare che i dati di dischi condivisi vengano replicati in modo sincrono dall'unità S del volume di origine nel nodo A del cluster all'unità S del volume di destinazione nel nodo B del cluster, ad esempio da **pr1-ascs-0 [10.0.0.40]** a **pr1-ascs-1 [10.0.0.41]** .
+Nello strumento di configurazione e gestione di SIOS DataKeeper è possibile verificare che i dati di dischi condivisi vengano replicati in modo sincrono dall'unità S del volume di origine nel nodo A del cluster all'unità S del volume di destinazione nel nodo B del cluster, ad esempio da **pr1-ascs-0 [10.0.0.40]** a **pr1-ascs-1 [10.0.0.41]**.
 
 ![Figura 62: In SIOS DataKeeper replicare il volume locale dal nodo A al nodo B del cluster][sap-ha-guide-figure-5001]
 
@@ -1641,7 +1641,7 @@ _**Figura 62:** In SIOS DataKeeper replicare il volume locale dal nodo A al nodo
 
    _**Figura 63**: In Gestione cluster di failover, il gruppo di cluster <*SID*> SAP è in esecuzione nel nodo B del cluster_
 
-   Il disco condiviso è ora montato nel nodo B del cluster. SIOS DataKeeper replica i dati dall'unità S del volume di origine nel nodo B del cluster all'unità S del volume di destinazione nel nodo A del cluster, ad esempio da **pr1-ascs-1 [10.0.0.41]** a **pr1-ascs-0 [10.0.0.40]** .
+   Il disco condiviso è ora montato nel nodo B del cluster. SIOS DataKeeper replica i dati dall'unità S del volume di origine nel nodo B del cluster all'unità S del volume di destinazione nel nodo A del cluster, ad esempio da **pr1-ascs-1 [10.0.0.41]** a **pr1-ascs-0 [10.0.0.40]**.
 
    ![Figura 64: SIOS DataKeeper replica il volume locale dal nodo B al nodo A del cluster][sap-ha-guide-figure-5003]
 

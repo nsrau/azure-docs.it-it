@@ -61,8 +61,16 @@
   items:
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Aree e disponibilità
-      href: regions-and-availability.md
+    - name: Regioni
+      href: regions.md
+    - name: Disponibilità e prestazioni
+      items:
+        - name: Disponibilità
+          href: availability.md
+        - name: Co-location
+          href: co-location.md
+        - name: Prestazioni di rete
+          href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Tipi e dimensioni di VM
       href: sizes.md
       items:
@@ -322,6 +330,8 @@
           href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Disponibilità elevata
           href: manage-availability.md
+        - name: Creare un gruppo di selezione host di prossimità
+          href: proximity-placement-groups.md
         - name: Aumento delle prestazioni
           href: vertical-scaling-automation.md
         - name: Creare una macchina virtuale in una zona di disponibilità

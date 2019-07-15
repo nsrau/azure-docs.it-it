@@ -126,6 +126,8 @@
           href: virtual-kubelet.md
         - name: Usare il ridimensionamento automatico del cluster (anteprima)
           href: cluster-autoscaler.md
+        - name: Usare le zone di disponibilità (anteprima)
+          href: availability-zones.md
         - name: Usare più pool di nodi (anteprima)
           href: use-multiple-node-pools.md
         - name: Distribuire servizio Azure Kubernetes con Terraform
@@ -315,6 +317,8 @@
         - name: Progetto DevOps di Azure
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
+        - name: Avvio con il Centro distribuzione
+          href: deployment-center-launcher.md
     - name: Risolvere problemi
       items:
         - name: Problemi comuni
