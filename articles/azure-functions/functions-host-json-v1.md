@@ -169,7 +169,7 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
 |healthCheckWindow|2 minuti|Finestra temporale scorrevole usata in combinazione con l'impostazione `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Numero massimo di volte in cui il controllo dell'integrità può non riuscire prima che venga avviato un riciclo host.| 
-|counterThreshold|0,80|Soglia a partire dalla quale un contatore delle prestazioni verrà considerato non integro.| 
+|counterThreshold|0.80|Soglia a partire dalla quale un contatore delle prestazioni verrà considerato non integro.| 
 
 ## <a name="http"></a>http
 
@@ -213,7 +213,7 @@ Controlla le operazioni di filtro per i log scritti da un [oggetto ILogger](func
 |Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |categoryFilter|n/d|Specifica il filtro per categoria| 
-|defaultLevel|Informazioni|Per tutte le categorie non è state specificate nella matrice `categoryLevels`, inviare i log a questo livello e oltre per Application Insights.| 
+|defaultLevel|Information|Per tutte le categorie non è state specificate nella matrice `categoryLevels`, inviare i log a questo livello e oltre per Application Insights.| 
 |categoryLevels|n/d|Una matrice di categorie che specifica il livello di log minimo per l'invio ad Application Insights per ogni categoria. La categoria specificata qui controlla tutte le categorie che iniziano con lo stesso valore, e i valori più lunghi hanno la precedenza. Nel file di esempio precedente *host.json*, tutte le categorie che iniziano "Host.Aggregator" eseguono il log al livello `Information`. Tutte le altre categorie che iniziano con "Host", ad esempio "Host.Executor", eseguono il log al livello `Error`.| 
 
 ## <a name="queues"></a>queues
