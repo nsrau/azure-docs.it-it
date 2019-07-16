@@ -1,19 +1,19 @@
 ---
-title: Script di Azure PowerShell - Azure Cosmos DB Update UR/s per l'API Cassandra
-description: Script di Azure PowerShell - Azure Cosmos DB Update UR/s per l'API Cassandra
+title: Script di Azure PowerShell - Aggiornare le unità richiesta al secondo di Azure Cosmos DB per l'API Cassandra
+description: Script di Azure PowerShell - Aggiornare le unità richiesta al secondo di Azure Cosmos DB per l'API Cassandra
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 05ff4379c0a5d5436525f25bd755a7fce46d8121
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 9df7884d56acf47d3bb7bdcf7679631713cf2725
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247920"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602530"
 ---
-# <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Aggiornamento di UR/sec per un keyspace o una tabella per Azure Cosmos DB: API Cassandra
+# <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Aggiornare le unità richiesta al secondo per un keyspace o una tabella per Azure Cosmos DB - API Cassandra
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

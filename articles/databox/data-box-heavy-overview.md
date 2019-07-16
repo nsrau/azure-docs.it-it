@@ -5,28 +5,27 @@ services: databox
 documentationcenter: NA
 author: alkohli
 ms.service: databox
-ms.subservice: pod
+ms.subservice: heavy
 ms.topic: overview
-ms.date: 06/19/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 94ba0040b1de7e1f03825f1cd2ef2a6536343d96
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0f4657cdd71a104ca111f62a6e9757b5a33b46e8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271749"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592307"
 ---
-# <a name="what-is-azure-data-box-heavy-preview"></a>Che cos'è Azure Data Box Heavy? (anteprima)
+# <a name="what-is-azure-data-box-heavy"></a>Che cos'è Azure Data Box Heavy?
 
 Azure Data Box Heavy consente di inviare centinaia di terabyte di dati in Azure in modo rapido, economico e affidabile. I dati vengono trasferiti in Azure tramite la spedizione di un dispositivo Data Box Heavy con capacità di archiviazione di 1 PB, in cui è possibile inserire i dati da inviare a Microsoft. Il dispositivo è imballato in un involucro rigido per proteggere i dati durante il trasporto.
 
-Data Box Heavy è attualmente disponibile in anteprima. È possibile iscriversi per richiedere un dispositivo tramite il portale di Azure. Una volta ricevuto il dispositivo presso il data center, è possibile configurarlo tramite l'interfaccia utente Web locale. Copiare i dati dai server in uso nel dispositivo e rispedire il dispositivo ad Azure. Nel data center di Azure i dati vengono caricati in uno o più account di archiviazione di Azure specifici dell'utente. È possibile tenere traccia dell'intero processo nel portale di Azure.
+Una volta ricevuto il dispositivo presso il data center, è possibile configurarlo tramite l'interfaccia utente Web locale. Copiare i dati dai server in uso nel dispositivo e rispedire il dispositivo ad Azure. Nel data center di Azure i dati vengono caricati in uno o più account di archiviazione di Azure specifici dell'utente. È possibile tenere traccia dell'intero processo nel portale di Azure.
 
 
 > [!IMPORTANT]
-> - Data Box Heavy è disponibile in anteprima. Prima di distribuire questa soluzione, esaminare le [condizioni per le anteprime di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> - Per richiedere un dispositivo, effettuare l'iscrizione nel [portale di anteprima](https://aka.ms/azuredatabox).
-> - Durante l'anteprima, Data Box Heavy può essere spedito ai clienti negli Stati Uniti e nell'Unione europea. Per altre informazioni, vedere [Disponibilità a livello di area](#region-availability).
+> - Per richiedere un dispositivo, effettuare l'iscrizione nel [portale di Azure](https://portal.azure.com).
+
 
 ## <a name="use-cases"></a>Casi d'uso
 
@@ -115,25 +114,14 @@ Per informazioni aggiornate sulla disponibilità delle aree geografiche per Data
 
 ## <a name="sign-up"></a>Iscrizione
 
-Data Box Heavy è disponibile in anteprima ed è necessario effettuare l'iscrizione. Per iscriversi a Data Box Heavy, seguire questa procedura:
+Per iscriversi a Data Box Heavy, seguire questa procedura:
 
-1. Accedere al portale di Azure all'indirizzo: https://aka.ms/azuredatabox.
+1. Accedere al portale di Azure all'indirizzo: https://portal.azure.com.
 2. Fare clic su **Crea una risorsa** per creare una nuova risorsa. Cercare **Azure Data Box**. Selezionare il servizio **Azure Data Box**.
-
-    <!--![The Data Box Heavy sign up 1]()-->
-
 3. Fare clic su **Create**(Crea).
-
-    <!--![The Data Box Heavy sign up 2]()-->
-
-4. Selezionare la sottoscrizione che si vuole usare per l'anteprima di Data Box Heavy. Selezionare l'area in cui si intende distribuire la risorsa Data Box Heavy. Nell'opzione **Data Box Heavy** fare clic su **Iscrizione**.
-
-   <!--![The Data Box Heavy sign up 3]()-->
-
+4. Selezionare la sottoscrizione che si vuole usare per Data Box Heavy. Selezionare l'area in cui si intende distribuire la risorsa Data Box Heavy. Nell'opzione **Data Box Heavy** fare clic su **Iscrizione**.
 5. Rispondere alle domande relative al paese o all'area geografica di residenza dei dati, all'intervallo di tempo, al servizio di Azure di destinazione per il trasferimento dei dati, alla larghezza di banda della rete e alla frequenza di trasferimento dei dati. Esaminare l'Informativa sulla privacy e le condizioni e selezionare la casella di controllo che consente a Microsoft di usare l'indirizzo di posta elettronica per contattare l'utente.
 
-    <!--![The Data Box Heavy sign up 4]()-->
-
-Dopo aver eseguito l'iscrizione e abilitato la sottoscrizione per l'anteprima, sarà possibile ordinare Data Box Heavy.
+Dopo aver eseguito l'iscrizione, sarà possibile ordinare Data Box Heavy.
 
     

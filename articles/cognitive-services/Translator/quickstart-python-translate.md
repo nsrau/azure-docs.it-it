@@ -10,18 +10,21 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 689aa655967910c0114f50eac522df00c5659d1b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e12d6dfd51e297e19e3f47cd9ee32c1b4e8cfa36
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444901"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705436"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Guida introduttiva: Usare l'API Traduzione testuale per tradurre una stringa con Python
 
 In questa guida introduttiva si apprenderà come tradurre una stringa di testo dall'inglese all'italiano e al tedesco con Python e l'API REST Traduzione testuale.
 
 Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+
+>[!TIP]
+> Per vedere tutto il codice contemporaneamente, il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -95,7 +98,7 @@ headers = {
 }
 ```
 
-Se si usa una sottoscrizione multiservizio di Servizi cognitivi, è necessario includere anche `Ocp-Apim-Subscription-Region` nei parametri della richiesta. [Informazioni sull'autenticazione con la sottoscrizione multiservizio](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Se si usa una sottoscrizione multiservizio di Servizi cognitivi, è necessario includere anche `Ocp-Apim-Subscription-Region` nei parametri della richiesta. [Informazioni sull'autenticazione con la sottoscrizione multiservizio](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="create-a-request-to-translate-text"></a>Creare una richiesta per tradurre il testo
 
@@ -162,10 +165,12 @@ Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Esaminare gli esempi di codice Python su GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
+Esaminare le informazioni di riferimento sulle API per conoscere quali operazioni è possibile eseguire con l'API Traduzione testuale.
 
-## <a name="see-also"></a>Vedere anche
+> [!div class="nextstepaction"]
+> [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+
+## <a name="see-also"></a>Vedere anche 
 
 Informazioni su come usare l'API Traduzione testuale per:
 

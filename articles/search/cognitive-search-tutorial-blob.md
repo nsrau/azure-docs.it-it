@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 292368687ea30b87f4a1fa851027f9bde38c9549
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: cedcc1be5525cc6932ff168e6549de84fa02a4ca
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485770"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669094"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Esercitazione REST: Chiamare le API Servizi cognitivi in una pipeline di indicizzazione di Ricerca di Azure
 
@@ -488,4 +488,4 @@ Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'el
 Personalizzare o estendere la pipeline con competenze personalizzate. Creare una competenza personalizzata e aggiungerla a un set di competenze consente di caricare procedure di analisi del testo o delle immagini personalizzate. 
 
 > [!div class="nextstepaction"]
-> [Esempio: creare una competenza personalizzata](cognitive-search-create-custom-skill-example.md)
+> [Esempio: Creare una competenza personalizzata per la ricerca cognitiva](cognitive-search-create-custom-skill-example.md)

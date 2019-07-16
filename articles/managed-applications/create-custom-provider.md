@@ -7,20 +7,20 @@ ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: evanhi
-ms.openlocfilehash: e4196cf59537be5194ceb510a1b7b066c97de19a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 41200139ef55fa1ae441192e2d81b5228cf29bad
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410214"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795309"
 ---
-# <a name="tutorial-create-custom-provider-and-deploy-custom-resources"></a>Esercitazione: Creare un provider personalizzato e distribuire le risorse personalizzate
+# <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>Guida introduttiva: Creare un provider personalizzato e distribuire le risorse personalizzate
 
-Questa esercitazione illustra come creare un provider di risorse e distribuire i tipi di risorse personalizzati per tale provider di risorse. Per altre informazioni sui provider personalizzati, vedere [Azure Custom Providers Preview overview (Panoramica dell'anteprima di provider personalizzati di Azure)](custom-providers-overview.md).
+Questa guida di avvio rapido descrive come creare un provider di risorse e distribuire i tipi di risorse personalizzati per tale provider di risorse. Per altre informazioni sui provider personalizzati, vedere [Azure Custom Providers Preview overview (Panoramica dell'anteprima di provider personalizzati di Azure)](custom-providers-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare la procedura di questa esercitazione, è necessario chiamare le operazioni REST. Esistono [modi diversi per inviare richieste REST](/rest/api/azure/). Se non è già disponibile uno strumento per le operazioni REST, installare [ARMClient](https://github.com/projectkudu/ARMClient). Si tratta di uno strumento da riga di comando open source che semplifica la chiamata dell'API di Azure Resource Manager.
+Per completare la procedura descritta in questa guida di avvio rapido, è necessario chiamare operazioni REST. Esistono [modi diversi per inviare richieste REST](/rest/api/azure/). Se non è già disponibile uno strumento per le operazioni REST, installare [ARMClient](https://github.com/projectkudu/ARMClient). Si tratta di uno strumento da riga di comando open source che semplifica la chiamata dell'API di Azure Resource Manager.
 
 ## <a name="deploy-custom-provider"></a>Distribuire un provider personalizzato
 
@@ -122,7 +122,7 @@ Si riceve la risposta:
 
 ## <a name="create-resource-type"></a>Creare un tipo di risorsa
 
-Per creare un tipo di risorsa personalizzata, è possibile distribuire la risorsa in un modello. Questo approccio è illustrato nel modello distribuito in questa esercitazione. È anche possibile inviare una richiesta PUT per il tipo di risorsa.
+Per creare un tipo di risorsa personalizzata, è possibile distribuire la risorsa in un modello. Questo approccio è illustrato nel modello distribuito in questa guida di avvio rapido. È anche possibile inviare una richiesta PUT per il tipo di risorsa.
 
 ```
 PUT https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/<resource-name>?api-version=2018-09-01-preview

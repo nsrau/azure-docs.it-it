@@ -6,7 +6,7 @@ documentationcenter: ''
 author: mdgattuso
 manager: danielgi
 editor: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 10d06d2e792b476a4c973029241d6cb98c0dd444
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c6da3270de94fd0d5525f28cdd31039f5bd85dbd
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094072"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594069"
 ---
-# <a name="tutorial-set-azure-cdn-caching-rules"></a>Esercitazione: Impostare regole di memorizzazione nella cache della rete CDN di Azure
+# <a name="tutorial-set-azure-cdn-caching-rules"></a>Esercitazione: Impostare le regole di memorizzazione nella cache della rete CDN di Azure
 
 > [!NOTE] 
 > Le regole di memorizzazione nella cache della rete CDN di Azure sono disponibili solo per i profili di **rete CDN Standard di Azure con tecnologia Verizon** e di **rete CDN Standard di Azure con tecnologia Akamai**. Per la **rete CDN Premium di Azure con tecnologia Verizon** usare il [motore delle regole della rete CDN di Azure](cdn-rules-engine.md) nel portale a cui si accedere tramite il pulsante **Gestisci** per funzionalità analoghe.
@@ -42,7 +42,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di poter completare i passaggi di questa esercitazione, è necessario creare un profilo della rete CDN e almeno un endpoint della rete CDN. Per altre informazioni, vedere [Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
+Prima di poter completare i passaggi di questa esercitazione, è necessario creare un profilo della rete CDN e almeno un endpoint della rete CDN. Per altre informazioni, vedere [Avvio rapido: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
 
 ## <a name="open-the-azure-cdn-caching-rules-page"></a>Aprire la pagina delle regole di memorizzazione nella cache della rete CDN di Azure
 

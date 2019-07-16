@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c3be09c998399cdca886f207bf5fc621bf51d8dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099606"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656684"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Esercitazione: Integrazione di Azure Active Directory con ITRP
 
@@ -153,9 +153,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con ITRP, seguire questa pr
 
     1. Selezionare **Enabled**.
 
-    1. Nella casella  **Remote logout URL** (URL disconnessione remota) incollare il valore di **URL disconnessione** copiato dal portale di Azure.
+    1. Nella casella **Remote logout URL** (URL disconnessione remota) incollare il valore di **URL disconnessione** copiato dal portale di Azure.
 
-    1. Nella casella  **SAML SSO URL** (URL SSO SAML) incollare il valore di **URL di accesso** copiato dal portale di Azure.
+    1. Nella casella **SAML SSO URL** (URL SSO SAML) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
     1. Nella casella **Certificate fingerprint** (Impronta digitale certificato) incollare il valore **Identificazione personale** del certificato copiato dal portale di Azure.
 

@@ -7,14 +7,14 @@ ms.topic: overview
 ms.date: 06/24/2019
 author: roaror
 ms.author: roaror
-ms.openlocfilehash: ad302df3144787fd231166c7052ecfde268f4086
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 102d3fdc2e36f812e9a86286383a06f9930a1947
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451672"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67665924"
 ---
-# <a name="use-compass-to-connect-to-your-cosmos-db-account"></a>Usare Compass per connettersi all'account Cosmos DB
+# <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Usare MongoDB Compass per connettersi all'API di Azure Cosmos DB per MongoDB 
 
 Questa esercitazione illustra come usare [MongoDB Compass](https://www.mongodb.com/products/compass) per l'archiviazione e/o la gestione dei dati in Cosmos DB. Per questa procedura dettagliata viene usata l'API di Azure Cosmos DB per MongoDB. Compass è un'interfaccia utente grafica per MongoDB comunemente usata per visualizzare i dati, eseguire query ad-hoc e gestire i dati. 
 

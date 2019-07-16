@@ -1,20 +1,21 @@
 ---
-title: 'Esercitazione: Avviare lo strumento di lettura immersiva (Node.js)'
+title: 'Esercitazione: Avviare lo strumento di lettura immersiva con Node.js'
 titleSuffix: Azure Cognitive Services
 description: In questa esercitazione si creerà un'applicazione Node.js che avvia lo strumento di lettura immersiva.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: ac90496c950d8a563bf8794b4c1bb105b6c12232
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f8697042ed46e0ff333f736454346908d76cf039
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444074"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718369"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Esercitazione: Avviare lo strumento di lettura immersiva (Node.js)
 
@@ -141,7 +142,7 @@ Questo endpoint API deve essere protetto da una qualche forma di autenticazione,
     npm start
     ```
 
-4. Aprire il browser e passare a _http://localhost:3000_ . Nella pagina verrà visualizzato il contenuto sopra riportato. Fare clic sul pulsante **Immersive Reader** per avviare lo strumento di lettura immersiva con il contenuto.
+4. Aprire il browser e passare a _http://localhost:3000_. Nella pagina verrà visualizzato il contenuto sopra riportato. Fare clic sul pulsante **Immersive Reader** per avviare lo strumento di lettura immersiva con il contenuto.
 
 ## <a name="specify-the-language-of-your-content"></a>Specificare la lingua del contenuto
 
@@ -162,7 +163,7 @@ Lo strumento di lettura immersiva include il supporto per molte lingue diverse. 
     });
     ```
 
-3. Passare di nuovo a _http://localhost:3000_ . Il testo in spagnolo viene visualizzato nella pagina e, quando si fa clic su **Immersive Reader**, viene visualizzato anche nello strumento di lettura immersiva.
+3. Passare di nuovo a _http://localhost:3000_. Il testo in spagnolo viene visualizzato nella pagina e, quando si fa clic su **Immersive Reader**, viene visualizzato anche nello strumento di lettura immersiva.
 
 ## <a name="specify-the-language-of-the-immersive-reader-interface"></a>Specificare la lingua dell'interfaccia dello strumento di lettura immersiva
 
@@ -177,7 +178,7 @@ Per impostazione predefinita, la lingua dell'interfaccia dello strumento di lett
     ImmersiveReader.launchAsync(token, content, options);
     ```
 
-2. Passare a _http://localhost:3000_ . Quando si avvierà lo strumento di lettura immersiva, l'interfaccia verrà visualizzata in francese.
+2. Passare a _http://localhost:3000_. Quando si avvierà lo strumento di lettura immersiva, l'interfaccia verrà visualizzata in francese.
 
 ## <a name="launch-the-immersive-reader-with-math-content"></a>Avviare lo strumento di lettura immersiva con dati matematici
 
@@ -208,7 +209,7 @@ Per impostazione predefinita, la lingua dell'interfaccia dello strumento di lett
     });
     ```
 
-2. Passare a _http://localhost:3000_ . Quando si avvierà lo strumento di lettura immersiva, si noterà la formula matematica alla fine della schermata.
+2. Passare a _http://localhost:3000_. Quando si avvierà lo strumento di lettura immersiva, si noterà la formula matematica alla fine della schermata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -102,6 +102,8 @@
           href: manage-database-permissions.md
         - name: Controllare l'integrità del cluster
           href: check-cluster-health.md
+        - name: Selezionare lo SKY delle VM del cluster
+          href: manage-cluster-choose-sku.md
         - name: Gestire il ridimensionamento orizzontale dei cluster
           href: manage-cluster-horizontal-scaling.md
         - name: Gestire il ridimensionamento verticale dei cluster

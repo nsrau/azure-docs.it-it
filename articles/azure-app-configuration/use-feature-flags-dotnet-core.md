@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5e27c6a1ab5fc9dff779c6e5d04689683d5c8e6d
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 99559c0c77c3e4b29badec1c0be2d741df1f0621
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274139"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798383"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Esercitazione: Usare i flag di funzionalità in un'app ASP.NET Core
 
@@ -86,30 +86,42 @@ public class Startup
 
 È consigliabile mantenere i flag di funzionalità all'esterno dell'applicazione e gestirli separatamente. In questo modo è possibile modificare gli stati dei flag in qualsiasi momento e applicare immediatamente tali modifiche nell'applicazione. Configurazione app offre una posizione centralizzata per organizzare e controllare tutti i flag di funzionalità tramite un'interfaccia utente del portale dedicata. Configurazione app fornisce anche i flag all'applicazione direttamente attraverso le relative librerie client .NET Core.
 
-Per connettere semplicemente l'applicazione ASP.NET Core a Configurazione app, usare il provider di configurazione `Microsoft.Extensions.Configuration.AzureAppConfiguration`. Per usare questo pacchetto NuGet, aggiungere il codice seguente al file *Program.cs*:
+Per connettere semplicemente l'applicazione ASP.NET Core a Configurazione app, usare il provider di configurazione `Microsoft.Azure.AppConfiguration.AspNetCore`. Per usare questo pacchetto NuGet, seguire questa procedura.
 
-```csharp
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+1. Aprire il file *Program.cs* e aggiungere il codice seguente.
 
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-           .ConfigureAppConfiguration((hostingContext, config) => {
-               var settings = config.Build();
-               config.AddAzureAppConfiguration(options => {
-                   options.Connect(settings["ConnectionStrings:AppConfig"])
-                          .UseFeatureFlags();
-                });
-           })
-           .UseStartup<Startup>();
-```
+   ```csharp
+   using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
-I valori di flag di funzionalità devono cambiare nel tempo. Per impostazione predefinita, la gestione funzionalità aggiorna i valori dei flag di funzionalità ogni 30 secondi. Il codice seguente mostra come modificare l'intervallo di polling impostandolo su 5 secondi nella chiamata a `options.UseFeatureFlags()`:
+   public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+       WebHost.CreateDefaultBuilder(args)
+              .ConfigureAppConfiguration((hostingContext, config) => {
+                  var settings = config.Build();
+                  config.AddAzureAppConfiguration(options => {
+                      options.Connect(settings["ConnectionStrings:AppConfig"])
+                             .UseFeatureFlags();
+                   });
+              })
+              .UseStartup<Startup>();
+   ```
+
+2. Aprire *Startup.cs* e aggiornare il metodo `Configure` per aggiungere un middleware e consentire l'aggiornamento dei valori dei flag di funzionalità a intervalli ricorrenti mentre l'app Web ASP.NET Core continua a ricevere richieste.
+
+   ```csharp
+   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   {
+       app.UseAzureAppConfiguration();
+       app.UseMvc();
+   }
+   ```
+
+I valori di flag di funzionalità devono cambiare nel tempo. Per impostazione predefinita, i valori dei flag di funzionalità vengono memorizzati nella cache per un periodo di 30 secondi, in modo che un'operazione di aggiornamento attivata quando il middleware riceve la richiesta non aggiorni il valore fino alla scadenza del valore memorizzato nella cache. Il codice seguente mostra come modificare l'intervallo di scadenza della cache o l'intervallo di polling impostandolo su 5 minuti nella chiamata a `options.UseFeatureFlags()`.
 
 ```csharp
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
+                featureFlagOptions.CacheExpirationTime = TimeSpan.FromMinutes(5);
            });
 });
 ```

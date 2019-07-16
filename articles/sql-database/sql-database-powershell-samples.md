@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 03bec71cca445d580605c1b0f4705e619933000a
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: cee93538706b8a886e2468e8ef9bf0d9b504e2c6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729125"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696169"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Esempi di Azure PowerShell per database SQL di Azure
 
@@ -40,10 +40,9 @@ La tabella seguente include collegamenti a esempi di script di Azure PowerShell 
 |**Configurare la replica geografica ed eseguire il failover**||
 | [Configurare un database singolo ed eseguirne il failover usando la replica geografica attiva](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell configura la replica geografica attiva per un database SQL di Azure singolo e ne effettua il failover nella replica secondaria. |
 | [Configurare un database in pool ed eseguirne il failover usando la replica geografica attiva](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell configura la replica geografica attiva per un database SQL di Azure in un pool elastico SQL e ne effettua il failover nella replica secondaria. |
-| [Eseguire la configurazione e il failover di un gruppo di failover per un database singolo](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Questo script di PowerShell configura un gruppo di failover per un'istanza del server di database SQL di Azure, aggiunge un database al gruppo di failover e ne effettua il failover nel server secondario. |
 |**Ridimensionare un database singolo e un pool elastico**||
 | [Ridimensionare un database singolo](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Questo script di PowerShell effettua il monitoraggio delle metriche delle prestazioni di un database SQL di Azure, lo ridimensiona con dimensioni di calcolo superiori e crea una regola di avviso per una delle metriche delle prestazioni. |
-| [Ridimensionare un pool elastico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Questo script di PowerShell effettua il monitoraggio delle metriche delle prestazioni di un pool elastico di database SQL di Azure, lo ridimensiona con dimensioni di calcolo superiori e crea una regola di avviso per una delle metriche delle prestazioni.  |
+| [Ridimensionare un pool elastico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Questo script di PowerShell effettua il monitoraggio delle metriche delle prestazioni di un pool elastico di database SQL di Azure, lo ridimensiona con dimensioni di calcolo superiori e crea una regola di avviso per una delle metriche delle prestazioni. |
 | **Controllo e rilevamento delle minacce** |
 | [Configurare il controllo e il rilevamento delle minacce](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell configura i criteri di controllo e rilevamento delle minacce per un database SQL di Azure. |
 | **Ripristinare, copiare e importare un database**||
@@ -67,6 +66,7 @@ La tabella seguente include collegamenti a esempi di script di Azure PowerShell 
 |**Creare e configurare istanze gestite**||
 | [Create and manage a Managed Instance](scripts/sql-database-create-configure-managed-instance-powershell.md) (Creare e gestire un'Istanza gestita) | Questo script di PowerShell mostra come creare e gestire un'istanza gestita tramite Azure PowerShell |
 | [Creare e gestire un'istanza gestita con il modello di Azure Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Questo script di PowerShell mostra come creare e gestire un'istanza gestita tramite Azure PowerShell e il modello di Azure Resource Manager.|
+| [Ripristinare un database in un'istanza gestita in un'altra area geografica](scripts/sql-managed-instance-restore-geo-backup.md) | Questo script di PowerShell esegue un backup di un database e lo ripristina in un'altra area. Quest'operazione è nota come scenario di ripristino geografico di emergenza. |
 | **Configurare Transparent Data Encryption (TDE)**||
 | [Gestire Transparent Data Encryption in un'istanza gestita usando una chiave personalizzata di Azure Key Vault](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Questo script di PowerShell configura Transparent Data Encryption (TDE) in uno scenario Bring Your Own Key per un'istanza gestita di SQL di Azure usando una chiave di Azure Key Vault|
 |||

@@ -61,7 +61,7 @@
           href: plan-sso-deployment.md
     - name: Accesso SSO con un clic
       items:
-        - name: Cos'è l'accesso SSO con un clic
+        - name: Configurazione dell'accesso SSO con un clic
           href: one-click-sso-tutorial.md
     - name: Effettuare il provisioning di utenti e gruppi
       items:
