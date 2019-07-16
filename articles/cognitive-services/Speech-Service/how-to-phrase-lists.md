@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: 158819d481c0ce245539d783f194b159b2b9edb6
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d73a63a8f58e14149121d0860268fc23930001bf
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606516"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226356"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Elenchi di una frase per riconoscimento vocale
 
@@ -24,6 +24,9 @@ Grazie ai servizi di riconoscimento vocale con un elenco di una frase, è possib
 Ad esempio, se si dispone di un comando "Spostare" e una destinazione di "Ward" che può essere pronunciata, è possibile aggiungere una voce di "Spostare a Ward". Aggiunta di una frase aumentano le probabilità che quando l'audio viene riconosciuto che verranno riconosciuti anche "Spostarsi a Ward" anziché "Spostamento verso".
 
 Singole parole o frasi complete possono essere aggiunti a un elenco di una frase. Durante il riconoscimento, una voce in un elenco di frase viene usata se una corrispondenza esatta è incluso nel file audio. La compilazione dell'esempio precedente, se l'elenco di una frase include "Sposta a Ward" e la frase acquisito è "Sposta lentamente verso", quindi il risultato di riconoscimento è "Sposta lentamente a Ward".
+
+>[!Note]
+> Per vocale-frase Elenca supporta attualmente solo in lingua inglese.
 
 ## <a name="how-to-use-phrase-lists"></a>Come utilizzare gli elenchi di frase
 

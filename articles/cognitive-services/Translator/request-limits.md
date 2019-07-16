@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: a7621cc80a38d9a07872a94d8e5221dc04023b86
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f9620cc5f135dd7b10da5528e5dec0f5baa70350
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435038"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226242"
 ---
 # <a name="request-limits-for-translator-text"></a>Limiti delle richieste per Traduzione testuale
 
@@ -54,7 +54,7 @@ Se si raggiungono o superano questi limiti o troppo grande di una parte della qu
 
 Limiti della [multiservizio sottoscrizioni](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) corrispondono a livello S1.
 
-Questi limiti sono limitati ai modelli di conversione standard di Microsoft. I modelli di conversione personalizzata che utilizzano Microsoft Translator personalizzati sono limitati ai caratteri 1.800 al secondo.
+Questi limiti sono limitati ai modelli di conversione standard di Microsoft. I modelli di conversione personalizzata che utilizzano Microsoft Translator personalizzati sono limitati ai 1.800 caratteri al secondo.
 
 ## <a name="latency"></a>Latenza
 
