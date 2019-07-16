@@ -1,19 +1,19 @@
 ---
-title: Script di Azure PowerShell - aggiornare un account Azure Cosmos
-description: Esempio di script Azure PowerShell - aggiornare un account Azure Cosmos con aree aggiuntive
+title: 'Script di Azure PowerShell: aggiornare un account di Azure Cosmos'
+description: 'Esempio di script di Azure PowerShell: aggiornare un account di Azure Cosmos con aree aggiunte'
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4a695fd569459e6372465273675620cd40d7e6a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 8fad9b47b4f451f4b77f32038b26d6dc43809a60
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247830"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603959"
 ---
-# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Aggiornare un account Azure Cosmos e aggiungere un'area tramite PowerShell
+# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Aggiornare un account Azure Cosmos e aggiungere un'area con PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

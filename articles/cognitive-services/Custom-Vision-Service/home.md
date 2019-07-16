@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 50935aca20af931eec63717921ef7a73267d2373
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 8a5dd16948724e3a79863450212702aa8aeb2347
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350471"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605149"
 ---
 # <a name="what-is-azure-custom-vision"></a>Informazioni su Visione personalizzata di Azure
 
-Visione personalizzata di Azure è un servizio cognitivo che consente di creare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano _classi_) alle immagini, in base alle relative caratteristiche visive. A differenza del servizio [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), il servizio Visione personalizzata consente di determinare le etichette da applicare.
+Visione personalizzata di Azure è un servizio cognitivo che consente di compilare, distribuire e migliorare classificatori di immagini. Un classificatore di immagini è un servizio di intelligenza artificiale che applica etichette (che rappresentano _classi_) alle immagini, in base alle relative caratteristiche visive. A differenza del servizio [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), il servizio Visione personalizzata consente di determinare le etichette da applicare.
 
 ## <a name="what-it-does"></a>Risultato
 
@@ -31,9 +31,9 @@ Il servizio Visione personalizzata usa un algoritmo di Machine Learning per appl
 
 ### <a name="optimization"></a>Ottimizzazione
 
-Il servizio Visione personalizzata è ottimizzato per riconoscere rapidamente le differenze principali tra le immagini. È così possibile iniziare rapidamente a creare prototipi del modello con una quantità ridotta di dati. Per iniziare sono in genere sufficienti 50 immagini. Questo significa, però, che il servizio non è ideale per il rilevamento di lievi differenze nelle immagini, ad esempio per il rilevamento di piccole crepe o ammaccature negli scenari di controllo di qualità.
+Il servizio Visione personalizzata è ottimizzato in modo da riconoscere rapidamente le principali differenze tra immagini, quindi è possibile iniziare a creare un prototipo del modello con una piccola quantità di dati. Per iniziare sono in genere sufficienti 50 immagini. Il servizio non è ideale per il rilevamento di lievi differenze nelle immagini, ad esempio per il rilevamento di piccole crepe o ammaccature negli scenari di controllo di qualità.
 
-È inoltre possibile scegliere tra diverse varianti dell'algoritmo di Visione personalizzata, ottimizzate per immagini con determinati soggetti, ad esempio luoghi di interesse o articoli in vendita al dettaglio. Per maggiori informazioni, vedere [Come creare un classificatore con Visione personalizzata](getting-started-build-a-classifier.md).
+È inoltre possibile scegliere tra diverse varianti dell'algoritmo di Visione personalizzata, ottimizzate per immagini con determinati soggetti, ad esempio luoghi di interesse o articoli in vendita al dettaglio. Per altre informazioni, vedere la guida [Creare un classificatore](getting-started-build-a-classifier.md).
 
 ## <a name="what-it-includes"></a>Cosa include
 

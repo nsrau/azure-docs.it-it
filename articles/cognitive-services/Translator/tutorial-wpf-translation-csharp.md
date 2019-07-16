@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: b300c40b4a9c832a0df87f7cfc6e6a9558d766f6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 36d85e11133e7197212ae1b37609628689b68a13
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448237"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657931"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Esercitazione: Creare un'app di traduzione con WPF
 
@@ -62,7 +62,7 @@ Prima di tutto, è necessario configurare il progetto in Visual Studio.
 1. Aprire Visual Studio. Quindi selezionare **File > Nuovo progetto**.
 2. Nel riquadro sinistro individuare e selezionare **Visual C#** . Quindi selezionare **App WPF (.NET Framework)** nel riquadro centrale.
    ![Creare un'app WPF in Visual Studio](media/create-wpf-project-visual-studio.png)
-3. Assegnare un nome al progetto, impostare la versione del framework su **.NET Framework 4.5.2 o versione successiva**, quindi fare clic su **OK**.
+3. Assegnare al progetto il nome `MSTranslatorTextDemo`, impostare la versione del framework su **.NET Framework 4.5.2 o versione successiva**, quindi fare clic su **OK**.
 4. Il progetto è stato creato. Come si può notare, ci sono due schede aperte: `MainWindow.xaml` e `MainWindow.xaml.cs`. Nel corso dell'esercitazione verrà aggiunto codice in questi due file, il primo per l'interfaccia utente dell'app e l'altro per le chiamate a Traduzione testuale e Controllo ortografico Bing.
    ![Esaminare l'ambiente](media/blank-wpf-project.png)
 
@@ -82,6 +82,7 @@ Aggiungere gli assembly al progetto per serializzare e deserializzare oggetti, n
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
    * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
 3. Dopo aver aggiunto questi riferimenti al progetto, è possibile fare clic su **OK** per chiudere **Gestione riferimenti**.
 
 > [!NOTE]
@@ -197,7 +198,7 @@ Tutto il progetto è incapsulato nella classe `MainWindow : Window`. Per iniziar
        // authentication options, see: https://docs.microsoft.com/azure/cognitive-services/authentication.
        const string COGNITIVE_SERVICES_KEY = "YOUR_COG_SERVICES_KEY";
        // Endpoints for Translator Text and Bing Spell Check
-       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api- version=3.0";
+       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api-version=3.0";
        const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
        // An array of language codes
        private string[] languageCodes;
@@ -211,7 +212,7 @@ Tutto il progetto è incapsulato nella classe `MainWindow : Window`. Per iniziar
        {
            Exception e = (Exception)args.ExceptionObject;
            MessageBox.Show("Caught " + e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-           System.Windows.app.Current.Shutdown();
+           System.Windows.Application.Current.Shutdown();
        }
        // MainWindow constructor
        public MainWindow()
@@ -224,7 +225,7 @@ Tutto il progetto è incapsulato nella classe `MainWindow : Window`. Per iniziar
                MessageBox.Show("One or more invalid API subscription keys.\n\n" +
                    "Put your keys in the *_API_SUBSCRIPTION_KEY variables in MainWindow.xaml.cs.",
                    "Invalid Subscription Key(s)", MessageBoxButton.OK, MessageBoxImage.Error);
-               System.Windows.app.Current.Shutdown();
+               System.Windows.Application.Current.Shutdown();
            }
            else
            {

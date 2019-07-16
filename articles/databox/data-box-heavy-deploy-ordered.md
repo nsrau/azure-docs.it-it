@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/29/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 8453a3592c1822489a3724dacdf8f0ff5e8492f1
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: c7fbd37ff8d40f27e0ca18a6f9816d3d96422ab9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427903"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592403"
 ---
-# <a name="tutorial-order-azure-data-box-heavy-preview"></a>Esercitazione: Ordinare Azure Data Box Heavy (anteprima)
+# <a name="tutorial-order-azure-data-box-heavy"></a>Esercitazione: Ordinare Azure Data Box Heavy
 
 
 Azure Data Box Heavy è una soluzione ibrida che consente di importare i dati locali in Azure in modo rapido, semplice e affidabile. I dati devono essere trasferiti in un dispositivo di archiviazione da 770 TB (capacità utilizzabile approssimativa) fornito da Microsoft e quindi il dispositivo deve essere rispedito a Microsoft. Questi dati vengono poi caricati in Azure.

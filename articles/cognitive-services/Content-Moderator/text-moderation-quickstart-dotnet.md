@@ -1,23 +1,23 @@
 ---
-title: 'Avvio rapido: Analizzare il contenuto di testo in C# - Content Moderator'
+title: 'Guida introduttiva: Analizzare il contenuto di testo in C# - Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Come analizzare il contenuto del testo di vario materiale discutibile usando Content Moderator SDK per .NET
+description: Come analizzare il contenuto testuale di vario materiale discutibile usando Content Moderator SDK per .NET
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f848ea0d1c86b9c12d26c59b8f0e92d1e5d70094
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756542"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604053"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Avvio rapido: Analizzare il contenuto del testo per individuare materiale inappropriato in C#
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Guida introduttiva: Analizzare il contenuto del testo per individuare materiale inappropriato in C#
 
 Questo articolo contiene informazioni ed esempi di codice utili per iniziare a usare [Content Moderator SDK per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Si imparerà a filtrare e classificare il contenuto di testo in base a determinati termini allo scopo di sottoporre a moderazione materiale potenzialmente sgradevole.
 
@@ -61,7 +61,7 @@ Aggiungere i campi statici seguenti alla classe **Program** in _Program.cs_. Que
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
-Occorrerà creare il file di input *TextFile.txt* e aggiornarne il percorso di conseguenza (i percorsi relativi sono relativi alla directory di esecuzione). Aprire _TextFile.txt_ e aggiungere il testo da sottoporre a moderazione. Questa guida introduttiva usa il testo di esempio seguente:
+Occorrerà creare il file di input *TextFile.txt* e aggiornarne il percorso (i percorsi sono relativi alla directory di esecuzione). Aprire _TextFile.txt_ e aggiungere il testo da sottoporre a moderazione. Questa guida introduttiva usa il testo di esempio seguente:
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.

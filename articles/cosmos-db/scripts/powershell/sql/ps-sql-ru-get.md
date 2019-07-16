@@ -1,19 +1,19 @@
 ---
-title: Script di Azure PowerShell - Azure Cosmos DB ottenere velocità effettiva con provisioning (UR/sec) per SQL API (Core)
-description: Script di Azure PowerShell - Azure Cosmos DB ottenere velocità effettiva con provisioning (UR/sec) per SQL API (Core)
+title: Script di Azure PowerShell - Misurare la velocità effettiva (UR/s) del provisioning di Azure Cosmos DB per l'API SQL (Core)
+description: Script di Azure PowerShell - Misurare la velocità effettiva (UR/s) del provisioning di Azure Cosmos DB per l'API SQL (Core)
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: f70229e22ae0ef5d761ef456e880f0e96c42643e
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
-ms.translationtype: MT
+ms.openlocfilehash: 75a8ebbb04fd3cbad9f0a1a3f302b40439adbbcc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566791"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602125"
 ---
-# <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Ottenere la velocità effettiva con provisioning (UR/sec) per un database o un contenitore per Azure Cosmos DB: SQL API (Core)
+# <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Misurare la velocità effettiva (UR/s) del provisioning di un database o contenitore per Azure Cosmos DB - API SQL (Core)
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

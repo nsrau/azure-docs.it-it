@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST e PHP"
+title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e PHP"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API Viso con PHP per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 2ed1a20bf47771d927c0d58730fa0eb4471572af
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490447"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603378"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e PHP
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e PHP
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con PHP per rilevare i visi umani in un'immagine.
 
@@ -43,7 +43,7 @@ Creare un nuovo file HTML denominato *detectFaces.html* e aggiungere il codice s
 
 ## <a name="write-the-php-script"></a>Scrivere lo script PHP
 
-Aggiungere il codice seguente all'interno dell'elemento `body` del documento. Viene così configurata un'interfaccia utente di base con un campo per l'URL, un pulsante **Analyze face**, un riquadro per la risposta e un riquadro per la visualizzazione dell'immagine.
+Aggiungere il codice seguente all'interno dell'elemento `body` del documento. Questo codice configura un'interfaccia utente di base con un campo per l'URL, un pulsante **Analyze face**, un riquadro per la risposta e un riquadro per la visualizzazione dell'immagine.
 
 ```php
 <?php

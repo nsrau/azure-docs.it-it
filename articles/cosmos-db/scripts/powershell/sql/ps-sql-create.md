@@ -1,19 +1,19 @@
 ---
-title: Script di Azure PowerShell - Azure Cosmos DB crea contenitore e il database dell'API SQL (Core)
-description: Script di Azure PowerShell - Azure Cosmos DB crea contenitore e il database dell'API SQL (Core)
+title: Script di Azure PowerShell - Creare un database e un contenitore per Azure Cosmos DB - API SQL (Core)
+description: Script di Azure PowerShell - Creare un database e un contenitore per Azure Cosmos DB - API SQL (Core)
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1b8680471f7626cc084eda004323b44c93e770d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: b8b8b30f178ba068bc800103f16adde43cf5dcb1
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247380"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602210"
 ---
-# <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>Creare un database e un contenitore per Azure Cosmos DB: SQL API (Core)
+# <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>Creare un database e un contenitore per Azure Cosmos DB - API SQL (Core)
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Analizzare le immagini per il contenuto inappropriato in C# - Content Moderator'
+title: 'Guida introduttiva: Analizzare le immagini per il contenuto inappropriato in C# - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Come analizzare il contenuto delle immagini per individuare materiale inappropriato di diverso tipo usando Content Moderator SDK per .NET
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 03/20/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9cc18ce1fde5de354e3da5e384c08ada1927d097
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d9a28dcd4af68cf9c00eb3d338c4bd83c8d89ecc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757239"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604130"
 ---
-# <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Avvio rapido: Analizzare le immagini per il contenuto inappropriato in C#
+# <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Guida introduttiva: Analizzare le immagini per il contenuto inappropriato in C#
 
 Questo articolo contiene informazioni ed esempi di codice utili per iniziare a usare [Content Moderator SDK per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Si imparerà a rilevare contenuti spinti o per adulti, testo estraibile e visi umani allo scopo di moderare materiale potenzialmente inappropriato.
 
@@ -86,13 +86,13 @@ Aggiungere il metodo seguente alla classe **Program**. Questo metodo valuta una 
 
 ### <a name="load-the-input-images"></a>Caricare le immagini di input
 
-Aggiungere il codice seguente al metodo **Main** nella classe **Program**. In questo modo viene configurato il programma per recuperare i dati di valutazione per ogni URL di immagine nel file di input. Questi dati vengono quindi scritti in un singolo file di output.
+Aggiungere il codice seguente al metodo **Main** nella classe **Program**. Questo codice configura il programma per recuperare i dati di valutazione per ogni URL di immagine nel file di input. Questi dati vengono quindi scritti in un singolo file di output.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=17-46)]
 
 ## <a name="run-the-program"></a>Eseguire il programma
 
-Il programma scriverà i dati di stringa JSON nel file _ModerationOutput.json_. Le immagini di esempio usate in questa guida introduttiva producono l'output seguente. Si noti che per ogni immagine sono presenti sezioni `ImageModeration`, `FaceDetection` e `TextDetection` diverse, che corrispondono alle tre chiamate API del metodo **EvaluateImage**.
+Il programma scriverà i dati di stringa JSON nel file _ModerationOutput.json_. Le immagini di esempio usate in questa guida introduttiva producono l'output seguente. In ogni immagine sono presenti sezioni `ImageModeration`, `FaceDetection` e `TextDetection` diverse, che corrispondono alle tre chiamate API del metodo **EvaluateImage**.
 
 ```json
 [{

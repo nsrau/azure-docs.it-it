@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: c45fd508c14c368c6c9057b9fdeea8df9d8a52c3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4be33f781dec93fd9fe1b1846322672266cd7350
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905680"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606918"
 ---
 # <a name="what-is-the-azure-face-api"></a>Informazioni sull'API Viso di Azure
 
@@ -59,7 +59,7 @@ L'API di raggruppamento divide un set di visi sconosciuti in più gruppi basati 
 
 L'API di identificazione viene usata per identificare un viso rilevato confrontandolo con un database di persone. Questa funzionalità può essere utile per l'aggiunta automatica di tag alle immagini nel software di gestione delle foto. È possibile creare questo database in anticipo e modificarlo nel tempo.
 
-L'immagine seguente mostra un esempio di un database denominato "myfriends". Ogni gruppo può contenere fino a 1 milione di oggetti persona diversi. Per ogni oggetto persona è possibile registrare fino a 248 visi.
+L'immagine seguente mostra un esempio di un database denominato `"myfriends"`. Ogni gruppo può contenere fino a 1 milione di oggetti persona diversi. Per ogni oggetto persona è possibile registrare fino a 248 visi.
 
 ![Griglia con tre colonne per persone diverse, ognuna con tre righe di immagini dei visi](./Images/person.group.clare.jpg)
 

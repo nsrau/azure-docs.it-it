@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST di Azure e cURL"
+title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST di Azure e cURL"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API REST Viso di Azure con cURL per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 212b935e8986731940effe79ec80f52c0d7b64c4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 68cdd147977294954051735d70307305aa5dc0cb
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308929"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603320"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST Viso e cURL
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST Viso e cURL
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con cURL per rilevare i visi umani in un'immagine.
 
@@ -40,7 +40,7 @@ Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione Viso val
 
 ### <a name="face-endpoint-url"></a>URL endpoint Viso
 
-L'URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica l'endpoint Viso di Azure su cui eseguire la query. Può essere necessario modificare la prima parte dell'URL con l'area che corrisponde alla chiave di sottoscrizione (vedere la [documentazione dell'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per un elenco degli endpoint di tutte le aree).
+L'URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica l'endpoint Viso di Azure su cui eseguire la query. Potrebbe essere necessario modificare la prima parte dell'URL con l'area che corrisponde alla chiave di sottoscrizione. Per un elenco degli endpoint di tutte le aree, vedere la [documentazione dell'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ### <a name="url-query-string"></a>Stringa di query URL
 
@@ -59,7 +59,7 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 
 ## <a name="run-the-command"></a>Eseguire il comando
 
-Dopo aver apportato le modifiche, aprire un prompt dei comandi e immettere il nuovo comando. Le informazioni sul viso dovrebbero essere visualizzate come dati JSON nella finestra della console. Ad esempio: 
+Dopo aver apportato le modifiche, aprire un prompt dei comandi e immettere il nuovo comando. Le informazioni sul viso dovrebbero essere visualizzate come dati JSON nella finestra della console. Ad esempio:
 
 ```json
 [

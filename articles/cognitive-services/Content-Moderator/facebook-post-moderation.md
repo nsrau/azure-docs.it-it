@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d31285ca305ba7fefdf31b4a97e3183f58b3e3b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: dd06330e82850cc44bc0f4d36ba7caf596ace939
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233800"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603506"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Esercitazione: Moderare i post e i comandi di Facebook con Azure Content Moderator
 
@@ -48,11 +48,11 @@ Fare riferimento all'argomento di avvio rapido [Provare Content Moderator sul We
 
 ## <a name="configure-image-moderation-workflow"></a>Configurare il flusso di lavoro di moderazione per le immagini
 
-Fare riferimento alla guida [Definire, testare e usare i flussi di lavoro](review-tool-user-guide/workflows.md) per creare un flusso di lavoro delle immagini personalizzato. In questo modo Content Moderator controlla automaticamente le immagini su Facebook e ne invia alcune allo strumento di revisione. Prendere nota del **nome** del flusso di lavoro.
+Fare riferimento alla guida [Definire, testare e usare i flussi di lavoro](review-tool-user-guide/workflows.md) per creare un flusso di lavoro delle immagini personalizzato. Content Moderator userà questo flusso di lavoro per controllare automaticamente le immagini su Facebook e inviarne alcune allo strumento di revisione. Prendere nota del **nome** del flusso di lavoro.
 
 ## <a name="configure-text-moderation-workflow"></a>Configurare il flusso di lavoro moderazione testo
 
-Fare di nuovo riferimento alla guida [Definire, testare e usare i flussi di lavoro](review-tool-user-guide/workflows.md) per creare un flusso di lavoro di testo personalizzato. In questo modo Content Moderator verifica automaticamente il contenuto del testo. Prendere nota del **nome** del flusso di lavoro.
+Fare di nuovo riferimento alla guida [Definire, testare e usare i flussi di lavoro](review-tool-user-guide/workflows.md) per creare un flusso di lavoro di testo personalizzato. Content Moderator userà questo flusso di lavoro per verificare automaticamente il contenuto del testo. Prendere nota del **nome** del flusso di lavoro.
 
 ![Configurare il flusso di lavoro per il testo](images/text-workflow-configure.PNG)
 

@@ -1,19 +1,19 @@
 ---
-title: Operazioni per un account Azure Cosmos stringa script di Azure PowerShell - connessione e chiave dell'Account
-description: 'Esempio di script di PowerShell di Azure: operazioni di stringa di connessione e chiave di Account per un account Azure Cosmos'
+title: Script di Azure PowerShell - Operazioni relative alla chiave dell'account e alla stringa di connessione per un account di Azure Cosmos
+description: Esempio di script di Azure PowerShell - Operazioni relative alla chiave dell'account e alla stringa di connessione per un account di Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: a7f86bfee0ee2472260b622dc709dc437e53414c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 55f28ef6c6ff82f0b82b10ac1dd7931ac46aa2fc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247860"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602499"
 ---
-# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>Stringa di connessione e account chiave operazioni per un account Azure Cosmos usando PowerShell
+# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>Operazioni relative alla chiave dell'account e alla stringa di connessione per un account di Azure Cosmos con PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,7 @@ ms.locfileid: "66247860"
 
 ## <a name="sample-script"></a>Script di esempio
 
-Questo esempio richiede il gruppo di risorse e un account esistente. Usare un'istanza di PowerShell esistente creare di esempio per effettuare il provisioning di un account.
+Per riprodurre questo esempio è necessaria l'esistenza del gruppo di risorse e dell'account. Prima di iniziare, usare un esempio di creazione esistente di PowerShell per effettuare il provisioning di un account.
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
 

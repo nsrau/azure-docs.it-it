@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Ruby"
+title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Ruby"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API Viso con Ruby per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 6583db5b1403f70593d586a610f4d06be15c729b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312396"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603364"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e Ruby
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Ruby
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con Ruby per rilevare i visi umani in un'immagine.
 
@@ -28,7 +28,7 @@ In questa guida introduttiva si userà l'API REST Viso di Azure con Ruby per ril
 
 ## <a name="write-the-script"></a>Scrivere lo script
 
-Creare un nuovo file denominato _faceDetection.rb_ e aggiungere il codice seguente. Viene così chiamata l'API Viso per un determinato URL di immagine.
+Creare un nuovo file denominato _faceDetection.rb_ e aggiungere il codice seguente. Questo codice chiama l'API Viso per un determinato URL di immagine.
 
 ```ruby
 require 'net/http'
@@ -74,7 +74,7 @@ Eseguire lo script Ruby con questo comando:
 ruby faceDetection.rb
 ```
 
-Nella console verrà visualizzata una stringa JSON dei dati relativi ai visi rilevati. Di seguito è riportato un esempio di risposta JSON con esito positivo.
+Nella console verrà visualizzata una stringa JSON dei dati relativi ai visi rilevati. Il testo seguente è un esempio di risposta JSON con esito positivo.
 
 ```json
 [

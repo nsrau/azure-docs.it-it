@@ -1,19 +1,19 @@
 ---
-title: Script di Azure PowerShell - Azure Cosmos DB Update UR/s per l'API Table
-description: Script di Azure PowerShell - Azure Cosmos DB Update UR/s per l'API Table
+title: Script di Azure PowerShell - Aggiornare le unità richiesta al secondo di Azure Cosmos DB per l'API Tabella
+description: Script di Azure PowerShell - Aggiornare le unità richiesta al secondo di Azure Cosmos DB per l'API Tabella
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 21f17267954ed471024ff0e6e0c1893daee5f6dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 2c4aab4fa6d4ddf1a99ae86f4fc10c5e84757d30
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247080"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603784"
 ---
-# <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Aggiornare UR/s per una tabella per Azure Cosmos DB: API Table
+# <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Aggiornare le unità richiesta al secondo per una tabella per Azure Cosmos DB - API Tabella
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

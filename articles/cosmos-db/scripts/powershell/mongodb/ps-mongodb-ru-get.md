@@ -1,19 +1,19 @@
 ---
-title: Script di Azure PowerShell - Azure Cosmos DB ottenere velocità effettiva (UR/sec) per l'API MongoDB
-description: Script di Azure PowerShell - Azure Cosmos DB ottenere velocità effettiva (UR/sec) per l'API MongoDB
+title: Script di Azure PowerShell - Misurare la velocità effettiva (UR/s) di Azure Cosmos DB per l'API MongoDB
+description: Script di Azure PowerShell - Misurare la velocità effettiva (UR/s) di Azure Cosmos DB per l'API MongoDB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 57a58ae278f3df81218e50c4bc4d8b8c40315fdf
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
-ms.translationtype: MT
+ms.openlocfilehash: 91e3d8f1240e2eebb3e1d30ee18b16299f442106
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566830"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602279"
 ---
-# <a name="get-throughput-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Ottenere una velocità effettiva (UR/sec) per un database o una raccolta di Azure Cosmos DB: API MongoDB
+# <a name="get-throughput-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Misurare la velocità effettiva (UR/s) per un database o una raccolta per Azure Cosmos DB - API MongoDB
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

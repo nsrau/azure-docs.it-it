@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Analizzare un'immagine remota - REST, cURL"
+title: "Guida introduttiva: Analizzare un'immagine remota - REST, cURL"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizzerà un'immagine remota usando l'API Visione artificiale con cURL.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7c363e19fbd5b387e1384afed068f94c00e4a768
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 2be6625fa2c21c3ece767f270746171c3928a774
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010263"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604445"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-curl-in-computer-vision"></a>Avvio rapido: Analizzare un'immagine remota usando l'API REST e cURL in Visione artificiale
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-curl"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST Visione artificiale e cURL
 
 L'avvio rapido consente di analizzare un'immagine archiviata in modalità remota per estrarre le caratteristiche visive usando l'API REST di Visione artificiale. Con il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) è possibile estrarre caratteristiche visive in base al contenuto di un'immagine.
 
@@ -42,7 +42,7 @@ Per creare ed eseguire l'esempio, seguire questa procedura:
 1. Aprire una finestra del prompt dei comandi.
 1. Incollare il comando dall'editor di testo nella finestra del prompt dei comandi e quindi eseguire il comando.
 
-```console
+```bash
 curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
 ```
 

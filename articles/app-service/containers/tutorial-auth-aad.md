@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ed056bf28881f391ed1ba16a875259e8e420b39d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c173da9bfb60f74b90a17f4f3c5ea6f930ca528
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66137925"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705826"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel Servizio app di Azure in Linux
 
@@ -101,7 +101,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="configure-cors"></a>Configurare CORS
 
-Questo passaggio non è correlato all'autenticazione e all'autorizzazione. Sarà tuttavia necessario più avanti per [chiamare l'API back-end dal codice del browser front-end](#call-api-securely-from-browser-code), in modo che il browser consenta le chiamate API tra domini dall'app Angular.js. Il servizio app in Linux non ha funzionalità CORS predefinite come la [controparte Windows](../app-service-web-tutorial-rest-api.md#add-cors-functionality), quindi è necessario aggiungerle manualmente per l'app back-end.
+Questo passaggio non è correlato all'autenticazione e all'autorizzazione. Sarà tuttavia necessario più avanti per [chiamare l'API back-end dal codice del browser front-end](#call-api-securely-from-browser-code), in modo che il browser consenta le chiamate API tra domini dall'app Angular.js. Servizio app di Azure in Linux supporta ora le funzionalità CORS come la [relativa controparte di Windows](../app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 Nel repository locale aprire il file _Startup.cs_. Nel metodo `ConfigureServices(IServiceCollection services)` aggiungere la riga di codice seguente:
 
@@ -109,7 +109,7 @@ Nel repository locale aprire il file _Startup.cs_. Nel metodo `ConfigureServices
 services.AddCors();
 ```
 
-Nel metodo `Configure(IApplicationBuilder app)` aggiungere la riga di codice seguente all'inizio, sostituendo *\<front_end_app_name>*:
+Nel metodo `Configure(IApplicationBuilder app)` aggiungere la riga di codice seguente all'inizio, sostituendo *\<front_end_app_name>* :
 
 ```csharp
 app.UseCors(builder =>
@@ -242,7 +242,7 @@ Come provider di identità viene usato Azure Active Directory. Per altre informa
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Abilitare l'autenticazione e l'autorizzazione per l'app back-end
 
-Nel [portale di Azure](https://portal.azure.com), aprire la pagina di gestione dell'app back-end facendo clic su **Gruppi di risorse** > **myAuthResourceGroup** > _\<nome\_app\_back\_end>_ dal menu a sinistra.
+Nel [portale di Azure](https://portal.azure.com), aprire la pagina di gestione dell'app back-end facendo clic su **Gruppi di risorse** > **myAuthResourceGroup** >  _\<nome\_app\_back\_end>_ dal menu a sinistra.
 
 ![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -291,7 +291,7 @@ Fare clic su **Gestisci autorizzazioni** > **Aggiungi** > **Selezionare un'API**
 
 Nella pagina **Selezionare un'API** digitare il nome dell'applicazione AD per l'app back-end, che per impostazione predefinita è uguale al nome dell'app back-end. Selezionare l'applicazione nell'elenco e fare clic su **Seleziona**.
 
-Selezionare la casella di controllo accanto ad **Accedi a _&lt;nome\_applicazione\_AD>_**. Fare clic su **Seleziona** > **Fine**.
+Selezionare la casella di controllo accanto ad **Accedi a _&lt;nome\_applicazione\_AD>_** . Fare clic su **Seleziona** > **Fine**.
 
 ![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/tutorial-auth-aad/select-permission-front-end.png)
 
@@ -303,7 +303,7 @@ Accedere ad [Azure Resource Explorer](https://resources.azure.com). Nella parte 
 
 ![API ASP.NET Core in esecuzione nel servizio app di Azure](./media/tutorial-auth-aad/resources-enable-write.png)
 
-Nel browser a sinistra fare clic su **subscriptions** > **_&lt;propria\_sottoscrizione>_** > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** > **_\<front\_end\_app\_name>_** > **config** > **authsettings**.
+Nel browser a sinistra fare clic su **subscriptions** > ** _&lt;propria\_sottoscrizione>_**  > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** >  ** _\<front\_end\_app\_name>_**  > **config** > **authsettings**.
 
 Nella visualizzazione **authsettings** fare clic su **Edit** (Modifica). Impostare `additionalLoginParams` sulla stringa JSON seguente, usando l'ID applicazione copiato. 
 

@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 51b2cd42fabe6406f88388e99459a6f3dd3e69f5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: b4b10591069b71a4e70769f5bdcd6149768c5007
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827645"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604012"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Esercitazione: Riconoscere i logo dei servizi di Azure nelle immagini della fotocamera
 
-In questa esercitazione verrà illustrata un'app di esempio che usa lo strumento Visione personalizzata di Azure come parte di uno scenario più ampio. L'app AI Visual Provision, un'app Xamarin.Forms per piattaforme mobili, analizza le immagini della fotocamera dei logo dei servizi di Azure e quindi distribuisce i servizi effettivi all'account Azure dell'utente. Si apprenderà come viene usato lo strumento Visione personalizzata in combinazione con altri componenti per realizzare un'utile applicazione end-to-end. Eseguire l'intero scenario dell'app per sé o limitarsi a completare la parte della configurazione relativa a Visione personalizzata ed esaminare il modo in cui lo strumento viene usato dall'app.
+In questa esercitazione verrà illustrata un'app di esempio che usa lo strumento Visione personalizzata di Azure come parte di uno scenario più ampio. L'app AI Visual Provision, un'app Xamarin.Forms per piattaforme mobili, analizza le immagini della fotocamera dei logo dei servizi di Azure e quindi distribuisce i servizi effettivi all'account Azure dell'utente. Si apprenderà come viene usato lo strumento Visione personalizzata in combinazione con altri componenti per realizzare un'utile applicazione end-to-end. È possibile eseguire l'intero scenario dell'app o limitarsi a completare la parte della configurazione relativa a Visione personalizzata ed esaminare il modo in cui lo strumento viene usato dall'app.
 
 In questa esercitazione verranno illustrate le attività seguenti:
 
@@ -51,7 +51,7 @@ Accedere al [sito Web Visione personalizzata](https://customvision.ai/) e creare
 
 Eseguire quindi il training dell'algoritmo di rilevamento di logo caricando le immagini dei logo dei servizi di Azure e applicando tag alle immagini manualmente. Il repository AIVisualProvision include un set di immagini di training che è possibile usare. Sul sito Web selezionare il pulsante **Add images** (Aggiungi immagini) nella scheda **Training Images** (Immagini di training). Passare quindi alla cartella **Documents/Images/Training_DataSet** del repository. Sarà necessario applicare manualmente tag ai logo in ogni immagine, quindi se si intende eseguire semplicemente un test di questo progetto, è consigliabile caricare solo un sottoinsieme delle immagini. Caricare almeno 15 istanze di ogni tag che si intende usare.
 
-Dopo aver caricato le immagini di training, selezionare la prima visualizzata. Si aprirà la finestra di assegnazione di tag. Disegnare i riquadri e assegnare tag per ogni logo in ogni immagine. 
+Dopo aver caricato le immagini di training, selezionare la prima visualizzata. Verrà visualizzata una finestra per l'assegnazione di tag. Disegnare i riquadri e assegnare tag per ogni logo in ogni immagine. 
 
 ![Applicazione di tag sul sito Web di Visione personalizzata](media/azure-logo-tutorial/tag-logos.png)
 
@@ -69,7 +69,7 @@ Nel riquadro sinistro impostare l'interruttore **Tags** su **Tagged** (Tag appli
 
 ## <a name="get-the-prediction-url"></a>Ottenere l'URL di previsione
 
-Dopo aver completato il training del modello, è possibile integrarlo nell'app. A questo scopo, sarà necessario ottenere l'URL dell'endpoint, ossia l'indirizzo del modello, su cui l'app eseguirà una query, e la chiave di previsione, per concedere all'app l'accesso alle richieste di previsione. Nella scheda **Performance** (Prestazioni) fare clic sul pulsante **Prediction URL** (URL di previsione) nella parte superiore della pagina.
+Dopo aver completato il training del modello, è possibile integrarlo nell'app. Sarà necessario ottenere l'URL dell'endpoint, ossia l'indirizzo del modello, su cui l'app eseguirà una query, e la chiave di previsione, per concedere all'app l'accesso alle richieste di previsione. Nella scheda **Performance** (Prestazioni) fare clic sul pulsante **Prediction URL** (URL di previsione) nella parte superiore della pagina.
 
 ![Sito Web di Visione personalizzata con una finestra dell'API Prediction che visualizza un indirizzo URL e una chiave API](media/azure-logo-tutorial/cusvis-endpoint.png)
 

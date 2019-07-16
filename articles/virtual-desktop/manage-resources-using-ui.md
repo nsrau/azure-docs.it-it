@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 275fec5fb696a7e1352bbddccd288863e984b796
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 9579db9836ef41706f2c6be09570fa7c1459e14f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304528"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620446"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Esercitazione: Distribuire uno strumento di gestione
 
@@ -57,8 +57,8 @@ Per distribuire il modello di Azure Resource Manager, seguire queste istruzioni:
 ### <a name="guidance-for-template-parameters"></a>Istruzioni per i parametri del modello
 Ecco come immettere i parametri per configurare lo strumento:
 
-- URL del broker di Desktop remoto:  <https://rdbroker.wvd.microsoft.com/>
-- URL delle risorse:  <https://mrs-prod.ame.gbl/mrs-RDInfra-prod>
+- URL del broker di Desktop remoto:\//rdbroker.wvd.microsoft.com/
+- URL delle risorse: https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
 - Usare le credenziali di AAD con la funzionalità MFA disabilitata per accedere ad Azure. Vedere [Requisiti per eseguire il modello di Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
 - Usare un nome univoco per l'applicazione che verrà registrata in Azure Active Directory per lo strumento di gestione, ad esempio Apr3UX.
 

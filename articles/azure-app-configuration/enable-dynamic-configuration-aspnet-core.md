@@ -14,18 +14,20 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 9cbdfe957587977b01bc46b46818856f789f46d8
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 78c64786f523aa424e8a9816e42db70e2a2997c2
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393623"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798461"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Esercitazione: Usare la configurazione dinamica in un'app ASP.NET Core
 
-ASP.NET Core ha un sistema di configurazione modulare che può leggere dati di configurazione da diverse origini, nonché gestire immediatamente le modifiche senza causare il riavvio di un'applicazione. ASP.NET Core supporta l'associazione delle impostazioni di configurazione a classi .NET fortemente tipizzate. Vengono inserite nel codice usando i vari modelli `IOptions<T>`. Uno di questi modelli, `IOptionsSnapshot<T>`, ricarica automaticamente la configurazione dell'applicazione in caso di modifica dei dati sottostanti.
+ASP.NET Core ha un sistema di configurazione modulare che può leggere dati di configurazione da diverse origini, nonché gestire immediatamente le modifiche senza causare il riavvio di un'applicazione. ASP.NET Core supporta l'associazione delle impostazioni di configurazione a classi .NET fortemente tipizzate. Vengono inserite nel codice usando i vari modelli `IOptions<T>`. Uno di questi modelli, `IOptionsSnapshot<T>`, ricarica automaticamente la configurazione dell'applicazione in caso di modifica dei dati sottostanti. È possibile inserire `IOptionsSnapshot<T>` nei controller dell'applicazione per accedere alla configurazione più recente archiviata in Configurazione app di Azure.
 
-È possibile inserire `IOptionsSnapshot<T>` nei controller dell'applicazione per accedere alla configurazione più recente archiviata in Configurazione app di Azure. È anche possibile configurare la libreria client ASP.NET Core di Configurazione app per monitorare e recuperare continuamente qualsiasi modifica in un archivio di configurazione app, definendo l'intervallo periodico di polling.
+È anche possibile configurare la libreria client ASP.NET Core di Configurazione app per aggiornare dinamicamente una serie di impostazioni di configurazione tramite middleware. Finché l'app Web continua a ricevere richieste, le impostazioni di configurazione continueranno a essere aggiornate con l'archivio di configurazione.
+
+Per mantenere aggiornate le impostazioni ed evitare un numero eccessivo di chiamate all'archivio di configurazione, per ogni impostazione viene usata una cache. Finché il valore memorizzato nella cache non scade, l'operazione di aggiornamento non aggiorna il valore, neanche se è cambiato nell'archivio di configurazione. Il tempo di scadenza predefinito per ogni richiesta è di 30 secondi, ma è possibile eseguirne l'override se necessario.
 
 Questa esercitazione mostra come è possibile implementare aggiornamenti dinamici della configurazione nel codice. Si basa sull'app Web presentata nelle guide introduttive. Prima di continuare, completare le procedure descritte in [Creare un'app ASP.NET Core con Configurazione app](./quickstart-aspnet-core-app.md).
 
@@ -45,7 +47,7 @@ Per completare questa esercitazione, installare [.NET Core SDK](https://dotnet.m
 
 ## <a name="reload-data-from-app-configuration"></a>Ricaricare i dati di Configurazione app
 
-1. Aprire *Program.cs* e aggiornare il metodo `CreateWebHostBuilder` aggiungendo il metodo `config.AddAzureAppConfiguration()`.
+1. Aprire *Program.cs* e aggiornare il metodo `CreateWebHostBuilder` per aggiungere il metodo `config.AddAzureAppConfiguration()`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -53,19 +55,22 @@ Per completare questa esercitazione, installare [.NET Core SDK](https://dotnet.m
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
+
                 config.AddAzureAppConfiguration(options =>
+                {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .Watch("TestApp:Settings:BackgroundColor")
-                           .Watch("TestApp:Settings:FontColor")
-                           .Watch("TestApp:Settings:Message"));
+                           .ConfigureRefresh(refresh =>
+                           {
+                               refresh.Register("TestApp:Settings:BackgroundColor")
+                                      .Register("TestApp:Settings:FontColor")
+                                      .Register("TestApp:Settings:Message")
+                           });
+                }
             })
             .UseStartup<Startup>();
     ```
 
-    Il secondo parametro del metodo `.Watch` è l'intervallo di polling con cui la libreria client ASP.NET esegue query su un archivio di configurazione app. La libreria client controlla la specifica impostazione di configurazione per verificare se sono state apportate modifiche.
-    
-    > [!NOTE]
-    > L'intervallo di polling predefinito per il metodo di estensione `Watch`, se non specificato, è di 30 secondi.
+    Il metodo `ConfigureRefresh` consente di specificare le impostazioni usate per aggiornare i dati di configurazione con l'archivio di configurazione app quando viene attivata un'operazione di aggiornamento. Per attivare effettivamente un'operazione di aggiornamento, è necessario configurare un middleware di aggiornamento per l'applicazione, per aggiornare i dati di configurazione quando si verifica una modifica.
 
 2. Aggiungere un file *Settings.cs* che definisce e implementa una nuova classe `Settings`.
 
@@ -98,6 +103,21 @@ Per completare questa esercitazione, installare [.NET Core SDK](https://dotnet.m
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
     ```
+
+4. Aggiornare il metodo `Configure` per aggiungere un middleware e consentire l'aggiornamento delle impostazioni di configurazione appositamente registrate mentre l'app Web ASP.NET Core continua a ricevere richieste.
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+        app.UseMvc();
+    }
+    ```
+    
+    Il middleware usa la configurazione di aggiornamento specificata nel metodo `AddAzureAppConfiguration` in `Program.cs` per attivare un aggiornamento per ogni richiesta ricevuta dall'app Web ASP.NET Core. Per ogni richiesta, viene attivata un'operazione di aggiornamento e la libreria client verifica se il valore memorizzato nella cache per le impostazioni di configurazione registrate è scaduto. Per i valori memorizzati nella cache scaduti, i valori relativi alle impostazioni vengono aggiornati con l'archivio di configurazione app, mentre quelli rimanenti rimangono inalterati.
+    
+    > [!NOTE]
+    > Il tempo di scadenza predefinito della cache per un'impostazione di configurazione è di 30 secondi, ma è possibile eseguirne l'override con una chiamata al metodo `SetCacheExpiration` nelle opzioni che l'inizializzatore ha passato come argomento al metodo `ConfigureRefresh`.
 
 ## <a name="use-the-latest-configuration-data"></a>Usare i dati di configurazione più recenti
 
@@ -177,9 +197,12 @@ Per completare questa esercitazione, installare [.NET Core SDK](https://dotnet.m
     | TestAppSettings:FontColor | lightGray |
     | TestAppSettings:Message | Dati di Configurazione app di Azure - ora con aggiornamenti dinamici |
 
-6. Aggiornare la pagina del browser per visualizzare le nuove impostazioni di configurazione.
+6. Aggiornare la pagina del browser per visualizzare le nuove impostazioni di configurazione. Per rendere effettive le modifiche, può essere necessario più di un aggiornamento della pagina del browser.
 
     ![Avvio rapido: aggiornamento dell'app in locale](./media/quickstarts/aspnet-core-app-launch-local-after.png)
+    
+    > [!NOTE]
+    > Poiché le impostazioni di configurazione sono memorizzate nella cache con un tempo di scadenza predefinito di 30 secondi, le modifiche apportate alle impostazioni nell'archivio di configurazione app verranno applicate nell'app Web solo dopo che la cache è scaduta.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

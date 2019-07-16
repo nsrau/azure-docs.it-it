@@ -2,18 +2,18 @@
 title: "Esercitazione su Kubernetes in Azure: ridimensionare un'applicazione"
 description: In questa esercitazione sul servizio Azure Kubernetes viene illustrato come ridimensionare nodi e pod in Kubernetes e implementare la scalabilità automatica orizzontale dei pod.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 062e16c0d196cf91d6e0adde46ed973f1c0d1191
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 5a942aa10f36df55ac232defa610102700e3995b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304434"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614188"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Ridimensionare le applicazioni nel servizio Azure Kubernetes
 
@@ -70,13 +70,13 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Scalare automaticamente i pod
 
-Kubernetes supporta la [scalabilità automatica orizzontale dei pod][kubernetes-hpa] per modificare il numero dei pod in una distribuzione a seconda dell'utilizzo della CPU o delle altre metriche selezionate. Il [server delle metriche][metrics-server] viene usato per fornire l'utilizzo delle risorse a Kubernetes e viene automaticamente distribuito nei cluster servizio Azure Kubernetes 1.10 e versioni successive. Per vedere la versione del proprio cluster servizio Azure Kubernetes, usare il comando [az servizio Azure Kubernetes show][az-aks-show], come illustrato nell'esempio seguente:
+Kubernetes supporta il [ridimensionamento automatico orizzontale dei pod][kubernetes-hpa] per modificare il numero di pod in una distribuzione in base all'utilizzo della CPU o ad altre metriche selezionate. Il server delle metriche viene usato per fornire l'utilizzo delle risorse a Kubernetes e viene automaticamente distribuito nei cluster servizio Azure Kubernetes 1.10 e versioni successive. Per vedere la versione del cluster servizio Azure Kubernetes in uso, usare il comando [az aks show][az-aks-show], come illustrato nell'esempio seguente:
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-Se la versione del cluster servizio Azure Kubernetes in uso è inferiore a *1.10*, installare il server delle metriche, in caso contrario ignorare questo passaggio. Per eseguire l'installazione, clonare il repository GitHub `metrics-server` e installare le definizioni di risorsa di esempio. Per visualizzare il contenuto di queste definizioni YAML, vedere [Metrics Server for Kuberenetes 1.8+][metrics-server-github] (Server delle metriche per Kuberenetes 1.8 +).
+Se la versione del cluster servizio Azure Kubernetes in uso è inferiore a *1.10*, installare il server delle metriche, in caso contrario ignorare questo passaggio. Per eseguire l'installazione, clonare il repository GitHub `metrics-server` e installare le definizioni di risorsa di esempio. Per visualizzare il contenuto di queste definizioni YAML, vedere [Server delle metriche per Kuberenetes 1.8 e versioni successive][metrics-server-github].
 
 ```console
 git clone https://github.com/kubernetes-incubator/metrics-server.git

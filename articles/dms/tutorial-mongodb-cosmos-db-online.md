@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/29/2019
-ms.openlocfilehash: 0bd271dbf173885cbd5f7835c5dc6b672a3e6035
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.date: 07/04/2019
+ms.openlocfilehash: 17f1b36ba5d5b699cce621db3917ef92654047ff
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298953"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565572"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Esercitazione: Eseguire la migrazione online di MongoDB all'API di Azure Cosmos DB per MongoDB con Servizio Migrazione del database
 
@@ -150,7 +150,14 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
      * Per i dump JSON, i file nel contenitore di BLOB devono essere inseriti in cartelle con gli stessi nomi dei database che li contengono. All'interno di ogni cartella di database i file di dati devono essere inseriti in una sottocartella chiamata "data" e avere nomi nel formato *collection*.json. I file di metadati (se presenti) devono essere inseriti in una sottocartella chiamata "metadata" e avere nomi nello stesso formato *collection*.json. I file di metadati devono avere lo stesso formato di quelli prodotti con lo strumento bsondump di MongoDB.
 
-   Nei casi in cui la risoluzione dei nomi DNS non è possibile, si può usare l'indirizzo IP.
+    > [!IMPORTANT]
+    > È sconsigliato usare un certificato autofirmato nel server Mongo. Tuttavia, qualora se ne usi uno, connettersi al server usando **Modalità stringa di connessione** e assicurarsi che la stringa di connessione comprenda ""
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
+
+    Nei casi in cui la risoluzione dei nomi DNS non è possibile, si può usare l'indirizzo IP.
 
    ![Specificare le informazioni di origine](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 

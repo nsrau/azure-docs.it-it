@@ -2,18 +2,18 @@
 title: Introduzione al servizio Azure Kubernetes
 description: Informazioni sulle funzioni e i vantaggi del servizio Azure Kubernetes nella distribuzione e gestione delle applicazioni basate su contenitore in Azure.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: overview
 ms.date: 05/06/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5515951a9bde596935f4c603ffd9e088f74dee45
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073823"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615171"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Servizio Azure Kubernetes
 
@@ -23,7 +23,7 @@ Il servizio Azure Kubernetes semplifica la distribuzione di un cluster Kubernete
 
 Per altre informazioni sulle nozioni di base di Kubernetes, vedere [Concetti di base di Kubernetes per il servizio Azure Kubernetes][concepts-clusters-workloads].
 
-Per iniziare, completare la guida introduttiva di servizio Azure Kubernetes [nel portale di Azure][aks-portal] o [con l'interfaccia della riga di comando di Azure][aks-cli].
+Per iniziare, completare l'argomento di avvio rapido sul servizio Azure Kubernetes [nel portale di Azure][aks-portal] or [with the Azure CLI][aks-cli].
 
 ## <a name="access-security-and-monitoring"></a>Accesso, sicurezza e monitoraggio
 
@@ -31,11 +31,11 @@ Per migliorare la sicurezza e la gestione, servizio Azure Kubernetes consente l'
 
 ### <a name="identity-and-security-management"></a>Gestione delle identità e della sicurezza
 
-Per limitare l'accesso alle risorse del cluster, servizio Azure Kubernetes supporta il [controllo degli accessi in base al ruolo di Kubernetes][kubernetes-rbac]. Il controllo degli accessi in base al ruolo consente di controllare l'accesso alle risorse e agli spazi dei nomi di Kubernetes, nonché le autorizzazioni per tali risorse. Si può anche configurare un cluster servizio Azure Kubernetes per l'integrazione con Azure Active Directory. Con l'integrazione di Azure Active Directory è possibile configurare l'accesso a Kubernetes in base all'identità e all'appartenenza ai gruppi esistenti. Gli utenti di Azure Active Directory e i gruppi esistenti possono ottenere l'accesso ad servizio Azure Kubernetes con un'esperienza di accessi integrata.
+Per limitare l'accesso alle risorse del cluster, il servizio Azure Kubernetes supporta il [controllo degli accessi in base al ruolo di Kubernetes][kubernetes-rbac]. Il controllo degli accessi in base al ruolo consente di controllare l'accesso alle risorse e agli spazi dei nomi di Kubernetes, nonché le autorizzazioni per tali risorse. Si può anche configurare un cluster servizio Azure Kubernetes per l'integrazione con Azure Active Directory. Con l'integrazione di Azure Active Directory è possibile configurare l'accesso a Kubernetes in base all'identità e all'appartenenza ai gruppi esistenti. Gli utenti di Azure Active Directory e i gruppi esistenti possono ottenere l'accesso ad servizio Azure Kubernetes con un'esperienza di accessi integrata.
 
 Per altre informazioni sull'identità, vedere [Opzioni di accesso e identità per il servizio Azure Kubernetes][concepts-identity].
 
-Per proteggere i cluster servizio Azure Kubernetes, vedere [Integrare Azure Active Directory con servizio Azure Kubernetes][aks-aad].
+Per proteggere i cluster del servizio Azure Kubernetes, vedere [Integrare Azure Active Directory con il servizio Azure Kubernetes][aks-aad].
 
 ### <a name="integrated-logging-and-monitoring"></a>Registrazione e monitoraggio integrati
 
@@ -57,13 +57,13 @@ Per altre informazioni, vedere [Ridimensionare un cluster del servizio Azure Kub
 
 Il servizio Azure Kubernetes offre più versioni di Kubernetes. Non appena sono disponibili nuove versioni in servizio Azure Kubernetes, il cluster può essere aggiornato tramite il portale di Azure o l'interfaccia della riga di comando di Azure. Durante il processo di aggiornamento, i nodi vengono accuratamente contrassegnati come non pianificabili e svuotati per ridurre al minimo le interruzioni nelle applicazioni in esecuzione.
 
-Per altre informazioni sulle versioni del ciclo di vita, vedere [Supported Kubernetes versions in servizio Azure Kubernetes][aks-supported versions] (Versioni di Kubernetes supportate in servizio Azure Kubernetes). Per la procedura di aggiornamento, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade].
+Per altre informazioni sulle versioni del ciclo di vita, vedere [Versioni di Kubernetes supportate nel servizio Azure Kubernetes][aks-supported versions]. For steps on how to upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
 ### <a name="gpu-enabled-nodes"></a>Nodi abilitati per la GPU
 
 Il servizio Azure Container supporta la creazione di pool di nodi abilitati per la GPU. Azure offre attualmente macchine virtuali abilitate per una GPU singola o più GPU. Le macchine virtuali abilitate per la GPU sono progettate per carichi di lavoro di visualizzazione oppure a elevato utilizzo di calcolo o di grafica.
 
-Per altre informazioni, vedere [Uso di GPU nel servizio Azure Container][aks-gpu].
+Per altre informazioni, vedere [Uso di GPU nel servizio Azure Kubernetes][aks-gpu].
 
 ### <a name="storage-volume-support"></a>Supporto di volumi di archiviazione
 
@@ -71,7 +71,7 @@ Per supportare carichi di lavoro applicativi, possono essere montati volumi di a
 
 Per altre informazioni, vedere [Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes][concepts-storage].
 
-Introduzione ai volumi permanenti dinamici con [dischi di Azure][azure-disk] o [File di Azure][azure-files].
+Introduzione ai volumi permanenti dinamici con [dischi di Azure][azure-disk] or [Azure Files][azure-files].
 
 ## <a name="virtual-networks-and-ingress"></a>Reti virtuali e ingresso
 
@@ -116,7 +116,7 @@ Il servizio Azure Kubernetes è conforme agli standard SOC, ISO, PCI DSS e HIPAA
 Altre informazioni sulla distribuzione e la gestione di servizio Azure Kubernetes sono disponibili nella guida introduttiva sull'interfaccia della riga di comando di Azure.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva ad servizio Azure Kubernetes][aks-cli]
+> [Guida introduttiva al servizio Azure Kubernetes][aks-cli]
 
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: b5eb57562dac498c0e5bf2960007f52ad1117ac2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 618e7e19b20f361aa0a8c668e9621a29db43772d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244762"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797743"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurare la durata (TTL) in Azure Cosmos DB
 
@@ -35,6 +35,11 @@ Usare la procedura seguente per abilitare la durata (TTL) in un contenitore senz
    * È consigliabile fare clic su **Salva** per salvare le modifiche.
 
    ![Configurare la durata (TTL) nel portale di Azure](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+
+
+- Se DefaultTimeToLive è Null, la durata TTL è disattivata
+- Se DefaultTimeToLive è -1, l'impostazione della durata TTL è attivata (nessun valore predefinito)
+- Se DefaultTimeToLive include qualsiasi altro valore Int, ad eccezione di 0, l'impostazione della durata TTL è attivata
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Abilitare la durata (TTL) in un contenitore usando l'SDK
 

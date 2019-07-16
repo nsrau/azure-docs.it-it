@@ -1,27 +1,27 @@
 ---
-title: 'Avvio rapido: Elenco voci sintesi vocale, Node. js - servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Elencare le voci per la sintesi vocale, Node.js - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
-description: In questa Guida introduttiva si apprenderà come ottenere l'elenco completo delle voci neurale e standard per un'area/endpoint usando Node. js. Viene restituito l'elenco in formato JSON e disponibilità vocale varia in base all'area.
+description: In questa guida di avvio rapido si apprenderà come ottenere l'elenco completo delle voci standard e neurali per un'area o un endpoint usando Node.js. L'elenco viene restituito in formato JSON e la disponibilità delle voci varia in base all'area.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 08936ca0fe2fe10c332df146edd541c75df325e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: d64f59b6b4439d79d64ee92cf23676ab1275c45a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067566"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602995"
 ---
-# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Avvio rapido: Ottiene l'elenco di voci di sintesi vocale con Node. js
+# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Guida introduttiva: Ottenere l'elenco delle voci per la sintesi vocale usando Node.js
 
-In questa Guida introduttiva si apprenderà come ottenere l'elenco completo delle voci neurale e standard per un'area/endpoint usando Node. js. Viene restituito l'elenco in formato JSON e disponibilità vocale varia in base all'area. Per un elenco delle aree supportate, vedere [aree](regions.md).
+In questa guida di avvio rapido si apprenderà come ottenere l'elenco completo delle voci standard e neurali per un'area o un endpoint usando Node.js. L'elenco viene restituito in formato JSON e la disponibilità delle voci varia in base all'area. Per un elenco delle aree supportate, vedere [Aree](regions.md).
 
-Questa Guida introduttiva richiede un [account di servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa di servizi di riconoscimento vocale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](get-started.md) per ottenere una chiave di sottoscrizione.
+Per questo avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa dei servizi Voce. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](get-started.md) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -48,9 +48,9 @@ const fs = require('fs');
 
 ## <a name="get-an-access-token"></a>Ottenere un token di accesso
 
-L'API REST Sintesi vocale necessita di un token di accesso per l'autenticazione. Per ottenere un token di accesso, è necessario uno scambio. Questa funzione lo scambio di chiave di sottoscrizione di servizi di riconoscimento vocale per un token di accesso tramite il `issueToken` endpoint.
+L'API REST Sintesi vocale necessita di un token di accesso per l'autenticazione. Per ottenere un token di accesso, è necessario uno scambio. Questa funzione scambia la chiave di sottoscrizione dei servizi di riconoscimento vocale con un token di accesso usando l'endpoint `issueToken`.
 
-In questo esempio si presuppone che la sottoscrizione di servizi di riconoscimento vocale è nell'area Stati Uniti occidentali. Se si usa un'area diversa, aggiornare il valore per `uri`. Per un elenco completo, vedere [Aree](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+L'esempio presuppone che la sottoscrizione dei servizi Voce sia nell'area Stati Uniti occidentali. Se si usa un'area diversa, aggiornare il valore per `uri`. Per un elenco completo, vedere [Aree](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copiare questo codice nel progetto:
 
@@ -71,13 +71,13 @@ function getAccessToken(subscriptionKey) {
 > [!NOTE]
 > Per altre informazioni sull'autenticazione, vedere [Eseguire l'autenticazione con un token di autenticazione](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
-Nella sezione successiva, si creerà la funzione per ottenere l'elenco di voci e salvare l'output JSON al file.
+Nella prossima sezione si creerà la funzione per ottenere l'elenco di voci e salvare l'output JSON in un file.
 
 ## <a name="make-a-request-and-save-the-response"></a>Eseguire una richiesta e salvare la risposta
 
-In questo caso si intende la richiesta di compilazione e salvare l'elenco di voci restituite. Questo esempio presuppone che si usi l'endpoint Stati Uniti occidentali. Se la risorsa è registrata in un'area diversa, assicurarsi di aggiornare il valore di `uri`. Per altre informazioni, vedere [aree di servizi di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+In questa sezione si creerà la richiesta e si salverà l'elenco delle voci restituite. Questo esempio presuppone che si usi l'endpoint Stati Uniti occidentali. Se la risorsa è registrata in un'area diversa, assicurarsi di aggiornare il valore di `uri`. Per altre informazioni, vedere [Aree dei servizi Voce](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Successivamente, aggiungere le intestazioni obbligatorie per la richiesta. Si creerà infine una richiesta da inviare al servizio. Se la richiesta ha esito positivo e viene restituito un codice di 200 stato, la risposta viene scritto in un file.
+Successivamente, aggiungere le intestazioni obbligatorie per la richiesta. Si creerà infine una richiesta da inviare al servizio. Se la richiesta ha esito positivo e viene restituito il codice di stato 200, la risposta viene scritta su file.
 
 ```javascript
 function textToSpeech(accessToken) {
@@ -104,9 +104,9 @@ function textToSpeech(accessToken) {
 
 ## <a name="put-it-all-together"></a>Combinare tutti gli elementi
 
-La procedura è quasi terminata. L'ultimo passaggio consiste nel creare una funzione asincrona. Questa funzione verrà leggere la chiave di sottoscrizione da una variabile di ambiente, ottenere un token, attendere il completamento della richiesta, quindi scrivere la risposta JSON al file.
+La procedura è quasi terminata. L'ultimo passaggio consiste nel creare una funzione asincrona. Questa funzione legge la chiave della sottoscrizione da una variabile di ambiente, ottiene un token, attende il completamento della richiesta e quindi scrive la risposta JSON in un file.
 
-Se si ha familiarità con le variabili di ambiente o si preferisce testare con la chiave di sottoscrizione hardcoded sotto forma di stringa, sostituire `process.env.SPEECH_SERVICE_KEY` con la chiave di sottoscrizione sotto forma di stringa.
+Se non si ha familiarità con le variabili di ambiente o si preferisce eseguire test con la chiave della sottoscrizione hardcoded come stringa, sostituire `process.env.SPEECH_SERVICE_KEY` con la chiave della sottoscrizione come stringa.
 
 ```javascript
 // Use async and await to get the token before attempting

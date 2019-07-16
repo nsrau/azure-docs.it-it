@@ -1,45 +1,45 @@
 ---
-title: 'Avvio rapido: Eseguire i dispositivi di Speech SDK in Android - servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Eseguire Speech Devices SDK su Android - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
-description: Prerequisiti e istruzioni per iniziare con un SDK di dispositivi Android di riconoscimento vocale.
+description: Prerequisiti e istruzioni per iniziare a usare Speech Devices SDK per Android.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 05/02/2019
+ms.topic: quickstart
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 5bebdd77afb9e9c77624ea4266ca217567dbf143
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 7eea978456ed565f8fc58647dc548d1a7bc76b27
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072385"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606375"
 ---
-# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Avvio rapido: Eseguire l'app di esempio Speech SDK di dispositivi in Android
+# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Guida introduttiva: Eseguire l'app di esempio Speech Devices SDK su Android
 
-In questa Guida introduttiva verrà illustrato come usare dispositivi Speech SDK per Android per compilare un prodotto abilitate al riconoscimento vocale o usarla come una [trascrizione conversazione](conversation-transcription-service.md) dispositivo.
+In questa guida di avvio rapido si apprenderà come usare Speech Devices SDK per Android per compilare un prodotto abilitato al riconoscimento vocale o usarlo come dispositivo di [trascrizione conversazione](conversation-transcription-service.md).
 
-Questa guida richiede un [servizi cognitivi di Azure](get-started.md) account con una risorsa di servizi di riconoscimento vocale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+Per riprodurre le procedure di questa guida è necessario un account di [Servizi cognitivi di Azure](get-started.md) con una risorsa dei servizi di riconoscimento vocale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 Il codice sorgente dell'applicazione di esempio è incluso in Speech Devices SDK ed è anche [disponibile in GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare a usare il SDK di dispositivi di riconoscimento vocale, è necessario:
+Prima di iniziare a usare Speech Devices SDK, è necessario:
 
-* Seguire le istruzioni fornite con il [kit di sviluppo](get-speech-devices-sdk.md) per accendere il dispositivo.
+* Seguire le istruzioni fornite nel [kit di sviluppo](get-speech-devices-sdk.md) per accendere il dispositivo.
 
-* Scaricare la versione più recente del [vocale Devices SDK](https://aka.ms/sdsdk-download)ed estrarre il file zip nella directory di lavoro.
+* Scaricare la versione più recente di [Speech Devices SDK](https://aka.ms/sdsdk-download) ed estrarre il file ZIP nella directory di lavoro.
    > [!NOTE]
-   > Il file di esempio-Android-Release.zip include l'app di esempio di Android e questa Guida introduttiva presuppone che l'app venga estratto in C:\SDSDK\Android-Sample-Release
+   > Il file Android-Sample-Release.zip include l'app di esempio per Android e questa guida di avvio rapido presuppone che l'app venga estratta in C:\SDSDK\Android-Sample-Release
 
-* Per ottenere un [chiave di sottoscrizione di Azure per servizi di riconoscimento vocale](get-started.md)
+* Per ottenere una [chiave di sottoscrizione di Azure per i servizi di riconoscimento vocale](get-started.md)
 
-* Se si prevede di usare la trascrizione di conversazione è necessario utilizzare un [microfono circolare](get-speech-devices-sdk.md) e questa funzionalità è attualmente disponibile solo per "en-US" e "zh-CN" in aree geografiche, "centralus" e "Asia orientale". È necessario disporre una chiave di riconoscimento vocale in una di queste aree per usare la trascrizione di conversazione.
+* Se si prevede di usare la funzionalità di trascrizione conversazione, è necessario usare un [dispositivo con microfono circolare](get-speech-devices-sdk.md) e questa funzionalità è attualmente disponibile solo per i codici di lingua "en-US" e "zh-CN" nella aree "centralus" e "eastasia". È necessario avere una chiave di riconoscimento vocale in una di queste aree per usare la trascrizione conversazione.
 
-* Se si prevede di usare i servizi di riconoscimento vocale per identificare gli Intent (o azioni) da espressioni di utente, è necessario un [servizio LUIS (Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) sottoscrizione. Per altre informazioni su LUIS e riconoscimento delle intenzioni tramite, vedere [riconosce gli Intent di riconoscimento vocale con LUIS, C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
+* Se si prevede di usare i servizi di riconoscimento vocale per identificare finalità (o azioni) dalle espressioni degli utenti, è necessaria una sottoscrizione [Language Understanding Intelligent Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Per altre informazioni su LUIS e sul riconoscimento delle finalità, vedere [Riconoscere le finalità voce con LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
     È possibile [creare un modello LUIS semplice](https://docs.microsoft.com/azure/cognitive-services/luis/) oppure usare il modello LUIS di esempio, ovvero LUIS-example.json. Il modello LUIS di esempio è disponibile nel [sito di download di Speech Devices SDK](https://aka.ms/sdsdk-luis). Per caricare il file JSON del modello nel [portale LUIS](https://www.luis.ai/home), selezionare **Import new app** (Importa nuova app) e quindi selezionare il file JSON.
 
@@ -72,7 +72,7 @@ Prima di iniziare a usare il SDK di dispositivi di riconoscimento vocale, è nec
 
 ## <a name="run-the-sample-application"></a>Eseguire l'applicazione di esempio
 
-Per convalidare l'installazione del kit di sviluppo, compilare e installare l'applicazione di esempio:
+Per convalidare la configurazione del kit di sviluppo, compilare e installare l'applicazione di esempio:
 
 1. Avviare Android Studio.
 
@@ -82,9 +82,9 @@ Per convalidare l'installazione del kit di sviluppo, compilare e installare l'ap
 
 1. Passare a C:\SDSDK\Android-Sample-Release\example. Fare clic su **OK** per aprire il progetto di esempio.
 
-1. Aggiungere la chiave di sottoscrizione del riconoscimento vocale per il codice sorgente. Se si vuole provare la funzionalità Riconoscimento finalità, aggiungere anche la chiave di sottoscrizione e l'ID applicazione del [servizio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+1. Aggiungere la chiave di sottoscrizione del Servizio di riconoscimento vocale al codice sorgente. Se si vuole provare la funzionalità Riconoscimento finalità, aggiungere anche la chiave di sottoscrizione e l'ID applicazione del [servizio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
-   Per il riconoscimento vocale e LUIS, le informazioni entra in mainactivity. Java:
+   Per il riconoscimento vocale e LUIS, le informazioni vanno in MainActivity.java:
 
    ```java
     // Subscription
@@ -95,7 +95,7 @@ Per convalidare l'installazione del kit di sviluppo, compilare e installare l'ap
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Se si usa la trascrizione di conversazione, sono necessarie anche le informazioni chiave e l'area di riconoscimento vocale in conversation.java:
+    Se si usa la trascrizione conversazione, le informazioni sulla chiave di riconoscimento vocale e sull'area sono necessarie anche in conversation.java:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -107,10 +107,10 @@ Per convalidare l'installazione del kit di sviluppo, compilare e installare l'ap
    > [!TIP]
    > È anche possibile [creare una parola di attivazione personalizzata](speech-devices-sdk-create-kws.md).
 
-    Per usare un nuovo termine di riattivazione, aggiornare le due righe seguenti in `MainActivity.java`e copiare il pacchetto di word riattivazione all'app. Ad esempio, per usare la parola di riattivazione 'Machine' from il kws pacchetti di riattivazione word-machine.zip:
+    Per usare una nuova parola di attivazione, aggiornare le due righe seguenti in `MainActivity.java` e copiare il pacchetto di parole di attivazione nell'app. Ad esempio, per usare la parola di attivazione "Machine" del pacchetto di parole di attivazione kws-machine.zip:
 
-   * Copiare il pacchetto di word di riattivazione nella cartella "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
-   * Aggiornamento di `MainActivity.java` con la parola chiave e il nome del pacchetto:
+   * Copiare il pacchetto di parole di attivazione nella cartella "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
+   * Aggiornare `MainActivity.java` con la parola chiave e il nome del pacchetto:
 
      ```java
      private static final String Keyword = "Machine";
@@ -145,24 +145,24 @@ Per convalidare l'installazione del kit di sviluppo, compilare e installare l'ap
 
    ![Applicazione di esempio di Speech Devices SDK e opzioni](media/speech-devices-sdk/qsg-8.png)
 
-1. Prova la demo di trascrizione di conversazione nuova. Avviare la trascrizione con 'Avvia sessione'. Per impostazione predefinita tutti gli utenti è un ospite. Tuttavia, se si dispone delle firme di voce del partecipante è possibile inserire in un file `/video/participants.properties` nel dispositivo. Per generare la firma vocale, esaminare [trascrivere conversazioni (SDK)](how-to-use-conversation-transcription-service.md).
+1. Provare la nuova demo di Trascrizione conversazione. Avviare la trascrizione con "Avvia sessione". Per impostazione predefinita, ogni utente è un guest. Se però si hanno le firme vocali dei partecipanti, è possibile inserirle in un file `/video/participants.properties` nel dispositivo. Per generare la firma vocale, vedere [Trascrivere le conversazioni (SDK)](how-to-use-conversation-transcription-service.md).
 
-   ![Applicazione demo conversazione trascrizione](media/speech-devices-sdk/qsg-15.png)
+   ![Applicazione demo di Trascrizione conversazione](media/speech-devices-sdk/qsg-15.png)
 
 1. A questo punto, non resta che sperimentare.
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-   Se non è possibile connettersi al dispositivo di riconoscimento vocale. Digitare il comando seguente in una finestra del prompt dei comandi. Restituirà un elenco dei dispositivi:
+   Se non è possibile connettersi al dispositivo di riconoscimento vocale, digitare il comando seguente in una finestra del prompt dei comandi. Verrà restituito un elenco di dispositivi.
 
    ```powershell
     adb devices
    ```
 
    > [!NOTE]
-   > Questo comando Usa Android Debug Bridge, `adb.exe`, che fa parte dell'installazione di Android Studio. Questo strumento si trova in C:\Utenti\[nome utente]\AppData\Local\Android\Sdk\platform-tools. Per richiamare più facilmente `adb`, è possibile aggiungere questa directory al percorso. In caso contrario, è necessario specificare il percorso completo dell'installazione di adb.exe in ogni comando che richiama `adb`.
+   > Questo comando usa Android Debug Bridge, `adb.exe`, che fa parte dell'installazione di Android Studio. Questo strumento si trova in C:\Utenti\[nome utente]\AppData\Local\Android\Sdk\platform-tools. Per richiamare più facilmente `adb`, è possibile aggiungere questa directory al percorso. In caso contrario, è necessario specificare il percorso completo dell'installazione di adb.exe in ogni comando che richiama `adb`.
    >
-   > Se viene visualizzato un errore `no devices/emulators found` quindi verificare il cavo USB è connesso e assicurarsi che viene usato un cavo di qualità elevata.
+   > Se viene visualizzato un errore `no devices/emulators found`, verificare che il cavo USB sia collegato e che sia un cavo di alta qualità.
    >
 
 ## <a name="next-steps"></a>Passaggi successivi

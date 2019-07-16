@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Rilevare i visi in un'immagine usando .NET SDK Viso di Azure"
+title: "Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK Viso di Azure"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'SDK Viso di Azure per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 57605f9bd1a39435e27a2f2c56c06cf3bfb38605
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: bf4d11a18932d20e7dcc7580ebe5aa4e060c5a88
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630711"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606773"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Avvio rapido: Rilevare i visi in un'immagine usando .NET SDK Viso
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK Viso
 
 In questa guida introduttiva si userà l'SDK del servizio Viso per rilevare i visi umani in un'immagine. Per un esempio pratico del codice in questa guida introduttiva, vedere il progetto Viso nell'archivio di [soluzioni di avvio rapido csharp Vision di Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) in GitHub.
 
@@ -66,7 +66,7 @@ In più, nel metodo **Main**, aggiungere il codice seguente per usare il client 
 
 ### <a name="detect-faces"></a>Rilevare visi
 
-Aggiungere il metodo seguente alla classe **Program**. Usa il client del servizio Viso per rilevare visi in un'immagine remota, a cui fa riferimento un URL. Si noti che usa il campo `faceAttributes`: gli oggetti **DetectedFace** aggiunti a `faceList` avranno gli attributi specificati (in questo caso, età e sesso).
+Aggiungere il metodo seguente alla classe **Program**. Usa il client del servizio Viso per rilevare visi in un'immagine remota, a cui fa riferimento un URL. Usa il campo `faceAttributes`: gli oggetti **DetectedFace** aggiunti a `faceList` avranno gli attributi specificati (in questo caso, età e sesso).
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 
@@ -86,7 +86,7 @@ Infine, definire il metodo **DisplayAttributes** per scrivere i dati dell'attrib
 
 ## <a name="run-the-app"></a>Esecuzione dell'app
 
-In caso di risposta positiva, verranno visualizzati il sesso e l'età di ogni viso nell'immagine. Ad esempio: 
+In caso di risposta positiva, verranno visualizzati il sesso e l'età di ogni viso nell'immagine. Ad esempio:
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg
