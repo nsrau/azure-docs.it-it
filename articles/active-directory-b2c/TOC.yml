@@ -56,7 +56,7 @@
           href: active-directory-b2c-overview-custom.md
         - name: Accesso utente
           href: manage-user-access.md
-    - name: JavaScript e contratti di pagine
+    - name: JavaScript e layout di pagina
       href: user-flow-javascript-overview.md
     - name: OAuth 2.0
       href: active-directory-b2c-reference-oauth-code.md
@@ -142,8 +142,8 @@
               href: active-directory-b2c-custom-setup-msa-idp.md
             - name: Twitter
               href: active-directory-b2c-custom-setup-twitter-idp.md
-        - name: Contratto della pagina
-          href: page-contract.md
+        - name: Layout di pagina
+          href: page-layout.md
         - name: Complessità password
           href: active-directory-b2c-reference-password-complexity-custom.md
         - name: Modifica della password

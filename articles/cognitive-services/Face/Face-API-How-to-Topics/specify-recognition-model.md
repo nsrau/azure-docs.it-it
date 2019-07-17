@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: 0f1069c4a3d0a841b792cedf5a5a90aec80a4cc9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: fd60923351970dfe5aa5705a0508dbd39941ef58
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592974"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254355"
 ---
 # <a name="specify-a-face-recognition-model"></a>Specificare un modello di riconoscimento volto
 
@@ -45,8 +45,7 @@ Quando si usa la [Viso: rilevare] API, assegnare la versione del modello con il 
 
 Facoltativamente, è possibile specificare il _returnRecognitionModel_ parametro (impostazione predefinita **false**) per indicare se _recognitionModel_ devono essere restituiti nella risposta. Pertanto, un URL della richiesta per il [Viso: rilevare] API REST avrà un aspetto simile al seguente:
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]
-&subscription-key=<Subscription key>`
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
 Se si usa la libreria client, è possibile assegnare il valore per `recognitionModel` passando una stringa che rappresenta la versione.
 Se si lascia non assegnati, la versione del modello predefinito (_recognition_01_) verrà usato. Vedere l'esempio di codice seguente per la libreria client .NET.

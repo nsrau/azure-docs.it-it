@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 73979ec3bd1d667453a186ea1f20bbeddc12db8f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 435ad986a9f0b96d42c88d450f40e5900ad33b7c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273306"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653258"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 
@@ -120,11 +120,11 @@ Iniziare a [sviluppare un'app qui](index.yml).
 
 **D: Funziona con Unreal?**
 
-**R:** Il supporto per Unreal sarà presto disponibile.
+**R:** Il supporto per Unreal verrà considerato in futuro.
 
 **D: Funziona con Xamarin?**
 
-**R:** Sì. Anche se non viene fornito un SDK Xamarin, gli sviluppatori possono usare Ancoraggi nello spazio di Azure nelle app Xamarin grazie all'integrazione con l'API Ancoraggi nello spazio di Azure.
+**R:** Il supporto per Xamarin verrà considerato in futuro.
 
 **D: Quali porte e protocolli vengono utilizzati da Ancoraggi nello spazio di Azure?**
 

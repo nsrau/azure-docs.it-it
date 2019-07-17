@@ -5,21 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 7ee6b2dd07a89de4f5347e82bde19990dbb6c995
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46f3f87fac5b65229e03ee91d8f2b93b1a1590e8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077552"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795288"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Che cos'è la rete WAN virtuale di Azure?
 
 La rete WAN virtuale di Azure è un servizio di rete che offre connettività tra rami ottimizzata e automatizzata verso e tramite Azure. Le aree di Azure fungono da hub a cui è possibile scegliere di connettere i rami. È possibile sfruttare il backbone di Azure per anche connettere i rami e sfruttare i vantaggi della connettività da ramo a VNet. È disponibile un elenco di partner che supportano l'automazione della connettività con VPN di rete WAN virtuale di Azure. Per maggiori informazioni, vedere l'articolo [Partner e località della rete WAN virtuale](virtual-wan-locations-partners.md).
 
-La rete WAN virtuale di Azure raggruppa in una singola interfaccia operativa numerosi servizi di connettività cloud di Azure, ad esempio VPN da sito a sito (disponibile a livello generale), ExpressRoute (anteprima), VPN utente da punto a sito (anteprima). La connettività con le reti virtuali di Azure viene stabilita tramite connessioni di rete virtuali.
+La rete WAN virtuale di Azure raggruppa in una singola interfaccia operativa numerosi servizi di connettività cloud di Azure, ad esempio VPN da sito a sito, ExpressRoute e VPN utente da punto a sito. La connettività con le reti virtuali di Azure viene stabilita tramite connessioni di rete virtuali.
+
+ExpressRoute e la VPN utente da punto per la rete WAN virtuale sono attualmente disponibili in anteprima.
 
 ![Diagramma della rete WAN virtuale](./media/virtual-wan-about/virtualwan1.png)
 

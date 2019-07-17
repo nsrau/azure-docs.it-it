@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST di Azure e C#"
+title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST di Azure e C#"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API REST Viso di Azure con C# per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 40c9fac27f45699d4c56e57480dcfde1b0ffb64d
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 349ae3450b5817b5cfe9c95c41d159e3daca7a39
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629926"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603383"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST Viso e C#
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST Viso e C#
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con C# per rilevare i visi umani in un'immagine.
 
@@ -77,7 +77,7 @@ namespace DetectFace
 
 ### <a name="receive-image-input"></a>Ricevere l'input dell'immagine
 
-Aggiungere il codice seguente al metodo **Main** della classe **Program**. Verrà scritto un prompt nella console che richiede all'utente di immettere l'URL di un'immagine. Viene quindi chiamato un altro metodo, **MakeAnalysisRequest**, per elaborare l'immagine nel percorso specificato.
+Aggiungere il codice seguente al metodo **Main** della classe **Program**. Questo codice scrive un prompt nella console che richiede all'utente di immettere l'URL di un'immagine. Viene quindi chiamato un altro metodo, **MakeAnalysisRequest**, per elaborare l'immagine nel percorso specificato.
 
 ```csharp
         static void Main(string[] args)
@@ -162,7 +162,7 @@ Nei passaggi seguenti verranno definiti i metodi helper.
 
 ### <a name="process-the-input-image-data"></a>Elaborare i dati di immagine di input
 
-Aggiungere il metodo seguente alla classe **Program**. Converte l'immagine all'URL specificato in una matrice di byte.
+Aggiungere il metodo seguente alla classe **Program**. Questo metodo converte l'immagine all'URL specificato in una matrice di byte.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.
@@ -179,7 +179,7 @@ Aggiungere il metodo seguente alla classe **Program**. Converte l'immagine all'U
 
 ### <a name="parse-the-json-response"></a>Analizzare la risposta JSON.
 
-Aggiungere il metodo seguente alla classe **Program**. Formatta l'input JSON in modo da renderlo più facilmente leggibile. L'app scriverà i dati stringa nella console. È quindi possibile chiudere la classe e lo spazio dei nomi.
+Aggiungere il metodo seguente alla classe **Program**. Questo metodo formatta l'input JSON in modo da renderlo più facilmente leggibile. L'app scriverà i dati stringa nella console. È quindi possibile chiudere la classe e lo spazio dei nomi.
 
 ```csharp
         // Formats the given JSON string by adding line breaks and indents.
@@ -250,7 +250,7 @@ Aggiungere il metodo seguente alla classe **Program**. Formatta l'input JSON in 
 
 ## <a name="run-the-app"></a>Esecuzione dell'app
 
-Una risposta con esito positivo visualizzerà i dati sui volti in formato JSON facilmente leggibile. Ad esempio: 
+Una risposta con esito positivo visualizzerà i dati sui volti in formato JSON facilmente leggibile. Ad esempio:
 
 ```json
 [

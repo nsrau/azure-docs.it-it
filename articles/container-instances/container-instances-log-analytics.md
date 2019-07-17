@@ -1,24 +1,24 @@
 ---
 title: Registrazione di istanze di contenitore con i log di Monitoraggio di Azure
-description: Informazioni su come inviare l'output dei contenitori (STDOUT e STDERR) ai log di Monitoraggio di Azure.
+description: Informazioni su come inviare i log di Istanze di Azure Container ai log di Monitoraggio di Azure.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/17/2018
+ms.date: 07/09/2019
 ms.author: danlep
-ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cab0bc4d2d0491c70a1d2f11f3a5d5d831ade6cf
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879714"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722631"
 ---
 # <a name="container-instance-logging-with-azure-monitor-logs"></a>Registrazione di istanze di contenitore con i log di Monitoraggio di Azure
 
 Le aree di lavoro di Log Analytics offrono una posizione centralizzata per l'archiviazione e l'esecuzione di query sui dati di log, non solo dalle risorse di Azure, ma anche per le risorse locali e quelle in altri cloud. Il servizio Istanze di Azure Container supporta per impostazione predefinita l'invio di dati ai log di Monitoraggio di Azure.
 
-Per inviare i dati delle istanze di contenitore ai log di Monitoraggio di Azure, è necessario creare un gruppo di contenitori usando l'interfaccia della riga di comando di Azure (o Cloud Shell) e un file YAML. Le sezioni seguenti descrivono la creazione di un gruppo di contenitori abilitato per la registrazione e l'esecuzione di query sui log.
+Per inviare i dati delle istanze di contenitore ai log di Monitoraggio di Azure, è necessario specificare un ID e una chiave dell'area di lavoro Log Analytics durante la creazione di un gruppo di contenitori. Le sezioni seguenti descrivono la creazione di un gruppo di contenitori abilitato per la registrazione e l'esecuzione di query sui log.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -26,7 +26,7 @@ Per inviare i dati delle istanze di contenitore ai log di Monitoraggio di Azure,
 
 Per abilitare la registrazione nelle istanze di contenitore, è necessario quanto segue:
 
-* [Area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
+* [area di lavoro Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (o [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Ottenere le credenziali di Log Analytics
@@ -36,7 +36,7 @@ Il servizio Istanze di Azure Container deve avere l'autorizzazione per l'invio d
 Per ottenere l'ID e la chiave primaria dell'area di lavoro Log Analytics:
 
 1. Passare all'area di lavoro Log Analytics nel portale di Azure
-1. Selezionare **Impostazioni avanzate** in **IMPOSTAZIONI**
+1. Selezionare **Impostazioni avanzate** in **Impostazioni**
 1. Selezionare **Origini connesse** > **Windows Server** (o **Server Linux** - l'ID e le chiavi sono gli stessi per entrambe le origini)
 1. Prendere nota di:
    * **ID AREA DI LAVORO**
@@ -66,7 +66,7 @@ az container create \
 Usare questo metodo se si preferisce distribuire gruppi di contenitori con YAML. Il codice YAML seguente definisce un gruppo di contenitori con un singolo contenitore. Copiare il codice YAML in un nuovo file e quindi sostituire `LOG_ANALYTICS_WORKSPACE_ID` e `LOG_ANALYTICS_WORKSPACE_KEY` con i valori ottenuti nel passaggio precedente. Salvare il file come **deploy-aci.yaml**.
 
 ```yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: mycontainergroup001
 properties:
@@ -90,7 +90,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Successivamente, eseguire il comando seguente per distribuire il gruppo di contenitori. Sostituire `myResourceGroup` con un gruppo di risorse nella sottoscrizione oppure creare prima un gruppo di risorse denominato "myResourceGroup":
+Eseguire quindi il comando seguente per distribuire il gruppo di contenitori. Sostituire `myResourceGroup` con un gruppo di risorse nella sottoscrizione oppure creare prima un gruppo di risorse denominato "myResourceGroup":
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
@@ -100,12 +100,14 @@ Si riceverà una risposta da Azure contenente i dettagli di distribuzione poco d
 
 ## <a name="view-logs-in-azure-monitor-logs"></a>Visualizzare i log di Monitoraggio di Azure
 
-Dopo aver distribuito il gruppo di contenitori, possono essere necessari diversi minuti (fino a 10) per la visualizzazione delle prime voci di log nel portale di Azure. Per visualizzare i log del gruppo di contenitori, aprire l'area di lavoro Log Analytics e quindi:
+Dopo aver distribuito il gruppo di contenitori, possono essere necessari diversi minuti (fino a 10) per la visualizzazione delle prime voci di log nel portale di Azure. Per visualizzare i log del gruppo di contenitori:
 
-1. Nella panoramica dell'**area di lavoro OMS** selezionare **Ricerca log**. Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.  
-1. In **Query di esempio per provare** selezionare il collegamento **Tutti i dati raccolti**
+1. Passare all'area di lavoro Log Analytics nel portale di Azure
+1. In **Generale** selezionare **Log**  
+1. Digitare la query seguente: `search *`
+1. Selezionare **Esegui**
 
-Dovrebbero essere visibili vari risultati visualizzati dalla query`search *`. Se inizialmente non viene visualizzato alcun risultato, attendere qualche minuto e quindi selezionare il pulsante **Esegui** per eseguire nuovamente la query. Per impostazione predefinita, le voci di log vengono visualizzate nella visualizzazione "Elenco". Selezionare **Tabella** per visualizzare le voci di log in un formato più compresso. È quindi possibile espandere una riga per visualizzare il contenuto di una singola voce del log.
+Dovrebbero essere visibili vari risultati visualizzati dalla query`search *`. Se inizialmente non viene visualizzato alcun risultato, attendere qualche minuto e quindi selezionare il pulsante **Esegui** per eseguire nuovamente la query. Per impostazione predefinita, le voci del log vengono visualizzate in formato **Tabella**. È quindi possibile espandere una riga per visualizzare il contenuto di una singola voce del log.
 
 ![Risultati di Ricerca log nel portale di Azure][log-search-01]
 

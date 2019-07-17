@@ -1,5 +1,5 @@
 ---
-title: Supporto dei contenitori
+title: Verificare l'istanza di contenitore di analisi del Sentiment
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come verificare l'istanza di contenitore di analisi del sentiment.
 services: cognitive-services
@@ -9,21 +9,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: f68d9c7098f2b1ca782e2522c632c2e267b35336
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f69d573e9e70a505018e94cca354f363097cc1b8
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67455090"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229179"
 ---
 ## <a name="verify-the-sentiment-analysis-container-instance"></a>Verificare l'istanza di contenitore di analisi del Sentiment
 
 1. Selezionare il **Panoramica** scheda e copiare l'indirizzo IP.
-1. Aprire una nuova scheda del browser e usare l'indirizzo IP, ad esempio, `http://<IP-address>:5000 (http://55.55.55.55:5000`). Home page del contenitore viene visualizzato, che indica il contenitore è in esecuzione.
+1. Aprire una nuova scheda del browser e immettere l'indirizzo IP. Ad esempio, immettere `http://<IP-address>:5000 (http://55.55.55.55:5000`). Viene visualizzata la home page del contenitore, che indica il contenitore è in esecuzione.
 
-    ![Visualizzare la home page di contenitore per verificare che sia in esecuzione](../media/how-tos/container-instance/swagger-docs-on-container.png)
+    ![Visualizzare la home page di contenitore per verificare che sia in esecuzione](../media/how-tos/container-instance/swagger-docs-on-container.png).
 
-1. Selezionare il **descrizione del servizio API** collegamento per passare alla pagina swagger contenitori.
+1. Selezionare il **descrizione del servizio API** collegamento per passare alla pagina swagger del contenitore.
 
 1. Scegliere una qualsiasi delle **POST** API e selezionare **provarlo**.  Vengono visualizzati i parametri, tra cui l'input di esempio:
 
@@ -49,7 +49,7 @@ ms.locfileid: "67455090"
     }
     ```
 
-1. Sostituire l'input con il codice JSON seguente:
+1. Sostituire l'input con il contenuto JSON seguente:
 
     ```json
     {
@@ -67,7 +67,7 @@ ms.locfileid: "67455090"
 
 1. Selezionare **Execute** per determinare il sentiment del testo.
 
-    Il modello incluso nel pacchetto nel contenitore genera un punteggio compreso tra 0 e 1, dove 0 è negativo e 1 è un valore positivo.
+    Il modello in un pacchetto nel contenitore genera un punteggio compreso tra 0 e 1, dove 0 è negativo e 1 è un valore positivo.
 
     La risposta JSON restituita include del sentiment per l'input di testo aggiornato:
 
@@ -93,4 +93,4 @@ ms.locfileid: "67455090"
     }
     ```
 
-È ora possibile correlare il documento `id` dei payload risposta JSON per il documento di payload di richiesta originale `id`e vedere che si è verificato un punteggio pari a failover `.98` che indica un sentimento positivo molto.
+È ora possibile correlare il documento `id` dei dati JSON del payload della risposta per il documento di payload di richiesta originale `id`. Vediamo un punteggio pari a più di `.98`, che indica un sentimento positivo fortemente.

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: 38addf4651373ba0f4df411325218a255c835508
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 05284d434e6bd22fd50957f7cc5ec966f88a4fd4
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717165"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229322"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Creare una risorsa di istanza di contenitore di Azure
 
@@ -35,16 +35,16 @@ ms.locfileid: "67717165"
 
 3. Nel **Networking** , immettere i dettagli seguenti:
 
-    |Impostazione|Value|
+    |Impostazione|Valore|
     |--|--|
     |Porte|Impostare la porta TCP su `5000`. Espone il contenitore sulla porta 5000.|
 
-4. Nel **avanzate** , immettere le necessarie **variabili di ambiente** per il contenitore [fatturazione impostazioni](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers#billing-arguments) della risorsa ACI:
+4. Nel **avanzate** , immettere le necessarie **variabili di ambiente** le impostazioni della risorsa ACI di fatturazione per il contenitore:
 
     | Chiave | Value |
     |--|--|
-    |`apikey`|Copiato dal **chiavi** pagina della risorsa Analitica di testo. È una stringa di caratteri alfanumerici 32 senza spazi o trattini, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Copiato dal **Panoramica** pagina della risorsa Analitica di testo. Esempio: `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |`apikey`|Copiato dal **chiavi** pagina della risorsa. È una stringa di caratteri alfanumerici 32 senza spazi o trattini, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`billing`|Copiato dal **Panoramica** pagina della risorsa.|
     |`eula`|`accept`|
 
 1. Fare clic su **esaminare e creare**

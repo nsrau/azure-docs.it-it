@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/29/2019
-ms.openlocfilehash: c876c012c48298268f682b5ee428ec0f27979b84
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.date: 07/04/2019
+ms.openlocfilehash: 2ff5ebefbe379edda94dcf8ac066027398e2f3f4
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298946"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565551"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Esercitazione: Eseguire la migrazione offline di MongoDB all'API di Azure Cosmos DB per MongoDB con il servizio Migrazione del database
 
@@ -122,7 +122,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
    * **Modalità stringa di connessione**, che accetta una stringa di connessione di MongoDB come illustrato nell'articolo [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/) (Formato URI della stringa di connessione).
    * **Dati di Archiviazione di Azure**, che accetta l'URL di firma di accesso condiviso di un contenitore BLOB. Selezionare **Il BLOB contiene i dump BSON** se il contenitore BLOB include dump BSON generati dallo [strumento bsondump](https://docs.mongodb.com/manual/reference/program/bsondump/) di MongoDB e deselezionare questa opzione se il contenitore contiene file JSON.
 
-    Se si seleziona questa opzione, assicurarsi che la stringa di connessione dell'account di archiviazione abbia questo formato:
+     Se si seleziona questa opzione, assicurarsi che la stringa di connessione dell'account di archiviazione abbia questo formato:
 
      ```
      https://blobnameurl/container?SASKEY
@@ -133,6 +133,13 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
      * Per i dump BSON, i dati all'interno del contenitore di BLOB devono essere in formato bsondump, in modo che i file di dati vengano inseriti in cartelle con gli stessi nomi dei database che li contengono nel formato collection.bson. I nomi dei file di metadati (se presenti) dovranno essere in formato *collection*.metadata.json.
 
      * Per i dump JSON, i file nel contenitore di BLOB devono essere inseriti in cartelle con gli stessi nomi dei database che li contengono. All'interno di ogni cartella di database i file di dati devono essere inseriti in una sottocartella chiamata "data" e avere nomi nel formato *collection*.json. I file di metadati (se presenti) devono essere inseriti in una sottocartella chiamata "metadata" e avere nomi nello stesso formato *collection*.json. I file di metadati devono avere lo stesso formato di quelli prodotti con lo strumento bsondump di MongoDB.
+
+    > [!IMPORTANT]
+    > È sconsigliato usare un certificato autofirmato nel server Mongo. Tuttavia, qualora se ne usi uno, connettersi al server usando **Modalità stringa di connessione** e assicurarsi che la stringa di connessione comprenda ""
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
 
    Nelle situazioni in cui la risoluzione del nome DNS non è possibile, si può usare l'indirizzo IP.
 

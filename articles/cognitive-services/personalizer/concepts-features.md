@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: 94eaeb6e34e74e1a0f1a3958c23cf33b86c4adcd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c317cbec02b82743c233bf36f743cea808c30c69
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620289"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253594"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Le caratteristiche sono informazioni su azioni e contesto
 
@@ -66,9 +66,10 @@ Di seguito sono riportati esempi di spazi dei nomi di caratteristiche usati dall
 * current_time
 * NewsArticle_TextAnalytics
 
-È possibile assegnare nomi agli spazi dei nomi di caratteristiche in base alle proprie convenzioni, purché siano chiavi JSON valide.
+È possibile assegnare nomi agli spazi dei nomi di caratteristiche in base alle proprie convenzioni, purché siano chiavi JSON valide. Gli spazi dei nomi vengono usati per organizzare le funzionalità in set distinti e per evitare ambiguità tra funzioni con nomi simili. È possibile considerare gli spazi dei nomi come "prefisso" che viene aggiunto ai nomi di funzionalità. Gli spazi dei nomi non possono essere annidate.
 
-Nel codice JSON seguente `user`, `state` e `device` sono spazi dei nomi di caratteristiche.
+
+Nel codice JSON seguente `user`, `state` e `device` sono spazi dei nomi di caratteristiche. Nota di anteprima pubblica: Attualmente è fortemente consigliabile usare i nomi degli spazi dei nomi di funzionalità che sono basati su UTF-8 e iniziare con lettere diverse. Ad esempio, `user`, `state`, e `device` iniziano con `u`, `s`, e `d`. Dispone attualmente di spazi dei nomi con gli stessi caratteri prima potrebbe causare conflitti negli indici usati per machine learning.
 
 Gli oggetti JSON annidati e proprietà/valori semplici, possono includere oggetti JSON. Una matrice può essere inclusa solo se gli elementi della matrice sono numeri. 
 
@@ -77,7 +78,7 @@ Gli oggetti JSON annidati e proprietà/valori semplici, possono includere oggett
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug",
+                "profileType":"AnonymousUser",
                 "latlong": [47.6, -122.1]
             }
         },

@@ -2,18 +2,18 @@
 title: Esercitazione su Kubernetes in Azure - Creare un registro contenitori
 description: In questa esercitazione sul servizio Azure Kubernetes si crea un'istanza di Registro Azure Container e si carica un'immagine del contenitore dell'applicazione di esempio.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 1bd41dc464c251a2e7dab3087f3feffb15db785f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 5089326af1d7f6e057667cd916f35de92bf517ef
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304418"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614252"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Esercitazione: Distribuire e usare Registro Azure Container
 
@@ -29,7 +29,7 @@ In altre esercitazioni questa istanza di Registro Azure Container verrà integra
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Nell'[esercitazione precedente][aks-tutorial-prepare-app] è stata creata un'immagine del contenitore per una semplice applicazione Azure Voting. Se l'immagine dell'app Azure Voting non è stata creata, tornare all'[Esercitazione 1 - Creare immagini del contenitore][aks-tutorial-prepare-app].
+Nell'[esercitazione precedente][aks-tutorial-prepare-app] è stata creta un'immagine del contenitore per una semplice applicazione Azure Voting. Se l'immagine dell'app Azure Vote non è stata creata, tornare all'[Esercitazione 1 - Creare immagini del contenitore][aks-tutorial-prepare-app].
 
 Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.53 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
@@ -153,7 +153,7 @@ In questa esercitazione è stata creata un'istanza di Registro Azure Container e
 Passare all'esercitazione successiva per informazioni su come distribuire un cluster Kubernetes in Azure.
 
 > [!div class="nextstepaction"]
-> [Distribuire un cluster Kubernetes][aks-tutorial-deploy-cluster]
+> [Distribuire un cluster Kubernetes][aks-tutorial-deploy-cluster].
 
 <!-- LINKS - external -->
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/

@@ -1,7 +1,7 @@
 ---
-title: Cos'è Personalizza esperienze?
+title: Informazioni su Personalizza esperienze
 titleSuffix: Azure Cognitive Services
-description: Personalizza esperienze di Azure è un servizio API basato sul cloud che consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.
+description: Personalizza esperienze è un servizio API basato sul cloud che consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.
 services: cognitive-services
 author: edjez
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 7eb85aa38815b8fcdfbe68518122563e1b579e17
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e5781af44732782936e1e1a87bf70bd4a9d4804d
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150404"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722282"
 ---
-# <a name="what-is-personalizer"></a>Cos'è Personalizza esperienze?
+# <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 
 Personalizza esperienze di Azure è un servizio API basato sul cloud che consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.
 

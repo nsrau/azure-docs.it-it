@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e29a9265e010c3f442b742faf62b16dae02739fa
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 29ab9b3c33aae6005510c34b207c7f87714149e5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191140"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608230"
 ---
 ### <a name="preview"></a>Come si partecipa all'anteprima pubblica?
 
@@ -56,3 +56,7 @@ Per stabilire una connessione, sono necessari i ruoli seguenti:
 ### <a name="previewbill"></a>Prezzi - È previsto un addebito per la partecipazione alla versione di anteprima?
 
 Durante l'anteprima pubblica è previsto solo un addebito parziale. Tuttavia, insieme alla distribuzione non è previsto alcun contratto di servizio. Per altre informazioni vedere la [pagina dei prezzi](https://aka.ms/BastionHostPricing).
+
+### <a name="previewbill"></a>Perché viene visualizzato il messaggio di errore "Sessione utente scaduta" prima dell'avvio della sessione di Bastion?
+
+Una sessione deve essere avviata solo dal portale di Azure. Accedere al portale di Azure e avviare di nuovo la sessione. Questo errore è previsto se si passa all'URL direttamente da un'altra sessione o scheda del browser. Consente di assicurarsi che la sessione sia più sicura e che sia accessibile solo tramite il portale di Azure.

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: fbefbea171a8559466117c55703a14268b4c4c99
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 26ab3cb247309aa21791ca5a984f39ef40ce9a78
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592936"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249622"
 ---
 # <a name="specify-a-face-detection-model"></a>Specificare un modello di rilevamento volto
 
@@ -45,8 +45,7 @@ Quando si usa la [Viso: rilevare] API, è possibile assegnare la versione del mo
 
 URL della richiesta per il [Viso: rilevare] API REST avrà un aspetto simile al seguente:
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]
-&subscription-key=<Subscription key>`
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]&subscription-key=<Subscription key>`
 
 Se si usa la libreria client, è possibile assegnare il valore per `detectionModel` passando una stringa appropriata. Se si lascia non assegnati, l'API userà la versione del modello predefinito (`detection_01`). Vedere l'esempio di codice seguente per la libreria client .NET.
 

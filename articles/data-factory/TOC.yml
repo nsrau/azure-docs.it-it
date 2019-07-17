@@ -564,6 +564,8 @@
           href: solution-template-copy-files-multiple-containers.md
         - name: Copiare i nuovi file in base a LastModifiedDate
           href: solution-template-copy-new-files-lastmodifieddate.md
+        - name: Spostare file
+          href: solution-template-move-files.md
         - name: Eseguire una copia bulk con la tabella di controllo
           href: solution-template-bulk-copy-with-control-table.md
         - name: Eseguire una copia differenziale con la tabella di controllo
@@ -574,6 +576,8 @@
       items:
         - name: Risoluzione dei problemi delle attività
           href: data-factory-troubleshoot-guide.md
+        - name: Risoluzione dei problemi di gestione di Azure-SSIS IR
+          href: ssis-integration-runtime-management-troubleshoot.md
         - name: Risoluzione dei problemi dell'esecuzione di pacchetti in Azure-SSIS IR
           href: ssis-integration-runtime-ssis-activity-faq.md
 - name: riferimento

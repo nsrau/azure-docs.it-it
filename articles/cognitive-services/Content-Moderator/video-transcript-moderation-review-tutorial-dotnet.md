@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 4a28e9f1f911e274f9a53275afa577024405b336
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: b210af2a70a3ce858d8f53102a181c75373b4176
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474693"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606938"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Esercitazione: Moderazione di video e trascrizioni
 
@@ -37,7 +37,7 @@ Questa esercitazione illustra come:
 - Registrarsi sul sito Web dello [strumento di revisione di Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e creare tag personalizzati. Vedere [Usare i tag](Review-Tool-User-Guide/tags.md) per assistenza su questo passaggio.
 
     ![screenshot dei tag personalizzati per la moderazione dei video](images/video-tutorial-custom-tags.png)
-- Per eseguire l'applicazione di esempio, è necessario un account Azure, una risorsa di Servizi multimediali di Microsoft Azure, una risorsa di Azure Content Moderator e le credenziali di Azure Active Directory. Per istruzioni su come ottenere questi dati, vedere la guida [API Moderazione video](video-moderation-api.md).
+- Per eseguire l'applicazione di esempio, è necessario un account Azure, una risorsa di Servizi multimediali di Microsoft Azure, una risorsa di Azure Content Moderator e le credenziali di Azure Active Directory. Per istruzioni su come ottenere queste risorse, vedere la guida [API Moderazione video](video-moderation-api.md).
 - Scaricare l'[applicazione console revisione di video](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) da GitHub.
 
 ## <a name="enter-credentials"></a>Immettere le credenziali
@@ -225,7 +225,7 @@ Una trascrizione dell'audio del video viene anche generata quando è impostato i
 > [!NOTE]
 > L'applicazione console usa l'[API Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) per generare le trascrizioni dalla traccia audio del video caricato. I risultati vengono restituiti in formato WebVTT. Per altre informazioni su questo formato, vedere [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) (Formato tracce di testo video Web).
 
-## <a name="create-a-the-human-in-the-loop-review"></a>Creazione di revisioni umane
+## <a name="create-a-human-review"></a>Creare una revisione umana
 
 Il processo di moderazione restituisce un elenco di fotogrammi chiave dal video con una trascrizione delle relative tracce audio. Il passaggio successivo consiste nel creare una revisione nello strumento di revisione di Content Moderator per moderatori risorse umane. Tornare al metodo `ProcessVideo()` in `Program.cs` per visualizzare la chiamata al metodo `CreateVideoReviewInContentModerator()`. Il è incluso nella classe `videoReviewApi`, che si trova in `VideoReviewAPI.cs`, e viene illustrato di seguito.
 

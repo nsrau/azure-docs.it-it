@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 05/16/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b3c5c08e9862d59481573b501045466d6d691a77
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: ee3c4da96629910801413cbbad69963defb87dfe
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485553"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798791"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca di Azure in Postman con le API REST
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ In questa guida di avvio rapido vengono usati i servizi e gli strumenti seguenti
 
 + [Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
 
-+ Per l'invio di richieste a Ricerca di Azure viene usata l'[app desktop Postman](https://www.getpostman.com/) oppure [Telerik Fiddler](https://www.telerik.com/fiddler).
++ Per l'invio di richieste a Ricerca di Azure viene usata l'[app desktop Postman](https://www.getpostman.com/).
 
 ## <a name="get-a-key-and-url"></a>Ottenere una chiave e un URL
 
@@ -240,7 +240,11 @@ Per altre informazioni sull'API, vedere l'articolo relativo all'operazione [Get 
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 
-Se non è più necessario il servizio di ricerca, il modo più veloce per rilasciare i servizi consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca di Azure. L'eliminazione del gruppo di risorse in modo permanente elimina tutti gli elementi in esso contenuti, tra cui i servizi e qualsiasi contenuto archiviato. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica di ciascun servizio.
+Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
+
+Per trovare e gestire le risorse nel portale, usare il collegamento **Tutte le risorse** o **Gruppi di risorse** nel riquadro di spostamento a sinistra.
+
+Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e origini dati è limitato a tre. Per non superare il limite, è possibile eliminare i singoli elementi nel portale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

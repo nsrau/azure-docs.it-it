@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 05/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0d4bba41170408b640b4e8d3809c77b7a6443c6a
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: b4ad8697997a8c90a6548c66819bfe790c8235e3
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480045"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798984"
 ---
 # <a name="what-is-vpn-gateway"></a>Che cos'è un Gateway VPN?
 
@@ -51,7 +51,7 @@ La tabella seguente può aiutare nella scelta della migliore opzione di connetti
 
 ## <a name="gwsku"></a>SKU del gateway
 
-Quando si crea un gateway di rete virtuale, specificare lo SKU del gateway da usare. Selezionare lo SKU che soddisfa i requisiti relativi a tipi di carichi di lavoro, velocità effettive, funzionalità e contratti di servizio. Per altre informazioni sugli SKU del gateway, tra cui funzionalità supportate, produzione, sviluppo e test e procedure di configurazione, vedere [SKU del gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+Quando si crea un gateway di rete virtuale, specificare lo SKU del gateway da usare. Selezionare lo SKU che soddisfa i requisiti relativi a tipi di carichi di lavoro, velocità effettive, funzionalità e contratti di servizio. Per altre informazioni sugli SKU del gateway, tra cui funzionalità supportate, produzione, sviluppo e test e procedure di configurazione, vedere la sezione [SKU del gateway dell'articolo sulle impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Per informazioni sugli SKU legacy, vedere l'articolo sull'[uso di SKU legacy](vpn-gateway-about-skus-legacy.md).
 
 ### <a name="benchmark"></a>SKU del gateway per tunnel, connessione e velocità effettiva
 

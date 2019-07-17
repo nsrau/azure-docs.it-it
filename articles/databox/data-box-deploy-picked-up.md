@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 7/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 5b43241be4e161cd6051dce02a3574fbdb580f28
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: db0f0ac3073687b7c1cd8ca60e459e4bb3aa03f4
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606238"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626347"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Esercitazione: Restituire Azure Data Box e verificare il caricamento dei dati in Azure
 
@@ -41,9 +41,17 @@ Prima di iniziare, verificare che:
 
 ## <a name="ship-data-box-back"></a>Rispedire il Data Box
 
-1. Verificare che il dispositivo sia spento e i cavi scollegati. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
-2. Assicurarsi che l'etichetta indirizzo sia visibile sul display E-ink e prenotare un corriere per il ritiro. Se l'etichetta viene danneggiata o smarrita oppure non viene visualizzata sul display E-ink, contattare il supporto tecnico Microsoft. Se consigliato dal supporto, è possibile passare a **Panoramica > Scarica etichetta di spedizione** nel portale di Azure. Scaricare l'etichetta di spedizione e applicarla sul dispositivo. 
-3. Pianificare un ritiro con UPS per la restituzione del dispositivo. Per pianificare un ritiro:
+Assicurarsi che la copia dei dati sul dispositivo sia completa e che la **preparazione per la spedizione** sia stata eseguita correttamente. In base all'area in cui si spedisce il dispositivo, la procedura è diversa.
+
+
+### <a name="ship-in-us-canada-europe"></a>Spedizione negli Stati Uniti, in Canada e in Europa
+
+Eseguire la procedura seguente se si restituisce il dispositivo negli Stati Uniti, in Canada on in Europa.
+
+1. Verificare che il dispositivo sia spento e i cavi scollegati. 
+2. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
+3. Assicurarsi che l'etichetta indirizzo sia visibile sul display E-ink e prenotare un corriere per il ritiro. Se l'etichetta viene danneggiata o smarrita oppure non viene visualizzata sul display E-ink, contattare il supporto tecnico Microsoft. Se consigliato dal supporto, è possibile passare a **Panoramica > Scarica etichetta di spedizione** nel portale di Azure. Scaricare l'etichetta di spedizione e applicarla sul dispositivo. 
+4. Pianificare un ritiro con UPS per la restituzione del dispositivo. Per pianificare un ritiro:
 
     - Chiamare il servizio UPS locale (numero verde specifico del paese o area).
     - Nella chiamata specificare il numero di monitoraggio della spedizione di reso indicato sul display E-ink o sull'etichetta stampata.
@@ -51,6 +59,72 @@ Prima di iniziare, verificare che:
 
     Anziché pianificare il ritiro, è anche possibile consegnare Data Box al più vicino punto di consegna.
 4. Dopo che il Data Box è stato ritirato ed esaminato dal corriere, lo stato dell'ordine nel portale diventa **Ritirato**. Viene visualizzato anche un ID di traccia.
+
+### <a name="ship-in-asia-pacific-region"></a>Spedizione nell'area Asia Pacifico
+
+#### <a name="ship-in-australia"></a>Spedizione in Australia
+
+I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiuntiva. Tutte le spedizioni in ingresso devono prevedere una notifica anticipata. Seguire questa procedura per la spedizione in Australia.
+
+
+1. Conservare la scatola originale usata per spedire il dispositivo per la restituzione.
+2. Assicurarsi che la copia dei dati sul dispositivo sia completa e che la **preparazione per la spedizione** sia stata eseguita correttamente.
+3. Spegnere il dispositivo e rimuovere i cavi.
+4. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
+5. Scrivere un messaggio di posta elettronica a Quantium Solutions per richiedere un ritiro. Vedere il numero di riferimento del servizio specificato nel portale di Azure. Usare il modello di messaggio e-mail seguente: *Richiesta di etichetta per la spedizione inversa con codice TAU*. Assicurarsi di includere i seguenti dettagli nel messaggio di posta elettronica: 
+
+    ```
+    To: Azure@quantiumsolutions.com
+    Subject: Pickup request for Azure｜Reference number：XXX XXX XXX
+    Body: 
+    - Company name：
+    - Address:
+    - Contact name:
+    - Contact number:
+    - Requested pickup date: mm/dd
+    ```
+6. Quantium Solutions Australia invierà un'etichetta per la spedizione di ritorno.
+7. Stampare l'etichetta di restituzione e applicarla sulla scatola per la spedizione.
+8. Consegnare il pacco al corriere.
+
+Se necessario, è possibile inviare un messaggio e-mail al supporto di Quantium Solutions all'indirizzo Azure@quantiumsolutions.com o telefonare.
+
+
+Per richiedere informazioni riguardanti l'ordine al telefono:
+
+- Prima di tutto, inviare un messaggio di posta elettronica per il ritiro.
+- Fornire il nome dell'ordine al telefono.
+
+#### <a name="ship-in-japan"></a>Spedizione in Giappone 
+
+1. Conservare la scatola originale usata per spedire il dispositivo per la restituzione.
+2. Spegnere il dispositivo e rimuovere i cavi.
+3. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
+4. Sulla lettera di vettura, nelle informazioni sul mittente, indicare il nome dell'azienda e l'indirizzo.
+5. Inviare un messaggio di posta elettronica a Quantium Solutions usando il modello di messaggio di posta elettronica seguente.
+
+    - Se la lettera di vettura di Japan Post Chakubarai non era inclusa o risulta mancante, indicarlo nel messaggio di posta elettronica. Quantium Solutions Japan richiederà a Japan Post di portare la lettera di vettura al momento del ritiro.
+    - In caso di più ordini, inviare messaggi di posta elettronica per garantire prelievi singoli.
+
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box｜Job name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+    a. 08：00-13：00 
+    b. 13：00-15：00 
+    c. 15：00-17：00 
+    d. 17：00-19：00 
+    ```
+
+3. Si riceverà una conferma tramite posta elettronica da Quantium Solutions dopo la prenotazione di un prelievo. La conferma tramite posta elettronica include anche informazioni sulla lettera di vettura di Chakubarai.
+
+Se necessario, è possibile contattare il supporto di Quantium Solutions (in lingua giapponese) come segue: 
+
+- Posta elettronica：Customerservice.JP@quantiumsolutions.com 
+- Telefono：03-5755-0150 
+
 
 ## <a name="verify-data-upload-to-azure"></a>Verificare il caricamento dei dati in Azure
 

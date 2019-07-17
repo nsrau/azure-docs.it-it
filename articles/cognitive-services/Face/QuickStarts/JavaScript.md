@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Rilevare i visi in un'immagine con l'API REST e JavaScript"
+title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e JavaScript"
 titleSuffix: Azure Cognitive Services
 description: In questa introduttiva si rileveranno i visi in un'immagine usando l'API Viso con JavaScript in Servizi cognitivi.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: d1aa3e3a23acf82af8435cbb075fac38353500e5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 70c496aef0ff2f34c917fd594767d464cab3e625
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538732"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603433"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Avvio rapido: Rilevare i visi in un'immagine con l'API REST e JavaScript
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e JavaScript
 
 In questa guida introduttiva si userà l'API REST Viso di Azure con JavaScript per rilevare i visi umani in un'immagine.
 
@@ -41,7 +41,7 @@ Creare un nuovo file HTML denominato *detectFaces.html* e aggiungere il codice s
 </html>
 ```
 
-Aggiungere quindi il codice seguente all'interno dell'elemento `body` del documento. Viene così configurata un'interfaccia utente di base con un campo per l'URL, un pulsante **Analyze face**, un riquadro per la risposta e un riquadro per la visualizzazione dell'immagine.
+Aggiungere quindi il codice seguente all'interno dell'elemento `body` del documento. Questo codice configura un'interfaccia utente di base con un campo per l'URL, un pulsante **Analyze face**, un riquadro per la risposta e un riquadro per la visualizzazione dell'immagine.
 
 ```html
 <h1>Detect Faces:</h1>
@@ -65,7 +65,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="write-the-javascript-script"></a>Scrivere lo script JavaScript
 
-Aggiungere il codice seguente immediatamente sopra l'elemento `h1` nel documento. Viene così configurato il codice JavaScript che chiama l'API Viso.
+Aggiungere il codice seguente immediatamente sopra l'elemento `h1` nel documento. Questo codice configura il codice JavaScript che chiama l'API Viso.
 
 ```html
 <script type="text/javascript">
@@ -140,7 +140,7 @@ Aprire *detectFaces.html* nel browser. Facendo clic sul pulsante **Analyze face*
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-Di seguito è riportato un esempio di risposta JSON con esito positivo.
+Il testo seguente è un esempio di risposta JSON con esito positivo.
 
 ```json
 [

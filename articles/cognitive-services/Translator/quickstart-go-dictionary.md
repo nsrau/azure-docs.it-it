@@ -10,18 +10,21 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: bc92fb078c46c877f3b99389b1d14ad0f93e63b3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9648399b1fda2eb4780c1a30486ac4abcc69d062
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445216"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704520"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando Go
 
 In questo argomento di avvio rapido viene illustrato come trovare traduzioni alternative ed esempi d'uso per un testo specifico usando Go e l'API REST Traduzione testuale.
 
 Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+
+>[!TIP]
+> Per vedere tutto il codice contemporaneamente, il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -139,7 +142,7 @@ if err != nil {
 }
 ```
 
-Se si usa una sottoscrizione multiservizio di Servizi cognitivi, è necessario includere anche `Ocp-Apim-Subscription-Region` nei parametri della richiesta. [Informazioni sull'autenticazione con la sottoscrizione multiservizio](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Se si usa una sottoscrizione multiservizio di Servizi cognitivi, è necessario includere anche `Ocp-Apim-Subscription-Region` nei parametri della richiesta. [Informazioni sull'autenticazione con la sottoscrizione multiservizio](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="handle-and-print-the-response"></a>Gestire e stampare la risposta
 
@@ -229,10 +232,10 @@ Se si vuole confrontare il proprio codice con quello già disponibile, l'esempio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare gli esempi Go per le API Servizi cognitivi da [Azure SDK per Go](https://github.com/Azure/azure-sdk-for-go) su GitHub.
+Esaminare le informazioni di riferimento sulle API per comprendere le operazioni possibili con l'API Traduzione testuale.
 
 > [!div class="nextstepaction"]
-> [Esaminare gli esempi Go su GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Vedere anche
 

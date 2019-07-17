@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a78df2d4d84487399da10ca722550639a92e71bf
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492406"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798131"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Avvio rapido per Progetto Acustica con Unreal/Wwise
 Questo argomento di avvio rapido consente di sperimentare i controlli di progettazione di Progetto Acustica usando il contenuto di esempio fornito per Unreal Engine e Wwise.
@@ -50,14 +50,16 @@ Il plug-in Unreal per Progetto Acustica richiede l'esposizione di comportamenti 
 
     ![Screenshot della finestra di Esplora risorse di Windows che mostra lo script per distribuire patch al progetto Wwise](media/patch-wwise-script.png)
 
-* Se DirectX SDK non è installato, è necessario impostare come commento la riga che contiene DXSDK_DIR in `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Se DirectX SDK non è installato, a seconda della versione di Wwise in uso, può essere necessario impostare come commento la riga che contiene `DXSDK_DIR` in `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`:
 
     ![Screenshot dell'editor di codice che mostra DXSDK impostato come commento](media/directx-sdk-comment.png)
 
 ### <a name="open-the-unreal-project"></a>Aprire il progetto Unreal. 
 Quando viene chiesto di ricompilare i moduli, fare clic su Yes (Sì).
 
-Se non è possibile aprire il progetto in caso di errori di compilazione, verificare che la versione installata del plug-in Wwise per Progetto Acustica sia uguale a quella di Wwise usata nel progetto di esempio di Progetto Acustica.
+>Se non è possibile aprire il progetto in caso di errori di compilazione, verificare che la versione installata del plug-in Wwise per Progetto Acustica sia uguale a quella di Wwise usata nel progetto di esempio di Progetto Acustica.
+
+>Se non si usa [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6, è necessario rigenerare le librerie audio per consentire la riproduzione di audio nel progetto di esempio.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Sperimentare i controlli di progettazione di Progetto Acustica
 Ascoltare l'audio della scena facendo clic sul pulsante di riproduzione nell'editor Unreal. Sul desktop usare i tasti W, A, S, D e il mouse per spostarsi. Per visualizzare i tasti di scelta rapida per altri controlli, premere **F1**. Ecco alcune attività di progettazione da provare:
