@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: a8a1f6fe9372d013d310c557161ceb813b8a478b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3682b9e0c38344be1522440290b46f8c10bd5607
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163645"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275914"
 ---
 # <a name="application-settings"></a>Impostazioni dell'applicazione
 
@@ -48,7 +48,7 @@ Le espressioni seguenti mostrano come normalizzazione dei segni diacritici influ
 
 #### <a name="brazilian-portuguese-pt-br-diacritics"></a>Portoghese (Brasile) `pt-br` segni diacritici
 
-|I segni diacritici impostato su false|I segni diacritici impostato su false|
+|I segni diacritici impostato su false|I segni diacritici impostato su true|
 |-|-|
 |`á`|`a`|
 |`â`|`a`|
@@ -66,7 +66,7 @@ Le espressioni seguenti mostrano come normalizzazione dei segni diacritici influ
 
 #### <a name="dutch-nl-nl-diacritics"></a>Olandese `nl-nl` segni diacritici
 
-|I segni diacritici impostato su false|I segni diacritici impostato su false|
+|I segni diacritici impostato su false|I segni diacritici impostato su true|
 |-|-|
 |`á`|`a`|
 |`à`|`a`|
@@ -85,7 +85,7 @@ Le espressioni seguenti mostrano come normalizzazione dei segni diacritici influ
 
 Si tratta di impostazioni cultura secondarie sia una francese canadese.
 
-|I segni diacritici impostato su false|I segni diacritici impostato su false|
+|I segni diacritici impostato su false|I segni diacritici impostato su true|
 |--|--|
 |`é`|`e`|
 |`à`|`a`|
@@ -104,7 +104,7 @@ Si tratta di impostazioni cultura secondarie sia una francese canadese.
 
 #### <a name="german-de-de-diacritics"></a>Tedesco `de-de` segni diacritici
 
-|I segni diacritici impostato su false|I segni diacritici impostato su false|
+|I segni diacritici impostato su false|I segni diacritici impostato su true|
 |--|--|
 |`ä`|`a`|
 |`ö`|`o`| 
@@ -112,7 +112,7 @@ Si tratta di impostazioni cultura secondarie sia una francese canadese.
 
 #### <a name="italian-it-it-diacritics"></a>Italiano `it-it` segni diacritici
 
-|I segni diacritici impostato su false|I segni diacritici impostato su false|
+|I segni diacritici impostato su false|I segni diacritici impostato su true|
 |--|--|
 |`à`|`a`|
 |`è`|`e`|
@@ -129,7 +129,7 @@ Si tratta di impostazioni cultura secondarie sia una francese canadese.
 
 Ciò include canadese sia spagnolo messicano.
 
-|I segni diacritici impostato su false|I segni diacritici impostato su false|
+|I segni diacritici impostato su false|I segni diacritici impostato su true|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|

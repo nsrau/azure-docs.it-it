@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: 121e94228ca85684b20f2ee43c0f7fa3af82fc73
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cb30b476471e140f96fa1d159e9a16898f529607
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606325"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277487"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Consigli di vocale dispositivi SDK microfono array
 
@@ -43,34 +43,34 @@ Le proprietà consigliate quando si seleziona microfoni sono:
 
 | Parametro                         | Consigliato                       |
 |-----------------------------------|-----------------------------------|
-| SNR                               | \> 65 dB (1 kHz segnale 94 dBSPL, rumore ponderato)   |
+| SNR                               | \>= dB 65 (1 kHz segnale 94 dBSPL, rumore ponderato)   |
 | Corrispondenza di Amplitude                | \+ 1 dB @ 1 kHz                     |
-| Fase di corrispondenza                    | ± 2° @ 1 kHz                       |
-| Punto di Overload acustici (programmazione orientata ad aspetti)     | \> 120 dBSPL (THD = 10%)          |
+| Fase di corrispondenza                    | \+ 2° @ 1 kHz                       |
+| Punto di Overload acustici (programmazione orientata ad aspetti)     | \>= dBSPL 120 (THD = % 10)          |
 | Velocità in bit                          | Almeno 24 bit                    |
 | Frequenza di campionamento                     | Minimo kHz 16\*                   |
-| Direzione                       | Omnidirezionale                   |
 | Risposta in frequenza                | \+ 3 dB, 200 8000 Hz mobile maschera\*|
 | Affidabilità                       | Intervallo di temperatura archiviazione-40 ° C a 70 ° C<br />Temperatura operativa compresa tra 20 ° C-55 ° C  |
 
-*\*La velocità di campionamento o intervalli di frequenza "larghi" potrebbero essere necessari per le applicazioni di alta qualità delle comunicazioni (VoIP)*
+*\* La velocità di campionamento o intervalli di frequenza "larghi" potrebbero essere necessari per le applicazioni di alta qualità delle comunicazioni (VoIP)*
 
 Selezione componenti ottimale deve essere abbinato con una buona integrazione electroacoustic per evitare compromettono di conseguenza le prestazioni dei componenti usati. Casi d'uso univoco può anche richiedere requisiti aggiuntivi (ad esempio: operativo intervalli temperatura).
 
 ## <a name="microphone-array-integration"></a>Integrazione di microfono array
 
-Le prestazioni delle matrici quando integrate in un dispositivo e dopo qualsiasi miglioramento fisso o EQ devono soddisfare i requisiti seguenti:
+Le prestazioni della matrice microfono dopo l'integrazione in un dispositivo saranno diversa dalla specifica del componente. È importante garantire che i microfoni vengono associati anche dopo l'integrazione. Di conseguenza le prestazioni del dispositivo misurate dopo qualsiasi fissa ottenere o EQ deve soddisfare i requisiti seguenti:
 
 |  Parametro        |    Consigliato |
 |--------------------|----------------------------------------------------|
-|  SNR                 | \> 65 dB (1 kHz segnale 94 dBSPL, rumore ponderato) |
+|  SNR                 | \> dB 63 (1 kHz segnale 94 dBSPL, rumore ponderato) |
 |  Sensibilità di output  | -26 dBFS/Pa @ 1 kHz (scelta consigliata) |
-|  Corrispondenza di Amplitude  | ± 2 dB, 200-8000 Hz |
-|  Fase di corrispondenza      | \+ 5°, 200 8000 Hz |
-| THD%                 | ≤ 1%, 200 8000 Hz, dBSPL 94, 5th ordine |
-|  Risposta in frequenza  | \+ 6 dB, 200 8000 Hz mobile maschera\* |
+|  Corrispondenza di Amplitude  | \+ 2 dB 200 8000 Hz |
+| % THD\*                 | ≤ 1%, 200 8000 Hz, dBSPL 94, 5th ordine |
+|  Risposta in frequenza  | \+ 6 dB, 200 8000 Hz mobile maschera\*\* |
 
-*\*Gli intervalli di frequenza "Larghi" potrebbero essere necessari per le applicazioni di alta qualità delle comunicazioni (VoIP)*
+*\*\* Un relatore bassa distorsione è necessario misurare THD (ad esempio Neumann KH120)*
+
+*\*\* Gli intervalli di frequenza "Larghi" potrebbero essere necessari per le applicazioni di alta qualità delle comunicazioni (VoIP)*
 
 ## <a name="speaker-integration-recommendations"></a>Consigli di integrazione del relatore
 
@@ -80,7 +80,7 @@ Eco è necessaria per i dispositivi di riconoscimento vocale che contengono gli 
 |-----------------------------------|-----------------------------------|
 | Considerazioni di linearità          | Non lineari dopo il riferimento di relatore, in caso contrario, un flusso di riferimento basati su hardware loopback è richiesto un'elaborazione  |
 | Loopback dell'altoparlante                  | Fornito tramite WASAPI, privata API, personalizzato ALSA plug-in (Linux) o fornita tramite un canale del firmware      |
-| THD%                              | 3 ° ottava minimo 5 ordine, 70 dBA riproduzione @ m 0,8 ≤ 6.3%, fino a 500 315 Hz ≤ 5%, 630 5000 Hz                 |
+| % THD                              | 3 ° ottava minimo 5 ordine, 70 dBA riproduzione @ m 0,8 ≤ 6.3%, fino a 500 315 Hz ≤ 5%, 630 5000 Hz                 |
 | Accoppiamento echo per microfoni      | \> dB-10 TCLw utilizzando il metodo ITU-T G.122 allegato B.4, normalizzato in base al livello mic<br />TCLw = TCLwmeasured \+ (misurazione - destinazione Output sensibilità)<br />TCLw = TCLwmeasured \+ (misurata livello --(26)) |
 
 ## <a name="integration-design-architecture"></a>Architettura di progettazione di integrazione
