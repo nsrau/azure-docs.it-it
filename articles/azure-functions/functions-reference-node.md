@@ -275,10 +275,10 @@ Permette di scrivere nei log della console di streaming nel livello di traccia p
 
 | Metodo                 | Descrizione                                |
 | ---------------------- | ------------------------------------------ |
-| **error(_messaggio_)**   | Scrive nella registrazione a livello di errore o inferiore.   |
-| **warn(_messaggio_)**    | Scrive nella registrazione a livello di avviso o inferiore. |
-| **info(_messaggio_)**    | Scrive nella registrazione a livello di informazioni o inferiore.    |
-| **verbose(_messaggio_)** | Scrive nella registrazione a livello dettagliato.           |
+| **error(_message_)**   | Scrive nella registrazione a livello di errore o inferiore.   |
+| **warn(_message_)**    | Scrive nella registrazione a livello di avviso o inferiore. |
+| **info(_message_)**    | Scrive nella registrazione a livello di informazioni o inferiore.    |
+| **verbose(_message_)** | Scrive nella registrazione a livello dettagliato.           |
 
 L'esempio seguente scrive un log nel livello di traccia di avviso:
 
