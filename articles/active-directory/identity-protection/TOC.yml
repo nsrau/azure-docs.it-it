@@ -17,6 +17,8 @@
       href: notifications.md
     - name: Informazioni sull'esperienza di accesso
       href: flows.md
+    - name: Identity Protection e utenti B2B
+      href: concept-identity-protection-b2b.md
 - name: Guide alle procedure
   expanded: true
   items:

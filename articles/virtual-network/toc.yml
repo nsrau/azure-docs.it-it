@@ -91,7 +91,7 @@
           href: virtual-network-tcpip-performance-tuning.md
     - name: Distribuire
       items:
-        - name: IPv6 per la rete virtuale di Azure
+        - name: IPv6 per la rete virtuale - Load Balancer Basic
           items:
             - name: Azure PowerShell
               href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
@@ -99,6 +99,14 @@
               href: virtual-network-ipv4-ipv6-dual-stack-cli.md
             - name: Modello di Resource Manager
               href: ipv6-configure-template-json.md
+        - name: IPv6 per la rete virtuale - Load Balancer Standard
+          items:
+            - name: Azure PowerShell
+              href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+            - name: Interfaccia della riga di comando di Azure
+              href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+            - name: Modello di Resource Manager
+              href: ipv6-configure-standard-load-balancer-template-json.md
         - name: Gruppi di sicurezza di rete
           items:
             - name: Azure PowerShell

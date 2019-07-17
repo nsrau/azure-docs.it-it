@@ -292,6 +292,14 @@
               href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Aggiornare un account di archiviazione
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Creare e gestire contenitori
+          items:
+            - name: Creare o eliminare un contenitore (.NET)
+              href: storage-blob-container-create.md
+            - name: Elencare i contenitori (.NET)
+              href: storage-blob-containers-list.md
+            - name: Gestire proprietà e metadati (.NET)
+              href: storage-blob-container-properties-metadata.md
         - name: Proteggere i dati BLOB
           items:
             - name: Autorizzare l'accesso ai dati BLOB
@@ -358,8 +366,6 @@
               href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Usare l'emulatore di archiviazione di Azure
               href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Impostare e recuperare proprietà e metadati
-          href: storage-properties-metadata.md
         - name: Ospitare un sito Web statico
           href: storage-blob-static-website-how-to.md
         - name: Eseguire il mapping della rete CDN di Azure con un dominio personalizzato per l'accesso tramite HTTPS
