@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a88d7de69158a54995106d45683094c9b976896b
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523508"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302519"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossario per la comprensione del linguaggio con vocabolario e concetti comuni
 Il glossario Language Understanding (LUIS) contiene termini che è probabile trovare durante l'uso del servizio API LUIS.
@@ -96,11 +96,11 @@ Le [entità](luis-concept-entity-types.md) sono parole importanti nelle [espress
 
 Nei [test batch](luis-interactive-test.md#batch-testing) è una misura dell'accuratezza del test.
 
-## <a name="false-negative"></a>Falso negativo (TN)
+## <a name="false-negative"></a>Falso negativo (FN)
 
 Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato l'assenza della finalità/entità di destinazione.
 
-## <a name="false-positive"></a>Falso positivo (TP)
+## <a name="false-positive"></a>Falso positivo (FP)
 
 Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato la presenza della finalità/entità di destinazione.
 

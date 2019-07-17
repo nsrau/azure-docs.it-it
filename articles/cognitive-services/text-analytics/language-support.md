@@ -10,35 +10,35 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 5e4f231db781b96fe204802555b56238b9e27e52
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 96539a59bd22644eaedb88886bc5b9facb4ca1c1
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442675"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302090"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Supporto lingua e area geografica per l'API Analisi del testo
 
-Questo articolo spiega in quali lingue sono supportate per ogni operazione: analisi del sentiment, estrazione frasi chiave, il rilevamento della lingua e riconoscimento di entità denominate.
+Questo articolo illustra le lingue supportate per ogni operazione: analisi dei sentimenti, estrazione di frasi chiave, rilevamento della lingua e riconoscimento delle entità denominate.
 
 ## <a name="language-detection"></a>Rilevamento lingua
 
-L'API di Analitica di testo può rilevare un'ampia gamma di linguaggi, varianti, dialetti e alcune lingue internazionali/culturali.  Rilevamento lingua restituisce la lingua in generale. Per la frase "I have a dog", ad esempio, restituisce `en` anziché `en-US`. L'unico caso particolare è rappresentato dalla lingua cinese, per la quale la funzionalità Rilevamento lingua restituisce `zh_CHS` o `zh_CHT`, se è in grado di determinare il tipo di scrittura dal testo fornito. In situazioni in cui non è possibile identificare il tipo di scrittura per un documento in cinese, restituirà semplicemente `zh`.
+Il API Analisi del testo è in grado di rilevare un'ampia gamma di linguaggi, varianti, dialetti e lingue regionali/culturali.  Rilevamento lingua restituisce la lingua in generale. Per la frase "I have a dog", ad esempio, restituisce `en` anziché `en-US`. L'unico caso particolare è rappresentato dalla lingua cinese, per la quale la funzionalità Rilevamento lingua restituisce `zh_CHS` o `zh_CHT`, se è in grado di determinare il tipo di scrittura dal testo fornito. In situazioni in cui non è possibile identificare il tipo di scrittura per un documento in cinese, restituirà semplicemente `zh`.
 
 L'elenco esatto delle lingue per questa funzionalità non viene pubblicato, ma è in grado di rilevare un'ampia gamma di lingue, varianti, dialetti e alcune lingue regionali/culturali. 
 
 Se si ha contenuto espresso in un lingua usata con minore frequenza, si può provare Rilevamento lingua per vedere se viene restituito un codice. La risposta per le lingue che non è possibile rilevare è `unknown`.
 
-## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Analisi del sentiment, estrazione frasi chiave e riconoscimento di entità denominate
+## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Analisi del sentiment, Estrazione frasi chiave e il riconoscimento di entità denominate
 
-Per l'analisi del sentiment, l'estrazione delle frasi chiave e il riconoscimento delle entità, l'elenco delle lingue supportate è più selettivo, poiché gli analizzatori sono ottimizzati in base alle regole linguistiche di lingue aggiuntive. Supporto per il set completo di [tipi di entità](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) è attualmente limitato alle lingue seguenti: 
+Per l'analisi del sentiment, l'estrazione delle frasi chiave e il riconoscimento delle entità, l'elenco delle lingue supportate è più selettivo, poiché gli analizzatori sono ottimizzati in base alle regole linguistiche di lingue aggiuntive. Il supporto per il set completo di [tipi di entità](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) è attualmente limitato alle lingue seguenti: 
 * Inglese
 * Cinese semplificato
 * Francese
 * Tedesco
 * Spagnolo
 
-Solo le `Person`, `Location` e `Organization` vengono restituite le entità denominate per le altre lingue.
+Per gli `Person`altri `Location` linguaggi `Organization` vengono restituite solo le entità denominate e.
 
 ## <a name="language-list-and-status"></a>Elenco e stato delle lingue
 
@@ -48,13 +48,13 @@ Il supporto di una lingua viene inizialmente implementato in anteprima e quindi 
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Arabo      | `ar`          |           |             | ✔ \*                     | |
 | Ceco       | `cs`          |           |             | ✔ \*                     | |
-| Cinese semplificato | `zh-CN`|           |             | ✔ \*        |    |
+| Cinese semplificato | `zh-CN`|           |             | ✔ \        |    |
 | Danese      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | Olandese       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
 | Inglese     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
 | Finlandese     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Francese      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
-| Tedesco      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
+| Francese      | `fr`          | ✔        | ✔           |  ✔ \           |     |
+| Tedesco      | `de`          | ✔ \*     | ✔           |  ✔ \          |     |
 | Greco       | `el`          | ✔ \*     |             |            |     |
 | Ungherese   | `hu`          |           |             |  ✔ \*          |     | 
 | Italiano     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
@@ -69,9 +69,9 @@ Il supporto di una lingua viene inizialmente implementato in anteprima e quindi 
 | Svedese     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
 | Turco     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 
-\* Supporto del linguaggio è disponibile in anteprima
+\*Il supporto della lingua è in anteprima
 
-\*\* [Denominato Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) e [collegamento entità](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) sono entrambi disponibili per questa lingua.    
+\*\*Il [riconoscimento delle entità](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) denominate e il [collegamento di entità](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) sono entrambi disponibili per questa lingua.    
 
 ## <a name="see-also"></a>Vedere anche
 
