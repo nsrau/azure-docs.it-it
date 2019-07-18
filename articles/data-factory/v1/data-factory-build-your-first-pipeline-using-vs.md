@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f3c4fc379ac932e66c5d02e08e72ef4d16db638b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66164245"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836693"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Esercitazione: Creare una data factory con Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Panoramica e prerequisiti](data-factory-build-your-first-pipeline.md)
-> * [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -124,8 +123,8 @@ Con il servizio collegato HDInsight su richiesta, il cluster HDInsight viene cre
 
     Proprietà | DESCRIZIONE
     -------- | ----------- 
-    ClusterSize | Specifica le dimensioni del cluster Hadoop HDInsight.
-    TimeToLive | Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato.
+    clusterSize | Specifica le dimensioni del cluster Hadoop HDInsight.
+    timeToLive | Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato.
     linkedServiceName | Specifica l'account di archiviazione usato per archiviare i log generati dal cluster Hadoop HDInsight. 
 
     > [!IMPORTANT]
@@ -178,7 +177,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
     fileName |Questa proprietà è facoltativa. Se si omette questa proprietà, vengono prelevati tutti i file da folderPath. In tal caso viene elaborato solo il file input.log.
     type | I file di log sono in formato testo, quindi viene usato TextFormat. |
     columnDelimiter | Le colonne nei file di log sono delimitate dalla virgola (`,`).
-    frequenza/intervallo | La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile.
+    frequency/interval | La frequenza è impostata su Month e l'intervallo è 1, ciò significa che le sezioni di input sono disponibili con cadenza mensile.
     external | Questa proprietà è impostata su true se i dati di input per l'attività non vengono generati dalla pipeline. Viene specificata solo per i set di dati di input. Per il set di dati di input della prima attività, impostare sempre questa proprietà su true.
 4. Salvare il file **InputDataset.json** .
 

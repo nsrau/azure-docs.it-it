@@ -569,6 +569,8 @@
           href: ../blobs/data-lake-storage-tutorial-extract-transform-load-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Concetti
       items:
+        - name: Accesso multi-protocollo
+          href: ../blobs/data-lake-storage-multi-protocol-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Driver del file system di BLOB di Azure per Hadoop
           href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: URI del file system di BLOB di Azure
@@ -577,12 +579,24 @@
           href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Procedure consigliate
           href: data-lake-storage-best-practices.md
+        - name: Livelli di accesso
+          items:
+            - name: Livelli di accesso
+              href: storage-blob-storage-tiers.md
+            - name: Gestione del ciclo di vita di archiviazione BLOB di Azure
+              href: storage-lifecycle-management-concepts.md
         - name: Security
           items:
             - name: Panoramica della sicurezza di Archiviazione
               href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Controllo di accesso
               href: data-lake-storage-access-control.md
+        - name: Registrazione
+          items:
+            - name: Analisi archiviazione
+              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Log di Analisi archiviazione
+              href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Gestione degli eventi
           href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Procedure

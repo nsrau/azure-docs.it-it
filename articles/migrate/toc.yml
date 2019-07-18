@@ -8,7 +8,7 @@
       href: whats-new.md
 - name: Esercitazioni
   items:
-    - name: Valutazione e migrazione di VM VMware
+    - name: Valutare le VM VMware ed eseguirne la migrazione
       items:
         - name: Preparare la valutazione e la migrazione di VM VMware
           href: tutorial-prepare-vmware.md
@@ -22,7 +22,7 @@
               href: tutorial-migrate-vmware.md
             - name: Eseguire la migrazione di VM VMware con agente
               href: tutorial-migrate-vmware-agent.md
-    - name: Valutazione e migrazione di Hyper-V
+    - name: Valutare le VM Hyper-V ed eseguirne la migrazione
       items:
         - name: Preparare la valutazione e la migrazione di Hyper-V
           href: tutorial-prepare-hyper-v.md
@@ -30,7 +30,7 @@
           href: tutorial-assess-hyper-v.md
         - name: Eseguire la migrazione di VM Hyper-V
           href: tutorial-migrate-hyper-v.md
-    - name: Eseguire la migrazione di server fisici e macchine virtuali
+    - name: Eseguire la migrazione di server fisici e VM
       href: tutorial-migrate-physical-virtual-machines.md
 - name: Concetti
   items:

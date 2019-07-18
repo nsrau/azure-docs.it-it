@@ -55,7 +55,9 @@
       items:
         - name: Risolvere i problemi dei dispositivi Windows correnti aggiunti ad Azure AD ibrido
           href: troubleshoot-hybrid-join-windows-current.md
-        - name: Risolvere i problemi dei dispositivi Windows legacy aggiunti ad Azure AD ibrido
+        - name: Risolvere i problemi tramite dsregcmd
+          href: troubleshoot-device-dsregcmd.md
+        - name: Risolvere i problemi dei dispositivi Windows di livello inferiore aggiunti ad Azure AD ibrido
           href: troubleshoot-hybrid-join-windows-legacy.md
         - name: Risolvere i problemi di Enterprise State Roaming
           href: enterprise-state-roaming-troubleshooting.md
