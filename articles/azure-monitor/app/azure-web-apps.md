@@ -11,7 +11,7 @@ ms.date: 04/26/2019
 ms.author: mbullwin
 ms.openlocfilehash: 5594c1f3517bf3d3f74841493df3c683304fa3f5
 ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/02/2019
 ms.locfileid: "67502081"
@@ -100,7 +100,7 @@ Destinazione il framework completo da .NET Core, distribuzione autonoma e ASP.NE
 
 Il monitoraggio lato client è acconsenti esplicitamente di ASP.NET. Per abilitare il monitoraggio lato client:
 
-* Selezionare **impostazioni** > * * * * dell'applicazione delle impostazioni * * *
+* Selezionare **impostazioni** >** **dell'applicazione delle impostazioni****
    * Nelle impostazioni dell'applicazione, aggiungere una nuova **nome dell'impostazione app** e **valore**:
 
      Nome: `APPINSIGHTS_JAVASCRIPT_ENABLED`
