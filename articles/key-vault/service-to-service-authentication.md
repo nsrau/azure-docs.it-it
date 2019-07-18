@@ -71,7 +71,7 @@ Accedi a Visual Studio e utilizzare **degli strumenti**&nbsp;>&nbsp;**opzioni**&
 
 Se si verificano problemi con Visual Studio, ad esempio errori relativi al file del provider di token, esaminare con attenzione questi passaggi. 
 
-Potrebbe anche essere necessario eseguire di nuovo l'autenticazione del token per sviluppatori. A tale scopo passare a **Strumenti**&nbsp;>&nbsp;**Opzioni**> **&nbsp;&nbsp;Autenticazione servizi di Azure** e cercare un collegamento per **eseguire di nuovo l'autenticazione** nell'account selezionato.  Selezionare il collegamento per eseguire l'autenticazione. 
+Potrebbe anche essere necessario eseguire di nuovo l'autenticazione del token per sviluppatori. A tale scopo passare a **Strumenti**&nbsp;>&nbsp;**Opzioni**>**Autenticazione&nbsp;servizio&nbsp;Azure** e cercare un collegamento per **eseguire di nuovo l'autenticazione** nell'account selezionato.  Selezionare il collegamento per eseguire l'autenticazione. 
 
 ### <a name="authenticating-with-azure-cli"></a>Autenticazione con l'interfaccia della riga di comando di Azure
 

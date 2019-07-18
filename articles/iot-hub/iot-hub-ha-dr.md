@@ -9,7 +9,7 @@ ms.date: 08/07/2018
 ms.author: rkmanda
 ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60779373"
@@ -49,7 +49,7 @@ Entrambe queste opzioni di failover offrono gli obiettivi del punto di ripristin
 | --- | --- |
 | Registro delle identità |Perdita di dati da 0 a 5 minuti |
 | Dati del dispositivo gemello |Perdita di dati da 0 a 5 minuti |
-| Messaggi da cloud a dispositivo**<sup>1</sup> |Perdita di dati da 0 a 5 minuti |
+| Messaggi da cloud a dispositivo<sup>1</sup> |Perdita di dati da 0 a 5 minuti |
 | Processi padre<sup>1</sup> e dispositivo |Perdita di dati da 0 a 5 minuti |
 | Messaggi da dispositivo a cloud |Tutti i messaggi non letti vengono persi |
 | Messaggi di monitoraggio delle operazioni |Tutti i messaggi non letti vengono persi |
