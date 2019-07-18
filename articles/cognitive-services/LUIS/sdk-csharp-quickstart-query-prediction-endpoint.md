@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Eseguire query sull'endpoint di previsione con l'SDK per C#"
+title: "Guida introduttiva: Eseguire query sull'endpoint di previsione con l'SDK per C#"
 titleSuffix: Azure Cognitive Services
 description: Usare l'SDK per C# per inviare un'espressione dell'utente a LUIS e ricevere una previsione.
 author: diberry
@@ -8,16 +8,16 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 086f55094474d4c06e52001d77630932cd04213c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: af20d555a83e8d229ed5d83d3b1d3f242de1e4a8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404094"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275799"
 ---
-# <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Avvio rapido: Eseguire query sull'endpoint di previsione con .NET SDK per C#
+# <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Guida introduttiva: Eseguire query sull'endpoint di previsione con .NET SDK per C#
 
 Usare .NET SDK, disponibile in [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), per inviare un'espressione dell'utente a Language Understanding (LUIS) e ricevere una previsione dell'intenzione dell'utente. 
 

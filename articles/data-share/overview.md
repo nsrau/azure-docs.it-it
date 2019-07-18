@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 1e0d640c5434c27695b90ee7fd4c20a4959c24b3
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 7d4e51ec9564bfb123cf73d9fe89d040f42fe650
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788985"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807555"
 ---
 # <a name="what-is-azure-data-share-preview"></a>Informazioni su Condivisione dati di Azure (anteprima)
 
@@ -78,14 +78,6 @@ Condivisione dati di Azure sfrutta le funzionalità di sicurezza sottostanti off
 I controlli dell'accesso possono essere configurati a livello di risorsa di Condivisione dati di Azure per assicurare che siano accessibili solo da persone autorizzate. 
 
 Condivisione dati di Azure sfrutta le identità gestite per le risorse di Azure (in precedenza MSI) per la gestione automatica delle identità in Azure Active Directory. Le identità gestite per le risorse di Azure vengono sfruttate per l'accesso agli account di archiviazione usati per la condivisione di dati. Non viene effettuato alcuno scambio di credenziali tra un provider di dati e un consumer. Per altre informazioni, vedere la pagina [Identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
-
-## <a name="pricing"></a>Prezzi
-
-L'anteprima di Condivisione dati di Azure viene fatturata per due componenti. Il primo componente riguarda la gestione della condivisione dati. Durante la fase di anteprima, la gestione della condivisione dati sarà gratuita.
-
-Il secondo componente riguarda lo spostamento. Condivisione dati di Azure prevede un addebito per lo spostamento dei dati dal tenant di Azure del provider al tenant di Azure del consumer. È richiesto il pagamento per lo spostamento di set di dati in base a singola operazione e per l'elaborazione richiesta per tale operazione. L'elaborazione dello spostamento dei set di dati viene addebitata in base a vCore-ora. Gli addebiti per l'elaborazione dello spostamento dei set di dati vengono ripartiti in modo proporzionale in base ai minuti, con arrotondamento per eccesso al minuto successivo. Durante la fase di anteprima, le operazioni di spostamento dei set di dati sono gratuite. 
-
-Per altre informazioni sui prezzi, visitare la [pagina dei prezzi](https://azure.microsoft.com/pricing/) di Condivisione dati di Azure.
 
 ## <a name="supported-regions"></a>Aree supportate
 

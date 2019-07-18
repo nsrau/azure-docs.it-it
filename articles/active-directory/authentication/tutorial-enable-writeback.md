@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dabe0ad1a556ee43f3e6cae0e1cd421db5cde0fd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1efb67df6c31a3b03fdc45fffc0564fb09e39faf
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183208"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853030"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>Esercitazione: Abilitazione del writeback delle password
 
@@ -54,11 +54,11 @@ L'abilitazione della funzionalità di writeback delle password in Azure AD Conne
 2. Passare ad **Azure Active Directory**, fare clic su **Reimpostazione password** e quindi scegliere **Integrazione locale**.
 3. Impostare l'opzione **Eseguire il writeback delle password nella directory locale** su **Sì**.
 4. Impostare l'opzione **Consentire agli utenti di sbloccare gli account senza reimpostare la password** su **Sì**.
-5. Fare clic su **Save**
+5. Fare clic su **Save** (Salva).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione è stato abilitato il writeback delle password per la reimpostazione della password self-service. Lasciare aperta la finestra del portale di Azure e passare all'esercitazione successiva per configurare impostazioni aggiuntive relative alla reimpostazione della password self-service prima di implementare la soluzione per un gruppo pilota.
 
 > [!div class="nextstepaction"]
-> [Reimpostazione della password self-service di Azure AD dalla schermata di accesso di Windows 10](tutorial-sspr-windows.md)
+> [Valutare i rischi all'accesso](tutorial-risk-based-sspr-mfa.md)

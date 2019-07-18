@@ -3,20 +3,20 @@ title: Prevedere finalità
 titleSuffix: Azure Cognitive Services
 description: In questa esercitazione si crea un'app personalizzata che stima l'intenzione dell'utente. Questa app è il tipo più semplice di app LUIS perché non estrae i vari elementi di dati dal testo dell'espressione, come gli indirizzi di posta elettronica o le date.
 services: cognitive-services
-author: lingliw
-manager: digimobile
+author: diberry
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/19/19
-ms.author: v-lingwu
-ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/16/2019
+ms.author: diberry
+ms.openlocfilehash: 534aa678df69a4ef71296005922fa59bbe7bbcfa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66123928"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277570"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Esercitazione: Creare un'app LUIS per determinare le intenzioni dell'utente
 
@@ -131,7 +131,7 @@ Questa applicazione ha poche finalità.
 
     Il parametro della stringa di query `verbose=true` indica di includere **tutte le finalità** nei risultati della query dell'app. La matrice delle entità è vuota perché questa app attualmente non dispone di entità. 
 
-    Il risultato JSON identifica la finalità con il punteggio più alto come proprietà **`topScoringIntent`**. Tutti i punteggi sono compresi tra 1 e 0, il punteggio migliore è prossimo a 1. 
+    Il risultato JSON identifica la finalità con il punteggio più alto come proprietà **`topScoringIntent`** . Tutti i punteggi sono compresi tra 1 e 0, il punteggio migliore è prossimo a 1. 
 
 ## <a name="create-intent-for-job-applications"></a>Creare una finalità per le candidature di lavoro
 
@@ -239,7 +239,3 @@ Continuare con questa app [aggiungendo un'entità semplice e un elenco di frasi]
 
 > [!div class="nextstepaction"]
 > [Aggiungere finalità ed entità predefinite a questa app](luis-tutorial-prebuilt-intents-entities.md)
-
-
-
-

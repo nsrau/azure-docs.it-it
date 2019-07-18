@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 06/19/2019
+ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 71d7ebb8cb797e2166fc91fdfdefdba5f22d82ec
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: bf0f74fe76ec7a83e0ce23ca83141276a677a5df
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272691"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868096"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Cercare video con l'API Ricerca video Bing
 
@@ -98,7 +98,7 @@ Il risultato contiene una risposta [Video](https://docs.microsoft.com/rest/api/c
 
 ## <a name="video-thumbnails"></a>Anteprime video
 
-È possibile visualizzare tutte le anteprime video restituite dall'API Ricerca video Bing oppure solo un sottoinsieme. Se l'utente visualizza un subset, avrà la possibilità di vedere i video rimanenti. Come parte dei [requisiti per l'uso e la visualizzazione](../UseAndDisplayRequirements.md) delle API Bing, è necessario visualizzare i video nell'ordine indicato nella risposta. Per informazioni sul ridimensionamento dell'anteprima, vedere [Resizing and Cropping Thumbnails](../resize-and-crop-thumbnails.md) (Ridimensionamento e ritaglio di anteprime). 
+È possibile visualizzare tutte le anteprime video restituite dall'API Ricerca video Bing oppure solo un sottoinsieme. Se l'utente visualizza un subset, avrà la possibilità di vedere i video rimanenti. Come parte dei [requisiti per l'uso e la visualizzazione](../UseAndDisplayRequirements.md) delle API Bing, è necessario visualizzare i video nell'ordine indicato nella risposta. Per informazioni sul ridimensionamento dell'anteprima, vedere [Resizing and Cropping Thumbnails](../../bing-web-search/resize-and-crop-thumbnails.md) (Ridimensionamento e ritaglio di anteprime). 
 
 L'utente, passando con il mouse sull'anteprima, potrà usare [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) per riprodurre una versione di anteprima del video. Assicurarsi di assegnare un attributo all'anteprima animata quando la si visualizza.
 

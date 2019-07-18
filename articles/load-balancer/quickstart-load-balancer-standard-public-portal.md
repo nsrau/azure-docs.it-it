@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Questo argomento di avvio rapido mostra come creare un'istanza di Load Balancer Standard con il portale di Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Standard Load Balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 79ba86fd32248da240706fda2d8b5fcf8323263d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c8df0daac25a79bbbd67577c30b0a2da62d037da
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143183"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273833"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali con il portale di Azure
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Guida introduttiva: Creare un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali con il portale di Azure
 
 Il bilanciamento del carico offre un livello più elevato di disponibilità e scalabilità distribuendo le richieste in ingresso tra più macchine virtuali. È possibile usare il portale di Azure per creare un servizio di bilanciamento del carico di macchine virtuali. Questa guida introduttiva illustra come bilanciare il carico delle macchine virtuali con un'istanza di Load Balancer Standard.
 
@@ -41,8 +41,8 @@ In questa sezione viene creata un'istanza di Load Balancer Standard che consente
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | Sottoscrizione               | Selezionare la propria sottoscrizione.    |    
-    | Gruppo di risorse         | Selezionare **Crea nuovo** e digitare *myResourceGroupSLB* nella casella di testo.|
+    | Subscription               | Selezionare la propria sottoscrizione.    |    
+    | Resource group         | Selezionare **Crea nuovo** e digitare *myResourceGroupSLB* nella casella di testo.|
     | NOME                   | *myLoadBalancer*                                   |
     | Region         | Selezionare **Europa occidentale**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
@@ -114,9 +114,9 @@ In questa sezione si crea una rete virtuale, si creano tre macchine virtuali per
     | ------- | ----- |
     | NOME | Immettere *myVNet*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
-    | Sottoscrizione | Selezionare la propria sottoscrizione.|
-    | Gruppo di risorse | Selezionare la risorsa esistente: *myResourceGroupSLB*. |
-    | Località | Selezionare **Europa occidentale**.|
+    | Subscription | Selezionare la propria sottoscrizione.|
+    | Resource group | Selezionare la risorsa esistente: *myResourceGroupSLB*. |
+    | Location | Selezionare **Europa occidentale**.|
     | Subnet - Nome | Immettere *myBackendSubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
 1. Lasciare tutte le impostazioni predefinite e selezionare **Crea**.

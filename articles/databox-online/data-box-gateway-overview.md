@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 07/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 2905cae6d5d97062d5a2fc1da41d55290d89fb4a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1b749df7c5b3badbc6e7eccd885cb953ab3d0afa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924512"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277395"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Informazioni su Azure Data Box Gateway
 
@@ -90,12 +90,7 @@ La soluzione Data Box Gateway è costituita dalla risorsa Data Box Gateway, dal 
 
 Il dispositivo fisico Data Box Gateway, la risorsa di Azure e l'account di archiviazione di destinazione in cui si trasferiscono i dati non devono necessariamente trovarsi tutti nella stessa area.
 
-- **Disponibilità della risorsa**: per questa versione, la risorsa Data Box Gateway è disponibile nelle aree elencate di seguito, che supportano il cloud pubblico.
-    - **Stati Uniti**: Stati Uniti orientali
-    - **Unione europea**: Europa occidentale
-    - **Asia Pacifico**: Asia sud-orientale
-
-    È possibile distribuire Data Box Gateway anche nel cloud di Azure per enti pubblici. Per altre informazioni, vedere [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) (Informazioni su Azure per enti pubblici).
+- **Aree di disponibilità**: per un elenco delle aree in cui la risorsa Data Box Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). È possibile distribuire Data Box Gateway anche nel cloud di Azure per enti pubblici. Per altre informazioni, vedere [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) (Informazioni su Azure per enti pubblici).
 
 - **Account di archiviazione di destinazione**: gli account che archiviano i dati sono disponibili in tutte le aree di Azure.
 

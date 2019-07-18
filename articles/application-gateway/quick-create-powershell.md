@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 06/11/2019
+ms.date: 07/17/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c0e80b1354302f227cb448391c7a92100049cc3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1da7a2648fe8f97372f877a4e9c7894c4b2a4aed
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053345"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276568"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Azure PowerShell
 
@@ -34,7 +34,7 @@ Se si sceglie di installare e usare Azure PowerShell in locale, per questa eserc
 1. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). 
 2. Eseguire `Login-AzAccount` per creare una connessione con Azure.
 
-### <a name="resource-group"></a>Gruppo di risorse
+### <a name="resource-group"></a>Resource group
 
 In Azure, si allocano le risorse correlate a un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno nuovo. In questo esempio si creerà un nuovo gruppo di risorse usando il cmdlet [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup) come segue: 
 
@@ -67,7 +67,8 @@ New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static
+  -Sku Standard
 ```
 ### <a name="backend-servers"></a>Server back-end
 
@@ -197,8 +198,8 @@ Dopo aver creato le risorse di supporto necessarie, creare il gateway applicazio
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
-  -Name Standard_Medium `
-  -Tier Standard `
+  -Name Standard_v2 `
+  -Tier Standard_v2 `
   -Capacity 2
 New-AzApplicationGateway `
   -Name myAppGateway `

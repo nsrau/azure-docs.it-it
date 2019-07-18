@@ -7,14 +7,14 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 5129af1f34f8a2604e7b70c9638b370c7cad029a
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 805893d6b5756c76ebc523187e0ed75c9fe24ed9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015535"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67874756"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Esercitazione: Usare Azure Key Vault con un'app Web di Azure in .NET
 
@@ -237,7 +237,7 @@ Pubblicare di nuovo l'app Web in Azure per verificare che l'app Web live sia in 
 
 1. In Visual Studio selezionare il progetto **key-vault-dotnet-core-quickstart**.
 2. Selezionare **Pubblica** > **Avvia**.
-3. Selezionare **Create**.
+3. Selezionare **Create** (Crea).
 
 Quando si esegue l'applicazione, dovrebbe essere visualizzato il valore del segreto recuperato.
 

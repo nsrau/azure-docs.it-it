@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 28eac814364b56f59b8edc6f59209a6d742ff403
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 590ba4b7a61fa437767d99ac6b9ae3e0fa94edc3
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180393"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227780"
 ---
 ## <a name="create-the-webapi-project"></a>Creare il progetto WebAPI
 
@@ -158,7 +158,7 @@ In questa sezione si aggiunge un nuovo controller al back-end WebAPI per gestire
 
 3. Nell'elenco dei risultati fare clic su **Hub di notifica di Microsoft Azure** e quindi selezionare **Installa**. Completare l'installazione e quindi chiudere la finestra di Gestione pacchetti NuGet.
 
-    Questa azione aggiunge un riferimento ad Azure Notification Hubs SDK usando il [pacchetto NuGet Microsoft.Azure.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+    Questa azione aggiunge un riferimento ad Azure Notification Hubs SDK usando il [pacchetto NuGet Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 4. Creare un nuovo file di classe che rappresenta la connessione con l'hub di notifica usato per inviare le notifiche. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella **Modelli**, scegliere **Aggiungi** e quindi fare clic su **Classe**. Assegnare alla nuova classe il nome **Notifications.cs** e quindi selezionare **Aggiungi** per generarla.
 
@@ -170,7 +170,7 @@ In questa sezione si aggiunge un nuovo controller al back-end WebAPI per gestire
     using Microsoft.Azure.NotificationHubs;
     ```
 
-6. Sostituire la definizione di classe `Notifications` con il codice seguente e sostituire i due segnaposto con la stringa di connessione (con accesso completo) per l'hub di notifica e con il nome dell'hub, disponibile nel [portale di Azure](http://portal.azure.com):
+6. Sostituire la definizione di classe `Notifications` con il codice seguente e sostituire i due segnaposto con la stringa di connessione (con accesso completo) per l'hub di notifica e con il nome dell'hub, disponibile nel [portale di Azure](https://portal.azure.com):
 
     ```csharp
     public class Notifications

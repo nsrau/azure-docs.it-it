@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc
-ms.openlocfilehash: 0ca50bae0748570932c7a4cc3bb10cde17c940f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 1e25f65cf7ec52b4a58386843a1d2f5796c66e65
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617717"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297348"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service"></a>Guida introduttiva: Creare un'app Java nel servizio app
 
@@ -66,7 +66,7 @@ Quindi aggiungere la definizione di plug-in seguente all'interno dell'elemento `
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.6.0</version>
+        <version>1.7.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>

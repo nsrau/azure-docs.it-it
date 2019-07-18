@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b7e59e39adbb485738ca66b7ad8e5ba8293ddc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ff2089e8abdde8e6a99de1be2be070fb457fa632
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784984"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276633"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (XAML)
 
@@ -60,7 +60,7 @@ L'applicazione creata in questa guida consente di visualizzare un pulsante per e
 ### <a name="create-your-application"></a>Creare l'applicazione
 
 1. In Visual Studio selezionare **File** > **Nuovo** > **Progetto**.
-2. In **Modelli** selezionare **Visual C#**.
+2. In **Modelli** selezionare **Visual C#** .
 3. Selezionare **Blank App (Universal Windows)** (App vuota (Windows universale)).
 4. Nominare l'app, quindi selezionare **OK**.
 5. Se richiesto, è possibile selezionare qualsiasi versione per le versioni **Destinazione** e **Minima** e fare clic su **OK**.
@@ -147,7 +147,7 @@ Questa sezione illustra come usare MSAL per ottenere un token per l'API Microsof
         }
 
         /// <summary>
-        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+        /// Call AcquireTokenInteractive - to acquire a token requiring user to sign-in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
@@ -329,12 +329,12 @@ I token ID acquisiti tramite **OpenID Connect** includono anche un piccolo subse
 1. Passare alla pagina [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori.
 1. Selezionare **Nuova registrazione**.
    - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio `UWP-App-calling-MSGraph`.
-   - Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)**.
+   - Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** .
    - Selezionare **Registra** per creare l'applicazione.
 1. Nella pagina **Panoramica**  dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota. Tornare a Visual Studio, aprire **MainPage.xaml.cs** e sostituire il valore di ClientId con l'ID applicazione annotato nel passaggio precedente:
 1. Nell'elenco delle pagine per l'app selezionare **Autenticazione**.
    1. Nella sezione **URI di reindirizzamento**, nell'elenco URI di reindirizzamento:
-   1. Nella colonna **TIPO** selezionare **Client pubblico (per dispositivi mobili e desktop)**.
+   1. Nella colonna **TIPO** selezionare **Client pubblico (per dispositivi mobili e desktop)** .
    1. Immettere `urn:ietf:wg:oauth:2.0:oob` nella colonna **URI DI REINDIRIZZAMENTO**.
 1. Selezionare **Salva**.
 1. Nell'elenco delle pagine per l'app selezionare **Autorizzazioni API**

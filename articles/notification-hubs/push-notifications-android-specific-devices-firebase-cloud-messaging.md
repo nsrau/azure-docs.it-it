@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: dd11696ea4a90e61408a03400fa3315ee7eaff5f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 0192326feeab3063c6e03376f565590728ba2a02
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653498"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227565"
 ---
 # <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-firebase-cloud-messaging-fcm"></a>Esercitazione: Eseguire il push di notifiche a dispositivi Android specifici con Hub di notifica di Azure e Google Firebase Cloud Messaging (FCM)
 
@@ -217,7 +217,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
         mainActivity = this;
 
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
+        FirebaseService.createChannelAndHandleNotifications(getApplicationContext());
         notifications = new Notifications(this, NotificationSettings.HubName, NotificationSettings.HubListenConnectionString);
         notifications.subscribeToCategories(notifications.retrieveCategories());
     }

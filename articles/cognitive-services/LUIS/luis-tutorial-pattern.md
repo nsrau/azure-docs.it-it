@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e559d4a3366c45bd054cbf3a235805e048de3493
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193739"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276042"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Esercitazione: Aggiungere formati comuni di espressione modello di criterio
 
@@ -197,7 +197,7 @@ Usare i criteri per rendere il punteggio della finalità significativamente supe
 Lasciare aperta la seconda finestra del browser. Verrà usata più avanti in questa esercitazione. 
 
 ## <a name="template-utterances"></a>Espressioni modello
-Data la natura del dominio risorse umane, esistono alcuni modi comuni di porre domande sulle relazioni dei dipendenti all'interno delle organizzazioni. Ad esempio: 
+Data la natura del dominio risorse umane, esistono alcuni modi comuni di porre domande sulle relazioni dei dipendenti all'interno delle organizzazioni. Ad esempio:
 
 |Espressioni|
 |--|

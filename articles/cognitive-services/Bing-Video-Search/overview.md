@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 06/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7b17c03b464ed7ccc13de2221c8e4cb36be05c3f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 64d6613a5bfb9b13500d2263d2f826d342972639
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442704"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867857"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Che cos'è l'API Ricerca video Bing?
 
@@ -27,7 +27,7 @@ L'API Ricerca video Bing semplifica l'aggiunta di funzionalità di ricerca video
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Suggerimento dei termini di ricerca in tempo reale](concepts/sending-requests.md#suggest-search-terms-with-the-bing-autosuggest-api) | È possibile migliorare l'esperienza dell'app con l'[API Suggerimenti automatici Bing](../bing-autosuggest/get-suggested-search-terms.md) per visualizzare suggerimenti sui termini di ricerca durante la digitazione. |
 | [Filtro e limitazione dei video restituiti come risultato](concepts/get-videos.md#filtering-videos)                      | È possibile filtrare i video restituiti come risultato modificando i parametri della query.                                                                                                       |
-| [Ritaglio, ridimensionamento e visualizzazione anteprime](resize-and-crop-thumbnails.md)                                                | È possibile modificare e visualizzare le anteprime dei video restituiti dall'API Ricerca video Bing.                                                                                      |
+| [Ritaglio, ridimensionamento e visualizzazione anteprime](../bing-web-search/resize-and-crop-thumbnails.md)                                                | È possibile modificare e visualizzare le anteprime dei video restituiti dall'API Ricerca video Bing.                                                                                      |
 | [Ricerca di video di tendenza](trending-videos.md) | È possibile cercare video di tendenza da tutto il mondo.                                                                                                          |
 | [Ricerca di informazioni dettagliate per i video](video-insights.md) | È possibile personalizzare una ricerca per trovare video di tendenza da tutto il mondo.                                                                                                          |
 

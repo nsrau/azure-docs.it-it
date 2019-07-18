@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2dd31ab29479fade21d27b8e2c23952f905f530a
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: da045a561fba81bf9a5e412a6f2bf0a6160acfa7
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979153"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807443"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Panoramica del servizio Criteri di Azure
 
@@ -25,6 +25,8 @@ Criteri di Azure è un servizio disponibile in Azure che consente di creare, ass
 
 > [!IMPORTANT]
 > La valutazione della conformità di Criteri di Azure è ora disponibile per tutte le assegnazioni indipendentemente dal piano tariffario. Se le assegnazioni non mostrano i dati di conformità, assicurarsi che la sottoscrizione sia registrata con il provider di risorse Microsoft.PolicyInsights.
+
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-is-it-different-from-rbac"></a>Quali sono le differenze rispetto al controllo degli accessi in base al ruolo?
 
@@ -45,7 +47,7 @@ Se nessuno dei ruoli predefiniti dispone delle autorizzazioni necessarie, creare
 
 Il processo di creazione e implementazione dei criteri in Criteri di Azure ha inizio con la creazione di una definizione di criteri. Ogni definizione di criteri include condizioni da cui ne dipende l'applicazione. C'è anche un effetto definito associato, che viene applicato se le condizioni sono soddisfatte.
 
-In Criteri di Azure sono disponibili diversi criteri predefiniti. Ad esempio: 
+In Criteri di Azure sono disponibili diversi criteri predefiniti. Ad esempio:
 
 - **Richiedere SQL Server 12.0**: Verifica che tutte le istanze di SQL Server usino la versione 12.0. L'effetto consiste nel rifiutare tutti i server che non soddisfano tali criteri.
 - **SKU degli account di archiviazione consentiti**: Determina se un account di archiviazione in distribuzione si trova all'interno di un set di dimensioni di SKU. L'effetto consiste nel rifiutare tutti gli account di archiviazione che non rispettano il set di dimensioni di SKU definite.
