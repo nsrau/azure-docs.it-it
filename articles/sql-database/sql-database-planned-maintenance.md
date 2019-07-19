@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 928338a911efae051df7164239dbd19f9317338a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 235d29c876616948516bbe4309ddd630bc3f6dca
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584608"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67852596"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Pianificazione di eventi di manutenzione di Azure nel database SQL di Azure
 
@@ -41,7 +41,7 @@ In media si verificano 1,7 eventi di manutenzione pianificata al mese.
 
 ## <a name="resource-health"></a>Integrità delle risorse
 
-Se nel database SQL si verificano errori di accesso, vedere la finestra [Integrità risorsa](../service-health/resource-health-overview.md#getting-started) nel [portale di Azure](https://portal.azure.com) per lo stato corrente. La sezione Cronologia integrità indica il motivo dei tempi di inattività per ogni evento (se disponibile).
+Se nel database SQL si verificano errori di accesso, vedere la finestra [Integrità risorsa](../service-health/resource-health-overview.md#get-started) nel [portale di Azure](https://portal.azure.com) per lo stato corrente. La sezione Cronologia integrità indica il motivo dei tempi di inattività per ogni evento (se disponibile).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

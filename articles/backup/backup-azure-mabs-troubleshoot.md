@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: srinathv
-ms.openlocfilehash: ee24fe4c1792f1934fcfb87a2481133631de4263
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8e7ee506448f5ce0c8dc0b7f55dd9d66e73f110e
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705074"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234791"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Risolvere i problemi del server di Backup di Azure
 
@@ -21,13 +21,13 @@ Fare riferimento alle informazioni elencate nelle tabelle seguenti possibile ris
 
 ## <a name="basic-troubleshooting"></a>Risoluzione dei problemi di base
 
-Si consiglia di eseguire la convalida, di seguito prima di iniziare la risoluzione dei problemi di Server di Backup di Microsoft Azure (MABS):
+Prima di iniziare la risoluzione dei problemi relativi a Backup di Microsoft Azure Server (MAB), è consigliabile eseguire la convalida seguente:
 
-- [Verificare che l'agente di Microsoft Azure Recovery Services (MARS) sia aggiornato](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Verificare che l'agente di Servizi di ripristino di Microsoft Azure (MARS) sia aggiornato](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Verificare la presenza di connettività di rete tra l'agente dei Servizi di ripristino di Microsoft Azure e Azure](https://aka.ms/AB-A4dp50)
-- Verificare che i Servizi di ripristino di Microsoft Azure siano in esecuzione (nella console di Servizio). Se necessario, riavviarla e riprova l'operazione
+- Verificare che i Servizi di ripristino di Microsoft Azure siano in esecuzione (nella console di Servizio). Se necessario, riavviare il servizio e riprovare
 - [Verificare che sia disponibile il 5-10% di volume libero nel percorso della cartella dei file temporanei](https://aka.ms/AB-AA4dwtt)
-- Se la registrazione ha esito negativo, quindi verificare che il server in cui si sta provando a installare il Server di Backup di Azure non è già registrato con un altro insieme di credenziali
+- Se la registrazione ha esito negativo, verificare che il server in cui si sta provando a installare server di Backup di Azure non sia già registrato con un altro insieme di credenziali
 - Se l'installazione del push ha esito negativo, verificare se l'agente DPM è già presente. In caso affermativo, disinstallare l'agente e provare a ripetere l'installazione
 - [Verificare che nessun altro processo o software antivirus interferisca con Backup di Azure](https://aka.ms/AA4nyr4)<br>
 - Verificare che il servizio SQL Agent sia in esecuzione automatica nel server MAB<br>
@@ -43,7 +43,7 @@ Si consiglia di eseguire la convalida, di seguito prima di iniziare la risoluzio
 
 | Operazione | Dettagli errore | Soluzione alternativa |
 | --- | --- | --- |
-| Backup | La replica è incoerente | Verificare che l'opzione relativa alla verifica di coerenza automatica nella procedura guidata Gruppo di protezione sia attivata. Per altre informazioni sulle cause di incoerenza nella replica e relativi suggerimenti, vedere l'articolo [la Replica è incoerente](https://technet.microsoft.com/library/cc161593.aspx).<br> <ol><li> In caso di backup dello stato del sistema o di ripristino bare metal, verificare che Windows Server Backup sia installato nel server protetto.</li><li> Verificare la presenza di problemi di spazio nel pool di archiviazione DPM del server DPM o di Backup di Microsoft Azure e allocare memoria in base alle necessità.</li><li> Controllare lo stato del servizio Copia Shadow del volume nel server protetto. Se è disabilitato, impostarlo per l'avvio manuale. Avviare il servizio sul server. Tornare quindi alla console di DPM o del server di Backup di Microsoft Azure e avviare la sincronizzazione con il processo di verifica della coerenza.</li></ol>|
+| Backup | La replica è incoerente | Verificare che l'opzione relativa alla verifica di coerenza automatica nella procedura guidata Gruppo di protezione sia attivata. Per ulteriori informazioni sulle cause di incoerenza della replica e sui suggerimenti pertinenti, vedere l'articolo [replica incoerente](https://technet.microsoft.com/library/cc161593.aspx).<br> <ol><li> In caso di backup dello stato del sistema o di ripristino bare metal, verificare che Windows Server Backup sia installato nel server protetto.</li><li> Verificare la presenza di problemi di spazio nel pool di archiviazione DPM del server DPM o di Backup di Microsoft Azure e allocare memoria in base alle necessità.</li><li> Controllare lo stato del servizio Copia Shadow del volume nel server protetto. Se è disabilitato, impostarlo per l'avvio manuale. Avviare il servizio sul server. Tornare quindi alla console di DPM o del server di Backup di Microsoft Azure e avviare la sincronizzazione con il processo di verifica della coerenza.</li></ol>|
 
 ## <a name="online-recovery-point-creation-failed"></a>Impossibile creare il punto di ripristino online
 
@@ -55,7 +55,7 @@ Si consiglia di eseguire la convalida, di seguito prima di iniziare la risoluzio
 
 | Operazione | Dettagli errore | Soluzione alternativa |
 | --- | --- | --- |
-| Restore | **Codice errore**: Errore CBPServerRegisteredVaultDontMatchWithCurrent/Credenziali dell'insieme di credenziali: 100110 <br/> <br/>**Messaggio di errore**: Le credenziali dell'insieme di credenziali fornite non corrispondono all'insieme in cui è registrato il server | **Causa**: questo problema si verifica se si cerca di ripristinare file nel server alternativo dal server originale usando l'opzione di ripristino DPM esterno e se il server da ripristinare e il server originale da cui è stato eseguito il backup dei dati non sono associati allo stesso insieme di credenziali di Servizi di ripristino.<br/> <br/>**Soluzione alternativa** per risolvere questo problema assicurarsi che sia il server originale e alternativo è registrato nello stesso insieme di credenziali.|
+| Restore | **Codice errore**: Errore CBPServerRegisteredVaultDontMatchWithCurrent/Credenziali dell'insieme di credenziali: 100110 <br/> <br/>**Messaggio di errore**: Le credenziali dell'insieme di credenziali fornite non corrispondono all'insieme in cui è registrato il server | **Causa**: questo problema si verifica se si cerca di ripristinare file nel server alternativo dal server originale usando l'opzione di ripristino DPM esterno e se il server da ripristinare e il server originale da cui è stato eseguito il backup dei dati non sono associati allo stesso insieme di credenziali di Servizi di ripristino.<br/> <br/>**Soluzione alternativa** Per risolvere questo problema, assicurarsi che il server originale e quello alternativo siano registrati nello stesso insieme di credenziali.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>I processi di creazione dei punti di ripristino online per VM VMware non riescono
 
@@ -74,7 +74,7 @@ Si consiglia di eseguire la convalida, di seguito prima di iniziare la risoluzio
 
 | Operazione | Dettagli errore | Soluzione alternativa |
 |-----------|---------------|------------|
-|Installazione | Non è stato possibile aggiornare i metadati del Registro di sistema. Questo errore di aggiornamento potrebbe causare un utilizzo eccessivo dell'archiviazione. Per evitare questo aggiornamento la voce del Registro di sistema ReFS Trimming. | Modificare la chiave del Registro di sistema **SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim**. Impostare il valore DWORD su 1. |
+|Installazione | Non è stato possibile aggiornare i metadati del Registro di sistema. Questo errore di aggiornamento potrebbe causare un utilizzo eccessivo dell'archiviazione. Per evitare questo problema, aggiornare la voce del registro di sistema ReFS trim. | Modificare la chiave del Registro di sistema **SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim**. Impostare il valore DWORD su 1. |
 |Installazione | Non è stato possibile aggiornare i metadati del Registro di sistema. Questo errore di aggiornamento potrebbe causare un utilizzo eccessivo dell'archiviazione. Per evitare questo problema, aggiornare la voce del Registro di sistema Volume SnapOptimization. | Creare la chiave del Registro di sistema **SOFTWARE\Microsoft Data Protection Manager\Configuration\VolSnapOptimization\WriteIds** con un valore di stringa vuoto. |
 
 ## <a name="registration-and-agent-related-issues"></a>Problemi relativi alla registrazione e all'agente
@@ -82,7 +82,7 @@ Si consiglia di eseguire la convalida, di seguito prima di iniziare la risoluzio
 | Operazione | Dettagli errore | Soluzione alternativa |
 | --- | --- | --- |
 | Push degli agenti in server protetti | Le credenziali specificate per il server non sono valide. | **Se l'azione consigliata nel prodotto non funziona, seguire questa procedura**: <br> Provare a installare manualmente l'agente protezione nel server di produzione come specificato in [questo articolo](https://technet.microsoft.com/library/hh758186(v=sc.12).aspx#BKMK_Manual).|
-| L'agente di Backup di Azure non è stato in grado di connettersi al servizio Backup di Azure (ID: 100050) | L'agente di Backup di Azure non è stato in grado di connettersi al servizio Backup di Azure. | **Se l'azione consigliata nel prodotto non funziona, seguire questa procedura**: <br>1. Eseguire il comando seguente da un prompt con privilegi elevati: **psexec -i -s "c:\Programmi\Internet Explorer\iexplore.exe**. Verrà aperta la finestra di Internet Explorer. <br/> 2. Passare a **Strumenti** > **Opzioni Internet** > **Connessioni** > **Impostazioni LAN**. <br/> 3. Modificare le impostazioni per l'utilizzo di un server proxy. Indicare quindi i dettagli del server proxy.<br/> 4. Se il computer ha limitato l'accesso a internet, assicurarsi che le impostazioni del firewall nel computer o nel proxy consentano questi [URL](backup-configure-vault.md#verify-internet-access) e [indirizzi IP](backup-configure-vault.md#verify-internet-access).|
+| L'agente di Backup di Azure non è stato in grado di connettersi al servizio Backup di Azure (ID: 100050) | L'agente di Backup di Azure non è stato in grado di connettersi al servizio Backup di Azure. | **Se l'azione consigliata nel prodotto non funziona, seguire questa procedura**: <br>1. Eseguire il comando seguente da un prompt con privilegi elevati: **psexec -i -s "c:\Programmi\Internet Explorer\iexplore.exe**. Verrà aperta la finestra di Internet Explorer. <br/> 2. Passare a **Strumenti** > **Opzioni Internet** > **Connessioni** > **Impostazioni LAN**. <br/> 3. Modificare le impostazioni per l'utilizzo di un server proxy. Indicare quindi i dettagli del server proxy.<br/> 4. Se il computer ha accesso a Internet limitato, verificare che le impostazioni del firewall nel computer o nel proxy consentano questi [URL](backup-configure-vault.md#verify-internet-access) e l' [indirizzo IP](backup-configure-vault.md#verify-internet-access).|
 | Installazione dell'agente di Backup di Azure non riuscita | L'installazione di Servizi di ripristino di Microsoft Azure non è riuscita. È stato eseguito il rollback di tutte le modifiche apportate al sistema dall'installazione di Servizi di ripristino di Microsoft Azure. (ID: 4024) | Installare manualmente l'agente di Azure.
 
 
@@ -101,7 +101,7 @@ Si consiglia di eseguire la convalida, di seguito prima di iniziare la risoluzio
 | --- | --- | --- |
 | Backup | Si è verificato un errore imprevisto durante l'esecuzione del processo. Il dispositivo non è pronto. | **Se l'azione consigliata nel prodotto non funziona, seguire questa procedura:** <br> <ul><li>Impostare lo spazio di archiviazione della copia shadow come illimitato negli elementi del gruppo protezione dati e quindi avviare la verifica coerenza.<br></li> OPPURE <li>Provare a eliminare il gruppo protezione dati esistente e a creare più nuovi gruppi. Ogni nuovo gruppo protezione dati deve contenere un singolo elemento.</li></ul> |
 | Backup | Se si sta eseguendo il backup solamente dello stato del sistema, verificare che ci sia spazio libero sufficiente nel computer protetto per archiviarlo. | <ol><li>Verificare che Windows Server Backup sia installato nel computer protetto.</li><li>Verificare che vi sia spazio sufficiente nel computer protetto per lo stato del sistema. Il modo più semplice per verificare questa condizione è passare al computer protetto, aprire Windows Server Backup, fare clic sulle selezioni e quindi selezionare il ripristino bare metal. Nell'interfaccia utente verrà indicato lo spazio necessario. Aprire **WSB** > **Backup locale** > **Pianificazione backup** > **Selezione configurazione di backup** > **Server completo** (vengono visualizzate le dimensioni). Usare queste dimensioni per la verifica.</li></ol>
-| Backup | Eseguire il backup di un errore per il ripristino bare metal | Se le dimensioni del ripristino bare metal sono grandi, spostare alcuni file di applicazione nell'unità del sistema operativo e riprovare. |
+| Backup | Errore di backup per BMR | Se le dimensioni del ripristino bare metal sono grandi, spostare alcuni file di applicazione nell'unità del sistema operativo e riprovare. |
 | Backup | L'opzione per proteggere nuovamente una macchina virtuale VMware in un nuovo server di Backup di Microsoft Azure non viene visualizzata come disponibile per l'aggiunta. | Le proprietà VMware fanno riferimento a un'istanza precedente ritirata del server di Backup di Microsoft Azure. Per risolvere il problema:<br><ol><li>in VCenter (equivalente a SC VMM), passare alla scheda **Summary** e quindi a **Custom Attributes**.</li>  <li>Eliminare il vecchio nome del server di Backup di Microsoft Azure dal valore **DPMServer**.</li>  <li>Tornare al nuovo server di Backup di Microsoft Azure e modificare il PG.  Dopo aver selezionato il pulsante **Refresh**, la macchina virtuale verrà visualizzata con una casella di controllo come disponibile per l'aggiunta alla protezione.</li></ol> |
 | Backup | Errore durante l'accesso a file o cartelle condivise | Provare a modificare le impostazioni antivirus come indicato nell'articolo di TechNet [Eseguire software antivirus sul server DPM](https://technet.microsoft.com/library/hh757911.aspx).|
 
@@ -118,4 +118,34 @@ Si consiglia di eseguire la convalida, di seguito prima di iniziare la risoluzio
 
 | Operazione | Dettagli errore | Soluzione alternativa |
 | --- | --- | --- |
-| Impostazione delle notifiche di posta elettronica tramite un account di Office 365 |ID errore: 2013| **Causa:**<br> Tentativo di usare l'account di Office 365 <br>**Azione consigliata:**<ol><li> Verificare prima di tutto che l'inoltro anonimo sia consentito in un connettore di ricezione per il server DPM in Exchange. Per altre informazioni su come configurare questa impostazione, vedere [Autorizzazione per l'inoltro anonimo su un connettore di ricezione](https://technet.microsoft.com/library/bb232021.aspx) su TechNet.</li> <li> Se non è possibile usare un inoltro SMTP interno ed è necessario eseguire la configurazione con il server di Office 365, è possibile configurare IIS come inoltro. Configurare il server DPM per [inoltrare SMTP a Office 365 tramite IIS](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **IMPORTANTE:** Assicurarsi di usare l'utente\@dominio.com formato e *non* dominio\utente.<br><br><li>Impostare DPM in modo da usare il nome del server locale come server SMTP e la porta 587. Quindi impostarlo con l'indirizzo di posta elettronica dell'utente da cui dovrebbero provenire i messaggi.<li> Il nome utente e la password nella pagina di configurazione dell'SMTP per DPM devono corrispondere a un account di dominio nel dominio in cui è attivo DPM. </li><br> **NOTA**: quando si modifica l'indirizzo del server SMTP, assicurarsi di apportare le modifiche alle nuove impostazioni, quindi chiudere la finestra delle impostazioni e riaprirla per verificare che rifletta il nuovo valore.  Se ci si limita ad apportare la modifica ed eseguire il test, è possibile che le nuove impostazioni non vengano applicate, pertanto questo tipo di verifica è la procedura consigliata.<br><br>In qualsiasi momento durante il processo è possibile cancellare queste impostazioni chiudendo la console DPM e modificando le chiavi del Registro di sistema seguenti: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Eliminare le chiavi SMTPPassword e SMTPUserName**. Sarà possibile aggiungerle di nuovo nell'interfaccia utente all'avvio successivo.
+| Impostazione delle notifiche di posta elettronica tramite un account di Office 365 |ID errore: 2013| **Causa:**<br> Tentativo di usare l'account di Office 365 <br>**Azione consigliata:**<ol><li> Verificare prima di tutto che l'inoltro anonimo sia consentito in un connettore di ricezione per il server DPM in Exchange. Per altre informazioni su come configurare questa impostazione, vedere [Autorizzazione per l'inoltro anonimo su un connettore di ricezione](https://technet.microsoft.com/library/bb232021.aspx) su TechNet.</li> <li> Se non è possibile usare un inoltro SMTP interno ed è necessario eseguire la configurazione con il server di Office 365, è possibile configurare IIS come inoltro. Configurare il server DPM per [inoltrare SMTP a Office 365 tramite IIS](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **IMPORTANTE:** Assicurarsi di usare il formato Domain.com\@dell'utente e *non* dominio\utente.<br><br><li>Impostare DPM in modo da usare il nome del server locale come server SMTP e la porta 587. Quindi impostarlo con l'indirizzo di posta elettronica dell'utente da cui dovrebbero provenire i messaggi.<li> Il nome utente e la password nella pagina di configurazione dell'SMTP per DPM devono corrispondere a un account di dominio nel dominio in cui è attivo DPM. </li><br> **NOTA**: quando si modifica l'indirizzo del server SMTP, assicurarsi di apportare le modifiche alle nuove impostazioni, quindi chiudere la finestra delle impostazioni e riaprirla per verificare che rifletta il nuovo valore.  Se ci si limita ad apportare la modifica ed eseguire il test, è possibile che le nuove impostazioni non vengano applicate, pertanto questo tipo di verifica è la procedura consigliata.<br><br>In qualsiasi momento durante il processo è possibile cancellare queste impostazioni chiudendo la console DPM e modificando le chiavi del Registro di sistema seguenti: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Eliminare le chiavi SMTPPassword e SMTPUserName**. Sarà possibile aggiungerle di nuovo nell'interfaccia utente all'avvio successivo.
+
+
+## <a name="common-issues"></a>Problemi comuni
+
+In questa sezione vengono illustrati gli errori comuni che possono verificarsi durante l'utilizzo di server di Backup di Azure.
+
+
+### <a name="cbpsourcesnapshotfailedreplicamissingorinvalid"></a>CBPSourceSnapshotFailedReplicaMissingOrInvalid
+
+Messaggio di errore | Azione consigliata |
+-- | --
+Il backup non è riuscito perché la replica di backup su disco non è valido o è mancante. | Per risolvere questo problema, verificare i passaggi seguenti e ripetere l'operazione: <br/> 1. Creare un punto di ripristino del disco<br/> 2. Esegui verifica coerenza sull'origine dati <br/> 3. Arrestare la protezione dati dell'origine dati e riconfigurare la protezione per questa origine dati
+
+### <a name="cbpsourcesnapshotfailedreplicametadatainvalid"></a>CBPSourceSnapshotFailedReplicaMetadataInvalid
+
+Messaggio di errore | Azione consigliata |
+-- | --
+Lo snapshot del volume di origine non è riuscito perché i metadati della replica non sono validi. | Creare un punto di ripristino del disco di questa origine dati e riprovare a eseguire il backup online
+
+### <a name="cbpsourcesnapshotfailedreplicainconsistent"></a>CBPSourceSnapshotFailedReplicaInconsistent
+
+Messaggio di errore | Azione consigliata |
+-- | --
+Lo snapshot del volume di origine non è riuscito a causa di una replica DataSource incoerente. | Eseguire una verifica di coerenza su questa origine dati e riprovare
+
+### <a name="cbpsourcesnapshotfailedreplicacloningissue"></a>CBPSourceSnapshotFailedReplicaCloningIssue
+
+Messaggio di errore | Azione consigliata |
+-- | --
+Il backup non è riuscito perché non è stato possibile clonare la replica di backup su disco.| Verificare che tutti i file della replica di backup su disco precedenti (. vhdx) siano stati smontati e che non sia in corso alcun backup da disco a disco durante i backup online

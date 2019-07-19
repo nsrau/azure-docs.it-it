@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86747b72c436c4dac3bbf0a752fee4d24cb47f60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 0e8b94b00bed398244dc986efb3d7b3d67ddc135
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60722579"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276535"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creare un account Batch nel portale di Azure
 
-Informazioni su come creare un account Batch di Azure nel [portale di Azure][azure_portal], scegliere le proprietà dell'account adatte allo scenario di calcolo. Informazioni su dove trovare le proprietà di account importanti come le chiavi di accesso e gli URL dell'account.
+Informazioni su come creare un account Azure Batch nel [portale di Azure][azure_portal]e scegliere le proprietà dell'account adatte allo scenario di calcolo. Informazioni su dove trovare le proprietà di account importanti come le chiavi di accesso e gli URL dell'account.
 
 Per informazioni sugli account e gli scenari Batch, vedere la [panoramica della funzionalità](batch-api-basics.md).
 
@@ -109,17 +109,21 @@ Quando si crea il primo account Batch in modalità Sottoscrizione utente, è nec
 
 In modalità di sottoscrizione utente, è necessario un insieme di credenziali delle chiavi di Azure che appartiene allo stesso gruppo di risorse come l'account Batch da creare. Assicurarsi che il gruppo di risorse sia in un'area in cui Batch è [disponibile](https://azure.microsoft.com/regions/services/) e che supporta la sottoscrizione.
 
-1. Nel [portale di Azure][azure_portal] selezionare **Nuovo** > **Sicurezza** > **Insieme di credenziali delle chiavi**.
+1. Nella [portale di Azure][azure_portal]selezionare **nuovo** > **Key Vault** **sicurezza** > .
 
 1. Nella pagina **Crea insieme di credenziali delle chiavi** immettere un nome per l'insieme di credenziali delle chiavi e creare un gruppo di risorse nell'area desiderata per l'account Batch. Lasciare i valori predefiniti per le impostazioni rimanenti, quindi selezionare **Crea**.
 
-Quando si crea l'account Batch in modalità di sottoscrizione utente, usare il gruppo di risorse per l'insieme di credenziali delle chiavi, specificare **Sottoscrizione utente** come modalità di allocazione del pool e selezionare l'insieme di credenziali delle chiavi.
+Quando si crea l'account batch in modalità di sottoscrizione utente, usare il gruppo di risorse per l'insieme di credenziali delle chiavi. Specificare **sottoscrizione utente** come modalità di allocazione pool, selezionare l'insieme di credenziali delle chiavi e selezionare la casella per concedere l'accesso Azure batch all'insieme di credenziali delle chiavi. 
+
+Se si preferisce concedere l'accesso a Key Vault manualmente, passare alla sezione **criteri di accesso** dell'insieme di credenziali delle chiavi e selezionare **Microsoft Azure batch**. Configurare le **autorizzazioni segrete** usando il menu a discesa. Azure Batch necessario assegnare almeno le autorizzazioni **Get**, **List**, **set**e **Delete** .
+
+![Autorizzazioni segrete per Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
 
 ### <a name="configure-subscription-quotas"></a>Configurare le quote di sottoscrizione
 
 Le quote di core non vengono configurate per impostazione predefinita negli account Batch delle sottoscrizioni utente. Devono essere impostate manualmente perché le quote di core di Batch standard non si applicano agli account in modalità sottoscrizione utente.
 
-1. Nel [portale di Azure][azure_portal] selezionare l'account Batch in modalità sottoscrizione utente per visualizzare le relative impostazioni e proprietà.
+1. Nella [portale di Azure][azure_portal]selezionare l'account batch modalità sottoscrizione utente per visualizzare le impostazioni e le proprietà.
 
 1. Scegliere **Quote** dal menu a sinistra per visualizzare e configurare le quote di core associate all'account Batch.
 

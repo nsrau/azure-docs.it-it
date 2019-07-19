@@ -6,13 +6,13 @@ author: yijenj
 ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
-ms.author: yijenj
-ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pabutler
+ms.openlocfilehash: 4986f888abca94549e921bfe5400d68f6d28c01f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964122"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876683"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servizi di consulenza per Azure Marketplace e AppSource
 I Servizi di consulenza in Azure Marketplace e AppSource consentono ai partner Microsoft di connettere i clienti con servizi per supportare ed estendere l'uso di Azure e gli obiettivi aziendali. 
@@ -30,7 +30,7 @@ Le vetrine del marketplace sono organizzate in base a gruppi di destinatari e pr
 |Pertinenza delle soluzioni     |Applicazioni tecniche create per o in Azure|Applicazioni aziendali che sfruttano/estendono D365, Power BI, Office 365, Azure. (applicazioni completate per componente aggiuntivo)|
 |Opzioni di pubblicazione     |Contattami, prova, transazione o servizi di consulenza|Contattami, prova o servizi di consulenza|
 |In Esperienza di prodotto      |Portale di gestione di Azure|Office 365, Dynamics 365, app client di Office| 
-|Altri      |Pubblicazione locale tramite Azure Stack|Servizi di consulenza per Dynamics e Power BI|
+|Altro      |Pubblicazione locale tramite Azure Stack|Servizi di consulenza per Dynamics e Power BI|
 
 Le offerte di servizio basate su Microsoft Dynamics 365, Office 365 e Power BI sono idonee a essere inserite in AppSource. Per altre informazioni, vedere [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Linee guida all'inserzione di servizi di consulenza in Microsoft AppSource). 
 
@@ -41,7 +41,7 @@ Le offerte di servizio basate su Microsoft Dynamics 365, Office 365 e Power BI s
 > [!TIP]
 > Per pubblicare nella vetrina di Azure Marketplace, occorre effettuare questa selezione scegliendo "Azure" dal menu a discesa "Prodotto principale" nel portale Cloud Partner. Per pubblicare in AppSource, occorre effettuare questa selezione scegliendo "Dynamics 365," "Power BI" o "Power Apps" dal menu a discesa "Prodotto principale" nel portale Cloud Partner.
 
-## <a name="eligible-partners-and-supported-countriesregions"></a>I partner idonei e paesi e regioni supportati
+## <a name="eligible-partners-and-supported-countriesregions"></a>Partner idonei e paesi/aree geografiche supportate
 
 I partner devono avere **competenze Silver o Gold** nell'area pertinente al servizio offerto. 
 
@@ -67,9 +67,9 @@ I partner devono avere **competenze Silver o Gold** nell'area pertinente al serv
 <b> Per altre informazioni, vedere [Competenze in Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  
 
-**I partner SI possono inviare offerte di servizi di consulenza per i 18 paesi/aree geografiche seguenti**
+**I partner IT possono inviare offerte di servizi di consulenza per i 18 paesi/aree seguenti**
 
-|Paesi idonei |   |   |   |
+|Paesi/aree idonei |   |   |   |
 |---------|----------|----------|----------|
 |Australia |Francia  |     Messico          |Spagna       |
 |Belgio   |Germania |     Paesi Bassi     |Svezia       |
@@ -77,7 +77,7 @@ I partner devono avere **competenze Silver o Gold** nell'area pertinente al serv
 |Danimarca   |Italia   |     Norvegia          |Stati Uniti |
 |Finlandia   |Giappone   |     Polonia          
 
-Il lancio dei servizi di consulenza avverrà nell'area geografica specifica. Il primo lancio sarà in: Stati Uniti, Canada, Regno Unito e Australia. I cataloghi per gli altri paesi/aree geografiche entra in tempo reale dopo un numero significativo di una selezione di offerte di servizio accattivante sono stati inviati dai partner e approvati da Microsoft.
+Il lancio dei servizi di consulenza avverrà nell'area geografica specifica. Il primo lancio sarà in: Stati Uniti, Canada, Regno Unito e Australia. I cataloghi per gli altri paesi/aree geografiche verranno attivati dopo che un numero significativo e una selezione accattivante di offerte di servizi sono state inviate dai partner e approvate da Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Come effettuare la registrazione ai servizi di consulenza in Azure Marketplace e AppSource
 Iniziare [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) le informazioni sulla società nel marketplace. Gli editori possono fare riferimento a [Diventare un editore nel Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) per un elenco di controllo completo dei requisiti di registrazione. 
@@ -117,7 +117,7 @@ L'inserzione dell'offerta del servizio di consulenza in Azure Marketplace e AppS
 3. **Invio**: fornire le informazioni richieste elencate nelle istruzioni. Tutto il contenuto e il materiale di supporto devono essere inviati in inglese. 
 4. **Revisione:** il team di marketing ed editoriale esamina il materiale inviato e lo ottimizza in termini di leggibilità, grammatica ed efficacia. 
 5. **Staging**: il materiale inviato viene gestito in modalità temporanea per consentire all'utente di esaminarlo. 
-6. **Pubblicazione**: quando l'utente e Microsoft sono soddisfatti del contenuto in preproduzione, l'inserzione può essere attivata nel marketplace. La data go-live per l'inserzione dipende il paese/regione specificato nell'offerta. Se il catalogo per il paese/regione selezionato è già attivo in Azure Marketplace o AppSource, l'inserzione verrà visualizzata entro alcune ore. In caso contrario, verrà visualizzata non appena il catalogo sarà attivo.
+6. **Pubblicazione**: quando l'utente e Microsoft sono soddisfatti del contenuto in preproduzione, l'inserzione può essere attivata nel marketplace. La data di inizio dell'inserzione dipende dal paese o dall'area geografica specificata nell'offerta. Se il catalogo per il paese/area geografica selezionato è già attivo in Azure Marketplace o in AppSource, l'inserzione verrà visualizzata entro alcune ore. In caso contrario, verrà visualizzata non appena il catalogo sarà attivo.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Presentazioni delle offerte e criteri di revisione del contenuto
 Le offerte devono essere di uno dei cinque tipi di servizi seguenti (è possibile elencarne più di uno): 
@@ -149,7 +149,7 @@ Esempi:
 
 Durante la revisione delle descrizioni e dei riepiloghi delle offerte, il team applicherà i criteri seguenti:
 
-|Tipo di offerta  |Obbligatorio |Consigliato  |
+|Tipo di offerta  |Obbligatoria |Consigliato  |
 |---------|---------|---------|
 |**Valutazione**    |   Includere un'agenda dettagliata delle valutazioni di più giorni o più settimane e descrivere in modo articolato il risultato finale che il cliente può aspettarsi      |    Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca     |
 |**Briefing**    |   Descrivere in modo articolato il risultato finale che il cliente può aspettarsi. Tenere presente che un briefing deve essere offerto di persona. Se si fornisce un servizio virtuale, scegliere un tipo di offerta diverso    |  Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca       |

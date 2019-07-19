@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0f87b122f81fbd04767354e623dcb808466ee1be
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 508d13356a7dd221b0767a0cedd60b4f1402baf4
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673394"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286257"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemi operativi e driver supportati
 
@@ -32,9 +32,9 @@ I driver NVIDIA Tesla (CUDA) per le macchine virtuali serie NC, NCv2, NCv3, ND e
 
 ### <a name="nvidia-grid-drivers"></a>Driver NVIDIA GRID
 
-Microsoft ridistribuisce i programmi di installazione dei driver NVIDIA-GRID per le macchine virtuali serie NV e NVV2 usate come workstation virtuali o per applicazioni virtuali. Installare solo questi driver GRID nelle macchine virtuali NV di Azure, solo nei sistemi operativi elencati nella tabella seguente. Questi driver includono la licenza per il software della GPU virtuale GRID in Azure. Non è necessario configurare un server licenze software NVIDIA vGPU.
+Microsoft ridistribuisce i programmi di installazione dei driver NVIDIA GRID per le macchine virtuali serie NV e NVv3 utilizzate come workstation virtuali o per le applicazioni virtuali. Installare solo i driver della griglia nelle macchine virtuali serie NV di Azure, solo nei sistemi operativi elencati nella tabella seguente. Questi driver includono la licenza per il software della GPU virtuale GRID in Azure. Non è necessario configurare un server licenze software NVIDIA vGPU.
 
 | OS | Driver |
 | -------- |------------- |
-| Windows Server 2019<br/><br/>Windows Server 2016<br/><br/>Windows 10 (fino alla versione 1809. Senza patch/livello di patch 0 di 1809 non è supportato). | [GRIGLIA 8.0 (425.31)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe) |
-| Windows Server 2012 R2 | [GRIGLIA 8.0 (425.31)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)  |
+| Windows Server 2019<br/><br/>Windows Server 2016<br/><br/>Windows 10 | [Griglia 9,0 (431,02)](https://go.microsoft.com/fwlink/?linkid=874181) (. exe) |
+| Windows Server 2012 R2<br/><br/>Windows Server 2008 R2<br/><br/>Windows 8<br/><br/>Windows 7 | [Griglia 9,0 (431,02)](https://go.microsoft.com/fwlink/?linkid=874184) (. exe)  |

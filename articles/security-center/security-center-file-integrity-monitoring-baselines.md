@@ -1,6 +1,6 @@
 ---
-title: Confrontare le linee di base con monitoraggio dell'integrità dei File nel Centro sicurezza di Azure | Microsoft Docs
-description: Informazioni su come confrontare le linee di base con monitoraggio dell'integrità dei File nel Centro sicurezza di Azure.
+title: Confrontare le linee di base con il monitoraggio dell'integrità dei file nel centro sicurezza di Azure | Microsoft Docs
+description: Informazioni su come confrontare le basi di riferimento con il monitoraggio dell'integrità dei file nel centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,80 +13,80 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: monhaber
-ms.openlocfilehash: e403a9bd4d3f8668544dab1d81e9052b37839bef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: afc03baa71f17deb0b923f483fde214a86c5e9b4
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66358439"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296479"
 ---
-# <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Confrontare le linee di base usando il monitoraggio dell'integrità dei File (FIM)
+# <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Confrontare le linee di base usando il monitoraggio dell'integrità dei file
 
-Monitoraggio dell'integrità dei file (FIM) informa l'utente quando vengono apportate alle aree sensibili nelle risorse, in modo da poter analizzare e risolvere l'attività non autorizzate. FIM consente di monitorare i file di Windows, i registri di Windows e i file di Linux.
+Il monitoraggio dell'integrità dei file informa l'utente quando vengono apportate modifiche alle aree sensibili delle risorse, in modo che sia possibile analizzare e risolvere attività non autorizzate. FIM monitora i file di Windows, i registri di Windows e i file Linux.
 
-Questo argomento illustra come abilitare FIM per i file e registri di sistema. Per altre informazioni su FIM, vedere [monitoraggio dell'integrità dei File nel Centro sicurezza Azure](security-center-file-integrity-monitoring.md).
+In questo argomento viene illustrato come abilitare FIM nei file e nei registri. Per altre informazioni su FIM, vedere [monitoraggio dell'integrità dei file nel centro sicurezza di Azure](security-center-file-integrity-monitoring.md).
 
 ## <a name="why-use-fim"></a>Perché usare FIM?
 
-Sistema operativo, applicazioni e configurazioni associate controllano lo stato di comportamento e la sicurezza delle risorse. Di conseguenza, gli utenti malintenzionati attaccano i file che controllano le risorse, per poter sorpassare del sistema operativo di una risorsa e/o eseguire attività senza essere rilevati.
+Il sistema operativo, le applicazioni e le configurazioni associate controllano il comportamento e lo stato di sicurezza delle risorse. Pertanto, gli utenti malintenzionati hanno come destinazione i file che controllano le risorse, in modo da superare il sistema operativo di una risorsa e/o eseguire attività senza essere rilevati.
 
-In realtà, molti standard di conformità alle normative quali PCI-DSS e ISO 17799 richiedono l'implementazione di controlli FIM.  
+Infatti, molti standard di conformità normativi, come PCI-DSS & ISO 17799, richiedono l'implementazione di controlli FIM.  
 
-## <a name="enable-built-in-recursive-registry-checks"></a>Abilita i controlli del Registro di sistema predefinite ricorsiva
+## <a name="enable-built-in-recursive-registry-checks"></a>Abilita i controlli del registro di sistema ricorsivi predefiniti
 
-Le impostazioni predefinite hive del Registro di sistema FIM forniscono un modo pratico per monitorare le modifiche ricorsivo all'interno di aree di sicurezza comuni.  Ad esempio, un utente malintenzionato può configurare uno script da eseguire nel contesto LOCAL_SYSTEM configurando un'esecuzione all'avvio o arresto.  Per monitorare le modifiche di questo tipo, abilitare il controllo predefinito.  
+Le impostazioni predefinite hive del registro di sistema FIM rappresentano un modo pratico per monitorare le modifiche ricorsive all'interno di aree di sicurezza comuni.  Ad esempio, un antagonista può configurare uno script da eseguire nel contesto LOCAL_SYSTEM configurando un'esecuzione all'avvio o all'arresto.  Per monitorare le modifiche di questo tipo, abilitare il controllo predefinito.  
 
 ![Registro](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 
 >[!NOTE]
-> Verifica ricorsiva si applica solo a hive di sicurezza consigliate e non ai percorsi del Registro di sistema personalizzato.  
+> I controlli ricorsivi si applicano solo agli hive di sicurezza consigliati e non ai percorsi del registro di sistema personalizzati.  
 
-## <a name="adding-a-custom-registry-check"></a>Aggiunta di un controllo personalizzato del Registro di sistema
+## <a name="adding-a-custom-registry-check"></a>Aggiunta di un controllo del registro di sistema personalizzato
 
-Linee di base di FIM per iniziare, che identifica le caratteristiche di uno stato noto per il sistema operativo e il supporto dell'applicazione.  Per questo esempio, esamineremo le configurazioni di criteri password per Windows Server 2008 e versioni successive.
+Le basi di riferimento FIM iniziano con l'identificazione delle caratteristiche di uno stato valido noto per il sistema operativo e l'applicazione di supporto.  Per questo esempio, si concentreranno le configurazioni dei criteri password per Windows Server 2008 e versioni successive.
 
 
-|Nome criteri                 | Impostazione del Registro di sistema|
+|Nome criteri                 | Impostazione del registro di sistema|
 |---------------------------------------|-------------|
-|Controller di dominio: Rifiuta password di account computer| MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RefusePasswordChange|
-|Membro del dominio: Firma digitale crittografare o firmare i dati di canale sicuro (sempre)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RequireSignOrSeal|
-|Membro del dominio: Firma digitale crittografare i dati del canale sicuro (quando possibile)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\SealSecureChannel|
-|Membro del dominio: Firma digitale ai protetto i dati del canale (quando possibile)|MACHINE\System\CurrentControlSet\Services   \Netlogon\Parameters\SignSecureChannel|
-|Membro del dominio: Disabilita cambi password account computer|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\DisablePasswordChange|
-|Membro del dominio: Validità password account computer massimo|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\MaximumPasswordAge|
-|Membro del dominio: Richiedi chiave di sessione avanzata (Windows 2000 o versioni successive)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RequireStrongKey|
-|Sicurezza di rete: Limitazione di NTLM:  Autenticazione NTLM nel dominio|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RestrictNTLMInDomain|
-|Sicurezza di rete: Limitazione di NTLM: Aggiungi eccezioni dei server in questo dominio|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\DCAllowedNTLMServers|
-|Sicurezza di rete: Limitazione di NTLM: Autenticazione NTLM nel dominio di controllo|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\AuditNTLMInDomain|
+|Controller di dominio: Rifiuta modifiche della password dell'account computer| MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RefusePasswordChange|
+|Membro del dominio: Crittografare o firmare digitalmente i dati del canale sicuro (always)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireSignOrSeal|
+|Membro del dominio: Crittografare digitalmente i dati del canale sicuro (quando possibile)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SealSecureChannel|
+|Membro del dominio: Firma digitale dei dati del canale sicuro (quando possibile)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SignSecureChannel|
+|Membro del dominio: Disabilitare le modifiche della password dell'account computer|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DisablePasswordChange|
+|Membro del dominio: Validità massima password account computer|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\MaximumPasswordAge|
+|Membro del dominio: Richiedi chiave di sessione forte (Windows 2000 o versione successiva)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireStrongKey|
+|Sicurezza di rete: Limita NTLM:  Autenticazione NTLM in questo dominio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RestrictNTLMInDomain|
+|Sicurezza di rete: Limita NTLM: Aggiungi eccezioni server in questo dominio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DCAllowedNTLMServers|
+|Sicurezza di rete: Limita NTLM: Controlla autenticazione NTLM in questo dominio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
-> Per altre informazioni sulle impostazioni del Registro di sistema supportate dalle varie versioni del sistema operativo, vedere la [impostazioni di criteri di gruppo fare riferimento a fogli di calcolo](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250).
+> Per altre informazioni sulle impostazioni del registro di sistema supportate da diverse versioni del sistema operativo, vedere il foglio di calcolo di riferimento per le [impostazioni criteri di gruppo](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250).
 
-*Per configurare FIM per il monitoraggio delle linee di base del Registro di sistema:*
+*Per configurare FIM per il monitoraggio delle linee di base del registro di sistema:*
 
-1. Nel **Aggiungi Registro di sistema Windows per rilevamento modifiche** finestra, nelle **chiave del Registro di sistema Windows** testo casella, immettere la chiave del Registro di sistema.
+1. Nella finestra di dialogo **Aggiungi registro di sistema di Windows per rilevamento modifiche** , immettere la chiave del registro di sistema nella casella di testo **chiave del registro di sistema di Windows** .
 
     <code>
 
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
     </code>
 
-      ![Abilitare FIM in un registro di sistema](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
+      ![Abilitare FIM in un registro](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
 
-## <a name="tracking-changes-to-windows-files"></a>Rilevamento delle modifiche ai file di Windows
+## <a name="tracking-changes-to-windows-files"></a>Rilevamento delle modifiche apportate ai file di Windows
 
-1. Nel **Aggiungi File Windows per rilevamento modifiche** finestra, nelle **immettere il percorso** testo casella, immettere la cartella che contiene i file che si vuole tenere traccia. Nell'esempio nella figura riportata di seguito **App Web di Contoso** risiede nel D:\ unità all'interno di **ContosWebApp** struttura di cartelle.  
-1. Creare una voce di file di Windows personalizzata fornendo un nome della classe di impostazione, l'abilitazione di ricorsione e specificando la cartella principale con un suffisso con caratteri jolly (*).
+1. Nella finestra di dialogo **Aggiungi file di Windows per rilevamento modifiche** , nella casella di testo **immettere il percorso** immettere la cartella che contiene i file che si desidera rilevare. Nell'esempio riportato nella figura seguente, l' **app Web di Contoso** risiede nella D:\ unità all'interno della struttura di cartelle **ContosWebApp** .  
+1. Creare una voce di file di Windows personalizzata fornendo un nome della classe di impostazioni, abilitando la ricorsione e specificando la cartella top con un suffisso (*) con carattere jolly.
 
     ![Abilitare FIM in un file](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
-## <a name="retrieving-change-data"></a>Il recupero dei dati delle modifiche
+## <a name="retrieving-change-data"></a>Recupero dei dati delle modifiche
 
-Monitoraggio dell'integrità dei dati si trovano all'interno di Analitica di Log di Azure di file / tabella ConfigurationChange set.  
+I dati di monitoraggio dell'integrità dei file si trovano nel set di tabelle Log Analytics/ConfigurationChange di Azure.  
 
- 1. Impostare un intervallo di tempo per recuperare un riepilogo delle modifiche dalla risorsa.
-Nell'esempio seguente vengono recuperati tutte le modifiche apportate negli ultimi giorni quattordici nelle categorie dei file e Registro di sistema:
+ 1. Impostare un intervallo di tempo per recuperare un riepilogo delle modifiche per risorsa.
+Nell'esempio seguente vengono recuperate tutte le modifiche negli ultimi quattordici giorni nelle categorie del registro di sistema e dei file:
 
     <code>
 
@@ -100,10 +100,10 @@ Nell'esempio seguente vengono recuperati tutte le modifiche apportate negli ulti
 
     </code>
 
-1. Per visualizzare i dettagli delle modifiche del Registro di sistema:
+1. Per visualizzare i dettagli delle modifiche al registro di sistema:
 
-    1. Rimuovere **file** dalle **in cui** clausola, 
-    1. Rimuovere la riga di riepilogo e sostituirlo con una clausola di ordinamento:
+    1. Rimuovere **i file** dalla clausola **where** , 
+    1. Rimuovere la linea di riepilogo e sostituirla con una clausola di ordinamento:
 
     <code>
 
@@ -117,6 +117,6 @@ Nell'esempio seguente vengono recuperati tutte le modifiche apportate negli ulti
 
     </code>
 
-I report possono essere esportati in un file CSV per l'archiviazione e/o indirizzate a un report di Power BI.  
+I report possono essere esportati in formato CSV per l'archiviazione e/o il canale in un report Power BI.  
 
 ![Dati FIM](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)

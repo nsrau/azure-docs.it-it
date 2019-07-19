@@ -6,14 +6,14 @@ author: richcar
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: richcar
+ms.author: ricarlse
 ms.custom: seodec18
-ms.openlocfilehash: a03ab7bbdadad2728f54127583583c22bd2ec07a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a3bd48f32dfcee1a666ff842cfcab2384a5459ec
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367547"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849257"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute per Cloud Solution Provider (CSP)
 Microsoft fornisce servizi su vasta scala per consentire a rivenditori e distributori tradizionali (CSP) di effettuare rapidamente il provisioning di nuovi servizi e soluzioni per i clienti senza dover investire nello sviluppo di questi nuovi servizi. Per offrire al Cloud Solution Provider (CSP) la possibilità di gestire direttamente questi nuovi servizi, Microsoft fornisce programmi e API che consentono al CSP di gestire le risorse di Microsoft Azure per conto dei clienti. Una di queste risorse è ExpressRoute. ExpressRoute consente al CSP di connettere le risorse esistenti dei clienti ai servizi di Azure. ExpressRoute è un collegamento delle comunicazioni privato a velocità elevata ai servizi in Azure. 
@@ -95,7 +95,7 @@ ExpressRoute offre tre domini di routing: peer pubblico, privato e Microsoft. Og
 > 
 > 
 
-## <a name="routing"></a>Routing.
+## <a name="routing"></a>Routing
 ExpressRoute si connette alle reti di Azure tramite il gateway di rete virtuale di Azure. I gateway di rete forniscono il routing per le reti virtuali di Azure.
 
 Con la creazione delle reti virtuali di Azure viene creata anche una tabella di routing predefinita che consente alla rete virtuale di indirizzare il traffico alle/dalle subnet della rete virtuale. Se la tabella di route predefinita non è sufficiente per la soluzione, possono essere create route personalizzate per instradare il traffico in uscita ad appliance personalizzate o per bloccare le route a reti esterne o subnet specifiche.

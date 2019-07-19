@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/20/2019
-ms.openlocfilehash: 0d75b983ad6d3b6256852335dc523b481bbe046f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/12/2019
+ms.openlocfilehash: f93fdcbea103259e493399ae479cf001c1ff68db
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60819279"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868818"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Abilitare la registrazione nel servizio Azure Machine Learning
 
@@ -27,7 +27,7 @@ Il SDK Python di Azure Machine Learning consente di abilitare la registrazione u
 > * Modelli distribuiti
 > * Impostazioni `logging` di Python
 
-[Creare un'area di lavoro del servizio Azure Machine Learning](setup-create-workspace.md). Usare la [Guida](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) per altre informazioni, il SDK.
+[Creare un'area di lavoro del servizio Azure Machine Learning](setup-create-workspace.md). Usare la [Guida](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) per altre informazioni sull'SDK.
 
 ## <a name="training-models-and-compute-target-logging"></a>Training dei modelli e registrazione delle destinazioni di calcolo
 
@@ -41,7 +41,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-Vedere la documentazione di riferimento per la [eseguire](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) classe per le funzioni di registrazione aggiuntiva.
+Vedere la documentazione di riferimento per la classe [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) per altre funzioni di registrazione.
 
 Per abilitare la registrazione locale dello stato dell'applicazione durante il corso del training, usare il parametro `show_output`. L'abilitazione della registrazione dettagliata consente di visualizzare i dettagli dal processo di training, nonché informazioni su tutte le risorse remote o le destinazioni di calcolo. Usare il codice seguente per abilitare la registrazione dopo l'invio di un esperimento.
 
@@ -90,9 +90,10 @@ Abilitare la registrazione durante la creazione di immagini consentirà di visua
 from azureml.core.webservice import Webservice
 
 service = Webservice.deploy_from_image(deployment_config=your_config,
-                                            image=image,
-                                            name="example-image",
-                                            workspace=ws)
+                                       image=image,
+                                       name="example-image",
+                                       workspace=ws
+                                       )
 
 service.wait_for_deployment(show_output=True)
 ```

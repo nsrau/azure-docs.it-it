@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sul bus di servizio di Azure | Microsoft Docs
-description: Risposte ad alcune domande frequenti sul Bus di servizio di Azure.
+description: Risposte ad alcune domande frequenti sul bus di servizio di Azure.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 26609e7b21af8804a4b43039c84c04597035721c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706203"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278334"
 ---
 # <a name="service-bus-faq"></a>Domande frequenti sul bus di servizio
 
@@ -43,50 +43,50 @@ Se si usano entità partizionate, l'ordinamento non è garantito. Se una partizi
  Le entità partizionate non sono più supportate nello [SKU Premium](service-bus-premium-messaging.md). 
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quali porte è necessario aprire nel firewall? 
-È possibile utilizzare i protocolli seguenti con il Bus di servizio di Azure per inviare e ricevere messaggi:
+È possibile usare i protocolli seguenti con il bus di servizio di Azure per inviare e ricevere messaggi:
 
 - Advanced Message Queuing Protocol (AMQP)
 - Service Bus Messaging Protocol (SBMP)
 - HTTP
 
-Vedere la tabella seguente per le porte in uscita che è necessario aprire per l'uso di questi protocolli per comunicare con hub eventi di Azure. 
+Vedere la tabella seguente per le porte in uscita che è necessario aprire per usare questi protocolli per comunicare con hub eventi di Azure. 
 
 | Protocol | Porte | Dettagli | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 e 5672 | Vedere [Guida al protocollo AMQP](service-bus-amqp-protocol-guide.md) | 
-| SBMP | da 9350 a 9354 | Vedere [modalità di connettività](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| AMQP | 5671 e 5672 | Vedere la [Guida al protocollo AMQP](service-bus-amqp-protocol-guide.md) | 
+| SBMP | da 9350 a 9354 | Vedere la [modalità di connettività](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quali indirizzi IP è necessario all'elenco elementi consentiti?
-Per trovare gli indirizzi IP a destra all'elenco elementi consentiti per le connessioni, seguire questa procedura:
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quali indirizzi IP sono necessari per l'elenco elementi consentiti?
+Per trovare gli indirizzi IP corretti per le connessioni a elenco bianco, seguire questa procedura:
 
-1. Eseguire il comando seguente al prompt dei comandi: 
+1. Eseguire il comando seguente da un prompt dei comandi: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Annotare l'indirizzo IP restituito `Non-authoritative answer`. Questo indirizzo IP è statico. L'unico punto nel tempo che comporterebbe la modifica è se si ripristina lo spazio dei nomi a un cluster diverso.
+2. Annotare l'indirizzo IP restituito `Non-authoritative answer`in. Questo indirizzo IP è statico. L'unico punto nel tempo che cambierebbe è se si ripristina lo spazio dei nomi in un cluster diverso.
 
-Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario effettuare alcuni passaggi aggiuntivi: 
+Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguire alcuni passaggi aggiuntivi: 
 
-1. In primo luogo, eseguire nslookup nello spazio dei nomi.
+1. Per prima cosa, eseguire nslookup nello spazio dei nomi.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Annotare il nome nel **risposta non autorevole** sezione, in cui si trova in uno dei formati seguenti: 
+2. Annotare il nome nella sezione della **risposta non autorevole** , che si trova in uno dei formati seguenti: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. Eseguire nslookup per ognuno di essi con i suffissi s1, s2 e s3 per ottenere gli indirizzi IP di tutte le tre istanze in esecuzione in tre zone di disponibilità, 
+3. Eseguire nslookup per ciascuna di esse con suffissi S1, S2 e S3 per ottenere gli indirizzi IP di tutte e tre le istanze in esecuzione in tre zone di disponibilità. 
 
 
 ## <a name="best-practices"></a>Procedure consigliate
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Quali sono alcune procedure consigliate per il bus di servizio di Azure?
-Visualizzare [procedure consigliate per il miglioramento delle prestazioni tramite il Bus di servizio][Best practices for performance improvements using Service Bus] : questo articolo descrive come ottimizzare le prestazioni durante lo scambio di messaggi.
+Vedere le [procedure consigliate per i miglioramenti delle prestazioni tramite il bus di servizio][Best practices for performance improvements using Service Bus] : questo articolo descrive come ottimizzare le prestazioni durante lo scambio di messaggi.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>Cosa è necessario sapere prima di creare entità?
 Le proprietà seguenti di code e argomenti non sono modificabili. Tenere conto di questo limite quando si effettua il provisioning delle entità perché non è possibile apportare modifiche a queste proprietà senza creare una nuova entità sostitutiva.
@@ -114,14 +114,14 @@ No, per il bus di servizio non viene addebitato lo spazio di archiviazione. È t
 
 ## <a name="quotas"></a>Quote
 
-Per un elenco di quote e limiti del Bus di servizio, vedere la [panoramica sulle quote del Bus di servizio][Quotas overview].
+Per un elenco di limiti e quote del bus di servizio, vedere la [Panoramica delle quote del bus][Quotas overview]di servizio.
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>Sono previste quote di utilizzo per il bus di servizio?
 Per impostazione predefinita, per qualsiasi servizio cloud, Microsoft imposta una quota di utilizzo mensile aggregata che viene calcolata su tutte le sottoscrizioni di un cliente. Se le proprie esigenze sono superiori a tali limiti, è possibile contattare il servizio clienti in qualsiasi momento per comunicarle e consentire l'adeguamento di tali limiti alle necessità. Per il bus di servizio, la quota di utilizzo aggregata è pari a 5 miliardi di messaggi al mese.
 
 Anche se Microsoft si riserva il diritto di disabilitare l'account di un cliente che abbia superato le quote di uso previste in un determinato mese, invierà una notifica tramite posta elettronica ed effettuerà diversi tentativi per contattare il cliente prima di intraprendere qualsiasi azione. I clienti che superano tali quote saranno comunque responsabili degli addebiti delle eccedenze.
 
-Come gli altri servizi in Azure, il bus di servizio applica un set specifico di quote per garantire un utilizzo corretto delle risorse. È possibile trovare altre informazioni su queste quote, vedere la [panoramica sulle quote del Bus di servizio][Quotas overview].
+Come gli altri servizi in Azure, il bus di servizio applica un set specifico di quote per garantire un utilizzo corretto delle risorse. Per ulteriori informazioni su queste quote, vedere la panoramica sulle [quote del bus di servizio][Quotas overview].
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Come gestire i messaggi di dimensioni superiori a 1 MB?
 I servizi di messaggistica del bus di servizio (code e argomenti/sottoscrizioni) consentono all'applicazione di inviare messaggi di dimensioni fino a 256 KB (livello standard) o 1 MB (livello premium). Se è necessario gestire messaggi di dimensioni superiori a 1 MB, usare il modello claim check descritto in [questo post di blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
@@ -131,10 +131,10 @@ I servizi di messaggistica del bus di servizio (code e argomenti/sottoscrizioni)
 Quando si elimina uno spazio dei nomi da una sottoscrizione, attendere 4 ore prima di ricrearla con lo stesso nome in un'altra sottoscrizione. In caso contrario, è possibile che venga visualizzato il messaggio di errore seguente: `Namespace already exists`. 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quali sono alcune delle eccezioni generate dalle API del bus di servizio di Azure e le azioni consigliate?
-Per un elenco delle possibili eccezioni del Bus di servizio, vedere [panoramica sulle eccezioni][Exceptions overview].
+Per un elenco di possibili eccezioni del bus di servizio, vedere [Cenni preliminari sulle eccezioni][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Cos'è una firma di accesso condiviso e quali linguaggi supportano la generazione di una firma?
-Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le firme in Node. js, PHP, Java e C\#, vedere la [firme di accesso condiviso][Shared Access Signatures] articolo.
+Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le firme in node. js, PHP, Java, Python e C#, vedere l'articolo relativo alle firme di [accesso condiviso][Shared Access Signatures] .
 
 ## <a name="subscription-and-namespace-management"></a>Gestione di sottoscrizioni e spazi dei nomi
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Come si esegue la migrazione di uno spazio dei nomi a un'altra sottoscrizione di Azure?

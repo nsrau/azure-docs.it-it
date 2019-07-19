@@ -8,27 +8,27 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 8cea4b3fb78f3430fdd92e40552d687501af4be8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: fb221d774d9d00a5dc7b0d94edc35a5651443a5b
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621966"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67874064"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection per Archiviazione di Azure
 
 Advanced Threat Protection per Archiviazione di Azure offre un livello aggiuntivo di intelligence di sicurezza in grado di rilevare tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento degli account di archiviazione. Questo livello di protezione consente di affrontare le minacce senza dover essere esperti di sicurezza o dover gestire sistemi di monitoraggio della sicurezza. 
 
-Quando si verificano le anomalie nelle attività, vengono generati avvisi di sicurezza.  Questi avvisi di sicurezza sono integrati con [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/)e vengono anche inviati tramite posta elettronica per gli amministratori delle sottoscrizioni, con i dettagli dell'attività sospetta e consigli su come analizzare e correggere le minacce.
+Gli avvisi di sicurezza vengono attivati quando si verificano anomalie nelle attività.  Questi avvisi di sicurezza sono integrati con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/)e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con informazioni dettagliate sulle attività sospette e consigli su come analizzare e correggere le minacce.
 
 > [!NOTE]
-> * Advanced Threat Protection per l'archiviazione di Azure è attualmente disponibile solo per l'archiviazione Blob.
-> * Per dettagli sui prezzi, incluse una versione di valutazione gratuita di 30 giorni, vedere la [pagina dei prezzi Azure Security Center]( https://azure.microsoft.com/pricing/details/security-center/).
-> * Per la funzionalità di archiviazione di Azure ATP non è attualmente disponibile in Azure per enti pubblici e aree del cloud con sovranità.
+> * Advanced Threat Protection per archiviazione di Azure è attualmente disponibile solo per l'archiviazione BLOB.
+> * Per informazioni dettagliate sui prezzi, inclusa una versione di valutazione gratuita di 30 giorni, vedere la [pagina dei prezzi del Centro sicurezza di Azure]( https://azure.microsoft.com/pricing/details/security-center/).
+> * La funzionalità ATP per archiviazione di Azure non è attualmente disponibile in Azure per enti pubblici e aree cloud sovrane.
 
-Advanced Threat Protection per l'archiviazione di Azure inserisce i log di diagnostica di lettura, scrittura ed eliminazione delle richieste nell'archivio Blob per il rilevamento delle minacce. Per analizzare gli avvisi da Advanced Threat Protection, è possibile visualizzare le attività di archiviazione correlato usando registrazione Analitica dell'archiviazione. Per altre informazioni, vedere come [configurare la registrazione di archiviazione Analitica](storage-monitor-storage-account.md#configure-logging).
+Advanced Threat Protection per archiviazione di Azure inserisce i log di diagnostica delle richieste di lettura, scrittura ed eliminazione nell'archivio BLOB per il rilevamento delle minacce. Per esaminare gli avvisi da Advanced Threat Protection, è possibile visualizzare le attività di archiviazione correlate usando Analisi archiviazione registrazione. Per ulteriori informazioni, vedere come [configurare la registrazione analisi archiviazione](storage-monitor-storage-account.md#configure-logging).
 
-## <a name="set-up-advanced-threat-protection"></a>Configurazione di Advanced Threat Protection 
+## <a name="set-up-advanced-threat-protection"></a>Configurare Advanced Threat Protection 
 
 ### <a name="using-the-portal"></a>Tramite il portale
 
@@ -38,43 +38,53 @@ Advanced Threat Protection per l'archiviazione di Azure inserisce i log di diagn
 
 3. Nel pannello di configurazione **Advanced Threat Protection**
     * **Attivare** Advanced *Threat Protection*
-    * Fare clic su **Salva** per salvare i criteri di Advanced Threat Protection nuovi o aggiornati. (I prezzi indicati nell'immagine sono ad esempio è solo a scopo).
+    * Fare clic su **Salva** per salvare i criteri di Advanced Threat Protection nuovi o aggiornati. I prezzi nell'immagine sono solo a scopo esemplificativo.
 
 ![Attivare la protezione avanzata dalle minacce di Archiviazione di Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="using-azure-security-center"></a>Utilizzo del Centro sicurezza di Azure
-Quando effettua la sottoscrizione al livello Standard in Centro sicurezza di Azure Advanced Threat Protection viene impostato su account di archiviazione. Per altre informazioni, vedere [esegue l'aggiornamento al livello Standard del Centro sicurezza per la sicurezza avanzata](https://docs.microsoft.com/azure/security-center/security-center-pricing). (I prezzi indicati nell'immagine sono ad esempio è solo a scopo).
 
-![Livello standard in Centro sicurezza di AZURE](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing.png)
+Quando si sottoscrive il livello standard nel centro sicurezza di Azure, Advanced Threat Protection viene configurato automaticamente in tutti gli account di archiviazione. È possibile abilitare o disabilitare Advanced Threat Protection per gli account di archiviazione in una sottoscrizione specifica, come indicato di seguito:
+
+1. Avviare il **Centro sicurezza di Azure** nella [portale di Azure]([https://portal.azure.com).
+1. Nel menu principale fare clic su **prezzi & impostazioni**.
+1. Fare clic sulla sottoscrizione che si vuole abilitare o disabilitare la protezione dalle minacce per gli account di archiviazione.
+
+    ![Selezionare la sottoscrizione](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
+
+1. Fare clic su **Piano tariffario**.
+1. Nella sezione **selezionare il piano tariffario per tipo di risorsa** , nella riga **account di archiviazione** , fare clic su **abilitato** o **disabilitato**.
+
+    ![Abilita ATP nel centro sicurezza](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
+1. Fare clic su **Save**.
 
 ### <a name="using-azure-resource-manager-templates"></a>Uso dei modelli di Gestione risorse di Azure
 
-Usare un modello di Azure Resource Manager per distribuire un account di archiviazione di Azure con Advanced Threat Protection è abilitato.
-Per altre informazioni, vedere [account di archiviazione con Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+Usare un modello di Azure Resource Manager per distribuire un account di archiviazione di Azure con Advanced Threat Protection abilitata. Per altre informazioni, vedere [account di archiviazione con Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
 
-### <a name="using-azure-policy"></a>Utilizzo di criteri di Azure
+### <a name="using-azure-policy"></a>Uso di criteri di Azure
 
-Usare criteri di Azure per abilitare Advanced Threat Protection tra account di archiviazione in un specificato sottoscrizione o gruppo di risorse.
+Usare un criterio di Azure per abilitare la protezione avanzata dalle minacce tra gli account di archiviazione in una sottoscrizione o un gruppo di risorse specifico.
 
-1. Avvio di Azure **criteri - definizioni** pagina.
+1. Pranzare nella pagina **criteri di Azure-definizioni** .
 
-1. Cercare il **distribuire Advanced Threat Protection per gli account di archiviazione** criteri.
+1. Cercare il criterio **Distribuisci Advanced Threat Protection in account di archiviazione** .
 
      ![Criteri di ricerca](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
   
-1. Selezionare un gruppo di risorse o sottoscrizione di Azure.
+1. Selezionare una sottoscrizione o un gruppo di risorse di Azure.
 
-    ![Selezionare la sottoscrizione o gruppo](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+    ![Selezionare una sottoscrizione o un gruppo](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
 
 1. Assegnare i criteri.
 
-    ![Pagina delle definizioni dei criteri](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
+    ![Pagina definizioni criteri](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
 ### <a name="using-rest-api"></a>Uso dell'API REST
-Usare i comandi API Rest per creare, aggiornare o ottenere l'impostazione di Advanced Threat Protection per un account di archiviazione specifico.
+Usare i comandi dell'API REST per creare, aggiornare o ottenere l'impostazione Advanced Threat Protection per un account di archiviazione specifico.
 
-* [Creazione di Advanced Threat Protection:](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-* [Advanced Threat Protection: introduzione](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+* [Advanced Threat Protection-crea](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
+* [Advanced Threat Protection-Ottieni](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="using-azure-powershell"></a>Uso di Azure PowerShell
 
@@ -82,19 +92,19 @@ Usare i cmdlet di PowerShell seguenti:
 
   * [Abilita Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
   * [Ottenere Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-  * [Disabilitare la protezione avanzata dalle minacce](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+  * [Disabilitare Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
-## <a name="explore-security-anomalies"></a>Esplora le anomalie di sicurezza
+## <a name="explore-security-anomalies"></a>Esplorare le anomalie di sicurezza
 
 Quando si verificano anomalie nelle attività di archiviazione, si riceve una e-mail di notifica con le informazioni sull'evento sospetto di sicurezza. I dettagli sull'evento comprendono:
 
-* La natura dell'anomalia
+* Natura dell'anomalia
 * nome dell'account di archiviazione
-* L'ora dell'evento
-* Il tipo di archiviazione
-* Le cause potenziali 
-* I passaggi di analisi
-* La procedura di correzione
+* Ora dell'evento
+* Tipo di archiviazione
+* Possibili cause 
+* Passaggi dell'indagine
+* Procedura di correzione
 
 
 L'e-mail fornisce inoltre informazioni sulle possibili cause e le azioni consigliate per analizzare e ridurre il rischio di una potenziale minaccia.
@@ -109,55 +119,55 @@ L'e-mail fornisce inoltre informazioni sulle possibili cause e le azioni consigl
 
 Gli avvisi sono generati dai tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento degli account di archiviazione. Questi eventi possono attivare gli avvisi seguenti:
 
-### <a name="anomalous-access-pattern-alerts"></a>Avvisi di criterio di accesso anomalo
+### <a name="anomalous-access-pattern-alerts"></a>Avvisi del criterio di accesso anomalo
 
-* **Accesso da posizione insolita**: Questo avviso viene generato quando un utente ha eseguito l'accesso di un account di archiviazione da una posizione geografica insolita.
+* **Accesso da una posizione**insolita: Questo avviso viene generato quando un utente ha eseguito l'accesso a un account di archiviazione da una posizione geografica insolita.
 Possibili cause:
-   * Un utente malintenzionato ha accesso l'account di archiviazione
-   * Un utente autorizzato ha accesso l'account di archiviazione da una nuova posizione
+   * Un utente malintenzionato ha eseguito l'accesso all'account di archiviazione
+   * Un utente legittimo ha eseguito l'accesso all'account di archiviazione da una nuova posizione
  
-* **Applicazione anomalie**: Questo avviso indica che un'applicazione insolita è accedere a questo account di archiviazione. Possibili cause:
-   * Un utente malintenzionato ha accesso l'account di archiviazione tramite una nuova applicazione.
-   * Un utente autorizzato ha utilizzato un nuova applicazione/browser per accedere all'account di archiviazione.
+* **Anomalia applicazione**: Questo avviso indica che è stato eseguito l'accesso all'account di archiviazione da un'applicazione insolita. Possibili cause:
+   * Un utente malintenzionato ha eseguito l'accesso all'account di archiviazione usando una nuova applicazione.
+   * Un utente legittimo ha usato una nuova applicazione/browser per accedere all'account di archiviazione.
 
-* **L'accesso anonimo**: Questo avviso indica che questo account è stato consentito l'accesso anonimo (vale a dire senza alcuna autenticazione), che non è previsto confrontato con il modello di accesso recente su questo account.
+* **Accesso anonimo**: Questo avviso indica che è stato eseguito l'accesso anonimo a questo account, ovvero senza alcuna autenticazione, che è imprevisto rispetto al modello di accesso recente su questo account.
 Possibili cause:
-   * Un utente malintenzionato ha sfruttato l'accesso in lettura pubblico per un contenitore.
-   * Un utente legittimo o un'applicazione ha usato accesso in lettura pubblico per un contenitore.
+   * Un utente malintenzionato ha sfruttato l'accesso in lettura pubblico a un contenitore.
+   * Un utente legittimo o un'applicazione ha usato l'accesso in lettura pubblico a un contenitore.
 
-* **Anomalie tor**: Questo avviso indica che questo account è stato eseguito l'accesso correttamente da un indirizzo IP noto come un nodo di uscita attivo di Tor (un proxy anonimizzazione delle). La gravità dell'avviso considera il tipo di autenticazione usato (se presente) e se questo è il primo caso di autorizzazioni di accesso.
+* **Anomalia Tor**: Questo avviso indica che l'accesso a questo account è stato eseguito correttamente da un indirizzo IP noto come nodo di uscita attivo di Tor (un proxy anonime). La gravità di questo avviso considera il tipo di autenticazione usato, se presente, e se questo è il primo caso di tale accesso.
 Possibili cause:
-   * Un utente malintenzionato ha accesso l'account di archiviazione usando Tor.
-   * Un utente legittimo ha eseguito l'account di archiviazione usando Tor.
+   * Un utente malintenzionato ha eseguito l'accesso all'account di archiviazione usando Tor.
+   * Un utente legittimo ha eseguito l'accesso all'account di archiviazione usando Tor.
 
 
-### <a name="anomalous-extractupload-alerts"></a>Avvisi di estrarre o caricare anomale
+### <a name="anomalous-extractupload-alerts"></a>Avvisi di estrazione/caricamento anomali
 
-* **Esfiltrazione dei dati**: Questo avviso indica che una quantità insolitamente elevata di dati è stato estratto rispetto all'attività recente su questo contenitore di archiviazione. Possibili cause:
-   * Un utente malintenzionato ha estratto una grande quantità di dati da un contenitore. (Ad esempio: l'esfiltrazione/violazione dei dati, non autorizzati di trasferimento dei dati)
-   * Un utente legittimo o un'applicazione ha estratto una quantità insolita di dati da un contenitore. (Ad esempio: attività di manutenzione)
+* **Exfiltration dati**: Questo avviso indica che è stata estratta una quantità insolitamente elevata di dati rispetto alle attività recenti sul contenitore di archiviazione. Possibili cause:
+   * Un utente malintenzionato ha estratto una grande quantità di dati da un contenitore. (Ad esempio: exfiltration/violazione dei dati, trasferimento di dati non autorizzato)
+   * Un utente legittimo o un'applicazione ha estratto una quantità insolita di dati da un contenitore. (Ad esempio, attività di manutenzione)
 
-* **Eliminazione imprevista**: Questo avviso indica che si è verificato uno o più operazioni di eliminazione imprevista in un account di archiviazione, rispetto all'attività recente su questo account. Possibili cause:
+* **Eliminazione imprevista**: Questo avviso indica che si è verificata una o più operazioni di eliminazione impreviste in un account di archiviazione, rispetto alle attività recenti di questo account. Possibili cause:
    * Un utente malintenzionato ha eliminato i dati dall'account di archiviazione.
-   * Un utente autorizzato ha eseguito un'eliminazione insolita.
+   * Un utente legittimo ha eseguito un'eliminazione insolita.
 
-* **Carica pacchetto del servizio Cloud Azure**: Questo avviso indica che un pacchetto di servizio Cloud di Azure (file con estensione cspkg) sia stato caricato in un account di archiviazione in modo anomalo, rispetto all'attività recente su questo account. Possibili cause: 
-   * Un utente malintenzionato ha stato preparazione alla distribuzione di codice dannoso dall'account di archiviazione a un servizio cloud di Azure.
-   * Un utente autorizzato ha stato preparazione per la distribuzione di un servizio legittimo.
+* **Caricare il pacchetto del servizio cloud di Azure**: Questo avviso indica che un pacchetto del servizio cloud di Azure (file con estensione cspkg) è stato caricato in un account di archiviazione in modo insolito, rispetto alle attività recenti di questo account. Possibili cause: 
+   * Un utente malintenzionato sta preparando la distribuzione di codice dannoso dall'account di archiviazione a un servizio cloud di Azure.
+   * Un utente legittimo è stato preparato per una distribuzione del servizio legittima.
 
-### <a name="suspicious-storage-activities-alerts"></a>Avvisi di attività sospette di archiviazione
+### <a name="suspicious-storage-activities-alerts"></a>Avvisi relativi alle attività di archiviazione sospette
 
-* **Modifica alle autorizzazioni di accesso**: Questo avviso indica che le autorizzazioni di accesso di questo contenitore di archiviazione sono state modificate in modo anomalo. Possibili cause: 
-   * Un utente malintenzionato ha modificato le autorizzazioni del contenitore a indebolire la sicurezza.
+* **Modifica delle autorizzazioni di accesso**: Questo avviso indica che le autorizzazioni di accesso di questo contenitore di archiviazione sono state modificate in modo insolito. Possibili cause: 
+   * Un utente malintenzionato ha modificato le autorizzazioni del contenitore per indebolirne la sicurezza.
    * Un utente legittimo ha modificato le autorizzazioni del contenitore.
 
-* **Accedere a ispezione**: Questo avviso indica che sono state controllate le autorizzazioni di accesso di un account di archiviazione in modo anomalo, rispetto all'attività recente su questo account. Possibili cause: 
-   * Un utente malintenzionato ha eseguito l'esplorazione di eventuali attacchi futuri.
-   * Un utente autorizzato ha eseguito la manutenzione dell'account di archiviazione.
+* **Ispezione**degli accessi: Questo avviso indica che le autorizzazioni di accesso di un account di archiviazione sono state ispezionate in modo insolito, rispetto alle attività recenti di questo account. Possibili cause: 
+   * Un utente malintenzionato ha eseguito la ricognizione per un attacco futuro.
+   * Un utente legittimo ha eseguito la manutenzione dell'account di archiviazione.
 
-* **Esplorazione dei dati**: Questo avviso indica che i BLOB o contenitori in un account di archiviazione sono stati enumerati in modo anomalo, rispetto all'attività recente su questo account. Possibili cause: 
-   * Un utente malintenzionato ha eseguito l'esplorazione di eventuali attacchi futuri.
-   * Un utente legittimo o per la logica dell'applicazione è stati illustrati i dati all'interno dell'account di archiviazione.
+* **Esplorazione dei dati**: Questo avviso indica che i BLOB o i contenitori in un account di archiviazione sono stati enumerati in modo insolito, rispetto alle attività recenti di questo account. Possibili cause: 
+   * Un utente malintenzionato ha eseguito la ricognizione per un attacco futuro.
+   * Un utente legittimo o una logica dell'applicazione ha esplorato i dati nell'account di archiviazione.
 
 
 
@@ -166,6 +176,6 @@ Possibili cause:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni su [log negli account di archiviazione di Azure](/rest/api/storageservices/About-Storage-Analytics-Logging)
+* Altre informazioni sui [log negli account di archiviazione di Azure](/rest/api/storageservices/About-Storage-Analytics-Logging)
 
 * Altre informazioni sul [Centro sicurezza di Azure](../../security-center/security-center-intro.md)

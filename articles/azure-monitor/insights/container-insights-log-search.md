@@ -1,6 +1,6 @@
 ---
-title: Come eseguire query sui registri da monitoraggio di Azure per contenitori | Microsoft Docs
-description: Monitoraggio di Azure per contenitori raccoglie le metriche e log dei dati e questo articolo descrive i record e include esempi di query.
+title: Come eseguire query sui log da monitoraggio di Azure per i contenitori | Microsoft Docs
+description: Il monitoraggio di Azure per i contenitori raccoglie le metriche e i dati di log e in questo articolo vengono descritti i record e sono incluse le query di esempio.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,17 +11,18 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 66fc55d8c3dbb8487d1e796d5f30b08a94f717f6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d6e65331db53be5ba13a75e6b03b271f1071716d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60494788"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67989823"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Come eseguire una query di log da monitoraggio di Azure per contenitori
-Monitoraggio di Azure per contenitori raccoglie le metriche delle prestazioni, i dati di inventario e le informazioni sullo stato di integrità da contenitori e gli host del contenitore e lo inoltra all'area di lavoro di Log Analitica in Monitoraggio di Azure. I dati vengono raccolti ogni tre minuti. Questi dati sono disponibili per [query](../../azure-monitor/log-query/log-query-overview.md) in Monitoraggio di Azure. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
+# <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Come eseguire query sui log da monitoraggio di Azure per i contenitori
+
+Monitoraggio di Azure per i contenitori raccoglie le metriche delle prestazioni, i dati di inventario e le informazioni sullo stato di integrità dagli host e dai contenitori del contenitore e li trasmette all'area di lavoro Log Analytics in monitoraggio di Azure. I dati vengono raccolti ogni tre minuti. Questi dati sono disponibili per le [query](../../azure-monitor/log-query/log-query-overview.md) in monitoraggio di Azure. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
 
 ## <a name="container-records"></a>Record dei contenitori
 
@@ -33,24 +34,32 @@ La tabella seguente mostra esempi di record raccolti da Monitoraggio di Azure pe
 | Inventario contenitori | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
 | Log contenitori | `ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
 | Inventario di nodi contenitore | `ContainerNodeInventory`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Inventario dei pod in un cluster Kubernetes | `KubePodInventory` | TimeGenerated, Computer, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus,  ContainerStatusReason, ContainerID, ContainerName, nome, podlabel aggiunte indicate, Namespace, PodStatus, ClusterName, sull'IP del POD, SourceSystem |
+| Inventario dei pod in un cluster Kubernetes | `KubePodInventory` | TimeGenerated, computer, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, controllerName, ContainerStatus,  ContainerStatusReason, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, clustername, PodIp, SourceSystem |
 | Inventario dei nodi di un cluster Kubernetes | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Eventi di Kubernetes | `KubeEvents` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message,  SourceSystem | 
 | Servizi nel cluster Kubernetes | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Metriche delle prestazioni per la parte dei nodi del cluster Kubernetes | Perf &#124; where ObjectName == “K8SNode” | Computer, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-| Metriche delle prestazioni per la parte dei contenitori del cluster Kubernetes | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath e SourceSystem | 
-| InsightsMetrics | Computer, Name, Namespace, Origin, SourceSystem, Tags, TimeGenerated, Type, Value |
+| Metriche delle prestazioni per la parte dei nodi del cluster Kubernetes | Perf &#124; where ObjectName == “K8SNode” | Computer, NomeOggetto, CounterName &#40;CpuAllocatableBytes, MemoryAllocatableBytes, CpuCapacityNanoCores, MemoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, MemoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Metriche delle prestazioni per la parte dei contenitori del cluster Kubernetes | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40; CpuRequestNanoCores, MemoryRequestBytes, CpuLimitNanoCores, MemoryWorkingSetBytes, restartTimeEpoch, CpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Metriche personalizzate |`InsightsMetrics` | Computer, nome, spazio dei nomi, origine, SourceSystem, tag<sup>1</sup>, TimeGenerated, tipo, va, _ResourceId | 
+
+<sup>1</sup> la proprietà *Tags* rappresenta [più dimensioni](../platform/data-platform-metrics.md#multi-dimensional-metrics) per la metrica corrispondente. Per altre informazioni sulle metriche raccolte e archiviate nella `InsightsMetrics` tabella e una descrizione delle proprietà dei record, vedere Panoramica di [InsightsMetrics](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md).
+
+>[!NOTE]
+>Il supporto per Prometheus è una funzionalità di anteprima pubblica al momento.
+>
 
 ## <a name="search-logs-to-analyze-data"></a>Eseguire ricerche nei log per analizzare i dati
-Log di monitoraggio di Azure consente di individuare tendenze, diagnosticare i colli di bottiglia, previsioni o correlare i dati che consentono di determinano se la configurazione attuale del cluster sta eseguendo in modo ottimale. Sono disponibili ricerche predefinite nei log che è possibile iniziare a usare immediatamente o personalizzare per restituire le informazioni nel modo che si preferisce. 
+
+I log di monitoraggio di Azure consentono di individuare le tendenze, diagnosticare i colli di bottiglia, prevedere o correlare i dati che consentono di determinare se la configurazione corrente del cluster funziona in modo ottimale. Sono disponibili ricerche predefinite nei log che è possibile iniziare a usare immediatamente o personalizzare per restituire le informazioni nel modo che si preferisce.
 
 È possibile eseguire un'analisi interattiva dei dati nell'area di lavoro selezionando l'opzione **View Kubernetes event logs** (Visualizza registri eventi Kubernetes) o **View container logs** (Visualizza log contenitore) nel riquadro di anteprima. La pagina **Ricerca log** viene visualizzata sulla destra della pagina attiva del portale di Azure.
 
 ![Analizzare i dati in Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
 
-L'output di registri contenitori che verrà inoltrato all'area di lavoro sono STDOUT e STDERR. Poiché Monitoraggio di Azure monitora il servizio Kubernetes gestito da Azure, i dati di Kube-system non vengono attualmente raccolti a causa della grande quantità di dati generati. 
+Il contenitore registra l'output che viene inviato all'area di lavoro sono STDOUT e STDERR. Poiché Monitoraggio di Azure monitora il servizio Kubernetes gestito da Azure, i dati di Kube-system non vengono attualmente raccolti a causa della grande quantità di dati generati. 
 
 ### <a name="example-log-search-queries"></a>Esempio di query di ricerca log
+
 Spesso è utile creare una query a partire da qualche esempio e quindi modificarla in base ai propri requisiti. Per creare query più avanzate, è possibile provare a usare le query di esempio seguenti:
 
 | Query | Descrizione | 
@@ -61,5 +70,38 @@ Spesso è utile creare una query a partire da qualche esempio e quindi modificar
 | **Selezionare l'opzione di visualizzazione corrispondente al grafico a linee**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | CPU del contenitore | 
 | **Selezionare l'opzione di visualizzazione corrispondente al grafico a linee**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Memoria del contenitore |
 
+L'esempio seguente è una query di metrica Prometeo. Le metriche raccolte sono conteggi e per determinare il numero di errori che si sono verificati in un periodo di tempo specifico, è necessario sottrarre dal conteggio. Il set di dati è partizionato da *partitionKey*, ovvero per ogni set univoco di *nome, nome* *host*e *OperationType*, viene eseguita una sottoquery sul set che ordina i log in base a *TimeGenerated*, un processo che rende possibile trovare i *TimeGenerated* precedenti e il conteggio registrato per quel periodo di tempo, per determinare una frequenza.
+
+```
+let data = InsightsMetrics 
+| where Namespace contains 'prometheus' 
+| where Name == 'kubelet_docker_operations' or Name == 'kubelet_docker_operations_errors'    
+| extend Tags = todynamic(Tags) 
+| extend OperationType = tostring(Tags['operation_type']), HostName = tostring(Tags.hostName) 
+| extend partitionKey = strcat(HostName, '/' , Name, '/', OperationType) 
+| partition by partitionKey ( 
+    order by TimeGenerated asc 
+    | extend PrevVal = prev(Val, 1), PrevTimeGenerated = prev(TimeGenerated, 1) 
+    | extend Rate = iif(TimeGenerated == PrevTimeGenerated, 0.0, Val - PrevVal) 
+    | where isnull(Rate) == false 
+) 
+| project TimeGenerated, Name, HostName, OperationType, Rate; 
+let operationData = data 
+| where Name == 'kubelet_docker_operations' 
+| project-rename OperationCount = Rate; 
+let errorData = data 
+| where Name == 'kubelet_docker_operations_errors' 
+| project-rename ErrorCount = Rate; 
+operationData 
+| join kind = inner ( errorData ) on TimeGenerated, HostName, OperationType 
+| project-away TimeGenerated1, Name1, HostName1, OperationType1 
+| extend SuccessPercentage = iif(OperationCount == 0, 1.0, 1 - (ErrorCount / OperationCount))
+```
+
+L'output visualizzerà risultati simili ai seguenti:
+
+![Registrare i risultati delle query del volume di inserimento dati](./media/container-insights-log-search/log-query-example-prometheus-metrics.png)
+
 ## <a name="next-steps"></a>Passaggi successivi
-Monitoraggio di Azure per contenitori non include un set predefinito di avvisi. Rivedere le [creare avvisi sulle prestazioni con monitoraggio di Azure per contenitori](container-insights-alerts.md) per imparare a creare gli avvisi consigliati per un utilizzo elevato della CPU e memoria supportare le procedure e processi operativi o DevOps. 
+
+Il monitoraggio di Azure per i contenitori non include un set predefinito di avvisi. Per informazioni su come creare avvisi consigliati per un utilizzo elevato della CPU e della memoria per supportare le procedure e i processi operativi, vedere la pagina [relativa alla creazione di avvisi di prestazioni con monitoraggio di Azure per i contenitori](container-insights-alerts.md) . 

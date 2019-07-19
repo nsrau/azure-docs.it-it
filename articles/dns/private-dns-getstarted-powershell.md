@@ -1,18 +1,18 @@
 ---
 title: Creare una zona DNS privata di Azure con Azure PowerShell
-description: In questo articolo, creare e testare una zona DNS privata e un record in DNS di Azure. Questa guida dettagliata illustra come creare e gestire la prima zona DNS privata e il primo record usando Azure PowerShell.
+description: Questo articolo illustra come creare e testare una zona DNS privata e un record in DNS di Azure. Questa guida dettagliata illustra come creare e gestire la prima zona DNS privata e il primo record usando Azure PowerShell.
 services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: victorh
-ms.openlocfilehash: 9d79ed28bd331b723755e1c17233aa82421ad1d7
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 6603929fa7b4c597a846fc299577a9682d8f54e0
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147883"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854128"
 ---
 # <a name="create-an-azure-dns-private-zone-using-azure-powershell"></a>Creare una zona DNS privata di Azure con Azure PowerShell
 
@@ -53,6 +53,8 @@ Viene creata una zona DNS con il cmdlet `New-AzPrivateDnsZone` .
 L'esempio seguente crea una rete virtuale denominata **myAzureVNet**. Viene quindi creata una zona DNS denominata **private.contoso.com** nel gruppo di risorse **MyAzureResourceGroup**. Dopo il collegamento della zona DNS alla rete virtuale **MyAzureVnet** viene abilitata la registrazione automatica.
 
 ```azurepowershell
+Install-Module -Name Az.PrivateDns -force
+
 $backendSubnet = New-AzVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
 $vnet = New-AzVirtualNetwork `
   -ResourceGroupName MyAzureResourceGroup `
@@ -68,7 +70,7 @@ $link = New-AzPrivateDnsVirtualNetworkLink -ZoneName private.contoso.com `
   -VirtualNetworkId $vnet.id -EnableRegistration
 ```
 
-Se si desidera creare una zona solo per la risoluzione dei nomi (nessuna registrazione automatica nome host), è possibile omettere il `-EnableRegistration` parametro.
+Se si vuole creare una zona solo per la risoluzione dei nomi (nessuna registrazione automatica del nome host), è `-EnableRegistration` possibile omettere il parametro.
 
 ### <a name="list-dns-private-zones"></a>Elencare le zone DNS private
 
@@ -199,7 +201,7 @@ Ripetere l'operazione per myVM02.
 
 ## <a name="delete-all-resources"></a>Eliminare tutte le risorse
 
-Quando non sono più necessari, eliminare il **MyAzureResourceGroup** gruppo di risorse per eliminare le risorse create in questo articolo.
+Quando non è più necessario, eliminare il gruppo di risorse **MyAzureResourceGroup** per eliminare le risorse create in questo articolo.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name MyAzureResourceGroup
@@ -207,7 +209,7 @@ Remove-AzResourceGroup -Name MyAzureResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è distribuita una zona DNS privata, creata un record DNS e testare la zona.
+In questo articolo è stata distribuita una zona DNS privata, è stato creato un record DNS ed è stata verificata la zona.
 A questo punto, è possibile ottenere maggiori informazioni sulle zone DNS private.
 
 * [Uso di DNS di Azure per i domini privati](private-dns-overview.md)

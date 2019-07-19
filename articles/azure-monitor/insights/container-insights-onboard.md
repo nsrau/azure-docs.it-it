@@ -1,6 +1,6 @@
 ---
-title: Come abilitare il monitoraggio di Azure per contenitori | Microsoft Docs
-description: Questo articolo descrive come abilitare e configurare monitoraggio di Azure per contenitori in modo che è possibile comprendere le prestazioni del contenitore e sono stati identificati i problemi relativi alle prestazioni.
+title: Come abilitare monitoraggio di Azure per i contenitori | Microsoft Docs
+description: Questo articolo descrive come abilitare e configurare monitoraggio di Azure per i contenitori, in modo da comprendere il modo in cui il contenitore sta eseguendo e quali sono stati identificati i problemi relativi alle prestazioni.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,22 +11,22 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: aff2dcebdab1ad93b8b1958164764b66eb755d1c
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 25be8f166fec8a311fdc2ed1fa3fca6339185e94
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514496"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867525"
 ---
-# <a name="how-to-enable-azure-monitor-for-containers"></a>Come abilitare il monitoraggio di Azure per contenitori
+# <a name="how-to-enable-azure-monitor-for-containers"></a>Come abilitare monitoraggio di Azure per i contenitori
 
-Questo articolo offre una panoramica delle opzioni disponibili per configurare il monitoraggio di Azure per contenitori per monitorare le prestazioni dei carichi di lavoro che vengono distribuiti per gli ambienti Kubernetes e ospitato in [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
+Questo articolo offre una panoramica delle opzioni disponibili per configurare monitoraggio di Azure per i contenitori per monitorare le prestazioni dei carichi di lavoro distribuiti negli ambienti Kubernetes e ospitati nel [servizio Kubernetes di Azure](https://docs.microsoft.com/azure/aks/).
 
 Monitoraggio di Azure per i contenitori può essere abilitato per le nuove distribuzioni oppure per una o più distribuzioni esistenti del servizio Azure Kubernetes usando i metodi supportati seguenti:
 
-* Dal portale di Azure, Azure PowerShell, o con CLI di Azure
+* Dal portale di Azure, Azure PowerShell o con l'interfaccia della riga di comando di Azure
 * Usando [Terraform e il servizio Azure Kubernetes](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -34,24 +34,26 @@ Monitoraggio di Azure per i contenitori può essere abilitato per le nuove distr
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, verificare di disporre degli elementi seguenti:
 
-* **Un'area di lavoro di Log Analitica.**
+* **Area di lavoro Log Analytics.**
 
-    Monitoraggio di Azure per contenitori supporta un'area di lavoro di Log Analitica nelle aree elencate in Azure [prodotti in base all'area](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor), l'area di esclusione **US Gov Virginia**.
+    Il monitoraggio di Azure per i contenitori supporta un'area di lavoro Log Analytics nelle aree elencate in [prodotti di](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)Azure in base all'area, esclusa l'area **US gov Virginia**.
 
-    È possibile creare un'area di lavoro quando si abilita il monitoraggio del cluster servizio contenitore di AZURE nuova o consentire l'esperienza di onboarding di creare un'area di lavoro predefinito nel gruppo di risorse predefinito della sottoscrizione del cluster servizio contenitore di AZURE. Se si è scelto di crearla in autonomia, è possibile procedere attraverso [Azure Resource Manager](../platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o il [portale di Azure](../learn/quick-create-workspace.md). Per un elenco di coppie di mapping supportati utilizzati per l'area di lavoro predefinita, vedere [mapping dei paesi per monitoraggio di Azure per contenitori](container-insights-region-mapping.md).
+    È possibile creare un'area di lavoro quando si Abilita il monitoraggio del nuovo cluster AKS o lasciare che l'esperienza di onboarding crei un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster AKS. Se si è scelto di crearla in autonomia, è possibile procedere attraverso [Azure Resource Manager](../platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o il [portale di Azure](../learn/quick-create-workspace.md). Per un elenco delle coppie di mapping supportate usate per l'area di lavoro predefinita, vedere [mapping delle aree per il monitoraggio di Azure per i contenitori](container-insights-region-mapping.md).
 
-* Si è un membro del **ruolo di collaboratore di Log Analitica** per abilitare il monitoraggio di contenitori. Per altre informazioni su come controllare l'accesso a un'area di lavoro Log Analytics, vedere [Gestire le aree di lavoro](../platform/manage-access.md).
+* L'utente è membro del **ruolo di collaboratore log Analytics** per abilitare il monitoraggio dei contenitori. Per altre informazioni su come controllare l'accesso a un'area di lavoro Log Analytics, vedere [Gestire le aree di lavoro](../platform/manage-access.md).
 
-* Si è un membro del **[proprietario](../../role-based-access-control/built-in-roles.md#owner)** ruolo sulla risorsa del cluster servizio contenitore di AZURE.
+* Si è un membro del ruolo **[proprietario](../../role-based-access-control/built-in-roles.md#owner)** sulla risorsa cluster AKS.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+
+* Le metriche Prometeo non vengono raccolte per impostazione predefinita. Prima di [configurare l'agente](container-insights-agent-config.md) per raccoglierli, è importante esaminare la [documentazione](https://prometheus.io/) di Prometeo per capire cosa è possibile definire.
 
 ## <a name="components"></a>Componenti
 
 La capacità di monitorare le prestazioni si basa su un agente di Log Analytics per Linux incluso in un contenitore sviluppato appositamente per Monitoraggio di Azure per i contenitori. L'agente specializzato raccoglie i dati su prestazioni ed eventi da tutti i nodi del cluster e viene distribuito e registrato automaticamente con l'area di lavoro Log Analytics specificata durante la distribuzione. La versione dell'agente è microsoft/oms:ciprod04202018 o versione successiva ed è rappresentata da una data nel formato seguente: *mmggaaaa*.
 
 >[!NOTE]
->Con la versione di anteprima del supporto di Windows Server per AKS, un cluster AKS con nodi di Windows Server non è un agente installato per raccogliere i dati e inoltrarli a monitoraggio di Azure. Al contrario, un nodo Linux distribuito automaticamente nel cluster come parte della distribuzione standard raccoglie e inoltra i dati da monitoraggio di Azure per conto di tutti i nodi di Windows nel cluster.  
+>Con la versione di anteprima del supporto di Windows Server per AKS, per un cluster AKS con nodi di Windows Server non è installato un agente per la raccolta di dati e l'invio a monitoraggio di Azure. Al contrario, un nodo Linux distribuito automaticamente nel cluster come parte della distribuzione standard raccoglie e invia i dati a monitoraggio di Azure per conto di tutti i nodi Windows del cluster.  
 >
 
 Quando viene rilasciata una nuova versione dell'agente, questo viene aggiornato automaticamente nei cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes. Per seguire le versioni rilasciate, consultare gli [annunci relativi alla versione dell'agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
@@ -60,17 +62,17 @@ Quando viene rilasciata una nuova versione dell'agente, questo viene aggiornato 
 >Se è già stato distribuito un cluster servizio Azure Kubernetes, si abilita il monitoraggio usando l'interfaccia della riga di comando di Azure o un modello di Azure Resource Manager fornito, come illustrato più avanti in questo articolo. Non è possibile usare `kubectl` per aggiornare, eliminare, distribuire o ridistribuire l'agente.
 >Il modello deve essere distribuito nello stesso gruppo di risorse del cluster.
 
-Si abilita monitoraggio di Azure per contenitori usando uno dei seguenti metodi descritti nella tabella seguente.
+Per abilitare monitoraggio di Azure per i contenitori, usare uno dei metodi seguenti descritti nella tabella seguente.
 
-| Stato di distribuzione | Metodo | Descrizione |
+| Stato della distribuzione | Metodo | Descrizione |
 |------------------|--------|-------------|
-| Nuovo cluster servizio contenitore di AZURE | [Creare cluster usando Azure CLI](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| È possibile abilitare il monitoraggio di un nuovo cluster servizio contenitore di AZURE create con CLI di Azure. |
-| | [Creare cluster usando Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| È possibile abilitare il monitoraggio di un nuovo cluster servizio contenitore di AZURE che si creano utilizzando lo strumento open source Terraform. |
-| Cluster servizio contenitore di AZURE esistente | [Abilitare l'uso della riga di comando di Azure](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | È possibile abilitare il monitoraggio di un cluster del servizio contenitore di AZURE già distribuito tramite la CLI di Azure. |
-| |[Abilitare l'uso di Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | È possibile abilitare il monitoraggio di un cluster del servizio contenitore di AZURE già distribuito utilizzando lo strumento open source Terraform. |
-| | [Abilitare da monitoraggio di Azure](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| È possibile abilitare il monitoraggio di uno o più cluster servizio contenitore di AZURE già distribuito dalla pagina di multi-cluster servizio contenitore di AZURE in Monitoraggio di Azure. |
-| | [Abilitare dal cluster servizio contenitore di AZURE](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| È possibile abilitare il monitoraggio direttamente da un cluster servizio contenitore di AZURE nel portale di Azure. |
-| | [Abilitare l'uso di un modello Azure Resource Manager](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| È possibile abilitare il monitoraggio di un cluster del servizio contenitore di AZURE con un modello di Azure Resource Manager preconfigurato. |
+| Nuovo cluster AKS | [Creare cluster usando l'interfaccia della riga di comando di Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| È possibile abilitare il monitoraggio di un nuovo cluster AKS creato con l'interfaccia della riga di comando di Azure. |
+| | [Creare un cluster usando la bonifica](container-insights-enable-new-cluster.md#enable-using-terraform)| È possibile abilitare il monitoraggio di un nuovo cluster AKS creato usando lo strumento open source per la bonifica. |
+| Cluster AKS esistente | [Abilitare l'interfaccia della riga di comando di Azure](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | È possibile abilitare il monitoraggio di un cluster AKS già distribuito usando l'interfaccia della riga di comando di Azure. |
+| |[Abilita utilizzo di bonifica](container-insights-enable-existing-clusters.md#enable-using-terraform) | È possibile abilitare il monitoraggio di un cluster AKS già distribuito usando lo strumento open source per la bonifica. |
+| | [Abilita da monitoraggio di Azure](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| È possibile abilitare il monitoraggio di uno o più cluster AKS già distribuiti dalla pagina del multicluster AKS in monitoraggio di Azure. |
+| | [Abilita dal cluster AKS](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| È possibile abilitare il monitoraggio direttamente da un cluster AKS nel portale di Azure. |
+| | [Abilitare l'uso di un modello di Azure Resource Manager](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| È possibile abilitare il monitoraggio di un cluster AKS con un modello di Azure Resource Manager preconfigurato. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

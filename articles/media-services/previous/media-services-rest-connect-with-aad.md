@@ -12,18 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: 6284a1aa0cc3a49291553309b058e4d9f65b24c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: willzhan; johndeu
+ms.openlocfilehash: 66c69552157df957e572a3af092131a3b7e560d5
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701023"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871699"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali con REST
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Quando si usa l'autenticazione di Azure AD con Servizi multimediali di Azure, è possibile eseguire l'autenticazione in uno di due modi:
 
@@ -35,7 +36,7 @@ Quando si usa l'autenticazione di Azure AD con Servizi multimediali di Azure, è
     > [!NOTE]
     > L'**entità servizio** è la procedura consigliata per la maggior parte delle applicazioni che si connettono a Servizi multimediali di Azure. 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione si imparerà a:
 
 > [!div class="checklist"]
 > * Ottenere le informazioni di autenticazione dal portale di Azure

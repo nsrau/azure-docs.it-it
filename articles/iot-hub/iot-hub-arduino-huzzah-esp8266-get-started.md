@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: de4029d7c454ed590fdf974771d5f55c52590c93
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 8e97a979c37af8ade51b4ff6ca4b2c5b4eec126e
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839041"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232731"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Connettere Adafruit Feather HUZZAH ESP8266 ad Azure IoT Hub nel cloud
 
@@ -49,6 +49,9 @@ Per l'ambiente di sviluppo sono necessari anche gli elementi seguenti:
 
 * Una sottoscrizione di Azure attiva. Se non si ha un account di Azure, [creare un account di Azure gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 * Un Mac o un PC che esegue Windows o Ubuntu.
+* [GIT](https://git-scm.com/download)
+* [Arduino](https://www.arduino.cc/en/main/software#download)
+* [Adafruit Huzzah driver ESP8266 per USB](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide)
 * Una rete wireless a cui Feather HUZZAH ESP8266 deve connettersi.
 * Una connessione Internet per scaricare lo strumento di configurazione.
 * [Estensione di Visual Studio Code per Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino).
@@ -156,7 +159,7 @@ L'applicazione di esempio è ospitata in GitHub. Clonare il repository di esempi
 
 6. In Visual Studio Code immettere `F1`.
 
-7. Tipo di **Arduino** e selezionare **Arduino: Board Manager**.
+7. Digitare **Arduino** e selezionare **Arduino: Board Manager**.
 
 8. Nella scheda **Arduino Board Manager** fare clic su **Additional URLs** (Altri URL).
 
@@ -180,7 +183,7 @@ L'applicazione di esempio è ospitata in GitHub. Clonare il repository di esempi
 
     ![Il pacchetto esp8266 è installato](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
-13. Immettere `F1`, quindi digitare **Arduino** e selezionare **Arduino: Board Config**.
+13. Immettere `F1`, quindi digitare **Arduino** e selezionare **Arduino: Configurazione**della lavagna.
 
 14. Fare clic sulla casella accanto a **Selected Board** (Scheda selezionata), digitare **esp8266** e quindi selezionare **Adafruit HUZZAH ESP8266 (esp8266)** .
 
@@ -188,7 +191,7 @@ L'applicazione di esempio è ospitata in GitHub. Clonare il repository di esempi
 
 ### <a name="install-necessary-libraries"></a>Installare le librerie necessarie
 
-1. In Visual Studio Code, immettere `F1`, quindi digitare **Arduino** e selezionare **Arduino: Gestione librerie**.
+1. Nella Visual Studio Code immettere `F1`, quindi digitare **Arduino** e selezionare **Arduino: Gestione**librerie.
 
 2. Cercare i seguenti nomi di libreria uno alla volta. Per ogni libreria trovata fare clic su **Install** (Installa).
    * `AzureIoTHub`
@@ -216,9 +219,9 @@ L'applicazione di esempio consente di simulare i dati di temperatura e umidità 
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Distribuire l'applicazione di esempio in Feather HUZZAH ESP8266
 
-1. In Visual Studio Code, fare clic su  **\<selezionare una porta seriale >** sullo stato, a barre e quindi fare clic sulla porta seriale per Feather HUZZAH ESP8266.
+1. Nella Visual Studio Code fare clic  **\<su Seleziona porta seriale >** sulla barra di stato, quindi fare clic sulla porta seriale per Feather Huzzah ESP8266.
 
-2. Immettere `F1`, quindi digitare **Arduino** e selezionare **Arduino: Caricare** per compilare e distribuire l'applicazione di esempio in Feather HUZZAH ESP8266.
+2. Immettere `F1`, quindi digitare **Arduino** e selezionare **Arduino: Caricare** per compilare e distribuire l'applicazione di esempio in Feather Huzzah ESP8266.
 
 ### <a name="enter-your-credentials"></a>Immettere le credenziali
 
@@ -249,9 +252,9 @@ Se si vede il seguente output dalla finestra di monitoraggio seriale e il LED di
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Leggere i messaggi ricevuti dall'hub
 
-Un modo per monitorare i messaggi ricevuti dall'hub IoT dal dispositivo è usare gli strumenti di IoT di Azure per Visual Studio Code. Per altre informazioni, vedere [utilizza gli strumenti di IoT di Azure per Visual Studio Code inviare e ricevere messaggi tra il dispositivo e l'IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Un modo per monitorare i messaggi ricevuti dall'hub delle cose dal dispositivo consiste nell'usare gli strumenti di Azure per la Visual Studio Code. Per altre informazioni, vedere [usare gli strumenti di Azure per la Visual Studio Code per inviare e ricevere messaggi tra il dispositivo e l'hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)Internet.
 
-Per altre modalità elaborare i dati inviati dal dispositivo, continuare con la sezione successiva.
+Per altri modi per elaborare i dati inviati dal dispositivo, continuare con la sezione successiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

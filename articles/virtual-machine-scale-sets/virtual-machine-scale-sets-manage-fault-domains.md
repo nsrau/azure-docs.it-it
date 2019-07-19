@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
-ms.author: rajraj
-ms.openlocfilehash: bab264769576b6e5478236c452d7de920d887c1a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: drewm
+ms.openlocfilehash: f97c7e6971fb9c58a3f08959c00c84e64e160916
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617980"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871946"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Scelta del numero corretto dei domini di errore per set di scalabilità di macchine virtuali
 I set di scalabilità di macchine virtuali vengono creati con cinque domini di errore per impostazione predefinita in aree di Azure senza zone. Per le aree che supportano la distribuzione di zona dei set di scalabilità di macchine virtuali, il valore predefinito del numero di domini di errore è 1 per ciascuna zona. FD = 1 questo caso implica che le istanze di macchine virtuali che appartengono al set di scalabilità verranno distribuite tra molti rack nel modo più efficiente possibile.
@@ -47,4 +47,4 @@ az vmss create \
 La creazione e la configurazione di tutte le macchine virtuali e risorse del set di scalabilità richiedono alcuni minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sulle [funzionalità di disponibilità e ridondanza](../virtual-machines/windows/regions-and-availability.md) per gli ambienti di Azure.
+- Altre informazioni sulle [funzionalità di disponibilità e ridondanza](../virtual-machines/windows/availability.md) per gli ambienti di Azure.

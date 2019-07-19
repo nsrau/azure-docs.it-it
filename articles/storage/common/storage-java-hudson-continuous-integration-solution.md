@@ -7,14 +7,14 @@ ms.service: storage
 ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: seguler
+ms.author: tarcher
 ms.subservice: common
-ms.openlocfilehash: 4b47af857fada453e36fcb0c23e6d89e5ad90e42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54e91d4df1109b9ece1150f8b44665789e4dfce1
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154350"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875878"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Hudson
 ## <a name="overview"></a>Panoramica
@@ -134,7 +134,7 @@ La procedura seguente illustra come configurare un passaggio di compilazione per
 1. Nella sezione **Build** della configurazione del processo fare clic su **Add build step** e scegliere **Download from Azure Blob storage**.
 2. In **Storage Account Name**scegliere l'account di archiviazione da utilizzare.
 3. In **Container name**specificare il nome del contenitore in cui si trovano i BLOB da scaricare. A questo scopo, è possibile usare le variabili di ambiente.
-4. In **Blob name**specificare il nome del BLOB. A questo scopo, è possibile usare le variabili di ambiente. È anche possibile usare un asterisco come carattere jolly dopo avere specificato le lettere iniziali del nome del BLOB. Ad esempio, **project\\** * specificare tutti i BLOB i cui nomi iniziano con **progetto**.
+4. In **Blob name**specificare il nome del BLOB. A questo scopo, è possibile usare le variabili di ambiente. È anche possibile usare un asterisco come carattere jolly dopo avere specificato le lettere iniziali del nome del BLOB. Ad esempio, **Project\\** * specifica tutti i BLOB i cui nomi iniziano con **Project**.
 5. [Facoltativo] In **Download path**specificare il percorso nel computer Hudson in cui si vuole scaricare i file dall'archivio BLOB di Azure. A questo scopo, è anche possibile usare le variabili di ambiente. (Se non si specifica un valore per **Download path**, i file dall'archivio BLOB di Azure verranno scaricati nell'area di lavoro del processo.)
 
 Per scaricare elementi aggiuntivi dall'archiviazione BLOB di Azure, è possibile creare altri passaggi di compilazione.

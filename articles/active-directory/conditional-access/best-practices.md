@@ -1,6 +1,6 @@
 ---
 title: Procedure consigliate per l'accesso condizionale in Azure Active Directory | Microsoft Docs
-description: Informazioni su aspetti da conoscere e su ciò che è che consigliabile evitare quando si configurano i criteri di accesso condizionale.
+description: Informazioni sulle informazioni che è necessario conoscere e sulle operazioni da evitare quando si configurano i criteri di accesso condizionale.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79a27fb5e243d2590e3fae85c6c820c4a43af0d5
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 08be09f7bee3aa17ff9d1baae4271e994fa235cb
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509426"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248875"
 ---
-# <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Le procedure consigliate per l'accesso condizionale in Azure Active Directory
+# <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
-Con [accesso condizionale di Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), è possibile controllare l'accesso agli utenti come autorizzato alle App cloud. Questo articolo illustra quanto segue:
+Con [l'accesso condizionale Azure Active Directory (Azure ad)](../active-directory-conditional-access-azure-portal.md), è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Questo articolo illustra quanto segue:
 
 - Informazioni utili 
-- Che cos'è è consigliabile evitare quando si configurano i criteri di accesso condizionale. 
+- Che cosa si deve evitare quando si configurano i criteri di accesso condizionale. 
 
-Questo articolo si presuppone che l'utente abbia familiarità i concetti e la terminologia descritti [qual è l'accesso condizionale in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+In questo articolo si presuppone che l'utente abbia familiarità con i concetti e la terminologia descritta in informazioni sull' [accesso condizionale in Azure Active Directory.](../active-directory-conditional-access-azure-portal.md)
 
 ## <a name="whats-required-to-make-a-policy-work"></a>Elementi necessari per il funzionamento di un criterio
 
@@ -37,24 +37,24 @@ Affinché il criterio funzioni, è necessario configurare quanto segue:
 
 | Cosa           | Come                                  | Motivo |
 | :--            | :--                                  | :-- |
-| **App cloud** |Selezionare una o più app.  | L'obiettivo dei criteri di accesso condizionale è consentire di controllare il modo in cui gli utenti possono accedere alle App cloud.|
-| **Utenti e gruppi** | Selezionare almeno un utente o un gruppo autorizzato ad accedere alle app cloud selezionate. | Un criterio di accesso condizionale non assegnati utenti e gruppi, non viene mai attivato. |
+| **App cloud** |Selezionare una o più app.  | L'obiettivo di un criterio di accesso condizionale è consentire di controllare il modo in cui gli utenti autorizzati possono accedere alle app cloud.|
+| **Utenti e gruppi** | Selezionare almeno un utente o un gruppo autorizzato ad accedere alle app cloud selezionate. | Un criterio di accesso condizionale senza utenti e gruppi assegnati non viene mai attivato. |
 | **Controlli di accesso** | Selezionare almeno un controllo di accesso. | L'elaboratore di criteri deve sapere quali operazioni eseguire se le condizioni vengono soddisfatte. |
 
 ## <a name="what-you-should-know"></a>Informazioni utili
 
 ### <a name="how-are-conditional-access-policies-applied"></a>Come vengono applicati i criteri di accesso condizionale?
 
-Più di un criterio di accesso condizionale può applicare quando si accede a un'app cloud. In questo caso, devono essere soddisfatti tutti i criteri applicati. Se ad esempio un criterio richiede MFA e il secondo richiede un dispositivo conforme, è necessario eseguire l'autenticazione MFA e usare un dispositivo conforme. 
+Quando si accede a un'app Cloud, è possibile applicare più di un criterio di accesso condizionale. In questo caso, devono essere soddisfatti tutti i criteri applicati. Se ad esempio un criterio richiede MFA e il secondo richiede un dispositivo conforme, è necessario eseguire l'autenticazione MFA e usare un dispositivo conforme. 
 
 Tutti i criteri vengono applicati in due fasi:
 
 - Nella **prima** fase vengono valutati tutti i criteri e vengono raccolti tutti i controlli di accesso non soddisfatti. 
-- Nella **seconda** fase viene chiesto di soddisfare i requisiti non rispettati. Se uno dei criteri di blocca l'accesso, si sono bloccate e non viene richiesto di soddisfare gli altri controlli dei criteri. Se i criteri bloccano, richiesto per soddisfare gli altri controlli dei criteri nell'ordine seguente:
+- Nella **seconda** fase viene chiesto di soddisfare i requisiti non rispettati. Se uno dei criteri blocca l'accesso, l'utente viene bloccato e non viene richiesto di soddisfare altri controlli dei criteri. Se i criteri bloccano l'utente, viene richiesto di soddisfare gli altri controlli dei criteri nell'ordine seguente:
 
    ![Ordine](./media/best-practices/06.png)
     
-   Poi esterni i provider di autenticazione a più fattori e le condizioni d'uso.
+   I provider di autenticazione a più fattori esterni e le condizioni per l'utilizzo sono prossimi.
 
 ### <a name="how-are-assignments-evaluated"></a>Come vengono valutate le assegnazioni?
 
@@ -67,10 +67,10 @@ Se è necessario configurare una condizione relativa alla località applicata a 
 
 ### <a name="what-to-do-if-you-are-locked-out-of-the-azure-ad-admin-portal"></a>Quali operazioni è necessario eseguire se non si riesce ad accedere al portale di amministrazione di Azure AD?
 
-Se è bloccato dal portale di Azure AD a causa di un'impostazione non corretta in un criterio di accesso condizionale:
+Se si è bloccati dal portale di Azure AD a causa di un'impostazione non corretta in un criterio di accesso condizionale:
 
 - Controllare se siano presenti altri amministratori dell'organizzazione che non sono ancora stati bloccati. Un amministratore con accesso al portale di Azure può disabilitare il criterio che impedisce l'accesso. 
-- Se nessun amministratore dell'organizzazione può aggiornare il criterio, è necessario inviare una richiesta di supporto. Supporto tecnico clienti Microsoft possono rivedere e aggiornare i criteri di accesso condizionale che impediscono l'accesso.
+- Se nessun amministratore dell'organizzazione può aggiornare il criterio, è necessario inviare una richiesta di supporto. Il supporto tecnico Microsoft può rivedere e aggiornare i criteri di accesso condizionale che impediscono l'accesso.
 
 ### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Che cosa accade se sono configurati criteri nel portale di Azure classico e nel portale di Azure?  
 
@@ -84,21 +84,21 @@ Entrambi i criteri vengono applicati da Azure Active Directory e l'utente ottien
 
 Per ogni accesso, Azure Active Directory valuta tutti i criteri e verifica che tutti i requisiti vengano soddisfatti prima di concedere l'accesso all'utente. Il criterio di blocco dell'accesso è prioritario rispetto alle altre impostazioni di configurazione. 
 
-### <a name="does-conditional-access-work-with-exchange-activesync"></a>Accesso condizionale funziona con Exchange ActiveSync?
+### <a name="does-conditional-access-work-with-exchange-activesync"></a>L'accesso condizionale funziona con Exchange ActiveSync?
 
-Sì, è possibile usare Exchange ActiveSync in Criteri di accesso condizionale con alcune [limitazioni](block-legacy-authentication.md). 
+Sì, è possibile usare Exchange ActiveSync in un criterio di accesso condizionale con alcune [limitazioni](block-legacy-authentication.md). 
 
-### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Come si deve configurare l'accesso condizionale con le app di Office 365?
+### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Come configurare l'accesso condizionale con le app di Office 365?
 
-Poiché le app di Office 365 sono interconnesse, è consigliabile assegnare comunemente usati insieme delle App durante la creazione di criteri.
+Poiché le app di Office 365 sono interconnesse, è consigliabile assegnare le app comunemente usate insieme quando si creano i criteri.
 
-Le applicazioni interconnesse comuni includono Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online e Office 365 Yammer.
+Le applicazioni interconnesse comuni includono Microsoft Flow, Microsoft Planner, Microsoft teams, Office 365 Exchange Online, Office 365 SharePoint Online e Office 365 Yammer.
 
-È importante per i criteri che richiedono interazioni dell'utente, come l'autenticazione a più fattori, quando l'accesso viene controllato all'inizio di una sessione o attività. In caso contrario, gli utenti non potranno completare alcune attività all'interno di un'app. Ad esempio, se è necessaria l'autenticazione a più fattori nei dispositivi non gestiti per accedere a SharePoint ma non al messaggio di posta elettronica, gli utenti che utilizzano la posta elettronica sarà in grado di collegare i file di SharePoint a un messaggio. Altre informazioni sono reperibili nell'articolo [quali sono le dipendenze del servizio in Active Directory accesso condizionale di Azure?](service-dependencies.md).
+È importante per i criteri che richiedono interazioni utente, ad esempio l'autenticazione a più fattori, quando l'accesso viene controllato all'inizio di una sessione o di un'attività. In caso contrario, gli utenti non saranno in grado di completare alcune attività all'interno di un'app. Se, ad esempio, è richiesta l'autenticazione a più fattori sui dispositivi non gestiti per accedere a SharePoint ma non alla posta elettronica, gli utenti che lavorano nella posta elettronica non saranno in grado di allineare i file di SharePoint a un messaggio. Altre informazioni sono disponibili nell'articolo informazioni sulle dipendenze del [servizio in Azure Active Directory l'accesso condizionale](service-dependencies.md).
 
 ## <a name="what-you-should-avoid-doing"></a>Azioni da evitare
 
-Il framework di accesso condizionale offre ottima flessibilità di configurazione. Con un'elevata flessibilità, tuttavia, è consigliabile esaminare attentamente ogni criterio di configurazione prima del rilascio per evitare risultati indesiderati. In questo contesto, è necessario prestare particolare attenzione alle assegnazioni che interessano set completi, ad esempio **tutti gli utenti/i gruppi/le applicazioni cloud**.
+Il Framework di accesso condizionale offre una grande flessibilità di configurazione. Con un'elevata flessibilità, tuttavia, è consigliabile esaminare attentamente ogni criterio di configurazione prima del rilascio per evitare risultati indesiderati. In questo contesto, è necessario prestare particolare attenzione alle assegnazioni che interessano set completi, ad esempio **tutti gli utenti/i gruppi/le applicazioni cloud**.
 
 Nell'ambiente, è necessario evitare le seguenti configurazioni:
 
@@ -107,7 +107,7 @@ Nell'ambiente, è necessario evitare le seguenti configurazioni:
 - **Blocca accesso**: questa configurazione consente di bloccare l'intera organizzazione. Un'idea chiaramente non buona.
 - **Richiedi un dispositivo conforme**: per gli utenti che non hanno ancora registrato i propri dispositivi, questo criterio blocca tutti gli accessi, incluso l'accesso al portale di Intune. Se l'utente è amministratore senza un dispositivo registrato, questo criterio blocca l'accesso al portale di Azure per la modifica dei criteri.
 - **Require domain join** (Richiedi aggiunta a dominio): se ancora non si dispone di un dispositivo aggiunto al dominio, questo criterio di blocco dell'accesso è anche in grado di bloccare l'accesso per tutti gli utenti nell'organizzazione.
-- **Richiedono criteri di protezione delle app** : questo criterio di blocco accesso ha anche la possibilità di bloccare l'accesso per tutti gli utenti nell'organizzazione se non si dispone di un criterio di Intune. Se si è amministratore senza un'applicazione client che ha un criterio di protezione app di Intune, questo criterio blocca l'accesso in portali, ad esempio Intune e Azure.
+- **Richiedi i criteri di protezione delle app** : questo criterio consente di bloccare l'accesso a tutti gli utenti dell'organizzazione se non si dispone di un criterio di Intune. Se si è un amministratore senza un'applicazione client con criteri di protezione delle app di Intune, questo criterio impedisce di tornare ai portali, ad esempio Intune e Azure.
 
 **Per tutti gli utenti, tutte le applicazioni cloud e tutte le piattaforme per dispositivi:**
 
@@ -143,5 +143,5 @@ Per altre informazioni, vedere [Migrare i criteri classici nel portale di Azure]
 
 Per informazioni su:
 
-- Come configurare un criterio di accesso condizionale, vedere [Richiedi autenticazione a più fattori per App specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md).
-- Come pianificare i criteri di accesso condizionale, vedere [come pianificare la distribuzione di accesso condizionale in Azure Active Directory](plan-conditional-access.md).
+- Come configurare un criterio di accesso condizionale, vedere richiedere l'autenticazione a più fattori [per app specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md).
+- Come pianificare i criteri di accesso condizionale, vedere [come pianificare la distribuzione dell'accesso condizionale in Azure Active Directory](plan-conditional-access.md).

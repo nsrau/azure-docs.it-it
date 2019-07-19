@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51fd5c8f406ea54c7fc8e81c674e41b30d7ad406
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: eb64aa401838451191a830a5adbfb435ac5fdf25
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482422"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261944"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chiamate da servizio a servizio tramite l'identità utente delegato nel flusso on-behalf-of
 
@@ -38,7 +38,7 @@ Il flusso On-Behalf-Of (OBO) di OAuth 2.0 consente a un'applicazione che richiam
 
 Il flusso Obo inizia dopo che l'utente è stato autenticato in un'applicazione usando il [flusso di concessione del codice di autorizzazione OAuth 2.0](v1-protocols-oauth-code.md). A questo punto, l'applicazione invia un token di accesso (token A) che contiene le API Web (API A) contenenti le attestazioni dell'utente e il consenso per accedere all'API A. Successivamente, l'API A esegue una richiesta autenticata al downstream API Web (API B).
 
-Questi passaggi costituiscono il flusso On-Behalf-Of: ![Vengono illustrati i passaggi nel flusso On-Behalf-Of di OAuth2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+Questi passaggi costituiscono il flusso On-Behalf-Of: ![Mostra i passaggi del flusso per conto di OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. L'applicazione client esegue una richiesta all'API A con il token A.
 1. L'API A esegue l'autenticazione all'endpoint di rilascio del token di Azure AD e richiede un token per accedere all'API B.
@@ -58,32 +58,32 @@ Registrare sia l'applicazione client che il servizio di livello intermedio in Az
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nella barra in alto selezionare l'account e guardare nell'elenco **Directory** per scegliere il tenant di Active Directory per l'applicazione.
 1. Fare clic su **Altri servizi** nel riquadro a sinistra e scegliere **Azure Active Directory**.
-1. Selezionare **registrazioni per l'App** e quindi **registrazione nuova**.
+1. Selezionare **registrazioni app** e quindi **nuova registrazione**.
 1. Immettere un nome descrittivo per l'applicazione e selezionare il tipo di applicazione.
 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
-1. Impostare l'URI di reindirizzamento all'URL di base.
+1. Impostare l'URI di reindirizzamento sull'URL di base.
 1. Selezionare **Registra** per creare l'applicazione.
 1. Generare un segreto client prima di uscire dal portale di Azure.
-1. Nel portale di Azure, scegliere l'applicazione e selezionare **certificati e i segreti**.
-1. Selezionare **nuovo segreto client** e aggiungere un segreto con una durata di un anno o due anni.
-1. Quando si salva questa pagina, il portale di Azure consente di visualizzare il valore del segreto. Copiare e salvare il valore del segreto in un luogo sicuro.
+1. Nella portale di Azure scegliere l'applicazione e selezionare **certificati & segreti**.
+1. Selezionare **nuovo segreto client** e aggiungere un segreto con una durata di un anno o di due anni.
+1. Quando si salva questa pagina, nel portale di Azure viene visualizzato il valore Secret. Copiare e salvare il valore del segreto in un luogo sicuro.
 
 > [!IMPORTANT]
-> È necessario il segreto per configurare le impostazioni dell'applicazione nell'implementazione. Questo valore del segreto non viene visualizzato anche in questo caso, e non è recuperabile altri mezzi. Registrarlo non appena è visibile nel portale di Azure.
+> È necessario il segreto per configurare le impostazioni dell'applicazione nell'implementazione. Il valore del segreto non viene visualizzato di nuovo e non è recuperabile con altri mezzi. Registrarlo non appena è visibile nel portale di Azure.
 
 ### <a name="register-the-client-application"></a>Registrare l'applicazione client
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nella barra in alto selezionare l'account e guardare nell'elenco **Directory** per scegliere il tenant di Active Directory per l'applicazione.
 1. Fare clic su **Altri servizi** nel riquadro a sinistra e scegliere **Azure Active Directory**.
-1. Selezionare **registrazioni per l'App** e quindi **registrazione nuova**.
+1. Selezionare **registrazioni app** e quindi **nuova registrazione**.
 1. Immettere un nome descrittivo per l'applicazione e selezionare il tipo di applicazione.
 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
-1. Impostare l'URI di reindirizzamento all'URL di base.
+1. Impostare l'URI di reindirizzamento sull'URL di base.
 1. Selezionare **Registra** per creare l'applicazione.
-1. Configurare le autorizzazioni per l'applicazione. Nelle **le autorizzazioni API**, selezionare **aggiungere un'autorizzazione** e quindi **possono implementare API**.
+1. Configurare le autorizzazioni per l'applicazione. In **autorizzazioni API**selezionare **Aggiungi un'autorizzazione** e quindi **API personali**.
 1. Digitare il nome del servizio di livello intermedio nel campo di testo.
-1. Scegli **selezionare le autorizzazioni** e quindi selezionare **Access <service name>** .
+1. Scegliere **Seleziona autorizzazioni** e quindi selezionare **nome \<servizio di accesso >** .
 
 ### <a name="configure-known-client-applications"></a>Configurare applicazioni client note
 
@@ -109,7 +109,7 @@ L'applicazione client è protetta da un segreto condiviso o da un certificato.
 
 Quando si usa un segreto condiviso, una richiesta di token di accesso da servizio a servizio contiene i parametri seguenti:
 
-| Parametro |  | Descrizione |
+| Parametro |  | DESCRIZIONE |
 | --- | --- | --- |
 | grant_type |Obbligatoria | Il tipo di richiesta del token. Una richiesta OBO usa un token Web JSON (JWT), il valore deve essere **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |Obbligatoria | Il valore del token di accesso usato nella richiesta. |
@@ -213,7 +213,7 @@ L'esempio seguente mostra una risposta corretta a una richiesta di token di acce
 
 ### <a name="error-response-example"></a>Esempio di risposta con errore
 
-L'endpoint di token di Azure AD restituisce una risposta di errore quando tenta di acquisire un token di accesso per un'API downstream impostato con un criterio di accesso condizionale (ad esempio, l'autenticazione a più fattori). Il servizio di livello intermedio dovrebbe segnalare l'errore all'applicazione client in modo che l'applicazione client può fornire l'interazione dell'utente per soddisfare i criteri di accesso condizionale.
+L'endpoint del token Azure AD restituisce una risposta di errore quando tenta di acquisire un token di accesso per un'API downstream impostata con criteri di accesso condizionale, ad esempio l'autenticazione a più fattori. Il servizio di livello intermedio deve esporre questo errore all'applicazione client in modo che l'applicazione client possa fornire l'interazione dell'utente per soddisfare i criteri di accesso condizionale.
 
 ```
 {
@@ -272,7 +272,7 @@ La risposta contiene un token SAML con codifica UTF8 e Base64url.
 
 ### <a name="response-with-saml-assertion"></a>Risposta con asserzione SAML
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui bearer token, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei bearer token - RFC 6750). |
 | scope |L'ambito di accesso concesso nel token. |

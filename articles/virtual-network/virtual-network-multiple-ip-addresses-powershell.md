@@ -1,6 +1,6 @@
 ---
 title: Più indirizzi IP per le macchine virtuali di Azure - PowerShell | Documentazione Microsoft
-description: Informazioni su come assegnare più indirizzi IP a una macchina virtuale usando PowerShell. | Resource Manager
+description: Informazioni su come assegnare più indirizzi IP a una macchina virtuale tramite PowerShell. | Gestione risorse
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
-ms.author: kumud;annahar
-ms.openlocfilehash: f4ecc9a0b41cf3b287f7601101de3aa9d077b0d5
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.author: kumud
+ms.reviewer: annahar
+ms.openlocfilehash: e9bad6ad614855c543ee6d75d4e6f4dc8e2255aa
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64730413"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876233"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Assegnare più indirizzi IP alle macchine virtuali usando PowerShell
 
@@ -96,7 +97,7 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
 
 6. Definire la configurazione IP primaria della scheda di interfaccia di rete. Modificare 10.0.0.4 in un indirizzo valido nella subnet creata, se il valore definito in precedenza non è stato usato. Prima di assegnare un indirizzo IP statico, è consigliabile verificare che non sia già in uso. Immettere il comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se l'indirizzo è disponibile, l'output restituisce *True*. Se non è disponibile, l'output restituisce *False* e un elenco di indirizzi disponibili. 
 
-    Nei comandi seguenti **sostituire \<replace-con-your-unique-name > con il nome DNS univoco da usare.** Il nome deve essere univoco tra tutti gli indirizzi IP pubblici all'interno di un'area di Azure. Questo è un parametro facoltativo. Può essere rimosso se si intende connettersi alla macchina virtuale tramite l'indirizzo IP pubblico.
+    Nei comandi seguenti **sostituire \<Sostituisci con il nome univoco > con il nome DNS univoco da usare.** Il nome deve essere univoco tra tutti gli indirizzi IP pubblici all'interno di un'area di Azure. Questo è un parametro facoltativo. Può essere rimosso se si intende connettersi alla macchina virtuale tramite l'indirizzo IP pubblico.
 
     ```powershell
     

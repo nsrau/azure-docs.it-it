@@ -4,15 +4,15 @@ description: Risposte alle domande frequenti sull'uso di Apache Hive e Azure HDI
 keywords: Azure HDInsight, Hive, domande frequenti, guida alla risoluzione dei problemi, domande comuni
 ms.service: hdinsight
 author: dharmeshkakadia
-ms.author: dharmeshkakadia
+ms.author: dkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 43886a132f2f3cf75f0ec7a0b2dc0680a0f69589
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91e6803e0a1302a33a3bf176ad84d0b0e0c8c5b6
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712490"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875938"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache Hive tramite Azure HDInsight
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: 5718064994a80266c216ae6040746be29194adc9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a858ac84ec9181cef4703c8fe236b9a3513af9f5
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254716"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234741"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Novità del server di Backup di Microsoft Azure
 
@@ -25,7 +25,7 @@ In MABS V3 sono incluse le funzionalità seguenti:
 Con Modern Backup Storage (MBS) in MABS V2, è stata annunciata l'archiviazione con riconoscimento del carico di lavoro, in cui è possibile configurare alcuni carichi di lavoro per il backup in specifiche risorse di archiviazione, in base alle proprietà di archiviazione. Dopo la configurazione, tuttavia, può risultare necessario spostare i backup di alcune origini dati in altre risorse di archiviazione per un utilizzo ottimizzato delle risorse. MABS V3 offre la possibilità di eseguire la migrazione dei backup e di configurarli in modo da archiviarli in un volume diverso in [3 passaggi](https://blogs.technet.microsoft.com/dpm/2017/10/24/storage-migration-with-dpm-2016-mbs/).
 
 ## <a name="prevent-unexpected-data-loss"></a>Evitare perdite di dati impreviste
-Nelle aziende, MABS viene gestito da un team di amministratori. Sebbene esistano linee guida sull'archiviazione che devono essere seguite per l'esecuzione dei backup, specificare un volume non corretto come archivio di backup di MABS può causare la perdita di dati di importanza critica. Con MABS V3, è possibile evitare tali scenari configurando questi volumi come non disponibili per l'archiviazione usando [questi cmdlet di PowerShell](https://docs.microsoft.com/system-center/dpm/add-storage#volume-exclusion).
+Nelle aziende, MABS viene gestito da un team di amministratori. Sebbene esistano linee guida sull'archiviazione che devono essere seguite per l'esecuzione dei backup, specificare un volume non corretto come archivio di backup di MABS può causare la perdita di dati di importanza critica. Con MABS V3, è possibile evitare tali scenari configurando questi volumi come non disponibili per l'archiviazione usando [questi cmdlet di PowerShell](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage).
 
 ## <a name="custom-size-allocation"></a>Allocazione personalizzata delle dimensioni
 Modern Backup Storage (MBS) utilizza l'archiviazione in modo mirato, in base a specifiche esigenze. A tale scopo, MABS calcola le dimensioni dei dati sottoposti a backup quando viene configurato per la protezione. Se, tuttavia, molti file e cartelle vengono sottoposti a backup contemporaneamente, come nel caso di un file server, il calcolo delle dimensioni può richiedere molto tempo. Con MABS V3, è possibile configurare MABS in modo che accetti le dimensioni del volume predefinite, anziché calcolare le dimensioni di ogni file, con un conseguente risparmio di tempo.
@@ -54,7 +54,7 @@ In [questo articolo](https://docs.microsoft.com/azure/backup/backup-azure-micros
 
 
 > [!NOTE]
-> 
+>
 > MABS ha la stessa base di codice di System Center Data Protection Manager. MABS V3 corrisponde a Data Protection Manager 1807.
 
 ## <a name="next-steps"></a>Passaggi successivi

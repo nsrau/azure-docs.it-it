@@ -7,26 +7,26 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 4d2b4bef5bfcade93b222e69e85df782480e430e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a0da8b932d2efe88391991286ede2858440e4465
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615796"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232634"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes
 
-Per impostazione predefinita, AKS cluster usano [kubenet][kubenet], e una rete virtuale e una subnet vengono create automaticamente. Con *kubenet* i nodi ottengono un indirizzo IP da una subnet della rete virtuale. Il protocollo NAT (Network Address Translation) viene quindi configurato nei nodi e i pod ricevono un indirizzo IP "nascosto" dietro l'indirizzo IP del nodo. Questo approccio riduce il numero di indirizzi IP che è necessario riservare ai pod nello spazio degli indirizzi della rete.
+Per impostazione predefinita, i cluster AKS usano [kubenet][kubenet]e vengono create una rete virtuale e una subnet. Con *kubenet* i nodi ottengono un indirizzo IP da una subnet della rete virtuale. Il protocollo NAT (Network Address Translation) viene quindi configurato nei nodi e i pod ricevono un indirizzo IP "nascosto" dietro l'indirizzo IP del nodo. Questo approccio riduce il numero di indirizzi IP che è necessario riservare ai pod nello spazio degli indirizzi della rete.
 
-Con [interfaccia di rete contenitore di Azure (CNI)][cni-networking], ogni pod Ottiene un indirizzo IP dalla subnet ed è possibile accedervi direttamente. Questi indirizzi IP devono essere univoci nello spazio di indirizzi della rete e devono essere pianificati in anticipo. Ogni nodo ha un parametro di configurazione per il numero massimo di pod che supporta. Il numero equivalente di indirizzi IP per nodo viene quindi riservato anticipatamente per tale nodo. Questo approccio richiede una maggiore pianificazione e spesso conduce all'esaurimento degli indirizzi IP o alla necessità di ricompilare i cluster in una subnet di dimensioni maggiori man mano che le esigenze dell'applicazione aumentano.
+Con l' [interfaccia di rete del contenitore di Azure (CNI)][cni-networking], ogni pod ottiene un indirizzo IP dalla subnet ed è possibile accedervi direttamente. Questi indirizzi IP devono essere univoci nello spazio di indirizzi della rete e devono essere pianificati in anticipo. Ogni nodo ha un parametro di configurazione per il numero massimo di pod che supporta. Il numero equivalente di indirizzi IP per nodo viene quindi riservato anticipatamente per tale nodo. Questo approccio richiede una maggiore pianificazione e spesso conduce all'esaurimento degli indirizzi IP o alla necessità di ricompilare i cluster in una subnet di dimensioni maggiori man mano che le esigenze dell'applicazione aumentano.
 
-Questo articolo illustra come usare le funzionalità di rete di *Azure CNI* per creare e usare una subnet di rete virtuale per un cluster del servizio Azure Kubernetes. Per altre informazioni sulle opzioni di rete e considerazioni, vedere [concetti di rete per Kubernetes e AKS][aks-network-concepts].
+Questo articolo illustra come usare le funzionalità di rete di *Azure CNI* per creare e usare una subnet di rete virtuale per un cluster del servizio Azure Kubernetes. Per altre informazioni sulle opzioni di rete e le considerazioni, vedere [concetti di rete per Kubernetes e AKS][aks-network-concepts].
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * La rete virtuale per il cluster servizio Azure Kubernetes deve consentire la connettività Internet in uscita.
 * Non creare più di un cluster servizio Azure Kubernetes nella stessa subnet.
-* Non è possono usare i cluster AKS `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, o `192.0.2.0/24` per Kubernetes l'intervallo di indirizzi del servizio.
+* I cluster AKS non possono usare `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`o `192.0.2.0/24` per l'intervallo di indirizzi del servizio Kubernetes.
 * L'entità servizio usata dal cluster servizio Azure Kubernetes deve avere almeno autorizzazioni di [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) per la subnet all'interno della rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -41,7 +41,7 @@ Gli indirizzi IP per i pod e i nodi del cluster vengono assegnati dalla subnet s
 > Per calcolare il numero di indirizzi IP necessari, è opportuno considerare le eventuali operazioni di aggiornamento e ridimensionamento. Se si imposta l'intervallo di indirizzi IP solo per supportare un numero fisso di nodi, non è possibile aggiornare o ridimensionare il cluster.
 >
 > - Quando si esegue l'**aggiornamento** del cluster servizio Azure Kubernetes, viene distribuito un nuovo nodo nel cluster. Viene avviata l'esecuzione di servizi e carichi di lavoro nel nuovo nodo e il nodo precedente viene rimosso dal cluster. Questo processo di aggiornamento in sequenza richiede la disponibilità di almeno un altro blocco di indirizzi IP. Il numero di nodi risulta quindi pari a `n + 1`.
->   - Questa considerazione è particolarmente importante quando si usa il pool di nodi Windows Server (attualmente in anteprima nel servizio contenitore di AZURE). Nodi di Windows Server nel servizio contenitore di AZURE non vengono applicate automaticamente gli aggiornamenti di Windows, invece eseguire un aggiornamento sul pool di nodi. Questo aggiornamento consente di distribuire nuovi nodi con la finestra Server 2019 nodo base immagine e la sicurezza le patch più recenti. Per altre informazioni sull'aggiornamento di un pool di nodi di Windows Server, vedere [esegue l'aggiornamento di un pool di nodi in AKS][nodepool-upgrade].
+>   - Questa considerazione è particolarmente importante quando si usano i pool di nodi di Windows Server (attualmente in anteprima in AKS). I nodi di Windows Server in AKS non applicano automaticamente gli aggiornamenti di Windows, ma si esegue un aggiornamento nel pool di nodi. Questo aggiornamento distribuisce nuovi nodi con l'immagine del nodo di base di Windows Server 2019 e le patch di sicurezza più recenti. Per ulteriori informazioni sull'aggiornamento di un pool di nodi di Windows Server, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
 >
 > - Quando si esegue il **ridimensionamento** di un cluster servizio Azure Kubernetes, viene distribuito un nuovo nodo nel cluster. Viene avviata l'esecuzione di servizi e carichi di lavoro nel nuovo nodo. Per calcolare l'intervallo di indirizzi IP, è necessario considerare il modo in cui si vuole aumentare il numero di nodi e pod supportati dal cluster. È necessario includere anche un nodo aggiuntivo per le operazioni di aggiornamento. Il numero di nodi risulta quindi pari a `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
 
@@ -55,11 +55,11 @@ Il piano di indirizzo IP per un cluster servizio Azure Kubernetes è costituito 
 | Subnet | Deve essere sufficientemente grande da contenere i nodi, i pod e tutte le risorse Kubernetes e Azure che potrebbero essere sottoposte a provisioning nel cluster. Ad esempio, se si distribuisce un Azure Load Balancer interno, i relativi indirizzi IP front-end vengono allocati dalla subnet del cluster, ma non gli indirizzi IP pubblici. Per calcolare le dimensioni della subnet, è opportuno considerare anche eventuali operazioni di aggiornamento o le esigenze di ridimensionamento future.<p />Per calcolare le dimensioni *minime* della subnet incluso un nodo aggiuntivo per eventuali operazioni di aggiornamento: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Esempio relativo a un cluster a 50 nodi: `(51) + (51  * 30 (default)) = 1,581` (/21 o più grande)<p/>Esempio relativo a un cluster a 50 nodi che include anche il provisioning per l'aggiunta di altri 10 nodi: `(61) + (61 * 30 (default)) = 1,891` (/21 o superiore)<p>Se non si specifica un numero massimo di pod per nodo al momento della creazione del cluster, l'impostazione predefinita è *30*. Il numero minimo di indirizzi IP richiesti si basa su questo valore. Se si calcolano i requisiti di indirizzi IP minimi in base a un valore massimo diverso, vedere la sezione relativa a [come configurare il numero massimo di pod per nodo](#configure-maximum---new-clusters) per impostare questo valore quando si distribuisce il cluster. |
 | Intervallo di indirizzi del servizio Kubernetes | Questo intervallo non deve essere usato da nessun elemento della rete che si trova su questa rete virtuale o è connesso a essa. Il CIDR dell'indirizzo del servizio deve essere più piccolo di /12. |
 | Indirizzo IP del servizio DNS Kubernetes | Indirizzo IP compreso nell'intervallo di indirizzi del servizio Kubernetes che verrà usato dall'individuazione del servizio cluster (kube-dns). Non usare il primo indirizzo IP nell'intervallo di indirizzi, ad esempio .1. Il primo indirizzo nell'intervallo della subnet è usato per l'indirizzo *kubernetes.default.svc.cluster.local*. |
-| Indirizzo del bridge Docker | Indirizzo IP (in notazione CIDR) utilizzato come indirizzo IP del bridge Docker nei nodi. Il valore predefinito è 172.17.0.1/16. |
+| Indirizzo del bridge Docker | Indirizzo IP (in notazione CIDR) utilizzato come indirizzo IP del bridge Docker nei nodi. Questo CIDR è associato al numero di contenitori nel nodo. Il valore predefinito è 172.17.0.1/16. |
 
 ## <a name="maximum-pods-per-node"></a>Numero massimo di pod per nodo
 
-Il numero massimo di POD per ogni nodo in un cluster AKS è 250. Il numero massimo *predefinito* di pod per nodo varia tra le funzionalità di rete *kubenet* e *Azure CNI* e il metodo di distribuzione del cluster.
+Il numero massimo di pod per nodo in un cluster AKS è 250. Il numero massimo *predefinito* di pod per nodo varia tra le funzionalità di rete *kubenet* e *Azure CNI* e il metodo di distribuzione del cluster.
 
 | Metodo di distribuzione | Kubenet predefinito | Azure CNI predefinito | Configurabile in fase di distribuzione |
 | -- | :--: | :--: | -- |
@@ -69,7 +69,7 @@ Il numero massimo di POD per ogni nodo in un cluster AKS è 250. Il numero massi
 
 ### <a name="configure-maximum---new-clusters"></a>Configurare il valore massimo - nuovi cluster
 
-È possibile configurare il numero massimo di pod per nodo *solo in fase di distribuzione del cluster*. Se si distribuisce con il comando di Azure o con un modello di Resource Manager, è possibile impostare il numero massimo di POD per ogni valore di nodo fino a 250.
+È possibile configurare il numero massimo di pod per nodo *solo in fase di distribuzione del cluster*. Se si esegue la distribuzione con l'interfaccia della riga di comando di Azure o con un modello di Gestione risorse, è possibile impostare il numero massimo di pod per nodo su un valore massimo di 250.
 
 | Rete | Minima | Massima |
 | -- | :--: | :--: |
@@ -77,9 +77,9 @@ Il numero massimo di POD per ogni nodo in un cluster AKS è 250. Il numero massi
 | Kubenet | 30 | 110 |
 
 > [!NOTE]
-> Il valore minimo nella tabella precedente viene applicato esclusivamente per il servizio contenitore di AZURE. È non possibile impostare un valore maxPods inferiori al valore minimo indicato come questo può impedire al cluster di avvio.
+> Il valore minimo nella tabella precedente viene applicato rigorosamente dal servizio AKS. Non è possibile impostare un valore maxPods inferiore a quello minimo visualizzato in modo da impedire l'avvio del cluster.
 
-* **Interfaccia della riga di comando di Azure**: Specificare il `--max-pods` argomento quando si distribuisce un cluster con il [az aks create][az-aks-create] comando. Il valore massimo è 250.
+* **Interfaccia della riga di comando di Azure**: Specificare l' `--max-pods` argomento quando si distribuisce un cluster con il comando [AZ AKS create][az-aks-create] . Il valore massimo è 250.
 * **Modello di Resource Manager**: specificare la `maxPods` proprietà nell'oggetto [ManagedClusterAgentPoolProfile] quando si distribuisce un cluster con un modello di Resource Manager. Il valore massimo è 250.
 * **Portale di Azure**: non è possibile modificare il numero massimo di pod per nodo quando si distribuisce un cluster con il portale di Azure. I cluster con funzionalità di rete Azure CNI sono limitati a 30 pod per ogni nodo quando si esegue la distribuzione con il portale di Azure.
 
@@ -95,14 +95,14 @@ Quando si crea un cluster servizio Azure Kubernetes, per la rete Azure CNI i par
 
 **Subnet**: subnet nella rete virtuale in cui si vuole distribuire il cluster. Per creare una nuova subnet nella rete virtuale per il cluster, selezionare *Crea nuova* e seguire i passaggi della sezione *Creare una subnet*. Per la connettività ibrida, l'intervallo di indirizzi non deve sovrapporsi ad altre reti virtuali dell'ambiente in uso.
 
-**Intervallo di indirizzi del servizio Kubernetes**: Si tratta del set di indirizzi IP virtuali che Kubernetes assegna all'interno [services][services] nel cluster. È possibile usare qualsiasi intervallo di indirizzi privati che soddisfi i requisiti seguenti:
+**Intervallo di indirizzi del servizio Kubernetes**: Questo è il set di indirizzi IP virtuali che Kubernetes assegna ai [Servizi][services] interni nel cluster. È possibile usare qualsiasi intervallo di indirizzi privati che soddisfi i requisiti seguenti:
 
 * Non deve essere compreso nell'intervallo di indirizzi IP della rete virtuale del cluster
 * Non deve sovrapporsi ad altre reti virtuali con cui la rete virtuale del cluster effettua il peering
 * Non deve sovrapporsi ad altri IP locali
-* Non deve essere compreso negli intervalli `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, o `192.0.2.0/24`
+* Non devono essere compresi negli intervalli `169.254.0.0/16` `172.31.0.0/16`, `172.30.0.0/16`, o`192.0.2.0/24`
 
-Sebbene sia tecnicamente possibile specificare un intervallo di indirizzi del servizio all'interno della stessa rete virtuale del cluster, tale operazione non è consigliata. Se vengono usati intervalli IP che si sovrappongono, si può verificare un comportamento imprevedibile. Per altre informazioni, vedere la sezione [Domande frequenti](#frequently-asked-questions) di questo articolo. Per altre informazioni sui servizi di Kubernetes, vedere [Services][services] nella documentazione di Kubernetes.
+Sebbene sia tecnicamente possibile specificare un intervallo di indirizzi del servizio all'interno della stessa rete virtuale del cluster, tale operazione non è consigliata. Se vengono usati intervalli IP che si sovrappongono, si può verificare un comportamento imprevedibile. Per altre informazioni, vedere la sezione [Domande frequenti](#frequently-asked-questions) di questo articolo. Per ulteriori informazioni sui servizi Kubernetes, vedere [Servizi][services] nella documentazione di Kubernetes.
 
 **Indirizzo IP del servizio DNS Kubernetes**:  L'indirizzo IP per il servizio DNS del cluster. Questo indirizzo deve essere compreso nell'*intervallo di indirizzi del servizio Kubernetes*. Non usare il primo indirizzo IP nell'intervallo di indirizzi, ad esempio .1. Il primo indirizzo nell'intervallo della subnet è usato per l'indirizzo *kubernetes.default.svc.cluster.local*.
 
@@ -123,7 +123,7 @@ $ az network vnet subnet list \
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-Usare la [az aks create][az-aks-create] con il `--network-plugin azure` argomento per creare un cluster con funzionalità di rete avanzate. Aggiornare il valore `--vnet-subnet-id` con l'ID della subnet raccolto nel passaggio precedente:
+Usare il comando [AZ AKS create][az-aks-create] con l' `--network-plugin azure` argomento per creare un cluster con rete avanzata. Aggiornare il valore `--vnet-subnet-id` con l'ID della subnet raccolto nel passaggio precedente:
 
 ```azurecli-interactive
 az aks create \
@@ -153,7 +153,7 @@ Le domande e le risposte seguenti si applicano alla configurazione delle funzion
 
 * *È possibile configurare criteri di rete per pod?*
 
-  Sì, i criteri di rete Kubernetes sono disponibili nel servizio contenitore di AZURE. Per iniziare, vedere [proteggere il traffico tra i POD usando i criteri di rete in AKS][network-policy].
+  Sì, il criterio di rete Kubernetes è disponibile in AKS. Per iniziare, vedere [proteggere il traffico tra i pod usando i criteri di rete in AKS][network-policy].
 
 * *Il numero massimo di pod distribuibili in un nodo è configurabile?*
 
@@ -176,17 +176,17 @@ Per altre informazioni sulla rete in servizio Azure Kubernetes, vedere gli artic
 - [Usare un indirizzo IP statico con il bilanciamento del carico del servizio Azure Kubernetes](static-ip.md)
 - [Usare un servizio di bilanciamento del carico interno con il servizio Azure Container](internal-lb.md)
 
-- [Creare un controller di ingresso di base con connettività di rete esterno][aks-ingress-basic]
-- [Abilitare il componente aggiuntivo di routing dell'applicazione di HTTP][aks-http-app-routing]
-- [Creare un controller di ingresso che usa una rete privata interna e l'indirizzo IP][aks-ingress-internal]
-- [Creare un controller di ingresso con un indirizzo IP pubblico dinamico e configurare Let's Encrypt per generare automaticamente certificati TLS][aks-ingress-tls]
-- [Creare un controller di ingresso con un IP pubblico statico e configurare Let's Encrypt per generare automaticamente certificati TLS][aks-ingress-static-tls]
+- [Creare un controller di ingresso di base con connettività di rete esterna][aks-ingress-basic]
+- [Abilita il componente aggiuntivo routing applicazione HTTP][aks-http-app-routing]
+- [Creare un controller di ingresso che usi una rete interna, privata e un indirizzo IP][aks-ingress-internal]
+- [Creare un controller di ingresso con un indirizzo IP pubblico dinamico e configurare la crittografia per la generazione automatica di certificati TLS][aks-ingress-tls]
+- [Creare un controller di ingresso con un IP pubblico statico e configurare la crittografia per la generazione automatica di certificati TLS][aks-ingress-static-tls]
 
 ### <a name="aks-engine"></a>Motore AKS
 
-[Motore del servizio Kubernetes Azure (AKS motore)][aks-engine] è un progetto open source che genera i modelli di Azure Resource Manager è possibile usare per la distribuzione di cluster Kubernetes in Azure.
+Il motore del [servizio Kubernetes di Azure (motore AKS)][aks-engine] è un progetto open source che genera modelli di Azure Resource Manager che è possibile usare per la distribuzione di cluster Kubernetes in Azure.
 
-I cluster Kubernetes creati con il motore servizio contenitore di AZURE supportano entrambi il [kubenet][kubenet] and [Azure CNI][cni-networking] plug-in. Di conseguenza, entrambi gli scenari di rete sono supportati dal motore del servizio Azure Kubernetes.
+I cluster Kubernetes creati con il motore AKS supportano entrambi i plug-in [kubenet][kubenet] and [Azure CNI][cni-networking] . Di conseguenza, entrambi gli scenari di rete sono supportati dal motore del servizio Azure Kubernetes.
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png

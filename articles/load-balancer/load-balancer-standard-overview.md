@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Panoramica delle funzionalità di Azure Load Balancer Standard
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
-ms.author: kumud
-ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 8eb8134452685add53b9dc339437ac262ecc8a9f
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957476"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274393"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Panoramica di Azure Load Balancer Standard
 
@@ -75,7 +75,7 @@ Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](load
 ### <a name="az"></a>Zone di disponibilità
 
 >[!IMPORTANT]
->Revisione [zone di disponibilità](../availability-zones/az-overview.md) per argomenti correlati, incluse eventuali informazioni specifiche di area.
+>Esaminare [zone di disponibilità](../availability-zones/az-overview.md) per gli argomenti correlati, incluse le informazioni specifiche dell'area.
 
 Load Balancer Standard supporta funzionalità aggiuntive in aree in cui sono disponibili zone di disponibilità.  Queste funzionalità sono incrementali rispetto a tutte le funzioni di Load Balancer Standard.  Le configurazioni delle zone di disponibilità sono disponibili per Load Balancer Standard pubblico e interno.
 
@@ -91,7 +91,7 @@ Consultare [per ulteriori dettagli sulle abilità associate alle zone di disponi
 
 Load Balancer Standard fornisce le metriche multidimensionali tramite il Monitoraggio di Azure.  Queste metriche possono essere filtrate, raggruppate e suddivise in una determinata dimensione.  Forniscono informazioni dettagliate sulle prestazioni presenti e passate e sullo stato di integrità del servizio.  Integrità risorse di Azure è supportato.  Ecco di seguito una breve panoramica della diagnostica supportata:
 
-| Metrica | Descrizione |
+| Metrica | DESCRIZIONE |
 | --- | --- |
 | Disponibilità IP virtuale | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.|
 | Disponibilità DIP | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni singolo endpoint dell'istanza nel pool di Load Balancer.  In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità.

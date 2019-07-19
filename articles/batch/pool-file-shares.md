@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 914bc11736b08dab6b334307dc188b5d153c7331
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
-ms.translationtype: MT
+ms.openlocfilehash: a76189a5624e057ef69172efd41f59ad2a364e49
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341310"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261635"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Usare una condivisione file di Azure con un pool di Batch
 
@@ -52,7 +52,7 @@ In Batch è necessario montare la condivisione a ogni esecuzione di un'attività
 Ad esempio, includere un comando `net use` per montare la condivisione file come parte della riga di comando di ogni attività. Per montare la condivisione file, sono necessarie le credenziali seguenti:
 
 * **User name** (Nome utente): AZURE\\\<storageaccountname\>, ad esempio AZURE\\*mystorageaccountname*
-* **Password**: <StorageAccountKeyWhichEnds in==>, ad esempio *XXXXXXXXXXXXXXXXXXXXX==*
+* **Password**: \<StorageAccountKeyWhichEnds in = = >, ad esempio *XXXXXXXXXXXXXXXXXXXXX = =*
 
 Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* come unità *S:* :
 
@@ -129,7 +129,7 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 Eseguire quindi il comando `mount` per montare la condivisione file, specificando queste credenziali:
 
 * **Nome utente**: \<storageaccountname\>, ad esempio *mystorageaccountname*
-* **Password**: <StorageAccountKeyWhichEnds in==>, ad esempio *XXXXXXXXXXXXXXXXXXXXX==*
+* **Password**: \<StorageAccountKeyWhichEnds in = = >, ad esempio *XXXXXXXXXXXXXXXXXXXXX = =*
 
 Il comando seguente monta una condivisione file *myfileshare* nell'account di archiviazione *mystorageaccountname* in */mnt/MyAzureFileShare*: 
 

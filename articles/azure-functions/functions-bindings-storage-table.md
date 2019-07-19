@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: b815ce95da24b20ff18ea03d637ad85bfe72cb00
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 5c3049b5f9f7607b9b75f3bee48b6ccd44601b15
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654252"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254748"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associazioni di Archiviazione tabelle di Azure per Funzioni di Azure
 
@@ -493,7 +493,7 @@ L'account di archiviazione da usare è determinato nell'ordine seguente:
 
 ## <a name="input---java-annotations"></a>Input - Annotazioni Java
 
-Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare `@TableInput` l'annotazione per i parametri il cui valore deriva dall’archiviazione tabelle.  Questa annotazione può essere usata con i tipi Java nativi, con oggetti POJO o con valori di tipo nullable tramite Facoltativo<T>. 
+Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare `@TableInput` l'annotazione per i parametri il cui valore deriva dall’archiviazione tabelle.  Questa annotazione può essere usata con i tipi nativi Java, POJO o i valori\<Nullable usando l'opzione facoltativa T >. 
 
 ## <a name="input---configuration"></a>Input - configurazione
 

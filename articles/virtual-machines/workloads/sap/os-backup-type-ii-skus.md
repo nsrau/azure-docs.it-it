@@ -1,6 +1,6 @@
 ---
 title: Backup e ripristino del sistema operativo per SKU di tipo II di istanze Large di SAP HANA in Azure | Microsoft Docs
-description: Eseguire il backup e il ripristino del sistema operativo per SKU di tipo II di istanze Large di SAP HANA in Azure
+description: Eseguire il backup e il ripristino del sistema operativo per SAP HANA in SKU di tipo II di Azure (istanze large)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -11,34 +11,38 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dacc0a745fc387dcaf6be282b562d83e1b798ea4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3afcd429351a0d988ff0e82ecf09f524ceac70f1
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710106"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868976"
 ---
-# <a name="os-backup-and-restore-for-type-ii-skus"></a>Backup e ripristino del sistema operativo per SKU di tipo II
+# <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Backup e ripristino del sistema operativo per SKU di tipo II di indicatori di revisione 3
 
-Questo documento descrive la procedura per eseguire il backup e il ripristino del sistema operativo per **SKU di tipo II** di SAP HANA in istanze Large. 
+Questo documento descrive i passaggi per eseguire un backup e un ripristino a livello di file del sistema operativo per gli **SKU di tipo II** delle istanze large di Hana di revisione 3. 
+
+>[!Important]
+> **Questo articolo non si applica alle distribuzioni SKU di tipo II nei timbri delle istanze large di revisione 4 HANA.** I LUN di avvio di tipo II unità di istanze large di HANA distribuite nella revisione 4 gli indicatori di istanze large di HANA possono essere sottoposti a backup con snapshot di archiviazione, come nel caso degli SKU di tipo I già presenti negli indicatori di revisione 3
+
 
 >[!NOTE]
 >Gli script di backup del sistema operativo usano il software ReaR preinstallato nel server.  
 
-Dopo che il team di gestione dei servizi Microsoft ha completato il provisioning, per impostazione predefinita il server risulta configurato per la pianificazione dell'esecuzione di due backup del sistema operativo a livello di file system. È possibile controllare la pianificazione del processo di backup tramite il comando seguente:
+Al termine del provisioning da parte del team `Service Management` Microsoft, per impostazione predefinita, il server viene configurato con due pianificazioni di backup per eseguire il backup del file System livello di backup del sistema operativo. È possibile controllare le pianificazioni dei processi di backup usando il comando seguente:
 ```
 #crontab –l
 ```
-È possibile modificare la pianificazione del backup qualsiasi momento usando il comando seguente:
+È possibile modificare la pianificazione del backup in qualsiasi momento usando il comando seguente:
 ```
 #crontab -e
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Esecuzione di un backup manuale
 
-Il backup del file system del sistema operativo viene già pianificato usando un **processo cron**. Tuttavia, è possibile eseguire il backup del sistema operativo a livello di file system anche manualmente. Per eseguire un backup manuale, usare il comando seguente:
+Il backup del sistema operativo file system è già pianificato usando un **processo cron** . Tuttavia, è possibile eseguire il backup del sistema operativo a livello di file system anche manualmente. Per eseguire un backup manuale, usare il comando seguente:
 
 ```
 #rear -v mkbackup
@@ -64,7 +68,7 @@ Il comando seguente consente di eseguire il ripristino di un file */etc/fstab* d
 >[!NOTE] 
 >È necessario copiare il file nella posizione desiderata dopo il ripristino dal backup.
 
-Lo screenshot seguente illustra il ripristino di un backup completo:
+Lo screenshot seguente mostra il ripristino di un backup completo:
 
 ![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
@@ -96,4 +100,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-Lo screenshot seguente illustra il ripristino di un backup completo: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+Lo screenshot seguente mostra il ripristino di un backup completo: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

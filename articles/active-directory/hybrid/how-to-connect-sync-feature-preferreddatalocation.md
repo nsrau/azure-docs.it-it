@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff74db14a1621cdcea1b1ae082d351ce6a3a52f6
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473017"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227397"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Servizio di sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse di Office 365
 Questo argomento illustra in dettaglio come configurare l'attributo relativo al percorso dati preferito nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Quando qualcuno usa Multi-Geo Capabilities in Office 365, si usa questo attributo per definire la posizione geografica dei dati di Office 365 dell'utente. I termini *area* e *area geografica* vengono usati in modo intercambiabile.
@@ -32,7 +32,7 @@ Per impostazione predefinita, le risorse di Office 365 per gli utenti si trovano
 Impostando l'attributo **preferredDataLocation** è possibile definire l'area geografica dell'utente. È possibile avere le risorse di Office 365 dell'utente, ad esempio la cassetta postale e OneDrive, nella stessa area geografica dell'utente e continuare ad avere un tenant per l'intera organizzazione.
 
 > [!IMPORTANT]
-> Multi-Geo Capabilities è attualmente disponibile per i clienti con un minimo di 2.500 abbonamenti ai servizi di Office 365. Per informazioni dettagliate, contattare il rappresentante Microsoft.
+> La funzionalità multigeo è attualmente disponibile per i clienti con almeno 500 abbonamenti ai servizi di Office 365. Per informazioni dettagliate, contattare il rappresentante Microsoft.
 >
 >
 
@@ -50,6 +50,8 @@ Le aree geografiche di Office 365 disponibili per Multi-Geo Capabilities sono:
 | India | IND |
 | Giappone | JPN |
 | Corea del Sud | KOR |
+| Sud Africa | ZAF |
+| Emirati Arabi Uniti | SONO |
 | Regno Unito | GBR |
 | Stati Uniti | NAM |
 
@@ -126,8 +128,8 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 
     | Attributo | Value | Dettagli |
     | --- | --- | --- |
-    | NOME | *Specificare un nome* | Ad esempio, "In entrata da AD - Utente PreferredDataLocation" |
-    | Descrizione | *Fornire una descrizione personalizzata* |  |
+    | Name | *Specificare un nome* | Ad esempio, "In entrata da AD - Utente PreferredDataLocation" |
+    | DESCRIZIONE | *Fornire una descrizione personalizzata* |  |
     | Connected System | *Selezionare l'istanza di Active Directory Connector locale* |  |
     | Connected System Object Type | **Utente** |  |
     | Metaverse Object Type | **Person** |  |
@@ -137,9 +139,9 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 5. Lasciare vuoto il campo **Scoping filter** (Filtro di ambito) per includere tutti gli oggetti. Potrebbe essere necessario perfezionare il filtro di ambito in base alla distribuzione di Azure AD Connect.
 6. Passare alla **scheda Trasformazione** e implementare la regola di trasformazione seguente:
 
-    | Tipo di flusso | Attributo di destinazione | `Source` | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
-    |Diretto | preferredDataLocation | Selezionare l'attributo di origine | Non selezionato | Aggiornamento |
+    |Diretto | preferredDataLocation | Selezionare l'attributo di origine | Non selezionato | Aggiorna |
 
 7. Per creare la regola in entrata, selezionare **Aggiungi**.
 
@@ -155,8 +157,8 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 
     | Attributo | Value | Dettagli |
     | ----- | ------ | --- |
-    | NOME | *Specificare un nome* | Ad esempio, "In uscita verso AAD - Utente PreferredDataLocation" |
-    | Descrizione | *Inserire una descrizione* ||
+    | Name | *Specificare un nome* | Ad esempio, "In uscita verso AAD - Utente PreferredDataLocation" |
+    | DESCRIZIONE | *Inserire una descrizione* ||
     | Connected System | *Selezionare il connettore di Azure AD* ||
     | Connected System Object Type | **Utente** ||
     | Metaverse Object Type | **Person** ||
@@ -174,9 +176,9 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 
 6. Passare alla scheda **Trasformazione** e implementare la regola di trasformazione seguente:
 
-    | Tipo di flusso | Attributo di destinazione | `Source` | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
-    | Diretto | preferredDataLocation | preferredDataLocation | Non selezionato | Aggiornamento |
+    | Diretto | preferredDataLocation | preferredDataLocation | Non selezionato | Aggiorna |
 
 7. Fare clic su **Aggiungi** per creare la regola in uscita.
 

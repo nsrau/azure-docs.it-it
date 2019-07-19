@@ -8,16 +8,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 04/16/2019
+ms.date: 07/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 4e0af3b395ec640fd037a1e76365408c10613340
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0e78d9cfce59615a53534fe9815205e39f64853d
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477006"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868824"
 ---
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per il servizio di Azure Machine Learning
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning servizio
 
 In questo articolo vengono illustrati diversi modi per creare un'area di lavoro del servizio Azure Machine Learning con modelli Azure Resource Manager. Il modello di Resource Manager consente di creare le risorse come un'unica operazione coordinata. Un modello è un documento JSON che definisce le risorse necessarie per una distribuzione. Può anche specificare i parametri di distribuzione. I parametri sono usati per fornire i valori di input quando si usa il modello.
 
@@ -31,7 +31,7 @@ Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Ge
 
 ## <a name="resource-manager-template"></a>Modello di Resource Manager
 
-Il modello di Resource Manager seguente è utilizzabile per creare un'area di lavoro del servizio di Azure Machine Learning e le risorse di Azure associate:
+Il modello di Gestione risorse seguente può essere usato per creare un'area di lavoro del servizio Azure Machine Learning e le risorse di Azure associate:
 
 [!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 
@@ -104,18 +104,18 @@ az group deployment create \
 
 Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md) e [Distribuire un modello di Resource Manager privato con un token di firma di accesso condiviso e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/resource-manager-cli-sas-token.md).
 
-## <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>I criteri di accesso di Azure Key Vault e i modelli di Azure Resource Manager
+## <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Criteri di accesso Azure Key Vault e modelli di Azure Resource Manager
 
-Quando si usa un modello Azure Resource Manager per creare l'area di lavoro e le risorse associate, incluso Azure Key Vault, più volte. Ad esempio, usando il modello più volte con gli stessi parametri come parte di una pipeline di distribuzione e integrazione continua.
+Quando si usa un modello di Azure Resource Manager per creare l'area di lavoro e le risorse associate (incluso Azure Key Vault), più volte. Ad esempio, l'uso del modello più volte con gli stessi parametri come parte di una pipeline di integrazione e distribuzione continua.
 
-La maggior parte delle operazioni di creazione di risorse tramite i modelli sono idempotenti, ma Key Vault consente di cancellare i criteri di accesso ogni volta che viene usato il modello. Cancellare l'accesso di interruzioni i criteri di accesso all'insieme di credenziali chiave per qualsiasi area di lavoro esistente che lo usa. Ad esempio, le funzionalità di arresto/crea notebook della VM di Azure potrebbero non riuscire.  
+La maggior parte delle operazioni di creazione di risorse tramite i modelli è idempotente, ma Key Vault Cancella i criteri di accesso ogni volta che viene usato il modello. La cancellazione dei criteri di accesso consente di suddividere l'accesso alla Key Vault per tutte le aree di lavoro esistenti che lo usano. Ad esempio, le funzionalità di arresto/creazione di Azure Notebooks macchina virtuale potrebbero non riuscire.  
 
-Per evitare questo problema, è consigliabile uno degli approcci seguenti:
+Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
 
-*  Non distribuire il modello più volte per gli stessi parametri. O eliminare le risorse esistenti prima di usare il modello per ricrearle.
+*  Non distribuire il modello più di una volta per gli stessi parametri. In alternativa, eliminare le risorse esistenti prima di usare il modello per ricrearle.
   
-* Esaminare i criteri di accesso di Key Vault e quindi usare tali criteri per impostare la proprietà di criteri di accesso del modello.
-* Controllare se la risorsa insieme di credenziali delle chiavi esiste già. In caso affermativo, non ricrearla tramite il modello. Ad esempio, aggiungere un parametro che consente di disabilitare la creazione della risorsa insieme di credenziali chiave se esiste già.
+* Esaminare i criteri di accesso Key Vault e quindi usare questi criteri per impostare la proprietà accessPolicies del modello.
+* Controllare se la risorsa Key Vault esiste già. In caso contrario, non ricrearlo tramite il modello. Ad esempio, aggiungere un parametro che consente di disabilitare la creazione della risorsa Key Vault se esiste già.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

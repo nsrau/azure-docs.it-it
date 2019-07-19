@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 33e1287edbca6b603d103f11636959b6fe13e578
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 5fee129e24d38da350589d5bed90123733f148c0
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798085"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296067"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Avvio rapido: Configurare una connessione da punto a sito a un'istanza gestita di database SQL di Azure da un computer locale
 
@@ -28,14 +28,14 @@ Questa guida introduttiva illustra come connettersi a un'istanza gestita di data
 La guida introduttiva:
 
 - Usa le risorse create in [Creare un'istanza gestita](sql-database-managed-instance-get-started.md) come punto iniziale.
-- È necessario PowerShell 5.1 e AZ PowerShell 1.4.0 o versione successiva nel computer client locale. Se necessario, vedere le istruzioni per l'[installazione del modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
+- Richiede PowerShell 5,1 e AZ PowerShell 1.4.0 o versione successiva nel computer client locale. Se necessario, vedere le istruzioni per l'[installazione del modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
 - Richiede la versione più recente di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) nel computer client locale.
 
 ## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>Collegare un gateway VPN alla rete virtuale dell'istanza gestita
 
 1. Aprire PowerShell nel computer client locale.
 
-2. Copiare questo script di PowerShell. Questo script allega un gateway VPN alla rete virtuale dell'istanza gestita che è stata creata nella guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md). Lo script esegue queste operazioni:
+2. Copiare questo script di PowerShell. Questo script allega un gateway VPN alla rete virtuale dell'istanza gestita che è stata creata nella guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md). Questo script usa il Azure PowerShell AZ Module e effettuerà le operazioni seguenti per gli host basati su Windows o Linux:
 
    - Crea e installa i certificati nel computer client
    - Calcola l'intervallo IP della subnet del futuro gateway VPN
@@ -55,15 +55,12 @@ La guida introduttiva:
      Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
 
-     > [!IMPORTANT]
-     > Per usare il modulo Azure PowerShell Resource Manager anziché il modulo di Az, usare il cmdlet seguente: `attachVPNGateway.ps1` anziché il `attachVPNGatewayAz.ps1` cmdlet.
-
 3. Incollare lo script nella finestra di PowerShell e fornire i parametri obbligatori. I valori per `<subscriptionId>`, `<resourceGroup>` e `<virtualNetworkName>` devono corrispondere a quelli usati per l'avvio rapido [Creare un'istanza gestita](sql-database-managed-instance-get-started.md). Il valore per `<certificateNamePrefix>` può essere una stringa di propria scelta.
 
 4. Eseguire lo script di PowerShell.
 
 > [!IMPORTANT]
-> Non continuare finché non viene completato lo script di PowerShell.
+> Non continuare fino al completamento dello script di PowerShell.
 
 ## <a name="create-a-vpn-connection-to-your-managed-instance"></a>Creare una connessione VPN all'istanza gestita
 
@@ -72,17 +69,17 @@ La guida introduttiva:
 3. Selezionare **Configurazione da punto a sito** e quindi selezionare **Scarica client VPN**.
 
     ![Scaricare il client VPN](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
-4. Nel computer client in locale, estrarre i file dal file zip e quindi aprire la cartella con i file estratti.
-5. Aprire il '**WindowsAmd64** cartella e aprire il **VpnClientSetupAmd64.exe** file.
+4. Nel computer client locale estrarre i file dal file zip e quindi aprire la cartella con i file estratti.
+5. Aprire la cartella "**WindowsAmd64** " e aprire il file **VpnClientSetupAmd64. exe** .
 6. Se viene visualizzato un messaggio per segnalare che **il PC è stato protetto da Windows**, fare clic su **Altre informazioni** e quindi su **Esegui comunque**.
 
     ![Installare il client VPN](./media/sql-database-managed-instance-configure-p2s/vpn-client-defender.png)\
-7. Nella finestra di dialogo controllo dell'Account utente, fare clic su **Sì** per continuare.
-8. Nella finestra di dialogo che fanno riferimento a rete virtuale, selezionare **Sì** per installare il Client VPN per rete virtuale.
+7. Nella finestra di dialogo controllo account utente fare clic su **Sì** per continuare.
+8. Nella finestra di dialogo che fa riferimento alla rete virtuale selezionare **Sì** per installare il client VPN per la rete virtuale.
 
 ## <a name="connect-to-the-vpn-connection"></a>Connettersi alla VPN
 
-1. Passare a **VPN** nelle **rete e Internet** nel computer client in locale e selezionare la rete virtuale a istanza gestita per stabilire una connessione a questa rete virtuale. Nell'immagine seguente, la rete virtuale è denominata **MyNewVNet**.
+1. Passare a **VPN** in **rete & Internet** nel computer client locale e selezionare la rete virtuale istanza gestita per stabilire una connessione a questa VNet. Nell'immagine seguente, la rete virtuale è denominata **MyNewVNet**.
 
     ![Connessione VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
 2. Selezionare **Connessione**.

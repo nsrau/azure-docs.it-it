@@ -7,18 +7,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
-ms.author: tylerfox
-ms.openlocfilehash: f7c894bcb3183714a76578a6750c8e85493e3094
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.author: tyfox
+ms.openlocfilehash: 2035f5c7666d93068fd8007555bfe1aadae58ff1
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508068"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67873928"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestire cluster Apache Hadoop in HDInsight usando Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. In questo articolo descrive come gestire [Apache Hadoop](https://hadoop.apache.org/) cluster in Azure HDInsight usando il modulo Azure PowerShell Az. Per l'elenco dei cmdlet di HDInsight PowerShell, vedere la [Az.HDInsight riferimento](https://docs.microsoft.com/powershell/module/az.hdinsight).
+Azure PowerShell può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. Questo articolo illustra come gestire i cluster di [Apache Hadoop](https://hadoop.apache.org/) in Azure HDInsight usando il modulo Azure PowerShell AZ. Per l'elenco dei cmdlet di PowerShell per HDInsight, vedere il [riferimento AZ. HDInsight](https://docs.microsoft.com/powershell/module/az.hdinsight).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -142,7 +142,7 @@ Grant-AzHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $c
 > [!NOTE]  
 > La concessione/revoca dell'accesso implica la reimpostazione del nome utente e della password del cluster.
 
-La concessione e la revoca dell'accesso possono essere eseguite anche tramite il portale. Visualizzare [gestire Apache cluster Hadoop in HDInsight tramite il portale di Azure](hdinsight-administer-use-portal-linux.md).
+La concessione e la revoca dell'accesso possono essere eseguite anche tramite il portale. Vedere [gestire i cluster Apache Hadoop in HDInsight usando il portale di Azure](hdinsight-administer-use-portal-linux.md).
 
 ## <a name="update-http-user-credentials"></a>Aggiornare le credenziali utente HTTP
 È la stessa procedura di Concessione/revoca dell'accesso HTTP. Se al cluster è stato concesso l'accesso HTTP, è necessario innanzitutto revocarlo.  E quindi concedere l'accesso con le nuove credenziali utente HTTP.
@@ -204,7 +204,7 @@ Vedere [Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso 
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Caricare dati nell'archivio BLOB di Azure
 
-Visualizzare [caricare i dati in HDInsight](hdinsight-upload-data.md).
+Vedere [caricare dati in HDInsight](hdinsight-upload-data.md).
 
 ## <a name="see-also"></a>Vedere anche
 

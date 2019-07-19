@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 132dd91ba121fc5939a0f30194fe4abdd3755414
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511863"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847041"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-L'elemento **ClaimsSchema** definisce i tipi di attestazione a cui è possibile fare riferimento nei criteri. Lo schema di attestazioni è il posto in cui si dichiarano le attestazioni. Un'attestazione può essere un nome, un cognome, un nome visualizzato, un numero di telefono e altro ancora. L'elemento ClaimsSchema contiene l'elenco degli elementi **ClaimType**. Un elemento **ClaimType** contiene l'attributo **Id**, che è il nome dell'attestazione. 
+L'elemento **ClaimsSchema** definisce i tipi di attestazione a cui è possibile fare riferimento nei criteri. Lo schema di attestazioni è il posto in cui si dichiarano le attestazioni. Un'attestazione può essere un nome, un cognome, un nome visualizzato, un numero di telefono e altro ancora. L'elemento ClaimsSchema contiene l'elenco degli elementi **ClaimType**. Un elemento **ClaimType** contiene l'attributo **Id**, che è il nome dell'attestazione.
 
 ```XML
 <BuildingBlocks>
@@ -71,7 +71,7 @@ L'elemento **Protocollo** contiene gli attributi seguenti:
 
 | Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| Name | Yes | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed o WsTrust. |
+| Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed o WsTrust. |
 | PartnerClaimType | Yes | Nome del tipo di attestazione da usare. |
 
 Nell'esempio seguente, quando il framework dell'esperienza di gestione delle identità interagisce con un provider di identità SAML2 o un'applicazione basata su attestazioni, l'attestazione **surname** (cognome) viene mappata a `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Quando il framework interagisce con OpenIdConnect e OAuth2, l'attestazione viene mappata a `family_name`.
@@ -89,7 +89,7 @@ Nell'esempio seguente, quando il framework dell'esperienza di gestione delle ide
 ```
 
 Il token JWT emesso da Azure AD B2C crea quindi `family_name` invece del nome di ClaimType **surname** (cognome).
- 
+
 ```JSON
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
@@ -106,8 +106,8 @@ L'elemento **Mask** contiene gli attributi seguenti:
 
 | Attributo | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
-| `Type` | Yes | Tipo di maschera dell'attestazione. I valori possibili sono: `Simple` o `Regex`. Il valore `Simple` indica che viene applicata una semplice maschera di testo alla porzione iniziale di un'attestazione di tipo stringa. Il valore `Regex` indica che viene applicata un'espressione regolare all'intera attestazione di tipo stringa.  Se viene specificato il valore `Regex`, è necessario definire anche un attributo facoltativo insieme all'espressione regolare da usare. |
-| `Regex` | No | Se **`Type`** è impostata su `Regex`, specificare l'espressione regolare da utilizzare.
+| `Type` | Sì | Tipo di maschera dell'attestazione. I valori possibili sono: `Simple` o `Regex`. Il valore `Simple` indica che viene applicata una semplice maschera di testo alla porzione iniziale di un'attestazione di tipo stringa. Il valore `Regex` indica che viene applicata un'espressione regolare all'intera attestazione di tipo stringa.  Se viene specificato il valore `Regex`, è necessario definire anche un attributo facoltativo insieme all'espressione regolare da usare. |
+| `Regex` | No | Se **`Type`** è impostato su `Regex`, specificare l'espressione regolare da usare.
 
 L'esempio seguente configura un'attestazione **PhoneNumber** con la maschera `Simple`:
 
@@ -115,14 +115,14 @@ L'esempio seguente configura un'attestazione **PhoneNumber** con la maschera `Si
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
-  <Mask Type="Simple">XXX-XXX-</Mask>  
+  <Mask Type="Simple">XXX-XXX-</Mask>
   <UserHelpText>Your telephone number.</UserHelpText>
 </ClaimType>
 ```
 
 Il framework dell'esperienza di gestione delle identità esegue il rendering del numero di telefono e al contempo nasconde le prime sei cifre:
 
-![Utilizzo del tipo di attestazione con maschera (mask)](./media/claimsschema/mask.png)
+![Attestazione del numero di telefono visualizzata nel browser con le prime sei cifre mascherate da XS](./media/claimsschema/mask.png)
 
 L'esempio seguente configura un'attestazione **AlternateEmail** con la maschera `Regex`:
 
@@ -137,14 +137,14 @@ L'esempio seguente configura un'attestazione **AlternateEmail** con la maschera 
 
 Il framework dell'esperienza di gestione delle identità esegue il rendering solo della prima lettera dell'indirizzo e-mail e del nome del dominio di posta elettronica:
 
-![Utilizzo del tipo di attestazione con maschera (mask)](./media/claimsschema/mask-regex.png)
+![Attestazione posta elettronica visualizzata nel browser con caratteri mascherati da asterischi](./media/claimsschema/mask-regex.png)
 
 
 ### <a name="restriction"></a>Restrizione
 
 L'elemento **Restriction** può contenere l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | MergeBehavior | No | Metodo usato per unire i valori di enumerazione con un elemento ClaimType nei criteri padre avente lo stesso identificatore. Usare questo attributo quando si sovrascrive un'attestazione specificata nei criteri di base. I valori possibili sono: `Append`, `Prepend` o `ReplaceAll`. Il valore `Append` è una raccolta di dati che è consigliabile accodare alla fine della raccolta specificata nei criteri padre. Il valore `Prepend` è una raccolta di dati che è consigliabile aggiungere all'inizio della raccolta specificata nei criteri padre. Il `ReplaceAll` valore è una raccolta di dati specificati nei criteri padre che è consigliabile ignorare. |
 
@@ -153,16 +153,16 @@ L'elemento **Restriction** contiene gli elementi seguenti:
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | Enumerazione | 1:n | Opzioni disponibili nell'interfaccia utente che l'utente può selezionare per un'attestazione, ad esempio un valore in un menu a discesa. |
-| Pattern | 1:1 | Espressione regolare da usare. |
+| Modello | 1:1 | Espressione regolare da usare. |
 
 ### <a name="enumeration"></a>Enumerazione
 
 L'elemento **Enumeration** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| Text | Yes | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
-|Value | Yes | Valore di attestazione che viene associato alla selezione di questa opzione. |
+| Text | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
+|Value | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
 | SelectByDefault | No | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. Valori possibili: True o False. |
 
 L'esempio seguente configura un'attestazione di elenco a discesa di **città** con il valore predefinito impostato su `New York`:
@@ -179,12 +179,12 @@ L'esempio seguente configura un'attestazione di elenco a discesa di **città** c
   </Restriction>
 </ClaimType>
 ```
+
 Elenco a discesa delle città con valore predefinito impostato su New York:
 
-![Elenco a discesa delle città](./media/claimsschema/dropdownsingleselect.png)
+![Controllo DropDown sottoposto a rendering nel browser e visualizzazione del valore predefinito](./media/claimsschema/dropdownsingleselect.png)
 
-
-### <a name="pattern"></a>Pattern
+### <a name="pattern"></a>Modello
 
 L'elemento **Pattern** può contenere gli attributi seguenti:
 
@@ -212,7 +212,7 @@ L'esempio seguente configura un'attestazione **messaggio e-mail** con la convali
 
 Il framework dell'esperienza di gestione delle identità esegue il rendering dell'attestazione indirizzo e-mail con la convalida di input del formato dell'indirizzo di posta elettronica:
 
-![Utilizzo del tipo di attestazione con modello (pattern)](./media/claimsschema/pattern.png)
+![Casella di testo che mostra il messaggio di errore attivato dalla restrizione Regex](./media/claimsschema/pattern.png)
 
 ## <a name="userinputtype"></a>UserInputType
 
@@ -222,7 +222,7 @@ Azure AD B2C supporta molti tipi di input utente, ad esempio casella di testo, p
 
 Il tipo di input utente **TextBox** viene usato per visualizzare una casella di testo a riga singola.
 
-![Utilizzo del tipo di attestazione con casella di testo (textbox)](./media/claimsschema/textbox.png)
+![TextBox che mostra le proprietà specificate nel tipo di attestazione](./media/claimsschema/textbox.png)
 
 ```XML
 <ClaimType Id="displayName">
@@ -237,7 +237,7 @@ Il tipo di input utente **TextBox** viene usato per visualizzare una casella di 
 
 Il tipo di input utente **EmailBox** viene usato per visualizzare un campo di input di base per l'e-mail.
 
-![Utilizzo del tipo di attestazione con casella e-mail (emailbox)](./media/claimsschema/emailbox.png)
+![EmailBox che mostra le proprietà specificate nel tipo di attestazione](./media/claimsschema/emailbox.png)
 
 ```XML
 <ClaimType Id="email">
@@ -297,7 +297,7 @@ Il tipo di input utente **RadioSingleSelect** viene usato per visualizzare una r
     <Enumeration Text="Green " Value="Green" SelectByDefault="false" />
     <Enumeration Text="Orange" Value="Orange" SelectByDefault="true" />
   </Restriction>
-</ClaimType>    
+</ClaimType>
 ```
 
 ### <a name="dropdownsingleselect"></a>DropdownSingleSelect
@@ -375,4 +375,4 @@ Il tipo di input utente **Paragraph** viene usato per visualizzare un campo che 
 </ClaimType>
 ```
 
-Per visualizzare uno dei valori di **Enumeration** in un'attestazione **responseMsg** (Msgrisposta), usare la trasformazione di attestazioni `GetMappedValueFromLocalizedCollection` o `CreateStringClaim`. Per altre informazioni, vedere [String Claims Transformations](string-transformations.md) (Trasformazioni di attestazioni stringa) 
+Per visualizzare uno dei valori di **Enumeration** in un'attestazione **responseMsg** (Msgrisposta), usare la trasformazione di attestazioni `GetMappedValueFromLocalizedCollection` o `CreateStringClaim`. Per altre informazioni, vedere [String Claims Transformations](string-transformations.md) (Trasformazioni di attestazioni stringa)

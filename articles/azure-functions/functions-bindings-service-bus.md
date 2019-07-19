@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 46e6858376fa70b4b57b6106f8292b842f206d01
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 12a80f77720a6e93a6631947f13247b667c34897
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480224"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254742"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associazioni del bus di servizio di Azure per Funzioni di Azure
 
@@ -148,7 +148,7 @@ let Run(myQueueItem: string, log: ILogger) =
 
 ### <a name="trigger---java-example"></a>Trigger - Esempio Java
 
-La funzione di Java seguente usa il `@ServiceBusQueueTrigger` annotazione dal [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) per descrivere la configurazione per un trigger della coda del Bus di servizio. La funzione recupera il messaggio inserito nella coda e lo aggiunge ai log.
+La funzione Java seguente usa l' `@ServiceBusQueueTrigger` annotazione dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) per descrivere la configurazione per un trigger della coda del bus di servizio. La funzione acquisisce il messaggio inserito nella coda e lo aggiunge ai log.
 
 ```java
 @FunctionName("sbprocessor")
@@ -162,7 +162,7 @@ La funzione di Java seguente usa il `@ServiceBusQueueTrigger` annotazione dal [l
  }
 ```
 
-Funzioni Java possono essere attivate anche quando un messaggio viene aggiunto a un argomento del Bus di servizio. L'esempio seguente usa il `@ServiceBusTopicTrigger` annotazioni per descrivere la configurazione del trigger.
+Le funzioni Java possono essere attivate anche quando un messaggio viene aggiunto a un argomento del bus di servizio. Nell'esempio seguente viene utilizzata `@ServiceBusTopicTrigger` l'annotazione per descrivere la configurazione del trigger.
 
 ```java
 @FunctionName("sbtopicprocessor")
@@ -295,7 +295,7 @@ In C# e nello script C# è possibile usare i tipi di parametro seguenti per il m
 * `string`: se il messaggio è costituito da testo.
 * `byte[]`: utile per i dati binari.
 * Un tipo personalizzato: se il messaggio contiene JSON, Funzioni di Azure tenta di deserializzare i dati JSON.
-* `BrokeredMessage`: visualizza il messaggio deserializzato con il metodo [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
+* `BrokeredMessage`: Fornisce il messaggio deserializzato con il metodo [BrokeredMessage. GetBody\<T > ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
 
 Questi parametri sono per le versioni di Funzioni di Azure 1.x. Per le versioni 2.x, usare [ `Message` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) invece di `BrokeredMessage`.
 
@@ -315,7 +315,7 @@ Il valore `maxAutoRenewDuration` può essere configurato in *host.json*, che ese
 
 Il trigger del bus di servizio fornisce diverse [proprietà di metadati](./functions-bindings-expressions-patterns.md#trigger-metadata). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste sono le proprietà della classe [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
 
-|Proprietà|Type|Descrizione|
+|Proprietà|Type|DESCRIZIONE|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|Il numero di recapiti.|
 |`DeadLetterSource`|`string`|La coda di messaggi non recapitabili.|
@@ -330,7 +330,7 @@ Il trigger del bus di servizio fornisce diverse [proprietà di metadati](./funct
 |`CorrelationId`|`string`|L'ID di correlazione.|
 
 > [!NOTE]
-> Trigger del bus di servizio che funziona con le sottoscrizioni e le code attivata dalla sessione è attualmente in anteprima. Per rilevare [questo elemento](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) per altri aggiornamenti relativi a questo. 
+> Attualmente, il trigger del bus di servizio che funziona con le code e le sottoscrizioni abilitate per la sessione è in anteprima. Tieni traccia di [questo elemento](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) per eventuali altri aggiornamenti. 
 
 Vedere gli [esempi di codice](#trigger---example) che usano queste proprietà in precedenza in questo articolo.
 
@@ -348,7 +348,7 @@ Il file [host.json](functions-host-json.md#servicebus) contiene le impostazioni 
 }
 ```
 
-|Proprietà  |Predefinito | Descrizione |
+|Proprietà  |Predefinito | DESCRIZIONE |
 |---------|---------|---------|
 |maxConcurrentCalls|16|Il numero massimo di chiamate simultanee al callback che il message pump deve avviare. Per impostazione predefinita, il runtime di Funzioni elabora più messaggi contemporaneamente. Per fare in modo che il runtime elabori un solo messaggio della coda o dell'argomento alla volta, impostare `maxConcurrentCalls` su 1. |
 |prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato per il MessageReceiver sottostante.|
@@ -488,7 +488,7 @@ public String pushToQueue(
 
  Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) usare `@QueueOutput` l'annotazione per i parametri di funzione il cui valore viene scritto in una coda di bus di servizio.  Il tipo di parametro deve essere `OutputBinding<T>`, dove T corrisponde a un qualsiasi tipo Java nativo di un oggetto POJO.
 
-Funzioni Java anche possono scrivere un argomento del Bus di servizio. L'esempio seguente usa il `@ServiceBusTopicOutput` annotazioni per descrivere la configurazione per l'associazione di output. 
+Le funzioni Java possono anche scrivere in un argomento del bus di servizio. Nell'esempio seguente viene utilizzata `@ServiceBusTopicOutput` l'annotazione per descrivere la configurazione per l'associazione di output. 
 
 ```java
 @FunctionName("sbtopicsend")

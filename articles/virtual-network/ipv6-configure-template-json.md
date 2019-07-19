@@ -1,7 +1,7 @@
 ---
-title: Distribuire un'applicazione dual-stack IPv6 nella rete virtuale di Azure - modello di Resource Manager (anteprima)
+title: Distribuire un'applicazione IPv6 dual stack con Load Balancer di base in rete virtuale di Azure-modello di Resource Manager (anteprima)
 titlesuffix: Azure Virtual Network
-description: Questo articolo illustra come distribuisce un'applicazione di dual-stack IPv6 nella rete virtuale di Azure usando i modelli di VM di Azure Resource Manager.
+description: Questo articolo illustra come distribuire un'applicazione IPv6 dual stack in rete virtuale di Azure usando Azure Resource Manager modelli di VM.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -10,26 +10,26 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/22/2019
+ms.date: 06/26/2019
 ms.author: kumud
-ms.openlocfilehash: ae90bc4a12763803f38224d917c4644a68ae7d6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e97a5a478871d94e074b59558a11df1ec752b0f9
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130933"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249851"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure---template-preview"></a>Distribuire un'applicazione di dual-stack IPv6 in Azure - modello (anteprima)
+# <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template-preview"></a>Distribuire un'applicazione IPv6 dual stack con Load Balancer di base in Azure-template (anteprima)
 
-Questo articolo fornisce un elenco delle attività di configurazione di IPv6 con la parte del modello di VM di Azure Resource Manager che si applica a. Usare il modello descritto in questo articolo per distribuire un'applicazione dual stack (IPv4 + IPv6) in Azure che include una dual-stack rete virtuale con subnet IPv4 e IPv6, un servizio di bilanciamento del carico con configurazioni front-end dual (IPv4 + IPv6), le macchine virtuali con schede di rete che abbia un IP doppia Configurazione gruppo di sicurezza di rete e indirizzi IP pubblici. 
+Questo articolo fornisce un elenco delle attività di configurazione di IPv6 con la parte del modello di macchina virtuale Azure Resource Manager che si applica a. Usare il modello descritto in questo articolo per distribuire un'applicazione dual stack (IPv4 + IPv6) in Azure che include una rete virtuale a doppio stack con subnet IPv4 e IPv6, un servizio di bilanciamento del carico con due configurazioni front-end Dual (IPv4 + IPv6), VM con NIC con un doppio IP configurazione, gruppo di sicurezza di rete e indirizzi IP pubblici. 
 
-## <a name="required-configurations"></a>Configurazioni necessarie
+## <a name="required-configurations"></a>Configurazioni obbligatorie
 
-Cercare le sezioni del modello nel modello per vedere in cui dovranno essere eseguite.
+Cercare le sezioni del modello nel modello per vedere dove devono essere eseguite.
 
 ### <a name="ipv6-addressspace-for-the-virtual-network"></a>AddressSpace IPv6 per la rete virtuale
 
-Sezione di modello da aggiungere:
+Sezione del modello da aggiungere:
 
 ```JSON
         "addressSpace": {
@@ -38,9 +38,9 @@ Sezione di modello da aggiungere:
             "[variables('vnetv6AddressRange')]"    
 ```
 
-### <a name="ipv6-subnet-within-the-ipv6-virtual-network-addressspace"></a>Subnet IPv6 all'interno di addressSpace della rete virtuale IPv6
+### <a name="ipv6-subnet-within-the-ipv6-virtual-network-addressspace"></a>Subnet IPv6 all'interno della rete virtuale IPv6 addressSpace
 
-Sezione di modello da aggiungere:
+Sezione del modello da aggiungere:
 ```JSON
           {
             "name": "V6Subnet",
@@ -50,9 +50,9 @@ Sezione di modello da aggiungere:
 
 ```
 
-### <a name="ipv6-configuration-for-the-nic"></a>Configurazione di IPv6 per l'interfaccia di rete
+### <a name="ipv6-configuration-for-the-nic"></a>Configurazione IPv6 per la scheda di interfaccia di rete
 
-Sezione di modello da aggiungere:
+Sezione del modello da aggiungere:
 ```JSON
           {
             "name": "ipconfig-v6",
@@ -68,7 +68,7 @@ Sezione di modello da aggiungere:
                 }
 ```
 
-### <a name="ipv6-network-security-group-nsg-rules"></a>Regole di gruppo (NSG) di sicurezza di rete IPv6
+### <a name="ipv6-network-security-group-nsg-rules"></a>Regole del gruppo di sicurezza di rete IPv6 (NSG)
 
 ```JSON
           {
@@ -88,7 +88,7 @@ Sezione di modello da aggiungere:
 
 ## <a name="conditional-configuration"></a>Configurazione condizionale
 
-Se si usa un'appliance virtuale di rete, aggiungere le route IPv6 nella tabella di Route. In caso contrario, questa configurazione è facoltativa.
+Se si usa un'appliance virtuale di rete, aggiungere route IPv6 nella tabella di route. In caso contrario, questa configurazione è facoltativa.
 
 ```JSON
     {
@@ -109,7 +109,7 @@ Se si usa un'appliance virtuale di rete, aggiungere le route IPv6 nella tabella 
 
 ## <a name="optional-configuration"></a>Configurazione facoltativa
 
-### <a name="ipv6-internet-access-for-the-virtual-network"></a>Accesso a Internet IPv6 per la rete virtuale
+### <a name="ipv6-internet-access-for-the-virtual-network"></a>Accesso Internet IPv6 per la rete virtuale
 
 ```JSON
 {
@@ -134,7 +134,7 @@ Se si usa un'appliance virtuale di rete, aggiungere le route IPv6 nella tabella 
       }
 ```
 
-### <a name="ipv6-front-end-for-load-balancer"></a>IPv6 front-end di Load Balancer
+### <a name="ipv6-front-end-for-load-balancer"></a>Front-end IPv6 per Load Balancer
 
 ```JSON
           {
@@ -145,7 +145,7 @@ Se si usa un'appliance virtuale di rete, aggiungere le route IPv6 nella tabella 
               }
 ```
 
-### <a name="ipv6-back-end-address-pool-for-load-balancer"></a>Pool di indirizzi Back-end IPv6 per il bilanciamento del carico
+### <a name="ipv6-back-end-address-pool-for-load-balancer"></a>Pool di indirizzi back-end IPv6 per Load Balancer
 
 ```JSON
               "backendAddressPool": {
@@ -158,7 +158,7 @@ Se si usa un'appliance virtuale di rete, aggiungere le route IPv6 nella tabella 
             "name": "lbrule-v6"
 ```
 
-### <a name="ipv6-load-balancer-rules-to-associate-incoming-and-outgoing-ports"></a>IPv6 regole di load balancer per associare le porte in ingresso e in uscita
+### <a name="ipv6-load-balancer-rules-to-associate-incoming-and-outgoing-ports"></a>Regole del servizio di bilanciamento del carico IPv6 per associare le porte in ingresso e in uscita
 
 ```JSON
           {
@@ -175,9 +175,9 @@ Se si usa un'appliance virtuale di rete, aggiungere le route IPv6 nella tabella 
                 }
 ```
 
-## <a name="sample-vm-template-json"></a>Modello di macchina virtuale di esempio JSON
-Fare clic su [qui](https://azure.microsoft.com/resources/templates/ipv6-in-vnet/) per distribuire un'applicazione dual-stack IPv6 nella rete virtuale di Azure usando il modello di Azure Resource Manager.
+## <a name="sample-vm-template-json"></a>Esempio di modello di macchina virtuale JSON
+Per distribuire un'applicazione IPv6 dual stack in rete virtuale di Azure usando Azure Resource Manager modello, vedere il modello di esempio [qui](https://azure.microsoft.com/resources/templates/ipv6-in-vnet/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile trovare i dettagli sui prezzi relativi [gli indirizzi IP pubblici](https://azure.microsoft.com/pricing/details/ip-addresses/), [larghezza di banda di rete](https://azure.microsoft.com/pricing/details/bandwidth/), o [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+È possibile trovare informazioni dettagliate sui prezzi per [gli indirizzi IP pubblici](https://azure.microsoft.com/pricing/details/ip-addresses/), la [larghezza di banda di rete](https://azure.microsoft.com/pricing/details/bandwidth/)o [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

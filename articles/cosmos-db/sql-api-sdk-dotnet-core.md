@@ -8,18 +8,19 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 14350125f88c315a813eb64e3ce2b88dbec2aa24
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: de712d63fa2315a85c6c0eaf392d9c17758e4999
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340205"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226189"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>.NET Core SDK di Azure Cosmos DB per l'API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
+> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET Standard](sql-api-sdk-dotnet-standard.md)
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
@@ -35,38 +36,32 @@ ms.locfileid: "67340205"
 |**Download dell'SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
 |**Documentazione sull'API**|[Documentazione di riferimento API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
 |**Esempi**|[Esempi di codice .NET](sql-api-dotnet-samples.md)|
-|**Introduzione**|[Introduzione ad Azure Cosmos DB .NET Core SDK](sql-api-dotnet-core-get-started-preview.md)|
+|**Introduzione**|[Introduzione a Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
 |**Esercitazione sull'app Web**|[Sviluppo di applicazioni Web con Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Framework attualmente supportato**|[.NET standard 1.6 e .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>Note sulla versione
 
-Azure Cosmos DB .NET Core SDK ha le stesse funzionalità della versione più recente di [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
-
-### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-preview
-* Anteprima 1 della [versione 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) di .NET SDK per l'anteprima pubblica.
-* Destinazione .NET Standard, che supporta .NET framework 4.6.1+ e .NET Core 2.0 +
-* Nuovo modello a oggetti con il modulo CosmosClient di livello superiore e metodi suddivisi tra le relative classi CosmosDatabases, CosmosContainers e CosmosItems.
-* Supporto dei flussi.
-* Classe CosmosResponseMessage aggiornata a partire dal server per restituire il codice di stato e generare un'eccezione solo se non viene restituita alcuna risposta.
+> [!NOTE]
+> Se si usa .NET Core, vedere la versione 3. x più recente di [.NET SDK](sql-api-sdk-dotnet-standard.md), che ha come destinazione .NET standard. 
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
-* Correzioni di analisi di condizione di competizione per le query che ha causato le pagine vuote
+* Corregge la traccia race condition per le query che hanno causato pagine vuote
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* Versione del SDK System.NET. http corrisponde a quello definito nel pacchetto NuGet
-* Aumento delle dimensioni di precisione decimale per le query LINQ.
-* Aggiuntive nuove classi CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType e PartitionKeyDefinitionVersion
-* Aggiunta TimeToLivePropertyPath a DocumentCollection
-* Aggiunta CompositeIndexes e SpatialIndexes a IndexPolicy
-* Aggiunta la versione a PartitionKeyDefinition
-* Aggiunta di None per PartitionKey
+* La versione di System .NET. http dell'SDK corrisponde a quanto definito nel pacchetto NuGet
+* Aumento della dimensione di precisione decimale per le query LINQ.
+* Sono state aggiunte nuove classi CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType e PartitionKeyDefinitionVersion
+* Aggiunta di TimeToLivePropertyPath a DocumentCollection
+* Aggiunta di CompositeIndexes e SpatialIndexes a IndexPolicy
+* Aggiunta della versione a PartitionKeyDefinition
+* Aggiunto None a PartitionKey
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 
- * IdleTcpConnectionTimeout aggiunto, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection e MaxTcpConnectionsPerEndpoint a ConnectionPolicy.
+ * Aggiunta di IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection e MaxTcpConnectionsPerEndpoint a ConnectionPolicy.
  
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
@@ -256,10 +251,10 @@ Per domande su questo SDK, pubblicare un post su [StackOverflow](https://stackov
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
 | [2.4.1](#2.4.1) |20 giugno 2019 |--- |
-| [2.4.0](#2.4.0) |05 maggio 2019 |--- |
+| [2.4.0](#2.4.0) |05 maggio, 2019 |--- |
 | [2.3.0](#2.3.0) |04 aprile 2019 |--- |
 | [2.2.3](#2.2.3) |11 marzo 2019 |--- |
-| [2.2.2](#2.2.2) |06 febbraio 2019 |--- |
+| [2.2.2](#2.2.2) |06 febbraio, 2019 |--- |
 | [2.2.1](#2.2.1) |24 dicembre 2018 |--- |
 | [2.2.0](#2.2.0) |7 dicembre 2018 |--- |
 | [2.1.3](#2.1.3) |15 ottobre 2018 |--- |

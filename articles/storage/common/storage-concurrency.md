@@ -7,21 +7,21 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: jasontang501
+ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 427cc34cc5a2801a2da98259f932678cdcf71ef7
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64728309"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67870824"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestione della concorrenza nell'archiviazione di Microsoft Azure
 ## <a name="overview"></a>Panoramica
 Le moderne applicazioni basate su Internet sono in genere caratterizzate dalla presenza simultanea di più utenti che visualizzano e aggiornano dati. Ciò richiede agli sviluppatori di applicazioni un'attenta riflessione su come offrire un'esperienza prevedibile ai propri utenti finali, in particolare per gli scenari in cui più utenti possono aggiornare gli stessi dati. Gli sviluppatori in genere prendono in considerazione tre strategie principali di concorrenza dei dati:  
 
 1. Concorrenza ottimistica: un'applicazione che esegue un aggiornamento verificherà, nell'ambito di tale attività, se i dati siano cambiati rispetto all'ultima lettura. Ad esempio, se due utenti che visualizzano una pagina wiki effettuano un aggiornamento alla stessa pagina, la piattaforma wiki deve garantire che il secondo aggiornamento non sovrascriva il primo e che entrambi gli utenti sappiano se il proprio aggiornamento è stato effettuato correttamente o meno. Questa strategia viene usata con maggiore frequenza nelle applicazioni Web.
-2. Concorrenza pessimistica: un'applicazione che cerca di eseguire un aggiornamento applicherà un blocco a un oggetto, impedendo ad altri utenti di aggiornare i dati fino a quando il blocco non viene rimosso. Ad esempio, in uno scenario di replica dei dati master/subordinato dove solo il master eseguirà gli aggiornamenti al master in genere deterrà un blocco esclusivo per un lungo periodo di tempo dei dati per assicurarsi che nessun altro possibile eseguirne l'aggiornamento.
+2. Concorrenza pessimistica: un'applicazione che cerca di eseguire un aggiornamento applicherà un blocco a un oggetto, impedendo ad altri utenti di aggiornare i dati fino a quando il blocco non viene rimosso. Ad esempio, in uno scenario di replica dei dati master/subordinato, in cui solo il Master eseguirà gli aggiornamenti, il Master manterrà un blocco esclusivo per un periodo di tempo prolungato sui dati per garantire che nessuno possa aggiornarlo.
 3. Prevalenza dell'ultima scrittura: un approccio che consente di eseguire qualsiasi operazione di aggiornamento senza prima verificare se altre applicazioni abbiano aggiornato i dati rispetto alla prima lettura dei dati da parte dell'applicazione. Questa strategia (che in realtà denota la mancanza di una strategia ufficiale) è in genere usata quando i dati vengono partizionati in modo tale da escludere qualsiasi possibilità che gli utenti possano accedere agli stessi dati. Può inoltre essere utile per l'elaborazione di flussi dei dati di breve durata.  
 
 In questo articolo viene fornita una panoramica del modo in cui la piattaforma di archiviazione di Azure semplifica lo sviluppo fornendo un supporto eccellente per tutte e tre le strategie di concorrenza descritte.  
@@ -88,10 +88,10 @@ Nella tabella seguente sono riepilogate le operazioni contenitore che accettano 
 |:--- |:--- |:--- |
 | Create Container |Yes |No |
 | Get Container Properties |Yes |No |
-| Get Container Metadata |Yes |No |
-| Set Container Metadata |Yes |Yes |
+| Get Container Metadata |Sì |No |
+| Set Container Metadata |Sì |Sì |
 | Get Container ACL |Yes |No |
-| Set Container ACL |Yes |Sì (*) |
+| Set Container ACL |Sì |Sì (*) |
 | Delete Container |No |Yes |
 | Lease Container |Yes |Yes |
 | List Blobs |No |No |
@@ -102,22 +102,22 @@ Nella tabella seguente sono riepilogate le operazioni BLOB che accettano intesta
 
 | Operazione | Restituisce il valore ETag | Accetta intestazioni condizionali |
 |:--- |:--- |:--- |
-| Put Blob |Yes |Yes |
-| Get Blob |Yes |Yes |
-| Get Blob Properties |Yes |Yes |
-| Set Blob Properties |Yes |Yes |
+| Put Blob |Sì |Sì |
+| Get Blob |Yes |Sì |
+| Get Blob Properties |Sì |Yes |
+| Set Blob Properties |Sì |Sì |
 | Get Blob Metadata |Yes |Yes |
-| Set Blob Metadata |Yes |Yes |
-| Lease Blob (*) |Yes |Yes |
-| Snapshot Blob |Yes |Yes |
+| Set Blob Metadata |Sì |Sì |
+| Lease Blob (*) |Sì |Sì |
+| Snapshot Blob |Sì |Sì |
 | Copy Blob |Yes |Sì (per il BLOB di origine e destinazione) |
 | Abort Copy Blob |No |No |
-| Delete Blob |No |Yes |
+| Delete Blob |No |Sì |
 | Put Block |No |No |
-| Put Block List |Yes |Yes |
-| Get Block List |Yes |No |
-| Put Page |Yes |Yes |
-| Get Page Ranges |Yes |Yes |
+| Put Block List |Sì |Sì |
+| Get Block List |Sì |No |
+| Put Page |Sì |Yes |
+| Get Page Ranges |Sì |Sì |
 
 (*) Lease Blob non modifica l'ETag in un BLOB.  
 
@@ -193,7 +193,7 @@ Per altre informazioni, vedere:
 
 * [Specifica di intestazioni condizionali per le operazioni del servizio BLOB](https://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Lease Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Lease sul Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Lease BLOB](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-the-table-service"></a>Gestione della concorrenza nel servizio tabelle
 Il servizio tabelle usa i controlli della concorrenza ottimistica come comportamento predefinito quando si usano entità, a differenza del servizio BLOB in cui è necessario scegliere esplicitamente di eseguire controlli di concorrenza ottimistica. L'altra differenza tra il servizio tabelle e il servizio BLOB risiede nel fatto che con il primo è possibile gestire solo il comportamento di concorrenza delle entità, mentre con il servizio BLOB è possibile gestire la concorrenza sia dei contenitori sia dei BLOB.  
@@ -237,11 +237,11 @@ Nella tabella seguente sono riepilogate le modalità in cui le operazioni delle 
 
 | Operazione | Restituisce il valore ETag | Richiede l'intestazione della richiesta If-Match |
 |:--- |:--- |:--- |
-| Query Entities |Yes |No |
-| Insert Entity |Yes |No |
-| Update Entity |Yes |Yes |
-| Merge Entity |Yes |Yes |
-| Delete Entity |No |Yes |
+| Query Entities |Sì |No |
+| Insert Entity |Sì |No |
+| Update Entity |Sì |Sì |
+| Merge Entity |Sì |Yes |
+| Delete Entity |No |Sì |
 | Insert or Replace Entity |Yes |No |
 | Insert or Merge Entity |Yes |No |
 

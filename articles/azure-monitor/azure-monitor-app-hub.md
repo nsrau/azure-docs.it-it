@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 451a2d6e658c08823d1629270bb7503ebd236c02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5571f84de5c6dd4f5dffea5869c744b7e5c02e24
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255688"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875297"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -66,8 +66,9 @@ ms.locfileid: "66255688"
                                                     <div class="cardText">
                                                         <h3>Novità</h3>
                                                         <p>
-                                                            <a href="./app/kubernetes.md">Monitoraggio delle applicazioni Kubernetes</a><br>
-                                                            <a href="./app/status-monitor-v2-overview.md">Stato monitoraggio v2 per le app IIS</a><br>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Monitoraggio non codificato per le applicazioni Azure VM e set di scalabilità di macchine virtuali di Azure</a><br>
+                                                            <a href="./app/kubernetes.md">Monitorare le applicazioni Kubernetes</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">Status Monitor V2 per le app IIS</a><br>
                                                         </p>
                                                         <br><br>
                                                         <h3>Guide introduttive</h3>
@@ -146,6 +147,7 @@ ms.locfileid: "66255688"
                                                             <a href="./app/asp-net.md">Configurazione dettagliata del monitoraggio</a><br>
                                                             <a href="./app/monitor-performance-live-website-now.md">Status Monitor</a><br>
                                                             <a href="./app/azure-web-apps.md">Monitoraggio del servizio app</a><br>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Monitoraggio delle applicazioni del set di scalabilità di macchine virtuali e VM</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Metriche ed eventi personalizzati</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">Repository GitHub per .NET SDK open source</a>
                                                         </p>

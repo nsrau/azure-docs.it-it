@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6c8bdb27e9e976a7a490c2a824e994242378641
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7e798b4316b8ccdc2f76512d4651365f5bb151ce
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671196"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278307"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
 
@@ -170,9 +170,9 @@ Distribuire le VM serie N abilitate per RDMA da una delle immagini in Azure Mark
 
 * **CentOS-based 7.4 HPC**: i driver RDMA e Intel MPI 5.1 vengono installati nella VM.
 
-## <a name="install-grid-drivers-on-nv-or-nvv2-series-vms"></a>Installare i driver GRID nelle macchine virtuali serie NV o NVv2
+## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Installare i Driver GRID nelle macchine virtuali serie NV o NVv3
 
-Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv2, stabilire una connessione SSH a ogni macchina virtuale e seguire la procedura per la distribuzione di Linux. 
+Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, effettuare una connessione SSH a ogni macchina virtuale e seguire i passaggi per la distribuzione di Linux. 
 
 ### <a name="ubuntu"></a>Ubuntu 
 
@@ -188,8 +188,10 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv2, sta
    sudo apt-get dist-upgrade -y
 
    sudo apt-get install build-essential ubuntu-desktop -y
+   
+   sudo apt-get install linux-azure -y
    ```
-3. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NVv2. A tale scopo, creare un file nella `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
+3. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NVv2. A tale scopo, creare un file `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
 
    ```
    blacklist nouveau
@@ -226,8 +228,15 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv2, sta
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE
    ```
-9. Riavviare la VM e procedere a verificare l'installazione.
+   
+9. Rimuovere il codice seguente `/etc/nvidia/gridd.conf` se presente:
+ 
+   ```
+   FeatureType=0
+   ```
+10. Riavviare la VM e procedere a verificare l'installazione.
 
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS o Red Hat Enterprise Linux 
@@ -242,9 +251,11 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv2, sta
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
  
    sudo yum install dkms
+   
+   sudo yum install hyperv-daemons
    ```
 
-2. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NV2. A tale scopo, creare un file nella `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
+2. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NV2. A tale scopo, creare un file `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
 
    ```
    blacklist nouveau
@@ -290,8 +301,15 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv2, sta
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE 
    ```
-9. Riavviare la VM e procedere a verificare l'installazione.
+9. Rimuovere il codice seguente `/etc/nvidia/gridd.conf` se presente:
+ 
+   ```
+   FeatureType=0
+   ```
+10. Riavviare la VM e procedere a verificare l'installazione.
+
 
 ### <a name="verify-driver-installation"></a>Verificare l'installazione del driver
 

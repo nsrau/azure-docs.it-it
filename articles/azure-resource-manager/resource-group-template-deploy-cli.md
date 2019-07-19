@@ -1,17 +1,17 @@
 ---
 title: Distribuire le risorse con il modello e l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Usare Azure Resource Manager e della riga di comando di Azure per distribuire risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
+description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire le risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 11d5b174dc21392df89def8e91847e8a0dd12562
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 93b1b16776bac6cb24996d6fa08a547318802f32
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206532"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853842"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
@@ -23,23 +23,23 @@ Se l'interfaccia della riga di comando di Azure non è installata, è possibile 
 
 ## <a name="deployment-scope"></a>Ambito di distribuzione
 
-È possibile destinare la distribuzione a una sottoscrizione di Azure o un gruppo di risorse all'interno di una sottoscrizione. Nella maggior parte dei casi, si interagirà distribuzione in un gruppo di risorse. Usare distribuzioni della sottoscrizione per applicare i criteri e le assegnazioni di ruolo nella sottoscrizione. È anche possibile usare distribuzioni della sottoscrizione per creare un gruppo di risorse e distribuire le risorse ad esso. A seconda dell'ambito della distribuzione, si usano comandi diversi.
+La distribuzione può essere destinata a una sottoscrizione di Azure o a un gruppo di risorse all'interno di una sottoscrizione. Nella maggior parte dei casi, la distribuzione verrà destinata a un gruppo di risorse. Usare le distribuzioni di sottoscrizione per applicare i criteri e le assegnazioni di ruolo nella sottoscrizione. È anche possibile usare le distribuzioni delle sottoscrizioni per creare un gruppo di risorse e distribuirvi risorse. A seconda dell'ambito della distribuzione, si utilizzano comandi diversi.
 
-Per distribuire in un **gruppo di risorse**, usare [distribuzione gruppo di az creare](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+Per eseguire la distribuzione in un **gruppo di risorse**, usare [AZ Group Deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
 
 ```azurecli
 az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
 ```
 
-Per distribuire in un **abbonamento**, usare [creare la distribuzione di az](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+Per eseguire la distribuzione in una **sottoscrizione**, usare [AZ Deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
 
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-Attualmente, distribuzioni di gruppi di gestione sono supportate solo tramite l'API REST. Visualizzare [distribuire le risorse con modelli di Resource Manager e il REST API di Resource Manager](resource-group-template-deploy-rest.md).
+Attualmente, le distribuzioni di gruppi di gestione sono supportate solo tramite l'API REST. Vedere [distribuire le risorse con gestione risorse modelli e gestione risorse API REST](resource-group-template-deploy-rest.md).
 
-Gli esempi in questo articolo usano distribuzioni di gruppi di risorse. Per altre informazioni sulle distribuzioni di sottoscrizione, vedere [creare i gruppi di risorse e le risorse a livello di sottoscrizione](deploy-to-subscription.md).
+Gli esempi in questo articolo usano le distribuzioni di gruppi di risorse. Per altre informazioni sulle distribuzioni delle sottoscrizioni, vedere [creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
 
 ## <a name="deploy-local-template"></a>Distribuire un modello locale
 
@@ -68,7 +68,7 @@ Per il completamento della distribuzione sarà necessario attendere alcuni minut
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-remote-template"></a>Distribuire il modello remoto
+## <a name="deploy-remote-template"></a>Distribuisci modello remoto
 
 Anziché archiviare i modelli di Resource Manager nel computer locale, è consigliabile archiviarli in una posizione esterna, ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
 
@@ -98,12 +98,12 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>Eseguire nuovamente la distribuzione se non è riuscita
 
-Questa funzionalità è detta anche *Rollback in caso di errore*. Quando una distribuzione non riesce, è possibile ridistribuire automaticamente una distribuzione precedente con esito positivo dalla cronologia della distribuzione. Per specificare la ridistribuzione, usare il parametro `--rollback-on-error` nel comando di distribuzione. Questa funzionalità è utile se si ha uno stato noto soddisfacente per la distribuzione dell'infrastruttura e vuole ripristinare questo stato. Esistono una serie di avvertenze e limitazioni:
+Questa funzionalità è nota anche come *rollback in errore*. Quando una distribuzione non riesce, è possibile ridistribuire automaticamente una distribuzione precedente con esito positivo dalla cronologia della distribuzione. Per specificare la ridistribuzione, usare il parametro `--rollback-on-error` nel comando di distribuzione. Questa funzionalità è utile se si ha uno stato valido noto per la distribuzione dell'infrastruttura e si vuole ripristinare questo stato. Esistono alcune avvertenze e restrizioni:
 
-- La ridistribuzione viene eseguita esattamente come è stato eseguito in precedenza con gli stessi parametri. È possibile modificare i parametri.
-- Viene eseguita la distribuzione precedente usando il [modalità completa](./deployment-modes.md#complete-mode). Vengono eliminate tutte le risorse non incluse nella distribuzione precedente e qualsiasi risorsa di configurazioni è impostata allo stato precedente. Assicurarsi di aver compreso le [modalità di distribuzione](./deployment-modes.md).
-- La ridistribuzione interessa solo le risorse, le modifiche ai dati non sono interessate.
-- Questa funzionalità è supportata solo in distribuzioni con configurazione gruppo di risorse, non distribuzioni a livello di sottoscrizione. Per altre informazioni sulla distribuzione a livello di sottoscrizione, vedere [creare i gruppi di risorse e le risorse a livello di sottoscrizione](./deploy-to-subscription.md).
+- La ridistribuzione viene eseguita esattamente come è stata eseguita in precedenza con gli stessi parametri. Non è possibile modificare i parametri.
+- La distribuzione precedente viene eseguita utilizzando la [modalità completa](./deployment-modes.md#complete-mode). Tutte le risorse non incluse nella distribuzione precedente verranno eliminate e le configurazioni delle risorse verranno impostate sullo stato precedente. Assicurarsi di comprendere completamente le [modalità di distribuzione](./deployment-modes.md).
+- La ridistribuzione influisce solo sulle risorse. le modifiche apportate ai dati non sono interessate.
+- Questa funzionalità è supportata solo per le distribuzioni di gruppi di risorse e non per le distribuzioni a livello di sottoscrizione. Per altre informazioni sulla distribuzione a livello di sottoscrizione, vedere [creare gruppi di risorse e risorse a livello di sottoscrizione](./deploy-to-subscription.md).
 
 Per usare questa opzione, le distribuzioni devono avere nomi univoci in modo che sia possibile identificarle nella cronologia. Se non si dispone di nomi univoci, la distribuzione non riuscita corrente potrebbe sovrascrivere quella eseguita in modo corretto nella cronologia. È possibile usare questa opzione solo con le distribuzioni a livello di radice. Le distribuzioni di un modello annidato non sono disponibili per la ridistribuzione.
 
@@ -145,6 +145,8 @@ az group deployment create \
   --template-file demotemplate.json \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
+
+Se si usa l'interfaccia della riga di comando di Azure con il prompt dei comandi di Windows (CMD) o PowerShell `exampleArray="['value1','value2']"`, passare la matrice nel formato:.
 
 È anche possibile ottenere i contenuti del file e fornire il contenuto come un parametro inline.
 

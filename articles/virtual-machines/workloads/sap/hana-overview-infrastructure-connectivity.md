@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
-ms.author: rclaus
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05bd09d3ab05f3ce426126e5629523fba087dad9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4a1df7406ab4f4d7137d12dd7131a4c26b617cb2
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707318"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869212"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Distribuzione di SAP HANA (istanze Large) 
 
@@ -37,6 +37,7 @@ Per la distribuzione di unità di istanze Large di HANA, Microsoft richiede le i
 - Per ogni area di distribuzione di Azure:
     - Intervallo di indirizzi IP /29 per le connessioni ER-P2P che connettono le reti virtuali di Azure a istanze Large di HANA.
     - Blocco CIDR /24 usato per il pool di indirizzi IP del server di istanze Large di HANA.
+    - Facoltativo quando si usa [ExpressRoute copertura globale](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) per abilitare il routing diretto da unità locali a istanze large di Hana o il routing tra unità di istanze large di Hana in diverse aree di Azure, è necessario riservare un altro intervallo di indirizzi IP. Questo intervallo specifico potrebbe non sovrapporsi ad altri intervalli di indirizzi IP definiti in precedenza.
 - Valori dell'intervallo di indirizzi IP usati nell'attributo dello spazio di indirizzi di ogni rete virtuale di Azure che si connette alle istanze Large di HANA.
 - Dati per ogni sistema di istanze Large di HANA:
   - Nome host desiderato, preferibilmente con un nome di dominio completo.

@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: c72de0ef874659a5d7840689e38bd7857c25b840
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7893c8e8b8d67b4b63bd9d6bb5a71552e95c9125
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464148"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850254"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gestire IoT Central dal portale di Azure
 
@@ -23,7 +23,7 @@ Invece di creare e gestire le applicazioni IoT Central dalla pagina [Gestione ap
 
 ## <a name="create-iot-central-applications"></a>Creare applicazioni IoT Central
 
-Per creare un'applicazione, passare al [portale di Azure](https://ms.portal.azure.com) e selezionare **crea una risorsa** nel menu di spostamento principale a sinistra.
+Per creare un'applicazione, passare alla [portale di Azure](https://ms.portal.azure.com) e selezionare **Crea una risorsa** nel menu di spostamento principale a sinistra.
 
 ![Portale di gestione: menu di spostamento](media/howto-manage-iot-central-from-portal/image0.png)
 
@@ -31,7 +31,7 @@ Nella barra di ricerca digitare **IoT Central**.
 
 ![Portale di gestione: ricerca](media/howto-manage-iot-central-from-portal/image0a1.png)
 
-Selezionare il **IoT Central Application** voce nei risultati della ricerca.
+Selezionare il **IOT Central** riga dell'applicazione nei risultati della ricerca.
 
 ![Portale di gestione: risultati della ricerca](media/howto-manage-iot-central-from-portal/image0b1.png)
 
@@ -43,7 +43,7 @@ Compilare tutti i campi del modulo. Questo modulo è analogo a quello che si com
 
 ![Portale di gestione: creare la risorsa IoT Central](media/howto-manage-iot-central-from-portal/image1a.png)  
 
-Dopo aver compilato tutti i campi, selezionare **Create**.
+Dopo aver compilato tutti i campi, selezionare **Crea**.
 
 ## <a name="manage-existing-iot-central-applications"></a>Gestire le applicazioni IoT Central esistenti
 
@@ -52,19 +52,19 @@ Se si dispone già di un'applicazione Azure IoT Central è possibile eliminarla,
 > [!NOTE]
 > Non è possibile visualizzare le applicazioni della versione di valutazione nel portale di Azure perché non sono associate alla sottoscrizione.
 
-Per iniziare, selezionare **tutte le risorse** nel menu di spostamento principale a sinistra. Digitare il nome dell'applicazione nella casella di ricerca per individuarla nel proprio elenco di risorse. Selezionare quindi l'applicazione IoT Central che si desidera gestire.
+Per iniziare, selezionare **tutte le risorse** nel menu di spostamento principale a sinistra. Digitare il nome dell'applicazione nella casella di ricerca per individuarla nel proprio elenco di risorse. Quindi selezionare l'applicazione IoT Central che si vuole gestire.
 
 ![Portale di gestione: gestione delle risorse](media/howto-manage-iot-central-from-portal/image2a.png)
 
-Per passare all'applicazione, selezionare l'URL di applicazioni IoT Central.
+Per passare all'applicazione, selezionare l'URL dell'applicazione IoT Central.
 
 ![Portale di gestione: gestione delle risorse](media/howto-manage-iot-central-from-portal/image3.png)
 
-Per spostare l'applicazione a un gruppo di risorse diverso, selezionare **modificare** accanto al gruppo di risorse. Nella pagina **Move resources** (Sposta risorse) selezionare il gruppo di risorse nel quale si vuole eseguire la migrazione di questa applicazione.
+Per spostare l'applicazione in un gruppo di risorse diverso, selezionare **Cambia** accanto al gruppo di risorse. Nella pagina **Move resources** (Sposta risorse) selezionare il gruppo di risorse nel quale si vuole eseguire la migrazione di questa applicazione.
 
 ![Portale di gestione: gestione delle risorse](media/howto-manage-iot-central-from-portal/image4a.png)
 
-Per spostare l'applicazione in un'altra sottoscrizione, selezionare la **modificare** collegamento accanto alla sottoscrizione. Nella finestra di dialogo visualizzata selezionare la sottoscrizione nella quale si vuole eseguire la migrazione di questa applicazione.
+Per spostare l'applicazione in una sottoscrizione diversa, selezionare il collegamento **Cambia** accanto alla sottoscrizione. Nella finestra di dialogo visualizzata selezionare la sottoscrizione nella quale si vuole eseguire la migrazione di questa applicazione.
 
 ![Portale di gestione: gestione delle risorse](media/howto-manage-iot-central-from-portal/image5a.png)
 

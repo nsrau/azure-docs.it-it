@@ -1,6 +1,6 @@
 ---
-title: Articolo sulla risoluzione dei problemi più comuni problemi/errori associati a usare servizio migrazione del Database di Azure noti | Microsoft Docs
-description: Informazioni su come risolvere i noti problemi/errori comuni associati con servizio migrazione del Database di Azure.
+title: Articolo sulla risoluzione dei problemi comuni relativi all'uso del servizio migrazione del database di Azure | Microsoft Docs
+description: Informazioni su come risolvere i problemi noti o gli errori comuni associati all'uso del servizio migrazione del database di Azure.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -11,122 +11,122 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/18/2019
-ms.openlocfilehash: 1d639a8b1d5c7a5dd2b7bac7c5e020be7c8b1c50
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: e33f195ea821b34147c748e9c0aa64cb63b58fdc
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190951"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249989"
 ---
-# <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Risolvere i problemi di migrazione di Database di Azure e gli errori comuni
+# <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Risolvere i problemi e gli errori comuni del servizio migrazione del database di Azure
 
-Questo articolo descrive alcuni problemi comuni e gli errori che possono riscontrare gli utenti di servizio migrazione del Database. L'articolo include anche informazioni su come risolvere questi problemi ed errori.
+Questo articolo descrive alcuni problemi comuni ed errori che gli utenti del servizio migrazione del database di Azure possono incontrare. L'articolo contiene anche informazioni su come risolvere questi problemi ed errori.
 
 ## <a name="migration-activity-in-queued-state"></a>Attività di migrazione nello stato in coda
 
-Quando si crea nuove attività in un progetto di servizio migrazione del Database, le attività rimangono nello stato in coda.
+Quando si creano nuove attività in un progetto di servizio migrazione del database di Azure, le attività rimangono in uno stato di Accodamento.
 
 | Causa         | Risoluzione |
 | ------------- | ------------- |
-| Questo problema si verifica quando l'istanza del servizio migrazione del Database ha raggiunto la capacità massima per le attività in corso che eseguire contemporaneamente. Qualsiasi nuova attività viene accodata fino a quando non diventa disponibile la capacità. | Convalidare il servizio di migrazione dati istanza dispone di attività in esecuzione in progetti. È possibile continuare a creare nuove attività che vengono aggiunti automaticamente alla coda per l'esecuzione. Non appena una delle attività in esecuzione esistente completa, l'attività in coda successiva viene avviata l'esecuzione e lo stato passa allo stato di esecuzione automaticamente. Non è necessario intraprendere alcuna azione aggiuntiva per avviare la migrazione di attività in coda.<br><br> |
+| Questo problema si verifica quando l'istanza del servizio migrazione del database di Azure ha raggiunto la capacità massima per le attività in corso eseguite simultaneamente. Ogni nuova attività viene accodata fino a quando non diventa disponibile la capacità. | Verificare che l'istanza del servizio di migrazione dei dati abbia attività in esecuzione nei progetti. È possibile continuare a creare nuove attività che vengono aggiunte automaticamente alla coda per l'esecuzione. Non appena una delle attività in esecuzione esistente viene completata, viene avviata l'esecuzione successiva dell'attività in coda e lo stato passa automaticamente allo stato di esecuzione. Non è necessario eseguire alcuna azione aggiuntiva per avviare la migrazione dell'attività in coda.<br><br> |
 
 ## <a name="max-number-of-databases-selected-for-migration"></a>Numero massimo di database selezionati per la migrazione
 
-Il seguente errore si verifica quando l'istanza gestita di creazione di un'attività per un progetto di migrazione di database per lo spostamento di Database SQL di Azure o un Database SQL di Azure:
+Quando si crea un'attività per un progetto di migrazione del database per lo spostamento nel database SQL di Azure o in un'istanza gestita di database SQL di Azure, si verifica l'errore seguente:
 
-* **Errore**: Errore di convalida delle impostazioni di migrazione","errorDetail":"gli oggetti numero max più di '4' di 'Database' è stata selezionata per la migrazione".
-
-| Causa         | Risoluzione |
-| ------------- | ------------- |
-| Dopo aver selezionato più di quattro database per un'attività di migrazione single, viene visualizzato questo errore. Al momento, ogni attività di migrazione è limitata a quattro database. | Selezionare un massimo di quattro database per ogni attività di migrazione. Se è necessario eseguire la migrazione di più di quattro database in parallelo, eseguire il provisioning di un'altra istanza del servizio migrazione del Database. Attualmente, ogni sottoscrizione supporta fino a due istanze del servizio migrazione del Database.<br><br> |
-
-## <a name="errors-for-mysql-migration-to-azure-mysql-with-recovery-failures"></a>Errori per la migrazione di MySQL da MySQL di Azure con errori di ripristino
-
-Quando esegue la migrazione da MySQL a Database di Azure per MySQL usando servizio migrazione del Database, l'attività di migrazione non riesce con l'errore seguente:
-
-* **Errore**: Errore di migrazione di database - attività 'TaskID' è stata sospesa a causa di errori di ripristino successive [n].
+* **Errore**: Errore di convalida delle impostazioni di migrazione "," errorDetail ":" più del numero massimo di oggetti ' 4' di ' database ' è stato selezionato per la migrazione. "
 
 | Causa         | Risoluzione |
 | ------------- | ------------- |
-| Questo errore può verificarsi quando l'utente che esegue la migrazione non è presente il ruolo ReplicationAdmin e/o i privilegi di REPLICATION CLIENT, REPLICA di replica e con privilegi elevati (versioni precedenti a MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Assicurarsi che il [privilegi prerequisiti](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) per l'utente account configurati in modo accurato nel Database di Azure per l'istanza di MySQL. Ad esempio, i passaggi seguenti possono essere seguiti per creare un utente denominato 'migrateuser' con i privilegi necessari:<br>1. CREATE USER migrateuser@'%' identificato da 'secret'; <br>2. Concedere tutti i privilegi per db_name.* per 'migrateuser'@'%' identificato da 'secret'; Ripetere questo passaggio per concedere l'accesso a più database <br>3. Slave di replica GRANT su *.* per 'migrateuser'@'%' identificato da 'secret';<br>4. Client di replica GRANT in *.* per 'migrateuser'@'%' identificato da 'secret';<br>5. Scaricamento privilegi. |
+| Questo errore viene visualizzato dopo aver selezionato più di quattro database per una singola attività di migrazione. Attualmente, ogni attività di migrazione è limitata a quattro database. | Selezionare quattro o meno database per attività di migrazione. Se è necessario eseguire la migrazione di più di quattro database in parallelo, effettuare il provisioning di un'altra istanza del servizio migrazione del database di Azure. Attualmente, ogni sottoscrizione supporta fino a due istanze del servizio migrazione del database di Azure.<br><br> |
 
-## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Errore durante il tentativo di arrestare servizio migrazione del Database di Azure
+## <a name="errors-for-mysql-migration-to-azure-mysql-with-recovery-failures"></a>Errori per la migrazione di MySQL ad Azure MySQL con errori di ripristino
 
-Viene visualizzato l'errore seguente quando si arresta l'istanza del servizio migrazione del Database:
+Quando si esegue la migrazione da MySQL a database di Azure per MySQL usando il servizio migrazione del database di Azure, l'attività di migrazione ha esito negativo con l'errore seguente:
 
-* **Errore**: Impossibile arrestare servizio. Errore: {"errore": {'code': 'InvalidRequest', '% s':' una o più attività sono attualmente in esecuzione. Per arrestare il servizio, attendere che le attività completate o arrestare tali attività manualmente e ripetere l'operazione.'}}
-
-| Causa         | Risoluzione |
-| ------------- | ------------- |
-| Questo errore viene visualizzato quando si tenta di arrestare l'istanza del servizio include attività che sono ancora in esecuzione o presenti nei progetti di migrazione. <br><br><br><br><br><br> | Assicurarsi che non sono presenti attività in esecuzione nell'istanza del servizio migrazione del Database di Azure che si desidera arrestare. È anche possibile eliminare le attività o i progetti prima di tentare di arrestare il servizio. I passaggi seguenti illustrano come rimuovere i progetti per pulire l'istanza del servizio migrazione eliminando tutte le attività in esecuzione:<br>1. Install-Module-nome azurerm. DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription -SubscriptionName "<subName>" <br> 4. Remove-AzureRmDataMigrationProject -Name <projectName> -ResourceGroupName <rgName> -ServiceName <serviceName> -DeleteRunningTask |
-
-## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Errore durante il tentativo di avviare la migrazione di Database di Azure
-
-Viene visualizzato l'errore seguente quando si avvia l'istanza del servizio migrazione del Database:
-
-* **Errore**: Servizio non riesce a Start. Errore: {'errorDetail': 'il servizio non è stato possibile avviare, contattare il supporto tecnico Microsoft'}
+* **Errore**: Errore di migrazione del database: l'attività' TaskID ' è stata sospesa a causa di [n] errori di ripristino successivi.
 
 | Causa         | Risoluzione |
 | ------------- | ------------- |
-| Questo errore viene visualizzato quando l'istanza precedente non è stato possibile internamente. Questo errore si verifica raramente, e il team di progettazione è consapevole. <br> | Eliminare l'istanza del servizio non è possibile avviare e quindi eseguire il provisioning di uno nuovo per sostituirlo. |
+| Questo errore può verificarsi quando l'utente che esegue la migrazione manca il ruolo ReplicationAdmin e/o i privilegi del CLIENT di replica, della REPLICA di replica e di SUPER (versioni precedenti a MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Assicurarsi che i [privilegi prerequisiti](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) per l'account utente siano configurati in modo accurato nell'istanza del database di Azure per MySQL. Ad esempio, è possibile seguire la procedura seguente per creare un utente denominato "migrateuser" con i privilegi necessari:<br>1. Crea migrateuser utente @'%' identificato da' Secret '; <br>2. Concedere tutti i privilegi su db_name. * a' migrateuser ' @'%' identificato da' Secret '; Ripetere questo passaggio per concedere l'accesso a più database <br>3. Concedere il slave di replica in *.* in ' migrateuser ' @'%' identificato da' Secret ';<br>4. Concedere il client di replica in *.* in ' migrateuser ' @'%' identificato da' Secret ';<br>5. Privilegi di scaricamento; |
 
-## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Errore durante il ripristino di database, mentre l'istanza gestita di SQL la migrazione al database SQL di Azure
+## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Errore durante il tentativo di arrestare il servizio migrazione del database di Azure
 
-Quando si esegue una migrazione online di SQL Server a un'istanza gestita di Database SQL di Azure, il trasferimento non riesce con l'errore seguente:
+Viene visualizzato l'errore seguente quando si arresta l'istanza del servizio migrazione del database di Azure:
 
-* **Errore**: Operazione di ripristino non riuscito per l'Id 'operationId' operazione. Codice 'AuthorizationFailed', messaggio ' client 'clientId' con id oggetto 'objectId' non è autorizzato a eseguire l'azione 'Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/read' sull'ambito ' /subscriptions/ subscriptionId'. '.
+* **Errore**: Impossibile arrestare il servizio. Errore: {' Error ': {' code ':' InvalidRequest ',' message ':' una o più attività sono attualmente in esecuzione. Per arrestare il servizio, attendere che le attività siano state completate o arrestare manualmente tali attività e riprovare .'}}
+
+| Causa         | Risoluzione |
+| ------------- | ------------- |
+| Questo errore viene visualizzato quando l'istanza del servizio che si sta tentando di arrestare include attività ancora in esecuzione o presenti nei progetti di migrazione. <br><br><br><br><br><br> | Assicurarsi che non siano presenti attività in esecuzione nell'istanza del servizio migrazione del database di Azure che si sta tentando di arrestare. È anche possibile eliminare le attività o i progetti prima di tentare di arrestare il servizio. Nei passaggi seguenti viene illustrato come rimuovere i progetti per la pulizia dell'istanza del servizio di migrazione eliminando tutte le attività in esecuzione:<br>1. Install-module-name AzureRM. DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription-subscriptionname "\<subname >" <br> 4. Remove-AzureRmDataMigrationProject-Name \<NomeProgetto >-ResourceGroupName \< \<RgName >-ServiceName ServiceName >-DeleteRunningTask |
+
+## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Errore durante il tentativo di avviare il servizio migrazione del database di Azure
+
+Viene visualizzato l'errore seguente all'avvio dell'istanza del servizio migrazione del database di Azure:
+
+* **Errore**: Impossibile avviare il servizio. Errore: {"errorDetail": "Impossibile avviare il servizio. contattare il supporto tecnico Microsoft"}
+
+| Causa         | Risoluzione |
+| ------------- | ------------- |
+| Questo errore viene visualizzato quando l'istanza precedente ha avuto esito negativo internamente. Questo errore si verifica raramente e il team di progettazione ne è a conoscenza. <br> | Eliminare l'istanza del servizio che non è possibile avviare, quindi eseguire il provisioning di un nuovo per sostituirlo. |
+
+## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Errore durante il ripristino del database durante la migrazione di SQL nell'istanza gestita di database SQL di Azure
+
+Quando si esegue una migrazione in linea da SQL Server a un'istanza gestita di database SQL di Azure, il cutover ha esito negativo con l'errore seguente:
+
+* **Errore**: Operazione di ripristino non riuscita per l'ID operazione ' operationId '. Il codice ' AuthorizationFailed ', messaggio ' client ' ClientID ' con ID oggetto ' objectId ' non è autorizzato a eseguire l'azione ' Microsoft. SQL/locations/managedDatabaseRestoreAzureAsyncOperation/Read ' sull'ambito '/Subscriptions/ subscriptionId ' .'.
 
 | Causa         | Risoluzione    |
 | ------------- | ------------- |
-| Questo errore indica che l'entità applicazione in uso per la migrazione online di SQL Server a un'istanza gestita di Database SQL di Azure non hanno l'autorizzazione di collaborazione per la sottoscrizione. Alcune chiamate API con istanza gestita al momento richiedono tale autorizzazione per sottoscrizione per l'operazione di ripristino. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Usare la `Get-AzureADServicePrincipal` cmdlet di PowerShell con `-ObjectId` disponibile dal messaggio di errore per elencare il nome visualizzato dell'ID dell'applicazione in uso.<br><br> Convalidare le autorizzazioni a questa applicazione e assicurarsi che disponga i [ruolo di collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) a livello di sottoscrizione. <br><br> Azure Database Migration Service Team di progettazione di funzioni per limitare il richiesto l'accesso dalla posizione corrente di contribuire con ruolo nella sottoscrizione. Se si dispone di un requisito di business che non consente l'uso di collaborazione di ruolo, per ulteriore assistenza, contattare il supporto di Azure. |
+| Questo errore indica che l'entità applicazione utilizzata per la migrazione in linea da SQL Server a un'istanza gestita di database SQL di Azure non dispone dell'autorizzazione di collaborazione per la sottoscrizione. Alcune chiamate API con Istanza gestita attualmente richiedono questa autorizzazione per la sottoscrizione per l'operazione di ripristino. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Usare il `Get-AzureADServicePrincipal` cmdlet di PowerShell `-ObjectId` con disponibile nel messaggio di errore per elencare il nome visualizzato dell'ID applicazione usato.<br><br> Convalidare le autorizzazioni per questa applicazione e assicurarsi che disponga del [ruolo Collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) a livello di sottoscrizione. <br><br> Il team di progettazione del servizio migrazione del database di Azure sta lavorando per limitare l'accesso richiesto dal ruolo di collaborazione corrente per la sottoscrizione. Se si dispone di un requisito aziendale che non consente l'uso del ruolo collaborazione, contattare il supporto tecnico di Azure per ulteriori informazioni. |
 
-## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Errore durante l'eliminazione di interfaccia di rete associato con servizio migrazione del Database di Azure
+## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Errore durante l'eliminazione della scheda di rete associata al servizio migrazione del database di Azure
 
-Quando si prova a eliminare una scheda di interfaccia di rete associato con servizio migrazione del Database, il tentativo di eliminazione ha esito negativo con errore:
+Quando si tenta di eliminare una scheda di interfaccia di rete associata al servizio migrazione del database di Azure, il tentativo di eliminazione ha esito negativo con questo errore:
 
-* **Errore**: Non è possibile eliminare l'interfaccia di rete associata al servizio migrazione del Database di Azure a causa del servizio migrazione del database che usano l'interfaccia di rete
+* **Errore**: Non è possibile eliminare la scheda di interfaccia di rete associata al servizio migrazione del database di Azure a causa del servizio DMS che usa la scheda NIC
 
 | Causa         | Risoluzione    |
 | ------------- | ------------- |
-| Questo problema si verifica quando l'istanza del servizio migrazione del Database potrebbe essere ancora presente e l'utilizzo di interfaccia di rete. <br><br><br><br><br><br><br><br> | Per eliminare questa interfaccia di rete, eliminare l'istanza del servizio migrazione del database che elimina automaticamente l'interfaccia di rete utilizzato dal servizio.<br><br> **Importante**: Assicurarsi che l'istanza del servizio migrazione del Database in corso l'eliminazione è associata alcuna attività in esecuzione.<br><br> Dopo l'eliminazione di tutti i progetti e attività associate all'istanza del servizio migrazione del Database, è possibile eliminare l'istanza del servizio. L'interfaccia di rete utilizzato dall'istanza del servizio viene pulita automaticamente durante l'eliminazione del servizio. |
+| Questo problema si verifica quando l'istanza del servizio migrazione del database di Azure può essere ancora presente e utilizza la scheda di interfaccia di rete. <br><br><br><br><br><br><br><br> | Per eliminare questa scheda di interfaccia di rete, eliminare l'istanza del servizio DMS che elimina automaticamente la scheda di interfaccia di rete utilizzata dal servizio.<br><br> **Importante**: Verificare che l'istanza del servizio migrazione del database di Azure in fase di eliminazione non abbia attività in esecuzione.<br><br> Dopo l'eliminazione di tutti i progetti e le attività associati all'istanza del servizio migrazione del database di Azure, è possibile eliminare l'istanza del servizio. La scheda di interfaccia di rete usata dall'istanza del servizio viene pulita automaticamente come parte dell'eliminazione del servizio. |
 
 ## <a name="connection-error-when-using-expressroute"></a>Errore di connessione quando si usa ExpressRoute
 
-Quando si prova a connettersi all'origine Creazione guidata progetto di servizio migrazione del Database di Azure, la connessione ha esito negativo dopo il timeout prolungati se origine Usa ExpressRoute per la connettività.
+Quando si cerca di connettersi all'origine nella procedura guidata del progetto del servizio Migrazione del database di Azure, la connessione ha esito negativo dopo un timeout prolungato se l'origine usa ExpressRoute per la connettività.
 
 | Causa         | Risoluzione    |
 | ------------- | ------------- |
-| Quando si usa [ExpressRoute](https://azure.microsoft.com/services/expressroute/), servizio migrazione del Database di Azure [richiede](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) tre endpoint di servizio nella subnet della rete virtuale associata al servizio di provisioning:<br> : Endpoint del Bus di servizio<br> : Endpoint di archiviazione<br> : Endpoint di database (ad esempio endpoint SQL, l'endpoint di Cosmos DB) di destinazione<br><br><br><br><br> | [Abilitare](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) gli endpoint di servizio necessari per la connettività di ExpressRoute tra origine e di servizio migrazione del Database. <br><br><br><br><br><br><br><br> |
+| Quando si usa [ExpressRoute](https://azure.microsoft.com/services/expressroute/), il servizio migrazione del database di Azure [richiede](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) il provisioning di tre endpoint di servizio nella subnet della rete virtuale associata al servizio:<br> --Endpoint del bus di servizio<br> --Endpoint di archiviazione<br> --Endpoint database di destinazione (ad esempio, endpoint SQL, endpoint Cosmos DB)<br><br><br><br><br> | [Abilitare](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) gli endpoint di servizio necessari per la connettività ExpressRoute tra l'origine e il servizio migrazione del database di Azure. <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>Errore di timeout durante la migrazione di un database MySQL da MySQL di Azure
+## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>Errore di timeout durante la migrazione di un database MySQL ad Azure MySQL
 
-Quando si esegue la migrazione di un database MySQL a un Database di Azure per l'istanza di MySQL tramite servizio migrazione del Database, la migrazione non riesce con errore di timeout del seguente:
+Quando si esegue la migrazione di un database MySQL a un'istanza di database di Azure per MySQL tramite il servizio migrazione del database di Azure, la migrazione non riesce con il seguente errore di timeout:
 
-* **Errore**: Errore - migrazione del database non è stato possibile caricare il file - Impossibile avviare il processo di caricamento per il file ' n' RetCode: SQL_ERROR SqlState: NativeError HY000: Messaggio 1205: [MySQL] [Driver ODBC] [mysqld] timeout superato; di attesa blocco Provare a riavviare delle transazioni
-
-| Causa         | Risoluzione    |
-| ------------- | ------------- |
-| Questo errore si verifica quando la migrazione ha esito negativo a causa del timeout di attesa di blocco durante la migrazione. | Provare ad aumentare il valore di parametro del server **'innodb_lock_wait_timeout'** . Il valore massimo consentito è 1073741824. |
-
-## <a name="error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance"></a>Errore durante la connessione a SQL Server di origine quando si utilizzano porte dinamiche o istanza denominata
-
-Quando si prova a connettersi servizio migrazione del Database di origine di SQL Server che esegue in istanza denominata o una porta dinamica, la connessione ha esito negativo con errore:
-
-* **Errore**: -1 - connessione SQL non è riuscita. Si è verificato un errore di rete o specifico dell'istanza mentre veniva stabilita la connessione a SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che SQL Server sia configurato per consentire le connessioni remote. (provider: Interfacce di rete SQL, errore: 26 - errore nell'individuazione del Server / dell'istanza specificati)
+* **Errore**: Errore di migrazione del database-non è stato possibile caricare il file: non è stato possibile avviare il processo di caricamento per il file ' n'RetCode: SQL_ERROR SqlState: NativeError HY000: 1205 messaggio: [MySQL] [driver ODBC] [mysqld] timeout di attesa di blocco superato; prova a riavviare la transazione
 
 | Causa         | Risoluzione    |
 | ------------- | ------------- |
-| Questo problema si verifica quando l'istanza di SQL Server di origine che tenta di connettersi al servizio migrazione del Database dispone di una porta dinamica o si usa un'istanza denominata. Il servizio SQL Server Browser è in attesa per la porta UDP 1434 per le connessioni in ingresso a un'istanza denominata oppure quando si usa una porta dinamica. La porta dinamica potrebbe cambiare ogni volta che il servizio SQL Server viene riavviato. È possibile verificare la porta dinamica assegnata a un'istanza tramite la configurazione di rete in Gestione configurazione SQL Server.<br><br><br> |Verificare che servizio migrazione del Database possono connettersi all'origine del servizio SQL Server Browser sulla porta UDP 1434 e l'istanza di SQL Server tramite la porta TCP assegnata dinamicamente a seconda dei casi. |
+| Questo errore si verifica quando la migrazione non riesce a causa del timeout di attesa di blocco durante la migrazione. | Provare ad aumentare il valore del parametro Server **' innodb_lock_wait_timeout '** . Il valore massimo consentito è 1073741824. |
 
-## <a name="additional-known-issues"></a>Altri problemi noti
+## <a name="error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance"></a>Errore durante la connessione all'origine SQL Server quando si utilizza una porta dinamica o un'istanza denominata
 
-* [Limitazioni di problemi noti/migrazione con le migrazioni online al Database SQL di Azure](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
-* [Limitazioni di migrazione/problemi noti con migrazioni online al Database di Azure per MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
-* [Limitazioni di migrazione/problemi noti con migrazioni online al Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
+Quando si tenta di connettere il servizio migrazione del database di Azure a SQL Server origine eseguita in un'istanza denominata o in una porta dinamica, la connessione ha esito negativo con questo errore:
+
+* **Errore**:-1-connessione SQL non riuscita. Si è verificato un errore di rete o specifico dell'istanza mentre veniva stabilita la connessione a SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che SQL Server sia configurato per consentire le connessioni remote. (provider: Interfacce di rete SQL, errore: 26-errore nell'individuazione del server/dell'istanza specificati)
+
+| Causa         | Risoluzione    |
+| ------------- | ------------- |
+| Questo problema si verifica quando l'istanza di SQL Server di origine a cui il servizio migrazione del database di Azure tenta di connettersi ha una porta dinamica o usa un'istanza denominata. Il servizio SQL Server Browser è in ascolto sulla porta UDP 1434 per le connessioni in ingresso a un'istanza denominata o quando si utilizza una porta dinamica. La porta dinamica può variare ogni volta che SQL Server servizio viene riavviato. È possibile controllare la porta dinamica assegnata a un'istanza tramite la configurazione di rete in Gestione configurazione SQL Server.<br><br><br> |Verificare che il servizio migrazione del database di Azure sia in grado di connettersi al servizio di SQL Server Browser di origine sulla porta UDP 1434 e l'istanza di SQL Server tramite la porta TCP assegnata in modo dinamico, come applicabile. |
+
+## <a name="additional-known-issues"></a>Problemi noti aggiuntivi
+
+* [Problemi noti/limitazioni della migrazione con migrazioni online al database SQL di Azure](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
+* [Problemi noti/limitazioni della migrazione con migrazioni online al database di Azure per MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
+* [Problemi noti/limitazioni della migrazione con migrazioni online al database di Azure per PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Visualizzare l'articolo [PowerShell per Azure Database Migration Service](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
-* Visualizzare l'articolo [come configurare i parametri del server nel Database di Azure per MySQL usando il portale di Azure](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
-* Visualizzare l'articolo [panoramica dei prerequisiti per usare servizio migrazione del Database](https://docs.microsoft.com/azure/dms/pre-reqs).
-* Vedere le [domande frequenti sull'uso di Azure Database Migration Service](https://docs.microsoft.com/azure/dms/faq).
+* Vedere l'articolo [PowerShell del servizio migrazione del database di Azure](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Vedere l'articolo [come configurare i parametri del server in database di Azure per MySQL usando il portale di Azure](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
+* Vedere l'articolo [Panoramica dei prerequisiti per l'uso del servizio migrazione del database di Azure](https://docs.microsoft.com/azure/dms/pre-reqs).
+* Vedere le [domande frequenti sull'uso del servizio migrazione del database di Azure](https://docs.microsoft.com/azure/dms/faq).

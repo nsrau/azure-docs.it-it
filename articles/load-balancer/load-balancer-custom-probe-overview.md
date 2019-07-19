@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Informazioni su come usare i probe di integrità per monitorare le istanze di Load Balancer
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
-ms.author: kumud
-ms.openlocfilehash: e488a4a6438279270f3d86dafa16c45eda184059
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 75009530940a0cce7adb8469ead5f55f509a1faa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65415716"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275346"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -30,7 +30,7 @@ I probe di integrità supportano più protocolli. La disponibilità di un tipo s
 | | SKU Standard | SKU Basic |
 | --- | --- | --- |
 | [Tipi di probe](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Comportamento in caso di inattività dei probe](#probedown) | Tutti i probe sono inattivi, tutti i flussi TCP continuano. | Tutti i probe verso il basso, tutti i flussi TCP scadono. | 
+| [Comportamento in caso di inattività dei probe](#probedown) | Tutti i probe sono inattivi, tutti i flussi TCP continuano. | Tutte le sonde vengono arrestate, tutti i flussi TCP scadono. | 
 
 > [!IMPORTANT]
 > I probe di integrità di Load Balancer sono originati dall'indirizzo IP 168.63.129.16 e non devono essere bloccati perché possano contrassegnare l'istanza come attiva.  Per informazioni dettagliate, vedere [Indirizzo IP di origine dei probe](#probesource).
@@ -178,7 +178,7 @@ Load Balancer usa un servizio distribuito probe per il suo modello di integrità
 
 Il tag del servizio AzureLoadBalancer identifica questo indirizzo IP di origine nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md) e consente il traffico dei probe di integrità per impostazione predefinita.
 
-Oltre ai probe di integrità di bilanciamento del carico, il [operazioni seguenti usano questo indirizzo IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
+Oltre ai Probe di integrità di Load Balancer, le [operazioni seguenti usano questo indirizzo IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
 - Abilitazione dell'agente di macchine virtuali per la comunicazione con la piattaforma per segnalare che si trova in uno stato "Pronto"
 - Abilitazione della comunicazione con il server virtuale DNS per fornire la risoluzione dei nomi filtrati per i clienti che non definiscono i server DNS personalizzati.  Questo filtro garantisce che i clienti possano risolvere solo i nomi host della loro distribuzione.
@@ -212,9 +212,9 @@ Non abilitare i [timestamp TCP](https://tools.ietf.org/html/rfc1323).  Se vengon
 
 ## <a name="monitoring"></a>Monitoraggio
 
-Entrambi i servizi [Load Balancer Standard](load-balancer-standard-overview.md) pubblico e interno espongono lo stato dei probe di integrità come una metrica multidimensionale per ogni istanza di back-end e per ogni endpoint tramite Monitoraggio di Azure. Queste metriche possono essere utilizzate da altri servizi di Azure o applicazioni di partner. 
+Entrambi i servizi [Load Balancer Standard](load-balancer-standard-overview.md) pubblico e interno espongono lo stato dei probe di integrità come una metrica multidimensionale per ogni istanza di back-end e per ogni endpoint tramite Monitoraggio di Azure. Queste metriche possono essere utilizzate da altri servizi di Azure o da applicazioni partner. 
 
-Base pubblica di Load Balancer espone lo stato probe di integrità riepilogato per ogni pool back-end con i log di monitoraggio di Azure.  Log di monitoraggio di Azure non sono disponibili per i bilanciamenti del carico Basic interna.  È possibile usare [monitoraggio di Azure registra](load-balancer-monitor-log.md) per controllare lo stato di integrità probe del servizio di bilanciamento carico pubblico e conteggio dei probe. La registrazione può essere usata con Power BI o Azure Operational Insights per fornire statistiche sullo stato di integrità del servizio di bilanciamento del carico.
+Il Load Balancer pubblico di base espone lo stato del probe di integrità per ogni pool back-end tramite log di monitoraggio di Azure.  I log di monitoraggio di Azure non sono disponibili per i bilanciamenti del carico di base interni.  È possibile usare i [log di monitoraggio di Azure](load-balancer-monitor-log.md) per verificare lo stato di integrità e il numero di probe del servizio di bilanciamento del carico pubblico. La registrazione può essere usata con Power BI o Azure Operational Insights per fornire statistiche sullo stato di integrità del servizio di bilanciamento del carico.
 
 ## <a name="limitations"></a>Limitazioni
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Informazioni su come creare un servizio di bilanciamento del carico interno con l'interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
-ms.author: kumud
-ms.openlocfilehash: cb01aa84201c1e0727414215974a343e8cf3b724
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: e38cc4e6da574e0c3be490cf5d9cd929624343e5
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475894"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275441"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Creare un servizio di bilanciamento del carico interno per le macchine virtuali mediante l'interfaccia della riga di comando di Azure
 
@@ -60,7 +60,7 @@ Questa sezione descrive dettagliatamente come creare e configurare i componenti 
 
 ### <a name="create-the-load-balancer"></a>Creare il servizio di bilanciamento del carico
 
-Creare un servizio di bilanciamento del carico interno con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominate **myLoadBalancer** che include una configurazione IP front-end denominata **myFrontEnd**, un pool di back-end denominato **myBackEndPool** associato a un indirizzo IP privato * * 10.0.0.7.
+Creare un Load Balancer interno con [AZ Network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominato **myLoadBalancer** che include una configurazione IP front-end denominata **frontend**, un pool back-end denominato **myBackEndPool** associato a un indirizzo IP privato * 10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \

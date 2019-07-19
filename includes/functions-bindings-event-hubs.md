@@ -4,37 +4,37 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 421e0db48f045c5cbce52a0641902e6d2a11276e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3ce3d61bf6b5fb44fa13527bc5a93295784fa66b
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179943"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286309"
 ---
 ## <a name="trigger"></a>Trigger
 
-Usare il trigger di funzione per rispondere a un evento inviato a un flusso di eventi di hub eventi. È necessario avere accesso in lettura per l'hub eventi sottostante per impostare il trigger. Quando la funzione viene attivata, il messaggio passato alla funzione è tipizzato come una stringa.
+Usare il trigger di funzione per rispondere a un evento inviato a un flusso di eventi di hub eventi. È necessario avere accesso in lettura all'hub eventi sottostante per configurare il trigger. Quando la funzione viene attivata, il messaggio passato alla funzione viene tipizzato come stringa.
 
 ## <a name="trigger---scaling"></a>Trigger - ridimensionamento
 
-Ogni istanza di una funzione attivata di eventi è supportata da un unico [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) istanza. Il trigger (basata su hub eventi) garantisce che solo uno [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) istanza può ottenere un lease in una determinata partizione.
+Ogni istanza di una funzione attivata da un evento è supportata da una singola istanza di [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) . Il trigger (basato su Hub eventi) garantisce che solo un'istanza di [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) possa ottenere un lease in una determinata partizione.
 
 Si consideri ad esempio un Hub eventi come quello indicato di seguito:
 
 * 10 partizioni
 * 1\.000 eventi distribuiti uniformemente tra tutte le partizioni, con 100 messaggi in ogni partizione
 
-Quando la funzione viene abilitata per la prima volta, è presente solo un'istanza della funzione. È possibile chiamare la prima istanza di funzione `Function_0`. Il `Function_0` funzione dispone di una singola istanza di [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) che contiene un lease in tutte le partizioni di dieci. Questa istanza legge gli eventi dalle partizioni da 0 a 9. A partire da questo punto potranno verificarsi una delle condizioni seguenti:
+Quando la funzione viene abilitata per la prima volta, è presente solo un'istanza della funzione. Chiameremo la prima istanza `Function_0`di funzione. La `Function_0` funzione dispone di una singola istanza di [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) che contiene un lease su tutte e dieci le partizioni. Questa istanza legge gli eventi dalle partizioni da 0 a 9. A partire da questo punto potranno verificarsi una delle condizioni seguenti:
 
-* **Non sono necessarie nuove istanze della funzione**: `Function_0` è in grado di elaborare tutti i 1.000 eventi rendere effettive le funzioni di ridimensionamento per la logica. In questo caso, tutti i 1000 messaggi vengono elaborati da `Function_0`.
+* **Non sono necessarie nuove istanze**della funzione `Function_0` : è in grado di elaborare tutti gli eventi 1.000 prima che la logica di ridimensionamento funzioni abbia effetto. In questo caso, tutti i messaggi 1.000 vengono elaborati da `Function_0`.
 
-* **Viene aggiunta un'altra istanza della funzione**: Se le funzioni di ridimensionamento per la logica determina che `Function_0` dispone di più messaggi di quanti ne possa elaborare una nuova istanza di app di funzione (`Function_1`) viene creato. Questa nuova funzione deve inoltre un'istanza associata di [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Poiché gli hub eventi sottostante rilevare che una nuova istanza dell'host sta tentando di leggere i messaggi, bilanciamento del carico le partizioni tra le relative istanze dell'host. Ad esempio, le partizioni da 0 a 4 possono essere assegnate a `Function_0` e le partizioni a 5 a 9 a `Function_1`.
+* **Viene aggiunta un'altra istanza della funzione**: Se la logica di ridimensionamento delle `Function_0` funzioni determina che contiene più messaggi di quanti ne possa elaborare, viene creata`Function_1`una nuova istanza dell'app per le funzioni (). Alla nuova funzione è associata anche un'istanza di [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Poiché gli hub eventi sottostanti rilevano che una nuova istanza dell'host sta provando a leggere i messaggi, il carico bilancia le partizioni tra le istanze dell'host. Ad esempio, le partizioni da 0 a 4 possono essere assegnate a `Function_0` e le partizioni a 5 a 9 a `Function_1`.
 
-* **Vengono aggiunte altre N istanze della funzione**: Se le funzioni di logica di ridimensionamento determina che entrambe `Function_0` e `Function_1` dispone di più messaggi di quanti ne possano elaborare, new `Functions_N` vengono create le istanze di app di funzione.  Le app vengono create per il punto in cui `N` è maggiore del numero di partizioni di hub eventi. In questo esempio l'Hub eventi bilancia nuovamente il carico delle partizioni, in questo caso tra le istanze `Function_0`...`Functions_9`.
+* **Vengono aggiunte altre N istanze della funzione**: Se la logica di ridimensionamento delle funzioni `Function_0` determina `Function_1` che e hanno più messaggi di quanti ne possano `Functions_N` elaborare, vengono create nuove istanze delle app per le funzioni.  Le app vengono create nel punto in `N` cui è maggiore del numero di partizioni dell'hub eventi. In questo esempio l'Hub eventi bilancia nuovamente il carico delle partizioni, in questo caso tra le istanze `Function_0`...`Functions_9`.
 
-Quando le funzioni scale, `N` istanze è un numero maggiore del numero di partizioni di hub eventi. Questa operazione viene eseguita per garantire [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) istanze sono disponibili per ottenere blocchi sulle partizioni appena diventano disponibili da altre istanze. Viene addebitato solo per le risorse usate quando viene eseguita l'istanza della funzione. In altre parole, non viene addebitata per il provisioning eccessivo.
+Quando le funzioni vengono `N` ridimensionate, le istanze sono un numero maggiore del numero di partizioni dell'hub eventi. Questa operazione viene eseguita per garantire che le istanze di [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) siano disponibili per ottenere blocchi sulle partizioni Man mano che diventano disponibili da altre istanze. Vengono addebitate solo le risorse utilizzate quando l'istanza della funzione viene eseguita. In altre parole, non viene addebitato alcun costo per il provisioning eccessivo.
 
-Al termine dell'esecuzione di tutte le funzioni (con o senza errori), i checkpoint vengono aggiunti all'account di archiviazione associato. Quando il checkpoint ha esito positivo, tutti i messaggi di 1.000 mai vengono recuperati nuovamente.
+Al termine dell'esecuzione di tutte le funzioni (con o senza errori), i checkpoint vengono aggiunti all'account di archiviazione associato. Quando il segno di spunta ha esito positivo, tutti i messaggi 1.000 non vengono mai recuperati.
 
 ## <a name="trigger---example"></a>Trigger - esempio
 
@@ -360,7 +360,7 @@ public void eventHubProcessor(
  }
 ```
 
- Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l'annotazione `EventHubTrigger` per i parametri il cui valore deriva da Hub eventi. I parametri con queste annotazioni attivano l'esecuzione della funzione quando viene ricevuto un evento.  Questa annotazione può essere usata con i tipi Java nativi, con oggetti POJO o con valori di tipo nullable tramite Facoltativo<T>.
+ Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l'annotazione `EventHubTrigger` per i parametri il cui valore deriva da Hub eventi. I parametri con queste annotazioni attivano l'esecuzione della funzione quando viene ricevuto un evento.  Questa annotazione può essere usata con i tipi nativi Java, POJO o i valori\<Nullable usando l'opzione facoltativa T >.
 
 ## <a name="trigger---attributes"></a>Trigger - attributi
 
@@ -389,9 +389,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**name** | n/d | Nome della variabile che rappresenta l'elemento evento nel codice della funzione. |
 |**path** |**EventHubName** | Solo Funzioni 1.x. Nome di Hub eventi. Quando il nome dell'hub eventi è presente anche nella stringa di connessione, tale valore sostituisce questa proprietà in fase di runtime. |
 |**eventHubName** |**EventHubName** | Solo Funzioni 2.x. Nome di Hub eventi. Quando il nome dell'hub eventi è presente anche nella stringa di connessione, tale valore sostituisce questa proprietà in fase di runtime. |
-|**consumerGroup** |**ConsumerGroup** | Proprietà facoltativa che consente di impostare il [gruppo di consumer](../articles/event-hubs/event-hubs-features.md)i consumer di eventi #) usati per sottoscrivere gli eventi nell'hub. Se omessa, al suo posto viene usato il gruppo di consumer `$Default`. |
+|**consumerGroup** |**ConsumerGroup** | Proprietà facoltativa che imposta il [gruppo](../articles/event-hubs/event-hubs-features.md)di consumer #event-consumer) usato per sottoscrivere gli eventi nell'hub. Se omessa, al suo posto viene usato il gruppo di consumer `$Default`. |
 |**cardinality** | n/d | Per JavaScript. Impostare su `many` per abilitare l'invio in batch.  Se omesso o impostato su `one`, singolo messaggio passato alla funzione. |
-|**connessione** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic la **le informazioni di connessione** pulsante per il [dello spazio dei nomi](../articles/event-hubs/event-hubs-create.md)#create-un-eventi-hub-spazio dei nomi), non lo stesso hub eventi. Per attivare il trigger, questa stringa di connessione deve disporre almeno delle autorizzazioni Read.|
+|**connessione** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **informazioni di connessione** per lo [spazio dei nomi](../articles/event-hubs/event-hubs-create.md)#create-an-Event-Hub-Namespace), non sull'hub eventi stesso. Per attivare il trigger, questa stringa di connessione deve disporre almeno delle autorizzazioni Read.|
 |**path**|**EventHubName**|Nome di Hub eventi. È possibile farvi riferimento tramite le impostazioni dell'app `%eventHubName%`|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
@@ -449,7 +449,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-L'esempio seguente viene illustrato come utilizzare il `IAsyncCollector` interfaccia per inviare un batch di messaggi. Questo scenario è comune quando si elaborano i messaggi provenienti da un Hub eventi e invia il risultato a un altro Hub eventi.
+Nell'esempio seguente viene illustrato come utilizzare l' `IAsyncCollector` interfaccia per inviare un batch di messaggi. Questo scenario è comune quando si elaborano i messaggi provenienti da un hub eventi e si invia il risultato a un altro hub eventi.
 
 ```csharp
 [FunctionName("EH2EH")]

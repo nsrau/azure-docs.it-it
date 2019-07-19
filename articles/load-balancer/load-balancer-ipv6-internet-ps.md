@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Informazioni sulla creazione di un servizio di bilanciamento del carico con connessione Internet con IPv6 usando PowerShell per Resource Manager
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: ipv6, azure load balancer, dual stack, ip pubblico, ipv6 nativo, mobili, iot
 ms.service: load-balancer
 ms.custom: seodec18
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: e4bc889df008283f05be5f820b66415cd38c1595
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 12f9b8d3031d3b64e2f39f07763f7a75164aad25
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66149264"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274975"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Introduzione alla creazione di un servizio di bilanciamento del carico con connessione Internet con IPv6 usando PowerShell per Resource Manager
 
@@ -100,7 +100,7 @@ Assicurarsi di avere la versione di produzione più recente del modulo Azure Res
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Creare risorse di indirizzi IP pubblici (PIP) di Azure per il pool di indirizzi IP front-end. Assicurarsi di modificare il valore per `-DomainNameLabel` prima di eseguire i comandi seguenti. Il valore deve essere univoco all'interno dell'area di Azure.
+2. Creare risorse di indirizzi IP pubblici (PIP) di Azure per il pool di indirizzi IP front-end. Assicurarsi di modificare il valore di prima `-DomainNameLabel` di eseguire i comandi seguenti. Il valore deve essere univoco all'interno dell'area di Azure.
 
     ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4
