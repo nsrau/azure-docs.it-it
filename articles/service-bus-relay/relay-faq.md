@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: c6ea5e72f70620004b4b00be0c779893a3b2ad90
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f9f182a459f9a38c96bdf923998d1cdfee8fc3ac
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706197"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277969"
 ---
 # <a name="azure-relay-faqs"></a>Domande frequenti sul servizio di inoltro di Azure
 
@@ -42,7 +42,7 @@ Il servizio in precedenza chiamato Inoltro del bus di servizio ora si chiama [In
 Questa sezione contiene le risposte ad alcune domande frequenti sulla struttura dei prezzi del servizio di inoltro. Per informazioni generali sui prezzi di Azure, vedere [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/). Per informazioni complete sui prezzi del servizio di inoltro, vedere la pagina contenente i [dettagli dei prezzi del bus di servizio][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Come vengono addebitati i costi di Connessioni ibride e Inoltro WCF?
-Per informazioni complete sui prezzi degli inoltri, vedere la [connessioni ibride e inoltri WCF][Pricing overview] tabella nella pagina relativa ai prezzi del Bus di servizio. Oltre ai prezzi indicati in questa pagina, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.
+Per informazioni complete sui prezzi di inoltro, vedere la tabella [connessioni ibride e i relay WCF][Pricing overview] nella pagina Dettagli prezzi del bus di servizio. Oltre ai prezzi indicati in questa pagina, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>Come viene fatturato l'uso di Connessioni ibride?
 Ecco tre scenari di fatturazione di esempio per Connessioni ibride:
@@ -125,10 +125,10 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Quali sono alcune eccezioni generate dalle API del servizio di inoltro di Azure e le azioni consigliate?
-Per una descrizione di comune eccezioni ed è possibile eseguire le azioni consigliate, vedere [eccezioni di inoltro][Relay exceptions].
+Per una descrizione delle eccezioni comuni e delle azioni suggerite che è possibile eseguire, vedere [eccezioni di inoltro][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Cos'è una firma di accesso condiviso e quali linguaggi è possibile usare per generare una firma?
-Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le firme nel nodo, PHP, Java, C, e C#, vedere [l'autenticazione del Bus di servizio con firme di accesso condiviso][Shared Access Signatures].
+Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le firme in node. js, PHP, Python, Java, C e C#, vedere autenticazione del [bus di servizio con firme di accesso condiviso][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>È possibile aggiungere all'elenco elementi consentiti gli endpoint di inoltro?
 Sì. Il client di inoltro stabilisce connessioni al servizio di inoltro di Azure usando nomi di dominio completi. I clienti possono quindi aggiungere una voce per `*.servicebus.windows.net` nei firewall che supportano l'aggiunta all'elenco elementi consentiti per DNS.

@@ -1,39 +1,36 @@
 ---
-title: Distribuzione di Firewall di Azure con più indirizzi IP pubblici usando Azure PowerShell
-description: In questo articolo descrive come distribuire un Firewall di Azure con più indirizzi IP pubblici tramite Azure PowerShell.
+title: Distribuire il firewall di Azure con più indirizzi IP pubblici usando Azure PowerShell
+description: Questo articolo illustra come distribuire un firewall di Azure con più indirizzi IP pubblici usando il Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/10/2019
+ms.date: 07/19/2019
 ms.author: victorh
-ms.openlocfilehash: ce47612f18ee64caa3a053001deb5448f7c27bfd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ba2736ae69d0bf7feff5f852da2446bfa7a722a6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703992"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325240"
 ---
-# <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Distribuire un Firewall di Azure con più indirizzi IP pubblici usando Azure PowerShell
-
-> [!IMPORTANT]
-> Firewall di Azure con più indirizzi IP pubblici è disponibile tramite Azure PowerShell, CLI di Azure, REST e modelli. Interfaccia utente del portale viene aggiunto alle aree in modo incrementale e sarà disponibile in tutte le aree quando viene completata l'implementazione.
-
-È possibile distribuire un Firewall di Azure con fino a 100 indirizzi IP pubblici.
+# <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Distribuire un firewall di Azure con più indirizzi IP pubblici usando Azure PowerShell
 
 Questa funzionalità consente gli scenari seguenti:
 
 - **DNAT** - È possibile convertire più istanze di porta standard per i server back-end. Se ad esempio si dispone di due indirizzi IP pubblici, è possibile convertire la porta TCP 3389 (RDP) per entrambi gli indirizzi IP.
 - **SNAT** - Sono disponibili porte aggiuntive per le connessioni SNAT in uscita, riducendo il rischio di esaurimento delle porte SNAT. Al momento, Firewall di Azure seleziona in modo casuale l'indirizzo IP pubblico di origine da usare per una connessione. Se sono presenti filtri downstream nella rete, è necessario consentire tutti gli indirizzi IP pubblici associati al firewall.
+ 
+Il firewall di Azure con più indirizzi IP pubblici è disponibile tramite il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure, REST e i modelli. È possibile distribuire un firewall di Azure con un massimo di 100 indirizzi IP pubblici.
 
-Gli esempi di Azure PowerShell seguenti illustrano come è possibile configurare, aggiungere e rimuovere indirizzi IP pubblici per il Firewall di Azure.
+Gli esempi di Azure PowerShell seguenti illustrano come è possibile configurare, aggiungere e rimuovere indirizzi IP pubblici per il firewall di Azure.
 
 > [!NOTE]
-> È possibile rimuovere la prima configurazione IP dalla pagina configurazione indirizzi IP pubblica Firewall di Azure. Se si desidera modificare l'indirizzo IP, è possibile usare Azure PowerShell.
+> Non è possibile rimuovere il primo configurazione IP dalla pagina di configurazione dell'indirizzo IP pubblico del firewall di Azure. Se si desidera modificare l'indirizzo IP, è possibile utilizzare Azure PowerShell.
 
-## <a name="create-a-firewall-with-two-or-more-public-ip-addresses"></a>Creare una regola del firewall con due o più indirizzi IP pubblici
+## <a name="create-a-firewall-with-two-or-more-public-ip-addresses"></a>Creare un firewall con due o più indirizzi IP pubblici
 
-In questo esempio crea un firewall collegato alla rete virtuale *vnet* con due indirizzi IP pubblici.
+Questo esempio crea un firewall collegato alla rete virtuale *VNET* con due indirizzi IP pubblici.
 
 ```azurepowershell
 $rgName = "resourceGroupName"
@@ -66,7 +63,7 @@ New-AzFirewall `
 
 ## <a name="add-a-public-ip-address-to-an-existing-firewall"></a>Aggiungere un indirizzo IP pubblico a un firewall esistente
 
-In questo esempio, l'indirizzo IP pubblico *azFwPublicIp1* è collegata al firewall.
+In questo esempio, l'indirizzo IP pubblico *azFwPublicIp1* è collegato al firewall.
 
 ```azurepowershell
 $pip = New-AzPublicIpAddress `
@@ -87,7 +84,7 @@ $azFw | Set-AzFirewall
 
 ## <a name="remove-a-public-ip-address-from-an-existing-firewall"></a>Rimuovere un indirizzo IP pubblico da un firewall esistente
 
-In questo esempio, l'indirizzo IP pubblico *azFwPublicIp1* è disconnesso dal firewall.
+In questo esempio, l'indirizzo IP pubblico *azFwPublicIp1* viene scollegato dal firewall.
 
 ```azurepowershell
 $pip = Get-AzPublicIpAddress `

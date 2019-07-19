@@ -4,22 +4,22 @@ description: Come esportare dati dall'applicazione Azure IoT Central in Archivia
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/20/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 609d16994cf88f1777584243b1031368ddc79724
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464632"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849078"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Esportare i dati in Archiviazione BLOB di Azure
 
 *Questo argomento riguarda gli amministratori.*
 
-Questo articolo descrive come usare la funzionalità di esportazione continua dei dati in Azure IoT Central per esportare periodicamente i dati per i **account di archiviazione Blob di Azure**. È possibile esportare **misurazioni**, **dispositivi** e **modelli di dispositivo** in file in formato Apache Avro. I dati esportati possono essere usati per eseguire analisi di percorsi non critici, ad esempio modelli di training in Azure Machine Learning o analisi delle tendenze a lungo termine in Microsoft Power BI.
+Questo articolo descrive come usare la funzionalità di esportazione continua dei dati in Azure IoT Central per esportare periodicamente i dati nell' **account di archiviazione BLOB di Azure**. È possibile esportare **misurazioni**, **dispositivi** e **modelli di dispositivo** in file in formato Apache Avro. I dati esportati possono essere usati per eseguire analisi di percorsi non critici, ad esempio modelli di training in Azure Machine Learning o analisi delle tendenze a lungo termine in Microsoft Power BI.
 
 > [!Note]
 > Quando si attiva l'esportazione continua dei dati, si recuperano solo i dati a partire dal momento dell'attivazione. Attualmente non è possibile recuperare i dati relativi a un periodo in cui l'esportazione continua era disattivata. Per conservare una maggiore quantità di dati cronologici, attivare presto l'esportazione continua dei dati.
@@ -32,7 +32,7 @@ Questo articolo descrive come usare la funzionalità di esportazione continua de
 
 ## <a name="set-up-export-destination"></a>Configurare la destinazione di esportazione
 
-Se non si dispone di una risorsa di archiviazione esistente per esportare in, seguire questa procedura:
+Se non si dispone di una risorsa di archiviazione esistente in cui eseguire l'esportazione, attenersi alla seguente procedura:
 
 ## <a name="create-storage-account"></a>Creare l'account di archiviazione
 
@@ -43,33 +43,33 @@ Se non si dispone di una risorsa di archiviazione esistente per esportare in, se
     > [!Note] 
     > A questo punto è possibile esportare i dati in altre sottoscrizioni **diverse** da quella dell'applicazione IoT Central con pagamento in base al consumo. In questo caso ci si connetterà con una stringa di connessione.
 
-4. Creare un contenitore nell'account di archiviazione. Passare all'account di archiviazione. In **Servizio BLOB** selezionare **Esplora BLOB**. Selezionare **+ contenitore** in alto per creare un nuovo contenitore
+4. Creare un contenitore nell'account di archiviazione. Passare all'account di archiviazione. In **Servizio BLOB** selezionare **Esplora BLOB**. Selezionare **+ contenitore** nella parte superiore per creare un nuovo contenitore
 
 
 ## <a name="set-up-continuous-data-export"></a>Configurare l'esportazione continua dei dati
 
-Ora che si dispone di una destinazione di archiviazione in cui esportare dati, seguire questa procedura per configurare l'esportazione continua dei dati. 
+Ora che si dispone di una destinazione di archiviazione in cui esportare i dati, attenersi alla procedura seguente per configurare l'esportazione continua dei dati. 
 
 1. Accedere all'applicazione IoT Central.
 
-2. Nel menu a sinistra, selezionare **esportazione continua dei dati**.
+2. Nel menu a sinistra selezionare **esportazione dati continua**.
 
     > [!Note]
     > Se questa opzione non è presente nel menu a sinistra, significa che non si è amministratori dell'app. Chiedere a un amministratore di configurare l'esportazione dei dati.
 
     ![Creare un nuovo hub eventi per l'esportazione continua dei dati](media/howto-export-data/export_menu1.png)
 
-3. Selezionare il **+ nuovo** pulsante in alto a destra. Scegli **archiviazione Blob di Azure** come destinazione dell'esportazione. 
+3. Selezionare il pulsante **+ nuovo** in alto a destra. Scegliere **archiviazione BLOB di Azure** come destinazione dell'esportazione. 
 
     > [!NOTE] 
     > Il numero massimo di esportazioni per app è cinque. 
 
     ![Creare una nuova esportazione continua dei dati](media/howto-export-data/export_new1.png)
 
-4. Nella casella di riepilogo a discesa, selezionare i **dello spazio dei nomi di Account di archiviazione**. È anche possibile selezionare l'ultima opzione dell'elenco, ossia **Immettere una stringa di connessione**. 
+4. Nella casella di riepilogo a discesa selezionare lo **spazio dei nomi dell'account di archiviazione**. È anche possibile selezionare l'ultima opzione dell'elenco, ossia **Immettere una stringa di connessione**. 
 
     > [!NOTE] 
-    > Verranno visualizzati solo gli account di archiviazione degli spazi dei nomi nel **stessa sottoscrizione dell'App IoT Central**. Se si vogliono esportare i dati in una destinazione esterna a questa sottoscrizione, scegliere **Immettere una stringa di connessione** e vedere il passaggio 5.
+    > Vengono visualizzati solo gli spazi dei nomi degli account di archiviazione nella **stessa sottoscrizione dell'app IOT Central**. Se si vogliono esportare i dati in una destinazione esterna a questa sottoscrizione, scegliere **Immettere una stringa di connessione** e vedere il passaggio 5.
 
     > [!NOTE] 
     > Per le app in versione di valutazione per 7 giorni l'unico modo per configurare l'esportazione continua dei dati è tramite una stringa di connessione. A queste app non è infatti associata una sottoscrizione di Azure.
@@ -78,10 +78,10 @@ Ora che si dispone di una destinazione di archiviazione in cui esportare dati, s
 
 5. (Facoltativo) Se si è selezionata l'opzione **Immettere una stringa di connessione**, viene visualizzata una nuova casella in cui incollare la stringa di connessione. Per ottenere la stringa di connessione per:
     - Account di archiviazione, passare all'account di archiviazione nel portale di Azure.
-        - Sotto **le impostazioni**, selezionare **chiavi di accesso**
+        - In **Impostazioni**selezionare **chiavi di accesso**
         - Copiare la stringa di connessione key1 o la stringa di connessione key2
  
-6. Scegliere un contenitore nell'elenco a discesa.
+6. Scegliere un contenitore dalla casella di riepilogo a discesa.
 
 7. In **Data to export** (Dati da esportare) specificare ogni tipo di dati da esportare impostando il tipo su **On** (Attivato).
 

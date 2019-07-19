@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
-ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: timlt
+ms.openlocfilehash: 5a3800cfdf36bdc2e042eec860310a508204ba11
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630186"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876443"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida
 ## <a name="overview"></a>Panoramica
@@ -207,10 +207,10 @@ Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati
 
 | Scenario | Carico di lavoro | Supportato | Restrizioni | Version |
 | --- | --- | --- | --- | --- |
-| Collaborazione |Condivisione di file |Yes | |Tutte le versioni |
+| Collaborazione |Condivisione di file |Sì | |Tutte le versioni |
 | Collaborazione |Condivisione di file distribuita |Yes | |Tutte le versioni |
 | Collaborazione |SharePoint |Sì* |Supportata solo con i volumi aggiunti in locale |Aggiornamento 2 e successivi |
-| Archiviazione |Archiviazione di file semplice |Yes | |Tutte le versioni |
+| Archiviazione |Archiviazione di file semplice |Sì | |Tutte le versioni |
 | Virtualizzazione |Macchine virtuali |Sì* |Supportata solo con i volumi aggiunti in locale |Aggiornamento 2 e successivi |
 | Database |SQL |Sì* |Supportata solo con i volumi aggiunti in locale |Aggiornamento 2 e successivi |
 | Sorveglianza video |Sorveglianza video |Sì* |Supportata quando il dispositivo StorSimple è dedicato solo a questo carico di lavoro |Aggiornamento 2 e successivi |

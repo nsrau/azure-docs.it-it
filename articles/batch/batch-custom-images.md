@@ -3,23 +3,23 @@ title: Effettuare il provisioning del pool di Azure Batch da un'immagine persona
 description: Creare un pool di Batch da un'immagine personalizzata per effettuare il provisioning dei nodi di calcolo che contengono il software e i dati necessari per l'applicazione. Le immagini personalizzate sono uno strumento efficace per configurare i nodi di calcolo per l'esecuzione dei carichi di lavoro di Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 80cba5e1b5e38e31dea2272cc4e33b4a95940e41
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 54456ff48ca7104cc1ba10ddc47cec1bc364ddf6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565619"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323697"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Usare un'immagine personalizzata per creare un pool di macchine virtuali 
 
 Quando si crea un pool in Azure Batch usando la configurazione della macchina virtuale, specificare l'immagine di macchina virtuale (VM) che fornisce la configurazione del sistema operativo per ogni nodo di calcolo nel pool. È possibile creare un pool di macchine virtuali con un'immagine di Azure Marketplace supportata o con un'immagine personalizzata, vale a dire un'immagine di macchina virtuale creata e configurata manualmente. L'immagine personalizzata deve essere una risorsa di tipo *immagine gestita* nella stessa sottoscrizione di Azure e nella stessa area dell'account Batch.
 
-## <a name="benefits-of-custom-images"></a>Vantaggi di immagini personalizzate
+## <a name="benefits-of-custom-images"></a>Vantaggi delle immagini personalizzate
 
 Quando si specifica un'immagine personalizzata, si ha la possibilità di controllare la configurazione e il tipo del sistema operativo, nonché i dischi dati da usare. L'immagine personalizzata può includere applicazioni e dati di riferimento che diventano disponibili in tutti i nodi del pool di Azure Batch non appena viene effettuato il provisioning.
 
@@ -49,7 +49,7 @@ In Azure è possibile preparare un'immagine gestita dagli snapshot del sistema o
 
 ### <a name="prepare-a-vm"></a>Preparare una VM
 
-Se si sta creando una nuova macchina virtuale per l'immagine, usare un'immagine di Azure Marketplace di terze parti prima supportata come immagine di base per l'immagine gestita da Batch. Immagini proprietarie possono essere utilizzate solo come un'immagine di base. Per ottenere un elenco completo dei riferimenti a immagini di Marketplace di Azure supportati da Azure Batch, vedere la [gli SKU agente nodo elenco](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) operazione.
+Se si sta creando una nuova macchina virtuale per l'immagine, usare un'immagine di Azure Marketplace di prima entità supportata da batch come immagine di base per l'immagine gestita. Solo le immagini di primo entità possono essere utilizzate come immagine di base. Per ottenere un elenco completo dei riferimenti alle immagini di Azure Marketplace supportati da Azure Batch, vedere l'operazione [List node Agent SKU](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) .
 
 > [!NOTE]
 > È possibile usare un'immagine di terze parti che dispone di licenza aggiuntiva e di condizioni di acquisto come immagine di base. Per informazioni su queste immagini del Marketplace, vedere il materiale sussidiario per le macchine virtuali [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
@@ -59,7 +59,7 @@ Se si sta creando una nuova macchina virtuale per l'immagine, usare un'immagine 
 
 * Assicurarsi che la macchina virtuale sia creata con un disco gestito. Questa è l'impostazione di archiviazione predefinita quando si crea una macchina virtuale.
 * Non installare le estensioni di Azure, ad esempio l'estensione Script personalizzato, nella macchina virtuale. Se l'immagine contiene un'estensione preinstallata, Azure può incontrare alcuni problemi durante la distribuzione del pool di Batch.
-* Quando si utilizzando dischi dati collegati, è necessario montare e formattare i dischi all'interno di una macchina virtuale per usarli.
+* Quando si usano dischi dati collegati, è necessario montare e formattare i dischi all'interno di una macchina virtuale per usarli.
 * Verificare che l'immagine del sistema operativo di base usi l'unità temporanea predefinita. L'agente del nodo Batch attualmente prevede l'uso dell'unità temporanea predefinita.
 * Quando la VM è in esecuzione, connetterla tramite RDP (per Windows) o SSH (per Linux). Installare il software necessario o copiare i dati desiderati.  
 
@@ -78,7 +78,7 @@ Dopo avere salvato l'immagine personalizzata e conoscendone l'ID risorsa o il no
 > [!NOTE]
 > Se si sta creando il pool usando una delle API di Batch, assicurarsi che l'identità usata per l'autenticazione AAD disponga delle autorizzazioni per la risorsa immagine. Vedere [Autenticare le soluzioni del servizio Batch con Active Directory](batch-aad-auth.md).
 >
-> La risorsa per l'immagine gestita deve esistere per la durata del pool. Se la risorsa sottostante viene eliminata, non può essere ridimensionato il pool. 
+> La risorsa per l'immagine gestita deve esistere per la durata del pool. Se la risorsa sottostante viene eliminata, non è possibile ridimensionare il pool. 
 
 1. Passare all'account Batch nel portale di Azure. Questo account deve trovarsi nella stessa area e nella stessa sottoscrizione del gruppo di risorse contenente l'immagine personalizzata. 
 2. Nella finestra **Impostazioni** a sinistra scegliere la voce di menu **Pool**.
@@ -113,13 +113,13 @@ Si noti inoltre quanto segue:
 
 ## <a name="considerations-for-using-packer"></a>Considerazioni sull'uso di Packer
 
-Creazione di una risorsa immagine gestita direttamente con Packer può essere eseguita solo con gli account Batch in modalità di sottoscrizione utente. Per gli account in modalità servizio Batch, è necessario creare prima un disco rigido virtuale, quindi importare il disco rigido virtuale a una risorsa immagine gestita. I passaggi per creare una risorsa immagine gestita variano a seconda della modalità di allocazione pool (sottoscrizione utente o il servizio Batch).
+La creazione di una risorsa immagine gestita direttamente con Packer può essere eseguita solo con account batch in modalità sottoscrizione utente. Per gli account in modalità servizio batch, è prima necessario creare un disco rigido virtuale, quindi importare il disco rigido virtuale in una risorsa immagine gestita. A seconda della modalità di allocazione del pool (sottoscrizione utente o servizio batch), i passaggi per creare una risorsa immagine gestita variano.
 
-Assicurarsi che la risorsa usata per creare l'immagine gestita esiste per la durata di qualsiasi pool facendo riferimento all'immagine personalizzata. In caso contrario, può comportare errori di allocazione pool e/o ridimensionare gli errori. 
+Assicurarsi che la risorsa usata per creare l'immagine gestita esista per la durata di qualsiasi pool che fa riferimento all'immagine personalizzata. In caso contrario, possono verificarsi errori di allocazione del pool e/o errori di ridimensionamento. 
 
-Se l'immagine o la risorsa sottostante viene rimosso, si potrebbe verificarsi un errore simile a: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. In questo caso, assicurarsi che la risorsa sottostante non è stata rimossa.
+Se l'immagine o la risorsa sottostante viene rimossa, è possibile che venga ricevuto un errore `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`simile a:. In tal caso, assicurarsi che la risorsa sottostante non sia stata rimossa.
 
-Per altre informazioni sull'uso di Packer per creare una macchina virtuale, vedere [creare un'immagine Linux con Packer](../virtual-machines/linux/build-image-with-packer.md) oppure [compilare un'immagine di Windows con Packer](../virtual-machines/windows/build-image-with-packer.md).
+Per altre informazioni sull'uso di Packer per creare una macchina virtuale, vedere creare [un'immagine Linux con Packer](../virtual-machines/linux/build-image-with-packer.md) o [creare un'immagine Windows con Packer](../virtual-machines/windows/build-image-with-packer.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: Funzionalità - funzioni di Azure in funzioni permanenti anteprima
-description: Informazioni sulle funzionalità di anteprima per funzioni permanenti.
+title: Funzionalità di Durable Functions Preview-funzioni di Azure
+description: Informazioni sulle funzionalità di anteprima per Durable Functions.
 services: functions
 author: cgillum
 manager: jeconnoc
@@ -10,33 +10,33 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7101519aa4a87995dac3a7f11046eed84a2c09b6
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: 7356541ed6288603a66d5caa43138284d8d4d918
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812770"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320477"
 ---
-# <a name="durable-functions-20-preview-azure-functions"></a>Anteprima della versione 2.0 di funzioni permanente (funzioni di Azure)
+# <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2,0 Preview (funzioni di Azure)
 
-*Funzioni permanenti* è un'estensione di [Funzioni di Azure](../functions-overview.md) e [Processi Web di Azure](../../app-service/web-sites-create-web-jobs.md) che consente di scrivere funzioni con stato in un ambiente senza server. L'estensione gestisce automaticamente lo stato, i checkpoint e i riavvii. Se non ha già familiarità con funzioni permanenti, vedere la [documentazione con la panoramica](durable-functions-overview.md).
+*Funzioni permanenti* è un'estensione di [Funzioni di Azure](../functions-overview.md) e [Processi Web di Azure](../../app-service/web-sites-create-web-jobs.md) che consente di scrivere funzioni con stato in un ambiente senza server. L'estensione gestisce automaticamente lo stato, i checkpoint e i riavvii. Se non si ha già familiarità con Durable Functions, vedere la [documentazione di panoramica](durable-functions-overview.md).
 
-Funzioni permanenti è una funzionalità di disponibilità generale (disponibile a livello generale) di funzioni di Azure 1.x, ma contiene anche diverse funzionalità secondarie che sono attualmente in anteprima pubblica. Questo articolo descrive le funzionalità di anteprima rilasciata di recente e passa i dettagli su come funzionano e come è possibile iniziare a utilizzarle.
+Durable Functions 1. x è una funzionalità GA (disponibile a livello generale) di funzioni di Azure, ma contiene anche alcune sottofunzionalità attualmente disponibili in anteprima pubblica. In questo articolo vengono descritte le funzionalità di anteprima appena rilasciate e vengono fornite informazioni dettagliate sul funzionamento e sul modo in cui è possibile iniziare a utilizzarle.
 
 > [!NOTE]
-> Queste funzionalità di anteprima sono parte di una versione 2.0 di funzioni permanenti, che è attualmente una **qualità versione di anteprima** con molte modifiche di rilievo. Azure funzioni durevoli compila pacchetto di estensione è reperibile in nuget.org con le versioni costituiti **2.0.0-betaX**. Tali build non sono pensate per i carichi di lavoro di produzione e versioni successive possono contenere modifiche di rilievo aggiuntive.
+> Queste funzionalità di anteprima fanno parte di una versione di Durable Functions 2,0, che attualmente è una **versione di anteprima** con diverse modifiche di rilievo. Le compilazioni di pacchetti di estensione durevoli di funzioni di Azure sono reperibili in nuget.org con versioni nel formato **2.0.0-betaX**. Queste compilazioni non sono destinate ai carichi di lavoro di produzione e le versioni successive possono contenere ulteriori modifiche di rilievo.
 
 ## <a name="breaking-changes"></a>Modifiche di rilievo
 
-2\.0 di funzioni permanenti sono introdotte diverse modifiche di rilievo. Le applicazioni esistenti non possono essere compatibili con 2.0 di funzioni permanenti senza modifiche al codice. In questa sezione sono elencate alcune delle modifiche:
+In Durable Functions 2,0 sono state introdotte diverse modifiche di rilievo. Non è previsto che le applicazioni esistenti siano compatibili con Durable Functions 2,0 senza modifiche al codice. In questa sezione sono elencate alcune delle modifiche:
 
-### <a name="hostjson-schema"></a>Schema di host. JSON
+### <a name="hostjson-schema"></a>Schema host. JSON
 
-Il frammento seguente mostra il nuovo schema per l'host. JSON. Le modifiche principali da tenere presenti sono le nuove sottosezioni:
+Il frammento di codice seguente mostra il nuovo schema per host. JSON. Le principali modifiche da tenere presenti sono le nuove sottosezioni:
 
-* `"storageProvider"` (e `"azureStorage"` sottosezione) per la configurazione di specifici dell'archiviazione
-* `"tracking"` per il rilevamento e la configurazione della registrazione
-* `"notifications"` (e `"eventGrid"` sottosezione) per la configurazione di notifica della griglia di eventi
+* `"storageProvider"`(e la `"azureStorage"` sottosezione) per la configurazione specifica dell'archiviazione
+* `"tracking"`per la configurazione di rilevamento e registrazione
+* `"notifications"`(e la `"eventGrid"` sottosezione) per la configurazione delle notifiche di griglia di eventi
 
 ```json
 {
@@ -79,13 +79,13 @@ Il frammento seguente mostra il nuovo schema per l'host. JSON. Le modifiche prin
 }
 ```
 
-2\.0 di funzioni durevoli continua di stabilizzarsi e altre modifiche verranno introdotti i `durableTask` sezione host. JSON. Per altre informazioni su queste modifiche, vedere [questo problema su GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/641).
+Quando durable Functions 2,0 continua a stabilizzarsi, verranno introdotte ulteriori modifiche alla `durableTask` sezione host. JSON. Per ulteriori informazioni su queste modifiche, vedere [questo problema di GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/641).
 
 ### <a name="public-interface-changes"></a>Modifiche all'interfaccia pubblica
 
-Gli oggetti "contesto" vari supportati da funzioni permanenti hanno classi di base astratte destinate all'uso in di unit test. Come parte di 2.0 di funzioni durevoli, queste classi base astratte sono state sostituite con le interfacce. Codice della funzione che usa direttamente i tipi concreti non sono interessate.
+I vari oggetti "context" supportati da Durable Functions hanno classi di base astratte destinate all'uso nel testing unità. Come parte di Durable Functions 2,0, queste classi di base astratte sono state sostituite con le interfacce. Il codice di funzione che usa direttamente i tipi concreti non è interessato.
 
-La tabella seguente descrive le modifiche principali:
+La tabella seguente rappresenta le modifiche principali:
 
 | Tipo precedente | Nuovo tipo |
 |----------|----------|
@@ -93,15 +93,15 @@ La tabella seguente descrive le modifiche principali:
 | DurableOrchestrationContextBase | IDurableOrchestrationContext |
 | DurableActivityContextBase | IDurableActivityContext |
 
-Nel caso in cui una classe base astratta inclusi metodi virtuali, questi metodi virtuali sono stati sostituiti dai metodi di estensione definiti in `DurableContextExtensions`.
+Nel caso in cui una classe base astratta contenesse metodi virtuali, questi metodi virtuali sono stati sostituiti dai metodi `DurableContextExtensions`di estensione definiti in.
 
-## <a name="entity-functions"></a>Funzioni dell'entità
+## <a name="entity-functions"></a>Funzioni di entità
 
-Definiscono le operazioni per la lettura e aggiornamento piccole parti di stato, noto come funzioni Entity *entità permanente*. Ad esempio le funzioni di orchestrazione entità sono funzioni con un tipo speciale di trigger, *trigger entità*. A differenza delle funzioni dell'agente di orchestrazione, le funzioni entità non hanno vincoli qualsiasi codice specifico. Funzioni dell'entità anche gestire lo stato in modo esplicito anziché in modo implicito che rappresenta lo stato tramite il flusso di controllo.
+Le funzioni di entità definiscono le operazioni per la lettura e l'aggiornamento di piccoli elementi di stato, noti come *entità durevoli*. Come le funzioni dell'agente di orchestrazione, le funzioni di entità sono funzioni con un tipo di trigger speciale, *trigger di entità*. Diversamente dalle funzioni dell'agente di orchestrazione, le funzioni di entità non hanno vincoli di codice specifici. Anche le funzioni di entità gestiscono lo stato in modo esplicito anziché rappresentare in modo implicito lo stato tramite flusso di controllo.
 
 ### <a name="net-programing-models"></a>Modelli di programmazione .NET
 
-Esistono due modelli di programmazione facoltativi per la creazione di entità permanente. Il codice seguente è riportato un esempio di una semplice *contatore* entità implementata come una funzione standard. Questa funzione definisce tre *operations*, `add`, `reset`, e `get`, ognuno dei che operano su un valore di stato, numero intero `currentValue`.
+Sono disponibili due modelli di programmazione facoltativi per la creazione di entità durevoli. Il codice seguente è un esempio di un'entità *contatore* semplice implementata come funzione standard. Questa funzione definisce tre *operazioni*, `add` `reset`, e `get`, ciascuna delle quali opera su un valore di stato Integer, `currentValue`.
 
 ```csharp
 [FunctionName("Counter")]
@@ -127,7 +127,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-Questo modello è adatto per implementazioni semplici entità o implementazioni che includono un set dinamico di operazioni. Tuttavia, è anche un modello di programmazione basata su classe che è utile per le entità che sono statici, ma hanno implementazioni più complesse. L'esempio seguente è un'implementazione dell'equivalente di `Counter` entità usando metodi e classi .NET.
+Questo modello funziona meglio per le implementazioni di entità semplici o per le implementazioni con un set dinamico di operazioni. Tuttavia, è disponibile anche un modello di programmazione basato su classi che risulta utile per le entità statiche ma con implementazioni più complesse. L'esempio seguente è un'implementazione equivalente dell'entità `Counter` con le classi e i metodi .NET.
 
 ```csharp
 public class Counter
@@ -147,63 +147,63 @@ public class Counter
 }
 ```
 
-Il modello basato su classi è simile al modello di programmazione, rese famose da [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). In questo modello, un tipo di entità è definito come una classe .NET. Ogni metodo della classe è un'operazione che può essere richiamata da un client esterno. A differenza di Orleans, Mostra, tuttavia, le interfacce di .NET sono facoltative. Il precedente *contatore* esempio non è stata utilizzata un'interfaccia, ma possono comunque essere richiamato tramite altre funzioni o le chiamate API HTTP.
+Il modello basato su classi è simile al modello di programmazione diffuso da [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). In questo modello, un tipo di entità è definito come una classe .NET. Ogni metodo della classe è un'operazione che può essere richiamata da un client esterno. Diversamente da Orleans, tuttavia, le interfacce .NET sono facoltative. Nell'esempio di *contatore* precedente non è stata usata un'interfaccia, ma è comunque possibile richiamarla tramite altre funzioni o tramite chiamate API HTTP.
 
-Entity *istanze* sono accessibili tramite un identificatore univoco, il *ID entità*. Un ID di entità è semplicemente una coppia di stringhe che identifica in modo univoco un'istanza di entità. È costituita da:
+È possibile accedere alle *istanze* di entità tramite un identificatore univoco, ovvero l' *ID entità*. Un ID entità è semplicemente una coppia di stringhe che identifica in modo univoco un'istanza di entità. È costituita da:
 
-* Un' **nome dell'entità**: un nome che identifica il tipo di entità (ad esempio, "Contatore").
-* Un' **chiave di entità**: una stringa che identifica in modo univoco l'entità tra tutte le altre entità con lo stesso nome (ad esempio, un GUID).
+* **Nome entità**: nome che identifica il tipo di entità (ad esempio, "contatore").
+* **Chiave di entità**: stringa che identifica in modo univoco l'entità tra tutte le altre entità con lo stesso nome, ad esempio un GUID.
 
-Ad esempio, un *contatore* funzione entità può essere usato per tenere il punteggio in un gioco online. Ogni istanza del gioco avrà un ID di entità univoca, ad esempio `@Counter@Game1`, `@Counter@Game2`e così via.
+È ad esempio possibile usare una funzione di entità *contatore* per mantenere il punteggio in un gioco online. Ogni istanza del gioco avrà un ID entità univoco, ad esempio `@Counter@Game1`, `@Counter@Game2`e così via.
 
 ### <a name="comparison-with-virtual-actors"></a>Confronto con gli attori virtuali
 
-La progettazione delle entità durevole dipende in larga misura per il [modello actor](https://en.wikipedia.org/wiki/Actor_model). Se si ha già familiarità con gli attori, i concetti relativi all'entità permanente devono essere familiari. In particolare, sono simili a entità permanente [actors virtuale](https://research.microsoft.com/projects/orleans/) in molti modi:
+La progettazione di entità durevoli è fortemente influenzata dal [modello Actor](https://en.wikipedia.org/wiki/Actor_model). Se si ha già familiarità con gli attori, i concetti alla base delle entità durevoli dovrebbero essere noti. In particolare, le entità durevoli sono simili agli [attori virtuali](https://research.microsoft.com/projects/orleans/) in molti modi:
 
-* Le entità permanenti sono indirizzabili tramite un *ID entità*.
-* Entità durevole operazioni vengono eseguite in modo seriale, uno alla volta, per evitare race condition.
-* Entità durevoli vengono create automaticamente quando vengono chiamati o segnalati.
-* Quando non si esegue operazioni, le entità permanenti sono automaticamente scaricate dalla memoria.
+* Le entità durevoli sono indirizzabili tramite un *ID entità*.
+* Le operazioni di entità durevoli vengono eseguite in modo seriale, una alla volta, per evitare race condition.
+* Le entità durevoli vengono create automaticamente quando vengono chiamate o segnalate.
+* Quando non si eseguono operazioni, le entità durevoli vengono scaricate automaticamente dalla memoria.
 
-Esistono alcune importanti differenze, tuttavia, che è importante sottolineare:
+Tuttavia, esistono alcune importanti differenze, vale a notare:
 
-* Definire le priorità entità permanente *durabilità* failover *latenza*e quindi potrebbero non essere appropriato per le applicazioni con requisiti di latenza strict.
-* I messaggi inviati tra le entità vengano recapitati in modo affidabile e in ordine.
-* Entità durevoli può essere usata in combinazione con le orchestrazioni durevoli e possono fungere da blocchi distribuiti, che sono descritte più avanti in questo articolo.
-* I modelli di richiesta/risposta in entità sono limitati alle orchestrazioni. Per la comunicazione di entità ed entità, sono consentiti solo i messaggi unidirezionali (noto anche come "segnalazione"), come nel modello actor originale. Questo comportamento impedisce deadlock distribuito.
+* Le entità durevoli assegnano priorità alla *durabilità* rispetto alla *latenza*e quindi potrebbero non essere appropriate per le applicazioni con requisiti di latenza rigidi.
+* I messaggi inviati tra le entità vengono recapitati in modo affidabile e in ordine.
+* Le entità durevoli possono essere usate in combinazione con le orchestrazioni durevoli e possono fungere da blocchi distribuiti, descritte più avanti in questo articolo.
+* I modelli di richiesta/risposta nelle entità sono limitati alle orchestrazioni. Per la comunicazione da entità a entità, sono consentiti solo messaggi unidirezionali (noti anche come "segnalazione"), come nel modello Actor originale. Questo comportamento impedisce i deadlock distribuiti.
 
-### <a name="durable-entity-net-apis"></a>Entità durevole API .NET
+### <a name="durable-entity-net-apis"></a>API di Entity .NET durevoli
 
-Supporto Entity comporta diverse API. Per uno, è disponibile una nuova API per la definizione delle funzioni dell'entità, come illustrato in precedenza, che specificano l'azione da intraprendere quando viene richiamata un'operazione su un'entità. Inoltre, le API esistenti per i client e le orchestrazioni sono state aggiornate con nuove funzionalità per l'interazione con entità.
+Il supporto per le entità implica diverse API. Per uno, esiste una nuova API per la definizione delle funzioni dell'entità, come illustrato in precedenza, che specifica cosa deve verificarsi quando viene richiamata un'operazione su un'entità. Inoltre, le API esistenti per i client e le orchestrazioni sono state aggiornate con nuove funzionalità per l'interazione con le entità.
 
-#### <a name="implementing-entity-operations"></a>Implementazione delle operazioni di entità
+#### <a name="implementing-entity-operations"></a>Implementazione di operazioni sulle entità
 
-L'esecuzione di un'operazione su un'entità può chiamare questi membri dell'oggetto di contesto (`IDurableEntityContext` in .NET):
+L'esecuzione di un'operazione su un'entità può chiamare questi membri nell'oggetto Context (`IDurableEntityContext` in .NET):
 
 * **OperationName**: Ottiene il nome dell'operazione.
 * **GetInput\<TInput >** : Ottiene l'input per l'operazione.
-* **GetState\<TState >** : Ottiene lo stato corrente dell'entità.
-* **SetState**: aggiorna lo stato dell'entità.
-* **SignalEntity**: invia un messaggio unidirezionale a un'entità.
+* **GetState\<tstate >** : ottiene lo stato corrente dell'entità.
+* **Sestate**: aggiorna lo stato dell'entità.
+* **SignalEntity**: Invia un messaggio unidirezionale a un'entità.
 * **Self**: Ottiene l'ID dell'entità.
-* **Restituire**: restituisce un valore al client o l'orchestrazione che ha chiamato l'operazione.
-* **IsNewlyConstructed**: restituisce `true` se l'entità non esiste prima dell'operazione.
+* **Return**: restituisce un valore per il client o l'orchestrazione che ha chiamato l'operazione.
+* **IsNewlyConstructed**: restituisce `true` se l'entità non esisteva prima dell'operazione.
 * **DestructOnExit**: Elimina l'entità dopo aver completato l'operazione.
 
-Le operazioni sono meno restrizioni rispetto a orchestrazioni:
+Le operazioni sono meno limitate delle orchestrazioni:
 
-* Operazioni possono chiamare i/o esterno, usando le API sincrone o asincrone (è consigliabile usare solo quelli asincroni).
-* Operazioni possono essere non deterministico. Ad esempio, è possibile chiamare `DateTime.UtcNow`, `Guid.NewGuid()` o `new Random()`.
+* Le operazioni possono chiamare I/O esterno, usando le API sincrone o asincrone (si consiglia di usare solo I tipi asincroni).
+* Le operazioni possono essere non deterministiche. Ad esempio, è possibile chiamare `DateTime.UtcNow` `Guid.NewGuid()` in modo sicuro o `new Random()`.
 
-#### <a name="accessing-entities-from-clients"></a>Accede alle entità dai client
+#### <a name="accessing-entities-from-clients"></a>Accesso alle entità dai client
 
-Entità permanente può essere richiamata da funzioni ordinarie tramite il `orchestrationClient` binding (`IDurableOrchestrationClient` in .NET). Sono supportati i metodi seguenti:
+Le entità durevoli possono essere richiamate da `orchestrationClient` funzioni comuni`IDurableOrchestrationClient` tramite l'associazione (in .NET). Sono supportati i metodi seguenti:
 
 * **ReadEntityStateAsync\<T >** : legge lo stato di un'entità.
-* **SignalEntityAsync**: invia un messaggio unidirezionale a un'entità e attende il suo da accodare.
-* **SignalEntityAsync\<T >** : uguale allo `SignalEntityAsync` ma usa un oggetto proxy generato di tipo `T`.
+* **SignalEntityAsync**: Invia un messaggio unidirezionale a un'entità e ne attende l'accodamento.
+* **SignalEntityAsync\<T >** : uguale a `SignalEntityAsync` , ma usa un oggetto proxy generato di `T`tipo.
 
-Il precedente `SignalEntityAsync` chiamata è necessario specificare il nome dell'operazione di entità come una `string` e il payload dell'operazione come una `object`. Esempio di codice seguente è riportato un esempio di questo modello:
+Per la `SignalEntityAsync` chiamata precedente è necessario specificare il nome dell'operazione dell'entità `string` come e il payload `object`dell'operazione come. Il codice di esempio seguente è un esempio di questo modello:
 
 ```csharp
 EntityId id = // ...
@@ -211,7 +211,7 @@ object amount = 5;
 context.SignalEntityAsync(id, "Add", amount);
 ```
 
-È anche possibile generare un oggetto proxy per l'accesso indipendente dai tipi. Per generare un proxy indipendente dai tipi, il tipo di entità deve implementare un'interfaccia. Ad esempio, si supponga che il `Counter` entità indicato in precedenza implementato un `ICounter` interfaccia, definito come segue:
+È anche possibile generare un oggetto proxy per l'accesso indipendente dai tipi. Per generare un proxy indipendente dai tipi, il tipo di entità deve implementare un'interfaccia. Si supponga, ad esempio `Counter` , che l'entità citata in precedenza abbia implementato un' `ICounter` interfaccia, definita come segue:
 
 ```csharp
 public interface ICounter
@@ -227,7 +227,7 @@ public class Counter : ICounter
 }
 ```
 
-Il codice client può quindi utilizzare `SignalEntityAsync<T>` e specificare il `ICounter` interfaccia come parametro di tipo per generare un proxy indipendente dai tipi. Questo utilizzo dei proxy è indipendente dai tipi è illustrato nell'esempio di codice seguente:
+Il codice client può quindi `SignalEntityAsync<T>` utilizzare e specificare `ICounter` l'interfaccia come parametro di tipo per generare un proxy indipendente dai tipi. Questo utilizzo di proxy indipendenti dai tipi viene illustrato nell'esempio di codice seguente:
 
 ```csharp
 [FunctionName("UserDeleteAvailable")]
@@ -241,22 +241,22 @@ public static async Task AddValueClient(
 }
 ```
 
-Nell'esempio precedente, il `proxy` parametro è un'istanza generata in modo dinamico dei `ICounter`, che converte internamente la chiamata a `Add` nell'equivalente (non tipizzato) le chiamate a `SignalEntityAsync`.
+Nell'esempio precedente, `proxy` il parametro è un'istanza generata dinamicamente di `ICounter`, che converte internamente la chiamata a `Add` nella chiamata equivalente (non tipizzata) a `SignalEntityAsync`.
 
 > [!NOTE]
-> È importante notare che il `ReadEntityStateAsync` e `SignalEntityAsync` metodi `IDurableOrchestrationClient` stabilire le priorità delle prestazioni tramite la coerenza. `ReadEntityStateAsync` può restituire un valore non aggiornato, e `SignalEntityAsync` può restituire prima del completamento dell'operazione.
+> È importante notare che i metodi `ReadEntityStateAsync` `IDurableOrchestrationClient` e `SignalEntityAsync` per definire la priorità delle prestazioni rispetto alla coerenza. `ReadEntityStateAsync`può restituire un valore non aggiornato e `SignalEntityAsync` può restituire prima del completamento dell'operazione.
 
-#### <a name="accessing-entities-from-orchestrations"></a>Accede alle entità dalle orchestrazioni
+#### <a name="accessing-entities-from-orchestrations"></a>Accesso alle entità dalle orchestrazioni
 
-Le orchestrazioni possono accedere le entità utilizzando la `IDurableOrchestrationContext` oggetto. È possibile scegliere tra una comunicazione unidirezionale (generato automaticamente) e comunicazioni bidirezionali (richiesta e risposta). I rispettivi metodi sono:
+Le orchestrazioni possono accedere alle entità `IDurableOrchestrationContext` utilizzando l'oggetto. Possono scegliere tra la comunicazione unidirezionale (Fire and Forget) e la comunicazione bidirezionale (richiesta e risposta). I rispettivi metodi sono:
 
-* **SignalEntity**: invia un messaggio unidirezionale a un'entità.
-* **CallEntityAsync**: invia un messaggio a un'entità e attende una risposta che indica che l'operazione è stata completata.
-* **CallEntityAsync\<T >** : invia un messaggio a un'entità e attende una risposta che contiene un risultato di tipo T.
+* **SignalEntity**: Invia un messaggio unidirezionale a un'entità.
+* **CallEntityAsync**: Invia un messaggio a un'entità e attende una risposta che indica che l'operazione è stata completata.
+* **CallEntityAsync\<T >** : Invia un messaggio a un'entità e attende una risposta contenente un risultato di tipo t.
 
-Quando si usa la comunicazione bidirezionale, tutte le eccezioni generate durante l'esecuzione dell'operazione vengono anche trasmessi nuovamente all'orchestrazione chiama e generata di nuovo. Al contrario, quando si usa fire-and-forget, le eccezioni non vengono rispettate.
+Quando si utilizza la comunicazione bidirezionale, le eccezioni generate durante l'esecuzione dell'operazione vengono trasmesse anche all'orchestrazione chiamante e rigenerate. Quando invece si utilizza Fire-and-Forget, le eccezioni non vengono osservate.
 
-Per l'accesso indipendente dai tipi, funzioni di orchestrazione possono generare i proxy basati su un'interfaccia. Il `CreateEntityProxy` metodo di estensione può essere utilizzato per questo scopo:
+Per l'accesso indipendente dai tipi, le funzioni di orchestrazione possono generare proxy basati su un'interfaccia. Il `CreateEntityProxy` metodo di estensione può essere usato a questo scopo:
 
 ```csharp
 public interface IAsyncCounter
@@ -266,7 +266,7 @@ public interface IAsyncCounter
     Task<int> GetAsync();
 }
 
-[FunctionName("CounterOrchestration)]
+[FunctionName("CounterOrchestration")]
 public static async Task Run(
     [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
@@ -278,20 +278,20 @@ public static async Task Run(
 }
 ```
 
-Nell'esempio precedente, un'entità "counter" è stato si presuppone che esista che implementa il `IAsyncCounter` interfaccia. L'orchestrazione è stata quindi in grado di utilizzare il `IAsyncCounter` definizione per generare un tipo di proxy per interagire in modo sincrono con l'entità del tipo.
+Nell'esempio precedente è stata presunta l'esistenza di un'entità "Counter" che implementa `IAsyncCounter` l'interfaccia. L'orchestrazione ha quindi potuto usare la `IAsyncCounter` definizione del tipo per generare un tipo di proxy per interagire in modo sincrono con l'entità.
 
-### <a name="locking-entities-from-orchestrations"></a>Blocco entità dalle orchestrazioni
+### <a name="locking-entities-from-orchestrations"></a>Blocco di entità dalle orchestrazioni
 
-Le orchestrazioni possono bloccare le entità. Questa funzionalità fornisce un modo semplice per evitare le competizioni indesiderate usando *sezioni critiche*.
+Le orchestrazioni possono bloccare le entità. Questa funzionalità offre un modo semplice per evitare le competizioni indesiderate usando *sezioni critiche*.
 
-L'oggetto contesto offre i metodi seguenti:
+L'oggetto context fornisce i metodi seguenti:
 
-* **LockAsync**: acquisisce i blocchi su una o più entità.
-* **IsLocked**: restituisce true se attualmente è in una sezione critica, false in caso contrario.
+* **LockAsync**: acquisisce blocchi in una o più entità.
+* **Locked**: restituisce true se attualmente si trova in una sezione critica, false in caso contrario.
 
-La sezione critica end e tutti i blocchi vengono rilasciati, quando l'orchestrazione termina. In .NET `LockAsync` restituisce un `IDisposable` che termina la sezione critica quando eliminato, che può essere usata insieme a un `using` clausola per ottenere una rappresentazione sintattica della sezione critica.
+La sezione critica termina e vengono rilasciati tutti i blocchi, al termine dell'orchestrazione. In .NET `LockAsync` restituisce un oggetto `IDisposable` che termina la sezione critica quando viene eliminato, che può essere usato insieme a una `using` clausola per ottenere una rappresentazione sintattica della sezione critica.
 
-Ad esempio, prendere in considerazione un'orchestrazione che deve verificare se sono disponibili due giocatori e quindi assegnarle entrambi a un gioco. Questa attività può essere implementata tramite una sezione critica, come indicato di seguito:
+Si consideri, ad esempio, un'orchestrazione che deve verificare se due giocatori sono disponibili e quindi assegnarli entrambi a un gioco. Questa attività può essere implementata usando una sezione critica come indicato di seguito:
 
 ```csharp
 [FunctionName("Orchestrator")]
@@ -317,26 +317,26 @@ public static async Task RunOrchestrator(
 }
 ```
 
-All'interno della sezione critica, entrambe le entità di Windows Media player sono bloccate, ovvero che non devono eseguire operazioni diverse da quelle che vengono chiamati dall'interno della sezione critica). Questo comportamento impedisce le competizioni con operazioni in conflitto, ad esempio lettori da assegnare a un altro giochi, o per la firma è disattivata.
+All'interno della sezione critica, entrambe le entità Player sono bloccate, il che significa che non eseguono operazioni diverse da quelle chiamate dall'interno della sezione critica. Questo comportamento impedisce le gare con operazioni in conflitto, ad esempio i giocatori assegnati a un altro gioco o la firma.
 
-Sono imposti diverse restrizioni sulle sezioni critiche come può essere utilizzato. Tali restrizioni consentono di impedire i deadlock e reentrancy.
+Vengono imposte diverse restrizioni relative al modo in cui è possibile usare le sezioni critiche. Queste restrizioni servono a impedire deadlock e rientranza.
 
-* Le sezioni critiche non possono essere annidate.
-* Le sezioni critiche non è possibile creare suborchestrations.
-* Le sezioni critiche possono chiamare solo le entità che hanno bloccato.
-* Le sezioni critiche non è possibile chiamare la stessa entità usando più chiamate parallele.
-* Le sezioni critiche possono segnalare solo le entità che non hanno bloccato.
+* Non è possibile nidificare le sezioni critiche.
+* Le sezioni critiche non possono creare sottoorchestrazioni.
+* Le sezioni critiche possono chiamare solo le entità bloccate.
+* Le sezioni critiche non possono chiamare la stessa entità utilizzando più chiamate parallele.
+* Le sezioni critiche possono segnalare solo le entità non bloccate.
 
-## <a name="alternate-storage-providers"></a>Provider di archiviazione alternativo
+## <a name="alternate-storage-providers"></a>Provider di archiviazione alternativi
 
-Durable Task Framework supporta più provider di archiviazione oggi, tra cui [archiviazione di Azure](https://github.com/Azure/durabletask/tree/master/src/DurableTask.AzureStorage), [Bus di servizio di Azure](https://github.com/Azure/durabletask/tree/master/src/DurableTask.ServiceBus), una [emulatore in memoria](https://github.com/Azure/durabletask/tree/master/src/DurableTask.Emulator)e un esperimento [Redis](https://github.com/Azure/durabletask/tree/redis/src/DurableTask.Redis) provider. Tuttavia, fino ad ora, l'estensione di attività permanenti per funzioni di Azure supportato solo il provider di archiviazione di Azure. Partire dalla versione 2.0 di funzioni permanenti, il supporto per i provider di archiviazione alternativo viene aggiunto, inizia con il provider di Redis.
+Il Framework di attività permanenti supporta attualmente più provider di archiviazione, tra cui [archiviazione di Azure](https://github.com/Azure/durabletask/tree/master/src/DurableTask.AzureStorage), bus di [servizio di Azure](https://github.com/Azure/durabletask/tree/master/src/DurableTask.ServiceBus), un [emulatore in memoria](https://github.com/Azure/durabletask/tree/master/src/DurableTask.Emulator)e un provider di [Redis](https://github.com/Azure/durabletask/tree/redis/src/DurableTask.Redis) sperimentale. Tuttavia, fino ad ora, l'estensione delle attività durevoli per funzioni di Azure supporta solo il provider di archiviazione di Azure. A partire da Durable Functions 2,0, è in corso l'aggiunta del supporto per provider di archiviazione alternativi, a partire dal provider Redis.
 
 > [!NOTE]
-> Funzioni durevoli 2.0 supporta solo i provider di .NET Standard 2.0 compatibili. Al momento della scrittura, il provider di Bus di servizio di Azure non supporta .NET Standard 2.0 e pertanto non è disponibile come provider di archiviazione alternativo.
+> Durable Functions 2,0 supporta solo provider compatibili con .NET Standard 2,0. Al momento della stesura del documento, il provider del bus di servizio di Azure non supporta .NET Standard 2,0 e pertanto non è disponibile come provider di archiviazione alternativo.
 
 ### <a name="emulator"></a>Emulatore
 
-Il [DurableTask.Emulator](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Emulator/) provider è una memoria locale, il provider di archiviazione non durevole adatto per scenari di test in locali. Può essere configurato utilizzando la seguente query minima **host. JSON** dello schema:
+Il provider [DurableTask. Emulator](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Emulator/) è una memoria locale e un provider di archiviazione non durevole adatto per scenari di test locali. Può essere configurata con lo schema **host. JSON** minimo seguente:
 
 ```json
 {
@@ -354,7 +354,7 @@ Il [DurableTask.Emulator](https://www.nuget.org/packages/Microsoft.Azure.Durable
 
 ### <a name="redis-experimental"></a>Redis (sperimentale)
 
-Il [DurableTask.Redis](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Redis/) provider mantiene tutti gli stati di orchestrazione a un cluster Redis configurato.
+Il provider [DurableTask. Redis](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Redis/) rende permanente tutto lo stato dell'orchestrazione a un cluster Redis configurato.
 
 ```json
 {
@@ -372,7 +372,7 @@ Il [DurableTask.Redis](https://www.nuget.org/packages/Microsoft.Azure.DurableTas
 }
 ```
 
-Il `connectionStringName` deve fare riferimento al nome di una variabile di ambiente o impostazione di app. Tale variabile di ambiente o impostazione di app deve contenere un valore di stringa di connessione Redis costituiti *: porta*. Ad esempio, `localhost:6379` per la connessione a un cluster Redis locale.
+`connectionStringName` Deve fare riferimento al nome di un'impostazione dell'app o di una variabile di ambiente. L'impostazione dell'app o la variabile di ambiente deve contenere un valore della stringa di connessione Redis nel formato *Server: porta*. Ad esempio, `localhost:6379` per la connessione a un cluster Redis locale.
 
 > [!NOTE]
-> Il provider di Redis è attualmente in fase sperimentale e supporta solo App per le funzioni in esecuzione in un singolo nodo. Non è garantito che il provider di Redis verrà mai resa disponibile a livello generale e potrebbe venire rimosso in una versione futura.
+> Il provider Redis è attualmente sperimentale e supporta solo le app per le funzioni in esecuzione su un singolo nodo. Non è garantito che il provider Redis venga mai reso disponibile a livello generale e potrebbe essere rimosso in una versione futura.

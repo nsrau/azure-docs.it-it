@@ -14,21 +14,21 @@ ms.workload: na
 ms.date: 05/17/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.custom: seoapril2019
+ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bd1534b3f966051104a3f3ee389fb047ab258fc
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 825966fbb0db537aad8de39e69e17418e6432b44
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482813"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324673"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedura: usare il portale per creare un'applicazione Azure AD e un'entità servizio che possano accedere alle risorse
 
-Questo articolo illustra come creare una nuova applicazione Azure Active Directory (Azure AD) e un'entità servizio che può essere utilizzata con il controllo di accesso basato sui ruoli. Se il codice che si sta usando deve accedere alle risorse o modificarle, è possibile creare un'identità per l'app. Questa identità è nota come entità servizio. È quindi possibile assegnare le autorizzazioni richieste all'entità servizio. Questo articolo illustra come usare il portale per creare l'entità servizio. È incentrato su un'applicazione con un tenant singolo dove si prevede che l'applicazione venga eseguita all'interno di una sola organizzazione. Le applicazioni con un tenant singolo si usano in genere per applicazioni line-of-business eseguite all'interno dell'organizzazione.
+Questo articolo illustra come creare una nuova applicazione Azure Active Directory (Azure AD) e un'entità servizio che possono essere usate con il controllo degli accessi in base al ruolo. Se il codice che si sta usando deve accedere alle risorse o modificarle, è possibile creare un'identità per l'app. Questa identità è nota come entità servizio. È quindi possibile assegnare le autorizzazioni richieste all'entità servizio. Questo articolo illustra come usare il portale per creare l'entità servizio. È incentrato su un'applicazione con un tenant singolo dove si prevede che l'applicazione venga eseguita all'interno di una sola organizzazione. Le applicazioni con un tenant singolo si usano in genere per applicazioni line-of-business eseguite all'interno dell'organizzazione.
 
 > [!IMPORTANT]
-> Anziché creare un'entità servizio, considerare l'uso delle identità gestite per le risorse di Azure per l'identità dell'applicazione. Se il codice viene eseguito in un servizio che supporta le identità gestite e accede a risorse che supportano l'autenticazione di Azure AD, identità gestite sono un'opzione migliore per l'utente. Per altre informazioni sulle identità gestite per le risorse di Azure, inclusi i servizi attualmente supportati, vedere [Informazioni sulle identità gestite per le risorse di Azure](../managed-identities-azure-resources/overview.md).
+> Anziché creare un'entità servizio, considerare l'uso delle identità gestite per le risorse di Azure per l'identità dell'applicazione. Se il codice viene eseguito in un servizio che supporta identità gestite e accede a risorse che supportano l'autenticazione Azure AD, le identità gestite rappresentano un'opzione migliore. Per altre informazioni sulle identità gestite per le risorse di Azure, inclusi i servizi attualmente supportati, vedere [Informazioni sulle identità gestite per le risorse di Azure](../managed-identities-azure-resources/overview.md).
 
 ## <a name="create-an-azure-active-directory-application"></a>Creare un'applicazione Azure Active Directory
 
@@ -38,7 +38,7 @@ Si passerà direttamente alla creazione dell'identità. Se si verifica un proble
 1. Selezionare **Azure Active Directory**.
 1. Selezionare **Registrazioni per l'app**.
 1. Selezionare **Nuova registrazione**.
-1. Nome dell'applicazione. Selezionare un account supportato tipo, che determina chi può usare l'applicazione. Sotto **URI di reindirizzamento**, selezionare **Web** per il tipo di applicazione che si desidera creare. Immettere l'URI in cui il token di accesso viene inviato. Non è possibile creare credenziali per un'[applicazione nativa](../manage-apps/application-proxy-configure-native-client-application.md) e non è possibile usare questo tipo per creare un'applicazione automatica. Dopo aver impostato i valori, selezionare **registrare**.
+1. Assegnare un nome all'applicazione. Selezionare un tipo di account supportato, che determina chi può usare l'applicazione. In **URI di reindirizzamento**selezionare **Web** per il tipo di applicazione che si desidera creare. Immettere l'URI a cui viene inviato il token di accesso. Non è possibile creare credenziali per un'[applicazione nativa](../manage-apps/application-proxy-configure-native-client-application.md) e non è possibile usare questo tipo per creare un'applicazione automatica. Dopo aver impostato i valori, selezionare **Register (registra**).
 
    ![Digitare un nome per l'applicazione](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -76,43 +76,43 @@ Quando si accede a livello di codice, è necessario specificare l'ID tenant con 
 
 1. Selezionare **Azure Active Directory**.
 1. Da **Registrazioni app** in Azure AD selezionare l'applicazione.
-1. Copiare l'ID di Directory (tenant) e archiviarlo nel codice dell'applicazione.
+1. Copiare l'ID directory (tenant) e archiviarlo nel codice dell'applicazione.
 
-    ![Copiare la directory (ID tenant) e archiviarlo nel codice dell'app](./media/howto-create-service-principal-portal/copy-tenant-id.png)
+    ![Copiare la directory (ID tenant) e archiviarla nel codice dell'app](./media/howto-create-service-principal-portal/copy-tenant-id.png)
 
 1. Copiare l'**ID applicazione** e archiviarlo nel codice dell'applicazione.
 
    ![Copiare l'ID applicazione (client)](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-## <a name="certificates-and-secrets"></a>I segreti e certificati
-Applicazioni daemon possono usare due tipi di credenziali per l'autenticazione con Azure AD: certificati e i segreti dell'applicazione.  È consigliabile usare un certificato, ma è anche possibile creare un nuovo segreto dell'applicazione.
+## <a name="certificates-and-secrets"></a>Certificati e segreti
+Le applicazioni daemon possono usare due forme di credenziali per eseguire l'autenticazione con Azure AD: certificati e segreti dell'applicazione.  È consigliabile usare un certificato, ma è anche possibile creare un nuovo segreto dell'applicazione.
 
 ### <a name="upload-a-certificate"></a>Caricamento di un certificato
 
-È possibile usare un certificato esistente se ne hai uno.  Facoltativamente, è possibile creare un certificato autofirmato a scopo di test. Aprire PowerShell ed eseguire [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con i parametri seguenti per creare un certificato autofirmato nell'archivio certificati utente nel computer in uso: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Esportare questo certificato usando il [Gestisci certificato utente](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) snap-in MMC accessibili dal Pannello di controllo di Windows.
+Se si dispone di un certificato, è possibile utilizzarne uno esistente.  Facoltativamente, è possibile creare un certificato autofirmato a scopo di test. Aprire PowerShell ed eseguire [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con i parametri seguenti per creare un certificato autofirmato nell'archivio certificati utente del computer: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Esportare questo certificato usando lo snap-in MMC [Gestione certificati utente](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) accessibile dal pannello di controllo di Windows.
 
 Per caricare il certificato:
 
-1. Selezionare **certificati e i segreti**.
-1. Selezionare **carica certificato** e selezionare il certificato (autofirmato o un certificato esistente del certificato viene esportato).
+1. Selezionare **certificati & segreti**.
+1. Selezionare **Carica certificato** e selezionare il certificato (un certificato esistente o il certificato autofirmato esportato).
 
-    ![Selezionare Carica certificato e selezionare quello da aggiungere](./media/howto-create-service-principal-portal/upload-cert.png)
+    ![Selezionare Carica certificato e selezionare quello che si desidera aggiungere](./media/howto-create-service-principal-portal/upload-cert.png)
 
 1. Selezionare **Aggiungi**.
 
-Dopo aver registrato il certificato con l'applicazione nel portale di registrazione dell'applicazione, è necessario abilitare il codice dell'applicazione client usare il certificato.
+Dopo aver registrato il certificato con l'applicazione nel portale di registrazione delle applicazioni, è necessario abilitare il codice dell'applicazione client per l'uso del certificato.
 
-### <a name="create-a-new-application-secret"></a>Crea un nuovo segreto dell'applicazione
+### <a name="create-a-new-application-secret"></a>Crea nuovo segreto applicazione
 
-Se si sceglie di non utilizzare un certificato, è possibile creare un nuovo segreto dell'applicazione.
+Se si sceglie di non usare un certificato, è possibile creare un nuovo segreto dell'applicazione.
 
-1. Selezionare **certificati e i segreti**.
-1. Selezionare **i segreti Client -> nuovo segreto client**.
-1. Fornire una descrizione del segreto e una durata. Al termine, selezionare **Add**.
+1. Selezionare **certificati & segreti**.
+1. Selezionare **segreti client-> nuovo segreto client**.
+1. Fornire una descrizione del segreto e una durata. Al termine, selezionare **Aggiungi**.
 
    Dopo aver salvato il segreto client, viene visualizzato il valore del segreto client. Copiare il valore in quanto non sarà possibile recuperare la chiave in seguito. Il valore della chiave sarà fornito insieme all'ID applicazione per eseguire l'accesso come applicazione. Salvare il valore della chiave in una posizione in cui l'applicazione possa recuperarlo.
 
-   ![Copiare il valore del segreto perché questo non è possibile recuperare più tardi](./media/howto-create-service-principal-portal/copy-secret.png)
+   ![Copiare il valore del segreto perché non è possibile recuperarlo in un secondo momento](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 
@@ -123,7 +123,7 @@ Se si sceglie di non utilizzare un certificato, è possibile creare un nuovo seg
 1. Selezionare **Azure Active Directory**.
 1. Annotare il proprio ruolo. Se si ha il ruolo **Utente**, assicurarsi che anche gli utenti non amministratori possano registrare le applicazioni.
 
-   ![Trovare il ruolo. Se sei un utente, verificare che utenti non amministratori possono registrare le app](./media/howto-create-service-principal-portal/view-user-info.png)
+   ![Trovare il ruolo. Se si è un utente, assicurarsi che gli utenti non amministratori possano registrare le app](./media/howto-create-service-principal-portal/view-user-info.png)
 
 1. Selezionare **Impostazioni utente**.
 1. Controllare l'impostazione **Registrazioni per l'app**. Questo valore può essere impostato solo da un amministratore. Se è impostato su **Sì**, qualsiasi utente nel tenant di Azure AD può registrare un'app.
@@ -136,15 +136,15 @@ Nella sottoscrizione di Azure è necessario che l'account disponga dell'accesso 
 
 Per controllare le proprie autorizzazioni di sottoscrizione:
 
-1. Selezionare l'account in alto a destra e selezionare **... -> autorizzazioni personali**.
+1. Selezionare l'account nell'angolo in alto a destra e selezionare **...-> autorizzazioni personali**.
 
-   ![Selezionare l'account e le autorizzazioni degli utenti](./media/howto-create-service-principal-portal/select-my-permissions.png)
+   ![Selezionare l'account e le autorizzazioni utente](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
 1. Nell'elenco a discesa selezionare la sottoscrizione in cui si vuole creare l'entità servizio. Selezionare quindi **Fare clic qui per visualizzare i dettagli di accesso completi per questa compilazione**.
 
-   ![Selezionare la sottoscrizione che si desidera creare l'entità nel servizio](./media/howto-create-service-principal-portal/view-details.png)
+   ![Selezionare la sottoscrizione in cui si vuole creare l'entità servizio](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Selezionare **assegnazioni di ruolo** per visualizzare i ruoli assegnati e determinare se si dispone delle autorizzazioni adeguate per assegnare un'app AD a un ruolo. In caso contrario chiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore accessi utente. Nella figura seguente l'utente è assegnato al ruolo Proprietario, perciò dispone delle autorizzazioni adeguate.
+1. Selezionare **assegnazioni di ruolo** per visualizzare i ruoli assegnati e determinare se si dispone di autorizzazioni adeguate per assegnare un'app ad a un ruolo. In caso contrario chiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore accessi utente. Nella figura seguente l'utente è assegnato al ruolo Proprietario, perciò dispone delle autorizzazioni adeguate.
 
    ![Questo esempio mostra che l'utente è assegnato al ruolo proprietario](./media/howto-create-service-principal-portal/view-user-role.png)
 

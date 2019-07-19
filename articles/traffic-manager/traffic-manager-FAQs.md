@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 640d36649f59842a740b4c12b4e3ab39a6d98c13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: c2bff5749ab833efcb252d3fafb5d38cfbc8691e
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050958"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310272"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -31,7 +31,7 @@ Gestione traffico non prevede quindi un endpoint o indirizzo IP per la connessio
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Quali tipi di traffico è possibile indirizzare tramite Gestione traffico?
 Come spiegato in [Funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), un endpoint di Gestione traffico può essere qualsiasi servizio con connessione Internet all'interno o all'esterno di Azure. Di conseguenza, Gestione traffico può indirizzare il traffico che ha origine da Internet pubblico a un set di endpoint anch'esso con connessione Internet. In caso di endpoint all'interno di una rete privata, ad esempio una versione interna di [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer), o se gli utenti effettuano richieste DNS da queste reti interne, non è possibile usare Gestione traffico per instradare il traffico.
 
-### <a name="does-traffic-manager-support-sticky-sessions"></a>Gestione traffico supporta sessioni "permanenti"?
+### <a name="does-traffic-manager-support-sticky-sessions"></a>Gestione traffico supporta le sessioni "permanenti"?
 
 Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), Gestione traffico funziona a livello di DNS. Usa le risposte DNS per indirizzare i client all'endpoint di servizio appropriato. I client si connettono all'endpoint di servizio in modo diretto, senza passare per Gestione traffico. Gestione traffico non visualizza quindi il traffico HTTP tra il client e il server.
 
@@ -57,9 +57,9 @@ Il metodo Prestazioni instrada il traffico all'endpoint disponibile più vicino.
 
 Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), Gestione traffico funziona a livello di DNS. Dopo il completamento della ricerca DNS, i client si connettono all'endpoint dell'applicazione direttamente, non tramite Gestione traffico. La connessione può pertanto usare qualsiasi protocollo dell'applicazione. Se come protocollo di monitoraggio si seleziona TCP, i controlli dell'integrità dell'endpoint eseguiti da Gestione traffico non richiedono l'uso dei protocolli dell'applicazione. Se si sceglie di verificare l'integrità usando un protocollo dell'applicazione, l'endpoint deve poter rispondere alle richieste HTTP o HTTPS GET.
 
-### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>È possibile usare Gestione traffico con un nome di dominio di tipo "naked" (senza www)?
+### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>È possibile usare gestione traffico con un nome di dominio "Naked"?
 
-Sì. Per informazioni su come creare un record alias per il vertice di nome di dominio fare riferimento a un profilo di gestione traffico di Azure, vedere [configurare un record di alias per supportare i nomi di dominio di apex con gestione traffico](../dns/tutorial-alias-tm.md).
+Sì. Per informazioni su come creare un record alias per il nome di dominio Apex per fare riferimento a un profilo di gestione traffico di Azure, vedere [configurare un record alias per supportare i nomi di dominio Apex con gestione traffico](../dns/tutorial-alias-tm.md).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Gestione traffico tiene conto dell'indirizzo della subnet client quando si gestiscono query DNS? 
 
@@ -356,7 +356,7 @@ Sì. Gestione traffico supporta il probing su HTTPS. Definire **HTTPS** come pro
 Gestione traffico non prevede alcuna convalida di certificati, tra cui:
 
 * I certificati sul lato server non vengono convalidati
-* Certificati SNI sul lato server non vengono convalidati
+* I certificati lato server di SNI non vengono convalidati
 * I certificati client non sono supportati
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Si usa un indirizzo IP o un nome DNS quando si aggiunge un endpoint?
@@ -406,9 +406,9 @@ Per i profili con metodo di routing impostato su Multivalore:
 
 Sì, è possibile con l'eccezione che un profilo di tipo Multivalore non può essere un profilo padre in un profilo annidato impostato.
 
-### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Un endpoint dell'applicazione web è arrestata nel profilo di gestione traffico, ma non si riceve il traffico anche dopo il riavvio. Come si risolve questo problema?
+### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Ho arrestato un endpoint dell'applicazione Web nel profilo di gestione traffico, ma non ricevo alcun traffico anche dopo il riavvio. Come si risolve questo problema?
 
-Quando viene arrestato un endpoint dell'applicazione web di Azure Traffic Manager interrompe la verifica l'integrità e riavvia i controlli di integrità solo quando rileva che l'endpoint è stato riavviato. Per evitare questo ritardo, disabilitare e riabilitare l'endpoint nel profilo di Gestione traffico dopo aver riavviato l'endpoint.
+Quando un endpoint dell'applicazione Web di Azure viene arrestato, gestione traffico smette di controllarne l'integrità e riavvia i controlli di integrità solo dopo aver rilevato che l'endpoint è stato riavviato. Per evitare questo ritardo, disabilitare e riabilitare l'endpoint nel profilo di Gestione traffico dopo aver riavviato l'endpoint.
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>È possibile usare Gestione traffico anche se l'applicazione non supporta HTTP o HTTPS?
 

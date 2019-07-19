@@ -1,7 +1,7 @@
 ---
-title: Configurare i contenitori di riconoscimento vocale
+title: Configurare i contenitori di sintesi vocale
 titleSuffix: Azure Cognitive Services
-description: Il contenitore di riconoscimento vocale
+description: Contenitore vocale
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 2dd1769d2d0a940176fb51954f44859cb42f30d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8a8b0e18c1db7a2e2fc08819aa2f2d64d650ded6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072434"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321361"
 ---
-# <a name="configure-speech-service-containers"></a>Configurare i contenitori dei servizi di riconoscimento vocale
+# <a name="configure-speech-service-containers"></a>Configurare i contenitori di servizi vocali
 
-I contenitori di riconoscimento vocale consentono ai clienti di compilare un'architettura delle applicazioni vocale che è ottimizzata per sfruttare i vantaggi di funzionalità del cloud affidabile e la località di edge. I contenitori di riconoscimento due vocale Supportiamo ora siano **per il riconoscimento vocale** e **sintesi vocale**. 
+I contenitori di sintesi vocale consentono ai clienti di creare un'architettura di applicazione vocale ottimizzata per sfruttare le funzionalità cloud affidabili e la località perimetrale. I due contenitori di sintesi vocale supportati sono ora **sintesi vocale** e sintesi **vocale**. 
 
-Il **Speech** ambiente di runtime contenitore viene configurato mediante il `docker run` argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione. 
+L'ambiente di runtime del contenitore **vocale** viene configurato `docker run` usando gli argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione. 
 
 # <a name="configuration-settings"></a>Impostazioni di configurazione
 
@@ -32,11 +32,11 @@ Il **Speech** ambiente di runtime contenitore viene configurato mediante il `doc
 
 ## <a name="apikey-configuration-setting"></a>Impostazione di configurazione ApiKey
 
-L'impostazione `ApiKey` specifica la chiave di risorsa di Azure utilizzata per tenere traccia delle informazioni di fatturazione per il contenitore. È necessario specificare un valore per la chiave API e il valore deve essere una chiave valida per il _Speech_ risorsa specificata per il [ `Billing` ](#billing-configuration-setting) impostazione di configurazione.
+L'impostazione `ApiKey` specifica la chiave di risorsa di Azure utilizzata per tenere traccia delle informazioni di fatturazione per il contenitore. È necessario specificare un valore per APIKEY e il valore deve essere una chiave valida per la risorsa _vocale_ specificata per l' [`Billing`](#billing-configuration-setting) impostazione di configurazione.
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: **Del riconoscimento vocale** gestione delle risorse, in **chiavi**
+* Portale di Azure: **Sintesi vocale** Gestione delle risorse, in **chiavi**
 
 ## <a name="applicationinsights-setting"></a>Impostazione ApplicationInsights
 
@@ -44,13 +44,13 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 ## <a name="billing-configuration-setting"></a>Impostazione di configurazione Billing
 
-Il `Billing` impostazione specifica l'URI dell'endpoint del _vocale_ risorsa di Azure usato per controllare le informazioni di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e il valore deve essere un URI dell'endpoint valido per un _vocale_ risorse in Azure. Il contenitore segnala l'utilizzo ogni 10-15 minuti.
+L' `Billing` impostazione specifica l'URI dell'endpoint della risorsa _vocale_ in Azure usato per misurare le informazioni di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e il valore deve essere un URI di endpoint valido per una risorsa _vocale_ in Azure. Il contenitore segnala l'utilizzo ogni 10-15 minuti.
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: **Del riconoscimento vocale** panoramica, con l'etichetta `Endpoint`
+* Portale di Azure: **Sintesi vocale** Panoramica, con etichetta`Endpoint`
 
-|Obbligatorio| NOME | Tipo di dati | Descrizione |
+|Obbligatoria| NOME | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
 |Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
 
@@ -74,13 +74,13 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 Usare montaggi di associazione per leggere e scrivere dati da e verso il contenitore. È possibile specificare un montaggio di input o di output specificando l'opzione `--mount` nel comando [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
-I contenitori di riconoscimento vocale non usano input o output Monta per archiviare i dati del servizio o formazione. 
+I contenitori di riconoscimento vocale non usano montaggi di input o output per archiviare i dati di training o di servizio. 
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](speech-container-howto.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio docker e le autorizzazioni del percorso di montaggio dell'host. 
 
-|Facoltativo| NOME | Tipo di dati | Descrizione |
+|Facoltativo| Name | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
-|Non consentito| `Input` | String | I contenitori di riconoscimento vocale non usano questa proprietà.|
+|Non consentito| `Input` | String | I contenitori di sintesi vocale non lo usano.|
 |Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio 
@@ -94,57 +94,57 @@ Sostituire {_nome_argomento_} con i propri valori:
 
 | Placeholder | Value | Formato o esempio |
 |-------------|-------|---|
-|{BILLING_KEY} | La chiave di endpoint della risorsa di riconoscimento vocale. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Il valore dell'endpoint di fatturazione inclusa la regione.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|{API_KEY} | Chiave API della risorsa di sintesi vocale. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | Valore dell'endpoint che include l'area.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing-configuration-setting).
-> Il valore ApiKey è il **chiave** nella pagina chiavi del riconoscimento vocale di risorse di Azure. 
+> Il valore di ApiKey è la **chiave** della pagina delle chiavi delle risorse vocali di Azure. 
 
-## <a name="speech-container-docker-examples"></a>Esempi di riconoscimento vocale contenitori Docker
+## <a name="speech-container-docker-examples"></a>Esempi di Docker del contenitore vocale
 
 Gli esempi di Docker seguenti sono per il contenitore di riconoscimento vocale. 
 
-### <a name="basic-example-for-speech-to-text"></a>Esempio di base per il riconoscimento vocale in testo
+### <a name="basic-example-for-speech-to-text"></a>Esempio di base per il riconoscimento vocale
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}   
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
-### <a name="basic-example-for-text-to-speech"></a>Esempio di base per la sintesi vocale
+### <a name="basic-example-for-text-to-speech"></a>Esempio di base per sintesi vocale
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}  
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-speech-to-text"></a>Esempio di registrazione per il riconoscimento vocale in testo
+### <a name="logging-example-for-speech-to-text"></a>Esempio di registrazione di testo vocale
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}   
-  Logging:Console:LogLevel:Default=Information
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
 ```
 
-### <a name="logging-example-for-text-to-speech"></a>Esempio di registrazione per la sintesi vocale
+### <a name="logging-example-for-text-to-speech"></a>Esempio di registrazione per sintesi vocale
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}  
-  Logging:Console:LogLevel:Default=Information
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

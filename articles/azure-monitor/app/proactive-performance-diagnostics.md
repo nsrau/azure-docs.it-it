@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ccff22a74b0cb1edcbae40fca087fe3197cb6ca
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61294057"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867722"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
@@ -43,7 +43,7 @@ Una notifica non significa che l'app ha sicuramente un problema. Invita semplice
 
 ## <a name="how-do-i-fix-it"></a>Risoluzione
 
-Le notifiche includono informazioni di diagnostica. Ad esempio:
+Le notifiche includono informazioni di diagnostica. Di seguito è riportato un esempio:
 
 
 ![Di seguito è riportato un esempio di rilevamento della riduzione del tempo di risposta del server](media/proactive-performance-diagnostics/server_response_time_degradation.png)
@@ -58,7 +58,7 @@ Le notifiche includono informazioni di diagnostica. Ad esempio:
 
 ## <a name="configure-email-notifications"></a>Configurare le notifiche tramite posta elettronica
 
-Le notifiche di rilevamento intelligente sono abilitate per impostazione predefinita e inviate a coloro i quali hanno l'accesso di [proprietari, collaboratori e lettori alla risorsa Application Insights](../../azure-monitor/app/resources-roles-access-control.md). Per modificare questa impostazione, fare clic su **Configura** nella notifica tramite posta elettronica o aprire le impostazioni di rilevamento intelligente in Application Insights. 
+Le notifiche di rilevamento intelligente sono abilitate per impostazione predefinita e inviate a coloro [che dispongono dell'](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) accesso per il monitoraggio e il [monitoraggio dei collaboratori](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) alla sottoscrizione in cui risiede la risorsa Application Insights. Per modificare questa impostazione, fare clic su **Configura** nella notifica tramite posta elettronica o aprire le impostazioni di rilevamento intelligente in Application Insights. 
   
   ![Impostazioni di rilevamento intelligente](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   

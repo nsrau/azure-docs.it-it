@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 722d77bf27e3cd7eb921b09e0a1d4732a5b5f874
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 6bad74d33f5d50bb7a35de69927bf97daad07798
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514408"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326857"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Avvisi e monitoraggio delle data factory con Monitoraggio di Azure
 Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio offre la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
@@ -40,11 +40,11 @@ Data Factory memorizza i dati di esecuzione della pipeline solo per 45 giorni. S
 ### <a name="diagnostic-settings"></a>Impostazioni di diagnostica
 I log di diagnostica per le risorse non di calcolo vengono configurati usando le impostazioni di diagnostica. Le impostazioni di diagnostica per una risorsa controllano:
 
-* In cui vengono inviati i log di diagnostica (Account di archiviazione, hub eventi o log di monitoraggio di Azure).
+* Dove vengono inviati i log di diagnostica (account di archiviazione, Hub eventi o log di monitoraggio di Azure).
 * Categorie di log da inviare.
 * Periodo di tempo durante il quale ogni categoria di log deve essere mantenuta nell'account di archiviazione.
 * Un periodo di conservazione di zero giorni significa che i log vengono conservati all'infinito. Se impostato su zero giorni, i log vengono conservati all'infinito.
-* Se i criteri di conservazione sono impostati, ma l'archiviazione dei log in un account di archiviazione è disabilitata (ad esempio, solo gli hub eventi o monitoraggio di Azure sono selezionate le opzioni di log), i criteri di conservazione non hanno alcun effetto.
+* Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o log di monitoraggio di Azure, i criteri di conservazione non hanno alcun effetto.
 * I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata (UTC), i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>Abilitare i log di diagnostica tramite le API REST
@@ -234,7 +234,9 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ## <a name="schema-of-logs--events"></a>Schema di log ed eventi
 
-### <a name="activity-run-logs-attributes"></a>Attributi dei log di esecuzione attività
+### <a name="azure-monitor-schema"></a>Schema di monitoraggio di Azure
+
+#### <a name="activity-run-logs-attributes"></a>Attributi dei log di esecuzione attività
 
 ```json
 {
@@ -277,7 +279,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |string | Livello dei log di diagnostica. Il livello 4 è sempre valido per i log di esecuzione attività. | `4`  |
 | correlationId |string | ID univoco per tenere traccia di una particolare richiesta end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | string | Ora dell'evento nell'intervallo di tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | string | Ora dell'evento nell'intervallo di tempo, formato UTC`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| string| ID dell'esecuzione attività | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| string| ID dell'esecuzione pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| string | ID della risorsa associata di Data Factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -289,7 +291,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| string | Inizio dell'esecuzione attività nell'intervallo di tempo, in formato UTC | `2017-06-26T20:55:29.5007959Z`|
 |end| string | Fine dell'esecuzione attività nell'intervallo di tempo, in formato UTC. Se l'attività non è ancora terminata (log di diagnostica per l'avvio di un'attività), viene impostato il valore predefinito `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
 
-### <a name="pipeline-run-logs-attributes"></a>Attributi dei log di esecuzione pipeline
+#### <a name="pipeline-run-logs-attributes"></a>Attributi dei log di esecuzione pipeline
 
 ```json
 {
@@ -323,7 +325,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |string | Livello dei log di diagnostica. Il livello 4 è valido per i log di esecuzione attività. | `4`  |
 | correlationId |string | ID univoco per tenere traccia di una particolare richiesta end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | string | Ora dell'evento nell'intervallo di tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | string | Ora dell'evento nell'intervallo di tempo, formato UTC`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| string| ID dell'esecuzione pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| string | ID della risorsa associata di Data Factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| string | Categoria dei log di diagnostica. Impostare questa proprietà su "PipelineRuns" | `PipelineRuns` |
@@ -334,7 +336,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |end| string | Fine delle esecuzioni attività nell'intervallo di tempo, in formato UTC. Se l'attività non è ancora terminata (log di diagnostica per l'avvio di un'attività), viene impostato il valore predefinito `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
 |status| string | Stato finale dell'esecuzione pipeline (Succeeded o Failed) | `Succeeded`|
 
-### <a name="trigger-run-logs-attributes"></a>Attributi dei log di esecuzione trigger
+#### <a name="trigger-run-logs-attributes"></a>Attributi dei log di esecuzione trigger
 
 ```json
 {
@@ -367,7 +369,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |string | Livello dei log di diagnostica. Impostare sul livello 4 per i log di esecuzione attività. | `4`  |
 | correlationId |string | ID univoco per tenere traccia di una particolare richiesta end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | string | Ora dell'evento nell'intervallo di tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | string | Ora dell'evento nell'intervallo di tempo, formato UTC`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| string| ID dell'esecuzione del trigger | `08587023010602533858661257311` |
 |resourceId| string | ID della risorsa associata di Data Factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| string | Categoria dei log di diagnostica. Impostare questa proprietà su "PipelineRuns" | `PipelineRuns` |
@@ -379,13 +381,35 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| string | Avvio dell'attivazione del trigger nell'intervallo di tempo, in formato UTC | `2017-06-26T20:55:29.5007959Z`|
 |status| string | Stato finale indicante se il trigger è stato attivato correttamente (Succeeded o Failed) | `Succeeded`|
 
+### <a name="log-analytics-schema"></a>Schema Log Analytics
+
+Log Analytics eredita lo schema da monitoraggio di Azure con le eccezioni seguenti:
+
+* La prima lettera del nome di ogni colonna verrà in maiuscolo, ad esempio *CorrelationId* in monitoraggio di Azure sarà *CorrelationId* in log Analytics.
+* Il *livello* della colonna verrà eliminato.
+* Le *Proprietà* della colonna dinamica verranno mantenute come il tipo di BLOB JSON dinamico seguente:
+
+    | Colonna monitoraggio di Azure | Log Analytics colonna | Type |
+    | --- | --- | --- |
+    | $. Properties. UserProperties | UserProperties | Dynamic |
+    | $. Properties. Annotazioni | annotazioni | Dynamic |
+    | $. Properties. Input | Input | Dynamic |
+    | $. Properties. Output | Output | Dynamic |
+    | $. Properties. Errore. errorCode | ErrorCode | int |
+    | $. Properties. Errore. messaggio | ErrorMessage | string |
+    | $. Properties. Errore | Errore | Dynamic |
+    | $. Properties. Predecessori | Predecessori | Dynamic |
+    | $. Properties. Parametri | Parametri | Dynamic |
+    | $. Properties. SystemParameters | SystemParameters | Dynamic |
+    | $. Properties. Tag | Tag | Dynamic |
+    
 ## <a name="metrics"></a>metrics
 
 Il monitoraggio di Azure consente di usare la telemetria per ottenere visibilità sulle prestazioni e sull'integrità dei carichi di lavoro in Azure. Il tipo di dati di telemetria Azure più importante è rappresentato dalle metriche (altrimenti dette contatori delle prestazioni) generate dalla maggior parte delle risorse di Azure. Il monitoraggio di Azure offre alcuni modi per configurare e usare queste metriche per il monitoraggio e la risoluzione dei problemi.
 
-ADFV2 genera le metriche seguenti
+ADFV2 emette le metriche seguenti:
 
-| **Metrica**           | **Nome visualizzato per la metrica**         | **Unità** | **Tipo di aggregazione** | **Descrizione**                                       |
+| **Metrica**           | **Nome visualizzato metrica**         | **Unità** | **Tipo di aggregazione** | **Descrizione**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRuns | Succeeded pipeline runs metrics (Metrica esecuzioni pipeline riuscite) | Conteggio    | Totale                | Esecuzioni pipeline totali riuscite in un minuto |
 | PipelineFailedRuns   | Failed pipeline runs metrics (Metrica esecuzioni pipeline non riuscite)    | Conteggio    | Totale                | Esecuzioni pipeline totali non riuscite in un minuto    |
@@ -394,7 +418,7 @@ ADFV2 genera le metriche seguenti
 | TriggerSucceededRuns | Succeeded trigger runs metrics (Metrica esecuzioni trigger riuscite)  | Conteggio    | Totale                | Esecuzioni trigger totali riuscite in un minuto   |
 | TriggerFailedRuns    | Failed trigger runs metrics (Metrica esecuzioni trigger non riuscite)     | Conteggio    | Totale                | Esecuzioni trigger totali non riuscite in un minuto      |
 
-Per accedere alle metriche, seguire le istruzioni nell'articolo: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+Per accedere alle metriche, seguire le istruzioni riportate nella [piattaforma dati di monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Monitoraggio delle metriche di Data Factory con Monitoraggio di Azure
 
@@ -412,13 +436,28 @@ Per un'introduzione di sette minuti e una dimostrazione di questa funzionalità,
 
 Abilitare le impostazioni di diagnostica per una data factory.
 
-1.  Selezionare **Monitoraggio di Azure** -> **Impostazioni di diagnostica** -> Seleziona data factory -> Abilita diagnostica.
+1. Nel portale passare a monitoraggio di Azure e fare clic su **impostazioni di diagnostica** nel menu **Impostazioni** .
 
-    ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+2. Selezionare il data factory per cui si desidera impostare un'impostazione di diagnostica.
+    
+3. Se nella data factory selezionata non sono presenti impostazioni, viene richiesto di creare un'impostazione. Fare clic su "Attiva diagnostica".
 
-2.  Fornire le impostazioni di diagnostica, inclusa la configurazione dell'area di lavoro.
+   ![Aggiungi impostazione di diagnostica - Nessuna impostazione esistente](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+   Se nel data factory sono presenti impostazioni esistenti, verrà visualizzato un elenco di impostazioni già configurate in questa data factory. Fare clic su "Add diagnostic setting" (Aggiungi impostazione di diagnostica).
+
+   !["Add diagnostic setting" (Aggiungi impostazione di diagnostica) - impostazioni esistenti](media/data-factory-monitor-oms/add-diagnostic-setting.png)
+
+4. Assegnare all'impostazione un nome e selezionare la casella **Invia a Log Analytics**, quindi selezionare un'area di lavoro Log Analytics.
 
     ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+5. Fare clic su **Save**.
+
+Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa data factory e i log di diagnostica vengono trasmessi a tale area di lavoro non appena vengono generati nuovi dati degli eventi. Potrebbero essere necessari fino a 15 minuti tra il momento in cui viene generato un evento e il momento in cui viene visualizzato in Log Analytics.
+
+> [!NOTE]
+> A causa di un limite esplicito di una tabella dei log di Azure specifica che non contiene più di 500 colonne, **è consigliabile usare la modalità specifica della risorsa**. Per ulteriori informazioni, vedere [log Analytics limitazioni note](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
 
 ### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Installare il pacchetto di Azure Data Factory Analytics dal Marketplace di Azure
 
@@ -462,7 +501,7 @@ L'installazione di **Azure Data Factory Analytics** crea un set predefinito di v
 
 ## <a name="alerts"></a>Avvisi
 
-Accedere al portale di Azure e selezionare **Monitoraggio -&gt; Avvisi** per creare avvisi.
+Accedere al portale di Azure e fare clic su **monitoraggio** > **avvisi** per creare avvisi.
 
 ![Avvisi nel menu del portale](media/monitor-using-azure-monitor/alerts_image3.png)
 

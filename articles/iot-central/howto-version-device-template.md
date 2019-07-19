@@ -3,17 +3,17 @@ title: Informazioni sulle versioni dei modelli di dispositivo per le app Azure I
 description: Eseguire iterazioni con i modelli di dispositivo creando nuove versioni, senza determinare conseguenze per i dispositivi collegati
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 03/26/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a53c1432ce4dc6be5dd15ee804cda6b00257ca0e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 638be5e62c523c478f139f13185edeb24995ab3f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509729"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848964"
 ---
 # <a name="create-a-new-device-template-version"></a>Creare una nuova versione di un modello di dispositivo
 
@@ -56,7 +56,7 @@ I **dashboard di dispositivo** possono contenere diversi tipi di riquadri. Alcun
 
 È possibile creare più versioni del modello di dispositivo. Nel corso del tempo si avranno più dispositivi connessi che usano questi modelli di dispositivo. È possibile eseguire la migrazione dei dispositivi da una versione del modello di dispositivo a un'altra. I passaggi seguenti descrivono come eseguire la migrazione di un dispositivo:
 
-1. Andare alla **Device Explorer** pagina.
+1. Passare alla pagina **Device Explorer** .
 1. Selezionare il dispositivo di cui eseguire la migrazione a un'altra versione.
 1. Scegliere **Migrate Device** (Esegui la migrazione del dispositivo).
 1. Selezionare il numero di versione a cui portare il dispositivo e scegliere **Migrate** (Esegui migrazione).

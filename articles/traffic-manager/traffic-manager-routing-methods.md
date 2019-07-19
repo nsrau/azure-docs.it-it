@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: 9068cb0dad742ac6e5eeae0b3a1b801d08d4734c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: dd4b9f88e61396003a209b1b8edabb8c1564c761
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071003"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320079"
 ---
 # <a name="traffic-manager-routing-methods"></a>Metodi di routing di Gestione traffico
 
@@ -122,6 +122,28 @@ Gestione traffico legge l'indirizzo IP di origine della query DNS e decide da qu
 - Se una query proviene da un'area geografica che non ha alcun mapping in quel profilo, Gestione traffico restituisce una risposta NODATA. Pertanto è consigliabile che i clienti usino il routing geografico con un solo endpoint, idealmente di tipo nidificato con almeno due endpoint all'interno del profilo figlio, con l'area **Mondo** assegnata. Questo garantisce inoltre che vengano gestiti tutti gli indirizzi IP che non sono mappati a un'area.
 
 Come spiegato in [Modalità di funzionamento di Gestione traffico](traffic-manager-how-it-works.md), le query DNS non vengono ricevute direttamente dai client, ma dal servizio DNS ricorsivo per il quale sono configurati. Pertanto l'indirizzo IP utilizzato per determinare l'area non è l'indirizzo IP del client ma l'indirizzo IP del servizio DNS ricorsivo. In pratica, questo indirizzo IP è un proxy valido a questo scopo per il client.
+
+### <a name="faqs"></a>Domande frequenti
+
+* [Quali sono alcuni casi d'uso in cui il routing geografico è utile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
+
+* [Ricerca per categorie decidere se utilizzare il metodo di routing delle prestazioni o il metodo di routing geografico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
+
+* [Quali sono le aree supportate da Gestione traffico per il routing geografico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
+
+* [In che modo gestione traffico determina la posizione da cui un utente esegue una query?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-determine-where-a-user-is-querying-from)
+
+* [Si garantisce che gestione traffico possa determinare correttamente l'esatta posizione geografica dell'utente in ogni caso?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
+
+* [Un endpoint deve trovarsi fisicamente nella stessa area in cui è configurato per il routing geografico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
+
+* [È possibile assegnare aree geografiche agli endpoint in un profilo non configurato per eseguire il routing geografico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
+
+* [Perché viene ricevuto un errore quando si tenta di modificare il metodo di routing di un profilo esistente in geografico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
+
+* [Perché si consiglia vivamente ai clienti di creare profili annidati anziché endpoint in un profilo con routing geografico abilitato?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
+
+* [Sono previste restrizioni per la versione dell'API che supporta questo tipo di routing?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
 
 ## <a name = "multivalue"></a>Metodo di routing del traffico Multivalore
 Il metodo di routing del traffico **Multivalore** consente di ottenere più endpoint integri in un'unica risposta a una query DNS. In questo modo, il chiamante, in caso di mancata risposta da parte di un endpoint restituito, può eseguire nuovi tentativi sul lato client con altri endpoint. Questo modello può aumentare la disponibilità di un servizio e ridurre la latenza associata a una nuova query DNS per ottenere un endpoint integro. Il metodo di routing Multivalore funziona solo se tutti gli endpoint di tipo Esterno sono specificati come indirizzi IPv4 o IPv6. Quando si riceve una query per profili di questo tipo, tutti gli endpoint integri vengono restituiti e sono soggetti a un numero massimo di restituzioni configurabili.

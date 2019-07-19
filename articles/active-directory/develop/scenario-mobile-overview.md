@@ -1,9 +1,9 @@
 ---
-title: App per dispositivi mobili che chiama web API - Panoramica | Piattaforma delle identità Microsoft
-description: Informazioni su come compilare un'app per dispositivi mobili di chiamate di web API (panoramica)
+title: App per dispositivi mobili che chiama API Web-Panoramica | Piattaforma di identità Microsoft
+description: Informazioni su come creare un'app per dispositivi mobili che chiama API Web (panoramica)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,16 +16,16 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f007ad1d5bf99136328ec5706f7ccbb5f6593c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfc5e12bf1633c32a61e03c7df6d6c0320263d6e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111219"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325324"
 ---
-# <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: Applicazioni per dispositivi mobili che chiama l'API web
+# <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: Applicazione per dispositivi mobili che chiama API Web
 
-Scopri tutto che è necessario sapere per creare un'app per dispositivi mobili che chiama le API web.
+Scopri tutte le informazioni necessarie per creare un'app per dispositivi mobili che chiama le API Web.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,33 +33,33 @@ Scopri tutto che è necessario sapere per creare un'app per dispositivi mobili c
 
 ## <a name="getting-started"></a>Introduzione
 
-Creare la prima applicazione per dispositivi mobili e provare una Guida introduttiva.
+Creare la prima applicazione per dispositivi mobili e provare una guida introduttiva.
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Acquisire un token e chiamare API Microsoft Graph da un'app per Android](./quickstart-v2-android.md)
+> [Avvio rapido: Acquisire un token e chiamare Microsoft Graph API da un'app Android](./quickstart-v2-android.md)
 >
-> [Avvio rapido: Acquisire un token e chiamare API Microsoft Graph da un'app per iOS](./quickstart-v2-ios.md)
+> [Avvio rapido: Acquisire un token e chiamare Microsoft Graph API da un'app iOS](./quickstart-v2-ios.md)
 >
-> [Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app Android e Xamarin iOS](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+> [Avvio rapido: Acquisire un token e chiamare Microsoft Graph API da un'app Novell iOS & Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
 
 ## <a name="overview"></a>Panoramica
 
-Un'esperienza utente trasparente personalizzato è essenziale per le App per dispositivi mobili.  Piattaforma delle identità di Microsoft consente agli sviluppatori per dispositivi mobili creare tale esperienza per gli utenti di Android e iOS. L'applicazione possa accedere gli utenti di Azure Active Directory (Azure AD), gli utenti con account Microsoft personali e gli utenti di Azure AD B2C e acquisire i token per chiamare un'API web per loro conto. Per implementare questi flussi, si userà Microsoft Authentication Library (MSAL), che implementa lo standard di settore [flusso del codice di autorizzazione OAuth 2.0](v2-oauth2-auth-code-flow.md).
+Un'esperienza utente personalizzata e trasparente è essenziale per le app per dispositivi mobili.  Microsoft Identity Platform consente agli sviluppatori di dispositivi mobili di creare questa esperienza per gli utenti iOS e Android. L'applicazione può accedere Azure Active Directory (Azure AD) utenti, utenti account Microsoft personali e utenti Azure AD B2C e acquisire i token per chiamare un'API Web per loro conto. Per implementare questi flussi, si userà Microsoft Authentication Library (MSAL), che implementa il [flusso del codice di autorizzazione OAuth 2.0](v2-oauth2-auth-code-flow.md)standard di settore.
 
 ![App daemon](./media/scenarios/mobile-app.svg)
 
-Considerazioni per le App per dispositivi mobili:
+Considerazioni per le app per dispositivi mobili:
 
-- **Esperienza utente è essenziale**: Consentire agli utenti di visualizzare il valore dell'app prima di richiedere per l'accesso e richiedere solo le autorizzazioni necessarie.
-- **Supporta tutte le configurazioni utente**: Numero di utenti aziendali per dispositivi mobili è sotto l'accesso condizionale e criteri di conformità dei dispositivi. Assicurarsi che supportare questi scenari chiave.
-- **Implementare il single sign-on (SSO)** : MSAL e piattaforma delle identità Microsoft semplificano l'abilitazione di single sign-on tramite il browser del dispositivo o il Microsoft Authenticator e portale aziendale di Intune in Android.
+- L' **esperienza utente è chiave**: Consentire agli utenti di visualizzare il valore dell'app prima di richiedere l'accesso e richiedere solo le autorizzazioni necessarie.
+- **Supporto per tutte le configurazioni utente**: Molti utenti di business per dispositivi mobili sono sotto l'accesso condizionale e i criteri di conformità dei dispositivi. Assicurarsi di supportare questi scenari chiave.
+- **Implementare l'accesso Single Sign-on (SSO)** : MSAL e la piattaforma di identità Microsoft rendono semplice l'abilitazione dell'accesso Single Sign-on tramite il browser del dispositivo o la Microsoft Authenticator (e Portale aziendale Intune in Android).
 
 ## <a name="specifics"></a>Specifiche
 
-Tenere presente queste considerazioni quando si compila un'app per dispositivi mobili su piattaforma delle identità Microsoft:
+Tenere presenti queste considerazioni quando si compila un'app per dispositivi mobili nella piattaforma di identità Microsoft:
 
-- A seconda della piattaforma, alcune interazioni dell'utente potrebbero essere necessari al primo accesso degli utenti. Ad esempio, iOS richiede che le App per mostrare l'interazione dell'utente quando si utilizza SSO la prima volta attraverso Microsoft Authenticator (e il portale aziendale di Intune in Android).
-- In iOS e Android, MSAL potrebbe usare un browser esterno (che potrebbe essere visualizzata in cima all'app) per consentire agli utenti. È possibile personalizzare la configurazione per usare invece visualizzazioni nell'app Web.
+- A seconda della piattaforma, potrebbe essere necessaria un'interazione dell'utente la prima volta che gli utenti possono accedere. IOS, ad esempio, richiede che le app mostrino l'interazione dell'utente quando si usa SSO la prima volta tramite Microsoft Authenticator (e Portale aziendale Intune in Android).
+- In iOS e Android, MSAL può usare un browser esterno (che potrebbe essere visualizzato sopra l'app) per accedere agli utenti. In alternativa, è possibile personalizzare la configurazione per l'uso di WebView in-app.
 - Non usare mai un segreto in un'applicazione per dispositivi mobili. Sarà accessibile a tutti gli utenti.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -3,18 +3,18 @@ title: Risoluzione dei problemi relativi a Istanze di Azure Container
 description: Informazioni su come risolvere i problemi relativi a Istanze di Azure Container
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b41a3862341ef39c1288985d86d86667fbc5866
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65070862"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325595"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Risolvere i problemi comuni in Istanze di Azure Container
 
@@ -22,9 +22,9 @@ Questo articolo mostra come risolvere i problemi comuni per la gestione o la dis
 
 ## <a name="naming-conventions"></a>Convenzioni di denominazione
 
-Quando si definisce la specifica del contenitore, determinati parametri devono essere conformi a limitazioni di denominazione. Nella tabella seguente sono disponibili i requisiti specifici per le proprietà dei gruppi di contenitori. Per altre informazioni sulle convenzioni di denominazione di Azure, vedere [Regole di denominazione e restrizioni][azure-name-restrictions] nel Centro architettura di Azure.
+Quando si definisce la specifica del contenitore, determinati parametri devono essere conformi a limitazioni di denominazione. Nella tabella seguente sono disponibili i requisiti specifici per le proprietà dei gruppi di contenitori. Per altre informazioni sulle convenzioni di denominazione di Azure, vedere [Regole di denominazione e restrizioni][azure-name-restrictions] nel Centro architetture Azure.
 
-| `Scope` | Length | Maiuscole/minuscole | Caratteri validi | Schema consigliato | Esempio |
+| Ambito | Length | Maiuscole/minuscole | Caratteri validi | Schema consigliato | Esempio |
 | --- | --- | --- | --- | --- | --- |
 | Nome del gruppo di contenitori | 1-64 |Non fa distinzione tra maiuscole e minuscole |Carattere alfanumerico e trattino in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nome contenitore | 1-64 |Non fa distinzione tra maiuscole e minuscole |Carattere alfanumerico e trattino in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
@@ -46,7 +46,7 @@ Se si specifica un'immagine non supportata da Istanze di Azure Container, viene 
 }
 ```
 
-Questo errore si verifica più spesso quando le immagini di distribuzione Windows che si basano su canale semestrale versione 1709 o 1803, che non sono supportati. Per immagini di Windows supportate nelle istanze di contenitore di Azure, vedere [domande frequenti](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Questo errore viene spesso rilevato quando si distribuiscono immagini Windows basate su un canale semestrale versione 1709 o 1803, che non sono supportate. Per le immagini di Windows supportate nelle istanze di contenitore di Azure, vedere [domande frequenti](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ## <a name="unable-to-pull-image"></a>Non è possibile eseguire il pull dell'immagine
 
@@ -54,7 +54,7 @@ Se non è inizialmente in grado di eseguire il pull dell'immagine, Istanze di Az
 
 Per risolvere questo problema, eliminare l'istanza di contenitore e ripetere la distribuzione. Verificare che l'immagine esista nel registro e che il nome dell'immagine sia stato digitato correttamente.
 
-Se il pull dell'immagine non può essere eseguito, vengono visualizzati eventi simili al seguente nell'output di [az container show][az-container-show]:
+Se l'immagine non può essere sottoposta a pull, vengono visualizzati eventi simili ai seguenti nell'output di [AZ container Show][az-container-show]:
 
 ```bash
 "events": [
@@ -89,7 +89,7 @@ Se il pull dell'immagine non può essere eseguito, vengono visualizzati eventi s
 
 I gruppi di contenitori vengono impostati automaticamente sul [criterio di riavvio](container-instances-restart-policy.md) **Always**, in modo che i contenitori nel gruppo di contenitori eseguano sempre il riavvio dopo il completamento dell'esecuzione. Potrebbe essere necessario impostare questa opzione su **OnFailure** oppure **Never** se si prevede di eseguire i contenitori basati su attività. Se si specifica **OnFailure** e si riscontra una situazione di riavvio continuo, potrebbe essere presente un problema con l'applicazione o lo script eseguito nel contenitore.
 
-Durante l'esecuzione di gruppi di contenitori senza processi a esecuzione prolungata è probabile che si verifichino ripetute uscite e riavvii con le immagini, ad esempio Ubuntu o Alpine. La connessione tramite [EXEC](container-instances-exec.md) non funzionerà in quanto il contenitore non dispone di alcun processo che lo mantiene attivo. Per risolvere questo problema, includere un comando simile al seguente con la distribuzione del gruppo di contenitori per mantenere il contenitore in esecuzione.
+Durante l'esecuzione di gruppi di contenitori senza processi a esecuzione prolungata è probabile che si verifichino ripetute uscite e riavvii con le immagini, ad esempio Ubuntu o Alpine. La connessione tramite [EXEC](container-instances-exec.md) non funzionerà in quanto il contenitore non dispone di alcun processo che lo mantiene attivo. Per risolvere questo problema, includere un comando di avvio simile al seguente con la distribuzione del gruppo di contenitori per impedire l'esecuzione del contenitore.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -102,7 +102,7 @@ az container create -g myResourceGroup --name mywindowsapp --os-type Windows --i
  --command-line "ping -t localhost"
 ```
 
-L'API Istanze di Container e il portale di Azure includono una proprietà `restartCount`. Per controllare il numero di riavvii di un contenitore, è possibile usare il comando [az container show][az-container-show] nell'interfaccia della riga di comando di Azure. Nell'output di esempio seguente (troncato per brevità) la proprietà `restartCount` è visualizzata alla fine dell'output.
+L'API Istanze di Container e il portale di Azure includono una proprietà `restartCount`. Per controllare il numero di riavvii per un contenitore, è possibile usare il comando [AZ container Show][az-container-show] nell'interfaccia della riga di comando di Azure. Nell'output di esempio seguente (troncato per brevità) la proprietà `restartCount` è visualizzata alla fine dell'output.
 
 ```json
 ...
@@ -174,7 +174,7 @@ Un altro modo per ridurre l'impatto del pull dell'immagine sul tempo di avvio de
 
 ### <a name="cached-images"></a>Immagini memorizzate nella cache
 
-Istanze di contenitore di Azure Usa un meccanismo di memorizzazione nella cache per ridurre il tempo di avvio di contenitore per le immagini basate su common [le immagini di base di Windows](container-instances-faq.md#what-windows-base-os-images-are-supported), tra cui `nanoserver:1809`, `servercore:ltsc2019`, e `servercore:1809`. Comunemente usato, ad esempio le immagini Linux `ubuntu:1604` e `alpine:3.6` vengono inoltre memorizzate nella cache. Per un elenco aggiornato delle immagini memorizzate nella cache e i tag, usare il [elencare le immagini memorizzate nella cache] [ list-cached-images] API.
+Istanze di contenitore di Azure usa un meccanismo di memorizzazione nella cache per velocizzare il tempo di avvio dei contenitori per le immagini `nanoserver:1809`basate `servercore:ltsc2019`su immagini `servercore:1809`di base di [Windows](container-instances-faq.md#what-windows-base-os-images-are-supported)comuni, tra cui, e. Anche le immagini Linux usate di `ubuntu:1604` frequente `alpine:3.6` , ad esempio e, vengono memorizzate nella cache. Per un elenco aggiornato di immagini e tag memorizzati nella cache, usare l'API [Elenca immagini memorizzate nella cache][list-cached-images] .
 
 > [!NOTE]
 > L'uso di immagini basate su Windows Server 2019 in istanze di Azure Container è disponibile in anteprima.
@@ -206,7 +206,7 @@ Istanze di Azure Container non supporta attualmente il mapping delle porte, come
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [recuperare i log dei contenitori e gli eventi](container-instances-get-logs.md) per facilitare il debug dei contenitori.
+Informazioni su come [recuperare log del contenitore ed eventi](container-instances-get-logs.md) per facilitare il debug dei contenitori.
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions

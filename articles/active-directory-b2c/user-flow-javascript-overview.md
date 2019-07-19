@@ -1,6 +1,6 @@
 ---
-title: JavaScript e pagina del contratto versioni - Azure Active Directory B2C | Microsoft Docs
-description: Informazioni su come abilitare JavaScript e usare le versioni del contratto delle pagine in Azure Active Directory B2C.
+title: Versioni del layout di pagina e JavaScript-Azure Active Directory B2C | Microsoft Docs
+description: Informazioni su come abilitare JavaScript e usare le versioni del layout di pagina in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,37 +10,43 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ef474bec71a9015209b5748b6947816002bd4a5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0eb5c89387d8bdcf0e0b72c669c42f716ff5fbb3
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511985"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227118"
 ---
-# <a name="javascript-and-page-contract-versions-in-azure-active-directory-b2c"></a>JavaScript e pagina Contratto di versioni in Azure Active Directory B2C
+# <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Versioni del layout di pagina e JavaScript in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C offre un set di contenuto nel pacchetto contenente codice HTML, CSS e JavaScript per gli elementi dell'interfaccia utente nei flussi degli utenti e i criteri personalizzati. Per abilitare JavaScript per le applicazioni, è necessario aggiungere un elemento per il [criteri personalizzati](active-directory-b2c-overview-custom.md) o abilitarla nel portale per i flussi utente, selezionare un contratto di pagina e usare [b2clogin.com](b2clogin.md) nelle richieste.
+Azure AD B2C fornisce un set di contenuto in pacchetto contenente HTML, CSS e JavaScript per gli elementi dell'interfaccia utente nei flussi utente e nei criteri personalizzati. Per abilitare JavaScript per le applicazioni, è necessario aggiungere un elemento al [criterio personalizzato](active-directory-b2c-overview-custom.md) o abilitarlo nel portale per i flussi utente, selezionare un layout di pagina e usare [b2clogin.com](b2clogin.md) nelle richieste.
 
-Se si intende abilitare [JavaScript](javascript-samples.md) codice lato client, è opportuno per assicurarsi che gli elementi si basa su JavaScript non sono modificabili. In caso contrario, tutte le modifiche potrebbe causare comportamenti imprevisti nelle pagine utente. Per evitare questi problemi, è possibile imporre l'uso di un contratto di pagina e specificare una versione del contratto di pagina. Questa operazione assicura che tutte le definizioni del contenuto che è stata base di JavaScript non sono modificabili. Anche se non si prevede di abilitare JavaScript, è possibile specificare una versione del contratto pagina per le pagine.
+Se si intende abilitare il codice [JavaScript](javascript-samples.md) lato client, è necessario assicurarsi che gli elementi su cui si basa il codice JavaScript non siano modificabili. In caso contrario, le modifiche potrebbero provocare comportamenti imprevisti nelle pagine utente. Per evitare questi problemi, è possibile imporre l'utilizzo di un layout di pagina e specificare una versione del layout di pagina. In questo modo si garantisce che tutte le definizioni di contenuto su cui è stato basato JavaScript non siano modificabili. Anche se non si intende abilitare JavaScript, è possibile specificare una versione del layout di pagina per le pagine.
 
 ## <a name="user-flows"></a>Flussi degli utenti
 
-Nelle proprietà del flusso utente, è possibile abilitare JavaScript, operazione che impone anche l'uso di un contratto di pagina. È quindi possibile impostare la versione del contratto di pagina come descritto nella sezione seguente.
+Nelle **Proprietà**del flusso utente è possibile abilitare JavaScript, che impone anche l'uso di un layout di pagina. È quindi possibile impostare la versione del layout di pagina per il flusso utente, come descritto nella sezione successiva.
 
-![Abilitare le impostazioni di JavaScript](media/user-flow-javascript-overview/javascript-settings.png)
+![Pagina delle proprietà del flusso utente con l'impostazione Abilita JavaScript evidenziata](media/user-flow-javascript-overview/javascript-settings.png)
 
-Sia che si preveda o meno di abilitare JavaScript nelle proprietà del flusso utente, è possibile specificare una versione del contratto di pagina per le pagine del flusso utente. Aprire il flusso utente e selezionare **Layout di pagina**. In **Nome layout**, selezionare una pagina di flusso utente e scegliere la **Versione del contratto di pagina**.
+### <a name="select-a-page-layout-version"></a>Selezionare una versione del layout di pagina
 
-![Abilitare le impostazioni di JavaScript](media/user-flow-javascript-overview/page-contract-version.png)
+Se si Abilita JavaScript nelle proprietà del flusso utente, è possibile specificare una versione del layout di pagina per le pagine del flusso utente. Aprire il flusso utente e selezionare **layout di pagina**. In **nome layout**selezionare una pagina flusso utente e scegliere la **versione del layout di pagina**.
+
+Per informazioni sulle diverse versioni del layout di pagina, vedere il [log delle modifiche della versione](page-layout.md#version-change-log).
+
+![Impostazioni del layout di pagina nel portale che mostra il menu a discesa Versione layout pagina](media/user-flow-javascript-overview/page-layout-version.png)
 
 ## <a name="custom-policies"></a>Criteri personalizzati
 
-Per abilitare JavaScript nei criteri personalizzati, aggiungere il **ScriptExecution** elemento per il **RelyingParty** elemento nel file di criteri personalizzata. Per altre informazioni, vedere [esempi di JavaScript per l'uso in Azure Active Directory B2C](javascript-samples.md).
+Per abilitare JavaScript nei criteri personalizzati, aggiungere l'elemento **ScriptExecution** all'elemento **RelyingParty** nel file dei criteri personalizzato. Per ulteriori informazioni, vedere [esempi di JavaScript da utilizzare in Azure Active Directory B2C](javascript-samples.md).
 
-Se si abilita JavaScript nei criteri personalizzati, è possibile specificare una versione del contratto pagina per le pagine. Per altre informazioni su come specificare un contratto di pagina, vedere [selezionare un contratto di pagina in Azure Active Directory B2C usando criteri personalizzati](page-contract.md).
+Se si Abilita JavaScript nei criteri personalizzati, è possibile specificare una versione del layout di pagina per le pagine. Per altre informazioni su come specificare un layout di pagina, vedere [selezionare un layout di pagina in Azure Active Directory B2C usando criteri personalizzati](page-layout.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere gli [Esempi JavaScript da usare in Azure Active Directory B2C](javascript-samples.md).
+Per informazioni sulle diverse versioni del layout di pagina, vedere la sezione relativa al **log delle modifiche della versione** di [selezionare un layout di pagina in Azure Active Directory B2C uso di criteri personalizzati](page-layout.md#version-change-log).
+
+È possibile trovare esempi di utilizzo di JavaScript in [esempi di JavaScript da usare in Azure Active Directory B2C](javascript-samples.md).

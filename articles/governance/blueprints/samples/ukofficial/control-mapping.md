@@ -1,6 +1,6 @@
 ---
-title: Esempio di mapping di controllo - ufficiale nel Regno Unito e Regno Unito NHS progetti di architetture-
-description: Mapping di controllo dell'ufficiale nel Regno Unito e gli esempi di progetto NHS Regno Unito.
+title: Esempio-blueprint ufficiale del Regno Unito e del SSN UK-mapping dei controlli
+description: Controllare il mapping degli esempi di progetto ufficiale UK e del SSN UK.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,163 +8,163 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 01a8e104f6d590113784db28e4bfde849d78b15f
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 945898105aab7261ee494a86aeff10337599feb3
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491921"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226015"
 ---
-# <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapping di controllo dell'ufficiale nel Regno Unito e gli esempi di progetto NHS Regno Unito
+# <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Controllo del mapping degli esempi di progetto ufficiale UK e del SSN UK
 
-L'articolo seguente illustra in dettaglio come eseguire il mapping dell'ufficiale nel Regno Unito e gli esempi di progetto NHS Regno Unito per i controlli ufficiale nel Regno Unito e NHS Regno Unito. Per altre informazioni sui controlli, vedere [ufficiale nel Regno Unito](https://www.gov.uk/government/publications/government-security-classifications).
+Nell'articolo seguente viene illustrato in dettaglio come vengono mappati gli esempi ufficiali del Regno Unito e del SSN UK per i controlli del Regno Unito e del Regno Unito. Per ulteriori informazioni sui controlli, vedere il [sito ufficiale UK](https://www.gov.uk/government/publications/government-security-classifications).
 
-I mapping seguenti sono per la **ufficiale nel Regno Unito** e **NHS Regno Unito** controlli. Usare la barra di spostamento a destra per passare direttamente a uno specifico mapping. Molti controlli mappati vengono implementati con un'iniziativa di [Criteri di Azure](../../../policy/overview.md). Per esaminare l'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**. Quindi, individuare e selezionare il  **[anteprima] NHS Audit ufficiale nel Regno Unito e Regno Unito consente di controllare e distribuire estensioni di macchina virtuale specifiche per supportare i requisiti di controllo** iniziativa di criteri predefinite.
+I mapping seguenti si riportano ai controlli del **Regno Unito ufficiale** e del **Regno Unito** . Usare la barra di spostamento a destra per passare direttamente a uno specifico mapping. Molti controlli mappati vengono implementati con un'iniziativa di [Criteri di Azure](../../../policy/overview.md). Per esaminare l'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**. Quindi, trovare e selezionare i  **\[controlli\] di anteprima del Regno Unito e dei controlli NHS del Regno Unito e distribuire estensioni VM specifiche per supportare i requisiti di controllo** predefiniti Initiative.
 
-## <a name="1-data-in-transit-protection"></a>1-i dati nella protezione di transito
+## <a name="1-data-in-transit-protection"></a>1 dati nella protezione di transito
 
-Il progetto consente di verificare che il trasferimento di informazioni con servizi di Azure è sicuro assegnando [criteri di Azure](../../../policy/overview.md) definizioni che controlla le connessioni non sicure per gli account di archiviazione e la Cache Redis.
+Il progetto consente di garantire la sicurezza del trasferimento delle informazioni con i servizi di Azure tramite l'assegnazione di definizioni di [criteri di Azure](../../../policy/overview.md) che controllano le connessioni non sicure agli account di archiviazione e alla cache Redis.
 
-- Devono essere abilitate solo connessioni protette per la Cache Redis
-- Trasferimento sicuro per gli account di archiviazione deve essere abilitato
+- È necessario abilitare solo connessioni sicure alla cache Redis
+- È necessario abilitare il trasferimento sicuro agli account di archiviazione
 
-## <a name="23-data-at-rest-protection"></a>2.3 protezione dei dati inattivi
+## <a name="23-data-at-rest-protection"></a>2,3 protezione dei dati inattivi
 
-Questo progetto consente di applicare i criteri all'uso di controlli descritta assegnando [criteri di Azure](../../../policy/overview.md) usano definizioni che applicano controlli specifici descritta e controllo delle impostazioni di crittografia debole.
-Identificando le risorse di Azure le cui configurazioni di crittografia potrebbero non essere ottimali, è possibile adottare azioni correttive per assicurarsi che le risorse siano configurate in conformità ai criteri di sicurezza delle informazioni. In particolare, i criteri assegnati da questo progetto di richiedono la crittografia per gli account di archiviazione data lake; Richiedi crittografia trasparente dei dati nel database SQL. controllo della crittografia mancante in account di archiviazione, database SQL, dischi delle macchine virtuali e le variabili di account di automazione; Controllare le connessioni non sicure per gli account di archiviazione e Cache Redis. controllo della crittografia di password vulnerabili macchina virtuale; controlli e comunicazione non crittografata di Service Fabric.
+Questo progetto consente di applicare i criteri per l'uso dei controlli di crittografia assegnando definizioni di [criteri di Azure](../../../policy/overview.md) che applicano controlli di crittografia specifici e controllano l'uso di impostazioni crittografiche vulnerabili.
+Identificando le risorse di Azure le cui configurazioni di crittografia potrebbero non essere ottimali, è possibile adottare azioni correttive per assicurarsi che le risorse siano configurate in conformità ai criteri di sicurezza delle informazioni. In particolare, i criteri assegnati da questo progetto richiedono la crittografia per gli account di archiviazione di data Lake; richiedere Transparent Data Encryption nei database SQL; controllare la crittografia mancante per gli account di archiviazione, i database SQL, i dischi delle macchine virtuali e le variabili dell'account di automazione. controllare le connessioni non sicure agli account di archiviazione e alla cache Redis; Controlla la crittografia della password della macchina virtuale vulnerabile; e controllano la comunicazione Service Fabric non crittografata.
 
-- Monitorare i database SQL non crittografati nel Centro sicurezza di Azure
-- Da applicare crittografia dischi di macchine virtuali
-- Le variabili di account di automazione devono essere crittografate
-- Trasferimento sicuro per gli account di archiviazione deve essere abilitato
-- Cluster di Service Fabric devono avere la proprietà ClusterProtectionLevel impostato su EncryptAndSign
-- Abilitare Transparent Data Encryption nei database SQL
-- Distribuire la crittografia trasparente dei dati di database SQL
-- Richiedi crittografia sugli account Data Lake Store
-- Località consentite (è stato codificato per "Regno Unito MERIDIONALE" e "Regno Unito occidentale")
-- Percorsi per i gruppi di risorse è consentita (è stato codificato per "Regno Unito MERIDIONALE" e "Regno Unito occidentale")
+- Monitorare i database SQL non crittografati nel centro sicurezza di Azure
+- La crittografia del disco deve essere applicata alle macchine virtuali
+- Le variabili dell'account di automazione devono essere crittografate
+- È necessario abilitare il trasferimento sicuro agli account di archiviazione
+- Per i cluster Service Fabric la proprietà ClusterProtectionLevel deve essere impostata su EncryptAndSign
+- È necessario abilitare Transparent Data Encryption nei database SQL
+- Distribuisci Transparent Data Encryption nel database SQL
+- Richiedi crittografia per gli account Data Lake Store
+- Percorsi consentiti (è stato hardcoded in "UK Sud" e "UK WEST")
+- Percorsi consentiti per i gruppi di risorse (è stato hardcoded in "Regno Unito meridionale" e "Regno Unito occidentale")
 
-## <a name="52-vulnerability-management"></a>5.2 gestione delle vulnerabilità
+## <a name="52-vulnerability-management"></a>Gestione delle vulnerabilità 5,2
 
-Questo progetto consente di gestire vulnerabilità del sistema informatico assegnando [criteri di Azure](../../../policy/overview.md) definizioni che consentono di monitorare senza endpoint protection, aggiornamenti di sistema, operano vulnerabilità del sistema, SQL mancanti le vulnerabilità e le vulnerabilità di macchina virtuale. Queste informazioni dettagliate forniscono dati in tempo reale sullo stato di sicurezza delle risorse distribuite e consentono di assegnare priorità alle azioni correttive.
+Questo progetto consente di gestire le vulnerabilità del sistema informativo assegnando le definizioni di [criteri di Azure](../../../policy/overview.md) che monitorano la protezione degli endpoint mancanti, gli aggiornamenti del sistema mancanti, le vulnerabilità del sistema operativo, le vulnerabilità SQL e virtuali vulnerabilità del computer. Queste informazioni dettagliate forniscono dati in tempo reale sullo stato di sicurezza delle risorse distribuite e consentono di assegnare priorità alle azioni correttive.
 
 - Monitorare il server senza Endpoint Protection nel Centro sicurezza di Azure
-- Gli aggiornamenti del sistema devono essere installati nei computer
-- Le vulnerabilità nella configurazione di sicurezza nei computer che devono essere corretti.
-- Le vulnerabilità nei database SQL devono essere corretti.
-- Le vulnerabilità devono essere corretti da una soluzione di valutazione della vulnerabilità
+- Installare gli aggiornamenti di sistema nei computer
+- È necessario correggere le vulnerabilità nella configurazione della sicurezza nei computer
+- È necessario correggere le vulnerabilità nei database SQL
+- Le vulnerabilità devono essere risolte da una soluzione di valutazione della vulnerabilità
 
-## <a name="53-protective-monitoring"></a>5.3 monitoraggio protettivo
+## <a name="53-protective-monitoring"></a>5,3 monitoraggio protetto
 
-Questo progetto consente di proteggere le risorse di sistema informazioni assegnando [criteri di Azure](../../../policy/overview.md) definizioni che forniscono il monitoraggio protettivo su un accesso senza restrizioni, attività elenco elementi consentiti e le minacce.
+Questo progetto consente di proteggere le risorse del sistema informativo assegnando le definizioni di [criteri di Azure](../../../policy/overview.md) che forniscono il monitoraggio protetto su accesso illimitato, attività whitelist e minacce.
 
 - Controlla l'accesso di rete senza restrizioni agli account di archiviazione
-- Controlli applicazione adattivi deve essere abilitati in macchine virtuali
-- Distribuire il rilevamento delle minacce sui server SQL
-- Distribuire l'estensione predefinita IaaS di Microsoft Anti-malware per Windows Server
+- I controlli applicazione adattivi devono essere abilitati nelle macchine virtuali
+- Distribuisci Rilevamento minacce nelle istanze di SQL Server
+- Distribuire l'estensione anti-malware Microsoft IaaS predefinita per Windows Server
 
-## <a name="9-secure-user-management--10-identity-and-authentication"></a>Gestione degli utenti di proteggere 9 / 10 Authentication and Identity
+## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 gestione sicura degli utenti/10 identità e autenticazione
 
-Azure implementa l'accesso basato sui ruoli controllo degli accessi a consente di che gestire chi può accedere alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto consente di limitare e controllare i diritti di accesso assegnando [criteri di Azure](../../../policy/overview.md) definizioni per controllare gli account esterni con autorizzazioni di proprietario e/o lettura/scrittura e l'account con il proprietario, leggere e/o le autorizzazioni che eseguire operazioni di scrittura non è abilitata l'autenticazione a più fattori.
+Azure implementa il controllo degli accessi in base al ruolo (RBAC) per semplificare la gestione degli utenti che hanno accesso alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto consente di limitare e controllare i diritti di accesso assegnando le definizioni di [criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o lettura/scrittura e account con autorizzazioni proprietario, lettura e/o scrittura che non dispongono di più fattori autenticazione abilitata.
 
-- È necessario abilitare MFA per gli account con autorizzazioni di proprietario della sottoscrizione
-- Autenticazione a più fattori deve essere abilitato gli account con autorizzazioni di scrittura per la sottoscrizione
-- È necessario abilitare MFA per gli account con autorizzazioni di lettura per la sottoscrizione
-- Gli account esterni con autorizzazioni di proprietario devono essere rimosso dalla sottoscrizione
+- L'autenticazione a più fattori deve essere abilitata per gli account con autorizzazioni proprietario per la sottoscrizione
+- L'autenticazione a più fattori deve essere abilitata per gli account con autorizzazioni di scrittura sulla sottoscrizione
+- L'autenticazione a più fattori deve essere abilitata per gli account con autorizzazioni di lettura per la sottoscrizione
+- Gli account esterni con autorizzazioni proprietario devono essere rimossi dalla sottoscrizione
 - È consigliabile rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura
 - Gli account esterni con autorizzazioni di lettura devono essere rimossi dalla sottoscrizione
 
-Questo progetto assegna le definizioni dei criteri di Azure per controllare l'uso dell'autenticazione di Azure Active Directory per SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft.
+Questo progetto assegna le definizioni di criteri di Azure per controllare l'uso dell'autenticazione Azure Active Directory per SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft.
 
-- Per istanze di SQL Server deve essere effettuato il provisioning di un amministratore di Azure Active Directory
-- Cluster di Service Fabric devono usare solo Azure Active Directory per l'autenticazione client
+- È necessario eseguire il provisioning di un amministratore Azure Active Directory per SQL Server
+- I cluster di Service Fabric devono usare solo Azure Active Directory per l'autenticazione client
 
-Questo progetto assegna inoltre le definizioni dei criteri di Azure per controllare gli account che devono avere una priorità per la revisione, inclusi gli account ammortizzati e gli account esterni. Se necessario, è possibile bloccare l'accesso degli account (oppure rimuoverli), rimuovendo immediatamente i diritti di accesso alle risorse di Azure. Questo progetto assegna due definizioni di criteri di Azure all'account controllo ammortizzato da considerare per la rimozione.
+Questo progetto assegna anche le definizioni di criteri di Azure agli account di controllo che devono avere priorità per la revisione, inclusi gli account ammortizzati e gli account esterni. Se necessario, è possibile bloccare l'accesso degli account (oppure rimuoverli), rimuovendo immediatamente i diritti di accesso alle risorse di Azure. Questo progetto assegna due definizioni di criteri di Azure per controllare l'account ammortizzato da considerare per la rimozione.
 
-- Devono essere rimossi gli account deprecati dalla sottoscrizione
-- Gli account deprecati con autorizzazioni di proprietario devono essere rimosso dalla sottoscrizione
-- Gli account esterni con autorizzazioni di proprietario devono essere rimosso dalla sottoscrizione
+- Gli account deprecati devono essere rimossi dalla sottoscrizione
+- Gli account deprecati con autorizzazioni proprietario devono essere rimossi dalla sottoscrizione
+- Gli account esterni con autorizzazioni proprietario devono essere rimossi dalla sottoscrizione
 - È consigliabile rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura
 
-Questo progetto assegna inoltre una definizione di criteri di Azure che controlla una VM Linux le autorizzazioni di file di password per un avviso se si impostano in modo non corretto. Questa progettazione consente di adottare misure correttive per garantire gli autenticatori non vengano compromessi.
+Questo progetto assegna anche una definizione di criteri di Azure che controlla le autorizzazioni del file di password della VM Linux per avvisare se sono impostate in modo errato. Questa progettazione consente di intraprendere azioni correttive per garantire che gli autenticatori non siano compromessi.
 
-- [Anteprima]: Audit Linux VM /etc/passwd file permissions are set to 0644
+- \[Anteprima\]: Controllare che le autorizzazioni per i file/etc/passwd della VM Linux siano impostate su 0644
 
-Questo progetto consente di imporre password complessa assegnando definizioni di criteri di Azure che controlla macchine virtuali di Windows che non applicano intensità minima e altri requisiti di password. Identificando le VM in violazione dei criteri di complessità delle password, è possibile adottare azioni correttive per assicurarsi che le password di tutti gli account utente delle VM siano conformi ai criteri.
+Questo progetto consente di applicare password complesse assegnando definizioni di criteri di Azure che controllano le macchine virtuali Windows che non applicano la forza minima e altri requisiti di password. Identificando le VM in violazione dei criteri di complessità delle password, è possibile adottare azioni correttive per assicurarsi che le password di tutti gli account utente delle VM siano conformi ai criteri.
 
-- [Anteprima]: Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
-- [Anteprima]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
-- [Anteprima]: Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
-- [Anteprima]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Anteprima]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
-- [Anteprima]: Audit Windows VMs that do not have the password complexity setting enabled
-- [Anteprima]: Audit Windows VMs that do not have a maximum password age of 70 days
-- [Anteprima]: Audit Windows VMs that do not have a minimum password age of 1 day
-- [Anteprima]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Anteprima]: Audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Anteprima\]: Distribuire i requisiti per controllare le macchine virtuali Windows per cui non è abilitata l'impostazione di complessità password
+- \[Anteprima\]: Distribuire i requisiti per controllare le VM Windows che non hanno una validità massima della password di 70 giorni
+- \[Anteprima\]: Distribuire i requisiti per controllare le VM Windows che non hanno una password minima di 1 giorno
+- \[Anteprima\]: Distribuire i requisiti per controllare le VM Windows che non limitano la lunghezza minima della password a 14 caratteri
+- \[Anteprima\]: Distribuire i requisiti per controllare le VM Windows che consentono di riutilizzare le 24 password precedenti
+- \[Anteprima\]: Controllare le macchine virtuali Windows per cui non è abilitata l'impostazione di complessità password
+- \[Anteprima\]: Controllare le VM Windows che non hanno una validità massima della password di 70 giorni
+- \[Anteprima\]: Controllare le macchine virtuali Windows che non hanno una password minima di 1 giorno
+- \[Anteprima\]: Controllare le macchine virtuali Windows che non limitano la lunghezza minima della password a 14 caratteri
+- \[Anteprima\]: Controllare le macchine virtuali Windows che consentono di riutilizzare le 24 password precedenti
 
-In questo progetto anche consente di controllare l'accesso alle risorse di Azure tramite l'assegnazione di definizioni di criteri di Azure. Questi criteri controllano l'uso dei tipi di risorse e le configurazioni che potrebbero consentire un accesso più permissivo alle risorse. Identificando le risorse in violazione di questi criteri, è possibile adottare azioni correttive per restringere l'accesso alla risorse di Azure consentendolo solo agli utenti autorizzati.
+Questo progetto consente anche di controllare l'accesso alle risorse di Azure assegnando le definizioni di criteri di Azure. Questi criteri controllano l'uso dei tipi di risorse e le configurazioni che potrebbero consentire un accesso più permissivo alle risorse. Identificando le risorse in violazione di questi criteri, è possibile adottare azioni correttive per restringere l'accesso alla risorse di Azure consentendolo solo agli utenti autorizzati.
 
-- [Anteprima]: Deploy requirements to audit Linux VMs that have accounts without passwords
-- [Anteprima]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
-- [Anteprima]: Audit Linux VMs that have accounts without passwords
-- [Anteprima]: Audit Linux VMs that allow remote connections from accounts without passwords
-- Gli account di archiviazione devono essere migrati a nuove risorse di Azure Resource Manager
-- Le macchine virtuali devono essere migrate a nuove risorse di Azure Resource Manager
+- \[Anteprima\]: Distribuire i requisiti per controllare le VM Linux con account senza password
+- \[Anteprima\]: Distribuire i requisiti per controllare le VM Linux che consentono le connessioni remote dagli account senza password
+- \[Anteprima\]: Controllare le macchine virtuali Linux con account senza password
+- \[Anteprima\]: Controllare le VM Linux che consentono le connessioni remote dagli account senza password
+- È necessario eseguire la migrazione degli account di archiviazione alle nuove risorse Azure Resource Manager
+- È necessario eseguire la migrazione delle macchine virtuali a nuove risorse Azure Resource Manager
 - Controlla macchine virtuali che non usano dischi gestiti
 
-## <a name="11-external-interface-protection"></a>Protezione dell'interfaccia esterna 11
+## <a name="11-external-interface-protection"></a>11 protezione interfaccia esterna
 
-Diverso da usando i criteri di più di 25 per la gestione appropriata sicura degli utenti, questo progetto consente di proteggere interfacce del servizio dall'accesso non autorizzato tramite l'assegnazione di un [criteri di Azure](../../../policy/overview.md) definizione di monitoraggi illimitati account di archiviazione. Gli account di archiviazione con accesso senza restrizioni possono consentire l'accesso non autorizzato alle informazioni contenute all'interno del sistema informativo. Questo progetto assegna anche un criterio che consente ai controlli applicazione adattivi sulle macchine virtuali.
+Oltre a usare più di 25 criteri per una gestione sicura degli utenti appropriata, questo progetto consente di proteggere le interfacce di servizio da accessi non autorizzati assegnando una definizione di [criteri di Azure](../../../policy/overview.md) che monitora gli account di archiviazione senza restrizioni. Gli account di archiviazione con accesso illimitato possono consentire l'accesso non intenzionale alle informazioni contenute all'interno del sistema informativo. Questo progetto assegna anche un criterio che Abilita i controlli delle applicazioni adattivi nelle macchine virtuali.
 
 - Controlla l'accesso di rete senza restrizioni agli account di archiviazione
-- Controlli applicazione adattivi deve essere abilitati in macchine virtuali
+- I controlli applicazione adattivi devono essere abilitati nelle macchine virtuali
 
-## <a name="12-secure-service-administration"></a>Amministrazione del servizio protetta 12
+## <a name="12-secure-service-administration"></a>12 amministrazione sicura del servizio
 
-Azure implementa l'accesso basato sui ruoli controllo degli accessi a consente di che gestire chi può accedere alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto consente di limitare e controllare i diritti di accesso con privilegi tramite l'assegnazione di cinque [criteri di Azure](../../../policy/overview.md) definizioni per controllare gli account esterni con proprietario e/o account e autorizzazioni di scrittura con il proprietario e/o le autorizzazioni di scrittura che non è abilitata l'autenticazione a più fattori.
+Azure implementa il controllo degli accessi in base al ruolo (RBAC) per semplificare la gestione degli utenti che hanno accesso alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto consente di limitare e controllare i diritti di accesso con privilegi assegnando cinque definizioni di [criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o scrittura e account con proprietario e/o autorizzazioni di scrittura senza autenticazione a più fattori abilitata.
 
-Ai sistemi usati per l'amministrazione di un servizio cloud viene concesso l'accesso al servizio con privilegi elevati. Un'eventuale violazione di questi sistemi avrebbe quindi conseguenze piuttosto gravi, come la possibilità di aggirare i controlli di sicurezza e rubare o modificare grandi volumi di dati. I metodi utilizzati dagli amministratori del provider di servizi per gestire il servizio operational devono essere progettati per ridurre qualsiasi rischio di sfruttamento che potrebbe compromettere la sicurezza del servizio. Se non viene implementato questo principio, un utente malintenzionato abbia la possibilità di ignorare i controlli di sicurezza e rubare o modificare grandi volumi di dati.
+Ai sistemi usati per l'amministrazione di un servizio cloud viene concesso l'accesso al servizio con privilegi elevati. Un'eventuale violazione di questi sistemi avrebbe quindi conseguenze piuttosto gravi, come la possibilità di aggirare i controlli di sicurezza e rubare o modificare grandi volumi di dati. I metodi utilizzati dagli amministratori del provider di servizi per gestire il servizio operativo devono essere progettati per mitigare il rischio di sfruttamento che può compromettere la sicurezza del servizio. Se questo principio non è implementato, un utente malintenzionato potrebbe avere i mezzi per ignorare i controlli di sicurezza e rubare o manipolare grandi volumi di dati.
 
-- È necessario abilitare MFA per gli account con autorizzazioni di proprietario della sottoscrizione
-- Autenticazione a più fattori deve essere abilitato gli account con autorizzazioni di scrittura per la sottoscrizione
-- Gli account esterni con autorizzazioni di proprietario devono essere rimosso dalla sottoscrizione
+- L'autenticazione a più fattori deve essere abilitata per gli account con autorizzazioni proprietario per la sottoscrizione
+- L'autenticazione a più fattori deve essere abilitata per gli account con autorizzazioni di scrittura sulla sottoscrizione
+- Gli account esterni con autorizzazioni proprietario devono essere rimossi dalla sottoscrizione
 - È consigliabile rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura
 
-Questo progetto assegna le definizioni dei criteri di Azure per controllare l'uso dell'autenticazione di Azure Active Directory per SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft.
+Questo progetto assegna le definizioni di criteri di Azure per controllare l'uso dell'autenticazione Azure Active Directory per SQL Server e Service Fabric. L'uso dell'autenticazione di Azure Active Directory consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft.
 
-- Per istanze di SQL Server deve essere effettuato il provisioning di un amministratore di Azure Active Directory
-- Cluster di Service Fabric devono usare solo Azure Active Directory per l'autenticazione client
+- È necessario eseguire il provisioning di un amministratore Azure Active Directory per SQL Server
+- I cluster di Service Fabric devono usare solo Azure Active Directory per l'autenticazione client
 
-Questo progetto assegna inoltre le definizioni dei criteri di Azure per controllare gli account che devono avere una priorità per la revisione, inclusi gli account ammortizzati e gli account esterni con autorizzazioni elevate. Se necessario, è possibile bloccare l'accesso degli account (oppure rimuoverli), rimuovendo immediatamente i diritti di accesso alle risorse di Azure. Questo progetto assegna due definizioni di criteri di Azure all'account controllo ammortizzato da considerare per la rimozione.
+Questo progetto assegna anche le definizioni di criteri di Azure agli account di controllo che devono avere priorità per la revisione, inclusi gli account ammortizzati e gli account esterni con autorizzazioni elevate. Se necessario, è possibile bloccare l'accesso degli account (oppure rimuoverli), rimuovendo immediatamente i diritti di accesso alle risorse di Azure. Questo progetto assegna due definizioni di criteri di Azure per controllare l'account ammortizzato da considerare per la rimozione.
 
-- Devono essere rimossi gli account deprecati dalla sottoscrizione
-- Gli account deprecati con autorizzazioni di proprietario devono essere rimosso dalla sottoscrizione
-- Gli account esterni con autorizzazioni di proprietario devono essere rimosso dalla sottoscrizione
+- Gli account deprecati devono essere rimossi dalla sottoscrizione
+- Gli account deprecati con autorizzazioni proprietario devono essere rimossi dalla sottoscrizione
+- Gli account esterni con autorizzazioni proprietario devono essere rimossi dalla sottoscrizione
 - È consigliabile rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di scrittura
 
-Questo progetto assegna inoltre una definizione di criteri di Azure che controlla una VM Linux le autorizzazioni di file di password per un avviso se si impostano in modo non corretto. Questa progettazione consente di adottare misure correttive per garantire gli autenticatori non vengano compromessi.
+Questo progetto assegna anche una definizione di criteri di Azure che controlla le autorizzazioni del file di password della VM Linux per avvisare se sono impostate in modo errato. Questa progettazione consente di intraprendere azioni correttive per garantire che gli autenticatori non siano compromessi.
 
-- [Anteprima]: Audit Linux VM /etc/passwd file permissions are set to 0644
+- \[Anteprima\]: Controllare che le autorizzazioni per i file/etc/passwd della VM Linux siano impostate su 0644
 
-## <a name="13-audit-information-for-users"></a>Informazioni di controllo 13 per gli utenti
+## <a name="13-audit-information-for-users"></a>13 informazioni di controllo per gli utenti
 
-Questo progetto consente di verificare che gli eventi di sistema vengono registrati tramite l'assegnazione [criteri di Azure](../../../policy/overview.md) definizioni che controlla le impostazioni del log in risorse di Azure. Un criterio assegnato controlla inoltre se le macchine virtuali non inviano i log a un'area di lavoro di analisi dei log specificata.
+Questo progetto consente di assicurarsi che gli eventi di sistema vengano registrati assegnando le definizioni di [criteri di Azure](../../../policy/overview.md) che controllano le impostazioni del log nelle risorse di Azure. Un criterio assegnato controlla inoltre se le macchine virtuali non inviano i log a un'area di lavoro di analisi dei log specificata.
 
-- Monitorare i server SQL non controllati in Centro sicurezza di Azure
+- Monitorare i server SQL non controllati nel centro sicurezza di Azure
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)
 - Controlla le impostazioni di controllo a livello del server SQL
-- [Anteprima]: Deploy Log Analytics Agent for Linux VMs
-- [Anteprima]: Deploy Log Analytics Agent for Windows VMs
-- Distribuisci network watcher quando vengono create le reti virtuali
+- \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
+- \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
+- Distribuisci Network Watcher quando vengono create reti virtuali
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver esaminato il mapping di controllo delle linee guida per il Regno Unito ufficiale e NHS Regno Unito, vedere gli articoli seguenti per apprendere la panoramica e la modalità di distribuzione in questo esempio:
+Ora che è stata esaminata la mappatura dei controlli del Regno Unito e dei progetti del SSN UK, vedere gli articoli seguenti per informazioni sulla panoramica e su come distribuire questo esempio:
 
 > [!div class="nextstepaction"]
-> [Linee guida ufficiale nel Regno Unito e Regno Unito NHS - Panoramica](./index.md)
-> [ufficiale nel Regno Unito e progetti di architetture NHS Regno Unito - distribuzione passaggi](./deploy.md)
+> [Ufficiale del Regno Unito e piani di NHS UK-Panoramica](./index.md)
+> [ufficiale UK e progetti NHS UK-passaggi di distribuzione](./deploy.md)
 
 Altri articoli sui progetti e su come usarli:
 

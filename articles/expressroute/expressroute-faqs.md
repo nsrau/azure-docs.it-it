@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 02f772d02f5cc6f188d69b5e79debc0013cf1faa
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: e5674ffb4325eb27af8d0673b2d6ad5ba3a6195e
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488492"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854355"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -43,7 +43,7 @@ No. È possibile acquistare una connessione VPN di qualsiasi velocità dal provi
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Se si paga per un circuito ExpressRoute di una determinata larghezza di banda, si ha la possibilità di potenziarlo fino a velocità più elevate, se necessario?
 
-Sì. I circuiti ExpressRoute sono configurati per consentire di potenziare fino al doppio il limite di larghezza di banda acquistato, senza alcun costo aggiuntivo. Contattare il provider di servizi per vedere se supporta questa funzionalità. Ciò non è per un periodo prolungato di tempo e non è garantito. 
+Sì. I circuiti ExpressRoute sono configurati per consentire di potenziare fino al doppio il limite di larghezza di banda acquistato, senza alcun costo aggiuntivo. Contattare il provider di servizi per vedere se supporta questa funzionalità. Non si tratta di un periodo di tempo prolungato e non è garantito. 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Si possono usare contemporaneamente la stessa connessione di rete privata con la rete virtuale e altri servizi di Azure?
 
@@ -80,7 +80,7 @@ ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) 
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
-* Power BI - disponibile tramite una Community a livello di area di Azure, vedere [qui](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) per come individuare l'area del tenant di Power BI. 
+* Power BI-disponibile tramite una community regionale di Azure, vedere [qui](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) per informazioni su come individuare l'area del tenant di Power bi. 
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (community di Servizi globali di Azure)
 * È supportata la maggior parte dei servizi di Azure. Contattare direttamente il servizio che si vuole usare per verificarne il supporto.<br><br>**I servizi seguenti NON sono supportati**:
@@ -119,21 +119,27 @@ Sì. Ogni circuito ExpressRoute ha una coppia ridondante di connessioni incrocia
 
 In caso di errore di una delle connessioni incrociate, la connettività non verrà persa. È attualmente disponibile una connessione ridondante per supportare il carico della rete e offrire disponibilità elevata per il circuito ExpressRoute. Per ottenere resilienza a livello di circuito, è possibile anche creare un circuito in una sede di peering diversa.
 
-### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Come implementare la ridondanza nel peering privato?
+### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Ricerca per categorie implementare la ridondanza nel peering privato?
 
-Più circuiti ExpressRoute dalla località di peering diverse possono essere connesse alla stessa rete virtuale per fornire la disponibilità elevata nel caso che un singolo circuito non è più disponibile. È quindi possibile [assegnare un peso maggiore](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) per la connessione locale al Ottimizza per preferire un circuito specifico. È consigliabile che i clienti di configurare almeno due circuiti ExpressRoute per evitare singoli punti di errore. 
+Più circuiti ExpressRoute da località di peering diverse possono essere connessi alla stessa rete virtuale per offrire disponibilità elevata nel caso in cui un singolo circuito non sia più disponibile. È quindi possibile [assegnare pesi più elevati](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) alla connessione locale per preferire un circuito specifico. Si consiglia vivamente ai clienti di configurare almeno due circuiti ExpressRoute per evitare singoli punti di errore. 
 
-Visualizzare [Ecco](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) per la progettazione per la disponibilità elevata e [qui](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) per la progettazione per il ripristino di emergenza.  
+Vedere [qui](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) per la progettazione per la disponibilità elevata e [qui](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) per la progettazione per il ripristino di emergenza.  
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Come implementare la ridondanza nel peering Microsoft?
 
-È consigliabile quando i clienti usano peering per accedere a servizi pubblici di Azure, ad esempio archiviazione di Azure o SQL di Azure, nonché i clienti che usano peering Microsoft per Office 365 che implementano più circuiti in diversi peering Microsoft posizioni per evitare singoli punti di faiure. I clienti possono pubblicizzare il medesimo prefisso in entrambi i circuiti e utilizzare [anteposizione di As Path](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) o annunciare i prefissi diversi per determinare percorso locale.
+Si consiglia vivamente quando i clienti usano il peering Microsoft per accedere ai servizi pubblici di Azure, ad esempio archiviazione di Azure o Azure SQL, oltre ai clienti che usano il peering Microsoft per Office 365, che implementano più circuiti in peering diversi percorsi per evitare singoli punti di errore. I clienti possono annunciare lo stesso prefisso in entrambi i circuiti e usare [come percorso in sospeso](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) o annunciare prefissi diversi per determinare il percorso dall'ambiente locale.
 
-Visualizzare [qui](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) per la progettazione per la disponibilità elevata.
+Per la progettazione per la disponibilità elevata, vedere [qui](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) .
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Come è possibile garantire la disponibilità elevata in una rete virtuale connessa a ExpressRoute?
 
 È possibile ottenere la disponibilità elevata connettendo alla rete virtuale circuiti ExpressRoute presenti in posizioni di peering diverse, ad esempio Singapore e Singapore2. Se si arresta un circuito ExpressRoute, la connettività eseguirà il failover su un altro circuito ExpressRoute. Per impostazione predefinita, il traffico in uscita dalla rete virtuale viene instradato sul routing ECMP (Equal-Cost-Multi-Path). È possibile usare il peso della connessione per preferire un circuito a un altro. Per altre informazioni, vedere [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md) (Ottimizzazione del routing di ExpressRoute).
+
+### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-or-public-peering-is-preferred-on-the-expressroute-path"></a>Ricerca per categorie assicurarsi che il traffico destinato ai servizi pubblici di Azure, ad esempio archiviazione di Azure e Azure SQL in Microsoft o il peering pubblico, sia preferibile nel percorso ExpressRoute?
+
+È necessario implementare l'attributo *preferenza locale* nei router per assicurarsi che il percorso dall'ambiente locale ad Azure sia sempre preferito nei circuiti ExpressRoute in uso.
+
+Per [ulteriori informazioni,](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-of-microsoft-and-public-peerings) vedere la selezione del percorso BGP e le configurazioni del router comune. 
 
 ### <a name="onep2plink"></a>Se non si condivide un percorso in un'infrastruttura Cloud Exchange e il provider di servizi offre una connessione punto a punto, è necessario ordinare due connessioni fisiche tra la rete locale e Microsoft?
 
@@ -158,7 +164,7 @@ Se il provider di servizi offre ExpressRoute in entrambe le località, è possib
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>È possibile avere più circuiti ExpressRoute nella stessa area metropolitana? È possibile collegarli alla stessa rete virtuale?
 
-Sì. È possibile avere più circuiti ExpressRoute con provider di servizi uguali o diversi. Se nell'area metropolitana sono presenti più località peer per ExpressRoute e i circuiti vengono creati in località peer diverse, è possibile collegarli alla stessa rete virtuale. Se i circuiti vengono creati nella stessa località di peering, è possibile collegare fino a 4 circuiti nella stessa rete virtuale.
+Sì. È possibile avere più circuiti ExpressRoute con provider di servizi uguali o diversi. Se nell'area metropolitana sono presenti più località peer per ExpressRoute e i circuiti vengono creati in località peer diverse, è possibile collegarli alla stessa rete virtuale. Se i circuiti vengono creati nella stessa posizione di peering, è possibile collegare fino a 4 circuiti alla stessa rete virtuale.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Come si connettono le reti virtuali a un circuito ExpressRoute?
 
@@ -196,7 +202,7 @@ No. Da un punto di vista del routing, tutte le reti virtuali collegate allo stes
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>È possibile connettere una sola rete virtuale a più circuiti ExpressRoute?
 
-Sì. È possibile collegare una singola rete virtuale con un massimo di quattro circuiti ExpressRoute in entrambe la stessa o in diverse località di peering. 
+Sì. È possibile collegare una singola rete virtuale con un massimo di quattro circuiti ExpressRoute in posizioni di peering uguali o diverse. 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>Si può accedere a Internet usando le reti virtuali connesse a circuiti ExpressRoute?
 
@@ -226,7 +232,7 @@ Sì. Sono accettati al massimo 4000 prefissi di route per il peering privato e 2
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>Sono previste limitazioni per gli intervalli IP pubblicabili tramite la sessione BGP?
 
-I prefissi privati (RFC1918) non sono accettati nella sessione BGP per il peering Microsoft. Sono accettati qualsiasi dimensione di prefisso (fino a /32) in Microsoft e il peering privato.
+I prefissi privati (RFC1918) non sono accettati nella sessione BGP per il peering Microsoft. Accettiamo qualsiasi dimensione del prefisso (fino a/32) sia per il peering privato che per Microsoft.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>Cosa succede se si superano i limiti per BGP?
 
@@ -291,24 +297,24 @@ Per informazioni sui costi, vedere [Dettagli prezzi](https://azure.microsoft.com
 Sì. Gli addebiti per ExpressRoute Premium vengono sommati agli addebiti per ExpressRoute e agli addebiti richiesti dal provider di connettività.
 
 ## <a name="expressroute-local"></a>ExpressRoute locale
-### <a name="what-is-expressroute-local"></a>Che cos'è ExpressRoute locale?
-ExpressRoute locale è un circuito di SKU di ExpressRoute disponibile nel [ExpressRoute Direct](expressroute-erdirect-about.md). Una funzionalità chiave di variabile locale è che un circuito locale a un circuito ExpressRoute località di peering consente di accedere solo a uno o due aree di Azure in o quasi la stessa area metropolitana. Al contrario, un circuito Standard consente di accedere a livello globale per tutte le aree di Azure in un circuito di Premium per tutte le aree di Azure e un'area geopolitica. 
+### <a name="what-is-expressroute-local"></a>Che cos'è ExpressRoute local?
+ExpressRoute local è uno SKU del circuito ExpressRoute disponibile in [ExpressRoute Direct](expressroute-erdirect-about.md). Una funzionalità chiave di local è che un circuito locale in una località di peering ExpressRoute consente di accedere solo a una o due aree di Azure in o vicino alla stessa metropolitana. Al contrario, un circuito standard consente di accedere a tutte le aree di Azure in un'area geopolitica e un circuito Premium a tutte le aree di Azure a livello globale. 
 
-### <a name="what-are-the-benefits-of-expressroute-local"></a>Quali sono i vantaggi di ExpressRoute locale?
-Anche se è necessario pagare il trasferimento dei dati in uscita per il circuito ExpressRoute Premium o Standard, non devi pagare il trasferimento dei dati in uscita separatamente il circuito ExpressRoute locale. In altre parole, il prezzo locale di ExpressRoute include tariffe di trasferimento dei dati. ExpressRoute locale è una soluzione più conveniente se hai enormi quantità di dati da trasferire e si può portare i dati tramite una connessione privata a una località di peering di ExpressRoute in prossimità di aree di Azure. 
+### <a name="what-are-the-benefits-of-expressroute-local"></a>Quali sono i vantaggi di ExpressRoute local?
+Anche se è necessario pagare il trasferimento dei dati in uscita per il circuito ExpressRoute standard o Premium, non si paga il trasferimento dei dati in uscita separatamente per il circuito locale di ExpressRoute. In altre parole, il prezzo di ExpressRoute local include tariffe per il trasferimento dei dati. ExpressRoute local è una soluzione più economica se si dispone di una grande quantità di dati da trasferire ed è possibile trasferire i dati tramite una connessione privata a una località di peering ExpressRoute vicino alle aree di Azure desiderate. 
 
-### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>Quali funzionalità sono disponibili e quali non sono in locale di ExpressRoute?
-Rispetto a un circuito ExpressRoute Standard, un circuito locale ha lo stesso set di funzionalità di eccezione:
-* Ambito di accesso alle aree di Azure come descritto sopra
-* Raggiungere globale ExpressRoute non è disponibile in locale
+### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>Quali funzionalità sono disponibili e cosa non si trova in ExpressRoute local?
+Rispetto a un circuito ExpressRoute standard, un circuito locale ha lo stesso set di funzionalità eccetto:
+* Ambito di accesso alle aree di Azure come descritto in precedenza
+* ExpressRoute Copertura globale non è disponibile in locale
 
-ExpressRoute locale ha anche gli stessi limiti sulle risorse (ad esempio, il numero di reti virtuali al circuito) come Standard. 
+ExpressRoute local ha anche gli stessi limiti per le risorse (ad esempio, il numero di reti virtuali per circuito) come standard. 
 
-### <a name="how-to-configure-expressroute-local"></a>Come configurare ExpressRoute locale? 
-ExpressRoute locale è solo disponibile in diretta di ExpressRoute. Quindi, innanzitutto è necessario configurare la porta diretta di ExpressRoute. Dopo aver creata la porta diretta è possibile creare un circuito locale seguendo le istruzioni riportate [qui](expressroute-howto-erdirect.md).
+### <a name="how-to-configure-expressroute-local"></a>Come configurare ExpressRoute local? 
+ExpressRoute local è disponibile solo in ExpressRoute Direct. Prima di tutto è necessario configurare la porta ExpressRoute Direct. Una volta creata la porta diretta, è possibile creare un circuito locale seguendo le istruzioni riportate [qui](expressroute-howto-erdirect.md).
 
-### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Quali aree di Azure e in cui è disponibile ExpressRoute locale ogni località di peering mappato a?
-ExpressRoute locale è disponibile la località di peering in cui uno o due aree di Azure sono close-by. Non è disponibile in una località di peering in cui è presente alcuna area di Azure in tale stato o provincia o paese. Sulla, vedere il mapping esatto [pagina percorsi](expressroute-locations-providers.md).  
+### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Dove è disponibile ExpressRoute locale e a quali aree di Azure è mappata ogni località di peering?
+ExpressRoute local è disponibile nelle località di peering in cui una o due aree di Azure sono vicine. Non è disponibile in una località di peering in cui non esiste alcuna area di Azure in tale stato o provincia o paese. Vedere i mapping esatti nella [pagina percorsi](expressroute-locations-providers.md).  
 
 ## <a name="expressroute-for-office-365"></a>ExpressRoute per Office 365
 

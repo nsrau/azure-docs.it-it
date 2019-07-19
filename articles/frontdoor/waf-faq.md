@@ -1,6 +1,6 @@
 ---
-title: Firewall applicazione web di Azure - domande frequenti
-description: Questa pagina vengono fornite le risposte alle domande frequenti sul servizio di ingresso principale di Azure
+title: Azure web application firewall-domande frequenti
+description: Questa pagina fornisce le risposte alle domande frequenti sul servizio Azure front door
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -10,69 +10,70 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 91ee8b6e614cf12deccd1429ad67323c277954a0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: c993e465bc439ff52cba3241dbff64b7655d1f12
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061491"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849166"
 ---
-# <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Domande frequenti per il firewall applicazione web di Azure
+# <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Domande frequenti su Azure web application firewall
 
-Questo articolo risponde a domande comuni su Azure web application firewall (WAF) caratteristiche e funzionalità. 
+Questo articolo risponde alle domande più comuni sulle funzionalità e sulle funzionalità di Azure web application firewall (WAF). 
 
-## <a name="what-is-azure-waf"></a>Che cos'è Azure Web Application firewall?
+## <a name="what-is-azure-waf"></a>Che cos'è Azure WAF?
 
-Web Application firewall di Azure è un web application firewall che consente di proteggere le applicazioni web dalle minacce più comuni, ad esempio SQL injection, script intersito e altri exploit web. È possibile definire un criterio di Web Application firewall costituito da una combinazione di regole personalizzate e gestite per controllare l'accesso alle applicazioni web.
+Azure WAF è un web application firewall che aiuta a proteggere le applicazioni Web da minacce comuni, ad esempio SQL injection, script intersito e altri exploit Web. È possibile definire un criterio WAF costituito da una combinazione di regole personalizzate e gestite per controllare l'accesso alle applicazioni Web.
 
-I criteri di Azure WAF è applicabile per le applicazioni web ospitate in servizi il Gateway applicazione o di ingresso principale di Azure.
+Un criterio di Azure WAF può essere applicato alle applicazioni Web ospitate nel gateway applicazione o nei servizi front door di Azure.
 
-## <a name="what-is-waf-for-azure-front-door-service"></a>What ' s Web Application firewall per il servizio di ingresso principale di Azure? 
+## <a name="what-is-waf-for-azure-front-door-service"></a>Che cos'è WAF per il servizio front door di Azure? 
 
-Porta d'ingresso Azure è un'applicazione altamente scalabile e distribuito a livello globale e una rete CDN. Azure Web Application firewall, quando integrato con porta principale, arresta denial of service e attacchi di applicazione al perimetro della rete Azure di destinazione, vicino origini attacco prima che possa accedere alla rete virtuale, offre protezione senza sacrificare le prestazioni.
+Il front-end di Azure è una rete per la distribuzione di contenuti e applicazioni distribuita a livello globale e altamente scalabile. Azure WAF, quando integrato con la porta anteriore, arresta gli attacchi Denial of Service e delle applicazioni mirate al perimetro della rete di Azure, vicino alle origini di attacco prima di immettere la rete virtuale, offre protezione senza sacrificare le prestazioni.
 
-## <a name="does-azure-waf-support-https"></a>Web Application firewall di Azure supporta HTTPS?
+## <a name="does-azure-waf-support-https"></a>Azure WAF supporta HTTPS?
 
-Il servizio di ingresso principale offre l'offload SSL. Web Application firewall in modo nativo è integrato con porta d'ingresso e ispezionabili una richiesta dopo la decrittografia.
+Il servizio front door offre l'offload SSL. WAF è integrato in modo nativo con sportello anteriore ed è in grado di ispezionare una richiesta dopo che è stata decrittografata.
 
-## <a name="does-azure-waf-support-ipv6"></a>Web Application firewall di Azure supporta IPv6?
+## <a name="does-azure-waf-support-ipv6"></a>Azure WAF supporta IPv6?
 
-Sì. È possibile configurare restrizioni IP per IPv4 e IPv6.
+Sì. È possibile configurare la restrizione IP per IPv4 e IPv6.
 
-## <a name="how-up-to-date-are-the-managed-rule-sets"></a>Il livello di aggiornamento sono i set di regole gestite?
+## <a name="how-up-to-date-are-the-managed-rule-sets"></a>Come sono aggiornati i set di regole gestiti?
 
-Microsoft si impegnerà a tenere il passo con la modifica panorama delle minacce. Una volta che viene aggiornata una nuova regola, viene aggiunto alla regola Set predefiniti con un nuovo numero di versione.
+Il nostro migliore è quello di rimanere al passo con il cambiamento del panorama delle minacce. Una volta aggiornata, una nuova regola viene aggiunta al set di regole predefinito con un nuovo numero di versione.
 
-## <a name="what-is-the-propagation-time-if-i-make-a-change-to-my-waf-policy"></a>Che cos'è il tempo di propagazione se apporta una modifica al criterio Web Application firewall?
+## <a name="what-is-the-propagation-time-if-i-make-a-change-to-my-waf-policy"></a>Qual è il tempo di propagazione se si modifica il criterio WAF?
 
-Distribuire un criterio di Web Application firewall a livello globale in genere richiede circa 5 minuti e spesso viene completata prima.
+La distribuzione di un criterio WAF a livello globale richiede in genere circa 5 minuti e viene spesso completata prima.
 
-## <a name="can-waf-policies-be-different-for-different-regions"></a>I criteri di Web Application firewall possono essere diversi per regioni diverse?
+## <a name="can-waf-policies-be-different-for-different-regions"></a>I criteri di WAF possono essere diversi per aree diverse?
 
-Se è integrato con il servizio di ingresso principale, Web Application firewall è una risorsa globale. Stessa configurazione viene applicata a tutte le posizioni di ingresso principale.
+Quando integrato con il servizio front door, WAF è una risorsa globale. La stessa configurazione si applica a tutte le posizioni di sportello anteriore.
  
-## <a name="how-do-i-limit-access-to-my-back-end-to-be-from-front-door-only"></a>Come è possibile limitare l'accesso al mio back-end devono essere solo da porta principale?
+## <a name="how-do-i-limit-access-to-my-back-end-to-be-from-front-door-only"></a>Ricerca per categorie limitare l'accesso al back-end solo da sportello anteriore?
 
-È possibile configurare l'elenco di controllo di accesso IP nel back-end per consentire solo porta principale in uscita intervalli di indirizzi IP e negare l'accesso diretto da Internet. I tag di servizio sono supportati per l'utilizzo della rete virtuale. Inoltre, è possibile verificare che il campo dell'intestazione HTTP X-inoltrati-Host sia valido per l'applicazione web.
-
-
+È possibile configurare l'elenco di controllo di accesso IP nel back-end per consentire solo gli intervalli di indirizzi IP in uscita della porta anteriore e negare l'accesso diretto da Internet. I tag di servizio sono supportati per l'uso nella rete virtuale. Inoltre, è possibile verificare che il campo dell'intestazione HTTP X-Inoltred-host sia valido per l'applicazione Web.
 
 
-## <a name="which-azure-waf-options-should-i-choose"></a>Quali opzioni di Web Application firewall di Azure scegliere?
-
-Sono disponibili due opzioni quando si applicano i criteri di Web Application firewall in Azure. Web Application firewall con l'ingresso principale di Azure è una soluzione di sicurezza edge multimodello e distribuito. Web Application firewall con il Gateway applicazione è una soluzione a livello di area e dedicata. È consigliabile che scegliere una soluzione in base ai requisiti di prestazioni e la sicurezza complessivi. Per altre informazioni, vedere [bilanciamento del carico con la suite di recapito dell'applicazione di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
 
 
-## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Stesse funzionalità di WAF sono supportate in tutte le piattaforme integrate?
+## <a name="which-azure-waf-options-should-i-choose"></a>Quali opzioni di Azure WAF scegliere?
 
-Attualmente, ModSec CRS 2.2.9 e regole CRS 3.0 sono supportate solo con Web Application firewall nel Gateway applicazione. Limitazione di velocità, filtro geografico, Azure gestito predefinito del Set di regole regole e sono supportate solamente con Web Application firewall all'ingresso principale di Azure.
+Sono disponibili due opzioni per l'applicazione di criteri WAF in Azure. WAF con Azure front door è una soluzione di sicurezza perimetrale distribuita a livello globale. WAF con il gateway applicazione è una soluzione a livello di area dedicata. Si consiglia di scegliere una soluzione basata sui requisiti generali di prestazioni e sicurezza. Per altre informazioni, vedere [bilanciamento del carico con la suite di distribuzione delle applicazioni di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
 
-## <a name="is-ddos-protection-integrated-with-front-door"></a>Protezione DDoS è integrata con porta d'ingresso? 
 
-Distribuito a livello globale i bordi di rete di Azure, Azure porta d'ingresso può absorb e geograficamente isolare gli attacchi di volume elevato. È possibile creare criteri personalizzati di Web Application firewall che blocca automaticamente e frequenza di ridurre gli attacchi HTTP (s) che sono note le firme. Inoltre, è possibile abilitare protezione DDoS Standard nella rete virtuale in cui vengono distribuiti i sistemi back-end. I clienti di protezione DDoS Standard di Azure riceveranno vantaggi aggiuntivi fra cui costi protezione, contratti di servizio e l'accesso a esperti dal Team di risposta rapidi DDoS per assistenza immediata durante un attacco. 
+## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Sono supportate le stesse funzionalità WAF in tutte le piattaforme integrate?
+
+Attualmente, le regole ModSec CRS 2.2.9 e CRS 3,0 sono supportate solo con WAF nel gateway applicazione. Le regole di limitazione della frequenza, del filtro geografico e del set di regole predefinite gestite di Azure sono supportate solo con WAF all'interno di Azure.
+
+## <a name="is-ddos-protection-integrated-with-front-door"></a>La protezione DDoS è integrata con la porta anteriore? 
+
+Distribuito a livello globale ai bordi della rete di Azure, l'area anteriore di Azure può assorbire e isolare geograficamente gli attacchi di volume elevato. È possibile creare criteri WAF personalizzati per bloccare e classificare automaticamente gli attacchi http (s) limite che hanno firme note. Altre informazioni, è possibile abilitare protezione DDoS standard nel VNet in cui vengono distribuiti i back-end. I clienti di protezione DDoS di Azure standard ricevono vantaggi aggiuntivi, tra cui la protezione dei costi, la garanzia del contratto di contratto e l'accesso agli esperti del team di risposta rapida DDoS per assistenza immediata durante un attacco. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sul [web application firewall di Azure](waf-overview.md).
-- Altre informazioni sulle [porta d'ingresso Azure](front-door-overview.md).
+- Altre informazioni su [Azure front door](front-door-overview.md).

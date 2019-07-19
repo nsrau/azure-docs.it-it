@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9602af9e4fe25bbed33cff3fff753a8f5460966a
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
-ms.translationtype: HT
+ms.openlocfilehash: b1e45f89cd557281399c86ae75898d99e0d4d381
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305549"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326997"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Creare ed eseguire una pipeline di Machine Learning con l'SDK di Azure Machine Learning
 
@@ -61,14 +61,14 @@ Un archivio dati contiene i dati a cui accede la pipeline. Ogni area di lavoro h
 Quando si crea la propria area di lavoro, [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)e [Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) vengono collegati all'area per impostazione predefinita. Archiviazione file di Azure è l'archivio dati predefinito per un'area di lavoro, ma è anche possibile usare l'archiviazione BLOB come archivio dati. Per altre informazioni, vedere [Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
-# Default datastore (Azure file storage)
+# Default datastore (Azure blob storage)
 def_data_store = ws.get_default_datastore() 
 
 # The above call is equivalent to this 
-def_data_store = Datastore(ws, "workspacefilestore")
+def_data_store = Datastore(ws, "workspaceblobstore")
 
-# Get blob storage associated with the workspace
-def_blob_store = Datastore(ws, "workspaceblobstore")
+# Get file storage associated with the workspace
+def_file_store = Datastore(ws, "workspacefileblobstore")
 ```
 
 Caricare le directory o i file di dati nell'archivio dati per renderli accessibili dalle pipeline. Questo esempio usa la versione di archiviazione BLOB dell'archivio dati:
@@ -123,14 +123,15 @@ Di seguito sono riportati esempi di creazione e collegamento di destinazioni di 
 from azureml.core.compute import ComputeTarget, AmlCompute
 
 compute_name = "aml-compute"
- if compute_name in ws.compute_targets:
+vm_size = "STANDARD_NC6"
+if compute_name in ws.compute_targets:
     compute_target = ws.compute_targets[compute_name]
     if compute_target and type(compute_target) is AmlCompute:
         print('Found compute target: ' + compute_name)
 else:
     print('Creating a new compute target...')
-    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
-                                                                min_nodes = 1, 
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # STANDARD_NC6 is GPU-enabled
+                                                                min_nodes = 0, 
                                                                 max_nodes = 4)
      # create the compute target
     compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)

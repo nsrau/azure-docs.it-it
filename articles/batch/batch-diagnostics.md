@@ -4,7 +4,7 @@ description: Registrare e analizzare gli eventi di registrazione diagnostica per
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63d0196609e432b081e91a49b5b1410431223632
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242630"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323617"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio
 
@@ -91,7 +91,7 @@ Altre destinazioni facoltative per i log di diagnostica:
 
 * Trasmettere gli eventi dei log di diagnostica di Batch a un [hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Hub eventi è in grado di inserire milioni di eventi al secondo, che è quindi possibile trasformare e archiviare tramite un qualsiasi provider di analisi in tempo reale. 
 
-* Inviare i log di diagnostica per [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md), in cui è possibile analizzarli o esportarli per l'analisi in Power BI o Excel.
+* Inviare i log di diagnostica ai [log di monitoraggio di Azure](../log-analytics/log-analytics-overview.md), in cui è possibile analizzarli o esportarli per l'analisi in Power bi o Excel.
 
 > [!NOTE]
 > Potrebbero essere previsti costi aggiuntivi per archiviare o elaborare dati dei log di diagnostica con servizi di Azure. 
@@ -101,7 +101,7 @@ Altre destinazioni facoltative per i log di diagnostica:
 
 1. Nel portale fare clic su **Tutti i servizi** > **Account Batch** e quindi fare clic sul nome dell'account Batch.
 2. In **Monitoraggio** fare clic su **Log di diagnostica** > **Abilita diagnostica**.
-3. Nelle **le impostazioni di diagnostica**, immettere un nome per l'impostazione e scegliere una destinazione di log (account di archiviazione, Hub eventi o log di monitoraggio di Azure). Selezionare **ServiceLog**, **AllMetrics** o entrambi.
+3. In **impostazioni di diagnostica**immettere un nome per l'impostazione e scegliere una destinazione del log (account di archiviazione esistente, Hub eventi o log di monitoraggio di Azure). Selezionare **ServiceLog**, **AllMetrics** o entrambi.
 
     Quando si seleziona un account di archiviazione, è facoltativamente possibile impostare criteri di conservazione. Se non si specifica un numero di giorni per la conservazione, i dati vengono mantenuti per tutto il ciclo di vita dell'account di archiviazione.
 

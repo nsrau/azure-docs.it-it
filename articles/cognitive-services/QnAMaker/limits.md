@@ -8,22 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 07/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 43d0e7566102c882d4a2819237a795fdff425f75
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b366352d19b3f1e03e32e5fbddf0cb2816fa1ba3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446480"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320296"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
-Elenco completo dei limiti di QnA Maker.
+
+QnA Maker limiti indicati di seguito sono una combinazione dei limiti del piano tariffario di [ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) e dei limiti del piano tariffario di [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). È necessario conoscere entrambi i set di limiti per comprendere il numero di Knowledge base che è possibile creare per ogni risorsa e le dimensioni di ogni Knowledge base che possono aumentare.
 
 ## <a name="knowledge-bases"></a>Knowledge base
 
-* Numero massimo di knowledge base in base ai [limiti di livello di ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
+Il numero massimo di Knowledge base è basato sui [limiti del livello di ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
 
 |**Livello di ricerca di Azure** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -32,11 +33,18 @@ Elenco completo dei limiti di QnA Maker.
  Ad esempio, se il livello include 15 indici consentiti, è possibile pubblicare 14 articoli della knowledge base (1 indice per ogni articolo della knowledge base pubblicato). Il quindicesimo indice, `testkb`, viene usato per tutti gli articoli della knowledge base per la creazione e il testing. 
 
 ## <a name="extraction-limits"></a>Limiti di estrazione
-* Numero massimo di file che possono essere estratti e dimensione massima dei file: vedere [Prezzi di QnAMaker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
-* Numero massimo di deep link su cui può essere eseguita la ricerca per l'estrazione di QnA dalle pagine HTML delle FAQ: 20
+
+### <a name="maximum-number-of-files"></a>Numero massimo di file
+
+Il numero massimo di file che è possibile estrarre e le dimensioni massime del file sono basati sui limiti del piano **[tariffario QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)** .
+
+### <a name="maximum-number-of-deep-links-from-url"></a>Numero massimo di collegamenti profondi dall'URL
+
+Il numero massimo di collegamenti profondi che possono essere sottoposti a ricerca per indicizzazione per l'estrazione di QnAs da una pagina URL è **20**.
 
 ## <a name="metadata-limits"></a>Limiti di metadati
-* Numero massimo di knowledge base in base ai [limiti di livello di ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
+
+Il numero massimo di campi di metadati per Knowledge base è basato sui **[limiti del livello di ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
 
 |**Livello di ricerca di Azure** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -52,7 +60,7 @@ Limiti complessivi sul contenuto nella knowledge base:
 * Lunghezza del nome file: 200
 * Formati di file supportati: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Numero massimo di domande alternative: 300
-* Numero massimo di coppie di risposta alla domanda: Dipende i [livello ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) scelto. Una coppia di domanda e la risposta viene eseguito il mapping a un documento nell'indice di ricerca di Azure. 
+* Numero massimo di coppie di risposta alla domanda: Dipende dai limiti del **[livello di ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** scelti. Una coppia di domande e risposte è un documento nell'indice di ricerca di Azure. 
 
 ## <a name="create-knowledge-base-call-limits"></a>Creare i limiti di chiamata per la Knowledge base:
 Questi rappresentano i limiti per ogni azione di creazione di knowledge base; ovvero, fare clic su *Crea KB* o richiamare l'API di Crea Knowledge Base.
@@ -71,6 +79,6 @@ Questi rappresentano i limiti per ogni azione di creazione di knowledge base; ov
 
 Informazioni su quando e come modificare i livelli di servizio:
 
-* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): Quando è necessario disporre di più file di origine o documenti più grandi nella tua knowledge base, oltre il livello corrente, aggiornare il servizio QnA Maker piano tariffario.
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): Quando è necessario disporre di più file di origine o documenti più grandi nella Knowledge base, oltre al livello corrente, aggiornare il piano tariffario del servizio QnA Maker.
 * [Servizio app](how-to/upgrade-qnamaker-service.md#upgrade-app-service): Quando la knowledge base deve servire più richieste dall'applicazione client, aggiornare il piano tariffario del servizio app.
 * [Ricerca di Azure](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): Quando si prevede di avere molte knowledge base, aggiornare il piano tariffario del servizio di Ricerca di Azure.

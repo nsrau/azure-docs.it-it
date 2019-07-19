@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6153bf1162eaa1c7eab2c358977d754695b64fd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764289"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325382"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Attività Web in Azure Data Factory
 L'attività Web può essere usata per chiamare un endpoint REST personalizzato da una pipeline di Data Factory. È possibile passare set di dati e servizi collegati in modo che l'attività possa usarli e accedervi.
+
+> [!NOTE]
+> L'attività Web può chiamare solo URL esposti pubblicamente. Non è supportata per gli URL ospitati in una rete virtuale privata.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -61,14 +64,14 @@ L'attività Web può essere usata per chiamare un endpoint REST personalizzato d
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività Web | String | Yes
-type | Deve essere impostato su **WebActivity**. | String | Yes
-statico | Metodo API REST per l'endpoint di destinazione. | Stringa. <br/><br/>Tipi supportati: "GET", "POST", "PUT" | Yes
-url | Endpoint e percorso di destinazione | Stringa (o espressione con l'elemento resultType della stringa). L'attività raggiungerà il timeout a 1 minuto con un errore se non riceve una risposta dall'endpoint. | Yes
+type | Deve essere impostato su **WebActivity**. | String | Sì
+statico | Metodo API REST per l'endpoint di destinazione. | Stringa. <br/><br/>Tipi supportati: "GET", "POST", "PUT" | Sì
+url | Endpoint e percorso di destinazione | Stringa (o espressione con l'elemento resultType della stringa). L'attività raggiungerà il timeout a 1 minuto con un errore se non riceve una risposta dall'endpoint. | Sì
 headers | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare il linguaggio e il tipo in una richiesta: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Stringa (o un'espressione con l'elemento resultType della stringa) | Sì, l'intestazione Content-type è obbligatoria. `"headers":{ "Content-Type":"application/json"}`
-Corpo | Rappresenta il payload inviato all'endpoint.  | Stringa (o espressione con l'elemento resultType della stringa). <br/><br/>Vedere lo schema del payload della richiesta nella sezione [Schema del payload della richiesta](#request-payload-schema). | Obbligatoria per i metodi POST e PUT.
+body | Rappresenta il payload inviato all'endpoint.  | Stringa (o espressione con l'elemento resultType della stringa). <br/><br/>Vedere lo schema del payload della richiesta nella sezione [Schema del payload della richiesta](#request-payload-schema). | Obbligatoria per i metodi POST e PUT.
 authentication | Metodo di autenticazione usato per chiamare l'endpoint. I tipi supportati sono "Basic" o "ClientCertificate". Per altre informazioni, vedere la sezione [Autenticazione](#authentication). Se l'autenticazione non è necessaria, escludere questa proprietà. | Stringa (o un'espressione con l'elemento resultType della stringa) | No
 datasets | Elenco di set di dati passato all'endpoint. | Matrice di riferimenti a set di dati. Può essere una matrice vuota. | Yes
 linkedServices | Elenco dei servizi collegati passato all'endpoint. | Matrice di riferimenti a servizi collegati. Può essere una matrice vuota. | Yes
