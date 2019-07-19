@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: ee7ba5cba464dbbc632908af22579d4869e3bd81
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 089b9030debc7489e123d49b5c78052f597ca469
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321332"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348406"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi vocali
 
@@ -178,7 +178,7 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/commandli
 
 **Durante l'anteprima**, le impostazioni di fatturazione devono essere valide per avviare il contenitore, ma non viene addebitato l'utilizzo.
 
-| Placeholder | Valore |
+| Placeholder | Value |
 |-------------|-------|
 |{API_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina relativa alle chiavi vocali del portale di Azure.  |
 |{ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina di panoramica del discorso del portale di Azure.|
@@ -232,13 +232,13 @@ Per impostazione predefinita, l'SDK vocale usa i servizi di riconoscimento vocal
 
 Passare dall'uso di questa chiamata di inizializzazione del cloud di Azure:
 
-```C#
+```csharp
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
 a questa chiamata che usa l'endpoint del contenitore:
 
-```C#
+```csharp
 var config = SpeechConfig.FromEndpoint(
     new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
     "YourSubscriptionKey");

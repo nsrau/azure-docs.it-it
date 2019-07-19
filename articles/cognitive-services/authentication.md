@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 6de5711ca977612f01943f6aaf2c9d7061116090
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0499b2ef25cc93615a72269bd64af689ebced01d
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435924"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333592"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticare le richieste a Servizi cognitivi di Azure
 
@@ -28,7 +28,7 @@ Ogni richiesta a un servizio di Servizi cognitivi di Azure deve includere un'int
 
 Per poter effettuare una richiesta, è necessario disporre di un account Azure e di una sottoscrizione di Servizi cognitivi di Azure. Se si dispone già di un account, passare direttamente alla sezione successiva. Se non si dispone dell'account, seguire le indicazioni per crearne uno in pochi minuti: [Creare un account Servizi cognitivi di Azure](cognitive-services-apis-create-account.md).
 
-È possibile ottenere la chiave di sottoscrizione dal [portale di Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-subscription) dopo la creazione dell'account o attivazione di un [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/my-apis).
+È possibile ottenere la chiave di sottoscrizione dalla [portale di Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) dopo la creazione dell'account o l'attivazione di una [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/my-apis).
 
 ## <a name="authentication-headers"></a>Intestazioni di autenticazione
 

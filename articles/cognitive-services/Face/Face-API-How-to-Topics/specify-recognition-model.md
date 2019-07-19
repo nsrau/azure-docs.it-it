@@ -1,7 +1,7 @@
 ---
-title: Come specificare un modello di riconoscimento - API viso
+title: Come specificare un modello di riconoscimento-API Viso
 titleSuffix: Azure Cognitive Services
-description: Questo articolo illustrerà come scegliere il modello di riconoscimento da utilizzare con l'applicazione API viso di Azure.
+description: In questo articolo viene illustrato come scegliere il modello di riconoscimento da usare con l'applicazione Azure API Viso.
 services: cognitive-services
 author: longl
 manager: nitinme
@@ -11,55 +11,55 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
 ms.openlocfilehash: fd60923351970dfe5aa5705a0508dbd39941ef58
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
+ms.lasthandoff: 07/19/2019
 ms.locfileid: "68254355"
 ---
 # <a name="specify-a-face-recognition-model"></a>Specificare un modello di riconoscimento volto
 
-Questa guida illustra come specificare un modello di riconoscimento volto per rilevamento del viso, identificazione e la ricerca di somiglianza mediante l'API viso di Azure.
+Questa guida illustra come specificare un modello di riconoscimento viso per il rilevamento del viso, l'identificazione e la ricerca di somiglianza usando il API Viso di Azure.
 
-L'API viso Usa modelli di machine learning per eseguire operazioni sui visi umani nelle immagini. Continuiamo a migliorare la precisione dei nostri modelli basati su commenti e suggerimenti dei clienti e i progressi nelle ricerche e offrire tali funzionalità e miglioramenti come modellare gli aggiornamenti. Gli sviluppatori hanno la possibilità di specificare quale versione del modello di riconoscimento volto desiderano utilizzare; è possibile scegliere il modello che meglio si adatta rispettivi casi d'uso.
+Il API Viso usa i modelli di apprendimento automatico per eseguire operazioni sui visi umani nelle immagini. Continuiamo a migliorare l'accuratezza dei nostri modelli in base ai commenti e ai suggerimenti dei clienti e ai miglioramenti apportati alla ricerca e offriamo questi miglioramenti come aggiornamenti del modello. Gli sviluppatori hanno la possibilità di specificare la versione del modello di riconoscimento viso che si vuole usare. possono scegliere il modello più adatto al caso d'uso.
 
-Se sei un nuovo utente, è consigliabile che usare il modello più recente. Continuare a leggere per informazioni su come specificare in diverse operazioni di visi e si evitano conflitti di modello. Se si è un utente avanzato e non è certi se deve passare al modello più recente, passare al [valutare modelli diversi](#evaluate-different-models) sezione per valutare il nuovo modello e confrontare i risultati usando il set di dati corrente.
+Se si è un nuovo utente, è consigliabile usare il modello più recente. Per informazioni su come specificarlo in operazioni viso diverse evitando conflitti tra i modelli, vedere. Se si è un utente avanzato e non si è certi se è necessario passare al modello più recente, passare alla sezione [valuta modelli diversi](#evaluate-different-models) per valutare il nuovo modello e confrontare i risultati con il set di dati corrente.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario avere familiarità con i concetti di rilevamento dei visi per intelligenza artificiale e l'identificazione. Se non si, vedere queste guide alle procedure prima di tutto:
+È necessario avere familiarità con i concetti di rilevamento e identificazione dei volti di intelligenza artificiale. In caso di assenza di questo, vedere le guide introduttive seguenti:
 
 * [Come rilevare i visi in un'immagine](HowtoDetectFacesinImage.md)
 * [Come identificare i visi in un'immagine](HowtoIdentifyFacesinImage.md)
 
-## <a name="detect-faces-with-specified-model"></a>Rileva i visi con il modello specificato
+## <a name="detect-faces-with-specified-model"></a>Rileva visi con il modello specificato
 
-Rilevamento viso identifica i punti di riferimento visual di volti umani e rileva le relative posizioni di riquadro. Inoltre, estrae caratteristiche del viso e li archivia per l'utilizzo nell'identificazione. Tutte queste informazioni costituisce la rappresentazione di una faccia.
+Il rilevamento viso identifica i punti di riferimento visivi dei visi umani e trova le posizioni dei box. Estrae anche le funzionalità del viso e le archivia per l'uso nell'identificazione. Tutte queste informazioni formano la rappresentazione di una faccia.
 
-Il modello di riconoscimento viene utilizzato quando vengono estratte le caratteristiche del viso, pertanto è possibile specificare una versione del modello quando si esegue l'operazione di rilevamento.
+Il modello di riconoscimento viene utilizzato quando vengono estratte le funzionalità del viso, pertanto è possibile specificare una versione del modello durante l'esecuzione dell'operazione di rilevamento.
 
-Quando si usa la [Viso: rilevare] API, assegnare la versione del modello con il `recognitionModel` parametro. I valori disponibili sono:
+Quando si usa l'API di [Rilevamento viso] , assegnare la versione del `recognitionModel` modello con il parametro. I valori disponibili sono:
 
 * `recognition_01`
 * `recognition_02`
 
-Facoltativamente, è possibile specificare il _returnRecognitionModel_ parametro (impostazione predefinita **false**) per indicare se _recognitionModel_ devono essere restituiti nella risposta. Pertanto, un URL della richiesta per il [Viso: rilevare] API REST avrà un aspetto simile al seguente:
+Facoltativamente, è possibile specificare il parametro _returnRecognitionModel_ (impostazione predefinita **false**) per indicare se _recognitionModel_ deve essere restituito in risposta. Quindi, un URL di richiesta per l'API REST di [Rilevamento viso] sarà simile al seguente:
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
 Se si usa la libreria client, è possibile assegnare il valore per `recognitionModel` passando una stringa che rappresenta la versione.
-Se si lascia non assegnati, la versione del modello predefinito (_recognition_01_) verrà usato. Vedere l'esempio di codice seguente per la libreria client .NET.
+Se la si lascia non assegnata, verrà usata la versione predefinita del modello (_recognition_01_). Vedere l'esempio di codice seguente per la libreria client .NET.
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 
-## <a name="identify-faces-with-specified-model"></a>Identifica i visi con il modello specificato
+## <a name="identify-faces-with-specified-model"></a>Identificare i visi con il modello specificato
 
-L'API viso può estrarre i dati di volti da un'immagine e associalo con un **persona** oggetto (tramite il [aggiungere viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) chiamare API, ad esempio) e più **persona** gli oggetti possono essere archiviati insieme in una **gruppo di persone**. Quindi, un nuovo viso può essere confrontato con un **gruppo di persone** (con il [Face - Identify] chiamare), e l'utente corrisponda all'interno di tale gruppo può essere identificato.
+Il API Viso è in grado di estrarre i dati facciali da un'immagine e di associarli a un oggetto **Person** (tramite la chiamata all'API [Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) , ad esempio) e più oggetti **Person** possono essere archiviati insieme in un **gruppo**. Quindi, è possibile confrontare una nuova faccia con una **gruppo** (con la chiamata di [Face - Identify] ) e la persona corrispondente all'interno del gruppo.
 
-A **gruppo di persone** deve avere un modello di riconoscimento univoco per tutte la **persona**s ed è possibile specificare questa opzione utilizzando il `recognitionModel` parametro quando si crea il gruppo ([PersonGroup - Create] oppure [LargePersonGroup - Create]). Se non si specifica questo parametro, originale `recognition_01` modello viene usato. Un gruppo userà sempre il modello di riconoscimento che è stato creato e nuove facce diventeranno associate con questo modello quando vengono aggiunti a esso. non può essere modificato dopo la creazione di un gruppo. Per visualizzare il modello di un **gruppo di persone** è configurato con, utilizzare il [gruppo di persone - Get] API con il _returnRecognitionModel_ parametro impostato come **true**.
+Un **gruppo** deve avere un solo modello di riconoscimento univoco per tutte le **persone**e può essere specificato usando il `recognitionModel` parametro quando si crea il gruppo ([PersonGroup - Create] o [LargePersonGroup - Create]). Se non si specifica questo parametro, viene utilizzato il `recognition_01` modello originale. Un gruppo userà sempre il modello di riconoscimento con cui è stato creato e i nuovi visi verranno associati a questo modello quando vengono aggiunti al modello; Questa operazione non può essere modificata dopo la creazione di un gruppo. Per visualizzare il modello con cui è configurata una **gruppo** , usare l'API [gruppo-Get] con il parametro _returnRecognitionModel_ impostato su **true**.
 
 Vedere l'esempio di codice seguente per la libreria client .NET.
 
@@ -69,15 +69,15 @@ string personGroupId = "mypersongroupid";
 await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
-In questo codice, un **gruppo di persone** con ID `mypersongroupid` viene creato, ed è configurato per usare i _recognition_02_ modello per l'estrazione delle funzionalità di visi.
+In questo codice viene creato un **gruppo** con `mypersongroupid` ID ed è configurato per l'uso del modello _recognition_02_ per estrarre le funzionalità del viso.
 
-Di conseguenza, è necessario specificare quale modello da utilizzare per rilevare i volti da confrontare con questo **gruppo di persone** (tramite il [Viso: rilevare] API). Il modello è utilizzare deve essere sempre coerenza con il **gruppo di persone**della configurazione; in caso contrario, l'operazione avrà esito negativo a causa di modelli non compatibili.
+Al contrario, è necessario specificare il modello da usare quando si rilevano i visi da confrontare con questo **gruppo** (tramite l'API di [Rilevamento viso] ). Il modello usato deve essere sempre coerente con la configurazione di **gruppo**; in caso contrario, l'operazione avrà esito negativo a causa di modelli incompatibili.
 
-Non viene modificata nel [Face - Identify] API; è sufficiente specificare la versione del modello di rilevamento.
+Non sono state apportate modifiche all'API per l' [Face - Identify] . è sufficiente specificare la versione del modello in rilevamento.
 
-## <a name="find-similar-faces-with-specified-model"></a>Trovare visi simili con il modello specificato
+## <a name="find-similar-faces-with-specified-model"></a>Trova visi simili con il modello specificato
 
-È anche possibile specificare un modello di riconoscimento per la ricerca di somiglianza. È possibile assegnare la versione del modello con `recognitionModel` quando si crea l'elenco di visi con [FaceList - creare] API o [LargeFaceList - creare]. Se non si specifica questo parametro, originale `recognition_01` modello viene usato. Un elenco di visi userà sempre il modello di riconoscimento che è stato creato e nuove facce diventeranno associate con questo modello quando vengono aggiunti a esso. non può essere modificato dopo la creazione. Per visualizzare il modello è configurato con un elenco di visi, usare il [FaceList - Get] API con il _returnRecognitionModel_ parametro impostato come **true**.
+È anche possibile specificare un modello di riconoscimento per la ricerca di somiglianza. È possibile assegnare la versione del modello `recognitionModel` con quando si crea l'elenco di facet con l'API [Facet-crea] o [LargeFaceList-crea]. Se non si specifica questo parametro, viene utilizzato il `recognition_01` modello originale. Un elenco di visi utilizzerà sempre il modello di riconoscimento con cui è stato creato e i nuovi visi verranno associati a questo modello quando vengono aggiunti al modello; Questa operazione non può essere modificata dopo la creazione. Per visualizzare il modello con cui è stato configurato un elenco di visi, usare l'API [facet-Get] con il parametro _returnRecognitionModel_ impostato su **true**.
 
 Vedere l'esempio di codice seguente per la libreria client .NET.
 
@@ -85,39 +85,39 @@ Vedere l'esempio di codice seguente per la libreria client .NET.
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 ```
 
-Questo codice crea un elenco di visi chiamato `My face collection`, usando il _recognition_02_ modello per l'estrazione delle funzionalità. Quando si cerca questo elenco di visi per i visi simili a un nuovo viso rilevato, che devono affrontare debba sono stati rilevati ([Viso: rilevare]) tramite il _recognition_02_ modello. Come nella sezione precedente, il modello deve essere coerente.
+Questo codice crea un elenco di facet denominato `My face collection`, usando il modello _recognition_02_ per l'estrazione delle funzionalità. Quando si esegue la ricerca di visi simili a un nuovo facet rilevato, quest'aspetto deve essere stato rilevato ([rilevamento viso]) utilizzando il modello _recognition_02_ . Come nella sezione precedente, il modello deve essere coerente.
 
-Non viene modificata nel [Volto - ricerca simili] API; è specificare solo la versione del modello di rilevamento.
+Non sono state apportate modifiche all'API per la [Faccia-trova simile] . è possibile specificare solo la versione del modello in rilevamento.
 
-## <a name="verify-faces-with-specified-model"></a>Verifica i visi con modello specificato
+## <a name="verify-faces-with-specified-model"></a>Verifica visi con il modello specificato
 
-Il [Viso: verificare] API verifica se due visi appartengano alla stessa persona. Non sussiste alcuna modifica nell'API verificare per quanto riguarda i modelli di riconoscimento, ma è possibile confrontare solo i volti rilevati con lo stesso modello. Pertanto, i due visi entrambi dovrà sono stati rilevati mediante `recognition_01` o `recognition_02`.
+L'API di [Faccia-verifica] controlla se due visi appartengono alla stessa persona. Non sono state apportate modifiche all'API Verify per quanto riguarda i modelli di riconoscimento, ma è possibile confrontare solo i visi rilevati con lo stesso modello. Pertanto, è necessario che i due visi siano stati rilevati `recognition_01` usando `recognition_02`o.
 
-## <a name="evaluate-different-models"></a>Valutare i modelli diversi
+## <a name="evaluate-different-models"></a>Valutare modelli diversi
 
-Se si desidera confrontare le prestazioni dei _recognition_01_ e _recognition_02_ modelli sui dati, è necessario:
+Se si vuole confrontare le prestazioni dei modelli _recognition_01_ e _recognition_02_ sui dati, è necessario:
 
-1. Creare due **gruppo di persone**s con _recognition_01_ e _recognition_02_ rispettivamente.
-1. Usare i dati di immagine per rilevare i visi e registrarli al **Person**s per questi due **gruppo di persone**s e i corsi di formazione di trigger di processo con [PersonGroup - Train] API.
-1. Eseguire il test con [Face - Identify] sia **gruppo di persone**s e confrontare i risultati.
+1. Creare due **gruppo**s rispettivamente con _recognition_01_ e _recognition_02_ .
+1. Usare i dati dell'immagine per rilevare i visi e registrarli in **Person**s per questi due **gruppo**e attivare il processo di training con l'API [PersonGroup - Train] .
+1. Eseguire il test con [Face - Identify] in **gruppo**s e confrontare i risultati.
 
-Se è in genere specificare una soglia di probabilità (un valore compreso tra zero e uno che determina come sicuri il modello deve essere per identificare un viso), occorre utilizzare soglie diverse per modelli differenti. Una soglia per un modello non deve essere condiviso in un altro e non produrrà necessariamente gli stessi risultati.
+Se in genere si specifica una soglia di confidenza, ovvero un valore compreso tra zero e uno che determina il livello di attendibilità del modello per l'identificazione di una faccia, potrebbe essere necessario utilizzare soglie diverse per i diversi modelli. Una soglia per un modello non deve essere condivisa con un'altra e non produrrà necessariamente gli stessi risultati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato descritto come specificare il modello di riconoscimento da utilizzare con le API del servizio faccia diversi. Successivamente, eseguire un avvio rapido per iniziare a usare il rilevamento viso.
+In questo articolo si è appreso come specificare il modello di riconoscimento da usare con diverse API del servizio viso. Seguire quindi una guida introduttiva per iniziare a usare il rilevamento delle facce.
 
 * [Rilevare i visi in un'immagine](../quickstarts/csharp-detect-sdk.md)
 
-[Viso: rilevare]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
-[Volto - ricerca simili]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237
+[Rilevamento viso]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
+[Faccia-trova simile]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237
 [Face - Identify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239
-[Viso: verificare]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a
+[Faccia-verifica]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a
 [PersonGroup - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244
-[Gruppo di persone - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246
+[Gruppo-Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246
 [PersonGroup Person - Add Face]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b
 [PersonGroup - Train]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249
 [LargePersonGroup - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d
-[FaceList - creare]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b
-[FaceList - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c
-[LargeFaceList - creare]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc
+[Facet-crea]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b
+[Facet-Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c
+[LargeFaceList-crea]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc

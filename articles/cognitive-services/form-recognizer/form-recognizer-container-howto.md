@@ -1,5 +1,5 @@
 ---
-title: Come installare ed eseguire contenitore per Form riconoscimento
+title: Come installare ed eseguire il contenitore per il riconoscimento del modulo
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come usare il contenitore Riconoscimento modulo per analizzare i dati di moduli e tabelle.
 author: IEvangelist
@@ -9,22 +9,22 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: a251e97d671c4aad0aebb1d6c3349cdc09444308
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: d03abee7c7a4adb65e1d6146501ee5b7d9e1534c
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718478"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348672"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installare ed eseguire i contenitori Riconoscimento modulo
 
 Riconoscimento modulo di Azure applica la tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e tabelle dai moduli, associando i valori e le voci della tabella alle coppie chiave-valore e quindi restituendo dati strutturati che includono le relazioni nel file originale. 
 
-Per ridurre la complessità e integrare facilmente un modello di Riconoscimento modulo personalizzato nel processo di automazione dl flusso di lavoro o in un'altra applicazione, è possibile chiamare il modello usando una semplice API REST. Solo cinque formare i documenti (o un form vuoto e due moduli compilati) sono necessari, quindi è possibile ottenere risultati rapidamente, in modo accurato e su misura per il contenuto specifico. senza alcun intervento manuale impegnativo né competenze approfondite di data science. E non è neanche necessario assegnare etichette o annotare dati.
+Per ridurre la complessità e integrare facilmente un modello di Riconoscimento modulo personalizzato nel processo di automazione dl flusso di lavoro o in un'altra applicazione, è possibile chiamare il modello usando una semplice API REST. Sono necessari solo cinque documenti modulo (o un modulo vuoto e due moduli compilati), in modo che sia possibile ottenere risultati rapidamente, accuratamente e personalizzati in base al contenuto specifico. senza alcun intervento manuale impegnativo né competenze approfondite di data science. E non è neanche necessario assegnare etichette o annotare dati.
 
 |Funzione|Funzionalità|
 |-|-|
-|Riconoscimento modulo| <li>Elabora file PDF, PNG e JPG<li>Esegue il training di modelli personalizzati con un minimo di 5 moduli dello stesso layout <li>Estrae coppie chiave-valore e informazioni della tabella <li>Usa la funzionalità di riconoscimento del testo dell'API Visione artificiale di Servizi cognitivi per rilevare ed estrarre testo stampato dalle immagini all'interno dei moduli<li>Non richiede annotazioni o assegnazioni di etichette|
+|Riconoscimento modulo| <li>Elabora file PDF, PNG e JPG<li>Addestra i modelli personalizzati con un minimo di cinque forme dello stesso layout <li>Estrae coppie chiave-valore e informazioni della tabella <li>Usa la funzionalità di riconoscimento del testo dell'API Visione artificiale di Servizi cognitivi per rilevare ed estrarre testo stampato dalle immagini all'interno dei moduli<li>Non richiede annotazioni o assegnazioni di etichette|
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -37,8 +37,8 @@ Prima di usare i contenitori di Riconoscimento modulo, è necessario soddisfare 
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, è anche necessario configurare Docker per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.|
 |Interfaccia della riga di comando di Azure| Installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) nell'host.|
-|Risorsa API Visione artificiale| Per elaborare documenti e immagini digitalizzati, è necessaria una risorsa di Visione artificiale. È possibile accedere alla funzionalità di riconoscimento del testo come risorsa di Azure (API REST o SDK) o come [contenitore](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) *cognitive-services-recognize-text*. Si applicano le normali tariffe di fatturazione. <br><br>Passare la chiave e gli endpoint di fatturazione per la risorsa di Visione artificiale specifica (cloud di Azure o contenitore di Servizi cognitivi). Usare questa chiave e l'endpoint di fatturazione come {COMPUTER_VISION_API_KEY} e {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Se si usa il contenitore *cognitive-services-recognize-text*, soddisfare questi requisiti:<br><br>La chiave di Visione artificiale per il contenitore Riconoscimento modulo deve essere quella specificata nel comando `docker run` di Visione artificiale per il contenitore *cognitive-services-recognize-text*.<br>L'endpoint di fatturazione deve essere quello del contenitore, ad esempio `https://localhost:5000`. Se si usano insieme i contenitori di Visione artificiale e Riconoscimento modulo nello stesso host, non sarà possibile avviarli entrambi con la porta *5000* predefinita.  |  
-|Risorsa Riconoscimento modulo |Per usare questi contenitori, è necessario avere:<br><br>Una risorsa di _Riconoscimento modulo_ di Azure per ottenere la chiave di fatturazione associata e l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine **Form Recognizer Overview** (Panoramica di Riconoscimento modulo) e **Form Recognizer Overview Keys** (Chiavi di Riconoscimento modulo) del portale di Azure e sono entrambi necessari per avviare il contenitore.<br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
+|Risorsa API Visione artificiale| Per elaborare documenti e immagini digitalizzati, è necessaria una risorsa di Visione artificiale. È possibile accedere alla funzionalità di riconoscimento del testo come risorsa di Azure (API REST o SDK) o come [contenitore](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) *cognitive-services-recognize-text*. Si applicano le normali tariffe di fatturazione. <br><br>Passare sia la chiave API sia gli endpoint per la risorsa Visione artificiale (cloud di Azure o contenitore di servizi cognitivi). Usare questa chiave API e l'endpoint come **{COMPUTER_VISION_API_KEY}** e **{COMPUTER_VISION_ENDPOINT_URI}** .<br><br> Se si usa il contenitore *cognitive-services-recognize-text*, soddisfare questi requisiti:<br><br>La chiave di Visione artificiale per il contenitore Riconoscimento modulo deve essere quella specificata nel comando `docker run` di Visione artificiale per il contenitore *cognitive-services-recognize-text*.<br>L'endpoint di fatturazione deve essere quello del contenitore, ad esempio `https://localhost:5000`. Se si usano insieme i contenitori di Visione artificiale e Riconoscimento modulo nello stesso host, non sarà possibile avviarli entrambi con la porta *5000* predefinita.  |
+|Risorsa Riconoscimento modulo |Per usare questi contenitori, è necessario avere:<br><br>Una risorsa di riconoscimento di Azure **form** per ottenere la chiave API e l'URI dell'endpoint associati. Entrambi i valori sono disponibili nella panoramica del **riconoscimento del modulo** portale di Azure e nelle pagine delle chiavi ed entrambi i valori sono necessari per avviare il contenitore.<br><br>**{FORM_RECOGNIZER_API_KEY}** : Una delle due chiavi di risorsa disponibili nella pagina chiavi<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}** : Endpoint fornito nella pagina Panoramica|
 
 ## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
 
@@ -58,7 +58,7 @@ La tabella seguente indica i core di CPU minimi e consigliati e la memoria da al
 
 | Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
-|cognitive-services-form-recognizer | 2 core, 4 GB di memoria | 4 core, 8 GB di memoria |
+|cognitive-services-form-recognizer | 2 Core, 4 GB di memoria | 4 core, 8 GB di memoria |
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
 * TPS - transazioni al secondo
@@ -104,10 +104,10 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire uno qualsiasi dei tre contenitori. Il comando usa i parametri seguenti:
 
-| Placeholder | Value |
+| Placeholder | Valore |
 |-------------|-------|
-|{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore. È disponibile nella pagina **Form Recognizer Keys** (Chiavi di Riconoscimento modulo) del portale di Azure.  |
-|{BILLING_ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina **Form Recognizer Overview** (Panoramica di Riconoscimento modulo) del portale di Azure.|
+|{FORM_RECOGNIZER_API_KEY} | Questa chiave viene usata per avviare il contenitore. È disponibile nella pagina **Form Recognizer Keys** (Chiavi di Riconoscimento modulo) del portale di Azure.  |
+|{FORM_RECOGNIZER_ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina **Form Recognizer Overview** (Panoramica di Riconoscimento modulo) del portale di Azure.|
 |{COMPUTER_VISION_API_KEY}| La chiave è disponibile nella pagina **Computer Vision API Keys** (Chiavi dell'API Visione artificiale) del portale di Azure.|
 |{COMPUTER_VISION_ENDPOINT_URI}|L'endpoint di fatturazione. Se si usa una risorsa di Visione artificiale basata sul cloud, il valore dell'URI è disponibile nella pagina **Computer Vision API Overview** (Panoramica dell'API Visione artificiale) del portale di Azure. Se si usa un contenitore `cognitive-services-recognize-text`, usare l'URL dell'endpoint di fatturazione passato al contenitore nel comando `docker run`.|
 
@@ -121,8 +121,8 @@ docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
 --mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} \
+Billing={FORM_RECOGNIZER_ENDPOINT_URI} \
+ApiKey={FORM_RECOGNIZER_API_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
 FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 ```
@@ -149,14 +149,13 @@ docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 --mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={FORM_RECOGNIZER_ENDPOINT_URI} \
+ApiKey={FORM_RECOGNIZER_API_KEY}
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
 FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 ```
 
 Eseguire il secondo contenitore sulla porta 5001.
-
 
 ```bash 
 docker run --rm -it -p 5001:5000 --memory 4g --cpus 1 \
@@ -187,7 +186,7 @@ services:
     environment:
       eula: accept
       billing: "{COMPUTER_VISION_ENDPOINT_URI}"
-      apikey: {COMPUTER_VISION_API_KEY}  
+      apikey: "{COMPUTER_VISION_API_KEY}"
 
   formrecognizer:
     image: "containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer"
@@ -201,8 +200,8 @@ services:
           memory: 4g
     environment:
       eula: accept
-      billing: "{BILLING_ENDPOINT_URI}"
-      apikey: {BILLING_KEY}
+      billing: "{FORM_RECOGNIZER_ENDPOINT_URI}"
+      apikey: "{FORM_RECOGNIZER_API_KEY}"
       FormRecognizer__ComputerVisionApiKey: {COMPUTER_VISION_API_KEY}
       FormRecognizer__ComputerVisionEndpointUri: "http://ocr:5000"
       FormRecognizer__SyncProcessTaskCancelLimitInSecs: 75
@@ -216,9 +215,8 @@ services:
         source: c:\input
         target: /input
     ports:
-      - "5000:5000"  
+      - "5000:5000"
 ```
-
 
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey`, oltre che `FormRecognizer:ComputerVisionApiKey` e `FormRecognizer:ComputerVisionEndpointUri`, per eseguire il contenitore. In caso contrario, il contenitore non si avvia. Per altre informazioni, vedere[Fatturazione](#billing).
@@ -228,7 +226,6 @@ services:
 |Contenitore|Endpoint|
 |--|--|
 |form-recognizer|http://localhost:5000
-
 
 ### <a name="form-recognizer"></a>Riconoscimento modulo
 
@@ -240,14 +237,19 @@ Per impostazione predefinita, l'SDK di Riconoscimento modulo usa i servizi onlin
 
 Passare dall'uso di questa chiamata di inizializzazione del cloud di Azure:
 
-```C#
-var config = FormRecognizerConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+```csharp
+var config =
+    FormRecognizerConfig.FromSubscription(
+        "YourSubscriptionKey",
+        "YourServiceRegion");
 ```
-
 a questa chiamata che usa l'endpoint del contenitore:
 
-```C#
-var config = FormRecognizerConfig.FromEndpoint("ws://localhost:5000/formrecognizer/v1.0-preview/custom", "YourSubscriptionKey");
+```csharp
+var config =
+    FormRecognizerConfig.FromEndpoint(
+        "ws://localhost:5000/formrecognizer/v1.0-preview/custom",
+        "YourSubscriptionKey");
 ```
 
 #### <a name="for-python"></a>Per Python
@@ -255,13 +257,18 @@ var config = FormRecognizerConfig.FromEndpoint("ws://localhost:5000/formrecogniz
 Passare dall'uso di questa chiamata di inizializzazione del cloud di Azure:
 
 ```python
-formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=formrecognizer_key, region=service_region)
+formrecognizer_config =
+    formrecognizersdk.FormRecognizerConfig(
+        subscription=formrecognizer_key, region=service_region)
 ```
 
 a questa chiamata che usa l'endpoint del contenitore:
 
 ```python
-formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=formrecognizer_key, endpoint="ws://localhost:5000/formrecognizer/v1.0-preview/custom"
+formrecognizer_config = 
+    formrecognizersdk.FormRecognizerConfig(
+        subscription=formrecognizer_key,
+        endpoint="ws://localhost:5000/formrecognizer/v1.0-preview/custom"
 ```
 
 ### <a name="form-recognizer"></a>Riconoscimento modulo

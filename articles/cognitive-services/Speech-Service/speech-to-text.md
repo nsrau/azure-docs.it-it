@@ -1,7 +1,7 @@
 ---
-title: Per il riconoscimento vocale con servizi di riconoscimento vocale di Azure
+title: Sintesi vocale con servizi di riconoscimento vocale di Azure
 titleSuffix: Azure Cognitive Services
-description: Per il riconoscimento vocale da servizi di riconoscimento vocale di Azure, noto anche come per il riconoscimento vocale, la trascrizione in tempo reale consente di flussi audio in testo che possono utilizzare le applicazioni, dispositivi o gli strumenti, visualizzare e agire come input del comando. Questo servizio si basa sulla stessa tecnologia di riconoscimento che Microsoft Usa per i prodotti Cortana e Office e interagisce senza problemi con la conversione e la sintesi vocale.
+description: Riconoscimento vocale da servizi vocali di Azure, noto anche come riconoscimento vocale, consente la trascrizione in tempo reale dei flussi audio in testo che le applicazioni, gli strumenti o i dispositivi possono utilizzare, visualizzare e agire come input del comando. Questo servizio è basato sulla stessa tecnologia di riconoscimento utilizzata da Microsoft per i prodotti Cortana e Office e funziona senza interruzioni con la traduzione e la sintesi vocale.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,59 +10,45 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: afe69d396c42023df8fcf5e4a6772771afc75c76
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cb9362c4d58deb5472c8d5adab39cdd1cc4e2600
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606244"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333563"
 ---
-# <a name="what-is-speech-to-text"></a>Che cos'è riconoscimento vocale?
+# <a name="what-is-speech-to-text"></a>Che cos'è la sintesi vocale?
 
-Per il riconoscimento vocale da servizi di riconoscimento vocale di Azure, noto anche come per il riconoscimento vocale, la trascrizione in tempo reale consente di flussi audio in testo che possono utilizzare le applicazioni, dispositivi o gli strumenti, visualizzare e agire come input del comando. Questo servizio si basa sulla stessa tecnologia di riconoscimento che Microsoft Usa per i prodotti Cortana e Office e interagisce senza problemi con la conversione e la sintesi vocale.  Per un elenco completo delle lingue disponibili per il riconoscimento vocale, vedere [lingue supportate](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Riconoscimento vocale da servizi vocali di Azure, noto anche come riconoscimento vocale, consente la trascrizione in tempo reale dei flussi audio in testo che le applicazioni, gli strumenti o i dispositivi possono utilizzare, visualizzare e agire come input del comando. Questo servizio è basato sulla stessa tecnologia di riconoscimento utilizzata da Microsoft per i prodotti Cortana e Office e funziona senza interruzioni con la traduzione e la sintesi vocale.  Per un elenco completo delle lingue di sintesi vocale disponibili, vedere [linguaggi supportati](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-Per impostazione predefinita, il servizio riconoscimento vocale Usa il modello di linguaggio universale. Questo modello è stato eseguito il training usando i dati di proprietà di Microsoft e viene distribuito nel cloud. È ottimale per la conversazione e gli scenari di dettatura. Se si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, linguistici e di pronuncia personalizzati destinati a un ambiente rumoroso o una terminologica specifica del settore.
+Per impostazione predefinita, il servizio riconoscimento vocale usa il modello di linguaggio universale. Questo modello è stato sottoposto a training usando i dati di proprietà di Microsoft e viene distribuito nel cloud. È ideale per gli scenari di conversazione e di dettatura. Se si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, linguistici e di pronuncia personalizzati destinati a un ambiente rumoroso o una terminologica specifica del settore.
 
-È facilmente possibile acquisire audio dal microfono, leggere da un flusso o accedere ai file audio da un archivio con Speech SDK e API REST. Speech SDK supporta WAV/PCM 16 bit, kHz 16/8 kHz, di singolo canale audio per il riconoscimento vocale. Formati audio aggiuntivi sono supportati tramite il [endpoint REST per il riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) o nella [trascrizione servizio batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+È possibile acquisire facilmente audio da un microfono, leggere da un flusso o accedere a file audio dalla risorsa di archiviazione con l'SDK di riconoscimento vocale e le API REST. L'SDK di riconoscimento vocale supporta l'audio a canale singolo WAV/PCM a 16 bit, 16 kHz/8 kHz, per il riconoscimento vocale. Sono supportati formati audio aggiuntivi usando l' [endpoint REST di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) o il servizio di [trascrizione batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
 ## <a name="core-features"></a>Funzionalità di base
 
-Ecco le funzionalità disponibili attraverso il sistema Speech SDK e API REST:
+Di seguito sono riportate le funzionalità disponibili tramite l'SDK vocale e le API REST:
 
 | Caso d'uso | SDK | REST |
 |----------|-----|------|
-| Trascrivi utterances breve (< 15 secondi). Supporta solo il risultato finale di trascrizione. | Yes | Yes |
-| Trascrizione continua di espressioni lungo e streaming audio (> 15 secondi). Supporta i risultati di trascrizione intermedie e finali. | Yes | No |
-| Derivare i risultati di riconoscimento con finalità [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Yes | No\* |
-| Batch in modo asincrono la trascrizione di file audio. | No | Sì\** |
-| Creare e gestire modelli di riconoscimento vocale. | No | Sì\** |
-| Creare e gestire le distribuzioni di modelli personalizzato. | No | Sì\** |
-| Creare test di accuratezza per misurare l'accuratezza del modello di previsione e i modelli personalizzati. | No | Sì\** |
-| Gestire le sottoscrizioni. | No | Sì\** |
+| Trascrivere brevi espressioni (< 15 secondi). Supporta solo il risultato finale della trascrizione. | Sì | Sì |
+| Trascrizione continua di espressioni Long e audio di streaming (> 15 secondi). Supporta i risultati della trascrizione temporanea e finale. | Sì | No |
+| Derivare gli Intent dai risultati del riconoscimento con [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Yes | No\* |
+| Trascrizione batch di file audio in modo asincrono. | No | Sì\** |
+| Creare e gestire i modelli di riconoscimento vocale. | No | Sì\** |
+| Creare e gestire distribuzioni di modelli personalizzati. | No | Sì\** |
+| Creare test di accuratezza per misurare l'accuratezza del modello di base rispetto ai modelli personalizzati. | No | Sì\** |
+| Gestisci sottoscrizioni. | No | Sì\** |
 
-\* *Le finalità e le entità LUIS possono essere derivate con una sottoscrizione di LUIS separata. Con questa sottoscrizione, il SDK può chiamare LUIS per l'utente e fornire entità e finalità dei risultati. Con l'API REST, è possibile chiamare LUIS manualmente per derivare finalità ed entità con la sottoscrizione di LUIS.*
+\* *Le finalità e le entità LUIS possono essere derivate con una sottoscrizione di LUIS separata. Con questa sottoscrizione, l'SDK può chiamare LUIS per l'utente e fornire risultati di entità e finalità. Con l'API REST, è possibile chiamare LUIS manualmente per derivare finalità ed entità con la sottoscrizione di LUIS.*
 
-\** *Questi servizi sono disponibili tramite l'endpoint cris.ai. Visualizzare [Swagger riferimento](https://westus.cris.ai/swagger/ui/index).*
+\** *Questi servizi sono disponibili tramite l'endpoint cris.ai. Vedere informazioni di [riferimento su spavalderia](https://westus.cris.ai/swagger/ui/index).*
 
-## <a name="get-started-with-speech-to-text"></a>Introduzione al riconoscimento vocale
+## <a name="get-started-with-speech-to-text"></a>Introduzione alla sintesi vocale
 
-Sono disponibili modelli di avvio rapido nei linguaggi di programmazione più diffusi, ognuno progettato per consentire all'utente di disporre dell'esecuzione di codice in meno di 10 minuti. Questa tabella include un elenco completo delle guide introduttive di Speech SDK organizzati per linguaggio.
+Sono disponibili modelli di avvio rapido nei linguaggi di programmazione più diffusi, ognuno progettato per consentire all'utente di disporre dell'esecuzione di codice in meno di 10 minuti. [Questa tabella](https://aka.ms/csspeech#5-minute-quickstarts) include un elenco completo delle guide introduttive per l'SDK vocale organizzate in base a platfrom e alla lingua.  Informazioni di riferimento sulle API sono disponibili anche [qui](https://aka.ms/csspeech#reference).
 
-| Guida introduttiva | Piattaforma | Informazioni di riferimento sulle API |
-|------------|----------|---------------|
-| [C#, .NET core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
-| [JavaScript, Browser](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Browser, Windows, Linux, macOS | [Browse](https://aka.ms/AA434tv) |
-| [JavaScript, Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows, Linux, macOS | [Browse](https://aka.ms/AA434tv) |
-| [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows, Linux, macOS | [Browse](https://aka.ms/AA434tr)  |
-
-Se si preferisce usare il servizio REST per il riconoscimento vocale, vedere [API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+Se si preferisce usare il servizio REST di riconoscimento vocale, vedere [API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 ## <a name="tutorials-and-sample-code"></a>Esercitazioni e codice di esempio
 
@@ -70,37 +56,37 @@ Dopo aver usato i servizi Voce, provare l'esercitazione che illustra come ricono
 
 * [Esercitazione: Riconoscere le finalità dai contenuti vocali con Speech SDK e LUIS per C#](how-to-recognize-intents-from-speech-csharp.md)
 
-Codice di esempio per Speech SDK è disponibile in GitHub. Questi esempi esaminano gli scenari comuni, ad esempio la lettura di audio da un file o streaming, il riconoscimento continuo e singolo e l'uso di modelli personalizzati.
+Il codice di esempio per l'SDK di riconoscimento vocale è disponibile su GitHub. Questi esempi esaminano gli scenari comuni, ad esempio la lettura di audio da un file o streaming, il riconoscimento continuo e singolo e l'uso di modelli personalizzati.
 
 * [Esempi di riconoscimento vocale (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch) (Esempi di trascrizione batch (REST))
 
 ## <a name="customization"></a>Personalizzazione
 
-Oltre al modello Universal utilizzato dai servizi di riconoscimento vocale, è possibile creare modelli acustici, lingua e pronuncia personalizzati specifici alla tua esperienza. Ecco un elenco di opzioni di personalizzazione:
+Oltre al modello universale usato dai servizi di riconoscimento vocale, è possibile creare modelli di lingua acustica, lingua e pronuncia personalizzati specifici per la propria esperienza. Ecco un elenco di opzioni di personalizzazione:
 
-| Modello | Descrizione |
+| Modello | DESCRIZIONE |
 |-------|-------------|
-| [Modello acustico](how-to-customize-acoustic-models.md) | Creazione di un modello acustico personalizzato è utile se le applicazioni, dispositivi o gli strumenti vengono usati in un ambiente specifico, ad esempio in un'automobile o una factory con le condizioni di registrazione specifiche. Sono esempi di queste situazioni un eloquio con un forte accento, particolari rumori di sottofondo o l'uso di uno speciale microfono per la registrazione. |
+| [Modello acustico](how-to-customize-acoustic-models.md) | La creazione di un modello acustico personalizzato è utile se l'applicazione, gli strumenti o i dispositivi vengono usati in un ambiente specifico, ad esempio in una macchina o in una fabbrica con condizioni di registrazione specifiche. Sono esempi di queste situazioni un eloquio con un forte accento, particolari rumori di sottofondo o l'uso di uno speciale microfono per la registrazione. |
 | [Modello linguistico](how-to-customize-language-model.md) | Creazione di un modello linguistico personalizzato per migliorare la trascrizione di grammatica e terminologia specifica di settore, ad esempio terminologia medica o IT. |
 | [Modello di pronuncia](how-to-customize-pronunciation.md) | Con un modello di pronuncia personalizzato è possibile definire la forma fonetica e visualizzare una parola o un termine. È utile per gestire i termini personalizzati, come i nomi di prodotto o gli acronimi. Tutto ciò che serve è un file di pronunce, un semplice file con estensione TXT. |
 
 > [!NOTE]
-> Le opzioni di personalizzazione variano a seconda lingua/impostazioni locali (vedere [lingue supportate](supported-languages.md)).
+> Le opzioni di personalizzazione variano in base alla lingua o alle impostazioni locali (vedere [lingue supportate](supported-languages.md)).
 
 ## <a name="migration-guides"></a>Guide alla migrazione
 
 > [!WARNING]
-> Riconoscimento vocale Bing verrà ritirato il 15 ottobre 2019.
+> Il riconoscimento vocale Bing verrà rimosso il 15 ottobre 2019.
 
-Se le applicazioni, strumenti o prodotti Usa l'API riconoscimento vocale Bing o riconoscimento vocale personalizzato, abbiamo creato le guide per la migrazione a servizi di riconoscimento vocale.
+Se le applicazioni, gli strumenti o i prodotti usano le API riconoscimento vocale Bing o Riconoscimento vocale personalizzato, sono state create guide che consentono di eseguire la migrazione ai servizi di riconoscimento vocale.
 
-* [Eseguire la migrazione da riconoscimento vocale Bing per i servizi di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
-* [Eseguire la migrazione da riconoscimento vocale personalizzato per i servizi di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
+* [Eseguire la migrazione dal riconoscimento vocale Bing ai servizi di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
+* [Eseguire la migrazione da Riconoscimento vocale personalizzato ai servizi di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
-* [Speech SDK](speech-sdk-reference.md)
+* [Speech SDK](https://aka.ms/csspeech)
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [API REST: Riconoscimento vocale](rest-speech-to-text.md)
 * [API REST: Sintesi vocale](rest-text-to-speech.md)
@@ -109,4 +95,4 @@ Se le applicazioni, strumenti o prodotti Usa l'API riconoscimento vocale Bing o 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottieni gratuitamente una chiave di sottoscrizione per i servizi Voce](get-started.md)
-* [Ottenere il SDK di riconoscimento vocale](speech-sdk.md)
+* [Ottenere l'SDK di riconoscimento vocale](speech-sdk.md)

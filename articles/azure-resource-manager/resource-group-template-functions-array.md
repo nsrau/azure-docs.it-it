@@ -217,7 +217,7 @@ Combina più matrici e restituisce la matrice concatenata oppure combina più va
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array o string |La prima matrice o stringa per la concatenazione. |
-| argomenti aggiuntivi |No |string o matrice |Matrici o stringhe aggiuntive in ordine sequenziale per la concatenazione. |
+| argomenti aggiuntivi |No |array o string |Matrici o stringhe aggiuntive in ordine sequenziale per la concatenazione. |
 
 Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri.
 
@@ -583,7 +583,7 @@ Restituisce il primo elemento della matrice o il primo carattere della stringa.
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |stringa o matrice |Valore per recuperare il primo elemento o carattere. |
+| arg1 |Yes |array o string |Valore per recuperare il primo elemento o carattere. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -800,7 +800,7 @@ Restituisce l'ultimo elemento della matrice o l'ultimo carattere della stringa.
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |stringa o matrice |Valore per recuperare l'ultimo elemento o carattere. |
+| arg1 |Yes |array o string |Valore per recuperare l'ultimo elemento o carattere. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -865,7 +865,7 @@ Restituisce il numero di elementi in una matrice o di caratteri in una stringa.
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |stringa o matrice |Matrice da usare per ottenere il numero di elementi oppure stringa da usare per ottenere il numero di caratteri. |
+| arg1 |Yes |array o string |Matrice da usare per ottenere il numero di elementi oppure stringa da usare per ottenere il numero di caratteri. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1140,7 +1140,7 @@ Restituisce una matrice con tutti gli elementi dopo il numero specificato nella 
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| originalValue |Yes |stringa o matrice |Stringa o matrice da usare per i valori da ignorare. |
+| originalValue |Yes |array o string |Stringa o matrice da usare per i valori da ignorare. |
 | numberToSkip |Yes |int |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se il valore è maggiore della lunghezza della stringa o della matrice, viene restituita una stringa o una matrice vuota. |
 
 ### <a name="return-value"></a>Valore restituito
@@ -1221,7 +1221,7 @@ Restituisce una matrice con il numero specificato di elementi dall'inizio della 
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| originalValue |Yes |stringa o matrice |Stringa o matrice da cui prendere gli elementi. |
+| originalValue |Yes |array o string |Stringa o matrice da cui prendere gli elementi. |
 | numberToTake |Yes |int |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se il valore è maggiore della lunghezza della stringa o matrice specificata, vengono restituiti tutti gli elementi nella stringa o nella matrice. |
 
 ### <a name="return-value"></a>Valore restituito
