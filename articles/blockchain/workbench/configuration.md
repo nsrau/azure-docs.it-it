@@ -55,7 +55,7 @@ La logica di business di un'applicazione può essere modellata come macchina a s
 
 | Campo | Description | Obbligatorio | Lunghezza massima |
 |-------|-------------|:--------:|-----------:|
-| NOME | Nome univoco del flusso di lavoro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la classe di contratto applicabile. | Yes | 50 |
+| Name | Nome univoco del flusso di lavoro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la classe di contratto applicabile. | Yes | 50 |
 | DisplayName | Nome visualizzato descrittivo del flusso di lavoro. | Yes | 255 |
 | Description | Descrizione del flusso di lavoro. | No | 255 |
 | Initiators | Raccolta di [ruoli applicazione](#application-roles). Ruoli assegnati agli utenti autorizzati a creare contratti nel flusso di lavoro. | Yes | |
