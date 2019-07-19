@@ -1,7 +1,7 @@
 ---
-title: Esempio di script della riga di comando Azure - configurare IPv6 endpoint di rete virtuale (anteprima)
+title: Esempio di script dell'interfaccia della riga di comando di Azure-configurare endpoint di rete virtuale IPv6 (anteprima)
 titlesuffix: Azure Virtual Network
-description: Abilitare gli endpoint IPv6 tramite CLI di Azure nella rete virtuale di Azure
+description: Abilitare gli endpoint IPv6 usando l'interfaccia della riga di comando di Azure in rete virtuale di Azure
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,31 +12,33 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
-ms.openlocfilehash: a1c8f151a4c6459064d92ff2efb44fa8b74f8fc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3df475ce89a3b1f5a1acfb20dc427fdb7a9b7d16
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63761454"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248891"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurare gli endpoint IPv6 nell'esempio di script di rete virtuale (anteprima)
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurare gli endpoint IPv6 nell'esempio di script della rete virtuale (anteprima)
 
-Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv6) in Azure che include una rete virtuale con una subnet dual-stack, un servizio di bilanciamento del carico con configurazioni front-end dual (IPv4 + IPv6), le macchine virtuali con schede di rete con una configurazione IP doppia, dual-stack in regole di gruppo di sicurezza di rete Dual e due indirizzi IP pubblici.
+Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv6) in Azure che include una rete virtuale a doppio stack con una subnet dello stack doppio, un servizio di bilanciamento del carico con due configurazioni front-end Dual (IPv4 + IPv6), macchine virtuali con NIC con una doppia configurazione IP, due regole del gruppo di sicurezza di rete e doppi indirizzi IP pubblici.
 
 È possibile eseguire lo script da Azure [Cloud Shell](https://shell.azure.com/bash) o da un'installazione locale dell'interfaccia della riga di comando di Azure. Se si usa l'interfaccia della riga di comando in locale, per questo script è necessaria la versione 2.0.28 o successiva. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per l'utilizzo di IPv6 per la funzionalità di rete virtuale di Azure, è necessario configurare la sottoscrizione di una sola volta come indicato di seguito:
+Per usare la funzionalità IPv6 per la rete virtuale di Azure, è necessario configurare la sottoscrizione solo una volta come indicato di seguito:
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
+az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
-Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato della registrazione eseguendo il comando di Azure:
+Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato di registrazione eseguendo il comando dell'interfaccia della riga di comando di Azure seguente:
 
 ```azurelci
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
+az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
 Al termine della registrazione eseguire questo comando:
 

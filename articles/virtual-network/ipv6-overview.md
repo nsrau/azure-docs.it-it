@@ -1,7 +1,7 @@
 ---
-title: Panoramica di IPv6 per la rete virtuale di Azure (anteprima)
+title: Panoramica di IPv6 per rete virtuale di Azure (anteprima)
 titlesuffix: Azure Virtual Network
-description: Descrizione di IPv6 dei percorsi di dati e gli endpoint IPv6 nella rete virtuale di Azure.
+description: Descrizione IPv6 di endpoint e percorsi di dati IPv6 in una rete virtuale di Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -10,64 +10,72 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/22/2019
+ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 0ec650880a45f6383b24b5ac810fc2ee745806b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5093b74484cd04a0c0c7afed8e2ebc725af033f5
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130934"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249824"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Che cos'è IPv6 per la rete virtuale di Azure? (Anteprima)
 
-IPv6 per Azure rete virtuale (VNET) consente di ospitare applicazioni in Azure con connettività IPv6 e IPv4 sia all'interno di una rete virtuale e da e verso Internet. A causa dell'esaurimento di indirizzi IPv4 pubblici, alle nuove reti per la mobilità e Internet delle cose (IoT) sono spesso basate su IPv6. Prolungata anche stabilita ISP e reti mobili sono in corso di trasformazione a IPv6. Solo IPv4 i servizi possono trovare autonomamente svantaggiate reali nei mercati emergenti ed esistenti. Dual-stack connettività IPv4 e IPv6 consente ai servizi ospitati in Azure attraversare questo gap di tecnologia con i servizi disponibili a livello globale, dual stack che si connettono facilmente con IPv4 esistenti e questi nuovi dispositivi di IPv6 e reti.
+IPv6 per rete virtuale di Azure (VNet) consente di ospitare le applicazioni in Azure con connettività IPv6 e IPv4 sia all'interno di una rete virtuale che da e verso Internet. A causa dell'esaurimento degli indirizzi IPv4 pubblici, le nuove reti per la mobilità e la Internet delle cose (tutto) sono spesso basate su IPv6. Anche le reti ISP e mobile stabilite a lungo vengono trasformate in IPv6. I servizi solo IPv4 possono trovarsi in uno svantaggio reale nei mercati esistenti ed emergenti. La connettività IPv4/IPv6 dual stack consente ai servizi ospitati in Azure di attraversare questo gap tecnologico con servizi dual stack disponibili a livello globale che si connettono prontamente con i dispositivi IPv4 e le nuove reti IPv6 esistenti.
 
-Connettività IPv6 originale di Azure rende più semplice fornire dual-stack connettività a Internet (IPv4 e IPv6) per le applicazioni ospitate in Azure. Consente di semplice distribuzione di macchine virtuali con connettività IPv6 con bilanciata del carico per le connessioni in entrata e in uscita avviate. Questa funzionalità è ancora disponibile e altre informazioni sono disponibili [qui](../load-balancer/load-balancer-ipv6-overview.md).
-IPv6 per la rete virtuale di Azure è molto più complete in primo piano-abilitazione completi architetture delle soluzioni di IPv6 per la distribuzione in Azure.
+La connettività IPv6 originale di Azure consente di fornire facilmente connettività Internet dual stack (IPv4/IPv6) per le applicazioni ospitate in Azure. Consente di distribuire in modo semplice le VM con connettività IPv6 con bilanciamento del carico per le connessioni avviate sia in ingresso che in uscita. Questa funzionalità è ancora disponibile e altre informazioni sono disponibili [qui](../load-balancer/load-balancer-ipv6-overview.md).
+IPv6 per la rete virtuale di Azure è molto più completo per l'abilitazione di architetture di soluzioni IPv6 complete da distribuire in Azure.
 
 > [!Important]
-> IPv6 rete virtuale di Azure è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> IPv6 per la rete virtuale di Azure è attualmente disponibile in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Il diagramma seguente illustra una distribuzione semplice dual-stack (IPv4 e IPv6) in Azure:
+Il diagramma seguente illustra una distribuzione semplice a doppio stack (IPv4/IPv6) in Azure:
 
-![Diagramma di distribuzione di rete IPv6](./media/ipv6-support-overview/ipv6-sample-diagram.png)
+![Diagramma di distribuzione della rete IPv6](./media/ipv6-support-overview/ipv6-sample-diagram.png)
 
 ## <a name="benefits"></a>Vantaggi
 
-Vantaggi di IPv6 di rete virtuale di Azure:
+Vantaggi IPv6 della rete virtuale di Azure:
 
-- Consente di espandere la copertura di applicazioni ospitate in Azure in di crescita per dispositivi mobili e Internet delle cose mercati.
-- Due macchine virtuali di IPv4 e IPv6 in pila offrono flessibilità nella distribuzione massimi del servizio. Una singola istanza del servizio possa connettersi con i client di IPv4 e Internet in grado di supportare IPv6.
-- Si basa su stabile, lunga Azure macchine Virtuali a Internet connettività IPv6.
-- Protezione per impostazione predefinita perché la connettività IPv6 a Internet viene stabilita solo quando l'utente lo richiede in modo esplicito nella distribuzione.
+- Consente di espandere la portata delle applicazioni ospitate in Azure in mercati mobili e Internet delle cose in crescita.
+- Le VM IPv4/IPv6 dual stack offrono la massima flessibilità per la distribuzione del servizio. Una singola istanza del servizio può connettersi con client Internet compatibili con IPv4 e IPv6.
+- Si basa su connettività IPv6 da macchina virtuale a Internet di Azure stabile e di lunga durata.
+- Sicurezza per impostazione predefinita, poiché la connettività IPv6 a Internet viene stabilita solo quando viene richiesta in modo esplicito nella distribuzione.
 
-## <a name="capabilities"></a>Capabilities
+## <a name="capabilities"></a>Funzionalità
 
-Il supporto IPv6 per le macchine virtuali include le funzionalità seguenti:
+IPv6 per VNet include le funzionalità seguenti:
 
-- I clienti di Azure è possono definire i propri spazio degli indirizzi di rete virtuale IPv6 per soddisfare le esigenze delle applicazioni, i clienti, o essere integrato nel proprio spazio IP in locale.
-- Dual-stack (IPv4 e IPv6) le reti virtuali con subnet dual-stack consentono alle applicazioni di connettersi alle risorse IPv4 e IPv6 nella rete virtuale oppure - l'Internet.
-- Proteggere le risorse con le regole di IPv6 per i gruppi di sicurezza di rete
-- Personalizzare il routing del traffico IPv6 nella rete virtuale con le route definite dall'utente - soprattutto quando si usa Appliance virtuali di rete per aumentare l'applicazione.
-- Supporto di bilanciamento del carico IPv6 per creare applicazioni scalabili, resilienti che include il supporto di DNS di Azure per i record AAAA per gli indirizzi IP pubblici IPv6.
-- Aggiungere facilmente la connettività IPv6 per le distribuzioni esistenti solo IPv4 con aggiornamento in loco.
-- Creare applicazioni dual-stack che si adattano automaticamente al carico con set di scalabilità di macchine virtuali.
+- I clienti di Azure possono definire lo spazio di indirizzi della rete virtuale IPv6 per soddisfare le esigenze delle applicazioni, dei clienti o integrarsi facilmente nello spazio IP locale.
+- Le reti virtuali dual stack (IPv4 e IPv6) con subnet dual stack consentono alle applicazioni di connettersi alle risorse IPv4 e IPv6 nella propria rete virtuale o in Internet.
+- Proteggere le risorse con le regole IPv6 per i gruppi di sicurezza di rete
+- Personalizzare il routing del traffico IPv6 nella rete virtuale con le route definite dall'utente, soprattutto quando si usano appliance virtuali di rete per migliorare l'applicazione.
+- Consentire ai client Internet di accedere facilmente all'applicazione dual stack usando il protocollo scelto con il supporto DNS di Azure per i record IPv6 (AAAA). 
+- Supporto di Load Balancer pubblico IPv6 standard per creare applicazioni resilienti e scalabili che includono:
+    - Probe di integrità IPv6 facoltativo per determinare quali istanze del pool back-end sono integrità e quindi possono ricevere nuovi flussi. .  
+    - Regole in uscita facoltative che offrono un controllo dichiarativo completo sulla connettività in uscita per scalare e ottimizzare questa capacità in base alle esigenze specifiche.
+    - Più configurazioni front-end facoltative che consentono a un singolo servizio di bilanciamento del carico di usare più indirizzi IP pubblici IPv6. lo stesso protocollo e la stessa porta front-end possono essere riutilizzati in tutti gli indirizzi front-end.
+- L'IP pubblico a livello di istanza fornisce connettività Internet IPv6 direttamente alle singole macchine virtuali.
+- Aggiungere facilmente la connettività IPv6 alle distribuzioni solo IPv4 esistenti con l'aggiornamento sul posto.
+- Creare applicazioni dual stack che si adattano automaticamente al carico con i set di scalabilità di macchine virtuali.
+- Il supporto del portale per l'anteprima include la creazione/modifica/eliminazione interattiva di reti virtuali e subnet dual stack (IPv4 + IPv6), le regole del gruppo di sicurezza di rete IPv6, le route definite dall'utente IPv6 e gli indirizzi IP pubblici IPv6.  
 
 ## <a name="limitations"></a>Limitazioni
 La versione di anteprima di IPv6 per la rete virtuale di Azure presenta le limitazioni seguenti:
-- IPv6 per la rete virtuale di Azure (anteprima) è disponibile in tutte le aree globali di Azure, ma solo nella Global Azure - non i cloud per enti pubblici.   
-- Supporto del portale per l'anteprima è limitato per visualizzare solo per la configurazione IPv6 molto, ma non tutti, ma IPv6 per la rete virtuale dispone di documentazione (con esempi) e il supporto completo per la distribuzione di IPv6 tramite Azure Powershell e interfaccia della riga di comando (CLI).
-- Supporto di Network Watcher per l'anteprima è limitato a log di flusso e acquisizioni di pacchetti di rete.
-- Supporto di bilanciamento del carico per l'anteprima sarà inizialmente limitato a Load Balancer Basic.
-- Gli indirizzi IP pubblici a livello di istanza (indirizzi IP pubblici direttamente in una macchina virtuale) non è supportato in anteprima.  
-- Peering reti virtuali (a livello di area o a livello globale) non è supportato in anteprima. 
+- IPv6 per rete virtuale di Azure (anteprima) è disponibile in tutte le aree di Azure globali, ma solo in Azure globale, non nei cloud governativi.
+- Il supporto del portale per i componenti Load Balancer Standard è di sola visualizzazione.  Sono tuttavia disponibili supporto completo e documentazione (con esempi) per le distribuzioni di Load Balancer Standard con Azure PowerShell e l'interfaccia della riga di comando (CLI).   
+- Network Watcher supporto per l'anteprima è limitato ai log di flusso NSG e alle acquisizioni di pacchetti di rete.
+- Il peering di rete virtuale (regionalmente o globalmente) non è supportato nella versione di anteprima.
+- Quando si usa l'Load Balancer esterno IPv6 standard, si applicano i limiti seguenti: 
+  - Le regole in uscita possono fare riferimento a più indirizzi IP pubblici front-end, ma **non** possono fare riferimento a un prefisso pubblico IPv6. Il prefisso IP pubblico supporta solo i prefissi IPv4.
+  - Le regole di bilanciamento del carico IPv6 **non** possono usare la funzionalità *IP mobile* . Il riutilizzo delle porte nelle istanze back-end è supportato solo con IPv4.
+- La funzionalità di prefisso degli indirizzi IP pubblici di Azure non supporta la riserva di un blocco di indirizzi IPv6 con connessione Internet.
 
 ## <a name="pricing"></a>Prezzi
 
-Larghezza di banda e le risorse di Azure di IPv6 vengono addebitati alle stesse tariffe IPv4. Non sono previsti addebiti aggiuntivi o diversi per IPv6. È possibile trovare i dettagli sui prezzi relativi [gli indirizzi IP pubblici](https://azure.microsoft.com/pricing/details/ip-addresses/), [larghezza di banda di rete](https://azure.microsoft.com/pricing/details/bandwidth/), o [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+Per le risorse e la larghezza di banda di Azure IPv6 vengono addebitate le stesse tariffe di IPv4. Per IPv6 non sono previsti addebiti aggiuntivi o diversi. È possibile trovare informazioni dettagliate sui prezzi per [gli indirizzi IP pubblici](https://azure.microsoft.com/pricing/details/ip-addresses/), la [larghezza di banda di rete](https://azure.microsoft.com/pricing/details/bandwidth/)o [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [distribuire un'applicazione di dual-stack IPv6 usando Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-powershell.md).
-- Informazioni su come [distribuire un'applicazione di dual-stack IPv6 usando Azure CLI](virtual-network-ipv4-ipv6-dual-stack-cli.md).
+- Informazioni su come [distribuire un'applicazione IPv6 dual stack usando Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-powershell.md).
+- Informazioni su come [distribuire un'applicazione IPv6 dual stack usando l'interfaccia](virtual-network-ipv4-ipv6-dual-stack-cli.md)della riga di comando di Azure.

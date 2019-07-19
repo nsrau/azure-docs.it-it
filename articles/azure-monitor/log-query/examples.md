@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d50a680ed2b054f87a9cf36e761bd16d79677fb3
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759912"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304691"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Esempi di query di log in Monitoraggio di Azure
 Questo articolo include vari esempi di [query](log-query-overview.md) che usano il [linguaggio di query Kusto](/azure/kusto/query/) per recuperare tipi diversi di dati da Monitoraggio di Azure. Poiché vengono usati metodi diversi per consolidare e analizzare i dati, è possibile usare questi esempi per identificare strategie diverse che si possono applicare in base alle necessità.  
@@ -34,7 +34,7 @@ Questo esempio cerca nella tabella **Events** (Eventi) i record in cui **EventLo
 Event
 | where EventLog == "Application" 
 | where TimeGenerated > ago(24h) 
-| where RenderedDescription == "cryptographic"
+| where RenderedDescription contains "cryptographic"
 ```
 
 ### <a name="search-events-related-to-unmarshaling"></a>Cercare eventi correlati all'unmarshalling
@@ -381,7 +381,7 @@ let suspicious_users_that_later_logged_in =
 suspicious_users_that_later_logged_in
 ```
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 ### <a name="calculate-the-average-size-of-perf-usage-reports-per-computer"></a>Calcolare le dimensioni medie dei report sull'utilizzo delle prestazioni per computer
 

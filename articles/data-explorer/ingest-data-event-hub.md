@@ -1,22 +1,22 @@
 ---
 title: Inserire dati dall'hub eventi in Esplora dati di Azure
-description: In questo articolo descrive come inserire (caricare) i dati in Esplora dati di Azure dall'Hub eventi.
+description: Questo articolo illustra come inserire (caricare) i dati in Azure Esplora dati dall'hub eventi.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: f38f1c313be17457c28c5b30fa743f7a0eae2cc0
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.date: 07/17/2019
+ms.openlocfilehash: 8e13e9f95fac8d2e651755ade126417acc6d97da
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67621987"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311627"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Inserire dati dall'hub eventi in Esplora dati di Azure
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure consente l'inserimento (caricamento dei dati) da Hub eventi, una piattaforma di Big Data streaming e un servizio di inserimento di eventi. [Hub eventi](/azure/event-hubs/event-hubs-about) riesce a elaborare milioni di eventi al secondo quasi in tempo reale. In questo articolo, creare un hub eventi, la connessione da Esplora dati di Azure e tramite il sistema, vedere il flusso di dati.
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure consente l'inserimento (caricamento dei dati) da Hub eventi, una piattaforma di Big Data streaming e un servizio di inserimento di eventi. [Hub eventi](/azure/event-hubs/event-hubs-about) riesce a elaborare milioni di eventi al secondo quasi in tempo reale. In questo articolo viene creato un hub eventi, ci si connette da Azure Esplora dati e si Visualizza il flusso di dati attraverso il sistema.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,7 +34,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Creare un hub eventi
 
-In questo articolo è generare dati di esempio e inviarle a un hub eventi. Il primo passaggio consiste nel creare un hub eventi. A tale scopo, usare un modello di Azure Resource Manager nel portale di Azure.
+In questo articolo vengono generati dati di esempio e inviati a un hub eventi. Il primo passaggio consiste nel creare un hub eventi. A tale scopo, usare un modello di Azure Resource Manager nel portale di Azure.
 
 1. Per creare un hub eventi, usare il pulsante seguente per avviare la distribuzione. Fare clic con il pulsante destro del mouse e selezionare **Apri in una nuova finestra** per poter seguire il resto dei passaggi di questo articolo.
 
@@ -58,7 +58,7 @@ In questo articolo è generare dati di esempio e inviarle a un hub eventi. Il pr
     |---|---|---|
     | Sottoscrizione | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per l'hub eventi.|
     | Gruppo di risorse | *test-hub-rg* | Creare un nuovo gruppo di risorse. |
-    | Location | *Stati Uniti occidentali* | Selezionare *Stati Uniti occidentali* per questo articolo. Per un sistema di produzione, selezionare l'area più appropriata in base alle esigenze. Per prestazioni ottimali creare lo spazio dei nomi dell'hub eventi nella stessa località del cluster Kusto (più importante per spazi dei nomi dell'hub eventi con velocità effettiva elevata).
+    | Location | *Stati Uniti occidentali* | Per questo articolo, selezionare *Stati Uniti occidentali* . Per un sistema di produzione, selezionare l'area più appropriata in base alle esigenze. Per prestazioni ottimali creare lo spazio dei nomi dell'hub eventi nella stessa località del cluster Kusto (più importante per spazi dei nomi dell'hub eventi con velocità effettiva elevata).
     | Nome spazio dei nomi | Nome dello spazio dei nomi univoco | Scegliere un nome univoco per identificare lo spazio dei nomi. Ad esempio, *spazionomitest*. Il nome di dominio *servicebus.windows.net* viene accodato al nome specificato. Il nome può contenere solo lettere, numeri e trattini. Il nome deve iniziare con una lettera e deve terminare con una lettera o un numero. La lunghezza del valore deve essere compresa tra 6 e 50 caratteri.
     | Nome hub eventi | *test-hub* | L'hub eventi si trova nello spazio dei nomi, che fornisce un contenitore di ambito univoco. Il nome dell'hub eventi deve essere univoco all'interno dello spazio dei nomi. |
     | Consumer group name (Nome gruppo di consumer) | *test-group* | I gruppi di consumer consentono a più applicazioni di avere ognuna una visualizzazione distinta del flusso di eventi. |
@@ -187,7 +187,9 @@ Con i dati generati dall'app, è ora possibile vedere il flusso di tali dati dal
     ![Set di risultati dei messaggi](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > Esplora dati di Azure prevede un criterio di aggregazione (invio in batch) per l'inserimento di dati, progettato per ottimizzare il processo di inserimento. Il criterio è configurato su 5 minuti, per impostazione predefinita, in modo che si verifichi una latenza. Visualizzare [dei criteri di invio in batch](/azure/kusto/concepts/batchingpolicy) per opzioni di aggregazione. Visualizzare [streaming criteri](/azure/kusto/concepts/streamingingestionpolicy) per l'inserimento con nessuna aggregazione.
+    > * Esplora dati di Azure prevede un criterio di aggregazione (invio in batch) per l'inserimento di dati, progettato per ottimizzare il processo di inserimento. Per impostazione predefinita, i criteri sono configurati su 5 minuti o 500 MB di dati, pertanto è possibile che si verifichi una latenza. Vedere [criteri](/azure/kusto/concepts/batchingpolicy) di suddivisione in batch per le opzioni di aggregazione. 
+    > * L'inserimento di hub eventi include il tempo di risposta dell'hub eventi di 10 secondi o 1 MB. 
+    > * Configurare la tabella in modo da supportare il flusso e rimuovere il ritardo nel tempo di risposta. Vedere i [criteri di streaming](/azure/kusto/concepts/streamingingestionpolicy). 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -205,4 +207,4 @@ Se non si prevede di usare nuovamente l'hub eventi, eliminare **test-hub-rg**, p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)
+* [Eseguire query sui dati in Azure Esplora dati](web-query-data.md)

@@ -1,105 +1,105 @@
 ---
-title: Istanze di contenitore Azure - domande frequenti
-description: Risposte alle domande frequenti relative al servizio di istanze di contenitore di Azure
+title: Istanze di contenitore di Azure-Domande frequenti
+description: Risposte alle domande frequenti relative al servizio istanze di contenitore di Azure
 services: container-instances
 author: dkkapur
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: dekapur
-ms.openlocfilehash: 99882bd23d7b94afc550247172e5b70deb23bec9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29d31e2076e0ff5ddf4f84df13ac2eede482c052
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791388"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326005"
 ---
-# <a name="frequently-asked-questions-about-azure-container-instances"></a>Domande frequenti su istanze di contenitore di Azure
+# <a name="frequently-asked-questions-about-azure-container-instances"></a>Domande frequenti sulle istanze di contenitore di Azure
 
 Questo articolo risponde alle domande frequenti sulle istanze di contenitore di Azure.
 
 ## <a name="deployment"></a>Distribuzione
 
-### <a name="how-large-can-my-container-image-be"></a>Le dimensioni dell'immagine contenitore è possibile?
+### <a name="how-large-can-my-container-image-be"></a>Quanto può essere l'immagine del contenitore?
 
-Le dimensioni massime per un'immagine del contenitore distribuibile in istanze di contenitore di Azure sono di 15 GB. Potrebbe essere in grado di distribuire le immagini più grandi a seconda della disponibilità esattamente nel momento in cui si distribuisce, ma non è garantita.
+Le dimensioni massime per un'immagine del contenitore distribuibile in istanze di contenitore di Azure sono pari a 15 GB. Potrebbe essere possibile distribuire immagini di dimensioni maggiori a seconda della disponibilità esatta nel momento in cui si esegue la distribuzione, ma ciò non è garantito.
 
-Le dimensioni dell'immagine del contenitore influisce sul tempo necessario per distribuire, quindi, in genere che si desidera mantenere al minimo le immagini del contenitore.
+Le dimensioni dell'immagine del contenitore influiscano sul tempo necessario per la distribuzione, quindi in genere si vuole che le immagini del contenitore siano più piccole possibile.
 
 ### <a name="how-can-i-speed-up-the-deployment-of-my-container"></a>Come è possibile velocizzare la distribuzione del contenitore?
 
-Poiché tra i principali fattori determinanti dei tempi di distribuzione è la dimensione dell'immagine, cercare i modi per ridurre le dimensioni. Rimuovere i livelli non necessarie o ridurre le dimensioni dei livelli dell'immagine (selezionando un'immagine del sistema operativo di base più chiara). Se si eseguono i contenitori Linux, si consideri ad esempio usando Alpine come immagine di base anziché una versione completa di Ubuntu Server. Analogamente, per i contenitori di Windows, usare un'immagine di base di Nano Server se possibile. 
+Poiché uno dei fattori principali dei tempi di distribuzione è la dimensione dell'immagine, cercare i modi per ridurne le dimensioni. Rimuovere i livelli non necessari o ridurre le dimensioni dei livelli nell'immagine selezionando un'immagine del sistema operativo di base più chiara. Ad esempio, se si eseguono contenitori Linux, è consigliabile usare alpine come immagine di base anziché un server Ubuntu completo. Analogamente, per i contenitori di Windows, se possibile, usare un'immagine di base di nano server. 
 
-Controllare inoltre l'elenco di immagini pre-cache in immagini contenitore di Azure, disponibile tramite il [elencare le immagini memorizzate nella cache](/rest/api/container-instances/listcachedimages) API. È possibile attivare un livello di immagine per una delle immagini pre-cache. 
+È anche necessario controllare l'elenco di immagini pre-memorizzate nella cache nelle immagini del contenitore di Azure, disponibili tramite l'API [Elenca immagini memorizzate nella cache](/rest/api/container-instances/listcachedimages) . Potrebbe essere possibile disattivare un livello immagine per una delle immagini pre-memorizzate nella cache. 
 
-Vedi altri [indicazioni dettagliate](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) di ridurre i tempi di avvio di contenitore.
+Vedere informazioni [aggiuntive più dettagliate](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) sulla riduzione del tempo di avvio del contenitore.
 
-### <a name="what-windows-base-os-images-are-supported"></a>Le immagini del sistema operativo di base di Windows sono supportati?
+### <a name="what-windows-base-os-images-are-supported"></a>Quali immagini del sistema operativo di base di Windows sono supportate?
 
 #### <a name="windows-server-2016-base-images"></a>Immagini di base di Windows Server 2016
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x`, `sac2016`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,  `10.0.14393.x`
+* [Nano server](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x`,`sac2016`
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,`10.0.14393.x`
 
 > [!NOTE]
-> Non sono supportate immagini di Windows basate su canale semestrale versione 1709 o 1803.
+> Le immagini di Windows basate sulla versione del canale semestrale 1709 o 1803 non sono supportate.
 
-#### <a name="windows-server-2019-and-client-base-images-preview"></a>Client e Windows Server 2019 immagini di base (anteprima)
+#### <a name="windows-server-2019-and-client-base-images-preview"></a>Immagini di base di Windows Server 2019 e client (anteprima)
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.x`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.x`
-* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.x` 
+* [Nano server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`,`10.0.17763.x`
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`,`10.0.17763.x`
+* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`,`10.0.17763.x` 
 
-### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Quale livello di immagine .NET Core o .NET usare nel contenitore? 
+### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Quale livello immagine .NET o .NET Core è consigliabile usare nel contenitore? 
 
-Usare l'immagine più piccola che soddisfa i requisiti. Per Linux, è possibile usare una *runtime alpine* immagine .NET Core, che è stata supportata dal rilascio di .NET Core 2.1. Per Windows, se si usa la versione completa di .NET Framework, quindi è necessario usare un'immagine di Windows Server Core (immagine solo runtime, ad esempio *4.7.2-windowsservercore-ltsc2016*). Immagini solo di runtime sono più piccoli, ma non supportano i carichi di lavoro che richiedono .NET SDK.
+Usare l'immagine più piccola che soddisfa i requisiti. Per Linux, è possibile usare un'immagine di *Runtime* di .NET Core, supportata dalla versione di .net core 2,1. Per Windows, se si usa la .NET Framework completa, è necessario usare un'immagine di Windows Server Core (solo di runtime, ad esempio *4.7.2-windowsservercore-ltsc2016*). Le immagini solo in fase di esecuzione sono più piccole ma non supportano i carichi di lavoro che richiedono .NET SDK.
 
-## <a name="availability-and-quotas"></a>Disponibilità e le quote
+## <a name="availability-and-quotas"></a>Disponibilità e quote
 
-### <a name="how-many-cores-and-memory-should-i-allocate-for-my-containers-or-the-container-group"></a>Il numero di core e memoria devo allocare per i contenitori o il gruppo di contenitori?
+### <a name="how-many-cores-and-memory-should-i-allocate-for-my-containers-or-the-container-group"></a>Quanti core e memoria è necessario allocare per i contenitori o il gruppo di contenitori?
 
-Ciò dipende in realtà il carico di lavoro. Iniziare in piccolo e testare le prestazioni per vedere come i contenitori. [Monitorare l'utilizzo delle risorse di CPU e memoria](container-instances-monitor.md)e quindi aggiungere core o memoria in base al tipo di processi che si distribuisce nel contenitore. 
+Questo dipende in realtà dal carico di lavoro. Avviare piccole e prestazioni di test per verificare il funzionamento dei contenitori. [Monitorare l'utilizzo delle risorse di CPU e memoria](container-instances-monitor.md)e quindi aggiungere core o memoria in base al tipo di processi distribuiti nel contenitore. 
 
-Assicurarsi anche di controllare la [la disponibilità delle risorse](container-instances-region-availability.md#availability---general) per l'area in cui si distribuisce per i limiti superiori per core CPU e memoria disponibile per ogni gruppo di contenitori. 
+Assicurarsi anche di controllare la [disponibilità delle risorse](container-instances-region-availability.md#availability---general) per l'area in cui si esegue la distribuzione per i limiti superiori nei core CPU e la memoria disponibile per gruppo di contenitori. 
 
-### <a name="what-underlying-infrastructure-does-aci-run-on"></a>Il tipo di infrastruttura sottostante viene eseguita ACI?
+### <a name="what-underlying-infrastructure-does-aci-run-on"></a>Quale infrastruttura sottostante viene eseguita da ACI?
 
-Istanze di contenitore di Azure ha lo scopo di essere un servizio contenitori on demand senza server, pertanto è opportuno concentrare lo sviluppo dei contenitori e senza doversi preoccupare dell'infrastruttura. Per coloro che sono curioso di scoprire o necessità per eseguire confronti sulle prestazioni, ACI in esecuzione nel set di macchine virtuali di Azure dei vari SKU, principalmente dalla serie D e F. Si prevede che questa opzione per cambiare in futuro per continuare a sviluppare e ottimizzare il servizio. 
+Istanze di contenitore di Azure mira a essere un servizio di contenitori senza server su richiesta, quindi desideriamo concentrarci sullo sviluppo di contenitori senza preoccuparsi dell'infrastruttura. Per chi è curioso o desidera eseguire confronti con le prestazioni, ACI viene eseguito su set di macchine virtuali di Azure di vari SKU, principalmente dalla serie F e D. Si prevede che questo cambiamento verrà modificato in futuro, in quanto continuiamo a sviluppare e ottimizzare il servizio. 
 
-### <a name="i-want-to-deploy-thousand-of-cores-on-aci---can-i-get-my-quota-increased"></a>Vuole distribuire migliaia di core su ACI - è possibile ottenere l'aumento della quota?
+### <a name="i-want-to-deploy-thousand-of-cores-on-aci---can-i-get-my-quota-increased"></a>Se si vogliono distribuire migliaia di core in ACI, è possibile aumentare la quota?
  
-Sì (a volte). Vedere le [quote e limiti](container-instances-quotas.md) articolo per le quote correnti e limiti che possono essere incrementati di richiesta.
+Sì (a volte). Vedere l'articolo sulle quote [e sui limiti](container-instances-quotas.md) per le quote correnti e i limiti che possono essere aumentati per richiesta.
 
 ### <a name="can-i-deploy-with-more-than-4-cores-and-16-gb-of-ram"></a>È possibile distribuire con più di 4 core e 16 GB di RAM?
 
-Per il momento no. Attualmente, questi sono i valori massimi per un gruppo di contenitori. Contattare il supporto tecnico di Azure con le richieste o requisiti specifici. 
+Per il momento no. Attualmente, questi sono i valori massimi per un gruppo di contenitori. Contattare il supporto tecnico di Azure con requisiti o richieste specifici. 
 
-### <a name="when-will-aci-be-in-a-specific-region"></a>Quando potranno essere ACI in un'area specifica?
+### <a name="when-will-aci-be-in-a-specific-region"></a>Quando ACI si trova in un'area specifica?
 
-Aree di disponibilità corrente viene pubblicata [qui](container-instances-region-availability.md#availability---general). Se si dispone di un requisito per un'area specifica, contattare il supporto di Azure.
+La disponibilità dell'area corrente è pubblicata [qui](container-instances-region-availability.md#availability---general). Se si ha un requisito per un'area specifica, contattare il supporto tecnico di Azure.
 
-## <a name="features-and-scenarios"></a>Scenari e funzionalità
+## <a name="features-and-scenarios"></a>Funzionalità e scenari
 
-### <a name="how-do-i-scale-a-container-group"></a>Come si ridimensiona un gruppo di contenitori?
+### <a name="how-do-i-scale-a-container-group"></a>Ricerca per categorie ridimensionare un gruppo di contenitori?
 
-Attualmente, la scalabilità non è disponibile per i contenitori o gruppi di contenitori. Se è necessario eseguire più istanze, usare l'API per automatizzare e creare più richieste per la creazione del gruppo contenitore nel servizio. 
+Attualmente, il ridimensionamento non è disponibile per contenitori o gruppi di contenitori. Se è necessario eseguire più istanze, usare l'API per automatizzare e creare altre richieste di creazione del gruppo di contenitori per il servizio. 
 
-### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>Quali funzionalità sono disponibili nelle istanze in esecuzione in una rete virtuale personalizzata?
+### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>Quali funzionalità sono disponibili per le istanze in esecuzione in un VNet personalizzato?
 
-È possibile distribuire gruppi di contenitori in una rete virtuale di Azure di propria scelta e delegare gli indirizzi IP privati per i gruppi di contenitori per instradare il traffico all'interno della rete virtuale tra le risorse di Azure. Distribuzione di un gruppo di contenitori in una rete virtuale è attualmente in anteprima e alcuni aspetti di questa funzionalità possono cambiare prima della disponibilità generale (GA). Visualizzare [limitazioni dell'anteprima](container-instances-vnet.md#preview-limitations) per informazioni aggiornate.
+È possibile distribuire gruppi di contenitori in una rete virtuale di Azure di propria scelta e delegare gli indirizzi IP privati ai gruppi di contenitori per instradare il traffico all'interno della VNet tra le risorse di Azure. La distribuzione di un gruppo di contenitori in una rete virtuale è attualmente in anteprima ed è possibile che alcuni aspetti di questa funzionalità cambino prima della disponibilità generale (GA). Vedere [limitazioni di anteprima](container-instances-vnet.md#preview-limitations) per le informazioni aggiornate.
 
 ## <a name="pricing"></a>Prezzi
 
-### <a name="when-does-the-meter-start-running"></a>Quando il contatore inizia in esecuzione?
+### <a name="when-does-the-meter-start-running"></a>Quando si avvia l'esecuzione del contatore?
 
-Durata del gruppo di contenitori viene calcolata dal momento in cui si inizia a pull dell'immagine del contenitore prima (di una nuova distribuzione) o il gruppo di contenitori viene riavviato (se già stata distribuita), fino a quando non viene arrestato il gruppo di contenitori. Vedere i dettagli in [prezzi per le istanze di contenitore](https://azure.microsoft.com/pricing/details/container-instances/).
+La durata del gruppo di contenitori viene calcolata a partire dal momento in cui si inizia a eseguire il pull dell'immagine del primo contenitore (per una nuova distribuzione) o il gruppo di contenitori viene riavviato (se già distribuito), fino a quando non viene arrestato il gruppo di contenitori. Vedere i dettagli relativi ai [prezzi delle istanze del contenitore](https://azure.microsoft.com/pricing/details/container-instances/).
 
-### <a name="do-i-stop-being-charged-when-my-containers-are-stopped"></a>È possibile interrompere l'addebito quando i contenitori sono arrestati?
+### <a name="do-i-stop-being-charged-when-my-containers-are-stopped"></a>Si smette di pagare quando i contenitori vengono arrestati?
 
-I contatori di interrompere l'esecuzione di una volta arrestato il gruppo intero contenitore. Fino a quando un contenitore nel gruppo di contenitori è in esecuzione, abbiamo tenuto le risorse nel caso in cui si desidera avviare contenitori nuovamente. 
+I contatori vengono arrestati dopo che l'intero gruppo di contenitori è stato interrotto. Se è in esecuzione un contenitore nel gruppo di contenitori, le risorse vengono mantenute nel caso in cui si desideri riavviarle. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre informazioni](container-instances-overview.md) sulle istanze di contenitore di Azure.
-* [Risolvere i problemi comuni](container-instances-troubleshooting.md) in istanze di contenitore di Azure.
+* [Altre](container-instances-overview.md) informazioni sulle istanze di contenitore di Azure.
+* [Risolvere i problemi comuni](container-instances-troubleshooting.md) nelle istanze di contenitore di Azure.

@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: Caricare i dati su Azure SQL Data Warehouse | Microsoft Docs'
-description: Esercitazione Usa Azure portale e SQL Server Management Studio per caricare il data warehouse WideWorldImportersDW da un Azure globale blob ad Azure SQL Data Warehouse.
+description: L'esercitazione USA portale di Azure e SQL Server Management Studio per caricare il data warehouse WideWorldImportersDW da un BLOB di Azure globale a Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 04/17/2018
+ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e20667c0414f551a545e66b84da31c873c96dc48
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 30b4009b2f52f4949a380f0fc51b02f94c98d966
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67589015"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304286"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare i dati su Azure SQL Data Warehouse
 
@@ -78,9 +78,9 @@ Per creare un SQL Data Warehouse vuoto, eseguire la procedura seguente.
 
 5. Fare clic su **Seleziona**.
 
-6. Fare clic su **Livello di prestazioni** per specificare se il data warehouse è ottimizzato per l'elasticità o il calcolo e il numero di unità del data warehouse. 
+6. Fare clic su **livello di prestazioni** per specificare se il data warehouse è Gen1 o Gen2 e il numero di unità di data warehouse. 
 
-7. Per questa esercitazione selezionare il livello di servizio **Ottimizzato per l'elasticità**. Il dispositivo di scorrimento, per impostazione predefinita, è impostato su **DW400**.  Provare a spostarlo verso l'alto o il basso per vedere come funziona. 
+7. Per questa esercitazione selezionare il livello di servizio **Gen1** . Per impostazione predefinita, il dispositivo di scorrimento è impostato su **DW400**.  Provare a spostarlo verso l'alto o il basso per vedere come funziona. 
 
     ![configurare le prestazioni](media/load-data-wideworldimportersdw/configure-performance.png)
 
@@ -146,7 +146,7 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 2. Nella finestra di dialogo **Connetti al server** immettere le informazioni seguenti:
 
-    | Impostazione      | Valore consigliato | DESCRIZIONE | 
+    | Impostazione      | Valore consigliato | Descrizione | 
     | ------------ | --------------- | ----------- | 
     | Tipo di server | Motore di database | Questo valore è obbligatorio |
     | Nome del server | Nome completo del server | Ad esempio, **sample-svr.database.windows.net** è un nome di server completo. |
@@ -217,7 +217,7 @@ Il primo passo per caricare dati è eseguire l'accesso come LoaderRC60.
 
 Ora è possibile iniziare il processo di caricamento dei dati nel nuovo data warehouse. Per riferimento futuro, per sapere come inserire i dati nell'archivio BLOB di Azure o come caricarli direttamente dall'origine in SQL Data Warehouse, vedere la [panoramica del caricamento](sql-data-warehouse-overview-load.md).
 
-Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si vuole caricare. Queste informazioni includono la posizione dei dati, il formato del contenuto dei dati e la definizione della tabella per i dati. I dati si trovano in un Blob di Azure globali.
+Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si vuole caricare. Queste informazioni includono la posizione dei dati, il formato del contenuto dei dati e la definizione della tabella per i dati. I dati si trovano in un BLOB di Azure globale.
 
 1. Nella sezione precedente è stato eseguito l'accesso al data warehouse come LoaderRC60. In SSMS fare clic con il pulsante destro del mouse su **SampleDW** sotto la connessione LoaderRC60 e selezionare **Nuova query**.  Verrà visualizzata una nuova finestra di query, 
 
@@ -231,7 +231,7 @@ Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si
     CREATE MASTER KEY;
     ```
 
-4. Eseguire la seguente istruzione [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) per definire la posizione del BLOB di Azure. Questo è il percorso dei dati di utilità di importazione in tutto il mondo esterno.  Per eseguire un comando che è stato accodato nella finestra della query, evidenziare i comandi che si vuole eseguire e fare clic su **Esegui**.
+4. Eseguire la seguente istruzione [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) per definire la posizione del BLOB di Azure. Questo è il percorso dei dati esterni dell'utilità di importazione in tutto il mondo.  Per eseguire un comando che è stato accodato nella finestra della query, evidenziare i comandi che si vuole eseguire e fare clic su **Esegui**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -540,13 +540,13 @@ Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si
     );
     ```
 
-8. In Esplora oggetti espandere SampleDW per vedere l'elenco di tabelle esterne che è stato creato.
+8. In Esplora oggetti espandere SampleDW per visualizzare l'elenco delle tabelle esterne create.
 
     ![Visualizzare le tabelle esterne](media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Caricare i dati nel data warehouse
 
-Questa sezione Usa le tabelle esterne definite per caricare i dati di esempio dal Blob di Azure a SQL Data Warehouse.  
+Questa sezione usa le tabelle esterne definite per caricare i dati di esempio dal BLOB di Azure al SQL Data Warehouse.  
 
 > [!NOTE]
 > Questa esercitazione carica i dati direttamente nella tabella finale. In un ambiente di produzione si userà in genere CREATE TABLE AS SELECT per eseguire il caricamento in una tabella di staging. Mentre i dati si trovano nella tabella di staging è possibile eseguire le trasformazioni eventualmente necessarie. Per accodare i dati della tabella di staging a una tabella di produzione, è possibile usare l'istruzione INSERT...SELECT. Per altre informazioni, vedere [Inserimento di dati in una tabella di produzione](guidance-for-loading-data.md#inserting-data-into-a-production-table).
@@ -554,7 +554,7 @@ Questa sezione Usa le tabelle esterne definite per caricare i dati di esempio da
 
 Lo script usa l'istruzione T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) per caricare i dati dal BLOB del servizio di archiviazione di Azure nelle nuove tabelle del data warehouse. CTAS crea una nuova tabella in base ai risultati di un'istruzione SELECT. La nuova tabella ha le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT. Quando l'istruzione SELECT seleziona da una tabella esterna, SQL Data Warehouse importa i dati in una tabella relazionale del data warehouse. 
 
-Questo script non caricare i dati nelle tabelle dimension_date e wwi.fact_Sale. Queste tabelle sono generate in un passaggio successivo, in modo che possano avere un numero consistente di righe.
+Questo script non carica i dati nelle tabelle dimension_Date e la prima guerra. fact_Sale. Queste tabelle sono generate in un passaggio successivo, in modo che possano avere un numero consistente di righe.
 
 1. Eseguire lo script seguente per caricare i dati nelle nuove tabelle nel data warehouse.
 
@@ -750,7 +750,7 @@ Questo script non caricare i dati nelle tabelle dimension_date e wwi.fact_Sale. 
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Creare tabelle e procedure per generare le tabelle delle date e delle vendite
 
-In questa sezione vengono create le tabelle dimension_date e wwi.fact_Sale. Crea anche le stored procedure che possono generare milioni di righe nelle tabelle dimension_date e wwi.fact_Sale.
+Questa sezione Crea le tabelle della prima guerra. dimension_Date e della prima guerra. fact_Sale. Vengono inoltre create stored procedure in grado di generare milioni di righe nelle tabelle della prima guerra. dimension_Date e fact_Sale.
 
 1. Creare le tabelle dimension_Date e fact_Sale.  
 
@@ -893,7 +893,7 @@ In questa sezione vengono create le tabelle dimension_date e wwi.fact_Sale. Crea
     DROP table #days;
     END;
     ```
-4. Creare questa procedura per popolare le tabelle dimension_date e wwi.fact_Sale. La procedura chiama [wwi].[PopulateDateDimensionForYear] per popolare wwi.dimension_Date.
+4. Creare questa procedura per popolare le tabelle della prima guerra. dimension_Date e della prima guerra. fact_Sale. La procedura chiama [wwi].[PopulateDateDimensionForYear] per popolare wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -949,7 +949,7 @@ In questa sezione vengono create le tabelle dimension_date e wwi.fact_Sale. Crea
     ```
 
 ## <a name="generate-millions-of-rows"></a>Generare milioni di righe
-Utilizzare la stored procedure create per generare milioni di righe nella tabella wwi.fact_Sale e i dati corrispondenti nella tabella dimension_date. 
+Usare le stored procedure create per generare milioni di righe nella tabella della prima guerra. fact_Sale e i dati corrispondenti nella tabella della prima guerra. dimension_Date. 
 
 
 1. Eseguire questa procedura per inizializzare [wwi].[seed_Sale] con più righe.
@@ -958,7 +958,7 @@ Utilizzare la stored procedure create per generare milioni di righe nella tabell
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Eseguire questa procedura per popolare wwi.fact_Sale con 100.000 righe al giorno per ogni giorno dell'anno 2000.
+2. Eseguire questa procedura per popolare la prima guerra. fact_Sale con 100.000 righe al giorno per ogni giorno nell'anno 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -1098,7 +1098,7 @@ Seguire questa procedura per pulire le risorse nel modo desiderato.
 
     ![Pulire le risorse](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Se si vogliono mantenere i dati nelle risorse di archiviazione, è possibile sospendere il calcolo quando il data warehouse non è in uso. Da sospendendo il calcolo, sarà solo costo per l'archiviazione dei dati ed è possibile riprendere il calcolo ogni volta che si è pronti per lavorare con i dati. Per sospendere il calcolo, fare clic sul pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, fare clic su **Avvia**.
+2. Se si vogliono mantenere i dati nelle risorse di archiviazione, è possibile sospendere il calcolo quando il data warehouse non è in uso. Sospendendo il calcolo, l'archiviazione dei dati verrà addebitata solo ed è possibile riprendere il calcolo ogni volta che si è pronti per lavorare con i dati. Per sospendere il calcolo, fare clic sul pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, fare clic su **Avvia**.
 
 3. Per evitare di ricevere addebiti in futuro, è possibile eliminare il data warehouse. Per rimuovere il data warehouse in modo da non ricevere addebiti per calcoli o archiviazioni, fare clic su **Elimina**.
 
@@ -1120,7 +1120,7 @@ Sono state eseguite queste operazioni:
 > * È stato visualizzato lo stato di avanzamento dei dati durante il caricamento
 > * Sono state create statistiche sui nuovi dati caricati
 
-Passare alla panoramica sullo sviluppo per informazioni su come eseguire la migrazione di un database esistente in SQL Data Warehouse.
+Passare alla panoramica sullo sviluppo per informazioni su come eseguire la migrazione di un database esistente a SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Decisioni di progettazione per la migrazione di un database esistente in SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
+>[Decisioni di progettazione per la migrazione di un database esistente a SQL Data Warehouse](sql-data-warehouse-overview-develop.md)

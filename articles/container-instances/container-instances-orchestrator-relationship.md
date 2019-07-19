@@ -3,17 +3,18 @@ title: Istanze di Azure Container e orchestrazione dei contenitori
 description: Informazioni sull'interazione tra Istanze di Azure Container e agenti di orchestrazione dei contenitori.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: df9c3ecbec6dccd9ba8db2b375cfab3276005098
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c83648124f616670423b2ef459530c191d7e17e4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072978"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325768"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Istanze di Azure Container e agenti di orchestrazione dei contenitori
 
@@ -60,7 +61,7 @@ Per ridimensionare rapidamente i carichi di lavoro dell'applicazione in un clust
 
 I nodi virtuali supportano attualmente le istanze di contenitore di Linux. Per imparare a usare i nodi virtuali usare l'[interfaccia della riga di comando di Azure](https://go.microsoft.com/fwlink/?linkid=2047538) o il [portale di Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-I nodi virtuali usano il [kubelet virtuale][aci-connector-k8s] open source per simulare il [kubelet][kubelet-doc] di Kubernetes eseguendo la registrazione come nodo con capacità illimitata. Il kubelet virtuale recapita la creazione di [pod][pod-doc] come gruppi di contenitori in Istanze di Azure Container.
+I nodi virtuali usano il [Kubelet][aci-connector-k8s] to mimic the Kubernetes [kubelet][kubelet-doc] virtuale Open Source eseguendo la registrazione come nodo con capacità illimitata. Il Kubelet virtuale Invia la [creazione di][Pod Pod-doc] come gruppi di contenitori in istanze di contenitore di Azure.
 
 Vedere il progetto [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) (Kubelet virtuale) per altri esempi di estensione dell'API Kubernetes nelle piattaforme di contenitori senza server.
 

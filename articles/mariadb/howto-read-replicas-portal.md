@@ -1,31 +1,31 @@
 ---
-title: Creare e gestire le repliche di lettura nel Database di Azure per MariaDB
-description: Questo articolo descrive come configurare e gestire le repliche di lettura nel Database di Azure per MariaDB usando il portale
+title: Creare e gestire le repliche di lettura nel database di Azure per MariaDB
+description: Questo articolo descrive come configurare e gestire le repliche di lettura nel database di Azure per MariaDB usando il portale
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.openlocfilehash: eb228138118512c5c64574212910c5f16885ee94
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/12/2019
+ms.openlocfilehash: 902187c3462c54f728519aa1e6e60fbcc1eab20f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079028"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876317"
 ---
-# <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Come creare e gestire leggere repliche nel Database di Azure per MariaDB usando il portale di Azure
+# <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Come creare e gestire le repliche di lettura nel database di Azure per MariaDB usando il portale di Azure
 
-In questo articolo si apprenderà come creare e gestire le repliche di lettura nel Database di Azure per MariaDB servizio usando il portale di Azure.
+In questo articolo si apprenderà come creare e gestire le repliche di lettura nel database di Azure per il servizio MariaDB usando il portale di Azure.
 
 > [!IMPORTANT]
-> Stessa area di lettura delle repliche è attualmente disponibile in anteprima pubblica.
+> È possibile creare una replica di lettura nella stessa area del server master o in qualsiasi altra area di Azure di propria scelta. Le repliche di lettura (stessa area e tra più aree) sono attualmente in anteprima pubblica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un' [Database di Azure per MariaDB server](quickstart-create-mariadb-server-database-using-azure-portal.md) che verrà usato come server master.
+- Un [database di Azure per il server MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) che verrà usato come server master.
 
 > [!IMPORTANT]
-> La funzionalità di lettura della replica è disponibile solo per Database di Azure per i server MariaDB i piani tariffari utilizzo generico o con ottimizzazione per la memoria. Verificare che il server master sia incluso in uno di questi piani tariffari.
+> La funzionalità di lettura della replica è disponibile solo per i server di database di Azure per MariaDB nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria. Verificare che il server master sia incluso in uno di questi piani tariffari.
 
 ## <a name="create-a-read-replica"></a>Creare una replica in lettura
 
@@ -33,26 +33,30 @@ In questo articolo si apprenderà come creare e gestire le repliche di lettura n
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Selezionare il Database di Azure esistente per il server di MariaDB che si desidera utilizzare come master. Questa azione apre la pagina **Panoramica**.
+2. Selezionare il database di Azure per il server MariaDB che si vuole usare come master. Questa azione apre la pagina **Panoramica**.
 
 3. Selezionare **Replica** nel menu in **IMPOSTAZIONI**.
 
 4. Selezionare **Aggiungi replica**.
 
-   ![Database di Azure per MariaDB - replica](./media/howto-read-replica-portal/add-replica.png)
+   ![Database di Azure per MariaDB-replica](./media/howto-read-replica-portal/add-replica.png)
 
 5. Immettere un nome per il server di replica.
 
-    ![Database di Azure per MariaDB - nome della Replica](./media/howto-read-replica-portal/replica-name.png)
+    ![Database di Azure per MariaDB-nome replica](./media/howto-read-replica-portal/replica-name.png)
 
-6. Selezionare **OK** per confermare la creazione della replica.
+6. Selezionare il percorso per il server di replica. È possibile creare una replica in qualsiasi area di Azure. Il percorso predefinito è identico a quello del server master.
+
+    ![Database di Azure per MariaDB-percorso della replica](./media/howto-read-replica-portal/replica-location.png)
+
+7. Selezionare **OK** per confermare la creazione della replica.
 
 > [!NOTE]
 > Le repliche in lettura vengono create con la stessa configurazione server del master. La configurazione del server di replica può essere modificata dopo la creazione. È consigliabile mantenere nella configurazione del server di replica valori maggiori o uguali a quelli del master affinché la replica possa restare al passo con il master.
 
 Dopo che è stato creato, il server di replica può essere visualizzato nel pannello **Replica**.
 
-   ![Database di Azure per MariaDB - le repliche di elenco](./media/howto-read-replica-portal/list-replica.png)
+   ![Database di Azure per MariaDB-elenca repliche](./media/howto-read-replica-portal/list-replica.png)
 
 ## <a name="stop-replication-to-a-replica-server"></a>Arrestare la replica in un server di replica
 
@@ -61,41 +65,41 @@ Dopo che è stato creato, il server di replica può essere visualizzato nel pann
 
 Per arrestare la replica tra un server master e uno di replica dal portale di Azure, seguire questa procedura:
 
-1. Nel portale di Azure, selezionare il Database di Azure per MariaDB server master. 
+1. Nella portale di Azure selezionare il database master di Azure per il server MariaDB. 
 
 2. Selezionare **Replica** nel menu in **IMPOSTAZIONI**.
 
 3. Selezionare il server di replica per cui si vuole arrestare la replica.
 
-   ![Database di Azure per MariaDB - arresto del server seleziona replica](./media/howto-read-replica-portal/stop-replication-select.png)
+   ![Database di Azure per MariaDB-arresta la replica selezionare il server](./media/howto-read-replica-portal/stop-replication-select.png)
 
 4. Selezionare **Arresta replica**.
 
-   ![Database di Azure per MariaDB - arresto della replica](./media/howto-read-replica-portal/stop-replication.png)
+   ![Database di Azure per MariaDB-arresta replica](./media/howto-read-replica-portal/stop-replication.png)
 
 5. Confermare che si vuole arrestare la replica facendo clic su **OK**.
 
-   ![Conferma arresto della replica di Database di Azure per MariaDB-](./media/howto-read-replica-portal/stop-replication-confirm.png)
+   ![Database di Azure per MariaDB-arresta la conferma della replica](./media/howto-read-replica-portal/stop-replication-confirm.png)
 
 ## <a name="delete-a-replica-server"></a>Eliminare un server di replica
 
 Per eliminare un server di replica in lettura dal portale di Azure, seguire questa procedura:
 
-1. Nel portale di Azure, selezionare il Database di Azure per MariaDB server master.
+1. Nella portale di Azure selezionare il database master di Azure per il server MariaDB.
 
 2. Selezionare **Replica** nel menu in **IMPOSTAZIONI**.
 
 3. Selezionare il server di replica da eliminare.
 
-   ![Database di Azure per MariaDB - eliminare il server seleziona replica](./media/howto-read-replica-portal/delete-replica-select.png)
+   ![Database di Azure per MariaDB-eliminare il server di selezione della replica](./media/howto-read-replica-portal/delete-replica-select.png)
 
 4. Selezionare **Elimina replica**.
 
-   ![Database di Azure per MariaDB - Elimina replica](./media/howto-read-replica-portal/delete-replica.png)
+   ![Database di Azure per MariaDB-Elimina replica](./media/howto-read-replica-portal/delete-replica.png)
 
 5. Digitare il nome della replica e fare clic su **Elimina** per confermarne l'eliminazione.  
 
-   ![Eliminare la replica di Database di Azure per MariaDB - conferma](./media/howto-read-replica-portal/delete-replica-confirm.png)
+   ![Database di Azure per MariaDB-Elimina conferma replica](./media/howto-read-replica-portal/delete-replica-confirm.png)
 
 ## <a name="delete-a-master-server"></a>Eliminare un server master
 
@@ -104,19 +108,19 @@ Per eliminare un server di replica in lettura dal portale di Azure, seguire ques
 
 Per eliminare un server master dal portale di Azure, seguire questa procedura:
 
-1. Nel portale di Azure, selezionare il Database di Azure per MariaDB server master.
+1. Nella portale di Azure selezionare il database master di Azure per il server MariaDB.
 
 2. In **Panoramica** selezionare **Elimina**.
 
-   ![Database di Azure per MariaDB - master Delete](./media/howto-read-replica-portal/delete-master-overview.png)
+   ![Database di Azure per MariaDB-Elimina Master](./media/howto-read-replica-portal/delete-master-overview.png)
 
 3. Digitare il nome del server master e fare clic su **Elimina** per confermarne l'eliminazione.  
 
-   ![Database di Azure per MariaDB - master Delete](./media/howto-read-replica-portal/delete-master-confirm.png)
+   ![Database di Azure per MariaDB-Elimina Master](./media/howto-read-replica-portal/delete-master-confirm.png)
 
 ## <a name="monitor-replication"></a>Monitorare la replica
 
-1. Nel [portale di Azure](https://portal.azure.com/), selezionare la replica di Database di Azure per MariaDB server da monitorare.
+1. Nella [portale di Azure](https://portal.azure.com/)selezionare il database di Azure di replica per il server MariaDB che si vuole monitorare.
 
 2. Nella sezione **Monitoraggio** della barra laterale selezionare **Metriche**.
 
@@ -128,7 +132,7 @@ Per eliminare un server master dal portale di Azure, seguire questa procedura:
 
    ![Selezionare l'intervallo di tempo](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
 
-5. Visualizzare l'intervallo di replica per l'intervallo di tempo selezionato. L'immagine seguente visualizza gli ultimi 30 minuti per un carico di lavoro di grandi dimensioni.
+5. Visualizzare l'intervallo di replica per l'intervallo di tempo selezionato. Nell'immagine seguente vengono visualizzati gli ultimi 30 minuti per un carico di lavoro di grandi dimensioni.
 
    ![Selezionare l'intervallo di tempo](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 

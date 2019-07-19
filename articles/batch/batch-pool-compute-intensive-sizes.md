@@ -3,7 +3,7 @@ title: Usare macchine virtuali a elevato uso di calcolo con Batch | Microsoft Do
 description: Come sfruttare le dimensioni di una macchina virtuale HPC e GPU in pool di Azure Batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 687783520b082cdfd1a6ffc91a8641ea35fafd68
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776525"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323359"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usare istanze GPU o RDMA nei pool di Batch
 
@@ -37,7 +37,7 @@ Questo articolo fornisce istruzioni ed esempi per usare alcune delle dimensioni 
 > [!NOTE]
 > Determinate dimensioni di macchine virtuali potrebbero non essere disponibili nelle aree in cui si crea l'account Batch. Per verificare la disponibilità di una dimensione, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/) e [Scegliere una dimensione di macchina virtuale per un pool di Batch](batch-pool-vm-sizes.md).
 
-## <a name="dependencies"></a>Dependencies
+## <a name="dependencies"></a>Dipendenze
 
 Le funzionalità RDMA o GPU delle dimensioni a elevato utilizzo di calcolo in Batch sono supportate solo in alcuni sistemi operativi. L'elenco di sistemi operativi supportati è un subset di quelli supportati per le macchine virtuali create in queste dimensioni. A seconda di come si crea il pool di Batch, potrebbe essere necessario installare o configurare altri driver o altro software nei nodi. Le tabelle seguenti riepilogano queste dipendenze. Vedere gli articoli correlati per informazioni dettagliate. Per le opzioni per la configurazione di pool di Batch, vedere più avanti in questo articolo.
 
@@ -128,7 +128,7 @@ Per eseguire applicazioni CUDA in un pool di nodi NC di Linux, si devono install
 4. Creare un account in un'area che supporta le VM NC.
 5. Usando l'API Batch o il portale di Azure, creare un pool [usando l'immagine personalizzata](batch-custom-images.md) e con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool per l'immagine:
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | ---- | ---- |
 | **Tipo di immagine** | Immagine personalizzata |
 | **Immagine personalizzata** | *Nome dell'immagine* |
@@ -162,7 +162,7 @@ Per eseguire le applicazioni MPI in un pool di nodi Linux della serie H, è poss
 
 Usando l'API Batch o il portale di Azure, creare un pool usando questa immagine, con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool:
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | ---- | ---- |
 | **Tipo di immagine** | Marketplace (Linux/Windows) |
 | **Autore** | OpenLogic |

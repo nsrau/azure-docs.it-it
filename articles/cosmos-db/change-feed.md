@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 51a554586c67842ead40cd4a1bfaaa51bbdd8a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e450c0682a22a6e667a2bca153ce5d706a5bea96
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954407"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986246"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed di modifiche in Azure Cosmos DB - panoramica
 
@@ -35,10 +35,10 @@ La funzionalità è attualmente supportata dalle API e dagli SDK client Cosmos D
 
 | **Driver client** | **Interfaccia della riga di comando di Azure** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin**|**API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | NA | Yes | No | No | Sì | No |
-|Java|NA|Yes|No|No|Sì|No|
-|Python|NA|Yes|No|No|Sì|No|
-|Node/JS|NA|Yes|No|No|Sì|No|
+| .NET | ND | Yes | No | No | Sì | No |
+|Java|ND|Yes|No|No|Sì|No|
+|Python|ND|Yes|No|No|Sì|No|
+|Node/JS|ND|Sì|No|No|Sì|No|
 
 ## <a name="change-feed-and-different-operations"></a>Feed di modifiche e operazioni diverse
 
@@ -58,7 +58,7 @@ Se una proprietà TTL (Time to Live) è impostata su un elemento su -1, il feed 
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>Feed di modifiche e _etag, _lsn or _ts
 
-Il formato _etag è interno e non è consigliabile dipendere da esso, perché può cambiare in qualsiasi momento. _ts è un timestamp di creazione o di modifica. Si può usare _ts per confronti cronologici. _lsn è un ID batch che viene aggiunto per solo; del feed di modifiche rappresenta l'ID transazione. Molti elementi potrebbe avere lo stesso _lsn. ETag su FeedResponse è diverso dall'_etag che viene visualizzato nell'elemento. _etag è un identificatore interno utilizzato per il controllo della concorrenza e indica la versione dell'elemento mentre ETag viene utilizzato per la sequenziazione del feed.
+Il formato _etag è interno e non è consigliabile dipendere da esso, perché può cambiare in qualsiasi momento. _ts è un timestamp di creazione o di modifica. Si può usare _ts per confronti cronologici. _lsn è un ID batch aggiunto solo per il feed di modifiche. rappresenta l'ID della transazione. Molti elementi potrebbe avere lo stesso _lsn. ETag su FeedResponse è diverso dall'_etag che viene visualizzato nell'elemento. _etag è un identificatore interno utilizzato per il controllo della concorrenza e indica la versione dell'elemento mentre ETag viene utilizzato per la sequenziazione del feed.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Casi d'uso e scenari del feed di modifiche
 
@@ -94,7 +94,7 @@ Di seguito sono indicati alcuni degli scenari che è possibile implementare faci
 È possibile utilizzare il feed di modifiche utilizzando le opzioni seguenti:
 
 * [Feed di modifiche con Funzioni di Azure](change-feed-functions.md)
-* [Uso del feed di modifiche con la libreria del processore dei feed di modifiche](change-feed-processor.md) 
+* [Uso del feed delle modifiche con il processore del feed delle modifiche](change-feed-processor.md) 
 
 Il feed di modifiche è disponibile per ogni chiave di partizione logica nel contenitore, ed è quindi possibile distribuirlo a uno o più consumer per l'elaborazione parallela, come illustrato nell'immagine seguente.
 
@@ -108,7 +108,7 @@ Il feed di modifiche è disponibile per ogni chiave di partizione logica nel con
 
 * Il feed di modifiche include inserimenti e operazioni di aggiornamenti eseguite sugli elementi all'interno del contenitore. È possibile acquisire le eliminazioni impostando un flag "eliminazione temporanea" all'interno degli elementi (ad esempio, documenti) al posto delle eliminazioni. In alternativa, è possibile impostare un periodo di scadenza limitato per gli elementi con la [funzionalità TTL](time-to-live.md). Per esempio, 24 ore e utilizzare il valore di quella proprietà per acquisire le eliminazioni. Con questa soluzione è necessario elaborare le modifiche in un intervallo di tempo minore rispetto al periodo di scadenza TTL. 
 
-* Ogni modifica apportata a un elemento viene visualizzata una sola volta nel feed di modifiche e i client devono gestire la logica di checkpoint. Per evitare la complessità del checkpoint di gestione, la libreria del processore del feed di modifiche fornisce funzionalità di checkpoint automatiche e semantica di tipo "at least once". Vedere [Uso del feed di modifiche con la libreria del processore dei feed di modifiche](change-feed-processor.md).
+* Ogni modifica apportata a un elemento viene visualizzata una sola volta nel feed di modifiche e i client devono gestire la logica di checkpoint. Se si desidera evitare la complessità della gestione dei checkpoint, il processore del feed di modifiche fornisce il checkpoint automatico e la semantica "almeno una volta". Vedere [uso del feed di modifiche con il processore del feed delle modifiche](change-feed-processor.md).
 
 * Solo la modifica più recente per un determinato elemento viene inclusa nel registro modifiche. Le modifiche intermedie potrebbero non essere disponibili.
 
@@ -126,4 +126,4 @@ Il feed di modifiche è disponibile per ogni chiave di partizione logica nel con
 
 * [Opzioni per la lettura di feed di modifiche](read-change-feed.md)
 * [Feed di modifiche con Funzioni di Azure](change-feed-functions.md)
-* [Uso della libreria del processore dei feed di modifiche](change-feed-processor.md)
+* [Uso del processore del feed delle modifiche](change-feed-processor.md)

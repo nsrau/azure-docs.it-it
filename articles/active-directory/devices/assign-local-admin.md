@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11b71b4656181da328cf630cefa4d25cb4f4efda
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 35cb6cba02a1bdcf9f19c7f02b7e2ca4d01e0d3f
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482106"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67983674"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
 
@@ -75,7 +75,7 @@ Per impostazione predefinita, Azure AD aggiunge l'utente che esegue l'aggiunta a
 
 Oltre a usare il processo di aggiunta AD Azure, è anche possibile elevare manualmente un utente normale in modo che diventi un amministratore locale su un dispositivo specifico. Per eseguire questo passaggio, è necessario già essere un membro del gruppo Amministratori locale. 
 
-A partire dalla versione **Windows 10 1709**, è possibile eseguire questa attività da **Impostazioni -> Account -> Altri utenti**. Selezionare **Aggiungere un utente aziendale o dell'istituto di istruzione**, immettere l'UPN dell'utente in **Account utente** e selezionare *Amministratore* in **Tipo di account**  
+A partire dalla versione di **Windows 10 1709** , è possibile eseguire questa attività da **Settings-> accounts-> altri utenti**. Selezionare **Aggiungere un utente aziendale o dell'istituto di istruzione**, immettere l'UPN dell'utente in **Account utente** e selezionare *Amministratore* in **Tipo di account**  
  
 È anche possibile aggiungere gli utenti usando il prompt dei comandi:
 
@@ -93,4 +93,4 @@ Quando si rimuovono gli utenti dal ruolo Amministratore dispositivo, questi hann
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica sulla gestione del dispositivo nel portale di Azure AD, vedere [Gestione dei dispositivi tramite il portale di Azure](device-management-azure-portal.md)
-- Per altre informazioni sull'accesso condizionale basato su dispositivo, vedere [configurare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory](../conditional-access/require-managed-devices.md).
+- Per altre informazioni sull'accesso condizionale basato su dispositivo, vedere [configurare Azure Active Directory Criteri di accesso condizionale basato su dispositivo](../conditional-access/require-managed-devices.md).

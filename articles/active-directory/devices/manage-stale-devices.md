@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b64fd7efb00dabd1e1758ec631e6992d68bff2ab
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8e9c11613a9bdcaedad1a69662b2d6bd7bfefc3b
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481661"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867247"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedura: Gestire i dispositivi non aggiornati in Azure AD
 
@@ -43,7 +43,7 @@ Dal momento che un dispositivo non aggiornato è definito come dispositivo regis
 
 La valutazione del timestamp dell'attività viene attivata da un tentativo di autenticazione di un dispositivo. Azure AD valuta il timestamp dell'attività quando:
 
-- Un criteri di accesso condizionale che richiede [i dispositivi gestiti](../conditional-access/require-managed-devices.md) oppure [App client approvate](../conditional-access/app-based-conditional-access.md) è stata attivata.
+- È stato attivato un criterio di accesso condizionale che richiede [dispositivi gestiti](../conditional-access/require-managed-devices.md) o [app client](../conditional-access/app-based-conditional-access.md) approvate.
 - I dispositivi Windows 10 che sono aggiunti ad Azure AD o aggiunti ad Azure AD ibrido sono attivi nella rete. 
 - I dispositivi gestiti da Intune sono stati archiviati nel servizio.
 
@@ -129,7 +129,7 @@ Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, De
 mateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
-Se si dispone di un numero elevato di dispositivi nella directory, usare il filtro timestamp per limitare il numero di dispositivi restituiti. Per ottenere tutti i dispositivi con un timestamp precedente a una data specifica e archiviare i dati restituiti in un file CSV: 
+Se nella directory è presente un numero elevato di dispositivi, usare il filtro timestamp per limitare il numero di dispositivi restituiti. Per ottenere tutti i dispositivi con un timestamp precedente a una data specifica e archiviare i dati restituiti in un file CSV: 
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
@@ -145,6 +145,13 @@ Il timestamp viene aggiornato per supportare scenari del ciclo di vita dei dispo
 ### <a name="why-should-i-worry-about-my-bitlocker-keys"></a>Perché occorre preoccuparsi delle chiavi BitLocker?
 
 Quando sono configurate, le chiavi BitLocker per i dispositivi Windows 10 vengono archiviate nell'oggetto dispositivo in Azure AD. Se si elimina un dispositivo non aggiornato, vengono eliminate anche le chiavi BitLocker archiviate nel dispositivo. È necessario determinare se i criteri di pulizia sono allineati con l'effettivo ciclo di vita del dispositivo prima di eliminare un dispositivo non aggiornato. 
+
+### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Perché è necessario preoccuparsi dei dispositivi Windows Autopilot?
+
+Quando un dispositivo Azure AD è stato associato a un oggetto di Windows Autopilot, possono verificarsi i tre scenari seguenti se il dispositivo verrà riutilizzato in futuro:
+- Con le distribuzioni basate sugli utenti di Windows Autopilot senza usare il guanto bianco, viene creato un nuovo dispositivo Azure AD, che però non verrà contrassegnato con ZTDID.
+- Con le distribuzioni in modalità self-Deploying di Windows Autopilot, avranno esito negativo perché non è possibile trovare un dispositivo associato Azure AD.  (Si tratta di un meccanismo di sicurezza per assicurarsi che nessun dispositivo "imposto" provi a partecipare Azure AD senza credenziali). L'errore indicherà una mancata corrispondenza ZTDID.
+- Con le distribuzioni del guanto bianco di Windows Autopilot, non riusciranno perché non è possibile trovare un dispositivo Azure AD associato. (In background, le distribuzioni di guanti bianchi usano lo stesso processo di distribuzione automatica, quindi applicano gli stessi meccanismi di sicurezza).
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>Come si riconoscono tutti i tipi di dispositivi aggiunti?
 

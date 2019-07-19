@@ -6,15 +6,15 @@ keywords: codifica; codificatori; media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 06/12/2019
+ms.date: 08/16/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: e31ad51121b1b198e2d444e70c3f482b208ef105
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1f152f7f94c12beecf015d9389ed85cb310573bd
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840134"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297733"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificatori di streaming live consigliati
 
@@ -61,7 +61,7 @@ Servizi multimediali consiglia di usare uno dei codificatori live seguenti dotat
 - Media Excel Hero Live e Hero 4K (UHD/HEVC)
 
 > [!TIP]
->  Se si utilizza il flusso eventi live in più lingue (ad esempio, una traccia audio in lingua inglese e una traccia audio spagnolo), è possibile farlo con il codificatore live Media Excel configurato per inviare il feed in tempo reale a un evento Live pass-through.
+>  Se si esegue lo streaming di eventi Live in più lingue, ad esempio una traccia audio in lingua inglese e una traccia audio spagnola, è possibile eseguire questa operazione con il codificatore multimediale Excel Live configurato per inviare il feed live a un evento Live pass-through.
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Configurazione delle impostazioni del codificatore live locale
 
@@ -97,7 +97,7 @@ Servizi multimediali di Azure offre ai partner di codificatore locale il vantagg
 10. Combinare l'URL del passaggio 8 con il nome host del passaggio 9 per ottenere l'URL completo.
 11. Eseguire il codificatore live per circa 10 minuti.
 12. Arrestare l'evento live. 
-13. Usare un lettore, ad esempio [Azure Media Player](http://aka.ms/azuremediaplayer), per guardare la risorsa archiviata e accertarsi che la riproduzione non presenti anomalie visibili a tutti i livelli qualitativi. In alternativa, guardare e convalidare tramite l'anteprima URL durante la sessione live.
+13. Usare un lettore, ad esempio [Azure Media Player](https://aka.ms/azuremediaplayer), per guardare la risorsa archiviata e accertarsi che la riproduzione non presenti anomalie visibili a tutti i livelli qualitativi. In alternativa, guardare e convalidare tramite l'anteprima URL durante la sessione live.
 14. Registrare l'ID dell'asset, l'URL di streaming pubblicato per l'archivio live, le impostazioni e la versione usate dal codificatore live.
 15. Reimpostare lo stato dell'evento live dopo la creazione di ogni esempio.
 16. Ripetere i passaggi da 5 a 15 per tutte le configurazioni supportate dal codificatore (con e senza segnalazioni, sottotitoli o velocità di codifica diverse).
@@ -116,18 +116,18 @@ Servizi multimediali di Azure offre ai partner di codificatore locale il vantagg
 10. Combinare l'URL del passaggio 8 con il nome host del passaggio 9 per ottenere l'URL completo.
 11. Eseguire il codificatore live per circa 10 minuti.
 12. Arrestare l'evento live.
-13. Usare un lettore, ad esempio [Azure Media Player](http://aka.ms/azuremediaplayer), per guardare la risorsa archiviata e accertarsi che la riproduzione non presenti anomalie visibili a tutti i livelli qualitativi. In alternativa, guardare e convalidare tramite l'anteprima URL durante la sessione live.
+13. Usare un lettore, ad esempio [Azure Media Player](https://aka.ms/azuremediaplayer), per guardare la risorsa archiviata e accertarsi che la riproduzione non presenti anomalie visibili a tutti i livelli qualitativi. In alternativa, guardare e convalidare tramite l'anteprima URL durante la sessione live.
 14. Registrare l'ID dell'asset, l'URL di streaming pubblicato per l'archivio live, le impostazioni e la versione usate dal codificatore live.
 15. Reimpostare lo stato dell'evento live dopo la creazione di ogni esempio.
 16. Ripetere i passaggi da 5 a 15 per tutte le configurazioni supportate dal codificatore (con e senza segnalazioni, sottotitoli o velocità di codifica diverse).
 
 ### <a name="longevity-verification"></a>Verifica della durata
 
-Seguire gli stessi passaggi di [Verifica dell'evento live pass-through](#pass-through-live-event-verification), tranne il passaggio 11. <br/>Invece che per 10 minuti, eseguire il codificatore live per almeno una settimana. Usare un lettore, ad esempio [Azure Media Player](http://aka.ms/azuremediaplayer), per guardare di volta in volta lo streaming live (o la risorsa archiviata) e accertarsi che la riproduzione non presenti anomalie visibili.
+Seguire gli stessi passaggi di [Verifica dell'evento live pass-through](#pass-through-live-event-verification), tranne il passaggio 11. <br/>Invece che per 10 minuti, eseguire il codificatore live per almeno una settimana. Usare un lettore, ad esempio [Azure Media Player](https://aka.ms/azuremediaplayer), per guardare di volta in volta lo streaming live (o la risorsa archiviata) e accertarsi che la riproduzione non presenti anomalie visibili.
 
 ### <a name="email-your-recorded-settings"></a>Inviare tramite posta elettronica le impostazioni registrate
 
-Infine, inviare un messaggio di posta elettronica con le impostazioni registrate e i parametri di archiviazione live a Servizi multimediali di Azure all'indirizzo amslived@microsoft.com per notificare il superamento di tutti i controlli di autoverifica. Includere anche le proprie informazioni di contatto per successive comunicazioni. È possibile contattare il team di Servizi multimediali di Azure per qualsiasi domanda su questo processo.
+Infine, inviare un messaggio di posta elettronica con le impostazioni registrate e i parametri di archiviazione live a Servizi multimediali di Azure all'indirizzo amshelp@microsoft.com per notificare il superamento di tutti i controlli di autoverifica. Includere anche le proprie informazioni di contatto per successive comunicazioni. È possibile contattare il team di Servizi multimediali di Azure per qualsiasi domanda su questo processo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

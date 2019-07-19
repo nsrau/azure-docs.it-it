@@ -6,37 +6,37 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4f1bc1415fbb875120d7b64128cae69e1e3f442c
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 72bb11cd064c90c2bbe1e9e6452dcbf07fe37817
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339850"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304860"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
-Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-using-tags.md). La colonna con etichettata **supporta i tag** indica se il tipo di risorsa dispone di una proprietà per il tag. La colonna con etichettata **Tag nel report dei costi** indica se il tipo di risorsa passa al tag per il report dei costi.
+Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-using-tags.md). La colonna con etichetta **supporta i tag** indica se il tipo di risorsa ha una proprietà per il tag. La colonna etichetta **nel report dei costi** indica se il tipo di risorsa passa il tag al report dei costi.
 
 Per ottenere gli stessi dati come file con valori delimitati da virgole, scaricare [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| DomainServices | Yes | Yes |
+| DomainServices | Sì | Yes |
 | DomainServices/oucontainer | No | No |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | No |  No |
 | diagnosticSettingsCategories | No |  No |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | supportProviders | No |  No |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | aadsupportcases | No |  No |
 | addsservices | No |  No |
@@ -48,7 +48,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | services | No |  No |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | configurazioni | No |  No |
 | generateRecommendations | No |  No |
@@ -56,7 +56,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | suppressions | No |  No |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | actionRules | No |  No |
 | alerts | No |  No |
@@ -68,24 +68,24 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | smartGroups | No |  No |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| servers | Yes | Yes |
+| servers | Sì | Sì |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | reportFeedback | No |  No |
-| service | Yes | Yes |
+| servizio | Sì | Sì |
 | validateServiceName | No |  No |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | attestationProviders | No |  No |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | classicAdministrators | No |  No |
 | denyAssignments | No |  No |
@@ -100,17 +100,17 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | roleDefinitions | No |  No |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | automationAccounts | Yes | Yes |
-| automationAccounts/configurations | Yes | Yes |
+| automationAccounts/configurations | Yes | Sì |
 | automationAccounts/jobs | No |  No |
-| automationAccounts/runbooks | Yes | Yes |
+| automationAccounts/runbooks | Sì | Yes |
 | automationAccounts/softwareUpdateConfigurations | No | No |
 | automationAccounts/webhooks | No |  No |
 
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | environments | No |  No |
 | environments/accounts | No |  No |
@@ -118,24 +118,24 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | environments/accounts/namespaces/configurations | No |  No |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| b2cDirectories | Yes | No |
+| b2cDirectories | Sì | No |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | registrations | Yes | Yes |
 | registrations/customerSubscriptions | No |  No |
 | registrations/products | No |  No |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| batchAccounts | Yes | Yes |
+| batchAccounts | Sì | Sì |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | billingAccounts | No |  No |
 | billingAccounts/billingProfiles | No |  No |
@@ -189,18 +189,18 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | usagePlans | No |  No |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| mapApis | Yes | Yes |
+| mapApis | Sì | Sì |
 | updateCommunicationPreference | No |  No |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| BizTalk | Yes | Yes |
+| BizTalk | Yes | Sì |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | blueprintAssignments | No |  No |
 | blueprintAssignments/assignmentOperations | No |  No |
@@ -211,20 +211,20 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | blueprints/versions/artifacts | No |  No |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| botServices | Yes | Yes |
+| botServices | Yes | Sì |
 | botServices/channels | No |  No |
 | botServices/connections | No |  No |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| Redis | Yes | Yes |
+| Redis | Sì | Yes |
 | RedisConfigDefinition | No |  No |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | appliedReservations | No |  No |
 | calculatePrice | No |  No |
@@ -243,24 +243,24 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | validateReservationOrder | No |  No |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | edgenodes | No |  No |
-| Profili | Yes | Yes |
-| profiles/endpoints | Yes | Yes |
+| profiles | Yes | Sì |
+| profiles/endpoints | Sì | Yes |
 | profiles/endpoints/customdomains | No |  No |
 | profiles/endpoints/origins | No |  No |
 | validateProbe | No |  No |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | certificateOrders | Yes | Yes |
 | certificateOrders/certificates | No |  No |
 | validateCertificateRegistrationInformation | No |  No |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | capabilities | No |  No |
 | domainNames | No |  No |
@@ -279,12 +279,12 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | virtualMachines/diagnosticSettings | No |  No |
 
 ## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | classicInfrastructureResources | No |  No |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | capabilities | No |  No |
 | expressRouteCrossConnections | No |  No |
@@ -298,7 +298,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | virtualNetworks/virtualNetworkPeerings | No |  No |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | capabilities | No |  No |
 | disks | No |  No |
@@ -314,28 +314,28 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | vmImages | No |  No |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| account | Yes | Yes |
+| account | Yes | Sì |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | RateCard | No |  No |
 | UsageAggregates | No |  No |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | availabilitySets | Yes | Yes |
-| disks | Yes | Yes |
-| images | Yes | Yes |
-| restorePointCollections | Yes | Yes |
+| disks | Sì | Sì |
+| images | Yes | Sì |
+| restorePointCollections | Sì | Sì |
 | restorePointCollections/restorePoints | No |  No |
-| sharedVMImages | Yes | Yes |
-| sharedVMImages/versions | Yes | Yes |
-| snapshots | Yes | Yes |
-| virtualMachines | Yes | Yes |
+| sharedVMImages | Sì | Sì |
+| sharedVMImages/versions | Sì | Sì |
+| snapshots | Sì | Yes |
+| virtualMachines | Yes | Sì |
 | virtualMachines/diagnosticSettings | No |  No |
 | virtualMachines/extensions | Yes | Yes |
 | virtualMachineScaleSets | Yes | Yes |
@@ -346,7 +346,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | virtualMachineScaleSets/virtualMachines/networkInterfaces | No |  No |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | AggregatedCost | No |  No |
 | Saldi | No |  No |
@@ -364,24 +364,24 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | ReservationRecommendations | No |  No |
 | ReservationSummaries | No |  No |
 | ReservationTransactions | No |  No |
-| `Tags` | No |  No |
+| Tag | No |  No |
 | Termini | No |  No |
 | UsageDetails | No |  No |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| containerGroups | Yes | Yes |
+| containerGroups | Yes | Sì |
 | serviceAssociationLinks | No |  No |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| registries | Yes | Yes |
+| registries | Sì | Sì |
 | registries/builds | No |  No |
 | registries/builds/cancel | No |  No |
 | registries/builds/getLogLink | No |  No |
-| registries/buildTasks | Yes | Yes |
+| registries/buildTasks | Sì | Sì |
 | registries/buildTasks/steps | No |  No |
 | registries/eventGridFilters | No |  No |
 | registries/getBuildSourceUploadUrl | No |  No |
@@ -390,39 +390,39 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | registries/queueBuild | No |  No |
 | registries/regenerateCredential | No |  No |
 | registries/regenerateCredentials | No |  No |
-| registries/replications | Yes | Yes |
+| registries/replications | Yes | Sì |
 | registries/runs | No |  No |
 | registries/runs/cancel | No |  No |
 | registries/scheduleRun | No |  No |
-| registries/tasks | Yes | Yes |
+| registries/tasks | Sì | Sì |
 | registries/updatePolicies | No |  No |
-| registries/webhooks | Yes | Yes |
+| registries/webhooks | Sì | Sì |
 | registries/webhooks/getCallbackConfig | No |  No |
 | registries/webhooks/ping | No |  No |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| containerServices | Yes | Yes |
-| managedClusters | Yes | Yes |
+| containerServices | Yes | Sì |
+| managedClusters | Sì | Yes |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| scala Web | Yes | Yes |
+| scala Web | Sì | Sì |
 | updateCommunicationPreference | No |  No |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | Avvisi | No |  No |
 | BillingAccounts | No |  No |
-| Connettori | Yes | Yes |
+| Connettori | Sì | Yes |
 | Departments | No |  No |
 | Dimensioni | No |  No |
 | EnrollmentAccounts | No |  No |
@@ -432,9 +432,9 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | Report | No |  No |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| hubs | Yes | Yes |
+| hubs | Sì | Sì |
 | hubs/authorizationPolicies | No |  No |
 | hubs/connectors | No |  No |
 | hubs/connectors/mappings | No |  No |
@@ -449,79 +449,79 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | hubs/widgetTypes | No |  No |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| jobs | Yes | Yes |
+| jobs | Yes | Sì |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| DataBoxEdgeDevices | Yes | Yes |
+| DataBoxEdgeDevices | Yes | Sì |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| aree di lavoro | Yes | No |
+| aree di lavoro | Sì | No |
 | workspaces/virtualNetworkPeerings | No |  No |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| catalogs | Yes | Yes |
+| catalogs | Sì | Sì |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| connectionManagers | Yes | Yes |
+| connectionManagers | Sì | Yes |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| dataFactories | Yes | No |
+| dataFactories | Sì | No |
 | dataFactories/diagnosticSettings | No |  No |
 | dataFactorySchema | No |  No |
-| factories | Yes | No |
+| factories | Sì | No |
 | factories/integrationRuntimes | No |  No |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| account | Yes | Yes |
+| account | Yes | Sì |
 | accounts/dataLakeStoreAccounts | No |  No |
 | accounts/storageAccounts | No |  No |
 | accounts/storageAccounts/containers | No |  No |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| account | Yes | Yes |
+| account | Sì | Sì |
 | accounts/eventGridFilters | No |  No |
 | accounts/firewallRules | No |  No |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| services | Yes | Yes |
-| services/projects | Yes | Yes |
+| services | Yes | Sì |
+| services/projects | Sì | Yes |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| servers | Yes | Yes |
+| servers | Sì | Yes |
 | servers/recoverableServers | No |  No |
 | servers/virtualNetworkRules | No |  No |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| servers | Yes | Yes |
+| servers | Sì | Yes |
 | servers/recoverableServers | No |  No |
 | servers/virtualNetworkRules | No |  No |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| servers | Yes | Yes |
+| servers | Sì | Sì |
 | servers/advisors | No |  No |
 | servers/queryTexts | No |  No |
 | servers/recoverableServers | No |  No |
@@ -530,52 +530,52 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | servers/waitStatistics | No |  No |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| Hub IoT | Yes | Yes |
+| Hub IoT | Sì | Yes |
 | IotHubs/eventGridFilters | No |  No |
-| ProvisioningServices | Yes | Yes |
+| ProvisioningServices | Sì | Sì |
 | usages | No |  No |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| controllers | Yes | Yes |
+| controllers | Sì | Sì |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | labs | Yes | Yes |
-| labs/serviceRunners | Yes | Yes |
-| labs/virtualMachines | Yes | Yes |
-| schedules | Yes | Yes |
+| labs/serviceRunners | Sì | Sì |
+| labs/virtualMachines | Sì | Yes |
+| schedules | Yes | Sì |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | databaseAccountNames | No |  No |
 | databaseAccounts | Yes | Yes |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| domains | Yes | Yes |
+| domains | Sì | Yes |
 | domains/domainOwnershipIdentifiers | No |  No |
 | generateSsoRequest | No |  No |
 | topLevelDomains | No |  No |
 | validateDomainRegistrationInformation | No |  No |
 
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | lcsprojects | No |  No |
 | lcsprojects/clouddeployments | No |  No |
 | lcsprojects/connectors | No |  No |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| domains | Yes | No |
+| domains | Sì | No |
 | domains/topics | No |  No |
 | eventSubscriptions | No |  No |
 | extensionTopics | No |  No |
@@ -583,10 +583,10 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | topicTypes | No |  No |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | clusters | Yes | No |
-| spazi dei nomi | Yes | No |
+| spazi dei nomi | Sì | No |
 | namespaces/authorizationrules | No |  No |
 | namespaces/disasterrecoveryconfigs | No |  No |
 | namespaces/eventhubs | No |  No |
@@ -594,13 +594,13 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | namespaces/eventhubs/consumergroups | No |  No |
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | funzionalità | No |  No |
 | provider | No |  No |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | enroll | No |  No |
 | galleryitems | No |  No |
@@ -616,29 +616,29 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | retrieveresourcesbyid | No |  No |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | guestConfigurationAssignments | No |  No |
 | software | No |  No |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| hanaInstances | Yes |  Yes |
+| hanaInstances | Yes |  Sì |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| clusters | Yes | Yes |
+| clusters | Yes | Sì |
 | clusters/applications | No |  No |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | jobs | Yes | Yes |
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | labelGroups | No |  No |
 | labelGroups/labels | No |  No |
@@ -647,16 +647,16 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | labelGroups/labels/subLabels/conditions | No |  No |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| actiongroups | Yes | Yes |
-| activityLogAlerts | Yes | Yes |
+| actiongroups | Sì | Sì |
+| activityLogAlerts | Sì | Yes |
 | alertrules | Yes | Yes |
 | automatedExportSettings | No |  No |
-| autoscalesettings | Yes | Yes |
+| autoscalesettings | Sì | Yes |
 | baseline | No |  No |
 | calculatebaseline | No |  No |
-| components | Yes | Yes |
+| components | Sì | Yes |
 | components/events | No |  No |
 | components/pricingPlans | No |  No |
 | components/query | No |  No |
@@ -668,111 +668,111 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | logDefinitions | No |  No |
 | logprofiles | No |  No |
 | logs | No |  No |
-| metricAlerts | Yes | Yes |
+| metricAlerts | Yes | Sì |
 | migrateToNewPricingModel | No |  No |
 | myWorkbooks | No |  No |
 | query | No |  No |
 | rollbackToLegacyPricingModel | No |  No |
-| scheduledqueryrules | Yes | Yes |
+| scheduledqueryrules | Sì | Sì |
 | vmInsightsOnboardingStatuses | No |  No |
-| webtests | Yes | Yes |
-| workbooks | Yes | Yes |
+| webtests | Sì | Sì |
+| workbooks | Sì | Sì |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | No |  No |
 | diagnosticSettingsCategories | No |  No |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | IoTApps | Yes | Yes |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| Grafico | Yes | Yes |
+| Grafico | Sì | Sì |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | deletedVaults | No |  No |
-| insiemi di credenziali | Yes | Yes |
+| insiemi di credenziali | Sì | Sì |
 | vaults/accessPolicies | No |  No |
 | vaults/secrets | No |  No |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| clusters | Yes | Yes |
+| clusters | Sì | Sì |
 | clusters/databases | No |  No |
 | clusters/databases/dataconnections | No |  No |
 | clusters/databases/eventhubconnections | No |  No |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| labaccounts | Yes | Yes |
+| labaccounts | Yes | Sì |
 | users | No |  No |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | logs | No |  No |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| integrationAccounts | Yes | Yes |
-| flussi di lavoro | Yes | Yes |
+| integrationAccounts | Sì | Yes |
+| flussi di lavoro | Sì | Yes |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| commitmentPlans | Yes | Yes |
-| webServices | Yes | Yes |
-| Aree di lavoro | Yes | Yes |
+| commitmentPlans | Sì | Sì |
+| webServices | Sì | Yes |
+| Aree di lavoro | Sì | Sì |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| account | Yes | Yes |
-| accounts/workspaces | Yes | Yes |
-| accounts/workspaces/projects | Yes | Yes |
+| account | Sì | Yes |
+| accounts/workspaces | Sì | Sì |
+| accounts/workspaces/projects | Sì | Sì |
 | teamAccounts | Yes | Yes |
-| teamAccounts/workspaces | Yes | Yes |
-| teamAccounts/workspaces/projects | Yes | Yes |
+| teamAccounts/workspaces | Sì | Sì |
+| teamAccounts/workspaces/projects | Sì | Sì |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| account | Yes | Yes |
+| account | Sì | Sì |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| aree di lavoro | Yes | Yes |
+| aree di lavoro | Sì | Sì |
 | workspaces/computes | No |  No |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | Identities | No |  No |
-| userAssignedIdentities | Yes | 
+| userAssignedIdentities | Sì | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | getEntities | No |  No |
 | managementGroups | No |  No |
@@ -781,13 +781,13 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | tenantBackfillStatus | No |  No |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| account | Yes | Yes |
+| account | Sì | Yes |
 | accounts/eventGridFilters | No |  No |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | offers | No |  No |
 | offerTypes | No |  No |
@@ -801,19 +801,19 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | products | No |  No |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| classicDevServices | Yes | Yes |
+| classicDevServices | Sì | Sì |
 | updateCommunicationPreference | No |  No |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | agreements | No |  No |
 | offertypes | No |  No |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | mediaservices | Yes | Yes |
 | mediaservices/accountFilters | No |  No |
@@ -822,34 +822,34 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | mediaservices/contentKeyPolicies | No |  No |
 | mediaservices/eventGridFilters | No |  No |
 | mediaservices/liveEventOperations | No |  No |
-| mediaservices/liveEvents | Yes | Yes |
+| mediaservices/liveEvents | Sì | Sì |
 | mediaservices/liveEvents/liveOutputs | No |  No |
 | mediaservices/liveOutputOperations | No |  No |
 | mediaservices/streamingEndpointOperations | No |  No |
-| mediaservices/streamingEndpoints | Yes | Yes |
+| mediaservices/streamingEndpoints | Sì | Sì |
 | mediaservices/streamingLocators | No |  No |
 | mediaservices/streamingPolicies | No |  No |
 | mediaservices/transforms | No |  No |
 | mediaservices/transforms/jobs | No |  No |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| projects | Yes | Yes |
+| projects | Yes | Sì |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| applicationGateways | Yes | No |
-| applicationSecurityGroups | Yes | Yes |
+| applicationGateways | Sì | No |
+| applicationSecurityGroups | Sì | Sì |
 | azureFirewallFqdnTags | No |  No |
-| azureFirewalls | Yes | No |
+| azureFirewalls | Sì | No |
 | bgpServiceCommunities | No |  No |
-| connections | Yes | Yes |
-| ddosCustomPolicies | Yes | Yes |
-| ddosProtectionPlans | Yes | Yes |
+| connections | Yes | Sì |
+| ddosCustomPolicies | Sì | Sì |
+| ddosProtectionPlans | Sì | Sì |
 | dnsOperationStatuses | No |  No |
-| dnszones | Yes | Yes |
+| dnszones | Sì | Sì |
 | dnszones/A | No |  No |
 | dnszones/AAAA | No |  No |
 | dnszones/all | No |  No |
@@ -864,53 +864,53 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | dnszones/TXT | No |  No |
 | expressRouteCircuits | Yes  | No |
 | expressRouteServiceProviders | No |  No |
-| frontdoors | Sì, ma limitato (vedere [nota sotto](#frontdoor)) | Yes |
-| frontdoorWebApplicationFirewallPolicies | Sì, ma limitato (vedere [nota sotto](#frontdoor)) | Yes |
+| frontdoors | Sì, ma limitato (vedere la [Nota di seguito](#frontdoor)) | Sì |
+| frontdoorWebApplicationFirewallPolicies | Sì, ma limitato (vedere la [Nota di seguito](#frontdoor)) | Sì |
 | getDnsResourceReference | No |  No |
-| interfaceEndpoints | Yes | Yes |
+| interfaceEndpoints | Sì | Sì |
 | internalNotify | No |  No |
 | loadBalancers | Yes | No |
-| localNetworkGateways | Yes | Yes |
-| natGateways | Yes | Yes |
+| localNetworkGateways | Sì | Sì |
+| natGateways | Yes | Sì |
 | networkIntentPolicies | Yes | Yes |
 | networkInterfaces | Yes | Yes |
-| networkProfiles | Yes | Yes |
-| networkSecurityGroups | Yes | Yes |
-| networkWatchers | Yes | No |
-| networkWatchers/connectionMonitors | Yes | No |
-| networkWatchers/lenses | Yes | No |
-| networkWatchers/pingMeshes | Yes | No |
-| privateLinkServices | Yes | Yes |
-| publicIPAddresses | Yes | Yes |
-| publicIPPrefixes | Yes | Yes |
-| routeFilters | Yes | Yes |
-| routeTables | Yes | Yes |
-| serviceEndpointPolicies | Yes | Yes |
+| networkProfiles | Sì | Sì |
+| networkSecurityGroups | Sì | Sì |
+| networkWatchers | Sì | No |
+| networkWatchers/connectionMonitors | Sì | No |
+| networkWatchers/lenses | Sì | No |
+| networkWatchers/pingMeshes | Sì | No |
+| privateLinkServices | Yes | Sì |
+| publicIPAddresses | Sì | Sì |
+| publicIPPrefixes | Sì | Sì |
+| routeFilters | Yes | Sì |
+| routeTables | Sì | Sì |
+| serviceEndpointPolicies | Yes | Sì |
 | trafficManagerGeographicHierarchies | No |  No |
-| trafficmanagerprofiles | Yes | Yes |
+| trafficmanagerprofiles | Sì | Sì |
 | trafficmanagerprofiles/heatMaps | No |  No |
-| virtualHubs | Yes | Yes |
-| virtualNetworkGateways | Yes | No |
-| virtualNetworks | Yes | Yes |
+| virtualHubs | Sì | Yes |
+| virtualNetworkGateways | Sì | Sì |
+| virtualNetworks | Sì | Sì |
 | virtualNetworks/subnets | No |  No |
 | virtualNetworkTaps | Yes | Yes |
-| virtualWans | Yes | Yes |
-| vpnGateways | Yes | No |
-| vpnSites | Yes | Yes |
-| webApplicationFirewallPolicies | Yes | Yes |
+| virtualWans | Sì | Sì |
+| vpnGateways | Sì | No |
+| vpnSites | Yes | Sì |
+| webApplicationFirewallPolicies | Sì | Sì |
 
 <a id="frontdoor" />
 
-Per il servizio di ingresso principale di Azure, è possibile applicare tag quando si crea la risorsa, ma l'aggiornamento o l'aggiunta di tag non è attualmente supportato.
+Per il servizio front-end di Azure, è possibile applicare tag quando si crea la risorsa, ma non è attualmente supportata l'aggiornamento o l'aggiunta di tag.
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| spazi dei nomi | Yes | No |
-| namespaces/notificationHubs | Yes | No |
+| spazi dei nomi | Sì | No |
+| namespaces/notificationHubs | Sì | No |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | devices | No |  No |
 | linkTargets | No |  No |
@@ -921,15 +921,15 @@ Per il servizio di ingresso principale di Azure, è possibile applicare tag quan
 | workspaces/query | No |  No |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | managementassociations | No |  No |
-| managementconfigurations | Yes | Yes |
-| solutions | Yes | Yes |
-| Viste | Yes | Yes |
+| managementconfigurations | Sì | Yes |
+| solutions | Sì | Sì |
+| Viste | Sì | Sì |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | policyEvents | No |  No |
 | policyStates | No |  No |
@@ -937,35 +937,35 @@ Per il servizio di ingresso principale di Azure, è possibile applicare tag quan
 | remediations | No |  No |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | consoles | No |  No |
-| dashboards | Yes | Yes |
+| dashboards | Sì | Sì |
 | userSettings | No |  No |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| workspaceCollections | Yes | Yes |
+| workspaceCollections | Sì | Yes |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| capacities | Yes | Yes |
+| capacities | Sì | Sì |
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | account | Yes | Yes |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | backupProtectedItems | No |  No |
-| insiemi di credenziali | Yes | Yes |
+| insiemi di credenziali | Sì | Sì |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | spazi dei nomi | Yes | Yes |
 | namespaces/authorizationrules | No |  No |
@@ -975,13 +975,13 @@ Per il servizio di ingresso principale di Azure, è possibile applicare tag quan
 | namespaces/wcfrelays/authorizationrules | No |  No |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | resources | No |  No |
 | subscriptionsStatus | No |  No |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | availabilityStatuses | No |  No |
 | childAvailabilityStatuses | No |  No |
@@ -991,7 +991,7 @@ Per il servizio di ingresso principale di Azure, è possibile applicare tag quan
 | Notifiche | No |  No |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | deployments | No |  No |
 | deployments/operations | No |  No |
@@ -1010,25 +1010,25 @@ Per il servizio di ingresso principale di Azure, è possibile applicare tag quan
 | tenants | No |  No |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | scala Web | Yes | Yes |
 | saasresources | No |  No |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| flows | Yes | Yes |
-| jobcollections | Yes | Yes |
+| flows | Sì | Yes |
+| jobcollections | Sì | Sì |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | resourceHealthMetadata | No |  No |
-| searchServices | Yes | Yes |
+| searchServices | Sì | Sì |
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | advancedThreatProtectionSettings | No |  No |
 | alerts | No |  No |
@@ -1063,15 +1063,15 @@ Per il servizio di ingresso principale di Azure, è possibile applicare tag quan
 | workspaceSettings | No |  No |
 
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | No |  No |
 | diagnosticSettingsCategories | No |  No |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| spazi dei nomi | Yes | No |
+| spazi dei nomi | Sì | No |
 | namespaces/authorizationrules | No |  No |
 | namespaces/disasterrecoveryconfigs | No |  No |
 | namespaces/eventgridfilters | No |  No |
@@ -1084,39 +1084,39 @@ Per il servizio di ingresso principale di Azure, è possibile applicare tag quan
 | premiumMessagingRegions | No |  No |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| clusters | Yes | Yes |
+| clusters | Sì | Sì |
 | clusters/applications | No |  No |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| scala Web | Yes | Yes |
+| scala Web | Sì | Sì |
 | gateways | Yes | Yes |
-| networks | Yes | Yes |
-| chiavi private | Yes | Yes |
-| volumes | Yes | Yes |
+| networks | Sì | Sì |
+| chiavi private | Sì | Yes |
+| volumes | Sì | Sì |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | SignalR | Yes | Yes |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| applianceDefinitions | Yes | Yes |
-| appliances | Yes | Yes |
+| applianceDefinitions | Sì | Yes |
+| appliances | Sì | Yes |
 | applicationDefinitions | Yes | Yes |
-| scala Web | Yes | Yes |
+| scala Web | Sì | Yes |
 | jitRequests | Yes | Yes |
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | managedInstances | Yes | Yes |
-| managedInstances/databases | Sì (vedere la nota seguente) | Yes |
+| managedInstances/databases | Sì (vedere la nota seguente) | Sì |
 | managedInstances/databases/backupShortTermRetentionPolicies | No | No |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | No | No |
 | managedInstances/databases/vulnerabilityAssessments | No | No |
@@ -1125,10 +1125,10 @@ Per il servizio di ingresso principale di Azure, è possibile applicare tag quan
 | managedInstances/keys | No | No |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | No | No |
 | managedInstances/vulnerabilityAssessments | No | No |
-| servers | Yes | Yes |
+| servers | Sì | Sì |
 | servers/administrators | No |  No |
 | servers/communicationLinks | No |  No |
-| servers/databases | Sì (vedere la nota seguente) | Yes |
+| servers/databases | Sì (vedere la nota seguente) | Sì |
 | servers/encryptionProtector | No |  No |
 | servers/firewallRules | No |  No |
 | servers/keys | No |  No |
@@ -1141,14 +1141,14 @@ Per il servizio di ingresso principale di Azure, è possibile applicare tag quan
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | SqlVirtualMachineGroups | Yes | Yes |
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | No |  No |
-| SqlVirtualMachines | Yes | Yes |
+| SqlVirtualMachines | Sì | Yes |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | storageAccounts | Yes | Yes |
 | storageAccounts/blobServices | No |  No |
@@ -1159,9 +1159,9 @@ Per il servizio di ingresso principale di Azure, è possibile applicare tag quan
 | usages | No |  No |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| storageSyncServices | Yes | Yes |
+| storageSyncServices | Sì | Yes |
 | storageSyncServices/registeredServers | No |  No |
 | storageSyncServices/syncGroups | No |  No |
 | storageSyncServices/syncGroups/cloudEndpoints | No |  No |
@@ -1169,54 +1169,54 @@ Per il servizio di ingresso principale di Azure, è possibile applicare tag quan
 | storageSyncServices/workflows | No |  No |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| managers | Yes | Yes |
+| managers | Yes | Sì |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| streamingjobs | Sì (vedere la nota seguente) | Yes |
+| streamingjobs | Sì (vedere la nota seguente) | Sì |
 | streamingjobs/diagnosticSettings | No |  No |
 
 > [!NOTE]
 > Impossibile aggiungere un tag quando streamingjobs è in esecuzione. Interrompere la risorsa per aggiungere un tag.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | CreateSubscription | No |  No |
 | SubscriptionDefinitions | No |  No |
 | SubscriptionOperations | No |  No |
 
 ## <a name="microsoftsupport"></a>microsoft.support
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | supporttickets | No |  No |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| providerRegistrations | Yes | Yes |
-| resources | Yes | Yes |
+| providerRegistrations | Sì | Sì |
+| resources | Yes | Sì |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | environments | Yes | No |
 | environments/accessPolicies | No |  No |
-| environments/eventsources | Yes | No |
-| environments/referenceDataSets | Yes | No |
+| environments/eventsources | Sì | No |
+| environments/referenceDataSets | Sì | No |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| account | Yes | Yes |
-| account/extension | Yes | Yes |
-| account/project | Yes | Yes |
+| account | Sì | Sì |
+| account/extension | Sì | Sì |
+| account/project | Yes | Sì |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | apiManagementAccounts | No |  No |
 | apiManagementAccounts/apiAcls | No |  No |
@@ -1229,13 +1229,13 @@ Per il servizio di ingresso principale di Azure, è possibile applicare tag quan
 | apiManagementAccounts/connectionAcls | No |  No |
 | apiManagementAccounts/connections | No |  No |
 | billingMeters | No |  No |
-| certificates | Yes | Yes |
-| connectionGateways | Yes | Yes |
-| connections | Yes | Yes |
-| customApis | Yes | Yes |
+| certificates | Sì | Yes |
+| connectionGateways | Sì | Yes |
+| connections | Sì | Sì |
+| customApis | Yes | Sì |
 | deletedSites | No |  No |
 | functions | No |  No |
-| hostingEnvironments | Yes | Yes |
+| hostingEnvironments | Yes | Sì |
 | hostingEnvironments/multiRolePools | No |  No |
 | hostingEnvironments/multiRolePools/instances | No |  No |
 | hostingEnvironments/workerPools | No |  No |
@@ -1244,17 +1244,17 @@ Per il servizio di ingresso principale di Azure, è possibile applicare tag quan
 | raccomandazioni di film | No |  No |
 | resourceHealthMetadata | No |  No |
 | runtimes | No |  No |
-| serverFarms | Yes | Yes |
+| serverFarms | Yes | Sì |
 | serverFarms/workers | No |  No |
 | siti | Yes | Yes |
 | sites/domainOwnershipIdentifiers | No |  No |
 | sites/hostNameBindings | No |  No |
 | sites/instances | No |  No |
 | sites/instances/extensions | No |  No |
-| sites/premieraddons | Yes | Yes |
+| sites/premieraddons | Sì | Sì |
 | sites/recommendations | No |  No |
 | sites/resourceHealthMetadata | No |  No |
-| sites/slots | Yes | Yes |
+| sites/slots | Sì | Sì |
 | sites/slots/hostNameBindings | No |  No |
 | sites/slots/instances | No |  No |
 | sites/slots/instances/extensions | No |  No |
@@ -1263,18 +1263,18 @@ Per il servizio di ingresso principale di Azure, è possibile applicare tag quan
 | verifyHostingEnvironmentVnet | No |  No |
 
 ## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | No |  No |
 | diagnosticSettingsCategories | No |  No |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
-| DeviceServices | Yes | Yes |
+| DeviceServices | Sì | Yes |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
-| Tipo di risorsa | Tag supportati | Applicare i tag nei report dei costi |
+| Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 | ------------- | ----------- | ----------- |
 | components | No |  No |
 | componentsSummary | No |  No |

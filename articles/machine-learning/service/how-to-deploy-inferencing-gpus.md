@@ -1,7 +1,7 @@
 ---
-title: Distribuire un modello per inferenza con GPU
+title: Distribuire un modello per l'inferenza con GPU
 titleSuffix: Azure Machine Learning service
-description: Questo articolo illustra come usare il servizio Azure Machine Learning per distribuire un modello come un service.service web e le richieste di inferenza di punteggio per l'apprendimento avanzato Tensorflow abilitate per GPU.
+description: Questo articolo illustra come usare il servizio Azure Machine Learning per distribuire un modello di apprendimento avanzato Tensorflow abilitato per GPU come servizio Web. servizio e richieste di inferenza dei punteggi.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,41 +10,41 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/01/2019
-ms.openlocfilehash: 8086d059913cc61bff0bca31681368bea6d76777
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: eeb1bc35e0438a7e99ea5ed8284f0c8611108da0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543809"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326982"
 ---
-# <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuire un modello di apprendimento avanzato per inferenza con GPU
+# <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuire un modello di apprendimento avanzato per l'inferenza con GPU
 
-Questo articolo illustra come usare il servizio Azure Machine Learning per distribuire un modello come servizio web di apprendimento approfondito Tensorflow abilitate per GPU.
+Questo articolo illustra come usare il servizio Azure Machine Learning per distribuire un modello di apprendimento avanzato Tensorflow abilitato per GPU come servizio Web.
 
-Distribuire il modello a un cluster Azure Kubernetes Service (AKS) per eseguire l'inferenza abilitate per GPU. Inferenza o modello di punteggio, è la fase in cui viene usato il modello distribuito per la stima. Utilizzo GPU anziché CPU offrono prestazioni vantaggi nel calcolo altamente parallelizzabile.
+Distribuire il modello in un cluster Azure Kubernetes Service (AKS) per eseguire l'inferenza tramite GPU. L'inferenza o il punteggio del modello è la fase in cui il modello distribuito viene utilizzato per la stima. L'uso di GPU anziché delle CPU offre vantaggi a livello di prestazioni per il calcolo altamente eseguibili.
 
-Anche se in questo esempio Usa un modello TensorFlow, è possibile applicare la procedura seguente per qualsiasi framework di machine learning che supporta le GPU, apportando piccole modifiche al file di assegnazione dei punteggi e il file dell'ambiente. 
+Sebbene in questo esempio venga usato un modello TensorFlow, è possibile applicare i passaggi seguenti a qualsiasi framework di Machine Learning che supporti GPU apportando piccole modifiche al file di assegnazione dei punteggi e al file dell'ambiente. 
 
 In questo articolo, si eseguono i passaggi seguenti:
 
-* Creare un cluster AKS abilitate per GPU
+* Creare un cluster AKS abilitato per GPU
 * Distribuire un modello Tensorflow GPU
 * Eseguire una query di esempio per il modello distribuito
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un'area di lavoro di servizi Azure Machine Learning.
+* Un'area di lavoro di Azure Machine Learning Services.
 * Una distribuzione di Python.
-* Un Tensorflow registrato salvate modello.
-    * Per informazioni su come registrare i modelli, vedere [distribuzione di modelli](../service/how-to-deploy-and-where.md#registermodel).
+* Modello salvato Tensorflow registrato.
+    * Per informazioni su come registrare i modelli, vedere [distribuire i modelli](../service/how-to-deploy-and-where.md#registermodel).
 
-È possibile completare prima parte di questa serie di pratiche [come eseguire il training di un modello TensorFlow](how-to-train-tensorflow.md), per soddisfare i prerequisiti necessari.
+È possibile completare la prima parte di questa serie di procedure, [come eseguire il training di un modello TensorFlow](how-to-train-tensorflow.md)per soddisfare i prerequisiti necessari.
 
 ## <a name="provision-an-aks-cluster-with-gpus"></a>Effettuare il provisioning di un cluster AKS con GPU
 
-Azure offre molte opzioni GPU. È possibile usare uno di essi per inferenza. Visualizzare [l'elenco di macchine virtuali serie N](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) per un elenco completo delle funzionalità e i costi.
+Azure dispone di molte opzioni GPU diverse. È possibile usarli per l'inferenza. Per una suddivisione completa delle funzionalità e dei costi, vedere [l'elenco delle VM serie N](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) .
 
-Per altre informazioni sull'uso di servizio contenitore di AZURE con servizio di Azure Machine Learning, vedere [come distribuire e dove](../service/how-to-deploy-and-where.md#deploy-aks).
+Per ulteriori informazioni sull'utilizzo di AKS con Azure Machine Learning Service, vedere [How to deploy and where](../service/how-to-deploy-and-where.md#deploy-aks).
 
 ```Python
 # Choose a name for your cluster
@@ -52,7 +52,7 @@ aks_name = "aks-gpu"
 
 # Check to see if the cluster already exists
 try:
-    compute_target = ComputeTarget(workspace=ws, name=aks_name)
+    aks_target = ComputeTarget(workspace=ws, name=aks_name)
     print('Found existing compute target')
 except ComputeTargetException:
     print('Creating a new compute target...')
@@ -68,11 +68,11 @@ except ComputeTargetException:
 ```
 
 > [!IMPORTANT]
-> Verrà fatturata da Azure è fino a quando viene eseguito il provisioning di cluster AKS. Assicurarsi di eliminare il cluster AKS, al termine con esso.
+> Azure verrà fatturato fino a quando viene effettuato il provisioning del cluster AKS. Assicurarsi di eliminare il cluster AKS al termine dell'operazione.
 
-## <a name="write-the-entry-script"></a>Scrivere lo script di ingresso
+## <a name="write-the-entry-script"></a>Scrivere lo script di immissione
 
-Salvare il codice seguente alla directory di lavoro come `score.py`. Questo file punteggi immagini quando vengono inviati al servizio. Carica il modello salvato TensorFlow, passa l'immagine di input per la sessione di TensorFlow per ogni richiesta POST e quindi restituisce i punteggi risultanti. Altri framework di inferenza richiedono diversi file di assegnazione dei punteggi.
+Salvare il codice seguente nella directory di lavoro come `score.py`. Questo file assegna un punteggio alle immagini man mano che vengono inviate al servizio. Carica il modello salvato TensorFlow, passa l'immagine di input alla sessione TensorFlow a ogni richiesta POST e quindi restituisce i punteggi risultanti. Altri Framework di inferenza richiedono file di assegnazione dei punteggi diversi.
 
 ```python
 import json
@@ -103,7 +103,7 @@ def run(raw_data):
 ```
 ## <a name="define-the-conda-environment"></a>Definire l'ambiente conda
 
-Creare un file di ambiente conda denominato `myenv.yml` per specificare le dipendenze per il servizio. È importante specificare che si usi `tensorflow-gpu` per ottenere prestazioni accelerate.
+Creare un file di ambiente conda `myenv.yml` denominato per specificare le dipendenze per il servizio. È importante specificare che si sta usando `tensorflow-gpu` per ottenere prestazioni accelerate.
 
 ```yaml
 name: project_environment
@@ -122,7 +122,7 @@ channels:
 
 ## <a name="define-the-gpu-inferenceconfig-class"></a>Definire la classe InferenceConfig GPU
 
-Creare un `InferenceConfig` oggetto che abilita le GPU e assicura che con l'immagine Docker sia installato CUDA.
+Creare un `InferenceConfig` oggetto che Abilita le GPU e garantisce che CUDA venga installato con l'immagine docker.
 
 ```python
 from azureml.core.model import Model
@@ -148,7 +148,7 @@ Per altre informazioni, vedere:
 
 ## <a name="deploy-the-model"></a>Distribuire il modello
 
-Distribuire il modello nel cluster AKS e attendere che venga creato il servizio.
+Distribuire il modello nel cluster AKS e attendere che crei il servizio.
 
 ```python
 aks_service = Model.deploy(ws,
@@ -163,13 +163,13 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> Servizio Azure Machine Learning non distribuita un modello con un `InferenceConfig` oggetto previsto GPU deve essere abilitata in un cluster che non ha una GPU.
+> Azure Machine Learning servizio non distribuirà un modello con `InferenceConfig` un oggetto che prevede che la GPU sia abilitata per un cluster che non dispone di una GPU.
 
-Per altre informazioni, vedere [classe modello](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+Per ulteriori informazioni, vedere [classe modello](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
 ## <a name="issue-a-sample-query-to-your-model"></a>Eseguire una query di esempio per il modello
 
-Inviare una query di test al modello distribuito. Quando si invia un'immagine jpeg al modello, assegna un punteggio l'immagine. Esempio di codice seguente usa una funzione di utilità esterne per caricare immagini. È possibile trovare il codice pertinente in pir [TensorFlow esempio su GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/utils.py). 
+Inviare una query di test al modello distribuito. Quando si invia un'immagine JPEG al modello, l'immagine viene punteggiata. Nell'esempio di codice seguente viene utilizzata una funzione di utilità esterna per caricare le immagini. È possibile trovare il codice pertinente nell' [esempio PIR TensorFlow su GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/utils.py). 
 
 ```python
 # Used to test your webservice
@@ -194,14 +194,14 @@ print("prediction:", resp.text)
 ```
 
 > [!IMPORTANT]
-> Per ridurre al minimo la latenza e ottimizzare la velocità effettiva, verificare che il client sia nella stessa area di Azure come endpoint. In questo esempio, le API vengono create nell'area di Azure di East US.
+> Per ridurre al minimo la latenza e ottimizzare la velocità effettiva, assicurarsi che il client si trovi nella stessa area di Azure dell'endpoint. In questo esempio le API vengono create nell'area di Azure Stati Uniti orientali.
 
-## <a name="clean-up-the-resources"></a>La pulizia delle risorse
+## <a name="clean-up-the-resources"></a>Pulire le risorse
 
-Eliminare le risorse dopo aver terminato con questo esempio.
+Se il cluster AKS è stato creato in modo specifico per questo esempio, eliminare le risorse al termine dell'operazione.
 
 > [!IMPORTANT]
-> Fatture di Azure che è basato su quanto tempo viene distribuito il cluster AKS. Assicurarsi di pulizia dopo avere completato con esso.
+> Azure addebita la fatturazione in base al tempo di distribuzione del cluster AKS. Assicurarsi di pulirlo al termine dell'operazione.
 
 ```python
 aks_service.delete()
@@ -210,6 +210,6 @@ aks_target.delete()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Distribuire modelli in FPGA](../service/how-to-deploy-fpga-web-service.md)
-* [Distribuire modelli con ONNX](../service/concept-onnx.md#deploy-onnx-models-in-azure)
-* [Il training dei modelli di rete neurale profonda Tensorflow](../service/how-to-train-tensorflow.md)
+* [Distribuire il modello in FPGA](../service/how-to-deploy-fpga-web-service.md)
+* [Distribuire il modello con ONNX](../service/concept-onnx.md#deploy-onnx-models-in-azure)
+* [Eseguire il training di modelli DNN di Tensorflow](../service/how-to-train-tensorflow.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 63a81e390c113d10378973f928ffb58d71e8628e
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 40f760ab054154a02bea9eb341bda33bb879d824
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295125"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249570"
 ---
 # <a name="table-design-patterns"></a>Modelli di progettazione tabella
 Questo articolo descrive alcuni modelli adatti all'uso con le soluzioni di servizio tabelle. Fornisce inoltre informazioni su come risolvere alcuni dei problemi e dei compromessi illustrati negli altri articoli sulla progettazione dell'archiviazione tabelle. Il diagramma seguente contiene un riepilogo delle relazioni tra i diversi modelli:  
@@ -574,13 +574,13 @@ if (retrieveResult.Result != null)
 Si noti come in questo esempio l'entità recuperata prevista sia di tipo **EmployeeEntity**.  
 
 ### <a name="retrieving-multiple-entities-using-linq"></a>Recupero di più entità usando LINQ
-È possibile usare LINQ per recuperare più entità dal servizio tabelle quando si lavora con libreria Standard di tabelle di Microsoft Azure Cosmos. 
+È possibile usare LINQ per recuperare più entità dal servizio tabelle quando si lavora con Microsoft Azure libreria standard della tabella Cosmos. 
 
 ```cli
 dotnet add package Microsoft.Azure.Cosmos.Table
 ```
 
-Per rendere il lavoro di esempi è necessario includere gli spazi dei nomi di seguito:
+Per eseguire gli esempi seguenti, è necessario includere gli spazi dei nomi:
 
 ```csharp
 using System.Linq;
@@ -588,9 +588,9 @@ using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Azure.Cosmos.Table.Queryable;
 ```
 
-EmployeeTable è un oggetto CloudTable che implementa un CreateQuery<ITableEntity>metodo (), che restituisce un TableQuery<ITableEntity>. Oggetti di questo tipo implementano un'interfaccia IQueryable e consentono di usare la sintassi di notazione entrambe le espressioni di Query LINQ e punto.
+EmployeeTable è un oggetto CloudTable che implementa un metodo CreateQuery\<ITableEntity > () che restituisce\<un > TableQuery ITableEntity. Gli oggetti di questo tipo implementano un oggetto IQueryable e consentono l'utilizzo di espressioni di query LINQ e della sintassi della notazione del punto.
 
-Recupero di più entità e ottenere specificando una query con un **in cui** clausola. Per evitare un'analisi di tabella, è consigliabile includere sempre il valore **PartitionKey** nella clausola where e, se possibile, il valore **RowKey** per evitare analisi di tabelle e partizioni. Il servizio tabelle supporta un set limitato di operatori di confronto (maggiore di, maggiore di o uguale a, minore di, minore di o uguale a e non uguale a) da usare per determinare la clausola where. 
+Il recupero di più entità e l'ottenimento mediante la specifica di una query con una clausola **where** . Per evitare un'analisi di tabella, è consigliabile includere sempre il valore **PartitionKey** nella clausola where e, se possibile, il valore **RowKey** per evitare analisi di tabelle e partizioni. Il servizio tabelle supporta un set limitato di operatori di confronto (maggiore di, maggiore di o uguale a, minore di, minore di o uguale a e non uguale a) da usare per determinare la clausola where. 
 
 Il frammento di codice C# seguente consente di trovare tutti i dipendenti il cui cognome inizia con la lettera "B" (presupponendo che il valore **RowKey** archivi il cognome) del reparto vendite (supponendo che il valore **PartitionKey** archivi il nome del reparto):  
 
@@ -607,7 +607,7 @@ var employees = query.Execute();
 
 Si noti come la query specifichi sia un valore **RowKey** che un valore **PartitionKey** per garantire prestazioni migliori.  
 
-Esempio di codice seguente illustra la funzionalità equivalente senza usare la sintassi LINQ:  
+Nell'esempio di codice seguente viene illustrata la funzionalità equivalente senza utilizzare la sintassi LINQ:  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = 

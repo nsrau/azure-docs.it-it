@@ -4,12 +4,12 @@ ms.author: dapine
 ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 7b0059dbaafe42200ebfa8dc65ea585a49c5b83f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 873fd8cbc211f098c93b8fb3fbe701e4a34d8487
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712561"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320494"
 ---
 Le impostazioni `Logging` gestiscono il supporto di registrazione di ASP.NET Core per il contenitore. È possibile usare le stesse impostazioni di configurazione e gli stessi valori per il contenitore che si usano per un'applicazione ASP.NET Core. 
 
@@ -29,7 +29,7 @@ docker run --rm -it -p 5000:5000 \
 --mount type=bind,src=/home/azureuser/output,target=/output \
 <registry-location>/<image-name> \
 Eula=accept \
-Billing=<billing-endpoint> \
+Billing=<endpoint> \
 ApiKey=<api-key> \
 Logging:Disk:Format=json
 ```
@@ -41,16 +41,16 @@ docker run --rm -it -p 5000:5000 \
 --memory 2g --cpus 1 \
 <registry-location>/<image-name> \
 Eula=accept \
-Billing=<billing-endpoint> \
+Billing=<endpoint> \
 ApiKey=<api-key> \
 Logging:Console:LogLevel:Default=Debug
 ```
 
 ### <a name="disk-logging"></a>Registrazione su disco
 
-Il provider di registrazione `Disk` supporta le impostazioni di configurazione seguenti:  
+Il provider di registrazione `Disk` supporta le impostazioni di configurazione seguenti:
 
-| Name | Tipo di dati | Descrizione |
+| Name | Tipo di dati | DESCRIZIONE |
 |------|-----------|-------------|
 | `Format` | String | Formato di output dei file di log.<br/> **Nota:** per abilitare il provider di registrazione, questo valore deve essere impostato su `json`. Se questo valore viene specificato senza specificare anche un montaggio di output durante la creazione di un'istanza di un contenitore, si verifica un errore. |
 | `MaxFileSize` | Integer | Dimensione massima, espressa in megabyte (MB), di un file di log. Quando la dimensione del file di log corrente corrisponde a questo valore o lo supera, il provider di registrazione avvia un nuovo file di log. Se viene specificato -1, la dimensione del file di log è limitata solo dalla dimensione massima del file del montaggio di output eventualmente presente. Il valore predefinito è 1. |

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 07/15/2019
-ms.openlocfilehash: 229814b908861080ff56d6f4bcba25cc996f00ff
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
-ms.translationtype: HT
+ms.date: 07/18/2019
+ms.openlocfilehash: 174147aca75452dfaee02d20df5377fa1f6070c1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228074"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325086"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -278,6 +278,9 @@ Questa sequenza è consigliata in modo specifico per evitare il problema per cui
 
 > [!NOTE]
 > Se è stato creato il database secondario come parte della configurazione del gruppo di failover, non è consigliabile eseguire il downgrade del database secondario. In questo modo si garantisce che il livello dei dati abbia una capacità sufficiente per elaborare il carico di lavoro normale dopo che il failover viene attivato.
+
+> [!IMPORTANT]
+> L'aggiornamento o il downgrade di un Istanza gestita che è membro di un gruppo di failover non è al momento supportato.
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Evitare la perdita di dati critici
 

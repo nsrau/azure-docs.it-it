@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6c9109cf4d6d67d3d8001a9de1d54e24622a9286
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13ae1b74acbcab8d623c24d6a7b8d7e1355b80e8
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511185"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227146"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Informazioni sulla personalizzazione dell'interfaccia utente in Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ L'interfaccia utente dell'applicazione si personalizza in modo diverso in base a
 - Se i clienti provano a modificare il proprio profilo prima di effettuare l'accesso, vengono reindirizzati a una pagina che si può personalizzare usando gli stessi passaggi seguiti per personalizzare la pagina di accesso di Azure AD.
 - Se si usano [criteri personalizzati](active-directory-b2c-overview-custom.md) per fornire iscrizione, accesso, reimpostazione della password o modifica del profilo all'interno dell'applicazione, si usano i [file dei criteri per personalizzare l'interfaccia utente](active-directory-b2c-ui-customization-custom.md).
 - Se è necessario fornire contenuto dinamico in base a decisione del cliente, si usano [criteri personalizzati che consentono di cambiare il contenuto della pagina](active-directory-b2c-ui-customization-custom-dynamic.md) in base a un parametro inviato in una stringa di query. L'immagine di sfondo della pagina di accesso o di iscrizione ad Azure AD B2C viene ad esempio modificata in base a un parametro passato dall'applicazione Web o per dispositivi mobili.
-- È possibile abilitare il codice JavaScript lato client nei [flussi utente](user-flow-javascript-overview.md) o nei [criteri personalizzati](page-contract.md) di Azure AD B2C.
+- È possibile abilitare il codice JavaScript lato client nei [flussi utente](user-flow-javascript-overview.md) o nei [criteri personalizzati](page-layout.md) di Azure AD B2C.
 
 Azure AD B2C esegue il codice nel browser del cliente e usa un approccio moderno denominato [Condivisione di risorse tra le origini (CORS)](https://www.w3.org/TR/cors/). In fase di esecuzione, il contenuto viene caricato da un URL specificato in un flusso utente o in un criterio. Per pagine diverse si specificano URL diversi. Dopo il caricamento dall'URL, il contenuto viene unito con un frammento HTML inserito da Azure AD B2C e quindi mostrato al cliente.
 
@@ -37,7 +37,7 @@ Quando si usano file HTML e CSS per personalizzare l'interfaccia utente, consult
 
 - Azure AD B2C unisce contenuto HTML alle pagine. Non copiare e provare a modificare il contenuto predefinito incluso da Azure AD B2C. È preferibile creare il contenuto HTML da zero e usare il contenuto predefinito come riferimento.
 - JavaScript può ora essere incluso nel contenuto personalizzato.
-- Le versioni di browser supportate sono: 
+- Le versioni di browser supportate sono:
     - Internet Explorer 11, 10 e Microsoft Edge
     - Supporto limitato per Internet Explorer 9 e 8
     - Google Chrome 42.0 e versioni successive
@@ -50,11 +50,11 @@ Per i flussi utente v2, è possibile scegliere un modello predefinito che offre 
 
 Nel menu a sinistra, in **Personalizza**, selezionare **Layout di pagina**. Selezionare quindi **Modello (anteprima)** .
 
-![Scegliere un modello di layout di pagina](media/customize-ui-overview/template.png)
+![Elenco a discesa Selezione modello nella pagina flusso utente di portale di Azure](media/customize-ui-overview/template.png)
 
 Selezionare un modello dall'elenco. Il modello **Blu oltremare**, ad esempio, applica il layout seguente alle pagine del flusso utente:
 
-![Modello Blu oltremare](media/customize-ui-overview/ocean-blue.png)
+![Esempio di modello blu oceano di cui è stato eseguito il rendering nella pagina di accesso per l'iscrizione](media/customize-ui-overview/ocean-blue.png)
 
 Quando si sceglie un modello, il layout selezionato viene applicato a tutte le pagine nel flusso utente e l'URI per ogni pagina è visibile nel campo **URI della pagina personalizzata**.
 
@@ -85,13 +85,13 @@ Per personalizzare l'interfaccia utente occorre procedere come segue:
 - Ospitare il contenuto in un endpoint HTTPS in cui è consentita la condivisione CORS. Entrambi i metodi di richiesta GET e OPTIONS devono essere abilitati quando si configura CORS.
 - Usare CSS per applicare uno stile agli elementi dell'interfaccia utente inseriti nella pagina da Azure AD B2C. L'esempio seguente illustra un semplice file CSS che include anche le impostazioni per gli elementi HTML inseriti all'iscrizione:
 
-    ```css 
+    ```css
     h1 {
       color: blue;
       text-align: center;
     }
     .intro h2 {
-      text-align: center; 
+      text-align: center;
     }
     .entry {
       width: 400px ;
@@ -99,7 +99,7 @@ Per personalizzare l'interfaccia utente occorre procedere come segue:
       margin-right: auto ;
     }
     .divider h2 {
-      text-align: center; 
+      text-align: center;
     }
     .create {
       width: 400px ;
@@ -119,7 +119,7 @@ La tabella seguente elenca i frammenti HTML che Azure AD B2C unisce nell'element
 | Iscrizione dell'account di social networking | Può essere visualizzata quando si effettua l'iscrizione usando un account esistente di un provider di identità basato su social network, ad esempio Facebook o Google. Viene usata quando è necessario raccogliere informazioni aggiuntive dal cliente attraverso un modulo di iscrizione. |
 | Unificata per l'iscrizione o l'accesso | Gestisce sia l'iscrizione che l'accesso dei clienti, che possono usare provider di identità basati su social network, come Facebook o Google, o account locali. |
 | Autenticazione a più fattori | Gli utenti possono verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso. |
-| Tipi di errore | Fornisce informazioni sugli errori al cliente. |
+| Errore | Fornisce informazioni sugli errori al cliente. |
 
 
 ## <a name="how-do-i-localize-content"></a>Come localizzare il contenuto

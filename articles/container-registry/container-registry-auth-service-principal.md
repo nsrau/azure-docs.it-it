@@ -3,16 +3,17 @@ title: Autenticazione al Registro Azure Container con entità servizio
 description: Consentire l'accesso alle immagini del registro contenitori privato usando un'entità servizio Azure Active Directory.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 5d8904b5906adbdab68989b3a5cf9c3975c23533
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97c45a009b155eea7bc61a9dd337090b9e3c1b42
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61347082"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309953"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticazione al Registro Azure Container con entità servizio
 
@@ -34,7 +35,7 @@ Ad esempio, l'applicazione Web può usare un'entità servizio che le fornisce so
 
 Usare un'entità servizio per fornire accesso al registro negli **scenari headless**, ovvero per qualsiasi applicazione, servizio o script che deve eseguire le operazioni di push o pull delle immagini del contenitore in modo automatico.
 
-Per l'accesso individuale al registro, ad esempio quando si esegue il pull manuale di un'immagine contenitore alla workstation di sviluppo, usare la propria [identità Azure AD](container-registry-authentication.md#individual-login-with-azure-ad) per l'accesso al registro (ad esempio con [az acr login][az-acr-login]).
+Per l'accesso singolo a un registro di sistema, ad esempio quando si estrae manualmente un'immagine del contenitore nella workstation di sviluppo, è consigliabile usare invece la propria [identità di Azure ad](container-registry-authentication.md#individual-login-with-azure-ad) per l'accesso al registro di sistema, ad esempio con [AZ ACR login][az-acr-login].
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
@@ -47,7 +48,7 @@ Gli script di esempio precedenti per l'interfaccia della riga di comando di Azur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver garantito a un'entità servizio l'accesso al registro contenitori, è possibile usare le credenziali nelle applicazioni e nei servizi per l'interazione headless con il registro. È possibile usare le credenziali dell'entità servizio di qualsiasi servizio di Azure che può eseguire l'autenticazione con un Registro Azure Container. Tra gli esempi sono inclusi:
+Dopo aver garantito a un'entità servizio l'accesso al registro contenitori, è possibile usare le credenziali nelle applicazioni e nei servizi per l'interazione headless con il registro. È possibile usare le credenziali dell'entità servizio di qualsiasi servizio di Azure che può eseguire l'autenticazione con un Registro Azure Container. Ecco alcuni esempi:
 
 * [Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes](container-registry-auth-aks.md)
 * [Eseguire l'autenticazione con Registro Azure Container da Istanze di Azure Container](container-registry-auth-aci.md)

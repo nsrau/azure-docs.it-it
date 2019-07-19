@@ -4,7 +4,7 @@ description: Migliorare le prestazioni filtrando le query quando si chiedono inf
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
@@ -15,27 +15,27 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 9d9e30bb8b31939b14d347369bbe88e23fcec49c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3bf9ba52bc4071755918b842da477384dcd38973
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050520"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323498"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creare query per elencare le risorse di Batch in modo efficiente
 
-Viene illustrato come migliorare le prestazioni dell'applicazione Azure Batch, riducendo la quantità di dati restituiti dal servizio quando si eseguono query su processi, attività, nodi di calcolo e altre risorse con la libreria [Batch .NET][api_net].
+Questo articolo illustra come migliorare le prestazioni dell'applicazione Azure Batch riducendo la quantità di dati restituiti dal servizio quando si eseguono query su processi, attività, nodi di calcolo e altre risorse con la libreria [batch .NET][api_net] .
 
 Quasi tutte le applicazioni Batch devono eseguire un tipo di monitoraggio o un'altra operazione che esegue query sul servizio Batch, spesso a intervalli regolari. Per determinare ad esempio se sono ancora presenti attività in coda in un processo, è necessario ottenere dati per ogni attività nel processo. Per determinare lo stato dei nodi nel pool è necessario ottenere dati in ogni nodo nel pool. Questo articolo illustra come eseguire queste query nel modo più efficiente.
 
 > [!NOTE]
-> Il servizio Batch offre il supporto speciale delle API per gli scenari comuni di conteggio delle attività in un processo e di conteggio dei nodi di calcolo nel pool di Batch. Anziché usare una query di tipo elenco a questo scopo, è possibile chiamare le operazioni di [recupero del conteggio delle attività][rest_get_task_counts] e [indicazione dei conteggi dei nodi del pool][rest_get_node_counts]. Queste operazioni sono più efficienti rispetto a una query di elenco, ma restituiscono informazioni più limitate. Vedere [Conteggiare le attività e i nodi di calcolo in base allo stato](batch-get-resource-counts.md). 
+> Il servizio Batch offre il supporto speciale delle API per gli scenari comuni di conteggio delle attività in un processo e di conteggio dei nodi di calcolo nel pool di Batch. Anziché usare una query di elenco, è possibile chiamare le operazioni [get task counts][rest_get_task_counts] and [List Pool Node Counts][rest_get_node_counts] . Queste operazioni sono più efficienti rispetto a una query di elenco, ma restituiscono informazioni più limitate. Vedere [Conteggiare le attività e i nodi di calcolo in base allo stato](batch-get-resource-counts.md). 
 
 
 ## <a name="meet-the-detaillevel"></a>Definire livelli di dettaglio
 In un'applicazione Batch di produzione, le entità da elaborare, ad esempio processi, attività e nodi di calcolo, possono essere migliaia. Quando si richiedono informazioni su queste risorse, una grande quantità di dati deve "transitare" dal servizio Batch all'applicazione in ogni query. Limitando il numero di elementi e il tipo di informazioni restituiti da una query, è possibile aumentarne la velocità e quindi migliorare le prestazioni dell'applicazione.
 
-Questo frammento di codice dell'API [Batch .NET][api_net] elenca *ogni* attività associata a un processo, insieme a *tutte* le proprietà dell'attività:
+Questo frammento di codice dell'API [batch .NET][api_net] *elenca tutte* le attività associate a un processo, insieme a *tutte* le proprietà di ogni attività:
 
 ```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
@@ -43,7 +43,7 @@ IPagedEnumerable<CloudTask> allTasks =
     batchClient.JobOperations.ListTasks("job-001");
 ```
 
-È possibile eseguire una query di tipo elenco molto più efficiente, tuttavia, applicando un "livello di dettaglio" alla query. A questo scopo, indicare un oggetto [ODATADetailLevel][odata] al metodo [JobOperations.ListTasks][net_list_tasks]. Questo frammento restituisce solo l'ID, la riga di comando e informazioni sulle proprietà del nodo di calcolo delle attività completate:
+È possibile eseguire una query di tipo elenco molto più efficiente, tuttavia, applicando un "livello di dettaglio" alla query. A tale scopo, specificare un metodo [ODATADetailLevel][odata] object to the [JobOperations.ListTasks][net_list_tasks] . Questo frammento restituisce solo l'ID, la riga di comando e informazioni sulle proprietà del nodo di calcolo delle attività completate:
 
 ```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and
@@ -65,7 +65,7 @@ Se in questo scenario di esempio il processo include migliaia di attività, il r
 > 
 
 ## <a name="filter-select-and-expand"></a>Filtro, selezione ed espansione
-Le API [Batch .NET][api_net] e [Batch REST][api_rest] consentono di ridurre sia il numero di elementi restituiti in un elenco sia la quantità di informazioni restituite per ogni elemento. A questo scopo, specificare stringhe di **filtro**, **selezione** ed **espansione** quando si eseguono query di tipo elenco.
+Le API [batch .NET][api_net] and [Batch REST][api_rest] offrono la possibilità di ridurre il numero di elementi restituiti in un elenco, nonché la quantità di informazioni restituite per ogni oggetto. A questo scopo, specificare stringhe di **filtro**, **selezione** ed **espansione** quando si eseguono query di tipo elenco.
 
 ### <a name="filter"></a>Filtro
 La stringa di filtro è un'espressione che riduce il numero di elementi restituiti. Ad esempio, elencare solo le attività in esecuzione per un processo o solo i nodi di calcolo pronti per eseguire attività.
@@ -94,7 +94,7 @@ La stringa di espansione riduce il numero di chiamate API richieste per ottenere
 > 
 
 ### <a name="rules-for-filter-select-and-expand-strings"></a>Regole per le stringhe di filtro, selezione ed espansione
-* I nomi delle proprietà nelle stringhe di filtro, selezione ed espansione devono corrispondere a quelli presenti nell'API [Batch REST][api_rest] anche quando si usa [Batch .NET][api_net] o uno degli altri SDK di Batch.
+* I nomi delle proprietà nelle stringhe di filtro, selezione ed espansione dovrebbero apparire come nel [batch Rest][api_rest] API--even when you use [Batch .NET][api_net] o in uno degli altri SDK di batch.
 * Per tutti i nomi di proprietà viene fatta distinzione tra maiuscole e minuscole, al contrario di quanto avviene per i valori delle proprietà.
 * Le stringhe relative a data/ora possono essere indicate in uno dei due formati seguenti e devono essere precedute da `DateTime`.
   
@@ -104,7 +104,7 @@ La stringa di espansione riduce il numero di chiamate API richieste per ottenere
 * Se si specifica una proprietà o un operatore non valido, viene generato un errore `400 (Bad Request)` .
 
 ## <a name="efficient-querying-in-batch-net"></a>Esecuzione efficiente di query in Batch .NET
-Nell'API [Batch .NET][api_net] viene usata la classe [ODATADetailLevel][odata] per specificare le stringhe di filtro, selezione ed espansione alle operazioni di tipo elenco. La classe ODataDetailLevel presenta tre proprietà pubbliche di tipo stringa che possono essere specificate nel costruttore o impostate direttamente: L'oggetto ODataDetailLevel viene quindi passato come parametro alle diverse operazioni di tipo elenco, ad esempio [ListPools][net_list_pools], [ListJobs][net_list_jobs] e [ListTasks][net_list_tasks].
+All'interno della classe [batch .NET][api_net] API, the [ODATADetailLevel][odata] viene usato per fornire filtro, selezionare ed espandere stringhe per elencare le operazioni. La classe ODataDetailLevel presenta tre proprietà pubbliche di tipo stringa che possono essere specificate nel costruttore o impostate direttamente: Passare quindi l'oggetto ODataDetailLevel come parametro alle diverse operazioni di elenco, ad esempio [ListPools][net_list_pools], [ListJobs][net_list_jobs], and [ListTasks][net_list_tasks].
 
 * [ODATADetailLevel][odata].[FilterClause][odata_filter]: limita il numero di elementi restituiti.
 * [ODATADetailLevel][odata].[SelectClause][odata_select]: specifica i valori della proprietà restituiti con ogni elemento.
@@ -139,7 +139,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> È anche possibile passare un'istanza di [ODATADetailLevel][odata] configurata con le clausole Select ed Expand ai metodi Get appropriati, ad esempio [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations.getpool#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), per limitare la quantità di dati restituiti.
+> È anche possibile passare un'istanza di [ODATADetailLevel][odata] configurata con clausole SELECT ed Expand ai metodi Get appropriati, ad esempio [PoolOperations. getpool](/dotnet/api/microsoft.azure.batch.pooloperations.getpool#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), per limitare la quantità di dati restituiti.
 > 
 > 
 
@@ -147,37 +147,37 @@ List<CloudPool> testPools =
 I nomi delle proprietà nelle stringhe di filtro, selezione ed espansione *devono* riflettere le rispettive controparti dell'API REST, sia a livello di nome che di lettere maiuscole/minuscole. Le tabelle seguenti forniscono i mapping tra l'API .NET e le relative controparti dell'API REST.
 
 ### <a name="mappings-for-filter-strings"></a>Mapping per le stringhe di filtro
-* **Metodi list .NET**: ogni metodo dell'API .NET in questa colonna accetta un oggetto [ODATADetailLevel][odata] come parametro.
-* **Richieste list REST**: ogni pagina dell'API REST collegata in questa colonna contiene una tabella che specifica le proprietà e le operazioni consentite nelle stringhe di *filtro*. Questi nomi di proprietà e queste operazioni verranno usati per costruire una stringa [ODATADetailLevel.FilterClause][odata_filter].
+* **Metodi list .NET**: Ognuno dei metodi dell'API .NET in questa colonna accetta un oggetto [ODATADetailLevel][odata] come parametro.
+* **Richieste list REST**: ogni pagina dell'API REST collegata in questa colonna contiene una tabella che specifica le proprietà e le operazioni consentite nelle stringhe di *filtro*. Questi nomi di proprietà e operazioni vengono usati quando si costruisce una stringa [ODATADetailLevel. FilterClause][odata_filter] .
 
 | Metodi list .NET | Richieste list REST |
 | --- | --- |
-| [CertificateOperations.ListCertificates][net_list_certs] |[Elencare i certificati in un account][rest_list_certs] |
-| [CloudTask.ListNodeFiles][net_list_task_files] |[Elencare i file associati a un'attività][rest_list_task_files] |
-| [JobOperations.ListJobPreparationAndReleaseTaskStatus][net_list_jobprep_status] |[Elencare lo stato della preparazione e le attività di rilascio per un processo specifico][rest_list_jobprep_status] |
-| [JobOperations.ListJobs][net_list_jobs] |[Elencare i processi in un account][rest_list_jobs] |
-| [JobOperations.ListNodeFiles][net_list_nodefiles] |[Elencare i file in un nodo][rest_list_nodefiles] |
-| [JobOperations.ListTasks][net_list_tasks] |[Elencare le attività associate a un processo][rest_list_tasks] |
-| [JobScheduleOperations.ListJobSchedules][net_list_job_schedules] |[Elencare le pianificazioni di processi in un account][rest_list_job_schedules] |
-| [JobScheduleOperations.ListJobs][net_list_schedule_jobs] |[Elencare i processi associati a una pianificazione di processi][rest_list_schedule_jobs] |
-| [PoolOperations.ListComputeNodes][net_list_compute_nodes] |[Elencare i nodi di calcolo in un pool][rest_list_compute_nodes] |
-| [PoolOperations.ListPools][net_list_pools] |[Elencare i pool in un account][rest_list_pools] |
+| [Il metodo certificateoperations. ListCertificates][net_list_certs] |[Elencare i certificati in un account][rest_list_certs] |
+| [CloudTask. ListNodeFiles][net_list_task_files] |[Elencare i file associati a un'attività][rest_list_task_files] |
+| [JobOperations. ListJobPreparationAndReleaseTaskStatus][net_list_jobprep_status] |[Elencare lo stato delle attività di preparazione e rilascio del processo per un processo][rest_list_jobprep_status] |
+| [JobOperations. ListJobs][net_list_jobs] |[Elencare i processi in un account][rest_list_jobs] |
+| [JobOperations. ListNodeFiles][net_list_nodefiles] |[Elencare i file in un nodo][rest_list_nodefiles] |
+| [JobOperations. ListTasks][net_list_tasks] |[Elencare le attività associate a un processo][rest_list_tasks] |
+| [JobScheduleOperations.ListJobSchedules][net_list_job_schedules] |[Elencare le pianificazioni dei processi in un account][rest_list_job_schedules] |
+| [JobScheduleOperations. ListJobs][net_list_schedule_jobs] |[Elencare i processi associati a una pianificazione del processo][rest_list_schedule_jobs] |
+| [PoolOperations. ListComputeNodes][net_list_compute_nodes] |[Elencare i nodi di calcolo in un pool][rest_list_compute_nodes] |
+| [PoolOperations. ListPools][net_list_pools] |[Elencare i pool in un account][rest_list_pools] |
 
 ### <a name="mappings-for-select-strings"></a>Mapping per le stringhe di selezione
 * **Tipi di Batch .NET**: Tipi di API Batch .NET.
-* **Entità di API REST**: ogni pagina di questa colonna contiene una o più tabelle che indicano i nomi delle proprietà dell'API REST per il tipo. Questi nomi di proprietà vengono usati per la costruzione di stringhe di *selezione* . Questi stessi nomi di proprietà verranno usati per costruire una stringa [ODATADetailLevel.SelectClause][odata_select].
+* **Entità di API REST**: ogni pagina di questa colonna contiene una o più tabelle che indicano i nomi delle proprietà dell'API REST per il tipo. Questi nomi di proprietà vengono usati per la costruzione di stringhe di *selezione* . Questi stessi nomi di proprietà vengono usati quando si costruisce una stringa [ODATADetailLevel. SelectClause][odata_select] .
 
 | Tipi di Batch .NET | Entità di API REST |
 | --- | --- |
 | [Certificate][net_cert] |[Ottenere informazioni su un certificato][rest_get_cert] |
 | [CloudJob][net_job] |[Ottenere informazioni su un processo][rest_get_job] |
-| [CloudJobSchedule][net_schedule] |[Ottenere informazioni su una pianificazione di processi][rest_get_schedule] |
+| [CloudJobSchedule][net_schedule] |[Ottenere informazioni sulla pianificazione di un processo][rest_get_schedule] |
 | [ComputeNode][net_node] |[Ottenere informazioni su un nodo][rest_get_node] |
 | [CloudPool][net_pool] |[Ottenere informazioni su un pool][rest_get_pool] |
 | [CloudTask][net_task] |[Ottenere informazioni su un'attività][rest_get_task] |
 
 ## <a name="example-construct-a-filter-string"></a>Esempio: costruire una stringa di filtro
-Quando si costruisce una stringa di filtro per un oggetto [ODATADetailLevel.FilterClause][odata_filter], vedere la tabella in "Mapping per le stringhe di filtro" per trovare la pagina di documentazione dell'API REST corrispondente all'operazione di tipo elenco da eseguire. Le proprietà filtrabili e gli operatori supportati sono disponibili nella prima tabella con più righe in quella pagina. Per recuperare ad esempio tutte le attività il cui codice di uscita non è pari a zero, questa riga in [Elencare le attività associate a un processo][rest_list_tasks] specifica la stringa della proprietà applicabile e gli operatori consentiti:
+Quando si crea una stringa di filtro per [ODATADetailLevel. FilterClause][odata_filter] , consult the table above under "Mappings for filter strings" to find the REST API documentation page that corresponds to the list operation that you wish to perform. You will find the filterable properties and their supported operators in the first multirow table on that page. If you wish to retrieve all tasks whose exit code was nonzero, for example, this row on [List the tasks associated with a job][rest_list_tasks] specifica la stringa di proprietà applicabile e gli operatori consentiti:
 
 | Proprietà | Operazioni consentite | Type |
 |:--- |:--- |:--- |
@@ -188,7 +188,7 @@ La stringa di filtro per elencare tutte le attività con un codice di uscita non
 `(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
 ## <a name="example-construct-a-select-string"></a>Esempio: costruire una stringa di selezione
-Per costruire una stringa [ODATADetailLevel.SelectClause][odata_select], vedere la tabella in "Mapping per le stringhe di selezione" e passare alla pagina dell'API REST che corrisponde al tipo di entità da specificare. Le proprietà selezionabili e gli operatori supportati sono disponibili nella prima tabella con più righe in quella pagina. Se ad esempio si desidera recuperare solo l'ID e la riga di comando per ogni attività in un elenco, queste righe si trovano nella tabella applicabile in [Ottenere informazioni su un'attività][rest_get_task]:
+Per costruire [ODATADetailLevel. SelectClause][odata_select], consult the table above under "Mappings for select strings" and navigate to the REST API page that corresponds to the type of entity that you are listing. You will find the selectable properties and their supported operators in the first multirow table on that page. If you wish to retrieve only the ID and command line for each task in a list, for example, you will find these rows in the applicable table on [Get information about a task][rest_get_task]:
 
 | Proprietà | Type | Note |
 |:--- |:--- |:--- |
@@ -201,7 +201,7 @@ La stringa di selezione per includere solo l'ID e la riga di comando con ogni at
 
 ## <a name="code-samples"></a>Esempi di codice
 ### <a name="efficient-list-queries-code-sample"></a>Esempio di codice per query di elenco efficienti
-Per verificare il modo in cui una query di tipo elenco può influire efficacemente sulle prestazioni in un'applicazione, vedere il progetto di esempio [EfficientListQueries][efficient_query_sample] in GitHub. Questa applicazione console C# crea e aggiunge un numero elevato di attività a un processo. Esegue quindi più chiamate al metodo [JobOperations.ListTasks][net_list_tasks] e passa gli oggetti [ODATADetailLevel][odata] configurati con valori di proprietà diversi per variare la quantità di dati da restituire. L'output generato sarà simile al seguente:
+Estrarre il metodo [EfficientListQueries][efficient_query_sample] sample project on GitHub to see how efficient list querying can affect performance in an application. This C# console application creates and adds a large number of tasks to a job. Then, it makes multiple calls to the [JobOperations.ListTasks][net_list_tasks] e passare gli oggetti[OData] [ODATADetailLevel]configurati con valori di proprietà diversi per variare la quantità di dati da restituire. L'output generato sarà simile al seguente:
 
 ```
 Adding 5000 tasks to job jobEffQuery...
@@ -217,12 +217,12 @@ Adding 5000 tasks to job jobEffQuery...
 Sample complete, hit ENTER to continue...
 ```
 
-Come illustrato nelle informazioni sul tempo trascorso, è possibile ridurre notevolmente i tempi di risposta della query limitando le proprietà e il numero di elementi restituiti. Questo e altri progetti di esempio sono disponibili nel repository [azure-batch-samples][github_samples] in GitHub.
+Come illustrato nelle informazioni sul tempo trascorso, è possibile ridurre notevolmente i tempi di risposta della query limitando le proprietà e il numero di elementi restituiti. È possibile trovare questo e altri progetti di esempio nel repository [Azure-batch-Samples][github_samples] in GitHub.
 
 ### <a name="batchmetrics-library-and-code-sample"></a>Libreria BatchMetrics ed esempio di codice
-Oltre all'esempio di codice EfficientListQueries precedente, è possibile trovare il progetto [BatchMetrics][batch_metrics] nel repository [azure-batch-samples][github_samples] in GitHub. Il progetto di esempio BatchMetrics illustra come monitorare in modo efficiente lo stato dei processi di Azure Batch con l'API di Batch.
+Oltre all'esempio di codice EfficientListQueries precedente, è possibile trovare il repository GitHub [BatchMetrics][batch_metrics] project in the [azure-batch-samples][github_samples] . Il progetto di esempio BatchMetrics illustra come monitorare in modo efficiente lo stato dei processi di Azure Batch con l'API di Batch.
 
-L'esempio [BatchMetrics][batch_metrics] include un progetto di libreria di classi .NET che è possibile incorporare nei propri progetti e un semplice programma della riga di comando per apprendere l'uso della libreria.
+L'esempio [BatchMetrics][batch_metrics] include un progetto di libreria di classi .NET che è possibile incorporare nei propri progetti e un semplice programma da riga di comando per esercitare e dimostrare l'uso della libreria.
 
 L'applicazione di esempio nel progetto illustra le operazioni seguenti:
 

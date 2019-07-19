@@ -3,16 +3,17 @@ title: Autenticazione al Registro Azure Container con un'identità gestita
 description: Fornire l'accesso alle immagini nel registro contenitori privato usando un'identità gestita di Azure assegnata dall'utente o dal sistema.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: 728a2f8cf61bbe0691350b9de45a5fab6b90cadb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0672fb71ba4f56d0faf332df029100cb48741c8b
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563070"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309879"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Usare un'identità gestita di Azure per eseguire l'autenticazione a un registro contenitori di Azure 
 
@@ -27,7 +28,7 @@ L'articolo fornisce altre informazioni sulle identità gestite e spiega come:
 
 Per creare risorse di Azure, questo articolo richiede che sia eseguita l'interfaccia della riga di comando di Azure versione 2.0.55 o successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
-Per configurare un registro contenitori ed eseguire il push di un'immagine del contenitore su di esso, è necessario disporre anche di un Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [macOS][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
+Per configurare un registro contenitori ed eseguire il push di un'immagine del contenitore su di esso, è necessario disporre anche di un Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [MacOS][docker-mac], [Windows][docker-windows]o [Linux][Docker-Linux] .
 
 ## <a name="why-use-a-managed-identity"></a>Perché usare un'identità gestita?
 
@@ -59,7 +60,7 @@ Questo articolo presuppone che l'immagine del contenitore `aci-helloworld:v1` si
 
 Creare una macchina virtuale Ubuntu abilitata per Docker. È inoltre necessario installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) nella macchina virtuale. Se si dispone già di una macchina virtuale di Azure, ignorare questo passaggio per creare la macchina virtuale.
 
-Distribuire una macchina virtuale di Azure Ubuntu predefinita con [az vm create][az-vm-create]. L'esempio seguente crea una macchina virtuale denominata *myDockerVM* nel gruppo di risorse esistente denominato *myResourceGroup*:
+Distribuire una macchina virtuale di Azure Ubuntu predefinita con [AZ VM create][az-vm-create]. L'esempio seguente crea una macchina virtuale denominata *myDockerVM* nel gruppo di risorse esistente denominato *myResourceGroup*:
 
 ```azurecli
 az vm create \
@@ -116,7 +117,7 @@ Creare un'identità nella sottoscrizione usando il comando [az identity create](
 az identity create --resource-group myResourceGroup --name myACRId
 ```
 
-Per configurare l'identità nei passaggi seguenti, usare il comando [az identity show][az-identity-show] per archiviare l'ID risorsa dell'identità e l'ID dell'entità servizio nelle variabili.
+Per configurare l'identità nei passaggi seguenti, usare il comando [AZ Identity Show][az-identity-show] per archiviare l'ID risorsa dell'identità e l'ID dell'entità servizio nelle variabili.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -126,7 +127,7 @@ userID=$(az identity show --resource-group myResourceGroup --name myACRId --quer
 spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
 ```
 
-Poiché è necessario l'ID dell'identità in un passaggio successivo quando si accede per l'interfaccia CLI dalla macchina virtuale, visualizzare il valore:
+Poiché è necessario l'ID dell'identità in un passaggio successivo quando si accede all'interfaccia della riga di comando dalla macchina virtuale, visualizzare il valore:
 
 ```bash
 echo $userID
@@ -140,7 +141,7 @@ L'ID è nel formato:
 
 ### <a name="configure-the-vm-with-the-identity"></a>Configurare la macchina virtuale con l'identità
 
-Il comando [az vm identity assign][az-vm-identity-assign] seguente configura la macchina virtuale Docker con l'identità assegnata dall'utente:
+Il comando [AZ VM Identity Assign][az-vm-identity-assign] seguente configura la macchina virtuale Docker con l'identità assegnata dall'utente:
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myDockerVM --identities $userID
@@ -148,13 +149,13 @@ az vm identity assign --resource-group myResourceGroup --name myDockerVM --ident
 
 ### <a name="grant-identity-access-to-the-container-registry"></a>Concedere all'identità l'accesso al registro contenitori
 
-Configurare ora l'identità per accedere al registro contenitori. Innanzitutto usare il comando [az acr show][az-acr-show] per ottenere l'ID risorsa del registro:
+Configurare ora l'identità per accedere al registro contenitori. Usare prima il comando [AZ ACR Show][az-acr-show] per ottenere l'ID risorsa del registro di sistema:
 
 ```azurecli
 resourceID=$(az acr show --resource-group myResourceGroup --name myContainerRegistry --query id --output tsv)
 ```
 
-Usare il comando [az role assignment create][az-role-assignment-create] per assegnare il ruolo AcrPull al registro. Questo ruolo offre [autorizzazioni pull](container-registry-roles.md) al registro. Per fornire autorizzazioni pull e push, assegnare il ruolo ACRPush.
+Usare il comando [AZ Role Assignment create][az-role-assignment-create] per assegnare il ruolo AcrPull al registro di sistema. Questo ruolo offre [autorizzazioni pull](container-registry-roles.md) al registro. Per fornire autorizzazioni pull e push, assegnare il ruolo ACRPush.
 
 ```azurecli
 az role assignment create --assignee $spID --scope $resourceID --role acrpull
@@ -164,19 +165,19 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 SSH nella macchina virtuale Docker che è configurato con l'identità. Eseguire i comandi seguenti dell'interfaccia della riga di comando di Azure, tramite l'interfaccia della riga di comando di Azure installata nella macchina virtuale.
 
-In primo luogo, eseguire l'autenticazione per il comando di Azure con [account di accesso di az][az-login], usando l'identità è stato configurato nella macchina virtuale. Per `<userID>`, sostituire l'ID dell'identità recuperato in un passaggio precedente. 
+Eseguire prima l'autenticazione nell'interfaccia della riga di comando di Azure con [AZ login][az-login], usando l'identità configurata nella macchina virtuale. Per `<userID>`, sostituire l'ID dell'identità recuperato in un passaggio precedente. 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-Quindi, eseguire l'autenticazione al Registro di sistema [account di accesso di az acr][az-acr-login]. Quando si usa questo comando, l'interfaccia della riga di comando usa il token di Active Directory creato durante l'esecuzione di `az login` per l'autenticazione della sessione con il registro contenitori. (A seconda della configurazione della macchina virtuale, potrebbe essere necessario eseguire questo comando e i comandi di Docker con `sudo`.)
+Eseguire quindi l'autenticazione nel registro di sistema con [AZ ACR login][az-acr-login]. Quando si usa questo comando, l'interfaccia della riga di comando usa il token di Active Directory creato durante l'esecuzione di `az login` per l'autenticazione della sessione con il registro contenitori. (A seconda della configurazione della macchina virtuale, potrebbe essere necessario eseguire questo comando e i comandi di Docker con `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry
 ```
 
-Dovrebbe essere visualizzato il messaggio `Login succeeded`. È quindi possibile eseguire i comandi `docker` senza fornire credenziali. Ad esempio, eseguire [docker pull][docker-pull] per eseguire il pull dell'immagine `aci-helloworld:v1`, specificando il nome del server di accesso del registro. Il nome del server di accesso è costituito dal nome del registro contenitori (solo lettere minuscole) seguito da `.azurecr.io`, ad esempio `mycontainerregistry.azurecr.io`.
+Dovrebbe essere visualizzato il messaggio `Login succeeded`. È quindi possibile eseguire i comandi `docker` senza fornire credenziali. Eseguire ad esempio [Docker pull][docker-pull] per eseguire il pull `aci-helloworld:v1` dell'immagine, specificando il nome del server di accesso del registro di sistema. Il nome del server di accesso è costituito dal nome del registro contenitori (solo lettere minuscole) seguito da `.azurecr.io`, ad esempio `mycontainerregistry.azurecr.io`.
 
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
@@ -186,13 +187,13 @@ docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 
 ### <a name="configure-the-vm-with-a-system-managed-identity"></a>Configurare la macchina virtuale con un'identità gestita dal sistema
 
-Il comando [az vm identity assign][az-vm-identity-assign] seguente configura la macchina virtuale Docker con un'identità assegnata dal sistema:
+Il comando [AZ VM Identity Assign][az-vm-identity-assign] seguente configura la macchina virtuale Docker con un'identità assegnata dal sistema:
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myDockerVM 
 ```
 
-Usare il comando [az vm show][az-vm-show] per impostare una variabile sul valore di `principalId` (l'ID dell'entità servizio) dell'identità della macchina virtuale per usarla nei passaggi successivi.
+Usare il comando [AZ VM Show][az-vm-show] per impostare una variabile sul valore `principalId` (ID dell'entità servizio) dell'identità della macchina virtuale da usare nei passaggi successivi.
 
 ```azurecli-interactive
 spID=$(az vm show --resource-group myResourceGroup --name myDockerVM --query identity.principalId --out tsv)
@@ -200,13 +201,13 @@ spID=$(az vm show --resource-group myResourceGroup --name myDockerVM --query ide
 
 ### <a name="grant-identity-access-to-the-container-registry"></a>Concedere all'identità l'accesso al registro contenitori
 
-Configurare ora l'identità per accedere al registro contenitori. Innanzitutto usare il comando [az acr show][az-acr-show] per ottenere l'ID risorsa del registro:
+Configurare ora l'identità per accedere al registro contenitori. Usare prima il comando [AZ ACR Show][az-acr-show] per ottenere l'ID risorsa del registro di sistema:
 
 ```azurecli
 resourceID=$(az acr show --resource-group myResourceGroup --name myContainerRegistry --query id --output tsv)
 ```
 
-Usare il comando [az role assignment create][az-role-assignment-create] per assegnare il ruolo AcrPull all'identità. Questo ruolo offre [autorizzazioni pull](container-registry-roles.md) al registro. Per fornire autorizzazioni pull e push, assegnare il ruolo ACRPush.
+Usare il comando [AZ Role Assignment create][az-role-assignment-create] per assegnare il ruolo AcrPull all'identità. Questo ruolo offre [autorizzazioni pull](container-registry-roles.md) al registro. Per fornire autorizzazioni pull e push, assegnare il ruolo ACRPush.
 
 ```azurecli
 az role assignment create --assignee $spID --scope $resourceID --role acrpull
@@ -216,19 +217,19 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 SSH nella macchina virtuale Docker che è configurato con l'identità. Eseguire i comandi seguenti dell'interfaccia della riga di comando di Azure, tramite l'interfaccia della riga di comando di Azure installata nella macchina virtuale.
 
-In primo luogo, eseguire l'autenticazione con la CLI di Azure [account di accesso di az][az-login], usando l'identità assegnata dal sistema della macchina virtuale.
+Per prima cosa, autenticare l'interfaccia della riga di comando di Azure con [AZ login][az-login], usando l'identità assegnata dal sistema nella macchina virtuale.
 
 ```azurecli
 az login --identity
 ```
 
-Quindi, eseguire l'autenticazione al Registro di sistema [account di accesso di az acr][az-acr-login]. Quando si usa questo comando, l'interfaccia della riga di comando usa il token di Active Directory creato durante l'esecuzione di `az login` per l'autenticazione della sessione con il registro contenitori. (A seconda della configurazione della macchina virtuale, potrebbe essere necessario eseguire questo comando e i comandi di Docker con `sudo`.)
+Eseguire quindi l'autenticazione nel registro di sistema con [AZ ACR login][az-acr-login]. Quando si usa questo comando, l'interfaccia della riga di comando usa il token di Active Directory creato durante l'esecuzione di `az login` per l'autenticazione della sessione con il registro contenitori. (A seconda della configurazione della macchina virtuale, potrebbe essere necessario eseguire questo comando e i comandi di Docker con `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry
 ```
 
-Dovrebbe essere visualizzato il messaggio `Login succeeded`. È quindi possibile eseguire i comandi `docker` senza fornire credenziali. Ad esempio, eseguire [docker pull][docker-pull] per eseguire il pull dell'immagine `aci-helloworld:v1`, specificando il nome del server di accesso del registro. Il nome del server di accesso è costituito dal nome del registro contenitori (solo lettere minuscole) seguito da `.azurecr.io`, ad esempio `mycontainerregistry.azurecr.io`.
+Dovrebbe essere visualizzato il messaggio `Login succeeded`. È quindi possibile eseguire i comandi `docker` senza fornire credenziali. Eseguire ad esempio [Docker pull][docker-pull] per eseguire il pull `aci-helloworld:v1` dell'immagine, specificando il nome del server di accesso del registro di sistema. Il nome del server di accesso è costituito dal nome del registro contenitori (solo lettere minuscole) seguito da `.azurecr.io`, ad esempio `mycontainerregistry.azurecr.io`.
 
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1

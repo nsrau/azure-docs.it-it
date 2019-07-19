@@ -1,7 +1,7 @@
 ---
-title: Docker compose recipe di contenitore
+title: Usare Docker Compose per distribuire più contenitori
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come distribuire più contenitori di servizi cognitivi. Questa procedura viene illustrato come orchestrare più immagini del contenitore Docker con Docker Compose.
+description: Informazioni su come distribuire più contenitori di servizi cognitivi. Questo articolo illustra come orchestrare più immagini del contenitore Docker usando Docker Compose.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,43 +10,43 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 8afb7e866bc2a5fefe28a71653c4a2a87fdc7a5b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 95ec80af88e0b89f61bebed08f4b96a09947f401
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445786"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311543"
 ---
-# <a name="use-multiple-containers-in-a-private-network-with-docker-compose"></a>Utilizzare più contenitori in una rete privata con Docker Compose
+# <a name="use-docker-compose-to-deploy-multiple-containers"></a>Usare Docker Compose per distribuire più contenitori
 
-Informazioni su come distribuire più contenitori di servizi cognitivi. Questa procedura viene illustrato come orchestrare più immagini del contenitore Docker con Docker Compose.
+Questo articolo illustra come distribuire più contenitori di servizi cognitivi di Azure. In particolare, si apprenderà come usare Docker Compose per orchestrare più immagini del contenitore docker.
 
-> [Docker Compose](https://docs.docker.com/compose/) è uno strumento per definire ed eseguire applicazioni Docker multi-contenitore. Con Compose si usa un file YAML per configurare i servizi dell'applicazione. Quindi, con un singolo comando, si crea e avvia tutti i servizi dalla configurazione.
+> [Docker compose](https://docs.docker.com/compose/) è uno strumento per la definizione e l'esecuzione di applicazioni Docker con più contenitori. In compose si usa un file YAML per configurare i servizi dell'applicazione. Quindi, è possibile creare e avviare tutti i servizi dalla configurazione eseguendo un unico comando.
 
-Quando appropriato, il coordinamento di più immagini del contenitore in un singolo computer host può essere interessante. In questo articolo, estrarremo il servizio riconoscere Text e il servizio di riconoscimento modulo tra loro.
+Può essere utile per orchestrare più immagini del contenitore in un singolo computer host. In questo articolo verrà riunito il riconoscimento del testo e i contenitori di riconoscimento form.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa procedura richiede diversi strumenti che devono essere installati ed eseguiti in locale.
+Per questa procedura sono necessari diversi strumenti che devono essere installati ed eseguiti localmente:
 
-* Usare una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* [Motore Docker](https://www.docker.com/products/docker-engine) e verificare che l'interfaccia della riga di comando di Docker funzioni in una finestra della console.
-* Una risorsa di Azure con il piano tariffario corretto. Non tutti i piani tariffari funzionano con questo contenitore:
-  * **Visione artificiale** livelli solo di risorsa con F0 o prezzo Standard.
-  * **Formare riconoscimento** livelli solo di risorsa con F0 o prezzo Standard.
+* Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* [Motore Docker](https://www.docker.com/products/docker-engine). Verificare che l'interfaccia della riga di comando di Docker funzioni in una finestra della console.
+* Una risorsa di Azure con il piano tariffario corretto. Con questo contenitore funzionano solo i piani tariffari seguenti:
+  * **Visione artificiale** risorse solo con F0 o il piano tariffario standard.
+  * **Creare** una risorsa di riconoscimento con F0 o solo il piano tariffario standard.
   * Risorsa **Servizi cognitivi** con piano tariffario S0.
 
 ## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
 
-Completare e inviare il [modulo di richiesta di contenitori vocale servizi cognitivi](https://aka.ms/speechcontainerspreview/) per richiedere l'accesso al contenitore. 
+Completare e inviare il [modulo di richiesta dei contenitori di sintesi vocale di servizi cognitivi](https://aka.ms/speechcontainerspreview/). 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
 [!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
-## <a name="docker-compose-file"></a>File docker compose
+## <a name="docker-compose-file"></a>File Docker Compose
 
-Il file YAML definisce tutti i servizi da distribuire. Questi servizi si basano su entrambi un `DockerFile` o un'immagine contenitore esistente, in questo caso si userà due immagini di anteprima. Copiare e incollare il file YAML seguente e salvarlo come *docker-Compose. yaml*. Fornire appropriato _apikey_, _fatturazione_, e _URI dell'endpoint_ i valori di _docker-Compose. yml_ file riportato di seguito.
+Il file YAML definisce tutti i servizi da distribuire. Questi servizi si basano su `DockerFile` un'immagine del contenitore o esistente. In questo caso, verranno usate due immagini di anteprima. Copiare e incollare il file YAML seguente e salvarlo come *Docker-compose. YAML*. Specificare i valori **APIKEY**, **Billing**e **EndpointUri** appropriati nel file.
 
 ```yaml
 version: '3.7'
@@ -61,10 +61,10 @@ services:
        FormRecognizer__ComputerVisionEndpointUri: # < Your form recognizer URI >
     volumes:
        - type: bind
-         source: e:\publicpreview\output
+         source: E:\publicpreview\output
          target: /output
        - type: bind
-         source: e:\publicpreview\input
+         source: E:\publicpreview\input
          target: /input
     ports:
       - "5010:5000"
@@ -80,22 +80,22 @@ services:
 ```
 
 > [!IMPORTANT]
-> Creare le directory nel computer host che vengono specificati sotto il `volumes` nodo. Ciò è necessario perché la directory deve esistere prima di provare a montare un'immagine con le associazioni di volume.
+> Creare le directory nel computer host specificate nel nodo **volumi** . Questo approccio è necessario perché le directory devono esistere prima di provare a montare un'immagine usando i binding del volume.
 
-## <a name="start-the-configured-docker-compose-services"></a>Inizio configurato docker compose servizi
+## <a name="start-the-configured-docker-compose-services"></a>Avviare i servizi Docker Compose configurati
 
-Docker compose file consente la gestione di cicli tutti i definito del servizio di vita; avvio/arresto e la ricompilazione di servizi, visualizzando lo stato del servizio e lo streaming dei log. Aprire un'interfaccia della riga di comando dalla directory del progetto (in cui il *docker-Compose. yaml* file risiede).
+Un file di Docker Compose consente la gestione di tutte le fasi del ciclo di vita di un servizio definito: avvio, arresto e ricompilazione dei servizi; visualizzazione dello stato del servizio; e streaming di log. Aprire un'interfaccia della riga di comando dalla directory del progetto (in cui si trova il file Docker-compose. YAML).
 
 > [!NOTE]
-> Per evitare errori, verificare che il computer host in modo corretto è la condivisione delle unità con il **motore Docker**. Ad esempio, se *e:\publicpreview* viene usato come una directory nel *docker-Compose. yaml* condividono il *unità E* con docker.
+> Per evitare errori, verificare che il computer host condivida correttamente le unità con il motore docker. Ad esempio, se E:\publicpreview viene usato come una directory nel file Docker-compose. YAML, condividere l'unità E con Docker.
 
-Nell'interfaccia della riga di comando, eseguire il comando seguente per avviare (o riavviare) tutti i servizi definiti nel *docker-Compose. yaml*:
+Dall'interfaccia della riga di comando, eseguire il comando seguente per avviare (o riavviare) tutti i servizi definiti nel file Docker-compose. YAML:
 
 ```console
 docker-compose up
 ```
 
-Il primo tempo di esecuzione la `docker-compose up` comando con questa configurazione, **Docker** effettuerà il pull di immagini configurate nel `services` nodo, e il download di montaggio li:
+La prima volta che Docker esegue il comando **Docker-compose up** usando questa configurazione, estrae le immagini configurate nel nodo **Servizi** e quindi le Scarica e le monta:
 
 ```console
 Pulling forms (containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:)...
@@ -126,7 +126,7 @@ c56511552241: Waiting
 e91d2aa0f1ad: Downloading [==============================================>    ]  162.2MB/176.1MB
 ```
 
-Le immagini vengono scaricate, quindi vengono avviati i servizi di immagine.
+Dopo aver scaricato le immagini, vengono avviati i servizi immagini:
 
 ```console
 Starting docker_ocr_1   ... done
@@ -158,11 +158,11 @@ ocr_1    | Now listening on: http://0.0.0.0:5000
 ocr_1    | Application started. Press Ctrl+C to shut down.
 ```
 
-## <a name="verify-the-service-availability"></a>Verificare la disponibilità dei servizi
+## <a name="verify-the-service-availability"></a>Verificare la disponibilità del servizio
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-Di seguito è un esempio di output:
+Di seguito è riportato un esempio di output:
 
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
@@ -170,17 +170,17 @@ IMAGE ID            REPOSITORY                                                  
 4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text    latest
 ```
 
-### <a name="test-the-recognize-text-container"></a>Testare il contenitore di testo di recognize
+### <a name="test-the-recognize-text-container"></a>Testare il contenitore di riconoscimento del testo
 
-Aprire un browser nel computer host e passare a `localhost` con la porta specificata dal *docker-Compose. yaml*, ad esempio, `http://localhost:5021/swagger/index.html`. È possibile usare il blocco Try delle funzionalità dell'API e testare l'endpoint di testo di recognize.
+Aprire un browser nel computer host e passare a **localhost** usando la porta specificata dal file Docker-compose. YAML, ad esempio http://localhost:5021/swagger/index.html. È possibile usare la funzionalità "prova" nell'API per testare l'endpoint riconoscimento del testo.
 
-![Riconoscere Swagger di testo](media/recognize-text-swagger-page.png)
+![Contenitore di riconoscimento del testo](media/recognize-text-swagger-page.png)
 
-### <a name="test-the-form-recognizer-container"></a>Il contenitore di riconoscimento modulo di test
+### <a name="test-the-form-recognizer-container"></a>Testare il contenitore dei form Recognizer
 
-Aprire un browser nel computer host e passare a `localhost` con la porta specificata dal *docker-Compose. yaml*, ad esempio, `http://localhost:5010/swagger/index.html`. È possibile usare il blocco Try delle funzionalità dell'API e testare l'endpoint di riconoscimento di form.
+Aprire un browser nel computer host e passare a **localhost** usando la porta specificata dal file Docker-compose. YAML, ad esempio http://localhost:5010/swagger/index.html. È possibile usare la funzionalità "prova" nell'API per testare l'endpoint del sistema di riconoscimento del modulo.
 
-![Form per il riconoscimento Swagger](media/form-recognizer-swagger-page.png)
+![Contenitore riconoscimento form](media/form-recognizer-swagger-page.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

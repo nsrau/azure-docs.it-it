@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/17/2019
+ms.date: 07/19/2019
 ms.author: victorh
-ms.openlocfilehash: 6dbc855fb1eb2ee9bcd292c896706b31f819aa5a
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
-ms.translationtype: HT
+ms.openlocfilehash: 239998f29ac9a578174c5dba547bb24ba0755505
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253122"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68318178"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configurare le regole dell'applicazione firewall di Azure con FQDN SQL
 
@@ -25,15 +25,14 @@ ms.locfileid: "68253122"
 
 Con i nomi di dominio completi SQL è possibile filtrare il traffico:
 
-- Dalla reti virtuali a un database SQL di Azure o a un Azure SQL Data Warehouse. Ad esempio: Consentire l'accesso solo a *SQL-Server1.database.Windows.NET*.
+- Dalla reti virtuali a un database SQL di Azure o a un Azure SQL Data Warehouse. Ad esempio:  Consentire l'accesso solo a *SQL-Server1.database.Windows.NET*.
 - Da locale a istanze gestite di SQL di Azure o IaaS SQL in esecuzione in reti virtuali.
 - Da spoke a spoke a istanze gestite di SQL di Azure o IaaS SQL in esecuzione in reti virtuali.
 
 Durante l'anteprima pubblica, il filtro FQDN SQL è supportato solo in [modalità proxy](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (porta 1433). Se si usa SQL nella modalità di reindirizzamento predefinita, è possibile filtrare l'accesso usando il tag del servizio SQL come parte delle [regole di rete](overview.md#network-traffic-filtering-rules).
 Se si usano porte non predefinite per il traffico IaaS SQL, è possibile configurare tali porte nelle regole dell'applicazione firewall.
 
-> [!NOTE]
-> Le regole dell'applicazione con FQDN SQL sono attualmente disponibili in tutte le aree tramite l'interfaccia della riga di comando di Azure, REST e i modelli. L'interfaccia utente del portale verrà aggiunta alle aree in modo incrementale e saranno disponibili in tutte le aree al termine dell'implementazione.
+Le regole dell'applicazione con FQDN SQL sono attualmente disponibili in tutte le aree tramite il portale di Azure, l'interfaccia della riga di comando di Azure, REST e i modelli.
 
 ## <a name="configure-using-azure-cli"></a>Configurare usando l'interfaccia della riga di comando
 

@@ -1,20 +1,21 @@
 ---
-title: 'Creare un circuito ExpressRoute - modello di Resource Manager: Azure | Microsoft Docs'
-description: Creare, eseguire il provisioning, eliminare e il deprovisioning di un circuito ExpressRoute.
+title: 'Creare un modello di Gestione risorse circuito ExpressRoute: Azure | Microsoft Docs'
+description: Creazione, provisioning, eliminazione e deprovisioning di un circuito ExpressRoute.
 services: expressroute;azure-resource-manager
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 07/05/2019
-ms.author: cherylmc;ganesr
-ms.openlocfilehash: bf56145d0a8cd3b01d0d74fcaf3348c1916cee5a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.author: cherylmc
+ms.reviewer: ganesr
+ms.openlocfilehash: 103c61b6ad244bf4b140f897c070ce5bfd54cded
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659684"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849227"
 ---
-# <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Creare un circuito ExpressRoute usando il modello di Azure Resource Manager
+# <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Creare un circuito ExpressRoute usando Azure Resource Manager modello
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
@@ -25,7 +26,7 @@ ms.locfileid: "67659684"
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md) (PowerShell (classico))
 >
 
-Informazioni su come creare un circuito ExpressRoute tramite la distribuzione di un modello Azure Resource Manager usando Azure PowerShell. Per altre informazioni sullo sviluppo di modelli di Resource Manager, vedere la [documentazione di Resource Manager](/azure/azure-resource-manager/) e le [informazioni di riferimento sui modelli](/azure/templates/microsoft.network/expressroutecircuits).
+Informazioni su come creare un circuito ExpressRoute distribuendo un modello di Azure Resource Manager usando Azure PowerShell. Per altre informazioni sullo sviluppo di modelli di Resource Manager, vedere la [documentazione di Resource Manager](/azure/azure-resource-manager/) e le [informazioni di riferimento sui modelli](/azure/templates/microsoft.network/expressroutecircuits).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -35,15 +36,15 @@ Informazioni su come creare un circuito ExpressRoute tramite la distribuzione di
 
 ## <a name="create"></a>Creare un circuito ExpressRoute ed eseguirne il provisioning
 
-[Azure Quickstart templates](https://azure.microsoft.com/resources/templates/) dispone di una raccolta valida del modello di Resource Manager. Si utilizza uno dei [modelli esistenti](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) per creare un circuito ExpressRoute.
+I [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/) hanno una raccolta di gestione risorse modello. Usare uno dei [modelli esistenti](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) per creare un circuito ExpressRoute.
 
 [!code-json[create-azure-expressroute-circuit](~/quickstart-templates/101-expressroute-circuit-create/azuredeploy.json)]
 
-Per visualizzare altre correlate modelli, selezionare [qui](https://azure.microsoft.com/resources/templates/?term=expressroute).
+Per visualizzare altri modelli correlati, fare clic [qui](https://azure.microsoft.com/resources/templates/?term=expressroute).
 
 Per creare un circuito ExpressRoute distribuendo un modello:
 
-1. Selezionare **Provalo** dal blocco di codice seguente e quindi seguire le istruzioni per accedere ad Azure Cloud shell.
+1. Selezionare **prova** dal blocco di codice seguente e quindi seguire le istruzioni per accedere ad Azure cloud Shell.
 
     ```azurepowershell-interactive
     $circuitName = Read-Host -Prompt "Enter a circuit name"
@@ -70,18 +71,18 @@ Per creare un circuito ExpressRoute distribuendo un modello:
      > [!IMPORTANT]
      > La località peer indica la [posizione fisica](expressroute-locations.md) di peering con Microsoft. Questo percorso **non** è collegato alla proprietà "Location", ovvero all'area geografica in cui si trova il provider di risorse di rete di Azure. Dal momento che non sono collegati, è consigliabile scegliere un provider di risorse di rete geograficamente vicino alla posizione di peering del circuito.
 
-    Il nome del gruppo di risorse è il nome dello spazio dei nomi del bus di servizio con **rg** aggiunto.
+    Il nome del gruppo di risorse è il nome dello spazio dei nomi del bus di servizio con l'aggiunta di **RG** .
 
 2. Selezionare **Copia** per copiare lo script di PowerShell.
-3. La console di shell e quindi scegliere **Incolla**.
+3. Fare clic con il pulsante destro del mouse sulla console della shell, quindi scegliere **Incolla**.
 
 Sono necessari alcuni minuti per creare un hub eventi.
 
-Azure PowerShell viene usato per distribuire il modello in questa esercitazione. Per altri metodi di distribuzione del modello, vedere:
+Azure PowerShell viene usato per distribuire il modello in questa esercitazione. Per altri metodi di distribuzione dei modelli, vedere:
 
-* [Tramite il portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
-* [Usando Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
-* [Tramite l'API REST](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [Utilizzando il portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
+* [Usando l'interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).
+* [Usando l'API REST](../azure-resource-manager/resource-group-template-deploy-rest.md).
 
 ## <a name="delete"></a>Deprovisioning ed eliminazione di un circuito ExpressRoute
 

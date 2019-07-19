@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9180c29b807ef26c6426aab75fe74870fef9669a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60868247"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68318172"
 ---
-# <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Tenere traccia dei costi associati a un lab in Azure DevTest Labs
-Questo articolo fornisce informazioni su come tenere traccia dei costi del lab. Viene illustrato come visualizzare stimati trent dei costi per il mese di calendario corrente per l'ambiente lab. L'articolo illustra anche come visualizzare i costi di month-to-date per ogni risorsa nel lab.
+# <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Tenere traccia dei costi associati a un Lab in Azure DevTest Labs
+Questo articolo fornisce informazioni su come tenere traccia dei costi del Lab. Viene illustrato come visualizzare il costo stimato Trent per il mese di calendario corrente per il Lab. Questo articolo illustra anche come visualizzare i costi mensili per ogni risorsa nel Lab.
 
-## <a name="view-the-monthly-estimated-lab-cost-trend"></a>Visualizzare la tendenza dei costi mensili stimati per il lab 
-In questa sezione descrive come usare il **tendenza dei costi mensili stimati** grafico per visualizzare stimato costi-to-date il mese di calendario corrente e il costo previsto di fine del mese per mese di calendario corrente. Anche informazioni su come gestire i costi dei lab impostando soglie e obiettivi di spesa che, quando raggiunti, DevTest Labs segnala i risultati all'utente.
+## <a name="view-the-monthly-estimated-lab-cost-trend"></a>Visualizza la tendenza del costo mensile stimato del Lab 
+In questa sezione viene illustrato come utilizzare il grafico della **tendenza dei costi mensili stimati** per visualizzare il costo stimato del mese di calendario corrente e il costo di fine del mese previsto per il mese di calendario corrente. Si apprenderà anche come gestire i costi del Lab impostando obiettivi e soglie di spesa che, quando raggiunti, attiverà DevTest Labs per segnalare i risultati.
 
 Per visualizzare il grafico della tendenza dei costi mensili stimati, seguire questa procedura: 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 3. Nell'elenco di lab selezionare il proprio lab.  
-4. Selezionare **configurazione e criteri** nel menu a sinistra.  
-4. Selezionare **tendenza dei costi** nel **verifica dei costi** sezione nel menu a sinistra. Lo screenshot seguente mostra un esempio di un grafico dei costi. 
+4. Selezionare **configurazione e criteri** dal menu a sinistra.  
+4. Selezionare **tendenza costo** nella sezione **rilevamento costi** nel menu a sinistra. Nella schermata seguente viene illustrato un esempio di grafico dei costi. 
    
     ![Grafico dei costi](./media/devtest-lab-configure-cost-management/graph.png)
 
@@ -47,7 +47,7 @@ Per visualizzare il grafico della tendenza dei costi mensili stimati, seguire qu
 
      Come indicato sopra il grafico, i costi visualizzati nel grafico per impostazione predefinita sono costi *stimati* in base alle tariffe del piano di [pagamento a consumo](https://azure.microsoft.com/offers/ms-azr-0003p/). È possibile impostare gli obiettivi di spesa visualizzati nei grafici anche [gestendo gli obiettivi di costo relativi al lab.](#managing-cost-targets-for-your-lab)
 
-     I costi seguenti sono rappresentati *non* inclusi nel calcolo dei costi:
+     I costi seguenti *non* sono inclusi nel calcolo dei costi:
 
    * Le sottoscrizioni CSP e Dreamspark non sono attualmente supportate in quanto, per calcolare il costo del lab, Azure DevTest Labs usa le [API di fatturazione di Azure](../billing/billing-usage-rate-card-overview.md) , che non supportano le sottoscrizioni CSP o Dreamspark.
    * Le tariffe della propria offerta. Al momento non è possibile includere le tariffe (indicate nella sottoscrizione) negoziate con Microsoft o i partner Microsoft. Vengono usate solo tariffe a consumo.
@@ -58,21 +58,21 @@ Per visualizzare il grafico della tendenza dei costi mensili stimati, seguire qu
 ### <a name="managing-cost-targets-for-your-lab"></a>Gestione degli obiettivi di costo per il lab
 DevTest Labs consente di migliorare la gestione dei costi nel lab impostando un obiettivo di spesa che è possibile visualizzare nel grafico Tendenza mensile costo stimato. DevTest Labs può anche inviare una notifica quando viene raggiunta la soglia o l'obiettivo di spesa specificato. 
 
-1. Nel **tendenza dei costi** pagina, selezionare **Gestisci target**.
+1. Nella pagina **tendenza costo** selezionare Gestisci **destinazione**.
 
     ![Pulsate Gestisci target](./media/devtest-lab-configure-cost-management/cost-trend-manage-target.png)
-2. Nel **Gestisci target** , specificare un obiettivo di spesa e le soglie. È possibile anche specificare se ogni soglia selezionata deve essere riportata nel grafico della tendenza dei costi o segnalata tramite una notifica webhook.
+2. Nella pagina **Gestisci destinazione** specificare un target di spesa e le soglie. È possibile anche specificare se ogni soglia selezionata deve essere riportata nel grafico della tendenza dei costi o segnalata tramite una notifica webhook.
 
     ![Riquadro Gestisci target](./media/devtest-lab-configure-cost-management/cost-trend-manage-target-pane.png)
 
    - Selezionare un periodo di tempo durante il quale si vuole che vengano monitorati gli obiettivi di costo.
       - **Mensile**: gli obiettivi di costo vengono monitorati a livello mensile.
-      - **Fisso**: gli obiettivi di costo vengono monitorati per l'intervallo di date specificato in date di inizio e fine. In genere, questi valori rappresentano la durata pianificata del progetto per l'esecuzione.
-   - Specificare un **Costo target**. Ad esempio, quanto si prevede di spendere questo lab nel periodo di tempo definito.
+      - **Corretto**: gli obiettivi di costo vengono monitorati per l'intervallo di date specificato nelle date di inizio e di fine. In genere, questi valori rappresentano il tempo pianificato per l'esecuzione del progetto.
+   - Specificare un **Costo target**. Ad esempio, quanto si prevede di spendere in questo Lab nel periodo di tempo definito.
    - Selezionare questa opzione per abilitare o disabilitare qualsiasi soglia che si vuole venga segnalata, in incrementi del 25%, fino al 125% del **Costo target** specificato.
-      - **Inviare una notifica**: Quando questa soglia viene raggiunta, ricevono una notifica tramite un URL webhook specificato.
-      - **Vykreslit v grafu**: Quando questa soglia viene raggiunta, i risultati vengono tracciati sul grafico di tendenza dei costi che è possibile visualizzare, come descritto nella visualizzazione del grafico della tendenza dei costo mensili stimati.
-   - Se si sceglie l'opzione **Invia notifica** quando viene raggiunta la soglia, è necessario specificare un URL webhook. Nell'area Integrazioni dei costi selezionare **Fare clic qui per aggiungere un'integrazione**. Immettere un **URL del Webhook** nel riquadro Configura notifica e quindi selezionare **OK**.
+      - **Notifica**: Quando questa soglia viene soddisfatta, viene inviata una notifica tramite un URL del webhook specificato.
+      - **Traccia nel grafico**: Quando viene soddisfatta questa soglia, i risultati vengono tracciati sul grafico della tendenza dei costi che è possibile visualizzare, come descritto in visualizzazione del grafico della tendenza dei costi mensili stimati.
+   - Se si sceglie l'opzione **Invia notifica** quando viene raggiunta la soglia, è necessario specificare un URL webhook. Nell'area Integrazioni dei costi selezionare **Fare clic qui per aggiungere un'integrazione**. Immettere un **URL webhook** nel riquadro Configura notifica e quindi fare clic su **OK**.
 
        ![Riquadro Configura notifica](./media/devtest-lab-configure-cost-management/configure-notification.png)
 
@@ -82,20 +82,20 @@ DevTest Labs consente di migliorare la gestione dei costi nel lab impostando un 
 
        Per altre informazioni sui webhook, vedere [Creare un webhook o una funzione API di Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
-## <a name="view-cost-by-resource"></a>Visualizzare il costo per risorsa 
-La funzionalità di tendenza dei costi mensili nei lab consente di vedere quanto speso nel mese di calendario corrente. Indica inoltre la proiezione di spesa fino alla fine del mese, basato sulla spesa negli ultimi sette giorni. Per comprendere il motivo per cui la spesa nel lab soddisfa le soglie in anticipo, è possibile usare la **costo per risorsa** funzionalità che mostra il costo di month-to-date **per ogni risorsa** in una tabella.
+## <a name="view-cost-by-resource"></a>Visualizza costo per risorsa 
+La funzionalità relativa alla tendenza dei costi mensili in Labs consente di visualizzare quanto speso nel mese di calendario corrente. Mostra inoltre la proiezione della spesa fino alla fine del mese, sulla base della spesa negli ultimi sette giorni. Per comprendere il motivo per cui la spesa nel Lab soddisfa le soglie iniziali, è possibile usare la funzionalità **costo per risorsa** che mostra il costo mensile per **ogni risorsa** in una tabella.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.  
-4. Selezionare **configurazione e criteri** nel menu a sinistra.
-5. Selezionare **costo per risorsa** nel **verifica dei costi** sezione nel menu a sinistra. Noterete che i costi associati a ogni risorsa associata a un lab. 
+4. Selezionare **configurazione e criteri** dal menu a sinistra.
+5. Selezionare **cost by Resource** nella sezione **cost Tracking** nel menu a sinistra. Vengono visualizzati i costi associati a ogni risorsa associata a un Lab. 
 
     ![Costo per risorsa](./media/devtest-lab-configure-cost-management/cost-by-resource.png)
 
-Questa funzionalità consente di identificare facilmente le risorse che costano più in modo che si possano intraprendere azioni per ridurre la spesa lab. Ad esempio, il costo di una macchina virtuale è basato sulle dimensioni della macchina virtuale. Maggiori sono le dimensioni della macchina virtuale, più sono il costo. È possibile trovare facilmente le dimensioni di una macchina virtuale e il proprietario, in modo che possono comunicare con il proprietario della macchina virtuale per comprendere il motivo per cui sono necessario tali dimensioni di macchina virtuale e se è possibile ridurre le dimensioni.
+Questa funzionalità consente di identificare facilmente le risorse più costose, in modo da poter intraprendere azioni per ridurre la spesa del Lab. Il costo di una macchina virtuale, ad esempio, si basa sulle dimensioni della macchina virtuale. Maggiore è la dimensione della macchina virtuale, il costo è maggiore. È possibile trovare facilmente le dimensioni di una macchina virtuale e del proprietario, in modo che sia possibile comunicare con il proprietario della macchina virtuale per comprendere il motivo per cui sono necessarie le dimensioni della macchina virtuale e se è possibile ridurre le dimensioni.
 
-[Criteri di arresto automatico](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown) aiuta a ridurre i costi, arresto di macchine virtuali del lab a una determinata ora del giorno. Tuttavia, un utente del lab può rifiutare esplicitamente i criteri di arresto, aumentando così il costo di esecuzione della macchina virtuale. Nella tabella per vedere se si è stato scelto esplicitamente i criteri di arresto automatico, è possibile selezionare una macchina virtuale. Se è questo il caso, può comunicare con il proprietario della macchina virtuale per individuare il motivo per cui la macchina virtuale ha stato scelto esplicitamente i criteri.
+I [criteri di arresto automatico](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) consentono di ridurre il costo arrestando le macchine virtuali del Lab in una determinata ora del giorno. Tuttavia, un utente del Lab può rifiutare esplicitamente i criteri di arresto, che aumentano il costo di esecuzione della macchina virtuale. È possibile selezionare una macchina virtuale nella tabella per verificare se è stata esclusa dal criterio di arresto automatico. In tal caso, è possibile comunicare con il proprietario della macchina virtuale per trovare il motivo per cui la macchina virtuale è stata esclusa dal criterio.
  
 ## <a name="next-steps"></a>Passaggi successivi
 Altre operazioni da eseguire:

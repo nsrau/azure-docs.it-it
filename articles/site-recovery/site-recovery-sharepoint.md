@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4b4edec43d01878bbc5899487f6ee1d2816eb135
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: bc6d9e7214d2b7cd009e7562357bed420e49f185
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491823"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325118"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurare il ripristino di emergenza per un'applicazione di SharePoint multilivello con Azure Site Recovery
 
@@ -29,7 +29,7 @@ Una buona soluzione di ripristino di emergenza deve consentire la modellazione d
 
 Questo articolo descrive dettagliatamente come proteggere un'applicazione di SharePoint usando [Azure Site Recovery](site-recovery-overview.md). Questo articolo descrive le procedure consigliate per la replica di un'applicazione di SharePoint in Azure, l'esecuzione di un'esercitazione sul ripristino di emergenza e il failover dell'applicazione in Azure.
 
-È possibile guardare il video di seguito sul ripristino di un'applicazione multilivello in Azure.
+È possibile guardare il video seguente sul ripristino di un'applicazione multilivello in Azure.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
@@ -62,10 +62,10 @@ Ai fini di questo articolo sono state usate macchine virtuali VMware con Windows
 
 **Scenario** | **In un sito secondario** | **In Azure**
 --- | --- | ---
-**Hyper-V** | Yes | Yes
-**VMware** | Yes | Yes
+**Hyper-V** | Sì | Yes
+**VMware** | Sì | Yes
 **Server fisico** | Yes | Yes
-**Azure** | NA | Yes
+**Azure** | ND | Sì
 
 ### <a name="sharepoint-versions"></a>Versioni di SharePoint
 Sono supportate le versioni di SharePoint Server seguenti.
@@ -196,7 +196,7 @@ Seguire [queste linee guida](site-recovery-test-failover-to-azure.md) per esegui
 
 Per le linee guida su come eseguire il failover di test per Active Directory e DNS, fare riferimento al documento [Considerazioni sul failover di test per Active Directory e DNS](site-recovery-active-directory.md#test-failover-considerations).
 
-Per indicazioni su come eseguire il failover di test per SQL AlwaysOn in gruppi di disponibilità, vedere [esecuzione di ripristino di emergenza dell'applicazione con Azure Site Recovery e il failover di Test](site-recovery-sql.md#disaster-recovery-of-application) documento.
+Per istruzioni su come eseguire il failover di test per i gruppi di disponibilità Always ON di SQL, vedere l'articolo relativo al ripristino di emergenza [dell'applicazione con Azure Site Recovery e il](site-recovery-sql.md#disaster-recovery-of-an-application) documento di failover
 
 ## <a name="doing-a-failover"></a>Esecuzione di un failover
 Seguire [queste linee guida](site-recovery-failover.md) per eseguire un failover.

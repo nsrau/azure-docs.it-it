@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae423b6fb141cab4038e65ba85c6067f1c23aee0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740995"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320684"
 ---
-# <a name="computer-groups-in-azure-monitor-log-queries"></a>Gruppi di computer nelle query di log di monitoraggio di Azure
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Gruppi di computer nelle query log di monitoraggio di Azure
 I gruppi di computer in Monitoraggio di Azure consentono di limitare l'ambito delle [query di log](../log-query/log-query-overview.md) a uno specifico set di computer.  Ogni gruppo viene popolato con i computer usando una query definita dall'utente oppure importando gruppi da diverse origini.  Quando il gruppo viene incluso in una query di log, i risultati sono limitati ai record corrispondenti ai computer del gruppo.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -84,7 +84,7 @@ Al termine dell'importazione dei gruppi, nel menu vengono elencati il numero dei
 ### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 Quando si configura Monitoraggio di Azure per l'importazione delle appartenenze a raccolte di Configuration Manager, viene creato un gruppo di computer per ogni raccolta.  Le informazioni di appartenenza delle raccolte vengono recuperate ogni 3 ore per mantenere aggiornati i gruppi di computer. 
 
-Prima di importare raccolte di Configuration Manager è necessario [connettere Configuration Manager a Monitoraggio di Azure](collect-sccm.md).  È quindi possibile configurare l'importazione da **Impostazioni avanzate** nell'area di lavoro Log Analytics nel portale di Azure.  Selezionare **Gruppi di computer**, **SCCM** e quindi **Importa appartenenze alla raccolta di Configuration Manager**.  Non è richiesta alcuna ulteriore configurazione.
+Prima di importare raccolte di Configuration Manager è necessario [connettere Configuration Manager a Monitoraggio di Azure](collect-sccm.md).  
 
 ![Gruppi di computer da SCCM](media/computer-groups/configure-sccm.png)
 
@@ -125,7 +125,7 @@ La query seguente restituisce i record UpdateSummary solo per i computer in Comp
 ## <a name="computer-group-records"></a>Record dei gruppi di computer
 Per ogni appartenenza a gruppi di computer creata da Active Directory o WSUS viene creato un record nell'area di lavoro Log Analytics.  Il tipo di questi record è **ComputerGroup** e le proprietà sono elencate nella tabella seguente.  Per i gruppi di computer basati su query di log non vengono creati record.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |

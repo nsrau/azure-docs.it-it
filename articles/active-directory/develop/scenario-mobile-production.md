@@ -1,9 +1,9 @@
 ---
-title: 'App per dispositivi mobili che chiama le API web (passare alla produzione): piattaforma delle identità Microsoft'
-description: Informazioni su come compilare un'app per dispositivi mobili di chiamate di web API (passare alla produzione)
+title: App per dispositivi mobili che chiama le API Web (sposta in produzione)-piattaforma di identità Microsoft
+description: Informazioni su come creare un'app per dispositivi mobili che chiama API Web (passa alla produzione)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,36 +13,36 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.reviwer: brandwe
+ms.reviwer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8b6a5c2a29228de806088ea93e197d42bf1ab47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e778e55bd87e325b3dcf14a8c9f1616157a420b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962346"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320882"
 ---
-# <a name="mobile-app-that-calls-web-apis---move-to-production"></a>App per dispositivi mobili che chiama web API: passare alla produzione
+# <a name="mobile-app-that-calls-web-apis---move-to-production"></a>App per dispositivi mobili che chiama le API Web-passa all'ambiente di produzione
 
-Questo articolo fornisce informazioni dettagliate su come migliorare la qualità e affidabilità dell'app prima di spostarla nell'ambiente di produzione.
+Questo articolo fornisce informazioni dettagliate su come migliorare la qualità e l'affidabilità dell'app prima di spostarla nell'ambiente di produzione.
 
 ## <a name="handling-errors-in-mobile-applications"></a>Gestione degli errori nelle applicazioni per dispositivi mobili
 
-Un numero di condizioni di errore può verificarsi nell'app a questo punto. Gli scenari principali per la gestione sono errori invisibili all'utente e fallback per l'interazione. Altre condizioni che è opportuno considerare per la produzione includono Nessuna rete situazioni, interruzioni dei servizi, i requisiti per il consenso dell'amministratore e gli altri casi specifici dello scenario.
+A questo punto possono verificarsi numerose condizioni di errore nell'app. Gli scenari principali da gestire sono gli errori e i fallback invisibile all'interazione. Altre condizioni che è opportuno prendere in considerazione per la produzione includono situazioni senza rete, interruzioni del servizio, requisiti per il consenso dell'amministratore e altri casi specifici dello scenario.
 
-Tutte le librerie MSAL ha contenuto wiki e codice di esempio che descrive come gestire queste condizioni:
+Ogni libreria MSAL include codice di esempio e contenuto wiki che descrive come gestire le condizioni seguenti:
 
-- [MSAL Android Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android)
-- [MSAL iOS Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
-- [MSAL.NET Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
+- [Wiki di MSAL Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)
+- [Wiki di MSAL iOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
+- [Wiki MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
 
-## <a name="mitigating-and-investigating-issues"></a>Riduzione del rischio e l'analisi dei problemi
+## <a name="mitigating-and-investigating-issues"></a>Attenuazione e analisi dei problemi
 
-Per diagnosticare i problemi nell'app, è utile per raccogliere i dati. Per informazioni sui tipi di dati è possibile raccogliere, vedere il wiki di piattaforma MSAL.
+Per diagnosticare i problemi nell'app, è utile per raccogliere i dati. Per informazioni sui tipi di dati che è possibile raccogliere, vedere wiki della piattaforma MSAL.
 
-- Gli utenti potrebbero chiedere aiuto quando si verificano problemi. Una procedura consigliata è per acquisire e archiviare i log temporaneamente e fornire un percorso in cui gli utenti possono caricare li. MSAL fornisce estensioni di registrazione per acquisire informazioni dettagliate sull'autenticazione.
-- Se è disponibile, abilitare la telemetria tramite MSAL per raccogliere dati sul modo in cui accedono gli utenti all'app.
+- Gli utenti potrebbero chiedere assistenza quando si verificano problemi. Una procedura consigliata consiste nell'acquisire e archiviare temporaneamente i log e fornire un percorso in cui gli utenti possono caricarli. MSAL fornisce estensioni di registrazione per l'acquisizione di informazioni dettagliate sull'autenticazione.
+- Se è disponibile, abilitare la telemetria tramite MSAL per raccogliere i dati sulle modalità di accesso degli utenti all'app.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

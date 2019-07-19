@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f50d16687632224a21d6ae294f4070485fb4eead
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 781a81589032c290cef7342e7210ee36f388b22a
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472514"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233978"
 ---
-# <a name="suspended-domains"></a>Domini sospesi
+# <a name="understand-the-suspended-states-for-an-azure-active-directory-domain-services-managed-domain"></a>Informazioni sugli stati sospesi per un dominio gestito Azure Active Directory Domain Services
+
 Quando Azure Active Directory Domain Services non è in grado di amministrare un dominio gestito per un lungo periodo di tempo, lo stato del dominio diventa sospeso. Questo articolo descrive il motivo per cui i domini gestiti vengono sospesi e il modo in cui risolvere il problema.
 
 

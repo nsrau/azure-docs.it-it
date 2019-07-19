@@ -7,14 +7,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 12/26/2018
-ms.author: lyrana
+ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a57089eb2cd87b08ba647afed002d90d6f14891a
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66162148"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846654"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Creare e gestire assegnazioni di ruolo in Gemelli digitali di Azure
 
@@ -39,12 +39,12 @@ Ogni assegnazione di ruolo è conforme alla definizione seguente:
 
 La tabella seguente descrive i singoli attributi:
 
-| Attributo | Name | Obbligatorio | Type | Descrizione |
+| Attributo | Name | Obbligatoria | Type | Descrizione |
 | --- | --- | --- | --- | --- |
-| RoleId | Identificatore della definizione di ruolo | Yes | String | ID univoco dell'assegnazione di ruolo desiderata. È possibile ottenere le definizioni dei ruoli e i relativi identificatori eseguendo una query sull'API di sistema o consultando la tabella seguente. |
+| RoleId | Identificatore della definizione di ruolo | Sì | String | ID univoco dell'assegnazione di ruolo desiderata. È possibile ottenere le definizioni dei ruoli e i relativi identificatori eseguendo una query sull'API di sistema o consultando la tabella seguente. |
 | objectId | Identificatore di oggetto | Yes | String | ID di Azure Active Directory, ID oggetto dell'entità servizio o nome di dominio. Destinatario dell'assegnazione di ruolo. L'assegnazione di ruolo deve essere formattata in base al tipo associato. Per l'elemento objectIdType `DomainName`, objectId deve iniziare con il carattere `“@”`. |
-| objectIdType | Tipo di identificatore di oggetto | Yes | String | Tipo di identificatore di oggetto usato. Vedere **ObjectIdType supportati** di seguito. |
-| path | Percorso di spazio | Yes | String | Percorso di accesso completo dell'oggetto `Space`. Un esempio è `/{Guid}/{Guid}`. Se un identificatore richiede l'assegnazione di ruolo per l'intero grafico, specificare `"/"`. Questo carattere designa la radice, ma non è consigliabile usarlo. Seguire sempre il principio del privilegio minimo. |
+| objectIdType | Tipo di identificatore di oggetto | Sì | String | Tipo di identificatore di oggetto usato. Vedere **ObjectIdType supportati** di seguito. |
+| path | Percorso di spazio | Sì | String | Percorso di accesso completo dell'oggetto `Space`. Un esempio è `/{Guid}/{Guid}`. Se un identificatore richiede l'assegnazione di ruolo per l'intero grafico, specificare `"/"`. Questo carattere designa la radice, ma non è consigliabile usarlo. Seguire sempre il principio del privilegio minimo. |
 | TenantId | Identificatore del tenant | Variabile | String | Nella maggior parte dei casi, ID tenant di Azure Active Directory. Non consentito per gli elementi ObjectIdType `DeviceId` e `TenantId`. Obbligatorio per gli elementi ObjectIdType `UserId` e `ServicePrincipalId`. Facoltativo per l'elemento ObjectIdType DomainName. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificatori delle definizioni del ruolo supportati

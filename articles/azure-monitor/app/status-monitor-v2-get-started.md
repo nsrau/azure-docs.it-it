@@ -1,6 +1,6 @@
 ---
-title: Azure v2 di Status Monitor - Guida introduttiva | Microsoft Docs
-description: Una Guida rapida per la versione v2 Status Monitor. Monitorare le prestazioni di siti Web senza ridistribuire il sito Web. Funziona con le app web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
+title: Azure Status Monitor V2-introduzione | Microsoft Docs
+description: Guida introduttiva per Status Monitor V2. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,27 +12,22 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 4da9d8e8efd5f70718f18b2e8e35ea6b5adf6757
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0c836c8ef947e190a0090b3435eec1c53ded436
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734967"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326250"
 ---
-# <a name="get-started-with-status-monitor-v2"></a>Introduzione a Status Monitor v2
+# <a name="get-started-with-status-monitor-v2"></a>Introduzione a Status Monitor V2
 
-Questo articolo contiene i comandi di avvio rapido dovrebbe funzionare per la maggior parte degli ambienti.
-Le istruzioni dipendono da PowerShell Gallery per distribuire gli aggiornamenti.
-Questi comandi consentono di PowerShell `-Proxy` parametro.
+Questo articolo contiene i comandi di avvio rapido che dovrebbero funzionare per la maggior parte degli ambienti.
+Le istruzioni dipendono dalla PowerShell Gallery per la distribuzione degli aggiornamenti.
+Questi comandi supportano il parametro `-Proxy` di PowerShell.
 
-Per una spiegazione di questi comandi, istruzioni per la personalizzazione e informazioni sulla risoluzione dei problemi, vedere la [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md).
+Per una spiegazione di questi comandi, istruzioni di personalizzazione e informazioni sulla risoluzione dei problemi, vedere le [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-
-> [!IMPORTANT]
-> Stato monitoraggio v2 è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliabile per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate e alcune potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="download-and-install-via-powershell-gallery"></a>Scaricare e installare tramite PowerShell Gallery
 
@@ -46,7 +41,7 @@ Install-Module -Name PowerShellGet -Force
 ``` 
 Chiudere PowerShell.
 
-### <a name="install-status-monitor-v2"></a>Stato dell'installazione del monitoraggio v2
+### <a name="install-status-monitor-v2"></a>Installare Status Monitor V2
 Eseguire PowerShell come amministratore.
 ```powershell   
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -60,11 +55,11 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ```
     
         
-## <a name="download-and-install-manually-offline-option"></a>Scarica e installa manualmente (opzione offline)
+## <a name="download-and-install-manually-offline-option"></a>Scaricare e installare manualmente (opzione offline)
 ### <a name="download-the-module"></a>Scaricare il modulo
-Scaricare manualmente la versione più recente del modulo da [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+Scaricare manualmente la versione più recente del modulo dal [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 
-### <a name="unzip-and-install-status-monitor-v2"></a>Decomprimere e installare Status Monitor v2
+### <a name="unzip-and-install-status-monitor-v2"></a>Decomprimere e installare Status Monitor V2
 ```powershell
 $pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.3.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
@@ -83,18 +78,18 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
  Visualizzare i dati di telemetria:
 
-- [Esplorare le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e utilizzo.
-- [Cercare eventi e log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
-- [Usare Analitica](../../azure-monitor/app/analytics.md) per più query avanzate.
+- [Esplora le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo.
+- Eseguire [ricerche negli eventi e nei log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
+- [Usare Analytics](../../azure-monitor/app/analytics.md) per query più avanzate.
 - [Creare dashboard](../../azure-monitor/app/overview-dashboard.md).
 
  Aggiungere altri dati di telemetria:
 
-- [Creare test web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
-- [Aggiungere dati di telemetria client web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina web e per consentire le chiamate di traccia.
-- [Aggiungere Application Insights SDK al codice](../../azure-monitor/app/asp-net.md) in modo che è possibile inserire una traccia e registrare le chiamate.
+- [Creare test Web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
+- Aggiungere i dati di telemetria del [client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
+- [Aggiungere il Application Insights SDK al codice per](../../azure-monitor/app/asp-net.md) poter inserire le chiamate di traccia e log.
 
-Altri vantaggi v2 Status Monitor:
+Eseguire altre operazioni con Status Monitor V2:
 
-- Rivedere le [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md) per una spiegazione dei comandi fare clic qui.
-- Usare la Guida alla [risolvere i problemi di](status-monitor-v2-troubleshoot.md) v2 Status Monitor.
+- Esaminare le [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md) per una spiegazione dei comandi disponibili qui.
+- Usare la guida per la [risoluzione dei problemi](status-monitor-v2-troubleshoot.md) Status Monitor V2.

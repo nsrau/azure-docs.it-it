@@ -1,6 +1,6 @@
 ---
-title: Il rilevamento per il calcolo nativo del cloud in Centro sicurezza di Azure per le minacce | Microsoft Docs
-description: Questo argomento viene presentata nel cloud gli avvisi di calcolo nativo disponibili nel Centro sicurezza di Azure. nel Centro sicurezza di Azure.
+title: Rilevamento delle minacce per il calcolo nativo del cloud nel centro sicurezza di Azure | Microsoft Docs
+description: Questo argomento presenta gli avvisi di calcolo nativi cloud disponibili nel centro sicurezza di Azure. nel centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,49 +13,49 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: bc3cb66d43e71777e06c6bd63dcff35e2ff19df8
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: 14433806a28e31cef1a278e16cb69e7c9b1a2458
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571686"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295834"
 ---
-# <a name="threat-detection-for-cloud-native-compute-in-azure-security-center"></a>Rilevamento delle minacce per il cloud calcolo nativo nel Centro sicurezza di Azure
+# <a name="threat-detection-for-cloud-native-compute-in-azure-security-center"></a>Rilevamento delle minacce per il calcolo nativo del cloud nel centro sicurezza di Azure
 
-Come provider di cloud, il Centro sicurezza Usa la visibilità univoca per analizzare i log interni e identificare la metodologia di attacco su più destinazioni. Questo argomento vengono illustrati gli avvisi disponibili per i servizi di Azure seguenti:
+Come provider di servizi cloud, il Centro sicurezza usa la visibilità univoca per analizzare i log interni e identificare la metodologia di attacco su più destinazioni. Questo argomento presenta gli avvisi disponibili per i servizi di Azure seguenti:
 
 * [Servizio app di Azure](#app-services)
 * [Contenitori](#azure-containers) 
 
-## Servizio App di Azure <a name="app-services"></a>
+## Servizio app Azure<a name="app-services"></a>
 
-Il Centro sicurezza Usa la scalabilità del cloud per identificare gli attacchi ai clienti le applicazioni in esecuzione nel servizio App di Azure di destinazione. Con le applicazioni web in corso praticamente in qualsiasi rete moderne, gli utenti malintenzionati di probe per trovarli e sfruttare i punti deboli. Prima che venga indirizzato in ambienti specifici, le richieste alle applicazioni in esecuzione in Azure passano attraverso i gateway diversi in cui sono controllati e registrati. Questi dati vengono quindi utilizzati per identificare gli attacchi, gli utenti malintenzionati e per apprendere nuovi schemi che verranno usati successivamente.
+Il Centro sicurezza sfrutta la scalabilità del cloud per identificare gli attacchi destinati alle applicazioni dei clienti in esecuzione sul servizio app Azure. Con le applicazioni Web praticamente in qualsiasi rete moderna, gli utenti malintenzionati si interrogano per trovare questi e svantaggi di exploit. Prima di essere indirizzati ad ambienti specifici, le richieste alle applicazioni in esecuzione in Azure passano attraverso diversi gateway dove vengono ispezionate e registrate. Questi dati vengono quindi usati per identificare gli exploit, gli utenti malintenzionati e per apprendere nuovi modelli che verranno usati in un secondo momento.
 
-Sfruttando la visibilità che dispone di Azure come provider di cloud, il Centro sicurezza analizza i log del servizio App interno per identificare la metodologia di attacco su più destinazioni. Ad esempio, l'analisi generalizzata e attacchi distribuiti. Questo tipo di attacco in genere proviene da un piccolo subset di indirizzi IP e Mostra i modelli di ricerca per indicizzazione agli endpoint simile in più host, la ricerca di una pagina vulnerabile o plug-in. Questo può essere rilevato tramite Cloud ma non può essere identificato dal punto di vista di un singolo host.
+Sfruttando la visibilità di Azure come provider di servizi cloud, il Centro sicurezza analizza i log interni del servizio app per identificare la metodologia di attacco su più destinazioni. Ad esempio, analisi generalizzata e attacchi distribuiti. Questo tipo di attacco in genere deriva da un piccolo subset di indirizzi IP ed espone modelli di ricerca per indicizzazione in endpoint simili su più host, cercando una pagina o un plug-in vulnerabile. Questa operazione può essere rilevata utilizzando il cloud, ma non può essere identificata dal punto di vista di un singolo host.
 
-Il Centro sicurezza ha inoltre accesso a sandbox e le macchine virtuali sottostanti. Insieme a scopi legali di memoria, l'infrastruttura possibile raccontare la storia, da un nuovo attacco circolano in circolazione per compromissioni in macchine dei clienti. Pertanto, il Centro sicurezza può rilevare gli attacchi contro le applicazioni web molto dopo che subisce l'attacco.
+Il Centro sicurezza ha anche accesso ai sandbox e alle VM sottostanti. Insieme alle analisi della memoria, l'infrastruttura può raccontare la storia, da un nuovo attacco che circola in natura a compromessi nei computer dei clienti. Il Centro sicurezza può quindi rilevare attacchi contro le applicazioni Web a lungo, dopo essere stato sfruttato.
 
 > [!div class="mx-tableFixed"]
 
 |Avviso|Descrizione|
 |---|---|
-|**Chiamata di tema WordPress sospetta rilevata**|Il log attività di servizio App di Azure indica un'attività di inserimento di codice possibili sulla risorsa del servizio App.<br/> Questa attività sospetta è simile a un'attività che consente di modificare un tema di WordPress per supportare l'esecuzione di server-side di codice, seguito da una richiesta web diretti per richiamare il file di tema manipolato. Questo tipo di attività è verificato in passato come parte di una campagna di attacco su WordPress.|
-|**Connessione alla pagina web dall'indirizzo IP anomalo rilevato**|Il log attività di servizio App di Azure indica una connessione a una pagina web sensibili da un indirizzo di origine che mai connessi a prima. Ciò potrebbe indicare che un utente tenta un attacco di forza bruta nelle pagine di amministrazione di App Web. Potrebbe anche essere il risultato di un nuovo indirizzo IP usato da un utente valido.|
-|**Un indirizzo IP che connessa all'interfaccia di Azure App Service FTP è stato trovato nell'Intelligence per le minacce**|Analisi di log FTP di servizio App Azure ha rilevato una connessione da un indirizzo di origine che è stato trovato nel feed di Intelligence per le minacce. Durante la connessione, un utente di accedere alle pagine elencate di seguito.|
-|**Web di creare impronte digitali rilevato**|Il log attività di servizio App di Azure indica un possibile web attività sulla risorsa del servizio App di creare impronte digitali. <br/>Questa attività sospetta rilevata viene associata uno strumento denominato Elephant nascosta. Lo strumento di impronte digitali server web e prova a rilevare le applicazioni installate e le relative versioni. Gli utenti malintenzionati usano spesso questo strumento per le applicazioni web di probe per individuare le vulnerabilità.|
-|**Accesso sospetta a pagina web potenzialmente vulnerabili rilevato**|Il log attività di servizio App di Azure indica che una pagina web che sembra essere sensibili ha effettuato l'accesso. <br/>Questa attività sospetta, originata da un indirizzo di origine il cui modello di accesso è simile a quello di uno scanner di web. Questo tipo di attività è spesso associato a un tentativo per un utente malintenzionato di scansione della rete per tentare di ottenere l'accesso a dati sensibili o vulnerabile pagine web.|
-|**File PHP nella cartella di caricamento**|Il log attività di servizio App di Azure indica che un elemento ha eseguito l'accesso a una pagina PHP sospetta che si trova nella cartella di caricamento. <br/>Questo tipo di cartella non contiene in genere file PHP. L'esistenza di questo tipo di file potrebbe indicare un exploit che sfruttano le vulnerabilità di caricamento di file arbitrario.|
-|**Un tentativo di eseguire i comandi di Linux in un servizio App di Windows**|Analisi dei processi del servizio App ha rilevato un tentativo di eseguire un comando di Linux in un servizio App di Windows. Questa azione è stata in esecuzione nell'applicazione web. Questo comportamento viene spesso visualizzato durante le campagne che sfrutta una vulnerabilità in un'applicazione web comuni.|
-|**Esecuzione di PHP sospetta rilevata**|Macchina log indicano che un sospette processo PHP è in esecuzione. L'azione è incluso un tentativo di eseguire i comandi del sistema operativo o codice PHP dalla riga di comando tramite il processo PHP. Questo comportamento può essere legittimo, nelle applicazioni web questo comportamento è anche osservato in attività dannose, ad esempio i tentativi di infettare i siti Web con Shell web.|
-|**Esecuzione del processo dalla cartella temporanea**|Analisi di processi del servizio App ha rilevato un'esecuzione di un processo dalla cartella temporanea dell'app. Questo comportamento può essere legittimo, nelle applicazioni web questo comportamento è anche osservato in attività dannose.|
-|**Tenta di eseguire comandi con privilegi elevati ha rilevato**|Analisi dei processi del servizio App ha rilevato un tentativo di eseguire un comando che richiede privilegi elevati. Il comando è stato eseguito nel contesto dell'applicazione web. Questo comportamento può essere legittimo, nelle applicazioni web questo comportamento è anche osservato in attività dannose.|
+|**Rilevata chiamata del tema WordPress sospetta**|Il log attività del servizio app Azure indica una possibile attività di inserimento di codice nella risorsa del servizio app.<br/> Questa attività sospetta è simile all'attività che manipola un tema WordPress per supportare l'esecuzione sul lato server del codice, seguito da una richiesta Web diretta per richiamare il file di tema modificato. Questo tipo di attività è stato rilevato nel passato come parte di una campagna di attacco rispetto a WordPress.|
+|**Connessione alla pagina Web da un indirizzo IP anomalo rilevato**|Il log attività del servizio app Azure indica una connessione a una pagina Web sensibile da un indirizzo di origine che non si è mai connesso prima. Questo potrebbe indicare che un utente sta tentando un attacco di forza bruta nelle pagine di amministrazione dell'app Web. Potrebbe anche essere il risultato di un nuovo indirizzo IP usato da un utente legittimo.|
+|**Nell'Intelligence per le minacce è stato trovato un indirizzo IP connesso all'interfaccia FTP del servizio app Azure**|L'analisi dei log FTP del servizio app Azure ha rilevato una connessione da un indirizzo di origine trovato nel feed di intelligence per le minacce. Durante questa connessione, un utente ha eseguito l'accesso alle pagine elencate di seguito.|
+|**Impronta digitale web rilevata**|Il log attività del servizio app Azure indica una possibile attività di impronta digitale Web nella risorsa del servizio app. <br/>Questa attività sospetta rilevata è associata a uno strumento denominato Elephant cieco. Lo strumento consente di eseguire l'impronta digitale dei server Web e tenta di rilevare le applicazioni installate e le relative versioni. Spesso gli utenti malintenzionati usano questo strumento per eseguire il probe delle applicazioni Web per individuare le vulnerabilità.|
+|**È stato rilevato un accesso sospetto a una pagina Web potenzialmente vulnerabile**|Il log attività del servizio app Azure indica che è stato eseguito l'accesso a una pagina Web che sembra essere sensibile. <br/>Questa attività sospetta ha origine da un indirizzo di origine il cui modello di accesso è simile a quello di uno scanner Web. Questo tipo di attività è spesso associato a un tentativo da un utente malintenzionato di analizzare la rete per provare a ottenere l'accesso a pagine Web sensibili o vulnerabili.|
+|**File PHP nella cartella di caricamento**|Il log attività del servizio app Azure indica che è stato eseguito l'accesso a una pagina PHP sospetta che si trova nella cartella di caricamento. <br/>Questo tipo di cartella non contiene in genere file PHP. L'esistenza di questo tipo di file potrebbe indicare un exploit che sfrutta le vulnerabilità di caricamento arbitrario dei file.|
+|**Tentativo di eseguire i comandi di Linux in un servizio app di Windows**|L'analisi dei processi del servizio app ha rilevato un tentativo di esecuzione di un comando Linux in un servizio app di Windows. Questa azione è stata eseguita dall'applicazione Web. Questo comportamento è spesso visibile durante le campagne che sfruttano una vulnerabilità in un'applicazione Web comune.|
+|**È stata rilevata un'esecuzione PHP sospetta**|I log del computer indicano un processo PHP sospetto in esecuzione. L'azione includeva un tentativo di eseguire comandi del sistema operativo o codice PHP dalla riga di comando usando il processo PHP. Sebbene questo comportamento possa essere legittimo, nelle applicazioni Web questo comportamento viene osservato anche in attività dannose, ad esempio i tentativi di infettare i siti Web con le shell Web.|
+|**Elabora esecuzione da cartella temporanea**|L'analisi dei processi del servizio app ha rilevato un'esecuzione di un processo dalla cartella temporanea dell'app. Sebbene questo comportamento possa essere legittimo, nelle applicazioni Web questo comportamento viene osservato anche in attività dannose.|
+|**Il tentativo di eseguire il comando con privilegi elevati è stato rilevato**|L'analisi dei processi del servizio app ha rilevato un tentativo di eseguire un comando che richiede privilegi elevati. Il comando è stato eseguito nel contesto dell'applicazione Web. Sebbene questo comportamento possa essere legittimo, nelle applicazioni Web questo comportamento viene osservato anche in attività dannose.|
 
 > [!NOTE]
-> Rilevamento delle minacce del Centro sicurezza per il servizio App non è attualmente disponibile in Azure per enti pubblici e aree del cloud con sovranità.
+> Il rilevamento delle minacce del Centro sicurezza per il servizio app non è attualmente disponibile in Azure per enti pubblici e aree cloud sovrane.
 
-Per altre informazioni sul rilevamento delle minacce nel servizio App avvisi visitare proteggere servizio App con il Centro sicurezza di Azure e verificare come abilitare il monitoraggio e la protezione dei carichi di lavoro del servizio App.
+Per altre informazioni sugli avvisi di rilevamento delle minacce per il servizio app, vedere proteggere il servizio app con il Centro sicurezza di Azure e vedere come abilitare il monitoraggio e la protezione dei carichi di lavoro del servizio app.
 
-## Contenitori <a name="azure-containers"></a>
+## Contenitori<a name="azure-containers"></a>
 
-Centro sicurezza offre il rilevamento delle minacce in tempo reale per i contenitori in macchine Linux basate su framework auditd. Gli avvisi identificano diverse attività sospette di Docker, ad esempio la creazione di un contenitore con privilegi in un host, un'indicazione dei server Secure Shell (SSH) in esecuzione all'interno di un contenitore Docker o l'uso di miner crypto. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori. Oltre ai rilevamenti di Linux, il Centro sicurezza offre inoltre analitica più specifici per le distribuzioni di contenitori.
+Il Centro sicurezza fornisce il rilevamento delle minacce in tempo reale per i contenitori in computer Linux basati sul Framework controllato. Gli avvisi identificano diverse attività di Docker sospette, ad esempio la creazione di un contenitore con privilegi in un host, un'indicazione del server Secure Shell (SSH) in esecuzione all'interno di un contenitore Docker o l'uso dei minatori di crittografia. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori. Oltre ai rilevamenti di Linux, il Centro sicurezza offre anche analisi più specifiche per le distribuzioni di contenitori.

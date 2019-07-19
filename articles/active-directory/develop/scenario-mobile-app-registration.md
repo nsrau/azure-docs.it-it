@@ -1,9 +1,9 @@
 ---
-title: App per dispositivi mobili che chiama l'API - configurazione del codice dell'app web | Piattaforma delle identità Microsoft
-description: Informazioni su come compilare un'app per dispositivi mobili di chiamate di web API (configurazione del codice dell'app)
+title: App per dispositivi mobili che chiama le API Web-configurazione del codice dell'app | Piattaforma di identità Microsoft
+description: Informazioni su come creare un'app per dispositivi mobili che chiama le API Web (configurazione del codice dell'app)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,38 +16,38 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b6ebab0eeca6895e1c7a0f6008972030d81da42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f43ae9da51f68c9765a36d27c993d1c9935d61fa
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962400"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326115"
 ---
-# <a name="mobile-app-that-calls-web-apis---app-registration"></a>App per dispositivi mobili che chiama l'API - registrazione dell'app web
+# <a name="mobile-app-that-calls-web-apis---app-registration"></a>App per dispositivi mobili che chiama le API Web-registrazione app
 
-Questo articolo contiene le istruzioni di registrazione di app per la creazione di un'applicazione per dispositivi mobili.
+Questo articolo contiene le istruzioni per la registrazione di app per la creazione di un'applicazione per dispositivi mobili.
 
 ## <a name="supported-account-types"></a>Tipi di account supportati
 
-I tipi di account nelle applicazioni per dispositivi mobili supportati variano in base l'esperienza che si vuole abilitare e gli utenti che è destinata l'app.
+I tipi di account supportati nelle applicazioni per dispositivi mobili dipendono dall'esperienza che si vuole abilitare e dagli utenti a cui è destinata l'app.
 
-## <a name="platform-configuration-and-redirect-uris"></a>Configurazione della piattaforma e gli URI di reindirizzamento  
+## <a name="platform-configuration-and-redirect-uris"></a>URI di reindirizzamento e configurazione della piattaforma  
 
-Quando si compila un'app per dispositivi mobili, il passaggio di registrazione più importante è l'URI di reindirizzamento. Ciò può essere impostata tramite il [configurazione della piattaforma nel pannello autenticazione](https://aka.ms/MobileAppReg).
+Quando si compila un'app per dispositivi mobili, il passaggio di registrazione più critico è l'URI di reindirizzamento. Questa impostazione può essere configurata tramite la [configurazione della piattaforma nel pannello autenticazione](https://aka.ms/MobileAppReg).
 
-Questa esperienza consentirà all'app di ottenere accesso single sign-on (SSO) tramite il Microsoft Authenticator e portale aziendale di Intune in Android, oltre al supporto i criteri di gestione di dispositivi.
+Questa esperienza consente all'app di ottenere l'accesso Single Sign-on (SSO) tramite il Microsoft Authenticator (e Portale aziendale Intune in Android), oltre a supportare i criteri di gestione dei dispositivi.
 
-Se si preferisce configurare manualmente l'URI di reindirizzamento, è possibile farlo tramite il manifesto dell'applicazione. Il formato consigliato è la seguente:
+Se si preferisce configurare manualmente l'URI di reindirizzamento, è possibile farlo tramite il manifesto dell'applicazione. Il formato consigliato è il seguente:
 
-- ***iOS***: `msauth.<BUNDLE_ID>://auth`
-- ***Android***: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
-  - L'hash della firma di Android può essere generato usando le chiavi release o debug tramite il comando dello strumento KeyTool.
+- ***iOS***:`msauth.<BUNDLE_ID>://auth`
+- ***Android***:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+  - L'hash della firma Android può essere generato usando le chiavi di rilascio o di debug tramite il comando di chiave.
 
 ## <a name="api-permissions"></a>Autorizzazioni delle API
 
-Applicazioni per dispositivi mobili chiamano le API per conto dell'utente connesso. L'app deve richiedere autorizzazioni delegate, nota anche come ambiti. A seconda dell'esperienza desiderata, questa operazione può essere eseguita in modo statico tramite il portale di Azure o in modo dinamico in fase di esecuzione. In modo statico la registrazione di autorizzazioni consente agli amministratori di approvare facilmente l'app ed è consigliata.
+Le applicazioni per dispositivi mobili chiamano le API per conto dell'utente che ha eseguito l'accesso. L'app deve richiedere autorizzazioni delegate, denominate anche ambiti. A seconda dell'esperienza desiderata, questa operazione può essere eseguita in modo statico tramite il portale di Azure o dinamicamente in fase di esecuzione. La registrazione statica delle autorizzazioni consente agli amministratori di approvare facilmente l'app ed è consigliata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Acquisire un token](scenario-mobile-acquire-token.md)
+> [Acquisizione di un token](scenario-mobile-acquire-token.md)

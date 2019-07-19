@@ -7,13 +7,13 @@ manager: nunoc
 ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: yijenj
-ms.openlocfilehash: 496fef7cfd93004e77a710942cffabbf23d6b29a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: nunoc
+ms.openlocfilehash: 1c27b85aca45f25354d6351c1a335b14cb9bc446
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937690"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297814"
 ---
 # <a name="support-for-the-marketplace"></a>Supporto per Marketplace  
 Ecco un elenco delle opzioni di supporto per Marketplace.  
@@ -22,11 +22,11 @@ Ecco un elenco delle opzioni di supporto per Marketplace.
 
 ## <a name="onboarding"></a>Onboarding
 
-Aprire un ticket con Microsoft [supporto di server di pubblicazione di marketplace](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) per problemi di onboarding e guide introduttive o con Microsoft [supporto del partner](https://partner.microsoft.com/support) se hai domande su Microsoft Partner Network.
+È possibile aprire un ticket con il supporto per gli editori di Microsoft [Marketplace](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) per problemi relativi a onboarding e Guida introduttiva o al [supporto dei partner](https://partner.microsoft.com/support) Microsoft per eventuali domande su Microsoft Partner Network.
 
 ## <a name="cloud-partner-portal"></a>Portale per Cloud Partner  
 
-| Canale di supporto | Descrizione | Disponibilità |  
+| Canale di supporto | DESCRIZIONE | Disponibilità |  
 |:--- |:--- |:--- |  
 | Per assistenza, visitare la pagina Create an incident (Creare un evento imprevisto) disponibile nel [supporto per il Marketplace](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Supporto per il Portale per Cloud Partner. | I servizi di supporto vengono erogati tra le 6.00 e le 18.00 PST. |  
 

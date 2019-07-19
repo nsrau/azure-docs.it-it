@@ -9,21 +9,21 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f6422bf2ccc42c12d8f2d20a5a7ece8d37e8b48e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 398b2236caa77e4aef5b471079407a5edeeeee2d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449718"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326944"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
 Archiviazione di Azure offre un modello di sicurezza su più livelli, che consente di proteggere gli account di archiviazione limitandoli a un set specifico di reti supportate. Quando si configurano le regole di rete, solo le applicazioni che richiedono dati dal set di reti specificato possono accedere a un account di archiviazione.
 
-Per accedere a un account di archiviazione quando le regole di rete sono applicate, un'applicazione deve inviare una richiesta che deve essere correttamente autorizzata. Autorizzazione è supportato con le credenziali di Azure Active Directory (Azure AD) per i BLOB e code, con una chiave di accesso di account valido o con un token di firma di accesso condiviso.
+Per accedere a un account di archiviazione quando le regole di rete sono applicate, un'applicazione deve inviare una richiesta che deve essere correttamente autorizzata. L'autorizzazione è supportata con le credenziali Azure Active Directory (Azure AD) per i BLOB e le code, con una chiave di accesso dell'account valida o con un token SAS.
 
 > [!IMPORTANT]
-> Sincronizzazione File di Azure non supporta ancora i firewall e reti virtuali. Se si Usa sincronizzazione File di Azure nell'account di archiviazione e si abilita queste, sincronizzazione File di Azure non sarà sincronizzato.
+> Sincronizzazione file di Azure non supporta ancora firewall e reti virtuali. Se si usano Sincronizzazione file di Azure nell'account di archiviazione e si abilitano questi Sincronizzazione file di Azure non verranno sincronizzati.
 >
 > L'attivazione delle regole firewall per l'account di archiviazione blocca le richieste in ingresso per i dati per impostazione predefinita, a meno che le richieste non provengano da un servizio che opera all'interno di una rete virtuale di Azure. Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via.
 >
@@ -353,15 +353,16 @@ Se si abilita l'eccezione **Consenti ai servizi Microsoft attendibili...** , ai 
 |Service|Nome provider di risorse|Scopo|
 |:------|:---------------------|:------|
 |Backup di Azure|Microsoft.RecoveryServices|Eseguire il backup e il ripristino di dischi non gestiti nelle macchine virtuali IAAS (non obbligatorio per i dischi gestiti). [Altre informazioni](/azure/backup/backup-introduction-to-azure-backup)|
-|Azure Data Box|Microsoft.DataBox|Consente l'importazione di dati in Azure mediante Data Box. [Altre informazioni](/azure/databox/data-box-overview)|
+|Azure Data Box|Microsoft.DataBox|Consente l'importazione di dati in Azure usando Data Box. [Altre informazioni](/azure/databox/data-box-overview)|
 |Azure DevTest Labs|Microsoft.DevTestLab|Creazione di immagini personalizzate e installazione di artefatti. [Altre informazioni](/azure/devtest-lab/devtest-lab-overview)|
 |Griglia di eventi di Azure|Microsoft.EventGrid|Abilitare la pubblicazione di eventi di archiviazione BLOB e consentire a Griglia di eventi la pubblicazione nelle code di archiviazione. Informazioni sugli [eventi di archiviazione BLOB](/azure/event-grid/event-sources) e sulla [pubblicazione nelle code](/azure/event-grid/event-handlers).|
 |Hub eventi di Azure|Microsoft.EventHub|Archiviare dati con Acquisizione di Hub eventi. [Altre informazioni](/azure/event-hubs/event-hubs-capture-overview).|
-|HDInsight di Azure|Microsoft.HDInsight|Effettuare il provisioning di contenuto iniziale del file system predefinito per un nuovo cluster HDInsight. [Altre informazioni](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)|
+| Sincronizzazione file di Azure| Microsoft.StorageSync| Consente di trasformare il file server locale in una cache per le condivisioni file di Azure. Consentire la sincronizzazione multisito, il ripristino di emergenza rapido e il backup sul cloud. [Altre informazioni](../files/storage-sync-files-planning.md)|
+|HDInsight di Azure|Microsoft.HDInsight|Eseguire il provisioning del contenuto iniziale del file system predefinito per un nuovo cluster HDInsight. [Altre informazioni](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)|
 |Monitoraggio di Azure|Microsoft.Insights|Eseguire la scrittura dei dati di monitoraggio in un account di archiviazione protetto [Altre informazioni](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Rete di Azure|Microsoft.Network|Archiviare e analizzare i log di traffico di rete. [Altre informazioni](/azure/network-watcher/network-watcher-packet-capture-overview)|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configurare il ripristino di emergenza abilitando la replica delle macchine virtuali IaaS di Azure. Questa operazione è necessaria se si usa un account di archiviazione della cache abilitato per il firewall, un account di archiviazione di origine o un account di archiviazione di destinazione.  [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)|
-|Azure SQL Data Warehouse|Microsoft.Sql|Consente di importare ed esportare gli scenari da istanze specifiche di database SQL usando PolyBase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)|
+|Azure SQL Data Warehouse|Microsoft.Sql|Consente di importare ed esportare scenari da istanze di database SQL specifiche usando la polibase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)|
 
 ### <a name="storage-analytics-data-access"></a>Accesso ai dati di Analisi archiviazione
 

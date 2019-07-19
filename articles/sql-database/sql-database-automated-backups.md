@@ -12,31 +12,31 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 06/27/2019
-ms.openlocfilehash: ce16450f7f25e5703cf283c4babb2a935aad21de
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: c75b19fff478c14ff47996cf9159e48f3ff69724
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813057"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261187"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
-Il Database SQL automaticamente consente di creare i backup del database in cui vengono mantenuti tra 7 e 35 giorni e Usa Azure [archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) per garantire che vengono conservati anche se il data center non è disponibile. Questi backup vengono creati automaticamente. I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Se le regole di sicurezza richiedono che i backup siano disponibili per un lungo periodo di tempo (fino a 10 anni), è possibile configurare un [conservazione a lungo termine](sql-database-long-term-retention.md) per i database Singleton ed Elastic pool.
+Il database SQL crea automaticamente i backup del database conservati da 7 a 35 giorni e usa l'archiviazione con ridondanza geografica e accesso in lettura di Azure [(RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) per assicurarsi che vengano conservati anche se il Data Center non è disponibile. Questi backup vengono creati automaticamente. I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Se le regole di sicurezza richiedono che i backup siano disponibili per un periodo di tempo prolungato (fino a 10 anni), è possibile configurare una [conservazione a lungo termine](sql-database-long-term-retention.md) su database singleton e pool elastici.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="what-is-a-sql-database-backup"></a>Informazioni sul backup del database SQL
 
-Database SQL Usa la tecnologia di SQL Server per creare [i backup completi](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) ogni settimana [differenziali](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) ogni 12 ore, e [backup del log delle transazioni](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) ogni 5-10 minuti. I backup vengono archiviati nel [BLOB di archiviazione RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) che vengono replicati in un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da interruzioni prolungate nel data center. Quando si ripristina un database, il servizio individua i backup completi, differenziali e del log delle transazioni da ripristinare.
+Il database SQL usa la tecnologia SQL Server per creare [backup completi](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) ogni settimana, [backup differenziali](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) ogni 12 ore e [backup del log delle transazioni](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) ogni 5-10 minuti. I backup vengono archiviati nei [BLOB di archiviazione RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) replicati in una [Data Center abbinata](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del Data Center. Quando si ripristina un database, il servizio individua i backup completi, differenziali e del log delle transazioni da ripristinare.
 
 È possibile usare questi backup per:
 
-- **Ripristinare un database esistente in un punto nel tempo nel passato** entro il periodo di conservazione usando il portale di Azure, Azure PowerShell, CLI di Azure o l'API REST. In un database singolo e pool elastici, questa operazione creerà un nuovo database nello stesso server del database originale. In istanza gestita, questa operazione può creare una copia del database o uguali o diversi istanza gestita nella stessa sottoscrizione.
-  - **[Modificare il periodo di conservazione dei Backup](#how-to-change-the-pitr-backup-retention-period)**  compreso tra da 7 a 35 giorni per configurare i criteri di backup.
-  - **Modificare i criteri di conservazione a lungo termine 10 anni** sul Database singolo e pool elastici usando [portale di Azure](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) oppure [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups).
-- **Ripristinare un database eliminato al momento in cui è stato eliminato** o in qualsiasi momento entro il periodo di conservazione. Il database eliminato può essere ripristinato solo nello stesso server logico o istanza gestita in cui è stato creato il database originale.
+- **Ripristinare un database esistente a un punto nel tempo precedente** entro il periodo di conservazione usando il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Nel database singolo e nei pool elastici questa operazione creerà un nuovo database nello stesso server del database originale. In Istanza gestita questa operazione può creare una copia del database o dello stesso o di Istanza gestita diversi nella stessa sottoscrizione.
+  - **[Modificare il periodo di conservazione del backup](#how-to-change-the-pitr-backup-retention-period)** compreso tra 7 e 35 giorni per configurare i criteri di backup.
+  - **Modificare i criteri di conservazione a lungo termine fino a 10 anni** in database singolo e nei pool elastici usando [il portale di Azure](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) o [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups).
+- **Ripristinare un database eliminato fino al momento in cui è stato eliminato** o in qualsiasi momento entro il periodo di memorizzazione. Il database eliminato può essere ripristinato solo nello stesso server logico o in Istanza gestita in cui è stato creato il database originale.
 - **Ripristinare un database in un'altra area geografica**. Il ripristino geografico consente di eseguire un ripristino di emergenza geografico quando è impossibile accedere al server e al database. Crea un nuovo database in qualsiasi server esistente ovunque nel mondo.
-- **Ripristinare un database da un backup a lungo termine specifico** su Database singolo o Pool elastico, se il database è stato configurato con criteri di conservazione a lungo termine (conservazione a lungo termine). Conservazione a lungo termine consente di ripristinare una versione precedente del database usando [portale di Azure](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) oppure [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups) per soddisfare una richiesta di conformità o per eseguire una versione precedente dell'applicazione. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
+- **Ripristinare un database da uno specifico backup a lungo termine** in Database singolo o pool elastico se il database è stato configurato con un criterio di conservazione a lungo termine (LTR). LTR consente di ripristinare una versione precedente del database usando [il portale di Azure](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) o [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups) per soddisfare una richiesta di conformità o per eseguire una versione precedente dell'applicazione. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
 - Per eseguire un ripristino, vedere l'articolo su come [ripristinare un database da un backup](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -46,15 +46,15 @@ Database SQL Usa la tecnologia di SQL Server per creare [i backup completi](http
 
 | | Portale di Azure | Azure PowerShell |
 |---|---|---|
-| Modificare la conservazione backup | [Database singolo](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-the-azure-portal) <br/> [Istanza gestita](sql-database-automated-backups.md#change-pitr-for-a-managed-instance) | [Database singolo](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| Modifica conservazione backup a lungo termine | [Database singolo](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Istanza gestita: n/d  | [Database singolo](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups)<br/>Istanza gestita: n/d  |
-| Ripristinare database da un punto nel tempo | [Database singolo](sql-database-recovery-using-backups.md#point-in-time-restore) | [Database singolo](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| Modificare la conservazione dei backup | [Database singolo](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-the-azure-portal) <br/> [Istanza gestita](sql-database-automated-backups.md#change-pitr-for-a-managed-instance) | [Database singolo](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Modificare la conservazione dei backup a lungo termine | [Database singolo](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Istanza gestita-N/A  | [Database singolo](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups)<br/>Istanza gestita-N/A  |
+| Ripristinare il database da un punto nel tempo | [Database singolo](sql-database-recovery-using-backups.md#point-in-time-restore) | [Database singolo](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | Ripristinare un database eliminato | [Database singolo](sql-database-recovery-using-backups.md#deleted-database-restore-using-the-azure-portal) | [Database singolo](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| Ripristinare database da archiviazione Blob di Azure | Database Single - n/d <br/>Istanza gestita: n/d  | Database Single - n/d <br/>[Istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| Ripristinare il database dall'archiviazione BLOB di Azure | Database singolo-N/A <br/>Istanza gestita-N/A  | Database singolo-N/A <br/>[Istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="how-long-are-backups-kept"></a>Per quanto tempo sono conservati i backup
 
-Ogni database SQL ha un periodo di conservazione dei backup predefinito che varia da 7 e 35 giorni e dipende dal modello di acquisto e dal livello di servizio. È possibile aggiornare il periodo di conservazione dei backup per un database in Database di SQL server. Per altre informazioni, vedere [Modifica del periodo di conservazione backup](#how-to-change-the-pitr-backup-retention-period).
+Tutti i database SQL di Azure (singoli database di istanze gestite e in pool) hanno un periodo di conservazione dei backup predefinito di **sette** giorni. È possibile [modificare il periodo di conservazione dei backup fino a 35 giorni](#how-to-change-the-pitr-backup-retention-period).
 
 Se si elimina un database, il database SQL manterrà i backup come farebbe con un database online. Ad esempio, se si elimina un database Basic con un periodo di conservazione di sette giorni, un backup di quattro giorni viene salvato per altri tre giorni.
 
@@ -63,28 +63,11 @@ Se è necessario conservare i backup per un periodo superiore al periodo di cons
 > [!IMPORTANT]
 > Se si elimina SQL Server di Azure che ospita i database SQL, vengono eliminati anche tutti i database e i pool elastici appartenenti al server e non sarà possibile recuperarli. Non è possibile ripristinare un server eliminato. Tuttavia, se è stata configurata la conservazione a lungo termine, i backup per i database con conservazione a lungo termine non verranno cancellati e questi database potranno essere ripristinati.
 
-### <a name="default-backup-retention-period"></a>Periodo di conservazione dei backup predefinito
-
-#### <a name="dtu-based-purchasing-model"></a>modello di acquisto basato su DTU
-
-Il periodo di conservazione predefinito per un database creato tramite il modello di acquisto basato su DTU varia in base al livello di servizio:
-
-- Livello di servizio Basic viene **uno** settimana.
-- Livello di servizio standard viene **cinque** settimane.
-- Livello di servizio Premium viene **cinque** settimane.
-
-#### <a name="vcore-based-purchasing-model"></a>Modello di acquisto basato su vCore
-
-Se si usa la [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup predefinito è **sette** giorni (per un singolo, in pool e database dell'istanza). Per tutti i database SQL di Azure (database singoli, in pool e dell'istanza), è possibile [modificare il periodo di conservazione dei backup fino a un massimo di 35 giorni](#how-to-change-the-pitr-backup-retention-period).
-
-> [!WARNING]
-> Se si riduce il periodo di memorizzazione corrente, tutti i backup esistenti anteriori al periodo di conservazione dei nuovi non sono più disponibili. Se si aumenta il periodo di conservazione corrente, Database SQL manterrà i backup esistenti fino al raggiungimento del periodo di conservazione più lungo.
-
 ## <a name="how-often-do-backups-happen"></a>Con quale frequenza si verificano i backup
 
 ### <a name="backups-for-point-in-time-restore"></a>Backup per il ripristino temporizzato
 
-Database SQL supporta la funzionalità self-service per il ripristino temporizzato (PITR) mediante la creazione automatica di backup completi, backup differenziali e backup del log delle transazioni. I backup completi del database vengono creati ogni settimana, i backup differenziali del database vengono creati generalmente ogni 12 ore e i backup del log delle transazioni vengono creati in genere ogni 5-10 minuti, con la frequenza in base alle dimensioni di calcolo e alla quantità di attività del database. Il primo backup completo viene pianificato subito dopo la creazione di un database. Il completamento richiede in genere 30 minuti, ma potrebbe richiedere più tempo se le dimensioni del database sono elevate. Il backup iniziale, ad esempio, può richiedere più tempo in un database ripristinato o in una copia del database. Dopo il primo backup completo, l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. Il momento esatto per l'esecuzione dei backup di database è determinato dal servizio SQL Database in modo da bilanciare il carico di lavoro complessivo del sistema. È possibile modificare o disabilitare i processi di backup. 
+Database SQL supporta la funzionalità self-service per il ripristino temporizzato (PITR) mediante la creazione automatica di backup completi, backup differenziali e backup del log delle transazioni. I backup completi del database vengono creati ogni settimana, i backup differenziali del database vengono creati generalmente ogni 12 ore e i backup del log delle transazioni vengono creati in genere ogni 5-10 minuti, con la frequenza in base alle dimensioni di calcolo e alla quantità di attività del database. Il primo backup completo viene pianificato subito dopo la creazione di un database. Il completamento richiede in genere 30 minuti, ma potrebbe richiedere più tempo se le dimensioni del database sono elevate. Il backup iniziale, ad esempio, può richiedere più tempo in un database ripristinato o in una copia del database. Dopo il primo backup completo, l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. Il momento esatto per l'esecuzione dei backup di database è determinato dal servizio SQL Database in modo da bilanciare il carico di lavoro complessivo del sistema. Non è possibile modificare o disabilitare i processi di backup. 
 
 I backup di ripristino temporizzato sono a ridondanza geografica e protetti dalla [riproduzione su più aree di Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
@@ -109,9 +92,9 @@ Se il database è crittografato con TDE, i backup vengono crittografati automati
 
 ## <a name="how-does-microsoft-ensure-backup-integrity"></a>In che modo Microsoft garantisce l'integrità dei backup
 
-In modo continuativo, team di progettazione automaticamente il Database SQL di Azure i test il ripristino dei backup automatici del database di database posizionati in server logici e i pool elastici (non disponibile nell'istanza gestita). Al momento del ripristino, point-in-time database ricevono anche controlli di integrità tramite DBCC CHECKDB.
+Con cadenza continuativa, il team di progettazione del database SQL di Azure testa automaticamente il ripristino dei backup automatici dei database inseriti nei server logici e nei pool elastici. questa operazione non è disponibile in Istanza gestita. Al momento del ripristino temporizzato, i database ricevono anche controlli di integrità tramite DBCC CHECKDB.
 
-Istanza gestita richiede il backup iniziale automatico con `CHECKSUM` i database ripristinati con native `RESTORE` comando o il servizio di migrazione una volta completata la migrazione di dati.
+Istanza gestita esegue il backup iniziale automatico `CHECKSUM` con i database ripristinati utilizzando `RESTORE` il comando nativo o il servizio migrazione dati una volta completata la migrazione.
 
 Gli eventuali problemi rilevati durante la verifica dell'integrità determinano la generazione di un avviso per il team di progettazione. Per altre informazioni sull'integrità dei dati nel database SQL di Azure, vedere [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) (Integrità dei dati nel database SQL di Azure).
 
@@ -123,14 +106,17 @@ Quando si migra il database da un livello di servizio basato su DTU con una cons
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>Come modificare il periodo di conservazione dei backup per il recupero temporizzato
 
-È possibile modificare il periodo di conservazione dei backup Temporizzato predefinito tramite il portale di Azure, PowerShell o l'API REST. I valori supportati sono: 7, 14, 21, 28 giorni o 35 giorni. Gli esempi che seguono illustrano come modificare la conservazione di ripristino temporizzato a 28 giorni.
+È possibile modificare il periodo di conservazione predefinito del backup ripristino temporizzato usando il portale di Azure, PowerShell o l'API REST. I valori supportati sono: 7, 14, 21, 28 giorni o 35 giorni. Gli esempi che seguono illustrano come modificare la conservazione di ripristino temporizzato a 28 giorni.
+
+> [!WARNING]
+> Se si riduce il periodo di conservazione corrente, tutti i backup esistenti precedenti al nuovo periodo di conservazione non saranno più disponibili. Se si aumenta il periodo di conservazione corrente, Database SQL manterrà i backup esistenti fino al raggiungimento del periodo di conservazione più lungo.
 
 > [!NOTE]
 > Queste API avranno un impatto solo sul periodo di conservazione del recupero temporizzato. Se è configurata una conservazione a lungo termine per il database, questo non sarà interessato. Per altre informazioni su come modificare i periodi di conservazione a lungo termine, vedere [Conservazione a lungo termine](sql-database-long-term-retention.md).
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Modificare il periodo di conservazione dei backup per il recupero temporizzato usando il portale di Azure
 
-Per modificare il periodo di conservazione dei backup di ripristino Temporizzato nel portale di Azure, passare all'oggetto server il cui periodo di memorizzazione che si desidera modificare all'interno del portale e quindi selezionare l'opzione appropriata in base nell'oggetto server di cui si sta modificando.
+Per modificare il periodo di conservazione dei backup ripristino temporizzato usando il portale di Azure, passare all'oggetto server di cui si desidera modificare il periodo di memorizzazione nel portale e quindi selezionare l'opzione appropriata in base all'oggetto server che si sta modificando.
 
 #### <a name="change-pitr-for-a-sql-database-server"></a>Modificare il recupero temporizzato per un server di database SQL
 
@@ -144,7 +130,7 @@ Per modificare il periodo di conservazione dei backup di ripristino Temporizzato
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 ```powershell
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
@@ -191,4 +177,4 @@ Per altre informazioni, vedere [Backup Retention REST API](https://docs.microsof
 - Per eseguire il ripristino temporizzato nel portale di Azure, vedere l'articolo sul [ripristino temporizzato nel portale di Azure](sql-database-recovery-using-backups.md).
 - Per eseguire il ripristino temporizzato usando PowerShell, vedere l'articolo sul [ripristino temporizzato con PowerShell](scripts/sql-database-restore-database-powershell.md).
 - Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in Archiviazione BLOB di Azure tramite il portale di Azure, vedere [Gestire la conservazione a lungo termine dei backup usando il portale di Azure](sql-database-long-term-backup-retention-configure.md).
-- Per configurare, gestire e ripristinare dalla conservazione a lungo termine dei backup automatici in archiviazione Blob di Azure con PowerShell, vedere [gestire conservazione backup a lungo termine usando PowerShell](sql-database-long-term-backup-retention-configure.md).
+- Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici nell'archivio BLOB di Azure tramite PowerShell, vedere [gestire la conservazione dei backup a lungo termine usando PowerShell](sql-database-long-term-backup-retention-configure.md).

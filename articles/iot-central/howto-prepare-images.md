@@ -3,17 +3,17 @@ title: Caricare immagini nell'applicazione Azure IoT Central | Microsoft Docs
 description: Informazioni su come preparare e caricare immagini nell'applicazione Azure IoT Central in qualità di costruttore.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/05/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 255033f03acd40580fb4d4a92b0aa9b3e16969f3
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236476"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850170"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparare e caricare immagini nell'applicazione Azure IoT Central
 
@@ -30,11 +30,11 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 
 È possibile aggiungere immagini personalizzate nelle posizioni seguenti di un'applicazione Azure IoT Central:
 
-* Il **mie applicazioni** pagina
+* Pagina **applicazioni personali**
 
     ![Immagine sulla pagina Application Manager](media/howto-prepare-images/applicationmanager.png)
 
-* Il dashboard delle applicazioni
+* Dashboard dell'applicazione
 
     ![Immagine nel dashboard dell'applicazione](media/howto-prepare-images/homepage.png)
 
@@ -56,7 +56,7 @@ In tutte le quattro posizioni è possibile usare immagini PNG, GIF o JPEG.
 
 La tabella seguente riepiloga le dimensioni di immagine ammesse:
 
-| Località | Dimensioni |
+| Location | Dimensioni |
 | -------- | ------ |
 | Application Manager | 268 x 160 px |
 | Modello di dispositivo | 64 x 64 px |
@@ -70,19 +70,19 @@ Le sezioni seguenti descrivono come caricare le immagini nelle diverse posizioni
 
 ### <a name="application-manager"></a>Application Manager
 
-Per caricare un'immagine da utilizzare nel **applicazioni personali** pagina, passare al **le impostazioni dell'applicazione** nella pagina il **amministrazione** sezione. È necessario essere un amministratore per poter eseguire questa attività:
+Per caricare un'immagine da utilizzare nella pagina **applicazioni personali** , passare alla pagina **Impostazioni applicazione** nella sezione **Amministrazione** . È necessario essere un amministratore per poter eseguire questa attività:
 
 ![Caricare l'immagine dell'applicazione](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Selezionare il **immagine applicazione** riquadro per caricare un'immagine (268 x 160 px) dal computer locale.
+Selezionare il riquadro **immagine dell'applicazione** per caricare un'immagine (268x160 px) dal computer locale.
 
 ### <a name="application-dashboard"></a>Dashboard dell'applicazione
 
-Per caricare un'immagine nel dashboard dell'applicazione, passare al **Dashboard** pagina dell'applicazione e selezionare **modificare**. Per poter completare questa attività è necessario essere un costruttore:
+Per caricare un'immagine nel dashboard dell'applicazione, passare alla pagina **Dashboard** dell'applicazione e selezionare **modifica**. Per poter completare questa attività è necessario essere un costruttore:
 
 ![Caricare l'immagine del dashboard](media/howto-prepare-images/uploadhomepage.png)
 
-Sotto **immagine configurare**, selezionare la **immagine** riquadro per caricare un'immagine dal computer locale. Il riquadro con le minime dimensioni è 200 x 200 px, i riquadri più grandi possono essere quadrati o rettangoli che siano multipli dei riquadri piccoli. Ad esempio 200 x 400 px, 400 x 200 px o 400 x 400 px.
+In **Configura immagine**selezionare il riquadro **immagine** per caricare un'immagine dal computer locale. Il riquadro con le minime dimensioni è 200 x 200 px, i riquadri più grandi possono essere quadrati o rettangoli che siano multipli dei riquadri piccoli. Ad esempio 200 x 400 px, 400 x 200 px o 400 x 400 px.
 
 **Salvare** l'immagine caricata. È possibile ridimensionarla in modalità di modifica. Selezionare **al termine**.
 
@@ -100,23 +100,23 @@ Per caricare un'immagine in un dashboard di dispositivo, passare a **Modelli di 
 
 ![Caricare un'immagine del dashboard di dispositivo](media/howto-prepare-images/uploaddevicedashboard.png)
 
-Sotto **immagine configurare**, selezionare la **immagine** riquadro e quindi scegliere il file da caricare dal computer locale. Il riquadro con le minime dimensioni è 200 x 200 px, i riquadri più grandi possono essere quadrati o rettangoli che siano multipli dei riquadri piccoli. Ad esempio 200 x 400 px, 400 x 200 px o 400 x 400 px.
+In **Configura immagine**selezionare il riquadro **immagine** , quindi scegliere il file da caricare dal computer locale. Il riquadro con le minime dimensioni è 200 x 200 px, i riquadri più grandi possono essere quadrati o rettangoli che siano multipli dei riquadri piccoli. Ad esempio 200 x 400 px, 400 x 200 px o 400 x 400 px.
 
 **Salvare** l'immagine caricata. È possibile ridimensionarla e riposizionarla in modalità di modifica. Selezionare **al termine**.
 
 ### <a name="device-set-dashboard"></a>Dashboard del set di dispositivi
 
-Per caricare un'immagine in un dashboard del set di dispositivi, passare a **Device Sets** (Set di dispositivi), scegliere il set di dispositivi e poi un dispositivo. Quindi scegliere il **Dashboard** pagina e selezionare **modificare**:
+Per caricare un'immagine in un dashboard del set di dispositivi, passare a **Device Sets** (Set di dispositivi), scegliere il set di dispositivi e poi un dispositivo. Scegliere quindi la pagina **Dashboard** e selezionare **modifica**:
 
 ![Caricare un'immagine per il dashboard del set di dispositivi](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-Sotto **immagine configurare**, selezionare la **immagine** riquadro per caricare un'immagine dal computer locale. Il riquadro con le minime dimensioni è 200 x 200 px, i riquadri più grandi possono essere quadrati o rettangoli che siano multipli dei riquadri piccoli. Ad esempio 200 x 400 px, 400 x 200 px o 400 x 400 px.
+In **Configura immagine**selezionare il riquadro **immagine** per caricare un'immagine dal computer locale. Il riquadro con le minime dimensioni è 200 x 200 px, i riquadri più grandi possono essere quadrati o rettangoli che siano multipli dei riquadri piccoli. Ad esempio 200 x 400 px, 400 x 200 px o 400 x 400 px.
 
 **Salvare** l'immagine caricata. È possibile ridimensionarla e riposizionarla in modalità di modifica. Selezionare **al termine**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come preparare e caricare immagini in un'applicazione Azure IoT Central, ecco i passaggi successivi consigliati:
+Ora che si è appreso come preparare e caricare immagini nell'applicazione IoT Central di Azure, ecco i passaggi successivi suggeriti:
 
 * [Personalizzare l'interfaccia utente di Azure IoT Central](./howto-customize-ui.md)
 * [Configurare il dashboard dell'applicazione](./howto-configure-homepage.md)

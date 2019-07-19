@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 4613b576b444059d448cf1094284f2a68e6c31a8
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 90358d54077a0c320e8d3186e806b8a61d951c82
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275149"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321348"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Configurare i contenitori del Docker di riconoscimento del testo
 
@@ -31,11 +31,11 @@ L'ambiente di runtime del contenitore **Riconoscimento del testo** si configura 
 
 ## <a name="apikey-configuration-setting"></a>Impostazione di configurazione ApiKey
 
-Il `ApiKey` impostazione specifica di Azure `Cognitive Services` chiave di risorsa usata per rilevare le informazioni di fatturazione per il contenitore. È necessario specificare un valore per la chiave API e il valore deve essere una chiave valida per il _servizi cognitivi_ risorsa specificata per il [ `Billing` ](#billing-configuration-setting) impostazione di configurazione.
+L' `ApiKey` impostazione specifica la chiave `Cognitive Services` di risorsa di Azure usata per tenere traccia delle informazioni di fatturazione per il contenitore. È necessario specificare un valore per APIKEY e il valore deve essere una chiave valida per la risorsa _Servizi cognitivi_ specificata per l' [`Billing`](#billing-configuration-setting) impostazione di configurazione.
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: **Servizi cognitivi** gestione delle risorse, in **chiavi**
+* Portale di Azure: **Servizi cognitivi** Gestione delle risorse, in **chiavi**
 
 ## <a name="applicationinsights-setting"></a>Impostazione ApplicationInsights
 
@@ -43,15 +43,15 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 ## <a name="billing-configuration-setting"></a>Impostazione di configurazione Billing
 
-Il `Billing` impostazione specifica l'URI dell'endpoint del _servizi cognitivi_ risorsa di Azure usato per controllare le informazioni di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e il valore deve essere un URI dell'endpoint valido per un _servizi cognitivi_ risorse in Azure. Il contenitore segnala l'utilizzo ogni 10-15 minuti.
+L' `Billing` impostazione specifica l'URI dell'endpoint della risorsa _Servizi cognitivi_ in Azure usato per misurare le informazioni di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e il valore deve essere un URI di endpoint valido per una risorsa di _Servizi cognitivi_ in Azure. Il contenitore segnala l'utilizzo ogni 10-15 minuti.
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: **Servizi cognitivi** panoramica, con l'etichetta `Endpoint`
+* Portale di Azure: **Servizi cognitivi** Panoramica, con etichetta`Endpoint`
 
-Ricordarsi di aggiungere il `vision/v1.0` routing per l'URI dell'endpoint come illustrato nella tabella seguente. 
+Ricordarsi di aggiungere `vision/v1.0` il routing all'URI dell'endpoint, come illustrato nella tabella seguente. 
 
-|Obbligatoria| NOME | Tipo di dati | Descrizione |
+|Obbligatoria| NOME | Tipo di dati | DESCRIZIONE |
 |--|------|-----------|-------------|
 |Yes| `Billing` | String | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -91,18 +91,18 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 * **Carattere di continuazione di riga**: I comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\`, come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. 
 * **Ordine degli argomenti**: Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori Docker.
 
-Ricordarsi di aggiungere il `vision/v1.0` routing per l'URI dell'endpoint come illustrato nella tabella seguente. 
+Ricordarsi di aggiungere `vision/v1.0` il routing all'URI dell'endpoint, come illustrato nella tabella seguente. 
 
 Sostituire {_nome_argomento_} con i propri valori:
 
 | Placeholder | Value | Formato o esempio |
 |-------------|-------|---|
-|{BILLING_KEY} | La chiave di endpoint della risorsa di servizi cognitivi. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Il valore dell'endpoint di fatturazione inclusa la regione.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
+|{API_KEY} | Chiave dell'endpoint della risorsa Servizi cognitivi. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | Il valore dell'endpoint di fatturazione inclusa la regione.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](computer-vision-how-to-install-containers.md#billing).
-> Il valore ApiKey è il **Key** da Azure `Cognitive Services` pagina chiavi di risorsa. 
+> Il valore APIKEY è la **chiave** della pagina chiavi `Cognitive Services` di risorsa di Azure. 
 
 ## <a name="recognize-text-container-docker-examples"></a>Esempi di contenitore di riconoscimento del testo Docker
 
@@ -114,8 +114,8 @@ Gli esempi Docker seguenti sono per il contenitore di riconoscimento del testo.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
 ### <a name="logging-example"></a>Esempio di registrazione 
@@ -124,8 +124,8 @@ Gli esempi Docker seguenti sono per il contenitore di riconoscimento del testo.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
 

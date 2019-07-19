@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d239e44364c3a4879f2f131717511385a4bd7037
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60786981"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234436"
 ---
 # <a name="templates"></a>Modelli
 
@@ -40,15 +40,17 @@ I modelli sono pipeline predefinite della Data Factory di Azure che consentono d
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Modelli predefiniti di Data Factory
 
-Data Factory usa modelli di Azure Resource Manager per salvare i modelli di pipeline di Data Factory. È possibile visualizzare tutti i modelli di Resource Manager, insieme al file manifesto utilizzati per i modelli di Data Factory di finestra, nelle [repository GitHub di Azure Data Factory ufficiale](https://github.com/Azure/Azure-DataFactory/tree/master/templates). I modelli predefiniti forniti da Microsoft includono ma non sono limitati agli elementi seguenti:
+Data Factory usa modelli di Azure Resource Manager per salvare i modelli di pipeline di Data Factory. È possibile visualizzare tutti i modelli di Gestione risorse, insieme al file manifesto usato per i modelli Data Factory predefiniti, nel [repository ufficiale Azure Data Factory GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/templates). I modelli predefiniti forniti da Microsoft includono ma non sono limitati agli elementi seguenti:
 
 -   Copiare modelli:
 
     -   [Copia bulk dal database](solution-template-bulk-copy-with-control-table.md)
     
-    -   [Copia i nuovi file da LastModifiedDate & lt](solution-template-copy-new-files-lastmodifieddate.md)
+    -   [Copia i nuovi file per LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copia più contenitori di file tra archivi basati su file](solution-template-copy-files-multiple-containers.md)
+
+    -   [Sposta file](solution-template-move-files.md)
 
     -   [Copia delta dal database](solution-template-delta-copy-with-control-table.md)
 

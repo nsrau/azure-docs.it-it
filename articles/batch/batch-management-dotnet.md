@@ -4,7 +4,7 @@ description: Creare, eliminare e modificare le risorse dell'account Batch tramit
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
@@ -16,12 +16,12 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 301a3f9a500c41cf13dfa071d3526d2128b5e131
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41f3eecb1b3f488c355b1bad65b90dae8c76126e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775135"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323446"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gestire le quote e gli account Batch con la libreria client di gestione Batch per .NET
 
@@ -31,22 +31,22 @@ ms.locfileid: "60775135"
 > 
 > 
 
-È possibile ridurre il sovraccarico di manutenzione nelle applicazioni Azure Batch usando la libreria [Batch Management .NET][api_mgmt_net] per automatizzare le operazioni di creazione ed eliminazione di account Batch, gestione delle chiavi e individuazione delle quote.
+È possibile ridurre il sovraccarico di manutenzione nelle applicazioni Azure Batch usando la libreria [batch Management .NET][api_mgmt_net] per automatizzare la creazione, l'eliminazione, la gestione delle chiavi e l'individuazione delle quote dell'account batch.
 
 * **Creare ed eliminare account Batch** in qualsiasi area. Se, ad esempio, un fornitore di software indipendente (ISV) offre un servizio per cui a ogni cliente viene assegnato un account Batch separato per la fatturazione, è possibile aggiungere funzionalità di creazione ed eliminazione di account al portale per i clienti.
 * **Recuperare e rigenerare chiavi di account** a livello di programmazione per qualsiasi account Batch. Questa operazione consente di conformarsi ai criteri di sicurezza che impongono rollover periodici o la scadenza delle chiavi dell'account. In presenza di numerosi account Batch in diverse aree di Azure, l'automazione del processo di rollover permette di aumentare l'efficienza della soluzione.
 * **Controllare le quote degli account** e determinare senza errori i limiti dei singoli account Batch. Il controllo delle quote degli account prima di avviare processi, creare pool o aggiungere nodi di calcolo permette di stabilire attivamente dove e quando creare risorse di calcolo. È possibile determinare quali account richiedono un aumento della quota prima dell'allocazione di risorse aggiuntive in tali account.
-* **Integrare funzionalità di altri servizi di Azure** per un'esperienza di gestione completa sfruttando i vantaggi di Batch Management .NET, [Azure Active Directory][aad_about] e [Azure Resource Manager][resman_overview] nella stessa applicazione. Usando queste funzionalità e le relative API è possibile eliminare i problemi di autenticazione, consentire la creazione e l'eliminazione di gruppi di risorse e fornire le funzionalità descritte in precedenza per una soluzione di gestione end-to-end.
+* **Combina le funzionalità di altri servizi di Azure** per un'esperienza di gestione completa, usando batch Management .NET, [Azure Active Directory][aad_about] , and the [Azure Resource Manager][resman_overview] insieme nella stessa applicazione. Usando queste funzionalità e le relative API è possibile eliminare i problemi di autenticazione, consentire la creazione e l'eliminazione di gruppi di risorse e fornire le funzionalità descritte in precedenza per una soluzione di gestione end-to-end.
 
 > [!NOTE]
-> Questo articolo è incentrato sulla gestione di quote, chiavi e account Batch a livello di codice, ma è possibile eseguire molte di queste attività usando il [portale di Azure][azure_portal]. Per altre informazioni, vedere [Creare un account Azure Batch usando il portale di Azure](batch-account-create-portal.md) e [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
+> Sebbene questo articolo sia incentrato sulla gestione a livello di codice degli account, delle chiavi e delle quote di batch, è possibile eseguire molte di queste attività usando il [portale di Azure][azure_portal]. Per altre informazioni, vedere [Creare un account Azure Batch usando il portale di Azure](batch-account-create-portal.md) e [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md).
 > 
 > 
 
 ## <a name="create-and-delete-batch-accounts"></a>Creare ed eliminare account Batch
-Come accennato, una delle principali funzionalità dell'API di gestione per Batch è la creazione ed eliminazione di account Batch in un'area di Azure. A questo scopo, usare [BatchManagementClient.Account.CreateAsync][net_create] e [DeleteAsync][net_delete] o le relative controparti sincrone.
+Come accennato, una delle principali funzionalità dell'API di gestione per Batch è la creazione ed eliminazione di account Batch in un'area di Azure. A tale scopo, usare [BatchManagementClient. account. CreateAsync][net_create] and [DeleteAsync][net_delete]o le relative controparti sincrone.
 
-Il frammento di codice seguente crea un account, ottiene l'account appena creato dal servizio Batch e quindi lo elimina. In questo e in altri frammenti di codice in questo articolo `batchManagementClient` è un'istanza completamente inizializzata di [BatchManagementClient][net_mgmt_client].
+Il frammento di codice seguente crea un account, ottiene l'account appena creato dal servizio Batch e quindi lo elimina. In questo frammento e gli altri in questo articolo `batchManagementClient` è un'istanza completamente inizializzata di [BatchManagementClient][net_mgmt_client].
 
 ```csharp
 // Create a new Batch account
@@ -64,12 +64,12 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> Le applicazioni che usano la libreria Batch Management .NET e la relativa classe BatchManagementClient necessitano di accesso come **amministratore del servizio** o **coamministratore** alla sottoscrizione a cui appartiene l'account Batch da gestire. Per altre informazioni, consultare la sezione Azure Active Directory e l'esempio di codice [AccountManagement][acct_mgmt_sample].
+> Le applicazioni che usano la libreria Batch Management .NET e la relativa classe BatchManagementClient necessitano di accesso come **amministratore del servizio** o **coamministratore** alla sottoscrizione a cui appartiene l'account Batch da gestire. Per ulteriori informazioni, vedere la sezione Azure Active Directory e l'esempio di codice [AccountManagement][acct_mgmt_sample] .
 > 
 > 
 
 ## <a name="retrieve-and-regenerate-account-keys"></a>Recuperare e rigenerare chiavi di account
-È possibile ottenere le chiavi primarie e secondarie da qualsiasi account Batch all'interno della sottoscrizione usando [ListKeysAsync][net_list_keys]. Le chiavi possono essere rigenerate con [RegenerateKeyAsync][net_regenerate_keys].
+Ottenere chiavi di account primarie e secondarie da qualsiasi account batch all'interno della sottoscrizione usando [ListKeysAsync][net_list_keys]. You can regenerate those keys by using [RegenerateKeyAsync][net_regenerate_keys].
 
 ```csharp
 // Get and print the primary and secondary keys
@@ -91,7 +91,7 @@ BatchAccountRegenerateKeyResponse newKeys =
 ```
 
 > [!TIP]
-> È possibile creare un flusso di lavoro di connessione ottimizzato per le applicazioni di gestione. Ottenere prima una chiave per l'account Batch che si vuole gestire con [ListKeysAsync][net_list_keys]. Usare poi questa chiave durante l'inizializzazione della classe [BatchSharedKeyCredentials][net_sharedkeycred] della libreria Batch .NET usata durante l'inizializzazione di [BatchClient][net_batch_client].
+> È possibile creare un flusso di lavoro di connessione ottimizzato per le applicazioni di gestione. Per prima cosa, ottenere una chiave account per l'account batch che si vuole gestire con la classe [ListKeysAsync][net_list_keys] . Then, use this key when initializing the Batch .NET library's [BatchSharedKeyCredentials][net_sharedkeycred] , che viene usata durante l'inizializzazione di [BatchClient][net_batch_client].
 > 
 > 
 
@@ -101,7 +101,7 @@ Le sottoscrizioni di Azure e i singoli servizi di Azure come Batch hanno tutti q
 ### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>Verificare le quote dell'account Batch di una sottoscrizione di Azure
 Prima di creare un account Batch in un'area, è possibile verificare se la sottoscrizione di Azure permette di aggiungere un account in quell'area.
 
-Nel frammento di codice riportato di seguito viene usato prima di tutto [BatchManagementClient.Accounts.ListAsync][net_mgmt_listaccounts] per ottenere una raccolta di tutti gli account Batch all'interno di una sottoscrizione. Una volta ottenuta questa raccolta, è possibile determinare il numero di account nell'area di destinazione. Si userà quindi [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] per ottenere la quota dell'account Batch e determinare se e quanti account è possibile creare in quell'area.
+Nel frammento di codice riportato di seguito viene usato prima di tutto [BatchManagementClient. account. ListAsync][net_mgmt_listaccounts] to get a collection of all Batch accounts that are within a subscription. Once we've obtained this collection, we determine how many accounts are in the target region. Then we use [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] per ottenere la quota dell'account batch e determinare il numero di account che è possibile creare in tale area.
 
 ```csharp
 // Get a collection of all Batch accounts within the subscription
@@ -125,7 +125,7 @@ Console.WriteLine("Accounts in {0}: {1}", region, accountsInRegion);
 Console.WriteLine("You can create {0} accounts in the {1} region.", quotaResponse.AccountQuota - accountsInRegion, region);
 ```
 
-Nel frammento riportato sopra `creds` è un'istanza di [TokenCloudCredentials][azure_tokencreds]. Per un esempio relativo alla creazione di questo oggetto, vedere l'esempio di codice [AccountManagement][acct_mgmt_sample] su GitHub.
+Nel frammento di codice `creds` precedente è un'istanza dell'esempio di codice [TokenCloudCredentials][azure_tokencreds] . To see an example of creating this object, see the [AccountManagement][acct_mgmt_sample] su GitHub.
 
 ### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Verificare le quote di risorse di calcolo in un account Batch
 Prima di aumentare le risorse di calcolo nella soluzione Batch, è possibile verificare che le risorse da allocare non superino le quote dell'account. Nel frammento di codice riportato di seguito si procede alla stampa delle informazioni sulle quote per l'account Batch denominato `mybatchaccount`. Nell'applicazione è possibile usare queste informazioni per stabilire se l'account può gestire le risorse aggiuntive da creare.
@@ -143,24 +143,24 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 ```
 
 > [!IMPORTANT]
-> Molti dei limiti delle quote predefinite per i servizi e le sottoscrizioni di Azure possono essere aumentati inviando una richiesta nel [portale di Azure][azure_portal]. Per istruzioni su come aumentare le quote dell'account Batch, vedere ad esempio [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md) .
+> Sebbene esistano quote predefinite per le sottoscrizioni e i servizi di Azure, molti di questi limiti possono essere generati inviando una richiesta nel [portale di Azure][azure_portal]. Per istruzioni su come aumentare le quote dell'account Batch, vedere ad esempio [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md) .
 > 
 > 
 
 ## <a name="use-azure-ad-with-batch-management-net"></a>Usare Azure AD con la gestione .NET per Batch
 
-La libreria della gestione .NET per Batch è un client del provider di risorse di Azure e viene usata in combinazione con [Azure Resource Manager][resman_overview] per gestire le risorse dell'account a livello di programmazione. Azure AD deve autenticare le richieste effettuate tramite un client del provider di risorse di Azure, inclusa la libreria della gestione .NET per Batch e con [Azure Resource Manager][resman_overview]. Per informazioni sull'uso di Azure AD con la libreria della gestione .NET per Batch, vedere [Usare Azure Active Directory per autenticare le soluzioni Batch](batch-aad-auth.md). 
+La libreria di gestione .NET per batch è un client del provider di risorse di Azure e viene usata insieme a [Azure Resource Manager][resman_overview] per gestire le risorse dell'account a livello di codice. Azure AD è necessario per autenticare le richieste effettuate tramite qualsiasi client del provider di risorse di Azure, tra cui la libreria .NET per la gestione di batch e la [Azure Resource Manager][resman_overview]. Per informazioni sull'uso di Azure AD con la libreria della gestione .NET per Batch, vedere [Usare Azure Active Directory per autenticare le soluzioni Batch](batch-aad-auth.md). 
 
 ## <a name="sample-project-on-github"></a>Progetto di esempio su GitHub
 
-Il progetto di esempio [AccountManagement][acct_mgmt_sample] su GitHub permette di vedere Batch Management .NET in azione. L'applicazione di esempio AccountManagement illustra le operazioni seguenti:
+Per visualizzare batch Management .NET in azione, consultare il progetto di esempio [AccountManagement][acct_mgmt_sample] su GitHub. L'applicazione di esempio AccountManagement illustra le operazioni seguenti:
 
-1. Acquisire un token di sicurezza da Azure AD con [ADAL][aad_adal]. Se l'utente non ha già eseguito l'accesso, gli viene richiesto di fornire le credenziali di Azure.
-2. Usando il token di sicurezza ottenuto da Azure AD, creare un oggetto [SubscriptionClient][resman_subclient] per richiedere ad Azure un elenco di sottoscrizioni associate all'account. L'utente può selezionare una sottoscrizione dall'elenco se contiene più di una sottoscrizione.
+1. Acquisire un token di sicurezza da Azure AD usando [adal][aad_adal]. Se l'utente non ha già eseguito l'accesso, gli viene richiesto di fornire le credenziali di Azure.
+2. Con il token di sicurezza ottenuto da Azure AD, creare una [SubscriptionClient][resman_subclient] per eseguire una query su Azure per ottenere un elenco di sottoscrizioni associate all'account. L'utente può selezionare una sottoscrizione dall'elenco se contiene più di una sottoscrizione.
 3. Ottenere le credenziali associate alla sottoscrizione selezionata.
-4. Creare un oggetto [ResourceManagementClient][resman_client] usando le credenziali.
-5. Usare l'oggetto [ResourceManagementClient][resman_client] per creare un gruppo di risorse.
-6. Usare l'oggetto [BatchManagementClient][net_mgmt_client] per eseguire una serie di operazioni sull'account Batch:
+4. Creare un oggetto [ResourceManagementClient][resman_client] utilizzando le credenziali.
+5. Usare un oggetto [ResourceManagementClient][resman_client] per creare un gruppo di risorse.
+6. Usare un oggetto [BatchManagementClient][net_mgmt_client] per eseguire diverse operazioni dell'account batch:
    * Creare un account Batch nel nuovo gruppo di risorse.
    * Ottenere l'account appena creato dal servizio Batch.
    * Stampare le chiavi dell'account per il nuovo account.
@@ -171,7 +171,7 @@ Il progetto di esempio [AccountManagement][acct_mgmt_sample] su GitHub permette 
    * Eliminare l'account appena creato.
 7. Eliminare il gruppo di risorse.
 
-Prima di eliminare l'account Batch e il gruppo di risorse appena creati, è possibile esaminarli entrambi nel [portale di Azure][azure_portal]:
+Prima di eliminare l'account batch e il gruppo di risorse appena creati, è possibile visualizzarli nel [portale di Azure][azure_portal]:
 
 Per eseguire correttamente l'applicazione di esempio, è innanzitutto necessario registrarla con il tenant di Azure AD nel portale di Azure e concedere le autorizzazioni all'API di Azure Resource Manager. Seguire la procedura indicata in [Autenticare le soluzioni di gestione Batch con Active Directory](batch-aad-auth-management.md).
 

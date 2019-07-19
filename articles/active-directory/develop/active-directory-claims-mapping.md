@@ -5,6 +5,8 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e923cde3cfcffe594226f6b8b665053d1fc584f6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546195"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324998"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -293,10 +295,10 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 | Utente | mail | Indirizzo di posta elettronica |
 | Utente | userprincipalname | Nome entità utente |
 | Utente | department|department|
-| Utente | onpremisessamaccountname | Nome Account SAM locale |
+| Utente | onpremisessamaccountname | Nome account SAM locale |
 | Utente | netbiosname| Nome NetBios |
 | Utente | dnsdomainname | Nome di dominio DNS |
-| Utente | onpremisesecurityidentifier | ID di sicurezza locali |
+| Utente | onpremisesecurityidentifier | Identificatore di sicurezza locale |
 | Utente | companyname| Nome organizzazione |
 | Utente | streetaddress | Indirizzo |
 | Utente | postalcode | CAP |
@@ -415,7 +417,7 @@ In base al metodo scelto è previsto un set di input e output. Definire gli inpu
 
 ### <a name="custom-signing-key"></a>Chiave di firma personalizzata
 
-È necessario assegnare una chiave di firma personalizzata all'oggetto entità servizio per poter applicare criteri di mapping di attestazioni. In questo modo si conferma che i token sono stati modificati dall'autore del criterio di mapping delle attestazioni e si proteggono le applicazioni dai criteri di mapping di attestazioni creati da malintenzionati.  App con le attestazioni mapping abilitato è necessario controllare un URI speciale per i token di chiavi di firma aggiungendo `appid={client_id}` alla loro [richieste di metadati OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
+È necessario assegnare una chiave di firma personalizzata all'oggetto entità servizio per poter applicare criteri di mapping di attestazioni. In questo modo si conferma che i token sono stati modificati dall'autore del criterio di mapping delle attestazioni e si proteggono le applicazioni dai criteri di mapping di attestazioni creati da malintenzionati.  Per le app con mapping delle attestazioni abilitato è necessario controllare un URI speciale per le chiavi di `appid={client_id}` firma del token aggiungendole alle [richieste di metadati OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
 
 ### <a name="cross-tenant-scenarios"></a>Scenari tra tenant
 
@@ -447,7 +449,7 @@ Per iniziare, seguire questa procedura:
    Get-AzureADPolicy
    ```
 
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Esempio: Creare e assegnare un criterio per omettere le attestazioni di base dai token emessi per un'entità servizio
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Esempio: Creare e assegnare un criterio per omettere le attestazioni di base dai token emessi a un'entità servizio
 
 In questo esempio si creano criteri che rimuovono il set di attestazioni di base dai token emessi per le entità servizio collegate.
 
@@ -520,4 +522,4 @@ In questo esempio si creano i criteri che generano un'attestazione personalizzat
 
 ## <a name="see-also"></a>Vedere anche
 
-Per informazioni su come personalizzare le attestazioni rilasciate nel token SAML tramite il portale di Azure, vedere [come: Personalizzazione delle attestazioni rilasciate nel token SAML per applicazioni aziendali](active-directory-saml-claims-customization.md)
+Per informazioni su come personalizzare le attestazioni rilasciate nel token SAML tramite il [portale di Azure, vedere Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali](active-directory-saml-claims-customization.md)

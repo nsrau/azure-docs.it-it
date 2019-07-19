@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 06/19/2019
-ms.openlocfilehash: 735bf2802bcf55ed87de2ffd2f52539898302b00
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 07/19/2019
+ms.openlocfilehash: b649ea1c69f82840a663cf32391e4c74ac6cc33e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275081"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68319500"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -48,10 +48,10 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
-| Name | Limite di multi-tenant | Limite di ambiente del servizio di integrazione | Note |
+| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
-| Durata esecuzione | 90 giorni | 365 giorni | Per modificare il limite predefinito, vedere [durata di esecuzione modifica](#change-duration). |
-| Conservazione in risorsa di archiviazione | 90 giorni dalla data di inizio dell'esecuzione | 365 giorni | Per modificare il limite predefinito, vedere [modificare la conservazione archiviazione](#change-retention). |
+| Durata esecuzione | 90 giorni | 365 giorni | Per modificare il limite predefinito, vedere la pagina relativa alla [durata dell'esecuzione delle modifiche](#change-duration). |
+| Conservazione in risorsa di archiviazione | 90 giorni dalla data di inizio dell'esecuzione | 365 giorni | Per modificare il limite predefinito, vedere [modificare la conservazione dell'archiviazione](#change-retention). |
 | Intervallo di ricorrenza minimo | 1 secondo | 1 secondo ||
 | Intervallo di ricorrenza massimo | 500 giorni | 500 giorni ||
 |||||
@@ -61,7 +61,7 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 ### <a name="change-run-duration-and-storage-retention"></a>Modificare la durata dell'esecuzione e la conservazione nella risorsa di archiviazione
 
-Per modificare il limite predefinito per la durata dell'esecuzione e la conservazione di archiviazione, seguire questa procedura. Se è necessario superare il limite massimo, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per informazioni sui requisiti.
+Per modificare il limite predefinito per la durata dell'esecuzione e la conservazione dell'archiviazione, attenersi alla seguente procedura. Se è necessario superare il limite massimo, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per informazioni sui requisiti.
 
 1. Nel menu dell'app per la logica nel portale di Azure scegliere **Impostazioni del flusso di lavoro**.
 
@@ -91,11 +91,11 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 Ecco i limiti per una singola definizione di app per la logica:
 
-### <a name="multi-tenant-logic-apps-service"></a>Servizio App per la logica di multi-tenant
+### <a name="multi-tenant-logic-apps-service"></a>Servizio app per la logica multi-tenant
 
 | Name | Limite | Note |
 | ---- | ----- | ----- |
-| Azione: esecuzioni per 5 minuti | 100.000 è il limite predefinito, ma 300.000 è il limite massimo consentito. | Per modificare il limite predefinito, vedere [Run your logic app in "high throughput" mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) (Eseguire l'app per la logica in modalità di velocità effettiva elevata), attualmente in anteprima. In alternativa, è possibile distribuire il carico di lavoro tra più app per la logica in base alle esigenze. |
+| Azione: esecuzioni per 5 minuti | 100.000 è il limite predefinito, ma 300.000 è il limite massimo. | Per modificare il limite predefinito, vedere [Run your logic app in "high throughput" mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) (Eseguire l'app per la logica in modalità di velocità effettiva elevata), attualmente in anteprima. In alternativa, è possibile distribuire il carico di lavoro tra più app per la logica in base alle esigenze. |
 | Azione: chiamate in uscita simultanee | ~2.500 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. |
 | Endpoint di runtime: chiamate in ingresso simultanee | ~1,000 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. |
 | Endpoint di runtime: leggere le chiamate per 5 minuti  | 60.000 | È possibile distribuire un carico di lavoro tra più app in base alle esigenze. |
@@ -103,13 +103,13 @@ Ecco i limiti per una singola definizione di app per la logica:
 | Velocità effettiva del contenuto per 5 minuti | 600 MB | È possibile distribuire un carico di lavoro tra più app in base alle esigenze. |
 ||||
 
-### <a name="integration-service-environment-ise"></a>Ambiente del servizio di integrazione (ISE)
+### <a name="integration-service-environment-ise"></a>Ambiente Integration Services (ISE)
 
 | Name | Limite | Note |
 |------|-------|-------|
-| Limite di esecuzione di unità di base | Limitazione del sistema quando la capacità di infrastruttura raggiunge l'80% | Fornisce circa 4.000 esecuzioni di azioni al minuto, ovvero ~ 160 milioni di esecuzioni di azioni al mese | |
-| Limite di esecuzione di unità di scala | Limitazione del sistema quando la capacità di infrastruttura raggiunge l'80% | Ogni unità di scala può fornire circa 2.000 esecuzioni dell'azione aggiuntive al minuto, ovvero circa 80 milioni di dollari più esecuzioni di azioni al mese | |
-| Unità di scala massimo che è possibile aggiungere | 10 | |
+| Limite esecuzione unità di base | Limitazione del sistema quando la capacità dell'infrastruttura raggiunge il 80% | In sono disponibili ~ 4.000 esecuzioni di azioni al minuto, ovvero ~ 160 milioni esecuzioni di azioni al mese | |
+| Limite di esecuzione delle unità di scala | Limitazione del sistema quando la capacità dell'infrastruttura raggiunge il 80% | Ogni unità di scala può fornire circa 2.000 esecuzioni di azioni aggiuntive al minuto, ovvero ~ 80 milioni altre esecuzioni di azioni al mese | |
+| Unità di scala massime che è possibile aggiungere | 10 | |
 ||||
 
 Per superare questi limiti nell'elaborazione normale o per eseguire test di carico che possono superare questi limiti, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
@@ -124,7 +124,7 @@ Ecco i limiti per una singola richiesta HTTP o a una chiamata sincrona di un con
 
 Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto di richieste di webhook e di conseguenza il timeout per queste operazioni può essere più prolungato rispetto a questi limiti. Per altre informazioni, vedere i dettagli tecnici per il connettore specifico e anche [Trigger e azioni dei flussi di lavoro](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Name | Limite di multi-tenant | Limite di ambiente del servizio di integrazione | Note |
+| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
 | Richiesta in uscita | 120 secondi | 240 secondi | Per operazioni di esecuzione più lunghe, usare un [modello di polling asincrono](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [ciclo until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
 | Risposta sincrona | 120 secondi | 240 secondi | Perché la richiesta originale ottenga la risposta, tutti i passaggi nella risposta devono terminare entro il limite, a meno che non venga chiamata un'altra app per la logica come flusso di lavoro annidato. Per altre informazioni, vedere [Chiamare, attivare o annidare app per la logica](../logic-apps/logic-apps-http-endpoint.md). |
@@ -132,10 +132,10 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 #### <a name="message-size"></a>Dimensioni dei messaggi
 
-| NOME | Limite di multi-tenant | Limite di ambiente del servizio di integrazione | Note |
+| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
 | Dimensioni dei messaggi | 100 MB | 200 MB | Per ignorare questo limite, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. |
-| Dimensione dei messaggi con la divisione in blocchi | 1 GB | 5 GB | Questo limite si applica alle azioni che supportano in modo nativo la divisione in blocchi o che consentono di abilitare la divisione in blocchi nella configurazione di runtime. <p>Per l'ambiente del servizio di integrazione, il motore App per la logica supporta questo limite, ma i connettori hanno i propri limiti di suddivisione in blocchi fino al limite di motore, ad esempio, vedere [connettore di archiviazione Blob di Azure](/connectors/azureblob/). Per ulteriori informazioni la suddivisione in blocchi, vedere [gestire i messaggi di grandi dimensioni con la suddivisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). |
+| Dimensione dei messaggi con la divisione in blocchi | 1 GB | 5 GB | Questo limite si applica alle azioni che supportano in modo nativo la divisione in blocchi o che consentono di abilitare la divisione in blocchi nella configurazione di runtime. <p>Per l'ambiente del servizio di integrazione, il motore delle app per la logica supporta questo limite, ma i connettori hanno limiti di suddivisione in blocchi fino al limite del motore. ad esempio, vedere [connettore di archiviazione BLOB di Azure](/connectors/azureblob/). Per ulteriori informazioni sulla suddivisione in blocchi, vedere [gestire messaggi di grandi dimensioni con la suddivisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). |
 | Limite per la valutazione delle espressioni | 131.072 caratteri | 131.072 caratteri | Le espressioni `@concat()`, `@base64()` e `@string()` non possono superare questo limite. |
 |||||
 
@@ -154,10 +154,10 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 Limiti per i connettori personalizzati che è possibile creare da API Web.
 
-| Name | Limite di multi-tenant | Limite di ambiente del servizio di integrazione | Note |
+| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
 | Numero di connettori personalizzati | 1\.000 per ogni sottoscrizione di Azure | 1\.000 per ogni sottoscrizione di Azure ||
-| Numero di richieste al minuto per un connettore personalizzato | 500 richieste al minuto per ogni connessione | 2\.000 richieste al minuto per *connettore personalizzato* ||
+| Numero di richieste al minuto per un connettore personalizzato | 500 richieste al minuto per connessione | 2\.000 richieste al minuto per *connettore personalizzato* ||
 |||
 
 <a name="managed-identity"></a>
@@ -173,14 +173,30 @@ Limiti per i connettori personalizzati che è possibile creare da API Web.
 
 ## <a name="integration-account-limits"></a>Limiti dell'account di integrazione
 
+Ogni sottoscrizione di Azure ha questi limiti di account di integrazione:
+
+* Un singolo account di integrazione del [livello gratuito](../logic-apps/logic-apps-pricing.md#integration-accounts)
+
+* 1\.000 account di integrazione totali, inclusi gli account di integrazione in tutti gli [ambienti di Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) negli [SKU Developer e Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
+
+* Ogni ISE, che sia [Developer o Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), è limitato a 5 account di integrazione totali:
+
+  | SKU ISE | Limite |
+  |---------|-------|
+  | **Premium** | 5 totale-solo standard, nessuna [versione](../logic-apps/logic-apps-pricing.md#integration-accounts) gratuita o di base |
+  | **Developer** | 5 totale-gratuito (limitato a 1), standard o entrambi, ma senza base |
+  |||
+
+Ulteriori costi si applicano agli account di integrazione aggiunti oltre gli account di integrazione inclusi in ISE. Per informazioni sul funzionamento dei prezzi e della fatturazione per ISEs, vedere il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md#fixed-pricing)per la logica. Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps/)per la logica.
+
 <a name="artifact-number-limits"></a>
 
 ### <a name="artifact-limits-per-integration-account"></a>Limite di elementi per account di integrazione
 
-Limiti per il numero di elementi per ogni account di integrazione. Per altre informazioni, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/).
+Ecco i limiti per il numero di elementi per ogni livello dell'account di integrazione. Per informazioni sui prezzi, vedere [prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps/)per la logica. Per informazioni sul funzionamento dei prezzi e della fatturazione per gli account di integrazione, vedere il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md#integration-accounts)per la logica.
 
-> [!NOTE] 
-> Solo per scenari di analisi esplorativi, non gli scenari di produzione, usare il livello gratuito. Questo livello limita la velocità effettiva e l'utilizzo e non dispone di alcun contratto di servizio (SLA).
+> [!NOTE]
+> Usare il livello gratuito solo per gli scenari di esplorazione, non per gli scenari di produzione. Questo livello limita la velocità effettiva e l'utilizzo e non dispone di alcun contratto di servizio (SLA).
 
 | Elemento | Gratuito | Basic | Standard |
 |----------|------|-------|----------|
@@ -216,11 +232,11 @@ Limiti per il numero di elementi per ogni account di integrazione. Per altre inf
 
 ### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>Dimensioni dei messaggi per i protocolli B2B (AS2, X12, EDIFACT)
 
-Ecco i limiti delle dimensioni di messaggio che si applicano ai protocolli B2B:
+Di seguito sono riportati i limiti delle dimensioni dei messaggi applicabili ai protocolli B2B:
 
-| Name | Limite di multi-tenant | Limite di ambiente del servizio di integrazione | Note |
+| Name | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
-| AS2 | v2 - 100 MB<br>v1 - 50 MB | v2 - 200 MB <br>v1 - 50 MB | Applicabile alla decodifica e alla codifica |
+| AS2 | v2 - 100 MB<br>V1-50 MB | v2 - 200 MB <br>V1-50 MB | Applicabile alla decodifica e alla codifica |
 | X12 | 50 MB | 50 MB | Applicabile alla decodifica e alla codifica |
 | EDIFACT | 50 MB | 50 MB | Applicabile alla decodifica e alla codifica |
 ||||
@@ -229,7 +245,7 @@ Ecco i limiti delle dimensioni di messaggio che si applicano ai protocolli B2B:
 
 ## <a name="disabling-or-deleting-logic-apps"></a>Disabilitazione o eliminazione di app per la logica
 
-Quando si disabilita un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le attività in corso ed esecuzioni in sospeso continua fino a quando non vengono completate, che potrebbe richiedere tempo.
+Quando si disabilita un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le esecuzioni in corso e in sospeso continuano fino al completamento dell'operazione, il che potrebbe richiedere del tempo.
 
 Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le esecuzioni in corso e in sospeso vengono annullate. Se si dispone di migliaia di esecuzioni, l'annullamento potrebbe richiedere molto tempo.
 
@@ -267,7 +283,7 @@ App per la logica non supporta la connessione diretta agli account di archiviazi
 | India centrale | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195 |
 | Stati Uniti centrali | 13.67.236.76, 40.77.31.87, 40.77.111.254, 104.43.243.39 |
 | Asia orientale | 13.75.89.159, 23.97.68.172, 40.83.98.194, 168.63.200.173 |
-| Stati Uniti orientali | 40.117.99.79, 40.117.100.228, 137.116.126.165, 137.135.106.54 |
+| East US | 40.117.99.79, 40.117.100.228, 137.116.126.165, 137.135.106.54 |
 | Stati Uniti orientali 2 | 40.70.27.253, 40.79.44.7, 40.84.25.234, 40.84.59.136 |
 | Giappone orientale | 13.71.146.140, 13.78.43.164, 13.78.62.130, 13.78.84.187 |
 | Giappone occidentale | 40.74.68.85, 40.74.81.13, 40.74.85.215, 40.74.140.173 |
@@ -299,7 +315,7 @@ App per la logica non supporta la connessione diretta agli account di archiviazi
 | India centrale | 52.172.154.168, 52.172.185.79, 52.172.186.159, 104.211.74.145, 104.211.90.162, 104.211.90.169, 104.211.101.108, 104.211.102.62 | 104.211.81.192 - 104.211.81.207, 52.172.211.12 |
 | Stati Uniti centrali | 13.67.236.125, 23.100.82.16, 23.100.86.139, 23.100.87.24, 23.100.87.56, 40.113.218.230, 40.122.170.198, 104.208.25.27 | 13.89.171.80 - 13.89.171.95, 52.173.245.164 |
 | Asia orientale | 13.75.94.173, 40.83.73.39, 40.83.75.165, 40.83.77.208, 40.83.100.69, 40.83.127.19, 52.175.33.254, 65.52.175.34 | 13.75.36.64 - 13.75.36.79, 52.175.23.169 |
-| Stati Uniti orientali | 13.92.98.111, 23.100.29.190, 23.101.132.208, 23.101.136.201, 23.101.139.153, 40.114.82.191, 40.121.91.41, 104.45.153.81 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 |
+| East US | 13.92.98.111, 23.100.29.190, 23.101.132.208, 23.101.136.201, 23.101.139.153, 40.114.82.191, 40.121.91.41, 104.45.153.81 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 |
 | Stati Uniti orientali 2 | 40.70.26.154, 40.70.27.236, 40.70.29.214, 40.70.131.151, 40.84.30.147, 104.208.140.40, 104.208.155.200, 104.208.158.174 | 40.70.146.208 - 40.70.146.223, 52.232.188.154 |
 | Giappone orientale | 13.71.158.3, 13.71.158.120, 13.73.4.207, 13.78.18.168, 13.78.20.232, 13.78.21.155, 13.78.35.229, 13.78.42.223 | 13.78.108.0 - 13.78.108.15, 13.71.153.19 |
 | Giappone occidentale | 40.74.64.207, 40.74.68.85, 40.74.74.21, 40.74.76.213, 40.74.77.205, 40.74.140.4, 104.214.137.243, 138.91.26.45 | 40.74.100.224 - 40.74.100.239, 104.215.61.248 |

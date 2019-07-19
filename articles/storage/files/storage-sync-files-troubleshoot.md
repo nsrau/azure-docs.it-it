@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 07/16/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 68d0f4f85bc8879191784f038c74fafc40c422b7
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 2cf0093d08c37c0941e86f9fc82b864aea14ebfe
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604681"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327083"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -244,17 +244,20 @@ Per visualizzare questi errori, eseguire lo script **FileSyncErrorsReport.ps1** 
 
 | HRESULT | HRESULT (decimale) | Stringa di errore | Problema | Correzione |
 |---------|-------------------|--------------|-------|-------------|
+| 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | Il file a livelli nel server non è accessibile. Questo problema si verifica se il file a livelli non è stato richiamato prima di eliminare un endpoint server. | Per risolvere questo problema, vedere [file a livelli non accessibili nel server dopo l'eliminazione di un endpoint server](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Impossibile sincronizzare una modifica di file o directory al momento poiché una cartella dipendente non è ancora stata sincronizzata. Questo elemento verrà sincronizzato dopo la sincronizzazione delle modifiche dipendenti. | Non è necessaria alcuna azione. |
 | 0x8007007b | -2147024773 | ERROR_INVALID_NAME | Il nome della directory o dei file non è valido. | Rinominare il file o la directory in questione. Vedere [Gestione dei caratteri non supportati](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) per altre informazioni. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Impossibile sincronizzare un file poiché in uso. Il file verrà sincronizzato quando non sarà più in uso. | Non è necessaria alcuna azione. Sincronizzazione file di Azure crea uno snapshot VSS temporaneo una volta al giorno nel server per sincronizzare i file con handle aperti. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Un file è stato modificato, ma la modifica non è ancora stata rilevata dalla sincronizzazione. La sincronizzazione verrà ripristinata dopo il rilevamento di questa modifica. | Non è necessaria alcuna azione. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Il file non può essere sincronizzato perché è stato raggiunto il limite di condivisione file di Azure. | Per risolvere questo problema, vedere la sezione [È stato raggiunto il limite di archiviazione di condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) nella Guida alla risoluzione dei problemi. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | Questo errore può verificarsi per i motivi seguenti: file è crittografato da una soluzione non supportata (ad esempio NTFS EFS), file ha un'operazione di eliminazione in sospeso-stato o file si trova in una cartella di replica di sola lettura di DFS-R | Se il file è crittografato da una soluzione non supportata, decrittografare il file e usare una soluzione di crittografia supportati. Per un elenco delle soluzioni di supporto, vedere la sezione [Soluzioni di crittografia](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) nella Guida alla pianificazione. Se il file ha un'operazione di eliminazione in sospeso-stato, tale file verrà eliminato dopo che tutti gli handle di file aperti vengono chiusi. Se il file si trova in una cartella di replica di sola lettura di DFS-R, sincronizzazione file di Azure non supporta gli endpoint server per cartelle di replica di sola lettura di DFS-R. Visualizzare [Guida alla pianificazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) per altre informazioni.
+| 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | Il file è crittografato da una soluzione non supportata (ad esempio NTFS EFS). | Decrittografare il file e usare una soluzione di crittografia supportata. Per un elenco delle soluzioni di supporto, vedere la sezione [Soluzioni di crittografia](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) nella Guida alla pianificazione. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Questo errore può verificarsi per i motivi seguenti: Il file presenta uno stato di eliminazione in sospeso o un file si trova in una cartella di replica di sola lettura DFS-R. | Se il file ha un'operazione di eliminazione in sospeso-stato, tale file verrà eliminato dopo che tutti gli handle di file aperti vengono chiusi. Se il file si trova in una cartella di replica di sola lettura DFS-R, File di Azure Sync non supporta gli endpoint server nelle cartelle di replica di sola lettura di DFS-R. Per ulteriori informazioni, vedere la [Guida alla pianificazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) . |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | Impossibile sincronizzare un file poiché in uso. Il file verrà sincronizzato quando non sarà più in uso. | Non è necessaria alcuna azione. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Un file è stato modificato durante la sincronizzazione ed è quindi necessario sincronizzarlo di nuovo. | Non è necessaria alcuna azione. |
 
+
 #### <a name="handling-unsupported-characters"></a>Gestione dei caratteri non supportati
-Se il **FileSyncErrorsReport.ps1** script PowerShell Mostra errori causati da caratteri non supportati (codice di errore 0x8007007b), è necessario rimuovere o rinominare i caratteri colpevole dai nomi di file corrispondente. PowerShell probabilmente stamperà i caratteri come punti interrogativi o rettangoli vuoti poiché la maggior parte di questi caratteri non ha alcuna codifica visiva standard. È possibile usare lo [strumento di valutazione](storage-sync-files-planning.md#evaluation-cmdlet) per identificare i caratteri non supportati.
+Se lo script di PowerShell **FileSyncErrorsReport. ps1** Mostra errori a causa di caratteri non supportati (codice errore 0x8007007b), è necessario rimuovere o rinominare i caratteri in errore dai rispettivi nomi file. PowerShell probabilmente stamperà i caratteri come punti interrogativi o rettangoli vuoti poiché la maggior parte di questi caratteri non ha alcuna codifica visiva standard. È possibile usare lo [strumento di valutazione](storage-sync-files-planning.md#evaluation-cmdlet) per identificare i caratteri non supportati.
 
 La tabella seguente contiene tutti i caratteri unicode che Sincronizzazione file di Azure non supporta ancora.
 
@@ -285,7 +288,7 @@ Le sessioni di sincronizzazione potrebbero non avvenire per vari motivi, tra cui
 | **HRESULT** | 0x80072ee7 |
 | **HRESULT (decimale)** | -2147012889 | 
 | **Stringa di errore** | WININET_E_NAME_NOT_RESOLVED |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
@@ -300,7 +303,7 @@ Le sessioni di sincronizzazione potrebbero non avvenire per vari motivi, tra cui
 
 Non è necessaria alcuna azione, il server tenterà nuovamente. Se l'errore persiste per più di un paio d'ore, creare una richiesta di supporto.
 
-<a id="-2134364043"></a>**Sincronizzazione bloccata fino a quando il rilevamento delle modifiche viene completata dopo il ripristino**  
+<a id="-2134364043"></a>**La sincronizzazione è bloccata fino al completamento del rilevamento delle modifiche dopo il ripristino**  
 
 | | |
 |-|-|
@@ -309,7 +312,7 @@ Non è necessaria alcuna azione, il server tenterà nuovamente. Se l'errore pers
 | **Stringa di errore** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
 | **Rimedio necessario** | No |
 
-non è necessaria alcuna azione. Quando un file o condivisione file (endpoint cloud) viene ripristinato utilizzando Backup di Azure, sincronizzazione bloccata finché non viene completato il rilevamento delle modifiche nella condivisione di file di Azure. Rilevamento delle modifiche viene eseguito immediatamente dopo il ripristino è stato completato e la durata è basata sul numero di file nella condivisione file.
+non è necessaria alcuna azione. Quando un file o una condivisione file (endpoint cloud) viene ripristinato con backup di Azure, la sincronizzazione viene bloccata fino al completamento del rilevamento delle modifiche nella condivisione file di Azure. Il rilevamento delle modifiche viene eseguito immediatamente dopo il completamento del ripristino e la durata si basa sul numero di file nella condivisione file.
 
 <a id="-2134364065"></a>**La sincronizzazione non può accedere alla condivisione file di Azure specificata nell'endpoint cloud.**  
 
@@ -318,7 +321,7 @@ non è necessaria alcuna azione. Quando un file o condivisione file (endpoint cl
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (decimale)** | -2134364065 |
 | **Stringa di errore** | ECS_E_CANNOT_ACCESS_EXTERNAL_STORAGE_ACCOUNT |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 Questo errore si verifica perché l'agente Sincronizzazione file di Azure non accede alla condivisione di file di Azure, possibilmente poiché la condivisione file di Azure o l'account di archiviazione che lo ospita non è più presente. È possibile risolvere questo errore eseguendo questa procedura:
 
@@ -351,7 +354,7 @@ Questo errore si verifica perché l'agente Sincronizzazione file di Azure non ac
 | **HRESULT** | 0x8e5e044e |
 | **HRESULT (decimale)** | -1906441138 |
 | **Stringa di errore** | JET_errWriteConflict |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 Questo errore si verifica quando è presente un problema con il database interno usato da Sincronizzazione file di Azure. Quando si verifica questo problema, creare una richiesta di supporto per ricevere assistenza durante la risoluzione del problema.
 
@@ -399,7 +402,7 @@ Se la condivisione è piena e non è impostata una quota, uno dei possibili meto
 | **HRESULT** | 0x80c86030 |
 | **HRESULT (decimale)** | -2134351824 |
 | **Stringa di errore** | ECS_E_AZURE_FILE_SHARE_NOT_FOUND |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 
 Questo errore si verifica quando la condivisione file di Azure non è accessibile. Per risolvere i problemi:
 
@@ -415,7 +418,7 @@ Se la condivisione file di Azure è stata eliminata, creare una nuova condivisio
 | **HRESULT** | 0x80C83076 |
 | **HRESULT (decimale)** | -2134364042 |
 | **Stringa di errore** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 
 Questo errore si verifica quando viene sospesa la sottoscrizione di Azure. La sincronizzazione verrà riabilitata quando verrà ripristinata la sottoscrizione di Azure. Per altre informazioni, vedere [Perché la sottoscrizione di Azure è disabilitata e cosa occorre fare per riattivarla?](../../billing/billing-subscription-become-disable.md)
 
@@ -426,7 +429,7 @@ Questo errore si verifica quando viene sospesa la sottoscrizione di Azure. La si
 | **HRESULT** | 0x80c8306c |
 | **HRESULT (decimale)** | -2134364052 |
 | **Stringa di errore** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 
 Questo errore si verifica quando la condivisione file di Azure è inaccessibile a causa di un firewall di account di archiviazione o perché l'account di archiviazione appartiene a una rete virtuale. Sincronizzazione file di Azure non dispone ancora di supporto a questa funzionalità. Per risolvere i problemi:
 
@@ -521,7 +524,7 @@ Se l'ora del server non è corretta, seguire questa procedura per risolvere il p
 | **HRESULT** | 0x8e5e0211 |
 | **HRESULT (decimale)** | -1906441711 |
 | **Stringa di errore** | JET_errLogDiskFull |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 | | |
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (decimale)** | -2134375654 |
@@ -550,7 +553,7 @@ Questo errore si verifica perché sono state apportate modifiche nella condivisi
 | **HRESULT** | 0x80c8023b |
 | **HRESULT (decimale)** | -2134364145 |
 | **Stringa di errore** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
-| **Rimedio necessario** | Sì |
+| **Rimedio necessario** | Yes |
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimale)** | -2134375908 |
@@ -560,7 +563,7 @@ Questo errore si verifica perché sono state apportate modifiche nella condivisi
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (decimale)** | -2134375853 |
 | **Stringa di errore** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 
 Nei casi in cui sono presenti numerosi errori di sincronizzazione file, le sessioni di sincronizzazione potrebbero presentare errori. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
@@ -585,7 +588,7 @@ Assicurarsi che il percorso esista, che si trovi in un volume NTFS locale e che 
 | **HRESULT** | 0x80C80277 |
 | **HRESULT (decimale)** | -2134375817 |
 | **Stringa di errore** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
-| **Rimedio necessario** | Yes |
+| **Rimedio necessario** | Sì |
 
 Questo errore si verifica perché la versione del driver cloud a livelli caricata (StorageSync.sys) non è compatibile con il servizio agente di sincronizzazione archiviazione (FileSyncSvc). Se l'agente Sincronizzazione file di Azure è stato aggiornato, riavviare il server per completare l'installazione. Se l'errore persiste, disinstallare l'agente, riavviare il server e reinstallare l'agente Sincronizzazione file di Azure.
 
@@ -736,7 +739,7 @@ if ($fileShare -eq $null) {
 1. Fare clic sulla scheda **Assegnazioni del ruolo** per passare all'elenco di utenti e applicazioni (*entità servizio*) che possono accedere all'account di archiviazione.
 1. Verificare che **servizio di Sincronizzazione file di ibrido** venga visualizzato nell'elenco con il ruolo di **Lettore e accesso ai dati**. 
 
-    ![Screenshot dell'entità servizio servizio sincronizzazione File ibrida nella scheda di controllo di accesso dell'account di archiviazione](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+    ![Screenshot dell'entità servizio del servizio Sincronizzazione file ibrido nella scheda controllo di accesso dell'account di archiviazione](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
     Se il **servizio Sincronizzazione file ibrida** non è visualizzato nell'elenco, procedere come segue:
 
@@ -797,14 +800,14 @@ Dai questi due percorsi di errore possono essere generate due principali classi 
 
 Le sezioni seguenti indicano come risolvere problemi di archiviazione a livelli nel cloud e determinare se si tratta di un problema di archiviazione cloud o di un problema del server.
 
-<a id="monitor-tiering-activity"></a>**Come monitorare l'attività di suddivisione in livelli in un server**  
+### <a name="how-to-monitor-tiering-activity-on-a-server"></a>Come monitorare l'attività di suddivisione in livelli in un server  
 Per monitorare l'attività di suddivisione in livelli in un server, usare gli ID evento 9003, 9016 e 9029 nel registro eventi di telemetria (che si trova in Registri applicazioni e servizi\Microsoft\FileSync\Agente in Visualizzatore eventi).
 
 - L'ID evento 9003 fornisce inoltre la distribuzione di un errore per un endpoint server. Ad esempio, Total Error Count, ErrorCode e così via. Si noti che per ogni codice di errore viene registrato un evento.
 - L'ID evento 9016 fornisce inoltre risultati di ghosting per un volume. Ad esempio, percentuale di spazio disponibile, numero di file fantasma nella sessione, numero di file in cui non è stato possibile eseguire il ghosting e così via.
 - L'ID evento 9029 fornisce informazioni sulla sessione di ghosting per un endpoint server. Ad esempio, numero di file che hanno eseguito un tentativo nella sessione, numero di file archiviati a livelli nella sessione, numero di file già archiviati a livelli e così via.
 
-<a id="monitor-recall-activity"></a>**Come monitorare l'attività di richiamo in livelli in un server**  
+### <a name="how-to-monitor-recall-activity-on-a-server"></a>Come monitorare l'attività di richiamo in un server
 Per monitorare l'attività di richiamo in un server, usare gli ID evento 9005, 9006, 9009 e 9059 nel registro eventi di telemetria (che si trova in Registri applicazioni e servizi\Microsoft\FileSync\Agente in Visualizzatore eventi).
 
 - L'ID evento 9005 offre affidabilità di richiamo per un endpoint server. Ad esempio, numero totale di file univoci a cui si ha avuto accesso, numero totale di file univoci con accessi non riusciti e così via.
@@ -812,7 +815,7 @@ Per monitorare l'attività di richiamo in un server, usare gli ID evento 9005, 9
 - L'ID evento 9009 fornisce informazioni sulla sessione di richiamo per un endpoint server. Ad esempio, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed e così via.
 - L'ID evento 9059 fornisce la distribuzione di richiamo delle applicazioni per un endpoint server. Ad esempio, ShareId, nome dell'applicazione e TotalEgressNetworkBytes.
 
-<a id="files-fail-tiering"></a>**Risolvere i problemi dei file che non è possibile archiviare a livelli**  
+### <a name="how-to-troubleshoot-files-that-fail-to-tier"></a>Come risolvere i problemi dei file che non è possibile archiviare a livelli
 Se non è possibile archiviare a livelli i file in File di Azure:
 
 1. Nel Visualizzatore eventi esaminare i log i dati di telemetria e gli eventi operativi e diagnostici, i quali si trovano in Registri applicazioni e servizi\Microsoft\FileSync\Agente. 
@@ -828,7 +831,7 @@ Se non è possibile archiviare a livelli i file in File di Azure:
 > [!NOTE]
 > L'ID evento 9003 viene registrato dopo un'ora nel registro eventi di telemetria, se un file non riesce a eseguire la suddivisione in livelli (per ogni codice di errore viene registrato un evento). I log eventi operativi e diagnostici devono essere usati se sono necessarie altre informazioni per diagnosticare un problema.
 
-<a id="files-fail-recall"></a>**Risolvere i problemi di file che non è possibile richiamare**  
+### <a name="how-to-troubleshoot-files-that-fail-to-be-recalled"></a>Come risolvere i problemi dei file che non è possibile richiamare  
 Se il richiamo di file ha esito negativo:
 1. Nel Visualizzatore eventi esaminare i log i dati di telemetria e gli eventi operativi e diagnostici, i quali si trovano in Registri applicazioni e servizi\Microsoft\FileSync\Agente.
     1. Verificare che i file esistano nella condivisione di file di Azure.
@@ -840,7 +843,88 @@ Se il richiamo di file ha esito negativo:
 > [!NOTE]
 > L'ID evento 9006 viene registrato una volta all'ora nel registro eventi di telemetria se un file non riesce a eseguire il richiamo (per ogni codice di errore viene registrato un evento). I log eventi operativi e diagnostici devono essere usati se sono necessarie altre informazioni per diagnosticare un problema.
 
-<a id="files-unexpectedly-recalled"></a>**Risolvere i problemi dei file richiamati in modo imprevisto in un server**  
+### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>I file a livelli non sono accessibili nel server dopo l'eliminazione di un endpoint server
+Se i file non vengono richiamati prima dell'eliminazione di un endpoint server, i file a livelli in un server diventeranno inaccessibili.
+
+Errori registrati se i file a livelli non sono accessibili
+- Quando si sincronizza un file, il codice di errore-2147942467 (0x80070043-ERROR_BAD_NET_NAME) viene registrato nel registro eventi ItemResults
+- Quando si richiama un file, il codice di errore-2134376393 (0x80c80037-ECS_E_SYNC_SHARE_NOT_FOUND) viene registrato nel registro eventi RecallResults
+
+Il ripristino dell'accesso ai file a livelli è possibile se vengono soddisfatte le condizioni seguenti:
+- Endpoint server eliminato negli ultimi 30 giorni
+- L'endpoint cloud non è stato eliminato 
+- La condivisione file non è stata eliminata
+- Il gruppo di sincronizzazione non è stato eliminato
+
+Se vengono soddisfatte le condizioni precedenti, è possibile ripristinare l'accesso ai file nel server ricreando l'endpoint server nello stesso percorso del server all'interno dello stesso gruppo di sincronizzazione entro 30 giorni. 
+
+Se le condizioni precedenti non sono soddisfatte, non è possibile ripristinare l'accesso perché i file a livelli nel server sono orfani. Per rimuovere i file a livelli orfani, seguire le istruzioni riportate di seguito.
+
+**Note**
+- Quando i file a livelli non sono accessibili nel server, il file completo dovrebbe essere ancora accessibile se si accede direttamente alla condivisione file di Azure.
+- Per evitare che in futuro vengano archiviati i file a livelli orfani, seguire i passaggi descritti in [rimuovere un endpoint server](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint) quando si elimina un endpoint server.
+
+<a id="get-orphaned"></a>**Come ottenere l'elenco dei file a livelli orfani** 
+
+1. Verificare che sia installato Sincronizzazione file di Azure agente versione v 5.1 o successiva.
+2. Eseguire i comandi di PowerShell seguenti per elencare i file a livelli orfani:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+3. Salvare il file di output OrphanTieredFiles. txt nel caso in cui i file debbano essere ripristinati dal backup dopo l'eliminazione.
+
+<a id="remove-orphaned"></a>**Come rimuovere i file archiviati a livelli orfani** 
+
+*Opzione 1: Elimina i file a livelli orfani*
+
+Questa opzione consente di eliminare i file a livelli orfani in Windows Server, ma è necessario rimuovere l'endpoint server, se presente, a causa della ricreazione dopo 30 giorni o se è connessa a un gruppo di sincronizzazione diverso. I conflitti di file si verificano se i file vengono aggiornati in Windows Server o nella condivisione file di Azure prima di ricreare l'endpoint server.
+
+1. Verificare che sia installato Sincronizzazione file di Azure agente versione v 5.1 o successiva.
+2. Eseguire il backup della condivisione file di Azure e del percorso dell'endpoint server.
+3. Rimuovere l'endpoint server nel gruppo di sincronizzazione (se esistente) seguendo i passaggi descritti in [rimuovere un endpoint server](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint).
+
+> [!Warning]  
+> Se l'endpoint server non viene rimosso prima di usare il cmdlet Remove-StorageSyncOrphanedTieredFiles, l'eliminazione del file a livelli orfani nel server eliminerà il file completo nella condivisione file di Azure. 
+
+4. Eseguire i comandi di PowerShell seguenti per elencare i file a livelli orfani:
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+5. Salvare il file di output OrphanTieredFiles. txt nel caso in cui i file debbano essere ripristinati dal backup dopo l'eliminazione.
+6. Eseguire i comandi di PowerShell seguenti per eliminare i file a livelli orfani:
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFilesRemoved = Remove-StorageSyncOrphanedTieredFiles -Path <folder path containing orphaned tiered files> -Verbose
+$orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
+```
+**Note** 
+- I file a livelli modificati nel server che non vengono sincronizzati con la condivisione file di Azure verranno eliminati.
+- I file a livelli accessibili (non orfani) non verranno eliminati.
+- I file non a livelli rimarranno nel server.
+
+7. Facoltativo: Ricreare l'endpoint server se eliminato nel passaggio 3.
+
+*Opzione 2: Montare la condivisione file di Azure e copiare i file localmente orfani nel server*
+
+Questa opzione non richiede la rimozione dell'endpoint server, ma richiede spazio su disco sufficiente per copiare i file completi localmente.
+
+1. [Montare](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) la condivisione file di Azure nel server Windows che dispone di file orfani a livelli.
+2. Eseguire i comandi di PowerShell seguenti per elencare i file a livelli orfani:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+3. Usare il file di output OrphanTieredFiles. txt per identificare i file a livelli orfani nel server.
+4. Sovrascrivere i file a livelli orfani copiando il file completo dalla condivisione file di Azure al server Windows.
+
+### <a name="how-to-troubleshoot-files-unexpectedly-recalled-on-a-server"></a>Come risolvere i problemi dei file richiamati in modo imprevisto in un server  
 Antivirus, backup e altre applicazioni che leggono quantità elevate di file causano richiami indesiderati a meno che non rispettino l'attributo per ignorare i file offline e ignorare la lettura del contenuto di tali file. Se si ignorano i file offline per i prodotti che supportano questa opzione, è possibile evitare richiami imprevisti durante operazioni come le analisi antivirus o i processi di backup.
 
 Per informazioni su come configurare la soluzione in modo che non legga i file offline, rivolgersi al produttore del software.
@@ -863,7 +947,7 @@ Se si verificano problemi con Sincronizzazione file di Azure in un server, per p
 Se il problema persiste, eseguire lo strumento AFSDiag:
 1. Creare una directory in cui verranno salvati i risultati di AFSDiag, ad esempio C:\Output.
     > [!NOTE]
-    >AFSDiag eliminerà tutto il contenuto nella directory di output prima della raccolta di log. Specificare un percorso di output che non contiene dati.
+    >AFSDiag eliminerà tutto il contenuto nella directory di output prima di raccogliere i log. Specificare un percorso di output che non contenga dati.
 2. Aprire una finestra di PowerShell con privilegi elevati ed eseguire i comandi seguenti, premendo INVIO dopo ogni comando:
 
     ```powershell

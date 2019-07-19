@@ -3,23 +3,24 @@ title: Montare un volume emptyDir in Istanze di Azure Container
 description: Informazioni su come montare un volume emptyDir per condividere dati tra i contenitori in un gruppo di contenitori in Istanze di Azure Container
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: danlep
-ms.openlocfilehash: d91706da898e84effc6194a74dce69a66be0f4ac
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 0dbe26ff1e00e1912cfd63e8383695ca794dd037
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657623"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325454"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Montare un volume emptyDir in Istanze di Azure Container
 
 Informazioni su come montare un volume *emptyDir* per condividere dati tra i contenitori in un gruppo di contenitori in Istanze di Azure Container.
 
 > [!NOTE]
-> Il montaggio di un volume *emptyDir* è attualmente limitato ai contenitori di Linux. Microsoft sta lavorando per trasferire tutte le funzionalità in contenitori Windows, è possibile trovare le differenze di piattaforma corrente nel [Panoramica](container-instances-overview.md#linux-and-windows-containers).
+> Il montaggio di un volume *emptyDir* è attualmente limitato ai contenitori di Linux. Mentre stiamo lavorando per riunire tutte le funzionalità nei contenitori di Windows, è possibile trovare le attuali differenze della piattaforma nella [Panoramica](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="emptydir-volume"></a>Volume emptyDir
 

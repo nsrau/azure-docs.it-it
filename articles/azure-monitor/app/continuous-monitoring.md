@@ -1,93 +1,108 @@
 ---
-title: Monitoraggio continuo della pipeline di versione di DevOps con Azure DevOps e Azure Application Insights | Microsoft Docs
+title: Monitoraggio continuo della pipeline di rilascio di DevOps con Azure Pipelines e applicazione Azure Insights | Microsoft Docs
 description: Vengono fornite istruzioni per configurare rapidamente il monitoraggio continuo con Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 11/13/2017
+ms.date: 07/16/2019
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 41999defb01e024773b6364f169a1ce3b1377237
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c39a2f75fe74b61463af464078b4446bba07dec0
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60902392"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277678"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Aggiungere un monitoraggio continuo alla pipeline di versione
 
-Azure DevOps Services si integra con Azure Application Insights per consentire il monitoraggio continuo della pipeline di versione di DevOps in tutto il ciclo di vita di sviluppo del software. 
+Azure Pipelines si integra con applicazione Azure Insights per consentire il monitoraggio continuo della pipeline di rilascio DevOps durante tutto il ciclo di vita di sviluppo del software. 
 
-Azure DevOps Services supporta ora il monitoraggio continuo con cui le pipeline di versione possono incorporare i dati di monitoraggio da Application Insights e da altre risorse di Azure. Quando si rileva un avviso di Application Insights, la distribuzione può rimanere controllata o essere sottoposta a rollback fino alla risoluzione dell'avviso. Se si superano tutti i controlli, le distribuzioni possono passare automaticamente dal test alla produzione senza la necessità di interventi manuali. 
+Con il monitoraggio continuo, le pipeline di versione possono incorporare i dati di monitoraggio da Application Insights e altre risorse di Azure. Quando la pipeline di rilascio rileva un avviso di Application Insights, la pipeline può controllare o eseguire il rollback della distribuzione fino a quando l'avviso non viene risolto. Se vengono superati tutti i controlli, le distribuzioni possono continuare automaticamente da test fino alla produzione, senza la necessità di interventi manuali. 
 
 ## <a name="configure-continuous-monitoring"></a>Configurare il monitoraggio continuo
 
-1. Selezionare un progetto Azure DevOps Services.
+1. In [Azure DevOps](https://dev.azure.com)selezionare un'organizzazione e un progetto.
+   
+1. Nel menu a sinistra della pagina del progetto selezionare **pipeline** > **versioni**. 
+   
+1. A discesa della freccia accanto a **nuovo** e selezionare **nuova pipeline di rilascio**. In alternativa, se non è ancora disponibile una pipeline, selezionare **nuova pipeline** nella pagina visualizzata.
+   
+1. Nel riquadro **selezionare un modello** cercare e selezionare **app Azure distribuzione del servizio con monitoraggio continuo**, quindi selezionare **applica**. 
 
-2. Passare il mouse su **Compilazione e versione** > selezionare **Versioni** > fare clic sul **segno di addizione** > **Crea definizione di versione** > cercare **Monitoraggio** > **Azure App Service Deployment with Continuous Monitoring (Distribuzione del servizio app di Azure con monitoraggio continuo).**
+   ![Nuova pipeline di versione Azure Pipelines](media/continuous-monitoring/001.png)
 
-   ![Nuova pipeline di versione di Azure DevOps Services](media/continuous-monitoring/001.png)
+1. Nella casella **fase 1** selezionare il collegamento ipertestuale per **visualizzare le attività di fase.**
 
-3. Fare clic su **Apply** (Applica).
+   ![Visualizzare le attività della fase](media/continuous-monitoring/002.png)
 
-4. Accanto al punto esclamativo rosso selezionare il testo in blu, **Visualizza le attività dell'ambiente**.
-
-   ![Visualizza le attività dell'ambiente](media/continuous-monitoring/002.png)
-
-   Verrà visualizzata una casella di configurazione. Usare la tabella seguente per completare i campi di input.
+1. Nel riquadro configurazione **fase 1** completare i campi seguenti: 
 
     | Parametro        | Value |
    | ------------- |:-----|
-   | **Nome ambiente**      | Nome che descrive l'ambiente della pipeline di versione |
-   | **Sottoscrizione di Azure** | L'elenco a discesa si popola con le sottoscrizioni di Azure collegate all'organizzazione di Azure DevOps Services|
-   | **Nome del servizio app** | In base alle altre selezioni, per questo campo potrebbe essere necessaria l'immissione manuale di un nuovo valore |
-   | **Gruppo di risorse**    | L'elenco a discesa si popola con i gruppi di risorse disponibili |
-   | **Nome risorsa di Application Insights** | L'elenco a discesa si popola con tutte le risorse di Application Insights che corrispondono al gruppo di risorse selezionato in precedenza.
+   | **Nome fase**      | Specificare un nome per la fase o lasciarlo nella **fase 1**. |
+   | **Sottoscrizione di Azure** | Elenco a discesa e selezionare la sottoscrizione di Azure collegata che si vuole usare.|
+   | **Tipo di app** | Elenco a discesa e selezionare il tipo di app. |
+   | **Nome del servizio app** | Immettere il nome del servizio app Azure. |
+   | **Nome del gruppo di risorse per Application Insights**    | A discesa e selezionare il gruppo di risorse che si vuole usare. |
+   | **Nome risorsa di Application Insights** | A discesa e selezionare la risorsa Application Insights per il gruppo di risorse selezionato.
 
-5. Selezionare **Configure Application Insights alerts** (Configura avvisi di Application Insights)
-
-6. Per le regole di avviso predefinite, selezionare **Salva** > immettere un commento descrittivo > fare clic su **OK**
+1. Per salvare la pipeline con le impostazioni predefinite della regola di avviso, fare clic su **Salva** nella parte superiore destra della finestra di Azure DevOps. Immettere un commento descrittivo e quindi fare clic su **OK**.
 
 ## <a name="modify-alert-rules"></a>Modificare le regole di avviso
 
-1. Per modificare le impostazioni predefinite degli avvisi, fare clic sulla casella con i **puntini di sospensione ...**  a destra delle **Regole di avviso**.
+In modalità predefinita, il modello **di distribuzione del servizio app Azure con monitoraggio continuo** prevede quattro regole di avviso: **Disponibilità**, **richieste non riuscite**, **tempo di risposta del server**ed eccezioni del **Server**. È possibile aggiungere altre regole o modificare le impostazioni delle regole per soddisfare le esigenze del livello di servizio. 
 
-   (Sono presenti quattro regole di avviso predefinite: Disponibilità, Richieste non riuscite, Tempo di risposta del server, Eccezioni del server.)
+Per modificare le impostazioni delle regole di avviso:
 
-2. Fare clic sul simbolo dell'elenco a discesa accanto a **Disponibilità.**
+1. Nel riquadro sinistro della pagina pipeline di rilascio selezionare **configura Application Insights avvisi**.
 
-3. Modificare la **Soglia** di disponibilità per soddisfare i requisiti del livello di servizio.
-
-   ![Modificare l'avviso](media/continuous-monitoring/003.png)
-
-4. Selezionare **OK** > **Salva** > immettere un commento descrittivo > fare clic su **OK.**
+1. Nel riquadro **avvisi di monitoraggio di Azure** selezionare i puntini di sospensione **...** accanto a **regole di avviso**.
+   
+1. Nella finestra di dialogo **regole di avviso** selezionare il simbolo a discesa accanto a una regola di avviso, ad esempio **disponibilità**. 
+   
+1. Modificare la **soglia** e altre impostazioni per soddisfare i requisiti.
+   
+   ![Modifica avviso](media/continuous-monitoring/003.png)
+   
+1. Selezionare **OK**e quindi fare clic su **Salva** nella parte superiore destra della finestra di Azure DevOps. Immettere un commento descrittivo e quindi fare clic su **OK**.
 
 ## <a name="add-deployment-conditions"></a>Aggiungere le condizioni di distribuzione
 
-1. Fare clic su **Pipeline** > selezionare il simbolo di **Condizioni pre-distribuzione** o di **Condizioni post-distribuzione** a seconda della fase che richiede un controllo di monitoraggio continuo.
+Quando si aggiungono i controlli di distribuzione alla pipeline di rilascio, un avviso che supera le soglie impostate impedisce la promozione della versione indesiderata. Una volta risolto l'avviso, la distribuzione può procedere automaticamente.
 
-   ![Condizioni di pre-distribuzione](media/continuous-monitoring/004.png)
+Per aggiungere le attività di controllo di distribuzione:
 
-2. Impostare **Gates** (Controlli) su **Enabled (Abilitati)**  > **Approval gates (Controlli di approvazione)** >  fare clic su **Add (Aggiungi).**
+1. Nella pagina principale della pipeline, in **fasi**, selezionare il simbolo **condizioni pre-distribuzione** o **condizioni post-distribuzione** , a seconda della fase in cui è necessario un controllo di monitoraggio continuo.
+   
+   ![Condizioni pre-distribuzione](media/continuous-monitoring/004.png)
+   
+1. Nel riquadro di configurazione **condizioni pre-distribuzione** impostare **Gates** su **abilitato**.
+   
+1. Accanto a **Gate di distribuzione**selezionare **Aggiungi**.
+   
+1. Selezionare **query monitoraggio di Azure avvisi** dal menu a discesa. Questa opzione consente di accedere sia a monitoraggio di Azure che a Application Insights avvisi.
+   
+   ![Eseguire query sugli avvisi di monitoraggio di Azure](media/continuous-monitoring/005.png)
+   
+1. In **Opzioni di valutazione**, immettere i valori desiderati per le impostazioni come **l'intervallo tra la rivalutazione delle attività di** controllo e **il timeout dopo il quale**i cancelli hanno esito negativo. 
 
-3. Selezionare **Monitoraggio di Azure** (questa opzione offre la possibilità di accedere agli avvisi sia da Monitoraggio di Azure che da Application Insights)
+## <a name="view-release-logs"></a>Visualizza log versione
 
-    ![Monitoraggio di Azure](media/continuous-monitoring/005.png)
+È possibile visualizzare il comportamento del controllo della distribuzione e altri passaggi della versione nei log delle versioni. Per aprire i log:
 
-4. Immettere un valore **Gates timeout**.
-
-5. Immettere un **intervallo di campionamento.**
-
-## <a name="deployment-gate-status-logs"></a>Log di stato dei controlli di distribuzione
-
-Dopo aver aggiunto i controlli di distribuzione, un avviso in Application Insights che indica il superamento della soglia definita in precedenza evita alla distribuzione un innalzamento di livello indesiderato della versione. Dopo aver risolto l'avviso, la distribuzione può continuare automaticamente.
-
-Per osservare questo comportamento, selezionare **Versioni** > fare clic con il pulsante destro del mouse su Nome versione **aprire** > **Log.**
-
-![Log](media/continuous-monitoring/006.png)
+1. Selezionare **versioni** dal menu a sinistra della pagina della pipeline. 
+   
+1. Selezionare qualsiasi versione. 
+   
+1. In **fasi**selezionare una fase per visualizzare un riepilogo della versione. 
+   
+1. Per visualizzare i log, selezionare **Visualizza log** nel riepilogo della versione, selezionare il collegamento ipertestuale **riuscito** o **non riuscito** in qualsiasi fase o passare il mouse su una fase e selezionare **log**. 
+   
+   ![Visualizza log versione](media/continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Azure Pipelines consultare le seguenti [guide introduttive.](https://docs.microsoft.com/azure/devops/pipelines)
+Per ulteriori informazioni su Azure Pipelines, vedere la [documentazione di Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines).

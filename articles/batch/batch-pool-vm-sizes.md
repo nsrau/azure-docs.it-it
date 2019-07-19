@@ -4,7 +4,7 @@ description: Come scegliere tra le dimensioni delle macchine virtuali disponibil
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1848891a0a37235c9769b3cee18262239e19df5a
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: fd88f8e9b32b3fe5a0d7ab0caf233098ea19fde0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502658"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323097"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch
 
@@ -28,45 +28,45 @@ Quando si selezionano le dimensioni del nodo per un pool di Azure Batch, è poss
 
 Esistono alcune eccezioni e limitazioni nella scelta delle dimensioni delle macchine virtuali:
 
-* Alcune serie di macchine Virtuali o dimensioni delle macchine Virtuali non sono supportati in Batch.
+* Alcune serie di VM o dimensioni di VM non sono supportate in batch.
 * Alcune dimensioni delle macchine virtuali sono soggette a restrizioni e devono essere abilitate specificamente prima che sia possibile allocarle.
 
-## <a name="supported-vm-series-and-sizes"></a>Supportate macchine virtuali della serie e dimensioni
+## <a name="supported-vm-series-and-sizes"></a>Serie e dimensioni delle VM supportate
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Pool in configurazione di tipo macchina virtuale
 
-I pool di batch in configurazione della macchina virtuale supportano quasi tutte le dimensioni di macchina virtuale ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). Vedere la tabella seguente per altre informazioni sulle dimensioni supportate e restrizioni.
+I pool di batch nella configurazione della macchina virtuale supportano quasi tutte le dimensioni delle VM ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). Per altre informazioni sulle dimensioni e sulle restrizioni supportate, vedere la tabella seguente.
 
-Qualsiasi promozionali o dimensioni delle macchine Virtuali di anteprima non elencate non sono garantiti per il supporto.
+Eventuali dimensioni di VM promozionali o di anteprima non elencate non sono garantite per il supporto.
 
 | Serie VM  | Dimensioni supportate | Modalità di allocazione pool di account batch<sup>1</sup> |
 |------------|---------|-----------------|
-| Serie A Basic | Tutte le dimensioni *eccetto* Basic_A0 (A0) | Qualsiasi |
-| Serie A | Tutte le dimensioni *eccetto* Standard_A0 | Qualsiasi |
-| Serie Av2 | Tutte le dimensioni | Qualsiasi |
+| Serie A Basic | Tutte le dimensioni *eccetto* Basic_A0 (a0) | Any |
+| Serie A | Tutte le dimensioni *ad eccezione* di Standard_A0 | Any |
+| Serie Av2 | Tutte le dimensioni | Any |
 | Serie B | Nessuna | Non disponibile |
 | Serie DC | Nessuna | Non disponibile |
-| Dv2, serie Dsv2 | Tutte le dimensioni | Qualsiasi |
-| Serie Dv3, serie Dsv3 | Tutte le dimensioni | Qualsiasi |
-| [Dimensioni ottimizzate per la memoria](../virtual-machines/linux/sizes-memory.md) | Nessuna | Non disponibile |
-| Serie Fsv2 | Tutte le dimensioni | Qualsiasi |
-| Serie H | Tutte le dimensioni | Qualsiasi |
-| Serie HB<sup>2</sup> | Tutte le dimensioni | Qualsiasi |
-| Connessione ibrida-series<sup>2</sup> | Tutte le dimensioni | Qualsiasi |
-| Serie Ls | Tutte le dimensioni | Qualsiasi |
+| Dv2, serie Dsv2 | Tutte le dimensioni | Any |
+| Dv3, serie Dsv3 | Tutte le dimensioni | Any |
+| [Dimensioni con ottimizzazione per la memoria](../virtual-machines/linux/sizes-memory.md) | Nessuna | Non disponibile |
+| Serie Fsv2 | Tutte le dimensioni | Any |
+| Serie H | Tutte le dimensioni | Any |
+| Serie HB<sup>2</sup> | Tutte le dimensioni | Any |
+| Serie HC<sup>2</sup> | Tutte le dimensioni | Any |
+| Serie Ls | Tutte le dimensioni | Any |
 | Serie Lsv2 | Nessuna | Non disponibile |
-| Serie M | Standard_M64ms Standard_M128s (con priorità bassa solo), (con priorità bassa solo) | Qualsiasi |  
-| Serie NCv2<sup>2</sup> | Tutte le dimensioni | Qualsiasi |
-| Serie NCv3<sup>2</sup> | Tutte le dimensioni | Qualsiasi |
-| Serie ND<sup>2</sup> | Tutte le dimensioni | Qualsiasi |
-| NDv2 serie | Tutte le dimensioni | Modalità di sottoscrizione utente |
-| Serie NV | Tutte le dimensioni | Qualsiasi |
+| Serie M | Standard_M64ms (solo per priorità bassa), Standard_M128s (solo con priorità bassa) | Any |  
+| Serie NCv2<sup>2</sup> | Tutte le dimensioni | Any |
+| Serie NCv3<sup>2</sup> | Tutte le dimensioni | Any |
+| Serie ND<sup>2</sup> | Tutte le dimensioni | Any |
+| Serie NDv2 | Tutte le dimensioni | Modalità di sottoscrizione utente |
+| Serie NV | Tutte le dimensioni | Any |
 | Serie NVv3 | Nessuna | Non disponibile |
 | SAP HANA | Nessuna | Non disponibile |
 
-<sup>1</sup> alcune serie di macchine Virtuali più recenti sono parzialmente supportate inizialmente. Queste macchine virtuali della serie può essere allocata per gli account Batch con il **modalità di allocazione pool** impostata su **sottoscrizione utente**. Visualizzare [gli account Batch di gestione](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) per altre informazioni sulla configurazione dell'account Batch. Visualizzare [quote e limiti](batch-quota-limit.md) per informazioni su come richiedere una quota per queste parzialmente supportate macchine virtuali della serie per **sottoscrizione utente** account Batch.  
+<sup>1</sup> alcune serie di VM più recenti sono inizialmente supportate in parte. Queste serie di macchine virtuali possono essere allocate da account batch con la **modalità di allocazione pool** impostata su **sottoscrizione utente**. Per ulteriori informazioni sulla configurazione dell'account batch, vedere [gestire gli account batch](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) . Vedere [quote e limiti](batch-quota-limit.md) per informazioni su come richiedere una quota per queste serie di VM parzialmente supportate per gli account batch di **sottoscrizione utente** .  
 
-<sup>2</sup> queste dimensioni di VM possono essere allocate nel pool di Batch in configurazione macchina virtuale, ma è necessario richiedere uno specifico [aumento della quota](batch-quota-limit.md#increase-a-quota).
+<sup>2</sup> queste dimensioni delle VM possono essere allocate nei pool di batch nella configurazione della macchina virtuale, ma è necessario richiedere un [aumento della quota](batch-quota-limit.md#increase-a-quota)specifico.
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pool in configurazione di tipo servizio cloud
 
@@ -85,7 +85,7 @@ I pool di Batch in configurazione servizio cloud supportano tutte le [dimensioni
 
 * **Livelli di carico per attività diverse**: tutti i nodi in un pool hanno le stesse dimensioni. Se si prevede di eseguire applicazioni con requisiti di sistema e/o livelli di carico diversi, è consigliabile usare pool separati.
 
-* **Aree di disponibilità** -serie di macchine Virtuali o le dimensioni potrebbero non essere disponibili nelle aree in cui si crea l'account Batch. Per verificare la disponibilità di una dimensione, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
+* **Disponibilità dell'area** : è possibile che una o più serie di macchine virtuali non siano disponibili nelle aree in cui si creano gli account batch. Per verificare la disponibilità di una dimensione, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
 
 * **Quote** : la [quota di core](batch-quota-limit.md#resource-quotas) nell'account Batch può limitare il numero di nodi con le dimensioni specificate che possono essere aggiunti a un pool di Batch. Per richiedere un aumento delle quote, vedere [questo articolo](batch-quota-limit.md#increase-a-quota). 
 

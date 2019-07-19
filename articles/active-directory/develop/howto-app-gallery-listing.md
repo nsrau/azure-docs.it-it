@@ -18,16 +18,16 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41b407b4343db4f594049c4b1027fe4279dab840
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 7e1b0ea2f808c982a587392edbe57eb75c532ee2
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482961"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324714"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedura: Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
-Questo articolo illustra come inserire un'applicazione nella raccolta di applicazioni Azure AD, implementare single sign-on (SSO) e gestire l'elenco.
+Questo articolo illustra come elencare un'applicazione nella raccolta di applicazioni di Azure AD, implementare l'accesso Single Sign-on (SSO) e gestire l'elenco.
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Definizione della raccolta di applicazioni di Azure AD
 
@@ -51,7 +51,7 @@ Questo articolo illustra come inserire un'applicazione nella raccolta di applica
 - Per le richieste di provisioning utenti automatico, l'applicazione deve essere presente nella raccolta con la funzionalità Single Sign-On abilitata per usare SAML 2.0/WS-Fed. È possibile richiedere sia l'accesso SSO che il provisioning utenti nel portale, se non sono già elencati.
 
 >[!NOTE]
->Viene eseguito con un numero elevato di richieste di connettore SCIM, pertanto è stata interrotta la accettando nuove richieste nel nostro portale. Tenere premuto su richieste fino a ulteriore avviso. Abbiamo scuse per questo ritardo e inconveniente causato.
+>È in esecuzione con un numero elevato di richieste di SCIM Connector, quindi è stata interrotta l'acquisizione di nuove richieste nel portale. Tieni sotto mano le tue richieste fino a un ulteriore preavviso. Ci scusiamo per questo ritardo e per eventuali inconvenienti causati da questo problema.
 
 ## <a name="submit-the-request-in-the-portal"></a>Inviare la richiesta nel portale
 
@@ -113,25 +113,25 @@ Per aggiornare o rimuovere un'applicazione esistente nella raccolta di app di Az
     * Se si vuole rimuovere un'applicazione esistente dalla raccolta di Azure AD, selezionare **Remove existing application listing** (Rimuovi elenco applicazioni esistente).
     * In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-## <a name="listing-requests-by-customers"></a>Elenco di richieste da parte dei clienti
+## <a name="listing-requests-by-customers"></a>Elenco di richieste da clienti
 
-I clienti possono inviare la richiesta di inserire un'applicazione facendo clic **App richiede da parte dei clienti** -> **Invia nuova richiesta**.
+I clienti possono inviare la richiesta di elencare un'applicazione facendo clic su **richieste di app da** -> parte dei clienti per**inviare una nuova richiesta**.
 
-![Viene illustrato il cliente ha richiesto il riquadro App](./media/howto-app-gallery-listing/customer-submit-request.png)
+![Mostra il riquadro app richieste dal cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
 
-Di seguito è riportato che il flusso del cliente ha richiesto le applicazioni-
+Di seguito è riportato il flusso di applicazioni richieste dal cliente:
 
-![Viene illustrato il cliente ha richiesto il flusso delle App](./media/howto-app-gallery-listing/customer-request.png)
+![Mostra il flusso delle app richieste dal cliente](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>Tempistica
 
 La tempistica del processo di inserimento di un'applicazione SAML 2.0 o WS-Fed nella raccolta è di 7-10 giorni lavorativi.
 
-   ![Sequenza temporale di inserimento di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/timeline.png)
+   ![Sequenza temporale dell'elenco di applicazioni SAML nella raccolta](./media/howto-app-gallery-listing/timeline.png)
 
 La tempistica del processo di inserimento di un'applicazione OpenID Connect nella raccolta è di 2-5 giorni lavorativi.
 
-   ![Sequenza temporale di inserimento di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/timeline2.png)
+   ![Sequenza temporale dell'elenco di applicazioni SAML nella raccolta](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>Escalation
 

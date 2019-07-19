@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 925461ba6c74fe0bcf286692c1a19bb4e7c02dfa
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337426"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254414"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: Domande frequenti (FAQ)
 
@@ -109,9 +109,9 @@ La richiesta di firma del certificato è semplicemente un file di testo. Non è 
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Qual è lo scopo del certificato "Microsoft Azure Service Management for MachineKey"?
 
-Questo certificato viene usato per crittografare le chiavi computer nei ruoli Web di Azure. Per altre informazioni, consultare [questo avviso](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
+Questo certificato viene usato per crittografare le chiavi computer nei ruoli Web di Azure. Per altre informazioni, vedere [questo avviso](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
-Per altre informazioni, vedere gli articoli seguenti:
+Per altre informazioni, vedere i seguenti articoli:
 - [Come configurare ed eseguire attività di avvio per un servizio cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [Attività di avvio comuni del servizio cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
@@ -143,7 +143,7 @@ Per altre informazioni, vedere i documenti seguenti:
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Come si abilita la registrazione di Diagnostica di Microsoft Azure per Servizi cloud?
 È possibile abilitare la registrazione di Diagnostica di Microsoft Azure tramite le opzioni seguenti:
 1. [Abilitare da Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Abilitare tramite il codice .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+2. [Abilita tramite codice .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Abilitare tramite PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
 Per ottenere le impostazioni di Diagnostica di Microsoft Azure corrente del servizio cloud, è possibile usare il comando [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) di PowerShell oppure è possibile visualizzarle tramite il portale dal pannello "Servizi cloud --> Estensioni".
@@ -282,7 +282,7 @@ Vedere [Limiti specifici del servizio](../azure-subscription-service-limits.md#s
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Perché l'unità della macchina virtuale del servizio cloud ha pochissimo spazio libero su disco?
 Questo comportamento è previsto e non dovrebbe causare alcun problema all'applicazione. L'inserimento nel giornale di registrazione è attivato per l'unità %approot% nelle macchine virtuali PaaS di Azure e ciò comporta essenzialmente l'utilizzo del doppio della quantità di spazio normalmente occupata dai file. Ci sono tuttavia alcuni aspetti da considerare che permettono di capire come questo non sia un vero problema.
 
-Le dimensioni dell'unità %approot% vengono calcolate come <dimensioni del file con estensione cspkg + dimensioni massime del giornale di registrazione + margine di spazio libero> oppure 1,5 GB, a seconda di quale sia il valore maggiore. Le dimensioni della VM non sono rilevanti per questo calcolo. Le dimensioni della VM influiscono solo sulle dimensioni del disco C temporaneo. 
+Le dimensioni dell'unità% AppRoot% vengono calcolate con \<dimensioni pari a. cspkg + max journal size + un margine di spazio libero > o 1,5 GB, a seconda del valore maggiore. Le dimensioni della VM non sono rilevanti per questo calcolo. Le dimensioni della VM influiscono solo sulle dimensioni del disco C temporaneo. 
 
 La scrittura nell'unità %approot% non è supportata. Se si scrive nella VM di Azure, è necessario farlo in una risorsa LocalStorage temporanea (o in un'altra posizione, ad esempio archiviazione BLOB, File di Azure e così via). La quantità di spazio disponibile nella cartella %approot% non è quindi significativa. Se non si è certi del fatto che l'applicazione scriva nell'unità %approot%, è possibile lasciare il servizio in esecuzione per alcuni giorni e quindi confrontare le dimensioni prima e dopo. 
 
@@ -311,7 +311,7 @@ Per altre informazioni sugli scenari di distribuzione dell'estensione Antimalwar
     
 Come descritto [qui](https://technet.microsoft.com/library/ee790567.aspx), $sslFlags potrebbe assumere uno dei valori seguenti:
 
-|Value|Significato|
+|Valore|Significato|
 ------|------
 |0|Nessuna indicazione nome server|
 |1|Indicazione nome server abilitata |

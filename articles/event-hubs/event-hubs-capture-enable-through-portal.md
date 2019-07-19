@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 9108c52529319288fba48dbad3c6f8aa6cb5f725
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18dea8e8e4cfcabec63e35dd302f6a5259721a8a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822508"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320301"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Abilitare l'acquisizione di eventi in streaming tramite Hub eventi di Azure
 
-La [funzionalità di acquisizione di Hub eventi][capture-overview] di Azure consente di distribuire automaticamente i dati di streaming di Hub eventi all'[archivio BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) o all'account [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) desiderato.
+[Acquisizione di hub eventi][capture-overview] di Azure consente di recapitare automaticamente i dati in streaming in hub eventi a un [Archivio BLOB di azure](https://azure.microsoft.com/services/storage/blobs/) o a [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) account di propria scelta.
 
 È possibile configurare Acquisizione al momento della creazione dell'hub eventi usando il [portale di Azure](https://portal.azure.com). È possibile acquisire i dati in un contenitore di [archiviazione BLOB](https://azure.microsoft.com/services/storage/blobs/) di Azure o in un account [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
-Per altre informazioni, vedere la [panoramica della funzionalità di acquisizione di Hub eventi][capture-overview].
+Per altre informazioni, vedere [Cenni preliminari sull'acquisizione di hub eventi][capture-overview].
 
 ## <a name="capture-data-to-an-azure-storage-account"></a>Acquisire i dati in un account di archiviazione di Azure  
 
@@ -47,10 +47,8 @@ Per acquisire i dati in Azure Data Lake Store, si creano un account Data Lake St
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Creare un account Azure Data Lake Store e le cartelle
 
-> [!NOTE]
-> La funzionalità di acquisizione di hub eventi supporta attualmente solo generazione 1 di Azure Data Lake Store, non di generazione 2. 
 
-1. Creare un account Data Lake Store generazione 1, seguendo le istruzioni in [Introduzione a Azure Data Lake Store tramite il portale di Azure](../data-lake-store/data-lake-store-get-started-portal.md).
+1. Creare un account Data Lake Store seguendo le istruzioni riportate in [Introduzione ad Azure Data Lake Store con il portale di Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 2. Seguire le istruzioni della sezione [Assegnare autorizzazioni a Hub eventi](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) per creare una cartella nell'account Data Lake Store in cui acquisire i dati da Hub eventi e assegnare a Hub eventi le autorizzazioni per scrivere i dati nell'account Data Lake Store.  
 
 
@@ -81,7 +79,7 @@ Per acquisire i dati in Azure Data Lake Store, si creano un account Data Lake St
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sull'acquisizione, vedere la [panoramica della funzionalità di acquisizione di Hub eventi][capture-overview].
+- Per altre informazioni sull'acquisizione di hub eventi, vedere [Cenni preliminari sull'acquisizione di hub eventi][capture-overview].
 - È anche possibile configurare Acquisizione di Hub eventi usando i modelli di Azure Resource Manager. Per altre informazioni, vedere [Enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md) (Abilitare Acquisizione usando un modello di Azure Resource Manager).
 - [Informazioni su come creare una sottoscrizione di Griglia di eventi di Azure con uno spazio dei nomi di hub eventi come origine](store-captured-data-data-warehouse.md)
 - [Introduzione ad Azure Data Lake Store con il portale di Azure](../data-lake-store/data-lake-store-get-started-portal.md)

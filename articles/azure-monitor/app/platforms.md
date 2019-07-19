@@ -13,32 +13,36 @@ ms.topic: conceptual
 ms.date: 07/06/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 100f1f8875dd53f954e99c50f0bc5b9cd3fee31b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: db79f2b1d3857aac2f71d2e18a3949f068b746eb
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617811"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67990065"
 ---
-# <a name="languages---officially-supported-by-application-insights-team"></a>Linguaggi: supportati ufficialmente dal team di Application Insights
+# <a name="languages---officially-supported-by-application-insights-team"></a>Lingue: supportato ufficialmente dal team Application Insights
+
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Pagine Web JavaScript](../../azure-monitor/app/javascript.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
 
-## <a name="languages---community-supported"></a>Linguaggi: supportati dalla community
+## <a name="community-sdks"></a>SDK della community
 
-Esistono una serie di supportato dalla community Application Insights SDK, molti dei quali sono stati originariamente creati da Microsoft. Supportato dalla community SDK non vengono mantenuti ufficialmente da Microsoft e non è possibile fornire il supporto per qualsiasi SDK che non è presente nell'elenco ufficialmente supportata. Questi SDK sono considerati sperimentale e non sono consigliati per la produzione.
+Sono disponibili diversi SDK della community applicazione Azure Insights, molti dei quali sono stati originariamente creati da Microsoft. Gli SDK della community non sono ufficialmente gestiti da Microsoft. Non è possibile fornire supporto per un SDK non incluso nell'elenco ufficialmente supportato. Questi SDK sono considerati sperimentali e non sono consigliati per l'uso in ambiente di produzione.
 
 ## <a name="platforms-and-frameworks"></a>Piattaforme e framework
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
+### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>Strumentazione per applicazioni già distribuite (senza codice, basate su agenti)
+* [VM di Azure e set di scalabilità di macchine virtuali di Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
+* [Servizio app di Azure](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET - per app già attive](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Servizi cloud di Azure](../../azure-monitor/app/cloudservices.md), inclusi i ruoli Web e di lavoro
+* [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+### <a name="instrumentation-through-code-sdks"></a>Strumentazione tramite codice (SDK)
+* [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Android](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
-* [Servizio app di Azure](../../azure-monitor/app/azure-web-apps.md)
-* [Servizi Cloud di Azure](../../azure-monitor/app/cloudservices.md) (ruoli Web e di lavoro)
-* [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)

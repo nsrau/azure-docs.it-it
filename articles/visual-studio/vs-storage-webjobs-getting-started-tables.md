@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: a9a4475465fefb01ec53e6e0eb814f9b8f192a1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 481c2f1eaf20e317c8efa4f21f337f4073af898f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60390839"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260752"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introduzione all'Archiviazione di Azure (progetti Azure WebJob)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -30,7 +30,7 @@ Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quan
 Alcuni dei frammenti di codice illustrano l'attributo **Tabella** usato nelle funzioni chiamate manualmente e non mediante uno degli attributi del trigger.
 
 ## <a name="how-to-add-entities-to-a-table"></a>Come aggiungere entità a una tabella
-Per aggiungere entità a una tabella, usare l'attributo **Table** con un parametro **ICollector<T>** o **IAsyncCollector<T>** dove **T** specifica lo schema delle entità da aggiungere. Il costruttore dell'attributo accetta un parametro di stringa che specifica il nome della tabella.
+Per aggiungere entità a una tabella, usare l'attributo **Table** con un **parametro\<ICollector t >** o **\<IAsyncCollector t >** dove **t** specifica lo schema delle entità da aggiungere. Il costruttore dell'attributo accetta un parametro di stringa che specifica il nome della tabella.
 
 L’esempio di codice seguente aggiunge le entità **Persona** a una tabella denominata *Ingresso*.
 
@@ -79,7 +79,7 @@ Al termine della funzione, la pagina **Invocation Details** indica il numero di 
 ![Funzione Ingress completata](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Come leggere più entità da una tabella
-Per leggere una tabella, usare l'attributo **Tabella** con un parametro **IQueryable<T>** in cui il tipo **T** deriva da **TableEntity** o implementa **ITableEntity**.
+Per leggere una tabella, usare l'attributo **Table** con un **parametro\<IQueryable T >** dove il tipo **T** deriva da **TableEntity** o implementa **ITableEntity**.
 
 Il seguente esempio di codice legge e registra tutte le righe dalla tabella **Ingresso**:
 

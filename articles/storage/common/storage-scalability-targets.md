@@ -1,21 +1,21 @@
 ---
-title: Scalabilità e prestazioni obiettivi di archiviazione Azure - account di archiviazione
-description: Informazioni sugli obiettivi di scalabilità e prestazioni, tra cui la capacità e la frequenza delle richieste in ingresso e in uscita della larghezza di banda, per gli account di archiviazione di Azure.
+title: Obiettivi di scalabilità e prestazioni per archiviazione di Azure-account di archiviazione
+description: Informazioni sugli obiettivi di scalabilità e prestazioni, tra cui la capacità, la frequenza delle richieste e la larghezza di banda in ingresso e in uscita, per gli account di archiviazione di Azure.
 services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 07/18/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 932d250d6685a1b905e4a03a0118d8c8f1f26418
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 046c2308d5cef2df7e12b6185fc24b8df4f821dc
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151252"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326962"
 ---
-# <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Obiettivi archiviazione di Azure la scalabilità e prestazioni per gli account di archiviazione
+# <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Obiettivi di scalabilità e prestazioni per archiviazione di Azure per gli account di archiviazione
 
 Questo articolo illustra nel dettaglio gli obiettivi di scalabilità e prestazioni per gli account di archiviazione di Azure. Gli obiettivi di scalabilità e prestazioni elencati di seguito sono di fascia alta, ma possono essere conseguiti. In tutti i casi, la velocità e la larghezza di banda richieste e ottenute dall’account di archiviazione dipendono dalla dimensione degli oggetti archiviati, dai modelli di accesso utilizzati e dal tipo di carico di lavoro eseguito dall’applicazione.
 
@@ -27,7 +27,7 @@ Quando l'applicazione raggiunge il limite in termini di carico di lavoro che pu�
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-## <a name="premium-performance-storage-account-scale-limits"></a>Limiti di scalabilità di account di archiviazione di prestazioni di Premium
+## <a name="premium-performance-storage-account-scale-limits"></a>Limiti di scalabilità dell'account di archiviazione prestazioni Premium
 
 [!INCLUDE [azure-premium-limits](../../../includes/azure-storage-limits-premium.md)]
 
@@ -44,18 +44,18 @@ Quando l'applicazione raggiunge il limite in termini di carico di lavoro che pu�
 Per altre informazioni sugli obiettivi di scalabilità e prestazioni per File di Azure e Sincronizzazione file di Azure, vedere [Obiettivi di scalabilità e prestazioni di File di Azure](../files/storage-files-scale-targets.md).
 
 > [!IMPORTANT]
-> Limiti dell'account di archiviazione si applicano a tutte le condivisioni. Scalabilità per il numero massimo di account di archiviazione solo è realizzabile se è presente solo una condivisione per ogni account di archiviazione.
+> I limiti dell'account di archiviazione sono validi per tutte le condivisioni. La scalabilità fino al valore massimo per gli account di archiviazione è ottenibile solo se è presente una sola condivisione per ogni account di archiviazione.
 >
-> Le condivisioni di file standard di dimensioni superiori a 5 TiB sono disponibili in anteprima e presentano alcune limitazioni.
-> Per un elenco di limitazioni e per eseguire l'onboarding per l'anteprima di queste dimensioni di condivisione file più grandi, vedere la [condivisioni di file Standard](../files/storage-files-planning.md#standard-file-shares) Guida alla sezione della pianificazione file di Azure.
+> Le condivisioni file standard più grandi di 5 TiB sono in anteprima e presentano alcune limitazioni.
+> Per un elenco delle limitazioni e per l'onboarding nell'anteprima di queste dimensioni di condivisione file più grandi, vedere la sezione relativa alle [condivisioni file standard](../files/storage-files-planning.md#standard-file-shares) della Guida alla pianificazione del file di Azure.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
-### <a name="premium-files-scale-targets"></a>File Premium obiettivi di scalabilità
+### <a name="premium-files-scale-targets"></a>Destinazioni di scalabilità dei file Premium
 
-Esistono tre categorie di limitazioni da considerare per i file premium: gli account di archiviazione, condivisioni e file.
+Esistono tre categorie di limitazioni da considerare per i file Premium: gli account di archiviazione, le condivisioni e i file.
 
-Ad esempio: Una singola condivisione può raggiungere 100.000 IOPS e un singolo file possono aumentare fino a 5.000 IOPS. Quindi, ad esempio, se si dispone di tre file in una condivisione, il numero di IOPs max è possibile ottenere da tale condivisione è 15.000.
+Ad esempio:  Una singola condivisione può raggiungere 100.000 IOPS e un singolo file può essere scalato fino a 5.000 IOPS. Se, ad esempio, si dispone di tre file in una condivisione, il numero massimo di IOPs che è possibile ottenere da tale condivisione è 15.000.
 
 #### <a name="premium-file-share-limits"></a>Limiti di condivisione file Premium
 

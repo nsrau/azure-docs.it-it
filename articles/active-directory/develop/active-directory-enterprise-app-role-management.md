@@ -8,20 +8,21 @@ manager: CelesteDG
 editor: ''
 ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15165bce70a9bc2fbf3eb840ca8bce4fd5073280
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 148324f293c36b88657f50a7405d85210b62dcc4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544613"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321251"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali
 
@@ -159,13 +160,13 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
     | Nome del ruolo  | user.assignedroles |
 
     >[!NOTE]
-    >Se il valore di attestazione di ruolo è null, quindi Azure AD non le invia questo valore nel token e questo è l'impostazione predefinita in base alla progettazione.
+    >Se il valore dell'attestazione del ruolo è null, Azure AD non invierà questo valore nel token e questa impostazione è predefinita in base alla progettazione.
 
-    a. Fare clic su **Edit** icona per aprire **gli attributi utente e le attestazioni** finestra di dialogo.
+    a. fare clic sull'icona **modifica** per aprire **attributi utente &** finestra di dialogo attestazioni.
 
       ![Pulsante Aggiungi attributo](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Nel **gestire le attestazioni utente** finestra di dialogo, aggiungere l'attributo del token SAML, fare clic su **Aggiungi nuova attestazione**.
+    b. Nella finestra di dialogo **Gestisci attestazioni utente** aggiungere l'attributo token SAML facendo clic su **Aggiungi nuova attestazione**.
 
       ![Pulsante Aggiungi attributo](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Informazioni su come creare un servizio Load Balancer Standard pubblico con un front-end di indirizzo IP pubblico di zona usando l'interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
-ms.author: kumud
-ms.openlocfilehash: 7f5aa65b055669a8a4047dffa72d456fed0714f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 7da41456a4f4bb88d402d27b42b31f6d4adfa7f6
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111574"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274307"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Creare un Load Balancer Standard con un front-end di zona usando l'interfaccia della riga di comando di Azure
 
