@@ -216,8 +216,8 @@ Combina più matrici e restituisce la matrice concatenata oppure combina più va
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |stringa o matrice |La prima matrice o stringa per la concatenazione. |
-| argomenti aggiuntivi |No |stringa o matrice |Matrici o stringhe aggiuntive in ordine sequenziale per la concatenazione. |
+| arg1 |Yes |array o string |La prima matrice o stringa per la concatenazione. |
+| argomenti aggiuntivi |No |string o matrice |Matrici o stringhe aggiuntive in ordine sequenziale per la concatenazione. |
 
 Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri.
 
