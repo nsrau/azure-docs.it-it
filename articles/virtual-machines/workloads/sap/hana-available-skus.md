@@ -11,19 +11,37 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 043ecdcb83d2ee39e3373f029c00c6237f87601c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7961578a1daf67176312d4257a4e86a7091082f0
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709716"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869246"
 ---
 # <a name="available-skus-for-hli"></a>SKU disponibili per HLI
 
-Il servizio SAP HANA in Azure (istanze Large) è disponibile in diverse configurazioni nelle aree di Azure Stati Uniti occidentali, Stati Uniti orientali, Australia orientale, Australia sud-orientale, Europa occidentale, Europa settentrionale, Giappone orientale e Giappone occidentale.
+Il servizio SAP HANA in Azure (istanze large) basato su indicatori di revisione 3 è disponibile in diverse configurazioni nelle aree di Azure di:
+
+- Stati Uniti occidentali
+- East US
+- Australia orientale
+- Australia sud-orientale
+- Europa occidentale
+- Europa settentrionale
+- Giappone orientale
+- Giappone occidentale
+
+Il servizio SAP HANA in Azure (istanze large) basato su indicatori di revisione 4 è disponibile in diverse configurazioni nelle aree di Azure di:
+
+- Stati Uniti occidentali 2
+- East US
+- Europa occidentale
+- Europa settentrionale
+
+
 
 Esempio di elenco [SKU certificati SAP HANA per HANA istanze Large](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure):
 
@@ -43,12 +61,12 @@ Esempio di elenco [SKU certificati SAP HANA per HANA istanze Large](https://www.
 |---| SAP HANA in Azure S960m<br /> – 20 x processore Intel® Xeon® E7-8890 v4<br /> 480 core CPU e 960 thread CPU |  20 TB |  46 TB | Disponibile |
 
 
-Con SAP HANA TDIv5, SAP consente di creare dimensionamenti e progetti specifici del cliente che potrebbero dare origine a configurazioni server non segnalate come certificate in:
+In SAP HANA TDIv5, SAP consente il dimensionamento specifico per i clienti e i progetti specifici del cliente, che potrebbero comportare configurazioni server, che non sono elencate come certificate in:
 
 - [SAP HANA Certified Appliances](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html) (Appliance certificate per SAP HANA)
 - [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) (Piattaforme IaaS certificate per SAP HANA)
 
-In molti casi, queste configurazioni server specifiche del cliente contengono più memoria delle unità server certificate con SAP. Lavorando con SAP i clienti hanno la possibilità di ottenere il supporto SAP e di certificare le proprie configurazioni server con dimensionamento personalizzato. In Azure sono disponibili i seguenti SKU standard HANA per istanze Large e il listino prezzi Microsoft per tali progetti TDIv5 con dimensionamento specifico del cliente.
+In molti casi, queste configurazioni server specifiche del cliente portano più memoria rispetto alle unità server certificate con SAP. Lavorando con SAP i clienti hanno la possibilità di ottenere il supporto SAP e di certificare le proprie configurazioni server con dimensionamento personalizzato. In Azure sono disponibili gli SKU standard per istanze large di HANA seguenti e nell'elenco prezzi Microsoft per tali progetti di dimensionamento specifici del cliente TDIv5.
 
 | SKU|CPU | Memoria | Archiviazione | Disponibilità |
 | ---| --- | --- | --- | --- |
@@ -72,7 +90,7 @@ Le configurazioni specifiche scelte dipendono dal carico di lavoro, dalle risors
 La base hardware delle offerte gode della certificazione TDI di SAP Hana, ad eccezione dei progetti oggetto di dimensionamento specifico da parte dei clienti. Gli SKU sono suddivisi in due diverse classi di hardware:
 
 - La "classe di tipo I" di SKU include S72, S72m, S96, S144, S144m, S192, S192m e S192xm.
-- La "classe di tipo II" di SKU include S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm e S960m.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm e S960m, detti "classe di tipo II" degli SKU.
 
 Un intero modulo per istanze Large di HANA non viene allocato esclusivamente per l'uso di un singolo cliente. Ciò vale anche per i rack delle risorse di calcolo e archiviazione connesse tramite un'infrastruttura di rete distribuita in Azure. Analogamente ad Azure, l'infrastruttura di istanze Large di HANA distribuisce diversi &quot;tenant&quot; dei clienti, isolati l'uno dall'altro, nei tre livelli seguenti:
 

@@ -7,7 +7,8 @@ author: rwike77
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +17,12 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d71bfd5e560bb1509337ac371fbe101b4c6d63b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac9d278053f05f9041a002b1c6ef3f873b0d9efb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540650"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324855"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Informazioni sulle esperienze di consenso per le applicazioni di Azure AD
 
@@ -47,7 +48,7 @@ La figura e la tabella seguenti includono informazioni sui blocchi predefiniti d
 | # | Componente | Scopo |
 | ----- | ----- | ----- |
 | 1 | ID utente | Questo ID rappresenta l'utente per conto del quale l'applicazione client sta richiedendo di accedere a risorse protette. |
-| 2 | Title | Il titolo varia a seconda che gli utenti siano inseriti nel flusso di consenso utente o nel flusso di consenso amministratore. Nel flusso di consenso utente il titolo sarà "Autorizzazioni richieste", mentre nel flusso di consenso amministratore conterrà la riga aggiuntiva "Accetta per l'organizzazione". |
+| 2 | Titolo | Il titolo varia a seconda che gli utenti siano inseriti nel flusso di consenso utente o nel flusso di consenso amministratore. Nel flusso di consenso utente il titolo sarà "Autorizzazioni richieste", mentre nel flusso di consenso amministratore conterrà la riga aggiuntiva "Accetta per l'organizzazione". |
 | 3 | Logo dell'app | Questa immagine deve consentire agli utenti di avere un'indicazione visiva se l'app in questione è quella a cui intendevano accedere. L'immagine viene fornita dagli sviluppatori dell'applicazione e la relativa proprietà non è convalidata. |
 | 4 | Nome app | Questo valore deve comunicare agli utenti il nome dell'applicazione che sta richiedendo l'accesso ai dati. Si noti che il nome dell'app viene fornito dagli sviluppatori e la relativa proprietà non è convalidata. |
 | 5 | Dominio dell'entità di pubblicazione | Questo valore deve fornire agli utenti un dominio di cui possano essere in grado di valutare il livello di affidabilità. Il dominio dell'entità di pubblicazione viene fornito dagli sviluppatori e la relativa proprietà è convalidata. |
@@ -86,4 +87,4 @@ Di seguito sono illustrate le esperienze di consenso che un utente può visualiz
 ## <a name="next-steps"></a>Passaggi successivi
 - Panoramica dettagliata di [come il framework di consenso di Azure AD implementa il consenso](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 - Per informazioni più approfondite, scoprire [come un'applicazione multi-tenant può usare il framework di consenso](active-directory-devhowto-multi-tenant-overview.md) per implementare il consenso "user" e "admin", che supporta più modelli di applicazione avanzati a più livelli.
-- Scopri [come configurare il dominio di pubblicazione dell'app](howto-configure-publisher-domain.md).
+- Informazioni [su come configurare il dominio del server di pubblicazione dell'applicazione](howto-configure-publisher-domain.md).

@@ -14,13 +14,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
-ms.author: v-shysun
-ms.openlocfilehash: 95ad2ba4798d41f2e5e49ca33735b997859af23f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.author: mathoma
+ms.openlocfilehash: 7f6ec1ee65727fb8c3c7d98f696c288e95ec880a
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67658148"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876183"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Domande frequenti su SQL Server in esecuzione in macchine virtuali Windows in Azure
 
@@ -50,13 +50,13 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
    Sì. Azure mantiene solo un'immagine per ogni versione e per ogni edizione principale. Ad esempio, quando viene rilasciato un nuovo Service Pack di SQL Server, Azure aggiunge una nuova immagine alla raccolta per quel Service Pack. L'immagine di SQL Server del Service Pack precedente viene immediatamente rimossa dal portale di Azure. Tuttavia è ancora disponibile per il provisioning di PowerShell per i successivi tre mesi. Dopo tre mesi, l'immagine del Service Pack precedente non è più disponibile. Questi criteri di rimozione sono applicabili anche se una versione di SQL Server non è più supportata perché raggiunge la fine del ciclo di vita.
 
 
-1. **È possibile distribuire un'immagine meno recente di SQL Server che non è visibile nel portale di Azure?**
+1. **È possibile distribuire un'immagine precedente di SQL Server non visibile nell'portale di Azure?**
 
    Sì, con PowerShell. Per altre informazioni sulla distribuzione di macchine virtuali di SQL Server usando PowerShell, consultare [Come eseguire il provisioning di macchine virtuali di SQL Server con Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
 1. **È possibile creare un'immagine di disco rigido virtuale da una VM di SQL Server?**
 
-   Sì, ma ci sono alcune considerazioni di cui tenere conto. Se si distribuisce questo disco rigido virtuale in una nuova macchina virtuale in Azure, non ottengono la sezione di configurazione di SQL Server nel portale. Per gestire le opzioni di configurazione di SQL Server sarà quindi necessario usare PowerShell. Inoltre, verrà addebitato un costo alla tariffa della VM di SQL su cui si basava originariamente l'immagine. Questo vale anche se si rimuove SQL Server dal disco rigido virtuale prima della distribuzione. 
+   Sì, ma ci sono alcune considerazioni di cui tenere conto. Se si distribuisce il disco rigido virtuale in una nuova macchina virtuale in Azure, non si ottiene la sezione di configurazione SQL Server nel portale. Per gestire le opzioni di configurazione di SQL Server sarà quindi necessario usare PowerShell. Inoltre, verrà addebitato un costo alla tariffa della VM di SQL su cui si basava originariamente l'immagine. Questo vale anche se si rimuove SQL Server dal disco rigido virtuale prima della distribuzione. 
 
 1. **È possibile impostare configurazioni non visualizzate nella raccolta di macchine virtuali, ad esempio Windows 2008 R2 + SQL Server 2012?**
 
@@ -81,7 +81,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **È necessario pagare la licenza di SQL Server in una VM di Azure se viene utilizzata solo per standby/failover?**
 
-   Se si dispone di Software Assurance e si usa la mobilità delle licenze come descritto in [domande frequenti sulle licenze di macchine virtuali](https://azure.microsoft.com/pricing/licensing-faq/), quindi non devi pagare per concedere in licenza a un'istanza di SQL Server che funge da replica secondaria passiva in una distribuzione a disponibilità elevata. In caso contrario, è necessario pagare la licenza.
+   Se si dispone di Software Assurance e si usa Mobilità delle licenze come descritto in [domande frequenti sulle licenze di macchine virtuali](https://azure.microsoft.com/pricing/licensing-faq/), non è necessario pagare per concedere una licenza SQL Server partecipando come replica secondaria passiva in una distribuzione a disponibilità elevata. In caso contrario, è necessario pagare la licenza.
 
 1. **È possibile modificare una VM per l'uso di una licenza di SQL Server, se è stata creata da una delle immagini della raccolta con pagamento in base al consumo?**
 
@@ -110,11 +110,11 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
  
    Sì. Tutti i clienti possono registrarsi al nuovo provider di risorse di macchine virtuali SQL. Tuttavia, solo i clienti con il vantaggio Software Assurance possono attivare [Vantaggio Azure Hybrid (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (o BYOL) in una macchina virtuale SQL Server. 
 
-1. **Cosa accade per i _Microsoft.SqlVirtualMachine_ risorsa se la risorsa di macchina virtuale è stata spostata o eliminata?** 
+1. **Cosa accade alla risorsa _Microsoft. SqlVirtualMachine_ se la risorsa VM viene spostata o eliminata?** 
 
    Quando la risorsa Microsoft.Compute/VirtualMachine viene eliminata o spostata, alla risorsa Microsoft.SqlVirtualMachine associata viene notificata la necessità di replicare in modo asincrono l'operazione.
 
-1. **Cosa accade alla macchina virtuale se la _Microsoft.SqlVirtualMachine_ risorsa viene eliminata?**
+1. **Cosa accade alla macchina virtuale se la risorsa _Microsoft. SqlVirtualMachine_ viene eliminata?**
 
     Quando viene eliminata la risorsa Microsoft.SqlVirtualMachine, la risorsa Microsoft.Compute/VirtualMachine non è compromessa. Tuttavia, le modifiche della licenza verranno riportate all’immagine originale. 
 
@@ -126,19 +126,19 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **È possibile installare una seconda istanza di SQL Server nella stessa VM? È possibile modificare le funzionalità installate nell'istanza predefinita?**
 
-   Sì. Il supporto di installazione di SQL Server si trova in una cartella nell'unità **C** . Eseguire **Setup.exe** da tale percorso per aggiungere nuove istanze di SQL Server o per modificare altre funzionalità di SQL Server installate nella macchina virtuale. Si noti che alcune funzionalità, ad esempio Backup automatizzato, applicazione automatica delle patch e integrazione di Azure Key Vault, funzionano solo nell'istanza predefinita o istanza una denominata che è stato configurato correttamente (vedere domanda 3). 
+   Sì. Il supporto di installazione di SQL Server si trova in una cartella nell'unità **C** . Eseguire **Setup.exe** da tale percorso per aggiungere nuove istanze di SQL Server o per modificare altre funzionalità di SQL Server installate nella macchina virtuale. Si noti che alcune funzionalità, ad esempio il backup automatizzato, l'applicazione automatica di patch e l'integrazione di Azure Key Vault, funzionano solo per l'istanza predefinita o un'istanza denominata configurata correttamente (vedere la domanda 3). 
 
 1. **È possibile disinstallare l'istanza predefinita di SQL Server?**
 
-   Sì, ma ci sono alcune considerazioni di cui tenere conto. Come indicato nella risposta precedente, sono disponibili funzionalità da cui dipendono le [estensione di SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md).  Se si disinstalla l'istanza predefinita senza rimuovere l'estensione IaaS, inoltre, l'estensione continua a cercarla e può generare errori nel log eventi. Questi errori provengono dalle due origini seguenti: **Microsoft SQL Server Credential Management** e **Microsoft SQL Server IaaS Agent**. Uno degli errori potrebbe essere simile al seguente:
+   Sì, ma ci sono alcune considerazioni di cui tenere conto. Come indicato nella risposta precedente, sono disponibili funzionalità che si basano sull' [estensione SQL Server agente IaaS](virtual-machines-windows-sql-server-agent-extension.md).  Se si disinstalla l'istanza predefinita senza rimuovere anche l'estensione IaaS, l'estensione continua a cercarla e potrebbe generare errori nel registro eventi. Questi errori provengono dalle due origini seguenti: **Microsoft SQL Server Credential Management** e **Microsoft SQL Server IaaS Agent**. Uno degli errori potrebbe essere simile al seguente:
 
       Si è verificato un errore di rete o specifico dell'istanza mentre veniva stabilita la connessione a SQL Server. Il server non è stato trovato o non è accessibile.
 
    Se si decide di disinstallare l'istanza predefinita, disinstallare anche l'[estensione SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md).
 
-1. **È possibile usare un'istanza denominata di SQL Server con l'estensione IaaS**?
+1. È **possibile utilizzare un'istanza denominata di SQL Server con l'estensione IaaS**?
    
-   Sì, se l'istanza denominata è l'unica istanza in SQL Server e se l'istanza predefinita originale era [disinstallato correttamente](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). Se è presente alcuna istanza predefinita e sono presenti più istanze denominate in una singola macchina virtuale di SQL Server, l'estensione IaaS avrà esito negativo per l'installazione. 
+   Sì, se l'istanza denominata è l'unica istanza del SQL Server e se l'istanza predefinita originale è stata disinstallata [correttamente](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). Se non esiste un'istanza predefinita e sono presenti più istanze denominate in una singola macchina virtuale SQL Server, l'estensione IaaS non verrà installata. 
 
 1. **È possibile rimuovere completamente SQL Server da una VM di SQL?**
 
@@ -146,9 +146,9 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
    
 ## <a name="updating-and-patching"></a>Aggiornamento e applicazione di patch
 
-1. **Come si modifica a una versione/edizione diversa di SQL Server in una VM di Azure?**
+1. **Ricerca per categorie modificare una versione o un'edizione diversa del SQL Server in una macchina virtuale di Azure?**
 
-   I clienti possono cambiare la versione/edizione di SQL Server usando i supporti di installazione che contiene la versione desiderata o edizione di SQL Server. Dopo aver modificato l'edizione, usare il portale di Azure per modificare la proprietà edizione della macchina virtuale in modo da riflettere in modo accurato la fatturazione per la macchina virtuale. Per altre informazioni, vedere [modificare l'edizione di una macchina virtuale di SQL Server](virtual-machines-windows-sql-change-edition.md). 
+   I clienti possono modificare la versione o l'edizione di SQL Server usando i supporti di installazione che contengono la versione o l'edizione di SQL Server desiderata. Una volta modificata l'edizione, usare la portale di Azure per modificare la proprietà Edition della macchina virtuale in modo da riflettere accuratamente la fatturazione per la macchina virtuale. Per altre informazioni, vedere [Change Edition of a SQL Server VM](virtual-machines-windows-sql-change-edition.md). 
 
 
 1. **Come si applicano gli aggiornamenti e i Service Pack a una VM di SQL Server?**
@@ -172,9 +172,9 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
     Scaricare e installare SQL Server Data Tools da [Microsoft SQL Server Data Tools - Business Intelligence per Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313).
 
-1. **Sono transazioni distribuite con MSDTC supportati nelle macchine virtuali di SQL Server?**
+1. **Le transazioni distribuite con MSDTC sono supportate in SQL Server VM?**
    
-    Sì. DTC locale è supportata per SQL Server 2016 SP2 e versioni successive. Tuttavia, le applicazioni devono essere testate che usano i gruppi di disponibilità, come le transazioni in transito durante il failover avrà esito negativo e deve essere riprovata. DTC cluster è disponibile a partire da Windows Server 2019. 
+    Sì. DTC locale è supportato per SQL Server 2016 SP2 e versioni successive. Tuttavia, le applicazioni devono essere testate quando si utilizza Gruppi di disponibilità Always On, perché le transazioni in corso durante un failover avranno esito negativo e dovranno essere ritentate. DTC cluster è disponibile a partire da Windows Server 2019. 
 
 ## <a name="resources"></a>Risorse
 

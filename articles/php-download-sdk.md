@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: allclark;yaqiyang
-ms.openlocfilehash: f6b21f288b94e06414fe66ff775ebb264368c0b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: yaya
+ms.openlocfilehash: 9dd336ef973b603108aad62c90e4dab385d20317
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411583"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67873887"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>Download di Azure SDK per PHP
 
@@ -34,7 +34,7 @@ Azure SDK per PHP include componenti che consentono di sviluppare, distribuire e
 
 Le sezioni seguenti illustrano come eseguire il download e l'installazione dei componenti sopra descritti.
 
-Le istruzioni in questo argomento presuppongono che [PHP][install-php] sia installato.
+Le istruzioni riportate in questo argomento presuppongono che sia installato [php][install-php] .
 
 > [!NOTE]
 > È necessario avere PHP 5.5 o versione successiva per usare le librerie client PHP per Azure.
@@ -45,7 +45,7 @@ Le istruzioni in questo argomento presuppongono che [PHP][install-php] sia insta
 
 Le librerie client PHP per Azure offrono un'interfaccia per accedere alle funzionalità di Azure, ad esempio i servizi di gestione dati e i servizi cloud, da qualsiasi sistema operativo. Queste librerie possono essere installate tramite il programma di creazione.
 
-Per informazioni su come usare le librerie client PHP per Azure, vedere [Come usare il servizio BLOB][blob-service], [Come usare il servizio tabelle][table-service] e [Come usare il servizio di accodamento][queue-service].
+Per informazioni su come usare le librerie client PHP per Azure, vedere [come usare il servizio][blob-service] , [How to Use the Table Service][table-service] BLOB e [come usare il]servizio di Accodamento[Queue-Service].
 
 ### <a name="install-via-composer"></a>Installazione tramite Composer
 
@@ -59,7 +59,7 @@ Per informazioni su come usare le librerie client PHP per Azure, vedere [Come us
             }
         }
 
-3. Scaricare **[composer.phar][composer-phar]** nella radice del progetto.
+3. Scaricare **[Composer. phar][composer-phar]** nella radice del progetto.
 
 4. Aprire un prompt dei comandi ed eseguire quanto segue nella radice del progetto
 
@@ -69,9 +69,9 @@ Per informazioni su come usare le librerie client PHP per Azure, vedere [Come us
 
 Azure PowerShell è un insieme di cmdlet di PowerShell per la distribuzione e la gestione di servizi di Azure, come servizi cloud e macchine virtuali. Gli emulatori di Azure sono emulatori di servizi cloud e di gestione dati che consentono di verificare un'applicazione in locale. Questi componenti sono supportati solo in Windows.
 
-È consigliabile installare Azure PowerShell e gli emulatori di Azure tramite l'[Installazione guidata piattaforma Web Microsoft][download-wpi]. Si noti che è inoltre possibile scegliere di installare altri componenti di sviluppo, come PHP, SQL Server, i driver Microsoft per SQL Server per PHP e WebMatrix.
+Il modo consigliato per installare Azure PowerShell e gli emulatori di Azure consiste nell'usare il [installazione guidata piattaforma Web Microsoft][download-wpi]. Si noti che è inoltre possibile scegliere di installare altri componenti di sviluppo, come PHP, SQL Server, i driver Microsoft per SQL Server per PHP e WebMatrix.
 
-Per informazioni sull'uso di Azure PowerShell, vedere [Come usare Azure PowerShell][powershell-tools].
+Per informazioni sull'uso di Azure PowerShell, vedere [come usare Azure PowerShell][powershell-tools].
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

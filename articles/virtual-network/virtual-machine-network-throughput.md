@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/26/2019
-ms.author: kumud,steveesp, mareat
-ms.openlocfilehash: 9d74e53c754367ecfa63642514db93354fcadf25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: steveesp
+ms.reviewer: kumud, mareat
+ms.openlocfilehash: f5694e18d5743118e2b6e73708dd3acb17151198
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153749"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67874932"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Larghezza di banda della rete di macchine virtuali
 
@@ -39,33 +40,33 @@ La velocità effettiva in uscita prevista e il numero di interfacce di rete supp
 
 Il limite di velocità effettiva si applica alla macchina virtuale. La velocità effettiva è influenzata dai fattori seguenti:
 - **Numero di interfacce di rete**: Il limite di larghezza di banda è cumulativo di tutto il traffico in uscita dalla macchina virtuale.
-- **Rete accelerata**: Anche se la funzionalità può essere utile per ottenere il limite pubblicato, il limite non viene modificato.
-- **Destinazione del traffico**: Tutte le destinazioni contano per il limite in uscita.
-- **Protocollo**: Tutto il traffico in uscita su tutti i protocolli conta per il limite.
+- **Rete accelerata**: Sebbene la funzionalità possa essere utile per raggiungere il limite pubblicato, non modifica il limite.
+- **Destinazione del traffico**: Tutte le destinazioni vengono conteggiate verso il limite in uscita.
+- **Protocollo**: Tutto il traffico in uscita su tutti i protocolli viene conteggiato fino al limite.
 
-## <a name="network-flow-limits"></a>Limiti di flusso di rete
+## <a name="network-flow-limits"></a>Limiti dei flussi di rete
 
-Oltre a larghezza di banda, il numero di connessioni di rete presente in una macchina virtuale in un determinato momento può influire sulle prestazioni di rete. Lo stack di rete di Azure mantiene lo stato per ogni direzione di una connessione TCP/UDP in strutture di dati denominato 'flussi'. Una connessione TCP/UDP tipica avrà 2 flussi creati, uno per l'entrata e l'altro per la direzione in uscita. 
+Oltre alla larghezza di banda, il numero di connessioni di rete presenti in una macchina virtuale in un determinato momento può influire sulle prestazioni della rete. Lo stack di rete di Azure mantiene lo stato di ogni direzione di una connessione TCP/UDP in strutture di dati denominate "Flows". Per una connessione TCP/UDP tipica vengono creati 2 flussi, uno per il traffico in ingresso e un altro per la direzione in uscita. 
 
-Trasferimento dei dati tra gli endpoint richiede la creazione di flussi diversi oltre a quelli che eseguono il trasferimento dei dati. Alcuni esempi sono i flussi creati per la risoluzione DNS e i flussi creati per i probe di integrità di load balancer. Si noti che dispositivi di rete virtuale (Nva), ad esempio gateway, i proxy, firewall, vedere anche i flussi da creare per le connessioni terminate all'appliance e ha avuto origine dall'appliance. 
+Il trasferimento dei dati tra endpoint richiede la creazione di più flussi, oltre a quelli che eseguono il trasferimento dei dati. Alcuni esempi sono i flussi creati per la risoluzione DNS e i flussi creati per i probe di integrità del servizio di bilanciamento del carico. Si noti anche che le appliance virtuali di rete (appliance virtuali), come gateway, proxy e firewall, visualizzeranno i flussi creati per le connessioni terminate nel dispositivo e originate dall'appliance. 
 
-![Numero di flusso per la conversazione TCP attraverso un'appliance di inoltro](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
+![Numero di flussi per la conversazione TCP tramite un'appliance di invio](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
 
-## <a name="flow-limits-and-recommendations"></a>Limiti di flusso e raccomandazioni
+## <a name="flow-limits-and-recommendations"></a>Limiti e raccomandazioni per il flusso
 
-Oggi, lo stack di rete di Azure supporta i flussi di rete totale 250 KB con buone prestazioni per le macchine virtuali con più di 8 core di CPU e 100 KB passa totale con buone prestazioni per le macchine virtuali con meno di 8 core di CPU. Oltre a questa rete limite peggioramento delle prestazioni normalmente per i flussi aggiuntivi fino a un limite rigido di 1 milione totale flussi, 500 KB in ingresso e 500 K in uscita, dopo il quale i flussi aggiuntivi vengono eliminati.
+Attualmente, lo stack di rete di Azure supporta 250K totali dei flussi di rete con prestazioni ottimali per le macchine virtuali con più di 8 core CPU e 100.000 flussi totali con prestazioni ottimali per le macchine virtuali con meno di 8 core CPU. Oltre questo limite, le prestazioni di rete diminuiscono normalmente per i flussi aggiuntivi fino a un limite rigido di 1 milione di flussi totali, 500.000 in ingresso e 500.000 in uscita, dopo il quale vengono eliminati i flussi aggiuntivi.
 
-||Le macchine virtuali con < 8 core di CPU|Macchine virtuali con core CPU 8 +|
+||VM con < 8 core CPU|VM con più di 8 core CPU|
 |---|---|---|
-|<b>Buone prestazioni</b>|100K flussi |Flussi di 250 KB|
-|<b>Riduzione delle prestazioni</b>|Di sopra di 100 KB flussi|Precedenza 250K flussi|
-|<b>Limite di flusso</b>|Flussi di 1 milione|Flussi di 1 milione|
+|<b>Prestazioni ottimali</b>|100K flussi |Flussi 250K|
+|<b>Prestazioni ridotte</b>|Oltre 100.000 flussi|Sopra i flussi 250K|
+|<b>Limite di flusso</b>|1M flussi|1M flussi|
 
-Le metriche sono disponibili nel [monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) per tenere traccia del numero di flussi di rete e la frequenza di creazione del flusso in istanze di macchina virtuale o VMSS.
+Le metriche sono disponibili in [monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) per tenere traccia del numero di flussi di rete e della velocità di creazione del flusso nelle istanze della macchina virtuale o vmss.
 
 ![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
-Le velocità di terminazione e stabilire una connessione possono influire sulle prestazioni di rete come connessione definizione e la terminazione condivisioni CPU con le routine di elaborazione dei pacchetti. È consigliabile che si effettuino un benchmark carichi di lavoro in modelli di traffico previsto e scalare orizzontalmente carichi di lavoro in modo appropriato alle esigenze di prestazioni. 
+La definizione della connessione e i tassi di terminazione possono anche influire sulle prestazioni di rete durante la creazione e la terminazione della connessione CPU con routine di elaborazione pacchetti. È consigliabile eseguire il benchmark dei carichi di lavoro in base ai modelli di traffico previsti e scalare i carichi di lavoro in modo appropriato per soddisfare le esigenze di prestazioni. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

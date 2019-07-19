@@ -1,77 +1,86 @@
 ---
-title: Connetti i dati di Symantec AWS a Sentinel anteprima di Azure | Microsoft Docs
-description: Informazioni su come connettere i dati di Symantec AWS a Sentinel di Azure.
+title: Connettere i dati Symantec AWS ad Azure Sentinel Preview | Microsoft Docs
+description: Informazioni su come connettere i dati Symantec AWS ad Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/04/2019
+ms.date: 07/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: 214269bc5c854aa4d3bfd508b0adb5a53ec096df
-ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
+ms.openlocfilehash: 246d4cd7d64554ae575767cdba2e26066ad1720d
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673973"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295612"
 ---
-# <a name="connect-azure-sentinel-to-aws"></a>Connettere Azure Sentinel per AWS
+# <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Connettere Sentinel di Azure a AWS CloudTrail
 
-Usare il connettore AWS per trasmettere tutti i tuoi eventi CloudTrail AWS in Azure Sentinel. Questo processo di connessione delega l'accesso per Azure Sentinel ai log delle risorse di AWS, creare una relazione di trust tra CloudTrail AWS e Azure Sentinel. Questa operazione viene eseguita in AWS mediante la creazione di un ruolo che conceda l'autorizzazione a Azure Sentinel per accedere ai log AWS.
+Usare il connettore AWS per eseguire lo streaming di tutti gli eventi di AWS CloudTrail in Sentinel di Azure. Questo processo di connessione delega l'accesso ad Azure Sentinel ai log delle risorse di AWS, creando una relazione di trust tra AWS CloudTrail e Azure Sentinel. Questa operazione viene eseguita in AWS creando un ruolo che concede l'autorizzazione ad Azure Sentinel per accedere ai log di AWS.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario disporre dell'autorizzazione di scrittura nell'area di lavoro Azure Sentinel.
+È necessario disporre dell'autorizzazione di scrittura per l'area di lavoro di Azure Sentinel.
+
+> [!NOTE]
+> Azure Sentinel raccoglie gli eventi CloudTrail da tutte le aree. Si consiglia di non trasmettere gli eventi da un'area a un'altra.
 
 ## <a name="connect-aws"></a>Connettere AWS 
+
+
+1. In Sentinel di Azure selezionare **connettori dati** , quindi selezionare la riga **Amazon Web Services** nella tabella e nel riquadro AWS a destra fare clic su **Apri pagina connettore**.
+
+1. Seguire le istruzioni in **configurazione** attenendosi alla procedura seguente.
  
-1.  In Amazon Web Services console, sotto **Security, Identity & Compliance**, fare clic su **IAM**.
+1.  Nella console di Amazon Web Services, in **sicurezza, Identity & Compliance**, selezionare **IAM**.
 
     ![AWS1](./media/connect-aws/aws-1.png)
 
-2.  Scegli **ruoli** e fare clic su **Crea ruolo**.
+1.  Scegliere **ruoli** e selezionare **Crea ruolo**.
 
     ![AWS2](./media/connect-aws/aws-2.png)
 
-3.  Scegliere **account AWS un'altra.** Nel **ID dell'Account** immettere il **ID Account Microsoft** (**123412341234**) che sono reperibili nella pagina di connettore di AWS nel portale di Azure Sentinel.
+1.  Scegliere **un altro account AWS.** Nel campo **ID account** immettere l'ID dell' **account Microsoft** (**123412341234**) che si trova nella pagina del connettore AWS nel portale di Azure Sentinel.
 
     ![AWS3](./media/connect-aws/aws-3.png)
 
-4.  Assicurarsi che **Richiedi ID esterno** sia selezionata e quindi immettere l'ID esterno (ID area di lavoro) che possono essere trovati nella pagina di connettore di AWS nel portale di Azure Sentinel.
+1.  Verificare che sia selezionata l'opzione **Richiedi ID esterno** e quindi immettere l'ID esterno (ID area di lavoro) che si trova nella pagina del connettore AWS nel portale di Azure Sentinel.
 
     ![AWS4](./media/connect-aws/aws-4.png)
 
-5.  Sotto **collegare il criterio le autorizzazioni** selezionate **AWSCloudTrailReadOnlyAccess**.
+1.  In **Connetti autorizzazioni criteri** selezionare **AWSCloudTrailReadOnlyAccess**.
 
     ![AWS5](./media/connect-aws/aws-5.png)
 
-6.  Immettere un Tag (facoltativo).
+1.  Immettere un tag (facoltativo).
 
     ![AWS6](./media/connect-aws/aws-6.png)
 
-7.  Quindi, immettere un **nome del ruolo** e fare clic sui **Crea ruolo** pulsante.
+1.  Immettere quindi un **nome di ruolo** e selezionare il pulsante **Crea ruolo** .
 
     ![AWS7](./media/connect-aws/aws-7.png)
 
-8.  Nell'elenco dei ruoli, scegliere il ruolo creato.
+1.  Nell'elenco ruoli scegliere il ruolo creato.
 
     ![AWS8](./media/connect-aws/aws-8.png)
 
-9.  Copia il **ARN del ruolo** e incollarlo nella **ruolo a cui aggiungere** campo nel portale di Azure Sentinel.
+1.  Copiare il **ruolo ARN**. Nel portale di Azure Sentinel, nella schermata connettore Amazon Web Services, incollarlo nel campo **ruolo da aggiungere** e fare clic su **Aggiungi**.
 
     ![AWS9](./media/connect-aws/aws-9.png)
 
-10. Per usare lo schema appropriato nel Log Analitica per gli eventi AWS, cercare **AWSCloudTrail**.
+1. Per usare lo schema pertinente in Log Analytics per gli eventi AWS, cercare **AWSCloudTrail**.
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo documento è stato descritto come connettersi CloudTrail AWS a Sentinel di Azure. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
-- Informazioni su come [ottenere la visibilità di dati e le potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a usare [rilevando minacce con Azure Sentinel](tutorial-detect-threats.md).
+In questo documento si è appreso come connettere AWS CloudTrail ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
+- Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
+- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats.md).
 

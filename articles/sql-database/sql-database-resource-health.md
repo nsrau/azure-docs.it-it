@@ -12,18 +12,18 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4757236d179e4d6ceb626f58f12cfe48799eed7a
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61483026"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854371"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Usare Integrità risorse di Azure per risolvere i problemi di connettività del database SQL di Azure
 
 ## <a name="overview"></a>Panoramica
 
-[Integrità risorse](../service-health/resource-health-overview.md#getting-started) per il database SQL aiuta a diagnosticare gli eventuali problemi di Azure che possono influire negativamente sulle risorse SQL e a ottenere il supporto necessario. Informa sull'integrità corrente e passata delle risorse e consente di attenuare i problemi. Integrità risorse offre supporto tecnico quando è necessaria assistenza per problemi con i servizi di Azure.
+[Integrità risorse](../service-health/resource-health-overview.md#get-started) per il database SQL aiuta a diagnosticare gli eventuali problemi di Azure che possono influire negativamente sulle risorse SQL e a ottenere il supporto necessario. Informa sull'integrità corrente e passata delle risorse e consente di attenuare i problemi. Integrità risorse offre supporto tecnico quando è necessaria assistenza per problemi con i servizi di Azure.
 
 ![Panoramica](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 

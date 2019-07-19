@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05d9dc8f676589dcb301c19b0a2e80e9fd4c1fa0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604370"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249750"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Raccogliere i log di IIS in Monitoraggio di Azure
 Internet Information Services (IIS) archivia le attività utente in file di log che possono essere raccolti da Monitoraggio di Azure e archiviati come [dati di log](data-platform.md).
@@ -34,7 +34,7 @@ Configurare i log di IIS in Monitoraggio di Azure dal [menu Impostazioni avanzat
 
 
 ## <a name="data-collection"></a>Raccolta dei dati
-Monitoraggio di Azure raccoglie le voci dei log di IIS da ogni agente ogni volta che il log viene chiuso e ne viene creato uno nuovo. Questa frequenza è controllata dall'impostazione **Log File Rollover Schedule** (Pianificazione di rollover dei file di log) per il sito IIS che è una volta al giorno per impostazione predefinita. Ad esempio, se l'impostazione è **Ogni ora**, Monitoraggio di Azure raccoglierà il log ogni ora.  Se l'impostazione **Ogni giorno**, Monitoraggio di Azure raccoglierà il log ogni 24 ore.
+Monitoraggio di Azure raccoglie le voci di log di IIS da ogni agente ogni volta che viene modificato il timestamp del log o viene creato un nuovo file. Il log viene letto ogni 5 minuti. La frequenza di creazione di nuovi file è controllata dall'impostazione della **pianificazione del rollover dei file di log** per il sito IIS, che è una volta al giorno per impostazione predefinita. Se per qualsiasi motivo IIS non aggiorna il timestamp prima del tempo di rollover, se l'impostazione è ogni **ora**, monitoraggio di Azure raccoglie il log ogni ora. Se l'impostazione è **giornaliera**, monitoraggio di Azure raccoglie il log ogni 24 ore.
 
 
 ## <a name="iis-log-record-properties"></a>Proprietà dei record del log di IIS
@@ -51,7 +51,7 @@ I record dei log di IIS sono di tipo **W3CIISLog**; la tabella seguente descrive
 | csUriStem |Destinazione della richiesta, ad esempio una pagina Web. |
 | csUriQuery |Eventuale query che il client ha tentato di eseguire. |
 | ManagementGroupName |Nome del gruppo di gestione per gli agenti di Operations Manager.  Per gli altri agenti, corrisponde ad AOI-\<ID area di lavoro\> |
-| RemoteIPCountry |Paese/regione dell'indirizzo IP del client. |
+| RemoteIPCountry |Paese/area geografica dell'indirizzo IP del client. |
 | RemoteIPLatitude |Latitudine dell'indirizzo IP del client. |
 | RemoteIPLongitude |Longitudine dell'indirizzo IP del client. |
 | scStatus |Codice stato HTTP. |
@@ -72,7 +72,7 @@ La tabella seguente mostra alcuni esempi di query nei log che recuperano i recor
 | W3CIISLog |Tutti i record del log di IIS. |
 | W3CIISLog &#124; where scStatus==500 |Tutti i record del log IIS con stato restituito pari a 500. |
 | W3CIISLog &#124; summarize count() by cIP |Numero di voci del log di IIS in base all'indirizzo IP del client. |
-| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |Voci di log di conteggio di IIS per URL per l'host www\.contoso.com. |
+| W3CIISLog &#124; where csHost = = "www\.contoso.com" &#124; riepiloga Count () by csUriStem |Numero di voci del log di IIS per URL per l'\.host www contoso.com. |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Numero totale di byte ricevuti da ogni computer che esegue IIS. |
 
 ## <a name="next-steps"></a>Passaggi successivi

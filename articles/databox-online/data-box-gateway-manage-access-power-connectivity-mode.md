@@ -8,14 +8,14 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 44343f6bc6f48a6caa056f3336af55613a1e74d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38662fc8dda935d5f000aee6609fd9b2e42de17f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476789"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253168"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gestire l'accesso, potenza e la modalità di connettività per il Gateway di finestra di dati di Azure
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gestire l'accesso, l'alimentazione e la modalità di connettività per il Azure Data Box Gateway
 
 Questo articolo descrive come gestire l'accesso, l'avvio/arresto e la modalità di connessione per Azure Data Box Gateway. Queste operazioni vengono eseguite tramite l'interfaccia utente Web locale o il portale di Azure.
 
@@ -28,11 +28,11 @@ In questo articolo viene spiegato come:
 
 ## <a name="manage-device-access"></a>Gestire l'accesso al dispositivo
 
-L'accesso al dispositivo Gateway di dati finestra viene controllato mediante l'utilizzo di una password del dispositivo. È possibile modificare la password tramite l'interfaccia utente web locale. È anche possibile reimpostare la password del dispositivo nel portale di Azure.
+L'accesso al dispositivo Data Box Gateway è controllato dall'uso di una password del dispositivo. È possibile modificare la password tramite l'interfaccia utente Web locale. È anche possibile reimpostare la password del dispositivo nel portale di Azure.
 
 ### <a name="change-device-password"></a>Modificare la password del dispositivo
 
-Seguire questi passaggi nell'interfaccia utente locale per modificare la password del dispositivo.
+Per modificare la password del dispositivo, attenersi alla seguente procedura nell'interfaccia utente locale.
 
 1. Nell'interfaccia utente Web locale passare a **Manutenzione > Modifica password**.
 2. Immettere la password corrente e quindi quella nuova. La password specificata deve essere costituita da 8-16 caratteri. La password deve contenere almeno tre di questi caratteri: lettera maiuscola, lettera minuscola, numero e caratteri speciali. Confermare la nuova password.
@@ -41,7 +41,7 @@ Seguire questi passaggi nell'interfaccia utente locale per modificare la passwor
 
 3. Fare clic su **Cambia password**.
  
-### <a name="reset-device-password"></a>Reimpostazione della password del dispositivo
+### <a name="reset-device-password"></a>Reimposta la password del dispositivo
 
 Il flusso di lavoro di reimpostazione non richiede che l'utente ricordi la vecchia password ed è utile in caso di smarrimento della password. Questo flusso di lavoro viene eseguito nel portale di Azure.
 
@@ -56,45 +56,45 @@ Il flusso di lavoro di reimpostazione non richiede che l'utente ricordi la vecch
 
 ## <a name="manage-resource-access"></a>Gestire l'accesso alle risorse
 
-Per creare il Gateway finestra di dati finestra Edge/Data, l'IoT Hub e risorsa di archiviazione di Azure, sono necessarie autorizzazioni di collaboratore o versione successiva a livello di gruppo di risorse. È necessario anche i provider di risorse corrispondente da registrare. Per eventuali operazioni che coinvolgono le credenziali e la chiave di attivazione, sono necessarie anche le autorizzazioni per Graph API di Azure Active Directory. Questi elementi sono descritti nelle sezioni seguenti.
+Per creare il Data Box Edge/Data Box Gateway, l'hub Internet e la risorsa di archiviazione di Azure, è necessario disporre delle autorizzazioni come collaboratore o superiore a livello di gruppo di risorse. È anche necessario registrare i provider di risorse corrispondenti. Per tutte le operazioni che coinvolgono la chiave di attivazione e le credenziali, sono necessarie anche le autorizzazioni per Azure Active Directory API Graph. Questi elementi sono descritti nelle sezioni seguenti.
 
-### <a name="manage-microsoft-azure-active-directory-graph-api-permissions"></a>Gestire le autorizzazioni delle API di Graph di Microsoft Azure Active Directory
+### <a name="manage-microsoft-azure-active-directory-graph-api-permissions"></a>Gestisci autorizzazioni API Microsoft Azure Active Directory Graph
 
-Quando si genera la chiave di attivazione per il dispositivo perimetrale casella dei dati o eseguire qualsiasi operazione che richiedono credenziali, sono necessarie autorizzazioni per Graph API di Azure Active Directory. Le operazioni che richiedono le credenziali possono essere:
+Quando si genera la chiave di attivazione per il dispositivo Data Box Edge o si eseguono operazioni che richiedono credenziali, è necessario disporre delle autorizzazioni per Azure Active Directory API Graph. Le operazioni che richiedono credenziali potrebbero essere:
 
 -  Creazione di una condivisione con un account di archiviazione associato.
--  Creazione di un utente che può accedere le condivisioni nel dispositivo.
+-  Creazione di un utente che può accedere alle condivisioni nel dispositivo.
 
-È necessario disporre di un `User` accedere nel tenant di Active Directory che è necessario essere in grado di `Read all directory objects`. È non può essere un utente Guest che dispongano delle autorizzazioni per `Read all directory objects`. Se sei un utente guest, quindi le operazioni, ad esempio la generazione di una chiave di attivazione, la creazione di una condivisione nel dispositivo Edge casella dei dati, la creazione di un utente avrà tutti esito negativo.
+È necessario avere `User` accesso al tenant di Active Directory, perché è necessario `Read all directory objects`poterlo. Non è possibile essere un utente guest perché non dispongono delle autorizzazioni `Read all directory objects`per. Se si è utenti guest, tutte le operazioni come la generazione di una chiave di attivazione, la creazione di una condivisione nel dispositivo Data Box Edge o la creazione di un utente hanno esito negativo.
 
-Per altre informazioni su come fornire accesso agli utenti di Azure Active Directory Graph API, vedere [predefinito di accesso per gli amministratori, utenti e gli utenti guest](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+Per ulteriori informazioni su come fornire l'accesso agli utenti per Azure Active Directory API Graph, vedere [l'accesso predefinito per amministratori, utenti e utenti Guest](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
 ### <a name="register-resource-providers"></a>Registrare i provider di risorse
 
-Per eseguire il provisioning di una risorsa in Azure (nel modello di Azure Resource Manager), è necessario un provider di risorse che supporta la creazione di tale risorsa. Per eseguire il provisioning di una macchina virtuale, ad esempio, è necessario un provider di risorse 'Microsoft. COMPUTE' disponibile nella sottoscrizione.
+Per eseguire il provisioning di una risorsa in Azure (nel modello di Azure Resource Manager), è necessario un provider di risorse che supporti la creazione di tale risorsa. Per eseguire il provisioning di una macchina virtuale, ad esempio, è necessario che nella sottoscrizione sia disponibile un provider di risorse "Microsoft. Compute".
  
-Provider di risorse sono registrati il livello di sottoscrizione. Per impostazione predefinita, qualsiasi nuova sottoscrizione di Azure è già registrato con un elenco di provider di risorse usate. Il provider di risorse per 'Microsoft.DataBoxEdge' non è incluso in questo elenco.
+I provider di risorse sono registrati a livello di sottoscrizione. Per impostazione predefinita, qualsiasi nuova sottoscrizione di Azure è già registrata con un elenco di provider di risorse usate comunemente. Il provider di risorse per ' Microsoft. DataBoxEdge ' non è incluso nell'elenco.
 
-Non è necessario concedere autorizzazioni di accesso a livello di sottoscrizione per gli utenti siano in grado di creare le risorse, ad esempio 'Microsoft.DataBoxEdge' in gruppi le risorse che dispongono di diritti di proprietario, purché i provider di risorse per queste risorse è già presente registrato.
+Non è necessario concedere le autorizzazioni di accesso al livello di sottoscrizione affinché gli utenti siano in grado di creare risorse come ' Microsoft. DataBoxEdge ' all'interno dei gruppi di risorse di cui dispongono dei diritti di proprietario, purché i provider di risorse per queste risorse siano già presenti registrato.
 
-Prima di provare a creare tutte le risorse, assicurarsi che il provider di risorse viene registrato nella sottoscrizione. Se non è registrato il provider di risorse, è necessario assicurarsi che l'utente che crea la nuova risorsa disponga di diritti sufficienti per registrare il provider di risorse necessarie per il livello di abbonamento. Se è ancora stato fatto anche, si verrà visualizzato l'errore seguente:
+Prima di provare a creare una risorsa, verificare che il provider di risorse sia registrato nella sottoscrizione. Se il provider di risorse non è registrato, è necessario assicurarsi che l'utente che crea la nuova risorsa disponga di diritti sufficienti per registrare il provider di risorse richiesto a livello di sottoscrizione. Se questa operazione non è stata eseguita correttamente, verrà visualizzato l'errore seguente:
 
-*La sottoscrizione <Subscription name> non dispone delle autorizzazioni per registrare il provider di risorse: Microsoft.DataBoxEdge.*
+*Il nome \<della sottoscrizione di sottoscrizione > non dispone delle autorizzazioni necessarie per registrare i provider di risorse: Microsoft.DataBoxEdge.*
 
 
-Per ottenere un elenco di provider di risorse registrato nella sottoscrizione corrente, eseguire il comando seguente:
+Per ottenere un elenco dei provider di risorse registrati nella sottoscrizione corrente, eseguire il comando seguente:
 
 ```PowerShell
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Per dispositivo Edge casella dei dati, `Microsoft.DataBoxEdge` deve essere registrato. Per registrare `Microsoft.DataBoxEdge`, amministratore della sottoscrizione deve essere eseguito il comando seguente:
+Per data box Edge dispositivo, `Microsoft.DataBoxEdge` deve essere registrato. Per eseguire `Microsoft.DataBoxEdge`la registrazione, l'amministratore della sottoscrizione deve eseguire il comando seguente:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-Per altre informazioni su come registrare un provider di risorse, vedere [risolvere gli errori di registrazione del provider di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
+Per altre informazioni su come registrare un provider di risorse, vedere [risolvere gli errori per la registrazione del provider di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
 ## <a name="manage-connectivity-mode"></a>Gestire la modalità di connessione
 

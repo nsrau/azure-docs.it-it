@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: e49a37ec95a8cf26a2c63bd90759da35fc537e41
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: e0f38ed8367f076c9f9c4da77440bb3e9603d514
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67474233"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234201"
 ---
-# <a name="azure-ad-domain-services"></a>Servizi di dominio Azure Active Directory
-## <a name="features"></a>Funzionalità
+# <a name="features-provided-by-azure-active-directory-domain-services"></a>Funzionalità fornite da Azure Active Directory Domain Services
+
 Nei domini gestiti di Servizi di dominio Azure AD sono disponibili le funzionalità seguenti.
 
 * **Esperienza di distribuzione semplice:** bastano pochi clic per abilitare Azure AD Domain Services per la directory di Azure AD. Il dominio gestito include account utente solo cloud e account utente sincronizzati da una directory locale.
@@ -32,7 +32,7 @@ Nei domini gestiti di Servizi di dominio Azure AD sono disponibili le funzionali
 * **Creare domini con nomi personalizzati:** è possibile creare domini con nomi personalizzati, ad esempio "contoso100.com", tramite Azure AD Domain Services. È possibile usare i nomi di dominio sia verificati che non verificati. Facoltativamente è possibile anche creare un dominio con il suffisso di dominio predefinito (ovvero "*.onmicrosoft.co") offerto dalla directory di Azure AD.
 * **Integrazione con Azure AD:** non è necessario configurare o gestire la replica con Azure AD Domain Services. Gli account utente, le appartenenze ai gruppi e le credenziali utente (password) dalla directory di Azure AD sono automaticamente disponibili in Servizi di dominio Azure AD. I nuovi utenti, i gruppi o le modifiche per gli attributi provenienti dal tenant di Azure AD o dalla directory locale vengono sincronizzati automaticamente in Servizi di dominio Azure AD.
 * **Autenticazione NTLM e Kerberos:** con il supporto per l'autenticazione NTLM e Kerberos, è possibile distribuire applicazioni basate sull'autenticazione integrata di Windows.
-* **Usare le credenziali e/o le password aziendali:** le password degli utenti nel tenant di Azure AD sono valide per Azure AD Domain Services. Gli utenti possono usare le proprie credenziali aziendali per le macchine di aggiunta al dominio, accedere in modo interattivo o tramite desktop remoto e l'autenticazione con il dominio gestito.
+* **Usare le credenziali e/o le password aziendali:** le password degli utenti nel tenant di Azure AD sono valide per Azure AD Domain Services. Gli utenti possono usare le credenziali aziendali per aggiungere computer a un dominio, accedere in modo interattivo o tramite Desktop remoto ed eseguire l'autenticazione nel dominio gestito.
 * **Supporto di binding LDAP e operazioni di lettura LDAP:** è possibile usare applicazioni che si basano sui binding LDAP per l'autenticazione degli utenti in domini gestiti da Azure AD Domain Services. Inoltre, anche le applicazioni che usano operazioni di lettura LDAP per eseguire query sugli attributi utente/computer dalla directory possono interagire con Servizi di dominio Azure AD.
 * **LDAP sicuro (LDAPS):** è possibile abilitare l'accesso alla directory tramite LDAP sicuro (LDAPS). L'accesso LDAP sicuro è disponibile all'interno della rete virtuale per impostazione predefinita. È tuttavia possibile abilitare l'accesso LDAP sicuro tramite Internet.
 * **Criteri di gruppo:** è possibile usare un singolo oggetto Criteri di gruppo predefinito per i contenitori degli utenti e dei computer, in modo da garantire la conformità ai criteri di sicurezza richiesti per gli account utente e per i computer aggiunti al dominio. È anche possibile creare GPO personalizzati e assegnarli all'unità organizzativa personalizzata per [gestire criteri di gruppo](manage-group-policy.md).

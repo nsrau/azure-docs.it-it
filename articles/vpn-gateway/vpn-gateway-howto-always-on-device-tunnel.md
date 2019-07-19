@@ -1,58 +1,58 @@
 ---
-title: Configurare un tunnel VPN Always On per il Gateway VPN
-description: Passaggi per la configurazione del tunnel VPN Always On per il Gateway VPN
+title: Configurare un tunnel VPN Always On per il gateway VPN
+description: Procedura per configurare Always On tunnel VPN per il gateway VPN
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptional
+ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 81822297dcf9370fc8ce7f7ce0285689c31606ce
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 98d8c2f6870be16f3eb92219fc3d02f988390a41
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695743"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295459"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Configurare un tunnel di dispositivo VPN Always On
 
-Una delle nuove funzionalità del client Windows 10 rete privata virtuale (VPN) è la possibilità di mantenere una connessione VPN. Always On è una funzionalità di Windows 10 che permette il profilo VPN attivo per connettersi automaticamente e mantenere la connessione basata su trigger, vale a dire, accesso dell'utente, modifica dello stato di rete o schermo del dispositivo attivo.
+Una delle nuove funzionalità del client VPN (Virtual Private Network) di Windows 10 è la possibilità di mantenere una connessione VPN. Always On è una funzionalità di Windows 10 che consente al profilo VPN attivo di connettersi automaticamente e rimanere connesso in base ai trigger, ovvero l'accesso utente, la modifica dello stato della rete o lo schermo del dispositivo attivo.
 
-I gateway di rete virtuale di Azure è utilizzabile con Windows 10 Always On per stabilire i tunnel utente persistenti, nonché i tunnel di dispositivo in Azure. Questo articolo consente di configurare un tunnel del dispositivo VPN Always ON.
+I gateway di rete virtuale di Azure possono essere usati con Windows 10 Always On per stabilire tunnel utente persistenti e tunnel di dispositivi in Azure. Questo articolo consente di configurare un tunnel del dispositivo VPN Always ON.
 
-Le connessioni VPN Always On includono due tipi di tunnel:
+Always On le connessioni VPN includono due tipi di tunnel:
 
-* **Tunnel dispositivo** si connette al server VPN specificati prima che gli utenti accedono i dispositivi. Scenari di connettività di pre-accesso e gestione dei dispositivi Usa tunnel di dispositivo.
+* Il **tunnel del dispositivo** si connette ai server VPN specificati prima dell'accesso degli utenti al dispositivo. Gli scenari di connettività di pre-accesso e la gestione dei dispositivi usano il tunneling del dispositivo.
 
-* **Utente tunnel** si connette solo dopo un accesso degli utenti del dispositivo. Tunnel utente consente agli utenti di accedere alle risorse dell'organizzazione tramite i server VPN.
+* Il **tunnel utente** si connette solo dopo che un utente ha eseguito l'accesso al dispositivo. Il tunnel utente consente agli utenti di accedere alle risorse dell'organizzazione tramite i server VPN.
 
-Entrambi i tunnel di dispositivo e utente tunnel di operare in modo indipendente i profili VPN. Essi possono essere connesse allo stesso tempo e possono usare diversi metodi di autenticazione e altre impostazioni di configurazione VPN come appropriato.
+Il tunnel del dispositivo e il tunnel utente operano in modo indipendente con i profili VPN. Possono essere connessi nello stesso momento e possono usare metodi di autenticazione diversi e altre impostazioni di configurazione VPN in base alle esigenze.
 
 ## <a name="1-configure-the-gateway"></a>1. Configurare il gateway
 
-Configurare il gateway VPN per l'utilizzo di IKEv2 e l'autenticazione basata su certificati usando questa [point-to-site articolo](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+Configurare il gateway VPN per l'uso di IKEv2 e l'autenticazione basata su certificati usando questo [articolo da punto a sito](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
-## <a name="2-configure-the-user-tunnel"></a>2. Configurare il tunnel di utente
+## <a name="2-configure-the-user-tunnel"></a>2. Configurare il tunnel utente
 
-1. Installare i certificati client sul client Windows 10, come illustrato in questo [articolo di point-to-site VPN client](point-to-site-how-to-vpn-client-install-azure-cert.md). Il certificato deve essere in Store l'utente corrente
-2. Configurare il client VPN Always On tramite PowerShell, SCCM o Intune usando [queste istruzioni](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+1. Installare i certificati client nel client Windows 10, come illustrato in questo [articolo del client VPN da punto a sito](point-to-site-how-to-vpn-client-install-azure-cert.md). Il certificato deve trovarsi nell'archivio utente corrente
+2. Configurare il client VPN Always On tramite PowerShell, SCCM o Intune seguendo [queste istruzioni](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
-## <a name="3-configure-the-device-tunnel"></a>3. Configurare il tunnel di dispositivo
+## <a name="3-configure-the-device-tunnel"></a>3. Configurare il tunnel del dispositivo
 
-I requisiti seguenti devono essere soddisfatti per stabilire un tunnel di dispositivo:
+Per stabilire correttamente un tunnel del dispositivo, è necessario soddisfare i requisiti seguenti:
 
-* Il dispositivo deve essere un computer aggiunto a un dominio che eseguono Windows 10 Enterprise o Education versione 1709 o successiva.
-* Il tunnel è possibile configurare per la soluzione VPN incorporata di Windows e viene stabilito con l'autenticazione del certificato computer IKEv2. 
-* Tunnel di un solo dispositivo possono essere configurati per ogni dispositivo.
+* Il dispositivo deve essere un computer aggiunto a un dominio che esegue Windows 10 Enterprise o Education versione 1709 o successiva.
+* Il tunnel è configurabile solo per la soluzione VPN incorporata di Windows e viene stabilito usando IKEv2 con l'autenticazione del certificato computer. 
+* È possibile configurare un solo tunnel del dispositivo per ogni dispositivo.
 
-1. Installare i certificati client sul client Windows 10, come illustrato in questo [articolo di point-to-site VPN client](point-to-site-how-to-vpn-client-install-azure-cert.md). Il certificato deve trovarsi nell'archivio computer locale.
-1. Uso [queste istruzioni](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration) per creare un profilo VPN e configurare il tunnel di dispositivo nel contesto dell'account di sistema locale.
+1. Installare i certificati client nel client Windows 10, come illustrato in questo [articolo del client VPN da punto a sito](point-to-site-how-to-vpn-client-install-azure-cert.md). Il certificato deve trovarsi nell'archivio del computer locale.
+1. Usare [queste istruzioni](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration) per creare un profilo VPN e configurare il tunnel del dispositivo nel contesto dell'account di sistema locale.
 
-### <a name="configuration-example-for-device-tunnel"></a>Esempio di configurazione per il tunnel di dispositivo
+### <a name="configuration-example-for-device-tunnel"></a>Esempio di configurazione per il tunnel del dispositivo
 
-Dopo aver configurato il gateway di rete virtuale e installare il certificato client nell'archivio del computer locale nel client Windows 10, è possibile usare gli esempi seguenti per configurare un tunnel di dispositivo client.
+Dopo aver configurato il gateway di rete virtuale e installato il certificato client nell'archivio del computer locale nel client Windows 10, usare gli esempi seguenti per configurare un tunnel del dispositivo client.
 
-1. Copiare il testo seguente e salvarlo come ***devicecert.ps1***.
+1. Copiare il testo seguente e salvarlo come ***devicecert. ps1***.
 
    ```
    Param(
@@ -104,7 +104,7 @@ Dopo aver configurato il gateway di rete virtuale e installare il certificato cl
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copiare il testo seguente e salvarlo come ***VPNProfile.xml*** nella stessa cartella **devicecert.ps1**. Modificare il testo seguente per adattarli all'ambiente.
+1. Copiare il testo seguente e salvarlo come ***la. XML*** nella stessa cartella di **devicecert. ps1**. Modificare il testo seguente in modo che corrisponda all'ambiente.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>`
    * `<Address>192.168.3.5</Address>`
@@ -139,8 +139,8 @@ Dopo aver configurato il gateway di rete virtuale e installare il certificato cl
    <RegisterDNS>true</RegisterDNS>
    </VPNProfile>
    ```
-1. Scaricare **PsExec** dalla [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) ed estrarre i file da **C:\PSTools**.
-1. Da un prompt dei comandi CMD Admin, avviare PowerShell eseguendo:
+1. Scaricare **PsExec** da [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) ed estrarre i file in **C:\PSTools**.
+1. Da un prompt dei comandi amministratore avviare PowerShell eseguendo:
 
    ```
    C:\PsTools\PsExec.exe Powershell for 32-bit Windows
@@ -148,20 +148,20 @@ Dopo aver configurato il gateway di rete virtuale e installare il certificato cl
    ```
 
    ![PowerShell](./media/vpn-gateway-howto-always-on-device-tunnel/powershell.png)
-1. In PowerShell passare alla cartella in cui **devicecert.ps1** e **VPNProfile.xml** si trovano, ed eseguire il comando seguente:
+1. In PowerShell passare alla cartella in cui si trovano **devicecert. ps1** e **la. XML** ed eseguire il comando seguente:
 
    ```powershell
    C:\> .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
    ![MachineCertTest](./media/vpn-gateway-howto-always-on-device-tunnel/machinecerttest.png)
-1. Eseguire **rasphone**.
+1. Eseguire **RASPHONE**.
 
    ![RASPHONE](./media/vpn-gateway-howto-always-on-device-tunnel/rasphone.png)
-1. Cercare il **MachineCertTest** voce e fare clic su **Connect**.
+1. Cercare la voce **MachineCertTest** e fare clic su **Connetti**.
 
    ![Connettere](./media/vpn-gateway-howto-always-on-device-tunnel/connect.png)
-1. Se la connessione riesce, riavviare il computer. Il tunnel si connetterà automaticamente.
+1. Se la connessione ha esito positivo, riavviare il computer. Il tunnel si connetterà automaticamente.
 
 ## <a name="cleanup"></a>Pulizia
 
@@ -171,4 +171,4 @@ Per rimuovere il profilo, eseguire il comando seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per risolvere il problema, vedere [problemi di connessione di Azure da punto a sito](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+Per la risoluzione dei problemi, vedere [problemi di connessione da punto a sito di Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)

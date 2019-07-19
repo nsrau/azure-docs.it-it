@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Amministrare Criteri di gruppo in domini gestiti | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Amministrare Criteri di gruppo | Microsoft Docs'
 description: Amministrare Criteri di gruppo in domini gestiti di Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: iainfou
-ms.openlocfilehash: 3776ec6fd60ad888102cbc4992572516386fede2
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c7b32885fdb3cf4f3e584c916d6b234fff54bfc4
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473109"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234034"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Amministrare Criteri di gruppo in un dominio gestito di Azure AD Domain Services
 Azure Active Directory Domain Services include oggetti Criteri di gruppo (GPO) predefiniti per i contenitori "AADDC Users" e "AADDC Computers". È possibile personalizzare questi oggetti Criteri di gruppo predefiniti per configurare Criteri di gruppo nel dominio gestito. Inoltre, i membri del gruppo "AAD DC Administrators" possono creare le proprie unità organizzative nel dominio gestito. Possono inoltre creare oggetti Criteri di gruppo personalizzati e collegarli a tali unità organizzative. Agli utenti che appartengono al gruppo "AAD DC Administrators" vengono concessi privilegi di amministrazione di Criteri di gruppo nel dominio gestito.

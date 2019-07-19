@@ -12,22 +12,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
-ms.author: monhaber
-ms.openlocfilehash: 1737856067b2490db4a993b4383b320cb13a7774
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.author: v-mohabe
+ms.openlocfilehash: 87f5a14bcd6003ad81b663ed97e5349dcbff2a30
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551782"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296522"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
 Il Centro sicurezza di Azure estende l'offerta di piattaforme di protezione del carico di lavoro cloud grazie all'integrazione con [Windows Defender Advanced Threat Protection](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP),
 introducendo così funzionalità EDR (Endpoint Detection and Response) complete. Con l'integrazione di Windows Defender ATP, è possibile individuare eventuali anomalie, nonché rilevare e rispondere agli attacchi avanzati negli endpoint server monitorati dal Centro sicurezza di Azure.
 
-## <a name="windows-defender-atp-features-in-security-center"></a>Funzionalità di Windows Defender ATP nel Centro sicurezza
+## <a name="windows-defender-atp-features-in-security-center"></a>Funzionalità di Windows Defender ATP nel centro sicurezza
 
-Quando si usa Windows Defender ATP è ottenere:
+Quando si usa Windows Defender ATP si ottiene:
 
 - **Sensori di rilevamento post-violazione di ultima generazione**: i sensori di Windows Defender ATP per i server Windows raccolgono un'ampia gamma di segnali comportamentali.
 
@@ -51,10 +51,10 @@ Nel Centro sicurezza di Azure sono ora disponibili queste funzionalità:
 
 ## <a name="platform-support"></a>Supporto delle piattaforme
 
-Windows Defender ATP nel Centro sicurezza supporta il rilevamento nei sistemi operativi Windows Server 2012 R2 e Windows Server 2016 che appartengono a una sottoscrizione di servizio Standard.
+Windows Defender ATP nel centro sicurezza supporta il rilevamento nei sistemi operativi Windows Server 2012 R2 e Windows Server 2016 che appartengono a una sottoscrizione di servizio standard.
 
 > [!NOTE]
-> Quando si usa il Centro sicurezza di Azure per monitorare i server, viene automaticamente creato un tenant di Windows Defender ATP e i dati di Windows Defender ATP vengono archiviati in Europa per impostazione predefinita. Se è necessario spostare i dati in un'altra posizione, è necessario contattare il supporto tecnico Microsoft per reimpostare il tenant.
+> Quando si usa il Centro sicurezza di Azure per monitorare i server, viene creato automaticamente un tenant di Windows Defender ATP e i dati di Windows Defender ATP vengono archiviati in Europa per impostazione predefinita. Se è necessario spostare i dati in un'altra posizione, è necessario contattare supporto tecnico Microsoft per reimpostare il tenant.
 
 ## <a name="onboarding-servers-to-security-center"></a>Onboarding dei server al Centro sicurezza 
 
@@ -71,7 +71,7 @@ Per eseguire l'onboarding dei server al Centro sicurezza, fare clic su **Go to A
 
 ## <a name="enable-windows-defender-atp-integration"></a>Abilitare l'integrazione di Windows Defender ATP
 
-Per visualizzare se è abilitata l'integrazione di Windows Defender ATP, selezionare **Centro sicurezza** > **prezzi Impo & stazioni** > fare clic sulla sottoscrizione.
+Per visualizzare se l'integrazione di Windows Defender ATP è abilitata, selezionare il **centro** > sicurezza**Prezzi & impostazioni** > fare clic sulla sottoscrizione.
 
   ![Gestione dei criteri del Centro sicurezza di Azure](media/security-center-wdatp/policy-management.png)
 

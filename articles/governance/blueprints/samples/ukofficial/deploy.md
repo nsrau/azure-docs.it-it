@@ -1,6 +1,6 @@
 ---
-title: Esempio - ufficiale nel Regno Unito e Regno Unito NHS blueprint - distribuzione passaggi
-description: Distribuire i passaggi dell'ufficiale nel Regno Unito e Regno Unito NHS blueprint esempi.
+title: Esempio-procedura per la distribuzione del progetto ufficiale UK e del SSN UK
+description: Distribuire i passaggi degli esempi di progetto ufficiale del Regno Unito e del SSN UK.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,16 +8,16 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 43aae882f27031d3e51ac8a4f5a68d243a973d6d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d720f220b8903d960e7bba2a75aa5a86bd0391ce
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67453203"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68225988"
 ---
-# <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuire l'ufficiale nel Regno Unito e gli esempi di progetto NHS Regno Unito
+# <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuire gli esempi ufficiali del Regno Unito e del piano NHS UK
 
-Per distribuire gli ufficiale nel Regno Unito e gli esempi di progetto NHS Regno Unito, è necessario effettuare i passaggi seguenti:
+Per distribuire gli esempi ufficiali del Regno Unito e del piano di NHS UK, è necessario eseguire i passaggi seguenti:
 
 > [!div class="checklist"]
 > - Creare un nuovo progetto dall'esempio
@@ -34,7 +34,7 @@ Prima di tutto, implementare l'esempio di progetto creando un nuovo progetto nel
 
 1. Nella pagina **Getting started** (Introduzione) a sinistra selezionare il pulsante **Crea** in _Creare un progetto_.
 
-1. Trovare il **ufficiale nel Regno Unito** o **NHS Regno Unito** esempio blueprint sotto _altri esempi_ e selezionare **usare questo esempio**.
+1. Trovare l'esempio **ufficiale del Regno Unito** o il piano **NHS del Regno Unito** in _altri esempi_ e selezionare **usare questo esempio**.
 
 1. Immettere le _informazioni di base_ dell'esempio di progetto:
 
@@ -47,13 +47,13 @@ Prima di tutto, implementare l'esempio di progetto creando un nuovo progetto nel
 
 ## <a name="publish-the-sample-copy"></a>Pubblicare la copia dell'esempio
 
-La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è stata creata in modalità **Bozza**, è necessario **pubblicarla** per poterla assegnare e distribuire. La copia dell'esempio di progetto può essere personalizzata con l'ambiente e alle esigenze, ma tale modifica potrebbe allontanano lo standard.
+La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è stata creata in modalità **Bozza**, è necessario **pubblicarla** per poterla assegnare e distribuire. La copia dell'esempio di progetto può essere personalizzata in base all'ambiente e alle esigenze, ma tale modifica potrebbe allontanarsi dallo standard.
 
 1. Selezionare **Tutti i servizi**, quindi cercare e selezionare **Criteri** nel riquadro sinistro. Nella pagina **Criteri** selezionare **Progetti**.
 
 1. Selezionare la pagina **Definizioni di progetto** a sinistra. Usare i filtri per trovare la copia dell'esempio di progetto e quindi selezionarla.
 
-1. Selezionare **Pubblica progetto** nella parte superiore della pagina. Nella nuova pagina a destra specificare un valore di **Versione** per la copia dell'esempio di progetto. Questa proprietà è utile se si apporta una modifica successivamente. Fornire **modificare note** , ad esempio "prima versione pubblicata dell'esempio di progetto ufficiale nel Regno Unito o NHS Regno Unito". Quindi selezionare **Pubblica** nella parte inferiore della pagina.
+1. Selezionare **Pubblica progetto** nella parte superiore della pagina. Nella nuova pagina a destra specificare un valore di **Versione** per la copia dell'esempio di progetto. Questa proprietà è utile se si apporta una modifica successivamente. Fornire le **Note sulle modifiche** , ad esempio "prima versione pubblicata dall'esempio ufficiale del Regno Unito o del SSN. Quindi selezionare **Pubblica** nella parte inferiore della pagina.
 
 ## <a name="assign-the-sample-copy"></a>Assegnare la copia dell'esempio
 
@@ -98,17 +98,17 @@ La tabella seguente contiene un elenco dei parametri degli artefatti del progett
 
 Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
-|Blueprint iniziativa per ufficiale nel Regno Unito o NHS Regno Unito|Assegnazione di criteri |Tipi di risorse per controllare i log di diagnostica (criteri: Blueprint iniziativa per ufficiale nel Regno Unito o NHS Regno Unito) |Elenco di tipi di risorse per controllare se l'impostazione di log di diagnostica è abilitata.  Per i valori accettabili, vedere [supportati servizi, schemi e categorie per i log di diagnostica di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
-|[Anteprima]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Facoltativo: Elenco di immagini VM sono supportate del sistema operativo Linux per aggiungere all'ambito (criteri: [anteprima]: Distribuire l'agente di Log Analitica per le macchine virtuali Linux) |(Facoltativo) Valore predefinito è _none_. Per altre informazioni, vedere [creare un'area di lavoro di Log Analitica nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|[Anteprima]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Facoltativo: Elenco di immagini VM sono supportate del sistema operativo Windows da aggiungere all'ambito (criteri: [anteprima]: Distribuire l'agente di Log Analitica per le macchine virtuali Windows) |(Facoltativo) Valore predefinito è _none_. Per altre informazioni, vedere [creare un'area di lavoro di Log Analitica nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|Progetto Initiative per il Regno Unito ufficiale o il NHS UK|Assegnazione di criteri |Tipi di risorse per controllare i log di diagnostica (criterio: Progetto Initiative per il Regno Unito ufficiale o il NHS UK |Elenco di tipi di risorse da controllare se l'impostazione del log di diagnostica è nota abilitata.  Per i valori accettabili, vedere [servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Facoltativo: Elenco di immagini di macchina virtuale con sistema operativo Linux supportato da aggiungere all'ambito (criterio: \[Anteprima\]: Distribuire Log Analytics Agent per macchine virtuali Linux) |Opzionale Il valore predefinito è _None_. Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows |Assegnazione di criteri |Facoltativo: Elenco di immagini di VM che hanno supportato il sistema operativo Windows da aggiungere all'ambito (criterio: \[Anteprima\]: Distribuire Log Analytics Agent per macchine virtuali Windows) |Opzionale Il valore predefinito è _None_. Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è stata esaminata la procedura per distribuire gli ufficiale nel Regno Unito e gli esempi di progetto NHS Regno Unito, vedere gli articoli seguenti per apprendere la panoramica e mapping di controllo:
+Ora che sono stati esaminati i passaggi per distribuire gli esempi ufficiale del Regno Unito e del SSN UK, vedere gli articoli seguenti per informazioni sulla panoramica e sul mapping dei controlli:
 
 > [!div class="nextstepaction"]
-> [Linee guida ufficiale nel Regno Unito e Regno Unito NHS - Panoramica](./index.md)
-> [ufficiale nel Regno Unito e progetti di architetture NHS Regno Unito - mapping di controllo](./control-mapping.md)
+> [Ufficiale del Regno Unito e](./index.md)
+> piani di NHS del Regno Unito-panoramica sul[mapping ufficiale del Regno Unito e del SSN UK-controllo](./control-mapping.md)
 
 Altri articoli sui progetti e su come usarli:
 

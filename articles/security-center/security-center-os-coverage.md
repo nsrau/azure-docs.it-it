@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
-ms.author: monhaber
-ms.openlocfilehash: e2d66db2ae3c379db86d40603d919489fdf15eed
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.author: v-mohabe
+ms.openlocfilehash: 02d993d760338356fa29ee58a03215e14d6583f1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144269"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295595"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Funzionalità e piattaforme supportate dal Centro sicurezza di Azure
 
@@ -51,7 +51,7 @@ Sono supportati i sistemi operativi Windows seguenti:
 Sono supportati i sistemi operativi Linux seguenti:
 
 > [!NOTE]
-> Poiché l'elenco dei sistemi operativi Linux supportati cambiano continuamente, se si preferisce, fare clic su [qui](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) per visualizzare l'elenco più aggiornato delle versioni supportate, nel caso in cui sono state apportate modifiche dall'ultima pubblicazione in questo argomento.
+> Poiché l'elenco dei sistemi operativi Linux supportati è in continua evoluzione, se lo si preferisce, fare clic [qui](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) per visualizzare l'elenco più aggiornato delle versioni supportate, nel caso in cui siano state apportate modifiche dall'ultima pubblicazione di questo argomento.
 
 64 bit
 * CentOS 6 e 7
@@ -67,7 +67,7 @@ Sono supportati i sistemi operativi Linux seguenti:
 * Oracle Linux 6
 * Red Hat Enterprise Linux Server 6
 * Debian GNU/Linux 8 e 9
-* Ubuntu Linux 14.04 LTS e 16.04 LTS
+* Ubuntu Linux 14,04 LTS e 16,04 LTS
 
 ## <a name="vms-and-cloud-services"></a>Macchine virtuali e servizi cloud
 Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli di lavoro e Web dei servizi cloud in esecuzione in slot di produzione. Per altre informazioni sui servizi cloud, vedere [Panoramica di Servizi Cloud di Azure](../cloud-services/cloud-services-choose-me.md).
@@ -82,23 +82,23 @@ Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. V
 |----|----|----|----|----|----|----|----|
 |**Environment**|**Azure**||**Non Azure**|**Azure**||**Non Azure**||
 ||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**||**Macchina virtuale**|**Set di scalabilità della macchina virtuale**|
-|Avvisi di rilevamento minacce VMBA|✔|✔|✔|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|Rilevamento delle minacce (gratuito) per le raccomandazioni (Standard)|
+|Avvisi di rilevamento minacce VMBA|✔|✔|✔|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|Indicazioni (gratuite) rilevamento minacce (standard)|
 |Avvisi di rilevamento delle minacce di rete|✔|✔|X|✔|✔|X|Standard|
 |Integrazione con Windows Defender ATP|✔ (nelle versioni supportate)|✔ (nelle versioni supportate)|✔|X|X|X|Standard|
 |Patch mancanti|✔|✔|✔|✔|✔|✔|Gratuito|
 |Configurazioni di sicurezza|✔|✔|✔|✔|✔|✔|Gratuito|
-|Valutazione della protezione di endpoint|✔|✔|✔|X|X|X|Gratuito|
+|Valutazione di Endpoint Protection|✔|✔|✔|X|X|X|Gratuito|
 |Accesso JIT alle VM|✔|X|X|✔|X|X|Standard|
 |Controlli delle applicazioni adattivi|✔|X|✔|✔|X|✔|Standard|
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
-|Valutazione di crittografia del disco|✔|✔|X|✔|✔|X|Gratuito|
+|Valutazione della crittografia del disco|✔|✔|X|✔|✔|X|Gratuito|
 |Distribuzione di terze parti|✔|X|X|✔|X|X|Gratuito|
-|Valutazione della sicurezza di rete|✔|✔|X|✔|✔|X|Gratuito|
+|Valutazione NSG|✔|✔|X|✔|✔|X|Gratuito|
 |Rilevamento delle minacce senza file|✔|✔|✔|X|X|X|Standard|
 |Mappa di rete|✔|✔|X|✔|✔|X|Standard|
 |Controlli adattivi della rete|✔|✔|X|✔|✔|X|Standard|
-|I report e dashboard della conformità alle normative|✔|✔|✔|✔|✔|✔|Standard|
-|Le raccomandazioni e rilevamento minacce nei contenitori Docker ospitati IaaS|X|X|X|✔|✔|✔|Standard|
+|Dashboard di conformità normativa & report|✔|✔|✔|✔|✔|✔|Standard|
+|Raccomandazioni e rilevamento delle minacce nei contenitori IaaS ospitati da Docker|X|X|X|✔|✔|✔|Standard|
 
 ### <a name="supported-endpoint-protection-solutions"></a>Soluzioni di protezione endpoint supportate
 
@@ -106,15 +106,15 @@ La tabella seguente contiene una matrice che indica:
  - Se è possibile usare Centro sicurezza di Azure per l'installazione ogni soluzione.
  - Quali soluzioni di protezione endpoint può fornire Centro sicurezza. In caso venga individuata una di queste soluzioni di protezione endpoint, il Centro sicurezza consiglierà di non installarne nessuna.
 
-Per informazioni su quando vengono generate indicazioni per ognuna di queste protezioni, vedere [valutazione della protezione di Endpoint e le raccomandazioni](security-center-endpoint-protection.md).
+Per informazioni sul momento in cui vengono generate le indicazioni per ognuna di queste protezioni, vedere [Endpoint Protection Assessment and raccomandazioni](security-center-endpoint-protection.md).
 
 | Endpoint Protection| Piattaforme | Installazione del Centro sicurezza | Individuazione del Centro sicurezza |
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, predefinito nel sistema operativo| Yes |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (vedere la nota seguente) | Tramite estensione | Yes |
-| Trend Micro – Tutte le versioni | Famiglia Windows Server  | No | Yes |
-| Symantec v12.1.1100+| Famiglia Windows Server  | No | Yes |
-| McAfee v10+ | Famiglia Windows Server  | No | Yes |
+| Trend Micro – Tutte le versioni | Famiglia Windows Server  | No | Sì |
+| Symantec v12.1.1100+| Famiglia Windows Server  | No | Sì |
+| McAfee v10+ | Famiglia Windows Server  | No | Sì |
 | Kaspersky| Famiglia Windows Server  | No | No  |
 | Sophos| Famiglia Windows Server  | No | No  |
 
@@ -124,39 +124,39 @@ Per informazioni su quando vengono generate indicazioni per ognuna di queste pro
 ## <a name="supported-paas-features"></a>Funzionalità PaaS supportate
 
 
-|Service|Raccomandazioni (gratuite)|Rilevamento delle minacce (Standard)|
+|Service|Raccomandazioni (gratuito)|Rilevamento delle minacce (standard)|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Account di archiviazione Blob di Azure|✔| ✔|
+|Account di archiviazione BLOB di Azure|✔| ✔|
 |Servizi app|✔| ✔|
 |Servizi cloud|✔| X|
-|Reti virtuali|✔| NA|
-|Subnet|✔| NA|
-|Schede di interfaccia di rete|✔| NA|
-|Gruppi di sicurezza di rete|✔| NA|
+|Reti virtuali|✔| ND|
+|Subnet|✔| ND|
+|Schede di interfaccia di rete|✔| ND|
+|Gruppi di sicurezza di rete|✔| ND|
 |Sottoscrizione|✔ **| ✔|
-|Batch|✔| NA|
-|Service Fabric|✔| NA|
-|Account di Automazione|✔| NA|
-|Bilanciamento del carico|✔| NA|
-|Ricerca|✔| NA|
-|Bus di servizio|✔| NA|
-|Analisi dei flussi|✔| NA|
-|Hub eventi|✔| NA|
-|App per la logica|✔| NA|
-|Account di archiviazione|✔| NA|
-|Redis|✔| NA|
-|Data Lake Analytics|✔| NA|
-|Insieme di credenziali delle chiavi|✔| NA|
+|Batch|✔| ND|
+|Service Fabric|✔| ND|
+|Account di Automazione|✔| ND|
+|Bilanciamento del carico|✔| ND|
+|Cerca|✔| ND|
+|Bus di servizio|✔| ND|
+|Analisi dei flussi|✔| ND|
+|Hub eventi|✔| ND|
+|App per la logica|✔| ND|
+|Account di archiviazione|✔| ND|
+|Redis|✔| ND|
+|Data Lake Analytics|✔| ND|
+|Insieme di credenziali delle chiavi|✔| ND|
 
 
 
 
 \* Queste funzionalità sono attualmente supportate in anteprima pubblica.
 
-\*\* Consigli di AAD sono disponibili solo per le sottoscrizioni Standard
+\*\*Le raccomandazioni di AAD sono disponibili solo per le sottoscrizioni standard
 
 
 

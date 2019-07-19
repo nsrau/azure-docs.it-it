@@ -3,16 +3,17 @@ title: Importare immagini del contenitore in Registro Azure Container
 description: Importare immagini del contenitore in un registro Azure Container usando le API di Azure, senza bisogno di eseguire comandi di Docker.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 02/06/2019
 ms.author: danlep
-ms.openlocfilehash: b8a2280fe82e0f4be8e2812f5494150927642692
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c44eabffaefe24e15f980c9871a5c65ab958f2fc
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827290"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310624"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importare immagini del contenitore in un registro contenitori
 
@@ -48,7 +49,7 @@ Per importare un'immagine in un registro Azure Container occorre disporre di un'
 
 ### <a name="import-from-docker-hub"></a>Importare immagini dall'hub Docker
 
-Usare ad esempio il comando [az acr import][az-acr-import] per importare l'immagine multiarchitettura `hello-world:latest` dall'hub Docker in un registro denominato *myregistry*. Poiché `hello-world` è un'immagine ufficiale dell'hub Docker, si trova nel repository `library` predefinito. Includere il nome del repository e, se si vuole, un tag nel valore del parametro dell'immagine `--source`. Si può anche identificare un'immagine in base al relativo digest del manifesto invece che in base a un tag, in modo da garantire una particolare versione dell'immagine.
+Ad esempio, usare il comando [AZ ACR Import][az-acr-import] per importare l'immagine multiarchitettura `hello-world:latest` da Docker Hub a un *registro denominato Registry*. Poiché `hello-world` è un'immagine ufficiale dell'hub Docker, si trova nel repository `library` predefinito. Includere il nome del repository e, se si vuole, un tag nel valore del parametro dell'immagine `--source`. Si può anche identificare un'immagine in base al relativo digest del manifesto invece che in base a un tag, in modo da garantire una particolare versione dell'immagine.
  
 ```azurecli
 az acr import --name myregistry --source docker.io/library/hello-world:latest --image hello-world:latest
@@ -122,7 +123,7 @@ az acr import --name myregistry --source docker.io/sourcerepo/sourceimage:tag --
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato come importare immagini del contenitore in un registro Azure Container da un registro pubblico o da un altro registro privato. Per altre opzioni di importazione di immagini, vedere la documentazione di riferimento sul comando [az acr import][az-acr-import]. 
+Questo articolo ha illustrato come importare immagini del contenitore in un registro Azure Container da un registro pubblico o da un altro registro privato. Per altre opzioni di importazione di immagini, vedere le informazioni di riferimento sul comando [AZ ACR Import][az-acr-import] . 
 
 
 <!-- LINKS - Internal -->

@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: dx@sendgrid.com
-ms.openlocfilehash: 91d28802b4af23da5b8060fa7c8f9a7e843a7dab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: erikre
+ms.reviewer: dx@sendgrid.com
+ms.openlocfilehash: c3211ba9f8a8b16ad4372c82d8e50c46f3ad6897
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60444880"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876371"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Come inviare messaggi di posta elettronica usando SendGrid con Azure
 ## <a name="overview"></a>Panoramica
-Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti in C\# e supportano .NET Standard 1.3. Gli scenari presentati includono la creazione e l'invio di messaggi di posta elettronica, l'aggiunta di allegati e l'abilitazione di diverse impostazioni di posta elettronica e rilevamento. Per altre informazioni su SendGrid e sull'invio di email vedere la sezione [Passaggi successivi][Next steps].
+Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti in C\# e supportano .NET Standard 1.3. Gli scenari presentati includono la creazione e l'invio di messaggi di posta elettronica, l'aggiunta di allegati e l'abilitazione di diverse impostazioni di posta elettronica e rilevamento. Per altre informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [Passaggi successivi][Next steps] .
 
 ## <a name="what-is-the-sendgrid-email-service"></a>Informazioni sul servizio di posta elettronica SendGrid
 SendGrid è un [servizio di posta elettronica basato sul cloud] che offre [recapito affidabile di messaggi di posta elettronica transazionali], scalabilità e analisi in tempo reale, oltre ad API flessibili che agevolano l'integrazione personalizzata. I casi d'uso comuni di SendGrid includono:
@@ -34,7 +35,7 @@ SendGrid è un [servizio di posta elettronica basato sul cloud] che offre [recap
 * Inoltro di richieste dei clienti.
 * Elaborazione di messaggi di posta elettronica in arrivo.
 
-Per altre informazioni visitare [https://sendgrid.com](https://sendgrid.com) o la [libreria C#][sendgrid-csharp] di SendGrid nel repository GitHub.
+Per ulteriori informazioni, visitare [https://sendgrid.com](https://sendgrid.com) il repository GitHub della [ C# libreria][sendgrid-csharp] SendGrid.
 
 ## <a name="create-a-sendgrid-account"></a>Creazione di un account SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -93,12 +94,12 @@ Nell'esempio seguente viene illustrato come creare un oggetto di posta elettroni
     msg.AddContent(MimeType.Text, "Hello World plain text!");
     msg.AddContent(MimeType.Html, "<p>Hello World!</p>");
 
-Per altre informazioni su tutte le proprietà e i metodi supportati dal tipo **SendGrid**, vedere [sendgrid-csharp][sendgrid-csharp] in GitHub.
+Per ulteriori informazioni su tutte le proprietà e i metodi supportati dal tipo **SendGrid** , vedere [sendgrid-csharp][sendgrid-csharp] su GitHub.
 
 ## <a name="how-to-send-an-email"></a>Procedura: Inviare un messaggio di posta elettronica
-Dopo aver creato un'email, è possibile inviarla tramite l'API di SendGrid. In alternativa è possibile usare la [libreria integrata di .NET][NET-library].
+Dopo aver creato un'email, è possibile inviarla tramite l'API di SendGrid. In alternativa, è possibile usare [. Libreria incorporata di NET][NET-library].
 
-Per inviare email, è necessario specificare la chiave API di SendGrid. Per informazioni dettagliate su come configurare le chiavi API, consultare la [documentazione][documentation] sulle chiavi API di SendGrid.
+Per inviare email, è necessario specificare la chiave API di SendGrid. Per informazioni dettagliate su come configurare le chiavi API, vedere la [documentazione relativa][documentation]alle chiavi API di SendGrid.
 
 È possibile archiviare queste credenziali tramite il portale di Azure facendo clic su Impostazioni applicazione e aggiungendo le coppie chiave-valore nella sezione Impostazioni app.
 
@@ -232,7 +233,7 @@ Per aggiungere allegati a un messaggio, chiamare il metodo **AddAttachment** e s
     msg.AddAttachment(banner2);
 
 ## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Procedura: Usare le impostazioni della posta elettronica per abilitare piè di pagina, rilevamento e analisi
-SendGrid offre funzionalità email aggiuntive tramite l'uso di impostazioni della posta elettronica e di rilevamento. Si tratta di impostazioni che è possibile aggiungere a un' email per abilitare funzionalità specifiche come il rilevamento dei clic, Google Analytics, il rilevamento delle sottoscrizioni e così via. Per un elenco completo delle app, vedere la [documentazione sulle impostazioni][settings-documentation].
+SendGrid offre funzionalità email aggiuntive tramite l'uso di impostazioni della posta elettronica e di rilevamento. Si tratta di impostazioni che è possibile aggiungere a un' email per abilitare funzionalità specifiche come il rilevamento dei clic, Google Analytics, il rilevamento delle sottoscrizioni e così via. Per un elenco completo delle app, vedere la [documentazione delle impostazioni][settings-documentation].
 
 Per applicare le app alle email di **SendGrid**, usare i metodi implementati come parte della classe **SendGridMessage**. Negli esempi seguenti vengono illustrati i filtri per abilitare il piè di pagina e per il monitoraggio dei clic:
 
@@ -248,12 +249,12 @@ Negli esempi seguenti vengono illustrati i filtri per abilitare il piè di pagin
     msg.SetClickTracking(true);
 
 ## <a name="how-to-use-additional-sendgrid-services"></a>Procedura: Usare servizi aggiuntivi forniti da SendGrid
-SendGrid offre diverse API e webhook che si possono usare per sfruttare altre funzionalità dell'applicazione Azure. Per maggiori dettagli, vedere il [riferimento all'API SendGrid][SendGrid API documentation].
+SendGrid offre diverse API e webhook che si possono usare per sfruttare altre funzionalità dell'applicazione Azure. Per altri dettagli, vedere le informazioni di [riferimento sull'API SendGrid][SendGrid API documentation].
 
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base del servizio di posta elettronica SendGrid, usare i collegamenti seguenti per altre informazioni.
 
-* Repository della libreria C\# di SendGrid: [sendgrid-csharp][sendgrid-csharp]
+* Repository della\# libreria C di SendGrid: [SendGrid-CSharp][sendgrid-csharp]
 * Documentazione dell'API SendGrid: <https://sendgrid.com/docs>
 
 [Next steps]: #next-steps

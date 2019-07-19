@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0c2f9a2a3d431e2948c7d50541b576b23c3ece6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e18157c95dac0de90c50b4b7e8591e32c5b76aaf
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507548"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227241"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Tenere traccia del comportamento degli utenti in Azure Active Directory B2C usando Application Insights
 
@@ -166,7 +166,7 @@ Aggiungere i profili al file *TrustFrameworkExtensions.xml* dallo starter pack. 
 ```
 
 > [!IMPORTANT]
-> Modificare la chiave di strumentazione nel profilo tecnico `ApplicationInsights-Common` con il GUID fornito dalla risorsa di Application Insights.
+> Modificare la chiave di strumentazione nel profilo tecnico `AzureInsights-Common` con il GUID fornito dalla risorsa di Application Insights.
 
 ## <a name="add-the-technical-profiles-as-orchestration-steps"></a>Aggiungere i profili tecnici come passaggi di orchestrazione
 

@@ -1,6 +1,6 @@
 ---
-title: Impostazioni dei criteri per il firewall applicazione web con l'ingresso principale di Azure
-description: Informazioni su firewall applicazione web (WAF).
+title: Impostazioni dei criteri per web application firewall con lo sportello anteriore di Azure
+description: Informazioni web application firewall (WAF).
 services: frontdoor
 author: KumudD
 ms.service: frontdoor
@@ -9,50 +9,51 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
-ms.author: tyao;kumud
-ms.openlocfilehash: 4c2f070e9b3c972f063008df8880b196ddb069cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 8f51cb6944221416b098a9b953db417053155f1e
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459369"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849113"
 ---
-# <a name="policy-settings-for-web-application-firewall-with-azure-front-door"></a>Impostazioni dei criteri per il firewall applicazione web con l'ingresso principale di Azure
+# <a name="policy-settings-for-web-application-firewall-with-azure-front-door"></a>Impostazioni dei criteri per web application firewall con lo sportello anteriore di Azure
 
-Un criterio di Web Application Firewall (WAF) consente di controllare l'accesso alle applicazioni web da un set di regole personalizzate e gestite. Il nome del criterio WAF deve essere univoco. Se si prova a usare un nome esistente, si riceverà un errore di convalida. Sono presenti più impostazioni a livello di criteri che si applicano a tutte le regole specificate per il criterio, come descritto in questo articolo.
+Un criterio di Web Application Firewall (WAF) consente di controllare l'accesso alle applicazioni Web tramite un set di regole personalizzate e gestite. Il nome del criterio WAF deve essere univoco. Se si tenta di usare un nome esistente, verrà visualizzato un errore di convalida. Sono disponibili più impostazioni a livello di criteri che si applicano a tutte le regole specificate per il criterio, come descritto in questo articolo.
 
-## <a name="waf-state"></a>Stato di Web Application firewall
+## <a name="waf-state"></a>Stato WAF
 
-Un criterio di Web Application firewall per l'ingresso principale può trovarsi in uno dei due stati seguenti:
-- **Abilitato:** Quando un criterio è abilitato, Web Application Firewall sta verificando attivamente le richieste in ingresso e intraprende le azioni corrispondenti in base alle definizioni delle regole
-- **Disabilitata:** : quando un criterio è disabilitato, ispezione di Web Application firewall è in pausa. Le richieste in ingresso possono ignorare WAF e vengono inviate al back-end in base al routing di ingresso principale.
+Un criterio WAF per lo sportello anteriore può trovarsi in uno dei due stati seguenti:
+- **Abilitato:** Quando un criterio è abilitato, WAF controlla attivamente le richieste in ingresso e accetta le azioni corrispondenti secondo le definizioni delle regole
+- **Disabled:** -quando un criterio è disabilitato, l'ispezione WAF viene sospesa. Le richieste in ingresso ignoreranno WAF e vengono inviate ai back-end in base al routing della porta anteriore.
 
 ## <a name="waf-mode"></a>Modalità WAF
 
-Criteri di Web Application firewall possono essere configurati per l'esecuzione in due modalità seguenti:
+Il criterio WAF può essere configurato per l'esecuzione nelle due modalità seguenti:
 
-- **Modalità di rilevamento** quando eseguito in modalità di rilevamento, Web Application firewall non intraprendere le azioni diverse da monitorare e registrare la richiesta e la regola WAF corrispondente per i log WAF. Attivare la registrazione diagnostica per la porta di ingresso (quando si usa portale, questo scopo, passare al **diagnostica** sezione nel portale di Azure).
+- **Modalità di rilevamento** Quando viene eseguita in modalità di rilevamento, WAF non esegue alcuna azione diversa da monitoraggio e registrazione della richiesta e della relativa regola WAF corrispondente ai log di WAF. Abilitare la registrazione della diagnostica per lo sportello anteriore (quando si usa il portale, per ottenere questo risultato, passare alla sezione **diagnostica** nella portale di Azure).
 
-- **Modalità di prevenzione** quando configurato per l'esecuzione in modalità di prevenzione, WAF accetta l'azione specificata se la richiesta soddisfa una regola. Tutte le richieste corrispondenti vengono inoltre registrate nei registri del WAF.
+- **Modalità di prevenzione** Se configurato per l'esecuzione in modalità di prevenzione, WAF esegue l'azione specificata se una richiesta corrisponde a una regola. Tutte le richieste corrispondenti vengono registrate anche nei registri WAF.
 
-## <a name="waf-response-for-blocked-requests"></a>Risposta di Web Application firewall per le richieste bloccate
+## <a name="waf-response-for-blocked-requests"></a>Risposta WAF per le richieste bloccate
 
-Per impostazione predefinita, quando WAF blocca una richiesta a causa di una regola corrispondente, restituisce un codice di 403 stato con - **la richiesta è bloccata** messaggio. Viene inoltre restituita una stringa di riferimento per la registrazione.
+Per impostazione predefinita, quando WAF blocca una richiesta a causa di una regola corrispondente, restituisce un codice di stato 403 con **il messaggio di richiesta è bloccato** . Per la registrazione viene restituita anche una stringa di riferimento.
 
-È possibile definire un codice di stato risposta personalizzata e un messaggio di risposta quando una richiesta è bloccata da Web Application firewall. Sono supportati i seguenti codici di stato personalizzato:
+È possibile definire un codice di stato della risposta personalizzato e un messaggio di risposta quando una richiesta viene bloccata da WAF. Sono supportati i codici di stato personalizzati seguenti:
 
 - 200    OK
-- 403    Forbidden
+- 403 non consentito
 - 405 metodo non consentito
-- 406-pagina non accettabile
-- 429 numero eccessivo numero di richieste
+- 406 non accettabile
+- 429 numero eccessivo di richieste
 
-Messaggio di codice e risposta di stato risposta personalizzata è un'impostazione a livello di criteri. Dopo averlo configurato, tutte le richieste bloccate ottenere la stessa dello stato di risposta personalizzata e un messaggio di risposta.
+Il codice di stato della risposta personalizzata e il messaggio di risposta è un'impostazione a livello di criteri. Una volta configurata, tutte le richieste bloccate ottengono lo stesso stato di risposta personalizzato e il messaggio di risposta.
 
-## <a name="uri-for-redirect-action"></a>URI per l'operazione di reindirizzamento
+## <a name="uri-for-redirect-action"></a>URI per azione di Reindirizzamento
 
-Viene richiesto di definire un URI per il reindirizzamento delle richieste se la **REINDIRIZZARE** per le quali le regole contenute in un criterio di Web Application firewall è selezionata l'azione. Questo reindirizzamento URI deve essere un sito HTTP (S) valido e una volta configurato, tutte le richieste di regole di corrispondenza con un'azione di "Reindirizzamento" verranno reindirizzate al sito specificato.
+È necessario definire un URI per il reindirizzamento delle richieste a se l'azione di **Reindirizzamento** è selezionata per le regole contenute in un criterio WAF. Questo URI di reindirizzamento deve essere un sito HTTP (S) valido e, una volta configurata, tutte le richieste regole di corrispondenza con un'azione di reindirizzamento verranno reindirizzate al sito specificato.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come definire WAF [risposte personalizzate](waf-front-door-configure-custom-response-code.md)
+- Informazioni su come definire [risposte personalizzate](waf-front-door-configure-custom-response-code.md) WAF

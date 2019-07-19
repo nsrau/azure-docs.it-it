@@ -1,5 +1,5 @@
 ---
-title: Come usare AMQP 1.0 con l'API del Bus di servizio di JMS Java | Microsoft Docs
+title: Come usare AMQP 1,0 con l'API del bus di servizio Java JMS | Microsoft Docs
 description: Come usare JMS (Java Message Service ) con il bus di servizio di Azure e il protocollo AMQP (Advanced Message Queuing Protocol) 1.0.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: a7e4282a176794fe885049173ba56ce2461cd6fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47b077dbb62088093c60a588660045529678c58f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310962"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68318447"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0
 AMQP (Advanced Message Queuing Protocol) 1.0 è un protocollo di messaggistica wire-level efficiente e affidabile che può essere utilizzato per creare potenti applicazioni di messaggistica multipiattaforma.
@@ -51,7 +51,7 @@ Per informazioni su dove scaricare l'ultima versione della libreria client JMS b
 ### <a name="java-naming-and-directory-interface-jndi"></a>Java Naming and Directory Interface (JNDI)
 JMS usa l'interfaccia JNDI (Java Naming and Directory Interface) per creare una separazione tra i nomi logici e i nomi fisici. Con JNDI vengono risolti due tipi di oggetti JMS: ConnectionFactory e Destination. JNDI utilizza un modello di provider in cui è possibile inserire diversi servizi directory per gestire le attività di risoluzione dei nomi. La libreria JMS basata su AMQP 1.0 di Apache Qpid viene fornita con un semplice provider JNDI, basato su un file delle proprietà, che viene configurato mediante un file di testo:
 
-```
+```TEXT
 # servicebus.properties - sample JNDI configuration
 
 # Register a ConnectionFactory in JNDI using the form:
@@ -297,11 +297,11 @@ public class JmsQueueQuickstart {
 }
 ```
 
-### <a name="run-the-application"></a>Eseguire l'applicazione
+### <a name="run-the-application"></a>Esecuzione dell'applicazione
 Passare il valore di **Stringa di connessione** in Criteri di accesso condiviso per eseguire l'applicazione.
 Eseguendo l'applicazione viene generato l'output del modulo seguente:
 
-```
+```Output
 > mvn clean package
 >java -jar ./target/jmsqueuequickstart-1.0.0-jar-with-dependencies.jar -c "<CONNECTION_STRING>"
 
@@ -333,7 +333,7 @@ Closing queue client.
 ## <a name="amqp-disposition-and-service-bus-operation-mapping"></a>Mapping della disposizione AMQP e dell'operazione del bus di servizio
 Una disposizione AMQP si traduce in un'operazione del bus di servizio nel modo indicato di seguito:
 
-```
+```Output
 ACCEPTED = 1; -> Complete()
 REJECTED = 2; -> DeadLetter()
 RELEASED = 3; (just unlock the message in service bus, will then get redelivered)
@@ -341,16 +341,16 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
-## <a name="jms-topics-vs-service-bus-topics"></a>Visual Studio negli argomenti di JMS. Argomenti del bus di servizio
-Usare gli argomenti del Bus di servizio di Azure e le sottoscrizioni tramite Java Message Service (JMS) API fornisce trasmissione base e le funzionalità di ricezione. Durante il porting di applicazioni da altri gestori di messaggi con JMS API conforme, anche se gli argomenti del Bus di servizio differiscono dagli argomenti JMS e richiedono alcune modifiche è una scelta adatta. 
+## <a name="jms-topics-vs-service-bus-topics"></a>Argomenti di JMS e Argomenti del bus di servizio
+L'uso di argomenti e sottoscrizioni del bus di servizio di Azure tramite l'API JMS (Java Message Service) fornisce funzionalità di base per l'invio e la ricezione. Si tratta di una scelta comoda quando si trasferiscono le applicazioni da altri broker di messaggi con API conformi a JMS, anche se gli argomenti del bus di servizio differiscono dagli argomenti JMS e richiedono alcune modifiche. 
 
-Argomenti del Bus di servizio di Azure di indirizzare i messaggi nelle sottoscrizioni denominate, condivise e durevoli che vengono gestite tramite l'interfaccia di gestione risorse di Azure, gli strumenti della riga di comando di Azure, o tramite il portale di Azure. Ogni sottoscrizione consente fino a 2000 le regole di selezione, ognuno dei quali può avere una condizione di filtro e, di filtri SQL, anche un'azione di trasformazione dei metadati. Ogni corrispondenza di condizione di filtro consente di selezionare il messaggio di input da copiare nel tehj sottoscrizione.  
+Gli argomenti del bus di servizio di Azure indirizzano i messaggi in sottoscrizioni denominate, condivise e durevoli gestite tramite l'interfaccia di gestione risorse di Azure, gli strumenti da riga di comando di Azure o tramite la portale di Azure. Ogni sottoscrizione consente un massimo di 2000 regole di selezione, ciascuna delle quali può avere una condizione di filtro e, per i filtri SQL, anche un'azione di trasformazione dei metadati. Ogni corrispondenza di condizione di filtro consente di selezionare il messaggio di input da copiare nella sottoscrizione tehj.  
 
-Ricezione di messaggi dalle sottoscrizioni è identica la ricezione di messaggi dalle code. Ogni sottoscrizione dispone di una coda associata, nonché la possibilità di inoltrare automaticamente messaggi a una coda o argomenti. 
+La ricezione di messaggi dalle sottoscrizioni è identico a ricevere messaggi dalle code. A ogni sottoscrizione è associata una coda di messaggi non recapitabili, nonché la possibilità di inviare automaticamente i messaggi a un'altra coda o a altri argomenti. 
 
-Negli argomenti di JMS consentire ai client di creare in modo dinamico i sottoscrittori non durevole e durevoli che facoltativamente consentono i messaggi del filtro con i selettori di messaggio. Queste entità non condivise non sono supportate dal Bus di servizio. La sintassi di regole di filtro SQL per il Bus di servizio, tuttavia, è molto simile alla sintassi del selettore di messaggi supportata da JMS. 
+Gli argomenti JMS consentono ai client di creare in modo dinamico Sottoscrittori non durevoli e durevoli che facoltativamente consentono di filtrare messaggi con selettori di messaggi. Queste entità non condivise non sono supportate dal bus di servizio. La sintassi della regola di filtro SQL per il bus di servizio è, tuttavia, molto simile alla sintassi del selettore dei messaggi supportata da JMS. 
 
-Sul lato server di pubblicazione JMS argomento è compatibile con il Bus di servizio, come illustrato in questo esempio, ma non sono sottoscrittori dinamici. L'API JMS relative alla topologia seguenti non sono supportate con il Bus di servizio. 
+Il lato Publisher dell'argomento JMS è compatibile con il bus di servizio, come illustrato in questo esempio, ma i sottoscrittori dinamici non lo sono. Le API JMS correlate alla topologia seguenti non sono supportate con il bus di servizio. 
 
 ## <a name="unsupported-features-and-restrictions"></a>Funzionalità non supportate e restrizioni
 Quando si utilizza JMS su AMQP 1.0 con il bus di servizio esistono le seguenti restrizioni:

@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 351b6a8e056d22fa8f2d695a2722b39b9771c8b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/15/2019
+ms.openlocfilehash: a1ff1449b5cc63c16035f8785662f250a008fbc1
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299393"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305525"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora
 
@@ -49,7 +49,8 @@ Seguire le istruzioni sullo schermo per eseguire una configurazione base del clu
 
 * [Nome del gruppo di risorse](#resource-group-name)
 * [Tipi di cluster e configurazione](#cluster-types) 
-* Account di accesso del cluster e nome utente SSH
+* [Nome cluster](#cluster-name)
+* [Account di accesso del cluster e nome utente SSH](#cluster-login-and-ssh-username)
 * [Location](#location)
 
 ## <a name="resource-group-name"></a>Nome del gruppo di risorse
@@ -76,12 +77,31 @@ In Azure HDInsight sono attualmente disponibili i tipi di cluster seguenti, ognu
 ### <a name="hdinsight-version"></a>Versione HDInsight
 Scegliere la versione di HDInsight per questo cluster. Per altre informazioni, vedere [Versioni supportate di HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
+## <a name="cluster-name"></a>Nome cluster
+
+I nomi dei cluster HDInsight presentano le restrizioni seguenti:
+- Caratteri consentiti: a-z, 0-9, A-Z 
+- Lunghezza massima: 59
+- Nomi riservati: app
+- Deve essere univoco
+- I primi 6 caratteri devono essere univoci all'interno di un VNET
 
 ## <a name="cluster-login-and-ssh-username"></a>Account di accesso del cluster e nome utente SSH
 Con i cluster HDInsight è possibile configurare due account utente durante la creazione del cluster:
 
 * Utente HTTP: Il nome utente predefinito è *admin*. e usa la configurazione di base nel portale di Azure. In alcuni casi, viene chiamato "utente cluster".
 * Utente SSH: Usato per la connessione ai cluster tramite SSH. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+Il nome utente HTTP presenta le restrizioni seguenti:
+- Caratteri speciali consentiti: _ e @ 
+- Caratteri non consentiti: #;. "\/',:'! *? ${}() [] < > | &--= +% ~ ^ spazio
+- Lunghezza massima: 20
+
+Il nome utente SSH presenta le restrizioni seguenti:
+- Caratteri speciali consentiti: _ e @ 
+- Caratteri non consentiti: #;. "\/',:'! *? ${}() [] < > | &--= +% ~ ^ spazio
+- Lunghezza massima: 64
+- Nomi riservati: Hadoop, Users, oozie, hive, mapred, Ambari-QA, Zookeeper, Tez, HDFS, Sqoop, Yarn, hcat, AMS, HBase, Storm, Administrator, admin, User, User1, test, User2, test1, utente3, Admin1, 1, 123, a, ACTUser, ADM, Amministratore2, ASPNET, backup, console, David, Guest, John, Owner, root, server, SQL, support, Support_388945a0, sys, test2, test3, User4, User5, Spark
 
 Il Pacchetto di sicurezza aziendale consente di integrare HDInsight con Active Directory e Apache Ranger. È possibile creare più utenti usando il Pacchetto di sicurezza aziendale.
 
@@ -156,10 +176,10 @@ Ogni tipo di cluster ha il proprio numero di nodi, una terminologia specifica pe
 
 | Type | Nodi | Diagramma |
 | --- | --- | --- |
-| Hadoop |Nodo head (2), nodo Worker (1 +) |![Nodi del cluster HDInsight Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| Hadoop |Nodo Head (2), nodo Worker (1 +) |![Nodi del cluster HDInsight Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | hbase |Server head (2), server di area (1+), nodo master/ZooKeeper (3) |![Nodi del cluster HDInsight HBase](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nodo Nimbus (2), server supervisore (1+), nodo ZooKeeper (3) |![Nodi del cluster HDInsight Storm](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |Nodo head (2), nodo Worker (1 +), nodo ZooKeeper (3) (gratuito per le dimensioni di macchine Virtuali ZooKeeper A1) |![Nodi del cluster HDInsight Spark](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| Spark |Nodo Head (2), nodo Worker (1 +), nodo ZooKeeper (3) (gratuito per le dimensioni della macchina virtuale ZooKeeper a1) |![Nodi del cluster HDInsight Spark](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
 Per altre informazioni, vedere [Configurazione del nodo predefinito e dimensioni della macchina virtuale per i cluster](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) in "Componenti e versioni di Hadoop in HDInsight"
 
@@ -168,13 +188,13 @@ Il costo del cluster HDInsight è determinato dal numero di nodi e dalle dimensi
 Diversi tipi di cluster hanno diversi tipi, numeri e dimensioni di nodi:
 * Tipo predefinito di cluster Hadoop: 
     * Due *nodi head*  
-    * Quattro *nodi di lavoro*
+    * Quattro *nodi* del ruolo di lavoro
 * Tipo predefinito di cluster Storm: 
     * Due *nodi Nimbus*
     * Tre *nodi ZooKeeper*
     * Quattro *nodi Supervisor* 
 
-Se sta solo provando HDInsight, è consigliabile che usare un nodo di lavoro. Per altre informazioni sui prezzi di HDInsight, vedere [Prezzi di HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+Se si sta provando solo HDInsight, è consigliabile usare un solo nodo di lavoro. Per altre informazioni sui prezzi di HDInsight, vedere [Prezzi di HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]  
 > Il limite relativo alle dimensioni del cluster dipende dalla sottoscrizione di Azure. Per aumentare il limite, contattare il team del [supporto fatturazione di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
@@ -191,7 +211,7 @@ Quando si distribuiscono i cluster, scegliere le risorse di calcolo in base alla
 Per scoprire quale valore usare per specificare le dimensioni di macchina virtuale durante la creazione di un cluster tramite SDK diversi o quando si usa Azure PowerShell, vedere [VM sizes to use for HDInsight clusters](../cloud-services/cloud-services-sizes-specs.md#size-tables) (Dimensioni delle macchine virtuali da usare per i cluster HDInsight). In questo articolo collegato, usare il valore della casella **Dimensioni** delle tabelle.
 
 > [!IMPORTANT]  
-> Se è necessario più di 32 nodi di lavoro in un cluster, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
+> Se sono necessari più di 32 nodi di lavoro in un cluster, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 
 Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md). Per informazioni sui prezzi delle varie dimensioni, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
 

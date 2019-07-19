@@ -1,21 +1,20 @@
 ---
-title: Gestire tipi di contenuto - App per la logica di Azure | Documentazione Microsoft
+title: Gestire i tipi di contenuto-app per la logica di Azure
 description: Informazioni su come App per la logica gestisce i tipi di contenuto in fase di progettazione e in fase di esecuzione
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2a9318317d5a01136a42b4fb6d580bafaf53ec4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.topic: conceptual
+ms.date: 07/20/2018
+ms.openlocfilehash: 97897da13c70c29834b1fc276829b316416efd8d
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60685744"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868918"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Gestire tipi di contenuto in App per la logica di Azure
 
@@ -140,15 +139,16 @@ Per mantenere alcuni tipi di dati, App per la logica converte il contenuto in un
 
 Questo elenco descrive come App per la logica converte il contenuto quando si usano queste [funzioni](../logic-apps/workflow-definition-language-functions-reference.md):
 
-* `json()`: Esegue il cast dei dati per `application/json`
-* `xml()`: Esegue il cast dei dati per `application/xml`
-* `binary()`: Esegue il cast dei dati per `application/octet-stream`
-* `string()`: Esegue il cast dei dati per `text/plain`
-* `base64()`: Converte il contenuto in una stringa base64
-* `base64toString()`: Converte una stringa con codificata base64 in `text/plain`
-* `base64toBinary()`: Converte una stringa con codificata base64 in `application/octet-stream`
-* `encodeDataUri()`: Codifica una stringa come matrice di byte dataUri
-* `decodeDataUri()`: Decodifica un `dataUri` in una matrice di byte
+* `json()`: Esegue il cast dei dati a`application/json`
+* `xml()`: Esegue il cast dei dati a`application/xml`
+* `binary()`: Esegue il cast dei dati a`application/octet-stream`
+* `string()`: Esegue il cast dei dati a`text/plain`
+* `base64()`: Converte il contenuto in una stringa con codifica Base64
+* `base64toString()`: Converte una stringa con codifica Base64 in`text/plain`
+* `base64toBinary()`: Converte una stringa con codifica Base64 in`application/octet-stream`
+* `dataUri()`: Converte una stringa in un URI di dati
+* `dataUriToBinary()`: Converte un URI di dati in una stringa binaria
+* `dataUriToString()`: Converte un URI di dati in una stringa
 
 Ad esempio, se si riceve una richiesta HTTP in cui `Content-Type` è impostato su `application/xml`, come questo contenuto:
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 902696e35a2447b67dab74b73794b80ad5e26511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5638710c4c01d361d108cfef69869fad1a7dad1a
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083742"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304381"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Condivisione di account con Azure AD
 ## <a name="overview"></a>Panoramica
@@ -67,11 +67,10 @@ Per usare Azure AD per la condivisione di un account è necessario:
 * Aggiungere un'applicazione alla [raccolta di app](https://azure.microsoft.com/marketplace/active-directory/) o integrarla con un'[applicazione personalizzata](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Configurare l'applicazione per l'accesso Single Sign-On basato su password
 * Usare un' [assegnazione basata su gruppi](groups-saasapps.md) e selezionare l'opzione per immettere le credenziali condivise
-* Facoltativo: in alcune applicazioni, ad esempio Facebook, Twitter o LinkedIn, è possibile abilitare l'opzione per l' [esecuzione automatizzata del rollover delle password di Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
 Con Azure AD è possibile rendere più sicuro l'account condiviso tramite Multi-Factor Authentication (MFA) (vedere altre informazioni sulla [sicurezza delle applicazioni con Azure AD](../authentication/concept-mfa-whichversion.md)) ed è possibile delegare la capacità di gestire chi può accedere all'applicazione tramite la gestione dei gruppi in [modalità self-service di Azure AD](groups-self-service-management.md).
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Gestione di applicazioni con Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Protezione delle App con accesso condizionale](../active-directory-conditional-access-azure-portal.md)
+* [Protezione delle app con accesso condizionale](../active-directory-conditional-access-azure-portal.md)
 * [Gestione di gruppi self-service/SSAA](groups-self-service-management.md)

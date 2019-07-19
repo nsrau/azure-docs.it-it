@@ -1,5 +1,5 @@
 ---
-title: Installare i contenitori di riconoscimento vocale
+title: Installare i contenitori di sintesi vocale
 titleSuffix: Azure Cognitive Services
 description: Installare ed eseguire i contenitori di riconoscimento vocale. Riconoscimento vocale trascrive in tempo reale flussi audio in testo da usare o visualizzare in applicazioni, dispositivi o strumenti. Sintesi vocale converte il testo di input in una voce sintetizzata simile a quella di un essere umano.
 services: cognitive-services
@@ -10,39 +10,39 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 8f395788d4dd3c845155a52bd6b4666998838fcd
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: ee7ba5cba464dbbc632908af22579d4869e3bd81
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490226"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321332"
 ---
-# <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi di riconoscimento vocale
+# <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi vocali
 
-I contenitori di riconoscimento vocale consentono ai clienti di compilare un'architettura delle applicazioni vocale che è ottimizzata per sfruttare i vantaggi di funzionalità del cloud affidabile e la località di edge. 
+I contenitori di sintesi vocale consentono ai clienti di creare un'architettura di applicazione vocale ottimizzata per sfruttare le funzionalità cloud affidabili e la località perimetrale. 
 
-I contenitori di riconoscimento due vocale siano **per il riconoscimento vocale** e **sintesi vocale**. 
+I due contenitori di riconoscimento vocale sono **sintesi vocale** e sintesi **vocale**. 
 
-|Funzione|Funzionalità|più recente|
+|Funzione|Funzionalità|Ultima|
 |-|-|--|
-|Riconoscimento vocale| <li>Trascrive continua in tempo reale vocale o un batch registrazioni audio in testo con i risultati intermedi.|1.1.3|
-|Sintesi vocale| <li>Converte il testo scritto in un audio che suona naturale. con input di testo normale o linguaggio di Markup sintesi della voce (SSML). |1.1.0|
+|Riconoscimento vocale| <li>Trascrive registrazioni audio continue in tempo reale o batch in testo con risultati intermedi.|1.1.3|
+|Sintesi vocale| <li>Converte il testo scritto in un audio che suona naturale. con input di testo normale o SSML (Speech Synthesis Markup Language). |1.1.0|
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di usare i contenitori di riconoscimento vocale, è necessario soddisfare i prerequisiti seguenti:
+Prima di usare i contenitori di sintesi vocale, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatorio|Scopo|
+|Obbligatoria|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
-|Risorse di riconoscimento vocale |Per usare questi contenitori, è necessario avere:<br><br>Oggetto _vocale_ risorse di Azure per ottenere la chiave di fatturazione associata e l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nel portale di Azure **vocale** pagine di panoramica e le chiavi e sono necessari per avviare il contenitore.<br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|Risorsa vocale |Per usare questi contenitori, è necessario avere:<br><br>Una risorsa _vocale_ di Azure per ottenere la chiave API e l'URI dell'endpoint associati. Entrambi i valori sono disponibili nelle pagine relative alla panoramica e alle chiavi del **discorso** del portale di Azure. Sono entrambi necessari per avviare il contenitore.<br><br>**{API_KEY}** : Una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}** : Endpoint fornito nella pagina **Panoramica**|
 
 ## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
 
-È necessario innanzitutto completare e inviare il [modulo di richiesta di contenitori vocale servizi cognitivi](https://aka.ms/speechcontainerspreview/) per richiedere l'accesso al contenitore. 
+È necessario prima completare e inviare il [modulo di richiesta di contenitori di sintesi vocale di servizi cognitivi](https://aka.ms/speechcontainerspreview/) per richiedere l'accesso al contenitore. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -52,9 +52,9 @@ Prima di usare i contenitori di riconoscimento vocale, è necessario soddisfare 
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-### <a name="advanced-vector-extension-support"></a>Supporto delle estensioni vettori avanzato
+### <a name="advanced-vector-extension-support"></a>Supporto Advanced Vector Extension
 
-L'**host** è il computer che esegue il contenitore Docker. L'host deve supportare [estensioni Advanced Vector Extension](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). È possibile controllare questo supporto negli host di Linux con il comando seguente: 
+L'**host** è il computer che esegue il contenitore Docker. L'host deve supportare [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). È possibile controllare questo supporto in host Linux con il comando seguente: 
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
@@ -62,51 +62,51 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori
 
-La tabella seguente descrive i minimi e consigliati di core CPU e memoria da allocare per ogni contenitore di riconoscimento vocale.
+La tabella seguente descrive i core CPU minimi e consigliati e la memoria da allocare per ogni contenitore vocale.
 
 | Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
-|cognitive-services-speech-to-text | 2 core<br>2 GB di memoria  | 4 core<br>4 GB di memoria  |
-|cognitive-services-text-to-speech | 1 core, 0,5 GB di memoria| 2 core, 1 GB di memoria |
+|cognitive-Services-riconoscimento vocale | 2 Core<br>2 GB di memoria  | 4 core<br>4 GB di memoria  |
+|cognitive-Services-sintesi vocale | 1 core, 0,5 GB di memoria| 2 Core, 1 GB di memoria |
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
 
 Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono usate come parte del comando `docker run`.
 
-**Nota**; Di fuori dei limiti di Docker, si basano i minimi e consigliati *non* risorse del computer host. Ad esempio, parti mappa di memoria dei contenitori per il riconoscimento vocale di un modello di lingua di grandi dimensioni che è _consigliato_ che l'intero file rientra nella memoria, ossia 4 a 6 GB aggiuntivo. Inoltre, la prima esecuzione dei contenitori potrebbe richiedere più tempo, poiché i modelli sono il paging nella memoria.
+**Nota**; Il valore minimo e consigliato sono basati sui limiti di Docker, *non* sulle risorse del computer host. Ad esempio, i contenitori di sintesi vocale mappano parti di un modello di linguaggio di grandi dimensioni ed è _consigliabile_ che l'intero file si trovi in memoria, che è un 4-6 GB aggiuntivo. Inoltre, la prima esecuzione di uno dei due contenitori potrebbe richiedere più tempo, perché i modelli vengono inseriti in una pagina di memoria.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Ottenere l'immagine del contenitore con `docker pull`
 
-Sono disponibili le immagini del contenitore per il riconoscimento vocale.
+Sono disponibili le immagini del contenitore per la sintesi vocale.
 
 | Contenitore | Repository |
 |-----------|------------|
-| cognitive-services-speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
-| cognitive-services-text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
+| cognitive-Services-riconoscimento vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
+| cognitive-Services-sintesi vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="language-locale-is-in-container-tag"></a>Impostazioni locali della lingua sono nel tag contenitore
+### <a name="language-locale-is-in-container-tag"></a>Le impostazioni locali della lingua sono incluse nel tag del contenitore
 
-Il `latest` tag pull il `en-us` delle impostazioni locali e `jessarus` vocali.
+Il `latest` Tag estrae le `en-us` impostazioni locali e `jessarus` la voce.
 
-#### <a name="speech-to-text-locales"></a>Riconoscimento vocale alle impostazioni internazionali di testo
+#### <a name="speech-to-text-locales"></a>Impostazioni locali sintesi vocale
 
-Tutti i tag, ad eccezione di `latest` sono nel formato seguente, dove il `<culture>` indica il contenitore delle impostazioni locali:
+Tutti i tag, ad `latest` eccezione di, sono nel formato seguente, `<culture>` dove indica il contenitore delle impostazioni locali:
 
 ```
 <major>.<minor>.<patch>-<platform>-<culture>-<prerelease>
 ```
 
-Il tag seguente è riportato un esempio del formato:
+Il seguente tag è un esempio del formato:
 
 ```
 1.1.3-amd64-en-us-preview
 ```
 
-La tabella seguente elenca le impostazioni locali supportate per **vocale-** in 1.1.3 la versione del contenitore:
+La tabella seguente elenca le impostazioni locali supportate per la **sintesi vocale** nella versione 1.1.3 del contenitore:
 
-|Impostazioni locali della lingua|`Tags`|
+|Impostazioni locali della lingua|Tag|
 |--|--|
 |Cinese|`zh-cn`|
 |Inglese |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
@@ -118,40 +118,40 @@ La tabella seguente elenca le impostazioni locali supportate per **vocale-** in 
 |Portoghese|`pt-br`|
 |Spagnolo|`es-es`<br>`es-mx`|
 
-#### <a name="text-to-speech-locales"></a>Impostazioni locali di sintesi vocale
+#### <a name="text-to-speech-locales"></a>Impostazioni locali sintesi vocale
 
-Tutti i tag, ad eccezione di `latest` sono nel formato seguente, in cui la `<culture>` indica le impostazioni locali e il `<voice>` indica la voce del contenitore:
+Tutti i tag, ad `latest` eccezione di, sono nel formato seguente, `<culture>` dove indica `<voice>` le impostazioni locali e indica la voce del contenitore:
 
 ```
 <major>.<minor>.<patch>-<platform>-<culture>-<voice>-<prerelease>
 ```
 
-Il tag seguente è riportato un esempio del formato:
+Il seguente tag è un esempio del formato:
 
 ```
 1.1.0-amd64-en-us-jessarus-preview
 ```
 
-La tabella seguente elenca le impostazioni locali supportate per **sintesi vocale** della versione 1.1.0 versione del contenitore:
+La tabella seguente elenca le impostazioni locali supportate per la **sintesi vocale** nella versione 1.1.0 del contenitore:
 
-|Impostazioni locali della lingua|`Tags`|Voices supportati|
+|Impostazioni locali della lingua|Tag|Voci supportate|
 |--|--|--|
-|Cinese|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao-apollo|
-|Inglese |`en-au`|ha dichiarato Catherine<br>hayleyrus|
-|Inglese |`en-gb`|george-apollo<br>hazelrus<br>susan-apollo|
-|Inglese |`en-in`|heera-apollo<br>priyarus<br>ravi-apollo<br>|
+|Cinese|`zh-cn`|huihuirus<br>kangkang-apollo<br>Yaoyao-Apollo|
+|Inglese |`en-au`|Catherine<br>hayleyrus|
+|Inglese |`en-gb`|Giorgio-Apollo<br>hazelrus<br>susan-apollo|
+|Inglese |`en-in`|si-Apollo<br>priyarus<br>ravi-apollo<br>|
 |Inglese |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
 |Francese|`fr-ca`|Caroline<br>harmonierus|
-|Francese|`fr-fr`|hortenserus<br>julie-apollo<br>paul-apollo|
-|Tedesco|`de-de`|hedda<br>heddarus<br>stefan-apollo|
+|Francese|`fr-fr`|hortenserus<br>Julie-Apollo<br>Paul-Apollo|
+|Tedesco|`de-de`|Hedda<br>heddarus<br>stefan-apollo|
 |Italiano|`it-it`|cosimo-apollo<br>luciarus|
 |Giapponese|`ja-jp`|ayumi-apollo<br>harukarus<br>ichiro-apollo|
 |Coreano|`ko-kr`|heamirus|
-|Portoghese|`pt-br`|daniel-apollo<br>heloisarus|
-|Spagnolo|`es-es`|elenarus<br>laura-apollo<br>pablo-apollo<br>|
+|Portoghese|`pt-br`|Daniel-Apollo<br>heloisarus|
+|Spagnolo|`es-es`|elenarus<br>laura-apollo<br>Pablo-Apollo<br>|
 |Spagnolo|`es-mx`|hildarus<br>raul-apollo|
 
-### <a name="docker-pull-for-the-speech-containers"></a>Pull docker per i contenitori di riconoscimento vocale
+### <a name="docker-pull-for-the-speech-containers"></a>Pull Docker per i contenitori di riconoscimento vocale
 
 #### <a name="speech-to-text"></a>Riconoscimento vocale
 
@@ -176,12 +176,12 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire uno qualsiasi dei tre contenitori. Il comando usa i parametri seguenti:
 
-**Durante l'anteprima**, le impostazioni di fatturazione devono essere valide per avviare il contenitore, ma non vengono fatturate per l'utilizzo.
+**Durante l'anteprima**, le impostazioni di fatturazione devono essere valide per avviare il contenitore, ma non viene addebitato l'utilizzo.
 
-| Placeholder | Value |
+| Placeholder | Valore |
 |-------------|-------|
-|{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore e è disponibile nella pagina chiavi di sintesi vocale del portale di Azure.  |
-|{BILLING_ENDPOINT_URI} | Il valore URI dell'endpoint di fatturazione è disponibile nella pagina di panoramica di sintesi vocale del portale di Azure.|
+|{API_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina relativa alle chiavi vocali del portale di Azure.  |
+|{ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina di panoramica del discorso del portale di Azure.|
 
 Sostituire i parametri con i valori personalizzati nel comando `docker run` di esempio seguente.
 
@@ -191,8 +191,8 @@ Sostituire i parametri con i valori personalizzati nel comando `docker run` di e
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 ### <a name="speech-to-text"></a>Riconoscimento vocale
@@ -201,13 +201,13 @@ ApiKey={BILLING_KEY}
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Questo comando:
 
-* Esegue un contenitore di riconoscimento vocale dall'immagine del contenitore
+* Esegue un contenitore vocale dall'immagine del contenitore
 * Alloca 2 core CPU e 2 gigabyte (GB) di memoria
 * Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
@@ -224,9 +224,9 @@ Questo comando:
 
 ### <a name="speech-to-text"></a>Riconoscimento vocale
 
-Il contenitore fornisce query basate sul websocket endpoint API, che sono accessibili tramite il [Speech SDK](index.yml).
+Il contenitore fornisce le API dell'endpoint di query basate su WebSocket, a cui si accede tramite l' [SDK di riconoscimento vocale](index.yml).
 
-Per impostazione predefinita, Speech SDK Usa servizi di riconoscimento vocale in linea. Per usare il contenitore, è necessario modificare il metodo di inizializzazione. Vedere gli esempi seguenti.
+Per impostazione predefinita, l'SDK vocale usa i servizi di riconoscimento vocale online. Per usare il contenitore, è necessario modificare il metodo di inizializzazione. Vedere gli esempi seguenti.
 
 #### <a name="for-c"></a>Per C#
 
@@ -262,7 +262,7 @@ speech_config = speechsdk.SpeechConfig(
 
 ### <a name="text-to-speech"></a>Sintesi vocale
 
-Il contenitore fornisce endpoint REST API che possono essere recuperate [Ecco](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) e sono disponibili esempi [qui](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
+Il contenitore fornisce le API dell'endpoint REST disponibili [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) ed è possibile trovare gli esempi [qui](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
@@ -276,7 +276,7 @@ Quando si esegue il contenitore, questo usa **stdout** e **stderr** per generare
 
 ## <a name="billing"></a>Fatturazione
 
-L'invio di contenitori vocale fatturazione in Azure, usando un _vocale_ risorse nell'account Azure.
+I contenitori di riconoscimento vocale inviano informazioni di fatturazione ad Azure, usando una risorsa _vocale_ nell'account Azure.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -288,13 +288,13 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](spe
 
 ## <a name="summary"></a>Riepilogo
 
-In questo articolo si è appreso i concetti e flusso di lavoro per scaricare, installare ed eseguire i contenitori di riconoscimento vocale. In sintesi:
+In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione di contenitori di sintesi vocale. In sintesi:
 
-* Riconoscimento vocale fornisce due contenitori di Linux per Docker, che incapsula vocale in testo e sintesi vocale.
+* Il riconoscimento vocale fornisce due contenitori Linux per Docker, incapsulando sintesi vocale in testo e sintesi vocale.
 * Le immagini dei contenitori vengono scaricate da un registro contenitori privato in Azure.
 * Le immagini dei contenitori vengono eseguite in Docker.
-* È possibile utilizzare l'API REST o SDK di chiamare le operazioni nei contenitori di riconoscimento vocale, specificando l'URI del contenitore di host.
-* Quando si crea un'istanza di un contenitore, è necessario specificare le informazioni di fatturazione.
+* È possibile usare l'API REST o l'SDK per chiamare le operazioni nei contenitori di sintesi vocale specificando l'URI host del contenitore.
+* È necessario fornire informazioni di fatturazione quando si crea un'istanza di un contenitore.
 
 > [!IMPORTANT]
 >  I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano i dati dei clienti (ad esempio, l'immagine o il testo analizzato) a Microsoft.

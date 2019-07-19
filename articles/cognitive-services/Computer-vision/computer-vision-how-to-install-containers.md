@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: d72b47d375b8e50cde43e263261551d3010ba013
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: efde223061a873a57595bc4a577b7de55b1d8a46
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704722"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321457"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installare ed eseguire contenitori di riconoscimento del testo
 
@@ -30,11 +30,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di usare i contenitori Riconoscimento del testo, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatorio|Scopo|
+|Obbligatoria|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
-|Azure `Cognitive Services` risorsa |Per usare il contenitore, è necessario disporre di:<br><br>Oggetto _servizi cognitivi_ risorse di Azure e la fatturazione correlata chiave l'URI dell'endpoint fatturazione. Entrambi i valori sono disponibili nelle pagine di panoramica e le chiavi per la risorsa e sono necessari per avviare il contenitore. È necessario aggiungere il `vision/v2.0` routing per l'URI dell'endpoint come illustrato nell'esempio seguente BILLING_ENDPOINT_URI. <br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|Risorsa Visione artificiale |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **visione artificiale** di Azure e la chiave API associata l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore.<br><br>**{API_KEY}** : Una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}** : Endpoint fornito nella pagina **Panoramica**|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Richiedere l'accesso al registro contenitori privato
 
@@ -44,14 +44,13 @@ Prima di usare i contenitori Riconoscimento del testo, è necessario soddisfare 
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-
 ### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori
 
 La tabella seguente indica i core CPU minimi e consigliati e la memoria da allocare per ogni contenitore di Riconoscimento del testo.
 
-| Contenitore | Minima | Consigliato |TPS<br>(Minimum, Maximum)|
+| Contenitore | Minima | Consigliato |TPS<br>(Minimo, massimo)|
 |-----------|---------|-------------|--|
-|Riconoscimento del testo|1 core, 8 GB di memoria, 0,5 TPS|2 core, 8 GB di memoria, 1 TPS|0.5, 1|
+|Riconoscimento del testo|1 core, 8 GB di memoria, 0,5 TPS|2 Core, 8 GB di memoria, 1 TPS|0,5, 1|
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
 * TPS - transazioni al secondo
@@ -88,12 +87,12 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Il comando usa i parametri seguenti:
 
-| Placeholder | Value |
+| Placeholder | Valore |
 |-------------|-------|
-|{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore e sono disponibile in Azure `Cognitive Services` pagina chiavi.  |
-|{BILLING_ENDPOINT_URI} | Valore dell'URI dell'endpoint di fatturazione. L'esempio è: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|{API_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina chiavi di `Cognitive Services` Azure.  |
+|{ENDPOINT_URI} | Valore dell'URI dell'endpoint di fatturazione. Esempio:`https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
-È necessario aggiungere il `vision/v2.0` routing per l'URI dell'endpoint come illustrato nell'esempio seguente BILLING_ENDPOINT_URI.
+È necessario aggiungere il `vision/v2.0` routing all'URI dell'endpoint, come illustrato nell'esempio BILLING_ENDPOINT_URI seguente.
 
 Sostituire i parametri con i valori personalizzati nel comando `docker run` di esempio seguente.
 
@@ -101,8 +100,8 @@ Sostituire i parametri con i valori personalizzati nel comando `docker run` di e
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Questo comando:
@@ -132,7 +131,7 @@ Usare l'host, `http://localhost:5000`, per le API del contenitore.
 
 ### <a name="synchronous-text-recognition"></a>Riconoscimento del testo sincrono
 
-È possibile usare l'operazione `POST /vision/v2.0/recognizeTextDirect` per riconoscere il testo stampato in un'immagine in modo sincrono. Poiché questa operazione è sincrona, il corpo della richiesta per questa operazione è analoga a quella per l'operazione `POST /vision/v2.0/recognizeText`, ma il corpo della risposta per questa operazione è uguale a quello restituito dall'operazione `GET /vision/v2.0/textOperations/*{id}*`.
+È possibile usare l'operazione `POST /vision/v2.0/recognizeTextDirect` per riconoscere il testo stampato in un'immagine in modo sincrono. Poiché questa operazione è sincrona, il corpo della richiesta per questa operazione è identico `POST /vision/v2.0/recognizeText` a quello dell'operazione, ma il corpo della risposta per questa operazione è identico a `GET /vision/v2.0/textOperations/*{id}*` quello restituito dall'operazione.
 
 <!--  ## Validate container is running -->
 
@@ -156,7 +155,7 @@ I contenitori Riconoscimento del testo inviano le informazioni di fatturazione a
 
 Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./computer-vision-resource-container-config.md).
 
-<!--blogs/samples/video coures -->
+<!--blogs/samples/video course -->
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 

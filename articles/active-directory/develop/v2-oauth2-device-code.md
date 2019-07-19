@@ -1,5 +1,5 @@
 ---
-title: Piattaforma delle identità Microsoft Usa per consentire agli utenti nei dispositivi senza browser | Azure
+title: Usare la piattaforma di identità Microsoft per l'accesso degli utenti nei dispositivi senza browser | Azure
 description: Compilare flussi di autenticazione incorporati e senza browser usando la concessione del codice del dispositivo.
 services: active-directory
 documentationcenter: ''
@@ -17,28 +17,28 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e92e4d0e296e83b413cfd2a67041a5749c16699e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 274c4e89ff3f996cc71cdacdfb7b5b72e813ae4b
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482225"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297668"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Flusso del codice di piattaforma delle identità Microsoft e il dispositivo di OAuth 2.0
+# <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft Identity Platform e il flusso del codice del dispositivo OAuth 2,0
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Sono supportati sulla piattaforma di Microsoft identity il [concessione del codice di dispositivo](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), che consente agli utenti di accedere a dispositivi con vincoli di input, ad esempio una smart TV, dispositivo IoT o stampante.  Per abilitare questo flusso, il dispositivo richiede all'utente di visitare una pagina Web nel browser in un altro dispositivo per l'accesso.  Una volta che l'utente avrà eseguito l'accesso, il dispositivo potrà ottenere i token di accesso e di aggiornamento in base alle esigenze.  
+La piattaforma di identità Microsoft supporta la [concessione del codice del dispositivo](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), che consente agli utenti di accedere a dispositivi con vincoli di input, ad esempio una Smart TV, un dispositivo Internet o una stampante.  Per abilitare questo flusso, il dispositivo richiede all'utente di visitare una pagina Web nel browser in un altro dispositivo per l'accesso.  Una volta che l'utente avrà eseguito l'accesso, il dispositivo potrà ottenere i token di accesso e di aggiornamento in base alle esigenze.  
 
 > [!IMPORTANT]
-> A questo punto, l'endpoint di piattaforma di identità Microsoft supporta solo il flusso del dispositivo per i tenant di Azure AD, ma gli account non personali.  Ciò significa che è necessario usare un endpoint configurato come un tenant, o `organizations` endpoint.  Questo supporto verrà presto abilitato. 
+> A questo punto, l'endpoint della piattaforma Microsoft Identity supporta solo il flusso di dispositivi per Azure AD tenant, ma non per gli account personali.  Ciò significa che è necessario usare un endpoint configurato come tenant o `organizations` endpoint.  Questo supporto verrà abilitato a breve. 
 >
 > Gli account personali che sono invitati in un tenant di Azure AD potranno usare la concessione del flusso del dispositivo, ma solo nel contesto del tenant.
 >
-> Come una nota aggiuntiva, il `verification_uri_complete` campo della risposta non è incluso o supportato in questo momento.  
+> Come ulteriore nota, il campo `verification_uri_complete` della risposta non è incluso né supportato in questo momento.  
 
 > [!NOTE]
-> L'endpoint di piattaforma di identità di Microsoft non supporta tutti gli scenari di Azure Active Directory e funzionalità. Per determinare se è necessario usare l'endpoint di piattaforma Microsoft identity, a conoscenza [limitazioni della piattaforma di identità Microsoft](active-directory-v2-limitations.md).
+> L'endpoint della piattaforma Microsoft Identity non supporta tutti gli scenari e le funzionalità di Azure Active Directory. Per determinare se è necessario usare l'endpoint della piattaforma Microsoft Identity, vedere le informazioni sulle [limitazioni della piattaforma di identità Microsoft](active-directory-v2-limitations.md).
 
 ## <a name="protocol-diagram"></a>Diagramma di protocollo
 
@@ -48,16 +48,16 @@ L'intero flusso del codice del dispositivo ha un aspetto simile a quello illustr
 
 ## <a name="device-authorization-request"></a>Richiesta di autorizzazione del dispositivo
 
-Il client deve prima di tutto verificare con il server di autenticazione per un dispositivo e codice utente che viene usato per avviare l'autenticazione. Il client raccoglie la richiesta dall'endpoint `/devicecode`. In questa richiesta, il client deve includere anche le autorizzazioni che deve acquisire dall'utente. Dal momento in cui la richiesta viene inviata, l'utente ha solo 15 minuti per eseguire l'accesso (il valore consueto per `expires_in`), quindi effettuare questa richiesta solo quando l'utente ha indicato di essere pronto a eseguire l'accesso.
+Il client deve prima verificare con il server di autenticazione per un dispositivo e un codice utente usato per avviare l'autenticazione. Il client raccoglie la richiesta dall'endpoint `/devicecode`. In questa richiesta, il client deve includere anche le autorizzazioni che deve acquisire dall'utente. Dal momento in cui la richiesta viene inviata, l'utente ha solo 15 minuti per eseguire l'accesso (il valore consueto per `expires_in`), quindi effettuare questa richiesta solo quando l'utente ha indicato di essere pronto a eseguire l'accesso.
 
 > [!TIP]
 > Provare a eseguire la richiesta in Postman.
-> [![Provare a eseguire questa richiesta in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Provare a eseguire la richiesta in un post](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
 
-POST https://login.microsoftonline.com/{tenant}/devicecode
+POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/devicecode
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
@@ -67,26 +67,26 @@ scope=user.read%20openid%20profile
 
 | Parametro | Condizione | Descrizione |
 | --- | --- | --- |
-| `tenant` | Obbligatorio |Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere fornito nel formato di nome descrittivo o GUID.  |
-| `client_id` | Obbligatorio | Il **ID applicazione (client)** che il [portale di Azure-registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) esperienza assegnato all'app. |
+| `tenant` | Obbligatoria |Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere fornito nel formato di nome descrittivo o GUID.  |
+| `client_id` | Obbligatoria | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
 | `scope` | Consigliato | Elenco separato da spazi di [ambiti](v2-permissions-and-consent.md) a cui si vuole che l'utente dia il consenso.  |
 
 ### <a name="device-authorization-response"></a>Risposta di autorizzazione dispositivo
 
 Una risposta con esito positivo sarà un oggetto JSON contenente le informazioni richieste per consentire all'utente di accedere.  
 
-| Parametro | Format | Descrizione |
+| Parametro | Formato | Descrizione |
 | ---              | --- | --- |
-|`device_code`     | string | Una stringa lunga usata per verificare la sessione tra il client e il server di autorizzazione. Il client Usa questo parametro per richiedere il token di accesso dal server di autorizzazione. |
-|`user_code`       | string | Una breve stringa visualizzata all'utente che viene usato per identificare la sessione in un dispositivo secondario.|
+|`device_code`     | String | Una stringa lunga usata per verificare la sessione tra il client e il server di autorizzazione. Il client usa questo parametro per richiedere il token di accesso dal server di autorizzazione. |
+|`user_code`       | String | Una stringa breve mostrata all'utente usato per identificare la sessione in un dispositivo secondario.|
 |`verification_uri`| URI | L'URI a cui l'utente deve passare con il `user_code` per eseguire l'accesso. |
 |`expires_in`      | int | Il numero di secondi prima della scadenza del `device_code` e del `user_code`. |
 |`interval`        | int | Il numero di secondi di attesa del client tra le richieste di polling. |
-| `message`        | string | Una stringa leggibile dall'utente con le istruzioni per l'utente. Può essere localizzata includendo un **parametro di query** nella richiesta del form `?mkt=xx-XX`, compilando l'apposito codice della lingua di destinazione. |
+| `message`        | String | Una stringa leggibile dall'utente con le istruzioni per l'utente. Può essere localizzata includendo un **parametro di query** nella richiesta del form `?mkt=xx-XX`, compilando l'apposito codice della lingua di destinazione. |
 
 ## <a name="authenticating-the-user"></a>Autenticazione dell'utente
 
-Dopo avere ricevuto il `user_code` e `verification_uri`, il client li visualizza all'utente, indicare la necessità di accedere con il telefono cellulare o browser PC.  Il client può anche usare un codice a matrice o un meccanismo simile per visualizzare l'`verfication_uri_complete`, per cui l'utente dovrà immettere il `user_code`.
+Dopo aver ricevuto `user_code` e `verification_uri`, il client li visualizza all'utente, indicando loro di eseguire l'accesso con il telefono cellulare o il browser del PC.  Il client può anche usare un codice a matrice o un meccanismo simile per visualizzare l'`verfication_uri_complete`, per cui l'utente dovrà immettere il `user_code`.
 
 Mentre l'utente esegue l'autenticazione all'`verification_uri`, il client deve eseguire il polling dell'endpoint `/token`per il token richiesto usando il `device_code`.
 
@@ -99,21 +99,21 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
-| Parametro | Obbligatorio | Descrizione|
+| Parametro | Obbligatoria | DESCRIZIONE|
 | -------- | -------- | ---------- |
-| `grant_type` | Obbligatorio | Deve essere `urn:ietf:params:oauth:grant-type:device_code`|
-| `client_id`  | Obbligatorio | Deve corrispondere al `client_id` usato nella richiesta iniziale. |
-| `device_code`| Obbligatorio | Il `device_code` restituito nella richiesta di autorizzazione del dispositivo.  |
+| `grant_type` | Obbligatoria | Deve essere `urn:ietf:params:oauth:grant-type:device_code`|
+| `client_id`  | Obbligatoria | Deve corrispondere al `client_id` usato nella richiesta iniziale. |
+| `device_code`| Obbligatoria | Il `device_code` restituito nella richiesta di autorizzazione del dispositivo.  |
 
 ### <a name="expected-errors"></a>Errori previsti
 
-Il flusso del codice di dispositivo è un protocollo di polling in modo che i client devono prevedere di ricevere gli errori prima che l'utente ha terminato l'autenticazione.  
+Il flusso del codice del dispositivo è un protocollo di polling, quindi il client deve aspettarsi di ricevere errori prima che l'utente abbia terminato l'autenticazione.  
 
-| Tipi di errore | Descrizione | Azione client |
+| Errore | DESCRIZIONE | Azione client |
 | ------ | ----------- | -------------|
-| `authorization_pending` | L'utente non è stata completata l'autenticazione, ma non è stato annullato il flusso. | Ripetere la richiesta dopo almeno `interval` secondi. |
+| `authorization_pending` | L'utente non ha completato l'autenticazione, ma non ha annullato il flusso. | Ripetere la richiesta dopo almeno `interval` secondi. |
 | `authorization_declined` | L'utente finale ha rifiutato la richiesta di autorizzazione.| Arrestare il polling e ripristinare uno stato non autenticato.  |
-| `bad_verification_code`| Il `device_code` inviato al `/token` endpoint non è stato riconosciuto. | Verificare che il client stia inviando il `device_code` corretto nella richiesta. |
+| `bad_verification_code`| Il `device_code` inviato`/token` all'endpoint non è stato riconosciuto. | Verificare che il client stia inviando il `device_code` corretto nella richiesta. |
 | `expired_token` | Sono trascorsi almeno `expires_in` secondi e l'autenticazione non è più possibile con questo `device_code`. | Arrestare il polling e ripristinare uno stato non autenticato. |
 
 ### <a name="successful-authentication-response"></a>Risposta di autenticazione con esito positivo
@@ -131,13 +131,13 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 }
 ```
 
-| Parametro | Format | Descrizione |
+| Parametro | Formato | Descrizione |
 | --------- | ------ | ----------- |
-| `token_type` | string| Sempre "Bearer". |
+| `token_type` | String| Sempre "Bearer". |
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, verranno elencati gli ambiti per cui è valido. |
 | `expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 | `access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti.  |
 | `id_token`   | Token JSON Web | Emessa nel parametro `scope` originale incluso nell'ambito `openid`.  |
 | `refresh_token` | Stringa opaca | Emessa nel parametro `scope` originale incluso `offline_access`.  |
 
-È possibile utilizzare il token di aggiornamento per acquisire nuovi token di accesso che token di aggiornamento utilizzando lo stesso flusso documentato nel [documentazione flusso del codice OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  
+È possibile usare il token di aggiornamento per acquisire nuovi token di accesso e i token di aggiornamento usando lo stesso flusso documentato nella [documentazione relativa al flusso di codice OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  

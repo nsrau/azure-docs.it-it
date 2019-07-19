@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: 43793f1cc105bda7a50371f8fffd4ff787f6e300
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 12ec1ce4a774178be621d7d8626ead7f1b106189
+ms.sourcegitcommit: 20bb149fe74459e59b648361235324b0674fe55b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204427"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298520"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Questo articolo illustra come preparare l'ambiente per eseguire il backup dei ca
 >
 >
 
-MABS distribuito in una macchina virtuale di Azure può eseguire il backup della VM in Azure, tuttavia per l'abilitazione dell'operazione di backup è necessario che si trovino nello stesso dominio. Il processo per eseguire il backup di una VM di Azure rimane identico a backup di macchine virtuali in locale, tuttavia la distribuzione di backup di Microsoft AZURE in Azure presenta alcune limitazioni. Per altre informazioni sulle limitazioni, consultare [DPM come una macchina virtuale di Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+MABS distribuito in una macchina virtuale di Azure può eseguire il backup della VM in Azure, tuttavia per l'abilitazione dell'operazione di backup è necessario che si trovino nello stesso dominio. Il processo di backup di una macchina virtuale di Azure rimane uguale al backup di macchine virtuali in locale, tuttavia la distribuzione di Mab in Azure presenta alcune limitazioni. Per altre informazioni sulle limitazioni, consultare [DPM come una macchina virtuale di Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure offre due modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo include informazioni e procedure per il ripristino di VM distribuite con il modello Resource Manager.
@@ -141,7 +141,7 @@ Per modificare le impostazioni di replica di archiviazione:
 Dopo aver scaricato tutti i file, fare clic su **MicrosoftAzureBackupInstaller.exe**. Verrà avviata l'installazione guidata **Backup di Microsoft Azure** per estrarre i file di installazione in un percorso specificato dall'utente. Continuare la procedura guidata e fare clic sul pulsante **Estrai** per avviare il processo di estrazione.
 
 > [!WARNING]
-> È necessario almeno 4 GB di spazio libero per estrarre i file di installazione.
+> Per estrarre i file di installazione sono necessari almeno 4 GB di spazio libero.
 >
 >
 
@@ -247,44 +247,44 @@ Ecco i passaggi necessari se si vuole spostare MABS in un nuovo server, mantenen
 
 
   > [!IMPORTANT]
-  > - Il nuovo server dovrà avere lo stesso nome dell'istanza del server di Backup di Azure originale. Non è possibile modificare il nome della nuova istanza del server di Backup di Azure se si vuole usare il pool di archiviazione e il database di Data Protection Manager precedenti per conservare i punti di recupero.
-  > - È necessario avere un backup del database di Data Protection Manager. Sarà necessario ripristinare il database.
+  > - Il nuovo server dovrà avere lo stesso nome dell'istanza del server di Backup di Azure originale. Non è possibile modificare il nome della nuova istanza di server di Backup di Azure se si desidera utilizzare il pool di archiviazione precedente e il database MAB (DPMDB) per conservare i punti di ripristino.
+  > - È necessario disporre di un backup del database MAB (DPMDB). Sarà necessario ripristinare il database.
 
 1. Nel riquadro informazioni selezionare i computer client per i quali si desidera aggiornare l'agente protezione.
 2. Arrestare il server di Backup di Azure originale o portarlo offline.
 3. Reimpostare l'account del computer in Active Directory.
 4. Installare SQL Server 2016 nel nuovo computer e assegnare al computer lo stesso nome del server di Backup di Azure originale.
 5. Eseguire l'aggiunta al dominio
-6. Installare il server di Backup di Azure V2 o versioni successive (spostare i dischi del pool di archiviazione DPM dal vecchio server ed eseguire l'importazione)
+6. Installare il server di backup di Azure v2 o versione successiva (spostare i dischi del pool di archiviazione di MAB dal vecchio server e importare)
 7. Ripristinare il database di Data Protection Manager acquisito nel passaggio 1.
 8. Collegare l'archiviazione dal server di backup originale a quello nuovo.
 9. Ripristinare il DPMDB da SQL
 10. Dalla riga di comando di amministratore nel nuovo server cambiare directory per passare al percorso di installazione e alla cartella bin di Backup di Microsoft Azure
 
-    Esempio di percorso: C:\Windows\System32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
+    Esempio di percorso: C:\Windows\System32 > CD "C:\Programmi\Microsoft Azure Backup\DPM\DPM\bin\"
 
-11. Backup di Azure, eseguire DPMSYNC-SYNC
+11. In backup di Azure eseguire DPMSYNC-SYNC
 
-    Se sono stati aggiunti nuovi dischi al pool di archiviazione DPM invece di spostare quelli vecchi, quindi eseguire DPMSYNC - Reallocatereplica
+    Se sono stati aggiunti nuovi dischi al pool di archiviazione DPM invece di trasferire quelli precedenti, eseguire DPMSYNC-ReallocateReplica
 
 ## <a name="network-connectivity"></a>Connettività di rete
 Per il corretto funzionamento del prodotto, il server di Backup di Azure richiede la connettività al servizio Backup di Azure. Per convalidare la connettività del computer ad Azure, usare il cmdlet ```Get-DPMCloudConnection``` nella console di PowerShell del server di Backup di Azure. C'è connettività solo se l'output di cmdlet è TRUE.
 
-Allo stesso tempo, è necessario che la sottoscrizione di Azure sia in uno stato integro. Per scoprire lo stato della sottoscrizione e per gestirla, accedere al [portale degli abbonamenti](https://account.windowsazure.com/Subscriptions).
+Allo stesso tempo, è necessario che la sottoscrizione di Azure sia in uno stato integro. Per conoscere lo stato della sottoscrizione e gestirla, accedere al [portale di sottoscrizione](https://account.windowsazure.com/Subscriptions).
 
 Dopo avere verificato lo stato della connettività di Azure e della sottoscrizione di Azure, è possibile usare la tabella seguente per scoprire l'impatto della funzionalità di backup/ripristino offerta.
 
 | Stato di connettività | Sottoscrizione di Azure | Eseguire il backup in Azure | Eseguire il backup su disco | Ripristino da Azure | Ripristino da disco |
 | --- | --- | --- | --- | --- | --- |
-| Connesso |Attivo |Consentito |Consentito |Consentito |Consentito |
-| Connesso |Scaduto |Arrestato |Arrestato |Consentito |Consentito |
+| Connesso |Attivo |Allowed |Consentito |Consentito |Allowed |
+| Connesso |Scaduto |Arrestato |Arrestato |Allowed |Allowed |
 | Connesso |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
-| Connettività persa > 15 giorni |Attivo |Arrestato |Arrestato |Consentito |Consentito |
-| Connettività persa > 15 giorni |Scaduto |Arrestato |Arrestato |Consentito |Consentito |
+| Connettività persa > 15 giorni |Attivo |Arrestato |Arrestato |Allowed |Allowed |
+| Connettività persa > 15 giorni |Scaduto |Arrestato |Arrestato |Allowed |Allowed |
 | Connettività persa > 15 giorni |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recupero dalla perdita di connettività
-Se è presente un firewall o un proxy che impedisce l'accesso ad Azure, è necessario consentire gli indirizzi di dominio seguenti nel profilo di firewall/proxy:
+Se si dispone di un firewall o di un proxy che impedisce l'accesso ad Azure, è necessario consentire gli indirizzi di dominio seguenti nel profilo firewall/proxy:
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com

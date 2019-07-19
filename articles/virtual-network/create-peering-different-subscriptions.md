@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: cf414cf08771090990775d124e27222e51f786e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 11144b1595370f9eb17afce71e0302a63468a089
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122008"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305694"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Creare un peering di rete virtuale - Resource Manager, sottoscrizioni diverse
 
@@ -37,11 +37,11 @@ Questa esercitazione consente di eseguire il peering di due reti virtuali nella 
 
 Per creare un peering di rete virtuale, è possibile usare il [portale di Azure](#portal), l'[interfaccia della riga di comando](#cli) di Azure, Azure [PowerShell](#powershell) o un [modello di Azure Resource Manager](#template). Facendo clic sui collegamenti degli strumenti precedenti, si passa direttamente alle procedure per la creazione di un peering di rete virtuale con lo strumento specifico.
 
+Se le reti virtuali si trovano in sottoscrizioni diverse e le sottoscrizioni sono associate a tenant Azure Active Directory diversi, completare la procedura seguente prima di continuare:
+1. Aggiungere l'utente di ogni tenant di Active Directory come [utente guest](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) nel tenant di Azure Active Directory opposto.
+1. Ogni utente deve accettare l'invito dell'utente guest dall'Azure Active Directory tenant opposto.
+
 ## <a name="portal"></a>Creare un peering - Portale di Azure
-
-Se le reti virtuali di cui si vuole eseguire il peering si trovano in sottoscrizioni associate a tenant di Azure Active Directory diversi, seguire la procedura nella sezione relativa all'interfaccia della riga di comando e a PowerShell di questo articolo. Il portale non supporta il peering di reti virtuali appartenenti a sottoscrizioni di tenant di Active Directory diversi. 
-
-Si noti che Cloud Shell esistono limiti per la commutazione tra sottoscrizioni e i tenant a causa della quale il peering reti virtuali o Peering reti virtuali tra reti virtuali appartenenti a sottoscrizioni di Azure diversi di tenant di Active Directory non funzionerà. Usare PowerShell o CLI.
 
 La procedura seguente usa account diversi per ogni sottoscrizione. Se si usa un account dotato di autorizzazioni per entrambe le sottoscrizioni, è possibile usare lo stesso account per tutti i passaggi, ignorando i passaggi per la disconnessione dal portale e quelli per l'assegnazione a un altro utente delle autorizzazioni per le reti virtuali.
 
@@ -99,9 +99,7 @@ La procedura seguente usa account diversi per ogni sottoscrizione. Se si usa un 
 
 ## <a name="cli"></a>Creare un peering - Interfaccia della riga di comando di Azure
 
-Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un account dotato di autorizzazioni per entrambe le sottoscrizioni, è possibile usare lo stesso account per tutti i passaggi, ignorando i passaggi per la disconnessione da Azure e rimuovendo le righe dello script per la creazione delle assegnazioni dei ruoli utente. Sostituire UserA@azure.com e UserB@azure.com in tutti gli script seguenti con i nomi utente usati per UserA e UserB. Se le reti virtuali si trovano in sottoscrizioni diverse e le sottoscrizioni sono associate a tenant di Azure Active Directory diversi, eseguire i passaggi seguenti prima di continuare:
- - Aggiungere l'utente di ogni tenant di Active Directory come [utente guest](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) nel tenant di Azure Active Directory opposto.
- - Ogni utente deve accettare l'invito per l'utente guest dal tenant di Azure Active Directory opposto.
+Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un account dotato di autorizzazioni per entrambe le sottoscrizioni, è possibile usare lo stesso account per tutti i passaggi, ignorando i passaggi per la disconnessione da Azure e rimuovendo le righe dello script per la creazione delle assegnazioni dei ruoli utente. Sostituire UserA@azure.com e UserB@azure.com in tutti gli script seguenti con i nomi utente usati per UserA e UserB. 
 
 Lo script seguente:
 
@@ -182,11 +180,8 @@ Tutte le risorse di Azure create in una delle reti virtuali possono ora comunica
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un account dotato di autorizzazioni per entrambe le sottoscrizioni, è possibile usare lo stesso account per tutti i passaggi, ignorando i passaggi per la disconnessione da Azure e rimuovendo le righe dello script per la creazione delle assegnazioni dei ruoli utente. Sostituire UserA@azure.com e UserB@azure.com in tutti gli script seguenti con i nomi utente usati per UserA e UserB.
-Se le reti virtuali si trovano in sottoscrizioni diverse e le sottoscrizioni sono associate a tenant di Azure Active Directory diversi, eseguire i passaggi seguenti prima di continuare:
- - Aggiungere l'utente di ogni tenant di Active Directory come [utente guest](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) nel tenant di Azure Active Directory opposto.
- - Ogni utente deve accettare l'invito per l'utente guest dal tenant di Active Directory opposto.
 
-1. Verificare di avere Azure PowerShell versione 1.0.0 o versione successiva. È possibile farlo eseguendo il `Get-Module -Name Az` si consiglia di installare la versione più recente di PowerShell [modulo di Az](/powershell/azure/install-az-ps). Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell). 
+1. Confermare di avere Azure PowerShell versione 1.0.0 o successiva. Per eseguire questa operazione, `Get-Module -Name Az` è consigliabile installare la versione più recente di PowerShell [AZ Module](/powershell/azure/install-az-ps). Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell). 
 2. Avviare una sessione di PowerShell.
 3. In PowerShell accedere ad Azure come UserA immettendo il comando `Connect-AzAccount`. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Per un elenco di autorizzazioni, vedere [Autorizzazioni di peering di reti virtuali](virtual-network-manage-peering.md#permissions).
 4. Creare un gruppo di risorse e una rete virtuale A. Copiare lo script seguente in un editor di testo nel PC. Sostituire `<SubscriptionA-Id>` con l'ID di SubscriptionA. Se l'ID sottoscrizione non è noto, immettere il comando `Get-AzSubscription` per visualizzarlo. Il valore di **Id** nell'output restituito è l'ID sottoscrizione. Per eseguire lo script, copiare lo script modificato, incollarlo in PowerShell e quindi premere `Enter`.
@@ -249,10 +244,6 @@ Se le reti virtuali si trovano in sottoscrizioni diverse e le sottoscrizioni son
 14. **Facoltativo**: per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-powershell) in questo articolo.
 
 ## <a name="template"></a>Creare un peering - Modello di Resource Manager
-
-Se le reti virtuali si trovano in sottoscrizioni diverse e le sottoscrizioni sono associate a tenant di Azure Active Directory diversi, eseguire i passaggi seguenti prima di continuare:
- - Aggiungere l'utente di ogni tenant di Active Directory come [utente guest](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) nel tenant di Azure Active Directory opposto.
- - Ogni utente deve accettare l'invito per l'utente guest dal tenant di Active Directory opposto.
 
 1. Per creare una rete virtuale e assegnare le [autorizzazioni](virtual-network-manage-peering.md#permissions) appropriate, completare i passaggi descritti nelle sezioni di questo articolo relative al [portale](#portal), all'[interfaccia della riga di comando di Azure](#cli) o a [PowerShell](#powershell).
 2. Salvare il testo seguente in un file nel computer locale. Sostituire `<subscription ID>` con l'ID della sottoscrizione di UserA. È ad esempio possibile salvare il file come vnetpeeringA.json.

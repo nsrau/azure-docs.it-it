@@ -3,22 +3,23 @@ title: Eseguire l'autenticazione con Registro Azure Container dal servizio Azure
 description: Informazioni su come fornire l'accesso alle immagini nel registro contenitori privato dal servizio Azure Kubernetes usando un'entità servizio di Azure Active Directory.
 services: container-service
 author: dlepow
+manager: gwallace
 ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: a541af77daf4136c0056cf9919d69c538d1dc5b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9690f900b6fe8d81fbebc3fcf5b7022b12bc3b96
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754466"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310253"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Eseguire l'autenticazione con Registro Azure Container dal servizio Azure Kubernetes
 
 Quando si usa Registro Azure Container con il servizio Azure Kubernetes, è necessario definire un meccanismo di autenticazione. Questo articolo illustra in dettaglio le configurazioni consigliate per l'autenticazione tra questi due servizi di Azure.
 
-È sufficiente configurare uno di questi metodi di autenticazione. L'approccio più comune consiste [concedere l'accesso con l'entità servizio AKS](#grant-aks-access-to-acr). Se si hanno esigenze specifiche, è possibile facoltativamente [concedere l'accesso mediante i segreti Kubernetes](#access-with-kubernetes-secret).
+È sufficiente configurare uno di questi metodi di autenticazione. L'approccio più comune consiste nel [concedere l'accesso tramite l'entità servizio AKS](#grant-aks-access-to-acr). Se si hanno esigenze specifiche, facoltativamente è possibile [concedere l'accesso usando i segreti Kubernetes](#access-with-kubernetes-secret).
 
 Questo articolo presuppone che sia già stato creato un cluster AKS e che si sia in grado di accedere al cluster con il client da riga di comando `kubectl`.
 
@@ -73,7 +74,7 @@ echo "Service principal ID: $CLIENT_ID"
 echo "Service principal password: $SP_PASSWD"
 ```
 
-Le credenziali dell'entità servizio possono ora essere archiviate in un [segreto per il pull delle immagini][image-pull-secret] Kubernetes a cui il cluster servizio Azure Kubernetes farà riferimento durante l'esecuzione di contenitori.
+È ora possibile archiviare le credenziali dell'entità servizio in un [segreto pull dell'immagine][image-pull-secret]Kubernetes, a cui verrà fatto riferimento dal cluster AKS durante l'esecuzione dei contenitori.
 
 Usare il comando **kubectl** seguente per creare un segreto Kubernetes. Sostituire `<acr-login-server>` con il nome completo di Registro Azure Container (con formato "acrname.azurecr.io"). Sostituire `<service-principal-ID>` e `<service-principal-password>` con i valori ottenuti dall'esecuzione dello script precedente. Sostituire `<email-address>` con qualsiasi indirizzo di posta elettronica valido.
 

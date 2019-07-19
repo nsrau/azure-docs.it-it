@@ -1,6 +1,6 @@
 ---
-title: Il rilevamento per il livello di servizio di Azure nel Centro sicurezza di Azure per le minacce | Microsoft Docs
-description: Questo argomento presenta avvisi di livello il servizio di Azure disponibili nel Centro sicurezza di Azure.
+title: Rilevamento delle minacce per il livello di servizio di Azure nel centro sicurezza di Azure | Microsoft Docs
+description: Questo argomento presenta gli avvisi del livello di servizio di Azure disponibili nel centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,68 +13,68 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 8c1733877834f82d9ee2524cf8bf54f532e7d9c4
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: f795822d76def4a6695a4746fba7e8566041cb2b
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571725"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295545"
 ---
-# <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Rilevamento delle minacce per il livello di servizio di Azure nel Centro sicurezza di Azure
+# <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Rilevamento delle minacce per il livello di servizio di Azure nel centro sicurezza di Azure
 
-Questo argomento viene presentato l'avvisi del Centro sicurezza disponibili durante il monitoraggio i seguenti livelli di servizio di Azure.
+Questo argomento presenta gli avvisi del Centro sicurezza disponibili per il monitoraggio dei seguenti livelli di servizio di Azure.
 
-* [Livello di rete di Azure](#network-layer)
+* [Livello rete di Azure](#network-layer)
 * [Livello di gestione di Azure (Azure Resource Manager) (anteprima)](#management-layer)
 
 >[!NOTE]
->Usa i dati di telemetria che sfrutta il Centro sicurezza di attingere a feed interno di Azure, l'analitica riportati di seguito è applicabili a tutti i tipi di risorse.
+>Usando i dati di telemetria usati dal centro sicurezza per sfruttare i feed interni di Azure, le analisi fornite di seguito sono applicabili a tutti i tipi di risorse.
 
-## Livello di rete di Azure<a name="network-layer"></a>
+## Livello rete di Azure<a name="network-layer"></a>
 
-Analitica a livello di rete di Centro sicurezza si basata sul campione [dati IPFIX](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), quali sono le intestazioni dei pacchetti raccolte dai router principale di Azure. Modelli di Centro sicurezza machine learning basato su questo feed di dati, identificano e contrassegno le attività di traffico dannoso. Per arricchire gli indirizzi IP, il Centro sicurezza Usa database di Intelligence sulle minacce di Microsoft.
+L'analisi a livello di rete del Centro sicurezza si basa su [dati IPFIX](https://en.wikipedia.org/wiki/IP_Flow_Information_Export)di esempio, ovvero le intestazioni dei pacchetti raccolte dai router core di Azure. Basati su questo feed di dati, i modelli di Machine Learning del Centro sicurezza identificano e contrassegnano le attività di traffico dannoso. Per arricchire gli indirizzi IP, il Centro sicurezza utilizza il database di intelligence per le minacce di Microsoft.
 
 > [!div class="mx-tableFixed"]
 
 |Avviso|Descrizione|
 |---|---|
-|**Attività di rete RDP in uscita sospetta**|Analisi del traffico di rete campionati visualizzano rilevato una comunicazione in uscita anomala Remote Desktop Protocol (RDP) che hanno origine da una risorsa nella distribuzione. Questa attività è considerata anomala per questo ambiente e potrebbe indicare che la risorsa sia stata compromessa e viene ora usato per l'endpoint RDP esterni di attacchi di forza bruta. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
-|**Attività di rete RDP in più destinazioni in uscita sospetta**|Analisi del traffico di rete campionati visualizzano rilevato una comunicazione in uscita anomala Remote Desktop Protocol (RDP) che hanno origine da una risorsa nella distribuzione a più destinazioni. Questa attività è considerata anomala per questo ambiente e potrebbe indicare che la risorsa sia stata compromessa e viene ora usato per gli endpoint RDP esterni di attacchi di forza bruta. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
-|**Attività di rete SSH in uscita sospetta**|Analisi del traffico di rete campionati visualizzano rilevato una comunicazione in uscita anomala Secure Shell (SSH) proveniente da una risorsa nella distribuzione. Questa attività è considerata anomala per questo ambiente e potrebbe indicare che la risorsa sia stata compromessa e viene ora usato per l'endpoint SSH esterni di attacchi di forza bruta. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
-|**Attività di rete SSH in più destinazioni in uscita sospetta**|Analisi del traffico di rete campionati visualizzano rilevato una comunicazione in uscita anomala Secure Shell (SSH) proveniente da una risorsa nella distribuzione a più destinazioni. Questa attività è considerata anomala per questo ambiente e potrebbe indicare che la risorsa sia stata compromessa e viene ora usato per gli endpoint SSH esterni di attacchi di forza bruta. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
-|**Suspicious attività di rete SSH in ingresso provenienti da più origini**|Analisi del traffico di rete campionati visualizzano rilevato anomale comunicazioni in ingresso SSH da più origini in una risorsa nella distribuzione. Vari indirizzi IP univoco ci si connette per la risorsa è considerato anomalo per questo ambiente. Questa attività può indicare un tentativo di attacco di forza bruta l'interfaccia SSH da più host (Botnet).|
-|**Attività di rete SSH in ingresso sospetta**|Analisi del traffico di rete campionati visualizzano ha rilevato una comunicazione SSH in ingresso anomala a una risorsa nella distribuzione. Un numero relativamente elevato di connessioni in ingresso per la risorsa è considerato anomalo per questo ambiente. Questa attività può indicare un tentativo di attacco di forza bruta SSH interfaccia.
-|**Suspicious attività di rete RDP in ingresso provenienti da più origini**|Analisi del traffico di rete campionati visualizzano rilevato anomale RDP le comunicazioni in ingresso provenienti da più origini in una risorsa nella distribuzione. Vari indirizzi IP univoco ci si connette per la risorsa è considerato anomalo per questo ambiente. Questa attività può indicare un tentativo di attacco di forza bruta l'interfaccia RDP da più host (Botnet).|
-|**Attività di rete RDP in ingresso sospetta**|Analisi del traffico di rete campionati visualizzano ha rilevato una comunicazione RDP in ingresso anomala a una risorsa nella distribuzione. Un numero relativamente elevato di connessioni in ingresso per la risorsa è considerato anomalo per questo ambiente. Questa attività può indicare un tentativo di attacco di forza bruta SSH interfaccia.|
+|**Attività di rete RDP in uscita sospetta**|L'analisi del traffico di rete campionata ha rilevato una comunicazione in uscita Remote Desktop Protocol (RDP) anomala originata da una risorsa nella distribuzione. Questa attività viene considerata anomala per questo ambiente e può indicare che la risorsa è stata compromessa e viene ora utilizzata per la forza bruta dell'endpoint RDP esterno. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
+|**Attività di rete RDP in uscita sospetta verso più destinazioni**|L'analisi del traffico di rete campionata ha rilevato una comunicazione in uscita Remote Desktop Protocol (RDP) anomala originata da una risorsa nella distribuzione a più destinazioni. Questa attività viene considerata anomala per questo ambiente e può indicare che la risorsa è stata compromessa e viene ora utilizzata per la forza bruta degli endpoint RDP esterni. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
+|**Attività di rete SSH in uscita sospetta**|L'analisi del traffico di rete campionata ha rilevato una comunicazione Secure Shell (SSH) in uscita anomala originata da una risorsa nella distribuzione. Questa attività viene considerata anomala per questo ambiente e può indicare che la risorsa è stata compromessa e viene ora usata per la forza bruta dell'endpoint SSH esterno. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
+|**Attività di rete SSH in uscita sospetta verso più destinazioni**|L'analisi del traffico di rete campionata ha rilevato una comunicazione Secure Shell (SSH) in uscita anomala originata da una risorsa nella distribuzione a più destinazioni. Questa attività viene considerata anomala per questo ambiente e può indicare che la risorsa è stata compromessa e viene ora usata per la forza bruta degli endpoint SSH esterni. Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
+|**Attività di rete SSH in ingresso sospetta da più origini**|L'analisi del traffico di rete campionata ha rilevato una comunicazione SSH in ingresso anomala da più origini a una risorsa nella distribuzione. Diversi indirizzi IP univoci che si connettono alla risorsa sono considerati anomali per questo ambiente. Questa attività può indicare un tentativo di forza bruta dell'interfaccia SSH da più host (botnet).|
+|**Attività di rete SSH in ingresso sospetta**|L'analisi del traffico di rete campionata ha rilevato una comunicazione SSH in ingresso anomala a una risorsa nella distribuzione. Un numero relativamente elevato di connessioni in ingresso alla risorsa viene considerato anomalo per questo ambiente. Questa attività può indicare un tentativo di forza bruta dell'interfaccia SSH.
+|**Attività di rete RDP in ingresso sospetta da più origini**|L'analisi del traffico di rete campionata ha rilevato una comunicazione RDP in ingresso anomala da più origini a una risorsa nella distribuzione. Diversi indirizzi IP univoci che si connettono alla risorsa sono considerati anomali per questo ambiente. Questa attività può indicare un tentativo di forza bruta dell'interfaccia RDP da più host (botnet).|
+|**Attività di rete RDP in ingresso sospetta**|L'analisi del traffico di rete campionata ha rilevato una comunicazione RDP in ingresso anomala a una risorsa nella distribuzione. Un numero relativamente elevato di connessioni in ingresso alla risorsa viene considerato anomalo per questo ambiente. Questa attività può indicare un tentativo di forza bruta dell'interfaccia SSH.|
 
-Per capire come usare Centro sicurezza di rete correlati per applicare la protezione delle minacce, vedere i segnali [rilevamenti euristica DNS nel Centro sicurezza Azure](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
+Per comprendere in che modo il Centro sicurezza può usare i segnali correlati alla rete per applicare la protezione dalle minacce, vedere [rilevamento di DNS euristici nel centro sicurezza di Azure](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 ## Livello di gestione di Azure (Azure Resource Manager) (anteprima)<a name ="management-layer"></a>
 
 >[!NOTE]
->Livello di protezione il Centro sicurezza PC basato su Azure Resource Manager è attualmente in anteprima.
+>Il livello di protezione del Centro sicurezza basato su Azure Resource Manager è attualmente in fase di anteprima.
 
-Il Centro sicurezza offre un ulteriore livello di protezione dati, sfruttando gli eventi di Azure Resource Manager, che viene considerato il piano di controllo per Azure. Analizzando i record di Azure Resource Manager, il Centro sicurezza rileva operazioni potenzialmente dannose o insolite oppure elementi nell'ambiente di sottoscrizione di Azure.
+Il Centro sicurezza offre un livello di protezione aggiuntivo sfruttando Azure Resource Manager eventi, considerato il piano di controllo per Azure. Analizzando i record di Azure Resource Manager, il Centro sicurezza rileva operazioni insolite o potenzialmente dannose nell'ambiente della sottoscrizione di Azure.
 
 > [!div class="mx-tableFixed"]
 
-|Avviso|Descrizione|
+|Avviso|DESCRIZIONE|
 |---|---|
-|**Toolkit microBurst eseguire**|È stato rilevato un toolkit di esplorazione dell'ambiente cloud noto eseguito nell'ambiente in uso. Lo strumento "MicroBurst" (vedere https://github.com/NetSPI/MicroBurst) è utilizzabile da un utente malintenzionato (o tester di penetrazione) per eseguire il mapping delle risorse delle sottoscrizioni, identificare le configurazioni non sicure e determinare una perdita di informazioni riservate.|
-|**Toolkit azurite eseguire**|È stato rilevato un toolkit di esplorazione dell'ambiente cloud noto eseguito nell'ambiente in uso. Lo strumento "Azurite" (vedere https://github.com/mwrlabs/Azurite) è utilizzabile da un utente malintenzionato (o tester di penetrazione) per eseguire il mapping delle risorse delle sottoscrizioni e identificare le configurazioni non sicure.|
-|**Sessione di gestione sospette usando un account inattivo**|Analisi dei log attività di sottoscrizione ha rilevato un comportamento sospetto. Un'entità che non era in uso per un lungo periodo di tempo, è ora l'esecuzione di azioni che è possono proteggere la persistenza per un utente malintenzionato.|
-|**Sessione sospetta gestione usando PowerShell**|Analisi dei log attività di sottoscrizione ha rilevato un comportamento sospetto. Un'entità a cui non regolarmente Usa PowerShell per gestire l'ambiente di sottoscrizione, è ora usando PowerShell e l'esecuzione di azioni che è possono proteggere la persistenza per un utente malintenzionato.|
-|**Utilizzare le tecniche avanzate persistenza di Azure**|Analisi dei log attività di sottoscrizione ha rilevato un comportamento sospetto. Ruoli personalizzati sono stati assegnati identità legitimized entità. Questo può causare l'autore dell'attacco a garantirsi in un ambiente del cliente di Azure.|
-|**Attività da un paese non frequente**|Si è verificata attività da una posizione che non è stato recentemente o mai visitata da altri utenti dell'organizzazione.<br/>Questo rilevamento prende in considerazione le località di attività passate per determinare località nuove e non frequenti. Il motore di rilevamento delle anomalie archivia le informazioni sulle località precedenti usate dagli utenti dell'organizzazione. 
-|**Attività da indirizzi IP anonimi**|Attività degli utenti da un indirizzo IP che è stato identificato come è stato rilevato un indirizzo IP proxy anonimo. <br/>Questi proxy vengono usati da persone che vogliono nascondere l'indirizzo IP del dispositivo e possono essere usati per attacchi dannosi. Questo rilevamento sfrutta un algoritmo di apprendimento automatico che riduce i "falsi positivi", ad esempio gli indirizzi IP contrassegnati in modo errato che vengono usati diffusamente dagli utenti dell'organizzazione.|
-|**Comunicazione Impossibile rilevato**|Due attività degli utenti (è una o più sessioni) si sono verificati, provenienti da località geograficamente distanti e realizzate entro un periodo di tempo più breve del tempo avrebbe richiesto all'utente di spostarsi dalla prima località alla seconda. Ciò indica che un altro utente sta usando le stesse credenziali. <br/>Questo rilevamento si avvale di un algoritmo di machine learning che ignora "falsi positivi più evidenti" aggiunta come contributo alle condizioni di tipo comunicazione Impossibile, ad esempio le VPN e posizioni usate regolarmente da altri utenti nell'organizzazione. Questo rilevamento prevede un periodo di apprendimento iniziale di sette giorni durante il quale apprende lo schema di attività di un nuovo di utente.|
+|**Esecuzione del Toolkit di microesplosioni**|Nell'ambiente è stata rilevata un'esecuzione nota del Toolkit di esplorazione dell'ambiente cloud. Lo strumento "microrompi" ( https://github.com/NetSPI/MicroBurst) vedere può essere usato da un utente malintenzionato (o tester di penetrazione) per eseguire il mapping delle risorse delle sottoscrizioni, identificare le configurazioni non sicure e perdere informazioni riservate.|
+|**Esecuzione di azzurrite Toolkit**|Nell'ambiente è stata rilevata un'esecuzione nota del Toolkit di esplorazione dell'ambiente cloud. Lo strumento "azzurrite" (vedere https://github.com/mwrlabs/Azurite) può essere usato da un utente malintenzionato (o tester di penetrazione) per eseguire il mapping delle risorse delle sottoscrizioni e identificare le configurazioni non protette.|
+|**Sessione di gestione sospetta utilizzando un account inattivo**|L'analisi dei log attività della sottoscrizione ha rilevato un comportamento sospetto. Entità non utilizzata per un lungo periodo di tempo, sta ora eseguendo azioni che possono proteggere la persistenza per un utente malintenzionato.|
+|**Sessione di gestione sospetta con PowerShell**|L'analisi dei log attività della sottoscrizione ha rilevato un comportamento sospetto. Un'entità che non usa regolarmente PowerShell per gestire l'ambiente di sottoscrizione ora usa PowerShell ed esegue azioni che possono proteggere la persistenza per un utente malintenzionato.|
+|**Uso di tecniche avanzate di persistenza di Azure**|L'analisi dei log attività della sottoscrizione ha rilevato un comportamento sospetto. Ai ruoli personalizzati sono state assegnate entità di identità legittime. In questo modo, l'autore dell'attacco può ottenere persistenza in un ambiente cliente di Azure.|
+|**Attività da un paese non frequente**|Si è verificata un'attività da un percorso non recente o mai visitato da alcun utente nell'organizzazione.<br/>Questo rilevamento prende in considerazione le località di attività passate per determinare località nuove e non frequenti. Il motore di rilevamento delle anomalie archivia le informazioni sulle località precedenti usate dagli utenti dell'organizzazione. 
+|**Attività da indirizzi IP anonimi**|È stata rilevata l'attività degli utenti da un indirizzo IP identificato come indirizzo IP proxy anonimo. <br/>Questi proxy vengono usati da persone che vogliono nascondere l'indirizzo IP del dispositivo e possono essere usati per attacchi dannosi. Questo rilevamento sfrutta un algoritmo di apprendimento automatico che riduce i "falsi positivi", ad esempio gli indirizzi IP contrassegnati in modo errato che vengono usati diffusamente dagli utenti dell'organizzazione.|
+|**È stata rilevata una corsa Impossibile**|Si sono verificate due attività utente, ovvero una o più sessioni, che hanno originato da località geograficamente distanti entro un periodo di tempo più breve rispetto al tempo impiegato dall'utente per spostarsi dalla prima posizione al secondo. Indica che un altro utente utilizza le stesse credenziali. <br/>Questo rilevamento si avvale di un algoritmo di Machine Learning che ignora i "falsi positivi" evidenti che contribuiscono alle condizioni di viaggio impossibili, ad esempio le VPN e le posizioni usate regolarmente da altri utenti nell'organizzazione. Questo rilevamento prevede un periodo di apprendimento iniziale di sette giorni durante il quale apprende lo schema di attività di un nuovo di utente.|
 
 >[!NOTE]
-> Numerosi l'analitica riportato sopra sono supportate da Microsoft Cloud App Security (MCAS). Per trarre vantaggio da queste analitica, è necessaria una licenza MCAS attivata. Se si ha una licenza MCAS, questi avvisi sono abilitati per impostazione predefinita. Per disattivare questa funzione:
+> Alcune delle analisi precedenti sono basate su Microsoft Cloud App Security (MCAS). Per trarre vantaggio da queste analisi, è necessaria una licenza MCAS attivata. Se si dispone di una licenza MCAS, questi avvisi sono abilitati per impostazione predefinita. Per disabilitarli:
 >
 > 1. Nel pannello del Centro sicurezza selezionare **Criteri di sicurezza**. Per la sottoscrizione che si vuole modificare fare clic su **Modifica impostazioni**.
 > 2. Fare clic su **Rilevamento delle minacce**.
 > 3. In **Enable integrations** (Abilita integrazioni) deselezionare **Allow Microsoft Cloud App Security to access my data** (Consenti a Cloud App Security di accedere ai miei dati) e fare clic su **Salva**.
 
 >[!NOTE]
->Centro sicurezza di Azure archivia i dati dei clienti relative alla sicurezza nella stessa area geografica relativo della risorsa. Se Microsoft non ha ancora distribuito Centro sicurezza di Azure nell'area geografica della risorsa, quindi Archivia i dati negli Stati Uniti. Quando Microsoft Cloud App Security (MCAS) è abilitata, queste informazioni vengono archiviate in conformità con le regole di posizione geografica di MCAS. Visualizzare [archiviazione di dati per i servizi non a livello di area per ulteriori informazioni](http://azuredatacentermap.azurewebsites.net/).
+>Il Centro sicurezza di Azure archivia i dati dei clienti correlati alla sicurezza nella stessa area geografica della risorsa. Se Microsoft non ha ancora distribuito il Centro sicurezza di Azure nell'area geografica della risorsa, archivia i dati nel Stati Uniti. Quando Microsoft Cloud App Security (MCAS) è abilitata, queste informazioni vengono archiviate in base alle regole di localizzazione geografica di MCAS. [Per ulteriori informazioni, vedere archiviazione dei dati per servizi non locali](http://azuredatacentermap.azurewebsites.net/).

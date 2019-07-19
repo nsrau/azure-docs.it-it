@@ -3,18 +3,18 @@ title: Effettuare il push di un'immagine Docker in un registro contenitori di Az
 description: Effettuare il push e il pull di immagini Docker in un registro contenitori privato in Azure tramite l'interfaccia della riga di comando di Docker
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 2cb401dfd68075ff0867ae3f89eee3474000b5de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6944755619ea5e8e63af04b9b3bca6f7376e29a9
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60828759"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309437"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro contenitori Docker privato tramite l'interfaccia della riga di comando di Docker
 
@@ -25,7 +25,7 @@ La procedura seguente esegue il download di un'[immagine di Nginx](https://store
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Registro Azure Container**: creare un registro di contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
-* **Interfaccia della riga di comando di Docker**: è anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [macOS][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
+* **Interfaccia della riga di comando di Docker**: è anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [MacOS][docker-mac], [Windows][docker-windows]o [Linux][Docker-Linux] .
 
 ## <a name="log-in-to-a-registry"></a>Accedere a un registro
 
@@ -62,7 +62,7 @@ Eseguire quindi il comando [docker run](https://docs.docker.com/engine/reference
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Passare a `http://localhost:8080` per visualizzare la pagina web predefinita servita da Nginx nel contenitore in esecuzione. Verrà visualizzata una pagina simile alla seguente:
+Passare a `http://localhost:8080` per visualizzare la pagina Web predefinita servita da nginx nel contenitore in esecuzione. Verrà visualizzata una pagina simile alla seguente:
 
 ![Nginx sul computer locale](./media/container-registry-get-started-docker-cli/nginx.png)
 

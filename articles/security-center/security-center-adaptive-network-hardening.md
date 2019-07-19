@@ -1,6 +1,6 @@
 ---
-title: Protezione avanzata di rete adattivo nel Centro sicurezza di Azure | Microsoft Docs
-description: " Informazioni su come abilitare la protezione avanzata rete adattivo nel Centro sicurezza di Azure. "
+title: Protezione avanzata della rete adattiva nel centro sicurezza di Azure | Microsoft Docs
+description: " Informazioni su come abilitare la protezione avanzata della rete adattiva nel centro sicurezza di Azure. "
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,130 +13,130 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
-ms.author: monhaber
-ms.openlocfilehash: f35f410ddc039ee264fa1de317e152cb03f391b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: 2f82f3fe6f5cb6808ba606125ee0869475a60274
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241597"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295901"
 ---
-# <a name="adaptive-network-hardening-in-azure-security-center"></a>Protezione avanzata di rete adattivo nel Centro sicurezza di Azure
-Informazioni su come configurare protezione avanzata di rete adattivo nel Centro sicurezza di Azure.
+# <a name="adaptive-network-hardening-in-azure-security-center"></a>Protezione avanzata della rete adattiva nel centro sicurezza di Azure
+Informazioni su come configurare la protezione avanzata della rete adattiva nel centro sicurezza di Azure.
 
-## <a name="what-is-adaptive-network-hardening"></a>What ' s Adaptive protezione avanzata di rete?
-Applicando [(NSG) di gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview) per filtrare il traffico da e verso le risorse, migliora le condizioni di sicurezza di rete. Tuttavia, è comunque possibile sui casi in cui il traffico effettivo che passano attraverso il gruppo di sicurezza è un sottoinsieme di regole di sicurezza di rete definite. In questi casi, migliorando ulteriormente le condizioni di sicurezza può essere ottenuto hardening le regole NSG, basate sugli schemi effettivo del traffico.
+## <a name="what-is-adaptive-network-hardening"></a>Che cos'è la protezione avanzata della rete adattiva?
+L'applicazione dei [gruppi di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) per filtrare il traffico da e verso le risorse migliora il comportamento di sicurezza della rete. Tuttavia, è comunque possibile che si verifichino alcuni casi in cui il traffico effettivo che scorre attraverso NSG è un subset delle regole NSG definite. In questi casi, migliorare ulteriormente il comportamento di sicurezza può essere effettuato grazie alla protezione avanzata delle regole NSG, in base ai modelli di traffico effettivi.
 
-Protezione avanzata di rete adattivo fornisce suggerimenti per rafforzare ulteriormente le regole NSG. Usa un algoritmo di machine learning che tenga conto effettivo del traffico, noto configurazione attendibile, intelligence per le minacce e altri indicatori di compromissione, e quindi fornisce consigli per consentire il traffico solo da specifici indirizzi IP/porte Tuple.
+La protezione avanzata della rete adattiva fornisce consigli per rafforzare ulteriormente le regole NSG. Usa un algoritmo di Machine Learning che determina il traffico effettivo, la configurazione attendibile nota, l'Intelligence per le minacce e altri indicatori di compromissione, quindi fornisce consigli per consentire il traffico solo da tuple IP/porte specifiche.
 
-Supponiamo, ad esempio, che la regola NSG esistente sia per consentire il traffico da 140.20.30.10/24 sulla porta 22. Raccomandazione dell'adattivo rete protezione avanzata, in base all'analisi, sarebbe possibile restringere l'intervallo e consentire il traffico da 140.23.30.10/29, ovvero un intervallo IP più ristretto, e negare tutto il traffico a tale porta.
+Ad esempio, supponiamo che la regola NSG esistente consenta il traffico da 140.20.30.10/24 sulla porta 22. La raccomandazione per la protezione avanzata della rete adattiva, basata sull'analisi, consiste nel limitare l'intervallo e consentire il traffico da 140.23.30.10/29, ovvero un intervallo di indirizzi IP più restrittivo e negare tutto il traffico a tale porta.
 
-![vista avanzata della rete](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+![visualizzazione protezione avanzata della rete](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
 > [!NOTE]
-> Adaptive indicazioni di protezione avanzata di rete sono supportati sulle porte seguenti: 22, 3389, 21, 23, 445, 4333, 3306, 1433, 1434, 53, 20, 5985, 5986, 5432, 139, 66, 1128
+> Le raccomandazioni per la protezione avanzata della rete adattiva sono supportate nelle seguenti porte: 22, 3389, 21, 23, 445, 4333, 3306, 1433, 1434, 53, 20, 5985, 5986, 5432, 139, 66, 1128
 
-## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visualizzare gli avvisi di protezione avanzata di rete adattivo e regole
+## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visualizzare gli avvisi e le regole di protezione avanzata della rete adattiva
 
-1. Nel Centro sicurezza, selezionare **Networking** -> **adattivo rete Hardening**. Le macchine virtuali di rete sono elencate in tre schede separate:
-   * **Risorse non integre**: Macchine virtuali che attualmente dispongono dei raccomandazioni e avvisi attivati eseguendo l'algoritmo adattivo protezione avanzata di rete. 
-   * **Risorse integre**: Macchine virtuali senza avvisi e raccomandazioni.
-   * **Risorse analizzati**: Macchine virtuali che l'algoritmo adattivo protezione avanzata di rete non può essere eseguito su a causa di uno dei motivi seguenti:
-      * **Le macchine virtuali sono le macchine virtuali classiche**: Sono supportate solo macchine virtuali di Azure Resource Manager.
-      * **Non sono sufficienti i dati sono disponibili**: Per generare un traffico accurato consigli sul rafforzamento, Centro sicurezza richiede almeno 30 giorni di dati di traffico.
-      * **Macchina virtuale non è protetta da standard di Centro sicurezza di AZURE**: Solo le macchine virtuali che sono impostate su piano tariffario Standard del Centro sicurezza sono idonee per questa funzionalità.
+1. Nel centro **sicurezza selezionare** -> rete**Adaptive Network hardening**. Le VM di rete sono elencate in tre schede separate:
+   * **Risorse**non integre: Macchine virtuali che attualmente presentano raccomandazioni e avvisi attivati eseguendo l'algoritmo di protezione avanzata della rete adattiva. 
+   * **Risorse integre**: VM senza avvisi e raccomandazioni.
+   * **Risorse**non analizzate: Macchine virtuali in cui non è possibile eseguire l'algoritmo di protezione avanzata della rete adattiva a causa di uno dei motivi seguenti:
+      * Le **macchine virtuali sono macchine virtuali classiche**: Sono supportate solo macchine virtuali Azure Resource Manager.
+      * **I dati disponibili sono insufficienti**: Per generare raccomandazioni accurate per la protezione avanzata del traffico, il Centro sicurezza richiede almeno 30 giorni di dati sul traffico.
+      * **La macchina virtuale non è protetta da ASC standard**: Solo le VM impostate sul piano tariffario standard del Centro sicurezza sono idonee per questa funzionalità.
 
      ![risorse non integre](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
-2. Dal **risorse non integre** scheda, selezionare una macchina virtuale per visualizzare di che avvisi e le regole di protezione avanzata consigliato da applicare.
+2. Dalla scheda **risorse** non integre selezionare una macchina virtuale per visualizzare gli avvisi e le regole di protezione avanzata consigliate da applicare.
 
-    ![avvisi di protezione avanzata](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+    ![protezione avanzata degli avvisi](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
 
-## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Esaminare e applicare protezione avanzata rete adattivo regole consigliate
+## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Esaminare e applicare le regole consigliate per la protezione avanzata della rete adattiva
 
-1. Dal **risorse non integre** scheda, selezionare una macchina virtuale. Sono elencate gli avvisi e regole di protezione consigliata avanzata.
+1. Dalla scheda **risorse** non integre selezionare una macchina virtuale. Sono elencati gli avvisi e le regole di protezione avanzata consigliate.
 
      ![regole di protezione avanzata](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
    > [!NOTE]
-   > Il **regole** scheda sono elencate le regole di protezione avanzata di rete adattivo consiglia si aggiunge. Il **avvisi** scheda vengono elencati gli avvisi generati a causa di traffico, che passano alla risorsa, che non è compreso nell'intervallo IP consentito nelle regole consigliate.
+   > Nella scheda **regole** sono elencate le regole che la protezione avanzata della rete adattiva consiglia di aggiungere. Nella scheda **avvisi** sono elencati gli avvisi generati a causa del traffico, che si propagano alla risorsa, che non rientra nell'intervallo IP consentito nelle regole consigliate.
 
-2. Se si desidera modificare alcuni dei parametri di una regola, è possibile modificare, come illustrato in [modifica di una regola](#modify-rule).
+2. Se si desidera modificare alcuni parametri di una regola, è possibile modificarli, come illustrato in [modificare una regola](#modify-rule).
    > [!NOTE]
-   > È anche possibile [eliminare](#delete-rule) oppure [aggiungere](#add-rule) una regola.
+   > È anche possibile [eliminare](#delete-rule) o [aggiungere](#add-rule) una regola.
 
-3. Selezionare le regole che si desidera applicare il gruppo di sicurezza e fare clic su **Imponi**.
+3. Selezionare le regole che si desidera applicare al NSG, quindi fare clic su **applica**.
 
       > [!NOTE]
-      > Le regole applicate vengono aggiunti al NSG(s) protegge la VM. (Una macchina virtuale può essere protetto da un gruppo di sicurezza associato alla relativa interfaccia di rete, e/o la subnet in cui risiede la macchina virtuale)
+      > Le regole imposte vengono aggiunte a NSG (s) che proteggono la macchina virtuale. Una macchina virtuale può essere protetta da un NSG associato alla scheda di interfaccia di rete o alla subnet in cui risiede la macchina virtuale o a entrambe.
 
     ![Imponi regole](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
 
 
-### Modificare una regola  <a name ="modify-rule"> </a>
+### Modificare una regola <a name ="modify-rule"></a>
 
-È possibile modificare i parametri di una regola che è stato consigliato. Ad esempio, è possibile modificare gli intervalli IP consigliati.
+Potrebbe essere necessario modificare i parametri di una regola consigliata. Ad esempio, potrebbe essere necessario modificare gli intervalli IP consigliati.
 
-Alcune importanti linee guida per la modifica di una regola di protezione avanzata di rete adattivo:
+Alcune linee guida importanti per la modifica di una regola di protezione avanzata della rete adattiva:
 
-* È possibile modificare i parametri di solo regole "Consenti". 
-* È possibile modificare le regole diventare "Nega" regole "Consenti". 
+* È possibile modificare i parametri solo per le regole "Allow". 
+* Non è possibile modificare le regole "Consenti" per diventare regole "Nega". 
 
   > [!NOTE]
-  > Creazione e modifica di regole "Nega" avviene direttamente la sicurezza di rete per altri dettagli, vedere [crea, modifica o elimina un gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > La creazione e la modifica delle regole di "negazione" viene eseguita direttamente in NSG per altre informazioni, vedere [creare, modificare o eliminare un gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
-* Oggetto **rifiutare tutto il traffico** regola è l'unico tipo di regola di "accesso negato" che verrà elencata qui e non può essere modificato. È possibile, tuttavia, eliminarlo (vedere [eliminare una regola](#delete-rule)).
+* Una regola **Deny all traffic** è l'unico tipo di regola "Deny" che verrebbe elencata e non può essere modificata. È tuttavia possibile eliminarla (vedere [eliminare una regola](#delete-rule)).
   > [!NOTE]
-  > Oggetto **rifiutare tutto il traffico** regola è consigliata quando, come risultato dell'esecuzione dell'algoritmo, il Centro sicurezza non identifica il traffico che deve essere consentito, in base alla configurazione di sicurezza di rete esistente. Pertanto, la regola consigliata consiste nel rifiutare tutto il traffico alla porta specificata. Il nome di questo tipo di regola viene visualizzato come "*generati dal sistema*". Dopo l'applicazione di questa regola, il nome effettivo nella sicurezza di rete sarà una stringa costituita da un numero casuale, direzione del traffico, "Nega" e il protocollo.
+  > Quando si esegue l'algoritmo, il Centro sicurezza non identifica il traffico che deve essere consentito, in base alla configurazione NSG esistente, è consigliabile utilizzare una regola di **negazione di tutto il traffico** . Pertanto, la regola consigliata consiste nel negare tutto il traffico alla porta specificata. Il nome di questo tipo di regola viene visualizzato come "*generato dal sistema*". Dopo l'applicazione di questa regola, il nome effettivo in NSG sarà una stringa costituita dal protocollo, direzione del traffico, "Nega" e un numero casuale.
 
-*Per modificare una regola di protezione avanzata di rete adattivo:*
+*Per modificare una regola di protezione avanzata della rete adattiva:*
 
-1. Per modificare alcuni dei parametri di una regola, nelle **regole** scheda, fare clic sui tre puntini di sospensione alla fine della riga della regola e fare clic su **modificare**.
+1. Per modificare alcuni parametri di una regola, nella scheda **regole** fare clic sui tre puntini di sospensione (...) alla fine della riga della regola, quindi fare clic su **modifica**.
 
    ![Modifica regola](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
-1. Nel **Modifica regola** finestra, aggiornare i dettagli che si desidera modificare e scegliere **salvare**.
+1. Nella finestra **Modifica regola** aggiornare i dettagli che si desidera modificare e fare clic su **Salva**.
 
    > [!NOTE]
-   > Dopo aver fatto clic **salvare**, hai modificato la regola. *Tuttavia, non è stato applicato lo al NSG.* Per applicarlo, è necessario selezionare la regola nell'elenco e fare clic su **Imponi** (come illustrato nel passaggio successivo).
+   > Dopo aver fatto clic su **Salva**, la regola è stata modificata. *Tuttavia, non è stato applicato a NSG.* Per applicarla, è necessario selezionare la regola nell'elenco e fare clic su **applica** (come illustrato nel passaggio successivo).
 
    ![Modifica regola](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
-3. Per applicare la regola aggiornata, dall'elenco, selezionare la regola di aggiornamento e fare clic su **Imponi**.
+3. Per applicare la regola aggiornata, dall'elenco selezionare la regola aggiornata e fare clic su **applica**.
 
-    ![applicare la regola](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
+    ![Applica regola](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
-### Aggiungere una nuova regola <a name ="add-rule"> </a>
+### Aggiungi una nuova regola <a name ="add-rule"></a>
 
-È possibile aggiungere una regola "Consenti" che non è stata consigliata dal Centro sicurezza.
+È possibile aggiungere una regola "Consenti" non consigliata dal centro sicurezza.
 
 > [!NOTE]
-> È possibile aggiungere le regole solo "Consenti" di seguito. Se si desidera aggiungere le regole "Nega", non è pertanto direttamente sulla sicurezza di rete. Per altre informazioni, vedere [crea, modifica o elimina un gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> Qui è possibile aggiungere solo le regole "Allow". Se si desidera aggiungere regole di "negazione", è possibile eseguire questa operazione direttamente nel NSG. Per altri dettagli, vedere [creare, modificare o eliminare un gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
-*Per aggiungere una regola di protezione avanzata di rete adattivo:*
+*Per aggiungere una regola di protezione avanzata della rete adattiva:*
 
-1. Fare clic su **Aggiungi regola** (che si trova nell'angolo superiore sinistro).
+1. Fare clic su **Aggiungi regola** (presente nell'angolo in alto a sinistra).
 
    ![Aggiungi regola](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
 
-1. Nel **nuova regola** , immettere i dettagli e fare clic su **Add**.
+1. Nella finestra **nuova regola** immettere i dettagli e fare clic su **Aggiungi**.
 
    > [!NOTE]
-   > Dopo aver fatto clic **Add**, è stata aggiunta la regola e viene elencato con altre regole consigliate. Tuttavia, non è stato applicato, nella sicurezza di rete. Per attivarlo, è necessario selezionare la regola nell'elenco e fare clic su **Imponi** (come illustrato nel passaggio successivo).
+   > Dopo aver fatto clic su **Aggiungi**, la regola è stata aggiunta correttamente ed è elencata con le altre regole consigliate. Tuttavia, non è stato applicato a NSG. Per attivarla, è necessario selezionare la regola nell'elenco e fare clic su **applica** (come illustrato nel passaggio successivo).
 
-3. Per applicare la nuova regola, dall'elenco, selezionare la nuova regola e fare clic su **Imponi**.
+3. Per applicare la nuova regola, dall'elenco selezionare la nuova regola e fare clic su **applica**.
 
-    ![applicare la regola](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
+    ![Applica regola](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
-### Eliminare una regola <a name ="delete-rule"> </a>
+### Eliminare una regola <a name ="delete-rule"></a>
 
-Se necessario, è possibile eliminare una regola consigliata. Ad esempio, si potrebbe determinare che l'applicazione di una regola suggerita potrebbe bloccare il traffico legittimo.
+Quando necessario, è possibile eliminare una regola consigliata. Ad esempio, è possibile determinare che l'applicazione di una regola consigliata potrebbe bloccare il traffico legittimo.
 
-*Per eliminare una regola di protezione avanzata di rete adattivo:*
+*Per eliminare una regola di protezione avanzata della rete adattiva:*
 
-1. Nel **regole** scheda, fare clic sui tre puntini di sospensione alla fine della riga della regola e fare clic su **eliminare**.  
+1. Nella scheda **regole** fare clic sui tre puntini di sospensione (...) alla fine della riga della regola, quindi fare clic su **Elimina**.  
 
     ![regole di protezione avanzata](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
 

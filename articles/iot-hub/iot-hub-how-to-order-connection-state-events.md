@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: f4baab6e0909144efc613572207e7f24c4b4fe1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a020221d841682d1e18d2b728a732ec4dfc35ef3
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743309"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67988296"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordinare gli eventi di connessione dei dispositivi dall'hub IoT di Azure tramite Azure Cosmos DB
 
@@ -24,9 +24,9 @@ Il numero di sequenza è una rappresentazione in formato stringa di un numero es
 
 * Un account Azure attivo. Se non si ha un account, è possibile [crearne uno gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
-* Un account API SQL di Azure Cosmos DB attivo. Se non ne è ancora stato creato un', vedere la procedura dettagliata [Creare un account di database](../cosmos-db/create-sql-api-dotnet.md#create-an-azure-cosmos-db-account).
+* Un account API SQL di Azure Cosmos DB attivo. Se non ne è ancora stato creato un', vedere la procedura dettagliata [Creare un account di database](../cosmos-db/create-sql-api-java.md#create-a-database-account).
 
-* Una raccolta nel database. Vedere la procedura dettagliata [Aggiungere una raccolta](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection). Quando si crea la raccolta, usare `/id` per la chiave di partizione.
+* Una raccolta nel database. Vedere la procedura dettagliata [Aggiungere una raccolta](../cosmos-db/create-sql-api-java.md#add-a-container). Quando si crea la raccolta, utilizzare `/id` per la chiave di partizione.
 
 * Un hub IoT in Azure. Se l'hub non è stato ancora creato, vedere [Introduzione all'hub IoT](iot-hub-csharp-csharp-getstarted.md) per la procedura dettagliata.
 
@@ -38,7 +38,7 @@ In primo luogo creare una stored procedure e impostarlo fino all'esecuzione di u
 
    ![Creare la stored procedure](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
-2. Immettere **LatestDeviceConnectionState** per l'ID della stored procedure e incollare il codice seguente nel **corpo di Stored Procedure**. Si noti che questo codice deve sostituire il codice esistente nel corpo della stored procedure. Questo codice mantiene una riga per ogni ID dispositivo e registra lo stato di connessione più recente di tale ID identificando il numero di sequenza più alto.
+2. Immettere **LatestDeviceConnectionState** per l'ID stored procedure e incollare il codice seguente nel **corpo della stored procedure**. Si noti che questo codice deve sostituire il codice esistente nel corpo della stored procedure. Questo codice mantiene una riga per ogni ID dispositivo e registra lo stato di connessione più recente di tale ID identificando il numero di sequenza più alto.
 
     ```javascript
     // SAMPLE STORED PROCEDURE
@@ -137,7 +137,7 @@ Per prima cosa, creare un'app per la logica e aggiungere un trigger di Griglia d
 
 ### <a name="create-a-logic-app-resource"></a>Creare una risorsa di App per la logica
 
-1. Nel [portale di Azure](https://portal.azure.com), selezionare **+ crea una risorsa**, selezionare **integrazione** e quindi **App per la logica**.
+1. Nella [portale di Azure](https://portal.azure.com)selezionare **+ Crea una risorsa**, selezionare **integrazione** e quindi app per la **logica**.
 
    ![Creare l'app per la logica](./media/iot-hub-how-to-order-connection-state-events/select-logic-app.png)
 
@@ -150,15 +150,15 @@ Per prima cosa, creare un'app per la logica e aggiungere un trigger di Griglia d
    È stata creata ora una risorsa di Azure per l'app per la logica. Al termine della distribuzione dell'app per la logica, Progettazione app per la logica mostra i modelli comuni disponibili per poter iniziare più rapidamente.
 
    > [!NOTE]
-   > Per trovare e aprire di nuovo l'app per la logica, selezionare **gruppi di risorse** e selezionare il gruppo di risorse in uso per questa procedura. Selezionare quindi la nuova app per la logica. Verrà visualizzata la finestra di progettazione di App per la logica.
+   > Per trovare e aprire di nuovo l'app per la logica, selezionare **gruppi di risorse** e selezionare il gruppo di risorse che si sta usando per questa procedura. Quindi selezionare la nuova app per la logica. Verrà visualizzata la finestra di progettazione dell'app per la logica.
 
-4. Nella finestra di progettazione App per la logica, scorrere verso destra fino a visualizzare i trigger comuni. Sotto **modelli**, scegliere **App per la logica vuota** in modo che sia possibile compilare app per la logica da zero.
+4. Nella finestra di progettazione dell'app per la logica scorrere verso destra fino a visualizzare i trigger comuni. In **modelli**scegliere app per la **logica vuota** per poter compilare l'app per la logica da zero.
 
 ### <a name="select-a-trigger"></a>Selezionare un trigger
 
 Un trigger è un evento specifico che avvia l'app per la logica. Per questa esercitazione, il trigger che attiva il flusso di lavoro riceve una richiesta tramite HTTP.
 
-1. Nei connettori e trigger sulla barra di ricerca, digitare **HTTP** e premere INVIO.
+1. Nella barra di ricerca connettori e trigger digitare **http** e premere INVIO.
 
 2. Selezionare **Richiesta - Alla ricezione di una richiesta HTTP** come trigger.
 
@@ -192,7 +192,7 @@ Un trigger è un evento specifico che avvia l'app per la logica. Per questa eser
    }]
    ```
 
-   ![Payload JSON di esempio Incolla](./media/iot-hub-how-to-order-connection-state-events/paste-sample-payload.png)
+   ![Incollare il payload JSON di esempio](./media/iot-hub-how-to-order-connection-state-events/paste-sample-payload.png)
 
 5. È possibile che venga inviata una notifica popup con la dicitura **Ricordare di includere nella richiesta un'intestazione Content-Type impostata su application/json**. Questo suggerimento può essere tranquillamente ignorato ed è possibile passare alla sezione successiva.
 
@@ -200,41 +200,41 @@ Un trigger è un evento specifico che avvia l'app per la logica. Per questa eser
 
 Nel flusso di lavoro dell'app per la logica, le condizioni consentono di eseguire azioni specifiche dopo il superamento di una determinata condizione. Dopo che la condizione è soddisfatta, è possibile definire un'azione desiderata. Per questa esercitazione, la condizione consiste nel controllare se il tipo di evento (eventType) è la connessione o la disconnessione del dispositivo. L'azione consiste invece nell'esecuzione della stored procedure nel database.
 
-1. Selezionare **+ nuovo passaggio** quindi **incorporati**, quindi cercare e selezionare **condizione**. Fare clic nella **scegliere un valore** e viene visualizzata una finestra che mostra il contenuto dinamico, ad esempio i campi che possono essere selezionati. Compilare i campi come illustrato di seguito per l'esecuzione solo per gli eventi dispositivo connesso e dispositivo disconnesso:
+1. Selezionare **+ nuovo passaggio** , quindi **predefinito**, quindi trova e seleziona **condizione**. Fare clic su in **scegliere un valore** . verrà visualizzata una casella con il contenuto dinamico, ovvero i campi che è possibile selezionare. Compilare i campi come illustrato di seguito per eseguire questa operazione solo per gli eventi connessi al dispositivo e disconnesso dal dispositivo:
 
-   * Scegliere un valore: **eventType** -selezionare questa opzione dai campi del contenuto dinamico che vengono visualizzati quando si fa clic su questo campo.
-   * Modifica "è uguale a" negli **termina con**.
-   * Scegliere un valore: **nected**.
+   * Scegliere un valore: **eventType** --selezionare i campi nel contenuto dinamico che vengono visualizzati quando si fa clic su questo campo.
+   * Modificare "è uguale a" per **terminare con**.
+   * Scegliere un valore: **collegata**.
 
      ![Specificare una condizione](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
-2. Nel **se ha valore true** finestra di dialogo, fare clic su **Aggiungi un'azione**.
+2. Nella finestra di dialogo **If true** fare clic su **Aggiungi un'azione**.
   
    ![Aggiunta di un'azione se la condizione è vera](./media/iot-hub-how-to-order-connection-state-events/action-if-true.png)
 
-3. Eseguire la ricerca di Cosmos DB e selezionare **Azure Cosmos DB: eseguire la stored procedure**
+3. Cercare Cosmos DB e selezionare **Azure Cosmos DB-Execute stored procedure**
 
    ![Ricerca di CosmosDB](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png)
 
-4. Compilandone **cosmosdb-connection** per il **nome connessione** e selezionare la voce nella tabella, quindi selezionare **Create**. Viene visualizzato il **eseguire la stored procedure** pannello. Immettere i valori per i campi:
+4. Compilare **cosmosdb-Connection** per il **nome della connessione** e selezionare la voce nella tabella e quindi selezionare **Create (crea**). Viene visualizzato il pannello **Execute stored procedure** . Immettere i valori per i campi:
 
    **ID database**: ToDoList
 
    **ID raccolta**: Elementi
 
-   **ID della stored procedure**: LatestDeviceConnectionState
+   **ID SPROC**: LatestDeviceConnectionState
 
-5. Selezionare **Aggiungi nuovo parametro**. Nell'elenco a discesa visualizzato, selezionare le caselle accanto a **chiave di partizione** e **i parametri per la stored procedure**, quindi fare clic su qualsiasi altro punto dello schermo, che aggiunge un campo per il valore di chiave di partizione e un campo per parametri per la stored procedure.
+5. Selezionare **Aggiungi nuovo parametro**. Nell'elenco a discesa visualizzato selezionare le caselle accanto a **chiave di partizione** e **parametri per il stored procedure**, quindi fare clic in un punto qualsiasi dello schermo; aggiunge un campo per il valore della chiave di partizione e un campo per i parametri per la stored procedure.
 
    ![Popolamento dell'azione dell'app per la logica](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
-6. A questo punto immettere il valore di chiave di partizione e i parametri come illustrato di seguito. Assicurarsi di inserire le parentesi e virgolette doppie come illustrato. Potrebbe essere necessario fare clic su **Aggiungi contenuto dinamico** per ottenere i valori validi, è possibile usare qui.
+6. Immettere ora i parametri e il valore della chiave di partizione, come illustrato di seguito. Assicurarsi di inserire tra parentesi quadre e virgolette doppie, come illustrato. Potrebbe essere necessario fare clic su **Aggiungi contenuto dinamico** per ottenere i valori validi che è possibile usare qui.
 
    ![Popolamento dell'azione dell'app per la logica](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
-7. Nella parte superiore del riquadro in cui viene indicato **per ogni**, in **selezionare un output dai passaggi precedenti**, verificare che **corpo** sia selezionata.
+7. Nella parte superiore del riquadro in cui viene indicato **, in** **selezionare un output dai passaggi precedenti**, verificare che il **corpo** sia selezionato.
 
-   ![compilare app per la logica per ogni](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
+   ![popola l'app per la logica per ogni](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
 
 8. Salvare l'app per la logica.
 
@@ -264,17 +264,17 @@ In questa sezione viene configurato l'hub IoT per la pubblicazione degli eventi 
 
    ![Creare una nuova sottoscrizione di eventi](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
-4. Compilandone **dettagli della sottoscrizione eventi**: fornire un nome descrittivo e selezionare **Schema Griglia di eventi**.
+4. Immettere **i dettagli della sottoscrizione di eventi**: fornire un nome descrittivo e selezionare **Schema Griglia di eventi**.
 
-5. Immettere il **tipi di evento** campi. Nell'elenco a discesa, selezionare solo **dispositivo connesso** e **dispositivo disconnesso** dal menu di scelta. Fare clic su qualsiasi altro punto dello schermo per chiudere l'elenco e salvare le selezioni effettuate.
+5. Compilare i campi **tipi di evento** . Nell'elenco a discesa selezionare solo **dispositivo connesso** e **dispositivo disconnesso** dal menu. Fare clic in un punto qualsiasi della schermata per chiudere l'elenco e salvare le selezioni.
 
-   ![Impostare i tipi di evento da cercare](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
+   ![Imposta i tipi di evento da cercare](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
-6. Per la **dei dettagli dell'Endpoint**, selezionare il tipo di Endpoint come **Hook Web** e fare clic sull'endpoint select e incollare l'URL copiato dall'app per la logica e confermare la selezione.
+6. Per **i dettagli dell'endpoint**selezionare tipo di endpoint come **Web Hook** e fare clic su Seleziona endpoint e incollare l'URL copiato dall'app per la logica e confermare la selezione.
 
-   ![Selezionare l'url dell'endpoint](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
+   ![Selezionare l'URL dell'endpoint](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
-7. Il modulo a questo punto dovrebbe essere simile all'esempio seguente:
+7. Il form dovrebbe ora essere simile all'esempio seguente:
 
    ![Modulo sottoscrizione di eventi di esempio](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
 
@@ -298,9 +298,9 @@ Ora che la sottoscrizione dell'evento è configurata, è possibile testare la co
 
    ![Dispositivi aggiunti all'hub](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
 
-6. Fare clic sul dispositivo nuovamente. ora le chiavi e le stringhe di connessione verranno completate. Copiare il valore di **Stringa di connessione -- Chiave primaria** per usarlo in seguito.
+6. Fare di nuovo clic sul dispositivo. verranno ora compilate le stringhe di connessione e le chiavi. Copiare il valore di **Stringa di connessione -- Chiave primaria** per usarlo in seguito.
 
-   ![ConnectionString per dispositivo](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
+   ![ConnectionString per il dispositivo](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
 ### <a name="start-raspberry-pi-simulator"></a>Avviare il simulatore Raspberry Pi
 
@@ -312,13 +312,13 @@ Ora che la sottoscrizione dell'evento è configurata, è possibile testare la co
 
 Viene attivato un evento di connessione del dispositivo.
 
-1. Nell'area di scrittura del codice, sostituire il segnaposto nella riga 15 con la stringa di connessione dispositivo IoT Hub di Azure che è stato salvato alla fine della sezione precedente.
+1. Nell'area di codifica sostituire il segnaposto nella riga 15 con la stringa di connessione del dispositivo dell'hub Azure Internet che è stata salvata alla fine della sezione precedente.
 
-   ![Incollare nella stringa di connessione del dispositivo](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
+   ![Incolla nella stringa di connessione del dispositivo](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
 
-2. Eseguire l'applicazione selezionando **eseguiti**.
+2. Eseguire l'applicazione selezionando **Esegui**.
 
-Visualizzata una schermata simile all'output seguente che mostra i dati del sensore e i messaggi inviati all'hub IoT.
+Viene visualizzato un output simile all'output seguente che mostra i dati del sensore e i messaggi inviati all'hub Internet.
 
    ![Esecuzione dell'applicazione](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
 
@@ -338,7 +338,7 @@ Anziché tramite il [portale di Azure](https://portal.azure.com), è possibile e
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Questa esercitazione ha usato risorse che generano addebiti sulla sottoscrizione di Azure. Al termine dell'esercitazione e testato i risultati ottenuti, disabilitare o eliminare le risorse che non si vuole mantenere.
+Questa esercitazione ha usato risorse che generano addebiti sulla sottoscrizione di Azure. Al termine dell'esercitazione e dopo aver testato i risultati, disabilitare o eliminare le risorse che non si vuole gestire.
 
 Per non perdere il lavoro fatto, è possibile disabilitare l'app per la logica anziché eliminarla.
 

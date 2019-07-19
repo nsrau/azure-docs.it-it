@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: a6e78ea6a4427043bf3c06a4663029585c99e331
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 52df4308020b03565c851b6969c0e2e31464d7d7
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473160"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234048"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale di Red Hat Enterprise Linux 7 a un dominio gestito
 Questo articolo illustra come aggiungere una macchina virtuale di Red Hat Enterprise Linux (RHEL) 7 a un dominio gestito di Servizi di dominio Azure AD.
@@ -57,24 +57,25 @@ Seguire le istruzioni nell'articolo [Come accedere a una macchina virtuale che e
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configurare il file con estensione hosts nella macchina virtuale Linux
 Nel terminale SSH modificare il file /etc/hosts e aggiornare l'indirizzo IP e il nome host della macchina virtuale.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 Nel file con estensione hosts immettere il valore seguente:
 
-```
+```console
 127.0.0.1 contoso-rhel.contoso100.com contoso-rhel
 ```
+
 In questo caso, 'contoso100.com' è il nome di dominio DNS del dominio gestito. 'contoso-rhel' è il nome host della macchina virtuale RHEL da aggiungere al dominio gestito.
 
 
 ## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Installare i pacchetti necessari nella macchina virtuale Linux
 Installare quindi i pacchetti necessari per l'aggiunta a un dominio nella macchina virtuale. Nel terminale SSH digitare il comando seguente per installare i pacchetti richiesti:
 
-    ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
-    ```
+```console
+sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
+```
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Aggiungere la macchina virtuale Linux al dominio gestito
@@ -82,7 +83,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
 
 1. Individuare il dominio gestito di Servizi di dominio AAD. Nel terminale SSH digitare il comando seguente:
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
@@ -97,9 +98,8 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
     > [!TIP]
     > * Verificare che l'utente specificato appartenga al gruppo AAD DC Administrators.
     > * Specificare il nome di dominio in lettere maiuscole; in caso contrario kinit avrà esito negativo.
-    >
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
@@ -107,9 +107,8 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
 
     > [!TIP]
     > Usare lo stesso account utente specificato nel passaggio precedente ("kinit").
-    >
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
 
@@ -120,17 +119,20 @@ Quando il computer viene aggiunto correttamente al dominio gestito, dovrebbe ess
 Verificare se la macchina è stata aggiunta correttamente al dominio gestito. Connettersi alla macchina virtuale RHEL aggiunta a un dominio tramite una connessione SSH diversa. Usare un account utente di dominio e quindi verificare se l'account utente viene risolto correttamente.
 
 1. Nel terminale SSH digitare il comando seguente per connettere la macchina virtuale RHEL aggiunta a un dominio con SSH. Usare un account di dominio appartenente al dominio gestito, in questo caso bob@CONTOSO100.COM.
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-rhel.contoso100.com
     ```
 
 2. Nel terminale SSH digitare il comando seguente per verificare se la home directory dell'utente è stata inizializzata correttamente.
-    ```
+    
+    ```console
     pwd
     ```
 
 3. Nel terminale SSH digitare il comando seguente per verificare se i membri del gruppo sono stati risolti correttamente.
-    ```
+    
+    ```console
     id
     ```
 

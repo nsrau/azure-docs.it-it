@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 38403efd72843e7cd6d1afff5ff65a15af39c107
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6b808126fe4366d3ca3cc19c674b489ec3055665
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473964"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234148"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Verificare l'integrità di un dominio gestito Azure AD Domain Services
 
@@ -43,10 +43,10 @@ Lo stato nella parte superiore destra della pagina di integrità indica l'integr
 
 | Stato | Icona | Spiegazione |
 | --- | :----: | --- |
-| In esecuzione | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | Il dominio gestito è eseguito senza problemi e non presenta avvisi critici o di avvertenza. Questo dominio potrebbe presentare avvisi informativi. |
-| Richiede attenzione (avviso di avvertenza) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | Non sono presenti avvisi critici nel dominio gestito, ma sono presenti uno o più avvisi di avvertenza da risolvere. |
-| Richiede attenzione (avviso critico) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | Sono presenti uno o più avvisi critici nel dominio gestito. Potrebbero esserci anche avvisi di avvertenza e/o informativi. |
-| Distribuzione | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | Il dominio è in fase di distribuzione. |
+| In esecuzione | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Il dominio gestito è eseguito senza problemi e non presenta avvisi critici o di avvertenza. Questo dominio potrebbe presentare avvisi informativi. |
+| Richiede attenzione (avviso di avvertenza) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Non sono presenti avvisi critici nel dominio gestito, ma sono presenti uno o più avvisi di avvertenza da risolvere. |
+| Richiede attenzione (avviso critico) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Sono presenti uno o più avvisi critici nel dominio gestito. Potrebbero esserci anche avvisi di avvertenza e/o informativi. |
+| Distribuzione | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Il dominio è in fase di distribuzione. |
 
 ## <a name="monitors"></a>Monitoraggi
 I monitoraggi sono gli aspetti del dominio gestito che Azure AD Domain Services monitora a intervalli regolari. Il modo migliore per mantenerli in uno stato di integrità è risolvere eventuali avvisi attivi per il dominio gestito.

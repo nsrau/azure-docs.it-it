@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 2b9c8f1bb7407dd36623fd8ad68f9489172a1caf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a62a4d5f06856ca0fe6356ca388047679097e3f
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712232"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68004465"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Panoramica delle zone e dei record DNS
 
@@ -59,7 +59,7 @@ Per creare un set di record con caratteri jolly, usare il nome del set di record
 ### <a name="caa-records"></a>Record CAA
 
 Un record CAA consente ai proprietari di domini di specificare quali autorità di certificazione (CA) sono autorizzate a emettere certificati per i loro domini. In questo modo le autorità di certificazione evitano di rilasciare erroneamente certificati in determinate circostanze. I record CAA hanno tre proprietà:
-* **Flag**: Si tratta di un numero intero compreso tra 0 e 255 utilizzato per rappresentare il flag di criticità che ha un significato speciale per il [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Flag**: Si tratta di un numero intero compreso tra 0 e 255, utilizzato per rappresentare il flag critico che ha un significato speciale per la [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Tag**: una stringa ASCII che può avere uno dei valori seguenti:
     * **issue**: usare questa opzione se si desidera specificare le CA che possono emettere certificati (tutti i tipi)
     * **issuewild**: usare questa opzione se si desidera specificare le CA che possono emettere certificati (solo certificati con caratteri jolly)
@@ -88,6 +88,8 @@ Un set di record SOA viene creato automaticamente in corrispondenza del vertice 
 
 È possibile modificare tutte le proprietà del record SOA ad eccezione della proprietà "host", che è preconfigurata in modo da fare riferimento al nome del server dei nomi primario fornito da DNS di Azure.
 
+Il numero di serie della zona nel record SOA non viene aggiornato automaticamente quando vengono apportate modifiche ai record nella zona. Se necessario, è possibile aggiornarlo manualmente modificando il record SOA.
+
 ### <a name="spf-records"></a>Record SPF
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
@@ -111,7 +113,7 @@ Le stringhe multiple in un record DNS non devono essere confuse con i record TXT
 
 ## <a name="tags-and-metadata"></a>Tag e metadati
 
-### <a name="tags"></a>`Tags`
+### <a name="tags"></a>Tag
 
 I tag sono un elenco di coppie nome-valore usate da Azure Resource Manager per etichettare le risorse.  Azure Resource Manager usa i tag per abilitare visualizzazioni filtrate della fattura di Azure e permette anche di impostare criteri sui tag necessari. Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse di Azure](../azure-resource-manager/resource-group-using-tags.md).
 
@@ -134,7 +136,7 @@ A livello dell'API REST di DNS di Azure, gli ETag vengono specificati usando le 
 | Intestazione | Comportamento |
 | --- | --- |
 | Nessuna |PUT riesce sempre (nessun controllo di Etag) |
-| If-match \<etag > |PUT riesce solo se la risorsa esiste e l'Etag corrisponde |
+| > If- \<match ETag |PUT riesce solo se la risorsa esiste e l'Etag corrisponde |
 | If-match * |PUT riesce solo se la risorsa esiste |
 | If-none-match * |PUT riesce solo se la risorsa non esiste |
 

@@ -10,35 +10,35 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 02/22/2019
+ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: fef3281f1f4e727b58878439e3f6456fee3b6241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0fa60198af66154e0ddc703f90224adf5be89447
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752943"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876418"
 ---
-# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Caricare e leggere i dati con il SDK di Azure Machine Learning Data Prep
-In questo articolo descrive diversi metodi di caricamento dei dati usando il SDK di Azure Machine Learning Data Prep.  L'SDK supporta più funzionalità di inserimento dati, tra cui:
+# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Caricare e leggere i dati con Azure Machine Learning data Prep SDK
+In questo articolo vengono illustrati i diversi metodi di caricamento dei dati con Azure Machine Learning data Prep SDK.  L'SDK supporta più funzionalità di inserimento dati, tra cui:
 
 * Caricamento da numerosi tipi di file con inferenza dei parametri di analisi (codifica, separatore, intestazioni)
 * Conversione del tipo mediante l'inferenza durante il caricamento dei file
 * Supporto delle connessioni per Microsoft SQL Server e Azure Data Lake Storage
 
 > [!Important]
-> Se si compila una nuova soluzione, provare a eseguire la [set di dati di Azure Machine Learning](how-to-explore-prepare-data.md) (anteprima) per la preparazione ed esplorazione dei dati. I set di dati è la prossima versione di preparazione dati di SDK, che offre funzionalità avanzate per la gestione dei set di dati nelle soluzioni di intelligenza artificiale.
-> Se si usa la `azureml-dataprep` pacchetto per creare un flusso di dati con le trasformazioni invece di usare il `azureml-datasets` del pacchetto per creare un set di dati, sarà possibile usare gli snapshot o i set di dati con controllo delle versioni in un secondo momento.
+> Se si compila una nuova soluzione, provare i set di dati [Azure Machine Learning](how-to-explore-prepare-data.md) (anteprima) per l'esplorazione e la preparazione dei dati. DataSets è la versione successiva di data Prep SDK, che offre funzionalità espanse per la gestione di set di dati nelle soluzioni di intelligenza artificiale.
 
-Nella tabella seguente mostra una selezione delle funzioni utilizzate per il caricamento dei dati da tipi di file comuni.
+
+Nella tabella seguente viene illustrata una selezione di funzioni utilizzate per il caricamento di dati da tipi di file comuni.
 
 | Tipo file | Funzione | Collegamento di riferimento |
 |-------|-------|-------|
-|Qualsiasi|`auto_read_file()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|Any|`auto_read_file()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
 |Text|`read_lines()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-lines-path--filepath--header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-none--0---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
 |CSV|`read_csv()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-csv-path--filepath--separator--str--------header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---quoting--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--archive-options--azureml-dataprep-api--archiveoption-archiveoptions---none--infer-column-types--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
 |Excel|`read_excel()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-excel-path--filepath--sheet-name--str---none--use-column-headers--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--include-path--bool---false--infer-column-types--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
-|Larghezza fissa|`read_fwf()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-fwf-path--filepath--offsets--typing-list-int---header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---include-path--bool---false--infer-column-types--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
+|A larghezza fissa|`read_fwf()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-fwf-path--filepath--offsets--typing-list-int---header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---include-path--bool---false--infer-column-types--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
 |JSON|`read_json()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-json-path--filepath--encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---flatten-nested-arrays--bool---false--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
 
 ## <a name="load-data-automatically"></a>Caricare automaticamente i dati
@@ -57,7 +57,7 @@ Questa funzione è utile per rilevare automaticamente il tipo di file, la codifi
 * Ignorare le righe vuote nella parte superiore del file
 * Derivare e impostare la riga di intestazione
 
-In alternativa, se si conosce il file digitare anticipatamente e si vuole controllare in che modo che viene analizzato in modo esplicito, usare le funzioni specifiche del file.
+In alternativa, se si conosce il tipo di file in anticipo e si desidera controllare in modo esplicito il modo in cui viene analizzato, utilizzare le funzioni specifiche del file.
 
 ## <a name="load-text-line-data"></a>Caricamento di dati di righe di testo
 
@@ -128,7 +128,7 @@ Output:
 
 Per impostazione predefinita, Azure Machine Learning Data Prep SDK non modifica il tipo di dati. L'origine dati da cui si sta leggendo è un file di testo, pertanto l'SDK legge tutti i valori come stringhe. Per questo esempio le colonne numeriche devono essere analizzate come numeri. Impostare il parametro `inference_arguments` su `InferenceArguments.current_culture()` per dedurre e convertire automaticamente i tipi di colonna durante la lettura del file.
 
-```
+```python
 dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1,
                           inference_arguments=dprep.InferenceArguments.current_culture())
@@ -178,7 +178,7 @@ dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_colu
 
 ## <a name="load-fixed-width-data-files"></a>Caricare file di dati a larghezza fissa
 
-Per caricare i file a larghezza fissa, si specifica un elenco degli offset di carattere. Si presuppone sempre che la prima colonna inizi all'offset zero.
+Per caricare file a larghezza fissa, è necessario specificare un elenco di offset di caratteri. Si presuppone sempre che la prima colonna inizi all'offset zero.
 
 ```python
 dflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
@@ -207,7 +207,7 @@ dflow = dprep.read_fwf('./data/fixed_width_file.txt',
 
 ## <a name="load-sql-data"></a>Caricare dati SQL
 
-L'SDK può caricare anche i dati di un'origine SQL. Attualmente, è supportato solo Microsoft SQL Server. Per leggere i dati da un server SQL, creare un [ `MSSQLDataSource` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.mssqldatasource?view=azure-dataprep-py) oggetto che contiene i parametri di connessione. Il parametro della password di `MSSQLDataSource` accetta un [ `Secret` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#register-secret-value--str--id--str---none-----azureml-dataprep-api-engineapi-typedefinitions-secret) oggetto. È possibile compilare un oggetto segreto in due modi:
+L'SDK può caricare anche i dati di un'origine SQL. Attualmente, è supportato solo Microsoft SQL Server. Per leggere i dati da un server SQL, creare [`MSSQLDataSource`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.mssqldatasource?view=azure-dataprep-py) un oggetto contenente i parametri di connessione. Il parametro password di `MSSQLDataSource` accetta un [`Secret`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#register-secret-value--str--id--str---none-----azureml-dataprep-api-engineapi-typedefinitions-secret) oggetto. È possibile compilare un oggetto segreto in due modi:
 
 * Registrare il segreto e il relativo valore con il motore di esecuzione.
 * Creare il segreto con solo un `id` (se il valore del segreto è già registrato nell'ambiente di esecuzione) usando `dprep.create_secret("[SECRET-ID]")`.
@@ -294,7 +294,7 @@ servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 
 ### <a name="acquire-an-oauth-access-token"></a>Acquisire un token di accesso OAuth
 
-Usare il pacchetto `adal` (`pip install adal`) per creare un contesto di autenticazione sul tenant MSFT e acquisire un token di accesso OAuth. Per Azure Data Lake Store, la risorsa nella richiesta del token deve essere per ' https:\//datalake.azure.net', che è diverso dalla maggior parte delle altre risorse di Azure.
+Usare il pacchetto `adal` (`pip install adal`) per creare un contesto di autenticazione sul tenant MSFT e acquisire un token di accesso OAuth. Per ADLS, la risorsa nella richiesta di token deve essere per ' https:\//datalake.Azure.NET ', che è diversa dalla maggior parte delle altre risorse di Azure.
 
 ```python
 import adal
@@ -316,4 +316,4 @@ dflow.to_pandas_dataframe().head()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere il SDK di Azure Machine Learning Data Prep [esercitazione](tutorial-data-prep.md) per un esempio di risoluzione di uno scenario specifico
+* Per un esempio di risoluzione di uno scenario specifico, vedere l' [esercitazione](tutorial-data-prep.md) Azure Machine Learning data Prep SDK.

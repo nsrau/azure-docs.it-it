@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 6b3cef32cf79c2448d2e254e27c332e01ea83c62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fb91d6a9cdc56c88b424b7e0382f283c8b55dac9
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428374"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234322"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteggere le risorse di Azure nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza continuamente lo stato di sicurezza delle risorse di Azure per consigliare le procedure ottimali di protezione della rete. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari per rafforzare e tutelare le risorse.
@@ -48,8 +48,9 @@ Per aprire la mappa di rete:
 2. Sotto **Mappa di rete** fare clic su **Visualizza la topologia**.
  
 La vista predefinita della mappa topologica contiene:
+
 - Le sottoscrizioni selezionate in Azure. La mappa supporta più sottoscrizioni.
-- Le macchine virtuali, subnet e le reti virtuali del tipo di risorsa di Resource Manager (non sono supportate risorse di Azure classico)
+- VM, subnet e reti virtuali del tipo di risorsa Gestione risorse (le risorse di Azure classiche non sono supportate)
 - Reti virtuali con peering
 - Solo le risorse che hanno [raccomandazioni per la rete](security-center-recommendations.md) con gravità alta o media  
 - Risorse con connessione Internet
@@ -64,6 +65,7 @@ La mappa di rete consente di visualizzare le risorse di Azure in una visualizzaz
 ### <a name="the-topology-view"></a>La visualizzazione Topologia
 
 Nella visualizzazione **Topologia** della mappa di rete è possibile accedere alle seguenti informazioni dettagliate sulle risorse di rete:
+
 - Il cerchio più interno riporta tutte le reti virtuali all'interno delle sottoscrizioni selezionate, il cerchio successivo contiene tutte le subnet e il cerchio esterno tutte le macchine virtuali.
 - Le linee che collegano le risorse nella mappa consentono di sapere quali risorse sono associate tra loro e come è strutturata la rete di Azure. 
 - Usare gli indicatori di gravità per vedere rapidamente per quali risorse sono presenti raccomandazioni aperte del Centro sicurezza.
@@ -73,6 +75,7 @@ Nella visualizzazione **Topologia** della mappa di rete è possibile accedere al
 Poiché la mappa è dinamica e interattiva, ogni nodo è selezionabile e la visualizzazione può cambiare in base ai filtri:
 
 1. Applicare i filtri nella parte superiore per modificare le informazioni disponibili nella mappa di rete. È possibile concentrare le informazioni della mappa su:
+
    -  **Integrità della sicurezza**: è possibile filtrare la mappa in base al livello di gravità (alta, media, bassa) delle risorse di Azure.
    - **Raccomandazioni**: è possibile selezionare le risorse visualizzate in base alle raccomandazioni attive su tali risorse. Ad esempio, è possibile visualizzare solo le risorse per cui il Centro sicurezza consiglia di abilitare i gruppi di sicurezza di rete.
    - **Aree di rete**: per impostazione predefinita, nella mappa vengono visualizzate solo le risorse con connessione Internet, ma è possibile selezionare anche le macchine virtuali interne.
@@ -80,6 +83,7 @@ Poiché la mappa è dinamica e interattiva, ogni nodo è selezionabile e la visu
 2. Fare clic su **Reimposta** nell'angolo in alto a sinistra in qualsiasi momento per ripristinare lo stato predefinito della mappa.
 
 Per eseguire il drill-down in una risorsa:
+
 1. Quando si seleziona una risorsa specifica nella mappa, si apre il riquadro di destra con informazioni generali sulla risorsa, eventuali soluzioni per la sicurezza della connessione e le raccomandazioni rilevanti per la risorsa. Il comportamento non cambia a seconda del tipo di risorsa selezionato. 
 2. Quando si passa il mouse sopra un nodo della mappa, è possibile visualizzare informazioni generali relative alla risorsa, come la sottoscrizione, il tipo di risorsa e il gruppo di risorse.
 3. Usare il collegamento per ingrandire la descrizione del comando e ricentrare la mappa su quel nodo specifico. 
@@ -98,8 +102,9 @@ Ad esempio, si potrebbero scoprire due macchine che non era previsto che comunic
 ### <a name="investigate-resources"></a>Esaminare le risorse
 
 Per eseguire il drill-down in una risorsa:
+
 1. Quando si seleziona una risorsa specifica nella mappa, si apre il riquadro di destra con informazioni generali sulla risorsa, eventuali soluzioni per la sicurezza della connessione e le raccomandazioni rilevanti per la risorsa. Il comportamento non cambia a seconda del tipo di risorsa selezionato. 
-2. Fare clic su **Traffico** per visualizzare il possibile traffico in ingresso e in uscita sulla risorsa. Questo è l'elenco completo di chi può comunicare con la risorsa, con chi la risorsa può comunicare e tramite quali protocolli e porte. Ad esempio, quando si seleziona una macchina virtuale, tutte le VM che possa comunicare con vengono visualizzati e quando si seleziona una subnet, vengono visualizzate tutte le subnet che possa comunicare con.
+2. Fare clic su **Traffico** per visualizzare il possibile traffico in ingresso e in uscita sulla risorsa. Questo è l'elenco completo di chi può comunicare con la risorsa, con chi la risorsa può comunicare e tramite quali protocolli e porte. Ad esempio, quando si seleziona una macchina virtuale, vengono visualizzate tutte le macchine virtuali con cui è possibile comunicare e quando si seleziona una subnet vengono visualizzate tutte le subnet con cui è possibile comunicare.
 
 **Questi dati si basano sull'analisi dei gruppi di sicurezza di rete nonché sugli algoritmi di machine learning avanzati che analizzano più regole per comprendere incroci e interazioni.** 
 
@@ -129,15 +134,20 @@ Il terzo livello contiene le macchine virtuali, che è simile a quello descritta
 
 ## <a name="network-recommendations"></a>Indicazioni per la rete
 
-|Tipo di risorsa|Punteggio di sicurezza|Recommendation|Descrizione|
-|----|----|----|----|
-|Machine|40|Gruppi di sicurezza di rete per le macchine virtuali devono essere abilitati|Consente di abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle macchine virtuali.|
-|Subnet|35|Gruppi di sicurezza di rete a livello di subnet devono essere abilitati|Consente di abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle risorse distribuite nelle subnet.|
-|Machine|30|Controllo accesso alla rete Just-In-Time deve essere applicata in macchine virtuali|Applica un controllo di accesso Just-In-Time delle macchine virtuali per bloccare l'accesso in modo permanente ad alcune porte e consente agli utenti autorizzati di aprirle tramite lo stesso meccanismo e per un periodo di tempo limitato.|
-|Machine|20|Restrict access through Internet facing endpoint (Limita accesso tramite endpoint con connessione Internet)|Finalizza i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet limitando l'accesso delle regole di autorizzazione esistenti.|
-|Machine|10|Aggiunger un firewall di nuova generazione|Consente di aggiungere una soluzione Firewall di nuova generazione per proteggere le macchine virtuali con connessione Internet.|
-|Machine|5|Route traffic through network gateway firewall only (Instrada il traffico solo attraverso il firewall gateway di rete)|Per completare la distribuzione della soluzione Firewall di nuova generazione, il traffico verso le macchine virtuali protette con connessione Internet deve essere instradato solo tramite la soluzione Firewall di nuova generazione.|
-|VNet|5|Abilita Protezione DDoS Standard|Le applicazioni con indirizzi IP pubblici in queste reti virtuali non sono protette con lo standard del servizio Protezione DDOS. È consigliabile abilitarlo per consentire la mitigazione di attacchi volumetrici e ai protocolli della rete.|
+|Nome raccomandazione|DESCRIZIONE|severity|Punteggio di sicurezza|Tipo di risorsa|
+|----|----|----|----|----|----|
+|I gruppi di sicurezza di rete a livello di subnet devono essere abilitati|Abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle risorse distribuite nelle subnet.|Alta/media|30|Subnet|
+|Le macchine virtuali devono essere associate a un gruppo di sicurezza di rete|Consente di abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle macchine virtuali.|Alta/media|30|Macchina virtuale|
+|L'accesso deve essere limitato per i gruppi di sicurezza di rete permissivi con macchine virtuali con connessione Internet|Rafforzare i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet limitando l'accesso alle regole di autorizzazione esistenti.|Alto|20|Macchina virtuale|
+|Le regole per le applicazioni Web in IaaS gruppi devono essere finalizzate|Rafforzare il gruppo di sicurezza di rete (NSG) delle macchine virtuali che eseguono applicazioni Web, con regole NSG che sono eccessivamente permissive per quanto concerne le porte dell'applicazione Web.|Alto|20|Macchina virtuale|
+|L'accesso ai servizi app deve essere limitato|Limitare l'accesso ai servizi app modificando la configurazione di rete per negare il traffico in ingresso da intervalli troppo ampi.|Alto|10|Servizio app|
+|Le porte di gestione devono essere chiuse nelle macchine virtuali|Rafforzare il gruppo di sicurezza di rete delle macchine virtuali per limitare l'accesso alle porte di gestione.|Alto|10|Macchina virtuale|
+È necessario abilitare la protezione DDoS standard|Proteggi le reti virtuali contenenti applicazioni con indirizzi IP pubblici abilitando il servizio protezione DDoS standard. La protezione DDoS consente la mitigazione di attacchi volumetrici e di protocollo di rete.|Alto|10|Rete virtuale|
+|L'invio IP nella macchina virtuale deve essere disabilitato|Disabilitare l'invio IP. Quando l'indirizzo IP viene abilitato sulla scheda di interfaccia di rete di una macchina virtuale, il computer può ricevere il traffico destinato ad altre destinazioni. L'invio IP è raramente necessario (ad esempio, quando si usa la VM come appliance virtuale di rete) e pertanto deve essere esaminato dal team di sicurezza di rete.|Media|10|Macchina virtuale|
+|L'applicazione Web deve essere accessibile solo tramite HTTPS|Abilitare l'accesso "solo HTTPS" per le applicazioni Web. L'uso di HTTPS assicura l'autenticazione di server/Servizi e protegge i dati in transito da attacchi di intercettazione a livello di rete.|Media|20|Applicazione Web|
+|Il controllo di accesso alla rete JIT deve essere applicato alle macchine virtuali|Applicare il controllo di accesso delle macchine virtuali JIT (just-in-Time) per bloccare in modo permanente l'accesso alle porte selezionate e consentire agli utenti autorizzati di aprirle, tramite JIT, solo per un periodo di tempo limitato.|Alto|20|Macchina virtuale|
+|Le app per le funzioni devono essere accessibili solo tramite HTTPS|Abilitare l'accesso "solo HTTPS" per le app per le funzioni. L'uso di HTTPS assicura l'autenticazione di server/Servizi e protegge i dati in transito da attacchi di intercettazione a livello di rete.|Media|20|App per le funzioni|
+|È necessario abilitare il trasferimento sicuro agli account di archiviazione|Abilitare il trasferimento sicuro negli account di archiviazione. Il trasferimento sicuro è un'opzione che impone all'account di archiviazione di accettare richieste solo da connessioni sicure (HTTPS). L'uso di HTTPS assicura l'autenticazione tra il server e il servizio e protegge i dati in transito da attacchi a livello di rete, ad esempio Man-in-the-Middle, intercettazione e Hijack della sessione.|Alto|20|Account di archiviazione|
 
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
