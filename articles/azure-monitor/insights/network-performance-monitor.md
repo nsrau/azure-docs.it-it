@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
-ms.openlocfilehash: a5d5a9e07c28ab3059872f4d187c96586456a200
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c350ca3cd8cbfb5e550fccd0bae0df53168de178
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64916751"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312083"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -50,7 +50,9 @@ NPM consente di monitorare la connettività tra reti e applicazioni in qualsiasi
 * Asia sudorientale
 * Australia sud-orientale
 * Regno Unito meridionale
+* India centrale
 * Virginia e Governo degli Stati Uniti
+
 
 L'elenco delle aree supportate per Monitoraggio di ExpressRoute è disponibile nella [documentazione](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
 
@@ -59,7 +61,7 @@ L'elenco delle aree supportate per Monitoraggio di ExpressRoute è disponibile n
 
 ### <a name="install-and-configure-agents"></a>Installare e configurare agenti 
 
-Usare i processi di base per installare gli agenti nel [i computer Windows di connettersi a monitoraggio di Azure](../platform/agent-windows.md) e [connettere Operations Manager a monitoraggio di Azure](../platform/om-agents.md).
+Usare i processi di base per installare gli agenti in [connettere i computer Windows a monitoraggio di Azure](../platform/agent-windows.md) e [connettere Operations Manager a monitoraggio di Azure](../platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Dove installare gli agenti 
 
@@ -83,7 +85,7 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
     > Lo script configura Windows Firewall solo in locale. Se si dispone di un firewall di rete, assicurarsi che consenta il traffico destinato alla porta TCP usata da Monitoraggio prestazioni rete.
 
     >[!NOTE]
-    > Non è necessario eseguire la [EnableRules.ps1](https://aka.ms/npmpowershellscript ) script di PowerShell per monitoraggio della connettività del servizio.
+    > Non è necessario eseguire lo script di PowerShell [lo enablerules. ps1](https://aka.ms/npmpowershellscript ) per il monitoraggio della connettività del servizio.
 
     
 
@@ -101,7 +103,7 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
 
 ### <a name="configure-the-solution"></a>Configurare la soluzione 
 
-1. Aggiungere la soluzione Monitoraggio prestazioni rete nell'area di lavoro dall'[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). È anche possibile usare la procedura descritta nel [soluzioni di monitoraggio di Azure aggiungere dalla raccolta soluzioni](../../azure-monitor/insights/solutions.md). 
+1. Aggiungere la soluzione Monitoraggio prestazioni rete nell'area di lavoro dall'[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). È anche possibile usare la procedura descritta in [aggiungere soluzioni di monitoraggio di Azure dalla raccolta di soluzioni](../../azure-monitor/insights/solutions.md). 
 2. Aprire l'area di lavoro Log Analytics e selezionare il riquadro **Panoramica**. 
 3. Selezionare il riquadro **Monitoraggio prestazioni rete** con il messaggio *La soluzione richiede configurazione aggiuntiva*.
 
@@ -115,17 +117,17 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
     
    **Monitoraggio connettività servizio**: la funzionalità fornisce test preconfigurati predefiniti per monitorare la connettività di rete a Office 365 e Dynamics 365 dagli agenti. Scegliere i servizi di Office 365 e Dynamics 365 che si desidera monitorare selezionando le relative caselle di controllo. Per scegliere gli agenti da cui eseguire il monitoraggio, selezionare **Aggiungi agenti**. Se non si desidera utilizzare questa funzionalità o si desidera configurarla in un secondo momento, non scegliere nulla e selezionare **Salva e continua**.
 
-   ![Visualizzazione di monitoraggio della connettività del servizio](media/network-performance-monitor/npm-service-endpoint-monitor.png)
+   ![Visualizzazione Monitoraggio connettività del servizio](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
    **Monitoraggio di ExpressRoute**: Selezionare **Individua adesso** per individuare tutti i peering ExpressRoute privati connessi alle reti virtuali nella sottoscrizione di Azure collegata all'area di lavoro Log Analytics. 
 
    ![Visualizzazione Monitoraggio di ExpressRoute](media/network-performance-monitor/npm-express-route.png)
 
-   Una volta completata l'individuazione, i circuiti individuati e i peering sono elencati in una tabella. 
+   Al termine dell'individuazione, i circuiti e i peering individuati vengono elencati in una tabella. 
 
    ![Pagina di configurazione di Monitoraggio prestazioni rete](media/network-performance-monitor/npm-private-peerings.png)
     
-Il monitoraggio di questi circuiti e i peering è inizialmente in uno stato disabilitato. Selezionare ogni risorsa che si desidera monitorare e configurare il monitoraggio dalla visualizzazione dettagli a destra. Selezionare **Salva** per salvare la configurazione. Per altre informazioni, vedere l'articolo "Configurare Monitoraggio di ExpressRoute". 
+Il monitoraggio di questi circuiti e peering è inizialmente in stato disabilitato. Selezionare tutte le risorse che si desidera monitorare e configurare il monitoraggio per tali risorse dalla visualizzazione dettagli a destra. Selezionare **Salva** per salvare la configurazione. Per altre informazioni, vedere l'articolo "Configurare Monitoraggio di ExpressRoute". 
 
 Dopo aver completato la configurazione, il popolamento dei dati richiede da 30 minuti a un'ora. Mentre la soluzione aggrega i dati dalla rete, nel riquadro **Panoramica** di Monitoraggio prestazioni rete viene visualizzato il messaggio *La soluzione richiede una configurazione aggiuntiva*. Al termine della raccolta e dell'indicizzazione dei dati, il riquadro **Panoramica** cambia e mostra un riepilogo dell'integrità della rete. È quindi possibile modificare il monitoraggio dei nodi in cui sono installati gli agenti di Log Analytics, nonché delle subnet individuate dall'ambiente.
 
@@ -168,7 +170,7 @@ Nella tabella seguente vengono illustrati i metodi di raccolta dei dati e altri 
  
 
  
-La soluzione usa le transazioni sintetiche per valutare l'integrità della rete. Gli agenti di Log Analytics installati in vari punti della rete si scambiano pacchetti TCP o ICMP Echo. Il fatto che gli agenti usino pacchetti TCP o ICMP Echo dipende dal protocollo selezionato per il monitoraggio. Durante il processo, gli agenti vengono informati del tempo di round trip e di eventuali perdite di pacchetti. Periodicamente, ogni agente esegue anche un comando di tracciamento delle route agli altri agenti per trovare tutte le varie route nella rete che devono essere verificate. Usando questi dati, gli agenti possono dedurre i valori relativi a latenza di rete e perdita di pacchetti. I test vengono ripetuti ogni cinque secondi. I dati vengono aggregati per circa tre minuti dagli agenti prima del caricamento nell'area di lavoro di Log Analitica in Monitoraggio di Azure.
+La soluzione usa le transazioni sintetiche per valutare l'integrità della rete. Gli agenti di Log Analytics installati in vari punti della rete si scambiano pacchetti TCP o ICMP Echo. Il fatto che gli agenti usino pacchetti TCP o ICMP Echo dipende dal protocollo selezionato per il monitoraggio. Durante il processo, gli agenti vengono informati del tempo di round trip e di eventuali perdite di pacchetti. Periodicamente, ogni agente esegue anche un comando di tracciamento delle route agli altri agenti per trovare tutte le varie route nella rete che devono essere verificate. Usando questi dati, gli agenti possono dedurre i valori relativi a latenza di rete e perdita di pacchetti. I test vengono ripetuti ogni cinque secondi. I dati vengono aggregati per circa tre minuti dagli agenti prima che vengano caricati nell'area di lavoro Log Analytics di monitoraggio di Azure.
 
 
 
@@ -241,23 +243,23 @@ La topologia mostrata sulla mappa è di livello 3 e non contiene connessioni e d
 ![Mappa della topologia](media/network-performance-monitor/topology-map.png)
  
 
-## <a name="log-queries-in-azure-monitor"></a>Ricerche log in Monitoraggio di Azure
+## <a name="log-queries-in-azure-monitor"></a>Eseguire query di log in monitoraggio di Azure
 
-Tutti i dati esposti graficamente attraverso il dashboard di monitoraggio prestazioni rete e il drill-down le pagine è disponibile anche in modo nativo in [registrare query](../log-query/log-query-overview.md). È possibile eseguire l'analisi interattiva dei dati nel repository e correlare i dati da origini diverse. È anche possibile creare visualizzazioni e avvisi personalizzati ed esportare i dati in Excel, Power BI o un collegamento condivisibile. L'area  **Query comuni**  del dashboard contiene alcune query utili che è possibile usare come punto di partenza per creare query e report. 
+Tutti i dati esposti graficamente attraverso il dashboard Monitoraggio prestazioni rete e le pagine di drill-down sono disponibili anche in modalità nativa nelle [query di log](../log-query/log-query-overview.md). È possibile eseguire l'analisi interattiva dei dati nel repository e correlare i dati da origini diverse. È anche possibile creare visualizzazioni e avvisi personalizzati ed esportare i dati in Excel, Power BI o un collegamento condivisibile. L'area  **Query comuni**  del dashboard contiene alcune query utili che è possibile usare come punto di partenza per creare query e report. 
 
 ## <a name="alerts"></a>Avvisi
 
 Il Monitoraggio delle prestazioni di rete usa le funzionalità di avviso di [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
 
-Ciò significa che tutte le notifiche vengono gestite mediante [gruppi di azioni](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+Ciò significa che tutte le notifiche vengono gestite mediante [gruppi di azioni](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).  
 
 Per gli utenti di NPM che creano un avviso tramite Log Analytics: 
-1. Verrà visualizzato un collegamento che eseguirà il reindirizzamento al portale di Azure. Fare clic per accedere al portale.
+1. Viene visualizzato un collegamento che consente di reindirizzare a portale di Azure. Fare clic per accedere al portale.
 2. Fare clic sul riquadro della soluzione di Monitoraggio delle prestazioni di rete. 
 3. Passare a Configura.  
 4. Selezionare il test desiderato per creare un avviso e seguire i passaggi indicati di seguito.
 
-Se sei un utente NPM creazione di un avviso tramite il portale di Azure:  
+Se si è un utente NPM che crea un avviso tramite portale di Azure:  
 1. È possibile scegliere di immettere direttamente l'indirizzo di posta elettronica o creare avvisi tramite gruppi di azioni.
 2. Se si sceglie di immettere direttamente l'indirizzo di posta elettronica, viene creato un gruppo di azioni denominato **NPM Email ActionGroup** e l'ID di posta elettronica viene aggiunto a tale gruppo di azioni.
 3. Se si sceglie di usare gruppi di azioni, è necessario selezionare un gruppo di azioni creato in precedenza. È possibile imparare a creare un gruppo di azioni [qui.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 

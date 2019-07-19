@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: c2ef02fd4c057dbdb15632752521ae314571560b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9cf9ecca59b60f93749133c98cc23c6d6815c41e
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586068"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849765"
 ---
 # <a name="threat-modeling-tool-releases"></a>Versioni di Threat Modeling Tool
 
@@ -36,7 +36,8 @@ Microsoft Threat Modeling Tool viene attualmente rilasciata come applicazione pe
 
 ## <a name="release-notes"></a>Note sulla versione
 
-- [Versione finale di Microsoft Threat modellazione a livello generale dello strumento 7.1.60408.1](./azure-security-threat-modeling-tool-releases-71604081.md) 2019 9 aprile:
+- [Microsoft Threat Modeling Tool versione GA 7.1.60702.1](./azure-security-threat-modeling-tool-releases-71607021.md) -luglio 2 2019
+- [Microsoft Threat Modeling Tool versione GA 7.1.60408.1](./azure-security-threat-modeling-tool-releases-71604081.md) -aprile 9 2019
 - [Microsoft Threat Modeling Tool GA versione 7.1.60126.1](./azure-security-threat-modeling-tool-releases-71601261.md) - 29/01/2019
 - [Microsoft Threat Modeling Tool versione 7.1.51023.1](./azure-security-threat-modeling-tool-releases-71510231.md) - 01/11/2018
 - [Microsoft Threat Modeling Tool GA versione 7.1.50911.2](./azure-security-threat-modeling-tool-releases-71509112.md) - 12/09/2018

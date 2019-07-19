@@ -12,37 +12,37 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2fa43fcd48736a3d044deb07ed690af580c3b987
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdc130a7ac13e1cc551c50a7ab284ff640ecbbe4
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416282"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305766"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoraggio e ottimizzazione delle prestazioni
 
-Risolvere i problemi potenziali di Azure SQL Database consente di monitorare facilmente l'utilizzo, aggiungere o rimuovere risorse (CPU, memoria, i/o) e trovare raccomandazioni utili per migliorare le prestazioni del database. Database SQL di Azure offre numerose funzionalità che consente di correggere automaticamente i problemi dei database se si desidera che i database di adattarsi ai carichi di lavoro e ottimizzi automaticamente le prestazioni. Tuttavia, esistono alcuni problemi personalizzati che potrebbe essere necessario risolvere i problemi. Questo articolo illustra alcune procedure consigliate e strumenti che è possibile usare per risolvere i problemi di prestazioni.
+Il database SQL di Azure offre strumenti e metodi per monitorare facilmente l'utilizzo, aggiungere o rimuovere risorse (CPU, memoria, I/O), risolvere i problemi potenziali e individuare raccomandazioni che possono migliorare le prestazioni di un database. Il database SQL di Azure dispone di numerose funzionalità che consentono di risolvere automaticamente i problemi nei database, in modo da consentire a un database di adattarsi al carico di lavoro e ottimizzare automaticamente le prestazioni. Tuttavia, esistono alcuni problemi personalizzati che potrebbero richiedere la risoluzione dei problemi. Questo articolo illustra alcune procedure consigliate e gli strumenti che possono essere usati per risolvere i problemi relativi alle prestazioni.
 
-Esistono due attività principali che è necessario eseguire per assicurarsi che tale database è in esecuzione senza problemi:
-- [Monitoraggio delle prestazioni del database](#monitoring-database-performance) per assicurarsi che le risorse assegnate al database possono gestire il carico di lavoro. Se viene visualizzato che si raggiungono i limiti delle risorse, è necessario per identificare le query per consumo di risorse superiore e ottimizzarle o aggiungere altre risorse eseguendo l'aggiornamento a livello di servizio.
-- [Risolvere i problemi di prestazioni](#troubleshoot-performance-issues) allo scopo di identificare il motivo per cui si è verificato un problema potenziale, identificare la causa radice del problema e l'azione che può risolvere il problema.
+Per assicurarsi che un database venga eseguito senza problemi, è necessario eseguire due attività principali:
+- [Monitoraggio delle prestazioni del database](#monitoring-database-performance) per assicurarsi che le risorse assegnate al database siano in grado di gestire il carico di lavoro. Se si nota che un database sta raggiungendo i limiti delle risorse, è necessario identificare e ottimizzare le prime query per consumo di risorse, oppure è necessario aggiungere più risorse aggiornando il livello di servizio.
+- [Risolvere i problemi relativi alle prestazioni](#troubleshoot-performance-issues) per identificare il motivo per cui si è verificato un problema potenziale, identificare la causa radice del problema ed eseguire azioni che risolveranno il problema.
 
 ## <a name="monitoring-database-performance"></a>Monitoraggio delle prestazioni del database
 
-Il monitoraggio delle prestazioni di un database SQL in Azure inizia con il monitoraggio dell'utilizzo delle risorse rispetto al livello di prestazioni scelto per il database. È necessario monitorare le risorse seguenti:
- - **Utilizzo della CPU** -è necessario controllare si raggiungono 100% di utilizzo della CPU in un periodo di tempo più lungo. Ciò potrebbe indicare che potrebbe essere necessario aggiornare l'istanza o database o identificare e ottimizzare le query che utilizzano la maggior parte della potenza di calcolo.
- - **Statistiche relative all'attesa** -è necessario controllare ciò che il motivo per cui le query sono in attesa di alcune risorse. Queriesmig attendere che i dati da recuperare o salvati in file di database, in attesa perché viene raggiunto un limite di risorse e così via.
- - **Utilizzo di IO** -è necessario controllare si raggiungono i limiti dei / o dell'archiviazione sottostante.
- - **Utilizzo della memoria** -la quantità di memoria disponibile per il database o l'istanza è proporzionale al numero di Vcore e da verificare è sufficiente per il carico di lavoro. Permanenza presunta della pagina è uno dei parametri che possono indicare sono le pagine rapidamente rimosso dalla memoria.
+Il monitoraggio delle prestazioni di un database SQL in Azure inizia con il monitoraggio dell'utilizzo delle risorse rispetto al livello di prestazioni scelto per il database. Le risorse seguenti devono essere monitorate per la stessa:
+ - **Utilizzo CPU** : controllare se il database sta raggiungendo il 100% dell'utilizzo della CPU per un lungo periodo di tempo. Questo potrebbe indicare che è necessario aggiornare il database o l'istanza a un livello di servizio superiore oppure è necessario identificare e ottimizzare le query che utilizzano la maggior parte della potenza di calcolo.
+ - **Statistiche attesa** : verificare perché le query sono in attesa di alcune risorse. Le query attendono che i dati vengano recuperati o salvati nei file di database, in attesa che venga raggiunto un limite di risorse e così via.
+ - **Utilizzo** i/o: verificare se il database sta raggiungendo i limiti di i/o dell'archiviazione sottostante.
+ - **Utilizzo memoria** : la quantità di memoria disponibile per il database o l'istanza è proporzionale al numero di Vcore e controlla se è sufficiente per il carico di lavoro. La permanenza presunta della pagina è uno dei parametri che possono indicare la velocità con cui le pagine vengono rimosse dalla memoria.
 
-Database SQL di Azure **offre consigli utili per risolvere i problemi e correggere potenziali problemi di prestazioni**. È possibile identificare facilmente le opportunità per migliorare e ottimizzare le prestazioni delle query senza modificare le risorse esaminando [raccomandazioni sull'ottimizzazione delle prestazioni](sql-database-advisor.md). Spesso le prestazioni non ottimali del database sono dovute a indici mancanti e query non ottimizzate correttamente. È possibile applicare queste indicazioni per migliorare le prestazioni del carico di lavoro. È anche possibile impostare il database SQL di Azure in modo che [ottimizzi automaticamente le prestazioni delle query](sql-database-automatic-tuning.md) applicando tutte le indicazioni identificate e verificando l'effettivo miglioramento delle prestazioni del database.
+Il servizio database SQL **di Azure include gli strumenti e le risorse che consentono di risolvere i problemi relativi alle prestazioni potenziali**. È possibile identificare facilmente le opportunità per migliorare e ottimizzare le prestazioni delle query senza modificare le risorse esaminando le raccomandazioni per l' [ottimizzazione delle prestazioni](sql-database-advisor.md). Spesso le prestazioni non ottimali del database sono dovute a indici mancanti e query non ottimizzate correttamente. È possibile applicare queste indicazioni di ottimizzazione per migliorare le prestazioni del carico di lavoro. È anche possibile consentire al database SQL di Azure di [ottimizzare automaticamente le prestazioni delle query](sql-database-automatic-tuning.md) applicando tutte le raccomandazioni identificate e verificando questo miglioramento delle prestazioni del database.
 
-Per il monitoraggio e la risoluzione dei problemi di prestazioni del database sono disponibili le opzioni seguenti:
+Per il monitoraggio e la risoluzione dei problemi relativi alle prestazioni del database sono disponibili le opzioni seguenti:
 
-- Nel [portale di Azure](https://portal.azure.com) fare clic su **Database SQL**, selezionare il database e quindi usare il grafico di monitoraggio per identificare le risorse che stanno per raggiungere i valori massimi. L'utilizzo di DTU viene visualizzato per impostazione predefinita. Fare clic su **Modifica** per modificare l'intervallo di tempo e i valori indicati.
-- Gli strumenti, ad esempio SQL Server Management Studio forniscono numerosi report utili, ad esempio un [Performance Dashboard](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) dove è possibile monitorare l'utilizzo delle risorse e identificare le query per consumo di risorse superiore o [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed)in cui è possibile identificare le query con prestazioni peggiorate.
-- Uso [informazioni dettagliate prestazioni Query](sql-database-query-performance.md) le [portale di Azure](https://portal.azure.com) per identificare le query che consumano la maggior parte delle risorse. Questa funzionalità è disponibile nel Database singolo e pool elastici solo.
-- Usare [Advisor per database SQL ](sql-database-advisor-portal.md) per visualizzare le indicazioni per creare e rimuovere indici, parametrizzare le query e correggere i problemi di schema. Questa funzionalità è disponibile nel Database singolo e pool elastici solo.
+- Nella [portale di Azure](https://portal.azure.com)fare clic su **database SQL**, selezionare il database e quindi usare il grafico di monitoraggio per individuare le risorse che si avvicinano al loro utilizzo massimo. L'utilizzo di DTU viene visualizzato per impostazione predefinita. Fare clic su **Modifica** per modificare l'intervallo di tempo e i valori indicati.
+- Strumenti come SQL Server Management Studio forniscono molti report utili come un [Dashboard delle prestazioni](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) per monitorare l'utilizzo delle risorse e identificare le prime query per consumo di risorse o [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed) per identificare le query con regressione prestazioni.
+- Usare [informazioni dettagliate prestazioni query](sql-database-query-performance.md) nel [portale di Azure](https://portal.azure.com) per identificare le query che dedicano la maggior parte delle risorse. Questa funzionalità è disponibile solo in Database singolo e nei pool elastici.
+- Usare [Advisor per database SQL ](sql-database-advisor-portal.md) per visualizzare le indicazioni per creare e rimuovere indici, parametrizzare le query e correggere i problemi di schema. Questa funzionalità è disponibile solo in Database singolo e nei pool elastici.
 - Usare [Intelligent Insights SQL di Azure](sql-database-intelligent-insights.md) per il monitoraggio automatico delle prestazioni del database. Dopo aver rilevato un problema di prestazioni, viene generato un log di diagnostica con i dettagli e l'analisi della causa radice del problema. Quando possibile viene fornita un'indicazione di miglioramento delle prestazioni.
 - [Abilitare l'ottimizzazione automatica](sql-database-automatic-tuning-enable.md) e consentire al database SQL di Azure di correggere automaticamente i problemi di prestazioni identificati.
 - Usare le [viste a gestione dinamica (DMV)](sql-database-monitoring-with-dmvs.md), gli [eventi estesi](sql-database-xevent-db-diff-from-svr.md) e [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) per la risoluzione più dettagliata dei problemi di prestazioni.
@@ -52,48 +52,48 @@ Per il monitoraggio e la risoluzione dei problemi di prestazioni del database so
 
 ## <a name="troubleshoot-performance-issues"></a>Risolvere i problemi di prestazioni
 
-Per diagnosticare e risolvere i problemi di prestazioni, iniziare analizzando lo stato di ogni query attive e le condizioni che causano problemi di prestazioni pertinenti a ogni stato del carico di lavoro. Per migliorare le prestazioni del database SQL di Azure, verificare che ogni richiesta di query attiva dall'applicazione sia in stato di attesa o in esecuzione. Durante la risoluzione dei problemi di prestazioni nel database SQL di Azure, tenere presente il grafico seguente durante la lettura dell'articolo per diagnosticare e risolvere i problemi di prestazioni.
+Per diagnosticare e risolvere i problemi di prestazioni, iniziare analizzando lo stato di ogni query attive e le condizioni che causano problemi di prestazioni pertinenti a ogni stato del carico di lavoro. Per migliorare le prestazioni del database SQL di Azure, tenere presente che ogni richiesta di query attiva dall'applicazione è in uno stato in esecuzione o in attesa. Quando si esegue la risoluzione dei problemi relativi alle prestazioni nel database SQL di Azure, tenere presente quanto segue in questo articolo per diagnosticare e risolvere i problemi relativi alle prestazioni.
 
 ![Stati del carico di lavoro](./media/sql-database-monitor-tune-overview/workload-states.png)
 
 Per un carico di lavoro con problemi di prestazioni, il problema di prestazioni potrebbe dipendere da una contesa di CPU (una condizione **correlata all'esecuzione**) o dalle singole query in attesa (condizione **correlata all'attesa**).
 
-Le cause o **correlati esecuzione** problemi potrebbero essere:
-- **Problemi di compilazione** -SQL Query Optimizer potrebbe produrre un piano non ottimale a causa di statistiche non aggiornate, la stima non corretta del numero di righe che verranno elaborati o la stima di memoria necessaria. Se si conosce che tale query è stata eseguita più velocemente in passato o in altra istanza (istanza gestita di SQL Server o istanza), disconnettere i piani di esecuzione effettivi e confrontare possano vedere sono diversi. Si tenta di applicare hint per la query o ricompilazioni statistiche o indici per ottenere il piano migliore. Attivare la correzione automatica del piano nel Database SQL di Azure per mitigare automaticamente questi problemi.
-- **I problemi di esecuzione** : se il piano di query è ottimale quindi probabilmente sta impegnando alcuni limiti di risorse nel database, ad esempio velocità effettiva di scrittura log oppure potrebbe usare deframmentato gli indici che devono essere ricompilati. Un numero elevato di query simultanee che necessiti di risorse potrebbe anche essere la causa dei problemi di esecuzione. **In attesa correlati** problemi sono nella maggior parte dei casi relativi a problemi di esecuzione, perché le query che non sono in esecuzione in modo efficiente probabilmente sono in attesa di alcune risorse.
+Le cause dei problemi **relativi all'esecuzione** potrebbero essere:
+- **Problemi di compilazione** -SQL Query Optimizer potrebbe produrre un piano non ottimale a causa di statistiche obsolete, una stima errata del numero di righe che verranno elaborate o la stima della memoria necessaria. Se si sa che la query è stata eseguita più velocemente in passato o in un'altra istanza (Istanza gestita o SQL Server istanza), eseguire i piani di esecuzione effettivi e confrontarli per verificare se sono diversi. Provare ad applicare gli hint per la query o ricompilare le statistiche o ricompilare gli indici per ottenere il piano migliore. Abilitare la correzione automatica dei piani nel database SQL di Azure per attenuare automaticamente questi problemi.
+- **Problemi di esecuzione** : se il piano di query è ottimale, è probabile che si verifichino alcuni limiti di risorse nel database, ad esempio la velocità effettiva di scrittura del log o l'uso di indici deframmentati che devono essere ricompilati. Un numero elevato di query simultanee che spendono le risorse potrebbe essere causato anche da problemi di esecuzione. I problemi **relativi all'attesa** nella maggior parte dei casi sono correlati ai problemi di esecuzione, perché le query che non sono in esecuzione in modo efficiente sono probabilmente in attesa di alcune risorse.
 
-Le cause o **correlate in attesa** problemi potrebbero essere:
-- **Il blocco** -un'unica query potrebbe essere utilizzato il blocco su alcuni oggetti nel database mentre altri utenti cercano di accedere agli stessi oggetti. È possibile identificare facilmente le query che il blocco tramite DMV o strumenti di monitoraggio.
-- **Problemi dei / o** -potrebbero essere in attesa di query per le pagine in cui scrivere i file di dati o di log. In questo caso si noterà `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, o `PAGEIOLATCH_*` attendere le statistiche nella DMV.
-- **Problemi di TempDB** : se si usa molte delle tabelle temporanee o se viene visualizzato una grande quantità di TempDB distribuisce nei piani di query potrebbe esistere un problema con una velocità effettiva di TempDB. 
-- **Problemi correlati alla memoria** -non si dispone di memoria sufficiente per il carico di lavoro in modo che potrebbe eliminare la permanenza presunta della pagina o le query ottengono meno concessione di memoria quelle necessarie. In alcuni casi, funzionalità di intelligence integrata in Query Optimizer per correggere questi problemi.
+Le cause dei problemi **relativi all'attesa** potrebbero essere:
+- **Blocco** : una query potrebbe mantenere il blocco su alcuni oggetti nel database mentre altri tentano di accedere agli stessi oggetti. È possibile identificare facilmente le query di blocco usando la DMV o gli strumenti di monitoraggio.
+- **Problemi di io** : le query potrebbero essere in attesa di scrivere le pagine nei file di dati o di log. In questo caso, `INSTANCE_LOG_RATE_GOVERNOR`vedere `WRITE_LOG`, o `PAGEIOLATCH_*` le statistiche di attesa nella DMV.
+- **Problemi relativi a tempdb** : se il carico di lavoro utilizza una grande quantità di tabelle temporanee o se nei piani si verificano numerose distribuzioni di tempdb, le query potrebbero avere un problema con la velocità effettiva di tempdb. 
+- **Problemi relativi alla memoria** : potrebbe non essere disponibile memoria sufficiente per il carico di lavoro, in modo che la permanenza presunta delle pagine venga eliminata oppure le query ricevono meno memoria del necessario. In alcuni casi, l'Intelligence incorporata in Query Optimizer risolve questi problemi.
  
-Nelle sezioni seguenti verrà descritta come identificare e risolvere i problemi di alcuni di questi problemi.
+ Nelle sezioni seguenti viene illustrato come identificare e risolvere alcuni di questi problemi.
 
 ## <a name="running-related-performance-issues"></a>Problemi di prestazioni correlati all'esecuzione
 
-Come regola generale, se l'utilizzo della CPU è costantemente pari o superiore all'80%, è presente un problema di prestazioni correlato all'esecuzione. Se si riscontra un problema correlato all'esecuzione, questo potrebbe essere causato da risorse di CPU insufficienti o può essere correlato a una delle condizioni seguenti:
+Come linea guida generale, se l'utilizzo della CPU è costantemente pari o superiore al 80%, si verifica un problema di prestazioni relativo all'esecuzione. Se si verifica un problema relativo all'esecuzione, potrebbe essere causato da risorse di CPU insufficienti oppure può essere correlato a una delle condizioni seguenti:
 
 - Numero eccessivo di query in esecuzione
 - Numero eccessivo di query in fase di compilazione
 - Una o più query in esecuzione usano un piano di query non ottimale
 
-Se si determina che è presente un problema di prestazioni correlato all'esecuzione, l'obiettivo consiste nell'identificare il problema preciso usando uno o più metodi. I metodi più comuni per identificare i problemi di esecuzione sono:
+Se si verifica un problema di prestazioni relativo all'esecuzione, l'obiettivo consiste nell'identificare il problema preciso mediante uno o più metodi. I metodi più comuni per identificare i problemi di esecuzione sono:
 
 - Usare il [portale di Azure](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) per monitorare l'utilizzo percentuale della CPU.
 - Usare le seguenti [visualizzazioni a gestione dinamica](sql-database-monitoring-with-dmvs.md):
 
-  - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) restituisce il consumo di CPU, I/O e memoria per un database SQL di Azure. È presente una riga ogni 15 secondi, anche se non c'è attività di database. I dati cronologici vengono conservati per un'ora.
+  - [sys. dm _db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) restituisce CPU, I/O e utilizzo di memoria per un database SQL di Azure. Esiste una riga ogni 15 secondi di intervallo, anche se non è presente alcuna attività nel database. I dati cronologici vengono conservati per un'ora.
   - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) restituisce i dati di archiviazione e di uso della CPU per un database SQL di Azure. I dati vengono raccolti e aggregati per intervalli di cinque minuti.
 
 > [!IMPORTANT]
 > Per un set di una query T-SQL che usa queste DMV per risolvere i problemi relativi all'utilizzo della CPU, vedere [Identificare i problemi di prestazioni della CPU](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
 
-### <a name="ParamSniffing"></a> Risolvere i problemi di query con problemi di piani di esecuzione di query sensibili ai parametri
+### <a name="ParamSniffing"></a>Risolvere i problemi relativi alle query con il piano di esecuzione di query sensibile ai parametri
 
-Il problema del piano sensibile ai parametri si riferisce a uno scenario in cui Query Optimizer genera un piano di esecuzione di query ottimale solo per un valore di parametro specifico (un o set di valori) e il piano memorizzato nella cache non è quindi ottimale per i valori dei parametri usati in esecuzioni consecutive. I piani non ottimali possono quindi comportare problemi di prestazioni delle query e ridurre la velocità effettiva complessiva dei carichi di lavoro. Per altre informazioni su analisi dei parametri e l'elaborazione delle query, vedere la [Guida sull'architettura di elaborazione Query](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
+Il problema del piano sensibile ai parametri si riferisce a uno scenario in cui Query Optimizer genera un piano di esecuzione di query ottimale solo per un valore di parametro specifico (un o set di valori) e il piano memorizzato nella cache non è quindi ottimale per i valori dei parametri usati in esecuzioni consecutive. I piani non ottimali possono quindi comportare problemi di prestazioni delle query e ridurre la velocità effettiva complessiva dei carichi di lavoro. Per ulteriori informazioni sull'analisi dei parametri e sull'elaborazione di query, vedere la [Guida sull'architettura di elaborazione delle query](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
 
-Esistono diverse soluzioni alternative per attenuare i problemi, ognuna delle quali comporta compromessi e svantaggi:
+Sono disponibili diverse soluzioni alternative per attenuare questi problemi, ognuno con compromessi e svantaggi associati:
 
 - Usare l'hint per la query [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) a ogni esecuzione di query. Questa soluzione alternativa offre tempi di compilazione ridotti e una maggiore quantità di CPU per una migliore qualità del piano. L'uso dell'opzione `RECOMPILE` spesso non è possibile per i carichi di lavoro che richiedono una velocità effettiva elevata.
 - Usare l'hint per la query [OPTION (OPTIMIZE FOR…)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) per eseguire l'override del valore del parametro effettivo con un valore di parametro tipico che genera un piano adeguato per la maggior parte dei valori di parametro possibili.   Questa opzione richiede una buona conoscenza dei valori di parametro ottimali e delle caratteristiche del piano associate.
@@ -106,9 +106,9 @@ Esistono diverse soluzioni alternative per attenuare i problemi, ognuna delle qu
 
 Per altre informazioni sulla risoluzione di questi tipi di problemi, vedere:
 
-- Ciò [olfatto parametro](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) post di blog
+- Questo è un post di Blog relativo [all'odore di un parametro](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/)
 - Post di blog su [SQL dinamico e la qualità del piano per le query con parametri](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
-- Ciò [tecniche di ottimizzazione di Query SQL in SQL Server: Analisi dei parametri](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/) post di blog
+- Queste [tecniche di ottimizzazione delle query SQL in SQL Server: Post di](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/) Blog sullo sniffing dei parametri
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Risoluzione dei problemi relativi all'attività di compilazione a causa della parametrizzazione non corretta
 
@@ -119,7 +119,7 @@ SELECT * FROM t1 JOIN t2 ON t1.c1 = t2.c1
 WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
-Nell'esempio precedente `t1.c1` usa `@p1`, ma `t2.c2` continua a usare il GUID come valore letterale. In questo caso, se si modifica il valore per `c2`, la query verrà considerata come una query diversa e verrà eseguita una nuova compilazione. Per ridurre le compilazioni nell'esempio precedente, la soluzione consiste nell'impostare i parametri anche del GUID.
+Nell'esempio precedente, `t1.c1` accetta `@p1` ma `t2.c2` continua ad assumere il GUID come valore letterale. In questo caso, se si modifica il valore per `c2`, la query verrà considerata come una query diversa e verrà eseguita una nuova compilazione. Per ridurre le compilazioni nell'esempio precedente, la soluzione consiste nell'impostare i parametri anche del GUID.
 
 La query seguente illustra il conteggio delle query per hash di query per determinare se i parametri di una query sono impostati correttamente o meno:
 
@@ -143,24 +143,24 @@ WHERE
 GROUP BY q.query_hash
 ORDER BY count (distinct p.query_id) DESC
 ```
-### <a name="factors-influencing-query-plan-changes"></a>Fattori che influenzano le modifiche al piano di query
+### <a name="factors-influencing-query-plan-changes"></a>Fattori che influenzano le modifiche del piano di query
 
-La ricompilazione di un piano di esecuzione query può comportare un piano di query generato è diverso da ciò che è stato originariamente memorizzati nella cache. Esistono vari motivi, motivo per cui un piano esistente originale potrebbe essere ricompilato automaticamente:
-- Modifiche nello schema di cui fa riferimento la query
-- Modifiche ai dati alle tabelle di cui fa riferimento la query 
+Una ricompilazione del piano di esecuzione della query può comportare un piano di query generato che differisce da quello originariamente memorizzato nella cache. Esistono diversi motivi per cui un piano originale esistente potrebbe essere ricompilato automaticamente:
+- Modifiche nello schema a cui fa riferimento la query
+- Modifiche ai dati nelle tabelle a cui fa riferimento la query 
 - Modifiche alle opzioni del contesto di query 
 
-Un piano compilato potrebbe essere espulso dalla cache per svariati motivi, ad esempio riavvii delle istanze, le modifiche alla configurazione, utilizzo della memoria e richieste esplicitare per cancellare la cache con ambito database. Utilizzando un hint RECOMPILE, inoltre, significa che non verrà memorizzate nella cache di un piano.
+Un piano compilato può essere espulso dalla cache per diversi motivi, tra cui riavvii dell'istanza, modifiche della configurazione con ambito database, utilizzo della memoria e richieste esplicite per cancellare la cache. Inoltre, l'utilizzo di un hint RECOMPILE indica che un piano non verrà memorizzato nella cache.
 
-Una ricompilazione o nuova compilazione dopo la rimozione della cache, comunque può comportare la generazione di un piano di esecuzione di query identica rispetto a quello originariamente osservato.  Se, tuttavia, esistono modifiche al piano rispetto al piano originale o precedente, ecco le spiegazioni più comuni per il motivo per cui un piano di esecuzione di query modificato:
+Una ricompilazione (o una nuova compilazione dopo la rimozione della cache) può comunque comportare la generazione di un piano di esecuzione di query identico a quello originariamente osservato.  Se tuttavia sono state apportate modifiche al piano rispetto al piano precedente o originale, di seguito sono riportate le spiegazioni più comuni per la modifica di un piano di esecuzione della query:
 
-- **Modificare la progettazione fisica**. Ad esempio, nuovi indici creati che coprono che i requisiti di una query possono essere utilizzati con una nuova compilazione se query optimizer decide che è in modo più efficace più ottimale per sfruttare questo nuovo indice rispetto all'utilizzo la struttura dei dati selezionata originalmente per la prima versione di l'esecuzione della query.  Qualsiasi modifica fisica per gli oggetti di riferimento può comportare una scelta del piano di nuovo in fase di compilazione.
+- **Modifica della progettazione fisica**. Ad esempio, sono stati creati nuovi indici che coprono in modo più efficace i requisiti di una query. Questi possono essere usati in una nuova compilazione se il Query Optimizer decide che è più ottimale sfruttare il nuovo indice rispetto alla struttura dei dati selezionata originariamente per la prima versione dell'esecuzione della query.  Eventuali modifiche fisiche apportate agli oggetti a cui si fa riferimento possono generare una nuova scelta del piano in fase di compilazione.
 
-- **Differenze di risorse server**. In uno scenario in cui un unico piano differisce su "sistema" e "sistema B", la disponibilità delle risorse, ad esempio il numero di processori disponibili, possono influenzare il piano generato.  Ad esempio, se un sistema dispone di un numero maggiore di processori, può essere scelto un piano parallelo. 
+- **Differenze tra le risorse del server**. In uno scenario in cui un piano differisce da "sistema A" rispetto a "sistema B": la disponibilità delle risorse, ad esempio il numero di processori disponibili, può influenzare il piano generato.  Ad esempio, se un sistema dispone di un numero maggiore di processori, è possibile scegliere un piano parallelo. 
 
-- **Statistiche diverse**. Le statistiche associate agli oggetti di riferimento modificato o sono sostanzialmente diverse dalle statistiche del sistema originale.  Se le statistiche di modifica e si verifica una ricompilazione, query optimizer userà le statistiche a partire da quel punto specifico nel tempo. Le statistiche riviste possono avere distribuzioni dei dati diverse in modo significativo e frequenze che non sono presenti nella compilazione originale.  Queste modifiche vengono utilizzate per stimare stime della cardinalità (numero di righe previsto per fluire attraverso l'albero della query logica).  Le modifiche alle stime della cardinalità possono portare a scegliere diversi operatori fisici e ordine di operazioni associato.  Alcune modifiche minori anche alle statistiche possono comportare un piano di esecuzione di query modificata.
+- **Statistiche diverse**. Le statistiche associate agli oggetti a cui si fa riferimento sono state modificate o sono materialmente diverse dalle statistiche del sistema originale.  Se le statistiche cambiano e viene eseguita una ricompilazione, il Query Optimizer utilizzerà le statistiche a partire da quel momento specifico. Le statistiche rivedute possono avere distribuzioni e frequenze di dati significativamente diverse che non sono state eseguite nella compilazione originale.  Queste modifiche vengono usate per stimare le stime della cardinalità (numero di righe previste per il flusso attraverso l'albero delle query logiche).  Le modifiche alle stime della cardinalità possono comportare la scelta di operatori fisici diversi e l'ordine delle operazioni associato.  Anche le modifiche minime alle statistiche possono generare un piano di esecuzione delle query modificato.
 
-- **Versione Estimatore cardinalità o un livello di database è stato sostituito compatibilità**.  Le modifiche a livello di compatibilità del database è possono abilitare nuove strategie e le funzionalità che possono comportare un piano di esecuzione di query diversi.  Oltre a livello di compatibilità del database, la disabilitazione o abilitazione di flag di traccia 4199 o la modifica dello stato della configurazione con ambito database QUERY_OPTIMIZER_HOTFIXES possono influenzare anche query scelte di piani di esecuzione in fase di compilazione.  I flag di traccia 9481 (force versione CE legacy) e 2312 (forzare la versione CE predefinita) sono anche ai piani. 
+- **Modifica del livello di compatibilità del database o della versione di stima**della cardinalità.  Le modifiche apportate al livello di compatibilità del database possono consentire nuove strategie e funzionalità che possono generare un piano di esecuzione di query diverso.  Oltre al livello di compatibilità del database, la disabilitazione o l'abilitazione del flag di traccia 4199 o la modifica dello stato della configurazione con ambito database QUERY_OPTIMIZER_HOTFIXES possono anche influenzare le scelte del piano di esecuzione delle query in fase di compilazione.  I flag di traccia 9481 (Force legacy CE) e 2312 (Force default CE) sono anche piani che interessano. 
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Risolvere le query problematiche o fornire altre risorse
 
@@ -220,7 +220,7 @@ Come illustrato nel grafico precedente, le attese più comuni sono:
 > - [Identificare i problemi di prestazioni di IO](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identificare `tempdb` i problemi di prestazioni](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identificare le attese di concessione di memoria](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
-> - [TigerToolbox - resta in attesa di latch](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
+> - [TigerToolbox-attese e latch](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
 > - [TigerToolbox - usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
 ## <a name="improving-database-performance-with-more-resources"></a>Miglioramento delle prestazioni del database con più risorse

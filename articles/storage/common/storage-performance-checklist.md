@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c5bbd19969349965ea20fa4cfc09e10119a9a86c
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: ee216bd4d6994179e347465c30039f2f8e293c85
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295757"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233010"
 ---
-# <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Elenco di controllo delle prestazioni e scalabilità per archiviazione di Microsoft Azure
+# <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Elenco di controllo delle prestazioni e della scalabilità Archiviazione di Microsoft Azure
 
 Dal rilascio dei servizi di archiviazione di Microsoft Azure, Microsoft ha sviluppato diverse procedure comprovate per usare questi servizi in modo ottimale. In questo articolo vengono riepilogate le procedure più importanti, presentate sotto forma di elenco di controllo. L'intento dell'articolo è di consentire agli sviluppatori di applicazioni di assicurarsi di stare usando le procedure comprovate con l'archiviazione di Azure e di aiutarli a individuare altre eventuali procedure da adottare. Questo articolo non intende coprire tutti i possibili casi di ottimizzazione delle prestazioni e della scalabilità, pertanto esclude quelli che hanno effetti trascurabili o che non sono applicabili a un significativo numero di scenari. Nella misura in cui è possibile prevedere il comportamento dell'applicazione durante la progettazione, è opportuno effettuare una valutazione preliminare di questi aspetti per evitare progettazioni che potrebbero causare problemi in termini di prestazioni.  
 
-Ogni sviluppatore di applicazioni usando archiviazione di Azure deve dedicare del tempo per leggere questo articolo e verificare che la loro applicazione segua ognuna delle procedure comprovate elencate di seguito.  
+Ogni sviluppatore di applicazioni che usa archiviazione di Azure deve essere in grado di leggere questo articolo e verificare che l'applicazione segua ciascuna delle procedure comprovate elencate di seguito.  
 
 ## <a name="checklist"></a>Elenco di controllo
 
@@ -84,7 +84,7 @@ Questo articolo organizza le procedure comprovate nei seguenti gruppi. Procedure
 
 Questa sezione elenca le procedure comprovate applicabili all'uso di tutti i servizi di archiviazione di Azure (BLOB, tabelle, code o file).  
 
-### <a name="subheading1"></a>obiettivi di scalabilità
+### <a name="subheading1"></a>Obiettivi di scalabilità
 
 Archiviazione di Azure ha un limite di 250 account di archiviazione per area per sottoscrizione. Se si raggiunge tale limite, non è possibile creare altri account di archiviazione nella combinazione sottoscrizione/area in questione.
 
@@ -94,7 +94,7 @@ Tutti i servizi di archiviazione di Azure hanno degli obiettivi di scalabilità 
 * [Entità di tabella al secondo](#subheading24)
 * [Messaggi della coda al secondo](#subheading39)  
 
-#### <a name="sub1bandwidth"></a>Obiettivo di scalabilità della larghezza di banda per tutti i servizi
+#### <a name="sub1bandwidth"></a>Destinazione di scalabilità della larghezza di banda per tutti i servizi
 
 Al momento della redazione di questo documento, gli obiettivi di larghezza di banda negli Stati Uniti per un account di archiviazione con ridondanza geografica (GRS) sono di 10 gigabit al secondo (Gbps) in ingresso (dati inviati all'account di archiviazione) e di 20 Gbps in uscita (dati inviati dall'account di archiviazione). Per un account di archiviazione con ridondanza locale (LRS), i limiti sono più alti: 20 Gbps in ingresso e 30 Gbps in uscita.  I limiti di larghezza di banda internazionali possono essere inferiori e possono essere visualizzati nella [pagina degli obiettivi di scalabilità](https://msdn.microsoft.com/library/azure/dn249410.aspx).  Per altre informazioni sulle opzioni di ridondanza dell'archiviazione, vedere i collegamenti nella sezione Risorse utili più avanti.  
 
@@ -109,7 +109,7 @@ Se si sta per raggiungere il limite di account di archiviazione consentiti in un
 Se l'applicazione sta raggiungendo gli obiettivi di scalabilità per un singolo account di archiviazione, valutare uno dei seguenti approcci:  
 
 * Esaminare di nuovo il carico di lavoro che causa il raggiungimento o il superamento dell'obiettivo di scalabilità da parte dell'applicazione. È possibile progettarlo in modo diverso in modo che usi una quantità minore di larghezza di banda o capacità o un minor numero di transazioni?
-* Se un'applicazione deve superare uno degli obiettivi di scalabilità, è necessario creare più account di archiviazione e partizionare i dati dell'applicazione tra questi account di archiviazione. Se si usa questo modello, assicurarsi di progettare l'applicazione in modo da aggiungere altri account di archiviazione in futuro per il bilanciamento del carico. Al momento della scrittura, ogni sottoscrizione di Azure può avere fino a 250 account di archiviazione per ogni area (quando distribuito con il modello di Azure Resource Manager).  Gli account di archiviazione, inoltre, non hanno costi aggiuntivi rispetto a quelli per l'uso, ossia associati ai dati archiviati, alle transazioni effettuate o ai dati trasferiti.
+* Se un'applicazione deve superare uno degli obiettivi di scalabilità, è necessario creare più account di archiviazione e partizionare i dati dell'applicazione tra questi account di archiviazione. Se si usa questo modello, assicurarsi di progettare l'applicazione in modo da aggiungere altri account di archiviazione in futuro per il bilanciamento del carico. Al momento della stesura di questo articolo, ogni sottoscrizione di Azure può avere fino a 250 account di archiviazione per area (in caso di distribuzione con il modello di Azure Resource Manager).  Gli account di archiviazione, inoltre, non hanno costi aggiuntivi rispetto a quelli per l'uso, ossia associati ai dati archiviati, alle transazioni effettuate o ai dati trasferiti.
 * Se l'applicazione raggiunge gli obiettivi di larghezza di banda, valutare la compressione dei dati nel client per ridurre la larghezza di banda necessaria a inviare i dati al servizio di archiviazione.  Questa operazione, che consente di risparmiare larghezza di banda e migliorare le prestazioni di rete, può avere anche degli effettivi negativi.  Valutare gli effetti sulle prestazioni dovuti ai requisiti di elaborazione aggiuntivi per la compressione e la decompressione dei dati nel client. Inoltre, l'archiviazione dei dati compressi può rendere più difficile la risoluzione dei problemi perché ostacola la visualizzazione dei dati archiviati mediante gli strumenti standard.
 * Se l'applicazione raggiunge gli obiettivi di scalabilità, assicurarsi di usare un backoff esponenziale per i nuovi tentativi (vedere [Tentativi](#subheading14)).  È meglio cercare di non raggiungere mai gli obiettivi di scalabilità (usando uno dei modi descritti), tuttavia ciò impedirà all'applicazione di riprendere a eseguire rapidamente nuovi tentativi, peggiorando così la limitazione.  
 
@@ -123,14 +123,14 @@ I seguenti collegamenti forniscono ulteriori dettagli sugli obiettivi di scalabi
 
 ### <a name="subheading47"></a>Convenzione di denominazione delle partizioni
 
-Archiviazione di Azure usa uno schema di partizionamento basato sugli intervalli per la scalabilità e il bilanciamento del carico del sistema. La chiave di partizione (account + contenitore o blob) viene usato per partizionare i dati in intervalli; tali intervalli sono con bilanciamento del carico nel sistema. Ciò significa che le convenzioni di denominazione quali l'ordinamento lessicale (ad esempio, *mypayroll*, *myperformance*, *myemployees*e così via) o con timestamp ( *log20160101*, *log20160102*, *log20160102*e così via) presterà alle partizioni viene potenzialmente con percorso condiviso sullo stesso server partizioni, fino a un operazione di bilanciamento del carico le suddivide in intervalli più piccoli. Ad esempio, tutti i BLOB all'interno di un contenitore possono essere reso disponibile da un singolo server fino a quando il carico in questi BLOB richiede un'ulteriore nuovo bilanciamento degli intervalli di partizione. Analogamente, un gruppo di account con carico ridotto i cui nomi sono disposti in ordine lessicale può essere servito da un unico server, fino a quando il carico di uno o di tutti gli account non ne richiede la suddivisione su più server di partizioni. Ogni operazione di bilanciamento del carico può incidere negativamente sulla latenza delle chiamate di archiviazione durante l'operazione. La capacità del sistema per gestire un improvviso picco di traffico a una partizione è limitata dalla scalabilità di un singolo server partizione fino a quando l'operazione di bilanciamento del carico viene attivata e consente di bilanciare nuovamente l'intervallo di chiavi di partizione.
+Archiviazione di Azure usa uno schema di partizionamento basato sugli intervalli per la scalabilità e il bilanciamento del carico del sistema. La chiave di partizione (account + contenitore + BLOB) viene usata per partizionare i dati in intervalli e questi intervalli sono sottoposte a bilanciamento del carico nel sistema. Ciò significa che le convenzioni di denominazione, ad esempio l'ordinamento lessicale (ad esempio, *Payroll*, le *prestazioni*, i *dipendenti*e così via) o l'uso di timestamp (*log20160101*, *log20160102*, *log20160102*e così via) precedono per le partizioni che si trovano potenzialmente nello stesso server di partizione, fino a quando un'operazione di bilanciamento del carico le suddivide in intervalli inferiori. Ad esempio, tutti i BLOB all'interno di un contenitore possono essere serviti da un singolo server fino a quando il carico su questi BLOB richiede un nuovo bilanciamento degli intervalli di partizione. Analogamente, un gruppo di account con carico ridotto i cui nomi sono disposti in ordine lessicale può essere servito da un unico server, fino a quando il carico di uno o di tutti gli account non ne richiede la suddivisione su più server di partizioni. Ogni operazione di bilanciamento del carico può incidere negativamente sulla latenza delle chiamate di archiviazione durante l'operazione. La capacità del sistema di gestire un improvviso picco di traffico verso una partizione è limitata dalla scalabilità di un singolo server di partizione fino a quando non viene avviata l'operazione di bilanciamento del carico e viene ribilanciato l'intervallo di chiavi di partizione.
 
 Alcune procedure consigliate consentono di ridurre la frequenza di queste operazioni.  
 
-* Se possibile, usare Put Blob o Put Block dimensioni maggiori (superiori a 4 MiB per gli account standard e maggiore di 256 KB per gli account premium) per attivare la velocità effettiva elevata blocco Blob (HTBB). HTBB offre elevata delle prestazioni di inserimento che non è influenzato denominazione delle partizioni.
-* Esaminare nel dettaglio le convenzioni di denominazione usate per account, contenitori, BLOB, tabelle e code. Prendere in considerazione apponendo il prefisso account, contenitore o i nomi di blob con un hash di 3 cifre usando una funzione di hashing più adatta alle proprie esigenze.  
-* Se si organizzano i dati con timestamp o identificatori numerici, assicurarsi di non usare modelli di traffico Solo accodamenti (o Solo anteposizioni). Questi modelli non sono adatti a un sistema di partizionamento basato su intervalli e potrebbero indirizzare tutto il traffico a una singola partizione, impedendo un bilanciamento del carico efficiente nel sistema. Ad esempio, se sono presenti operazioni giornaliere che usano un oggetto blob con un timestamp, ad esempio *aaaammgg*, quindi tutto il traffico per l'operazione giornaliera viene indirizzato a un singolo oggetto, gestito da un singolo server partizione. Verificare se i limiti per BLOB e i limiti per partizione soddisfano le esigenze e, se necessario, considerare la possibilità di suddividere l'operazione in più BLOB. In modo analogo, se si archiviano dati della serie temporale nelle tabelle, è possibile che tutto il traffico venga indirizzato all'ultima parte dello spazio dei nomi della chiave. Se è necessario usare timestamp o ID numerici, prefisso dell'ID con un hash di 3 cifre, o nel caso dei timestamp come prefisso, ad esempio la seconda parte del tempo *ssaaaammgg*. Se vengono eseguite regolarmente operazioni di query e creazione elenchi, scegliere una funzione di hashing che limiti il numero di query. In altri casi può essere sufficiente un prefisso casuale.  
-* Per altre informazioni sullo schema di partizionamento usato in archiviazione di Azure, vedere [archiviazione di Azure: A Highly Available Cloud Storage Service with Strong Consistency](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf) (Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta).
+* Se possibile, usare un BLOB put di dimensioni maggiori o le dimensioni dei blocchi put (maggiori di 4 MiB per gli account standard e maggiori di 256 KiB per gli account Premium) per attivare un BLOB in blocchi ad alta velocità effettiva (HTBB). HTBB fornisce un inserimento a prestazioni elevate che non è influenzato dalla denominazione delle partizioni.
+* Esaminare nel dettaglio le convenzioni di denominazione usate per account, contenitori, BLOB, tabelle e code. Prendere in considerazione il prefisso per i nomi di account, contenitori o BLOB con un hash a 3 cifre usando una funzione di hashing più adatta alle proprie esigenze.  
+* Se si organizzano i dati con timestamp o identificatori numerici, assicurarsi di non usare modelli di traffico Solo accodamenti (o Solo anteposizioni). Questi modelli non sono adatti a un sistema di partizionamento basato su intervalli e potrebbero indirizzare tutto il traffico a una singola partizione, impedendo un bilanciamento del carico efficiente nel sistema. Se, ad esempio, si dispone di operazioni quotidiane che utilizzano un oggetto BLOB con un timestamp quale *AAAAMMGG*, tutto il traffico per tale operazione giornaliera viene indirizzato a un singolo oggetto, che viene servito da un singolo server di partizione. Verificare se i limiti per BLOB e i limiti per partizione soddisfano le esigenze e, se necessario, considerare la possibilità di suddividere l'operazione in più BLOB. In modo analogo, se si archiviano dati della serie temporale nelle tabelle, è possibile che tutto il traffico venga indirizzato all'ultima parte dello spazio dei nomi della chiave. Se è necessario utilizzare timestamp o ID numerici, anteporre all'ID un valore hash di 3 cifre oppure, nel caso di timestamp, il prefisso dei secondi parte del tempo, ad esempio *ssaaaammgg*. Se vengono eseguite regolarmente operazioni di query e creazione elenchi, scegliere una funzione di hashing che limiti il numero di query. In altri casi può essere sufficiente un prefisso casuale.  
+* Per altre informazioni sullo schema di partizionamento usato in archiviazione di Azure, [vedere archiviazione di Azure: A Highly Available Cloud Storage Service with Strong Consistency](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf) (Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta).
 
 ### <a name="networking"></a>Rete
 
@@ -178,7 +178,7 @@ Per altre informazioni sulla condivisione risorse tra le origini, vedere [Suppor
 
 ### <a name="caching"></a>Memorizzazione nella cache
 
-#### <a name="subheading7"></a>Recupero dei dati
+#### <a name="subheading7"></a>Recupero di dati
 
 In generale è meglio recuperare i dati da un servizio una sola volta e non ripetutamente. Considerare l'esempio di un'applicazione Web MVC eseguita in un ruolo Web che ha già recuperato un BLOB da 50 MB dal servizio di archiviazione da usare come contenuto per un utente. L'applicazione può quindi recuperare lo stesso BLOB ogni volta che un utente lo richiede o può memorizzarlo nella cache locale sul disco e riusare questa versione per le successive richieste dell'utente. Quando un utente richiede i dati, l'applicazione può inoltre generare un'operazione GET con un'intestazione condizionale per il tempo di modifica che evita di recuperare l'intero BLOB se non è stato modificato. È possibile applicare lo stesso modello quando si usano le entità di tabella.  
 
@@ -186,13 +186,13 @@ In alcuni casi si può impostare l'applicazione in modo che consideri valido il 
 
 I dati di configurazione, di ricerca e altri dati usati di frequente dall'applicazione sono ottimi candidati per la memorizzazione nella cache.  
 
-Per un esempio di come recuperare le proprietà di un BLOB per individuare la data dell'ultima modifica con .NET, vedere [Impostare e recuperare proprietà e metadati](../blobs/storage-properties-metadata.md). Per altre informazioni sui download condizionali, vedere [Aggiornare una copia locale di un Blob in modo condizionale](https://msdn.microsoft.com/library/azure/dd179371.aspx).  
+Per ulteriori informazioni sui download condizionali, vedere [specifica di intestazioni condizionali per le operazioni del servizio BLOB](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).  
 
 #### <a name="subheading8"></a>Caricamento dei dati in batch
 
 In alcuni scenari dell'applicazione è possibile aggregare i dati localmente e caricarli periodicamente in un batch invece di caricare subito i singoli dati. Ad esempio, un'applicazione Web può mantenere un file di log delle attività: l'applicazione può caricare i dettagli delle singole attività man mano che vengono eseguite come entità di tabella (il che richiede molte operazioni di archiviazione) oppure può salvarli in un file di log locale e caricare periodicamente tutti i dettagli dell'attività in un file delimitato in un BLOB. Se ogni voce di log ha una dimensione pari a 1 KB, è possibile caricare migliaia di voci in un'unica transazione "Put Blob", considerando che è possibile caricare un BLOB con una dimensione massima di 64 MB in un'unica transazione. Se il computer locale subisce un arresto anomalo prima del caricamento, è possibile che vengano persi dei dati del log: lo sviluppatore di applicazioni deve tenere conto della possibilità di un arresto del dispositivo client o del caricamento.  Se i dati dell'attività devono essere scaricati in base agli intervalli di tempo (non alle singole attività), si consiglia di usare i BLOB invece delle tabelle.
 
-### <a name="net-configuration"></a>Configurazione di .NET
+### <a name="net-configuration"></a>Configurazione .NET
 
 Se si usa .NET Framework, in questa sezione vengono elencate diverse impostazioni di configurazione rapide che è possibile usare per migliorare significativamente le prestazioni.  Se si usano altri linguaggi, controllare se esistono procedure simili per il linguaggio prescelto.  
 
@@ -212,7 +212,7 @@ Per altre informazioni, vedere il post del blog [Servizi Web: connessioni simult
 
 #### <a name="subheading10"></a>Aumentare il numero minimo di thread se si usa codice sincrono con attività asincrone
 
-Questo codice aumenta il numero minimo di thread nel pool di thread:  
+Questo codice aumenterà il numero minimo di thread nel pool di thread:  
 
 ```csharp
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
@@ -220,7 +220,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 Per altre informazioni, vedere [Metodo ThreadPool.SetMinThreads](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
 
-#### <a name="subheading11"></a>Sfruttare i vantaggi di .NET 4.5 e versioni successive della garbage collection
+#### <a name="subheading11"></a>Sfrutta i vantaggi di .NET 4,5 e versioni successive Garbage Collection
 
 Usare .NET 4.5 o versione successiva per consentire all'applicazione client di sfruttare i miglioramenti delle prestazioni relativi alla funzionalità Garbage Collection del server.
 
@@ -230,19 +230,19 @@ Per altre informazioni, vedere l'articolo [Panoramica dei miglioramenti delle pr
 
 Il parallelismo è un metodo efficace per mantenere il livello delle prestazioni, tuttavia è necessario prestare attenzione quando si usa il parallelismo non associato (senza limiti sul numero di thread e/o di richieste parallele) per caricare o scaricare i dati, quando si usano più lavori per accedere a diverse partizioni (contenitori, code o partizioni di tabelle) nello stesso account di archiviazione o per accedere a più elementi nella stessa partizione. Se il parallelismo non è associato, l'applicazione può superare le capacità del dispositivo client o gli obiettivi di scalabilità dell'account di archiviazione producendo latenze più lunghe e limitazioni.  
 
-### <a name="subheading13"></a>Strumenti e librerie Client di archiviazione
+### <a name="subheading13"></a>Strumenti e librerie client di archiviazione
 
 Usare sempre l'ultima versione delle librerie e degli strumenti client forniti da Microsoft. Al momento della redazione di questo documento, sono disponibili librerie client per .NET, Windows Phone, Windows Runtime, Java e C++ nonché librerie di anteprima per altri linguaggi. Inoltre, Microsoft ha rilasciato i cmdlet di PowerShell e i comandi CLI Azure da usare con l'archiviazione di Azure. Microsoft sviluppa attivamente questi strumenti concentrandosi sulle prestazioni, li mantiene aggiornati con le ultime versioni del servizio e verifica che siano in grado di gestire internamente gran parte delle procedure comprovate relative alle prestazioni.  
 
 ### <a name="retries"></a>Tentativi
 
-#### <a name="subheading14"></a>Errori di limitazione delle richieste e il server occupati
+#### <a name="subheading14"></a>Limitazione ed errori di server occupato
 
 In alcuni casi il servizio di archiviazione può limitare l'applicazione o semplicemente non essere in grado di completare la richiesta a causa di condizioni temporanee. In questi casi, il servizio restituisce un messaggio "503 Server occupato" o "500 Timeout".  Questo accade se l'applicazione sta raggiungendo gli obiettivi di scalabilità o se il sistema sta ribilanciando i dati partizionati per consentire una maggiore velocità effettiva.  L'applicazione client in genere deve ripetere l'operazione che ha causato l'errore: un tentativo successivo della stessa richiesta può avere esito positivo. Tuttavia, se il servizio di archiviazione sta limitando l'applicazione perché supera gli obiettivi di scalabilità o non è in grado di completare la richiesta per altri motivi, la ripetizione dei tentativi non fa che peggiorare il problema. Per questo motivo è opportuno usare un backoff esponenziale (nelle librerie client è il comportamento predefinito). Ad esempio, l'applicazione può riprovare l'operazione dopo 2 secondi, 4 secondi, 10 secondi, 30 secondi, dopo di che non effettua altri tentativi. Piuttosto che peggiorare il problema, questo comportamento consente di ridurre notevolmente il carico dell'applicazione sul servizio.  
 
 I nuovi tentativi relativi a errori di connettività possono essere eseguiti immediatamente perché non dipendono dalle limitazioni e sono considerati temporanei.  
 
-#### <a name="subheading15"></a>Errori irreversibili
+#### <a name="subheading15"></a>Errori non irreversibile
 
 Le librerie client distinguono gli errori reversibili da quelli irreversibili. Tuttavia, se si scrive il proprio codice in base all'API REST di archiviazione, ricordare che esistono degli errori per i quali non devono essere effettuati nuovi tentativi: ad esempio, una risposta 400 (Richiesta non valida) indica che l'applicazione client ha inviato una richiesta che non è possibile elaborare perché non è nel formato previsto. Un nuovo invio di questa richiesta genererà sempre la stessa risposta, quindi è inutile riprovare. Se si scrive il proprio codice in base all'API REST di archiviazione, tenere presente il significato dei codici di errore e il modo corretto (e quello errato) di eseguire nuovi tentativi per ciascuno di essi.  
 
@@ -252,9 +252,9 @@ Per altre informazioni sui codici di errore di archiviazione, vedere [Codici ed 
 
 ## <a name="blobs"></a>Blobs
 
-Oltre alle procedure comprovate per [tutti i servizi](#allservices) descritto in precedenza, le seguenti procedure comprovate si applicano specificamente al servizio Blob.  
+Oltre alle procedure comprovate per [tutti i servizi](#allservices) descritti in precedenza, le seguenti procedure comprovate si applicano in modo specifico al servizio BLOB.  
 
-### <a name="blob-specific-scalability-targets"></a>Obiettivi di scalabilità specifici per BLOB
+### <a name="blob-specific-scalability-targets"></a>Obiettivi di scalabilità specifici per i BLOB
 
 #### <a name="subheading46"></a>Accesso simultaneo di più client a un singolo oggetto
 
@@ -264,15 +264,15 @@ Se l'oggetto può essere distribuito tramite una rete CDN, ad esempio nel caso d
 
 In altri scenari, ad esempio simulazioni scientifiche in cui i dati sono riservati, sono disponibili due opzioni. La prima consiste nel suddividere l'accesso del carico di lavoro in fasi successive in modo che l'accesso all'oggetto sia diluito nel tempo e non simultaneo. In alternativa, è possibile copiare temporaneamente l'oggetto in più account di archiviazione, aumentando il numero totale di IOPS per ogni oggetto e tra gli account di archiviazione. In test limitati è stato rilevato che circa 25 macchine virtuali possono scaricare simultaneamente un BLOB di 100 GB in parallelo (con download parallelizzato tramite 32 thread in ogni macchina virtuale). Se 100 client devono accedere all'oggetto, copiarlo prima di tutto in un secondo account di archiviazione e quindi fare in modo che le prime 50 macchine virtuali accedano al primo BLOB e le seconde 50 macchine virtuali accedano al secondo BLOB. I risultati variano a seconda del comportamento delle applicazioni. È quindi opportuno eseguire dei test in fase di progettazione. 
 
-#### <a name="subheading16"></a>Larghezza di banda e operazioni per blob
+#### <a name="subheading16"></a>Larghezza di banda e operazioni per BLOB
 
 È possibile leggere o scrivere in un singolo BLOB a un massimo di 60 MB/secondo (circa 480 Mbps, un valore che supera le capacità di molte reti sul lato client, inclusa la scheda di interfaccia di rete fisica nel dispositivo client. Inoltre, un singolo BLOB supporta fino a 500 richieste al secondo. Se si hanno più client che devono leggere lo stesso BLOB e si teme di superare questi limiti, valutare l'uso di una rete CDN per la distribuzione del BLOB.  
 
 Per altre informazioni sulla velocità effettiva da raggiungere per i BLOB, vedere [Obiettivi di scalabilità e prestazioni di archiviazione di Azure](storage-scalability-targets.md).  
 
-### <a name="copying-and-moving-blobs"></a>Copia e spostamento dei BLOB
+### <a name="copying-and-moving-blobs"></a>Copia e trasferimento di BLOB
 
-#### <a name="subheading17"></a>Copia blob
+#### <a name="subheading17"></a>Copia BLOB
 
 La versione dell'API REST di archiviazione 2012-02-12 ha introdotto un'utile funzionalità che consente di copiare i BLOB in diversi account: un'applicazione client può impostare il servizio di archiviazione in modo che copi un BLOB da un'altra origine (possibilmente in un altro account di archiviazione) e lasciare che il servizio esegua la copia in modo asincrono. Ciò consente di ridurre notevolmente la larghezza di banda necessaria all'applicazione quando si esegue la migrazione dei dati da altri account di archiviazione perché non si devono scaricare e caricare i dati.  
 
@@ -292,13 +292,11 @@ Per grandi volumi di dati (più di 1 TB), Archiviazione di Azure offre il serviz
 
 ### <a name="subheading20"></a>Usare i metadati
 
-Il servizio Blob supporta le richieste head che possono includere i metadati sul blob. Ad esempio, se l'applicazione richiede i dati EXIF inclusi in una foto, può recuperare la foto ed estrarli. Per risparmiare larghezza di banda e migliorare le prestazioni, l'applicazione può archiviare i dati EXIF nei metadati del BLOB quando l'applicazione carica la foto. I dati EXIF possono essere poi recuperati nei metadati usando semplicemente una richiesta HEAD, risparmiando una notevole quantità di larghezza di banda e il tempo di elaborazione necessario a estrarre i dati EXIF a ogni lettura del BLOB. Questa funzionalità è utile in scenari in cui sono necessari solo i metadati e non l'intero contenuto di un BLOB.  È possibile archiviare solo 8 KB di metadati per BLOB (il servizio non accetta richieste per valori superiori), quindi se i dati superano queste dimensioni non sarà possibile usare questo approccio.  
-
-Per un esempio di come recuperare i metadati di un BLOB con .NET, vedere [Impostare e recuperare proprietà e metadati](../blobs/storage-properties-metadata.md).  
+Il servizio BLOB supporta le richieste Head, che possono includere i metadati relativi al BLOB. Ad esempio, se l'applicazione richiede i dati EXIF inclusi in una foto, può recuperare la foto ed estrarli. Per risparmiare larghezza di banda e migliorare le prestazioni, l'applicazione può archiviare i dati EXIF nei metadati del BLOB quando l'applicazione carica la foto. I dati EXIF possono essere poi recuperati nei metadati usando semplicemente una richiesta HEAD, risparmiando una notevole quantità di larghezza di banda e il tempo di elaborazione necessario a estrarre i dati EXIF a ogni lettura del BLOB. Questa funzionalità è utile in scenari in cui sono necessari solo i metadati e non l'intero contenuto di un BLOB.  È possibile archiviare solo 8 KB di metadati per BLOB (il servizio non accetta richieste per valori superiori), quindi se i dati superano queste dimensioni non sarà possibile usare questo approccio.  
 
 ### <a name="rapid-uploading"></a>Caricamento rapido
 
-Per caricare rapidamente i BLOB, è la prima domanda a cui rispondere: è necessario definire se caricare un blob o a numerose colonne?  Usare le indicazioni seguenti per determinare il metodo corretto da usare a seconda dello scenario.  
+Per caricare rapidamente i BLOB, la prima domanda da rispondere è: caricare un BLOB o molti?  Usare le indicazioni seguenti per determinare il metodo corretto da usare a seconda dello scenario.  
 
 #### <a name="subheading21"></a>Caricamento rapido di un BLOB di grandi dimensioni
 
@@ -306,12 +304,12 @@ Per caricare rapidamente un singolo BLOB di grandi dimensioni, l'applicazione cl
 
 * .NET: Impostare ParallelOperationThreadCount in un oggetto BlobRequestOptions da usare.
 * Java/Android: Usare BlobRequestOptions.setConcurrentRequestCount()
-* Node.js: Usare parallelOperationThreadCount in entrambe le opzioni di richiesta o nel servizio Blob.
+* Node.js: Usare parallelOperationThreadCount nelle opzioni di richiesta o nel servizio BLOB.
 * C++: Usare il metodo blob_request_options::set_parallelism_factor.
 
 #### <a name="subheading22"></a>Caricamento rapido di più BLOB
 
-Per caricare rapidamente più BLOB, caricarli in parallelo. È una procedura più rapida rispetto al caricamento dei singoli BLOB con caricamenti di blocchi paralleli perché distribuisce il caricamento su più partizioni del servizio di archiviazione. Un singolo BLOB supporta una velocità effettiva di soli 60 MB/secondo (circa 480 Mbps). Al momento della scrittura, un account di archiviazione con ridondanza locale con basato negli Stati Uniti supporta fino a 20 Gbps in ingresso, è molto più rispetto alla velocità effettiva supportata da un singolo blob.  [AzCopy](#subheading18) esegue i caricamenti in parallelo per impostazione predefinita ed è consigliato per questo scenario.  
+Per caricare rapidamente più BLOB, caricarli in parallelo. È una procedura più rapida rispetto al caricamento dei singoli BLOB con caricamenti di blocchi paralleli perché distribuisce il caricamento su più partizioni del servizio di archiviazione. Un singolo BLOB supporta una velocità effettiva di soli 60 MB/secondo (circa 480 Mbps). Al momento della stesura di questo articolo, un account con ridondanza locale basato su US supporta fino a 20 Gbps in ingresso, che è molto più della velocità effettiva supportata da un singolo BLOB.  [AzCopy](#subheading18) esegue i caricamenti in parallelo per impostazione predefinita ed è consigliato per questo scenario.  
 
 ### <a name="subheading23"></a>Scelta del tipo di BLOB corretto
 
@@ -323,7 +321,7 @@ Per altre informazioni, vedere [Informazioni sui BLOB in blocchi, sui BLOB di ag
 
 Oltre alle procedure comprovate per [Tutti i servizi](#allservices) descritte prima, le seguenti procedure comprovate si applicano specificamente al servizio tabelle.  
 
-### <a name="subheading24"></a>Obiettivi di scalabilità specifici per tabelle
+### <a name="subheading24"></a>Obiettivi di scalabilità specifici della tabella
 
 Oltre ai limiti della larghezza di banda dell'intero account di archiviazione, le tabelle hanno il seguente limite di scalabilità.  Il sistema bilancia il carico man mano che il traffico aumenta, ma se si verificano incrementi improvvisi del traffico, il volume della velocità effettiva potrebbe non essere raggiunto immediatamente.  Se il modello presenta degli incrementi improvvisi è probabile che vengano visualizzai messaggi di limitazione e/o timeout durante l'incremento perché il servizio di archiviazione bilancia automaticamente il carico della tabella.  Un incremento lento in genere produce risultati migliori perché lascia al sistema il tempo di bilanciare il carico in modo corretto.  
 
@@ -345,7 +343,7 @@ A partire dalla versione del servizio di archiviazione 2013-08-15, il servizio t
 
 Per altre informazioni, vedere il post [Tabelle di Microsoft Azure: introduzione a JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e al [formato Payload per operazioni del servizio tabelle](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-#### <a name="subheading26"></a>Disattivazione di Nagle
+#### <a name="subheading26"></a>Disabilitare Nagle
 
 L'algoritmo Nagle viene spesso implementato nelle reti TCP/IP come strumento per migliorare le prestazioni di rete. Tuttavia, non è la soluzione ottimale in tutti gli scenari (ad esempio, gli ambienti ad alta interazione). In Archiviazione di Azure l'algoritmo Nagle ha un impatto negativo sulle prestazioni delle richieste ai servizi tabelle e di accodamento e, se possibile, dovrebbe essere disabilitato.
 
@@ -377,7 +375,7 @@ Una partizione critica riceve una percentuale sproporzionata del traffico di un 
 
 In un modello "Solo accodamenti" tutto (o quasi tutto) il traffico verso un determinato PK aumenta o diminuisce in base all'ora corrente.  Un esempio è quello dell'applicazione che usa la data corrente come chiave di partizione per i dati di log.  Ciò comporta che tutti gli inserimenti vanno nell'ultima partizione della tabella e il sistema non riesce a bilanciare il carico perché tutte le scritture si trovano alla fine della tabella.  Se il volume di traffico verso la partizione supera l'obiettivo di scalabilità a livello della partizione viene generata una limitazione.  È opportuno assicurarsi che il traffico sia inviato a più partizioni per abilitare il bilanciamento del carico delle richieste nella tabella.  
 
-##### <a name="subheading29"></a>Dati di traffico elevato
+##### <a name="subheading29"></a>Dati con traffico elevato
 
 Se lo schema di partizionamento produce una singola partizione con dati molto più usati rispetto alle altre partizioni, può essere generata una limitazione man mano che la partizione raggiunge l'obiettivo di scalabilità per una singola partizione.  È opportuno verificare che lo schema di partizione non generi partizioni singole che raggiungono gli obiettivi di scalabilità.  
 
@@ -391,11 +389,11 @@ Esistono diversi metodi per specificare l'intervallo di entità su cui eseguire 
 
 Come regola generale, si consiglia di evitare le analisi (query più grandi di una singola entità), ma, se sono necessarie, provare a organizzare i dati in modo che le analisi recuperino i dati necessari senza analizzare o restituire grandi quantità di entità non necessarie.  
 
-###### <a name="point-queries"></a>Query di tipo punto
+###### <a name="point-queries"></a>Query punto
 
 Una query di tipo punto recupera esattamente un'entità. Per farlo specifica sia la chiave di partizione che la chiave di riga dell'entità da recuperare. Queste query sono efficienti ed è consigliabile usarle quando possibile.  
 
-###### <a name="partition-queries"></a>Query della partizione
+###### <a name="partition-queries"></a>Query sulle partizioni
 
 Una query sulle partizioni recupera un set di dati che condivide una chiave di partizione comune. In genere la query specifica un intervallo di valori della chiave di riga o un intervallo di valori relativi a una proprietà dell'entità, oltre alla chiave di partizione. Queste query sono meno efficaci delle query di tipo punto e devono essere usate in casi limitati.  
 
@@ -407,7 +405,7 @@ Una query sulle tabelle recupera un set di entità che non condivide una chiave 
 
 Un altro fattore importante in termini di efficacia delle query è il numero di entità restituite rispetto al numero di entità analizzate per trovare il set restituito. Se l'applicazione esegue una query sulle tabelle con un filtro per un valore della proprietà condiviso solo dall'1% dei dati, la query analizza 100 entità per ciascuna entità restituita. Gli obiettivi di scalabilità della tabella descritti in precedenza fanno tutti riferimento al numero di entità analizzate e non al numero di entità restituite: è probabile che una densità delle query bassa produca una limitazione dell'applicazione nel servizio tabelle perché devono essere analizzate troppe entità per recuperare quella cercata.  Vedere la sezione seguente sulla [denormalizzazione](#subheading34) per altre informazioni su come evitare il problema.  
 
-##### <a name="limiting-the-amount-of-data-returned"></a>Limitare la quantità di dati restituiti
+##### <a name="limiting-the-amount-of-data-returned"></a>Limitazione della quantità di dati restituiti
 
 ###### <a name="subheading32"></a>Filtri
 
@@ -436,11 +434,11 @@ Usare le operazioni della tabella **Upsert** quando possibile. Esistono due tipi
 * **InsertOrMerge**: da usare quando si vuole caricare un subset di proprietà dell'entità, ma non si è certi del fatto che l'entità esista già. Se l'entità esiste, questa chiamata aggiorna le proprietà incluse nell'operazione **Upsert** e lascia inalterate tutte le proprietà esistenti; se l'entità non esiste, ne inserisce una nuova. La procedura è analoga all'uso della proiezione in una query perché è necessario caricare solo le proprietà modificate.
 * **InsertOrReplace**: da usare quando si vuole caricare un'entità completamente nuova, ma non si è certi del fatto che l'entità esista già. Va usato solo se si è certi che l'entità appena caricata è corretta perché questa sovrascrive completamente l'entità esistente. Si vuole ad esempio aggiornare l'entità in cui è archiviata la posizione corrente di un utente indipendentemente dal fatto che l'applicazione abbia o meno archiviato in precedenza dati sulla posizione dell'utente. La nuova entità di posizione è completa e non occorrono altre informazioni da entità precedenti.
 
-##### <a name="subheading37"></a>L'archiviazione di serie di dati in una singola entità
+##### <a name="subheading37"></a>Archiviazione di serie di dati in una singola entità
 
 A volte un'applicazione archivia una serie di dati richiesti di frequente per recuperarli tutti simultaneamente: ad esempio, un'applicazione può tenere traccia dell'utilizzo della CPU nel tempo per tracciare un grafico in sequenza dei dati relativo alle ultime 24 ore. Un approccio prevede un'entità di tabella all'ora, in cui ogni entità rappresenta un'ora specifica e archivia l'utilizzo della CPU per quell'ora. Per tracciare questi dati, l'applicazione deve recuperare le entità che comprendono i dati delle ultime 24 ore.  
 
-In alternativa, l'applicazione può archiviare l'utilizzo della CPU per ciascuna ora sotto forma di proprietà separata di una singola entità: per aggiornare le singole ore, l'applicazione può usare una singola chiamata **InsertOrMerge Upsert** per aggiornare il valore per l'ora più recente. Per tracciare i dati, l'applicazione deve solo recuperare una singola entità invece di 24, aumentando un'efficiente delle query (vedere la discussione precedente sul [ambito query](#subheading30)).
+In alternativa, l'applicazione può archiviare l'utilizzo della CPU per ciascuna ora sotto forma di proprietà separata di una singola entità: per aggiornare le singole ore, l'applicazione può usare una singola chiamata **InsertOrMerge Upsert** per aggiornare il valore per l'ora più recente. Per tracciare i dati, l'applicazione deve solo recuperare una singola entità anziché 24, eseguendo una query efficiente (vedere la discussione precedente sull' [ambito della query](#subheading30)).
 
 ##### <a name="subheading38"></a>Archiviazione di dati strutturati in BLOB
 
@@ -456,15 +454,15 @@ Una singola coda può elaborare circa 2.000 messaggi (da 1 KB ciascuno) al secon
 
 È possibile visualizzare gli obiettivi di scalabilità correnti nella pagina [Obiettivi di scalabilità e prestazioni di archiviazione Azure](storage-scalability-targets.md).  
 
-### <a name="subheading40"></a>Disattivazione di Nagle
+### <a name="subheading40"></a>Disabilitare Nagle
 
 Vedere la sezione nella configurazione della tabella che descrive l'algoritmo Nagle. Questo algoritmo in genere ha un effetto negativo sulle prestazioni delle richieste relative alle code ed è opportuno disabilitarlo.  
 
-### <a name="subheading41"></a>Dimensione del messaggio
+### <a name="subheading41"></a>Dimensioni messaggio
 
-Scalabilità e prestazioni coda diminuire man mano che aumenta le dimensioni di messaggio. In un messaggio è consigliabile inserire solo le informazioni richieste dal ricevitore.  
+Riduzione delle prestazioni e della scalabilità delle dimensioni del messaggio. In un messaggio è consigliabile inserire solo le informazioni richieste dal ricevitore.  
 
-### <a name="subheading42"></a>Recupero in batch
+### <a name="subheading42"></a>Recupero batch
 
 È possibile recuperare fino a 32 messaggi da una coda in una singola operazione. Questo può ridurre il numero di round trip dall'applicazione client, particolarmente utile per gli ambienti con latenza elevata, come i dispositivi mobili.  
 
@@ -474,9 +472,9 @@ La maggior parte delle applicazioni esegue il polling dei messaggi da una coda, 
 
 Per informazioni aggiornate sui costi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).  
 
-### <a name="subheading44"></a>Messaggio di aggiornamento
+### <a name="subheading44"></a>Aggiorna messaggio
 
-È possibile usare la **aggiornare messaggio** operazione per aumentare il timeout di invisibilità o aggiornare le informazioni sullo stato di un messaggio. Sebbene sia potente, tenere presente che ogni **messaggio di aggiornamento** operazione viene conteggiato ai fini dell'obiettivo di scalabilità. Tuttavia, può essere un approccio più efficace rispetto al passaggio di un processo da una coda alla successiva mediante un flusso di lavoro man mano che i singoli passaggi del processo vengono completati. Usando il **messaggio di aggiornamento** operazione consente all'applicazione di salvare lo stato del processo per il messaggio e continuare il lavoro, anziché requeuing il messaggio per il passaggio successivo del processo ogni volta che viene completato un passaggio.  
+È possibile utilizzare l'operazione di **aggiornamento del messaggio** per aumentare il timeout di invisibilità o per aggiornare le informazioni sullo stato di un messaggio. Sebbene sia potente, tenere presente che ogni operazione di **aggiornamento dei messaggi** viene conteggiata per la destinazione di scalabilità. Tuttavia, può essere un approccio più efficace rispetto al passaggio di un processo da una coda alla successiva mediante un flusso di lavoro man mano che i singoli passaggi del processo vengono completati. L'operazione di **aggiornamento del messaggio** consente all'applicazione di salvare lo stato del processo nel messaggio e continuare a lavorare, anziché accodare il messaggio per il passaggio successivo del processo ogni volta che viene completato un passaggio.  
 
 Per altre informazioni, vedere l'articolo [Procedura: Modificare il contenuto di un messaggio in coda](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 
@@ -487,6 +485,6 @@ Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito
 * Le code possono essere usate per creare backlog di lavoro per l'elaborazione e il contenimento dei carichi di lavoro nell'applicazione. Ad esempio, è possibile accodare le richieste degli utenti per eseguire un lavoro che prevede un utilizzo intensivo del processore, ad esempio il ridimensionamento delle immagini caricate.
 * È possibile usare le code per separare i componenti dell'applicazione per eseguirne la scalabilità in modo indipendente. Un front-end Web, ad esempio, può inserire i risultati di un sondaggio degli utenti in una coda per l'analisi e l'archiviazione successive. È possibile aggiungere più istanze del ruolo di lavoro per elaborare i dati della coda come richiesto.  
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 In questo articolo sono state descritte alcune delle procedure comprovate più comuni per l'ottimizzazione delle prestazioni durante l'uso d Archiviazione di Azure. Si consiglia a tutti gli sviluppatori di applicazioni di valutare la propria applicazione in base alle procedure descritte sopra e di prendere in considerazione l'attuazione di alcune misure per migliorare le prestazioni delle applicazioni che usano Archiviazione di Azure.

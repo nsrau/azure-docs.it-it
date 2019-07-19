@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 07/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0b65c7a9b6d4f025c574c2dddace6fa45b77398c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 7d967f0bb0b7a811d4db7836cdbffdad91088a2c
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835778"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311691"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -39,7 +39,7 @@ La sintassi per questa funzione varia in base al nome delle operazioni list. Ogn
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Yes |string |Identificatore univoco della risorsa. |
+| resourceName o resourceIdentifier |Sì |string |Identificatore univoco della risorsa. |
 | apiVersion |Sì |string |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
 | functionValues |No |object | Oggetto che contiene valori per la funzione. Specificare solo questo oggetto per le funzioni che supportano la ricezione di un oggetto con valori di parametro, ad esempio **listAccountSas** per un account di archiviazione. Questo articolo illustra un esempio di passaggio dei valori di funzione. | 
 
@@ -54,7 +54,7 @@ Gli utilizzi possibili della funzione list* sono visualizzati nella tabella segu
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listKeys](/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
-| Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
+| Microsoft. blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
 | Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
 | Microsoft.BotService/botServices/channels | listChannelWithKeys |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/listkeys) |
@@ -186,13 +186,13 @@ Altre funzioni list possono avere formati di restituzione diversi. Per visualizz
 
 Specificare la risorsa usando il nome della risorsa stessa o la [funzione resourceId](#resourceid). Quando si usa una funzione list nello stesso modello che distribuisce la risorsa di riferimento, usare il nome della risorsa.
 
-Se si usa un' **elenco** funzione in una risorsa che viene distribuita in modo condizionale, la funzione viene valutata anche se la risorsa non è stata distribuita. Si verifica un errore se il **elenco** funzione fa riferimento a una risorsa che non esiste. Usare la **se** funzione per assicurarsi che la funzione viene valutata solo quando la risorsa viene distribuita. Vedere le [se funzione](resource-group-template-functions-logical.md#if) per un modello di esempio che usa se e un elenco con una risorsa distribuita in modo condizionale.
+Se si usa una funzione di **elenco** in una risorsa distribuita in modo condizionale, la funzione viene valutata anche se la risorsa non viene distribuita. Viene ricevuto un errore se la funzione **elenco** fa riferimento a una risorsa che non esiste. Usare la funzione **if** per assicurarsi che la funzione venga valutata solo quando la risorsa viene distribuita. Vedere la [funzione If](resource-group-template-functions-logical.md#if) per un modello di esempio che usa if ed list con una risorsa distribuita in modo condizionale.
 
 ### <a name="example"></a>Esempio
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) seguente mostra come restituire le chiavi primaria e secondaria da un account di archiviazione nella sezione outputs. Restituisce anche un token SAS per l'account di archiviazione. 
 
-Per ottenere il token di firma di accesso condiviso, passare un oggetto per l'ora di scadenza. L'ora di scadenza deve essere futura. Lo scopo di questo esempio è illustrare come usare le funzioni list. In genere, è necessario usare il token SAS in un valore di risorsa invece di restituirlo come valore di output. I valori di output vengono archiviati nella cronologia di distribuzione e non sono protetti.
+Per ottenere il token SAS, passare un oggetto per l'ora di scadenza. L'ora di scadenza deve essere futura. Lo scopo di questo esempio è illustrare come usare le funzioni list. In genere, è necessario usare il token SAS in un valore di risorsa invece di restituirlo come valore di output. I valori di output vengono archiviati nella cronologia di distribuzione e non sono protetti.
 
 ```json
 {
@@ -265,7 +265,7 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Sì |string |Spazio dei nomi del provider |
 | resourceType |No |string |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
@@ -342,7 +342,7 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 
 | Parametro | Obbligatorio | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Yes |string |Nome o identificatore univoco di una risorsa. |
+| resourceName o resourceIdentifier |Sì |string |Nome o identificatore univoco di una risorsa. |
 | apiVersion |No |string |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. In genere il formato è **aaaa-mm-gg**. |
 | 'Full' |No |string |Valore che specifica se restituire l'oggetto risorsa completo. Se non si specifica `'Full'`, viene restituito solo l'oggetto proprietà della risorsa. L'oggetto completo include valori quali l'ID e la posizione della risorsa. |
 
@@ -354,11 +354,13 @@ Ogni tipo di risorsa restituisce proprietà diverse per la funzione di riferimen
 
 La funzione reference recupera lo stato di runtime di una risorsa distribuita in precedenza o di una risorsa distribuita nel modello corrente. Questo articolo contiene esempi relativi a entrambi gli scenari. Quando si fa riferimento a una risorsa nel modello corrente, specificare solo il nome della risorsa come parametro. Quando si fa riferimento a una risorsa distribuita in precedenza, fornire l'ID della risorsa e una versione dell'API per tale risorsa. È possibile individuare le versioni delle API valide per la risorsa nella [documentazione di riferimento per il modello](/azure/templates/).
 
-La funzione reference può essere usata solo nelle proprietà di una definizione di risorsa e nella sezione outputs di un modello o una distribuzione. Quando abbinata [iterazione di una proprietà](resource-group-create-multiple.md#property-iteration), è possibile usare la funzione di riferimento per `input` perché è assegnata l'espressione per la proprietà della risorsa. Non è possibile usare con `count` perché il conteggio deve essere determinato prima che la funzione di riferimento viene risolta.
+La funzione reference può essere usata solo nelle proprietà di una definizione di risorsa e nella sezione outputs di un modello o una distribuzione. Quando viene usata con l'iterazione della [Proprietà](resource-group-create-multiple.md#property-iteration), è possibile usare `input` la funzione Reference per perché l'espressione viene assegnata alla proprietà della risorsa. Non è possibile usarlo `count` con perché è necessario determinare il conteggio prima che la funzione di riferimento venga risolta.
+
+Non è possibile usare la funzione Reference negli output di un [modello annidato](resource-group-linked-templates.md#nested-template) per restituire una risorsa distribuita nel modello annidato. Usare invece un [modello collegato](resource-group-linked-templates.md#external-template-and-external-parameters).
 
 Usando la funzione di riferimento, si dichiara implicitamente che una risorsa dipende da un'altra se il provisioning della risorsa cui si fa riferimento viene effettuato nello stesso modello e si fa riferimento alla risorsa tramite il nome, non tramite l'ID risorsa. Non è necessario usare anche la proprietà dependsOn. La funzione non viene valutata fino a quando la risorsa cui si fa riferimento ha completato la distribuzione.
 
-Se si usa la **riferimento** funzione in una risorsa che viene distribuita in modo condizionale, la funzione viene valutata anche se la risorsa non è stata distribuita.  Si verifica un errore se il **riferimento** funzione fa riferimento a una risorsa che non esiste. Usare la **se** funzione per assicurarsi che la funzione viene valutata solo quando la risorsa viene distribuita. Vedere le [se funzione](resource-group-template-functions-logical.md#if) per un modello di esempio che usa se e riferimento a una risorsa distribuita in modo condizionale.
+Se si usa la funzione **Reference** in una risorsa distribuita in modo condizionale, la funzione viene valutata anche se la risorsa non viene distribuita.  Viene ricevuto un errore se la funzione **Reference** fa riferimento a una risorsa che non esiste. Usare la funzione **if** per assicurarsi che la funzione venga valutata solo quando la risorsa viene distribuita. Vedere la [funzione If](resource-group-template-functions-logical.md#if) per un modello di esempio che usa if e Reference con una risorsa distribuita in modo condizionale.
 
 Per visualizzare i nomi e i valori delle proprietà per un tipo di risorsa, creare un modello che restituisca l'oggetto nella sezione outputs. Se si dispone di una risorsa esistente di quel tipo, il modello restituisce l'oggetto senza distribuire nuove risorse. 
 
@@ -563,6 +565,8 @@ Un utilizzo comune della funzione resourceGroup consiste nel creare risorse nell
    }
 ]
 ```
+
+È anche possibile usare la funzione resourceGroup per applicare tag dal gruppo di risorse a una risorsa. Per altre informazioni, vedere [applicare tag dal gruppo di risorse](resource-group-using-tags.md#apply-tags-from-resource-group).
 
 ### <a name="example"></a>Esempio
 

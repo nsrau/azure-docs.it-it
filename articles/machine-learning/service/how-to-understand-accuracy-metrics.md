@@ -1,34 +1,44 @@
 ---
-title: La metrica di accuratezza in Machine Learning automatizzati di training
+title: Metriche di accuratezza del training in ML automatizzato
 titleSuffix: Azure Machine Learning service
-description: Informazioni su automatizzati di machine learning la metrica di accuratezza per ciascuna delle esecuzioni.
+description: Informazioni sulle metriche di accuratezza automatica di machine learning per ogni esecuzione.
 author: j-martens
 ms.author: jmartens
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: 44dfa387b289afe4dc5f030cca0b13325c04e811
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.date: 07/16/2019
+ms.openlocfilehash: dc147fd0252b2b5ec4ce334d6c1c464d9cde8ef5
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313313"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297903"
 ---
-# <a name="evaluate-training-accuracy-in-automated-ml-with-metrics"></a>Valutare l'accuratezza di training in Machine Learning automatica con metriche
+# <a name="evaluate-training-accuracy-in-automated-ml-with-metrics"></a>Valutazione dell'accuratezza del training in Machine Learning automatizzato con metriche
 
-Esistono diversi modi per visualizzare le metriche di accuratezza di training per ogni iterazione di esecuzione.
+In questo articolo vengono illustrate le diverse metriche disponibili per i modelli di Machine Learning automatici in Azure Machine Learning. 
 
-* Usare [un widget di Jupyter](how-to-track-experiments.md#view-run-details)
-* Uso [il `get_metrics()` funzione](how-to-track-experiments.md#query-run-metrics) su qualsiasi `Run` oggetto
-* Visualizzazione [esperimento metriche nel portale di Azure](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)
+Esistono diversi modi per visualizzare le metriche di accuratezza del training per ogni iterazione di esecuzione.
+* Usare [un widget Jupyter](how-to-track-experiments.md#view-run-details)
+* Usare [la `get_metrics()` funzione](how-to-track-experiments.md#query-run-metrics) su qualsiasi `Run` oggetto
+* Visualizzare [le metriche dell'esperimento nell'portale di Azure](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)
+
+## <a name="prerequisites"></a>Prerequisiti
+ 
+* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
+ 
+* Creare un esperimento di Machine Learning automatizzato con l'SDK o nel portale di Azure.
+ 
+    * Usare l'SDK per compilare un modello di [classificazione](how-to-auto-train-remote.md) o un [modello](tutorial-auto-train-models.md) di regressione
+    * Usare il [portale di Azure](how-to-create-portal-experiments.md) per creare un modello di classificazione o regressione caricando i dati appropriati.
 
 ## <a name="classification-metrics"></a>Metriche per la classificazione
 
 Le metriche seguenti vengono salvate in ogni iterazione di esecuzione per un'attività di classificazione.
 
-|Metrica|Descrizione|Calcolo|Parametri aggiuntivi
+|Metrica|DESCRIZIONE|Calcolo|Parametri aggiuntivi
 --|--|--|--|
 AUC_Macro| AUC è l'area sottesa alla curva ROC (Receiver Operating Characteristic). Macro è la media aritmetica dell'area AUC per ogni classe.  | [Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC è l'area sottesa alla curva ROC (Receiver Operating Characteristic). Micro è il valore calcolato globalmente combinando i veri positivi e i falsi positivi da ogni classe| [Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -53,7 +63,7 @@ weighted_accuracy|weighted_accuracy è l'accuratezza dove il valore di ponderazi
 
 ## <a name="regression-and-forecasting-metrics"></a>Metriche per la regressione e la previsione
 
-Le metriche seguenti vengono salvate in ogni iterazione di esecuzione per una regressione o un'attività di previsione.
+Le metriche seguenti vengono salvate in ogni iterazione di esecuzione per un'attività di regressione o previsione.
 
 |Metrica|Descrizione|Calcolo|Parametri aggiuntivi
 --|--|--|--|
@@ -68,3 +78,7 @@ root_mean_squared_error|root_mean_squared_error è la radice quadrata della diff
 normalized_root_mean_squared_error|normalized_root_mean_squared_error è la radice dell'errore quadratico medio divisa per l'intervallo dei dati.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Dividere per l'intervallo dei dati|
 root_mean_squared_log_error|root_mean_squared_log_error è la radice quadrata dell'errore logaritmico quadratico stimato.|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nessuna|
 normalized_root_mean_squared_log_error|normalized_root_mean_squared_log_error è la radice dell'errore logaritmico quadratico medio divisa per l'intervallo dei dati|[Calcolo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dividere per l'intervallo dei dati|
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Scopri di più [su Machine](concept-automated-ml.md) learning in Azure Machine Learning.

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/13/2018
 ms.author: genli
-ms.openlocfilehash: f0569878d61ce83c4847867378d8e68fe0faa59b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8ab6fc75475cd99e3d803450476880175f12d2b6
+ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709405"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67881173"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Risolvere i problemi relativi a una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino nel portale di Azure
-Se nella macchina virtuale Windows in Azure viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire alcuni passaggi per la risoluzione dei problemi sul disco rigido virtuale stesso. Un esempio comune è un aggiornamento di un'applicazione non riuscito che impedisce il corretto avvio della VM. Questo articolo illustra come usare il portale di Azure per connettere il disco rigido virtuale a un'altra VM Windows per risolvere eventuali errori e quindi ricreare la VM originale.
+Se nella macchina virtuale Windows in Azure viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire alcuni passaggi per la risoluzione dei problemi sul disco rigido virtuale stesso. Un esempio comune è un aggiornamento di un'applicazione non riuscito che impedisce il corretto avvio della VM. Questo articolo illustra come usare il portale di Azure per connettere il disco rigido virtuale a un'altra VM Windows per risolvere eventuali errori e quindi ricreare la VM originale. 
 
 ## <a name="recovery-process-overview"></a>Panoramica del processo di ripristino
 I passaggi per la risoluzione dei problemi sono i seguenti:
@@ -34,30 +34,24 @@ I passaggi per la risoluzione dei problemi sono i seguenti:
 
 Per la VM che usa il disco gestito, è ora possibile usare Azure PowerShell per modificare il disco del sistema operativo per una VM. Non è più necessario eliminare e ricreare la VM. Per altre informazioni, vedere [Risolvere i problemi relativi a una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino usando Azure PowerShell](troubleshoot-recovery-disks-windows.md).
 
+> [!NOTE]
+> Questo articolo non si applica alla macchina virtuale con disco non gestito.
+
 ## <a name="determine-boot-issues"></a>Individuare i problemi di avvio
 Per determinare perché la VM non riesce ad avviarsi correttamente, esaminare lo screenshot della VM relativo alla diagnostica di avvio. Un esempio comune è un aggiornamento di un'applicazione non riuscito oppure l'eliminazione o lo spostamento di un disco rigido virtuale sottostante.
 
-Nel portale, selezionare la macchina virtuale e quindi scorrere verso il basso fino alla sezione **Supporto e risoluzione dei problemi**. Fare clic su **Diagnostica di avvio** per visualizzare lo screenshot. Esaminare i messaggi di errore o i codici errore specifici per determinare perché si sta verificando un problema con la VM. 
+Nel portale, selezionare la macchina virtuale e quindi scorrere verso il basso fino alla sezione **Supporto e risoluzione dei problemi**. Fare clic su **Diagnostica di avvio** per visualizzare lo screenshot. Esaminare i messaggi di errore o i codici errore specifici per determinare perché si sta verificando un problema con la VM.
 
 ![Visualizzazione dei log della console nella diagnostica di avvio della macchina virtuale](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
 È anche possibile fare clic su **Scarica screenshot** per scaricare uno screenshot della macchina virtuale.
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>Visualizzare i dettagli del disco rigido virtuale esistente
-Prima di collegare il disco rigido virtuale a un'altra macchina virtuale, è necessario identificare il nome del disco rigido virtuale. 
+Prima di collegare il disco rigido virtuale a un'altra macchina virtuale, è necessario identificare il nome del disco rigido virtuale.
 
-Selezionare il gruppo di risorse dal portale, quindi selezionare il proprio account di archiviazione. Fare clic su **BLOB**, come nell'esempio seguente:
+Selezionare la macchina virtuale in cui si è verificato il problema e quindi selezionare **dischi**. Registrare il nome del disco del sistema operativo come nell'esempio seguente:
 
-![Selezionare il BLOB di archiviazione](./media/troubleshoot-recovery-disks-portal-windows/storage-account-overview.png)
-
-In genere è presente un contenitore denominato **vhds** che contiene i dischi rigidi virtuali. Selezionare il contenitore per visualizzare un elenco dei dischi rigidi virtuali. Annotare il nome del disco rigido virtuale desiderato. Il prefisso è in genere il nome della propria macchina virtuale:
-
-![Identificare il disco rigido virtuale nel contenitore di archiviazione](./media/troubleshoot-recovery-disks-portal-windows/storage-container.png)
-
-Selezionare il disco rigido virtuale esistente dall'elenco e copiare l'URL, che verrà usato nei passaggi seguenti:
-
-![Copiare l'URL del disco rigido virtuale esistente](./media/troubleshoot-recovery-disks-portal-windows/copy-vhd-url.png)
-
+![Selezionare il BLOB di archiviazione](./media/troubleshoot-recovery-disks-portal-windows/view-disk.png)
 
 ## <a name="delete-existing-vm"></a>Eliminare la VM esistente
 In Azure, i dischi rigidi virtuali e le macchine virtuali sono due risorse distinte. In un disco rigido virtuale sono archiviati il sistema operativo, le applicazioni e le configurazioni. La macchina virtuale è invece costituita da metadati che definiscono le dimensioni o il percorso, e da risorse di riferimento, ad esempio un disco rigido virtuale o una scheda di interfaccia di rete virtuale. A ogni disco rigido virtuale associato a una macchina virtuale viene assegnato un lease. È possibile collegare e scollegare i dischi dati anche quando la macchina virtuale è in esecuzione, mentre non è possibile scollegare il disco del sistema operativo, a meno che la risorsa di macchina non sia stata eliminata. Il lease continua ad associare il disco del sistema operativo e la macchina virtuale anche quando questa viene arrestata e deallocata.
@@ -70,30 +64,15 @@ Selezionare la macchina virtuale nel portale, quindi fare clic su **Elimina**:
 
 Attendere il completamento dell'eliminazione della macchina virtuale prima di collegare il disco rigido virtuale a un'altra macchina virtuale. Il lease del disco rigido virtuale che lo associa alla macchina virtuale deve essere rilasciato prima di poter collegare il disco a un'altra macchina.
 
-
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Collegare il disco rigido virtuale esistente a un'altra macchina virtuale
 Nei passaggi successivi viene utilizzata un'altra macchina virtuale per la risoluzione dei problemi. Il disco rigido virtuale esistente viene collegato alla macchina virtuale usata per la risoluzione dei problemi, grazie alla quale è possibile individuare e modificare il contenuto del disco. Questo processo consente, ad esempio, di correggere eventuali errori di configurazione, di esaminare applicazioni aggiuntive o file del registro di sistema. Scegliere o creare un'altra macchina virtuale da usare per la risoluzione dei problemi.
 
-1. Nel portale, selezionare il gruppo di risorse e quindi la macchina virtuale da usare per la risoluzione dei problemi. Selezionare **Dischi** e quindi fare clic su **Collega esistente**:
+1. Nel portale, selezionare il gruppo di risorse e quindi la macchina virtuale da usare per la risoluzione dei problemi. Selezionare **dischi**, selezionare **modifica**e quindi fare clic su **Aggiungi disco dati**:
 
     ![Collegare un disco esistente nel portale](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-2. Per selezionare il disco rigido virtuale esistente, fare clic su **File VHD**:
-
-    ![Cercare il disco rigido virtuale esistente](./media/troubleshoot-recovery-disks-portal-windows/select-vhd-location.png)
-
-3. Selezionare l'account e il contenitore di archiviazione, quindi fare clic sul disco rigido virtuale esistente. Fare clic sul pulsante **Seleziona** per confermare la scelta:
-
-    ![Selezionare il disco rigido virtuale esistente](./media/troubleshoot-recovery-disks-portal-windows/select-vhd.png)
-
-4. Dopo aver selezionato il disco rigido virtuale, fare clic su **OK** per collegare il disco rigido virtuale esistente:
-
-    ![Confermare il collegamento del disco rigido virtuale esistente](./media/troubleshoot-recovery-disks-portal-windows/attach-disk-confirm.png)
-
-5. Dopo alcuni secondi, il riquadro **Dischi** della macchina virtuale esistente mostra il disco rigido virtuale esistente collegato come disco dati:
-
-    ![Disco rigido virtuale esistente collegato come disco dati](./media/troubleshoot-recovery-disks-portal-windows/attached-disk.png)
-
+2. Nell'elenco **dischi dati** selezionare il disco del sistema operativo della macchina virtuale identificata. Se il disco del sistema operativo non viene visualizzato, assicurarsi che la risoluzione dei problemi della macchina virtuale e del disco del sistema operativo si trovi nella stessa area (località).
+3. Selezionare **Save (Salva** ) per applicare le modifiche.
 
 ## <a name="mount-the-attached-data-disk"></a>Montare il disco dati collegato
 
@@ -125,13 +104,16 @@ Dopo aver risolto gli errori, scollegare il disco rigido virtuale esistente dall
 
     ![Impostare il disco dati come offline in Server Manager](./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png)
 
-3. Scollegare il disco rigido virtuale dalla macchina virtuale. Selezionare la macchina virtuale nel portale di Azure e fare clic su **Dischi**. Selezionare il disco rigido virtuale esistente quindi fare clic su **Scollega**:
+3. Scollegare il disco rigido virtuale dalla macchina virtuale. Selezionare la macchina virtuale nel portale di Azure e fare clic su **Dischi**. 
+4. Selezionare **modifica**, selezionare il disco del sistema operativo collegato e quindi fare clic su **Scollega**:
 
     ![Scollegare il disco rigido virtuale esistente](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
     Attendere che il disco dati sia completamente scollegato dalla macchina virtuale prima di continuare.
 
 ## <a name="create-vm-from-original-hard-disk"></a>Creare una macchina virtuale dal disco rigido originale
+
+### <a name="method-1-use-azure-resource-manager-template"></a>Metodo 1 utilizzare Azure Resource Manager modello
 Per creare una macchina virtuale dal disco rigido virtuale originale, usare [questo modello di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet). Il modello distribuisce una macchina virtuale in una rete virtuale esistente, usando l'URL del disco rigido virtuale del comando precedente. Fare clic sul pulsante **Distribuisci in Azure** come indicato di seguito:
 
 ![Distribuire una macchina virtuale da un modello di GitHub](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
@@ -140,6 +122,14 @@ Il modello viene caricato nel portale di Azure per la distribuzione. Immettere i
 
 ![Distribuire una macchina virtuale dal modello](./media/troubleshoot-recovery-disks-portal-windows/deploy-from-image.png)
 
+### <a name="method-2-create-a-vm-from-the-disk"></a>Metodo 2 creare una macchina virtuale dal disco
+
+1. Nella portale di Azure selezionare il gruppo di risorse dal portale, quindi individuare il disco del sistema operativo. È anche possibile cercare il disco usando il nome del disco:
+
+    ![Cerca il disco da portale di Azure](./media/troubleshoot-recovery-disks-portal-windows/search-disk.png)
+1. Selezionare **Panoramica**, quindi fare clic su **Crea macchina virtuale**.
+    ![Creare una macchina virtuale da un disco da portale di Azure](./media/troubleshoot-recovery-disks-portal-windows/create-vm-from-disk.png)
+1. Seguire la procedura guidata per creare la macchina virtuale.
 
 ## <a name="re-enable-boot-diagnostics"></a>Riabilitare la diagnostica di avvio
 Quando si crea la macchina virtuale dal disco rigido virtuale esistente, la diagnostica di avvio potrebbe non essere abilitata automaticamente. Per controllare lo stato della diagnostica di avvio e attivarla se necessario, selezionare la macchina virtuale nel portale. In **Monitoraggio**, fare clic su **Impostazioni di diagnostica**. Verificare che lo stato sia **Attivo** e che il segno di spunta accanto a **Diagnostica di avvio** sia selezionato. Se si apportano modifiche, fare clic su **Salva**:

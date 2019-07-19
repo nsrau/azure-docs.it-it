@@ -7,31 +7,31 @@ ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 36e881fb9ba3ab81611b94a36ef0beed8748d5b1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f457b316d9f499f2cab02452c1b03ad07a9aef27
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705128"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302820"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitazione delle richieste di Resource Manager
 
-Per ogni sottoscrizione e tenant di Azure, Resource Manager consente fino a 12.000 richieste di lettura per ora e 1.200 richieste di scrittura per ora. Questi limiti sono limitati all'entità di sicurezza (utente o applicazione) effettua le richieste e l'ID sottoscrizione o l'ID tenant Se le richieste provengano da più entità di sicurezza, il limite tra la sottoscrizione o il tenant è maggiore di 12.000 e 1.200 all'ora.
+Per ogni sottoscrizione e tenant di Azure, Resource Manager consente fino a 12.000 richieste di lettura per ora e 1.200 richieste di scrittura per ora. Questi limiti hanno come ambito l'entità di sicurezza (utente o applicazione) che effettua le richieste e l'ID sottoscrizione o l'ID tenant. Se le richieste provengono da più di un'entità di sicurezza, il limite per la sottoscrizione o il tenant è maggiore di 12.000 e 1.200 all'ora.
 
-Le richieste vengono applicate alla sottoscrizione o al tenant. Le richieste di sottoscrizione sono quelle che coinvolgono passando l'ID sottoscrizione, ad esempio il recupero di gruppi di risorse nella sottoscrizione. Le richieste relative al tenant non includono l'ID sottoscrizione, ad esempio il recupero delle posizioni di Azure valide.
+Le richieste vengono applicate alla sottoscrizione o al tenant. Le richieste di sottoscrizione sono quelle che coinvolgono il passaggio dell'ID sottoscrizione, ad esempio il recupero dei gruppi di risorse nella sottoscrizione. Le richieste relative al tenant non includono l'ID sottoscrizione, ad esempio il recupero delle posizioni di Azure valide.
 
 Questi limiti si applicano a ogni istanza di Azure Resource Manager. Sono presenti più istanze in ogni area di Azure e Azure Resource Manager viene distribuito a tutte le aree di Azure,  quindi nella pratica i limiti sono effettivamente molto superiori a questi, perché le richieste utente vengono in genere gestite da molte istanze diverse.
 
-Se l'applicazione o script raggiunge questi limiti, è necessario restringere le richieste. Questo articolo illustra come determinare il numero di richieste rimanenti prima di raggiungere il limite e come procedere quando è stato raggiunto il limite.
+Se l'applicazione o script raggiunge questi limiti, è necessario restringere le richieste. Questo articolo illustra come determinare le richieste rimanenti prima di raggiungere il limite e come rispondere quando è stato raggiunto il limite.
 
 Quando si raggiunge il limite, viene visualizzato il codice di stato HTTP **429 Too many requests** (429 Troppe richieste).
 
-Graph di risorse di Azure limita il numero di richieste per le operazioni. I passaggi descritti in questo articolo per determinare il numero di richieste rimanenti e la modalità di risposta quando viene raggiunto il limite si applicano anche al grafico di risorse. Tuttavia, risorsa Graph imposta la propria frequenza di limite e reimpostare. Per altre informazioni, vedere [limitare le richieste in Graph di Azure Resource](../governance/resource-graph/overview.md#throttling).
+Il grafico delle risorse di Azure limita il numero di richieste alle relative operazioni. La procedura descritta in questo articolo per determinare le richieste rimanenti e la modalità di risposta quando viene raggiunto il limite si applica anche al grafico delle risorse. Tuttavia, il grafico risorse imposta il proprio limite e la velocità di reimpostazione. Per altre informazioni, vedere [limitazione in Azure Resource Graph](../governance/resource-graph/overview.md#throttling).
 
 ## <a name="remaining-requests"></a>Richieste rimanenti
-È possibile determinare il numero di richieste rimanenti esaminando le intestazioni di risposta. Le richieste di lettura restituiscono il valore dell'intestazione per il numero di richieste di lettura rimanenti. Scrivere le richieste includono un valore per il numero di richieste di scrittura rimanenti. Nella tabella seguente vengono descritte le intestazioni di risposta che è possibile esaminare per tali valori:
+È possibile determinare il numero di richieste rimanenti esaminando le intestazioni di risposta. Le richieste di lettura restituiscono un valore nell'intestazione per il numero di richieste di lettura rimanenti. Le richieste di scrittura includono un valore per il numero di richieste di scrittura rimanenti. Nella tabella seguente vengono descritte le intestazioni di risposta che è possibile esaminare per tali valori:
 
-| Intestazione risposta | Descrizione |
+| Intestazione risposta | DESCRIZIONE |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |Richieste di lettura rimanenti nell'ambito della sottoscrizione. Questo valore viene restituito nelle operazioni di lettura. |
 | x-ms-ratelimit-remaining-subscription-writes |Richieste di scrittura rimanenti nell'ambito della sottoscrizione. Questo valore viene restituito nelle operazioni di scrittura. |

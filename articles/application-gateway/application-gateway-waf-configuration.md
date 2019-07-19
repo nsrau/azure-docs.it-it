@@ -4,15 +4,15 @@ description: Questo articolo fornisce informazioni su limiti di dimensioni di ri
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 5/15/2019
+ms.date: 7/17/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 272c6d2de23b1e89caef3f9bee20a96c5c196cde
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
-ms.translationtype: MT
+ms.openlocfilehash: e13884fb0c39beabf543fd04c9808373a68ec26a
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275185"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304310"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limiti delle dimensioni di richiesta di Web application firewall ed elenchi di esclusione
 
@@ -24,10 +24,10 @@ Il Web application firewall del gateway applicazione di Azure (WAF) fornisce la 
 
 Web application firewall consente agli utenti di configurare i limiti di dimensioni di richiesta entro i limiti inferiori e superiori. Sono disponibili le seguenti due configurazioni di limiti di dimensioni:
 
-- Il campo di dimensioni del corpo massimo per la richiesta è specificato nel kilobyte e controlli carica limite di dimensioni richiesta complessivo esclusi tutti i file. Questo campo può variare da un minimo di 1 kB a un valore massimo di 128 kB. Il valore predefinito per le dimensioni del corpo della richiesta è 128 kB.
+- Il campo dimensioni massime del corpo della richiesta è specificato in kilobyte e controlla il limite complessivo delle dimensioni della richiesta, esclusi i caricamenti di file. Questo campo può variare da un minimo di 1 kB a un valore massimo di 128 kB. Il valore predefinito per le dimensioni del corpo della richiesta è 128 kB.
 - Il campo limite di caricamento file è specificato in MB e determina le dimensioni massime consentite per il caricamento file. Questo campo può avere un valore minimo di 1 MB e uno massimo di 500 MB per le istanze SKU di grandi dimensioni, mentre lo SKU medio non può superare i 100 MB. Il valore predefinito per il limite di caricamento file è 100 MB.
 
-Web application firewall offre anche una funzione configurabile per attivare o disattivare l'ispezione del corpo della richiesta. Per impostazione predefinita, viene abilitata l'ispezione del corpo della richiesta. Se l'ispezione del corpo della richiesta è stata disattivata, Web Application firewall non valuta il contenuto del corpo del messaggio HTTP. In questi casi, WAF continua applicare le regole WAF su intestazioni, cookie e URI. Se l'ispezione del corpo della richiesta è stata disattivata, il campo dimensioni massime del corpo di richiesta non è applicabile e non può essere impostato. La disattivazione dell'ispezione del corpo della richiesta consente l'invio a WAF di messaggi superiori a 128 KB, ma non vengono analizzate eventuali vulnerabilità nel corpo del messaggio.
+Web application firewall offre anche una funzione configurabile per attivare o disattivare l'ispezione del corpo della richiesta. Per impostazione predefinita, viene abilitata l'ispezione del corpo della richiesta. Se l'ispezione del corpo della richiesta è disattivata, WAF non valuta il contenuto del corpo del messaggio HTTP. In questi casi, WAF continua applicare le regole WAF su intestazioni, cookie e URI. Se l'ispezione del corpo della richiesta è stata disattivata, il campo dimensioni massime del corpo di richiesta non è applicabile e non può essere impostato. La disattivazione dell'ispezione del corpo della richiesta consente l'invio a WAF di messaggi superiori a 128 KB, ma non vengono analizzate eventuali vulnerabilità nel corpo del messaggio.
 
 ## <a name="waf-exclusion-lists"></a>Elenchi di esclusione di WAF
 
@@ -35,18 +35,18 @@ Web application firewall offre anche una funzione configurabile per attivare o d
 
 Gli elenchi di esclusione di Web Application firewall consentono agli utenti di omettere determinati attributi di richiesta da una valutazione di WAF. Un esempio comune è rappresentato dai token inseriti in Active Directory che vengono usati per l'autenticazione o per i campi password. Tali attributi sono soggetti a contenere caratteri speciali che possono attivare un falso positivo dalle regole di WAF. Una volta che un attributo è stato aggiunto all'elenco di esclusione WAF, non viene preso in considerazione da nessuna regola WAF configurata e attiva. Gli elenchi di esclusione hanno ambito globale.
 
-Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione. I valori del campo scelto non vengono valutati in base alle regole di WAF. L'esclusione Elenca ispezione di rimozione del valore del campo.
+Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione in base al nome. I valori del campo scelto non vengono valutati rispetto alle regole WAF, ma i relativi nomi sono ancora (vedere l'esempio 1 riportato di seguito, il valore dell'intestazione User-Agent è escluso dalla valutazione WAF). Gli elenchi di esclusione rimuovono l'ispezione del valore del campo.
 
 * Intestazioni richiesta
 * Cookie della richiesta
-* Nome dell'attributo richiesta (args) può essere aggiunto come un elemento di esclusione, ad esempio:
+* Il nome dell'attributo della richiesta (args) può essere aggiunto come elemento di esclusione, ad esempio:
 
-   * Nome del campo modulo
+   * Nome campo modulo
    * Entità XML
    * Entità JSON
-   * Argomenti di stringa di query URL
+   * Argomenti della stringa di query dell'URL
 
-È possibile specificare un'esatta intestazione di richiesta, un corpo, un cookie o una corrispondenza dell'attributo stringa della query.  In alternativa, è possibile specificare facoltativamente corrispondenze parziali. L'esclusione è sempre in un campo di intestazione, mai sul relativo valore. Le regole di esclusione hanno ambito globale e si applicano a tutte le pagine e regole.
+È possibile specificare un'esatta intestazione di richiesta, un corpo, un cookie o una corrispondenza dell'attributo stringa della query.  In alternativa, è possibile specificare facoltativamente corrispondenze parziali. Le regole di esclusione hanno ambito globale e si applicano a tutte le pagine e regole.
 
 Di seguito sono riportati gli operatori di criteri di corrispondenza supportati:
 
@@ -54,23 +54,26 @@ Di seguito sono riportati gli operatori di criteri di corrispondenza supportati:
 - **Inizia con**: questo operatore corrisponde a tutti i campi che iniziano con il valore del selettore specificato.
 - **Termina con**:  questo operatore corrisponde a tutti i campi di richiesta che terminano con il valore del selettore specificato.
 - **Contiene**: questo operatore corrisponde a tutti i campi di richiesta che contengono il valore del selettore specificato.
-- **Uguale a qualsiasi**: Questo operatore consente di ricercare tutti i campi di richiesta. * sarà il valore del selettore.
+- **Uguale a any**: Questo operatore corrisponde a tutti i campi della richiesta. * sarà il valore del selettore.
 
 In tutti i casi, la corrispondenza non distingue le maiuscole e le minuscole e le espressioni regolari non sono consentite come selettori.
+
+> [!NOTE]
+> Per ulteriori informazioni e per la risoluzione dei problemi, vedere [risoluzione dei problemi di WAF](web-application-firewall-troubleshoot.md).
 
 ### <a name="examples"></a>Esempi
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Negli esempi seguenti illustrano l'utilizzo di esclusioni.
+Negli esempi seguenti viene illustrato l'utilizzo delle esclusioni.
 
 ### <a name="example-1"></a>Esempio 1
 
-In questo esempio si desidera escludere l'intestazione agente utente. L'intestazione della richiesta dell'agente utente contiene una stringa di caratteristiche che consente ai peer di protocollo di rete identificare il tipo di applicazione, sistema operativo, fornitore di software o versione del software dell'agente utente richiedente software. Per altre informazioni, vedere [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
+In questo esempio si vuole escludere l'intestazione User-Agent. L'intestazione della richiesta dell'agente utente contiene una stringa caratteristica che consente ai peer del protocollo di rete di identificare il tipo di applicazione, il sistema operativo, il fornitore del software o la versione software dell'agente utente del software richiedente. Per ulteriori informazioni, vedere [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
 
-Possono esserci diversi motivi per disattivare la valutazione di questa intestazione. Potrebbero esserci una stringa che il firewall WAF vede e presupporre che lo sia dannoso. Ad esempio, l'attacco SQL classico "x = x" in una stringa. In alcuni casi, può trattarsi di traffico legittimo. Pertanto, potrebbe essere necessario escludere questa intestazione dalla versione di valutazione di Web Application firewall.
+La valutazione di questa intestazione può essere dovuta a diversi motivi. Potrebbe essere presente una stringa che il WAF vede e presuppone che sia dannoso. Ad esempio, l'attacco SQL classico "x = x" in una stringa. In alcuni casi, può trattarsi di un traffico legittimo. Potrebbe quindi essere necessario escludere questa intestazione dalla versione di valutazione di WAF.
 
-Il cmdlet di Azure PowerShell seguente esclude l'intestazione agente utente dalla versione di valutazione:
+Il cmdlet di Azure PowerShell seguente esclude l'intestazione User-Agent dalla valutazione:
 
 ```azurepowershell
 $exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
@@ -81,9 +84,9 @@ $exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
 
 ### <a name="example-2"></a>Esempio 2
 
-In questo esempio esclude il valore di *utente* parametro passato nella richiesta tramite l'URL. Pronunciare, ad esempio, che è comune nell'ambiente in uso per il campo utente deve contenere una stringa che il firewall WAF consente di visualizzare come contenuti dannosi, lo blocca.  È possibile escludere in questo caso il parametro user in modo che il firewall WAF non restituisce un valore nel campo.
+In questo esempio viene escluso il valore del parametro *User* passato nella richiesta tramite l'URL. Si immagini, ad esempio, che nel proprio ambiente il campo utente includa una stringa che WAF Visualizza come contenuto dannoso, quindi la blocca.  In questo caso, è possibile escludere il parametro User, in modo che il WAF non valuti alcun valore nel campo.
 
-Il seguente cmdlet Azure PowerShell consente di escludere il parametro user dalla versione di valutazione:
+Il cmdlet di Azure PowerShell seguente esclude il parametro User dalla valutazione:
 
 ```azurepowershell
 $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
@@ -91,7 +94,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "Equals" `
    -Selector "user"
 ```
-Pertanto, se l'URL **http://www.contoso.com/?user=fdafdasfda** viene passato per il Web Application firewall, non valuta, la stringa **fdafdasfda**.
+Quindi, se l' **http://www.contoso.com/?user=fdafdasfda** URL viene passato a WAF, non valuterà la stringa **fdafdasfda**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

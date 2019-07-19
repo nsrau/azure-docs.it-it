@@ -10,13 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
-ms.author: mahender, yevbronsh
-ms.openlocfilehash: b18d5ba303d1cf7ab637638043f9e0727437c232
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.author: mahender
+ms.reviewer: yevbronsh
+ms.openlocfilehash: 8bc30d50772dffddca32d9f6e22c3d7cec566c70
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827866"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297143"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
 
@@ -277,11 +278,11 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 Per altre informazioni su Microsoft.Azure.Services.AppAuthentication e sulle relative operazioni esposte, vedere la [documentazione di riferimento della libreria Microsoft.Azure.Services.AppAuthentication] e l'[esempio di servizio app e insieme di credenziali delle chiavi con MSI .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 
-### <a name="using-the-azure-sdk-for-java"></a>Utilizzo di Azure SDK per Java
+### <a name="using-the-azure-sdk-for-java"></a>Uso di Azure SDK per Java
 
-Per le applicazioni Java e le funzioni, è il modo più semplice per lavorare con un'identità gestita tramite il [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java). In questa sezione viene illustrato come muovere i primi passi con la libreria nel codice.
+Per le applicazioni e le funzioni Java, il modo più semplice per usare un'identità gestita è tramite [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java). In questa sezione viene illustrato come muovere i primi passi con la libreria nel codice.
 
-1. Aggiungere un riferimento per la [libreria di Azure SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure). Per i progetti Maven, è possibile aggiungere questo frammento di codice per il `dependencies` sezione del file POM del progetto:
+1. Aggiungere un riferimento alla [libreria Azure SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure). Per i progetti Maven, è possibile aggiungere questo frammento `dependencies` di codice alla sezione del file POM del progetto:
 
 ```xml
 <dependency>
@@ -291,7 +292,7 @@ Per le applicazioni Java e le funzioni, è il modo più semplice per lavorare co
 </dependency>
 ```
 
-2. Usare il `AppServiceMSICredentials` oggetto per l'autenticazione. Questo esempio mostra come questo meccanismo può essere usato per l'uso di Azure Key Vault:
+2. Utilizzare l' `AppServiceMSICredentials` oggetto per l'autenticazione. Questo esempio Mostra come questo meccanismo può essere usato per lavorare con Azure Key Vault:
 
 ```java
 import com.microsoft.azure.AzureEnvironment;
@@ -322,7 +323,7 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 
 Una risposta 200 OK con esito positivo include un corpo JSON con le proprietà seguenti:
 
-> |Nome proprietà|Descrizione|
+> |Nome proprietà|DESCRIZIONE|
 > |-------------|----------|
 > |access_token|Token di accesso richiesto. Il servizio Web chiamante può usare questo token per l'autenticazione nel servizio Web ricevente.|
 > |expires_on|Scadenza del token di accesso. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. Questo valore viene usato per determinare la durata dei token memorizzati nella cache.|

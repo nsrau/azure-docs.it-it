@@ -1,7 +1,7 @@
 ---
 title: Creare, eseguire e monitorare pipeline di Machine Learning
 titleSuffix: Azure Machine Learning service
-description: Creare ed eseguire una pipeline di Machine Learning con l'SDK di Azure Machine Learning per Python. Le pipeline consentono di creare e gestire i flussi di lavoro in cui sono unite le varie fasi del processo di Machine Learning. Queste fasi includono preparazione dei dati di training del modello, la distribuzione del modello e inferenza/di assegnazione dei punteggi.
+description: Creare ed eseguire una pipeline di Machine Learning con l'SDK di Azure Machine Learning per Python. Le pipeline consentono di creare e gestire i flussi di lavoro in cui sono unite le varie fasi del processo di Machine Learning. Queste fasi includono la preparazione dei dati, il training del modello, la distribuzione del modello e l'inferenza e il punteggio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 564f71c9d90a0fa2721389c09388445149d49787
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
-ms.translationtype: MT
+ms.openlocfilehash: 9602af9e4fe25bbed33cff3fff753a8f5460966a
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795494"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305549"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Creare ed eseguire una pipeline di Machine Learning con l'SDK di Azure Machine Learning
 
@@ -58,7 +58,7 @@ Creare le risorse necessarie per eseguire una pipeline:
 ### <a name="set-up-a-datastore"></a>Configurare un archivio dati
 Un archivio dati contiene i dati a cui accede la pipeline. Ogni area di lavoro ha un archivio dati predefinito. È possibile registrare altri archivi dati. 
 
-Quando si crea la propria area di lavoro, [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)e [Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) vengono collegati all'area per impostazione predefinita. Archiviazione Blob di Azure è l'archivio dati predefinito per un'area di lavoro, ma è anche possibile usare l'archiviazione Blob come un archivio dati. Per altre informazioni, vedere [Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
+Quando si crea la propria area di lavoro, [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)e [Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) vengono collegati all'area per impostazione predefinita. Archiviazione file di Azure è l'archivio dati predefinito per un'area di lavoro, ma è anche possibile usare l'archiviazione BLOB come archivio dati. Per altre informazioni, vedere [Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
 # Default datastore (Azure file storage)
@@ -189,7 +189,7 @@ except ComputeTargetException:
     databricks_compute.wait_for_completion(True)
 ```
 
-Per un esempio più dettagliato, vedere un' [notebook di esempio](https://aka.ms/pl-databricks) su GitHub.
+Per un esempio più dettagliato, vedere un [notebook di esempio](https://aka.ms/pl-databricks) in GitHub.
 
 ### <a id="adla"></a>Azure Data Lake Analytics
 
@@ -236,14 +236,14 @@ except ComputeTargetException:
     adla_compute.wait_for_completion(True)
 ```
 
-Per un esempio più dettagliato, vedere un' [notebook di esempio](https://aka.ms/pl-adla) su GitHub.
+Per un esempio più dettagliato, vedere un [notebook di esempio](https://aka.ms/pl-adla) in GitHub.
 
 > [!TIP]
 > Le pipeline di Azure Machine Learning possono funzionare solo con i dati archiviati nell'archivio dati predefinito dell'account Data Lake Analytics. Se i dati sui quali è necessario lavorare sono in un archivio non predefinito, è possibile usare [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) per copiare i dati prima del training.
 
 ## <a id="steps"></a>Creare i passaggi della pipeline
 
-Dopo aver creato e collegato una destinazione di calcolo all'area di lavoro, è possibile definire un passaggio della pipeline. Con l'SDK di Azure Machine Learning sono disponibili numerosi passaggi predefiniti. La più basilare di questi passaggi è un [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), che viene eseguito uno script Python in una destinazione di calcolo specificato:
+Dopo aver creato e collegato una destinazione di calcolo all'area di lavoro, è possibile definire un passaggio della pipeline. Con l'SDK di Azure Machine Learning sono disponibili numerosi passaggi predefiniti. Il modo più semplice di questi passaggi è [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), che esegue uno script Python in una destinazione di calcolo specificata:
 
 ```python
 trainStep = PythonScriptStep(
@@ -256,7 +256,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-Riutilizzo dei risultati precedenti (`allow_reuse`) è chiave quando si usa le pipeline in un ambiente di collaborazione perché eliminando riesecuzioni non necessarie fornisce l'agilità. Si tratta del comportamento predefinito quando il script_name, input e i parametri di un passaggio rimangono invariati. Quando viene riutilizzato l'output del passaggio, non viene inviato il processo per le risorse di calcolo, invece, i risultati dall'esecuzione precedente sono immediatamente disponibili per l'esecuzione del passaggio successivo. Se impostato su false, una nuova esecuzione viene sempre generato per questo passaggio durante l'esecuzione della pipeline. 
+Il riutilizzo dei risultati`allow_reuse`precedenti () è fondamentale quando si usano le pipeline in un ambiente di collaborazione, poiché l'eliminazione di riesecuzioni non necessarie offre flessibilità. Si tratta del comportamento predefinito quando SCRIPT_NAME, input e parametri di un passaggio rimangono invariati. Quando l'output del passaggio viene riutilizzato, il processo non viene inviato al calcolo, bensì i risultati dell'esecuzione precedente sono immediatamente disponibili per l'esecuzione del passaggio successivo. Se è impostato su false, durante l'esecuzione della pipeline viene sempre generata una nuova esecuzione per questo passaggio. 
 
 Dopo la definizione dei passaggi, si crea la pipeline usando alcuni o tutti i passaggi definiti.
 
@@ -292,14 +292,14 @@ steps = [dbStep]
 pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```
 
-Per altre informazioni, vedere la [pacchetto azure-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) e [Pipeline classe](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) riferimento.
+Per altre informazioni, vedere il [pacchetto Azure-pipeline-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) e la [classe Pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) Reference.
 
 ## <a name="submit-the-pipeline"></a>Inviare la pipeline
 
-Quando si invia la pipeline, il servizio Azure Machine Learning controlla le dipendenze per ogni passaggio e carica uno snapshot della directory di origine specificata. Se la directory di origine non è specificata, viene caricata la directory locale corrente. Lo snapshot viene archiviato anche come parte dell'esperimento nell'area di lavoro.
+Quando si invia la pipeline, il servizio Azure Machine Learning controlla le dipendenze per ogni passaggio e carica uno snapshot della directory di origine specificata. Se la directory di origine non è specificata, viene caricata la directory locale corrente. Lo snapshot viene inoltre archiviato come parte dell'esperimento nell'area di lavoro.
 
 > [!IMPORTANT]
-> Per impedire che viene incluso nello snapshot di file, creare un [file con estensione gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` file nella directory e aggiungere i file a esso. Il `.amlignore` file utilizza la stessa sintassi e i modelli come i [file con estensione gitignore](https://git-scm.com/docs/gitignore) file. Se entrambi i file esistono, il `.amlignore` file ha la precedenza.
+> Per impedire che i file vengano inclusi nello snapshot, creare un file con [estensione gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` nella directory e aggiungervi i file. Il `.amlignore` file usa la stessa sintassi e gli stessi criteri del file con [estensione gitignore](https://git-scm.com/docs/gitignore) . Se sono presenti entrambi i file `.amlignore` , il file avrà la precedenza.
 >
 > Per altre informazioni, vedere [Snapshot](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -320,11 +320,11 @@ Quando si esegue una pipeline per la prima volta, Azure Machine Learning:
 
 ![Diagramma dell'esecuzione di un esperimento come pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
-Per altre informazioni, vedere la [sperimentare classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) riferimento.
+Per ulteriori informazioni, vedere la Guida di riferimento alla [classe Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) .
 
-## <a name="github-tracking-and-integration"></a>Integrazione e il rilevamento di GitHub
+## <a name="github-tracking-and-integration"></a>Rilevamento e integrazione di GitHub
 
-Quando si avvia un'esecuzione in cui la directory di origine è un repository Git locale di training, informazioni sul repository vengono archiviate nella cronologia di esecuzione. Ad esempio, l'ID commit corrente per il repository viene registrato come parte della cronologia.
+Quando si avvia un'esecuzione di training in cui la directory di origine è un repository git locale, le informazioni sul repository vengono archiviate nella cronologia di esecuzione. Ad esempio, l'ID commit corrente per il repository viene registrato come parte della cronologia.
 
 ## <a name="publish-a-pipeline"></a>Pubblicare una pipeline
 
@@ -381,14 +381,14 @@ Visualizzare l'elenco di tutte le pipeline e i relativi dettagli di esecuzione:
  
 1. Selezionare una pipeline specifica per visualizzare i risultati dell'esecuzione.
 
-## <a name="caching--reuse"></a>La memorizzazione nella cache e riutilizzo  
+## <a name="caching--reuse"></a>Memorizzazione nella cache & riutilizzo  
 
-Per ottimizzare e personalizzare il comportamento delle pipeline di è possibile eseguire alcune operazioni per la memorizzazione nella cache e riutilizzare. Ad esempio, è possibile scegliere di:
-+ **Disattivare il riutilizzo predefinita del passaggio dell'output dell'esecuzione** impostando `allow_reuse=False` durante [passaggio definizione](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Riutilizzo è chiave quando si usa le pipeline in un ambiente di collaborazione perché esecuzioni non necessari eliminando fornisce l'agilità. Tuttavia, è possibile rifiutare esplicitamente questa.
-+ **Estendere l'hashing di là dello script**, per includere anche un percorso assoluto o i percorsi relativi di directory_origine ad altri file e directory tramite il `hash_paths=['<file or directory']` 
-+ **Imporre la rigenerazione di output per tutti i passaggi in un'esecuzione** con `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
+Per ottimizzare e personalizzare il comportamento delle pipeline, è possibile eseguire alcune operazioni per la memorizzazione nella cache e il riutilizzo. Ad esempio, è possibile scegliere di:
++ **Disattivare il riutilizzo predefinito del passaggio Esegui output** `allow_reuse=False` impostando durante la [definizione del passaggio](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Il riutilizzo è fondamentale quando si utilizzano pipeline in un ambiente di collaborazione, perché l'eliminazione di esecuzioni non necessarie offre flessibilità. Tuttavia, è possibile rifiutare esplicitamente questo problema.
++ **Estendere l'hashing oltre lo script**, in modo da includere anche un percorso assoluto o percorsi relativi a source_directory per altri file e directory usando il`hash_paths=['<file or directory']` 
++ **Forzare la rigenerazione dell'output per tutti i passaggi di un'esecuzione** con`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-Per impostazione predefinita, `allow-reuse` per questa procedura è abilitata e viene eseguito l'hashing solo il file di script principale. Pertanto, se lo script per un passaggio specifico rimane invariato (`script_name`, input e i parametri), l'output di un passaggio precedente eseguire viene riutilizzata, non viene inviato il processo per le risorse di calcolo e i risultati dall'esecuzione precedente sono immediatamente disponibili per il passaggio successivo invece .  
+Per impostazione predefinita `allow-reuse` , per i passaggi è abilitato e viene eseguito l'hashing solo del file di script principale. Quindi, se lo script per un determinato passaggio rimane lo stesso (`script_name`, input e parametri), viene riutilizzato l'output di un'esecuzione del passaggio precedente, il processo non viene inviato al calcolo e i risultati dell'esecuzione precedente sono immediatamente disponibili al passaggio successivo. .  
 
 ```python
 step = PythonScriptStep(name="Hello World", 

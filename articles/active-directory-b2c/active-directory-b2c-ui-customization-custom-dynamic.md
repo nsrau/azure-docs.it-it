@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a798b766d09428e7ebebc04d969d63a542de3808
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 43c0da3ca8fa4b2f74d48b0e202cc56bc8b9406c
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835707"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227215"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati
 
@@ -89,7 +89,7 @@ Il modello HTML5 personalizzato si basa sul modello HTML5 integrato di Azure AD 
 ### <a name="step-22-add-the-mvc-view"></a>Passaggio 2.2: Aggiungere una visualizzazione MVC
 1. Fare clic con il pulsante destro del mouse sulla cartella Views/Home e quindi scegliere **Aggiungi** > **Nuovo elemento**.
 
-    ![Aggiungi voce di menu nuovo elemento in Visual Studio](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
+    ![Voce di menu Aggiungi nuovo elemento in Visual Studio](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
 
 2. Nella finestra **Aggiungi nuovo elemento - Contoso.AADB2C.UI** selezionare **Web > ASP.NET**.
 
@@ -99,7 +99,7 @@ Il modello HTML5 personalizzato si basa sul modello HTML5 integrato di Azure AD 
 
 5. Selezionare **Aggiungi**.
 
-    ![Aggiungi finestra di dialogo Nuovo elemento in Visual Studio con pagina visualizzazione MVC evidenziato](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view2.png)
+    ![Finestra di dialogo Aggiungi nuovo elemento in Visual Studio con la pagina di visualizzazione MVC evidenziata](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view2.png)
 
 6. Se il file *unified.cshtml* non è già aperto, fare doppio clic su di esso per aprirlo e quindi cancellarne i contenuti.
 
@@ -123,7 +123,7 @@ Il modello HTML5 personalizzato si basa sul modello HTML5 integrato di Azure AD 
 
 Individuare l'elemento `<img>` contenente il valore `ID` *background_background_image* e quindi sostituire il valore `src` con **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** o qualsiasi altra immagine di sfondo da usare.
 
-![Modificare lo sfondo della pagina](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
+![elemento IMG con valore src background_background_image personalizzato](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
 ### <a name="step-24-add-your-view-to-the-mvc-controller"></a>Passaggio 2.4: Aggiungere la visualizzazione al controller MVC
 
@@ -174,7 +174,7 @@ Individuare l'elemento `<img>` contenente il valore `ID` *background_background_
 
 2. Nella sezione **Impostazioni**, in **API**, selezionare **CORS**.
 
-    ![Voce di menu CORS evidenziata nel menu del servizio App nel portale di Azure](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS2.png)
+    ![Voce di menu CORS evidenziata nel menu del servizio app in portale di Azure](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS2.png)
 
 3. Nella finestra **CORS**, nella casella **Origini consentite**, eseguire una di queste operazioni:
 
@@ -183,7 +183,7 @@ Individuare l'elemento `<img>` contenente il valore `ID` *background_background_
 
 4. Selezionare **Salva**.
 
-    ![Pagina Impostazioni di CORS con l'asterisco evidenziato in origini consentite](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
+    ![Pagina delle impostazioni di CORS con asterisco evidenziato nelle origini consentite](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
 
     Dopo aver selezionato **Salva**, l'app per le API accetterà le chiamate JavaScript dagli URL specificati.
 
@@ -196,7 +196,7 @@ Il modello HTML5 è pronto per l'uso. Non è tuttavia disponibile nel codice `Co
     >Per verificare che CORS sia abilitato per il sito in cui si ospita il contenuto e che il sito possa testare le richieste CORS, passare al sito Web [test-cors.org](https://test-cors.org/).
 
 * Il contenuto gestito sia protetto tramite **HTTPS**.
-* Si usa *URL assoluti*, ad esempio `https://yourdomain/content`, per tutti i collegamenti contenuti CSS e immagini.
+* Si utilizzano *URL assoluti*, ad esempio `https://yourdomain/content`, per tutti i collegamenti, contenuto CSS e immagini.
 
 ## <a name="step-5-configure-your-content-definition"></a>Passaggio 5: Configurare la definizione del contenuto
 Per configurare `ContentDefinition`, eseguire questa procedura:
@@ -213,7 +213,7 @@ Per configurare `ContentDefinition`, eseguire questa procedura:
 6. Modificare il valore di `LoadUri` da _~/tenant/default/unified_ a _https://<nome_app>.azurewebsites.net/home/unified_.
     I criteri personalizzati dovrebbero essere simili ai seguenti:
 
-    ![Frammento XML di esempio con elemento LoadUri elemento evidenziato](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
+    ![Esempio di frammento XML con elemento elemento loaduri evidenziato](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>Passaggio 6: Caricare i criteri nel tenant
 1. Nel [portale di Azure](https://portal.azure.com) passare al [contesto del tenant Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e quindi selezionare **Azure AD B2C**.
@@ -306,16 +306,16 @@ Modificare il metodo `unified` di HomeController in modo che accetti il parametr
 
 5. Aggiungere il parametro di stringa di query _campaignId_ all'URI. Aggiungere ad esempio `&campaignId=hawaii`, come illustrato nella figura seguente:
 
-    ![URI con parametro di stringa di query campaignId evidenziato](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
+    ![URI con parametro della stringa di query campaignId evidenziato](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
 
 6. Premere **INVIO** per visualizzare l'immagine di sfondo delle Hawaii.
 
-    ![Pagina di accesso per l'abbonamento con sfondo personalizzato immagine Hawaii](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo2.png)
+    ![Pagina di accesso all'iscrizione con lo sfondo personalizzato dell'immagine Hawaii](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo2.png)
 
 7. Modificare il valore in *Tokyo* e quindi premere **INVIO**.
     Nel browser viene visualizzato lo sfondo di Tokyo.
 
-    ![Pagina di accesso per l'abbonamento con lo sfondo di Tokyo immagine personalizzata](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
+    ![Pagina di accesso all'iscrizione con lo sfondo personalizzato dell'immagine Tokyo](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
 
 ## <a name="step-9-change-the-rest-of-the-user-journey"></a>Passaggio 9: Modificare il resto del percorso utente
 Se si seleziona il collegamento **Iscriviti ora** nella pagina di accesso, il browser visualizza l'immagine di sfondo predefinita e non quella specificata. Questo comportamento è dovuto al fatto che è stata modificata solo la pagina di iscrizione o di accesso. Per modificare il resto delle definizioni di contenuto autocertificate:

@@ -1,6 +1,6 @@
 ---
-title: Creare, visualizzare e gestire avvisi del log tramite Monitoraggio di Azure | Microsoft Docs
-description: Usare il monitoraggio di Azure per creare, visualizzare e gestire le regole di avviso di log in Azure.
+title: Creare, visualizzare e gestire gli avvisi di log con monitoraggio di Azure | Microsoft Docs
+description: Usare monitoraggio di Azure per creare, visualizzare e gestire le regole di avviso del log in Azure.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: f758007a0fa0d7fb619873d94d762e7019077e05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ee4f89885bd10a116963d42e87766bcd05cc0b4
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427459"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67852732"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
 
@@ -23,16 +23,17 @@ Questo articolo illustra come configurare gli avvisi del log tramite l'interfacc
 - Criteri: condizione specifica o logica che, se rilevata nel segnale, deve attivare l'azione
 - Azione: chiamata specifica inviata a un ricevitore di una notifica di posta elettronica, SMS, webhook e così via.
 
-Il termine **gli avvisi del Log** per descrivere gli avvisi in cui il segnale è query di log in un [dell'area di lavoro di Log Analitica](../learn/tutorial-viewdata.md) oppure [Application Insights](../app/analytics.md). Altre informazioni su funzionalità, terminologia e tipi su [Avvisi del log - Panoramica](alerts-unified-log.md).
+Il termine **avvisi del log** per descrivere gli avvisi in cui il segnale è una query di log in un' [area di lavoro log Analytics](../learn/tutorial-viewdata.md) o [Application Insights](../app/analytics.md). Altre informazioni su funzionalità, terminologia e tipi su [Avvisi del log - Panoramica](alerts-unified-log.md).
 
 > [!NOTE]
-> Dati di log più diffusi da [un'area di lavoro di Log Analitica](../../azure-monitor/learn/tutorial-viewdata.md) è ora inoltre disponibile nella piattaforma di metriche in Monitoraggio di Azure. Per i dettagli, vedere [Metric Alert for Logs](alerts-metric-logs.md) (Avvisi di metrica per i log).
+> I dati di log più diffusi da [un'area di lavoro log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) sono ora disponibili anche nella piattaforma metrica di monitoraggio di Azure. Per i dettagli, vedere [Metric Alert for Logs](alerts-metric-logs.md) (Avvisi di metrica per i log).
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Gestione degli avvisi del log dal portale di Azure
 
 Di seguito è riportata una Guida dettagliata all'uso degli avvisi del log tramite l'interfaccia del portale di Azure.
 
 ### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Creare una regola per gli avvisi relativi ai log con il portale di Azure
+
 1. Nel [portale](https://portal.azure.com/)selezionare **Monitoraggio** e nella sezione MONITORAGGIO scegliere **Avvisi**.
 
     ![Monitoraggio](media/alerts-log/AlertsPreviewMenu.png)
@@ -48,7 +49,6 @@ Di seguito è riportata una Guida dettagliata all'uso degli avvisi del log trami
 1. Definire la condizione dell'avviso tramite il collegamento **Seleziona risorsa** e specificare la destinazione selezionando una risorsa. Filtrare scegliendo la _Sottoscrizione_, il _Tipo di risorsa_ e infine la _Risorsa_ necessaria.
 
    > [!NOTE]
-   > 
    > Prima di procedere, per creare un avviso relativo ai log verificare che il segnale di **log** sia disponibile per la risorsa selezionata.
    >  ![Selezionare una risorsa](media/alerts-log/Alert-SelectResourceLog.png)
 
@@ -58,7 +58,7 @@ Di seguito è riportata una Guida dettagliata all'uso degli avvisi del log trami
 
    > [!NOTE]
    > 
-   > Avvisi può importare query di Analytics come tipo di segnale **Log (query salvata)** , come illustrato nella figura precedente. In modo che gli utenti possono perfezionare la query in Analitica e salvarlo per utilizzi futuri in avvisi - altri dettagli sull'uso del salvataggio di query disponibile all'indirizzo [l'uso di query di log in Monitoraggio di Azure](../log-query/log-query-overview.md) o [query condivisa in analitica di application insights ](../log-query/log-query-overview.md).
+   > Avvisi può importare query di Analytics come tipo di segnale **Log (query salvata)** , come illustrato nella figura precedente. In questo modo gli utenti possono perfezionare la query in Analytics e salvarli per un uso futuro negli avvisi. per altri dettagli sull'uso del salvataggio della query, vedere [uso della query di log in monitoraggio di Azure](../log-query/log-query-overview.md) o [di query condivise in Application Insights Analytics](../log-query/log-query-overview.md).
 
 1. *Avvisi relativi ai log*: una volta selezionata, la query per gli avvisi può essere immessa nel campo **Query di ricerca**. Se la sintassi della query non è corretta, nel campo viene visualizzato un errore in ROSSO. Se la sintassi della query è corretta, i dati cronologici della query specificata vengono visualizzati sotto forma di grafico come riferimento con un'opzione per modificare l'intervallo di tempo dalle ultime sei ore alla settimana precedente.
 
@@ -142,7 +142,6 @@ Di seguito viene riportata la struttura per la [creazione di regole di query pia
     "variables": {
         "alertLocation": "southcentralus",
         "alertName": "samplelogalert",
-        "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
         "alertDescription": "Sample log search alert",
         "alertStatus": "true",
         "alertSource":{
@@ -172,7 +171,6 @@ Di seguito viene riportata la struttura per la [creazione di regole di query pia
         "type":"Microsoft.Insights/scheduledQueryRules",
         "apiVersion": "2018-04-16",
         "location": "[variables('alertLocation')]",
-        "tags":{"[variables('alertTag')]": "Resource"},
         "properties":{
             "description": "[variables('alertDescription')]",
             "enabled": "[variables('alertStatus')]",
@@ -204,9 +202,6 @@ Di seguito viene riportata la struttura per la [creazione di regole di query pia
 
 ```
 
-> [!IMPORTANT]
-> Il campo tag con nascosto collegamento a risorsa di destinazione è obbligatorio in uso del [regole di Query pianificata](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) modello di chiamata o la risorsa API.
-
 Per usare il codice JSON di esempio in questa procedura dettagliata, è possibile salvarlo con il nome sampleScheduledQueryRule.json. Può essere distribuito usando [Azure Resource Manager nel portale di Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
 
@@ -226,7 +221,6 @@ Di seguito viene riportata la struttura per la [creazione di regole di query pia
         "alertName": "sample log alert",
         "alertDescr": "Sample log search alert",
         "alertStatus": "true",
-        "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
         "alertSource":{
             "Query":"union workspace(\"servicews\").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
             "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
@@ -263,7 +257,6 @@ Di seguito viene riportata la struttura per la [creazione di regole di query pia
         "type":"Microsoft.Insights/scheduledQueryRules",
         "apiVersion": "2018-04-16",
         "location": "[variables('alertLocation')]",
-        "tags":{"[variables('alertTag')]": "Resource"},
         "properties":{
             "description": "[variables('alertDescr')]",
             "enabled": "[variables('alertStatus')]",
@@ -304,7 +297,7 @@ Di seguito viene riportata la struttura per la [creazione di regole di query pia
 ```
 
 > [!IMPORTANT]
-> Il campo tag con nascosto collegamento a risorsa di destinazione è obbligatorio in uso del [regole di Query pianificata](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) modello di chiamata o la risorsa API. Quando si usano query tra risorse in un avviso di log, l'uso di [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) è obbligatorio e l'utente deve avere accesso all'elenco delle risorse indicate.
+> Quando si usano query tra risorse in un avviso di log, l'uso di [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) è obbligatorio e l'utente deve avere accesso all'elenco delle risorse indicate.
 
 Per usare il codice JSON di esempio in questa procedura dettagliata, è possibile salvarlo con il nome sampleScheduledQueryRule.json. Può essere distribuito usando [Azure Resource Manager nel portale di Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -312,32 +305,32 @@ Per usare il codice JSON di esempio in questa procedura dettagliata, è possibil
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Monitoraggio di Azure - [API delle regole di Query pianificata](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) è un oggetto API REST e completamente compatibile con il REST API di Azure Resource Manager. E i cmdlet di PowerShell elencati di seguito sono disponibili per sfruttare il [pianificata per le API Rules Query](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
+Monitoraggio di Azure: l' [API per le regole di query pianificate](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) è un'API REST ed è completamente compatibile con Azure Resource Manager API REST. E i cmdlet di PowerShell elencati di seguito sono disponibili per sfruttare l'API pianificate per le [regole di query](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-1. [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) : Cmdlet di PowerShell per creare una nuova regola di avviso di log.
-1. [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) : Cmdlet di PowerShell per aggiornare una regola di avviso di log esistente.
-1. [New-AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource) : Cmdlet di PowerShell per creare o aggiornare l'oggetto che specifica i parametri di origine per un avviso di log. Utilizzato come input dal [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) e [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
-1. [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule): Cmdlet di PowerShell per creare o aggiornare oggetti specificando i parametri di pianificazione di un avviso del log. Utilizzato come input dal [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) e [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
-1. [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) : Cmdlet di PowerShell per creare o aggiornare l'oggetto che specifica i parametri azione per un avviso di log. Utilizzato come input dal [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) e [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
-1. [New-AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : Cmdlet di PowerShell per creare o aggiornare l'oggetto che indica l'azione consente di raggruppare i parametri per un avviso di log. Utilizzato come input dal [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdlet.
-1. [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : Cmdlet di PowerShell per creare o aggiornare oggetti specificando i parametri di condizione trigger per l'avviso di log. Utilizzato come input dal [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdlet.
-1. [New-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : Cmdlet di PowerShell per creare o aggiornare l'oggetto che specifica i parametri di condizione trigger di metrica relativi [avviso di log di tipo di misura della metrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Utilizzato come input dal [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
-1. [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule) : Cmdlet di PowerShell per l'elenco esistente di log le regole di avviso o una regola di avviso di log specifico
-1. [Update-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule) : Cmdlet di PowerShell per abilitare o disabilitare la regola di avviso di log
-1. [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule): Cmdlet di PowerShell per eliminare una regola di avviso di log esistente
+1. [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) : Cmdlet di PowerShell per creare una nuova regola di avviso del log.
+1. [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) : Cmdlet di PowerShell per aggiornare una regola di avviso del log esistente.
+1. [New-AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource) : Cmdlet di PowerShell per creare o aggiornare un oggetto che specifica i parametri di origine per un avviso del log. Usato come input mediante il cmdlet [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) e [set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) .
+1. [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule): Cmdlet di PowerShell per creare o aggiornare un oggetto specificando i parametri di pianificazione per un avviso del log. Usato come input mediante il cmdlet [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) e [set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) .
+1. [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) : Cmdlet di PowerShell per creare o aggiornare un oggetto che specifica i parametri di azione per un avviso del log. Usato come input mediante il cmdlet [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) e [set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) .
+1. [New-AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : Cmdlet di PowerShell per creare o aggiornare un oggetto specificando i parametri dei gruppi di azioni per un avviso del log. Usato come input dal cmdlet [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) .
+1. [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : Cmdlet di PowerShell per creare o aggiornare un oggetto specificando i parametri della condizione trigger per l'avviso del log. Usato come input dal cmdlet [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) .
+1. [New-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : Cmdlet di PowerShell per creare o aggiornare un oggetto specificando i parametri della condizione del trigger di metrica per l' [Avviso del log di tipo misurazione metrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) Usato come input dal cmdlet [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) .
+1. [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule) : Cmdlet di PowerShell per elencare le regole di avviso del log esistenti o una regola di avviso del log specifica
+1. [Update-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule) : Cmdlet di PowerShell per abilitare o disabilitare la regola di avviso del log
+1. [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule): Cmdlet di PowerShell per eliminare una regola di avviso del log esistente
 
 > [!NOTE]
-> I cmdlet di ScheduledQueryRules PowerShell possono gestire solo le regole create cmdlet se stesso tramite Monitoraggio di Azure - o [pianificata per le API Rules Query](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Le regole di avviso create utilizzando legacy di log [API di avviso di Log Analitica](api-alerts.md) e i modelli preesistenti di [avvisi e ricerche salvate di Log Analitica](../insights/solutions-resources-searches-alerts.md) possono essere gestite usando i cmdlet di ScheduledQueryRules PowerShell solo dopo che utente [passa la preferenza di API per gli avvisi del Log Analitica](alerts-log-api-switch.md).
+> I cmdlet di PowerShell per ScheduledQueryRules possono gestire solo il cmdlet creato dalle regole oppure l'API di monitoraggio di Azure per [le regole di query pianificate](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Le regole di avviso del log create usando l' [api log Analytics Alert](api-alerts.md) legacy e i modelli legacy di [log Analytics le ricerche salvate e gli avvisi](../insights/solutions-resources-searches-alerts.md) possono essere gestiti usando i cmdlet di PowerShell di ScheduledQueryRules solo dopo [la preferenza dell'API per i commutatori utente Avvisi di analisi](alerts-log-api-switch.md).
 
-## <a name="managing-log-alerts-using-cli-or-api"></a>Gestione degli avvisi di log tramite l'API o della riga di comando
+## <a name="managing-log-alerts-using-cli-or-api"></a>Gestione degli avvisi di log con CLI o API
 
-Monitoraggio di Azure - [API delle regole di Query pianificata](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) è un oggetto API REST e completamente compatibile con il REST API di Azure Resource Manager. Di conseguenza può essere utilizzato tramite Powershell usando i comandi di Resource Manager della riga di comando di Azure.
+Monitoraggio di Azure: l' [API per le regole di query pianificate](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) è un'API REST ed è completamente compatibile con Azure Resource Manager API REST. Quindi, può essere usato tramite PowerShell usando Gestione risorse comandi per l'interfaccia della riga di comando di Azure.
 
 
 > [!NOTE]
 > Gli avvisi dei log per Log Analytics possono essere gestiti anche usando l'[API degli avvisi di Log Analytics](api-alerts.md) legacy e i modelli legacy di [avvisi e di ricerche salvate di Log Analytics](../insights/solutions-resources-searches-alerts.md). Per altre informazioni sull'uso della nuova API ScheduledQueryRules illustrata qui in dettaglio per impostazione predefinita, vedere [Passare alla nuova API per gli avvisi di Log Analytics](alerts-log-api-switch.md).
 
-Gli avvisi del log attualmente non sono disponibili i comandi CLI dedicati attualmente; ma come illustrato di seguito può essere usato tramite il comando CLI di Azure Resource Manager di esempio di modello di risorse indicato in precedenza (sampleScheduledQueryRule.json) nella sezione del modello di risorsa:
+Gli avvisi del log attualmente non hanno comandi dell'interfaccia della riga di comando dedicati. come illustrato di seguito, è possibile usare Azure Resource Manager comando CLI per il modello di risorsa di esempio illustrato in precedenza (sampleScheduledQueryRule. Json) nella sezione modello di risorsa:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
@@ -350,4 +343,4 @@ Se l'operazione è stata eseguita correttamente, sarà restituito il valore 201 
 * Informazioni sugli [avvisi del log in Avvisi di Azure](../../azure-monitor/platform/alerts-unified-log.md)
 * Comprendere le [azioni webhook per gli avvisi del log](../../azure-monitor/platform/alerts-log-webhook.md)
 * Altre informazioni su [Application Insights](../../azure-monitor/app/analytics.md)
-* Altre informazioni sulle [registrare query](../log-query/log-query-overview.md).
+* Altre informazioni sulle [query di log](../log-query/log-query-overview.md).

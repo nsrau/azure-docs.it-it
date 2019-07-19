@@ -4,14 +4,14 @@ description: Descrive come usare i modelli collegati in un modello di Azure Reso
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4a5fe1bd2bf57fbec240ab242dd889014dde9578
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c79429d1a39e975c6bcc7fce191846a6205f9a86
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206438"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311711"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -83,14 +83,14 @@ Per annidare il modello all'interno del modello principale, usare la proprietà 
 > [!NOTE]
 > Per i modelli annidati non è possibile usare i parametri o le variabili definiti all'interno del modello annidato. È possibile usare i parametri e variabili dal modello principale. Nell'esempio precedente `[variables('storageName')]` recupera un valore dal modello principale e non dal modello annidato. Questa restrizione non è valida per i modelli esterni.
 >
-> Per due risorse definiti all'interno di un modello annidato e una risorsa dipende l'altro, il valore della dipendenza è semplicemente il nome della risorsa dipendente:
+> Per due risorse definite all'interno di un modello annidato e una risorsa dipende dall'altra, il valore della dipendenza è semplicemente il nome della risorsa dipendente:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"
 > ],
 > ```
 >
-> Non è possibile usare la funzione `reference` nella sezione outputs di un modello annidato. Per restituire i valori per una risorsa distribuita in un modello annidato, convertire il modello annidato in un modello collegato.
+> Non è possibile usare `reference` la funzione nella sezione Outputs di un modello annidato per una risorsa distribuita nel modello annidato. Per restituire i valori per una risorsa distribuita in un modello annidato, convertire il modello annidato in un modello collegato.
 
 Per il modello annidato è necessario specificare le [stesse proprietà](resource-group-authoring-templates.md) del modello standard.
 
@@ -147,11 +147,11 @@ Per passare un valore dal modello principale al modello collegato, usare **param
 ]
 ```
 
-## <a name="using-copy"></a>Tramite copia
+## <a name="using-copy"></a>Uso di Copy
 
-Per creare più istanze di una risorsa con un modello annidato, aggiungere l'elemento di copia a livello dei **Resources/Deployments** risorsa.
+Per creare più istanze di una risorsa con un modello annidato, aggiungere l'elemento Copy a livello della risorsa **Microsoft. resources/Deployments** .
 
-Il modello di esempio seguente viene illustrato come usare copy con un modello annidato.
+Il modello di esempio seguente mostra come usare copy con un modello annidato.
 
 ```json
 "resources": [

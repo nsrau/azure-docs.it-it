@@ -3,30 +3,31 @@ title: Riferimenti ad attività di Registro Azure Container - YAML
 description: Riferimento per la definizione di attività in YAML per Attività di Registro Azure Container, incluse le proprietà delle attività, i tipi e le proprietà dei passaggi e le variabili predefinite.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: bdf88657c11bdb5ab5bcde97c155780328065c7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 588c4c267c16c72a7673c09a4c5726058302fccb
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954464"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310502"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Riferimento ad Attività del Registro Azure Container: YAML
 
-La definizione di attività in più passaggi in Attività di Registro Azure Container offre una primitiva di calcolo specifica per contenitori e basata su compilazione, test e applicazione di patch sui contenitori. Questo articolo illustra i comandi, parametri, proprietà e sintassi per i file YAML che definiscono le attività di più passaggi.
+La definizione di attività in più passaggi in Attività di Registro Azure Container offre una primitiva di calcolo specifica per contenitori e basata su compilazione, test e applicazione di patch sui contenitori. Questo articolo illustra i comandi, i parametri, le proprietà e la sintassi per i file YAML che definiscono le attività in più passaggi.
 
 L'articolo contiene informazioni di riferimento per la creazione di file YAML di attività in più passaggi per Attività di Registro Azure Container. Per un'introduzione ad Attività di Registro Azure Container, vedere [ACR Tasks overview](container-registry-tasks-overview.md) (Panoramica di Attività di Registro Azure Container).
 
 ## <a name="acr-taskyaml-file-format"></a>Formato del file acr-task.yaml
 
-Attività di Registro Azure Container supporta la dichiarazione di attività in più passaggi nella sintassi YAML standard. Si definiscono i passaggi dell'attività in un file YAML. È quindi possibile eseguire manualmente l'attività passando il file per il [az acr eseguiti] [ az-acr-run] comando. In alternativa, usare il file per creare un'attività con [az acr attività creare] [ az-acr-task-create] che viene attivata automaticamente in un aggiornamento immagine Git commit o di base. Sebbene questo articolo si riferisca a `acr-task.yaml` come file che contiene i passaggi, Attività di Registro Azure Container può usare qualsiasi nome di file valido con un'[estensione supportata](#supported-task-filename-extensions).
+Attività di Registro Azure Container supporta la dichiarazione di attività in più passaggi nella sintassi YAML standard. È possibile definire i passaggi di un'attività in un file YAML. È quindi possibile eseguire manualmente l'attività passando il file al [AZ ACR Run][az-acr-run] command. Or, use the file to create a task with [az acr task create][az-acr-task-create] che viene attivato automaticamente in un commit Git o in un aggiornamento di un'immagine di base. Sebbene questo articolo si riferisca a `acr-task.yaml` come file che contiene i passaggi, Attività di Registro Azure Container può usare qualsiasi nome di file valido con un'[estensione supportata](#supported-task-filename-extensions).
 
 Le primitive `acr-task.yaml` di livello superiore sono le **proprietà delle attività**, i **tipi di passaggi** e le **proprietà dei passaggi**.
 
-* Le [proprietà dell'attività](#task-properties) si applicano a tutti i passaggi durante l'intera esecuzione dell'attività. Esistono diverse proprietà di attività globale, tra cui:
+* Le [proprietà dell'attività](#task-properties) si applicano a tutti i passaggi durante l'intera esecuzione dell'attività. Sono disponibili diverse proprietà di attività globali, tra cui:
   * `version`
   * `stepTimeout`
   * `workingDirectory`
@@ -61,13 +62,13 @@ YAML è l'unico formato di file attualmente supportato da Attività di Registro 
 
 ## <a name="run-the-sample-tasks"></a>Eseguire le attività di esempio
 
-Sono disponibili diversi file di attività di esempio a cui si fa riferimento nelle sezioni seguenti di questo articolo. Le attività di esempio si trovano in un repository GitHub pubblico, [Azure-Samples/acr-tasks][acr-tasks]. È possibile eseguirle con il comando dell'interfaccia della riga di comando di Azure [az acr run][az-acr-run]. I comandi di esempio sono analoghi ai seguenti:
+Sono disponibili diversi file di attività di esempio a cui si fa riferimento nelle sezioni seguenti di questo articolo. Le attività di esempio si trovano in un repository GitHub pubblico, [Azure-Samples/ACR-Tasks][acr-tasks]. You can run them with the Azure CLI command [az acr run][az-acr-run]. I comandi di esempio sono analoghi ai seguenti:
 
 ```azurecli
 az acr run -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
-La formattazione dei comandi di esempio presuppone che sia stato configurato un registro contenitori predefinito nell'interfaccia della riga di comando di Azure e di conseguenza il parametro `--registry` viene omesso. Per configurare un registro contenitori predefinito, usare il comando [az configure][az-configure] con il parametro `--defaults`, che accetta un valore `acr=REGISTRY_NAME`.
+La formattazione dei comandi di esempio presuppone che sia stato configurato un registro contenitori predefinito nell'interfaccia della riga di comando di Azure e di conseguenza il parametro `--registry` viene omesso. Per configurare un registro di sistema predefinito, usare il comando [AZ Configure][az-configure] con il `--defaults` parametro, che `acr=REGISTRY_NAME` accetta un valore.
 
 Per configurare ad esempio l'interfaccia della riga di comando di Azure con un registro contenitori predefinito denominato "myregistry", vedere l'esempio seguente:
 
@@ -77,38 +78,38 @@ az configure --defaults acr=myregistry
 
 ## <a name="task-properties"></a>Proprietà delle attività
 
-Proprietà dell'attività è in genere visualizzati nella parte superiore di un `acr-task.yaml` file e sono le proprietà globali applicate in tutta l'esecuzione completa i passaggi di attività. Alcune proprietà globali possono essere sostituite all'interno di un singolo passaggio.
+Le proprietà delle attività vengono in genere visualizzate all' `acr-task.yaml` inizio di un file e sono proprietà globali che si applicano durante l'esecuzione completa dei passaggi dell'attività. Alcune proprietà globali possono essere sostituite all'interno di un singolo passaggio.
 
 | Proprietà | Type | Facoltativo | Descrizione | Override supportato | Valore predefinito |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | string | Yes | Versione del file `acr-task.yaml` come analizzato dal servizio Attività di Registro Azure Container. Attività di Registro Azure Container cerca di mantenere la compatibilità con le versioni precedenti e questo valore consente di mantenere la compatibilità in una versione definita. Se non viene specificato, per impostazione predefinita la versione più recente. | No | Nessuna |
-| `stepTimeout` | intero (secondi) | Yes | Numero massimo di secondi per l'esecuzione di un passaggio. Se la proprietà viene specificata su un'attività, imposta il valore predefinito `timeout` proprietà di tutti i passaggi. Se il `timeout` proprietà viene specificata in un passaggio, viene eseguito l'override di proprietà fornito dall'attività. | Yes | 600 (10 minuti) |
-| `workingDirectory` | string | Yes | La directory di lavoro del contenitore in fase di esecuzione. Se la proprietà viene specificata su un'attività, imposta il valore predefinito `workingDirectory` proprietà di tutti i passaggi. Se in un passaggio specificato, viene eseguito l'override di proprietà fornito dall'attività. | Yes | `$HOME` |
-| `env` | [stringa, stringa, ...] | Yes |  Matrice di stringhe in `key=value` formato che definiscono le variabili di ambiente per l'attività. Se la proprietà viene specificata su un'attività, imposta il valore predefinito `env` proprietà di tutti i passaggi. Se in un passaggio specificato, viene eseguito l'override delle variabili di ambiente ereditate dall'attività. | Nessuna |
-| `secrets` | [secret, secret,...] | Yes | Matrice di [segreto](#secret) oggetti. | Nessuna |
-| `networks` | [network, rete,...] | Yes | Matrice di [rete](#network) oggetti. | Nessuna |
+| `version` | string | Sì | Versione del file `acr-task.yaml` come analizzato dal servizio Attività di Registro Azure Container. Attività di Registro Azure Container cerca di mantenere la compatibilità con le versioni precedenti e questo valore consente di mantenere la compatibilità in una versione definita. Se non è specificato, l'impostazione predefinita è la versione più recente. | No | Nessuna |
+| `stepTimeout` | intero (secondi) | Yes | Numero massimo di secondi per l'esecuzione di un passaggio. Se la proprietà viene specificata in un'attività, imposta la proprietà predefinita `timeout` di tutti i passaggi. Se la `timeout` proprietà viene specificata in un passaggio, esegue l'override della proprietà fornita dall'attività. | Sì | 600 (10 minuti) |
+| `workingDirectory` | string | Sì | Directory di lavoro del contenitore durante la fase di esecuzione. Se la proprietà viene specificata in un'attività, imposta la proprietà predefinita `workingDirectory` di tutti i passaggi. Se viene specificato in un passaggio, viene eseguito l'override della proprietà fornita dall'attività. | Sì | `$HOME` |
+| `env` | [stringa, stringa, ...] | Yes |  Matrice di stringhe in `key=value` formato che definiscono le variabili di ambiente per l'attività. Se la proprietà viene specificata in un'attività, imposta la proprietà predefinita `env` di tutti i passaggi. Se viene specificato in un passaggio, viene eseguito l'override di tutte le variabili di ambiente ereditate dall'attività. | Nessuna |
+| `secrets` | [segreto, segreto,...] | Sì | Matrice di oggetti [Secret](#secret) . | Nessuna |
+| `networks` | [rete, rete,...] | Sì | Matrice di oggetti di [rete](#network) . | Nessuna |
 
 ### <a name="secret"></a>secret
 
-L'oggetto segreto ha le proprietà seguenti.
+L'oggetto Secret presenta le proprietà seguenti.
 
 | Proprietà | Type | Facoltativo | Descrizione | Valore predefinito |
 | -------- | ---- | -------- | ----------- | ------- |
-| `id` | string | No | L'identificatore del segreto. | Nessuna |
-| `keyvault` | string | Yes | L'URL del segreto dell'insieme di credenziali chiave Azure. | Nessuna |
-| `clientID` | string | Yes | L'ID client dell'utente assegnato gestito identità per le risorse di Azure. | Nessuna |
+| `id` | string | No | Identificatore del segreto. | Nessuna |
+| `keyvault` | string | Sì | URL del segreto Azure Key Vault. | Nessuna |
+| `clientID` | string | Yes | ID client dell'identità gestita assegnata dall'utente per le risorse di Azure. | Nessuna |
 
 ### <a name="network"></a>Rete
 
-L'oggetto di rete include le proprietà seguenti.
+L'oggetto di rete dispone delle proprietà seguenti.
 
-| Proprietà | Type | Facoltativo | Descrizione | Valore predefinito |
+| Proprietà | Type | Facoltativo | DESCRIZIONE | Valore predefinito |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | string | No | Nome della rete. | Nessuna |
-| `driver` | string | Yes | Il driver per gestire la rete. | Nessuna |
-| `ipv6` | bool | Yes | Se è abilitata la rete IPv6. | `false` |
-| `skipCreation` | bool | Yes | Se si desidera ignorare la creazione della rete. | `false` |
-| `isDefault` | bool | Yes | Se la rete è una rete predefinita fornita con registro contenitori di Azure | `false` |
+| `driver` | string | Yes | Driver per gestire la rete. | Nessuna |
+| `ipv6` | bool | Sì | Indica se la rete IPv6 è abilitata. | `false` |
+| `skipCreation` | bool | Sì | Indica se ignorare la creazione della rete. | `false` |
+| `isDefault` | bool | Sì | Indica se la rete è una rete predefinita fornita con Azure Container Registry | `false` |
 
 ## <a name="task-step-types"></a>Tipi di passaggi delle attività
 
@@ -118,7 +119,7 @@ Attività di Registro Azure Container supporta tre tipi di passaggi. Ogni tipo d
 | --------- | ----------- |
 | [`build`](#build) | Compila un'immagine del contenitore con la sintassi `docker build` nota. |
 | [`push`](#push) | Esegue un'operazione `docker push` delle immagini compilate o contrassegnate nuovamente in un registro contenitori. Sono supportati Registro Azure Container, altri registri privati e l'hub Docker. |
-| [`cmd`](#cmd) | Esegue un contenitore come un comando con parametri passati all'elemento `[ENTRYPOINT]` del contenitore. Il `cmd` tipo di passaggio supporta parametri, ad esempio `env`, `detach`, altri familiare `docker run` opzioni comando, l'abilitazione di unit test e test funzionali con esecuzione contenitore simultaneo. |
+| [`cmd`](#cmd) | Esegue un contenitore come un comando con parametri passati all'elemento `[ENTRYPOINT]` del contenitore. Il `cmd` tipo di passaggio supporta parametri `env`come `detach`, e altre opzioni `docker run` di comando familiari, abilitando unit test e test funzionali con l'esecuzione simultanea del contenitore. |
 
 ## <a name="build"></a>build
 
@@ -135,15 +136,15 @@ steps:
 
 Il tipo di passaggio `build` supporta i parametri nella tabella seguente. Il tipo di passaggio `build` supporta anche tutte le opzioni di compilazione del comando [docker build](https://docs.docker.com/engine/reference/commandline/build/), ad esempio `--build-arg`, per impostare le variabili in fase di compilazione.
 
-| Parametro | Descrizione | Facoltativo |
+| Parametro | DESCRIZIONE | Facoltativo |
 | --------- | ----------- | :-------: |
-| `-t` &#124; `--image` | Definisce il percorso completo `image:tag` dell'immagine compilata.<br /><br />Poiché le immagini possono essere usate per le convalide di attività interne, ad esempio test funzionali, non tutte le immagini richiedono l'operazione `push` in un registro contenitori. Per creare un'istanza di un'immagine nell'esecuzione di un'attività, tuttavia, è necessario che all'immagine sia associato un nome di riferimento.<br /><br />A differenza di `az acr build`, esecuzione di attività di registro contenitori di AZURE non prevede un comportamento di push predefinito. Con Attività di Registro Azure Container, lo scenario predefinito presuppone la possibilità di compilare e di convalidare un'immagine e quindi di eseguirne il push. Per informazioni su come eseguire il push facoltativo di immagini compilate, vedere [push](#push). | Yes |
-| `-f` &#124; `--file` | Specifica l'elemento Dockerfile passato a `docker build`. Se non specificato, viene usato il valore predefinito Dockerfile nella directory radice del contesto. Per specificare un Dockerfile, passare il nome del file relativo alla radice del contesto. | Yes |
+| `-t` &#124; `--image` | Definisce il percorso completo `image:tag` dell'immagine compilata.<br /><br />Poiché le immagini possono essere usate per le convalide di attività interne, ad esempio test funzionali, non tutte le immagini richiedono l'operazione `push` in un registro contenitori. Per creare un'istanza di un'immagine nell'esecuzione di un'attività, tuttavia, è necessario che all'immagine sia associato un nome di riferimento.<br /><br />A differenza `az acr build`di, l'esecuzione di attività ACR non fornisce un comportamento di push predefinito. Con Attività di Registro Azure Container, lo scenario predefinito presuppone la possibilità di compilare e di convalidare un'immagine e quindi di eseguirne il push. Per informazioni su come eseguire il push facoltativo di immagini compilate, vedere [push](#push). | Sì |
+| `-f` &#124; `--file` | Specifica l'elemento Dockerfile passato a `docker build`. Se non specificato, viene usato il valore predefinito Dockerfile nella directory radice del contesto. Per specificare un Dockerfile, passare il nome file relativo alla radice del contesto. | Sì |
 | `context` | Directory radice passata a `docker build`. La directory radice di ogni attività è impostata su un oggetto condiviso [workingDirectory](#task-step-properties) e include la radice della directory clonata Git associata. | No |
 
 ### <a name="properties-build"></a>Proprietà: build
 
-Il tipo di passaggio `build` supporta le proprietà seguenti. Trovare i dettagli di queste proprietà nel [proprietà dell'attività di passaggio](#task-step-properties) sezione di questo articolo.
+Il tipo di passaggio `build` supporta le proprietà seguenti. Per informazioni dettagliate su queste proprietà, vedere la sezione relativa alle [proprietà del passaggio attività](#task-step-properties) di questo articolo.
 
 | | | |
 | -------- | ---- | -------- |
@@ -215,7 +216,7 @@ steps:
 
 ### <a name="properties-push"></a>Proprietà: push
 
-Il tipo di passaggio `push` supporta le proprietà seguenti. Trovare i dettagli di queste proprietà nel [proprietà dell'attività di passaggio](#task-step-properties) sezione di questo articolo.
+Il tipo di passaggio `push` supporta le proprietà seguenti. Per informazioni dettagliate su queste proprietà, vedere la sezione relativa alle [proprietà del passaggio attività](#task-step-properties) di questo articolo.
 
 | | | |
 | -------- | ---- | -------- |
@@ -334,7 +335,7 @@ steps:
   - cmd: docker.io/bash:3.0 echo hello world
 ```
 
-Usando lo standard `docker run` convenzione di riferimento, di immagine `cmd` possono eseguire le immagini da un registro privato o nell'Hub Docker pubblico. Se si fa riferimento a immagini nello stesso registro contenitori in cui è in esecuzione Attività di Registro Azure Container, non è necessario specificare alcuna credenziale di registro.
+Usando la convenzione di `docker run` riferimento per le immagini `cmd` standard, è possibile eseguire immagini da qualsiasi registro privato o dall'hub Docker pubblico. Se si fa riferimento a immagini nello stesso registro contenitori in cui è in esecuzione Attività di Registro Azure Container, non è necessario specificare alcuna credenziale di registro.
 
 * Eseguire un'immagine da un registro contenitori di Azure
 
@@ -364,28 +365,28 @@ Ogni tipo di passaggio supporta diverse proprietà appropriate per il tipo stess
 
 | Proprietà | Type | Facoltativo | Descrizione | Valore predefinito |
 | -------- | ---- | -------- | ----------- | ------- |
-| `detach` | bool | Yes | Indica se il contenitore deve essere disconnesso durante l'esecuzione. | `false` |
-| `disableWorkingDirectoryOverride` | bool | Yes | Se si desidera disabilitare `workingDirectory` override della funzionalità. Usare questo in combinazione con `workingDirectory` avere controllo completo sulla directory di lavoro del contenitore. | `false` |
-| `entryPoint` | string | Yes | Esegue l'override dell'elemento `[ENTRYPOINT]` di un contenitore del passaggio. | Nessuna |
-| `env` | [stringa, stringa, ...] | Yes | Matrice di stringhe in formato `key=value` che definiscono le variabili di ambiente per il passaggio. | Nessuna |
-| `expose` | [stringa, stringa, ...] | Yes | Matrice delle porte esposte dal contenitore. |  Nessuna |
-| [`id`](#example-id) | string | Yes | Identifica in modo univoco il passaggio nell'attività. Altri passaggi nell'attività possono fare riferimento all'elemento `id` del passaggio, ad esempio per il controllo delle dipendenze con `when`.<br /><br />`id` è anche il nome del contenitore in esecuzione. I processi in esecuzione in altri contenitori nell'attività, ad esempio, possono fare riferimento all'elemento `id` come nome host DNS o per accedervi con l'elemento [id] dei log di Docker. | `acb_step_%d`, dove `%d` è l'indice in base 0 del passaggio dall'alto in basso nel file YAML |
-| `ignoreErrors` | bool | Yes | Indica se contrassegnare il passo come esito positivo, indipendentemente dal fatto che si è verificato un errore durante l'esecuzione del contenitore. | `false` |
-| `isolation` | string | Yes | Il livello di isolamento del contenitore. | `default` |
+| `detach` | bool | Sì | Indica se il contenitore deve essere disconnesso durante l'esecuzione. | `false` |
+| `disableWorkingDirectoryOverride` | bool | Sì | Indica se disabilitare `workingDirectory` la funzionalità di sostituzione. Utilizzare questo `workingDirectory` insieme a per avere il controllo completo sulla directory di lavoro del contenitore. | `false` |
+| `entryPoint` | string | Sì | Esegue l'override dell'elemento `[ENTRYPOINT]` di un contenitore del passaggio. | Nessuna |
+| `env` | [stringa, stringa, ...] | Sì | Matrice di stringhe in formato `key=value` che definiscono le variabili di ambiente per il passaggio. | Nessuna |
+| `expose` | [stringa, stringa, ...] | Sì | Matrice di porte esposte dal contenitore. |  Nessuna |
+| [`id`](#example-id) | string | Yes | Identifica in modo univoco il passaggio nell'attività. Altri passaggi nell'attività possono fare riferimento all'elemento `id` del passaggio, ad esempio per il controllo delle dipendenze con `when`.<br /><br />`id` è anche il nome del contenitore in esecuzione. I processi in esecuzione in altri contenitori nell'attività, ad esempio, possono fare riferimento all'elemento `id` come nome host DNS o per accedervi con l'elemento [id] dei log di Docker. | `acb_step_%d`, dove `%d` è l'indice in base zero del passaggio dall'alto verso il basso nel file YAML |
+| `ignoreErrors` | bool | Yes | Indica se contrassegnare il passaggio come completato, indipendentemente dal fatto che si sia verificato un errore durante l'esecuzione del contenitore. | `false` |
+| `isolation` | string | Yes | Livello di isolamento del contenitore. | `default` |
 | `keep` | bool | Yes | Indica se il contenitore del passaggio deve essere mantenuto dopo l'esecuzione. | `false` |
-| `network` | object | Yes | Identifica una rete in cui viene eseguito nel contenitore. | Nessuna |
-| `ports` | [stringa, stringa, ...] | Yes | Matrice di porte che vengono pubblicati dal contenitore nell'host. |  Nessuna |
-| `pull` | bool | Yes | Indica se forzare un'operazione pull del contenitore prima di eseguire in modo da evitare qualsiasi comportamento di memorizzazione nella cache. | `false` |
-| `privileged` | bool | Yes | Indica se eseguire il contenitore in modalità privilegiata. | `false` |
-| `repeat` | int | Yes | Il numero di tentativi per ripetere l'esecuzione di un contenitore. | 0 |
-| `retries` | int | Yes | Il numero di tentativi da eseguire se un contenitore ha esito negativo dell'esecuzione. Un tentativo viene eseguito solo se il codice di uscita del contenitore è diverso da zero. | 0 |
-| `retryDelay` | intero (secondi) | Yes | Il ritardo in secondi tra i tentativi di esecuzione del contenitore. | 0 |
-| `secret` | object | Yes | Identifica un'identità gestita per le risorse di Azure o il segreto di Azure Key Vault. | Nessuna |
-| `startDelay` | intero (secondi) | Yes | Numero di secondi di ritardo di esecuzione del contenitore. | 0 |
-| `timeout` | intero (secondi) | Yes | Numero massimo di secondi per l'esecuzione di un passaggio prima che venga terminato. | 600 |
+| `network` | object | Yes | Identifica una rete in cui viene eseguito il contenitore. | Nessuna |
+| `ports` | [stringa, stringa, ...] | Yes | Matrice di porte pubblicate dal contenitore nell'host. |  Nessuna |
+| `pull` | bool | Yes | Indica se forzare un pull del contenitore prima di eseguirlo per evitare qualsiasi comportamento di memorizzazione nella cache. | `false` |
+| `privileged` | bool | Sì | Indica se eseguire il contenitore in modalità privilegiata. | `false` |
+| `repeat` | int | Sì | Numero di tentativi di ripetizione dell'esecuzione di un contenitore. | 0 |
+| `retries` | int | Yes | Numero di tentativi di tentativo di esecuzione di un contenitore con esito negativo. Un nuovo tentativo viene eseguito solo se il codice di uscita di un contenitore è diverso da zero. | 0 |
+| `retryDelay` | intero (secondi) | Sì | Ritardo in secondi tra i tentativi di esecuzione di un contenitore. | 0 |
+| `secret` | object | Sì | Identifica un segreto Azure Key Vault o un'identità gestita per le risorse di Azure. | Nessuna |
+| `startDelay` | intero (secondi) | Sì | Numero di secondi per ritardare l'esecuzione di un contenitore. | 0 |
+| `timeout` | intero (secondi) | Sì | Numero massimo di secondi per l'esecuzione di un passaggio prima che venga terminato. | 600 |
 | [`when`](#example-when) | [stringa, stringa, ...] | Yes | Configura la dipendenza di un passaggio in uno o più passaggi nell'attività. | Nessuna |
-| `user` | string | Yes | Il nome utente o UID di un contenitore | Nessuna |
-| `workingDirectory` | string | Yes | Imposta la directory di lavoro per un passaggio. Per impostazione predefinita, Attività di Registro Azure Container crea una directory radice come directory di lavoro. Se la compilazione prevede diversi passaggi, tuttavia, i passaggi precedenti possono condividere artefatti con quelli successivi specificando la stessa directory di lavoro. | `$HOME` |
+| `user` | string | Sì | Nome utente o UID di un contenitore | Nessuna |
+| `workingDirectory` | string | Sì | Imposta la directory di lavoro per un passaggio. Per impostazione predefinita, Attività di Registro Azure Container crea una directory radice come directory di lavoro. Se la compilazione prevede diversi passaggi, tuttavia, i passaggi precedenti possono condividere artefatti con quelli successivi specificando la stessa directory di lavoro. | `$HOME` |
 
 ### <a name="examples-task-step-properties"></a>Esempi: Proprietà dei passaggi delle attività
 
@@ -483,11 +484,11 @@ Ora UTC corrente in cui l'esecuzione è stata avviata.
 
 ### <a name="runcommit"></a>Run.Commit
 
-Per un'attività attivata da un commit a un repository di GitHub, l'identificatore di commit.
+Per un'attività attivata da un commit in un repository GitHub, l'identificatore del commit.
 
-### <a name="runbranch"></a>Run.Branch
+### <a name="runbranch"></a>Esegui. Branch
 
-Per un'attività attivata da un commit a un repository di GitHub, il nome del ramo.
+Per un'attività attivata da un commit in un repository GitHub, il nome del ramo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

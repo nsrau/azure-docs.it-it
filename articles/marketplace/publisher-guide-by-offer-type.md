@@ -1,5 +1,5 @@
 ---
-title: Determinare la pubblicazione in opzione in Azure Marketplace | Azure Marketplace
+title: Determinare l'opzione di pubblicazione in Azure Marketplace | Azure Marketplace
 description: Questo articolo illustra i criteri di idoneità e i requisiti di pubblicazione per i partner che vogliono comprendere come pubblicare le app in Microsoft Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
@@ -7,13 +7,13 @@ manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 11/13/2018
-ms.author: qianw211
-ms.openlocfilehash: 7a6a4c1366f23336072e00d1af59bbaa4bd5c7a4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: pabutler
+ms.openlocfilehash: 4864e2c040ad6771ad187269de43d5978fc6324f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442057"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876050"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guida alla pubblicazione per tipo di offerta
 
@@ -23,7 +23,7 @@ Dopo aver [deciso un'opzione di pubblicazione](https://docs.microsoft.com/azure/
 
 Prima di creare un'offerta, è necessario sceglierne il tipo. Il tipo di offerta corrisponde al tipo di soluzione, app o servizio da pubblicare, nonché all'allineamento a prodotti e servizi Microsoft. 
 
-Un tipo singola offerta può essere configurato in modo diverso per abilitare opzioni di pubblicazione diverse, le chiamate all'azione, il provisioning o sui prezzi. L'opzione di pubblicazione e la configurazione del tipo di offerta si allineano anche ai requisiti tecnici e di idoneità. 
+Un singolo tipo di offerta può essere configurato in modo diverso per abilitare diverse opzioni di pubblicazione, chiamate a azioni, provisioning o prezzi. L'opzione di pubblicazione e la configurazione del tipo di offerta si allineano anche ai requisiti tecnici e di idoneità. 
 
 Prima di creare l'offerta, esaminare la vetrina, i requisiti di idoneità del tipo di offerta e i requisiti tecnici di pubblicazione.
 
@@ -39,7 +39,7 @@ Nella tabella seguente sono elencati i tipi di offerte di Azure Marketplace.
 | [**Applicazioni SaaS**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | Usare il tipo di offerta di app SaaS per consentire ai clienti di acquistare la soluzione tecnica basata su SaaS come una sottoscrizione. |
 | [**Offerte di contenitori**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | Usare il tipo di offerta Contenitore quando la soluzione è un'immagine del contenitore Docker di cui è stato effettuato il provisioning come un servizio Azure Container basato su Kubernetes. |
 | [**Moduli di Microsoft IoT Edge**](https://docs.microsoft.com/azure/marketplace/iot-edge-module) | I moduli di Azure IoT Edge sono le unità di calcolo più piccole gestite da IoT Edge e possono contenere i servizi di Microsoft, ad esempio analisi di flusso, servizi di terze parti o il codice specifico per la soluzione. |
-| [**Servizi di consulenza**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Servizi di consulenza consentono di collegare i clienti con i servizi per supportare e ampliare l'uso di servizi di Azure, Dynamics 365 o Power Suite.|
+| [**Servizi di consulenza**](https://docs.microsoft.com/azure/marketplace/consulting-services) | I servizi di consulenza consentono di connettere i clienti con servizi per supportare ed estendere l'uso dei servizi di Azure, Dynamics 365 o Power Suite.|
 
 
 Vedere infine i [**requisiti di Azure AD**](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) in base alle opzioni di inserzione e ai tipi di offerte per altre informazioni sui requisiti di Single Sign-On.

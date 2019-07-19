@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: AyoOlubeko
-ms.author: ayolubek
+ms.author: craigg
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee10f3d1b9db79eff199581a67c40196315b73f6
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62129861"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872061"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Ripristino di emergenza per un'applicazione SaaS multi-tenant con la replica geografica del database
 
@@ -106,7 +106,7 @@ Prima di iniziare il processo di ripristino, esaminare il normale stato di integ
 In questa attività si avvia un processo che sincronizza la configurazione di server, pool elastici e database nel catalogo del tenant. Questo processo mantiene le informazioni aggiornate nel catalogo.  Il processo funziona con il catalogo attivo, nell'area originale o nell'area di ripristino. Le informazioni di configurazione vengono usate nel processo di ripristino per garantire che l'ambiente di ripristino sia coerente con l'ambiente originale e quindi in un secondo momento durante il ricollocamento per garantire che l'area originale sia stata resa coerente con eventuali modifiche apportate nell'ambiente di ripristino. Il catalogo viene anche usato per tenere traccia dello stato di ripristino delle risorse del tenant
 
 > [!IMPORTANT]
-> Per semplicità, il processo di sincronizzazione e altri processi ripristino e ricollocamento a esecuzione prolungata vengono implementati in queste esercitazioni come processi di PowerShell locali o sessioni che vengono eseguite con l'account di accesso client utente. I token di autenticazione rilasciati al momento dell'accesso scadono dopo alcune ore e i processi avranno quindi esito negativo. In uno scenario di produzione i processi a esecuzione prolungata devono essere implementati come servizi di Azure affidabili di un determinato tipo, in esecuzione in un'entità servizio. Vedere [Usare Azure PowerShell per creare un'entità servizio con un certificato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Per semplicità, il processo di sincronizzazione e altri processi di ripristino e ricollocamento a esecuzione prolungata vengono implementati in queste esercitazioni come processi di PowerShell locali o sessioni eseguite con l'account di accesso dell'utente client. I token di autenticazione rilasciati al momento dell'accesso scadono dopo alcune ore e i processi avranno quindi esito negativo. In uno scenario di produzione i processi a esecuzione prolungata devono essere implementati come servizi di Azure affidabili di un determinato tipo, in esecuzione in un'entità servizio. Vedere [Usare Azure PowerShell per creare un'entità servizio con un certificato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. In _PowerShell ISE_ aprire il file ...\Learning Modules\UserConfig.psm1. Sostituire `<resourcegroup>` e `<user>` alle righe 10 e 11 con il valore usato al momento della distribuzione dell'app.  Salvare il file.
 

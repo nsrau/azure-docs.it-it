@@ -3,17 +3,17 @@ title: Formati di contenuto di Registro Azure Container
 description: Informazioni sui formati di contenuto supportati in Registro Azure Container.
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 04/18/2019
 ms.author: danlep
-ms.openlocfilehash: fe129847e685c7151a9b7ad7ea65abbd38530733
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c804dd7b73ea4a51c02c8b342a4ac60d992ec7c5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827460"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310685"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Formati di contenuto supportati in Registro Azure Container
 
@@ -21,7 +21,7 @@ Usare un repository privato in Registro Azure Container per gestire uno dei form
 
 ## <a name="docker-compatible-container-images"></a>Immagini di contenitori compatibili con Docker
 
-Sono supportati i formati di immagine contenitore Docker seguenti:
+Sono supportati i seguenti formati di immagini del contenitore docker:
 
 * [Manifesto immagine Docker V2, schema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
@@ -29,11 +29,11 @@ Sono supportati i formati di immagine contenitore Docker seguenti:
 
 ## <a name="oci-images"></a>Immagini OCI
 
-Registro contenitori di Azure supporta anche le immagini che soddisfano le [iniziativa OCI (Open Container Initiative) specifica del formato immagine](https://github.com/opencontainers/image-spec/blob/master/spec.md). Formato dei pacchetti include [Singolarità dell'immagine del formato (SIF)](https://www.sylabs.io/2018/03/sif-containing-your-containers/).
+Azure Container Registry supporta anche immagini che soddisfano la [specifica del formato di immagine OCI (Open Container Initiative)](https://github.com/opencontainers/image-spec/blob/master/spec.md). I formati di packaging includono il [formato SIF (Singularity Image Format)](https://www.sylabs.io/2018/03/sif-containing-your-containers/).
 
 ## <a name="helm-charts"></a>Grafici Helm
 
-Registro contenitori di Azure Puoi ospitare i repository per [i grafici Helm](https://helm.sh/), un formato di pacchetto consente di gestire e distribuire rapidamente applicazioni per Kubernetes. Sono supportati i [client Helm](https://docs.helm.sh/using_helm/#installing-helm) versione 2.11.0 o successiva.
+Azure Container Registry può ospitare repository per i [grafici Helm](https://helm.sh/), un formato di creazione di pacchetti usato per gestire e distribuire rapidamente le applicazioni per Kubernetes. Sono supportati i [client Helm](https://docs.helm.sh/using_helm/#installing-helm) versione 2.11.0 o successiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

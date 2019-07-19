@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 12/03/2018
+ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: f596fb3a066017f0236de5b79586891dd21efb11
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 81ffe8618e07f2e49e4439ea57e254e5d37974f9
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443985"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227954"
 ---
 # <a name="collect-data-for-models-in-production"></a>Raccogliere i dati per i modelli nell'ambiente di produzione
 
 In questo articolo viene descritto come raccogliere i dati del modello di input dai servizi Azure Machine Learning che sono stati distribuiti nel cluster Kubernetes di Azure in un archivio BLOB di Azure. 
 
 Una volta abilitata, la raccolta dei dati consente di:
-* [Monitorare i dati trasferito](how-to-monitor-data-drift.md) come dati di produzione passa il modello
+* [Monitorare le deviazioni dei dati](how-to-monitor-data-drift.md) quando i dati di produzione entrano nel modello
 
 * Prendere decisioni migliori sui casi in cui ripetere il training o ottimizzare il modello
 

@@ -1,60 +1,61 @@
 ---
-title: Usare un'identità gestita con le attività del Registro di sistema di contenitore di Azure
-description: Fornire un accesso di attività di registro contenitori di Azure alle risorse di Azure inclusi altri registri contenitori privati tramite l'assegnazione di un'identità gestita per le risorse di Azure.
+title: Usare un'identità gestita con le attività di Container Registry di Azure
+description: Fornire a un'attività di Container Registry di Azure l'accesso alle risorse di Azure, inclusi altri registri di contenitori privati, assegnando un'identità gestita per le risorse di Azure.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 5b60727472a06aaac8ccd3dce8609461e8972311
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 46351af375ab4c6e59a3ddfba3c05c1e517fab0d
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67148035"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311527"
 ---
-# <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Usare Azure managed identity nelle attività di registro contenitori di AZURE 
+# <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Usare un'identità gestita di Azure in attività ACR 
 
-Usare un [identità per le risorse di Azure gestito](../active-directory/managed-identities-azure-resources/overview.md) eseguire l'autenticazione dalle attività di registro contenitori di AZURE a un'istanza di registro contenitori di Azure o altre risorse di Azure, senza dover fornire o gestire le credenziali nel codice. Ad esempio, usare un'identità gestita per eseguire il pull o push di immagini del contenitore a un altro registro di sistema come un passaggio di un'attività.
+Usare un' [identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) per l'autenticazione dalle attività ACR a un registro contenitori di Azure o altre risorse di Azure, senza dover fornire o gestire le credenziali nel codice. Ad esempio, usare un'identità gestita per eseguire il pull o il push delle immagini del contenitore in un altro registro come passaggio in un'attività.
 
-In questo articolo altre informazioni sulle identità gestita e su come:
+In questo articolo vengono fornite ulteriori informazioni sulle identità gestite e su come:
 
 > [!div class="checklist"]
-> * Abilitare un'identità assegnata dal sistema o un'identità assegnata dall'utente in un'attività di registro contenitori di AZURE
+> * Abilitare un'identità assegnata dal sistema o un'identità assegnata dall'utente in un'attività ACR
 > * Concedere all'identità l'accesso alle risorse di Azure, ad esempio altri registri contenitori di Azure
 > * Usare l'identità gestita per accedere alle risorse da un'attività 
 
-Per creare le risorse di Azure, in questo articolo richiede l'esecuzione del comando di Azure versione 2.0.66 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
+Per creare le risorse di Azure, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.66 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
 ## <a name="why-use-a-managed-identity"></a>Perché usare un'identità gestita?
 
-Un'identità gestita per le risorse di Azure fornisce ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile configurare [alcune risorse di Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), incluse le attività di registro contenitori di AZURE, con un'identità gestita. Quindi, usare l'identità per accedere ad altre risorse di Azure, senza passare credenziali nel codice o negli script.
+Un'identità gestita per le risorse di Azure fornisce ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile configurare [alcune risorse di Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), incluse le attività ACR, con un'identità gestita. Quindi, usare l'identità per accedere ad altre risorse di Azure, senza passare credenziali nel codice o negli script.
 
 Esistono due tipi di identità gestite:
 
 * *Le identità assegnate dall'utente*, che è possibile assegnare a più risorse e sono conservate per il tempo desiderato. Le identità assegnate dall'utente sono attualmente in anteprima.
 
-* Oggetto *gestite dal sistema di identità*, che è univoco per una risorsa specifica, ad esempio un'attività di registro contenitori di AZURE e ha una durata per la durata di tale risorsa.
+* *Identità gestita dal sistema*, che è univoca per una risorsa specifica, ad esempio un'attività ACR, e dura per la durata di tale risorsa.
 
-Dopo aver configurato una risorsa di Azure con un'identità gestita, concedere all'identità l'accesso a un'altra risorsa, analogamente a qualsiasi entità di sicurezza. Ad esempio, assegnare un'identità gestita un ruolo con pull, push e pull o altre autorizzazioni a un registro contenitori privato in Azure. (Per un elenco completo dei ruoli di registro, vedere [Ruoli e autorizzazioni di Registro Azure Container](container-registry-roles.md).) È possibile assegnare a un'identità l'accesso a una o più risorse.
+Dopo aver configurato una risorsa di Azure con un'identità gestita, concedere all'identità l'accesso a un'altra risorsa, analogamente a qualsiasi entità di sicurezza. Ad esempio, assegnare un'identità gestita a un ruolo con pull, push e pull o altre autorizzazioni per un registro contenitori privato in Azure. (Per un elenco completo dei ruoli di registro, vedere [Ruoli e autorizzazioni di Registro Azure Container](container-registry-roles.md).) È possibile assegnare a un'identità l'accesso a una o più risorse.
 
-## <a name="create-container-registries"></a>Creare registri contenitori
+## <a name="create-container-registries"></a>Creazione di registri contenitori
 
-Per questa esercitazione sono necessari tre registri per contenitori:
+Per questa esercitazione sono necessari tre registri contenitori:
 
-* Usare il registro prima per creare ed eseguire attività di registro contenitori di AZURE. In questo articolo, questo registro di sistema di origine è denominato *myregistry*. 
-* I registri i secondo e terzi sono i registri di destinazione per la prima attività di esempio per push di un'immagine che viene compilata. In questo articolo, vengono denominati i registri di destinazione *customregistry1* e *customregistry2*.
+* Usare il primo registro per creare ed eseguire attività ACR. In questo articolo il registro di sistema di origine è denominato *Registro di sistema*. 
+* Il secondo e il terzo registro sono registri di destinazione per la prima attività di esempio per eseguire il push di un'immagine compilata. In questo articolo i registri di destinazione sono denominati *customregistry1* e *customregistry2*.
 
-Sostituire con i propri nomi di registro di sistema nei passaggi successivi.
+Sostituire con i nomi dei propri registri nei passaggi successivi.
 
-Se non si dispone già di registri contenitori di Azure necessari, vedere [Guida introduttiva: Creare un registro contenitori privato usando l'interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md). Non è necessario eseguire il push di immagini nel Registro di sistema ancora.
+Se non si hanno già i registri contenitori di Azure necessari, vedere [Guida introduttiva: Creare un registro contenitori privato usando l'interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md). Non è ancora necessario eseguire il push delle immagini nel registro.
 
 ## <a name="example-task-with-a-system-assigned-identity"></a>Esempio: Attività con un'identità assegnata dal sistema
 
-In questo esempio viene illustrato come creare un [attività in più passaggi](container-registry-tasks-multi-step.md) con un'identità assegnata dal sistema. L'attività crea un'immagine e quindi Usa l'identità per l'autenticazione con due registri di destinazione per il push dell'immagine.
+Questo esempio illustra come creare un'attività in più [passaggi](container-registry-tasks-multi-step.md) con un'identità assegnata dal sistema. L'attività Compila un'immagine e quindi usa l'identità per l'autenticazione con due registri di destinazione per eseguire il push dell'immagine.
 
-I passaggi per questo esempio di attività sono definiti in un [file YAML](container-registry-tasks-reference-yaml.md) denominata `testtask.yaml`. Il file si trova nella directory multipleRegistries del [acr-attività](https://github.com/Azure-Samples/acr-tasks) repository di esempi. Il file viene riprodotto di seguito:
+I passaggi per questa attività di esempio sono definiti in un [file YAML](container-registry-tasks-reference-yaml.md) denominato `testtask.yaml`. Il file si trova nella directory multipleRegistries del repository [ACR-Tasks](https://github.com/Azure-Samples/acr-tasks) degli esempi. Il file viene riprodotto qui:
 
 ```yml
 version: v1.0.0
@@ -67,7 +68,7 @@ steps:
 
 ### <a name="create-task-with-system-assigned-identity"></a>Crea attività con identità assegnata dal sistema
 
-Creare l'attività *multiplo reg* eseguendo il codice seguente [az acr attività creare] [ az-acr-task-create] comando. Il contesto di attività è la cartella multipleRegistries del repository di esempi e il comando fa riferimento al file `testtask.yaml` nel repository. Il `--assign-identity` parametro non prevede alcun valore aggiuntivo crea un'identità assegnata dal sistema per l'attività. Questa attività viene configurata in modo che è necessario attivarlo manualmente, ma è possibile configurarlo per l'esecuzione quando viene effettuato il push di commit al repository o viene effettuata una richiesta pull. 
+Creare l'attività *multiple-reg* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. Il contesto dell'attività è la cartella multipleRegistries del repository Samples e il comando fa riferimento al `testtask.yaml` file nel repository. Il `--assign-identity` parametro senza valore aggiuntivo crea un'identità assegnata dal sistema per l'attività. Questa attività è configurata in modo che sia necessario attivarla manualmente, ma è possibile impostarla in modo che venga eseguita quando viene eseguito il push dei commit nel repository o viene effettuata una richiesta pull. 
 
 ```azurecli
 az acr task create \
@@ -80,7 +81,7 @@ az acr task create \
   --assign-identity
 ```
 
-Nell'output del comando, il `identity` sezione mostra un'identità del tipo `SystemAssigned` è impostato nell'attività. Il `principalId` è l'ID dell'entità servizio dell'identità:
+Nell'output del comando, la `identity` sezione Mostra un'identità di tipo `SystemAssigned` è impostata nell'attività. `principalId` È l'ID dell'entità servizio dell'identità:
 
 ```console
 [...]
@@ -94,33 +95,33 @@ Nell'output del comando, il `identity` sezione mostra un'identità del tipo `Sys
 [...]
 ``` 
 
-Usare la [show attività di az acr] [ az-acr-task-show] comando per archiviare il `principalId` in una variabile, da usare nei comandi successivi:
+Usare il comando [AZ ACR task show][az-acr-task-show] per archiviare `principalId` in una variabile, da usare nei comandi successivi:
 
 ```azurecli
 principalID=$(az acr task show --name multiple-reg --registry myregistry --query identity.principalId --output tsv)
 ```
 
-### <a name="give-identity-push-permissions-to-two-target-container-registries"></a>Concedere le autorizzazioni di push di identità per due registri contenitori di destinazione
+### <a name="give-identity-push-permissions-to-two-target-container-registries"></a>Assegnare le autorizzazioni push di identità a due registri di contenitori di destinazione
 
-In questa sezione, concedere le autorizzazioni di identità assegnata dal sistema per eseguire il push di registri di due destinazione, denominati *customregistry1* e *customregistry2*.
+In questa sezione, concedere all'identità assegnata dal sistema le autorizzazioni per eseguire il push nei due registri di destinazione, denominati *customregistry1* e *customregistry2*.
 
-Utilizzare innanzitutto le [show di az acr] [ az-acr-show] comando per ottenere l'ID di risorsa di ogni registro di sistema e archiviare gli ID nelle variabili:
+Usare prima il comando [AZ ACR Show][az-acr-show] per ottenere l'ID risorsa di ogni registro e archiviare gli ID nelle variabili:
 
 ```azurecli
 reg1_id=$(az acr show --name customregistry1 --query id --output tsv)
 reg2_id=$(az acr show --name customregistry2 --query id --output tsv)
 ```
 
-Usare la [creazione dell'assegnazione di ruolo az] [ az-role-assignment-create] comando per assegnare l'identità di `acrpush` ruolo ogni registro di sistema. Questo ruolo dispone delle autorizzazioni per le immagini di pull e push in un registro contenitori.
+Usare il comando [AZ Role Assignment create][az-role-assignment-create] per assegnare l' `acrpush` identità del ruolo a ogni registro. Questo ruolo dispone delle autorizzazioni per eseguire il pull e il push di immagini in un registro contenitori.
 
 ```azurecli
 az role assignment create --assignee $principalID --scope $reg1_id --role acrpush
 az role assignment create --assignee $principalID --scope $reg2_id --role acrpush
 ```
 
-### <a name="add-target-registry-credentials-to-task"></a>Aggiungere le credenziali del Registro di sistema di destinazione attività
+### <a name="add-target-registry-credentials-to-task"></a>Aggiungere le credenziali del registro di sistema di destinazione all'attività
 
-A questo punto usare il [aggiungere le credenziali di attività di az acr] [ az-acr-task-credential-add] comando per aggiungere le credenziali dell'identità per l'attività in modo che l'autenticazione con entrambi i registri di destinazione.
+A questo punto usare il comando [AZ ACR Task Credential Add][az-acr-task-credential-add] per aggiungere le credenziali dell'identità all'attività in modo da poter eseguire l'autenticazione con entrambi i registri di destinazione.
 
 ```azurecli
 az acr task credential add \
@@ -138,7 +139,7 @@ az acr task credential add \
 
 ### <a name="manually-run-the-task"></a>Eseguire manualmente l'attività
 
-Usare la [dell'esecuzione dell'attività az acr] [ az-acr-task-run] comando per attivare manualmente l'attività. Il `--set` parametro viene usato per passare i nomi dei server di accesso dei registri due destinazione come valori per le variabili di attività `REGISTRY1` e `REGISTRY2`.
+Usare il comando [AZ ACR task run][az-acr-task-run] per attivare manualmente l'attività. Il `--set` parametro viene utilizzato per passare i nomi dei server di accesso dei due registri di destinazione come valori per le variabili `REGISTRY1` dell'attività `REGISTRY2`e.
 
 ```azurecli
 az acr task run \
@@ -221,23 +222,23 @@ Run ID: cf31 was successful after 35s
 
 ## <a name="example-task-with-a-user-assigned-identity"></a>Esempio: Attività con un'identità assegnata dall'utente
 
-In questo esempio si crea un'identità assegnata dall'utente con autorizzazioni di lettura di segreti da Azure key vault. Questa identità è assegnare a un'attività a più passaggi che legge la chiave privata, compila un'immagine e accede alla CLI di Azure per leggere il tag di immagine.
+In questo esempio si crea un'identità assegnata dall'utente con le autorizzazioni per leggere i segreti da un insieme di credenziali delle chiavi di Azure. Questa identità viene assegnata a un'attività in più passaggi che legge il segreto, compila un'immagine e accede all'interfaccia della riga di comando di Azure per leggere il tag dell'immagine.
 
 ### <a name="create-a-key-vault-and-store-a-secret"></a>Creare un insieme di credenziali delle chiavi e archiviare un segreto
 
-In primo luogo, se è necessario, creare un gruppo di risorse denominato *myResourceGroup* nel *eastus* percorso con il codice seguente [Crea gruppo di az] [ az-group-create]comando:
+Prima di tutto, se necessario, creare un gruppo di risorse denominato *myResourceGroup* nella località *eastus* con il comando [AZ Group create][az-group-create] seguente:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Usare la [az keyvault create] [ az-keyvault-create] comando per creare un insieme di credenziali delle chiavi. Assicurarsi di specificare un nome univoco dell'insieme di credenziali chiave. 
+Usare il comando [AZ Key Vault create][az-keyvault-create] per creare un insieme di credenziali delle chiavi. Assicurarsi di specificare un nome univoco dell'insieme di credenziali delle chiavi. 
 
 ```azurecli-interactive
 az keyvault create --name mykeyvault --resource-group myResourceGroup --location eastus
 ```
 
-Store un segreto di esempio nell'insieme di credenziali chiave usando il [set di az keyvault secret] [ az-keyvault-secret-set] comando:
+Archiviare un segreto di esempio nell'insieme di credenziali delle chiavi usando il comando [AZ Keys Vault Secret set][az-keyvault-secret-set] :
 
 ```azurecli
 az keyvault secret set \
@@ -247,17 +248,17 @@ az keyvault secret set \
   --vault-name mykeyvault
 ```
 
-Ad esempio, è possibile archiviare le credenziali per l'autenticazione con un registro Docker privato in modo che è possibile estrarre un'immagine privata.
+Ad esempio, potrebbe essere necessario archiviare le credenziali per l'autenticazione con un registro Docker privato, in modo da poter effettuare il pull di un'immagine privata.
 
 ### <a name="create-an-identity"></a>Creare un'identità
 
-Creare un'identità denominata *myACRTasksId* nella sottoscrizione usando la [creare identità az] [ az-identity-create] comando. È possibile usare stesso gruppo di risorse usato in precedenza per creare un registro contenitori o insieme di credenziali delle chiavi o uno diverso.
+Creare un'identità denominata *myACRTasksId* nella sottoscrizione usando il comando [AZ Identity create][az-identity-create] . È possibile usare lo stesso gruppo di risorse usato in precedenza per creare un registro contenitori o un insieme di credenziali delle chiavi o uno diverso.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRTasksId
 ```
 
-Per configurare l'identità nei passaggi seguenti, usare il comando [az identity show][az-identity-show] per archiviare l'ID risorsa dell'identità e l'ID dell'entità servizio nelle variabili.
+Per configurare l'identità nei passaggi seguenti, usare il comando [AZ Identity Show][az-identity-show] per archiviare l'ID risorsa dell'identità e l'ID dell'entità servizio nelle variabili.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -267,17 +268,17 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myACRTasks
 principalID=$(az identity show --resource-group myResourceGroup --name myACRTasksId --query principalId --output tsv)
 ```
 
-### <a name="grant-identity-access-to-keyvault-to-read-secret"></a>Identità di concedere l'accesso a Key Vault per la lettura di segreti
+### <a name="grant-identity-access-to-keyvault-to-read-secret"></a>Concedere all'identità l'accesso a un insieme di credenziali per leggere il segreto
 
-Eseguire il comando seguente [az keyvault set-policy] [ az-keyvault-set-policy] comando per impostare un criterio di accesso nell'insieme di credenziali chiave. Nell'esempio seguente consente l'identità assegnata dall'utente ottenere i segreti dall'insieme di credenziali chiave. Questo accesso è necessaria in un secondo momento per eseguire correttamente un'attività in più passaggi.
+Eseguire il comando [AZ Key Vault set-Policy][az-keyvault-set-policy] seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità assegnata dall'utente di ottenere i segreti dall'insieme di credenziali delle chiavi. Questo accesso è necessario in seguito per eseguire correttamente un'attività in più passaggi.
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $principalID --secret-permissions get
 ```
 
-### <a name="grant-identity-reader-access-to-the-resource-group-for-registry"></a>Concedere l'identità dell'accesso in lettura al gruppo di risorse del Registro di sistema
+### <a name="grant-identity-reader-access-to-the-resource-group-for-registry"></a>Concessione dell'accesso in lettura identità al gruppo di risorse per il registro di sistema
 
-Eseguire il comando seguente [creazione dell'assegnazione di ruolo az] [ az-role-assignment-create] comando per assegnare l'identità di un ruolo di lettura, in questo caso al gruppo di risorse contenente il Registro di sistema di origine. Questo ruolo è necessaria in un secondo momento per eseguire correttamente un'attività in più passaggi.
+Eseguire il comando [AZ Role Assignment create][az-role-assignment-create] seguente per assegnare l'identità a un ruolo di lettore, in questo caso al gruppo di risorse contenente il registro di sistema di origine. Questo ruolo è necessario in seguito per eseguire correttamente un'attività in più passaggi.
 
 ```azurecli
 az role assignment create --role reader --resource-group myResourceGroup --assignee $principalID
@@ -285,7 +286,7 @@ az role assignment create --role reader --resource-group myResourceGroup --assig
 
 ### <a name="create-task-with-user-assigned-identity"></a>Crea attività con identità assegnata dall'utente
 
-A questo punto creare un [attività in più passaggi](container-registry-tasks-multi-step.md) e assegnare l'identità assegnata dall'utente. Per questo esempio di attività, creare un [file YAML](container-registry-tasks-reference-yaml.md) denominata `managed-identities.yaml` in una directory di lavoro locale e incollare il contenuto seguente. Assicurarsi di sostituire il nome dell'insieme di credenziali chiave nel file con il nome dell'insieme di credenziali delle chiavi
+A questo punto, creare un'attività in più [passaggi](container-registry-tasks-multi-step.md) e assegnarle l'identità assegnata dall'utente. Per questa attività di esempio, creare un [file YAML](container-registry-tasks-reference-yaml.md) denominato `managed-identities.yaml` in una directory di lavoro locale e incollare il contenuto seguente. Assicurarsi di sostituire il nome dell'insieme di credenziali delle chiavi nel file con il nome dell'insieme di credenziali delle chiavi
 
 ```yml
 version: v1.0.0
@@ -311,11 +312,11 @@ steps:
 
 Questa attività esegue le operazioni seguenti:
 
-* Verifica che possa accedere il segreto nell'insieme di credenziali delle chiavi. Questo passaggio è a scopo dimostrativo. In uno scenario reale, potrebbe essere necessario un passaggio di attività per ottenere le credenziali per accedere a un repository dell'Hub Docker privato.
-* Crea e inserisce il `mywebsite` immagine nel Registro di sistema di origine.
-* I log nella CLI di Azure all'elenco di `my-website` tag del Registro di sistema di origine immagine.
+* Verifica che possa accedere al segreto nell'insieme di credenziali delle chiavi. Questo passaggio è a scopo dimostrativo. In uno scenario reale, potrebbe essere necessario un passaggio attività per ottenere le credenziali per accedere a un repository privato Docker Hub.
+* Compila ed esegue il push `mywebsite` dell'immagine nel registro di sistema di origine.
+* Accede all'interfaccia della riga di comando di `my-website` Azure per elencare i tag di immagine nel registro di sistema di origine.
 
-Creare un'attività denominata *msitask* e passare l'ID risorsa dell'identità assegnata dall'utente creato in precedenza. Questo esempio di attività viene creato dal `managed-identities.yaml` file salvato nella directory di lavoro locale, pertanto è necessario attivarlo manualmente.
+Creare un'attività denominata *msitask* e passare l'ID risorsa dell'identità assegnata dall'utente creata in precedenza. Questa attività di esempio viene creata dal `managed-identities.yaml` file salvato nella directory di lavoro locale, quindi è necessario attivarla manualmente.
 
 ```azurecli
 az acr task create \
@@ -328,7 +329,7 @@ az acr task create \
   --assign-identity $resourceID
 ```
 
-Nell'output del comando, il `identity` sezione mostra un'identità del tipo `UserAssigned` è impostato nell'attività. Il `principalId` è l'ID dell'entità servizio dell'identità:
+Nell'output del comando, la `identity` sezione Mostra un'identità di tipo `UserAssigned` è impostata nell'attività. `principalId` È l'ID dell'entità servizio dell'identità:
 
 ```console
 [...]
@@ -346,13 +347,13 @@ Nell'output del comando, il `identity` sezione mostra un'identità del tipo `Use
 
 ### <a name="manually-run-the-task"></a>Eseguire manualmente l'attività
 
-Usare la [dell'esecuzione dell'attività az acr] [ az-acr-task-run] comando per attivare manualmente l'attività. Il `--set` parametro viene usato per passare il nome del Registro di sistema di origine per l'attività:
+Usare il comando [AZ ACR task run][az-acr-task-run] per attivare manualmente l'attività. Il `--set` parametro viene utilizzato per passare il nome del registro di sistema di origine all'attività:
 
 ```azurecli
 az acr task run --name msitask --registry myregistry --set registryName=myregistry  
 ```
 
-Output mostra il segreto viene risolto, l'immagine è stata creata ed eseguito il push e l'attività registra in Powershell con l'identità da cui leggere il tag di immagine nel Registro di sistema di origine:
+L'output mostra che il segreto è stato risolto, che l'immagine è stata compilata e inserita correttamente e l'attività accede all'interfaccia della riga di comando di Azure con l'identità per leggere il tag di immagine dal registro di sistema di origine:
 
 ```console
 Queued a run with ID: cf32
@@ -412,10 +413,10 @@ cf32: digest: sha256:cbb4aa83b33f6959d83e84bfd43ca901084966a9f91c42f111766473dc9
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo, sono state illustrate usando identità gestite con le attività del Registro di sistema di contenitore di Azure e su come:
+In questo articolo si è appreso come usare le identità gestite con le attività di Container Registry di Azure e come:
 
 > [!div class="checklist"]
-> * Abilitare un'identità assegnata dal sistema o assegnata dall'utente in un'attività di registro contenitori di AZURE
+> * Abilitare un'identità assegnata dal sistema o assegnata dall'utente in un'attività ACR
 > * Concedere all'identità l'accesso alle risorse di Azure, ad esempio altri registri contenitori di Azure
 > * Usare l'identità gestita per accedere alle risorse da un'attività  
 

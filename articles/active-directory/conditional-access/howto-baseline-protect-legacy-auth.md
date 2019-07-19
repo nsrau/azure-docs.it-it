@@ -1,6 +1,6 @@
 ---
-title: Linea di base dei criteri blocco autenticazione legacy (anteprima) - Azure Active Directory
-description: Criteri di accesso condizionale per i protocolli di autenticazione legacy di blocco
+title: Criteri di base blocco autenticazione legacy (anteprima)-Azure Active Directory
+description: Criteri di accesso condizionale per bloccare i protocolli di autenticazione legacy
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,111 +11,111 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21b54c3bea98a9a1499dc75890f75f28f2f9dc0
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: a313240685e539b613dee1c7ff8bd56bb24eb2ba
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655719"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227313"
 ---
-# <a name="baseline-policy-block-legacy-authentication-preview"></a>Criterio di base: Autenticazione legacy di blocco (anteprima)
+# <a name="baseline-policy-block-legacy-authentication-preview"></a>Criteri di base: Blocca autenticazione legacy (anteprima)
 
-Per consentire agli utenti di accedere facilmente alle app cloud, Azure Active Directory (Azure AD) supporta una vasta gamma di protocolli di autenticazione, inclusa l'autenticazione legacy. L'autenticazione legacy è un termine che fa riferimento a una richiesta di autenticazione eseguita da:
+Per consentire agli utenti di accedere facilmente alle app cloud, Azure Active Directory (Azure AD) supporta una vasta gamma di protocolli di autenticazione, inclusa l'autenticazione legacy. L'autenticazione legacy è un termine che fa riferimento a una richiesta di autenticazione effettuata da:
 
-* Client Office meno recenti che non usano l'autenticazione moderna (ad esempio, i client di Office 2010)
-* Qualsiasi client che Usa protocolli di posta elettronica legacy, ad esempio IMAP o SMTP o POP3
+* Client di Office meno recenti che non usano l'autenticazione moderna (ad esempio, Office 2010 client)
+* Qualsiasi client che usa protocolli di posta legacy, ad esempio IMAP/SMTP/POP3
 
-Oggi, la maggior parte di tutti i compromessi in termini tentativi di accesso riusciti provengono da autenticazione legacy. L'autenticazione legacy non supporta l'autenticazione a più fattori (MFA). Anche se si dispone di un criterio di autenticazione a più fattori abilitato nella directory, un attore malintenzionato potrebbe può eseguire l'autenticazione usando un protocollo legacy e ignorare l'autenticazione a più fattori.
+Attualmente, la maggior parte di tutti i tentativi di accesso compromessa provengono dall'autenticazione legacy. L'autenticazione legacy non supporta multi-factor authentication. Anche se nella directory sono abilitati criteri di autenticazione a più fattori, un attore malintenzionato può eseguire l'autenticazione usando un protocollo legacy e ignorare l'autenticazione a più fattori.
 
-Il modo migliore per proteggere l'account da richieste di autenticazione dannoso eseguite dai protocolli legacy è bloccare completamente tali tentativi. Nel tentativo di rendono più semplice per proteggere l'ambiente, è stato creato questo criterio di base per l'autenticazione legacy di blocco.
+Il modo migliore per proteggere l'account dalle richieste di autenticazione dannose effettuate da protocolli legacy è quello di bloccare completamente questi tentativi. Per semplificare la protezione dell'ambiente, sono stati creati i criteri di base per bloccare l'autenticazione legacy.
 
-**L'autenticazione legacy di blocco** è un [criterio di base](concept-baseline-protection.md) che blocca tutte le richieste di autenticazione eseguite dai protocolli legacy. L'autenticazione moderna deve essere usato per accedere correttamente per tutti gli utenti. Usato in combinazione con altri criteri di base, tutte le richieste provenienti da protocolli legacy verranno bloccate e tutti gli utenti verrà richiesto di autenticazione a più fattori ogni volta che necessarie. Questo criterio non blocca Exchange ActiveSync.
+**Blocca autenticazione legacy** è un [criterio di base](concept-baseline-protection.md) che blocca tutte le richieste di autenticazione effettuate da protocolli legacy. Per eseguire correttamente l'accesso a tutti gli utenti, è necessario usare l'autenticazione moderna. Usato in combinazione con gli altri criteri di base, tutte le richieste provenienti da protocolli legacy verranno bloccate e tutti gli utenti dovranno eseguire l'autenticazione a più fattori ogni volta che è necessario. Questo criterio non blocca Exchange ActiveSync.
 
-## <a name="identify-legacy-authentication-use"></a>Identificare l'utilizzo di autenticazione legacy
+## <a name="identify-legacy-authentication-use"></a>Identificare l'uso dell'autenticazione legacy
 
-Prima è possibile bloccare l'autenticazione legacy nella directory, è necessario innanzi tutto capire se gli utenti hanno le app che usano l'autenticazione legacy e relativo impatto sulla directory globale. Azure AD i log di accesso utilizzabile per capire se si usa l'autenticazione legacy.
+Prima di poter bloccare l'autenticazione legacy nella directory, è prima di tutto necessario comprendere se gli utenti hanno app che usano l'autenticazione legacy e come influiscono sulla directory complessiva. È possibile usare i log di accesso Azure AD per capire se si usa l'autenticazione legacy.
 
-1. Passare il **portale di Azure** > **Azure Active Directory** > **accessi**.
-1. Aggiungere la colonna di App Client se non viene visualizzato facendo clic su **colonne** > **App Client**.
-1. Filtrare in base al **App Client** > **altri client** e fare clic su **applica**.
+1. Passare al **portale di Azure** > **Azure Active Directory** > **accessi**.
+1. Aggiungere la colonna app client se non viene visualizzata facendo clic su **colonne** > **client App**.
+1. Filtrare in base all' **app** > client**altri client** e fare clic su **applica**.
 
-Applicazione di filtri di solo i tentativi di show avere effettuato l'accesso sono state apportate dai protocolli di autenticazione legacy. Facendo clic su ogni tentativo di accesso singoli visualizzerà i dettagli aggiuntivi. Il **App Client** campo sotto il **le informazioni di base** scheda indicherà quale protocollo di autenticazione legacy è stato utilizzato.
+Con il filtro vengono visualizzati solo i tentativi di accesso eseguiti dai protocolli di autenticazione legacy. Se si fa clic su ogni singolo tentativo di accesso, vengono visualizzati altri dettagli. Il campo **app client** nella scheda **informazioni di base** indicherà quale protocollo di autenticazione legacy è stato usato.
 
-Questi log indica che gli utenti dipendono ancora da autenticazione legacy e le applicazioni che usano protocolli legacy per effettuare richieste di autenticazione. Per gli utenti che non vengono visualizzati in questi log e vengano confermati che non venga usata l'autenticazione legacy, implementare criteri di accesso condizionale o attivare i **criterio di base: autenticazione legacy di blocco** per solo tali utenti.
+Questi log indicheranno quali utenti sono ancora a seconda dell'autenticazione legacy e quali applicazioni usano protocolli legacy per eseguire richieste di autenticazione. Per gli utenti che non sono presenti in questi registri e che non usano l'autenticazione legacy, implementare criteri di accesso condizionale o abilitare i **criteri di base: bloccare l'autenticazione legacy** solo per questi utenti.
 
-## <a name="moving-away-from-legacy-authentication"></a>Abbandono di autenticazione legacy
+## <a name="moving-away-from-legacy-authentication"></a>Allontanarsi dall'autenticazione legacy
 
-Dopo aver creato un'idea di chi usa l'autenticazione legacy nella directory e le applicazioni che dipendono da esso, il passaggio successivo è aggiornare gli utenti per l'uso dell'autenticazione moderna. L'autenticazione moderna è un metodo di gestione delle identità che offre più sicuro l'autenticazione e autorizzazione. Se si dispone di un criterio di autenticazione a più fattori posto nella directory, l'autenticazione moderna garantisce che l'utente viene richiesto per l'autenticazione a più fattori quando necessario. È l'alternativa più sicura di protocolli di autenticazione legacy.
+Quando si ha un'idea migliore di chi usa l'autenticazione legacy nella directory e quali applicazioni dipendono da tale autenticazione, il passaggio successivo consiste nell'aggiornamento degli utenti per l'uso dell'autenticazione moderna. L'autenticazione moderna è un metodo di gestione delle identità che offre l'autenticazione e l'autorizzazione utente più sicure. Se si dispone di un criterio di autenticazione a più fattori nella directory, l'autenticazione moderna garantisce che all'utente venga richiesto di eseguire l'autenticazione a più fattori quando richiesto. Si tratta dell'alternativa più sicura ai protocolli di autenticazione legacy.
 
-Questa sezione viene fornita una panoramica dettagliata su come aggiornare l'ambiente per l'autenticazione moderna. Leggere i passaggi seguenti prima di abilitare un'autenticazione legacy criteri dell'organizzazione di blocco.
+Questa sezione fornisce una panoramica dettagliata su come aggiornare l'ambiente all'autenticazione moderna. Leggere i passaggi seguenti prima di abilitare un criterio di blocco dell'autenticazione legacy nell'organizzazione.
 
 ### <a name="step-1-enable-modern-authentication-in-your-directory"></a>Passaggio 1: Abilitare l'autenticazione moderna nella directory
 
-Il primo passaggio nell'abilitazione dell'autenticazione moderna è verificando che la directory supporta l'autenticazione moderna. L'autenticazione moderna è abilitata per impostazione predefinita per le directory creati in corrispondenza o dopo il 1 ° agosto 2017. Se è stata creata la directory prima di questa data, è necessario abilitare manualmente l'autenticazione moderna per la directory usando la procedura seguente:
+Il primo passaggio nell'abilitazione dell'autenticazione moderna è garantire che la directory supporti l'autenticazione moderna. Per impostazione predefinita, l'autenticazione moderna è abilitata per le directory create il 1 ° agosto 2017. Se la directory è stata creata prima di questa data, è necessario abilitare manualmente l'autenticazione moderna per la directory attenendosi alla procedura seguente:
 
-1. Verificare se la directory supporta già l'autenticazione moderna eseguendo `Get-CsOAuthConfiguration` dal [Skype per Business Online PowerShell module](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
-1. Se il comando restituisce un oggetto vuoto `OAuthServers` proprietà, quindi l'autenticazione moderna è disabilitato. Aggiornare l'impostazione per abilitare l'autenticazione moderna con `Set-CsOAuthConfiguration`. Se il `OAuthServers` proprietà contiene una voce, ora possibile iniziare.
+1. Verificare se la directory supporta già l'autenticazione moderna eseguendo `Get-CsOAuthConfiguration` dal modulo di [PowerShell per Skype for business online](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Se il comando restituisce una proprietà `OAuthServers` vuota, l'autenticazione moderna è disabilitata. Aggiornare l'impostazione per abilitare l'autenticazione moderna `Set-CsOAuthConfiguration`usando. Se la `OAuthServers` proprietà contiene una voce, è possibile iniziare.
 
-Assicurarsi di completare questo passaggio prima di procedere. È fondamentale che le configurazioni di directory devono essere modificate prima poiché essi indicano quale protocollo da utilizzare per tutti i client di Office. Anche se si usano i client di Office che supportano l'autenticazione moderna, per impostazione predefinita verranno usando protocolli legacy se l'autenticazione moderna è disabilitato sulla directory.
+Assicurarsi di completare questo passaggio prima di procedere. È fondamentale che le configurazioni di directory vengano modificate per prime perché stabiliscono quale protocollo verrà usato da tutti i client di Office. Anche se si usano i client di Office che supportano l'autenticazione moderna, per impostazione predefinita verranno usati i protocolli legacy se l'autenticazione moderna è disabilitata nella directory.
 
 ### <a name="step-2-office-applications"></a>Passaggio 2: Applicazioni di Office
 
-Dopo aver abilitato l'autenticazione moderna nella directory, è possibile avviare l'aggiornamento delle applicazioni, consentendo l'autenticazione moderna per i client di Office. Office 2016 o versioni successive client supportano l'autenticazione moderna per impostazione predefinita. Non sono operazioni aggiuntive necessarie.
+Dopo aver abilitato l'autenticazione moderna nella directory, è possibile avviare l'aggiornamento delle applicazioni abilitando l'autenticazione moderna per i client di Office. Per impostazione predefinita, i client Office 2016 o versioni successive supportano l'autenticazione moderna. Non sono necessari passaggi aggiuntivi.
 
-Se si usano client Windows di Office 2013 o versioni precedenti, è consigliabile eseguire l'aggiornamento a Office 2016 o versioni successive. Anche dopo aver completato il passaggio precedente dell'abilitazione dell'autenticazione moderna nella directory, le applicazioni Office meno recenti continueranno a usare i protocolli di autenticazione legacy. Se si usano client di Office 2013 e non è possibile eseguire immediatamente l'aggiornamento a Office 2016 o versione successiva, seguire i passaggi nell'articolo seguente per [abilitare l'autenticazione moderna di Office 2013 nei dispositivi Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Per proteggere l'account quando si usa l'autenticazione legacy, è consigliabile utilizzare password complesse tra le directory. Consulta [protezione tramite password di Azure AD](../authentication/concept-password-ban-bad.md) per vietare password vulnerabili tra la directory.
+Se si usano client Windows Office 2013 o versioni precedenti, è consigliabile eseguire l'aggiornamento a Office 2016 o versione successiva. Anche dopo aver completato il passaggio precedente dell'abilitazione dell'autenticazione moderna nella directory, le applicazioni di Office precedenti continueranno a usare i protocolli di autenticazione legacy. Se si usano i client di Office 2013 e non è possibile eseguire immediatamente l'aggiornamento a Office 2016 o versione successiva, seguire la procedura illustrata nell'articolo seguente per [abilitare l'autenticazione moderna per Office 2013 nei dispositivi Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Per proteggere l'account mentre si usa l'autenticazione legacy, è consigliabile usare password complesse in tutta la directory. Controllare [Azure ad la protezione delle password](../authentication/concept-password-ban-bad.md) per vietare le password vulnerabili nella directory.
 
-Office 2010 non supporta l'autenticazione moderna. È necessario aggiornare tutti gli utenti con Office 2010 a una versione più recente di Office. Si consiglia l'aggiornamento a Office 2016 o versioni successive, quando si blocca l'autenticazione legacy per impostazione predefinita.
+Office 2010 non supporta l'autenticazione moderna. Sarà necessario aggiornare gli utenti con Office 2010 a una versione più recente di Office. È consigliabile eseguire l'aggiornamento a Office 2016 o versione successiva, perché blocca l'autenticazione legacy per impostazione predefinita.
 
-Se si usa MacOS, è consigliabile eseguire l'aggiornamento a Office per Mac 2016 o versione successiva. Se si usa il client di posta elettronica nativo, è necessario disporre di MacOS versione 10.14 o in un secondo momento tutti i dispositivi.
+Se si usa MacOS, è consigliabile eseguire l'aggiornamento a Office per Mac 2016 o versione successiva. Se si usa il client di posta elettronica nativo, sarà necessario avere MacOS versione 10,14 o successiva su tutti i dispositivi.
 
 ### <a name="step-3-exchange-and-sharepoint"></a>Passaggio 3: Exchange e SharePoint
 
-Per i client Outlook basata su Windows usare l'autenticazione moderna, Exchange Online deve essere abilitata anche l'autenticazione moderna. Se l'autenticazione moderna è disabilitata per Exchange Online, i client Outlook basata su Windows che supportano l'autenticazione moderna (Outlook 2013 o versione successiva) userà l'autenticazione di base per la connessione alle cassette postali di Exchange Online.
+Per consentire ai client Outlook basati su Windows di usare l'autenticazione moderna, Exchange Online deve essere abilitato anche per l'autenticazione moderna. Se l'autenticazione moderna è disabilitata per Exchange Online, i client Outlook basati su Windows che supportano l'autenticazione moderna (Outlook 2013 o versione successiva) utilizzeranno l'autenticazione di base per connettersi alle cassette postali di Exchange Online.
 
-SharePoint Online è abilitato per impostazione predefinita l'autenticazione moderna. Per le directory create dopo il 1 ° agosto 2017, l'autenticazione moderna è abilitata per impostazione predefinita in Exchange Online. Tuttavia, se in precedenza si aveva disabilitata l'autenticazione moderna o si usa una directory creata prima di questa data, seguire i passaggi nell'articolo seguente per [abilitare l'autenticazione moderna in Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+SharePoint Online è abilitato per l'autenticazione moderna. Per le directory create dopo il 1 ° agosto 2017, l'autenticazione moderna è abilitata per impostazione predefinita in Exchange Online. Tuttavia, se in precedenza è stata disabilitata l'autenticazione moderna o si sta utilizzando una directory creata prima di questa data, attenersi alla procedura descritta nell'articolo seguente per [abilitare l'autenticazione moderna in Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 ### <a name="step-4-skype-for-business"></a>Passaggio 4: Skype for Business Online
 
-Per evitare richieste di autenticazione legacy eseguite da Skype for Business, è necessario abilitare l'autenticazione moderna per Skype for Business Online. Per le directory create dopo il 1 ° agosto 2017, l'autenticazione moderna per Skype for Business è abilitato per impostazione predefinita.
+Per evitare richieste di autenticazione legacy effettuate da Skype for business, è necessario abilitare l'autenticazione moderna per Skype for business online. Per le directory create dopo il 1 ° agosto 2017, l'autenticazione moderna per Skype for business è abilitata per impostazione predefinita.
 
-È consigliabile eseguire la transizione a Microsoft Teams, che supporta l'autenticazione moderna per impostazione predefinita. Tuttavia, se non si riesce a eseguire la migrazione in questo momento, è necessario abilitare l'autenticazione moderna per Skype for Business Online in modo da Skype per i client di Business inizia a usare l'autenticazione moderna. Seguire i passaggi descritti in questo articolo [Skype per topologie di Business supportate con l'autenticazione moderna](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), per abilitare l'autenticazione moderna per Skype for Business.
+Si consiglia di eseguire la transizione a Microsoft teams, che supporta l'autenticazione moderna per impostazione predefinita. Tuttavia, se non è possibile eseguire la migrazione in questo momento, sarà necessario abilitare l'autenticazione moderna per Skype for business online in modo che i client Skype for business inizino a usare l'autenticazione moderna. Per abilitare l'autenticazione moderna per Skype for business, seguire la procedura illustrata in questo articolo [topologie Skype for business supportate con l'autenticazione moderna](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported).
 
-Oltre ad abilitare l'autenticazione moderna per Skype for Business Online, si consiglia di abilitare l'autenticazione moderna per Exchange Online quando si abilita l'autenticazione moderna per Skype for Business. Questo processo consente di sincronizzare lo stato dell'autenticazione moderna in Exchange Online e Skype for Business online e impedirà più richieste di accesso per Skype per i client di Business.
+Oltre ad abilitare l'autenticazione moderna per Skype for business online, è consigliabile abilitare l'autenticazione moderna per Exchange Online quando si Abilita l'autenticazione moderna per Skype for business. Questo processo consente di sincronizzare lo stato dell'autenticazione moderna in Exchange Online e Skype for business online e di impedire più richieste di accesso per i client Skype for business.
 
-### <a name="step-5-using-mobile-devices"></a>Passaggio 5: Uso di dispositivi mobili
+### <a name="step-5-using-mobile-devices"></a>Passaggio 5: Uso dei dispositivi mobili
 
-Le applicazioni sul dispositivo mobile devono bloccare anche l'autenticazione legacy. È consigliabile usare Outlook per dispositivi mobili. Outlook per dispositivi mobili supporta l'autenticazione moderna per impostazione predefinita e soddisferà altri criteri di protezione della linea di base di autenticazione a più fattori.
+Anche le applicazioni nel dispositivo mobile devono bloccare l'autenticazione legacy. Si consiglia di usare Outlook per dispositivi mobili. Outlook per dispositivi mobili supporta l'autenticazione moderna per impostazione predefinita e soddisferà altri criteri di protezione di base dell'autenticazione a più fattori.
 
-Per usare il client di posta elettronica native per iOS, è necessario essere in esecuzione iOS versione 11.0 e versioni successive per assicurarsi che il client di posta elettronica è stato aggiornato per bloccare l'autenticazione legacy.
+Per poter usare il client di posta iOS nativo, è necessario eseguire iOS versione 11,0 o successiva per assicurarsi che il client di posta sia stato aggiornato per bloccare l'autenticazione legacy.
 
 ### <a name="step-6-on-premises-clients"></a>Passaggio 6: Client locali
 
-Se sei un cliente ibrida con Exchange Server locale e Skype per Business locale, entrambi i servizi dovrà essere aggiornata per abilitare l'autenticazione moderna. Quando si usa l'autenticazione moderna in un ambiente ibrido, si ha ancora l'autenticazione degli utenti in locale. La storia di autorizzare l'accesso alle modifiche delle risorse (file o messaggi di posta elettronica).
+Se si è un cliente ibrido che usa Exchange Server locale e Skype for business locale, sarà necessario aggiornare entrambi i servizi per consentire l'autenticazione moderna. Quando si usa l'autenticazione moderna in un ambiente ibrido, si stanno ancora eseguendo l'autenticazione degli utenti in locale. La storia dell'autorizzazione dell'accesso alle risorse (file o messaggi di posta elettronica) cambia.
 
-Prima di abilitare l'autenticazione moderna in locale, assicurarsi che siano soddisfatti i prerequisiti.
-A questo punto si è pronti abilitare l'autenticazione moderna in locale.
+Prima di iniziare ad abilitare l'autenticazione moderna in locale, verificare di aver soddisfatto i prerequisiti.
+A questo punto si è pronti per abilitare l'autenticazione moderna in locale.
 
-Passaggi per abilitare l'autenticazione moderna sono reperibile negli articoli seguenti:
+I passaggi per l'abilitazione dell'autenticazione moderna sono disponibili negli articoli seguenti:
 
-* [Come configurare Exchange Server locale da usare l'autenticazione moderna ibrida](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-* [Come usare l'autenticazione moderna (ADAL) con Skype for Business](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+* [Come configurare Exchange Server locale per l'uso dell'autenticazione ibrida moderna](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+* [Come usare l'autenticazione moderna (ADAL) con Skype for business](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
 
-## <a name="enable-the-baseline-policy"></a>Abilitare il criterio di base
+## <a name="enable-the-baseline-policy"></a>Abilitare i criteri di base
 
-I criteri **criterio di base: L'autenticazione legacy di blocco (anteprima)** è preconfigurata e verrà visualizzata nella parte superiore quando si passa al pannello di accesso condizionale nel portale di Azure.
+Criteri di **base dei criteri: Blocca autenticazione legacy (anteprima)** è preconfigurata e viene visualizzata nella parte superiore quando si passa al pannello accesso condizionale in portale di Azure. Questa impostazione viene applicata solo dopo un accesso riuscito, in modo che gli utenti abbiano comunque la possibilità di provare a usare l'autenticazione legacy.
 
 Per abilitare questo criterio e proteggere l'organizzazione:
 
-1. Accedi per il **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
+1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare a **Azure Active Directory** > **accesso condizionale**.
-1. Nell'elenco dei criteri, selezionare **criterio di base: L'autenticazione legacy di blocco (anteprima)** .
-1. Impostare **abilitare i criteri** al **Usa i criteri immediatamente**.
-1. Fare clic su **salvare**.
+1. Nell'elenco dei criteri selezionare **criteri di base: Blocca l'autenticazione legacy (anteprima**).
+1. Impostare **Abilita criterio** per **usare immediatamente i criteri**.
+1. Fare clic su **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni, vedere:
 
-* [Criteri di protezione della linea di base di accesso condizionale](concept-baseline-protection.md)
+* [Criteri di protezione di base per l'accesso condizionale](concept-baseline-protection.md)
 * [Cinque passaggi per proteggere l'infrastruttura di identità](../../security/azure-ad-secure-steps.md)
 * [Che cos'è l'accesso condizionale in Azure Active Directory?](overview.md)

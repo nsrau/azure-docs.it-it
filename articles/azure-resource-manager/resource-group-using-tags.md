@@ -4,14 +4,14 @@ description: Mostra come applicare i tag per organizzare le risorse Azure per la
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 77175738a0cae5c6185a8ac74e51e9b91b685235
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: e18fc040249954ce7ea6a8a686e121a4b56fb54a
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827924"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312132"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usare tag per organizzare le risorse di Azure
 
@@ -107,7 +107,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-Per applicare tutti i tag da un gruppo di risorse alle risorse e *non mantenere i tag esistenti nelle risorse*, usare lo script seguente:
+Per applicare tutti i tag da un gruppo di risorse alle risorse e *non salvare i tag esistenti nelle risorse*, usare lo script seguente:
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -117,7 +117,7 @@ foreach ($g in $groups)
 }
 ```
 
-Per applicare tutti i tag da un gruppo di risorse alle risorse e *mantenere i tag esistenti nelle risorse che non vengono duplicati*, usare lo script seguente:
+Per applicare tutti i tag da un gruppo di risorse alle risorse e *salvare i tag esistenti nelle risorse non duplicate*, usare lo script seguente:
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -214,7 +214,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Per applicare tutti i tag da un gruppo di risorse alle risorse e *non mantenere i tag esistenti nelle risorse*, usare lo script seguente:
+Per applicare tutti i tag da un gruppo di risorse alle risorse e *non salvare i tag esistenti nelle risorse*, usare lo script seguente:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -230,7 +230,7 @@ do
 done
 ```
 
-Per applicare tutti i tag da un gruppo di risorse alle risorse e *mantenere i tag esistenti nelle risorse*, usare lo script seguente:
+Per applicare tutti i tag da un gruppo di risorse alle risorse e *salvare i tag esistenti nelle risorse*, usare lo script seguente:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -250,7 +250,148 @@ done
 
 ## <a name="templates"></a>Modelli
 
-[!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
+Per contrassegnare una risorsa durante la distribuzione, `tags` aggiungere l'elemento alla risorsa che si sta distribuendo. e specificare il nome e il valore del tag.
+
+### <a name="apply-a-literal-value-to-the-tag-name"></a>Applicare un valore letterale al nome del tag
+
+L'esempio seguente illustra un account di archiviazione con due tag (`Dept` e `Environment`) impostati su valori letterali:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "Dept": "Finance",
+                "Environment": "Production"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+Per impostare un tag su un valore DateTime, utilizzare la [funzione UtcNow](resource-group-template-functions-string.md#utcnow).
+
+### <a name="apply-an-object-to-the-tag-element"></a>Applicare un oggetto all'elemento tag
+
+È possibile definire un parametro oggetto in cui vengono memorizzati diversi tag e applicare tale oggetto all'elemento tag. Ogni proprietà nell'oggetto diventa un tag separato per la risorsa. L'esempio seguente include un parametro denominato `tagValues` che viene applicato all'elemento tag.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "tagValues": {
+            "type": "object",
+            "defaultValue": {
+                "Dept": "Finance",
+                "Environment": "Production"
+            }
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": "[parameters('tagValues')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+### <a name="apply-a-json-string-to-the-tag-name"></a>Applicare una stringa JSON al nome del tag
+
+Per memorizzare più valori in un singolo tag, è possibile applicare una stringa JSON che rappresenta tali valori. L'intera stringa JSON viene archiviata come un tag che non può superare i 256 caratteri. L'esempio seguente include un tag singolo denominato `CostCenter` che contiene più valori da una stringa JSON:  
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+### <a name="apply-tags-from-resource-group"></a>Applicare i tag dal gruppo di risorse
+
+Per applicare i tag da un gruppo di risorse a una risorsa, usare la funzione [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) . Quando si recupera il valore del tag, `tags.[tag-name]` usare la sintassi invece `tags.tag-name` della sintassi, perché alcuni caratteri non vengono analizzati correttamente nella notazione del punto.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "Dept": "[resourceGroup().tags['Dept']]",
+                "Environment": "[resourceGroup().tags['Environment']]"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
 
 ## <a name="portal"></a>Portale
 

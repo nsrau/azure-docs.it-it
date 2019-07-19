@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 30c97eed5f28631bd2583cbda75df5755ffe2e34
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 388b389cca7c3e820ea3ccfd37a2a93ccd476b31
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626105"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254646"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
 
@@ -36,9 +36,9 @@ Questo articolo presuppone che l'utente abbia già letto gli articoli seguenti:
 In Visual Studio il modello di progetto **Funzioni di Azure** crea un progetto di libreria di classi C# contenente i file seguenti:
 
 * [host.json](functions-host-json.md): archivia le impostazioni di configurazione che interessano tutte le funzioni del progetto quando vengono eseguite nell'ambiente locale o in Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file): archivia le impostazioni dell'app e le stringhe di connessione usate per l'esecuzione nell'ambiente locale. Questo file contiene segreti e non viene pubblicato nell'app per le funzioni in Azure. Al contrario, [aggiungere le impostazioni dell'app per le app per le funzioni](functions-develop-vs.md#function-app-settings).
+* [local.settings.json](functions-run-local.md#local-settings-file): archivia le impostazioni dell'app e le stringhe di connessione usate per l'esecuzione nell'ambiente locale. Questo file contiene segreti e non viene pubblicato nell'app per le funzioni in Azure. Aggiungere invece [le impostazioni dell'app all'app per le funzioni](functions-develop-vs.md#function-app-settings).
 
-Quando si compila il progetto, una struttura di cartelle che permette di ottenere l'esempio seguente viene generato nella directory di output di compilazione:
+Quando si compila il progetto, nella directory di output di compilazione viene generata una struttura di cartelle simile all'esempio seguente:
 
 ```
 <framework.version>
@@ -72,7 +72,7 @@ public static class SimpleExample
 } 
 ```
 
-L'attributo `FunctionName` indica il metodo come punto di ingresso della funzione. Il nome deve essere univoco all'interno di un progetto, iniziare con una lettera e contenere solo lettere, numeri `_`, e `-`, fino a 127 caratteri. I modelli di progetto spesso creano un metodo denominato `Run`, ma il nome del metodo può essere qualsiasi nome di metodo c# valido.
+L'attributo `FunctionName` indica il metodo come punto di ingresso della funzione. Il nome deve essere univoco all'interno di un progetto, iniziare con una lettera e contenere solo lettere, `_`numeri, `-`e, fino a 127 caratteri di lunghezza. I modelli di progetto spesso creano un metodo denominato `Run`, ma il nome del metodo può essere qualsiasi nome di metodo c# valido.
 
 L'attributo trigger specifica il tipo di trigger e associa i dati di input a un parametro del metodo. La funzione di esempio viene attivata da un messaggio della coda e il messaggio della coda viene passato al metodo nel parametro `myQueueItem`.
 
@@ -181,7 +181,7 @@ Per le versioni 1.x e 2.x del runtime di Funzioni viene usato lo stesso pacchett
 </ItemGroup>
 ```
 
-Tra le dipendenze del pacchetto `Sdk` sono inclusi i trigger e le associazioni. Un progetto 1.x fa riferimento a trigger e associazioni 1.x perché tali trigger e associazioni hanno come destinazione .NET Framework, mentre come destinazione .NET Core 2.x trigger e associazioni.
+Tra le dipendenze del pacchetto `Sdk` sono inclusi i trigger e le associazioni. Un progetto 1. x fa riferimento a trigger e binding 1. x perché i trigger e le associazioni sono destinati alla .NET Framework, mentre i trigger e le associazioni 2. x hanno come destinazione .NET Core.
 
 Il pacchetto `Sdk` dipende inoltre da [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) e indirettamente da [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Queste dipendenze consentono di assicurarsi che il progetto usi le versioni dei pacchetti compatibili con la versione del runtime di Funzioni definita come destinazione del progetto. Se ad esempio è disponibile `Newtonsoft.Json` versione 11 per .NET Framework 4.6.1, ma il runtime di Funzioni che ha come destinazione .NET Framework 4.6.1 è compatibile solo con `Newtonsoft.Json` 9.0.1, anche il codice delle funzioni nel progetto deve usare `Newtonsoft.Json` 9.0.1.
 
@@ -344,7 +344,7 @@ Definire un'associazione imperativa, come segue:
   }
   ```
 
-  `BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. L'associazione di output della tabella App per dispositivi mobili supporta ad esempio [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) con l'associazione imperativa.
+  `BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. Ad esempio, l'associazione di output della tabella app per dispositivi mobili supporta [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [\<ICollector t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) con binding imperativo.
 
 ### <a name="single-attribute-example"></a>Esempio con un solo attributo
 

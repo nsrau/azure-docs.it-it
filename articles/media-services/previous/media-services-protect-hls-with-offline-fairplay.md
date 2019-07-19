@@ -13,22 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: willzhan, dwgeo
-ms.openlocfilehash: bc939011f87f03ef1de7e728fc52fc0c9887dd31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: willzhan
+ms.reviewer: dwgeo
+ms.openlocfilehash: 228b00a19bac9c773fce8e502d302314821fbf39
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935396"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871650"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Modalità offline di FairPlay Streaming per iOS 
 
-> [!div class="op_single_selector" title1="Selezionare la versione di servizi multimediali che si sta utilizzando:"]
+> [!div class="op_single_selector" title1="Selezionare la versione di servizi multimediali in uso:"]
 > * [Versione 3](../latest/offline-fairplay-for-ios.md)
 > * [Versione 2](media-services-protect-hls-with-offline-fairplay.md)
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Servizi multimediali di Azure include un set di [servizi di protezione del contenuto](https://azure.microsoft.com/services/media-services/content-protection/) ben progettati che riguardano le tecnologie seguenti:
 
@@ -42,8 +43,8 @@ La crittografia DRM (Digital Rights Management) o AES (Advanced Encryption Stand
 Oltre alla protezione del contenuto per lo streaming online su vari protocolli, anche la modalità offline per il contenuto protetto è una funzionalità molto richiesta. Il supporto della modalità offline è necessaria per gli scenari seguenti:
 
 * Riproduzione del contenuto quando la connessione Internet non è disponibile, ad esempio in viaggio.
-* Alcuni provider di contenuti potrebbero non consentire la distribuzione di licenze DRM oltre i confini di un paese/area geografica. Se gli utenti desiderano visualizzare del contenuto durante una trasferta all'esterno di paese/area geografica, è necessario scaricarlo offline.
-* In alcuni paesi/aree geografiche, disponibilità di internet e/o della larghezza di banda sono limitate. Gli utenti possono quindi scegliere di scaricare prima il contenuto per ottenere una risoluzione sufficientemente elevata a garantire un'esperienza di visualizzazione soddisfacente. In questo caso, il problema in genere non riguarda la disponibilità della rete, ma la larghezza di banda di rete limitata. I provider OTT (Over-The-Top) o OVP (Online Video Platform) richiedono il supporto della modalità offline.
+* Alcuni provider di contenuti potrebbero non consentire la distribuzione di licenze DRM oltre il bordo di un paese/area geografica. Se gli utenti desiderano guardare il contenuto mentre si recano all'esterno del paese, è necessario scaricare offline.
+* In alcuni paesi o aree geografiche la disponibilità Internet e/o la larghezza di banda è ancora limitata. Gli utenti possono quindi scegliere di scaricare prima il contenuto per ottenere una risoluzione sufficientemente elevata a garantire un'esperienza di visualizzazione soddisfacente. In questo caso, il problema in genere non riguarda la disponibilità della rete, ma la larghezza di banda di rete limitata. I provider OTT (Over-The-Top) o OVP (Online Video Platform) richiedono il supporto della modalità offline.
 
 Questo articolo illustra il supporto della modalità offline di FairPlay Streaming (FPS) per dispositivi che eseguono iOS 10 o versioni successive. Questa funzionalità non è supportata per altre piattaforme Apple, ad esempio watchOS, tvOS o Safari su macOS.
 

@@ -1,5 +1,5 @@
 ---
-title: Vietate in modo dinamico le password - Azure Active Directory
+title: Password escluse in modo dinamico-Azure Active Directory
 description: Escludere le password vulnerabili dall'ambiente con le password escluse in modo dinamico di Azure AD
 services: active-directory
 ms.service: active-directory
@@ -11,94 +11,96 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c043b2ed1a626e362d7edd1a83429aa14046f8ac
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: fe2b4ed91969248bc0818f98306a108555eac424
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703066"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853044"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminare le password non appropriate nell'organizzazione
 
-Leader del settore indicano di non utilizzare la stessa password in più posizioni, per renderli complessi e per non renderla un'azione semplice come "Password123". In che modo le organizzazioni possono garantisce che gli utenti seguono procedure consigliate? Come può è assicurarsi che gli utenti non usano password vulnerabili, o persino le variazioni nella password vulnerabili?
+I leader del settore dicono di non usare la stessa password in più punti, per renderla complessa e non renderla semplice come "Password123". In che modo le organizzazioni possono garantire che i loro utenti stiano seguendo le procedure consigliate? In che modo è possibile assicurarsi che gli utenti non utilizzino password vulnerabili o persino varianti di password vulnerabili?
 
-Il passaggio iniziale in presenza di password più complesse è fornire indicazioni agli utenti. Le indicazioni correnti di Microsoft su questo argomento sono disponibili nella pagina Web a cui si accede tramite il collegamento seguente:
+Il passaggio iniziale per avere una password più avanzata consiste nel fornire indicazioni agli utenti. Le indicazioni correnti di Microsoft su questo argomento sono disponibili nella pagina Web a cui si accede tramite il collegamento seguente:
 
 [Microsoft Password Guidance](https://www.microsoft.com/research/publication/password-guidance) (Indicazioni di Microsoft sulle password)
 
-Materiale sussidiario buona è importante, ma anche con che sappiamo che molti utenti finirà comunque la scelta di password vulnerabili. Protezione di Password di AD Azure consente di proteggere l'organizzazione da rilevare e bloccare password vulnerabili note e le relative varianti, nonché se lo si desidera bloccare condizioni debole aggiuntive che sono specifiche dell'organizzazione.
+Una guida di qualità è importante, ma anche con il fatto che molti utenti continueranno a scegliere password vulnerabili. Azure AD la protezione con password protegge l'organizzazione rilevando e bloccando le password vulnerabili note e le relative varianti, nonché bloccando facoltativamente ulteriori termini vulnerabili specifici per l'organizzazione.
 
 Per altre informazioni sulle attività volte a garantire la sicurezza, vedere il [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report).
 
 ## <a name="global-banned-password-list"></a>Elenco globale di password escluse
 
-Il team di Azure AD Identity Protection analizza costantemente i dati di telemetria di Azure AD della protezione dati cercando valori per le password usate comunemente debole o compromesse o, in particolare, il "Weak" basare termini che vengono spesso utilizzati come base per le password vulnerabili. Quando vengono rilevati tali condizioni debole, viene aggiunto all'elenco globale delle password da escludere. Il contenuto dell'elenco globale delle password vietate non basato su qualsiasi origine dati esterna. L'elenco globale delle password vietate è basato interamente sui risultati in corso di analisi e telemetria di sicurezza di Azure AD.
+Il team di Azure AD Identity Protection analizza costantemente i dati di telemetria della sicurezza di Azure AD alla ricerca di password vulnerabili o compromesse usate comunemente, o più specificamente, i termini di base deboli che spesso vengono usati come base per le password vulnerabili. Quando vengono trovati tali termini, questi vengono aggiunti all'elenco globale delle password escluse. Il contenuto dell'elenco Global Banned password non è basato su un'origine dati esterna. L'elenco globale delle password escluse si basa interamente sui risultati in corso di Azure AD la telemetria e l'analisi della sicurezza.
 
-Quando una nuova password viene modificata o reimpostata per tutti gli utenti in qualsiasi tenant di Azure AD, la versione corrente dell'elenco globale delle password vietate viene usata come chiave di input durante la convalida la complessità della password. Questa convalida comporta password molto più complesse per tutti i clienti di Azure AD.
+Ogni volta che una nuova password viene modificata o reimpostata per tutti gli utenti di qualsiasi tenant in Azure AD, la versione corrente dell'elenco di password Global Banned viene utilizzata come input della chiave per la convalida dell'attendibilità della password. Questa convalida produce password molto più complesse per tutti i clienti Azure AD.
 
 > [!NOTE]
-> Inoltre, criminali informatici usano strategie simili nei propri attacchi. Di conseguenza Microsoft non pubblica il contenuto di questo elenco pubblicamente.
+> I criminali informatici usano anche strategie analoghe negli attacchi. Microsoft non pubblica pertanto il contenuto di questo elenco.
 
 ## <a name="custom-banned-password-list"></a>Elenco password personalizzate escluse
 
-Alcune organizzazioni potrebbe essere necessario migliorare ulteriormente la protezione aggiungendo le proprie personalizzazioni sopra l'elenco globale delle password vietate in ciò che Microsoft chiama l'elenco di password vietate personalizzato. Microsoft consiglia che le condizioni aggiunte a questo elenco sono principalmente interessate in base alle esigenze aziendali specifiche, ad esempio:
+Alcune organizzazioni potrebbero voler migliorare ulteriormente la protezione aggiungendo le proprie personalizzazioni all'elenco globale delle password escluse in quello che Microsoft chiama l'elenco delle password escluse da quelle personalizzate. Microsoft consiglia che i termini aggiunti a questo elenco siano incentrati principalmente su termini specifici dell'organizzazione, ad esempio:
 
-- Nomi di marchi
-- Nomi di prodotto
-- Percorsi (ad esempio, ad esempio, sede centrale dell'azienda)
-- Termini interni specifico della società
-- Abbreviazioni specifici sono vale a dire.
+- Nomi dei marchi
+- Nomi dei prodotti
+- Località, ad esempio la sede centrale dell'azienda.
+- Termini interni specifici della società
+- Abbreviazioni con un significato specifico per la società.
 
-Una volta termini vengono aggiunti all'elenco personalizzato di password vietate, verranno aggiunti all'elenco globale delle password da escludere durante la convalida delle password.
+Quando i termini vengono aggiunti all'elenco delle password con divieto personalizzato, verranno combinati con i termini nell'elenco Global Banned password durante la convalida delle password.
 
 > [!NOTE]
-> L'elenco di password vietate personalizzato è limitato alla presenza di un massimo di termini di 1000. Non è progettato per bloccare gli elenchi di dimensioni estremamente grandi di password. Per sfruttare completamente i vantaggi dell'elenco personalizzato di password vietate, Microsoft consiglia di rivedere innanzitutto e comprendere l'algoritmo di valutazione della password (vedere [modo in cui vengono valutate le password](concept-password-ban-bad.md#how-are-passwords-evaluated)) prima di aggiungere nuove condizioni per il elenco personalizzato da escludere. Informazioni sul modo in cui il funzionamento dell'algoritmo consentirà alle aziende di rilevare e bloccare un numero elevato di password vulnerabili e dalle relative varianti in modo efficiente.
+> L'elenco delle password con divieto personalizzato è limitato a un massimo di 1000 termini. Non è progettato per il blocco di elenchi di password estremamente grandi. Per sfruttare appieno i vantaggi dell'elenco delle password con Banned personalizzato, Microsoft consiglia di esaminare e comprendere prima di tutto l'algoritmo di valutazione delle password (vedere [come vengono valutate le password](concept-password-ban-bad.md#how-are-passwords-evaluated)) prima di aggiungere nuovi termini all'elenco dei dati esclusi. La comprensione del funzionamento dell'algoritmo consente all'azienda di rilevare e bloccare in modo efficiente un numero elevato di password vulnerabili e le relative varianti.
 
-Ad esempio: prendere in considerazione un cliente denominato "Contoso", che si basa a Londra e che rende un prodotto denominato "Widget". Per un cliente, sarebbe dispendioso, nonché meno sicura per tentare di bloccare le variazioni specifiche di questi termini, ad esempio:
+Ad esempio, si consideri un cliente denominato "contoso", che si basa a Londra, e che rende un prodotto denominato "widget". Per un cliente di questo tipo, sarebbe uno spreco e meno sicuro provare a bloccare varianti specifiche di questi termini, ad esempio:
 
-- "Contoso!1"
+- "Contoso! 1"
 - "Contoso@London"
 - "ContosoWidget"
 - "!Contoso"
 - "LondonHQ"
-- ...etcetera
+- ... eccetera
 
-In alternativa, è molto più efficiente e sicuro per bloccare solo il chiave base termini:
+Al contrario, è molto più efficiente e sicuro bloccare solo i termini di base della chiave:
 
-- "Contoso"
-- "Londra"
-- "Widget"
+- Contoso
+- Londra
+- Widget
 
-L'algoritmo di convalida delle password quindi blocca automaticamente le varianti debole e combinazioni di quello precedente.
+L'algoritmo di convalida della password bloccherà automaticamente le varianti e le combinazioni vulnerabili del precedente.
 
 L'elenco personalizzato di password escluse e la possibilità di abilitare l'integrazione di Active Directory locale vengono gestiti tramite il portale di Azure.
 
-![Modificare l'elenco personalizzato di password vietate in metodi di autenticazione](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
+![Modificare l'elenco di password vietate personalizzate in metodi di autenticazione](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
 
-## <a name="password-spray-attacks-and-third-party-compromised-password-lists"></a>Password spray attacchi e gli elenchi delle password compromesso di terze parti
+## <a name="password-spray-attacks-and-third-party-compromised-password-lists"></a>Attacchi spray per la password e elenchi di password compromesse di terze parti
 
-Una chiave vantaggio di protezione di Azure AD password è di difesa contro gli attacchi spray password. La maggior parte degli attacchi spray non tentano di attacco qualsiasi account singoli specificato più di alcune volte poiché tale comportamento aumenta notevolmente le probabilità di rilevamento, tramite il blocco degli account o altri mezzi. La maggior parte degli attacchi spray password pertanto si basano sull'invio solo un numero ridotto delle password note più debole rispetto a ogni account in un'organizzazione. Questa tecnica consente all'utente malintenzionato di cercare rapidamente un account compromesso facilmente mentre nello stesso momento evitare potenziali valori di soglia di rilevamento.
+Una chiave Azure AD vantaggio per la protezione delle password è aiutare a difendersi dagli attacchi di spray per le password. La maggior parte degli attacchi spray per le password non tenta di attaccare un determinato account singolo più volte poiché tale comportamento aumenta significativamente la probabilità di rilevamento, tramite il blocco degli account o altri mezzi. La maggior parte degli attacchi spray per le password si basa quindi sull'invio di un numero ridotto di password più vulnerabili note a ogni account di un'azienda. Questa tecnica consente all'autore dell'attacco di cercare rapidamente un account facilmente compromesso, evitando allo stesso tempo soglie di rilevamento potenziali.
 
-Protezione tramite password di Azure AD è progettato per bloccare in modo efficiente tutte le password vulnerabili note che possono essere usati negli attacchi spray password basati sui dati di telemetria reali sicurezza come illustrato da Azure AD.  Microsoft è a conoscenza dei siti Web di terze parti che enumerano milioni di password che sono stati compromessi di precedenti violazioni della sicurezza noti pubblicamente. È comune per i prodotti di terze parti password convalida deve essere basato sul confronto di attacchi di forza bruta con milioni di password. Microsoft ritiene che queste tecniche non sono il modo migliore per migliorare la complessità della password globale assegnato strategie più comuni usate da utenti malintenzionati spray password.
+Azure AD la protezione con password è progettata per bloccare in modo efficiente tutte le password vulnerabili note che probabilmente verranno usate negli attacchi di spray per le password, in base ai dati di telemetria di sicurezza reali, come illustrato da Azure AD.  Microsoft è a conoscenza dei siti Web di terze parti che enumerano milioni di password compromesse nelle precedenti violazioni della sicurezza note pubblicamente. È comune che i prodotti di convalida della password di terze parti siano basati sul confronto forza bruta rispetto a questi milioni di password. Microsoft ritiene che tali tecniche non siano il modo migliore per migliorare la complessità complessiva delle password in base alle strategie tipiche usate dagli utenti malintenzionati di spray per le password.
 
 > [!NOTE]
-> Il Microsoft elenco globale delle password vietate non è in alcun modo su tutti i dati di terze parti le origini, inclusi gli elenchi delle password compromessa.
+> L'elenco delle password Global Banned Microsoft non è basato su alcuna origine dati di terze parti, inclusi gli elenchi di password compromesse.
 
-Anche se l'elenco da escludere globale di Microsoft è ridotta rispetto ad alcuni elenchi di operazioni bulk di terze parti, gli effetti di sicurezza sono amplificati dal fatto che viene originato dai dati di telemetria di protezione effettivi in attacchi spray password effettiva, oltre al fatto che Microsoft algoritmo di convalida delle password Usa tecniche di corrispondenza fuzzy intelligente. Il risultato finale è che in modo efficiente rileverà e bloccare milioni delle password vulnerabili più comune perché non venga usato nell'azienda. I clienti che scelgono di aggiungere le condizioni specifiche dell'organizzazione all'elenco di password vietate personalizzati possono beneficiare lo stesso algoritmo.
+Anche se l'elenco Microsoft Global Banned è ridotto rispetto ad alcuni elenchi bulk di terze parti, i relativi effetti sulla sicurezza sono amplificati dal fatto che sono originati da dati di telemetria di sicurezza reali sugli effettivi attacchi di tipo password, oltre al fatto che Microsoft l'algoritmo di convalida della password utilizza tecniche di corrispondenza fuzzy. Il risultato finale è che consente di rilevare e bloccare in modo efficiente milioni di password vulnerabili più comuni nell'azienda. I clienti che scelgono di aggiungere termini specifici dell'organizzazione all'elenco delle password con divieto personalizzato traggono vantaggio anche dallo stesso algoritmo.
+
+Altre informazioni sui problemi di sicurezza basati su password possono essere esaminate nella pagina [PA $ $Word non è rilevante](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 ## <a name="on-premises-hybrid-scenarios"></a>Scenari ibridi locali
 
-La protezione degli account solo cloud è utile, ma molte organizzazioni gestiscono scenari ibridi, incluso Windows Server Active Directory locale. È possibile installare Azure AD password di protezione per Windows Server Active Directory gli agenti in locale estendere gli elenchi delle password vietate nell'infrastruttura esistente. In questo caso, utenti e amministratori che modificano, impostano o reimpostano le password in locale devono rispettare gli stessi criteri password degli utenti solo cloud.
+La protezione degli account solo cloud è utile, ma molte organizzazioni gestiscono scenari ibridi, incluso Windows Server Active Directory locale. I vantaggi di sicurezza di Azure AD Password Protection possono anche essere estesi nell'ambiente Windows Server Active Directory tramite l'installazione di agenti locali. Gli utenti e gli amministratori che modificano o reimpostano le password in Active Directory devono ora rispettare gli stessi criteri password degli utenti solo cloud.
 
 ## <a name="how-are-passwords-evaluated"></a>Come vengono valutate le password
 
-Ogni volta che un utente modifica o reimposta la password, viene verificata la complessità della nuova password confrontandola rispetto all'elenco globale e all'elenco personalizzato di password escluse (se configurati).
+Ogni volta che un utente modifica o Reimposta la password, la nuova password viene verificata in base alla complessità e alla complessità convalidando l'elenco combinato dei termini degli elenchi delle password globali e personalizzate (se quest'ultimo è configurato).
 
 Anche se la password di un utente contiene una password esclusa, è possibile che venga comunque accettata se la password complessiva è sufficientemente complessa. Per una password appena configurata sono previsti i passaggi seguenti per valutarne il livello di complessità generale e determinare se può essere accettata o meno.
 
 ### <a name="step-1-normalization"></a>Passaggio 1: Normalizzazione
 
-Per prima cosa, una nuova password viene sottoposta a un processo di normalizzazione, Questa tecnica consente un piccolo set di password da escludere per eseguire il mapping a un set molto più ampio di potenzialmente vulnerabili.
+Per prima cosa, una nuova password viene sottoposta a un processo di normalizzazione, Questa tecnica consente di eseguire il mapping di un piccolo set di password escluse a un set molto più ampio di password potenzialmente vulnerabili.
 
 La normalizzazione si articola in due parti.  Nella prima fase, tutte le lettere maiuscole vengono convertite in lettere minuscole,  mentre nella seconda viene eseguita la sostituzione dei caratteri, ad esempio:  
 
@@ -121,13 +123,13 @@ Esempio: si supponga che la password "abcdef" sia compresa tra le password esclu
 
 'abcdeg'    * (ultimo carattere modificato da 'f' a 'g')* 'abcdefg'   * '(g' aggiunto alla fine)* 'abcde'     * ('f' finale eliminata)*
 
-Nessuna delle password precedenti corrisponde esattamente alla password esclusa "abcdef", Tuttavia, poiché ogni esempio è all'interno di una distanza di modifica 1 del termine da escludere 'abcdef', questi sono tutti considerati come una corrispondenza per "abcdef".
+Nessuna delle password precedenti corrisponde esattamente alla password esclusa "abcdef", Tuttavia, poiché ogni esempio si trova all'interno di una distanza di modifica di 1 del termine ' abcdef ' vietato, vengono tutti considerati come una corrispondenza con "abcdef".
 
 #### <a name="substring-matching-on-specific-terms"></a>Corrispondenza delle sottostringhe (su termini specifici)
 
 Sulla password normalizzata viene applicata la corrispondenza delle sottostringhe per verificare il nome e il cognome dell'utente e il nome del tenant (la corrispondenza del nome del tenant non viene applicata quando si convalida una password in un controller di dominio di Active Directory).
 
-Esempio: si supponga che abbiamo un utente, Pol, chi desidera reimpostare la password per "P0l123fb". Dopo la normalizzazione, questa password diverrebbe "pol123fb". Corrispondenza nelle sottostringhe rileva che la password contiene il nome dell'utente prima "Pol". Anche se "P0l123fb" non è stata specificamente su entrambi gli elenchi delle password vietate, sottostringa corrispondente trovato "Pol" nella password. che viene quindi rifiutata.
+Esempio: si supponga di avere un utente, pol, che vuole reimpostare la password su "P0l123fb". Dopo la normalizzazione, questa password diventerebbe "pol123fb". La corrispondenza della sottostringa trova che la password contiene il nome utente "Pol". Anche se "P0l123fb" non è stato specificamente presente nell'elenco delle password escluse, è stata trovata una corrispondenza di sottostringa "Pol" nella password. che viene quindi rifiutata.
 
 #### <a name="score-calculation"></a>Calcolo del punteggio
 
@@ -135,7 +137,7 @@ Il passaggio successivo consiste nell'identificare le eventuali istanze di passw
 
 1. A ogni password vietata presente nella password di un utente viene assegnato un punto,
 2. così come a ogni carattere univoco rimanente.
-3. Una password deve contenere almeno cinque (5) punti per poter essere accettata.
+3. Una password deve essere di almeno cinque (5) punti per poter essere accettata.
 
 Nei due esempi successivi, si supponga che Contoso usi la protezione delle password di Azure AD e che "contoso" si trovi nell'elenco personalizzato. Si supponga inoltre che nell'elenco globale sia presente "blank".
 
@@ -143,16 +145,16 @@ Esempio: un utente modifica la password in "C0ntos0Blank12"
 
 Dopo la normalizzazione, la password diventa "contosoblank12". Il processo di corrispondenza rileva che la password contiene due password escluse: contoso e blank. Alla password viene quindi assegnato un punteggio:
 
-[contoso] + [vuota] + [1] + [2] = 4 punti poiché questa password è punti in cinque (5), verranno rifiutata.
+[Contoso] + [blank] + [1] + [2] = 4 punti poiché la password è inferiore a cinque (5) punti, verrà rifiutata.
 
 Esempio: un utente modifica la password in "ContoS0Bl@nkf9!".
 
 Dopo la normalizzazione, la password diventa "contosoblankf9!". Il processo di corrispondenza rileva che la password contiene due password escluse: contoso e blank. Alla password viene quindi assegnato un punteggio:
 
-[contoso] + [vuota] + [f] + [9] + [!] = 5 punti poiché questa password è almeno cinque (5) punti, viene accettato.
+[Contoso] + [blank] + [f] + [9] + [!] = 5 punti perché questa password è almeno cinque (5) punti, viene accettata.
 
    > [!IMPORTANT]
-   > L'algoritmo delle password escluse e l'elenco globale possono cambiare in qualsiasi momento in Azure, in base ai processi di ricerca e di analisi di sicurezza in corso. Per il servizio agente controller di dominio locale, gli algoritmi aggiornati diventerà effettiva solo dopo aver reinstallato il software dell'agente controller di dominio.
+   > L'algoritmo delle password escluse e l'elenco globale possono cambiare in qualsiasi momento in Azure, in base ai processi di ricerca e di analisi di sicurezza in corso. Per il servizio agente di controller di dominio locale, gli algoritmi aggiornati diverranno effettive solo dopo la reinstallazione del software dell'agente controller di dominio.
 
 ## <a name="license-requirements"></a>Requisiti relativi alle licenze
 
@@ -162,7 +164,7 @@ Dopo la normalizzazione, la password diventa "contosoblankf9!". Il processo di c
 | Utenti sincronizzati da Windows Server Active Directory locale | Azure AD Premium P1 o P2 | Azure AD Premium P1 o P2 |
 
 > [!NOTE]
-> Gli utenti di Windows Server Active Directory locale che non sincronizzati con Azure Active Directory anche sfruttare i vantaggi della protezione tramite password di Azure AD basato sulla concessione di licenze esistente per gli utenti sincronizzati.
+> Windows Server in locale Active Directory gli utenti che non sono sincronizzati con Azure Active Directory possono usufruire anche dei vantaggi della protezione Azure AD password basata sulle licenze esistenti per gli utenti sincronizzati.
 
 Informazioni aggiuntive sulle licenze, inclusi i costi, sono disponibili nella pagina [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

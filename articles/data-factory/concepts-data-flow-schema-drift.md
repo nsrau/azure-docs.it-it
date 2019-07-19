@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722876"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314815"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Deviazione dello schema dei flussi di dati di mapping
 
@@ -25,7 +25,8 @@ Per proteggere l'ambiente dalla deviazione dello schema, è importante avere a d
 * Definire i parametri di trasformazione che possono funzionare con i modelli di dati invece di valori e campi impostati come hardcoded
 * Definire le espressioni in grado di riconoscere i criteri per la corrispondenza dei campi in ingresso, invece di usare campi denominati
 
-## <a name="how-to-implement-schema-drift"></a>Come implementare deviazione schema
+## <a name="how-to-implement-schema-drift-in-adf-mapping-data-flows"></a>Come implementare la tendenza dello schema nei flussi di dati del mapping di ADF
+ADF supporta in modo nativo gli schemi flessibili che passano dall'esecuzione all'esecuzione, in modo da poter compilare la logica di trasformazione dei dati generici senza la necessità di ricompilare i flussi di dati.
 
 * Scegliere "Allow Schema Drift" (Consenti deviazione schema) nella trasformazione origine
 
@@ -33,11 +34,13 @@ Per proteggere l'ambiente dalla deviazione dello schema, è importante avere a d
 
 * Dopo aver selezionato questa opzione, tutti i campi in ingresso verranno letti dall'origine a ogni esecuzione del flusso di dati e verranno passati attraverso l'intero flusso al sink.
 
-* Assicurarsi di usare "Mapping automatico" per eseguire il mapping di tutti i nuovi campi nella trasformazione Sink in modo che tutti i nuovi campi ottengano raccoglie e visualizzati nella destinazione.
+* Per impostazione predefinita, tutte le colonne appena rilevate (colonne spostate) arriveranno come tipo di dati stringa. Nella trasformazione origine scegliere "deduci tipi di colonna derivati" Se si desidera che ADF deduci automaticamente i tipi di dati dall'origine.
+
+* Assicurarsi di usare "mapping automatico" per eseguire il mapping di tutti i nuovi campi nella trasformazione sink in modo che tutti i nuovi campi vengano prelevati e sbarcati nella destinazione e impostare "Consenti la deriva dello schema" anche sul sink.
 
 <img src="media/data-flow/automap.png" width="400">
 
-* Tutto funzionerà correttamente quando i nuovi campi vengono introdotti in questo scenario con un semplice mapping origine -> sink (noto anche come copia).
+* Tutto funzionerà quando vengono introdotti nuovi campi in questo scenario con un semplice mapping di sink (Copy) di origine >.
 
 * Per aggiungere trasformazioni nel flusso di lavoro che gestisce la deviazione dello schema, è possibile usare criteri di ricerca per trovare le colonne corrispondenti in base a nome, tipo e valore.
 
@@ -66,10 +69,12 @@ Verranno quindi arrotondati e sommati i valori per ognuna delle colonne corrispo
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
-## <a name="access-new-columns-downstream"></a>Accesso le nuove colonne a valle
+## <a name="access-new-columns-downstream"></a>Accedi a nuove colonne a valle
+Quando si generano nuove colonne con modelli di colonna, è possibile accedere alle nuove colonne in un secondo momento nelle trasformazioni del flusso di dati con questi metodi:
 
-Quando si generano nuove colonne usando modelli di colonna, è possibile accedere a tali nuove colonne in un secondo momento nelle trasformazioni del flusso di dati utilizzando la funzione di espressione "byName".
+* Usare "byPosition" per identificare le nuove colonne in base al numero di posizione.
+* Usare "byName" per identificare le nuove colonne in base al nome.
+* Negli schemi di colonna usare "Name", "Stream", "position" o "Type" o qualsiasi combinazione di questi per trovare la corrispondenza con le nuove colonne.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-Nel [linguaggio di espressioni del flusso di dati](data-flow-expression-functions.md) per modelli di colonna e deviazione schema incluso "byName" e "byPosition" sono disponibili funzionalità aggiuntive.
+Nel [linguaggio delle espressioni del flusso di dati](data-flow-expression-functions.md) sono disponibili ulteriori funzionalità per i modelli di colonna e la deriva dello schema, inclusi "byName" e "byPosition".

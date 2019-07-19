@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cdec216187050a449f23f72474e0265acce14c5f
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60389577"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867399"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedure consigliate per i modelli di Azure Resource Manager
 
@@ -28,7 +28,7 @@ Per indicazioni su come compilare modelli funzionanti in tutti gli ambienti clou
 
 ## <a name="template-limits"></a>Limiti del modello
 
-Limitare le dimensioni del modello a 1 MB e ogni file di parametri a 64 KB. Il limite di 1 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni delle risorse iterative e i valori di variabili e parametri. 
+Limitare le dimensioni del modello a 4 MB e ogni file di parametri a 64 KB. Il limite di 4 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni di risorse iterative e i valori per variabili e parametri. 
 
 Esistono anche i limiti seguenti:
 
@@ -36,13 +36,13 @@ Esistono anche i limiti seguenti:
 * 256 variabili
 * 800 risorse (incluso il conteggio copie)
 * 64 valori di output
-* 24\.576 caratteri in un'espressione di modello
+* 24.576 caratteri in un'espressione di modello
 
 È possibile superare alcuni limiti del modello usando un modello annidato. Per altre informazioni, vedere [Uso di modelli collegati nella distribuzione di risorse di Azure](resource-group-linked-templates.md). Per ridurre il numero di parametri, variabili o output, è possibile combinare più valori in un oggetto. Per altre informazioni, vedere [Oggetti come parametri](resource-manager-objects-as-parameters.md).
 
 ## <a name="resource-group"></a>Gruppo di risorse
 
-Quando si distribuiscono le risorse in un gruppo di risorse, il gruppo di risorse archivia i metadati sulle risorse. I metadati vengono archiviati nel percorso del gruppo di risorse.
+Quando si distribuiscono le risorse in un gruppo di risorse, il gruppo di risorse archivia i metadati relativi alle risorse. I metadati vengono archiviati nella posizione del gruppo di risorse.
 
 Se l'area del gruppo di risorse è temporaneamente non disponibile, non è possibile aggiornare le risorse nel gruppo di risorse perché i metadati non sono disponibili. Le risorse in altre aree continueranno a funzionare come previsto, ma non è possibile aggiornarle. Per ridurre il rischio, collocare il gruppo di risorse e le risorse nella stessa area.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e9d20b6c9f240ee5cff734333cb8b739508068b4
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 730f39bf0b05ef33bbbca150532f96f1e495a9ed
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827403"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302357"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Ottimizzare gli iperparametri per il modello con il servizio Azure Machine Learning
 
@@ -98,7 +98,7 @@ Questo codice definisce uno spazio di ricerca con due parametri: `learning_rate`
 
 #### <a name="random-sampling"></a>Campionamento casuale
 
-Nel campionamento casuale i valori degli iperparametri vengono selezionati in modo casuale dallo spazio di ricerca definito. [Campionamento casuale](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?view=azure-ml-py) consente lo spazio di ricerca includere gli iperparametri discreti e continui.
+Nel campionamento casuale i valori degli iperparametri vengono selezionati in modo casuale dallo spazio di ricerca definito. Il [campionamento casuale](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?view=azure-ml-py) consente allo spazio di ricerca di includere sia gli iperparametri discreti che quelli continui.
 
 ```Python
 from azureml.train.hyperdrive import RandomParameterSampling
@@ -112,7 +112,7 @@ param_sampling = RandomParameterSampling( {
 
 #### <a name="grid-sampling"></a>Campionamento a griglia
 
-[Campionamento della griglia](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?view=azure-ml-py) esegue una ricerca a griglia semplice su tutti i valori nello spazio di ricerca definiti. Può essere usato solo con gli iperparametri specificati tramite `choice`. Lo spazio seguente ha, ad esempio, un totale di sei campioni:
+Il [campionamento Grid](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?view=azure-ml-py) esegue una semplice ricerca sulla griglia su tutti i valori possibili nello spazio di ricerca definito. Può essere usato solo con gli iperparametri specificati tramite `choice`. Lo spazio seguente ha, ad esempio, un totale di sei campioni:
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
@@ -125,7 +125,7 @@ param_sampling = GridParameterSampling( {
 
 #### <a name="bayesian-sampling"></a>Campionamento bayesiano
 
-[Campionamento Bayesian](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?view=azure-ml-py) è basato sull'algoritmo di ottimizzazione di Bayes e rende scelte intelligenti in base ai valori degli iperparametri da utilizzare come campione successivamente. Il campione viene scelto in base alle prestazioni del campione precedente, in modo che il nuovo campione migliori la metrica primaria segnalata.
+Il [campionamento bayesiano](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?view=azure-ml-py) è basato sull'algoritmo di ottimizzazione Bayes e consente di scegliere in modo intelligente i valori di iperparametri per l'esempio successivo. Il campione viene scelto in base alle prestazioni del campione precedente, in modo che il nuovo campione migliori la metrica primaria segnalata.
 
 Quando si usa il campionamento bayesiano, il numero di esecuzioni simultanee influisce sull'efficacia del processo di ottimizzazione. In genere, un numero minore di esecuzioni simultanee può migliorare la convergenza di campionamento, poiché il minor grado di parallelismo aumenta il numero di esecuzioni che traggono vantaggio dalle esecuzioni precedentemente completate.
 
@@ -147,7 +147,7 @@ param_sampling = BayesianParameterSampling( {
 
 ## <a name="specify-primary-metric"></a>Specificare la metrica primaria
 
-Specificare il [metrica primaria](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py) si desidera che l'esperimento per l'ottimizzazione di ottimizzazione degli iperparametri. Ogni esecuzione di training viene valutata in base a questa metrica primaria e le esecuzioni con scarse prestazioni (in cui la metrica primaria non soddisfa i criteri di terminazione anticipata) verranno terminate. Oltre al nome della metrica primaria, specificare anche l'obiettivo dell'ottimizzazione: se aumentare o ridurre la metrica primaria.
+Specificare la [metrica primaria](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py) da ottimizzare per l'esperimento di ottimizzazione degli iperparametri. Ogni esecuzione di training viene valutata in base a questa metrica primaria e le esecuzioni con scarse prestazioni (in cui la metrica primaria non soddisfa i criteri di terminazione anticipata) verranno terminate. Oltre al nome della metrica primaria, specificare anche l'obiettivo dell'ottimizzazione: se aumentare o ridurre la metrica primaria.
 
 * `primary_metric_name`: nome della metrica primaria da ottimizzare. Il nome della metrica primaria deve corrispondere esattamente al nome della metrica registrato dallo script di training. Vedere [Registrare le metriche per l'ottimizzazione degli iperparametri](#log-metrics-for-hyperparameter-tuning).
 * `primary_metric_goal`: può essere `PrimaryMetricGoal.MAXIMIZE` o `PrimaryMetricGoal.MINIMIZE` e determina se la metrica primaria verrà aumentata o ridotta durante la valutazione delle esecuzioni. 
@@ -179,7 +179,7 @@ Lo script di training calcola `val_accuracy` e lo registra come precisione, che 
 
 ## <a name="specify-early-termination-policy"></a>Specificare i criteri per la terminazione anticipata
 
-Terminare scarse prestazioni viene eseguito automaticamente con un [criteri di terminazione anticipata. Questa terminazione riduce gli sprechi di risorse, impiegandole per l'esplorazione di altre configurazioni dei parametri.
+Termina le esecuzioni con prestazioni non soddisfacenti automaticamente con un [criterio di terminazione anticipato. Questa terminazione riduce gli sprechi di risorse, impiegandole per l'esplorazione di altre configurazioni dei parametri.
 
 Quando si usano criteri di terminazione anticipata, è possibile configurare i parametri seguenti che consentono di controllare quando vengono applicati i criteri:
 
@@ -190,7 +190,7 @@ Il servizio Azure Machine Learning supporta i criteri di terminazione anticipata
 
 ### <a name="bandit-policy"></a>Criteri Bandit
 
-[Delle slot](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py#definition) è un criterio di terminazione base intervallo di quantità e la valutazione di slack factor/slack. Questi criteri terminano in modo anticipato qualsiasi esecuzione in cui la metrica primaria non rientra nel fattore/valore per il margine di flessibilità rispetto all'esecuzione di training con le migliori prestazioni. I parametri di configurazione accettati sono i seguenti:
+[Bandit](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py#definition) è un criterio di terminazione basato sulla quantità di Slack/slack e sull'intervallo di valutazione. Questi criteri terminano in modo anticipato qualsiasi esecuzione in cui la metrica primaria non rientra nel fattore/valore per il margine di flessibilità rispetto all'esecuzione di training con le migliori prestazioni. I parametri di configurazione accettati sono i seguenti:
 
 * `slack_factor` o `slack_amount`: margine di flessibilità consentito rispetto all'esecuzione di training con le migliori prestazioni. `slack_factor` specifica il margine di flessibilità consentito come rapporto. `slack_amount` specifica il margine di flessibilità consentito come valore assoluto, anziché come rapporto.
 
@@ -208,7 +208,7 @@ In questo esempio, i criteri di terminazione anticipata vengono applicati a ogni
 
 ### <a name="median-stopping-policy"></a>Criteri di arresto con valore mediano
 
-[Arresto mediano](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?view=azure-ml-py) è un criterio di terminazione anticipata basato in esecuzione le medie di metriche principali segnalate dalle esecuzioni. Questi criteri calcolano le medie mobili per tutte le esecuzioni di training e terminano le esecuzioni con prestazioni inferiori al valore mediano delle medie mobili. I parametri di configurazione accettati da questi criteri sono i seguenti:
+L' [arresto mediano](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?view=azure-ml-py) è un criterio di terminazione anticipato basato su medie in esecuzione di metriche primarie segnalate dalle esecuzioni. Questi criteri calcolano le medie mobili per tutte le esecuzioni di training e terminano le esecuzioni con prestazioni inferiori al valore mediano delle medie mobili. I parametri di configurazione accettati da questi criteri sono i seguenti:
 * `evaluation_interval`: frequenza per l'applicazione del criterio (parametro facoltativo).
 * `delay_evaluation`: ritarda la prima valutazione dei criteri per un numero di intervalli specificato (parametro facoltativo).
 
@@ -222,7 +222,7 @@ In questo esempio, i criteri di terminazione anticipata vengono applicati a ogni
 
 ### <a name="truncation-selection-policy"></a>Criteri di selezione con troncamento
 
-[Selezione di troncamento](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?view=azure-ml-py) Annulla una certa percentuale di esecuzione di più basso viene eseguito a ogni intervallo di valutazione. Le esecuzioni vengono confrontate in base alle relative prestazioni rispetto alla metrica primaria e la percentuale X di quelle più basse viene terminata. I parametri di configurazione accettati sono i seguenti:
+La [selezione](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?view=azure-ml-py) dei troncamenti Annulla una determinata percentuale di esecuzioni più basse a ogni intervallo di valutazione. Le esecuzioni vengono confrontate in base alle relative prestazioni rispetto alla metrica primaria e la percentuale X di quelle più basse viene terminata. I parametri di configurazione accettati sono i seguenti:
 
 * `truncation_percentage`: percentuale delle esecuzioni con le prestazioni più basse da terminare in ogni intervallo di valutazione. Immettere un valore intero compreso tra 1 e 99.
 * `evaluation_interval`: frequenza per l'applicazione del criterio (parametro facoltativo).
@@ -253,7 +253,7 @@ Se non viene specificato alcun criterio, il servizio di ottimizzazione degli ipe
 
 ## <a name="allocate-resources"></a>Allocare le risorse
 
-Controllare il budget di risorse per l'ottimizzazione esperimento specificando degli iperparametri il [numero totale massimo di esecuzioni di training]().  Specificare, facoltativamente, la durata massima per l'esperimento di ottimizzazione degli iperparametri.
+Controllare il budget di risorse per l'esperimento di ottimizzazione degli iperparametri specificando il numero massimo totale di esecuzioni di training.  Specificare, facoltativamente, la durata massima per l'esperimento di ottimizzazione degli iperparametri.
 
 * `max_total_runs`: numero massimo totale di esecuzioni di training che verranno create. Limite superiore: il numero di esecuzioni potrebbe essere inferiore, ad esempio se lo spazio degli iperparametri è finito e ha un minor numero di campioni. Deve essere un numero compreso tra 1 e 1000.
 * `max_duration_minutes`: durata massima in minuti dell'esperimento di ottimizzazione degli iperparametri. Parametro facoltativo. Se presente, vengono annullate automaticamente tutte le esecuzioni in esecuzione dopo questo periodo di tempo.
@@ -279,7 +279,7 @@ Con questo codice, l'esperimento di ottimizzazione degli iperparametri verrà co
 
 ## <a name="configure-experiment"></a>Configurare l'esperimento
 
-[Configurare l'ottimizzazione degli iperparametri](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py) esperimento con di spazio di ricerca di iperparametri definito, criteri di terminazione anticipata, metrica primaria e l'allocazione delle risorse nelle sezioni precedenti. Specificare anche un oggetto `estimator`, che verrà chiamato con gli iperparametri campionati. L'oggetto `estimator` descrive lo script di training da eseguire, le risorse per ogni processo (singola GPU o più GPU) e la destinazione di calcolo da usare. Poiché la concorrenza per l'esperimento di ottimizzazione degli iperparametri è limitata dalle risorse disponibili, verificare che la destinazione di calcolo specificata in `estimator` disponga di risorse sufficienti per la concorrenza desiderata. Per altre informazioni sugli oggetti estimator, vedere [Come eseguire il training di modelli](how-to-train-ml-models.md).
+[Configurare](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py) l'esperimento di ottimizzazione iperparametri usando lo spazio di ricerca di iperparametri definito, i criteri di terminazione anticipati, la metrica primaria e l'allocazione delle risorse dalle sezioni precedenti. Specificare anche un oggetto `estimator`, che verrà chiamato con gli iperparametri campionati. L'oggetto `estimator` descrive lo script di training da eseguire, le risorse per ogni processo (singola GPU o più GPU) e la destinazione di calcolo da usare. Poiché la concorrenza per l'esperimento di ottimizzazione degli iperparametri è limitata dalle risorse disponibili, verificare che la destinazione di calcolo specificata in `estimator` disponga di risorse sufficienti per la concorrenza desiderata. Per altre informazioni sugli oggetti estimator, vedere [Come eseguire il training di modelli](how-to-train-ml-models.md).
 
 Configurare l'esperimento di ottimizzazione degli iperparametri:
 
@@ -296,7 +296,7 @@ hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
 
 ## <a name="submit-experiment"></a>Inviare l'esperimento
 
-Dopo aver definito il configurazione di ottimizzazione degli iperparametri [inviare un esperimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py#submit-config--tags-none----kwargs-):
+Dopo aver definito la configurazione dell'ottimizzazione iperparametri, [inviare un esperimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py#submit-config--tags-none----kwargs-):
 
 ```Python
 from azureml.core.experiment import Experiment
@@ -308,7 +308,7 @@ hyperdrive_run = experiment.submit(hyperdrive_run_config)
 
 ## <a name="visualize-experiment"></a>Visualizzare l'esperimento
 
-il SDK di Azure Machine Learning offre una [widget Notebook](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py) che visualizza lo stato di avanzamento di esecuzioni di training. Il frammento seguente mostra tutte le esecuzioni di ottimizzazione degli iperparametri in un Jupyter Notebook:
+Il Azure Machine Learning SDK fornisce un [widget del notebook](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py) che visualizza lo stato di avanzamento delle esecuzioni di training. Il frammento seguente mostra tutte le esecuzioni di ottimizzazione degli iperparametri in un Jupyter Notebook:
 
 ```Python
 from azureml.widgets import RunDetails
@@ -333,7 +333,7 @@ Il codice mostra una tabella con informazioni dettagliate sulle esecuzioni di tr
 
 ## <a name="find-the-best-model"></a>Individuare il modello migliore
 
-Dopo aver completato tutte le esecuzioni di ottimizzazione degli iperparametri, [identificare le migliori prestazioni configurazione](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py#get-best-run-by-primary-metric-include-failed-true--include-canceled-true-) e i valori degli iperparametri corrispondenti:
+Una volta completate tutte le operazioni di ottimizzazione degli iperparametri, [identificare la configurazione con le prestazioni migliori](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py#get-best-run-by-primary-metric-include-failed-true--include-canceled-true-) e i valori di iperparametri corrispondenti:
 
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()
@@ -348,7 +348,7 @@ print('\n batch size:',parameter_values[7])
 ```
 
 ## <a name="sample-notebook"></a>Notebook di esempio
-Fare riferimento per eseguire il training - degli iperparametri-* notebook in questa cartella:
+Vedere i notebook Train-iperparameter-* in questa cartella:
 * [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

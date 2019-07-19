@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e62eb862cf6d6760ca67b9e948a724b16303e89
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799196"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305630"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -23,7 +23,7 @@ Durante il caricamento di video con l'API Video Indexer, sono disponibili le opz
 
 * caricare il video da un URL (scelta consigliata),
 * inviare il file video come matrice di byte nel corpo della richiesta,
-* Usare asset di servizi multimediali di Azure esistente, fornendo il [ID asset](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (supportati in solo gli account a pagamento).
+* Usare l'asset di servizi multimediali di Azure esistente fornendo l' [ID asset](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (supportato solo negli account a pagamento).
 
 Questo articolo illustra come usare l'API [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) per caricare e indicizzare i video in base a un URL. L'esempio di codice nell'articolo include il codice impostato come commento che mostra come caricare la matrice di byte. <br/>L'articolo illustra anche alcuni parametri che è possibile impostare per l'API per modificare il processo e l'output dell'API.
 
@@ -32,12 +32,12 @@ Una volta caricato il video, facoltativamente Video Indexer lo codifica (illustr
 ## <a name="uploading-considerations"></a>Considerazioni sul caricamento
 
 - Quando si carica il video in base all'URL (scelta preferita), l'endpoint deve essere protetto con il protocollo TLS 1.2 (o versione successiva)
-- Le dimensioni di caricamento con l'opzione URL sono limitata a 30GB
-- La lunghezza dell'URL richiesta è di 2048 caratteri
+- Le dimensioni di caricamento con l'opzione URL sono limitate a 30 GB
+- La lunghezza dell'URL della richiesta è limitata a 2048 caratteri
 - Le dimensioni di caricamento con l'opzione matrice di byte sono limitate a 2 GB
 - L'opzione di matrice di byte scade dopo 30 minuti
 - L'URL fornito nel parametro `videoURL` deve essere codificato.
-- L'indicizzazione di asset di servizi multimediali ha le stesse limitazioni di indicizzazione dall'URL
+- L'indicizzazione degli asset di servizi multimediali ha la stessa limitazione dell'indicizzazione dall'URL
 - Video Indexer ha un limite di durata massima di 4 ore per un singolo file
 
 > [!Tip]
@@ -62,20 +62,20 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
     
         |Name|Descrizione|
         |---|---|
-        |id|L'ID del video|
+        |id|ID video|
         |stato|Lo stato del video|  
-    - Esempio: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+    - Esempio: https:\//test.com/NotifyMe?ProjectName=MyProject&ID=1234abcd&state=processed
 - Persona identificata nel video:
   - Properties
     
-      |Name|Descrizione|
+      |NOME|DESCRIZIONE|
       |---|---|
-      |id| L'ID del video|
+      |id| ID video|
       |faceId|L'ID viso che appare nell'indice video|
       |knownPersonId|L'ID utente univoco all'interno di un modello di viso|
       |personName|Il nome della persona|
         
-    - Esempio: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Esempio: https:\//test.com/NotifyMe?ProjectName=MyProject&ID=1234abcd&FaceId=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&PersonName=Inigo_Montoya 
 
 #### <a name="notes"></a>Note
 
@@ -284,11 +284,11 @@ public class AccountContractSlim
 
 L'operazione di caricamento può restituire i codici di stato elencati nella tabella seguente.
 
-|Codice di stato|ErrorType (nel corpo della risposta)|Descrizione|
+|status code|ErrorType (nel corpo della risposta)|Descrizione|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|Lo stesso video è già in fase di elaborazione nell'account specificato.|
 |400|VIDEO_ALREADY_FAILED|Lo stesso video ha restituito un errore di elaborazione nell'account specificato meno di 2 ore prima. I client API devono attendere almeno 2 ore prima di caricare nuovamente un video.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esaminare l'output di indicizzatore Video di Azure generato dall'API](video-indexer-output-json-v2.md)
+[Esaminare l'output del Video Indexer di Azure prodotto dall'API](video-indexer-output-json-v2.md)
