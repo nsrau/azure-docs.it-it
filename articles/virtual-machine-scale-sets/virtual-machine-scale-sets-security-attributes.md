@@ -1,24 +1,24 @@
 ---
-title: Attributi di sicurezza comuni per set di scalabilità di macchine virtuali di Azure
-description: Un elenco di controllo di attributi di sicurezza comuni per la valutazione di set di scalabilità di macchine virtuali di Azure
+title: Attributi di sicurezza comuni per i set di scalabilità di macchine virtuali di Azure
+description: Elenco di controllo degli attributi di sicurezza comuni per la valutazione dei set di scalabilità di macchine virtuali di Azure
 services: virtual-machine-scale-sets
-ms.service: virtual-machines-scale-sets
+ms.service: virtual-machine-scale-sets
 documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: bd00136f22aaad8c96ca107f49a0bd39fa46bf02
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 42187ce1a3103ba037ba2e2c179c720e444ddc60
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800419"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296328"
 ---
-# <a name="common-security-attributes-for-azure-virtual-machine-scale-sets"></a>Attributi di sicurezza comuni per set di scalabilità di macchine virtuali di Azure
+# <a name="common-security-attributes-for-azure-virtual-machine-scale-sets"></a>Attributi di sicurezza comuni per i set di scalabilità di macchine virtuali di Azure
 
-Questo articolo sono descritti gli attributi di sicurezza comuni incorporati in set di scalabilità di macchine virtuali di Azure.
+Questo articolo descrive gli attributi di sicurezza comuni incorporati nei set di scalabilità di macchine virtuali di Azure.
 
 [!INCLUDE [Security attributes header](../../includes/security-attributes-header.md)]
 

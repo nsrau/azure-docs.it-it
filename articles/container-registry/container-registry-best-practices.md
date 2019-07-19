@@ -3,16 +3,17 @@ title: Procedure consigliate in Registro Azure Container
 description: Informazioni su come usare Registro Azure Container in modo efficace seguendo queste procedure consigliate.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
-ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1ab010300d3f7bec3aeb5969a9a09fa9ee9a6a5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787347"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309762"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedure consigliate per Registro Azure Container
 
@@ -63,9 +64,9 @@ Per informazioni dettagliate sull'autenticazione a Registro Azure Container, ved
 
 ## <a name="manage-registry-size"></a>Gestire le dimensioni del registro
 
-I vincoli di archiviazione di ogni [SKU del registro contenitori][container-registry-skus] devono allinearsi a uno scenario tipico: **Basic** per operazioni preliminari, **Standard** per la maggior parte delle applicazioni di produzione e **Premium** per le prestazioni con iperscalabilità e [replica geografica][container-registry-geo-replication]. Per tutta la durata del registro, è necessario gestirne le dimensioni eliminando periodicamente il contenuto non usato.
+I vincoli di archiviazione di ogni [SKU del registro contenitori][container-registry-skus] hanno lo scopo di allinearsi con uno scenario tipico: **Basic** per iniziare, **standard** per la maggior parte delle applicazioni di produzione e **Premium** per le prestazioni con iperscalabilità e la [replica geografica][container-registry-geo-replication]. Per tutta la durata del registro, è necessario gestirne le dimensioni eliminando periodicamente il contenuto non usato.
 
-Usare il comando dell'interfaccia della riga di comando di Azure [az acr show-usage][az-acr-show-usage] per visualizzare le dimensioni correnti del registro:
+Usare il comando dell'interfaccia della riga di comando di Azure [AZ ACR Show-Usage][az-acr-show-usage] per visualizzare le dimensioni correnti del registro di sistema:
 
 ```console
 $ az acr show-usage --resource-group myResourceGroup --name myregistry --output table

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d9420398c012b8da18e3b035cb845db6ce8c942d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2253e9f6331662f0ead0251f9affd7996e02aa31
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511056"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846870"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passare un token di accesso tramite un criterio personalizzato all'applicazione in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Un [criterio personalizzato](active-directory-b2c-get-started-custom.md) in Azure Active Directory (Azure AD) B2C fornisce agli utenti dell'applicazione un'opportunità di iscriversi o accedere con un provider di identità. Quando questo si verifica, Azure AD B2C riceve un [token di accesso](active-directory-b2c-reference-tokens.md) dal provider di identità. Azure AD B2C usa tale token per recuperare informazioni sull'utente. Aggiungere un tipo di attestazione e l'attestazione di output nel criterio personalizzato per passare il token attraverso le applicazioni registrate in Azure AD B2C. 
+Un [criterio personalizzato](active-directory-b2c-get-started-custom.md) in Azure Active Directory (Azure AD) B2C fornisce agli utenti dell'applicazione un'opportunità di iscriversi o accedere con un provider di identità. Quando questo si verifica, Azure AD B2C riceve un [token di accesso](active-directory-b2c-reference-tokens.md) dal provider di identità. Azure AD B2C usa tale token per recuperare informazioni sull'utente. Aggiungere un tipo di attestazione e l'attestazione di output nel criterio personalizzato per passare il token attraverso le applicazioni registrate in Azure AD B2C.
 
 Azure AD B2C supporta il passaggio del token di accesso dei provider di identità [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) e [OpenID Connect](active-directory-b2c-reference-oidc.md). Per tutti gli altri provider di identità, l'attestazione viene restituita vuota.
 
@@ -29,7 +29,7 @@ Azure AD B2C supporta il passaggio del token di accesso dei provider di identit�
 
 - I criteri personalizzati sono configurati con un provider di identità OAuth 2.0 o OpenID Connect.
 
-## <a name="add-the-claim-elements"></a>Aggiungere gli elementi di attestazione 
+## <a name="add-the-claim-elements"></a>Aggiungere gli elementi di attestazione
 
 1. Aprire il file *TrustframeworkExtensions.xml* e aggiungere il seguente elemento **ClaimType** con un identificatore di `identityProviderAccessToken` per l'elemento **ClaimsSchema**:
 
@@ -91,7 +91,7 @@ Durante il test delle applicazioni in Azure AD B2C, può essere utile avere rest
 4. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 5. Nella pagina dei criteri personalizzati, fare clic su **Carica criterio**.
 6. Selezionare **Sovrascrivi il criterio se esistente**, quindi cercare e selezionare il file *TrustframeworkExtensions.xml*.
-7. Fare clic su **Carica**.
+7. Fare clic su **Upload**.
 8. Ripetere i passaggi da 5 a 7 per il file relying party, ad esempio *SignUpOrSignIn.xml*.
 
 ### <a name="run-the-policy"></a>Esegui il criterio
@@ -102,13 +102,8 @@ Durante il test delle applicazioni in Azure AD B2C, può essere utile avere rest
 
     Verrà visualizzato un testo simile al seguente esempio:
 
-    ![Token decodificato](./media/idp-pass-through-custom/idp-pass-through-custom-token.png)
+    ![Token decodificato in jwt.ms con blocco idp_access_token evidenziato](./media/idp-pass-through-custom/idp-pass-through-custom-token.PNG)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni sui token nelle [Informazioni di riferimento sul token di Azure Active Directory](active-directory-b2c-reference-tokens.md).
-
-
-
-
-

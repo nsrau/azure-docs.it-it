@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/26/2018
+ms.date: 07/10/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: fc2c23d93a1800232b81c5eb2f861e8b71c3e437
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c290b13ccb65c68c32d63638b15e8a3f59ef8010
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428065"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228095"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrare Gestione API con Service Fabric in Azure
 
@@ -77,7 +77,7 @@ Avviare Visual Studio come Amministratore e creare un servizio ASP.NET Core:
  1. In Visual Studio selezionare File -> Nuovo progetto.
  2. Selezionare il modello Applicazione di Service Fabric nel Cloud e denominarlo **"ApiApplication"** .
  3. Selezionare il modello di servizio ASP.NET Core senza stato e denominare il progetto **"WebApiService"** .
- 4. Selezionare il modello di progetto Web API ASP.NET Core 2.0.
+ 4. Selezionare il modello di progetto API Web ASP.NET Core 2,1.
  5. Una volta creato il progetto, aprire `PackageRoot\ServiceManifest.xml` e rimuovere l'attributo `Port` dalla configurazione delle risorse endpoint:
 
     ```xml
@@ -88,7 +88,7 @@ Avviare Visual Studio come Amministratore e creare un servizio ASP.NET Core:
     </Resources>
     ```
 
-    Rimozione della porta consente a specificare una porta dinamicamente dall'intervallo di porte dell'applicazione, aperta tramite il gruppo sicurezza di rete nel modello di Cluster Resource Manager, che consente il traffico a esso da Gestione API di Service Fabric.
+    La rimozione della porta consente Service Fabric di specificare dinamicamente una porta dall'intervallo di porte dell'applicazione, aperta tramite il gruppo di sicurezza di rete nel cluster Gestione risorse modello, consentendo il flusso del traffico da gestione API.
 
  6. Premere F5 in Visual Studio per verificare che l'API Web sia disponibile in locale.
 
@@ -108,10 +108,10 @@ In tale cluster dovrebbe essere ora in esecuzione un servizio ASP.NET Core senza
 
 Scaricare e salvare i modelli e il file di parametri di Resource Manager seguenti:
 
-* [network-apim.json][network-arm]
-* [network-apim.parameters.json][network-parameters-arm]
-* [apim.json][apim-arm]
-* [apim.parameters.json][apim-parameters-arm]
+* [rete-gestione API. JSON][network-arm]
+* [Network-gestione API. Parameters. JSON][network-parameters-arm]
+* [gestione API. JSON][apim-arm]
+* [gestione API. Parameters. JSON][apim-parameters-arm]
 
 Il modello *network-apim.json* distribuisce una nuova subnet e un gruppo di sicurezza di rete nella rete virtuale in cui è distribuito il cluster di Service Fabric.
 
@@ -145,7 +145,7 @@ Immettere un valore descrittivo per **displayName** e **description** per il pro
 
 * **displayName** può essere un nome qualsiasi per l'API. Per questo articolo usare "Service Fabric App".
 * **name** consente di specificare un nome univoco e descrittivo per l'API, come "service-fabric-app", che viene visualizzato nel portale di pubblicazione e in quello per sviluppatori.
-* **serviceUrl** fa riferimento al servizio HTTP che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste. Per i back-end di Service Fabric, questo valore URL non viene usato. È possibile inserire un valore qualsiasi nel campo. Per questo articolo, ad esempio "http:\//servicefabric".
+* **serviceUrl** fa riferimento al servizio HTTP che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste. Per i back-end di Service Fabric, questo valore URL non viene usato. È possibile inserire un valore qualsiasi nel campo. Per questo articolo, ad esempio, "http\/:/servicefabric".
 * **path** viene aggiunto all'URL di base del servizio Gestione API. L'URL di base è comune a tutte le API ospitate da un'istanza del servizio Gestione API. Gestione API distingue le API in base al suffisso, quindi è necessario che questo sia univoco per ciascuna API di un editore specifico.
 * **protocols** determina i protocolli da usare per l'accesso all'API, per questo articolo **http** e **https**.
 * **path** è un suffisso per l'API. Per questo articolo usare "myapp".
@@ -197,7 +197,7 @@ Per un set completo di attributi di criteri di back-end di Service Fabric, veder
 
 Specificare un valore per i seguenti parametri vuoti in *apim.parameters.json* per la distribuzione.
 
-|Parametro|Value|
+|Parametro|Valore|
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|

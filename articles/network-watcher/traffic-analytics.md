@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: yagup;kumud
-ms.openlocfilehash: 07bff578b27df13c65eb912a64b6a44b97175d37
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: kumud
+ms.reviewer: yagup
+ms.openlocfilehash: ca3174ad69185da88bf89c843f641dd2b20d9ac5
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051658"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872481"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -44,8 +45,8 @@ Le reti virtuali di Azure hanno i log dei flussi dei gruppi di sicurezza di rete
 
 - **Gruppo di sicurezza di rete**: contiene un elenco di regole di sicurezza che consentono o rifiutano il traffico di rete verso le risorse connesse a Rete virtuale di Microsoft Azure. I gruppi di sicurezza di rete possono essere associati a subnet, singole VM (distribuzione classica) o singole interfacce di rete collegate a VM (Resource Manager). Per altre informazioni, vedere [Panoramica dei gruppi di sicurezza di rete](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Log dei flussi del gruppo di sicurezza di rete (NSG)** : Consente di visualizzare le informazioni sul traffico IP in ingresso e in uscita tramite un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita per ogni regola, la scheda di rete a cui si applica il flusso, informazioni a cinque tuple relative al flusso (indirizzo IP di origine/destinazione, porta di origine/destinazione e protocollo) e se il traffico è consentito o meno. Per altre informazioni sui log dei flussi dei gruppi di sicurezza di rete, vedere [Log dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: servizio di Azure che raccoglie i dati di monitoraggio e li archivia in un repository centrale. Questi dati possono includere eventi, dati sulle prestazioni o dati personalizzati forniti tramite l'API di Azure. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione. Monitoraggio delle applicazioni, ad esempio analitica di monitoraggio e il traffico delle prestazioni di rete viene compilate mediante i log di monitoraggio di Azure come base. Per altre informazioni, vedere [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Area di lavoro di Log Analytics**: Un'istanza dei log di monitoraggio di Azure, dove sono archiviati i dati relativi a un account Azure. Per altre informazioni sulle aree di lavoro di Log Analitica, vedere [creare un'area di lavoro di Log Analitica](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics**: servizio di Azure che raccoglie i dati di monitoraggio e li archivia in un repository centrale. Questi dati possono includere eventi, dati sulle prestazioni o dati personalizzati forniti tramite l'API di Azure. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione. Le applicazioni di monitoraggio, ad esempio monitoraggio prestazioni rete e analisi del traffico, vengono create usando i log di monitoraggio di Azure come base. Per altre informazioni, vedere [log di monitoraggio di Azure](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Area di lavoro di Log Analytics**: Un'istanza dei log di monitoraggio di Azure, in cui vengono archiviati i dati relativi a un account Azure. Per ulteriori informazioni sulle aree di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network Watcher**: servizio a livello di area che permette di monitorare e diagnosticare le condizioni al livello di scenario di rete in Azure. Con Network Watcher è possibile attivare e disattivare i log dei flussi dei gruppi di sicurezza di rete. Per altre informazioni, vedere [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Come funziona Analisi del traffico
@@ -172,7 +173,7 @@ New-AzStorageAccount `
 Selezionare le opzioni seguenti, come illustrato nell'immagine:
 
 1. Per *Stato* selezionare **Sì**
-2. Selezionare *versione 2* per **versione i log di flusso**. La versione 2 contiene le statistiche di sessione dei flussi (byte e pacchetti).
+2. Selezionare *versione 2* per la **versione dei log dei flussi**. La versione 2 contiene le statistiche di sessione dei flussi (byte e pacchetti).
 3. Selezionare un account di archiviazione esistente nel quale archiviare i log dei flussi. Per archiviare i dati per sempre, impostare il valore su *0*. Si devono sostenere i costi di archiviazione di Azure per l'account di archiviazione.
 4. Impostare **Conservazione** sul numero di giorni per cui si vogliono archiviare i dati.
 5. Selezionare *Sì* per **Stato di Analisi del traffico**.
@@ -183,9 +184,9 @@ Selezionare le opzioni seguenti, come illustrato nell'immagine:
 
     ![Selezione dell'account di archiviazione, dell'area di lavoro Log Analytics e dell'abilitazione di Analisi del traffico](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
-Ripetere i passaggi precedenti per qualsiasi altro gruppo di sicurezza di rete per il quale si vuole abilitare Analisi del traffico. I dati dai log dei flussi vengono inviati all'area di lavoro, pertanto è necessario verificare che le leggi e regolamenti locali nel proprio paese consentano l'archiviazione dei dati nell'area in cui è presente l'area di lavoro.
+Ripetere i passaggi precedenti per qualsiasi altro gruppo di sicurezza di rete per il quale si vuole abilitare Analisi del traffico. I dati dei log dei flussi vengono inviati all'area di lavoro, quindi assicurarsi che le leggi e le normative locali del paese/area geografica consentano l'archiviazione dei dati nell'area in cui è presente l'area di lavoro.
 
-È anche possibile configurare il traffico analitica usando il [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) cmdlet di PowerShell in Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
+È anche possibile configurare analisi del traffico usando il cmdlet di PowerShell [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) in Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="view-traffic-analytics"></a>Visualizzare Analisi del traffico
 
@@ -277,13 +278,13 @@ Di seguito sono elencate alcune informazioni utili da visualizzare dopo la confi
 
     ![Dashboard che presenta la distribuzione del traffico](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- La mappa geografica Mostra la barra multifunzione in alto per selezionare parametri come i Data Center (Analitica Deployed/No-distribuzione/Active/Inactive/traffico abilitata/Analitica il traffico non abilitata) e paesi/aree geografiche aggiunta come contributo non dannosi/dannosi traffico attivo distribuzione:
+- La mappa geografica Mostra la barra multifunzione superiore per la selezione di parametri, ad esempio Data Center (distribuiti/no-Deployment/Active/inactive/Analisi del traffico Enabled/Analisi del traffico non abilitata) e paesi/aree che contribuiscono al traffico dannoso/dannoso al attivo distribuzione
 
     ![Visualizzazione della mappa geografica che presenta la distribuzione attiva](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
-- La mappa geografica Mostra la distribuzione del traffico in un data center da paesi e continenti che comunicano in blu (traffico non dannoso) e il colore rosso (traffico dannoso) linee di colore:
+- La mappa geografica Mostra la distribuzione del traffico a un data center di paesi/aree geografiche e continenti che comunicano con esso in blu (traffico dannoso) e linee colorate rosse (traffico dannoso):
 
-    ![Visualizzazione mappa geografica che presenta la distribuzione del traffico a paesi e continenti](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+    ![Visualizzazione della mappa geografica in cui viene presentata la distribuzione del traffico a paesi/aree geografiche e continenti](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![Dettagli dei flussi per la distribuzione del traffico nella ricerca log](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 
@@ -300,7 +301,7 @@ Di seguito sono elencate alcune informazioni utili da visualizzare dopo la confi
     ![Dashboard che presenta la distribuzione delle reti virtuali](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - La topologia delle reti virtuali mostra la barra multifunzione in alto per selezionare parametri come le connessioni esterne, i flussi attivi e i flussi dannosi di una rete virtuale (connessioni tra reti virtuali/attive/inattive).
-- È possibile filtrare la topologia di rete virtuale basata su sottoscrizioni, aree di lavoro, gruppi di risorse e intervallo di tempo. Filtri aggiuntivi che consentono di comprendere il flusso sono: Flusso di tipo (tra reti virtuali, IntraVNET e così via), la direzione di flusso (in ingresso, in uscita), lo stato del flusso (consentite, bloccate), le reti virtuali (di destinazione e collegato), il tipo di connessione (Peering o Gateway: S2S e P2S) e il gruppo NSG. Usare questi filtri per concentrarsi sulle reti virtuali che si desidera esaminare in dettaglio.
+- È possibile filtrare la topologia di rete virtuale basata su sottoscrizioni, aree di lavoro, gruppi di risorse e intervallo di tempo. Filtri aggiuntivi che consentono di comprendere il flusso sono: Tipo di flusso (tra reti virtuali, IntraVNET e così via), direzione del flusso (in ingresso, in uscita), stato del flusso (consentito, bloccato), reti virtuali (destinazione e connessione), tipo di connessione (peering o gateway-P2S e S2S) e NSG. Usare questi filtri per concentrarsi sulle reti virtuali che si desidera esaminare in dettaglio.
 - La topologia delle reti virtuali illustra la distribuzione del traffico verso una rete virtuale per quanto concerne i flussi (consentiti/bloccati/in ingresso/in uscita/non dannosi/dannosi), il protocollo applicativo e i gruppi di sicurezza di rete, ad esempio:
 
     ![Topologia delle reti virtuali che presenta i dettagli della distribuzione e dei flussi di traffico](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
@@ -372,4 +373,4 @@ Per le risposte alle domande frequenti, vedere [Traffic Analytics FAQ](traffic-a
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni su come abilitare i log dei flussi, vedere l'argomento relativo all'[abilitazione della registrazione dei flussi dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-portal.md).
-- Per comprendere lo schema e i dettagli del traffico Analitica per l'elaborazione, vedere [schema di analitica traffico](traffic-analytics-schema.md).
+- Per comprendere lo schema e i dettagli di elaborazione dei Analisi del traffico, vedere [schema di analisi del traffico](traffic-analytics-schema.md).

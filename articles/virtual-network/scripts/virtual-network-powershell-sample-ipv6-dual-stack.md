@@ -1,7 +1,7 @@
 ---
-title: Esempio di script Azure PowerShell - configurare IPv6 endpoint di rete virtuale (anteprima)
+title: Esempio di script Azure PowerShell-configurare endpoint di rete virtuale IPv6 (anteprima)
 titlesuffix: Azure Virtual Network
-description: Abilitare gli endpoint IPv6 usando Powershell in una rete virtuale di Azure
+description: Abilitare gli endpoint IPv6 usando PowerShell in rete virtuale di Azure
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -10,33 +10,35 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/22/2019
+ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 627ff40361b562630f05c70823e9ad2c7ef711e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f07aae0e8baae44ade152cf3fe20facc7fe6770
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002225"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248802"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurare gli endpoint IPv6 nell'esempio di script di rete virtuale (anteprima)
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurare gli endpoint IPv6 nell'esempio di script della rete virtuale (anteprima)
 
-Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv6) in Azure che include una rete virtuale con una subnet dual-stack, un servizio di bilanciamento del carico con configurazioni front-end dual (IPv4 + IPv6), le macchine virtuali con schede di rete con una configurazione IP doppia, dual-stack in regole di gruppo di sicurezza di rete Dual e due indirizzi IP pubblici.
+Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv6) in Azure che include una rete virtuale a doppio stack con una subnet dello stack doppio, un servizio di bilanciamento del carico con due configurazioni front-end Dual (IPv4 + IPv6), macchine virtuali con NIC con una doppia configurazione IP, due regole del gruppo di sicurezza di rete e doppi indirizzi IP pubblici.
 
-È possibile eseguire lo script da Azure [Cloud Shell](https://shell.azure.com/powershell) o da un'installazione di PowerShell locale. Se si usa PowerShell in locale, questo script richiede il Az modulo Azure PowerShell versione 1.0.0 o versione successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+È possibile eseguire lo script da Azure [Cloud Shell](https://shell.azure.com/powershell) o da un'installazione di PowerShell locale. Se si usa PowerShell in locale, per questo script è necessario il modulo AZ PowerShell di Azure versione 1.0.0 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di distribuire un'applicazione dual-stack in Azure, è necessario configurare la sottoscrizione a una sola volta per questa funzionalità di anteprima usando Azure PowerShell seguente:
+Prima di distribuire un'applicazione dual stack in Azure, è necessario configurare la sottoscrizione una sola volta per questa funzionalità di anteprima usando i Azure PowerShell seguenti:
 
-Registrare come indicato di seguito:
+Registra come segue:
 ```azurepowershell
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
-Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato della registrazione eseguendo il comando di Azure PowerShell seguente: Controllare la registrazione come indicato di seguito:
+Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato di registrazione eseguendo il comando Azure PowerShell seguente: Controllare la registrazione nel modo seguente:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
+Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
 Al termine della registrazione eseguire questo comando:
 
@@ -260,7 +262,7 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Consente di creare un gruppo di sicurezza di rete, ovvero un confine di sicurezza tra Internet e la macchina virtuale. |
 | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) | Consente di creare una regola NSG per consentire il traffico in ingresso. In questo esempio, la porta 22 è aperta al traffico SSH. |
 | [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Consente di creare una scheda di rete virtuale e la collega alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. |
-| [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | Consente di creare un set di disponibilità. Set di disponibilità assicurano disponibilità dell'applicazione suddividendo le macchine virtuali in risorse fisiche in modo che se si verifica un errore, l'intero set non è interessato. |
+| [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | Consente di creare un set di disponibilità. I set di disponibilità garantiscono tempi di esecuzione delle applicazioni distribuendo le macchine virtuali tra le risorse fisiche in modo tale che, se si verifica un errore, l'intero set non è interessato. |
 | [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Crea una configurazione di VM. Questa configurazione include informazioni quali il nome della VM, il sistema operativo e le credenziali amministrative. La configurazione viene usata durante la creazione della VM. |
 | [New-AzVM](/powershell/module/az.compute/new-azvm)  | Consente di creare la macchina virtuale e la connette alla scheda di rete, alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione.  |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |

@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
-ms.author: malop; kumud
-ms.openlocfilehash: 383282aedd83f8f3e673444354bf17fdbf3f453c
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.author: malop
+ms.reviewer: kumud
+ms.openlocfilehash: b26f876fbe07b1667a579fc040562f1d6ee8a85e
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798964"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871791"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -34,7 +35,7 @@ Azure crea automaticamente route di sistema e assegna le route a ogni subnet in 
 
 Ogni route contiene un prefisso degli indirizzi e il tipo di hop successivo. Quando il traffico in uscita da una subnet viene inviato a un indirizzo IP compreso nel prefisso degli indirizzi di una route, la route che contiene il prefisso è quella usata da Azure. Vedere in che modo [Azure seleziona una route](#how-azure-selects-a-route) quando più route contengono lo stesso prefisso oppure prefissi che si sovrappongono. Quando si crea una rete virtuale, Azure crea automaticamente le route di sistema predefinite seguenti per ogni subnet della rete virtuale:
 
-|`Source` |Prefissi degli indirizzi                                        |Tipo hop successivo  |
+|Source |Prefissi degli indirizzi                                        |Tipo hop successivo  |
 |-------|---------                                               |---------      |
 |Predefinito|Univoco per la rete virtuale                           |Rete virtuale|
 |Predefinito|0.0.0.0/0                                               |Internet       |
@@ -57,7 +58,7 @@ I tipi di hop successivi elencati nella tabella precedente rappresentano il modo
 
 Azure aggiunge route di sistema predefinite per diverse funzionalità di Azure, ma solo se si abilitano queste funzionalità. A seconda della funzionalità, Azure aggiunge route predefinite facoltative a subnet specifiche o a tutte le subnet della rete virtuale. Le route di sistema aggiuntive e i tipi di hop successivi che Azure può aggiungere quando si abilitano le funzionalità sono:
 
-|`Source`                 |Prefissi degli indirizzi                       |Tipo hop successivo|Subnet nella rete virtuale alla quale viene aggiunta la route|
+|Source                 |Prefissi degli indirizzi                       |Tipo hop successivo|Subnet nella rete virtuale alla quale viene aggiunta la route|
 |-----                  |----                                   |---------                    |--------|
 |Predefinito                |Univoco per la rete virtuale, ad esempio: 10.1.0.0/16|Peering reti virtuali                 |Tutti|
 |Gateway di rete virtuale|Prefissi annunciati dall'ambiente locale tramite BGP o configurati nel gateway di rete locale     |Gateway di rete virtuale      |Tutti|
@@ -116,12 +117,12 @@ Il nome visualizzato e a cui si fa riferimento per i tipi di hop successivi è d
 
 Un gateway di rete locale può scambiare le route con un gateway di rete virtuale di Azure tramite Border Gateway Protocol (BGP). L'uso di BGP con un gateway di rete virtuale di Azure dipende dal tipo selezionato al momento della creazione del gateway stesso. Se il tipo selezionato era:
 
-* **ExpressRoute**: È necessario usare BGP per annunciare le route locali al router di Microsoft Edge. Se si distribuisce un gateway di rete virtuale di tipo ExpressRoute, non è possibile creare route definite dall'utente per forzare il traffico verso il gateway di rete virtuale ExpressRoute. È possibile usare route definite dall'utente per forzare il traffico da ExpressRoute, ad esempio verso un'appliance virtuale di rete.<br>
+* **ExpressRoute**: È necessario usare BGP per annunciare le route locali al router Microsoft Edge. Se si distribuisce un gateway di rete virtuale di tipo ExpressRoute, non è possibile creare route definite dall'utente per forzare il traffico verso il gateway di rete virtuale ExpressRoute. È possibile usare route definite dall'utente per forzare il traffico da ExpressRoute, ad esempio verso un'appliance virtuale di rete.<br>
 * **VPN**: è possibile usare BGP. Per informazioni dettagliate, vedere [BGP con connessioni VPN da sito a sito](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando si scambiano le route con Azure tramite BGP, viene aggiunta una route separata alla tabella di route di tutte le subnet di una rete virtuale per ogni prefisso annunciato. La route viene aggiunta con *Gateway di rete virtuale* come origine e tipo di hop successivo. 
 
-È possibile disabilitare la propagazione delle route ER e Gateway VPN su una subnet mediante una proprietà in una tabella di route. Quando si scambiano le route con Azure tramite BGP, le route non vengono aggiunti alla tabella di route di tutte le subnet con propagazione delle route gateway rete virtuali disattivate. La connettività con connessioni VPN è ottenuta usando [route personalizzate](#custom-routes) con *gateway di rete virtuale* come tipo di hop successivo. Per informazioni dettagliate, vedere [come disabilitare la propagazione delle route gateway di rete virtuali](manage-route-table.md#create-a-route-table).
+È possibile disabilitare la propagazione delle route ER e Gateway VPN su una subnet mediante una proprietà in una tabella di route. Quando si scambiano le route con Azure tramite BGP, le route non vengono aggiunte alla tabella di route di tutte le subnet con propagazione della route del gateway di rete virtuale disabilitata. La connettività con connessioni VPN è ottenuta usando [route personalizzate](#custom-routes) con *gateway di rete virtuale* come tipo di hop successivo. Per informazioni dettagliate, vedere [come disabilitare la propagazione di route del gateway di rete virtuale](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Modalità di selezione di una route da parte di Azure
 
@@ -139,7 +140,7 @@ Se più route contengono lo stesso prefisso degli indirizzi, Azure seleziona il 
 Una tabella di route contiene ad esempio le route seguenti:
 
 
-|`Source`   |Prefissi degli indirizzi  |Tipo hop successivo           |
+|Source   |Prefissi degli indirizzi  |Tipo hop successivo           |
 |---------|---------         |-------                 |
 |Predefinito  | 0.0.0.0/0        |Internet                |
 |Utente     | 0.0.0.0/0        |Gateway di rete virtuale |
@@ -209,7 +210,7 @@ Le frecce indicano il flusso del traffico.
 
 La tabella di route per *Subnet1* rappresentata nell'immagine contiene le route seguenti:
 
-|id  |`Source` |Stato  |Prefissi degli indirizzi    |Tipo hop successivo          |Indirizzo IP hop successivo|Nome route definita dall'utente| 
+|id  |Source |Stato  |Prefissi degli indirizzi    |Tipo hop successivo          |Indirizzo IP hop successivo|Nome route definita dall'utente| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Predefinito|Non valido|10.0.0.0/16         |Rete virtuale        |                   |              |
 |2   |Utente   |Attivo |10.0.0.0/16         |Appliance virtuale      |10.0.100.4         |Within-VNet1  |
@@ -229,7 +230,7 @@ Di seguito è riportata la spiegazione di ogni ID route:
 1. Azure ha aggiunto automaticamente questa route a tutte le subnet di *Virtual-network-1* perché 10.0.0.0/16 è l'unico intervallo di indirizzi definito nello spazio degli indirizzi per la rete virtuale. Se la route ID2 definita dall'utente non venisse creata, il traffico inviato agli indirizzi compresi tra 10.0.0.1 e 10.0.255.254 verrebbe instradato all'interno della rete virtuale, perché il prefisso è più lungo di 0.0.0.0/0 e non rientra nei prefissi degli indirizzi delle altre route. Azure ha modificato automaticamente lo stato da *Attivo* a *Non valido* quando è stata aggiunta la route ID2 definita dall'utente perché la route ha lo stesso prefisso della route predefinita e le route definite dall'utente sostituiscono le route predefinite. Lo stato della route è ancora *Attivo* per *Subnet2*, perché la tabella di route in cui si trova la route ID2 definita dall'utente non è associata a *Subnet2*.
 2. Azure ha aggiunto questa route quando una route definita dall'utente per il prefisso degli indirizzi 10.0.0.0/16 è stata associata alla subnet *Subnet1* nella rete virtuale *Virtual-network-1*. La route definita dall'utente specifica 10.0.100.4 come indirizzo IP dell'appliance virtuale, perché l'indirizzo è l'indirizzo IP privato assegnato alla macchina virtuale dell'appliance virtuale. La tabella di route in cui si trova questa route non è associata a *Subnet2*, quindi non appare nella tabella di route per *Subnet2*. Questa route sostituisce la route predefinita per il prefisso 10.0.0.0/16 (ID1), che instradava automaticamente il traffico indirizzato a 10.0.0.1 e 10.0.255.254 nella rete virtuale tramite il tipo di hop successivo Rete virtuale. Questa route esiste per soddisfare il [requisito](#requirements) 3, per forzare tutto il traffico in uscita attraverso un'appliance virtuale.
 3. Azure ha aggiunto questa route quando una route definita dall'utente per il prefisso degli indirizzi 10.0.0.0/24 è stata associata alla subnet *Subnet1*. Il traffico destinato agli indirizzi compresi tra 10.0.0.1 e 10.0.0.254 rimane all'interno della subnet, piuttosto che essere indirizzato all'appliance virtuale specificata nella regola precedente (ID2), perché contiene un prefisso più lungo della route ID2. Questa route non era associata a *Subnet2*, quindi non appare nella tabella di route per *Subnet2*. Questa route sostituisce la route ID2 per il traffico all'interno di *Subnet1*. Questa route esiste per soddisfare il [requisito](#requirements) 3.
-4. Azure ha aggiunto automaticamente queste route ID 4 e 5 per tutte le subnet di *Virtual-network-1* quando è stato eseguito il peering della rete virtuale con *Virtual-network-2.* *Virtual-network-2* ha due intervalli di indirizzi nello spazio degli indirizzi: 10.1.0.0/16 e 10.2.0.0/16, quindi Azure ha aggiunto una route per ciascuno. Se le route ID 6 e 7 definite dall'utente non venissero create, il traffico inviato agli indirizzi compresi tra 10.1.0.1-10.1.255.254 e 10.2.0.1-10.2.255.254 verrebbe indirizzato alla rete virtuale con peering, perché il prefisso è più lungo di 0.0.0.0/0 e non rientra nei prefissi degli indirizzi delle altre route. Azure ha modificato automaticamente lo stato da *Attivo* a *Non valido* quando sono state aggiunte le route ID 6 e 7 perché hanno lo stesso prefisso delle route ID 4 e 5 e le route definite dall'utente sostituiscono quelle predefinite. Lo stato delle route ID 4 e 5 sono comunque *Active* per *Subnet2*, in quanto la tabella di route che le route ID 6 e 7 definite dall'utente in uso, non è associata a *Subnet2*. È stato creato un peering di rete virtuale per soddisfare il [requisito](#requirements) 1.
+4. Azure ha aggiunto automaticamente queste route ID 4 e 5 per tutte le subnet di *Virtual-network-1* quando è stato eseguito il peering della rete virtuale con *Virtual-network-2.* *Virtual-network-2* ha due intervalli di indirizzi nello spazio degli indirizzi: 10.1.0.0/16 e 10.2.0.0/16, quindi Azure ha aggiunto una route per ciascuno. Se le route ID 6 e 7 definite dall'utente non venissero create, il traffico inviato agli indirizzi compresi tra 10.1.0.1-10.1.255.254 e 10.2.0.1-10.2.255.254 verrebbe indirizzato alla rete virtuale con peering, perché il prefisso è più lungo di 0.0.0.0/0 e non rientra nei prefissi degli indirizzi delle altre route. Azure ha modificato automaticamente lo stato da *Attivo* a *Non valido* quando sono state aggiunte le route ID 6 e 7 perché hanno lo stesso prefisso delle route ID 4 e 5 e le route definite dall'utente sostituiscono quelle predefinite. Lo stato delle route negli ID 4 e 5 è ancora *attivo* per *Subnet2*, perché la tabella di route in cui si trovano le route definite dall'utente negli ID 6 e 7 non è associata a *Subnet2*. È stato creato un peering di rete virtuale per soddisfare il [requisito](#requirements) 1.
 5. Stessa spiegazione di ID4.
 6. Azure ha aggiunto questa route e la route ID7 quando sono state associate route definite dall'utente per i prefissi degli indirizzi 10.1.0.0/16 e 10.2.0.0/16 alla subnet *Subnet1*. Il traffico destinato agli indirizzi compresi tra 10.1.0.1-10.1.255.254 e 10.2.0.1-10.2.255.254 viene eliminato da Azure, e non indirizzato alla rete virtuale con peering, perché le route definite dall'utente sostituiscono le route predefinite. Queste route non sono associate a *Subnet2*, quindi non appaiono nella tabella di route per *Subnet2*. Le route sostituiscono le route ID4 e ID5 per il traffico in uscita da *Subnet1*. Le route ID6 e ID7 esistono per soddisfare il [requisito](#requirements) 3 per eliminare il traffico destinato all'altra rete virtuale.
 7. Stessa spiegazione di ID6.
@@ -243,7 +244,7 @@ Di seguito è riportata la spiegazione di ogni ID route:
 
 La tabella di route per *Subnet2* rappresentata nell'immagine contiene le route seguenti:
 
-|`Source`  |Stato  |Prefissi degli indirizzi    |Tipo hop successivo             |Indirizzo IP hop successivo|
+|Source  |Stato  |Prefissi degli indirizzi    |Tipo hop successivo             |Indirizzo IP hop successivo|
 |------- |-------|------              |-------                   |--------           
 |Predefinito |Attivo |10.0.0.0/16         |Rete virtuale           |                   |
 |Predefinito |Attivo |10.1.0.0/16         |Peering reti virtuali              |                   |
@@ -254,7 +255,7 @@ La tabella di route per *Subnet2* rappresentata nell'immagine contiene le route 
 |Predefinito |Attivo |100.64.0.0/10       |Nessuna                      |                   |
 |Predefinito |Attivo |192.168.0.0/16      |Nessuna                      |                   |
 
-La tabella di route per *Subnet2* contiene tutte le route predefinite create da Azure, il peering di rete virtuale facoltativo e le route facoltative del gateway di rete virtuale. Azure ha aggiunto le route facoltative a tutte le subnet della virtuale di rete quando sono stati aggiunti il gateway e il peering alla rete virtuale. Azure ha rimosso le route per i prefissi di indirizzo 10.0.0.0/8 192.168.0.0/16 e 100.64.0.0/10 dal *Subnet1* tabella di route quando la route definita dall'utente per il prefisso degli indirizzi 0.0.0.0/0 è stato aggiunto a *Subnet1*.  
+La tabella di route per *Subnet2* contiene tutte le route predefinite create da Azure, il peering di rete virtuale facoltativo e le route facoltative del gateway di rete virtuale. Azure ha aggiunto le route facoltative a tutte le subnet della virtuale di rete quando sono stati aggiunti il gateway e il peering alla rete virtuale. Azure ha rimosso le route per i prefissi degli indirizzi 10.0.0.0/8, 192.168.0.0/16 e 100.64.0.0/10 dalla tabella di route *Subnet1* quando la route definita dall'utente per il prefisso degli indirizzi 0.0.0.0/0 è stata aggiunta a *Subnet1*.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2ba1bb914dfc2edbe17d12cc58df097b60d1f94c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618456"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849737"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifiche di manutenzione pianificata per set di scalabilità di macchine virtuali
 
@@ -86,9 +86,9 @@ Dopo la programmazione di un'ondata di manutenzione pianificata è possibile vis
 
 La colonna **Manutenzione self-service** è ora visualizzata nell'elenco dei set di scalabilità di macchine virtuali. Ogni set di scalabilità di macchine virtuali può avere uno dei valori seguenti per la colonna manutenzione self-service:
 
-| Value | Descrizione |
+| Value | DESCRIZIONE |
 |-------|-------------|
-| Yes | Almeno una macchina virtuale nel set di scalabilità di macchine virtuali si trova in una finestra self-service. È possibile avviare la manutenzione in qualsiasi momento durante questa finestra self-service. | 
+| Sì | Almeno una macchina virtuale nel set di scalabilità di macchine virtuali si trova in una finestra self-service. È possibile avviare la manutenzione in qualsiasi momento durante questa finestra self-service. | 
 | No | Non sono presenti macchine virtuali in una finestra self-service del set di scalabilità di macchine virtuali interessato. | 
 | - | I set di scalabilità di macchine virtuali non fanno parte di un'ondata di manutenzione pianificata.| 
 
@@ -127,9 +127,14 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 
 **MaintenanceRedeployStatus** restituisce le proprietà seguenti: 
 
-| Valore | Descrizione |
-
-|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indica se è possibile avviare la manutenzione sulla macchina virtuale in questo momento. | | PreMaintenanceWindowStartTime | Inizio della finestra di manutenzione self-service la possibilità di avviare la manutenzione della macchina virtuale. | | PreMaintenanceWindowEndTime | Fine della finestra di manutenzione self-service la possibilità di avviare la manutenzione della macchina virtuale. | | MaintenanceWindowStartTime | Inizio della manutenzione pianificata in cui Azure avvia la manutenzione della macchina virtuale. | | MaintenanceWindowEndTime | Fine della finestra di manutenzione pianificata in cui Azure avvia la manutenzione della macchina virtuale. | | LastOperationResultCode | Il risultato dell'ultimo tentativo di avviare la manutenzione sulla macchina virtuale. |
+| Value | Descrizione   |
+|-------|---------------|
+| IsCustomerInitiatedMaintenanceAllowed | Indica se in questo momento è possibile avviare la manutenzione per la macchina virtuale. |
+| PreMaintenanceWindowStartTime         | Inizio della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della macchina virtuale. |
+| PreMaintenanceWindowEndTime           | Termine della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della macchina virtuale. |
+| MaintenanceWindowStartTime            | Inizio della manutenzione pianificata in cui Azure avvia la manutenzione della macchina virtuale. |
+| MaintenanceWindowEndTime              | Fine della finestra di manutenzione pianificata in cui Azure avvia la manutenzione della macchina virtuale. |
+| LastOperationResultCode               | Risultato dell'ultimo tentativo di avviare la manutenzione della macchina virtuale. |
 
 
 
@@ -153,9 +158,14 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 
 **MaintenanceRedeployStatus** restituisce le proprietà seguenti per ogni istanza della macchina virtuale: 
 
-| Valore | Descrizione |
-
-|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indica se è possibile avviare la manutenzione sulla macchina virtuale in questo momento. | | PreMaintenanceWindowStartTime | Inizio della finestra di manutenzione self-service la possibilità di avviare la manutenzione della macchina virtuale. | | PreMaintenanceWindowEndTime | Fine della finestra di manutenzione self-service la possibilità di avviare la manutenzione della macchina virtuale. | | MaintenanceWindowStartTime | Inizio della manutenzione pianificata in cui Azure avvia la manutenzione della macchina virtuale. | | MaintenanceWindowEndTime | Fine della finestra di manutenzione pianificata in cui Azure avvia la manutenzione della macchina virtuale. | | LastOperationResultCode | Il risultato dell'ultimo tentativo di avviare la manutenzione sulla macchina virtuale. |
+| Value | DESCRIZIONE   |
+|-------|---------------|
+| IsCustomerInitiatedMaintenanceAllowed | Indica se in questo momento è possibile avviare la manutenzione per la macchina virtuale. |
+| PreMaintenanceWindowStartTime         | Inizio della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della macchina virtuale. |
+| PreMaintenanceWindowEndTime           | Termine della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della macchina virtuale. |
+| MaintenanceWindowStartTime            | Inizio della manutenzione pianificata in cui Azure avvia la manutenzione della macchina virtuale. |
+| MaintenanceWindowEndTime              | Fine della finestra di manutenzione pianificata in cui Azure avvia la manutenzione della macchina virtuale. |
+| LastOperationResultCode               | Risultato dell'ultimo tentativo di avviare la manutenzione della macchina virtuale. |
 
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>Avviare la manutenzione dell'istanza della macchina virtuale usando l'interfaccia della riga di comando
@@ -176,7 +186,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **R:** Le macchine virtuali distribuite in un set di disponibilità o nei set di scalabilità di macchine virtuali usano i domini di aggiornamento. Quando si esegue la manutenzione, Azure rispetta il vincolo dei domini di aggiornamento e non riavvia le macchine virtuali da un dominio di aggiornamento diverso (all'interno dello stesso set di disponibilità). Azure attende anche almeno 30 minuti prima di passare al gruppo successivo di macchine virtuali. 
 
-Per altre informazioni sulla disponibilità elevata, vedere [Regions and availability for virtual machines in Azure](../virtual-machines/windows/regions-and-availability.md) (Aree e disponibilità per le macchine virtuali in Azure).
+Per altre informazioni sulla disponibilità elevata, vedere [Regions and availability for virtual machines in Azure](../virtual-machines/windows/availability.md) (Aree e disponibilità per le macchine virtuali in Azure).
 
 **D: Come si possono ottenere notifiche per la manutenzione pianificata?**
 

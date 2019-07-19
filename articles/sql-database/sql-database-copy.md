@@ -8,24 +8,24 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
-ms.author: sahsan
+ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: 6a4d3fd0f7b670bbb0b01385252b405829a91baa
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: dc82ace4c5bf1204075bfa5e34d0b1489a3acb98
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442321"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876284"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creare una copia coerente a livello transazionale di un database SQL di Azure
 
-Database SQL di Azure fornisce diversi metodi per la creazione di una copia coerenza a livello transazionale di un database SQL di Azure esistente ([singolo database](sql-database-single-database.md)) nello stesso server o un altro server. È possibile copiare un database SQL tramite il portale di Azure, PowerShell o T-SQL. 
+Il database SQL di Azure offre diversi metodi per la creazione di una copia coerente a livello di transazioni di un database SQL di Azure esistente ([database singolo](sql-database-single-database.md)) nello stesso server o in un server diverso. È possibile copiare un database SQL tramite il portale di Azure, PowerShell o T-SQL. 
 
 ## <a name="overview"></a>Panoramica
 
-Una copia del database è uno snapshot del database di origine al momento della richiesta di copia. È possibile selezionare il server stesso o un altro server. È anche possibile scegliere mantenere il livello di servizio e le dimensioni di calcolo oppure usare una dimensione di calcolo diversi all'interno del livello di servizio stesso (edizione). Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. A questo punto, è possibile aggiornare o effettuare il downgrade della copia a qualsiasi edizione. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente.  
+Una copia del database è uno snapshot del database di origine al momento della richiesta di copia. È possibile selezionare lo stesso server o un server diverso. È anche possibile scegliere di mantengono il livello di servizio e le dimensioni di calcolo oppure utilizzare una dimensione di calcolo diversa nello stesso livello di servizio (edizione). Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. A questo punto, è possibile aggiornare o effettuare il downgrade della copia a qualsiasi edizione. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente.  
 
 > [!NOTE]
 > [I backup di database automatizzati](sql-database-automated-backups.md) vengono usati quando si crea una copia del database.
@@ -50,7 +50,7 @@ Per copiare un database tramite il portale di Azure, aprire la pagina per il dat
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Per copiare un database tramite PowerShell, usare il [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet. 
+Per copiare un database tramite PowerShell, usare il cmdlet [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) . 
 
 ```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
@@ -90,14 +90,14 @@ Questo comando copia Database1 sul server1 in un nuovo database denominato Datab
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
     
 > [!IMPORTANT]
-> I firewall di entrambe le istanze dei server devono essere configurati per consentire la connessione in ingresso dall'indirizzo IP del client eseguendo il comando di copia di T-SQL.
+> È necessario configurare i firewall di entrambi i server per consentire la connessione in ingresso dall'IP del client che emette il comando di copia T-SQL.
 
-### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiare un database SQL in un'altra sottoscrizione
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiare un database SQL in una sottoscrizione diversa
 
-È possibile utilizzare la procedura descritta nella sezione precedente per copiare il database in un server di Database SQL in una sottoscrizione diversa. Assicurarsi di usare un account di accesso con lo stesso nome e la password del proprietario del database di origine ed è un membro del ruolo dbmanager o l'account di accesso dell'entità a livello di server. 
+È possibile utilizzare la procedura descritta nella sezione precedente per copiare il database in un server di database SQL in una sottoscrizione diversa. Assicurarsi di utilizzare un account di accesso con lo stesso nome e la stessa password del proprietario del database di origine ed è un membro del ruolo dbmanager o l'account di accesso dell'entità di livello server. 
 
 > [!NOTE]
-> Il [portale di Azure](https://portal.azure.com) nepodporuje copia in una sottoscrizione diversa perché portale chiama l'API di ARM e Usa i certificati di sottoscrizione per accedere a entrambi i server coinvolti nella replica geografica.  
+> Il [portale di Azure](https://portal.azure.com) non supporta la copia in una sottoscrizione diversa perché il portale chiama l'API ARM e usa i certificati di sottoscrizione per accedere a entrambi i server che coinvolgono la replica geografica.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorare lo stato dell'operazione di copia
 

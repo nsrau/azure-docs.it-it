@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
-ms.author: sujayt
-ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sutalasi
+ms.openlocfilehash: 844563e03529e472624b35d2b545c3e432e4ea17
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789803"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876289"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informazioni sulle reti per la replica da Azure ad Azure
 
@@ -48,10 +48,10 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 
 **URL** | **Dettagli**  
 --- | ---
-*.blob.core.windows.net | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conosce il contenuto della cache degli account di archiviazione per le macchine virtuali, è possibile elenco elementi consentiti gli URL di account di archiviazione specifico (ad esempio: cache1.blob.core.windows.net e cache2.blob.core.windows.net) invece di *. blob.core.windows.net
+*.blob.core.windows.net | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile aggiungere all'elenco elementi consentiti gli URL specifici dell'account di archiviazione (ad esempio, cache1.blob.core.windows.net e cache2.blob.core.windows.net) anziché *. blob.core.windows.net
 login.microsoftonline.com | Richiesto per l'autorizzazione e l'autenticazione negli URL del servizio Site Recovery.
-*.hypervrecoverymanager.windowsazure.com | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale. È possibile usare il corrispondente 'Site Recovery IP' se il proxy firewall supporta gli indirizzi IP.
-*.servicebus.windows.net | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale. È possibile usare il 'sito ripristino monitoraggio indirizzo IP corrispondente' se il proxy firewall supporta gli indirizzi IP.
+*.hypervrecoverymanager.windowsazure.com | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale. È possibile usare il ' Site Recovery IP ' corrispondente se il proxy del firewall supporta gli IP.
+*.servicebus.windows.net | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale. Se il proxy del firewall supporta gli IP, è possibile usare il ' Site Recovery IP di monitoraggio ' corrispondente.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Connettività in uscita per gli intervalli di indirizzi IP
 
@@ -77,7 +77,7 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Stati Uniti centro-settentrionali | 23.96.195.247 | 168.62.249.226
    Europa settentrionale | 40.69.212.238 | 52.169.18.8
    Europa occidentale | 52.166.13.64 | 40.68.93.145
-   Stati Uniti orientali | 13.82.88.226 | 104.45.147.24
+   East US | 13.82.88.226 | 104.45.147.24
    Stati Uniti occidentali | 40.83.179.48 | 104.40.26.199
    Stati Uniti centro-meridionali | 13.84.148.14 | 104.210.146.250
    Stati Uniti centrali | 40.69.144.231 | 52.165.34.144
@@ -170,4 +170,4 @@ Se si usano appliance virtuali di rete per controllare il traffico di rete in us
 ## <a name="next-steps"></a>Passaggi successivi
 - Iniziare a proteggere i carichi di lavoro [eseguendo la replica di macchine virtuali di Azure](site-recovery-azure-to-azure.md).
 - Altre informazioni sul [Mantenimento degli indirizzi IP](site-recovery-retain-ip-azure-vm-failover.md) per il failover delle macchine virtuali di Azure.
-- Altre informazioni sul ripristino di emergenza [macchine virtuali di Azure con ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
+- Scopri di più sul ripristino di emergenza di [macchine virtuali di Azure con ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

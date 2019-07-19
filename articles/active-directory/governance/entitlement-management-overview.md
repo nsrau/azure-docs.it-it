@@ -1,10 +1,10 @@
 ---
-title: Che cos'è la gestione dei diritti di Azure AD? (Anteprima) - Azure Active Directory
-description: Panoramica di gestione dei diritti di Azure Active Directory e come è possibile usarlo per gestire l'accesso a gruppi, applicazioni e siti di SharePoint Online per gli utenti interni ed esterni.
+title: Che cos'è Azure AD gestione dei diritti? (Anteprima)-Azure Active Directory
+description: Panoramica della gestione dei diritti Azure Active Directory e del modo in cui è possibile utilizzarla per gestire l'accesso a gruppi, applicazioni e siti di SharePoint Online per utenti interni ed esterni.
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,104 +12,104 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/05/2019
-ms.author: rolyon
+ms.date: 07/10/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb4001e9496d31d9c2879721f8cf8e26b74ddf3
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 896cc495d6f369c034171833a9b90aa53e6477b6
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204542"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234642"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Che cos'è la gestione dei diritti di Azure AD? (Anteprima)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Che cos'è Azure AD gestione dei diritti? (Anteprima)
 
 > [!IMPORTANT]
 > Gestione entitlement di Azure Active Directory (Azure AD) è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-I dipendenti di organizzazioni è necessario accedere a diversi gruppi, applicazioni e siti per svolgere le proprie. Gestire l'accesso è complessa. Nella maggior parte dei casi, non vi è alcun elenco organizzata di tutte le risorse di un utente deve avere per un progetto. Il project manager ha una buona conoscenza delle risorse necessari, le persone coinvolte e per quanto tempo che può durare il progetto. Tuttavia, il project manager in genere non disporre delle autorizzazioni per approvare o concedere l'accesso ad altri utenti. Questo scenario diventa più complicato quando si prova a lavorare con persone esterne o aziende.
+Per svolgere il proprio lavoro, i dipendenti delle organizzazioni devono accedere a diversi gruppi, applicazioni e siti. Gestire questo accesso è complesso. Nella maggior parte dei casi, non è disponibile un elenco organizzato di tutte le risorse necessarie per un progetto. Il project manager dispone di una conoscenza approfondita delle risorse necessarie, dei singoli utenti interessati e della durata del progetto. Tuttavia, il project manager in genere non dispone delle autorizzazioni per approvare o concedere l'accesso ad altri utenti. Questo scenario diventa più complicato quando si tenta di lavorare con le società o i singoli utenti esterni.
 
-Gestione dei diritti di Azure Active Directory (Azure AD) può aiutarti a gestire l'accesso ai gruppi, applicazioni e siti di SharePoint Online per gli utenti interni e anche gli utenti esterni all'organizzazione.
+Azure Active Directory (Azure AD) la gestione dei diritti consente di gestire l'accesso a gruppi, applicazioni e siti di SharePoint Online per gli utenti interni e anche per gli utenti esterni all'organizzazione.
 
-## <a name="why-use-entitlement-management"></a>Perché usare Gestione entitlement?
+## <a name="why-use-entitlement-management"></a>Perché usare la gestione dei diritti?
 
-Organizzazioni aziendali affrontano spesso difficoltà quando gestiscono l'accesso alle risorse, ad esempio:
+Le organizzazioni aziendali spesso affrontano problemi durante la gestione dell'accesso alle risorse, ad esempio:
 
-- Gli utenti potrebbero non sapere quale devono disporre di accesso
-- Gli utenti riscontrino difficoltà di individuazione di individui appropriati o delle risorse adeguate
-- Dopo che gli utenti individuano e ricevano l'accesso a una risorsa, potrebbe contenere più a lungo per gli scopi aziendali è necessario accedere a
+- È possibile che gli utenti non conoscano l'accesso
+- È possibile che gli utenti abbiano difficoltà nell'individuare gli individui giusti o le risorse giuste
+- Una volta che gli utenti trovano e ricevono l'accesso a una risorsa, possono mantenere l'accesso più a lungo di quanto richiesto per scopi aziendali
 
-Questi problemi si accumulano per gli utenti che richiedono l'accesso da un'altra directory, ad esempio gli utenti esterni che provengono da organizzazioni di supply chain o altri partner di business. Ad esempio:
+Questi problemi sono composti per gli utenti che necessitano dell'accesso da un'altra directory, ad esempio gli utenti esterni che appartengono a organizzazioni di supply chain o altri partner commerciali. Ad esempio:
 
-- Le organizzazioni potrebbero non sapere tutto dei singoli individui specifici in altre directory sia in grado di inviare un invito
-- Anche se le organizzazioni erano in grado di invitare tali utenti, le organizzazioni non venga memorizzato gestire in modo coerente tutte di accesso dell'utente
+- È possibile che le organizzazioni non conoscano tutti gli utenti specifici di altre directory per poterli invitare
+- Anche se le organizzazioni erano in grado di invitare questi utenti, le organizzazioni potrebbero non ricordare di gestire tutti gli accessi degli utenti in modo coerente
 
-Gestione dei diritti di Azure AD consente di risolvere queste problematiche.
+Azure AD la gestione dei diritti può aiutare a risolvere questi problemi.
 
-## <a name="what-can-i-do-with-entitlement-management"></a>Che cosa può fare con la gestione dei diritti?
+## <a name="what-can-i-do-with-entitlement-management"></a>Cosa posso fare con la gestione dei diritti?
 
-Ecco alcune delle funzionalità di gestione dei diritti:
+Di seguito sono riportate alcune delle funzionalità di gestione dei diritti:
 
-- Creazione di pacchetti di risorse correlate in cui gli utenti possono richiedere
-- Definire le regole per informazioni su come richiedere le risorse e in cui scade l'accesso
-- Gestire il ciclo di vita di accesso per gli utenti interni ed esterni
+- Creare pacchetti di risorse correlate che gli utenti possono richiedere
+- Definire le regole per la richiesta di risorse e la scadenza dell'accesso
+- Governare il ciclo di vita dell'accesso per gli utenti interni ed esterni
 - Delegare la gestione delle risorse
-- Designare gli approvatori per approvare le richieste
-- Creazione di report per tenere traccia della cronologia
+- Designare i responsabili approvazione per approvare le richieste
+- Creare report per tenere traccia della cronologia
 
-Per una panoramica di governance delle identità e gestione dei diritti, guardare il video seguente dalla conferenza Ignite 2018:
+Per una panoramica della governance delle identità e della gestione dei diritti, guardare il video seguente dalla conferenza Ignite 2018:
 
 >[!VIDEO https://www.youtube.com/embed/aY7A0Br8u5M]
 
-## <a name="what-resources-can-i-manage"></a>Le risorse a cui è possibile gestire?
+## <a name="what-resources-can-i-manage"></a>Quali risorse è possibile gestire?
 
-Ecco i tipi di risorse che è possibile gestire l'accesso a con la gestione dei diritti:
+Di seguito sono riportati i tipi di risorse a cui è possibile gestire l'accesso con la gestione dei diritti:
 
-- Gruppi di sicurezza di Azure AD
+- Gruppi di sicurezza Azure AD
 - Gruppi di Office 365
-- Azure AD le applicazioni aziendali, tra cui applicazioni SaaS e le applicazioni integrate personalizzate che supportano la federazione o il provisioning
-- Siti e le raccolte siti di SharePoint Online
+- Azure AD applicazioni aziendali, tra cui applicazioni SaaS e applicazioni personalizzate che supportano la Federazione o il provisioning
+- Siti e raccolte di siti di SharePoint Online
 
-È inoltre possibile controllare l'accesso ad altre risorse che si basano su gruppi di sicurezza di Azure AD o i gruppi di Office 365.  Ad esempio:
+È anche possibile controllare l'accesso ad altre risorse che si basano su Azure AD gruppi di sicurezza o gruppi di Office 365.  Ad esempio:
 
-- È possibile assegnare licenze agli utenti per Microsoft Office 365 tramite un gruppo di sicurezza di Azure AD in un pacchetto di accesso e configurando [licenze basate su gruppo](../users-groups-roles/licensing-groups-assign.md) per tale gruppo
-- È possibile concedere agli utenti l'accesso per gestire le risorse di Azure usando un gruppo di sicurezza di Azure AD in un pacchetto di accesso e la creazione di un' [assegnazione di ruoli](../../role-based-access-control/role-assignments-portal.md) per tale gruppo
+- È possibile concedere agli utenti le licenze per Microsoft Office 365 usando un gruppo di sicurezza Azure AD in un pacchetto di accesso e configurando le [licenze basate sui gruppi](../users-groups-roles/licensing-groups-assign.md) per quel gruppo
+- È possibile concedere agli utenti l'accesso per gestire le risorse di Azure usando un gruppo di sicurezza Azure AD in un pacchetto di accesso e creando un' [assegnazione di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) per quel gruppo
 
-## <a name="what-are-access-packages-and-policies"></a>Quali sono i pacchetti di accesso e criteri?
+## <a name="what-are-access-packages-and-policies"></a>Che cosa sono i pacchetti e i criteri di accesso?
 
-Gestione Entitlement introduce il concetto di un' *pacchetto di accesso*. Un pacchetto di accesso è un bundle di tutte le risorse di che un utente deve lavorare a un progetto o svolgere le proprie. Le risorse includono l'accesso a gruppi, applicazioni o siti. I pacchetti di accesso vengono utilizzati per controllare l'accesso per i dipendenti interni e anche gli utenti esterni all'organizzazione. I pacchetti di accesso sono definiti in contenitori denominati *cataloghi*.
+La gestione dei diritti introduce il concetto di *pacchetto di accesso*. Un pacchetto di accesso è costituito da un bundle di tutte le risorse necessarie a un utente per lavorare a un progetto o per eseguire il proprio lavoro. Le risorse includono l'accesso a gruppi, applicazioni o siti. I pacchetti Access vengono usati per gestire l'accesso per i dipendenti interni e anche per gli utenti esterni all'organizzazione. I pacchetti di accesso sono definiti in contenitori denominati *cataloghi*.
 
-I pacchetti di accesso includono inoltre uno o più *criteri*. Un criterio definisce le regole o i confini di un pacchetto di accesso di accesso. L'abilitazione di un criterio impone che solo agli utenti giusti dispone dell'accesso, le risorse corrette e per la giusta quantità di tempo.
+I pacchetti Access includono inoltre uno o più *criteri*. Un criterio definisce le regole o Guardrails per accedere a un pacchetto di accesso. L'abilitazione di un criterio impone che solo agli utenti giusti venga concesso l'accesso, alle risorse corrette e per il periodo di tempo corretto.
 
-![I criteri e pacchetti di accesso](./media/entitlement-management-overview/elm-overview-access-package.png)
+![Accedere a pacchetti e criteri](./media/entitlement-management-overview/elm-overview-access-package.png)
 
-Con un pacchetto di accesso e i relativi criteri, la gestione di pacchetti di accesso definisce:
+Con un pacchetto di accesso e i relativi criteri, gestione pacchetti di Access definisce:
 
 - Risorse
-- Gli utenti i ruoli necessari per le risorse
-- Gli utenti interni e gli utenti esterni che sono idonei per richiedere l'accesso
-- Processo di approvazione e gli utenti che possono approvare o negare l'accesso
+- Ruoli necessari agli utenti per le risorse
+- Utenti interni e utenti esterni idonei per richiedere l'accesso
+- Processo di approvazione e utenti che possono approvare o negare l'accesso
 - Durata dell'accesso dell'utente
 
-Il diagramma seguente illustra un esempio dei diversi elementi in Gestione dei diritti. Mostra due pacchetti di accesso di esempio.
+Il diagramma seguente mostra un esempio dei diversi elementi della gestione dei diritti. Mostra due pacchetti di accesso di esempio.
 
-- **Pacchetto di accesso 1** include un singolo gruppo come una risorsa. L'accesso viene definito con un criterio che consente a un set di utenti nella directory per richiedere l'accesso.
-- **Pacchetto di accesso 2** include un gruppo, un'applicazione e un sito di SharePoint Online come risorse. L'accesso è definito con due criteri diversi. Il primo criterio consente a un set di utenti nella directory per richiedere l'accesso. Il secondo set di criteri consente agli utenti in una directory esterna di richiedere l'accesso.
+- Il **pacchetto di accesso 1** include un singolo gruppo come risorsa. L'accesso viene definito con un criterio che consente a un set di utenti nella directory di richiedere l'accesso.
+- Il **pacchetto di accesso 2** include un gruppo, un'applicazione e un sito di SharePoint Online come risorse. L'accesso viene definito con due criteri diversi. Il primo criterio consente a un set di utenti nella directory di richiedere l'accesso. Il secondo criterio consente agli utenti di una directory esterna di richiedere l'accesso.
 
-![Panoramica della gestione dei diritti](./media/entitlement-management-overview/elm-overview.png)
+![Panoramica sulla gestione dei diritti](./media/entitlement-management-overview/elm-overview.png)
 
 ## <a name="external-users"></a>Utenti esterni
 
-Quando si usa la [Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md) invitare esperienza, conosci già gli indirizzi di posta elettronica degli utenti guest esterni si desidera rendere la directory delle risorse e usare. Questo approccio è ottimale quando si lavora su un progetto più piccole o a breve termine e si conoscono già tutti i partecipanti, ma si tratta più difficili da gestire se sono presenti molti utenti che si desidera usare oppure se i membri cambiano nel tempo.  Ad esempio, è possibile lavorare con un'altra organizzazione e disporre di un punto di contatto con l'organizzazione, ma nel corso del tempo altri utenti di tale organizzazione saranno inoltre necessario accedere.
+Quando si usa l'esperienza di invito [Business-to-business (B2B) di Azure ad](../b2b/what-is-b2b.md) , è necessario conoscere già gli indirizzi di posta elettronica degli utenti Guest esterni da inserire nella directory delle risorse e usare. Si tratta di un'ottima soluzione quando si lavora su un progetto più piccolo o a breve termine e si conoscono già tutti i partecipanti, ma ciò è più difficile da gestire se si dispone di molti utenti con cui si desidera lavorare o se i partecipanti cambiano nel tempo.  È possibile, ad esempio, che si stia lavorando a un'altra organizzazione e che sia presente un punto di contatto con l'organizzazione, ma nel tempo saranno necessari anche altri utenti dell'organizzazione.
 
-Con la gestione dei diritti, è possibile definire un criterio che consente agli utenti di organizzazioni si specifica, che sono anche usando Azure AD, per poter richiedere un pacchetto di accesso. È possibile specificare se è necessaria l'approvazione e una data di scadenza per l'accesso. Se è necessaria l'approvazione, è anche possibile designare come responsabile approvazione uno o più utenti dell'organizzazione esterna si precedentemente invitati - poiché è probabile che si sa quali utenti esterni all'organizzazione devono accedere. Dopo aver configurato il pacchetto di accesso, è possibile inviare un collegamento al pacchetto di accesso del contatto presso l'organizzazione esterna. Tale contatto può condividere con altri utenti dell'organizzazione esterna e si può usare questo collegamento per richiedere il pacchetto di accesso.  Gli utenti che sono già stati invitati alla directory dell'organizzazione possono anche utilizzare il collegamento.
+Con la gestione dei diritti, è possibile definire un criterio che consenta agli utenti delle organizzazioni specificate, che usano anche Azure AD, di poter richiedere un pacchetto di accesso. È possibile specificare se l'approvazione è obbligatoria e una data di scadenza per l'accesso. Se è richiesta l'approvazione, è anche possibile designare come responsabile approvazione uno o più utenti dell'organizzazione esterna invitati in precedenza, poiché è probabile che gli utenti esterni dell'organizzazione debbano accedere. Dopo aver configurato il pacchetto di accesso, è possibile inviare un collegamento al pacchetto di accesso al contatto dell'organizzazione esterna. Tale contatto può essere condiviso con altri utenti nell'organizzazione esterna e può utilizzare questo collegamento per richiedere il pacchetto di accesso.  Anche gli utenti dell'organizzazione che sono già stati invitati alla directory possono usare tale collegamento.
 
-Quando una richiesta viene approvata, gestione dei diritti dei effettuerà il provisioning utente con l'accesso necessario, che può includere l'invito all'utente se non sono già nella directory. Azure AD creerà automaticamente un account B2B per loro.  Si noti che un amministratore può avere precedentemente limitata che consente alle organizzazioni sono consentite per la collaborazione, impostando un [B2B consente o Nega elenco](../b2b/allow-deny-list.md) per consentire o bloccare invita ad altre organizzazioni.  Se l'utente non è consentito da elenco elementi consentiti o bloccati, quindi sono non essere invitati.
+Quando una richiesta viene approvata, la gestione dei diritti effettuerà il provisioning dell'utente con l'accesso necessario, che può includere l'invito dell'utente se non è già presente nella directory. Azure AD creerà automaticamente un account B2B.  Si noti che un amministratore potrebbe avere limitato in precedenza le organizzazioni a cui è consentita la collaborazione, impostando un [elenco Consenti o nega B2B](../b2b/allow-deny-list.md) per consentire o bloccare gli inviti ad altre organizzazioni.  Se l'utente non è consentito dall'elenco Consenti o blocca, non verrà invitato.
 
-Poiché si desidera l'accesso dell'utente esterno duri all'infinito, specificare una data di scadenza nel criterio, ad esempio 180 giorni. Dopo 180 giorni, se l'accesso non viene rinnovata, la gestione dei diritti rimuoverà tutti gli accessi associati a tale pacchetto di accesso.  Se l'utente che è stato invitato mediante la gestione dei diritti non dispone di alcun altra assegnazioni di accesso pacchetto, quindi quando si perdono l'ultima assegnazione, il proprio account B2B verrà impedito di accesso per 30 giorni e successivamente rimossa.  Questo impedisce la proliferazione di account non necessari.  
+Poiché non si desidera che l'accesso dell'utente esterno venga utilizzato per l'ultima volta, è necessario specificare una data di scadenza nel criterio, ad esempio 180 giorni. Dopo 180 giorni, se l'accesso non viene rinnovato, la gestione dei diritti eliminerà tutti gli accessi associati al pacchetto di accesso.  Se l'utente invitato attraverso la gestione dei diritti non ha altre assegnazioni di pacchetti di accesso, quando perderà l'ultima assegnazione, l'account B2B verrà bloccato dall'accesso per 30 giorni e successivamente rimosso.  In questo modo si impedisce la proliferazione di account non necessari.  
 
 ## <a name="terminology"></a>Terminologia
 
@@ -117,26 +117,26 @@ Per comprendere meglio la gestione dei diritti e la relativa documentazione, è 
 
 | Termine o concetto | Descrizione |
 | --- | --- |
-| gestione dei diritti | Un servizio che viene assegnato, revoca e Amministra i pacchetti di accesso. |
-| pacchetto di accesso | Raccolta di autorizzazioni e i criteri per le risorse che gli utenti possono richiedere. Un pacchetto di accesso è sempre contenuto in un catalogo. |
-| richiesta di accesso | Richiesta di accedere a un pacchetto di accesso. Una richiesta in genere passa attraverso un flusso di lavoro. |
-| criterio | Un set di regole che definisce il ciclo di vita di accesso, ad esempio di come ottengono l'accesso agli utenti autorizzati ad approvare e quanti utenti hanno accesso. Criteri di esempio includono accesso dei dipendenti e l'accesso esterno. |
-| catalog | Un contenitore di risorse correlate e i pacchetti di accesso. |
-| Catalogo generale | Catalogo predefinito che è sempre disponibile. Per aggiungere risorse al catalogo generale, richiede determinate autorizzazioni. |
-| resource | Un asset o un servizio (ad esempio, un gruppo, applicazione o sito) che un utente può essere concesse le autorizzazioni per. |
-| Tipo di risorsa | Il tipo di risorsa, che include i gruppi, applicazioni e siti di SharePoint Online. |
-| ruolo per le risorse | Raccolta di autorizzazioni associate a una risorsa. |
-| directory delle risorse | Una directory che ha uno o più risorse per condividerle. |
-| utenti assegnati | Un'assegnazione di un pacchetto di accesso per un utente o gruppo. |
-| enable | Il processo di rendere disponibili agli utenti di richiedere un pacchetto di accesso. |
+| gestione dei diritti | Servizio che assegna, revoca e amministra i pacchetti di accesso. |
+| pacchetto di accesso | Raccolta di autorizzazioni e criteri per le risorse che gli utenti possono richiedere. Un pacchetto di accesso è sempre contenuto in un catalogo. |
+| richiesta di accesso | Richiesta di accesso a un pacchetto di accesso. Una richiesta viene in genere attraversata da un flusso di lavoro. |
+| policy | Set di regole che definisce il ciclo di vita dell'accesso, ad esempio il modo in cui gli utenti ottengono l'accesso, gli utenti che possono approvare e il tempo di accesso degli utenti. I criteri di esempio includono l'accesso dei dipendenti e l'accesso esterno. |
+| catalog | Contenitore di risorse correlate e pacchetti di accesso. |
+| Catalogo generale | Catalogo incorporato che è sempre disponibile. Per aggiungere risorse al catalogo generale, è necessario disporre di determinate autorizzazioni. |
+| resource | Un asset o un servizio, ad esempio un gruppo, un'applicazione o un sito, a cui un utente può concedere le autorizzazioni. |
+| Tipo di risorsa | Tipo di risorsa, che include i gruppi, le applicazioni e i siti di SharePoint Online. |
+| ruolo risorsa | Raccolta di autorizzazioni associate a una risorsa. |
+| Directory delle risorse | Una directory che dispone di una o più risorse da condividere. |
+| utenti assegnati | Assegnazione di un pacchetto di accesso a un utente o a un gruppo. |
+| enable | Il processo di creazione di un pacchetto di accesso disponibile per gli utenti da richiedere. |
 
 ## <a name="license-requirements"></a>Requisiti relativi alle licenze
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Cloud specializzato, ad esempio Azure per enti pubblici, Azure Germania e Azure Cina 21Vianet, non sono attualmente disponibili per l'uso in questa versione di anteprima.
+I cloud specializzati, ad esempio Azure per enti pubblici, Azure Germania e Azure Cina 21Vianet, non sono attualmente disponibili per l'uso in questa versione di anteprima.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Creare il pacchetto prima dell'accesso](entitlement-management-access-package-first.md)
+- [Esercitazione: Creare il primo pacchetto di accesso](entitlement-management-access-package-first.md)
 - [Scenari comuni](entitlement-management-scenarios.md)

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66022b5e4885c515bd6117f9a44b8108ff84ae5c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171751"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250108"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware
 
@@ -109,7 +109,7 @@ Il modello OVF (Open Virtualization Format) distribuisce la macchina virtuale de
    ```
 
     >[!NOTE]
-    >Per **eseguire il pull dei certificati più recenti** dal server di configurazione al server di elaborazione scale-out, eseguire il comando *“<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    >Per eseguire il **pull dei certificati più recenti** dal server di configurazione al server di elaborazione con scalabilità orizzontale, eseguire il comando *\<"installazione Drive\Microsoft Azure site Recovery\agent\cdpcli.exe >"--registermt*
 
 8. Infine, riavviare obengine eseguendo il comando seguente.
    ```
@@ -154,13 +154,13 @@ Per aggiornare il server, seguire questa procedura:
     ![Aggiornamento](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Scaricare il file del programma di installazione dell'aggiornamento nel server di configurazione.
 
-    ![Aggiornamento](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Aggiorna](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Fare doppio clic per eseguire il programma di installazione.
 5. Il programma di installazione rileva la versione corrente in esecuzione nel computer. Fare clic su **Sì** per avviare l'aggiornamento.
 6. Al termine dell'aggiornamento viene convalidata la configurazione del server.
 
-    ![Aggiornamento](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Aggiorna](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Fare clic su **Fine** per chiudere il programma di installazione.
 8. Per eseguire l'aggiornamento degli altri componenti di Site Recovery, vedere le [indicazioni sugli aggiornamenti](https://aka.ms/asr_vmware_upgrades).
@@ -183,21 +183,21 @@ Eseguire il file di installazione come segue:
 
 ### <a name="parameters"></a>Parametri
 
-|Nome parametro| Type | Descrizione| Valori|
+|Nome parametro| Type | DESCRIZIONE| Valori|
 |-|-|-|-|
-| /Modalità server|Obbligatorio|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
-|/InstallLocation|Obbligatorio|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
-|/MySQLCredsFilePath|Obbligatorio|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
-|/VaultCredsFilePath|Obbligatorio|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
-|/EnvType|Obbligatorio|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
-|/PSIP|Obbligatorio|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
-|/CSIP|Obbligatorio|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
-|/PassphraseFilePath|Obbligatorio|Percorso completo del file della passphrase|Percorso del file valido|
+| /Modalità server|Obbligatoria|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
+|/InstallLocation|Obbligatoria|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
+|/MySQLCredsFilePath|Obbligatoria|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
+|/VaultCredsFilePath|Obbligatoria|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
+|/EnvType|Obbligatoria|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
+|/PSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
+|/CSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
+|/PassphraseFilePath|Obbligatoria|Percorso completo del file della passphrase|Percorso del file valido|
 |/BypassProxy|Facoltativo|Specifica che il server di configurazione si connette ad Azure senza un proxy|Per ottenere questo valore da Venu|
 |/ProxySettingsFilePath|Facoltativo|Impostazioni proxy, il proxy predefinito richiede l'autenticazione o un proxy personalizzato|Il file deve essere nel formato specificato di seguito|
 |DataTransferSecurePort|Facoltativo|Numero di porta su PSIP da usare per i dati di replica| Numero di porta valido (il valore predefinito è 9433)|
 |/SkipSpaceCheck|Facoltativo|Ignora la verifica dello spazio per il disco della cache| |
-|/AcceptThirdpartyEULA|Obbligatorio|Il flag implica l'accettazione dell'EULA di terze parti| |
+|/AcceptThirdpartyEULA|Obbligatoria|Il flag implica l'accettazione dell'EULA di terze parti| |
 |/ShowThirdpartyEULA|Facoltativo|Visualizza le condizioni di licenza di terze parti. Se specificato come input, tutti gli altri parametri vengono ignorati| |
 
 
@@ -258,7 +258,7 @@ Facoltativamente, è possibile eliminare il server di configurazione usando Powe
     `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> È possibile usare la **-Force** opzione in Remove-AzSiteRecoveryFabric per l'eliminazione forzata del server di configurazione.
+> Per l'eliminazione forzata del server di configurazione, è possibile usare l'opzione **-Force** in Remove-AzSiteRecoveryFabric.
 
 ## <a name="generate-configuration-server-passphrase"></a>Generare il passphrase del server di configurazione
 

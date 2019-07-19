@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Risoluzione dei problemi relativi alla configurazione delle entità servizio | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Risolvere i problemi relativi alle entità servizio | Microsoft Docs'
 description: Risoluzione dei problemi relativi alla configurazione delle entità servizio di Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 5b94fca6087da61fe10d6c80b3fe7cfb5798f2d3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9e5fa8c84f5e7ca58117666846b603a118826150
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473908"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234134"
 ---
-# <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Risolvere i problemi di configurazione non valida delle entità servizio per il dominio gestito
+# <a name="troubleshoot-invalid-service-principal-configurations-for-azure-active-directory-domain-services"></a>Risolvere i problemi di configurazioni di entità servizio non valide per Azure Active Directory Domain Services
 
 Questo articolo consente di individuare e risolvere gli errori di configurazione relativi alle entità servizio che causano il messaggio di avviso seguente:
 

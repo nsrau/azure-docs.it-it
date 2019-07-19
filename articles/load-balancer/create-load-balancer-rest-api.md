@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Informazioni sulle modalità di creazione di Azure Load Balancer con API REST.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
-ms.author: kumud
-ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: ae8fb4494d27d0c145963c9b32757bdb802e0cc7
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60884980"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275552"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Creare Azure Load Balancer Basic con API REST
 
@@ -33,7 +33,7 @@ Usare la seguente richiesta HTTP PUT per creare un nuovo Azure Load Balancer Bas
   ```
 ### <a name="uri-parameters"></a>Parametri URI
 
-|Name  |In ingresso  |Obbligatorio |Type |Descrizione |
+|Name  |In ingresso  |Obbligatoria |Type |Descrizione |
 |---------|---------|---------|---------|--------|
 |subscriptionId   |  path       |  True       |   string      |  Le credenziali della sottoscrizione che identificano in modo univoco la sottoscrizione a Microsoft Azure. L'ID sottoscrizione fa parte dell'URI per ogni chiamata di servizio.      |
 |resourceGroupName     |     path    | True        |  string       |   Nome del gruppo di risorse.     |
@@ -46,7 +46,7 @@ Usare la seguente richiesta HTTP PUT per creare un nuovo Azure Load Balancer Bas
 
 L'unico parametro obbligatorio è `location`. Se non si definisce la versione *SKU*, per impostazione predefinita viene creato Load Balancer Basic.  Usare [parametri facoltativi](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body) per personalizzare il servizio di bilanciamento del carico.
 
-| NOME | Type | Descrizione |
+| Name | Type | Descrizione |
 | :--- | :--- | :---------- |
 | location | string | Percorso della risorsa. Ottenere un elenco aggiornato delle località usando l'operazione [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations). |
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: c8907f1b1c8069a3a3e92d01a5fa6341c06ec952
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21886c11bea6ff09cf97362e06c6d304aaa0d8cc
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688796"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250048"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 
@@ -38,7 +38,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
    * Modalità diretta
 
-     La modalità diretta supporta la connettività tramite protocolli TCP e HTTPS. Se si usa la versione più recente di .NET SDK, modalità di connettività diretta è supportata in .NET Standard 2.0 e .NET framework. Quando si usa la modalità diretta, sono disponibili due opzioni del protocollo:
+     La modalità diretta supporta la connettività tramite protocolli TCP e HTTPS. Se si usa la versione più recente di .NET SDK, la modalità di connettività diretta è supportata in .NET Standard 2,0 e .NET Framework. Quando si usa la modalità diretta, sono disponibili due opzioni del protocollo:
 
      * TCP
      * HTTPS
@@ -86,9 +86,9 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     Dato che le chiamate ad Azure Cosmos DB vengono eseguite sulla rete, può essere necessario modificare il grado di parallelismo delle richieste in modo che i tempi di attesa dell'applicazione client tra le richieste siano molto ridotti. Se si usa [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx) di .NET, ad esempio, creare centinaia di attività di lettura o scrittura in Azure Cosmos DB.
 
-5. **Abilitare la funzionalità rete accelerata**
+5. **Abilita rete accelerata**
 
-   Per ridurre la latenza e instabilità della CPU, è consigliabile che le macchine virtuali client è abilitata la rete accelerate. Vedere le [creare una macchina virtuale Windows con rete accelerata](../virtual-network/create-vm-accelerated-networking-powershell.md) oppure [creare una macchina virtuale Linux con rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md) articoli per abilitare la funzionalità rete accelerata.
+   Per ridurre la latenza e la jitter della CPU, è consigliabile che le macchine virtuali client siano abilitate per la rete accelerata. Vedere gli articoli [creare una macchina virtuale Windows con rete accelerata](../virtual-network/create-vm-accelerated-networking-powershell.md) o [creare una macchina virtuale Linux con rete](../virtual-network/create-vm-accelerated-networking-cli.md) accelerata per abilitare la rete accelerata.
 
 
 ## <a name="sdk-usage"></a>Uso dell'SDK
@@ -142,15 +142,15 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
    Per ridurre il numero di round trip di rete necessari per recuperare tutti i risultati applicabili, è possibile aumentare le dimensioni di pagina usando l'intestazione di richiesta [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) fino a 1000. Nei casi in cui è necessario visualizzare solo alcuni risultati, ad esempio se l'interfaccia utente o l'API dell'applicazione restituisce solo 10 risultati alla volta, è anche possibile ridurre le dimensioni di pagina a 10 in modo da ridurre la velocità effettiva usata per le letture e le query.
 
    > [!NOTE] 
-   > La proprietà maxItemCount non deve essere usata solo per utilizzo generico di paginazione. È l'uso principale per migliorare le prestazioni delle query riducendo il numero massimo di elementi restituiti in una singola pagina.  
+   > La proprietà maxItemCount non deve essere usata solo per finalità di impaginazione. Si tratta di un utilizzo principale per migliorare le prestazioni delle query riducendo il numero massimo di elementi restituiti in una singola pagina.  
 
-   È anche possibile impostare le dimensioni di pagina usando gli SDK di Azure Cosmos DB disponibili. Il [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) proprietà in feedoptions veniva consente di impostare il numero massimo di elementi da restituire nell'operazione enmuration. Quando si `maxItemCount` è impostato su -1, il SDK rileva automaticamente il valore ottimale a seconda delle dimensioni di documento. Ad esempio:
+   È anche possibile impostare le dimensioni della pagina usando gli SDK Azure Cosmos DB disponibili. La proprietà [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) in FeedOptions consente di impostare il numero massimo di elementi da restituire nell'operazione di applicazione. Quando `maxItemCount` è impostato su-1, l'SDK rileva automaticamente il valore ottimale a seconda delle dimensioni del documento. Ad esempio:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
    ```
     
-   Quando viene eseguita una query, i dati risultanti vengono inviati all'interno di un pacchetto TCP. Se si specifica un valore troppo basso per `maxItemCount`, il numero di corse per le richieste per inviare i dati all'interno del pacchetto TCP è elevato, che influisce sulle prestazioni. Pertanto, se non si conosce il valore da impostare per `maxItemCount` proprietà, è consigliabile impostarla su -1 e consentire al SDK di scegliere il valore predefinito. 
+   Quando viene eseguita una query, i dati risultanti vengono inviati all'interno di un pacchetto TCP. Se si specifica un valore troppo basso `maxItemCount`per, il numero di corse necessarie per inviare i dati all'interno del pacchetto TCP è elevato, che influisca negativamente sulle prestazioni. Se non si è certi del valore da impostare per `maxItemCount` la proprietà, è consigliabile impostarlo su-1 e consentire all'SDK di scegliere il valore predefinito. 
 
 10. **Aumentare il numero di thread/attività**
 
@@ -172,7 +172,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
  
 1. **Escludere i percorsi non usati dall'indicizzazione per scritture più veloci**
 
-    I criteri di indicizzazione di Cosmos DB consentono anche di specificare i percorsi dei documenti da includere o escludere dall'indicizzazione sfruttando i percorsi di indicizzazione (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludedPaths). L'uso dei percorsi di indicizzazione può consentire di ottenere prestazioni migliori e di ridurre le risorse di archiviazione dell'indice per gli scenari in cui i modelli di query sono noti in anticipo, poiché i costi dell'indicizzazione sono correlati direttamente al numero di percorsi univoci indicizzati.  Ad esempio, il codice seguente viene illustrato come escludere un'intera sezione dei documenti (un sottoalbero) dall'indicizzazione usando il "*" con caratteri jolly.
+    I criteri di indicizzazione di Cosmos DB consentono anche di specificare i percorsi dei documenti da includere o escludere dall'indicizzazione sfruttando i percorsi di indicizzazione (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludedPaths). L'uso dei percorsi di indicizzazione può consentire di ottenere prestazioni migliori e di ridurre le risorse di archiviazione dell'indice per gli scenari in cui i modelli di query sono noti in anticipo, poiché i costi dell'indicizzazione sono correlati direttamente al numero di percorsi univoci indicizzati.  Il codice seguente, ad esempio, illustra come escludere un'intera sezione dei documenti (un sottoalbero) dall'indicizzazione usando il carattere jolly "*".
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
@@ -194,7 +194,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     La complessità di una query influisce sulla quantità di unità richiesta utilizzate per un'operazione. Il numero di predicati, la natura dei predicati, il numero di funzioni definite dall'utente e le dimensioni del set di dati di origine sono tutti fattori che incidono sul costo delle operazioni di query.
 
-    Per misurare l'overhead di qualunque operazione (create, update o delete), esaminare l'intestazione [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (o la proprietà RequestCharge in ResourceResponse<T> oppure FeedResponse<T>in .NET SDK) per determinare il numero di unità richiesta usate da queste operazioni.
+    Per misurare l'overhead di qualsiasi operazione (create, Update o DELETE), esaminare l'intestazione [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (o la proprietà RequestCharge equivalente in ResourceResponse\<t > o FeedResponse\<t > in .NET SDK) per misurare il numero di unità richiesta utilizzate da queste operazioni.
 
     ```csharp
     // Measure the performance (request units) of writes

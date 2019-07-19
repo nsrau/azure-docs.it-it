@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: In questo articolo viene spiegato come Azure consente alle macchine virtuali di comunicare con i servizi Internet pubblici.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
-ms.author: kumud
-ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 6623b3e679faaa73f18c0f6b376de101113bcbdb
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967727"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274548"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -34,7 +34,7 @@ Azure usa SNAT (Source Network Address Translation) per eseguire questa funzione
 Sono presenti più [scenari in uscita](#scenarios). È possibile combinare questi scenari in base alle esigenze. Esaminarli con attenzione per comprenderne le funzionalità, i vincoli e gli schemi, in riferimento a modelli di distribuzione e scenari di applicazione specifici. Vedere le linee guida per la [gestione di questi scenari](#snatexhaust).
 
 >[!IMPORTANT] 
->Load Balancer Standard e l'indirizzo IP pubblico standard introducono nuove funzionalità e comportamenti differenti per la connettività in uscita.  Non corrispondono agli SKU di base.  Per disporre di connettività in uscita quando si utilizzano SKU standard, è necessario definire questa opzione sia per gli indirizzi IP pubblici standard sia per un'istanza di Load Balancer Standard pubblica.  Ciò include la creazione di connettività in uscita quando si usa un Load Balancer Standard interno.  È consigliabile usare sempre le regole in uscita in un'istanza di Load Balancer Standard pubblica.  Lo [scenario 3](#defaultsnat) non è disponibile con gli SKU standard.  Ciò significa che quando viene usata un'istanza di Load Balancer Standard interna, è necessario provvedere a creare una connettività in uscita per le macchine virtuali nel pool di back-end se è richiesta la connettività in uscita.  Nel contesto di connettività in uscita, una singola macchina virtuale autonoma, tutte le macchine virtuali in un set di disponibilità e tutte le istanze in un set di scalabilità di macchine virtuali si comportano come un gruppo. Ciò significa che, se una singola macchina virtuale in un set di disponibilità è associata a uno SKU standard, tutte le istanze della macchina virtuale all'interno di questo set di disponibilità si comportano allo stesso modo, come se fossero associate allo SKU standard, anche se una singola istanza non è direttamente associata a tale SKU.  Rivedere attentamente l'intero documento per comprendere i concetti generali, esaminare [Load Balancer Standard](load-balancer-standard-overview.md) per le differenze tra gli SKU e rivedere le [regole in uscita](load-balancer-outbound-rules-overview.md).  L'uso di regole in uscita offre all'utente un controllo dettagliato su tutti gli aspetti della connettività in uscita.
+>Load Balancer Standard e l'indirizzo IP pubblico standard introducono nuove funzionalità e comportamenti differenti per la connettività in uscita.  Non corrispondono agli SKU di base.  Per disporre di connettività in uscita quando si utilizzano SKU standard, è necessario definire questa opzione sia per gli indirizzi IP pubblici standard sia per un'istanza di Load Balancer Standard pubblica.  Ciò include la creazione della connettività in uscita quando si usa un Load Balancer Standard interno.  È consigliabile usare sempre le regole in uscita in un'istanza di Load Balancer Standard pubblica.  Lo [scenario 3](#defaultsnat) non è disponibile con gli SKU standard.  Ciò significa che quando viene usata un'istanza di Load Balancer Standard interna, è necessario provvedere a creare una connettività in uscita per le macchine virtuali nel pool di back-end se è richiesta la connettività in uscita.  Nel contesto di connettività in uscita, una singola macchina virtuale autonoma, tutte le macchine virtuali in un set di disponibilità e tutte le istanze in un set di scalabilità di macchine virtuali si comportano come un gruppo. Ciò significa che, se una singola macchina virtuale in un set di disponibilità è associata a uno SKU standard, tutte le istanze della macchina virtuale all'interno di questo set di disponibilità si comportano allo stesso modo, come se fossero associate allo SKU standard, anche se una singola istanza non è direttamente associata a tale SKU.  Rivedere attentamente l'intero documento per comprendere i concetti generali, esaminare [Load Balancer Standard](load-balancer-standard-overview.md) per le differenze tra gli SKU e rivedere le [regole in uscita](load-balancer-outbound-rules-overview.md).  L'uso di regole in uscita offre all'utente un controllo dettagliato su tutti gli aspetti della connettività in uscita.
 
 ## <a name="scenarios"></a>Panoramica dello scenario
 
@@ -70,7 +70,7 @@ Le porte SNAT vengono preallocate come descritto nella sezione [Informazioni su 
 
 Se a [Load Balancer Basic vengono associati più indirizzi IP pubblici](load-balancer-multivip-overview.md), uno qualsiasi di questi indirizzi IP pubblici è un candidato per i flussi in uscita e ne viene selezionato uno in modo casuale.  
 
-Per monitorare l'integrità delle connessioni in uscita con Load Balancer Basic, è possibile usare [log di monitoraggio di Azure per Load Balancer](load-balancer-monitor-log.md) e [log eventi di avviso](load-balancer-monitor-log.md#alert-event-log) da monitorare per i messaggi di esaurimento delle porte SNAT.
+Per monitorare l'integrità delle connessioni in uscita con Load Balancer Basic, è possibile usare i [log di monitoraggio di Azure per Load Balancer](load-balancer-monitor-log.md) e i [registri eventi di avviso](load-balancer-monitor-log.md#alert-event-log) per monitorare i messaggi di esaurimento delle porte SNAT.
 
 ### <a name="defaultsnat"></a>Scenario 3: Macchina virtuale autonoma senza indirizzo IP pubblico a livello di istanza
 
@@ -176,13 +176,13 @@ Le allocazioni delle porte SNAT sono specifiche del protocollo di trasporto IP (
 
 ### <a name="tcp-snat-port-release"></a>Rilascio di porte SNAT TCP
 
-- Se entrambi server/client invia FINACK, porta SNAT viene rilasciata dopo 240 secondi.
+- Se il server o il client invia FINACK, la porta SNAT verrà rilasciata dopo 240 secondi.
 - In presenza di una richiesta RST, la porta SNAT viene rilasciata dopo 15 secondi.
-- Se viene raggiunto il timeout di inattività, la porta viene rilasciata.
+- Se è stato raggiunto il timeout di inattività, la porta viene rilasciata.
 
 ### <a name="udp-snat-port-release"></a>Rilascio di porte SNAT UDP
 
-- Se viene raggiunto il timeout di inattività, la porta viene rilasciata.
+- Se è stato raggiunto il timeout di inattività, la porta viene rilasciata.
 
 ## <a name="problemsolving"></a> Risoluzione dei problemi 
 

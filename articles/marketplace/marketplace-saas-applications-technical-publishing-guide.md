@@ -6,13 +6,13 @@ author: keithcharlie
 ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: keithcharlie
-ms.openlocfilehash: d2b44b89443b5e7e82d303e1447533546d27ec9a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: kevidal
+ms.openlocfilehash: 92c3452e07dee126666e6ee1fe0c46b1f8f6dfa4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445736"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876525"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guida alla pubblicazione dell'offerta di applicazioni SaaS
 
@@ -32,9 +32,9 @@ Le applicazioni SaaS sono disponibili in entrambe le vetrine di Azure. La tabell
 
 | Offerta di app SaaS | Requisiti aziendali | Requisiti tecnici |  
 | --- | --- | --- |  
-| **Contatta** | Yes | No |  
+| **Contatta** | Sì | No |  
 | **PowerBI/Dynamics** | Yes | Sì (integrazione di Azure AD) |  
-| **App SaaS**| Yes | Sì (integrazione di Azure AD) |     
+| **App SaaS**| Sì | Sì (integrazione di Azure AD) |     
 
 ## <a name="saas-list"></a>Elenco SaaS
 
@@ -94,7 +94,7 @@ Azure Active Directory fornisce inoltre un sito in cui verificare la disponibili
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Uso di Azure Active Directory per abilitare l'accesso alle versioni di valutazione  
 
-Microsoft autentica tutti gli utenti del Marketplace con Azure AD, in modo che quando un utente autenticato fa clic tramite l'inserzione di versione di valutazione nel Marketplace e viene reindirizzato al tuo ambiente di valutazione, è possibile eseguire il provisioning utente direttamente in una versione di valutazione senza richiedere un passaggio di accesso aggiuntivo. Il token che l'app riceve da Azure AD in fase di autenticazione include informazioni rilevanti sull'utente che l'editore può usare per creare un account utente nell'app, in modo da automatizzare l'esperienza di provisioning e aumentare così le probabilità che la versione di valutazione venga convertita in offerta a pagamento. Per altre informazioni sul token, vedere [Token di esempio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Microsoft autentica tutti gli utenti del Marketplace con Azure AD. Pertanto, quando un utente autenticato fa clic sull'inserzione della versione di valutazione nel Marketplace e viene reindirizzato all'ambiente di valutazione, è possibile effettuare il provisioning dell'utente direttamente in una versione di valutazione senza richiedere una passaggio di accesso aggiuntivo. Il token che l'app riceve da Azure AD in fase di autenticazione include informazioni rilevanti sull'utente che l'editore può usare per creare un account utente nell'app, in modo da automatizzare l'esperienza di provisioning e aumentare così le probabilità che la versione di valutazione venga convertita in offerta a pagamento. Per altre informazioni sul token, vedere [Token di esempio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 L'uso di Azure AD per abilitare l'autenticazione con un solo clic all'app o alla versione di valutazione offre i vantaggi seguenti:  
 * Consente di ottimizzare l'esperienza di accesso dei clienti da Marketplace alla versione di valutazione.  
@@ -104,7 +104,7 @@ L'uso di Azure AD per abilitare l'autenticazione con un solo clic all'app o alla
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Certificazione dell'integrazione di Azure AD per Marketplace  
 
-Certificare l'integrazione di Azure AD in diversi modi, a seconda che l'applicazione sia multi-tenant, o a tenant singolo e se non si ha esperienza a singolo federato di Azure AD sign-on (SSO) o lo supporta già.  
+Certificare l'integrazione di Azure AD in diversi modi, a seconda che l'applicazione sia a tenant singolo o multi-tenant e che non si abbia familiarità con Azure AD Single Sign-on (SSO) federato oppure che sia già supportata.  
 
 **Per le applicazioni multi-tenant:**  
 
@@ -138,7 +138,7 @@ Microsoft gestisce la transazione commerciale. Microsoft invia gli addebiti al c
 | API della sottoscrizione | L'editore espone un servizio che può interagire con la sottoscrizione SaaS per creare, aggiornare ed eliminare un account utente e un piano di servizio. Le modifiche critiche all'API devono essere supportate entro 24 ore. Le modifiche non critiche all'API verranno rilasciate periodicamente. |  
 
 >[!Note]
->Cloud Solution Provider (CSP) partner canale acconsentire esplicitamente a questo punto è disponibile.  Vedi [Cloud Solution Provider](./cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali.
+>Il consenso esplicito del canale partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [provider di soluzioni cloud](./cloud-solution-providers.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se non è già stato fatto,

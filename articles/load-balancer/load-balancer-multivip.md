@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Panoramica dell'uso di indirizzi VIP multipli e delle modalità di impostazione di più indirizzi VIP in un servizio cloud
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: bf5721e206316a4ce576253743e9ac65de47094a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 3e97bea85d4d97b159168b21b4a6e932e655ccfb
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591746"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274698"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Configurare più indirizzi VIP per un servizio cloud
 
@@ -172,7 +172,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -Virtual
 
 ## <a name="next-steps"></a>Fasi successive
 
-[Log di monitoraggio di Azure per bilanciare il carico di Azure](load-balancer-monitor-log.md)
+[Log di monitoraggio di Azure per il bilanciamento del carico di Azure](load-balancer-monitor-log.md)
 
 [Panoramica del bilanciamento del carico Internet](load-balancer-internet-overview.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Usare analisi applicazione di modifiche in Monitoraggio di Azure per individuare i problemi di app web | Microsoft Docs
-description: Usare analisi applicazione di modifiche in Monitoraggio di Azure per risolvere i problemi dell'applicazione in siti live nel servizio App di Azure.
+title: Usare l'analisi delle modifiche dell'applicazione in monitoraggio di Azure per trovare i problemi delle app Web | Microsoft Docs
+description: Usare l'analisi delle modifiche dell'applicazione in monitoraggio di Azure per risolvere i problemi dell'applicazione nei siti Live nel servizio app Azure.
 services: application-insights
 author: cawams
 manager: carmonm
@@ -10,91 +10,91 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cawa
-ms.openlocfilehash: 45df8f9e57223ea60a11c6af2187d362184cae2b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3efa26a1eaea8f522d9717efb0de0ec8e1682e0e
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443355"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875124"
 ---
-# <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare analisi applicazione di modifiche (anteprima) in Monitoraggio di Azure
+# <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
 
-Quando si verifica un'interruzione o un problema del sito live, è fondamentale stabilire velocemente la causa radice. Soluzioni di monitoraggio standard potrebbero segnala un problema. Potrebbero anche indicare quale componente ha esito negativo. Ma questo avviso non verrà spiegato sempre immediatamente la causa dell'errore. Si conosce il sito ha lavorato cinque minuti fa, e a questo punto è rotto. Le modifiche apportate negli ultimi cinque minuti? Questa è la domanda che analisi di modifica dell'applicazione è progettata per rispondere in Monitoraggio di Azure.
+Quando si verifica un problema o un'interruzione di un sito Live, determinare rapidamente la causa principale è fondamentale. Le soluzioni di monitoraggio standard potrebbero segnalare un problema. Potrebbero anche indicare quale componente ha avuto esito negativo. Tuttavia, questo avviso non descriverà mai immediatamente la cause dell'errore. Si sa che il sito ha funzionato cinque minuti fa e ora è danneggiato. Cosa è cambiato negli ultimi cinque minuti? Questa è la domanda che l'analisi delle modifiche dell'applicazione è progettata per rispondere in monitoraggio di Azure.
 
-Compilazione la potenza delle [Graph di Azure Resource](https://docs.microsoft.com/azure/governance/resource-graph/overview), analisi di modifica fornisce informazioni approfondite le modifiche dell'applicazione di Azure per aumentare l'osservabilità e ridurre il MTTR (tempo medio di ripristino).
+Basandosi sulle potenzialità di [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), l'analisi delle modifiche fornisce informazioni approfondite sulle modifiche apportate alle applicazioni Azure per aumentare l'osservabilità e ridurre MTTR (tempo medio per il ripristino).
 
 > [!IMPORTANT]
-> Analisi della modifica è attualmente in anteprima. Questa versione di anteprima viene fornita senza un contratto di servizio. Questa versione non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [condizioni d'uso aggiuntive per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> L'analisi delle modifiche è attualmente in anteprima. Questa versione di anteprima viene fornita senza un contratto di servizio. Questa versione non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero avere funzionalità vincolate. Per ulteriori informazioni, vedere le [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="overview"></a>Panoramica
 
-Analisi della modifica rileva diversi tipi di modifiche, dal livello dell'infrastruttura fino alla distribuzione dell'applicazione. È un provider di risorse di Azure a livello di sottoscrizione che controlla le modifiche alle risorse nella sottoscrizione. Analisi della modifica fornisce dati per diversi strumenti di diagnostica per consentire agli utenti comprendere quali modifiche potrebbe essere stato causato problemi.
+L'analisi delle modifiche rileva vari tipi di modifiche, dal livello dell'infrastruttura fino alla distribuzione delle applicazioni. Si tratta di un provider di risorse di Azure a livello di sottoscrizione che controlla le modifiche alle risorse nella sottoscrizione. L'analisi delle modifiche fornisce dati per diversi strumenti di diagnostica che consentono agli utenti di comprendere quali modifiche potrebbero avere causato problemi.
 
-Il diagramma seguente illustra l'architettura di analisi di modifica:
+Il diagramma seguente illustra l'architettura dell'analisi delle modifiche:
 
-![Diagramma dell'architettura del modo in cui modificare Analysis Ottiene i dati delle modifiche e la fornisce a strumenti client](./media/change-analysis/overview.png)
+![Diagramma dell'architettura del modo in cui l'analisi delle modifiche ottiene i dati delle modifiche e li fornisce agli strumenti client](./media/change-analysis/overview.png)
 
-Attualmente Analysis modifica è integrato nel **diagnosticare e risolvere i problemi** esperienza nell'app web di servizio App. Per abilitare il rilevamento delle modifiche e visualizzare le modifiche nell'app web, vedere la *analisi modificare per la funzionalità App Web* sezione più avanti in questo articolo.
+L'analisi delle modifiche è attualmente integrata nell'esperienza di **diagnostica e risoluzione dei problemi** nell'app Web del servizio app. Per abilitare il rilevamento delle modifiche e visualizzare le modifiche nell'app Web, vedere la sezione analisi delle modifiche *per la funzionalità app Web* più avanti in questo articolo.
 
-### <a name="azure-resource-manager-deployment-changes"></a>Modifiche di distribuzione Azure Resource Manager
+### <a name="azure-resource-manager-deployment-changes"></a>Azure Resource Manager modifiche della distribuzione
 
-Usando [Graph di Azure Resource](https://docs.microsoft.com/azure/governance/resource-graph/overview), analisi della modifica fornisce una registrazione cronologica del modo in cui le risorse di Azure che ospitano l'applicazione sono stati modificati nel corso del tempo. Ad esempio, può rilevare l'analisi della modifica, modifica le regole di configurazione IP, identità gestite e impostazioni SSL. Pertanto, se un tag viene aggiunto a un'app web, modificare Analysis riflette la modifica. Queste informazioni sono disponibili, purché il `Microsoft.ChangeAnalysis` provider di risorse è abilitato nella sottoscrizione di Azure.
+Usando il [grafo delle risorse di Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview), l'analisi delle modifiche fornisce un record cronologico del modo in cui le risorse di Azure che ospitano l'applicazione sono state modificate nel tempo. L'analisi delle modifiche può rilevare, ad esempio, le modifiche alle regole di configurazione IP, alle identità gestite e alle impostazioni SSL. Quindi, se viene aggiunto un tag a un'app Web, l'analisi delle modifiche riflette la modifica. Queste informazioni sono disponibili finché il `Microsoft.ChangeAnalysis` provider di risorse è abilitato nella sottoscrizione di Azure.
 
-### <a name="changes-in-web-app-deployment-and-configuration"></a>Modifiche di configurazione e distribuzione dell'app web
+### <a name="changes-in-web-app-deployment-and-configuration"></a>Modifiche alla distribuzione e alla configurazione dell'app Web
 
-Analisi della modifica acquisisce lo stato di distribuzione e la configurazione di un'applicazione ogni 4 ore. È possibile rilevare, ad esempio, le modifiche nelle variabili di ambiente dell'applicazione. Lo strumento calcola le differenze e presenta le modifiche apportate. A differenza delle modifiche di Resource Manager, informazioni sulle modifiche di codice la distribuzione potrebbe non essere disponibili immediatamente nello strumento. Per visualizzare le modifiche più recenti nell'analisi di modifica, selezionare **analisi Cambia ora**.
+L'analisi delle modifiche acquisisce lo stato di distribuzione e configurazione di un'applicazione ogni 4 ore. Può rilevare, ad esempio, le modifiche nelle variabili di ambiente dell'applicazione. Lo strumento calcola le differenze e presenta le modifiche apportate. Diversamente dalle modifiche apportate Gestione risorse, le informazioni sulle modifiche alla distribuzione del codice potrebbero non essere immediatamente disponibili nello strumento. Per visualizzare le ultime modifiche apportate all'analisi delle modifiche, selezionare **Scan changes Now**.
 
-![Screenshot del pulsante "Analisi modifiche ora"](./media/change-analysis/scan-changes.png)
+![Schermata del pulsante "analizza modifiche ora"](./media/change-analysis/scan-changes.png)
 
-### <a name="dependency-changes"></a>Modifiche apportate alla dipendenza
+### <a name="dependency-changes"></a>Modifiche delle dipendenze
 
-Modifiche alle dipendenze delle risorse possono anche causare problemi in un'app web. Ad esempio, se un'app web chiama in una cache Redis, cache Redis SKU compromettere le prestazioni dell'app web. Per rilevare le modifiche nelle dipendenze, l'analisi modifiche controlla i record DNS dell'app web. In questo modo, identifica le modifiche in tutti i componenti dell'app che potrebbe causare problemi.
+Le modifiche alle dipendenze delle risorse possono causare problemi anche in un'app Web. Se, ad esempio, un'app Web chiama in una cache Redis, lo SKU della cache Redis potrebbe influire sulle prestazioni dell'app Web. Per rilevare le modifiche nelle dipendenze, l'analisi delle modifiche controlla il record DNS dell'app Web. In questo modo, identifica le modifiche in tutti i componenti dell'app che possono causare problemi.
 
-## <a name="change-analysis-for-the-web-apps-feature"></a>Analisi di modifica per la funzionalità App Web
+## <a name="change-analysis-for-the-web-apps-feature"></a>Analisi delle modifiche per la funzionalità app Web
 
-In Monitoraggio di Azure, analisi di modifica attualmente è incorporata nel Self-Service **diagnosticare e risolvere i problemi** esperienza. Questa esperienza di accesso di **Panoramica** pagina dell'applicazione del servizio App.
+In monitoraggio di Azure, l'analisi delle modifiche è attualmente integrata nell'esperienza di **diagnostica e risoluzione dei problemi** in modalità self-service. Accedere a questa esperienza dalla pagina **Panoramica** dell'applicazione del servizio app.
 
-![Screenshot del pulsante "Panoramica" e "diagnosi e risoluzione dei problemi" pulsante](./media/change-analysis/change-analysis.png)
+![Screenshot del pulsante "panoramica" e del pulsante "diagnostica e risoluzione dei problemi"](./media/change-analysis/change-analysis.png)
 
-### <a name="enable-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Abilitare l'analisi di modifica nella diagnostica e Risolvi strumento problemi
+### <a name="enable-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Abilitare l'analisi delle modifiche nello strumento diagnostica e risoluzione dei problemi
 
 1. Selezionare **disponibilità e prestazioni**.
 
-    ![Screenshot di "Disponibilità e prestazioni" Opzioni di risoluzione dei problemi](./media/change-analysis/availability-and-performance.png)
+    ![Screenshot delle opzioni di risoluzione dei problemi di disponibilità e prestazioni](./media/change-analysis/availability-and-performance.png)
 
-1. Selezionare **le modifiche all'applicazione**. Non che la funzionalità è anche disponibile in **blocchi applicazione**.
+1. Selezionare **le modifiche**apportate all'applicazione. Non è possibile che la funzionalità sia disponibile anche negli **arresti anomali dell'applicazione**.
 
-   ![Screenshot del pulsante "Blocchi applicazione"](./media/change-analysis/application-changes.png)
+   ![Screenshot del pulsante "arresti anomali dell'applicazione"](./media/change-analysis/application-changes.png)
 
-1. Per abilitare l'analisi della modifica, selezionare **Abilita adesso**.
+1. Per abilitare l'analisi delle modifiche, selezionare **Abilita ora**.
 
-   ![Screenshot delle opzioni "Blocchi applicazione"](./media/change-analysis/enable-changeanalysis.png)
+   ![Screenshot delle opzioni "arresti anomali dell'applicazione"](./media/change-analysis/enable-changeanalysis.png)
 
-1. Accendere **modifica Analysis** e selezionare **salvare**.
+1. Attivare l' **analisi delle modifiche** e selezionare **Salva**.
 
-    ![Screenshot dell'interfaccia utente "Attiva analisi modifica"](./media/change-analysis/change-analysis-on.png)
-
-
-1. Per accedere alle analisi della modifica, selezionare **diagnosi e risoluzione dei problemi** > **disponibilità e prestazioni** > **blocchi applicazione**. Verrà visualizzato un grafico che viene riepilogato il tipo di modifiche nel corso del tempo con i dettagli su queste modifiche:
-
-     ![Screenshot della visualizzazione diff modifica](./media/change-analysis/change-view.png)
+    ![Screenshot dell'interfaccia utente "Enable Change Analysis"](./media/change-analysis/change-analysis-on.png)
 
 
-### <a name="enable-change-analysis-at-scale"></a>Abilitare l'analisi di modifiche su larga scala
+1. Per accedere all'analisi delle modifiche, selezionare **diagnostica e Risolvi i problemi relativi** > a**disponibilità e prestazioni** > **anomali dell'applicazione**. Verrà visualizzato un grafico che riepiloga il tipo di modifiche nel tempo insieme ai dettagli relativi a tali modifiche:
 
-Se la sottoscrizione include numerose App web, l'abilitazione del servizio a livello di app web sarebbe inefficiente. In questo caso, seguire queste istruzioni alternative.
+     ![Screenshot della visualizzazione delle differenze delle modifiche](./media/change-analysis/change-view.png)
 
-### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>Registrare il provider di risorse di analisi di modifica per la sottoscrizione
 
-1. Registrare il flag di funzionalità di analisi della modifica (anteprima). Poiché il flag funzionalità è disponibile in anteprima, è necessario registrare in modo che sia visibile nella sottoscrizione:
+### <a name="enable-change-analysis-at-scale"></a>Abilitare l'analisi delle modifiche su larga scala
+
+Se la sottoscrizione include numerose app Web, l'abilitazione del servizio al livello dell'app Web risulterebbe inefficiente. In questo caso, seguire queste istruzioni alternative.
+
+### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>Registrare il provider di risorse di analisi delle modifiche per la sottoscrizione
+
+1. Registrare il flag della funzionalità di analisi delle modifiche (anteprima). Poiché il flag funzionalità è in anteprima, è necessario registrarlo per renderlo visibile alla sottoscrizione:
 
    1. Aprire [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/).
 
-      ![Screenshot della modifica Cloud Shell](./media/change-analysis/cloud-shell.png)
+      ![Screenshot delle modifiche Cloud Shell](./media/change-analysis/cloud-shell.png)
 
-   1. Modificare il tipo di shell **PowerShell**.
+   1. Modificare il tipo di shell in **PowerShell**.
 
-      ![Screenshot della modifica Cloud Shell](./media/change-analysis/choose-powershell.png)
+      ![Screenshot delle modifiche Cloud Shell](./media/change-analysis/choose-powershell.png)
 
    1. Eseguire il seguente comando PowerShell:
 
@@ -104,15 +104,15 @@ Se la sottoscrizione include numerose App web, l'abilitazione del servizio a liv
         Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
         ```
 
-1. Registrare il provider di risorse di analisi di modifica per la sottoscrizione.
+1. Registrare il provider di risorse di analisi delle modifiche per la sottoscrizione.
 
-   - Passare a **sottoscrizioni**, quindi selezionare la sottoscrizione che si desidera abilitare il servizio di modifica. Quindi selezionare i provider di risorse:
+   - Passare a **sottoscrizioni**e selezionare la sottoscrizione che si vuole abilitare nel servizio di modifica. Quindi selezionare provider di risorse:
 
-        ![Screenshot che illustra come registrare il provider di risorse di analisi della modifica](./media/change-analysis/register-rp.png)
+        ![Screenshot che illustra come registrare il provider di risorse di analisi delle modifiche](./media/change-analysis/register-rp.png)
 
-       - Selezionare **Microsoft.ChangeAnalysis**. Quindi nella parte superiore della pagina, selezionare **registrare**.
+       - Selezionare **Microsoft. ChangeAnalysis**. Nella parte superiore della pagina selezionare **Register (registra**).
 
-       - Dopo aver abilitato il provider di risorse, è possibile impostare un tag nascosto nell'app web per rilevare le modifiche a livello di distribuzione. Per impostare un tag nascosto, seguire le istruzioni sotto **non è possibile recuperare le informazioni di analisi della modifica**.
+       - Dopo l'abilitazione del provider di risorse, è possibile impostare un tag nascosto nell'app Web per rilevare le modifiche a livello di distribuzione. Per impostare un tag nascosto, seguire le istruzioni riportate in **non è possibile recuperare le informazioni sull'analisi delle modifiche**.
 
    - In alternativa, è possibile usare uno script di PowerShell per registrare il provider di risorse:
 
@@ -122,7 +122,7 @@ Se la sottoscrizione include numerose App web, l'abilitazione del servizio a liv
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
         ```
 
-        Per usare PowerShell per impostare un tag nascosto in un'app web, eseguire il comando seguente:
+        Per usare PowerShell per impostare un tag nascosto in un'app Web, eseguire il comando seguente:
 
         ```powershell
         $webapp=Get-AzWebApp -Name <name_of_your_webapp>
@@ -132,9 +132,10 @@ Se la sottoscrizione include numerose App web, l'abilitazione del servizio a liv
         ```
 
      > [!NOTE]
-     > Dopo aver aggiunto i tag nascosti, potrebbe essere necessario attendere fino a 4 ore prima di iniziare a visualizzare le modifiche. I risultati sono ritardati perché modifica analisi analizza l'app web solo ogni 4 ore. La pianificazione di 4 ore limita l'impatto sulle prestazioni dell'analisi.
+     > Dopo aver aggiunto il tag nascosto, potrebbe essere comunque necessario attendere fino a 4 ore prima di iniziare a visualizzare le modifiche. I risultati vengono posticipati perché l'analisi delle modifiche analizza l'app Web solo ogni 4 ore. La pianificazione di 4 ore limita l'effetto sulle prestazioni dell'analisi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Monitorare il servizio App in modo più efficace dal [abilitazione delle funzionalità di Application Insights](azure-web-apps.md) in Monitoraggio di Azure.
-- Altre informazioni sulle [Graph di Azure Resource](https://docs.microsoft.com/azure/governance/resource-graph/overview), che aiuta power analisi della modifica.
+- Abilitare Application Insights per le [app di app Azure Services](azure-web-apps.md).
+- Abilitare Application Insights per [le macchine virtuali di Azure e i set di scalabilità di macchine virtuali di Azure con IIS](azure-vm-vmss-apps.md).
+- Scopri di più su [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), che consente di migliorare l'analisi del risparmio energia.
