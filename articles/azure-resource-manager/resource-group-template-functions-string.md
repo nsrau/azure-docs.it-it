@@ -44,7 +44,7 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 * [take](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
-* [Trim](#trim)
+* [trim](#trim)
 * [uniqueString](#uniquestring)
 * [uri](#uri)
 * [uriComponent](#uricomponent)
