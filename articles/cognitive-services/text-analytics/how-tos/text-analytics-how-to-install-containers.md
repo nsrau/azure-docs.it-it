@@ -11,32 +11,32 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: c4ef58f35b3d038f360ff962c70e92711bc205ce
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7f178152fb5b6d540c2cecdfa42687469dfe3881
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446519"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356980"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
-I contenitori di Analisi del testo forniscono l'elaborazione avanzata in linguaggio naturale su testo non elaborato e includono tre funzioni principali: analisi del sentiment, estrazione frasi chiave e rilevamento lingua. Il collegamento di entità non è attualmente supportato in un contenitore.
+I contenitori di Analisi del testo forniscono l'elaborazione avanzata in linguaggio naturale su testo non elaborato e includono tre funzioni principali: analisi dei sentimenti, estrazione di frasi chiave e rilevamento della lingua. Il collegamento di entità non è attualmente supportato in un contenitore.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire uno dei contenitori Analitica di testo, è necessario disporre di ambienti host computer e il contenitore.
+Per eseguire uno dei contenitori di Analisi del testo, è necessario disporre degli ambienti host e del computer host.
 
 ## <a name="preparation"></a>Operazioni preliminari
 
 Per usare i contenitori di Analisi del testo, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatorio|Scopo|
+|Obbligatoria|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
-|`Cognitive Services` Risorsa |Per usare il contenitore, è necessario disporre di:<br><br>Oggetto [ _servizi cognitivi_ ](text-analytics-how-to-access-key.md) risorse di Azure per ottenere la chiave di fatturazione associata e l'URI dell'endpoint di fatturazione. Entrambi i valori sono disponibili nelle pagine di panoramica di servizi cognitivi e le chiavi del portale di Azure e sono necessari per avviare il contenitore. È necessario aggiungere il `text/analytics/v2.0` routing per l'URI dell'endpoint come illustrato nell'esempio seguente BILLING_ENDPOINT_URI.<br><br>**{BILLING_KEY}** : chiave della risorsa<br><br>**{BILLING_ENDPOINT_URI}** : un esempio di URI dell'endpoint è: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+|Risorsa Analisi del testo |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa di Azure [analisi del testo](text-analytics-how-to-access-key.md) per ottenere la chiave API e l'URI dell'endpoint associati. Entrambi i valori sono disponibili nelle pagine delle chiavi e della panoramica di Analisi del testo nel portale di Azure e sono necessarie per avviare il contenitore.<br><br>**{API_KEY}** : Una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}** : Endpoint fornito nella pagina **Panoramica**|
 
 ### <a name="the-host-computer"></a>Computer host
 
@@ -46,7 +46,7 @@ Per usare i contenitori di Analisi del testo, è necessario soddisfare i prerequ
 
 La tabella seguente indica i core CPU minimi e consigliati, per una velocità di 2,6 gigahertz (GHz) o superiore, e la memoria, espressa in gigabyte (GB), da allocare per ogni contenitore di Analisi del testo.
 
-| Contenitore | Minima | Consigliato | TPS<br>(Minimum, Maximum)|
+| Contenitore | Minima | Consigliato | TPS<br>(Minimo, massimo)|
 |-----------|---------|-------------|--|
 |Estrazione frasi chiave | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |15, 30|
 |Rilevamento lingua | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |15, 30|
@@ -67,7 +67,7 @@ Le immagini dei contenitori per Analisi del testo sono disponibili in Registro c
 |Rilevamento lingua | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Analisi del sentiment | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Usare la [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) comando per scaricare un'immagine del contenitore da registro contenitori di Microsoft.
+Usare il [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando per scaricare un'immagine del contenitore da Microsoft container Registry.
 
 Per una descrizione completa dei tag disponibili per i contenitori di Analisi del testo, vedere i contenitori seguenti nell'hub Docker:
 
@@ -76,7 +76,6 @@ Per una descrizione completa dei tag disponibili per i contenitori di Analisi de
 * [Analisi del sentiment](https://go.microsoft.com/fwlink/?linkid=2018654)
 
 Usare il comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore.
-
 
 ### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker pull per il contenitore di estrazione della frase chiave
 
@@ -112,10 +111,8 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/commandli
 
 | Placeholder | Value |
 |-------------|-------|
-|{BILLING_KEY} | Questa chiave viene usata per avviare il contenitore e sono disponibile sul portale di Azure `Cognitive Services` pagina chiavi.  |
-|{BILLING_ENDPOINT_URI} | Il valore URI dell'endpoint di fatturazione è disponibile in Azure `Cognitive Services` pagina Panoramica. <br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
-
-È necessario aggiungere il `text/analytics/v2.0` routing per l'URI dell'endpoint come illustrato nell'esempio BILLING_ENDPOINT_URI precedente.
+|{API_KEY} | Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina `Text Analytics` chiavi del portale di Azure. |
+|{ENDPOINT_URI} | Il valore dell'URI dell'endpoint di fatturazione è disponibile `Text Analytics` nella pagina Panoramica di Azure. |
 
 Sostituire i parametri con i valori personalizzati nel comando `docker run` di esempio seguente.
 
@@ -123,8 +120,8 @@ Sostituire i parametri con i valori personalizzati nel comando `docker run` di e
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 mcr.microsoft.com/azure-cognitive-services/keyphrase \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Questo comando:
@@ -161,13 +158,13 @@ Se si esegue il contenitore con un punto di [montaggio](../text-analytics-resour
 
 ## <a name="billing"></a>Fatturazione
 
-L'invio di contenitori testo Analitica fatturazione in Azure, usando un _servizi cognitivi_ risorse nell'account Azure. 
+I contenitori Analisi del testo inviano le informazioni di fatturazione ad Azure usando una risorsa di _Analisi del testo_ nell'account di Azure. 
 
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](../text-analytics-resource-container-config.md).
 
-<!--blogs/samples/video coures -->
+<!--blogs/samples/video course -->
 
 [!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
 
@@ -188,4 +185,3 @@ In questo articolo sono stati descritti i concetti e il flusso di lavoro per sca
 
 * Rivedere [Configurare i contenitori](../text-analytics-resource-container-config.md) per informazioni sulle impostazioni di configurazione.
 * Fare riferimento alle [domande frequenti](../text-analytics-resource-faq.md) per risolvere i problemi correlati alla funzionalità.
-
