@@ -509,10 +509,10 @@ La metrica `Connection` specifica i dettagli relativi ai tentativi di connession
 | Campo | Descrizione | Uso |
 | ----- | ----------- | ----- |
 | Name | `Connection` | Obbligatorio |
-| ID | Valore dell'identificatore di connessione che è stato usato nell'intestazione *X-ConnectionId* per la richiesta di connessione | Obbligatorio |
-| Inizia | Data e ora in cui il client ha inviato la richiesta di connessione | Obbligatorio |
+| Id | Valore dell'identificatore di connessione che è stato usato nell'intestazione *X-ConnectionId* per la richiesta di connessione | Obbligatorio |
+| Start | Data e ora in cui il client ha inviato la richiesta di connessione | Obbligatorio |
 | End | Data e ora in cui il client ha ricevuto la notifica che la connessione è stata stabilita correttamente o, in caso di errore, è stata respinta o rifiutata oppure non è riuscita | Obbligatorio |
-| Tipi di errore | Descrizione dell'eventuale errore. Se la connessione ha avuto esito positivo, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
+| Error | Descrizione dell'eventuale errore. Se la connessione ha avuto esito positivo, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
 
 La descrizione dell'errore deve includere al massimo 50 caratteri e dovrebbe preferibilmente specificare uno dei valori elencati nella tabella seguente. Se la condizione di errore non corrisponde a uno di questi valori, i client possono usare una breve descrizione della condizione di errore usando la notazione [camelCase](https://en.wikipedia.org/wiki/Camel_case) senza spazi vuoti. Per l'invio di un messaggio di *telemetria* è necessario che sia attiva la connessione al servizio. Nel messaggio di *telemetria* possono pertanto essere segnalate solo condizioni di errore transitorie o temporanee. Le condizioni di errore che causano il blocco *permanente* della connessione del client al servizio impediscono al client di inviare messaggi al servizio, inclusi quelli di *telemetria*.
 
