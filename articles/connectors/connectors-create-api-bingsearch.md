@@ -56,8 +56,8 @@ Se la connessione è già presente, fornire le informazioni necessarie per il tr
    | Proprietà | Obbligatorio | Value | DESCRIZIONE |
    |----------|----------|-------|-------------|
    | Search Query | Sì | <*search-words*> | Immettere le parole chiave di ricerca da usare. |
-   | Market | Sì | <*locale*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. |
-   | Ricerca sicura | Sì | <*search-level*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
+   | Market | Sì | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. |
+   | Ricerca sicura | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
    | Conteggio | No | <*results-count*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
    | Offset | No | <*skip-value*> | Numero di risultati da ignorare prima di restituire i risultati |
    |||||
@@ -109,8 +109,8 @@ Nell'elenco delle azioni, scegliere l'azione desiderata.
    | Search Query | Sì | <*espressione di ricerca*> | Immettere un'espressione per l'esecuzione di query tra i risultati del trigger. È possibile eseguire una selezione tra i campi dell'elenco di contenuti dinamici o creare un'espressione con il Generatore di espressioni. |
    | Market | Sì | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. |
    | Ricerca sicura | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. |
-   | Conteggio | No | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
-   | Offset | No | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati |
+   | Conteggio | No | <*results-count*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. |
+   | Offset | No | <*skip-value*> | Numero di risultati da ignorare prima di restituire i risultati |
    |||||
 
    Si supponga, ad esempio, che si desideri visualizzare i risultati il cui nome di categoria include il termine "tech".

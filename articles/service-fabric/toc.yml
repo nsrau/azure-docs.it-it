@@ -547,8 +547,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: Procedure consigliate
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
-        - name: Effettuare il refactoring di un'app sottoposta a migrazione
-          href: /azure/architecture/service-fabric/refactor-migrated-app
+        - name: Modernizzare l'applicazione
+          href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
     - name: Gestire il ciclo di vita delle applicazioni
       items:
         - name: Inserire un'applicazione in un pacchetto

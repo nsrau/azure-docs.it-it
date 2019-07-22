@@ -516,7 +516,7 @@ La metrica `Connection` specifica i dettagli relativi ai tentativi di connession
 
 La descrizione dell'errore deve includere al massimo 50 caratteri e dovrebbe preferibilmente specificare uno dei valori elencati nella tabella seguente. Se la condizione di errore non corrisponde a uno di questi valori, i client possono usare una breve descrizione della condizione di errore usando la notazione [camelCase](https://en.wikipedia.org/wiki/Camel_case) senza spazi vuoti. Per l'invio di un messaggio di *telemetria* è necessario che sia attiva la connessione al servizio. Nel messaggio di *telemetria* possono pertanto essere segnalate solo condizioni di errore transitorie o temporanee. Le condizioni di errore che causano il blocco *permanente* della connessione del client al servizio impediscono al client di inviare messaggi al servizio, inclusi quelli di *telemetria*.
 
-| Tipi di errore | Uso |
+| Error | Uso |
 | ----- | ----- |
 | DNSfailure | Il client non è riuscito a connettersi al servizio a causa di un errore DNS nello stack di rete. |
 | NoNetwork | Il client ha tentato una connessione, ma lo stack di rete ha segnalato che non era disponibile alcuna rete fisica. |
@@ -549,9 +549,9 @@ Il valore temporale *End* per la metrica `Microphone` registra il momento in cui
 | Campo | Descrizione | Uso |
 | ----- | ----------- | ----- |
 | NOME | Microphone | Obbligatorio |
-| Inizia | Data e ora in cui il client ha iniziato a usare l'input audio proveniente dal microfono o un altro flusso audio oppure ha ricevuto un trigger dal rilevatore di parole chiave | Obbligatorio |
+| Start | Data e ora in cui il client ha iniziato a usare l'input audio proveniente dal microfono o un altro flusso audio oppure ha ricevuto un trigger dal rilevatore di parole chiave | Obbligatorio |
 | End | Data e ora in cui il client ha arrestato l'uso del microfono o del flusso audio | Obbligatorio |
-| Tipi di errore | Descrizione dell'eventuale errore. Se le operazioni del microfono sono state eseguite correttamente, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
+| Error | Descrizione dell'eventuale errore. Se le operazioni del microfono sono state eseguite correttamente, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
 
 ### <a name="metric-listeningtrigger"></a>Metrica `ListeningTrigger`
 La metrica `ListeningTrigger` misura il tempo in cui l'utente esegue l'azione che avvia l'input vocale. La metrica `ListeningTrigger` è facoltativa, ma ne è consigliato l'uso nei client.
@@ -569,9 +569,9 @@ Usare gli esempi seguenti come linee guida per la registrazione dei valori tempo
 | Campo | Descrizione | Uso |
 | ----- | ----------- | ----- |
 | Name | ListeningTrigger | Facoltativo |
-| Inizia | Data e ora in cui il trigger di ascolto del client è iniziato | Obbligatorio |
+| Start | Data e ora in cui il trigger di ascolto del client è iniziato | Obbligatorio |
 | End | Data e ora in cui il trigger di ascolto del client è terminato | Obbligatorio |
-| Tipi di errore | Descrizione dell'eventuale errore. Se l'operazione di trigger è stata eseguita correttamente, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
+| Error | Descrizione dell'eventuale errore. Se l'operazione di trigger è stata eseguita correttamente, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
 
 #### <a name="sample-message"></a>Messaggio di esempio
 

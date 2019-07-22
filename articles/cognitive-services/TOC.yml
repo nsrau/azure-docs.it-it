@@ -31,9 +31,9 @@
           href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Guide introduttive
   items:
-    - name: Creare un account usando il portale di Azure
+    - name: Creare una nuova risorsa con il portale di Azure
       href: cognitive-services-apis-create-account.md
-    - name: Creare un account usando l'interfaccia della riga di comando di Azure
+    - name: Creare una nuova risorsa con l'interfaccia della riga di comando di Azure
       href: cognitive-services-apis-create-account-cli.md
     - name: Authentication
       href: authentication.md
