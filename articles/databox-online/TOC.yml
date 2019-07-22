@@ -47,6 +47,8 @@
           href: data-box-gateway-monitor.md
         - name: Risolvere problemi
           href: data-box-gateway-troubleshoot.md
+        - name: Contattare il supporto tecnico Microsoft
+          href: data-box-edge-contact-microsoft-support.md
     - name: Note sulla versione
       items:
         - name: 1905 - Corrente
@@ -105,9 +107,11 @@
               href: data-box-edge-connect-powershell-interface.md
         - name: Risolvere problemi
           href: data-box-edge-troubleshoot.md
+        - name: Contattare il supporto tecnico Microsoft
+          href: data-box-edge-contact-microsoft-support.md
         - name: Monitorare
           href: data-box-edge-monitor.md
-        - name: Restituire il dispositivo
+        - name: Restituire o sostituire un dispositivo
           href: data-box-edge-return-device.md
     - name: Note sulla versione
       items:

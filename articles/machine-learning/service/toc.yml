@@ -217,8 +217,8 @@
         - name: Eseguire il training automatico di un modello previsionale
           displayName: time series
           href: how-to-auto-train-forecast.md
-        - name: Visualizzare le metriche di accuratezza
-          href: how-to-understand-accuracy-metrics.md
+        - name: Informazioni su grafici e metriche
+          href: how-to-understand-automated-ml.md
     - name: Distribuire e gestire modelli
       items:
         - name: Dove e come eseguire la distribuzione
