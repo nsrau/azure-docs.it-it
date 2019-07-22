@@ -110,7 +110,7 @@ In JavaScript le [associazioni](functions-triggers-bindings.md) vengono configur
 
 ### <a name="inputs"></a>Input
 In Funzioni di Azure, gli input vengono suddivisi in due categorie, ovvero l'input del trigger e un input aggiuntivo. Le associazioni di trigger e di altri input (associazioni di `direction === "in"`) possono essere lette da una funzione in tre modi:
- - ** _[Consigliato]_  Come parametri passati alla funzione.** Vengono passati alla funzione nell'ordine in cui sono definiti in *function.json*. Il `name` definita nella proprietà *Function. JSON* non devono corrispondere al nome del parametro, anche se è necessario.
+ - **_[Consigliato]_  Come parametri passati alla funzione.** Vengono passati alla funzione nell'ordine in cui sono definiti in *function.json*. Il `name` definita nella proprietà *Function. JSON* non devono corrispondere al nome del parametro, anche se è necessario.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -141,7 +141,7 @@ Gli output (associazioni di `direction === "out"`) possono essere scritti da una
 
 È possibile assegnare i dati per le associazioni di output in uno dei modi seguenti (non combinare i due metodi):
 
-- ** _[Consigliato per più output]_  Restituzione di un oggetto.** Se si usa una restituzione funzione async/Promise, è possibile restituire un oggetto con i dati di output assegnato. Nell'esempio seguente, le associazioni di output sono denominate "httpResponse" e "queueOutput" in *function.json*.
+- **_[Consigliato per più output]_  Restituzione di un oggetto.** Se si usa una restituzione funzione async/Promise, è possibile restituire un oggetto con i dati di output assegnato. Nell'esempio seguente, le associazioni di output sono denominate "httpResponse" e "queueOutput" in *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -156,7 +156,7 @@ Gli output (associazioni di `direction === "out"`) possono essere scritti da una
   ```
 
   Se si usa una funzione sincrona, è possibile restituire questo oggetto usando [`context.done`](#contextdone-method) (vedere l'esempio).
-- ** _[Consigliato per singolo output]_  Restituzione diretta di un valore e uso del nome di associazione $return.** Questo approccio vale solo per le funzioni asincrone o che restituiscono oggetti Promise. Vedere l'esempio in [Esportazione di una funzione asincrona](#exporting-an-async-function). 
+- **_[Consigliato per singolo output]_  Restituzione diretta di un valore e uso del nome di associazione $return.** Questo approccio vale solo per le funzioni asincrone o che restituiscono oggetti Promise. Vedere l'esempio in [Esportazione di una funzione asincrona](#exporting-an-async-function). 
 - **Assegnazione di valori a `context.bindings`** È possibile assegnare valori direttamente a context.bindings.
 
   ```javascript
@@ -397,9 +397,9 @@ Quando si usano trigger HTTP, è possibile accedere agli oggetti richiesta e ris
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ ** _[Solo risposta]_ Chiamando `context.res.send(body?: any)`.** Viene creata una risposta HTTP con input `body` come corpo della risposta. Viene chiamato `context.done()` in modo implicito.
++ **_[Solo risposta]_ Chiamando `context.res.send(body?: any)`.** Viene creata una risposta HTTP con input `body` come corpo della risposta. Viene chiamato `context.done()` in modo implicito.
 
-+ ** _[Solo risposta]_ Chiamando `context.done()`.** Un tipo speciale di associazione HTTP restituisce la risposta che viene passata per il `context.done()` (metodo). L'associazione di output HTTP seguente definisce un parametro di output `$return`:
++ **_[Solo risposta]_ Chiamando `context.done()`.** Un tipo speciale di associazione HTTP restituisce la risposta che viene passata per il `context.done()` (metodo). L'associazione di output HTTP seguente definisce un parametro di output `$return`:
 
     ```json
     {
