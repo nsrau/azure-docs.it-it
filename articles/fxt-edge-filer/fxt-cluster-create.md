@@ -176,7 +176,7 @@ Nella sezione superiore, inserire le informazioni di base per il nuovo cluster.
   
   È necessario impostare singoli account utente per ogni persona che gestisce il cluster, ma non è possibile rimuovere l'utente `admin`. Se è necessario creare utenti aggiuntivi, accedere come `admin`.
  
-  È possibile modificare la password per `admin` nella pagina delle impostazioni **	Amministrazione** > **Utenti** del pannello di controllo del cluster. Per informazioni dettagliate, vedere la documentazione relativa agli **Utenti** nella [Guida alla configurazione del cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html).
+  È possibile modificare la password per `admin` nella pagina delle impostazioni **Amministrazione**  >  **Utenti** del pannello di controllo del cluster. Per informazioni dettagliate, vedere la documentazione relativa agli **Utenti** nella [Guida alla configurazione del cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html).
 
 <!-- to do: update "legacy" URLs when docs are ported to Microsoft site -->
 

@@ -212,7 +212,7 @@ Sono quattro i file di dati creati da questo plug-in in punti diversi. Solo uno 
 * **[Progetto]/Plugins/ProjectAcoustics/AcousticsData/[NomeLivello]\_AcousticsData.vox**: questo file contiene la geometria di acustica voxelizzata e le proprietà del materiale. Il calcolo viene eseguito usando il pulsante **Calculate** (Calcola) nella scheda **Probes** (Probe). Il percorso e il nome di questo file possono essere modificati usando i campi nella scheda **Probes** (Probe).
 * **[Progetto]/Plugins/ProjectAcoustics/AcousticsData/[NomeLivello]\_AcousticsData\_config.xml**: questo file contiene i parametri calcolati usando il pulsante **Calculate** (Calcola) nella scheda **Probes** (Probe). Il percorso e il nome di questo file possono essere modificati usando i campi nella scheda **Probes** (Probe).
 
-Prestare attenzione a non eliminare il file con estensione ace scaricato da Azure. Questo file non è ripristinabile se non effettuando di nuovo il bake della scena.
+Prestare attenzione a non eliminare il file con estensione *.ace scaricato da Azure. Questo file non è ripristinabile se non effettuando di nuovo il bake della scena.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Esplorare i [controlli di progettazione per Unreal](unreal-workflow.md)
