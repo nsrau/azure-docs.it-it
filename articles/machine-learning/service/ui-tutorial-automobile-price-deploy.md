@@ -3,22 +3,22 @@ title: "Esercitazione: Distribuire un modello di Machine Learning con l'interfac
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come creare una soluzione di analisi predittiva nell'interfaccia visiva grafica del servizio Azure Machine Learning. Eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando moduli con trascinamento della selezione. Questa esercitazione è la seconda parte di una serie in due parti su come stimare i prezzi delle automobili con la regressione lineare.
 author: peterclu
-ms.author: peterclu
+ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/06/2019
-ms.openlocfilehash: 8512ca2fe01c772d7e4c21a5cb09303b9804899c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.date: 07/11/2019
+ms.openlocfilehash: dd28fb51a4fc3fbf3dfc893f2f5f159ccafdb4b3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389213"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839296"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Esercitazione: Distribuire un modello di Machine Learning con l'interfaccia visiva grafica
 
-In questa esercitazione verrà esaminato in modo approfondito lo sviluppo di una soluzione di analisi predittiva nell'interfaccia visiva grafica del servizio Azure Machine Learning. Questa esercitazione è la **seconda di una serie in due parti**. Nella [prima parte dell'esercitazione](ui-tutorial-automobile-price-train-score.md) sono state eseguite le attività di training, assegnazione di punteggi e valutazione di un modello per stimare i prezzi delle automobili. In questa parte dell'esercitazione verranno eseguite queste operazioni:
+Per offrire ad altri utenti la possibilità di usare il modello predittivo sviluppato nella [prima parte dell'esercitazione](ui-tutorial-automobile-price-train-score.md), è possibile distribuirlo come servizio Web di Azure. Finora è stato sperimentato il training del modello. Ora è il momento di generare nuove stime in base all'input dell'utente. In questa parte dell'esercitazione verranno eseguite queste operazioni:
 
 > [!div class="checklist"]
 > * Preparare un modello per la distribuzione
@@ -29,56 +29,40 @@ In questa esercitazione verrà esaminato in modo approfondito lo sviluppo di una
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare la [prima parte dell'esercitazione](ui-tutorial-automobile-price-train-score.md).
+Completare [la prima parte dell'esercitazione](ui-tutorial-automobile-price-train-score.md) per apprendere come eseguire il training e assegnare un punteggio a un modello di Machine Learning nell'interfaccia visiva grafica.
 
 ## <a name="prepare-for-deployment"></a>Preparare la distribuzione
 
-Per offrire ad altri utenti la possibilità di usare il modello predittivo sviluppato in questa esercitazione, è possibile distribuirlo come servizio Web di Azure.
+Prima di distribuire l'esperimento come servizio Web, è necessario convertire l'*esperimento di training* in un *esperimento predittivo*.
 
-Finora è stato sperimentato il training del modello. Ora è il momento di generare nuove stime in base all'input dell'utente.
+1. Selezionare **Create Predictive Experiment*** (Crea esperimento predittivo) nella parte inferiore dell'area di disegno dell'esperimento.
 
-La preparazione per la distribuzione è un processo in due passaggi:  
+    ![Gif animata che mostra la conversione automatica di un esperimento di training in un esperimento predittivo](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
 
-1. Convertire l'*esperimento di training* creato in un *esperimento predittivo*
-1. Distribuire l'esperimento predittivo come servizio Web
+    Quando si seleziona **Create Predictive Experiment**, si verificano diverse situazioni:
+    
+    * Il modello sottoposto a training viene archiviato come **Trained Model** (Modello con training) nel riquadro dei moduli. nella sezione **Trained Models** (Modelli con training).
+    * Vengono rimossi i moduli usati per il training, in particolare:
+      * Train Model (Training del modello)
+      * Split Data (Divisione dei dati)
+      * Valutare il modello
+    * Il modello con training salvato viene aggiunto nuovamente all'esperimento.
+    * Vengono aggiunti i moduli **Web service input** (Input servizio Web) e **Web service output** (Output servizio Web). Questi moduli identificano il punto in cui i dati dell'utente verranno immessi nel modello e il punto in cui verranno restituiti.
 
-È consigliabile creare prima una copia dell'esperimento selezionando **Salva con nome** nella parte inferiore dell'area di disegno dell'esperimento.
+    L'**esperimento di training** è ancora memorizzato nelle nuove schede nella parte superiore dell'area di disegno dell'esperimento.
 
-### <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Convertire l'esperimento di training in un esperimento predittivo
+1. **Eseguire** l'esperimento.
 
-Per preparare questo modello per la distribuzione, convertire l'esperimento di training in un esperimento predittivo. Questa operazione implica tre passaggi:
-
-1. Salvare il modello di cui è stato eseguito il training e sostituire i moduli di training
-1. Ridurre l'esperimento per rimuovere i moduli che sono serviti solo per il training
-1. Definire il punto in cui il servizio Web accetterà i dati di input e in cui genererà l'output
-
-È possibile eseguire questi passaggi manualmente oppure selezionare **Set Up Web Service** (Configura servizio Web) nella parte inferiore dell'area di disegno dell'esperimento per completarli automaticamente.
-
-![Gif animata che mostra la conversione automatica di un esperimento di training in un esperimento predittivo](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
-
-Quando si seleziona **Set Up Web Service**(Configura servizio Web), vengono eseguite diverse operazioni:
-
-* Il modello di cui è stato eseguito il training viene convertito in un singolo modulo **Trained Model** (Modello con training). Viene archiviato nella tavolozza del modulo a sinistra dell'area di disegno dell'esperimento, nella sezione **Trained Models** (Modelli con training).
-* Vengono rimossi i moduli usati per il training, in particolare:
-  * Train Model (Training del modello)
-  * Split Data (Divisione dei dati)
-  * Evaluate Model (Valutazione del modello)
-* Il modello con training salvato viene aggiunto nuovamente all'esperimento
-* Vengono aggiunti i moduli **Web service input** (Input servizio Web) e **Web service output** (Output servizio Web). Questi moduli identificano il punto in cui i dati dell'utente verranno immessi nel modello e il punto in cui verranno restituiti.
-
-Si può notare che l'esperimento viene salvato in due parti nelle nuove schede nella parte superiore dell'area di disegno dell'esperimento. L'esperimento di training originale si trova sotto la scheda **Esperimento di training** e l'esperimento predittivo appena creato si trova sotto **Esperimento predittivo**. L'esperimento predittivo è quello che verrà distribuito come servizio Web.
+1. Selezionare l'output del modulo **Score Model** (Punteggio del modello) e quindi **View Results** (Visualizza risultati) per verificare se il modello continua a funzionare. Come si può notare, vengono visualizzati i dati originali insieme al prezzo stimato ("Scored Labels", Etichette con punteggio).
 
 L'esperimento dovrebbe risultare simile al seguente:  
 
 ![Screenshot della configurazione prevista dell'esperimento dopo la preparazione per la distribuzione](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
-Eseguire l'esperimento un'ultima volta, selezionando **Run** (Esegui). Scegliere la destinazione di calcolo in cui eseguire l'esperimento nella finestra di dialogo popup. Per verificare se il modello continua a funzionare, selezionare l'output del modulo Score Model (Punteggio del modello) e quindi **View Results** (Visualizza risultati). Come si può notare, vengono visualizzati i dati originali insieme al prezzo stimato ("Scored Labels", Etichette con punteggio).
-
 ## <a name="deploy-the-web-service"></a>Distribuire il servizio web
 
-Per distribuire un nuovo servizio Web derivato dall'esperimento:
-
 1. Selezionare **Deploy Web Service** (Distribuisci servizio Web) sotto l'area di disegno.
+
 1. Selezionare la **destinazione di calcolo** per eseguire il servizio Web.
 
     Attualmente l'interfaccia visiva grafica supporta solo la distribuzione nelle destinazioni di calcolo del servizio Azure Kubernetes. È possibile scegliere una delle destinazioni di calcolo disponibili del servizio Azure Kubernetes nell'area di lavoro del servizio Machine Learning oppure configurare un nuovo ambiente del servizio Azure Kubernetes seguendo i passaggi indicati nella finestra di dialogo visualizzata.
@@ -91,9 +75,7 @@ Per distribuire un nuovo servizio Web derivato dall'esperimento:
 
 ## <a name="test-the-web-service"></a>Testare il servizio Web
 
-I dati dell'input utente vengono immessi nel modello distribuito tramite il modulo **Web service input** (Input servizio Web). All'input viene quindi assegnato un punteggio nel modulo **Score Model** (Punteggio del modello). In base al modo in cui è configurato l'esperimento predittivo, il modello presuppone che i dati abbiano lo stesso formato del set di dati originale di prezzi delle automobili. Infine, i risultati vengono restituiti all'utente tramite il modulo **Web service output** (Output del servizio Web).
-
-È possibile testare un servizio Web nell'apposita scheda dell'interfaccia visiva grafica.
+È possibile testare e gestire i servizi Web dell'interfaccia visiva grafica passando alla scheda **Servizi Web**.
 
 1. Passare alla sezione del servizio Web. Verrà visualizzato il servizio Web distribuito con il nome **Tutorial - Predict Automobile Price[Predictive Exp]** .
 
@@ -107,19 +89,13 @@ I dati dell'input utente vengono immessi nel modello distribuito tramite il modu
 
     ![Screenshot della pagina di test del servizio Web](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Immettere i dati di test oppure usare i dati di esempio compilati automaticamente e selezionare **Test** nella parte inferiore. La richiesta di test viene inviata al servizio Web e i risultati vengono visualizzati nella pagina. Anche se generato, il valore di prezzo per i dati di input non viene usato per generare il valore della stima.
+1. Immettere i dati di test oppure usare i dati di esempio compilati automaticamente e selezionare **Test**.
 
-## <a name="manage-the-web-service"></a>Gestire il servizio Web
-
-Dopo aver distribuito il nuovo servizio Web, è possibile gestirlo nella scheda **Web Services** (Servizi Web) dell'interfaccia visiva grafica.
-
-È possibile eliminare un servizio Web selezionando **Delete** (Elimina) nella relativa pagina di dettagli.
-
-   ![Screenshot che mostra la posizione del pulsante per eliminare il servizio Web nella parte inferiore della finestra](./media/ui-tutorial-automobile-price-deploy/web-service-delete.png)
+    La richiesta di test viene inviata al servizio Web e i risultati vengono visualizzati nella pagina. Anche se generato, il valore di prezzo per i dati di input non viene usato per generare il valore della stima.
 
 ## <a name="consume-the-web-service"></a>Utilizzare il servizio Web
 
-Nei passaggi precedenti dell'esercitazione è stato distribuito un modello di stima dei prezzi delle automobili come servizio Web di Azure. Ora gli utenti possono inviare dati al servizio e ricevere i risultati tramite API REST.
+Gli utenti possono ora inviare richieste API al servizio Web di Azure e ricevere i risultati per prevedere il prezzo delle nuove automobili.
 
 **Richiesta/Risposta**: l'utente invia una o più righe di dati sulle automobili al servizio tramite un protocollo HTTP. Il servizio risponde con uno o più set di risultati.
 
@@ -131,9 +107,9 @@ Passare alla scheda **API Doc** (Documentazione dell'API) per altre informazioni
 
   ![Screenshot che mostra altri dettagli sull'API disponibili nella scheda API Doc](./media/ui-tutorial-automobile-price-deploy/web-service-api.png)
 
-## <a name="manage-models-and-deployments-in-azure-machine-learning-service-workspace"></a>Gestire e distribuire modelli nell'area di lavoro del servizio Azure Machine Learning
+## <a name="manage-models-and-deployments"></a>Gestire modelli e distribuzioni
 
-I modelli e le distribuzioni di servizi Web creati nell'interfaccia visiva grafica possono essere gestiti nell'area di lavoro del servizio Azure Machine Learning.
+I modelli e le distribuzioni di servizi Web creati nell'interfaccia visiva grafica possono anche essere gestiti nell'area di lavoro del servizio Azure Machine Learning.
 
 1. Aprire l'area di lavoro nel [portale di Azure](https://portal.azure.com/).  
 

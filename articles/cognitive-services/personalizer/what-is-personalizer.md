@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: e5781af44732782936e1e1a87bf70bd4a9d4804d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 286a19207236392367b924bea7e26e90fd0db8d5
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722282"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253453"
 ---
 # <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 
@@ -29,14 +29,14 @@ Personalizza esperienze di Azure è un servizio API basato sul cloud che consent
 
 ## <a name="how-does-personalizer-work"></a>Come funziona Personalizza esperienze?
 
-Personalizza esperienze usa modelli di Machine Learning per individuare l'azione di grado più alto in un contesto. L'applicazione client fornisce un elenco di possibili azioni, con informazioni su di esse, e informazioni sul contesto, che può includere informazioni sull'utente, sul dispositivo e così via. Personalizza esperienze determina l'azione da intraprendere. Una volta che l'applicazione client avrà usato l'azione scelta, fornirà il feedback a Personalizza esperienze sotto forma di punteggio. Dopo aver completato il ciclo di feedback, Personalizza esperienze aggiorna automaticamente il proprio modello usato per le classificazioni future.
+Personalizza esperienze usa modelli di Machine Learning per individuare l'azione di grado più alto in un contesto. L'applicazione client fornisce un elenco di possibili azioni, con informazioni su di esse, e informazioni sul contesto, che può includere informazioni sull'utente, sul dispositivo e così via. Personalizza esperienze determina l'azione da intraprendere. Una volta che l'applicazione client avrà usato l'azione scelta, fornirà il feedback a Personalizza esperienze sotto forma di punteggio. Dopo aver ricevuto il feedback, Personalizza esperienze aggiorna automaticamente il proprio modello usato per le classificazioni future.
 
 ## <a name="how-do-i-use-the-personalizer"></a>Come si usa Personalizza esperienze?
 
 ![Uso di Personalizza esperienze per scegliere quale video mostrare a un utente](media/what-is-personalizer/personalizer-example-highlevel.png)
 
 1. Scegliere un'esperienza nell'app da personalizzare.
-1. Creare e configurare il servizio di personalizzazione nel portale di Azure
+1. Creare e configurare un'istanza del servizio di personalizzazione nel portale di Azure. Ogni istanza è un ciclo di Personalizza esperienze.
 1. Usare l'SDK per chiamare Personalizza esperienze con le informazioni (_funzionalità_) sugli utenti e sul contenuto (_azioni_). Non è necessario fornire dati puliti ed etichettati prima di usare Personalizza esperienze. 
 1. Nell'applicazione client, mostrare all'utente l'azione selezionata da Personalizza esperienze.
 1. Usare l'SDK per inviare il feedback a Personalizza esperienze, indicando se l'utente ha selezionato l'azione di Personalizza esperienze. Si tratta di un _punteggio_, in genere compreso tra -1 e 1.
