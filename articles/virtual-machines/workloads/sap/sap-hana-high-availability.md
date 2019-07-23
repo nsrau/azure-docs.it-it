@@ -4,7 +4,7 @@ description: Disponibilità elevata di SAP HANA in macchine virtuali di Azure su
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 3d59fc48f1f6f6931ca18e09a420fdbccc7d53dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78d14add09a89b7ec4d4844a12ffa0434d714b3a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922277"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709091"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -71,10 +71,10 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
 * La nota SAP [401162] contiene informazioni su come evitare l'errore "indirizzo già in uso" quando si configura la replica di sistema HANA.
 * [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes), che contiene tutte le note SAP necessarie per Linux.
 * [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) (Piattaforme IaaS certificate per SAP HANA)
-* [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP in Linux][planning-guide].
-* [Distribuzione di Macchine virtuali di Microsoft Azure per SAP in Linux][deployment-guide] (questo articolo).
-* Guida [Distribuzione di DBMS in macchine virtuali di Azure per SAP in Linux][dbms-guide].
-* [Guide alle procedure consigliate per SUSE Linux Enterprise Server for SAP Applications 12 SP3][sles-for-sap-bp]
+* [Pianificazione di macchine virtuali di Azure e implementazione per SAP in Linux][planning-guide] Guida.
+* [Distribuzione di macchine virtuali di Azure per SAP in Linux][deployment-guide] (questo articolo).
+* [Distribuzione DBMS di macchine virtuali di Azure per SAP in Linux][dbms-guide] Guida.
+* [SUSE Linux Enterprise Server per SAP Applications 12 SP3 migliore guide sulle procedure consigliate][sles-for-sap-bp]
   * Configurazione di un'infrastruttura ottimizzata per le prestazioni per la replica di sistema SAP HANA (SLES for SAP Applications 12 SP1). La guida contiene tutte le informazioni necessarie per configurare la replica di sistema SAP HANA per lo sviluppo locale. Usare la guida per le indicazioni di base.
   * Configurazione di un'infrastruttura ottimizzata per i costi per la replica di sistema SAP HANA (SLES for SAP Applications 12 SP1)
 
@@ -101,8 +101,8 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
 È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello consente di distribuire le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via.
 Per distribuire il modello, seguire questi passaggi:
 
-1. Aprire il [modello di database][template-multisid-db] o il [modello con convergenza][template-converged] nel portale di Azure. 
-    Il modello di database crea le regole di bilanciamento del carico solo per un database. Il modello con convergenza crea anche le regole di bilanciamento del carico per un'istanza di ASCS/SCS ed ERS (solo Linux). Se si prevede di installare un sistema basato su SAP NetWeaver e si vuole installare anche l'istanza di ASCS/SCS nelle stesse macchine, usare il [modello con convergenza][template-converged].
+1. Aprire il [modello di database][template-multisid-db] or the [converged template][template-converged] on the Azure portal. 
+    The database template creates the load-balancing rules for a database only. The converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
 
 1. Immettere i parametri seguenti:
     - **Sap System ID**: Immettere l'ID del sistema SAP che si vuole installare. L'ID viene usato come prefisso per le risorse distribuite.
@@ -191,7 +191,7 @@ Per distribuire il modello, seguire questi passaggi:
    1. Selezionare **OK**.
    1. Ripetere questi passaggi per le porte 3**03**41 e 3**03**42.
 
-Per altre informazioni sulle porte necessarie per SAP HANA, leggere il capitolo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connessioni a database tenant) della guida [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Database tenant SAP HANA) o la [nota SAP 2388694][2388694].
+Per altre informazioni sulle porte necessarie per SAP HANA, consultare il capitolo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) nel [i database Tenant di SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) Guida o [nota SAP 2388694][2388694].
 
 > [!IMPORTANT]
 > Non abilitare TCP timestamp sulle macchine virtuali di Azure posizionato dietro bilanciamento del carico di Azure. Abilitazione di TCP timestamp causerà i probe di integrità errore. Impostare il parametro **net.ipv4.tcp_timestamps** al **0**. Per informazioni dettagliate, vedere [probe di integrità di Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
@@ -347,7 +347,7 @@ Per installare la replica di sistema SAP HANA, seguire il capitolo 4 della guida
 
 1. **[T]** Aggiornare l'agente host SAP.
 
-   Scaricare l'archivio dell'agente host SAP più recente dal sito [SAP Software Center][sap-swcenter] ed eseguire il comando seguente per aggiornare l'agente. Sostituire il percorso dell'archivio in modo da puntare al file scaricato:
+   Scaricare l'archivio dell'agente Host SAP più recente dal [SAP Software Center][sap-swcenter] ed eseguire il comando seguente per aggiornare l'agente. Sostituire il percorso dell'archivio in modo da puntare al file scaricato:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
@@ -688,7 +688,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 > [!IMPORTANT]
 > Assicurarsi che il sistema operativo selezionato sia dotato di certificazione SAP per SAP HANA sugli specifici tipi di macchina virtuale in uso. Per un elenco dei tipi di macchina virtuale certificati per SAP HANA e delle versioni di sistema operativo correlate, vedere l'elenco delle [piattaforme IaaS certificate per SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Fare clic su ogni voce presente nell'elenco dei tipi di macchina virtuale per ottenere l'elenco completo delle versioni di sistema operativo supportate da SAP HANA per lo specifico tipo di VM.
 
-Eseguire tutti i test case elencati nella guida allo scenario di ottimizzazione delle prestazioni della replica di sistema SAP HANA o dello scenario di ottimizzazione dei costi della replica di sistema SAP HANA, a seconda del caso d'uso. Le guide sono disponibili nella [pagina di procedure consigliate per SLES per SAP][sles-for-sap-bp].
+Eseguire tutti i test case elencati nella guida allo scenario di ottimizzazione delle prestazioni della replica di sistema SAP HANA o dello scenario di ottimizzazione dei costi della replica di sistema SAP HANA, a seconda del caso d'uso. È possibile trovare le guide sul [SLES per SAP best pagina consigliate][sles-for-sap-bp].
 
 I test seguenti sono una copia delle descrizioni dei test della guida di SUSE Linux Enterprise Server for SAP Applications 12 SP1 per lo scenario di ottimizzazione delle prestazioni della replica di sistema SAP HANA. Per una versione aggiornata, fare sempre riferimento alla guida. Assicurarsi sempre che HANA sia sincronizzato prima di avviare il test e che la configurazione di Pacemaker sia corretta.
 
@@ -1084,7 +1084,7 @@ NOTA:  i test seguenti sono progettati per essere eseguiti in sequenza e dipendo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP][planning-guide]
-* [Distribuzione di Macchine virtuali di Azure per SAP][deployment-guide]
-* [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
+* [Pianificazione di macchine virtuali di Azure e implementazione per SAP][planning-guide]
+* [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
+* [Distribuzione DBMS di macchine virtuali di Azure per SAP][dbms-guide]
 * Per informazioni su come configurare la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze Large), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze Large) in Azure](hana-overview-high-availability-disaster-recovery.md)
